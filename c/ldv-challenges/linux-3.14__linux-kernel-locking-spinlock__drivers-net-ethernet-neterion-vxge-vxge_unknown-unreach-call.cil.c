@@ -8077,8 +8077,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
@@ -8128,7 +8127,6 @@ extern void __bad_percpu_size(void) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 void ldv_spin_lock_lock_of___vxge_hw_virtualpath(void) ;
 void ldv_spin_unlock_lock_of___vxge_hw_virtualpath(void) ;
 void ldv_assume(int expression ) ;
@@ -8305,7 +8303,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -8332,7 +8330,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8368,7 +8366,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10447,7 +10445,7 @@ static enum vxge_hw_status __vxge_hw_blockpool_create(struct __vxge_hw_device *h
   {
   dma_addr = pci_map_single(hldev->pdev, memblock, 4096UL, 0);
   tmp___0 = pci_dma_mapping_error(hldev->pdev, dma_addr);
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11678,7 +11676,7 @@ static void vxge_hw_blockpool_block_add(struct __vxge_hw_device *devh , void *bl
   {
   dma_addr = pci_map_single(devh->pdev, block_addr, (size_t )length, 0);
   tmp = pci_dma_mapping_error(devh->pdev, dma_addr);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11808,7 +11806,7 @@ static void *__vxge_hw_blockpool_malloc(struct __vxge_hw_device *devh , u32 size
     {
     dma_object->addr = pci_map_single(devh->pdev, memblock, (size_t )size, 0);
     tmp = pci_dma_mapping_error(devh->pdev, dma_object->addr);
-    tmp___0 = __builtin_expect(tmp != 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15880,7 +15878,7 @@ enum vxge_hw_status vxge_hw_device_begin_irq(struct __vxge_hw_device *hldev , u3
   ret = 0;
   tmp = readq((void const volatile   *)(& (hldev->common_reg)->titan_general_int_status));
   val64 = (u64 )tmp;
-  tmp___0 = __builtin_expect(val64 == 0ULL, 0L);
+  tmp___0 = ldv__builtin_expect(val64 == 0ULL, 0L);
   }
   if (tmp___0 != 0L) {
     *reason = 0ULL;
@@ -15890,7 +15888,7 @@ enum vxge_hw_status vxge_hw_device_begin_irq(struct __vxge_hw_device *hldev , u3
 
   }
   {
-  tmp___2 = __builtin_expect(val64 == 0xffffffffffffffffULL, 0L);
+  tmp___2 = ldv__builtin_expect(val64 == 0xffffffffffffffffULL, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -15921,7 +15919,7 @@ enum vxge_hw_status vxge_hw_device_begin_irq(struct __vxge_hw_device *hldev , u3
   }
   {
   hldev->stats.sw_dev_info_stats.not_traffic_intr_cnt = hldev->stats.sw_dev_info_stats.not_traffic_intr_cnt + 1U;
-  tmp___4 = __builtin_expect((val64 & 2305843009213693952ULL) != 0ULL, 0L);
+  tmp___4 = ldv__builtin_expect((val64 & 2305843009213693952ULL) != 0ULL, 0L);
   }
   if (tmp___4 != 0L) {
     error_level = 0;
@@ -15938,7 +15936,7 @@ enum vxge_hw_status vxge_hw_device_begin_irq(struct __vxge_hw_device *hldev , u3
     ret = __vxge_hw_vpath_alarm_process((struct __vxge_hw_virtualpath *)(& hldev->virtual_paths) + (unsigned long )i,
                                         skip_alarms);
     error_level = (enum vxge_hw_status )((int )ret > (int )error_level ? (int )ret : (int )error_level);
-    tmp___3 = __builtin_expect((unsigned int )ret - 221U <= 1U, 0L);
+    tmp___3 = ldv__builtin_expect((unsigned int )ret - 221U <= 1U, 0L);
     }
     if (tmp___3 != 0L) {
       goto ldv_44933;
@@ -19971,7 +19969,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -19979,7 +19977,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -20004,7 +20002,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -20012,7 +20010,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -20048,7 +20046,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -20079,7 +20077,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20119,7 +20117,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20159,7 +20157,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20454,7 +20452,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20592,7 +20590,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20602,7 +20600,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20689,7 +20687,7 @@ __inline static bool __netif_tx_trylock(struct netdev_queue *txq )
   {
   tmp = ldv_spin_trylock_48(& txq->_xmit_lock);
   ok = tmp != 0;
-  tmp___0 = __builtin_expect((long )ok, 1L);
+  tmp___0 = ldv__builtin_expect((long )ok, 1L);
   }
   if (tmp___0 != 0L) {
     __vpp_verify = (void const   *)0;
@@ -21464,7 +21462,7 @@ static int vxge_rx_map(void *dtrh , struct vxge_ring *ring )
   dma_addr = pci_map_single(ring->pdev, (void *)rx_priv->skb_data, (size_t )rx_priv->data_size,
                             2);
   tmp___0 = pci_dma_mapping_error(ring->pdev, dma_addr);
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     ring->stats.pci_map_fail = ring->stats.pci_map_fail + 1UL;
@@ -21652,7 +21650,7 @@ static enum vxge_hw_status vxge_rx_1b_compl(struct __vxge_hw_ring *ringh , void 
          390, pkt_length);
   vxge_hw_ring_rxd_1b_info_get(ringh, dtr, & ext_info);
   __builtin_prefetch((void const   *)skb + 64U);
-  tmp___1 = __builtin_expect((unsigned int )t_code != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )t_code != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -21838,7 +21836,7 @@ static enum vxge_hw_status vxge_xmit_compl(struct __vxge_hw_fifo *fifo_hw , void
          "vxge_xmit_compl", 568, fifo_hw, dtr, (unsigned int )t_code);
   printk("%s: %s:%d skb = %p itxd_priv = %p frg_cnt = %d\n", (char *)(& (fifo->ndev)->name),
          "vxge_xmit_compl", 574, skb, txd_priv, frg_cnt);
-  tmp___2 = __builtin_expect((unsigned int )t_code != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )t_code != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22251,7 +22249,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
   txdl_priv = (struct vxge_tx_priv *)0;
   vpath_no = 0;
   printk("%s: %s:%d\n", (char *)(& dev->name), "vxge_xmit", 817);
-  tmp = __builtin_expect(skb->len == 0U, 0L);
+  tmp = ldv__builtin_expect(skb->len == 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22266,7 +22264,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
   tmp___0 = netdev_priv((struct net_device  const  *)dev);
   vdev = (struct vxgedev *)tmp___0;
   tmp___1 = is_vxge_card_up(vdev);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22347,7 +22345,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
   }
   {
   status = vxge_hw_fifo_txdl_reserve(fifo_hw, & dtr, & dtr_priv);
-  tmp___7 = __builtin_expect((int )status != 0, 0L);
+  tmp___7 = ldv__builtin_expect((int )status != 0, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -22376,7 +22374,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
   dma_pointer = pci_map_single(fifo->pdev, (void *)skb->data, (size_t )first_frg_len,
                                1);
   tmp___9 = pci_dma_mapping_error(fifo->pdev, dma_pointer);
-  tmp___10 = __builtin_expect(tmp___9 != 0, 0L);
+  tmp___10 = ldv__builtin_expect(tmp___9 != 0, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -22418,7 +22416,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
   dma_pointer = skb_frag_dma_map(& (fifo->pdev)->dev, (skb_frag_t const   *)frag,
                                  0UL, (size_t )tmp___16, 1);
   tmp___17 = dma_mapping_error(& (fifo->pdev)->dev, dma_pointer);
-  tmp___18 = __builtin_expect(tmp___17 != 0, 0L);
+  tmp___18 = ldv__builtin_expect(tmp___17 != 0, 0L);
   }
   if (tmp___18 != 0L) {
     goto _exit2;
@@ -22712,7 +22710,7 @@ static void vxge_set_multicast(struct net_device *dev )
   vdev = (struct vxgedev *)tmp;
   hldev = vdev->devh;
   tmp___0 = is_vxge_card_up(vdev);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     return;
@@ -23056,7 +23054,7 @@ static int vxge_set_mac_addr(struct net_device *dev , void *p )
   }
   {
   tmp___2 = is_vxge_card_up(vdev);
-  tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -23321,7 +23319,7 @@ static int vxge_reset_vpath(struct vxgedev *vdev , int vp_id )
   vpath = vdev->vpaths + (unsigned long )vp_id;
   ret = 0;
   tmp = is_vxge_card_up(vdev);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -23478,7 +23476,7 @@ static int do_vxge_reset(struct vxgedev *vdev , int event )
   if ((unsigned int )event - 2U <= 1U) {
     {
     tmp = is_vxge_card_up(vdev);
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
     }
     if (tmp___0 != 0L) {
       return (0);
@@ -23526,7 +23524,7 @@ static int do_vxge_reset(struct vxgedev *vdev , int event )
     }
     {
     netif_carrier_on(vdev->ndev);
-    tmp___4 = __builtin_expect(vdev->exec_mode != 0, 0L);
+    tmp___4 = ldv__builtin_expect(vdev->exec_mode != 0, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -24330,7 +24328,7 @@ static irqreturn_t vxge_isr_napi(int irq , void *dev_id )
   }
   {
   tmp___1 = is_vxge_card_up(vdev);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     return (1);
@@ -24358,7 +24356,7 @@ static irqreturn_t vxge_isr_napi(int irq , void *dev_id )
     }
   } else {
     {
-    tmp___4 = __builtin_expect((unsigned int )status - 219U <= 2U, 0L);
+    tmp___4 = ldv__builtin_expect((unsigned int )status - 219U <= 2U, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -24368,7 +24366,7 @@ static irqreturn_t vxge_isr_napi(int irq , void *dev_id )
       return (1);
     } else {
       {
-      tmp___3 = __builtin_expect((int )status == 222, 0L);
+      tmp___3 = ldv__builtin_expect((int )status == 222, 0L);
       }
       if (tmp___3 != 0L) {
         return (1);
@@ -25439,7 +25437,7 @@ static int do_vxge_close(struct net_device *dev , int do_io )
   tmp___0 = pci_get_drvdata(vdev->pdev);
   hldev = (struct __vxge_hw_device *)tmp___0;
   tmp___1 = is_vxge_card_up(vdev);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     return (0);
@@ -25599,7 +25597,7 @@ static int vxge_change_mtu(struct net_device *dev , int new_mtu )
   }
   {
   tmp___0 = is_vxge_card_up(vdev);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     dev->mtu = (unsigned int )new_mtu;
@@ -26477,7 +26475,7 @@ static void vxge_callback_crit_err(struct __vxge_hw_device *hldev , enum vxge_hw
   }
   if ((unsigned int )type == 11U || (unsigned int )type == 14U) {
     {
-    tmp___1 = __builtin_expect(vdev->exec_mode != 0, 0L);
+    tmp___1 = ldv__builtin_expect(vdev->exec_mode != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -26490,7 +26488,7 @@ static void vxge_callback_crit_err(struct __vxge_hw_device *hldev , enum vxge_hw
   if ((unsigned int )type == 10U) {
     {
     vxge_hw_device_mask_all(hldev);
-    tmp___2 = __builtin_expect(vdev->exec_mode != 0, 0L);
+    tmp___2 = ldv__builtin_expect(vdev->exec_mode != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -26502,7 +26500,7 @@ static void vxge_callback_crit_err(struct __vxge_hw_device *hldev , enum vxge_hw
   } else
   if ((unsigned int )type - 8U <= 1U) {
     {
-    tmp___4 = __builtin_expect(vdev->exec_mode != 0, 0L);
+    tmp___4 = ldv__builtin_expect(vdev->exec_mode != 0, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -28237,7 +28235,7 @@ void ldv_dummy_resourceless_instance_callback_6_3(void (*arg0)(struct __vxge_hw_
 void ldv_dummy_resourceless_instance_callback_6_9(void (*arg0)(struct __vxge_hw_device * ) ,
                                                   struct __vxge_hw_device *arg1 ) ;
 void ldv_entry_EMGentry_21(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -29127,7 +29125,7 @@ void ldv_entry_EMGentry_21(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -29136,7 +29134,7 @@ void main(void)
   ldv_initialize();
   ldv_entry_EMGentry_21((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -31180,7 +31178,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -31204,7 +31202,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -31212,7 +31210,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

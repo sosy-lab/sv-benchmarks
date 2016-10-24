@@ -5499,7 +5499,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 long ldv_is_err(void const   *ptr ) ;
@@ -5601,7 +5601,6 @@ __inline static void *ERR_CAST(void const   *ptr )
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5619,7 +5618,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5654,7 +5653,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5688,7 +5687,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5997,7 +5996,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6024,7 +6023,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6060,7 +6059,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6209,7 +6208,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6220,7 +6219,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -6254,7 +6253,7 @@ __inline static unsigned char *__skb_pull(struct sk_buff *skb , unsigned int len
   {
   {
   skb->len = skb->len - len;
-  tmp = __builtin_expect(skb->len < skb->data_len, 0L);
+  tmp = ldv__builtin_expect(skb->len < skb->data_len, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6454,7 +6453,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6571,7 +6570,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6581,7 +6580,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7729,7 +7728,7 @@ static void macb_update_stats(struct macb *bp )
   p = & bp->hw_stats.macb.rx_pause_frames;
   end = & bp->hw_stats.macb.tx_pause_frames + 1UL;
   __ret_warn_on = (unsigned long )((long )end - (long )p) - 84UL > 3UL;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7739,7 +7738,7 @@ static void macb_update_stats(struct macb *bp )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   goto ldv_43298;
   ldv_43297: 
@@ -7971,7 +7970,7 @@ static void gem_rx_refill(struct macb *bp )
   if ((unsigned long )*(bp->rx_skbuff + (unsigned long )entry) == (unsigned long )((struct sk_buff *)0)) {
     {
     skb = netdev_alloc_skb(bp->dev, (unsigned int )bp->rx_buffer_size);
-    tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+    tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -8087,7 +8086,7 @@ static int gem_rx(struct macb *bp , int budget )
   }
   {
   skb = *(bp->rx_skbuff + (unsigned long )entry);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -8174,7 +8173,7 @@ static int macb_rx_frame(struct macb *bp , unsigned int first_frag , unsigned in
   frag_len = (unsigned int )bp->rx_buffer_size;
   if (offset + frag_len > len) {
     {
-    tmp___1 = __builtin_expect(frag != last_frag, 0L);
+    tmp___1 = ldv__builtin_expect(frag != last_frag, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8260,7 +8259,7 @@ static int macb_rx(struct macb *bp , int budget )
   }
   if ((ctrl & 32768U) != 0U) {
     {
-    tmp___0 = __builtin_expect(first_frag == -1, 0L);
+    tmp___0 = ldv__builtin_expect(first_frag == -1, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8322,7 +8321,7 @@ static int macb_poll(struct napi_struct *napi , int budget )
     napi_complete(napi);
     __writel(1030U, (void volatile   *)bp->regs + 40U);
     status = __readl((void const volatile   *)bp->regs + 32U);
-    tmp = __builtin_expect(status != 0U, 0L);
+    tmp = ldv__builtin_expect(status != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8357,7 +8356,7 @@ static irqreturn_t macb_interrupt(int irq , void *dev_id )
   tmp = netdev_priv((struct net_device  const  *)dev);
   bp = (struct macb *)tmp;
   status = __readl((void const volatile   *)bp->regs + 36U);
-  tmp___0 = __builtin_expect(status == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(status == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -8378,7 +8377,7 @@ static irqreturn_t macb_interrupt(int irq , void *dev_id )
     tmp___2 = 1;
   }
   {
-  tmp___3 = __builtin_expect((long )tmp___2, 0L);
+  tmp___3 = ldv__builtin_expect((long )tmp___2, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8413,7 +8412,7 @@ static irqreturn_t macb_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___5 = __builtin_expect((status & 112U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((status & 112U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -8528,7 +8527,7 @@ static int macb_start_xmit(struct sk_buff *skb , struct net_device *dev )
     descriptor.format = "tx_head = %u, tx_tail = %u\n";
     descriptor.lineno = 1039U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8621,7 +8620,7 @@ static void macb_init_rx_buffer_size(struct macb *bp , size_t size )
       descriptor.format = "RX buffer must be multiple of %d bytes, expanding\n";
       descriptor.lineno = 1094U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -8644,7 +8643,7 @@ static void macb_init_rx_buffer_size(struct macb *bp , size_t size )
   descriptor___0.format = "mtu [%u] rx_buffer_size [%Zu]\n";
   descriptor___0.lineno = 1101U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8778,7 +8777,7 @@ static int gem_alloc_rx_buffers(struct macb *bp )
     descriptor.format = "Allocated %d RX struct sk_buff entries at %p\n";
     descriptor.lineno = 1172U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8814,7 +8813,7 @@ static int macb_alloc_rx_buffers(struct macb *bp )
     descriptor.format = "Allocated RX buffers of %d bytes at %08lx (mapped %p)\n";
     descriptor.lineno = 1188U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8869,7 +8868,7 @@ static int macb_alloc_consistent(struct macb *bp )
   descriptor.format = "Allocated RX ring of %d bytes at %08lx (mapped %p)\n";
   descriptor.lineno = 1208U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8897,7 +8896,7 @@ static int macb_alloc_consistent(struct macb *bp )
   descriptor___0.format = "Allocated TX ring of %d bytes at %08lx (mapped %p)\n";
   descriptor___0.lineno = 1217U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9465,7 +9464,7 @@ static int macb_open(struct net_device *dev )
   descriptor.format = "open\n";
   descriptor.lineno = 1543U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10368,7 +10367,7 @@ void ldv_dummy_resourceless_instance_callback_2_9(int (*arg0)(struct net_device 
                                                               struct ethtool_cmd * ) ,
                                                   struct net_device *arg1 , struct ethtool_cmd *arg2 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_0(void *arg0 ) ;
 enum irqreturn ldv_iio_triggered_buffer_instance_handler_0_5(enum irqreturn (*arg0)(int  ,
@@ -10758,7 +10757,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -10767,7 +10766,7 @@ void main(void)
   ldv_initialize();
   ldv_entry_EMGentry_11((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) 
@@ -12378,7 +12377,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12402,7 +12401,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12410,7 +12409,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -7777,7 +7777,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void *ldv_err_ptr(long error ) ;
@@ -7943,12 +7943,12 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
   {
   {
   __ret_warn_once = cpu >= (unsigned int )nr_cpu_ids;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7958,7 +7958,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -7969,7 +7969,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (cpu);
 }
@@ -8004,7 +8004,6 @@ __inline static unsigned int cpumask_weight(struct cpumask  const  *srcp )
   return ((unsigned int )tmp);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -8022,7 +8021,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -8846,7 +8845,7 @@ __inline static int gfp_zonelist(gfp_t flags )
 
   {
   {
-  tmp = __builtin_expect((flags & 262144U) != 0U, 0L);
+  tmp = ldv__builtin_expect((flags & 262144U) != 0U, 0L);
   }
   if (tmp != 0L) {
     return (1);
@@ -8968,14 +8967,14 @@ __inline static struct page *compound_head(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     head = page->__annonCompField46.first_page;
     __asm__  volatile   ("": : : "memory");
     tmp = PageTail((struct page  const  *)page);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     }
     if (tmp___0 != 0L) {
       return (head);
@@ -9024,7 +9023,7 @@ __inline static void dql_queued(struct dql *dql , unsigned int count )
 
   {
   {
-  tmp = __builtin_expect(count > 268435455U, 0L);
+  tmp = ldv__builtin_expect(count > 268435455U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9159,7 +9158,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -9186,7 +9185,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9222,7 +9221,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9266,7 +9265,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -9297,7 +9296,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9338,7 +9337,7 @@ __inline static void dma_sync_single_range_for_cpu(struct device *dev , dma_addr
   tmp = get_dma_ops(dev);
   ops = (struct dma_map_ops  const  *)tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9379,7 +9378,7 @@ __inline static void dma_sync_single_range_for_device(struct device *dev , dma_a
   tmp = get_dma_ops(dev);
   ops = (struct dma_map_ops  const  *)tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9531,7 +9530,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9542,7 +9541,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -9711,7 +9710,7 @@ __inline static unsigned char *__skb_put(struct sk_buff *skb , unsigned int len 
   tmp___0 = skb_tail_pointer((struct sk_buff  const  *)skb);
   tmp = tmp___0;
   tmp___1 = skb_is_nonlinear((struct sk_buff  const  *)skb);
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10121,7 +10120,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10279,7 +10278,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10289,7 +10288,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10353,7 +10352,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
   {
   dql_queued(& dev_queue->dql, bytes);
   tmp = dql_avail((struct dql  const  *)(& dev_queue->dql));
-  tmp___0 = __builtin_expect(tmp >= 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp >= 0, 1L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -10364,7 +10363,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
   set_bit(1L, (unsigned long volatile   *)(& dev_queue->state));
   __asm__  volatile   ("mfence": : : "memory");
   tmp___1 = dql_avail((struct dql  const  *)(& dev_queue->dql));
-  tmp___2 = __builtin_expect(tmp___1 >= 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 >= 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10385,7 +10384,7 @@ __inline static void netdev_tx_completed_queue(struct netdev_queue *dev_queue , 
 
   {
   {
-  tmp = __builtin_expect(bytes == 0U, 0L);
+  tmp = ldv__builtin_expect(bytes == 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -11319,7 +11318,7 @@ __inline static __be16 vlan_get_protocol(struct sk_buff  const  *skb )
     {
     tmp = skb_header_pointer(skb, 16, 2, (void *)(& proto));
     protop = (__be16 *)tmp;
-    tmp___0 = __builtin_expect((unsigned long )protop != (unsigned long )((__be16 *)0U),
+    tmp___0 = ldv__builtin_expect((unsigned long )protop != (unsigned long )((__be16 *)0U),
                                1L);
     }
     if (tmp___0 != 0L) {
@@ -11357,7 +11356,7 @@ __inline static bool ixgbe_removed(void *addr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )addr == (unsigned long )((void *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )addr == (unsigned long )((void *)0), 0L);
   }
   return (tmp != 0L);
 }
@@ -11403,7 +11402,7 @@ __inline static u32 ixgbe_read_reg(struct ixgbe_hw *hw , u32 reg )
   }
   {
   value = readl((void const volatile   *)reg_addr + (unsigned long )reg);
-  tmp___0 = __builtin_expect(value == 4294967295U, 0L);
+  tmp___0 = ldv__builtin_expect(value == 4294967295U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11497,7 +11496,7 @@ __inline static bool ixgbe_qv_lock_napi(struct ixgbe_q_vector *q_vector )
   if ((q_vector->state & 7U) != 0U) {
     {
     __ret_warn_on = (int )q_vector->state & 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11507,7 +11506,7 @@ __inline static bool ixgbe_qv_lock_napi(struct ixgbe_q_vector *q_vector )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     q_vector->state = q_vector->state | 8U;
     rc = 0;
     (q_vector->tx.ring)->stats.yields = (q_vector->tx.ring)->stats.yields + 1ULL;
@@ -11532,7 +11531,7 @@ __inline static bool ixgbe_qv_unlock_napi(struct ixgbe_q_vector *q_vector )
   rc = 0;
   ldv_spin_lock_bh_77(& q_vector->lock);
   __ret_warn_on = (q_vector->state & 10U) != 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11542,7 +11541,7 @@ __inline static bool ixgbe_qv_unlock_napi(struct ixgbe_q_vector *q_vector )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((q_vector->state & 16U) != 0U) {
     rc = 1;
@@ -11589,7 +11588,7 @@ __inline static bool ixgbe_qv_unlock_poll(struct ixgbe_q_vector *q_vector )
   rc = 0;
   ldv_spin_lock_bh_77(& q_vector->lock);
   __ret_warn_on = (int )q_vector->state & 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11599,7 +11598,7 @@ __inline static bool ixgbe_qv_unlock_poll(struct ixgbe_q_vector *q_vector )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((q_vector->state & 16U) != 0U) {
     rc = 1;
@@ -11621,7 +11620,7 @@ __inline static bool ixgbe_qv_busy_polling(struct ixgbe_q_vector *q_vector )
   {
   {
   __ret_warn_on = (q_vector->state & 3U) == 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11631,7 +11630,7 @@ __inline static bool ixgbe_qv_busy_polling(struct ixgbe_q_vector *q_vector )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return ((q_vector->state & 18U) != 0U);
 }
@@ -11777,7 +11776,7 @@ __inline static void ixgbe_ptp_rx_hwtstamp(struct ixgbe_ring *rx_ring , union ix
   {
   {
   tmp = ixgbe_test_staterr(rx_desc, 65536U);
-  tmp___0 = __builtin_expect(tmp == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -12155,7 +12154,7 @@ static void ixgbe_service_event_complete(struct ixgbe_adapter *adapter )
   {
   {
   tmp = constant_test_bit(4L, (unsigned long const volatile   *)(& adapter->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13323,7 +13322,7 @@ static bool ixgbe_clean_tx_irq(struct ixgbe_q_vector *q_vector , struct ixgbe_ri
   tx_buffer = tx_buffer + 1;
   tx_desc = tx_desc + 1;
   i = i + 1U;
-  tmp___0 = __builtin_expect(i == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(i == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     i = i - (unsigned int )tx_ring->count;
@@ -13350,7 +13349,7 @@ static bool ixgbe_clean_tx_irq(struct ixgbe_q_vector *q_vector , struct ixgbe_ri
   tx_buffer = tx_buffer + 1;
   tx_desc = tx_desc + 1;
   i = i + 1U;
-  tmp___1 = __builtin_expect(i == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(i == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     i = i - (unsigned int )tx_ring->count;
@@ -13362,7 +13361,7 @@ static bool ixgbe_clean_tx_irq(struct ixgbe_q_vector *q_vector , struct ixgbe_ri
   {
   __builtin_prefetch((void const   *)tx_desc);
   budget = budget - 1U;
-  tmp___2 = __builtin_expect(budget != 0U, 1L);
+  tmp___2 = ldv__builtin_expect(budget != 0U, 1L);
   }
   if (tmp___2 != 0L) {
     goto ldv_54429;
@@ -13423,12 +13422,12 @@ static bool ixgbe_clean_tx_irq(struct ixgbe_q_vector *q_vector , struct ixgbe_ri
   {
   tmp___7 = txring_txq((struct ixgbe_ring  const  *)tx_ring);
   netdev_tx_completed_queue(tmp___7, total_packets, total_bytes);
-  tmp___10 = __builtin_expect(total_packets != 0U, 0L);
+  tmp___10 = ldv__builtin_expect(total_packets != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
     tmp___11 = netif_carrier_ok((struct net_device  const  *)tx_ring->netdev);
-    tmp___12 = __builtin_expect((long )tmp___11, 0L);
+    tmp___12 = ldv__builtin_expect((long )tmp___11, 0L);
     }
     if (tmp___12 != 0L) {
       tmp___13 = 1;
@@ -13441,7 +13440,7 @@ static bool ixgbe_clean_tx_irq(struct ixgbe_q_vector *q_vector , struct ixgbe_ri
   if (tmp___13 != 0) {
     {
     tmp___14 = ixgbe_desc_unused(tx_ring);
-    tmp___15 = __builtin_expect((unsigned int )tmp___14 > 41U, 0L);
+    tmp___15 = ldv__builtin_expect((unsigned int )tmp___14 > 41U, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -14056,7 +14055,7 @@ static bool ixgbe_alloc_mapped_page(struct ixgbe_ring *rx_ring , struct ixgbe_rx
   {
   page = bi->page;
   dma = bi->dma;
-  tmp = __builtin_expect(dma != 0ULL, 1L);
+  tmp = ldv__builtin_expect(dma != 0ULL, 1L);
   }
   if (tmp != 0L) {
     return (1);
@@ -14064,14 +14063,14 @@ static bool ixgbe_alloc_mapped_page(struct ixgbe_ring *rx_ring , struct ixgbe_rx
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                              1L);
   }
   if (tmp___2 != 0L) {
     {
     tmp___0 = ixgbe_rx_pg_order(rx_ring);
     page = __skb_alloc_pages(16672U, bi->skb, tmp___0);
-    tmp___1 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -14143,7 +14142,7 @@ void ixgbe_alloc_rx_buffers(struct ixgbe_ring *rx_ring , u16 cleaned_count )
   rx_desc = rx_desc + 1;
   bi = bi + 1;
   i = (u16 )((int )i + 1);
-  tmp___1 = __builtin_expect((unsigned int )i == 0U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )i == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     rx_desc = (union ixgbe_adv_rx_desc *)rx_ring->desc;
@@ -14392,7 +14391,7 @@ static bool ixgbe_is_non_eop(struct ixgbe_ring *rx_ring , union ixgbe_adv_rx_des
   if (tmp___0 != 0) {
     {
     rsc_enabled = rx_desc->wb.lower.lo_dword.data & 1966080U;
-    tmp = __builtin_expect(rsc_enabled != 0U, 0L);
+    tmp = ldv__builtin_expect(rsc_enabled != 0U, 0L);
     }
     if (tmp != 0L) {
       rsc_cnt = rsc_enabled;
@@ -14409,7 +14408,7 @@ static bool ixgbe_is_non_eop(struct ixgbe_ring *rx_ring , union ixgbe_adv_rx_des
   }
   {
   tmp___1 = ixgbe_test_staterr(rx_desc, 2U);
-  tmp___2 = __builtin_expect(tmp___1 != 0U, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0U, 1L);
   }
   if (tmp___2 != 0L) {
     return (0);
@@ -14455,7 +14454,7 @@ static void ixgbe_dma_sync_frag(struct ixgbe_ring *rx_ring , struct sk_buff *skb
 
   {
   {
-  tmp___2 = __builtin_expect((long )((struct ixgbe_cb *)(& skb->cb))->page_released,
+  tmp___2 = ldv__builtin_expect((long )((struct ixgbe_cb *)(& skb->cb))->page_released,
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -14496,11 +14495,11 @@ static bool ixgbe_cleanup_headers(struct ixgbe_ring *rx_ring , union ixgbe_adv_r
   {
   netdev = rx_ring->netdev;
   tmp = ixgbe_test_staterr(rx_desc, 989855744U);
-  tmp___0 = __builtin_expect(tmp != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp___1 = __builtin_expect((netdev->features & 68719476736ULL) == 0ULL, 0L);
+    tmp___1 = ldv__builtin_expect((netdev->features & 68719476736ULL) == 0ULL, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -14532,7 +14531,7 @@ static bool ixgbe_cleanup_headers(struct ixgbe_ring *rx_ring , union ixgbe_adv_r
 
   }
   {
-  tmp___5 = __builtin_expect(skb->len <= 59U, 0L);
+  tmp___5 = ldv__builtin_expect(skb->len <= 59U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -14621,7 +14620,7 @@ static bool ixgbe_add_rx_frag(struct ixgbe_ring *rx_ring , struct ixgbe_rx_buffe
       memcpy((void *)tmp___1, (void const   *)va, (size_t )(size + 7U) & 4294967288UL);
       tmp___2 = page_to_nid((struct page  const  *)page);
       tmp___3 = numa_node_id();
-      tmp___4 = __builtin_expect(tmp___2 == tmp___3, 1L);
+      tmp___4 = ldv__builtin_expect(tmp___2 == tmp___3, 1L);
       }
       if (tmp___4 != 0L) {
         return (1);
@@ -14644,7 +14643,7 @@ static bool ixgbe_add_rx_frag(struct ixgbe_ring *rx_ring , struct ixgbe_rx_buffe
                   (int )rx_buffer->page_offset, (int )size, truesize);
   tmp___8 = page_to_nid((struct page  const  *)page);
   tmp___9 = numa_node_id();
-  tmp___10 = __builtin_expect(tmp___8 != tmp___9, 0L);
+  tmp___10 = ldv__builtin_expect(tmp___8 != tmp___9, 0L);
   }
   if (tmp___10 != 0L) {
     return (0);
@@ -14653,7 +14652,7 @@ static bool ixgbe_add_rx_frag(struct ixgbe_ring *rx_ring , struct ixgbe_rx_buffe
   }
   {
   tmp___11 = page_count(page);
-  tmp___12 = __builtin_expect(tmp___11 != 1, 0L);
+  tmp___12 = ldv__builtin_expect(tmp___11 != 1, 0L);
   }
   if (tmp___12 != 0L) {
     return (0);
@@ -14690,7 +14689,7 @@ static struct sk_buff *ixgbe_fetch_rx_buffer(struct ixgbe_ring *rx_ring , union 
   page = rx_buffer->page;
   prefetchw((void const   *)page);
   skb = rx_buffer->skb;
-  tmp___5 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              1L);
   }
   if (tmp___5 != 0L) {
@@ -14700,7 +14699,7 @@ static struct sk_buff *ixgbe_fetch_rx_buffer(struct ixgbe_ring *rx_ring , union 
     __builtin_prefetch((void const   *)page_addr);
     __builtin_prefetch((void const   *)page_addr + 64U);
     skb = netdev_alloc_skb_ip_align(rx_ring->netdev, 256U);
-    tmp___0 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -14712,7 +14711,7 @@ static struct sk_buff *ixgbe_fetch_rx_buffer(struct ixgbe_ring *rx_ring , union 
     {
     prefetchw((void const   *)skb->data);
     tmp___1 = ixgbe_test_staterr(rx_desc, 2U);
-    tmp___2 = __builtin_expect(tmp___1 != 0U, 1L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0U, 1L);
     }
     if (tmp___2 != 0L) {
       goto dma_sync;
@@ -14874,7 +14873,7 @@ static int ixgbe_clean_rx_irq(struct ixgbe_q_vector *q_vector , struct ixgbe_rin
   }
   ldv_54663: 
   {
-  tmp___4 = __builtin_expect(total_rx_packets < (unsigned int )budget, 1L);
+  tmp___4 = ldv__builtin_expect(total_rx_packets < (unsigned int )budget, 1L);
   }
   if (tmp___4 != 0L) {
     goto ldv_54664;
@@ -15805,7 +15804,7 @@ static irqreturn_t ixgbe_msix_other(int irq , void *data )
   ldv_54825: 
   {
   ixgbe_check_fan_failure(adapter, eicr);
-  tmp___0 = __builtin_expect((eicr & 16777216U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((eicr & 16777216U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16153,7 +16152,7 @@ static irqreturn_t ixgbe_intr(int irq , void *data )
   ldv_54880: 
   {
   ixgbe_check_fan_failure(adapter, eicr);
-  tmp___0 = __builtin_expect((eicr & 16777216U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((eicr & 16777216U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18353,7 +18352,7 @@ static int ixgbe_fwd_ring_up(struct net_device *vdev , struct ixgbe_fwd_adapter 
   descriptor.format = "pool %i:%i queues %i:%i VSI bitmask %lx\n";
   descriptor.lineno = 4327U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -19020,7 +19019,7 @@ void ixgbe_reinit_locked(struct ixgbe_adapter *adapter )
   {
   tmp = preempt_count();
   __ret_warn_on = ((unsigned long )tmp & 2096896UL) != 0UL;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19030,7 +19029,7 @@ void ixgbe_reinit_locked(struct ixgbe_adapter *adapter )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   (adapter->netdev)->trans_start = jiffies;
   }
   goto ldv_55434;
@@ -22013,7 +22012,7 @@ static void ixgbe_tx_csum(struct ixgbe_ring *tx_ring , struct ixgbe_tx_buffer *f
     switch_default: /* CIL Label */ 
     {
     tmp___3 = net_ratelimit();
-    tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -22061,7 +22060,7 @@ static void ixgbe_tx_csum(struct ixgbe_ring *tx_ring , struct ixgbe_tx_buffer *f
     switch_default___0: /* CIL Label */ 
     {
     tmp___6 = net_ratelimit();
-    tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+    tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -22193,7 +22192,7 @@ static void ixgbe_tx_map(struct ixgbe_ring *tx_ring , struct ixgbe_tx_buffer *fi
   tx_desc->read.buffer_addr = dma;
   ldv_55910: 
   {
-  tmp___2 = __builtin_expect(size > 16384U, 0L);
+  tmp___2 = ldv__builtin_expect(size > 16384U, 0L);
   }
   if (tmp___2 != 0L) {
     goto ldv_55909;
@@ -22201,7 +22200,7 @@ static void ixgbe_tx_map(struct ixgbe_ring *tx_ring , struct ixgbe_tx_buffer *fi
 
   }
   {
-  tmp___3 = __builtin_expect(data_len == 0U, 1L);
+  tmp___3 = ldv__builtin_expect(data_len == 0U, 1L);
   }
   if (tmp___3 != 0L) {
     goto ldv_55912;
@@ -22359,7 +22358,7 @@ static int __ixgbe_maybe_stop_tx(struct ixgbe_ring *tx_ring , u16 size )
   netif_stop_subqueue(tx_ring->netdev, (int )tx_ring->queue_index);
   __asm__  volatile   ("mfence": : : "memory");
   tmp = ixgbe_desc_unused(tx_ring);
-  tmp___0 = __builtin_expect((int )tmp < (int )size, 1L);
+  tmp___0 = ldv__builtin_expect((int )tmp < (int )size, 1L);
   }
   if (tmp___0 != 0L) {
     return (-16);
@@ -22382,7 +22381,7 @@ __inline static int ixgbe_maybe_stop_tx(struct ixgbe_ring *tx_ring , u16 size )
   {
   {
   tmp = ixgbe_desc_unused(tx_ring);
-  tmp___0 = __builtin_expect((int )tmp >= (int )size, 1L);
+  tmp___0 = ldv__builtin_expect((int )tmp >= (int )size, 1L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -22779,7 +22778,7 @@ netdev_tx_t ixgbe_xmit_frame_ring(struct sk_buff *skb , struct ixgbe_adapter *ad
   {
   skb_tx_timestamp(skb);
   tmp___7 = skb_end_pointer((struct sk_buff  const  *)skb);
-  tmp___8 = __builtin_expect((long )((struct skb_shared_info *)tmp___7)->tx_flags & 1L,
+  tmp___8 = ldv__builtin_expect((long )((struct skb_shared_info *)tmp___7)->tx_flags & 1L,
                              0L);
   }
   if (tmp___8 != 0L) {
@@ -22896,7 +22895,7 @@ static netdev_tx_t __ixgbe_xmit_frame(struct sk_buff *skb , struct net_device *n
   {
   tmp = netdev_priv((struct net_device  const  *)netdev);
   adapter = (struct ixgbe_adapter *)tmp;
-  tmp___1 = __builtin_expect(skb->len <= 16U, 0L);
+  tmp___1 = ldv__builtin_expect(skb->len <= 16U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -23925,7 +23924,7 @@ static void ixgbe_fwd_del(struct net_device *pdev , void *priv )
   descriptor.format = "pool %i:%i queues %i:%i VSI bitmask %lx\n";
   descriptor.lineno = 7691U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -24177,7 +24176,7 @@ static int ixgbe_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   if ((unsigned int )*((unsigned char *)pdev + 2499UL) != 0U) {
     {
     __ret_warn_on = 1;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24189,7 +24188,7 @@ static int ixgbe_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return (-22);
   } else {
@@ -27049,7 +27048,7 @@ void ldv_dummy_resourceless_instance_callback_9_98(int (*arg0)(struct ixgbe_hw *
                                                    struct ixgbe_hw *arg1 , unsigned char arg2 ,
                                                    unsigned char *arg3 ) ;
 void ldv_entry_EMGentry_31(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
@@ -30417,7 +30416,7 @@ void ldv_entry_EMGentry_31(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -41981,7 +41980,7 @@ static s32 ixgbe_setup_fc(struct ixgbe_hw *hw )
     descriptor.format = "ixgbe_fc_rx_pause not valid in strict IEEE mode\n";
     descriptor.lineno = 124U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -42108,7 +42107,7 @@ static s32 ixgbe_setup_fc(struct ixgbe_hw *hw )
   descriptor___0.format = "Flow control param set incorrectly\n";
   descriptor___0.lineno = 211U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -42141,7 +42140,7 @@ static s32 ixgbe_setup_fc(struct ixgbe_hw *hw )
     descriptor___1.format = "Set up FC; PCS1GLCTL = 0x%08X\n";
     descriptor___1.lineno = 230U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -42214,7 +42213,7 @@ static s32 ixgbe_setup_fc(struct ixgbe_hw *hw )
   descriptor___2.format = "Set up FC; IXGBE_AUTOC = 0x%08X\n";
   descriptor___2.lineno = 268U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -42550,7 +42549,7 @@ s32 ixgbe_read_pba_string_generic(struct ixgbe_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor.format = "PBA string buffer was null\n";
     descriptor.lineno = 503U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -42575,7 +42574,7 @@ s32 ixgbe_read_pba_string_generic(struct ixgbe_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___0.format = "NVM Read Error\n";
     descriptor___0.lineno = 509U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -42600,7 +42599,7 @@ s32 ixgbe_read_pba_string_generic(struct ixgbe_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___1.format = "NVM Read Error\n";
     descriptor___1.lineno = 515U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -42622,7 +42621,7 @@ s32 ixgbe_read_pba_string_generic(struct ixgbe_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___2.format = "NVM PBA number is not stored as string\n";
     descriptor___2.lineno = 525U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -42640,7 +42639,7 @@ s32 ixgbe_read_pba_string_generic(struct ixgbe_hw *hw , u8 *pba_num , u32 pba_nu
       descriptor___3.format = "PBA string buffer too small\n";
       descriptor___3.lineno = 529U;
       descriptor___3.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -42699,7 +42698,7 @@ s32 ixgbe_read_pba_string_generic(struct ixgbe_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___4.format = "NVM Read Error\n";
     descriptor___4.lineno = 561U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -42721,7 +42720,7 @@ s32 ixgbe_read_pba_string_generic(struct ixgbe_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___5.format = "NVM PBA number section invalid length\n";
     descriptor___5.lineno = 566U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -42743,7 +42742,7 @@ s32 ixgbe_read_pba_string_generic(struct ixgbe_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___6.format = "PBA string buffer too small\n";
     descriptor___6.lineno = 572U;
     descriptor___6.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -42773,7 +42772,7 @@ s32 ixgbe_read_pba_string_generic(struct ixgbe_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___7.format = "NVM Read Error\n";
     descriptor___7.lineno = 583U;
     descriptor___7.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -43073,7 +43072,7 @@ s32 ixgbe_init_eeprom_params_generic(struct ixgbe_hw *hw )
     descriptor.format = "Eeprom params: type = %d, size = %d, address bits: %d\n";
     descriptor.lineno = 832U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -43442,7 +43441,7 @@ s32 ixgbe_read_eerd_buffer_generic(struct ixgbe_hw *hw , u16 offset , u16 words 
     descriptor.format = "Eeprom read timed out\n";
     descriptor.lineno = 1167U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -43513,7 +43512,7 @@ static s32 ixgbe_detect_eeprom_page_size_generic(struct ixgbe_hw *hw , u16 offse
   descriptor.format = "Detected EEPROM page size = %d words.";
   descriptor.lineno = 1212U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -43581,7 +43580,7 @@ s32 ixgbe_write_eewr_buffer_generic(struct ixgbe_hw *hw , u16 offset , u16 words
     descriptor.format = "Eeprom write EEWR timed out\n";
     descriptor.lineno = 1265U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -43607,7 +43606,7 @@ s32 ixgbe_write_eewr_buffer_generic(struct ixgbe_hw *hw , u16 offset , u16 words
     descriptor___0.format = "Eeprom write EEWR timed out\n";
     descriptor___0.lineno = 1273U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -43741,7 +43740,7 @@ static s32 ixgbe_acquire_eeprom(struct ixgbe_hw *hw )
       descriptor.format = "Could not acquire EEPROM grant\n";
       descriptor.lineno = 1358U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -43821,7 +43820,7 @@ static s32 ixgbe_get_eeprom_semaphore(struct ixgbe_hw *hw )
     descriptor.format = "Driver can\'t access the Eeprom - SMBI Semaphore not granted.\n";
     descriptor.lineno = 1405U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -43878,7 +43877,7 @@ static s32 ixgbe_get_eeprom_semaphore(struct ixgbe_hw *hw )
       descriptor___0.format = "SWESMBI Software EEPROM semaphore not granted.\n";
       descriptor___0.lineno = 1451U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -43903,7 +43902,7 @@ static s32 ixgbe_get_eeprom_semaphore(struct ixgbe_hw *hw )
     descriptor___1.format = "Software semaphore SMBI between device drivers not granted.\n";
     descriptor___1.lineno = 1457U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -43975,7 +43974,7 @@ static s32 ixgbe_ready_eeprom(struct ixgbe_hw *hw )
     descriptor.format = "SPI EEPROM Status error\n";
     descriptor.lineno = 1513U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -44172,7 +44171,7 @@ u16 ixgbe_calc_eeprom_checksum_generic(struct ixgbe_hw *hw )
     descriptor.format = "EEPROM read failed\n";
     descriptor.lineno = 1715U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -44274,7 +44273,7 @@ s32 ixgbe_validate_eeprom_checksum_generic(struct ixgbe_hw *hw , u16 *checksum_v
     descriptor.format = "EEPROM read failed\n";
     descriptor.lineno = 1781U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -44312,7 +44311,7 @@ s32 ixgbe_update_eeprom_checksum_generic(struct ixgbe_hw *hw )
     descriptor.format = "EEPROM read failed\n";
     descriptor.lineno = 1808U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -44345,7 +44344,7 @@ s32 ixgbe_set_rar_generic(struct ixgbe_hw *hw , u32 index , u8 *addr , u32 vmdq 
     descriptor.format = "RAR index %d is out of range.\n";
     descriptor.lineno = 1832U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -44396,7 +44395,7 @@ s32 ixgbe_clear_rar_generic(struct ixgbe_hw *hw , u32 index )
     descriptor.format = "RAR index %d is out of range.\n";
     descriptor.lineno = 1879U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -44457,7 +44456,7 @@ s32 ixgbe_init_rx_addrs_generic(struct ixgbe_hw *hw )
     descriptor.format = " Keeping Current RAR0 Addr =%pM\n";
     descriptor.lineno = 1922U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -44475,7 +44474,7 @@ s32 ixgbe_init_rx_addrs_generic(struct ixgbe_hw *hw )
     descriptor___0.format = "Overriding MAC Address in RAR[0]\n";
     descriptor___0.lineno = 1925U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -44492,7 +44491,7 @@ s32 ixgbe_init_rx_addrs_generic(struct ixgbe_hw *hw )
     descriptor___1.format = " New MAC Addr =%pM\n";
     descriptor___1.lineno = 1926U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -44516,7 +44515,7 @@ s32 ixgbe_init_rx_addrs_generic(struct ixgbe_hw *hw )
   descriptor___2.format = "Clearing RAR[1-%d]\n";
   descriptor___2.lineno = 1938U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -44549,7 +44548,7 @@ s32 ixgbe_init_rx_addrs_generic(struct ixgbe_hw *hw )
   descriptor___3.format = " Clearing MTA\n";
   descriptor___3.lineno = 1948U;
   descriptor___3.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -44633,7 +44632,7 @@ static s32 ixgbe_mta_vector(struct ixgbe_hw *hw , u8 *mc_addr )
   descriptor.format = "MC filter type param set incorrectly\n";
   descriptor.lineno = 1988U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -44671,7 +44670,7 @@ static void ixgbe_set_mta(struct ixgbe_hw *hw , u8 *mc_addr )
   descriptor.format = " bit-vector = 0x%03X\n";
   descriptor.lineno = 2013U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -44710,7 +44709,7 @@ s32 ixgbe_update_mc_addr_list_generic(struct ixgbe_hw *hw , struct net_device *n
   descriptor.format = " Clearing MTA\n";
   descriptor.lineno = 2053U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -44734,7 +44733,7 @@ s32 ixgbe_update_mc_addr_list_generic(struct ixgbe_hw *hw , struct net_device *n
   descriptor___0.format = " Adding the multicast addresses:\n";
   descriptor___0.lineno = 2058U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -44783,7 +44782,7 @@ s32 ixgbe_update_mc_addr_list_generic(struct ixgbe_hw *hw , struct net_device *n
   descriptor___1.format = "ixgbe_update_mc_addr_list_generic Complete\n";
   descriptor___1.lineno = 2071U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -44853,7 +44852,7 @@ s32 ixgbe_fc_enable_generic(struct ixgbe_hw *hw )
     descriptor.format = "Invalid water mark configuration\n";
     descriptor.lineno = 2130U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -44917,7 +44916,7 @@ s32 ixgbe_fc_enable_generic(struct ixgbe_hw *hw )
   descriptor___0.format = "Flow control param set incorrectly\n";
   descriptor___0.lineno = 2186U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -45014,7 +45013,7 @@ static s32 ixgbe_negotiate_fc(struct ixgbe_hw *hw , u32 adv_reg , u32 lp_reg , u
       descriptor.format = "Flow Control = FULL.\n";
       descriptor.lineno = 2259U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -45033,7 +45032,7 @@ static s32 ixgbe_negotiate_fc(struct ixgbe_hw *hw , u32 adv_reg , u32 lp_reg , u
       descriptor___0.format = "Flow Control=RX PAUSE frames only\n";
       descriptor___0.lineno = 2262U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -45054,7 +45053,7 @@ static s32 ixgbe_negotiate_fc(struct ixgbe_hw *hw , u32 adv_reg , u32 lp_reg , u
     descriptor___1.format = "Flow Control = TX PAUSE frames only.\n";
     descriptor___1.lineno = 2267U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -45074,7 +45073,7 @@ static s32 ixgbe_negotiate_fc(struct ixgbe_hw *hw , u32 adv_reg , u32 lp_reg , u
     descriptor___2.format = "Flow Control = RX PAUSE frames only.\n";
     descriptor___2.lineno = 2271U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -45093,7 +45092,7 @@ static s32 ixgbe_negotiate_fc(struct ixgbe_hw *hw , u32 adv_reg , u32 lp_reg , u
     descriptor___3.format = "Flow Control = NONE.\n";
     descriptor___3.lineno = 2274U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -45329,7 +45328,7 @@ static s32 ixgbe_disable_pcie_master(struct ixgbe_hw *hw )
   descriptor.format = "GIO Master Disable bit didn\'t clear - requesting resets\n";
   descriptor.lineno = 2477U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -45366,7 +45365,7 @@ static s32 ixgbe_disable_pcie_master(struct ixgbe_hw *hw )
   descriptor___0.format = "PCIe transaction pending bit also did not clear.\n";
   descriptor___0.lineno = 2492U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -45506,7 +45505,7 @@ s32 ixgbe_disable_rx_buff_generic(struct ixgbe_hw *hw )
     descriptor.format = "Rx unit being enabled before security path fully disabled.  Continuing with init.\n";
     descriptor.lineno = 2594U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -45851,7 +45850,7 @@ s32 ixgbe_clear_vmdq_generic(struct ixgbe_hw *hw , u32 rar , u32 vmdq )
     descriptor.format = "RAR index %d is out of range.\n";
     descriptor.lineno = 2864U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -45931,7 +45930,7 @@ s32 ixgbe_set_vmdq_generic(struct ixgbe_hw *hw , u32 rar , u32 vmdq )
     descriptor.format = "RAR index %d is out of range.\n";
     descriptor.lineno = 2911U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -46052,7 +46051,7 @@ static s32 ixgbe_find_vlvf_slot(struct ixgbe_hw *hw , u32 vlan )
       descriptor.format = "No space in VLVF.\n";
       descriptor.lineno = 3005U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -46240,7 +46239,7 @@ s32 ixgbe_check_mac_link_generic(struct ixgbe_hw *hw , ixgbe_link_speed *speed ,
     descriptor.format = "LINKS changed from %08X to %08X\n";
     descriptor.lineno = 3200U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -46620,7 +46619,7 @@ static s32 ixgbe_host_interface_command(struct ixgbe_hw *hw , u32 *buffer , u32 
     descriptor.format = "Buffer length failure.\n";
     descriptor.lineno = 3479U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -46646,7 +46645,7 @@ static s32 ixgbe_host_interface_command(struct ixgbe_hw *hw , u32 *buffer , u32 
     descriptor___0.format = "IXGBE_HOST_EN bit disabled.\n";
     descriptor___0.lineno = 3487U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -46715,7 +46714,7 @@ static s32 ixgbe_host_interface_command(struct ixgbe_hw *hw , u32 *buffer , u32 
       descriptor___1.format = "Command has failed with no status valid.\n";
       descriptor___1.lineno = 3516U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -46759,7 +46758,7 @@ static s32 ixgbe_host_interface_command(struct ixgbe_hw *hw , u32 *buffer , u32 
     descriptor___2.format = "Buffer not large enough for reply message.\n";
     descriptor___2.lineno = 3536U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -47088,7 +47087,6 @@ s32 ixgbe_init_thermal_sensor_thresh_generic(struct ixgbe_hw *hw )
   return (status);
 }
 }
-int __builtin_bswap32(int  ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 __inline static void INIT_HLIST_NODE(struct hlist_node *h ) 
 { 
@@ -47191,7 +47189,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -47231,7 +47229,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -53697,7 +53695,7 @@ static s32 ixgbe_setup_sfp_modules_82599(struct ixgbe_hw *hw )
       descriptor.format = " sfp module setup not complete\n";
       descriptor.lineno = 189U;
       descriptor.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -54189,7 +54187,7 @@ static s32 ixgbe_start_mac_link_82599(struct ixgbe_hw *hw , bool autoneg_wait_to
         descriptor.format = "Autoneg did not complete.\n";
         descriptor.lineno = 521U;
         descriptor.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -54309,7 +54307,7 @@ static void ixgbe_set_fiber_fixed_speed(struct ixgbe_hw *hw , ixgbe_link_speed s
   descriptor.format = "Invalid fixed module speed\n";
   descriptor.lineno = 616U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -54334,7 +54332,7 @@ static void ixgbe_set_fiber_fixed_speed(struct ixgbe_hw *hw , ixgbe_link_speed s
     descriptor___0.format = "Failed to read Rx Rate Select RS0\n";
     descriptor___0.lineno = 625U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -54360,7 +54358,7 @@ static void ixgbe_set_fiber_fixed_speed(struct ixgbe_hw *hw , ixgbe_link_speed s
     descriptor___1.format = "Failed to write Rx Rate Select RS0\n";
     descriptor___1.lineno = 635U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -54385,7 +54383,7 @@ static void ixgbe_set_fiber_fixed_speed(struct ixgbe_hw *hw , ixgbe_link_speed s
     descriptor___2.format = "Failed to read Rx Rate Select RS1\n";
     descriptor___2.lineno = 644U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -54411,7 +54409,7 @@ static void ixgbe_set_fiber_fixed_speed(struct ixgbe_hw *hw , ixgbe_link_speed s
     descriptor___3.format = "Failed to write Rx Rate Select RS1\n";
     descriptor___3.lineno = 654U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -54510,7 +54508,7 @@ static s32 ixgbe_setup_mac_link_multispeed_fiber(struct ixgbe_hw *hw , ixgbe_lin
     descriptor.format = "Unexpected media type.\n";
     descriptor.lineno = 718U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -54628,7 +54626,7 @@ static s32 ixgbe_setup_mac_link_multispeed_fiber(struct ixgbe_hw *hw , ixgbe_lin
     descriptor___0.format = "Unexpected media type.\n";
     descriptor___0.lineno = 785U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -54859,7 +54857,7 @@ static s32 ixgbe_setup_mac_link_smartspeed(struct ixgbe_hw *hw , ixgbe_link_spee
     descriptor.format = "Smartspeed has downgraded the link speed from the maximum advertised\n";
     descriptor.lineno = 945U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -55038,7 +55036,7 @@ static s32 ixgbe_setup_mac_link_82599(struct ixgbe_hw *hw , ixgbe_link_speed spe
           descriptor.format = "Autoneg did not complete.\n";
           descriptor.lineno = 1072U;
           descriptor.flags = 0U;
-          tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+          tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
           }
           if (tmp___1 != 0L) {
             {
@@ -55193,7 +55191,7 @@ static s32 ixgbe_reset_hw_82599(struct ixgbe_hw *hw )
     descriptor.format = "Reset polling failed to complete.\n";
     descriptor.lineno = 1188U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -55355,7 +55353,7 @@ s32 ixgbe_reinit_fdir_tables_82599(struct ixgbe_hw *hw )
     descriptor.format = "Flow Director previous command isn\'t complete, aborting table re-initialization.\n";
     descriptor.lineno = 1325U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -55413,7 +55411,7 @@ s32 ixgbe_reinit_fdir_tables_82599(struct ixgbe_hw *hw )
     descriptor___0.format = "Flow Director Signature poll time exceeded!\n";
     descriptor___0.lineno = 1364U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -55481,7 +55479,7 @@ static void ixgbe_fdir_enable_82599(struct ixgbe_hw *hw , u32 fdirctrl )
     descriptor.format = "Flow Director poll time exceeded!\n";
     descriptor.lineno = 1414U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -55995,7 +55993,7 @@ s32 ixgbe_fdir_add_signature_filter_82599(struct ixgbe_hw *hw , union ixgbe_atr_
   descriptor.format = " Error on flow type input\n";
   descriptor.lineno = 1589U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -56023,7 +56021,7 @@ s32 ixgbe_fdir_add_signature_filter_82599(struct ixgbe_hw *hw , union ixgbe_atr_
   descriptor___0.format = "Tx Queue=%x hash=%x\n";
   descriptor___0.lineno = 1607U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -56319,7 +56317,7 @@ s32 ixgbe_fdir_set_input_mask_82599(struct ixgbe_hw *hw , union ixgbe_atr_input 
     descriptor.format = " bucket hash should always be 0 in mask\n";
     descriptor.lineno = 1763U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -56356,7 +56354,7 @@ s32 ixgbe_fdir_set_input_mask_82599(struct ixgbe_hw *hw , union ixgbe_atr_input 
   descriptor___0.format = " Error on vm pool mask\n";
   descriptor___0.lineno = 1772U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -56392,7 +56390,7 @@ s32 ixgbe_fdir_set_input_mask_82599(struct ixgbe_hw *hw , union ixgbe_atr_input 
     descriptor___1.format = " Error on src/dst port mask\n";
     descriptor___1.lineno = 1781U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -56416,7 +56414,7 @@ s32 ixgbe_fdir_set_input_mask_82599(struct ixgbe_hw *hw , union ixgbe_atr_input 
   descriptor___2.format = " Error on flow type mask\n";
   descriptor___2.lineno = 1787U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -56472,7 +56470,7 @@ s32 ixgbe_fdir_set_input_mask_82599(struct ixgbe_hw *hw , union ixgbe_atr_input 
   descriptor___3.format = " Error on VLAN mask\n";
   descriptor___3.lineno = 1806U;
   descriptor___3.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -56510,7 +56508,7 @@ s32 ixgbe_fdir_set_input_mask_82599(struct ixgbe_hw *hw , union ixgbe_atr_input 
   descriptor___4.format = " Error on flexible byte mask\n";
   descriptor___4.lineno = 1817U;
   descriptor___4.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -57293,7 +57291,7 @@ s32 ixgbe_reset_pipeline_82599(struct ixgbe_hw *hw )
     descriptor.format = "auto negotiation not completed\n";
     descriptor.lineno = 2398U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -57364,7 +57362,7 @@ static s32 ixgbe_read_i2c_byte_82599(struct ixgbe_hw *hw , u8 byte_offset , u8 d
       descriptor.format = "Driver can\'t access resource, acquiring I2C bus timeout.\n";
       descriptor.lineno = 2446U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -57446,7 +57444,7 @@ static s32 ixgbe_write_i2c_byte_82599(struct ixgbe_hw *hw , u8 byte_offset , u8 
       descriptor.format = "Driver can\'t access resource, acquiring I2C bus timeout.\n";
       descriptor.lineno = 2499U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -59287,7 +59285,7 @@ static s32 ixgbe_fc_enable_82598(struct ixgbe_hw *hw )
     descriptor.format = "Invalid water mark configuration\n";
     descriptor.lineno = 348U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -59381,7 +59379,7 @@ static s32 ixgbe_fc_enable_82598(struct ixgbe_hw *hw )
   descriptor___0.format = "Flow control param set incorrectly\n";
   descriptor___0.lineno = 424U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -59495,7 +59493,7 @@ static s32 ixgbe_start_mac_link_82598(struct ixgbe_hw *hw , bool autoneg_wait_to
         descriptor.format = "Autonegotiation did not complete.\n";
         descriptor.lineno = 498U;
         descriptor.flags = 0U;
-        tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp != 0L) {
           {
@@ -59563,7 +59561,7 @@ static s32 ixgbe_validate_link_ready(struct ixgbe_hw *hw )
     descriptor.format = "Link was indicated but link is down\n";
     descriptor.lineno = 536U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -59857,7 +59855,7 @@ static s32 ixgbe_reset_hw_82598(struct ixgbe_hw *hw )
     descriptor.format = "Reset polling failed to complete.\n";
     descriptor.lineno = 794U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -59926,7 +59924,7 @@ static s32 ixgbe_set_vmdq_82598(struct ixgbe_hw *hw , u32 rar , u32 vmdq )
     descriptor.format = "RAR index %d is out of range.\n";
     descriptor.lineno = 855U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -59966,7 +59964,7 @@ static s32 ixgbe_clear_vmdq_82598(struct ixgbe_hw *hw , u32 rar , u32 vmdq )
     descriptor.format = "RAR index %d is out of range.\n";
     descriptor.lineno = 880U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -60176,7 +60174,7 @@ static s32 ixgbe_read_i2c_phy_82598(struct ixgbe_hw *hw , u8 dev_addr , u8 byte_
       descriptor.format = "EEPROM read did not pass.\n";
       descriptor.lineno = 1058U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -61632,7 +61630,7 @@ s32 ixgbe_reset_phy_generic(struct ixgbe_hw *hw )
     descriptor.format = "PHY reset polling failed to complete.\n";
     descriptor.lineno = 200U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -61693,7 +61691,7 @@ s32 ixgbe_read_phy_reg_mdi(struct ixgbe_hw *hw , u32 reg_addr , u32 device_type 
     descriptor.format = "PHY address command did not complete.\n";
     descriptor.lineno = 241U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -61739,7 +61737,7 @@ s32 ixgbe_read_phy_reg_mdi(struct ixgbe_hw *hw , u32 reg_addr , u32 device_type 
     descriptor___0.format = "PHY read command didn\'t complete\n";
     descriptor___0.lineno = 268U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -61836,7 +61834,7 @@ s32 ixgbe_write_phy_reg_mdi(struct ixgbe_hw *hw , u32 reg_addr , u32 device_type
     descriptor.format = "PHY address cmd didn\'t complete\n";
     descriptor.lineno = 349U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -61882,7 +61880,7 @@ s32 ixgbe_write_phy_reg_mdi(struct ixgbe_hw *hw , u32 reg_addr , u32 device_type
     descriptor___0.format = "PHY write cmd didn\'t complete\n";
     descriptor___0.lineno = 377U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -62032,7 +62030,7 @@ s32 ixgbe_setup_phy_link_generic(struct ixgbe_hw *hw )
     descriptor.format = "ixgbe_setup_phy_link_generic: time out";
     descriptor.lineno = 504U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -62261,7 +62259,7 @@ s32 ixgbe_setup_phy_link_tnx(struct ixgbe_hw *hw )
     descriptor.format = "ixgbe_setup_phy_link_tnx: time out";
     descriptor.lineno = 709U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -62372,7 +62370,7 @@ s32 ixgbe_reset_phy_nl(struct ixgbe_hw *hw )
     descriptor.format = "PHY reset did not complete.\n";
     descriptor.lineno = 777U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -62437,7 +62435,7 @@ s32 ixgbe_reset_phy_nl(struct ixgbe_hw *hw )
   descriptor___0.format = "DELAY: %d MS\n";
   descriptor___0.lineno = 803U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -62459,7 +62457,7 @@ s32 ixgbe_reset_phy_nl(struct ixgbe_hw *hw )
   descriptor___1.format = "DATA:\n";
   descriptor___1.lineno = 807U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -62499,7 +62497,7 @@ s32 ixgbe_reset_phy_nl(struct ixgbe_hw *hw )
   descriptor___2.format = "Wrote %4.4x to %4.4x\n";
   descriptor___2.lineno = 821U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -62529,7 +62527,7 @@ s32 ixgbe_reset_phy_nl(struct ixgbe_hw *hw )
   descriptor___3.format = "CONTROL:\n";
   descriptor___3.lineno = 828U;
   descriptor___3.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -62547,7 +62545,7 @@ s32 ixgbe_reset_phy_nl(struct ixgbe_hw *hw )
     descriptor___4.format = "EOL\n";
     descriptor___4.lineno = 830U;
     descriptor___4.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -62567,7 +62565,7 @@ s32 ixgbe_reset_phy_nl(struct ixgbe_hw *hw )
     descriptor___5.format = "SOL\n";
     descriptor___5.lineno = 833U;
     descriptor___5.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -62585,7 +62583,7 @@ s32 ixgbe_reset_phy_nl(struct ixgbe_hw *hw )
     descriptor___6.format = "Bad control value\n";
     descriptor___6.lineno = 835U;
     descriptor___6.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -62607,7 +62605,7 @@ s32 ixgbe_reset_phy_nl(struct ixgbe_hw *hw )
   descriptor___7.format = "Bad control type\n";
   descriptor___7.lineno = 841U;
   descriptor___7.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -62968,7 +62966,7 @@ s32 ixgbe_identify_sfp_module_generic(struct ixgbe_hw *hw )
         descriptor.format = "SFP+ module not supported\n";
         descriptor.lineno = 1139U;
         descriptor.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -63189,7 +63187,7 @@ static s32 ixgbe_identify_qsfp_module_generic(struct ixgbe_hw *hw )
         descriptor.format = "QSFP module not supported\n";
         descriptor.lineno = 1331U;
         descriptor.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -63301,7 +63299,7 @@ s32 ixgbe_get_sfp_init_sequence_offsets(struct ixgbe_hw *hw , u16 *list_offset ,
       descriptor.format = "SFP+ module not supported\n";
       descriptor.lineno = 1420U;
       descriptor.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -63341,7 +63339,7 @@ s32 ixgbe_get_sfp_init_sequence_offsets(struct ixgbe_hw *hw , u16 *list_offset ,
     descriptor___0.format = "No matching SFP+ module found\n";
     descriptor___0.lineno = 1433U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -63522,7 +63520,7 @@ s32 ixgbe_read_i2c_byte_generic(struct ixgbe_hw *hw , u8 byte_offset , u8 dev_ad
     descriptor.format = "I2C byte read error - Retrying.\n";
     descriptor.lineno = 1569U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -63540,7 +63538,7 @@ s32 ixgbe_read_i2c_byte_generic(struct ixgbe_hw *hw , u8 byte_offset , u8 dev_ad
     descriptor___0.format = "I2C byte read error.\n";
     descriptor___0.lineno = 1571U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -63667,7 +63665,7 @@ s32 ixgbe_write_i2c_byte_generic(struct ixgbe_hw *hw , u8 byte_offset , u8 dev_a
     descriptor.format = "I2C byte write error - Retrying.\n";
     descriptor.lineno = 1642U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -63685,7 +63683,7 @@ s32 ixgbe_write_i2c_byte_generic(struct ixgbe_hw *hw , u8 byte_offset , u8 dev_a
     descriptor___0.format = "I2C byte write error.\n";
     descriptor___0.lineno = 1644U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -63862,7 +63860,7 @@ static s32 ixgbe_get_i2c_ack(struct ixgbe_hw *hw )
     descriptor.format = "I2C ack was not received.\n";
     descriptor.lineno = 1788U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -63932,7 +63930,7 @@ static s32 ixgbe_clock_out_i2c_bit(struct ixgbe_hw *hw , bool data )
     descriptor.format = "I2C data was not set to %X\n";
     descriptor.lineno = 1854U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -64026,7 +64024,7 @@ static s32 ixgbe_set_i2c_data(struct ixgbe_hw *hw , u32 *i2cctl , bool data )
     descriptor.format = "Error - I2C data was not set to %X.\n";
     descriptor.lineno = 1931U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -67457,7 +67455,7 @@ static s32 ixgbe_reset_hw_X540(struct ixgbe_hw *hw )
     descriptor.format = "Reset polling failed to complete.\n";
     descriptor.lineno = 122U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -67579,7 +67577,7 @@ static s32 ixgbe_init_eeprom_params_X540(struct ixgbe_hw *hw )
     descriptor.format = "Eeprom params: type = %d, size = %d\n";
     descriptor.lineno = 244U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -67730,7 +67728,7 @@ static u16 ixgbe_calc_eeprom_checksum_X540(struct ixgbe_hw *hw )
     descriptor.format = "EEPROM read failed\n";
     descriptor.lineno = 369U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -67772,7 +67770,7 @@ static u16 ixgbe_calc_eeprom_checksum_X540(struct ixgbe_hw *hw )
     descriptor___0.format = "EEPROM read failed\n";
     descriptor___0.lineno = 384U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -67802,7 +67800,7 @@ static u16 ixgbe_calc_eeprom_checksum_X540(struct ixgbe_hw *hw )
     descriptor___1.format = "EEPROM read failed\n";
     descriptor___1.lineno = 394U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -67835,7 +67833,7 @@ static u16 ixgbe_calc_eeprom_checksum_X540(struct ixgbe_hw *hw )
     descriptor___2.format = "EEPROM read failed\n";
     descriptor___2.lineno = 405U;
     descriptor___2.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -67893,7 +67891,7 @@ static s32 ixgbe_validate_eeprom_checksum_X540(struct ixgbe_hw *hw , u16 *checks
     descriptor.format = "EEPROM read failed\n";
     descriptor.lineno = 440U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -67955,7 +67953,7 @@ static s32 ixgbe_update_eeprom_checksum_X540(struct ixgbe_hw *hw )
     descriptor.format = "EEPROM read failed\n";
     descriptor.lineno = 494U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -68021,7 +68019,7 @@ static s32 ixgbe_update_flash_X540(struct ixgbe_hw *hw )
     descriptor.format = "Flash update time out\n";
     descriptor.lineno = 531U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -68049,7 +68047,7 @@ static s32 ixgbe_update_flash_X540(struct ixgbe_hw *hw )
     descriptor___0.format = "Flash update complete\n";
     descriptor___0.lineno = 540U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -68067,7 +68065,7 @@ static s32 ixgbe_update_flash_X540(struct ixgbe_hw *hw )
     descriptor___1.format = "Flash update time out\n";
     descriptor___1.lineno = 542U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -68101,7 +68099,7 @@ static s32 ixgbe_update_flash_X540(struct ixgbe_hw *hw )
       descriptor___2.format = "Flash update complete\n";
       descriptor___2.lineno = 554U;
       descriptor___2.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -68119,7 +68117,7 @@ static s32 ixgbe_update_flash_X540(struct ixgbe_hw *hw )
       descriptor___3.format = "Flash update time out\n";
       descriptor___3.lineno = 556U;
       descriptor___3.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -68341,7 +68339,7 @@ static s32 ixgbe_get_swfw_sync_semaphore(struct ixgbe_hw *hw )
     descriptor.format = "Software semaphore SMBI between device drivers not granted.\n";
     descriptor.lineno = 715U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -74001,7 +73999,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -74009,7 +74007,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -74034,7 +74032,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -74042,7 +74040,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -79331,7 +79329,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -79343,7 +79341,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -79409,7 +79407,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
   }
   {
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -79441,7 +79439,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -81294,7 +81292,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -81318,7 +81316,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -81326,7 +81324,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

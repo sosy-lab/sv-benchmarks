@@ -6443,7 +6443,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 struct clk;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 extern void ldv_initialize(void) ;
@@ -6598,7 +6598,6 @@ __inline static unsigned int cpumask_weight(struct cpumask  const  *srcp )
   return ((unsigned int )tmp);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6616,7 +6615,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7251,7 +7250,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7278,7 +7277,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7314,7 +7313,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7358,7 +7357,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7389,7 +7388,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7516,7 +7515,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7527,7 +7526,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7658,7 +7657,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
   {
   {
   tmp = skb_headlen((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect(len <= tmp, 1L);
+  tmp___0 = ldv__builtin_expect(len <= tmp, 1L);
   }
   if (tmp___0 != 0L) {
     return (1);
@@ -7666,7 +7665,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
 
   }
   {
-  tmp___1 = __builtin_expect(len > skb->len, 0L);
+  tmp___1 = ldv__builtin_expect(len > skb->len, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -7961,7 +7960,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8067,7 +8066,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8077,7 +8076,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8715,7 +8714,7 @@ __inline static __be16 vlan_get_protocol(struct sk_buff  const  *skb )
     {
     tmp = skb_header_pointer(skb, 16, 2, (void *)(& proto));
     protop = (__be16 *)tmp;
-    tmp___0 = __builtin_expect((unsigned long )protop != (unsigned long )((__be16 *)0U),
+    tmp___0 = ldv__builtin_expect((unsigned long )protop != (unsigned long )((__be16 *)0U),
                                1L);
     }
     if (tmp___0 != 0L) {
@@ -8805,7 +8804,7 @@ __inline static void vmxnet3_cmd_ring_adv_next2fill(struct vmxnet3_cmd_ring *rin
   {
   {
   ring->next2fill = ring->next2fill + 1U;
-  tmp = __builtin_expect(ring->next2fill == ring->size, 0L);
+  tmp = ldv__builtin_expect(ring->next2fill == ring->size, 0L);
   }
   if (tmp != 0L) {
     ring->next2fill = 0U;
@@ -8823,7 +8822,7 @@ __inline static void vmxnet3_cmd_ring_adv_next2comp(struct vmxnet3_cmd_ring *rin
   {
   {
   ring->next2comp = ring->next2comp + 1U;
-  tmp = __builtin_expect(ring->next2comp == ring->size, 0L);
+  tmp = ldv__builtin_expect(ring->next2comp == ring->size, 0L);
   }
   if (tmp != 0L) {
     ring->next2comp = 0U;
@@ -8848,7 +8847,7 @@ __inline static void vmxnet3_comp_ring_adv_next2proc(struct vmxnet3_comp_ring *r
   {
   {
   ring->next2proc = ring->next2proc + 1U;
-  tmp = __builtin_expect(ring->next2proc == ring->size, 0L);
+  tmp = ldv__builtin_expect(ring->next2proc == ring->size, 0L);
   }
   if (tmp != 0L) {
     ring->next2proc = 0U;
@@ -9163,7 +9162,7 @@ static void vmxnet3_unmap_tx_buf(struct vmxnet3_tx_buf_info *tbi , struct pci_de
     }
   } else {
     {
-    tmp = __builtin_expect(tbi->map_type != 1U, 0L);
+    tmp = ldv__builtin_expect(tbi->map_type != 1U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9192,7 +9191,7 @@ static int vmxnet3_unmap_pkt(u32 eop_idx , struct vmxnet3_tx_queue *tq , struct 
   {
   {
   entries = 0;
-  tmp = __builtin_expect((u32 )(tq->buf_info + (unsigned long )eop_idx)->sop_idx != tq->tx_ring.next2comp,
+  tmp = ldv__builtin_expect((u32 )(tq->buf_info + (unsigned long )eop_idx)->sop_idx != tq->tx_ring.next2comp,
                          0L);
   }
   if (tmp != 0L) {
@@ -9205,7 +9204,7 @@ static int vmxnet3_unmap_pkt(u32 eop_idx , struct vmxnet3_tx_queue *tq , struct 
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)(tq->tx_ring.base + (unsigned long )eop_idx) + 13UL) == 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)(tq->tx_ring.base + (unsigned long )eop_idx) + 13UL) == 0U,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -9219,7 +9218,7 @@ static int vmxnet3_unmap_pkt(u32 eop_idx , struct vmxnet3_tx_queue *tq , struct 
   }
   {
   skb = (tq->buf_info + (unsigned long )eop_idx)->skb;
-  tmp___1 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -9234,7 +9233,7 @@ static int vmxnet3_unmap_pkt(u32 eop_idx , struct vmxnet3_tx_queue *tq , struct 
   {
   (tq->buf_info + (unsigned long )eop_idx)->skb = (struct sk_buff *)0;
   eop_idx = eop_idx + 1U;
-  tmp___2 = __builtin_expect(eop_idx == tq->tx_ring.size, 0L);
+  tmp___2 = ldv__builtin_expect(eop_idx == tq->tx_ring.size, 0L);
   }
   if (tmp___2 != 0L) {
     eop_idx = 0U;
@@ -9295,12 +9294,12 @@ static int vmxnet3_tq_tx_complete(struct vmxnet3_tx_queue *tq , struct vmxnet3_a
     {
     spin_lock(& tq->tx_lock);
     tmp___0 = vmxnet3_tq_stopped(tq, adapter);
-    tmp___1 = __builtin_expect((long )tmp___0, 0L);
+    tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
     }
     if (tmp___1 != 0L) {
       {
       tmp___2 = vmxnet3_cmd_ring_desc_avail(& tq->tx_ring);
-      tmp___3 = __builtin_expect(tmp___2 > 5, 0L);
+      tmp___3 = ldv__builtin_expect(tmp___2 > 5, 0L);
       }
       if (tmp___3 != 0L) {
         tmp___4 = 1;
@@ -9313,7 +9312,7 @@ static int vmxnet3_tq_tx_complete(struct vmxnet3_tx_queue *tq , struct vmxnet3_a
     if (tmp___4 != 0) {
       {
       tmp___5 = netif_carrier_ok((struct net_device  const  *)adapter->netdev);
-      tmp___6 = __builtin_expect((long )tmp___5, 0L);
+      tmp___6 = ldv__builtin_expect((long )tmp___5, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -9370,7 +9369,7 @@ static void vmxnet3_tq_cleanup(struct vmxnet3_tx_queue *tq , struct vmxnet3_adap
   goto ldv_50422;
   ldv_50421: 
   {
-  tmp = __builtin_expect((unsigned long )(tq->buf_info + (unsigned long )i)->skb != (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )(tq->buf_info + (unsigned long )i)->skb != (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -9381,7 +9380,7 @@ static void vmxnet3_tq_cleanup(struct vmxnet3_tx_queue *tq , struct vmxnet3_adap
     }
   } else {
     {
-    tmp___0 = __builtin_expect((tq->buf_info + (unsigned long )i)->map_type != 1U,
+    tmp___0 = ldv__builtin_expect((tq->buf_info + (unsigned long )i)->map_type != 1U,
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -9526,14 +9525,14 @@ static int vmxnet3_tq_create(struct vmxnet3_tx_queue *tq , struct vmxnet3_adapte
 
   {
   {
-  tmp = __builtin_expect((unsigned long )tq->tx_ring.base != (unsigned long )((union Vmxnet3_GenericDesc *)0),
+  tmp = ldv__builtin_expect((unsigned long )tq->tx_ring.base != (unsigned long )((union Vmxnet3_GenericDesc *)0),
                          0L);
   }
   if (tmp != 0L) {
     tmp___1 = 1;
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )tq->data_ring.base != (unsigned long )((struct Vmxnet3_TxDataDesc *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )tq->data_ring.base != (unsigned long )((struct Vmxnet3_TxDataDesc *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -9546,7 +9545,7 @@ static int vmxnet3_tq_create(struct vmxnet3_tx_queue *tq , struct vmxnet3_adapte
     tmp___3 = 1;
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned long )tq->comp_ring.base != (unsigned long )((union Vmxnet3_GenericDesc *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )tq->comp_ring.base != (unsigned long )((union Vmxnet3_GenericDesc *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -9563,7 +9562,7 @@ static int vmxnet3_tq_create(struct vmxnet3_tx_queue *tq , struct vmxnet3_adapte
     }
   } else {
     {
-    tmp___4 = __builtin_expect((unsigned long )tq->buf_info != (unsigned long )((struct vmxnet3_tx_buf_info *)0),
+    tmp___4 = ldv__builtin_expect((unsigned long )tq->buf_info != (unsigned long )((struct vmxnet3_tx_buf_info *)0),
                                0L);
     }
     if (tmp___4 != 0L) {
@@ -9687,7 +9686,7 @@ static int vmxnet3_rq_alloc_rx_buf(struct vmxnet3_rx_queue *rq , u32 ring_idx , 
       {
       rbi->__annonCompField91.skb = __netdev_alloc_skb_ip_align(adapter->netdev, (unsigned int )rbi->len,
                                                                 208U);
-      tmp = __builtin_expect((unsigned long )rbi->__annonCompField91.skb == (unsigned long )((struct sk_buff *)0),
+      tmp = ldv__builtin_expect((unsigned long )rbi->__annonCompField91.skb == (unsigned long )((struct sk_buff *)0),
                              0L);
       }
       if (tmp != 0L) {
@@ -9706,7 +9705,7 @@ static int vmxnet3_rq_alloc_rx_buf(struct vmxnet3_rx_queue *rq , u32 ring_idx , 
     val = 0U;
   } else {
     {
-    tmp___0 = __builtin_expect(*((unsigned long *)rbi + 0UL) != 17592186044418UL,
+    tmp___0 = ldv__builtin_expect(*((unsigned long *)rbi + 0UL) != 17592186044418UL,
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -9721,7 +9720,7 @@ static int vmxnet3_rq_alloc_rx_buf(struct vmxnet3_rx_queue *rq , u32 ring_idx , 
     if ((unsigned long )rbi->__annonCompField91.page == (unsigned long )((struct page *)0)) {
       {
       rbi->__annonCompField91.page = alloc_pages(32U, 0U);
-      tmp___1 = __builtin_expect((unsigned long )rbi->__annonCompField91.page == (unsigned long )((struct page *)0),
+      tmp___1 = ldv__builtin_expect((unsigned long )rbi->__annonCompField91.page == (unsigned long )((struct page *)0),
                                  0L);
       }
       if (tmp___1 != 0L) {
@@ -9740,7 +9739,7 @@ static int vmxnet3_rq_alloc_rx_buf(struct vmxnet3_rx_queue *rq , u32 ring_idx , 
     val = 16384U;
   }
   {
-  tmp___2 = __builtin_expect(rbi->dma_addr == 0ULL, 0L);
+  tmp___2 = ldv__builtin_expect(rbi->dma_addr == 0ULL, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -9777,7 +9776,7 @@ static int vmxnet3_rq_alloc_rx_buf(struct vmxnet3_rx_queue *rq , u32 ring_idx , 
   descriptor.format = "alloc_rx_buf: %d allocated, next2fill %u, next2comp %u\n";
   descriptor.lineno = 631U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9789,11 +9788,11 @@ static int vmxnet3_rq_alloc_rx_buf(struct vmxnet3_rx_queue *rq , u32 ring_idx , 
 
   }
   {
-  tmp___4 = __builtin_expect(num_allocated != 0, 0L);
+  tmp___4 = ldv__builtin_expect(num_allocated != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
-    tmp___5 = __builtin_expect(ring->next2fill == ring->next2comp, 0L);
+    tmp___5 = ldv__builtin_expect(ring->next2fill == ring->next2comp, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -9826,7 +9825,7 @@ static void vmxnet3_append_frag(struct sk_buff *skb , struct Vmxnet3_RxCompDesc 
   tmp___0 = skb_end_pointer((struct sk_buff  const  *)skb);
   frag = (struct skb_frag_struct *)(& ((struct skb_shared_info *)tmp)->frags) + (unsigned long )((struct skb_shared_info *)tmp___0)->nr_frags;
   tmp___1 = skb_end_pointer((struct sk_buff  const  *)skb);
-  tmp___2 = __builtin_expect((unsigned int )((struct skb_shared_info *)tmp___1)->nr_frags > 16U,
+  tmp___2 = ldv__builtin_expect((unsigned int )((struct skb_shared_info *)tmp___1)->nr_frags > 16U,
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -9880,7 +9879,7 @@ static void vmxnet3_map_pkt(struct sk_buff *skb , struct vmxnet3_tx_ctx *ctx , s
   {
   tbi = (struct vmxnet3_tx_buf_info *)0;
   tmp = skb_headlen((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect(ctx->copy_size > tmp, 0L);
+  tmp___0 = ldv__builtin_expect(ctx->copy_size > tmp, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9907,7 +9906,7 @@ static void vmxnet3_map_pkt(struct sk_buff *skb , struct vmxnet3_tx_ctx *ctx , s
     descriptor.format = "txd[%u]: 0x%Lx 0x%x 0x%x\n";
     descriptor.lineno = 692U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9945,7 +9944,7 @@ static void vmxnet3_map_pkt(struct sk_buff *skb , struct vmxnet3_tx_ctx *ctx , s
                                        (size_t )buf_size, 1, (struct dma_attrs *)0);
   tbi->len = (u16 )buf_size;
   gdesc = tq->tx_ring.base + (unsigned long )tq->tx_ring.next2fill;
-  tmp___3 = __builtin_expect((int )gdesc->txd.gen == (int )tq->tx_ring.gen, 0L);
+  tmp___3 = ldv__builtin_expect((int )gdesc->txd.gen == (int )tq->tx_ring.gen, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9966,7 +9965,7 @@ static void vmxnet3_map_pkt(struct sk_buff *skb , struct vmxnet3_tx_ctx *ctx , s
   descriptor___0.format = "txd[%u]: 0x%Lx 0x%x 0x%x\n";
   descriptor___0.lineno = 731U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -10013,7 +10012,7 @@ static void vmxnet3_map_pkt(struct sk_buff *skb , struct vmxnet3_tx_ctx *ctx , s
                                    1);
   tbi->len = (u16 )buf_size___0;
   gdesc = tq->tx_ring.base + (unsigned long )tq->tx_ring.next2fill;
-  tmp___6 = __builtin_expect((int )gdesc->txd.gen == (int )tq->tx_ring.gen, 0L);
+  tmp___6 = ldv__builtin_expect((int )gdesc->txd.gen == (int )tq->tx_ring.gen, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -10034,7 +10033,7 @@ static void vmxnet3_map_pkt(struct sk_buff *skb , struct vmxnet3_tx_ctx *ctx , s
   descriptor___1.format = "txd[%u]: 0x%llu %u %u\n";
   descriptor___1.lineno = 771U;
   descriptor___1.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -10162,7 +10161,7 @@ static int vmxnet3_parse_and_copy_hdr(struct sk_buff *skb , struct vmxnet3_tx_qu
     }
     {
     tmp___3 = pskb_may_pull(skb, ctx->copy_size);
-    tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+    tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
     }
     if (tmp___4 != 0L) {
       goto err;
@@ -10171,7 +10170,7 @@ static int vmxnet3_parse_and_copy_hdr(struct sk_buff *skb , struct vmxnet3_tx_qu
     }
   }
   {
-  tmp___5 = __builtin_expect(ctx->copy_size > 128U, 0L);
+  tmp___5 = ldv__builtin_expect(ctx->copy_size > 128U, 0L);
   }
   if (tmp___5 != 0L) {
     tq->stats.oversized_hdr = tq->stats.oversized_hdr + 1ULL;
@@ -10189,7 +10188,7 @@ static int vmxnet3_parse_and_copy_hdr(struct sk_buff *skb , struct vmxnet3_tx_qu
   descriptor.format = "copy %u bytes to dataRing[%u]\n";
   descriptor.lineno = 870U;
   descriptor.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -10322,7 +10321,7 @@ static int vmxnet3_tq_xmit(struct sk_buff *skb , struct vmxnet3_tx_queue *tq , s
     if (tmp___4 != 0) {
       {
       tmp___2 = pskb_expand_head(skb, 0, 0, 32U);
-      tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+      tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
       }
       if (tmp___3 != 0L) {
         tq->stats.drop_tso = tq->stats.drop_tso + 1ULL;
@@ -10339,7 +10338,7 @@ static int vmxnet3_tq_xmit(struct sk_buff *skb , struct vmxnet3_tx_queue *tq , s
     }
   } else {
     {
-    tmp___7 = __builtin_expect(count > 16U, 0L);
+    tmp___7 = ldv__builtin_expect(count > 16U, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -10374,7 +10373,7 @@ static int vmxnet3_tq_xmit(struct sk_buff *skb , struct vmxnet3_tx_queue *tq , s
     descriptor.format = "tx queue stopped on %s, next2comp %u next2fill %u\n";
     descriptor.lineno = 977U;
     descriptor.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -10399,11 +10398,11 @@ static int vmxnet3_tq_xmit(struct sk_buff *skb , struct vmxnet3_tx_queue *tq , s
   }
   if (ret >= 0) {
     {
-    tmp___11 = __builtin_expect(ret <= 0, 0L);
+    tmp___11 = ldv__builtin_expect(ret <= 0, 0L);
     }
     if (tmp___11 != 0L) {
       {
-      tmp___12 = __builtin_expect(ctx.copy_size != 0U, 0L);
+      tmp___12 = ldv__builtin_expect(ctx.copy_size != 0U, 0L);
       }
       if (tmp___12 != 0L) {
         {
@@ -10419,7 +10418,7 @@ static int vmxnet3_tq_xmit(struct sk_buff *skb , struct vmxnet3_tx_queue *tq , s
     }
     if ((unsigned int )ctx.mss != 0U) {
       {
-      tmp___13 = __builtin_expect(ctx.eth_ip_hdr_size + ctx.l4_hdr_size > 16384U,
+      tmp___13 = ldv__builtin_expect(ctx.eth_ip_hdr_size + ctx.l4_hdr_size > 16384U,
                                   0L);
       }
       if (tmp___13 != 0L) {
@@ -10430,7 +10429,7 @@ static int vmxnet3_tq_xmit(struct sk_buff *skb , struct vmxnet3_tx_queue *tq , s
     } else
     if ((unsigned int )*((unsigned char *)skb + 124UL) == 12U) {
       {
-      tmp___14 = __builtin_expect(ctx.eth_ip_hdr_size + (u32 )skb->__annonCompField68.__annonCompField67.csum_offset > 1024U,
+      tmp___14 = ldv__builtin_expect(ctx.eth_ip_hdr_size + (u32 )skb->__annonCompField68.__annonCompField67.csum_offset > 1024U,
                                   0L);
       }
       if (tmp___14 != 0L) {
@@ -10484,7 +10483,7 @@ static int vmxnet3_tq_xmit(struct sk_buff *skb , struct vmxnet3_tx_queue *tq , s
   descriptor___0.format = "txd[%u]: SOP 0x%Lx 0x%x 0x%x\n";
   descriptor___0.lineno = 1061U;
   descriptor___0.flags = 0U;
-  tmp___15 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -10532,7 +10531,7 @@ static netdev_tx_t vmxnet3_xmit_frame(struct sk_buff *skb , struct net_device *n
   {
   tmp = netdev_priv((struct net_device  const  *)netdev);
   adapter = (struct vmxnet3_adapter *)tmp;
-  tmp___0 = __builtin_expect((u32 )skb->queue_mapping > adapter->num_tx_queues, 0L);
+  tmp___0 = ldv__builtin_expect((u32 )skb->queue_mapping > adapter->num_tx_queues, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10563,7 +10562,7 @@ static void vmxnet3_rx_csum(struct vmxnet3_adapter *adapter , struct sk_buff *sk
     if ((gdesc->dword[3] & 589824U) == 589824U) {
       {
       skb->ip_summed = 1U;
-      tmp = __builtin_expect((unsigned int )*((unsigned char *)gdesc + 14UL) == 0U,
+      tmp = ldv__builtin_expect((unsigned int )*((unsigned char *)gdesc + 14UL) == 0U,
                              0L);
       }
       if (tmp != 0L) {
@@ -10576,7 +10575,7 @@ static void vmxnet3_rx_csum(struct vmxnet3_adapter *adapter , struct sk_buff *sk
 
       }
       {
-      tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)gdesc + 14UL) == 0U,
+      tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)gdesc + 14UL) == 0U,
                                  0L);
       }
       if (tmp___0 != 0L) {
@@ -10589,7 +10588,7 @@ static void vmxnet3_rx_csum(struct vmxnet3_adapter *adapter , struct sk_buff *sk
 
       }
       {
-      tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)gdesc + 14UL) != 0U,
+      tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)gdesc + 14UL) != 0U,
                                  0L);
       }
       if (tmp___1 != 0L) {
@@ -10705,11 +10704,11 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
   }
   {
   num_rxd = num_rxd + 1U;
-  tmp = __builtin_expect(rcd->rqID != rq->qid, 0L);
+  tmp = ldv__builtin_expect(rcd->rqID != rq->qid, 0L);
   }
   if (tmp != 0L) {
     {
-    tmp___0 = __builtin_expect(rcd->rqID != rq->qid2, 0L);
+    tmp___0 = ldv__builtin_expect(rcd->rqID != rq->qid2, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10729,7 +10728,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
   ring = (struct vmxnet3_cmd_ring *)(& rq->rx_ring) + (unsigned long )ring_idx;
   rxd = & (rq->rx_ring[ring_idx].base + (unsigned long )idx)->rxd;
   rbi = rq->buf_info[ring_idx] + (unsigned long )idx;
-  tmp___1 = __builtin_expect(rxd->addr != rbi->dma_addr, 0L);
+  tmp___1 = ldv__builtin_expect(rxd->addr != rbi->dma_addr, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10739,7 +10738,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
     }
   } else {
     {
-    tmp___2 = __builtin_expect((int )rxd->len != (int )rbi->len, 0L);
+    tmp___2 = ldv__builtin_expect((int )rxd->len != (int )rbi->len, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10752,11 +10751,11 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
     }
   }
   {
-  tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)rcd + 1UL) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)rcd + 1UL) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
-    tmp___4 = __builtin_expect((unsigned int )*((unsigned char *)rcd + 9UL) != 0U,
+    tmp___4 = ldv__builtin_expect((unsigned int )*((unsigned char *)rcd + 9UL) != 0U,
                                0L);
     }
     if (tmp___4 != 0L) {
@@ -10772,7 +10771,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
   }
   if ((unsigned int )*((unsigned char *)rcd + 1UL) != 0U) {
     {
-    tmp___5 = __builtin_expect((unsigned int )*((unsigned char *)rxd + 9UL) != 0U,
+    tmp___5 = ldv__builtin_expect((unsigned int )*((unsigned char *)rxd + 9UL) != 0U,
                                0L);
     }
     if (tmp___5 != 0L) {
@@ -10783,7 +10782,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
       }
     } else {
       {
-      tmp___6 = __builtin_expect(rcd->rqID != rq->qid, 0L);
+      tmp___6 = ldv__builtin_expect(rcd->rqID != rq->qid, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -10796,7 +10795,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
       }
     }
     {
-    tmp___7 = __builtin_expect((unsigned int )rbi->buf_type != 1U, 0L);
+    tmp___7 = ldv__builtin_expect((unsigned int )rbi->buf_type != 1U, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -10808,7 +10807,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
 
     }
     {
-    tmp___8 = __builtin_expect((unsigned long )ctx->skb != (unsigned long )((struct sk_buff *)0),
+    tmp___8 = ldv__builtin_expect((unsigned long )ctx->skb != (unsigned long )((struct sk_buff *)0),
                                0L);
     }
     if (tmp___8 != 0L) {
@@ -10819,7 +10818,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
       }
     } else {
       {
-      tmp___9 = __builtin_expect((unsigned long )rbi->__annonCompField91.skb == (unsigned long )((struct sk_buff *)0),
+      tmp___9 = ldv__builtin_expect((unsigned long )rbi->__annonCompField91.skb == (unsigned long )((struct sk_buff *)0),
                                  0L);
       }
       if (tmp___9 != 0L) {
@@ -10833,12 +10832,12 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
       }
     }
     {
-    tmp___12 = __builtin_expect((unsigned int )*((unsigned short *)rcd + 4UL) == 0U,
+    tmp___12 = ldv__builtin_expect((unsigned int )*((unsigned short *)rcd + 4UL) == 0U,
                                 0L);
     }
     if (tmp___12 != 0L) {
       {
-      tmp___10 = __builtin_expect((unsigned int )*((unsigned char *)rcd + 1UL) != 192U,
+      tmp___10 = ldv__builtin_expect((unsigned int )*((unsigned char *)rcd + 1UL) != 192U,
                                   0L);
       }
       if (tmp___10 != 0L) {
@@ -10857,7 +10856,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
       descriptor.format = "rxRing[%u][%u] 0 length\n";
       descriptor.lineno = 1212U;
       descriptor.flags = 0U;
-      tmp___11 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -10906,12 +10905,12 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
     }
   } else {
     {
-    tmp___13 = __builtin_expect((unsigned long )ctx->skb == (unsigned long )((struct sk_buff *)0),
+    tmp___13 = ldv__builtin_expect((unsigned long )ctx->skb == (unsigned long )((struct sk_buff *)0),
                                 0L);
     }
     if (tmp___13 != 0L) {
       {
-      tmp___14 = __builtin_expect((long )(! skip_page_frags), 0L);
+      tmp___14 = ldv__builtin_expect((long )(! skip_page_frags), 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -10926,7 +10925,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
 
     }
     {
-    tmp___15 = __builtin_expect((unsigned int )rbi->buf_type != 2U, 0L);
+    tmp___15 = ldv__builtin_expect((unsigned int )rbi->buf_type != 2U, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -10938,7 +10937,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
 
     }
     {
-    tmp___16 = __builtin_expect((unsigned int )*((unsigned char *)rxd + 9UL) == 0U,
+    tmp___16 = ldv__builtin_expect((unsigned int )*((unsigned char *)rxd + 9UL) == 0U,
                                 0L);
     }
     if (tmp___16 != 0L) {
@@ -10957,7 +10956,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
     }
     {
     new_page = alloc_pages(32U, 0U);
-    tmp___17 = __builtin_expect((unsigned long )new_page == (unsigned long )((struct page *)0),
+    tmp___17 = ldv__builtin_expect((unsigned long )new_page == (unsigned long )((struct page *)0),
                                 0L);
     }
     if (tmp___17 != 0L) {
@@ -10993,7 +10992,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
     skb->len = skb->len + skb->data_len;
     vmxnet3_rx_csum(adapter, skb, (union Vmxnet3_GenericDesc *)rcd);
     skb->protocol = eth_type_trans(skb, adapter->netdev);
-    tmp___18 = __builtin_expect((int )((signed char )*((unsigned char *)rcd + 9UL)) < 0,
+    tmp___18 = ldv__builtin_expect((int )((signed char )*((unsigned char *)rcd + 9UL)) < 0,
                                 0L);
     }
     if (tmp___18 != 0L) {
@@ -11026,7 +11025,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
   ldv_50607: 
   {
   rxd = & (ring->base + (unsigned long )ring->next2fill)->rxd;
-  tmp___19 = __builtin_expect(rxd->addr == 0ULL, 0L);
+  tmp___19 = ldv__builtin_expect(rxd->addr == 0ULL, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -11049,7 +11048,7 @@ static int vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq , struct vmxnet3_a
 
   }
   {
-  tmp___20 = __builtin_expect((long )(rq->shared)->updateRxProd, 0L);
+  tmp___20 = ldv__builtin_expect((long )(rq->shared)->updateRxProd, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -11166,7 +11165,7 @@ static void vmxnet3_rq_destroy(struct vmxnet3_rx_queue *rq , struct vmxnet3_adap
     goto ldv_50639;
     ldv_50638: 
     {
-    tmp = __builtin_expect((unsigned long )(rq->buf_info[i] + (unsigned long )j)->__annonCompField91.page != (unsigned long )((struct page *)0),
+    tmp = ldv__builtin_expect((unsigned long )(rq->buf_info[i] + (unsigned long )j)->__annonCompField91.page != (unsigned long )((struct page *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -11323,7 +11322,7 @@ static int vmxnet3_rq_init_all(struct vmxnet3_adapter *adapter )
   {
   err = vmxnet3_rq_init((struct vmxnet3_rx_queue *)(& adapter->rx_queue) + (unsigned long )i,
                         adapter);
-  tmp = __builtin_expect(err != 0, 0L);
+  tmp = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11428,7 +11427,7 @@ static int vmxnet3_rq_create_all(struct vmxnet3_adapter *adapter )
   {
   err = vmxnet3_rq_create((struct vmxnet3_rx_queue *)(& adapter->rx_queue) + (unsigned long )i,
                           adapter);
-  tmp = __builtin_expect(err != 0, 0L);
+  tmp = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11465,7 +11464,7 @@ static int vmxnet3_do_poll(struct vmxnet3_adapter *adapter , int budget )
   {
   {
   rcd_done = 0;
-  tmp = __builtin_expect((adapter->shared)->ecr != 0U, 0L);
+  tmp = ldv__builtin_expect((adapter->shared)->ecr != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11680,7 +11679,7 @@ static irqreturn_t vmxnet3_intr(int irq , void *dev_id )
     {
     tmp___0 = readl((void const volatile   *)adapter->hw_addr1 + 56U);
     icr = tmp___0;
-    tmp___1 = __builtin_expect(icr == 0U, 0L);
+    tmp___1 = ldv__builtin_expect(icr == 0U, 0L);
     }
     if (tmp___1 != 0L) {
       return (0);
@@ -11956,7 +11955,7 @@ static void vmxnet3_free_irqs(struct vmxnet3_adapter *adapter )
   {
   {
   intr = & adapter->intr;
-  tmp = __builtin_expect((unsigned int )intr->type == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )intr->type == 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11966,7 +11965,7 @@ static void vmxnet3_free_irqs(struct vmxnet3_adapter *adapter )
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned int )intr->num_intrs == 0U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )intr->num_intrs == 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12039,7 +12038,7 @@ static void vmxnet3_free_irqs(struct vmxnet3_adapter *adapter )
   }
   {
   ldv_free_irq_17(intr->msix_entries[vector].vector, (void *)adapter->netdev);
-  tmp___3 = __builtin_expect(vector >= (int )intr->num_intrs, 0L);
+  tmp___3 = ldv__builtin_expect(vector >= (int )intr->num_intrs, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -12389,7 +12388,7 @@ static void vmxnet3_setup_driver_shared(struct vmxnet3_adapter *adapter )
   ldv_50878: 
   {
   tq = (struct vmxnet3_tx_queue *)(& adapter->tx_queue) + (unsigned long )i;
-  tmp = __builtin_expect((unsigned long )adapter->tx_queue[i].tx_ring.base == (unsigned long )((union Vmxnet3_GenericDesc *)0),
+  tmp = ldv__builtin_expect((unsigned long )adapter->tx_queue[i].tx_ring.base == (unsigned long )((union Vmxnet3_GenericDesc *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -12555,7 +12554,7 @@ int vmxnet3_activate_dev(struct vmxnet3_adapter *adapter )
   descriptor.format = "%s: skb_buf_size %d, rx_buf_per_pkt %d, ring sizes %u %u %u\n";
   descriptor.lineno = 2263U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12879,7 +12878,7 @@ static void vmxnet3_free_pci_resources(struct vmxnet3_adapter *adapter )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )adapter->pdev == (unsigned long )((struct pci_dev *)0),
+  tmp = ldv__builtin_expect((unsigned long )adapter->pdev == (unsigned long )((struct pci_dev *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -13133,7 +13132,7 @@ void vmxnet3_force_close(struct vmxnet3_adapter *adapter )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& adapter->state));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13436,7 +13435,7 @@ static void vmxnet3_free_intr_resources(struct vmxnet3_adapter *adapter )
     }
   } else {
     {
-    tmp = __builtin_expect((unsigned int )adapter->intr.type != 1U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )adapter->intr.type != 1U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13783,7 +13782,7 @@ static int vmxnet3_probe_device(struct pci_dev *pdev , struct pci_device_id  con
     descriptor.format = "RSS is enabled.\n";
     descriptor.lineno = 3082U;
     descriptor.flags = 0U;
-    tmp___145 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___145 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___145 != 0L) {
       {
@@ -14285,7 +14284,7 @@ void ldv_dummy_resourceless_instance_callback_4_7(void (*arg0)(struct net_device
                                                   struct net_device *arg1 , struct ethtool_stats *arg2 ,
                                                   unsigned long long *arg3 ) ;
 void ldv_entry_EMGentry_19(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -15188,7 +15187,7 @@ void ldv_entry_EMGentry_19(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -19443,7 +19442,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -19467,7 +19466,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -19475,7 +19474,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

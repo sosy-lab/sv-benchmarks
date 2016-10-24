@@ -6104,7 +6104,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 int ldv_filter_err_code(int ret_val ) ;
@@ -6201,12 +6201,12 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
   {
   {
   __ret_warn_once = cpu >= (unsigned int )nr_cpu_ids;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6216,7 +6216,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -6227,7 +6227,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (cpu);
 }
@@ -6251,7 +6251,6 @@ __inline static unsigned int cpumask_next(int n , struct cpumask  const  *srcp )
   return ((unsigned int )tmp);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6269,7 +6268,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6304,7 +6303,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6338,7 +6337,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6597,12 +6596,12 @@ __inline static void get_page(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     tmp = __get_page_tail(page);
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
     }
     if (tmp___0 != 0L) {
       return;
@@ -6614,7 +6613,7 @@ __inline static void get_page(struct page *page )
   }
   {
   tmp___3 = atomic_read((atomic_t const   *)(& page->__annonCompField43.__annonCompField42.__annonCompField41._count));
-  tmp___4 = __builtin_expect(tmp___3 <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 <= 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7055,7 +7054,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7173,7 +7172,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7183,7 +7182,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7419,7 +7418,7 @@ __inline static bool netif_needs_gso(struct sk_buff *skb , netdev_features_t fea
       tmp___3 = 1;
     } else {
       {
-      tmp___2 = __builtin_expect((long )((unsigned int )*((unsigned char *)skb + 124UL) != 12U && (unsigned int )*((unsigned char *)skb + 124UL) != 4U),
+      tmp___2 = ldv__builtin_expect((long )((unsigned int )*((unsigned char *)skb + 124UL) != 12U && (unsigned int )*((unsigned char *)skb + 124UL) != 4U),
                                  0L);
       }
       if (tmp___2 != 0L) {
@@ -7654,7 +7653,7 @@ static void xennet_maybe_wake_tx(struct net_device *dev )
   tmp = netdev_priv((struct net_device  const  *)dev);
   np = (struct netfront_info *)tmp;
   tmp___0 = netif_queue_stopped((struct net_device  const  *)dev);
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7663,7 +7662,7 @@ static void xennet_maybe_wake_tx(struct net_device *dev )
     if (tmp___2 != 0) {
       {
       tmp___3 = netif_running((struct net_device  const  *)dev);
-      tmp___4 = __builtin_expect((long )tmp___3, 1L);
+      tmp___4 = ldv__builtin_expect((long )tmp___3, 1L);
       }
       if (tmp___4 != 0L) {
         {
@@ -7727,7 +7726,7 @@ static void xennet_alloc_rx_buffers(struct net_device *dev )
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
   }
   if (tmp___2 != 0L) {
     return;
@@ -7743,7 +7742,7 @@ static void xennet_alloc_rx_buffers(struct net_device *dev )
   ldv_54039: 
   {
   skb = ldv___netdev_alloc_skb_102(dev, 256U, 544U);
-  tmp___4 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___4 != 0L) {
@@ -7820,7 +7819,7 @@ static void xennet_alloc_rx_buffers(struct net_device *dev )
   skb->dev = dev;
   tmp___6 = xennet_rxidx(req_prod + (RING_IDX )i);
   id = (unsigned short )tmp___6;
-  tmp___7 = __builtin_expect((unsigned long )np->rx_skbs[(int )id] != (unsigned long )((struct sk_buff *)0),
+  tmp___7 = ldv__builtin_expect((unsigned long )np->rx_skbs[(int )id] != (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___7 != 0L) {
@@ -7836,7 +7835,7 @@ static void xennet_alloc_rx_buffers(struct net_device *dev )
   np->rx_skbs[(int )id] = skb;
   tmp___8 = gnttab_claim_grant_reference(& np->gref_rx_head);
   ref = (grant_ref_t )tmp___8;
-  tmp___9 = __builtin_expect((int )((short )ref) < 0, 0L);
+  tmp___9 = ldv__builtin_expect((int )((short )ref) < 0, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -7947,7 +7946,7 @@ static void xennet_tx_buf_gc(struct net_device *dev )
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7974,7 +7973,7 @@ static void xennet_tx_buf_gc(struct net_device *dev )
   id = txrsp->id;
   skb = np->tx_skbs[(int )id].skb;
   tmp___3 = gnttab_query_foreign_access(np->grant_tx_ref[(int )id]);
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8084,7 +8083,7 @@ static void xennet_make_frags(struct sk_buff *skb , struct net_device *dev , str
   tx->id = (uint16_t )id;
   tmp___4 = gnttab_claim_grant_reference(& np->gref_tx_head);
   ref = (grant_ref_t )tmp___4;
-  tmp___5 = __builtin_expect((int )((short )ref) < 0, 0L);
+  tmp___5 = ldv__builtin_expect((int )((short )ref) < 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -8126,7 +8125,7 @@ static void xennet_make_frags(struct sk_buff *skb , struct net_device *dev , str
   len = skb_frag_size((skb_frag_t const   *)frag);
   offset = frag->page_offset;
   tmp___11 = compound_order(page);
-  tmp___12 = __builtin_expect((unsigned long )(len + offset) > 4096UL << tmp___11,
+  tmp___12 = ldv__builtin_expect((unsigned long )(len + offset) > 4096UL << tmp___11,
                               0L);
   }
   if (tmp___12 != 0L) {
@@ -8143,7 +8142,7 @@ static void xennet_make_frags(struct sk_buff *skb , struct net_device *dev , str
   goto ldv_54088;
   ldv_54087: 
   {
-  tmp___13 = __builtin_expect(offset > 4095U, 0L);
+  tmp___13 = ldv__builtin_expect(offset > 4095U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -8171,7 +8170,7 @@ static void xennet_make_frags(struct sk_buff *skb , struct net_device *dev , str
   tx->id = (uint16_t )id;
   tmp___16 = gnttab_claim_grant_reference(& np->gref_tx_head);
   ref = (grant_ref_t )tmp___16;
-  tmp___17 = __builtin_expect((int )((short )ref) < 0, 0L);
+  tmp___17 = ldv__builtin_expect((int )((short )ref) < 0, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -8199,7 +8198,7 @@ static void xennet_make_frags(struct sk_buff *skb , struct net_device *dev , str
   if (offset == 4096U && len != 0U) {
     {
     tmp___19 = PageCompound(page);
-    tmp___20 = __builtin_expect(tmp___19 == 0, 0L);
+    tmp___20 = ldv__builtin_expect(tmp___19 == 0, 0L);
     }
     if (tmp___20 != 0L) {
       {
@@ -8333,7 +8332,7 @@ static int xennet_start_xmit(struct sk_buff *skb , struct net_device *dev )
   offset = (unsigned int )((long )data) & 4095U;
   tmp___0 = skb_headlen((struct sk_buff  const  *)skb);
   len = tmp___0;
-  tmp___2 = __builtin_expect(skb->len > 65535U, 0L);
+  tmp___2 = ldv__builtin_expect(skb->len > 65535U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8353,7 +8352,7 @@ static int xennet_start_xmit(struct sk_buff *skb , struct net_device *dev )
   {
   tmp___3 = xennet_count_skb_frag_slots(skb);
   slots = (int )((unsigned int )(((unsigned long )(offset + len) + 4095UL) / 4096UL) + (unsigned int )tmp___3);
-  tmp___5 = __builtin_expect((unsigned int )slots > 18U, 0L);
+  tmp___5 = ldv__builtin_expect((unsigned int )slots > 18U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -8380,13 +8379,13 @@ static int xennet_start_xmit(struct sk_buff *skb , struct net_device *dev )
     tmp___7 = 1;
   }
   {
-  tmp___8 = __builtin_expect((long )tmp___7, 0L);
+  tmp___8 = ldv__builtin_expect((long )tmp___7, 0L);
   }
   if (tmp___8 != 0L) {
     tmp___14 = 1;
   } else {
     {
-    tmp___9 = __builtin_expect(slots > 1, 0L);
+    tmp___9 = ldv__builtin_expect(slots > 1, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -8398,7 +8397,7 @@ static int xennet_start_xmit(struct sk_buff *skb , struct net_device *dev )
         tmp___11 = 1;
       }
       {
-      tmp___12 = __builtin_expect((long )tmp___11, 0L);
+      tmp___12 = ldv__builtin_expect((long )tmp___11, 0L);
       }
       if (tmp___12 != 0L) {
         tmp___13 = 1;
@@ -8423,7 +8422,7 @@ static int xennet_start_xmit(struct sk_buff *skb , struct net_device *dev )
     {
     tmp___15 = netif_skb_features(skb);
     tmp___16 = netif_needs_gso(skb, tmp___15);
-    tmp___17 = __builtin_expect((long )tmp___16, 0L);
+    tmp___17 = ldv__builtin_expect((long )tmp___16, 0L);
     }
     if (tmp___17 != 0L) {
       {
@@ -8442,7 +8441,7 @@ static int xennet_start_xmit(struct sk_buff *skb , struct net_device *dev )
   tx->id = id;
   tmp___18 = gnttab_claim_grant_reference(& np->gref_tx_head);
   ref = (grant_ref_t )tmp___18;
-  tmp___19 = __builtin_expect((int )((short )ref) < 0, 0L);
+  tmp___19 = ldv__builtin_expect((int )((short )ref) < 0, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -8565,7 +8564,7 @@ static void xennet_move_rx_slot(struct netfront_info *np , struct sk_buff *skb ,
   {
   tmp = xennet_rxidx(np->rx.req_prod_pvt);
   new = tmp;
-  tmp___0 = __builtin_expect((unsigned long )np->rx_skbs[new] != (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )np->rx_skbs[new] != (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -8605,7 +8604,7 @@ static int xennet_get_extras(struct netfront_info *np , struct xen_netif_extra_i
   err = 0;
   ldv_54151: 
   {
-  tmp___0 = __builtin_expect(cons + 1U == rp, 0L);
+  tmp___0 = ldv__builtin_expect(cons + 1U == rp, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8626,7 +8625,7 @@ static int xennet_get_extras(struct netfront_info *np , struct xen_netif_extra_i
   {
   cons = cons + 1U;
   extra = (struct xen_netif_extra_info *)(& (np->rx.sring)->ring[cons & (np->rx.nr_ents - 1U)].rsp);
-  tmp___2 = __builtin_expect((unsigned int )extra->type != 1U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )extra->type != 1U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8711,13 +8710,13 @@ static int xennet_get_responses(struct netfront_info *np , struct netfront_rx_in
   }
   ldv_54170: 
   {
-  tmp___2 = __builtin_expect((int )rx->status < 0, 0L);
+  tmp___2 = ldv__builtin_expect((int )rx->status < 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto _L;
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned int )((int )rx->offset + (int )rx->status) > 4096U,
+    tmp___3 = ldv__builtin_expect((unsigned int )((int )rx->offset + (int )rx->status) > 4096U,
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -8761,7 +8760,7 @@ static int xennet_get_responses(struct netfront_info *np , struct netfront_rx_in
   {
   tmp___5 = gnttab_end_foreign_access_ref(ref, 0);
   ret = (unsigned long )tmp___5;
-  tmp___6 = __builtin_expect(ret == 0UL, 0L);
+  tmp___6 = ldv__builtin_expect(ret == 0UL, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -8807,7 +8806,7 @@ static int xennet_get_responses(struct netfront_info *np , struct netfront_rx_in
   goto ldv_54170;
   ldv_54169: 
   {
-  tmp___9 = __builtin_expect(slots > max, 0L);
+  tmp___9 = ldv__builtin_expect(slots > max, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -8825,7 +8824,7 @@ static int xennet_get_responses(struct netfront_info *np , struct netfront_rx_in
 
   }
   {
-  tmp___10 = __builtin_expect(err != 0, 0L);
+  tmp___10 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___10 != 0L) {
     np->rx.rsp_cons = cons + (RING_IDX )slots;
@@ -8924,7 +8923,7 @@ static RING_IDX xennet_fill_frags(struct netfront_info *np , struct sk_buff *skb
     {
     pull_to = (unsigned int )((struct netfront_cb *)(& skb->cb))->pull_to;
     tmp___1 = skb_headlen((struct sk_buff  const  *)skb);
-    tmp___2 = __builtin_expect(pull_to <= tmp___1, 0L);
+    tmp___2 = ldv__builtin_expect(pull_to <= tmp___1, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8943,7 +8942,7 @@ static RING_IDX xennet_fill_frags(struct netfront_info *np , struct sk_buff *skb
 
   }
   {
-  tmp___4 = __builtin_expect((unsigned int )shinfo->nr_frags > 16U, 0L);
+  tmp___4 = ldv__builtin_expect((unsigned int )shinfo->nr_frags > 16U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -9137,7 +9136,7 @@ static int xennet_poll(struct napi_struct *napi , int budget )
          8UL);
   memset((void *)extras, 0, 8UL);
   err = xennet_get_responses(np, & rinfo, rp, & tmpq);
-  tmp = __builtin_expect(err != 0, 0L);
+  tmp = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp != 0L) {
     err: ;
@@ -9168,7 +9167,7 @@ static int xennet_poll(struct napi_struct *napi , int budget )
     {
     gso = extras;
     tmp___1 = xennet_set_skb_gso(skb, gso);
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9617,11 +9616,11 @@ static irqreturn_t xennet_rx_interrupt(int irq , void *dev_id )
   np = (struct netfront_info *)dev_id;
   dev = np->netdev;
   tmp = netif_carrier_ok((struct net_device  const  *)dev);
-  tmp___0 = __builtin_expect((long )tmp, 1L);
+  tmp___0 = ldv__builtin_expect((long )tmp, 1L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp___1 = __builtin_expect((np->rx.sring)->rsp_prod != np->rx.rsp_cons, 1L);
+    tmp___1 = ldv__builtin_expect((np->rx.sring)->rsp_prod != np->rx.rsp_cons, 1L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9971,7 +9970,7 @@ static int netfront_resume(struct xenbus_device *dev )
   descriptor.format = "%s\n";
   descriptor.lineno = 1449U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10595,7 +10594,7 @@ static void netback_changed(struct xenbus_device *dev , enum xenbus_state backen
   descriptor.format = "%s\n";
   descriptor.lineno = 1828U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11095,7 +11094,7 @@ static int xennet_remove(struct xenbus_device *dev )
   descriptor.format = "%s\n";
   descriptor.lineno = 2053U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11243,7 +11242,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_20(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_1(void *arg0 ) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_2(void *arg0 ) ;
@@ -11883,7 +11882,7 @@ void ldv_entry_EMGentry_20(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -11892,7 +11891,7 @@ void main(void)
   ldv_initialize();
   ldv_entry_EMGentry_20((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) 
@@ -13431,7 +13430,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13455,7 +13454,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13463,7 +13462,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

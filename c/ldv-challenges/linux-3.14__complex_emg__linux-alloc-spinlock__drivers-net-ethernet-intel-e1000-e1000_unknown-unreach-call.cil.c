@@ -6604,7 +6604,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -6720,7 +6720,6 @@ extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6738,7 +6737,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7235,14 +7234,14 @@ __inline static struct page *compound_head(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     head = page->__annonCompField46.first_page;
     __asm__  volatile   ("": : : "memory");
     tmp = PageTail((struct page  const  *)page);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     }
     if (tmp___0 != 0L) {
       return (head);
@@ -7270,7 +7269,7 @@ __inline static void dql_queued(struct dql *dql , unsigned int count )
 
   {
   {
-  tmp = __builtin_expect(count > 268435455U, 0L);
+  tmp = ldv__builtin_expect(count > 268435455U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7375,7 +7374,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7402,7 +7401,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7438,7 +7437,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7482,7 +7481,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7513,7 +7512,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7664,7 +7663,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7675,7 +7674,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7870,7 +7869,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
   {
   {
   tmp = skb_headlen((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect(len <= tmp, 1L);
+  tmp___0 = ldv__builtin_expect(len <= tmp, 1L);
   }
   if (tmp___0 != 0L) {
     return (1);
@@ -7878,7 +7877,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
 
   }
   {
-  tmp___1 = __builtin_expect(len > skb->len, 0L);
+  tmp___1 = ldv__builtin_expect(len > skb->len, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -7971,12 +7970,12 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
   {
   {
   tmp___0 = skb_is_nonlinear((struct sk_buff  const  *)skb);
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7986,7 +7985,7 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return;
   } else {
@@ -8240,7 +8239,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8372,7 +8371,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8382,7 +8381,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8445,7 +8444,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
   {
   dql_queued(& dev_queue->dql, bytes);
   tmp = dql_avail((struct dql  const  *)(& dev_queue->dql));
-  tmp___0 = __builtin_expect(tmp >= 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp >= 0, 1L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -8456,7 +8455,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
   set_bit(1L, (unsigned long volatile   *)(& dev_queue->state));
   __asm__  volatile   ("mfence": : : "memory");
   tmp___1 = dql_avail((struct dql  const  *)(& dev_queue->dql));
-  tmp___2 = __builtin_expect(tmp___1 >= 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 >= 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8489,7 +8488,7 @@ __inline static void netdev_tx_completed_queue(struct netdev_queue *dev_queue , 
 
   {
   {
-  tmp = __builtin_expect(bytes == 0U, 0L);
+  tmp = ldv__builtin_expect(bytes == 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -9810,7 +9809,7 @@ void e1000_reinit_locked(struct e1000_adapter *adapter )
   {
   tmp = preempt_count();
   __ret_warn_on = ((unsigned long )tmp & 2096896UL) != 0UL;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9820,7 +9819,7 @@ void e1000_reinit_locked(struct e1000_adapter *adapter )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   goto ldv_53241;
   ldv_53240: 
@@ -11229,7 +11228,7 @@ static int e1000_close(struct net_device *netdev )
   {
   tmp___2 = constant_test_bit(1L, (unsigned long const volatile   *)(& adapter->flags));
   __ret_warn_on = tmp___2 != 0;
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -11239,7 +11238,7 @@ static int e1000_close(struct net_device *netdev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   e1000_down(adapter);
   e1000_power_down_phy(adapter);
   e1000_free_irq(adapter);
@@ -12825,7 +12824,7 @@ static unsigned int e1000_update_itr(struct e1000_adapter *adapter , u16 itr_set
   {
   retval = (unsigned int )itr_setting;
   hw = & adapter->hw;
-  tmp = __builtin_expect((unsigned int )hw->mac_type <= 4U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )hw->mac_type <= 4U, 0L);
   }
   if (tmp != 0L) {
     goto update_itr_done;
@@ -12926,7 +12925,7 @@ static void e1000_set_itr(struct e1000_adapter *adapter )
   {
   hw = & adapter->hw;
   new_itr = adapter->itr;
-  tmp = __builtin_expect((unsigned int )hw->mac_type <= 4U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )hw->mac_type <= 4U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -12934,7 +12933,7 @@ static void e1000_set_itr(struct e1000_adapter *adapter )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned int )adapter->link_speed != 1000U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )adapter->link_speed != 1000U, 0L);
   }
   if (tmp___0 != 0L) {
     current_itr = 0U;
@@ -13207,7 +13206,7 @@ static bool e1000_tx_csum(struct e1000_adapter *adapter , struct e1000_tx_ring *
   switch_default: /* CIL Label */ 
   {
   tmp___1 = net_ratelimit();
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     if (adapter->msg_enable & 1) {
@@ -13240,7 +13239,7 @@ static bool e1000_tx_csum(struct e1000_adapter *adapter , struct e1000_tx_ring *
   buffer_info->time_stamp = jiffies;
   buffer_info->next_to_watch = (u16 )i;
   i = i + 1U;
-  tmp___4 = __builtin_expect(i == tx_ring->count, 0L);
+  tmp___4 = ldv__builtin_expect(i == tx_ring->count, 0L);
   }
   if (tmp___4 != 0L) {
     i = 0U;
@@ -13333,11 +13332,11 @@ static int e1000_tx_map(struct e1000_adapter *adapter , struct e1000_tx_ring *tx
 
   }
   {
-  tmp___2 = __builtin_expect((long )(mss != 0U && nr_frags == 0U), 0L);
+  tmp___2 = ldv__builtin_expect((long )(mss != 0U && nr_frags == 0U), 0L);
   }
   if (tmp___2 != 0L) {
     {
-    tmp___3 = __builtin_expect((long )(size == len && size > 8U), 0L);
+    tmp___3 = ldv__builtin_expect((long )(size == len && size > 8U), 0L);
     }
     if (tmp___3 != 0L) {
       size = size - 4U;
@@ -13348,12 +13347,12 @@ static int e1000_tx_map(struct e1000_adapter *adapter , struct e1000_tx_ring *tx
 
   }
   {
-  tmp___4 = __builtin_expect((long )((unsigned int )hw->bus_type == 2U && size > 2015U),
+  tmp___4 = ldv__builtin_expect((long )((unsigned int )hw->bus_type == 2U && size > 2015U),
                              0L);
   }
   if (tmp___4 != 0L) {
     {
-    tmp___5 = __builtin_expect(count == 0U, 0L);
+    tmp___5 = ldv__builtin_expect(count == 0U, 0L);
     }
     if (tmp___5 != 0L) {
       size = 2015U;
@@ -13364,11 +13363,11 @@ static int e1000_tx_map(struct e1000_adapter *adapter , struct e1000_tx_ring *tx
 
   }
   {
-  tmp___6 = __builtin_expect((long )adapter->pcix_82544, 0L);
+  tmp___6 = ldv__builtin_expect((long )adapter->pcix_82544, 0L);
   }
   if (tmp___6 != 0L) {
     {
-    tmp___7 = __builtin_expect((long )(((unsigned long )(skb->data + (((unsigned long )offset + (unsigned long )size) + 0xffffffffffffffffUL)) & 4UL) == 0UL && size > 4U),
+    tmp___7 = ldv__builtin_expect((long )(((unsigned long )(skb->data + (((unsigned long )offset + (unsigned long )size) + 0xffffffffffffffffUL)) & 4UL) == 0UL && size > 4U),
                                0L);
     }
     if (tmp___7 != 0L) {
@@ -13399,7 +13398,7 @@ static int e1000_tx_map(struct e1000_adapter *adapter , struct e1000_tx_ring *tx
   if (len != 0U) {
     {
     i = i + 1U;
-    tmp___9 = __builtin_expect(i == tx_ring->count, 0L);
+    tmp___9 = ldv__builtin_expect(i == tx_ring->count, 0L);
     }
     if (tmp___9 != 0L) {
       i = 0U;
@@ -13428,7 +13427,7 @@ static int e1000_tx_map(struct e1000_adapter *adapter , struct e1000_tx_ring *tx
   ldv_53790: 
   {
   i = i + 1U;
-  tmp___11 = __builtin_expect(i == tx_ring->count, 0L);
+  tmp___11 = ldv__builtin_expect(i == tx_ring->count, 0L);
   }
   if (tmp___11 != 0L) {
     i = 0U;
@@ -13440,11 +13439,11 @@ static int e1000_tx_map(struct e1000_adapter *adapter , struct e1000_tx_ring *tx
   _min1___0 = len;
   _min2___0 = max_per_txd;
   size = _min1___0 < _min2___0 ? _min1___0 : _min2___0;
-  tmp___12 = __builtin_expect(mss != 0U, 0L);
+  tmp___12 = ldv__builtin_expect(mss != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
-    tmp___13 = __builtin_expect((long )(f == nr_frags - 1U && size == len), 0L);
+    tmp___13 = ldv__builtin_expect((long )(f == nr_frags - 1U && size == len), 0L);
     }
     if (tmp___13 != 0L) {
       tmp___14 = 1;
@@ -13456,7 +13455,7 @@ static int e1000_tx_map(struct e1000_adapter *adapter , struct e1000_tx_ring *tx
   }
   if (tmp___14 != 0) {
     {
-    tmp___15 = __builtin_expect(size > 8U, 0L);
+    tmp___15 = ldv__builtin_expect(size > 8U, 0L);
     }
     if (tmp___15 != 0L) {
       size = size - 4U;
@@ -13470,11 +13469,11 @@ static int e1000_tx_map(struct e1000_adapter *adapter , struct e1000_tx_ring *tx
   tmp___16 = skb_frag_page(frag);
   bufend = (unsigned long )((unsigned long long )(((long )tmp___16 + 24189255811072L) / 64L) << 12);
   bufend = bufend + (unsigned long )((offset + size) - 1U);
-  tmp___17 = __builtin_expect((long )adapter->pcix_82544, 0L);
+  tmp___17 = ldv__builtin_expect((long )adapter->pcix_82544, 0L);
   }
   if (tmp___17 != 0L) {
     {
-    tmp___18 = __builtin_expect((long )((bufend & 4UL) == 0UL && size > 4U), 0L);
+    tmp___18 = ldv__builtin_expect((long )((bufend & 4UL) == 0UL && size > 4U), 0L);
     }
     if (tmp___18 != 0L) {
       size = size - 4U;
@@ -13592,13 +13591,13 @@ static void e1000_tx_queue(struct e1000_adapter *adapter , struct e1000_tx_ring 
   tx_desc = (struct e1000_tx_desc *)0;
   txd_upper = 0U;
   txd_lower = 33554432U;
-  tmp___0 = __builtin_expect((tx_flags & 4) != 0, 1L);
+  tmp___0 = ldv__builtin_expect((tx_flags & 4) != 0, 1L);
   }
   if (tmp___0 != 0L) {
     {
     txd_lower = txd_lower | 605028352U;
     txd_upper = txd_upper | 512U;
-    tmp = __builtin_expect((tx_flags & 8) != 0, 1L);
+    tmp = ldv__builtin_expect((tx_flags & 8) != 0, 1L);
     }
     if (tmp != 0L) {
       txd_upper = txd_upper | 256U;
@@ -13609,7 +13608,7 @@ static void e1000_tx_queue(struct e1000_adapter *adapter , struct e1000_tx_ring 
 
   }
   {
-  tmp___1 = __builtin_expect((long )tx_flags & 1L, 1L);
+  tmp___1 = ldv__builtin_expect((long )tx_flags & 1L, 1L);
   }
   if (tmp___1 != 0L) {
     txd_lower = txd_lower | 537919488U;
@@ -13618,7 +13617,7 @@ static void e1000_tx_queue(struct e1000_adapter *adapter , struct e1000_tx_ring 
 
   }
   {
-  tmp___2 = __builtin_expect((tx_flags & 2) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((tx_flags & 2) != 0, 0L);
   }
   if (tmp___2 != 0L) {
     txd_lower = txd_lower | 1073741824U;
@@ -13627,7 +13626,7 @@ static void e1000_tx_queue(struct e1000_adapter *adapter , struct e1000_tx_ring 
 
   }
   {
-  tmp___3 = __builtin_expect((tx_flags & 16) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((tx_flags & 16) != 0, 0L);
   }
   if (tmp___3 != 0L) {
     txd_lower = txd_lower & 4261412863U;
@@ -13644,7 +13643,7 @@ static void e1000_tx_queue(struct e1000_adapter *adapter , struct e1000_tx_ring 
   tx_desc->lower.data = txd_lower | (u32 )buffer_info->length;
   tx_desc->upper.data = txd_upper;
   i = i + 1U;
-  tmp___4 = __builtin_expect(i == tx_ring->count, 0L);
+  tmp___4 = ldv__builtin_expect(i == tx_ring->count, 0L);
   }
   if (tmp___4 != 0L) {
     i = 0U;
@@ -13661,7 +13660,7 @@ static void e1000_tx_queue(struct e1000_adapter *adapter , struct e1000_tx_ring 
   }
   {
   tx_desc->lower.data = tx_desc->lower.data | adapter->txd_cmd;
-  tmp___6 = __builtin_expect((tx_flags & 16) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((tx_flags & 16) != 0, 0L);
   }
   if (tmp___6 != 0L) {
     tx_desc->lower.data = tx_desc->lower.data & 4261412863U;
@@ -13732,7 +13731,7 @@ static int __e1000_maybe_stop_tx(struct net_device *netdev , int size )
   tx_ring = adapter->tx_ring;
   netif_stop_queue(netdev);
   __asm__  volatile   ("mfence": : : "memory");
-  tmp___0 = __builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U < (unsigned int )size,
+  tmp___0 = ldv__builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U < (unsigned int )size,
                              1L);
   }
   if (tmp___0 != 0L) {
@@ -13755,7 +13754,7 @@ static int e1000_maybe_stop_tx(struct net_device *netdev , struct e1000_tx_ring 
 
   {
   {
-  tmp = __builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U >= (unsigned int )size,
+  tmp = ldv__builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U >= (unsigned int )size,
                          1L);
   }
   if (tmp != 0L) {
@@ -13831,7 +13830,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
   len = tmp___0;
   count = 0;
   tx_ring = adapter->tx_ring;
-  tmp___1 = __builtin_expect(skb->len == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(skb->len == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13955,7 +13954,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
   {
-  tmp___11 = __builtin_expect((long )((unsigned int )hw->bus_type == 2U && len > 2015U),
+  tmp___11 = ldv__builtin_expect((long )((unsigned int )hw->bus_type == 2U && len > 2015U),
                               0L);
   }
   if (tmp___11 != 0L) {
@@ -13990,7 +13989,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
   }
   {
   tmp___15 = e1000_maybe_stop_tx(netdev, tx_ring, count + 2);
-  tmp___16 = __builtin_expect(tmp___15 != 0, 0L);
+  tmp___16 = ldv__builtin_expect(tmp___15 != 0, 0L);
   }
   if (tmp___16 != 0L) {
     return (16);
@@ -13998,12 +13997,12 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
   {
-  tmp___18 = __builtin_expect((unsigned int )hw->mac_type == 13U, 0L);
+  tmp___18 = ldv__builtin_expect((unsigned int )hw->mac_type == 13U, 0L);
   }
   if (tmp___18 != 0L) {
     {
     tmp___19 = e1000_82547_fifo_workaround(adapter, skb);
-    tmp___20 = __builtin_expect(tmp___19 != 0, 0L);
+    tmp___20 = ldv__builtin_expect(tmp___19 != 0, 0L);
     }
     if (tmp___20 != 0L) {
       {
@@ -14043,11 +14042,11 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
   {
-  tmp___24 = __builtin_expect(tso != 0, 1L);
+  tmp___24 = ldv__builtin_expect(tso != 0, 1L);
   }
   if (tmp___24 != 0L) {
     {
-    tmp___21 = __builtin_expect((unsigned int )hw->mac_type != 4U, 1L);
+    tmp___21 = ldv__builtin_expect((unsigned int )hw->mac_type != 4U, 1L);
     }
     if (tmp___21 != 0L) {
       tx_ring->last_tx_tso = 1;
@@ -14058,7 +14057,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
   } else {
     {
     tmp___22 = e1000_tx_csum(adapter, tx_ring, skb);
-    tmp___23 = __builtin_expect((long )tmp___22, 1L);
+    tmp___23 = ldv__builtin_expect((long )tmp___22, 1L);
     }
     if (tmp___23 != 0L) {
       tx_flags = tx_flags | 1U;
@@ -14067,7 +14066,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
     }
   }
   {
-  tmp___25 = __builtin_expect((unsigned int )skb->protocol == 8U, 1L);
+  tmp___25 = ldv__builtin_expect((unsigned int )skb->protocol == 8U, 1L);
   }
   if (tmp___25 != 0L) {
     tx_flags = tx_flags | 8U;
@@ -14075,7 +14074,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
   {
-  tmp___26 = __builtin_expect((int )((signed char )*((unsigned char *)skb + 170UL)) < 0,
+  tmp___26 = ldv__builtin_expect((int )((signed char )*((unsigned char *)skb + 170UL)) < 0,
                               0L);
   }
   if (tmp___26 != 0L) {
@@ -14816,7 +14815,7 @@ static irqreturn_t e1000_intr(int irq , void *data )
   hw = & adapter->hw;
   tmp___0 = readl((void const volatile   *)hw->hw_addr + 192U);
   icr = tmp___0;
-  tmp___1 = __builtin_expect(icr == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(icr == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -14825,7 +14824,7 @@ static irqreturn_t e1000_intr(int irq , void *data )
   }
   {
   tmp___2 = constant_test_bit(2L, (unsigned long const volatile   *)(& adapter->flags));
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
   }
   if (tmp___3 != 0L) {
     return (1);
@@ -14833,7 +14832,7 @@ static irqreturn_t e1000_intr(int irq , void *data )
 
   }
   {
-  tmp___5 = __builtin_expect((icr & 12U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((icr & 12U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -14854,7 +14853,7 @@ static irqreturn_t e1000_intr(int irq , void *data )
   writel(4294967295U, (void volatile   *)hw->hw_addr + 216U);
   readl((void const volatile   *)hw->hw_addr + 8U);
   tmp___7 = napi_schedule_prep(& adapter->napi);
-  tmp___8 = __builtin_expect((long )tmp___7, 1L);
+  tmp___8 = ldv__builtin_expect((long )tmp___7, 1L);
   }
   if (tmp___8 != 0L) {
     {
@@ -14906,7 +14905,7 @@ static int e1000_clean(struct napi_struct *napi , int budget )
   }
   if (work_done < budget) {
     {
-    tmp___0 = __builtin_expect((adapter->itr_setting & 3U) != 0U, 1L);
+    tmp___0 = ldv__builtin_expect((adapter->itr_setting & 3U) != 0U, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14995,7 +14994,7 @@ static bool e1000_clean_tx_irq(struct e1000_adapter *adapter , struct e1000_tx_r
   e1000_unmap_and_free_tx_resource(adapter, buffer_info);
   tx_desc->upper.data = 0U;
   i = i + 1U;
-  tmp = __builtin_expect(i == tx_ring->count, 0L);
+  tmp = ldv__builtin_expect(i == tx_ring->count, 0L);
   }
   if (tmp != 0L) {
     i = 0U;
@@ -15020,12 +15019,12 @@ static bool e1000_clean_tx_irq(struct e1000_adapter *adapter , struct e1000_tx_r
   {
   tx_ring->next_to_clean = i;
   netdev_completed_queue(netdev, pkts_compl, bytes_compl);
-  tmp___2 = __builtin_expect(count != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(count != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
     tmp___3 = netif_carrier_ok((struct net_device  const  *)netdev);
-    tmp___4 = __builtin_expect((long )tmp___3, 0L);
+    tmp___4 = ldv__builtin_expect((long )tmp___3, 0L);
     }
     if (tmp___4 != 0L) {
       tmp___5 = 1;
@@ -15037,7 +15036,7 @@ static bool e1000_clean_tx_irq(struct e1000_adapter *adapter , struct e1000_tx_r
   }
   if (tmp___5 != 0) {
     {
-    tmp___6 = __builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U > 31U,
+    tmp___6 = ldv__builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U > 31U,
                                0L);
     }
     if (tmp___6 != 0L) {
@@ -15123,7 +15122,7 @@ static void e1000_rx_checksum(struct e1000_adapter *adapter , u32 status_err , u
   status = (unsigned short )status_err;
   errors = (unsigned char )(status_err >> 24);
   skb_checksum_none_assert((struct sk_buff  const  *)skb);
-  tmp = __builtin_expect((unsigned int )hw->mac_type <= 2U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )hw->mac_type <= 2U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -15131,7 +15130,7 @@ static void e1000_rx_checksum(struct e1000_adapter *adapter , u32 status_err , u
 
   }
   {
-  tmp___0 = __builtin_expect(((int )status & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect(((int )status & 4) != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -15139,7 +15138,7 @@ static void e1000_rx_checksum(struct e1000_adapter *adapter , u32 status_err , u
 
   }
   {
-  tmp___1 = __builtin_expect(((int )errors & 32) != 0, 0L);
+  tmp___1 = ldv__builtin_expect(((int )errors & 32) != 0, 0L);
   }
   if (tmp___1 != 0L) {
     adapter->hw_csum_err = adapter->hw_csum_err + 1ULL;
@@ -15153,7 +15152,7 @@ static void e1000_rx_checksum(struct e1000_adapter *adapter , u32 status_err , u
 
   }
   {
-  tmp___2 = __builtin_expect(((int )status & 32) != 0, 1L);
+  tmp___2 = ldv__builtin_expect(((int )status & 32) != 0, 1L);
   }
   if (tmp___2 != 0L) {
     skb->ip_summed = 1U;
@@ -15273,11 +15272,11 @@ static bool e1000_clean_jumbo_rx_irq(struct e1000_adapter *adapter , struct e100
   dma_unmap_page(& pdev->dev, buffer_info->dma, (size_t )buffer_info->length, 2);
   buffer_info->dma = 0ULL;
   length = (u32 )rx_desc->length;
-  tmp___0 = __builtin_expect(((int )status & 2) != 0, 0L);
+  tmp___0 = ldv__builtin_expect(((int )status & 2) != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp___1 = __builtin_expect(((int )rx_desc->errors & 151) != 0, 0L);
+    tmp___1 = ldv__builtin_expect(((int )rx_desc->errors & 151) != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15385,7 +15384,7 @@ static bool e1000_clean_jumbo_rx_irq(struct e1000_adapter *adapter , struct e100
   e1000_rx_checksum(adapter, (unsigned int )status | ((unsigned int )rx_desc->errors << 24),
                     (u32 )rx_desc->csum, skb);
   total_rx_bytes = (total_rx_bytes + skb->len) - 4U;
-  tmp___7 = __builtin_expect((netdev->features & 34359738368ULL) == 0ULL, 1L);
+  tmp___7 = ldv__builtin_expect((netdev->features & 34359738368ULL) == 0ULL, 1L);
   }
   if (tmp___7 != 0L) {
     {
@@ -15419,7 +15418,7 @@ static bool e1000_clean_jumbo_rx_irq(struct e1000_adapter *adapter , struct e100
   next_desc: 
   {
   rx_desc->status = 0U;
-  tmp___9 = __builtin_expect(cleaned_count > 15, 0L);
+  tmp___9 = ldv__builtin_expect(cleaned_count > 15, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -15551,7 +15550,7 @@ static bool e1000_clean_rx_irq(struct e1000_adapter *adapter , struct e1000_rx_r
                          2, (struct dma_attrs *)0);
   buffer_info->dma = 0ULL;
   length = (u32 )rx_desc->length;
-  tmp = __builtin_expect(((int )status & 2) == 0, 0L);
+  tmp = ldv__builtin_expect(((int )status & 2) == 0, 0L);
   }
   if (tmp != 0L) {
     adapter->discarding = 1;
@@ -15566,7 +15565,7 @@ static bool e1000_clean_rx_irq(struct e1000_adapter *adapter , struct e1000_rx_r
     descriptor.format = "Receive packet consumed multiple buffers\n";
     descriptor.lineno = 4268U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15587,7 +15586,7 @@ static bool e1000_clean_rx_irq(struct e1000_adapter *adapter , struct e1000_rx_r
 
   }
   {
-  tmp___2 = __builtin_expect(((int )rx_desc->errors & 151) != 0, 0L);
+  tmp___2 = ldv__builtin_expect(((int )rx_desc->errors & 151) != 0, 0L);
   }
   if (tmp___2 != 0L) {
     last_byte = *(skb->data + ((unsigned long )length + 0xffffffffffffffffUL));
@@ -15614,7 +15613,7 @@ static bool e1000_clean_rx_irq(struct e1000_adapter *adapter , struct e1000_rx_r
   {
   total_rx_bytes = (total_rx_bytes + length) - 4U;
   total_rx_packets = total_rx_packets + 1U;
-  tmp___3 = __builtin_expect((netdev->features & 34359738368ULL) == 0ULL, 1L);
+  tmp___3 = ldv__builtin_expect((netdev->features & 34359738368ULL) == 0ULL, 1L);
   }
   if (tmp___3 != 0L) {
     length = length - 4U;
@@ -15631,7 +15630,7 @@ static bool e1000_clean_rx_irq(struct e1000_adapter *adapter , struct e1000_rx_r
   next_desc: 
   {
   rx_desc->status = 0U;
-  tmp___4 = __builtin_expect(cleaned_count > 15, 0L);
+  tmp___4 = ldv__builtin_expect(cleaned_count > 15, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -15704,7 +15703,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_adapter *adapter , struct 
   }
   {
   skb = netdev_alloc_skb_ip_align(netdev, bufsz);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -15719,7 +15718,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_adapter *adapter , struct 
   if ((unsigned long )buffer_info->page == (unsigned long )((struct page *)0)) {
     {
     buffer_info->page = alloc_pages(32U, 0U);
-    tmp___0 = __builtin_expect((unsigned long )buffer_info->page == (unsigned long )((struct page *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )buffer_info->page == (unsigned long )((struct page *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -15757,7 +15756,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_adapter *adapter , struct 
   rx_desc = (struct e1000_rx_desc *)rx_ring->desc + (unsigned long )i;
   rx_desc->buffer_addr = buffer_info->dma;
   i = i + 1U;
-  tmp___2 = __builtin_expect(i == rx_ring->count, 0L);
+  tmp___2 = ldv__builtin_expect(i == rx_ring->count, 0L);
   }
   if (tmp___2 != 0L) {
     i = 0U;
@@ -15775,14 +15774,14 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_adapter *adapter , struct 
   }
   ldv_54093: 
   {
-  tmp___6 = __builtin_expect(rx_ring->next_to_use != i, 1L);
+  tmp___6 = ldv__builtin_expect(rx_ring->next_to_use != i, 1L);
   }
   if (tmp___6 != 0L) {
     {
     rx_ring->next_to_use = i;
     tmp___4 = i;
     i = i - 1U;
-    tmp___5 = __builtin_expect(tmp___4 == 0U, 0L);
+    tmp___5 = ldv__builtin_expect(tmp___4 == 0U, 0L);
     }
     if (tmp___5 != 0L) {
       i = rx_ring->count - 1U;
@@ -15845,7 +15844,7 @@ static void e1000_alloc_rx_buffers(struct e1000_adapter *adapter , struct e1000_
   }
   {
   skb = netdev_alloc_skb_ip_align(netdev, bufsz);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -15960,7 +15959,7 @@ static void e1000_alloc_rx_buffers(struct e1000_adapter *adapter , struct e1000_
   rx_desc = (struct e1000_rx_desc *)rx_ring->desc + (unsigned long )i;
   rx_desc->buffer_addr = buffer_info->dma;
   i = i + 1U;
-  tmp___7 = __builtin_expect(i == rx_ring->count, 0L);
+  tmp___7 = ldv__builtin_expect(i == rx_ring->count, 0L);
   }
   if (tmp___7 != 0L) {
     i = 0U;
@@ -15978,14 +15977,14 @@ static void e1000_alloc_rx_buffers(struct e1000_adapter *adapter , struct e1000_
   }
   ldv_54110: 
   {
-  tmp___11 = __builtin_expect(rx_ring->next_to_use != i, 1L);
+  tmp___11 = ldv__builtin_expect(rx_ring->next_to_use != i, 1L);
   }
   if (tmp___11 != 0L) {
     {
     rx_ring->next_to_use = i;
     tmp___9 = i;
     i = i - 1U;
-    tmp___10 = __builtin_expect(tmp___9 == 0U, 0L);
+    tmp___10 = ldv__builtin_expect(tmp___9 == 0U, 0L);
     }
     if (tmp___10 != 0L) {
       i = rx_ring->count - 1U;
@@ -16846,7 +16845,7 @@ static int __e1000_shutdown(struct pci_dev *pdev , bool *enable_wake )
     {
     tmp___3 = constant_test_bit(1L, (unsigned long const volatile   *)(& adapter->flags));
     __ret_warn_on = tmp___3 != 0;
-    tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -16856,7 +16855,7 @@ static int __e1000_shutdown(struct pci_dev *pdev , bool *enable_wake )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     e1000_down(adapter);
     }
   } else {
@@ -17346,7 +17345,7 @@ void ldv_dummy_resourceless_instance_callback_1_8(int (*arg0)(struct net_device 
                                                   struct net_device *arg1 , struct ethtool_eeprom *arg2 ,
                                                   unsigned char *arg3 ) ;
 void ldv_entry_EMGentry_13(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -18035,7 +18034,7 @@ void ldv_entry_EMGentry_13(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -20160,7 +20159,7 @@ static s32 e1000_set_phy_type(struct e1000_hw *hw )
   descriptor.format = "e1000_set_phy_type";
   descriptor.lineno = 118U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20266,7 +20265,7 @@ static void e1000_phy_init_script(struct e1000_hw *hw )
   descriptor.format = "e1000_phy_init_script";
   descriptor.lineno = 162U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20388,7 +20387,7 @@ s32 e1000_set_mac_type(struct e1000_hw *hw )
   descriptor.format = "e1000_set_mac_type";
   descriptor.lineno = 256U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20736,7 +20735,7 @@ void e1000_set_media_type(struct e1000_hw *hw )
   descriptor.format = "e1000_set_media_type";
   descriptor.lineno = 368U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20844,7 +20843,7 @@ s32 e1000_reset_hw(struct e1000_hw *hw )
   descriptor.format = "e1000_reset_hw";
   descriptor.lineno = 418U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20862,7 +20861,7 @@ s32 e1000_reset_hw(struct e1000_hw *hw )
     descriptor___0.format = "Disabling MWI on 82542 rev 2.0\n";
     descriptor___0.lineno = 422U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -20886,7 +20885,7 @@ s32 e1000_reset_hw(struct e1000_hw *hw )
   descriptor___1.format = "Masking off all interrupts\n";
   descriptor___1.lineno = 427U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -20921,7 +20920,7 @@ s32 e1000_reset_hw(struct e1000_hw *hw )
   descriptor___2.format = "Issuing a global reset to MAC\n";
   descriptor___2.lineno = 460U;
   descriptor___2.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -21106,7 +21105,7 @@ s32 e1000_reset_hw(struct e1000_hw *hw )
   descriptor___3.format = "Masking off all interrupts\n";
   descriptor___3.lineno = 536U;
   descriptor___3.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -21166,7 +21165,7 @@ s32 e1000_init_hw(struct e1000_hw *hw )
   descriptor.format = "e1000_init_hw";
   descriptor.lineno = 569U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21187,7 +21186,7 @@ s32 e1000_init_hw(struct e1000_hw *hw )
     descriptor___0.format = "Error Initializing Identification LED\n";
     descriptor___0.lineno = 574U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21210,7 +21209,7 @@ s32 e1000_init_hw(struct e1000_hw *hw )
   descriptor___1.format = "Initializing the IEEE VLAN\n";
   descriptor___1.lineno = 582U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -21238,7 +21237,7 @@ s32 e1000_init_hw(struct e1000_hw *hw )
     descriptor___2.format = "Disabling MWI on 82542 rev 2.0\n";
     descriptor___2.lineno = 589U;
     descriptor___2.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -21284,7 +21283,7 @@ s32 e1000_init_hw(struct e1000_hw *hw )
   descriptor___3.format = "Zeroing the MTA\n";
   descriptor___3.lineno = 611U;
   descriptor___3.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -21395,7 +21394,7 @@ static s32 e1000_adjust_serdes_amplitude(struct e1000_hw *hw )
   descriptor.format = "e1000_adjust_serdes_amplitude";
   descriptor.lineno = 686U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21485,7 +21484,7 @@ s32 e1000_setup_link(struct e1000_hw *hw )
   descriptor.format = "e1000_setup_link";
   descriptor.lineno = 733U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21507,7 +21506,7 @@ s32 e1000_setup_link(struct e1000_hw *hw )
       descriptor___0.format = "EEPROM Read Error\n";
       descriptor___0.lineno = 747U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -21551,7 +21550,7 @@ s32 e1000_setup_link(struct e1000_hw *hw )
   descriptor___1.format = "After fix-ups FlowControl is now = %x\n";
   descriptor___1.lineno = 771U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -21574,7 +21573,7 @@ s32 e1000_setup_link(struct e1000_hw *hw )
       descriptor___2.format = "EEPROM Read Error\n";
       descriptor___2.lineno = 784U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -21614,7 +21613,7 @@ s32 e1000_setup_link(struct e1000_hw *hw )
   descriptor___3.format = "Initializing the Flow Control address, type and timer regs\n";
   descriptor___3.lineno = 801U;
   descriptor___3.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -21694,7 +21693,7 @@ static s32 e1000_setup_fiber_serdes_link(struct e1000_hw *hw )
   descriptor.format = "e1000_setup_fiber_serdes_link";
   descriptor.lineno = 851U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21774,7 +21773,7 @@ static s32 e1000_setup_fiber_serdes_link(struct e1000_hw *hw )
   descriptor___0.format = "Flow control param set incorrectly\n";
   descriptor___0.lineno = 921U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -21795,7 +21794,7 @@ static s32 e1000_setup_fiber_serdes_link(struct e1000_hw *hw )
   descriptor___1.format = "Auto-negotiation enabled\n";
   descriptor___1.lineno = 932U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -21827,7 +21826,7 @@ static s32 e1000_setup_fiber_serdes_link(struct e1000_hw *hw )
       descriptor___2.format = "Looking for Link\n";
       descriptor___2.lineno = 950U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -21866,7 +21865,7 @@ static s32 e1000_setup_fiber_serdes_link(struct e1000_hw *hw )
         descriptor___3.format = "Never got a valid link from auto-neg!!!\n";
         descriptor___3.lineno = 958U;
         descriptor___3.flags = 0U;
-        tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___8 != 0L) {
           {
@@ -21889,7 +21888,7 @@ static s32 e1000_setup_fiber_serdes_link(struct e1000_hw *hw )
           descriptor___4.format = "Error while checking for link\n";
           descriptor___4.lineno = 967U;
           descriptor___4.flags = 0U;
-          tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+          tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
           }
           if (tmp___10 != 0L) {
             {
@@ -21914,7 +21913,7 @@ static s32 e1000_setup_fiber_serdes_link(struct e1000_hw *hw )
         descriptor___5.format = "Valid Link Found\n";
         descriptor___5.lineno = 973U;
         descriptor___5.flags = 0U;
-        tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+        tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
         }
         if (tmp___12 != 0L) {
           {
@@ -21934,7 +21933,7 @@ static s32 e1000_setup_fiber_serdes_link(struct e1000_hw *hw )
       descriptor___6.format = "No Signal Detected\n";
       descriptor___6.lineno = 976U;
       descriptor___6.flags = 0U;
-      tmp___14 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___14 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -21969,7 +21968,7 @@ static s32 e1000_copper_link_rtl_setup(struct e1000_hw *hw )
     descriptor.format = "Error Resetting the PHY\n";
     descriptor.lineno = 994U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -22025,7 +22024,7 @@ static s32 gbe_dhg_phy_setup(struct e1000_hw *hw )
     descriptor.format = "e1000_copper_link_rtl_setup failed!\n";
     descriptor.lineno = 1010U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -22061,7 +22060,7 @@ static s32 gbe_dhg_phy_setup(struct e1000_hw *hw )
     descriptor___0.format = "e1000_copper_link_rtl_setup failed!\n";
     descriptor___0.lineno = 1030U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -22085,7 +22084,7 @@ static s32 gbe_dhg_phy_setup(struct e1000_hw *hw )
   descriptor___1.format = "Error Resetting the PHY\n";
   descriptor___1.lineno = 1035U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -22125,7 +22124,7 @@ static s32 e1000_copper_link_preconfig(struct e1000_hw *hw )
   descriptor.format = "e1000_copper_link_preconfig";
   descriptor.lineno = 1054U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22167,7 +22166,7 @@ static s32 e1000_copper_link_preconfig(struct e1000_hw *hw )
     descriptor___0.format = "Error, did not detect valid phy.\n";
     descriptor___0.lineno = 1077U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -22189,7 +22188,7 @@ static s32 e1000_copper_link_preconfig(struct e1000_hw *hw )
   descriptor___1.format = "Phy ID = %x\n";
   descriptor___1.lineno = 1080U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -22249,7 +22248,7 @@ static s32 e1000_copper_link_igp_setup(struct e1000_hw *hw )
   descriptor.format = "e1000_copper_link_igp_setup";
   descriptor.lineno = 1115U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22275,7 +22274,7 @@ static s32 e1000_copper_link_igp_setup(struct e1000_hw *hw )
     descriptor___0.format = "Error Resetting the PHY\n";
     descriptor___0.lineno = 1122U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -22309,7 +22308,7 @@ static s32 e1000_copper_link_igp_setup(struct e1000_hw *hw )
       descriptor___1.format = "Error Disabling LPLU D3\n";
       descriptor___1.lineno = 1139U;
       descriptor___1.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -22504,7 +22503,7 @@ static s32 e1000_copper_link_mgp_setup(struct e1000_hw *hw )
   descriptor.format = "e1000_copper_link_mgp_setup";
   descriptor.lineno = 1257U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22628,7 +22627,7 @@ static s32 e1000_copper_link_mgp_setup(struct e1000_hw *hw )
     descriptor___0.format = "Error Resetting the PHY\n";
     descriptor___0.lineno = 1346U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -22674,7 +22673,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
   descriptor.format = "e1000_copper_link_autoneg";
   descriptor.lineno = 1365U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22702,7 +22701,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
   descriptor___0.format = "Reconfiguring auto-neg advertisement params\n";
   descriptor___0.lineno = 1382U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22723,7 +22722,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
     descriptor___1.format = "Error Setting up Auto-Negotiation\n";
     descriptor___1.lineno = 1385U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -22745,7 +22744,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
   descriptor___2.format = "Restarting Auto-Neg\n";
   descriptor___2.lineno = 1388U;
   descriptor___2.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -22784,7 +22783,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
       descriptor___3.format = "Error while waiting for autoneg to complete\n";
       descriptor___3.lineno = 1409U;
       descriptor___3.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -22830,7 +22829,7 @@ static s32 e1000_copper_link_postconfig(struct e1000_hw *hw )
   descriptor.format = "e1000_copper_link_postconfig";
   descriptor.lineno = 1435U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22856,7 +22855,7 @@ static s32 e1000_copper_link_postconfig(struct e1000_hw *hw )
       descriptor___0.format = "Error configuring MAC to PHY settings\n";
       descriptor___0.lineno = 1442U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -22883,7 +22882,7 @@ static s32 e1000_copper_link_postconfig(struct e1000_hw *hw )
     descriptor___1.format = "Error Configuring Flow Control\n";
     descriptor___1.lineno = 1448U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -22910,7 +22909,7 @@ static s32 e1000_copper_link_postconfig(struct e1000_hw *hw )
       descriptor___2.format = "Error Configuring DSP after link up\n";
       descriptor___2.lineno = 1456U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -22963,7 +22962,7 @@ static s32 e1000_setup_copper_link(struct e1000_hw *hw )
   descriptor.format = "e1000_setup_copper_link";
   descriptor.lineno = 1476U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23012,7 +23011,7 @@ static s32 e1000_setup_copper_link(struct e1000_hw *hw )
       descriptor___0.format = "gbe_dhg_phy_setup failed!\n";
       descriptor___0.lineno = 1494U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -23045,7 +23044,7 @@ static s32 e1000_setup_copper_link(struct e1000_hw *hw )
     descriptor___1.format = "Forcing speed and duplex\n";
     descriptor___1.lineno = 1510U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -23067,7 +23066,7 @@ static s32 e1000_setup_copper_link(struct e1000_hw *hw )
       descriptor___2.format = "Error Forcing Speed and Duplex\n";
       descriptor___2.lineno = 1513U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -23118,7 +23117,7 @@ static s32 e1000_setup_copper_link(struct e1000_hw *hw )
     descriptor___3.format = "Valid link established!!!\n";
     descriptor___3.lineno = 1535U;
     descriptor___3.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -23150,7 +23149,7 @@ static s32 e1000_setup_copper_link(struct e1000_hw *hw )
   descriptor___4.format = "Unable to establish link!!!\n";
   descriptor___4.lineno = 1541U;
   descriptor___4.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -23207,7 +23206,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
   descriptor.format = "e1000_phy_setup_autoneg";
   descriptor.lineno = 1557U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23245,7 +23244,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
   descriptor___0.format = "autoneg_advertised %x\n";
   descriptor___0.lineno = 1585U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -23264,7 +23263,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___1.format = "Advertise 10mb Half duplex\n";
     descriptor___1.lineno = 1589U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -23287,7 +23286,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___2.format = "Advertise 10mb Full duplex\n";
     descriptor___2.lineno = 1595U;
     descriptor___2.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -23310,7 +23309,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___3.format = "Advertise 100mb Half duplex\n";
     descriptor___3.lineno = 1601U;
     descriptor___3.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -23333,7 +23332,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___4.format = "Advertise 100mb Full duplex\n";
     descriptor___4.lineno = 1607U;
     descriptor___4.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -23356,7 +23355,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___5.format = "Advertise 1000mb Half duplex requested, request denied!\n";
     descriptor___5.lineno = 1614U;
     descriptor___5.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -23378,7 +23377,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___6.format = "Advertise 1000mb Full duplex\n";
     descriptor___6.lineno = 1619U;
     descriptor___6.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -23436,7 +23435,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
   descriptor___7.format = "Flow control param set incorrectly\n";
   descriptor___7.lineno = 1673U;
   descriptor___7.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -23466,7 +23465,7 @@ s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
   descriptor___8.format = "Auto-Neg Advertising %x\n";
   descriptor___8.lineno = 1681U;
   descriptor___8.flags = 0U;
-  tmp___18 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -23536,7 +23535,7 @@ static s32 e1000_phy_force_speed_duplex(struct e1000_hw *hw )
   descriptor.format = "e1000_phy_force_speed_duplex";
   descriptor.lineno = 1710U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23554,7 +23553,7 @@ static s32 e1000_phy_force_speed_duplex(struct e1000_hw *hw )
   descriptor___0.format = "hw->fc = %d\n";
   descriptor___0.lineno = 1715U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -23588,7 +23587,7 @@ static s32 e1000_phy_force_speed_duplex(struct e1000_hw *hw )
     descriptor___1.format = "Full Duplex\n";
     descriptor___1.lineno = 1744U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -23609,7 +23608,7 @@ static s32 e1000_phy_force_speed_duplex(struct e1000_hw *hw )
     descriptor___2.format = "Half Duplex\n";
     descriptor___2.lineno = 1751U;
     descriptor___2.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -23632,7 +23631,7 @@ static s32 e1000_phy_force_speed_duplex(struct e1000_hw *hw )
     descriptor___3.format = "Forcing 100mb ";
     descriptor___3.lineno = 1761U;
     descriptor___3.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -23654,7 +23653,7 @@ static s32 e1000_phy_force_speed_duplex(struct e1000_hw *hw )
     descriptor___4.format = "Forcing 10mb ";
     descriptor___4.lineno = 1767U;
     descriptor___4.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -23695,7 +23694,7 @@ static s32 e1000_phy_force_speed_duplex(struct e1000_hw *hw )
     descriptor___5.format = "M88E1000 PSCR: %x\n";
     descriptor___5.lineno = 1790U;
     descriptor___5.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -23746,7 +23745,7 @@ static s32 e1000_phy_force_speed_duplex(struct e1000_hw *hw )
     descriptor___6.format = "Waiting for forced speed/duplex link.\n";
     descriptor___6.lineno = 1830U;
     descriptor___6.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -23805,7 +23804,7 @@ static s32 e1000_phy_force_speed_duplex(struct e1000_hw *hw )
         descriptor___7.format = "Error Resetting PHY DSP\n";
         descriptor___7.lineno = 1858U;
         descriptor___7.flags = 0U;
-        tmp___16 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+        tmp___16 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
         }
         if (tmp___16 != 0L) {
           {
@@ -23928,7 +23927,7 @@ void e1000_config_collision_dist(struct e1000_hw *hw )
   descriptor.format = "e1000_config_collision_dist";
   descriptor.lineno = 1942U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23970,7 +23969,7 @@ static s32 e1000_config_mac_to_phy(struct e1000_hw *hw )
   descriptor.format = "e1000_config_mac_to_phy";
   descriptor.lineno = 1973U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24072,7 +24071,7 @@ s32 e1000_force_mac_fc(struct e1000_hw *hw )
   descriptor.format = "e1000_force_mac_fc";
   descriptor.lineno = 2052U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24129,7 +24128,7 @@ s32 e1000_force_mac_fc(struct e1000_hw *hw )
   descriptor___0.format = "Flow control param set incorrectly\n";
   descriptor___0.lineno = 2091U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -24204,7 +24203,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
   descriptor.format = "e1000_config_fc_after_link_up";
   descriptor.lineno = 2123U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24226,7 +24225,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___0.format = "Error forcing flow control settings\n";
       descriptor___0.lineno = 2136U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -24288,7 +24287,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
           descriptor___1.format = "Flow Control = FULL.\n";
           descriptor___1.lineno = 2220U;
           descriptor___1.flags = 0U;
-          tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+          tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
           }
           if (tmp___4 != 0L) {
             {
@@ -24308,7 +24307,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
           descriptor___2.format = "Flow Control = RX PAUSE frames only.\n";
           descriptor___2.lineno = 2224U;
           descriptor___2.flags = 0U;
-          tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+          tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
           }
           if (tmp___6 != 0L) {
             {
@@ -24330,7 +24329,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___3.format = "Flow Control = TX PAUSE frames only.\n";
         descriptor___3.lineno = 2242U;
         descriptor___3.flags = 0U;
-        tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___8 != 0L) {
           {
@@ -24351,7 +24350,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___4.format = "Flow Control = RX PAUSE frames only.\n";
         descriptor___4.lineno = 2259U;
         descriptor___4.flags = 0U;
-        tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
         }
         if (tmp___10 != 0L) {
           {
@@ -24372,7 +24371,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___5.format = "Flow Control = NONE.\n";
         descriptor___5.lineno = 2287U;
         descriptor___5.flags = 0U;
-        tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+        tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
         }
         if (tmp___12 != 0L) {
           {
@@ -24392,7 +24391,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___6.format = "Flow Control = RX PAUSE frames only.\n";
         descriptor___6.lineno = 2291U;
         descriptor___6.flags = 0U;
-        tmp___14 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+        tmp___14 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
         }
         if (tmp___14 != 0L) {
           {
@@ -24415,7 +24414,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___7.format = "Error getting link speed and duplex\n";
         descriptor___7.lineno = 2302U;
         descriptor___7.flags = 0U;
-        tmp___16 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+        tmp___16 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
         }
         if (tmp___16 != 0L) {
           {
@@ -24446,7 +24445,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___8.format = "Error forcing flow control settings\n";
         descriptor___8.lineno = 2315U;
         descriptor___8.flags = 0U;
-        tmp___18 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+        tmp___18 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
         }
         if (tmp___18 != 0L) {
           {
@@ -24469,7 +24468,7 @@ static s32 e1000_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___9.format = "Copper PHY and Auto Neg has not completed.\n";
       descriptor___9.lineno = 2320U;
       descriptor___9.flags = 0U;
-      tmp___20 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+      tmp___20 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
       }
       if (tmp___20 != 0L) {
         {
@@ -24535,7 +24534,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
   descriptor.format = "e1000_check_for_serdes_link_generic";
   descriptor.lineno = 2340U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24564,7 +24563,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
     descriptor___0.format = "NOT RXing /C/, disable AutoNeg and force link.\n";
     descriptor___0.lineno = 2358U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -24590,7 +24589,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
       descriptor___1.format = "Error configuring flow control\n";
       descriptor___1.lineno = 2371U;
       descriptor___1.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -24614,7 +24613,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
     descriptor___2.format = "RXing /C/, enable AutoNeg and stop forcing link.\n";
     descriptor___2.lineno = 2380U;
     descriptor___2.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -24649,7 +24648,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
           descriptor___3.format = "SERDES: Link up - forced.\n";
           descriptor___3.lineno = 2396U;
           descriptor___3.flags = 0U;
-          tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+          tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
           }
           if (tmp___8 != 0L) {
             {
@@ -24672,7 +24671,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
         descriptor___4.format = "SERDES: Link down - force failed.\n";
         descriptor___4.lineno = 2400U;
         descriptor___4.flags = 0U;
-        tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
         }
         if (tmp___10 != 0L) {
           {
@@ -24710,7 +24709,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
           descriptor___5.format = "SERDES: Link up - autoneg completed successfully.\n";
           descriptor___5.lineno = 2414U;
           descriptor___5.flags = 0U;
-          tmp___13 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+          tmp___13 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
           }
           if (tmp___13 != 0L) {
             {
@@ -24730,7 +24729,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
           descriptor___6.format = "SERDES: Link down - invalidcodewords detected in autoneg.\n";
           descriptor___6.lineno = 2418U;
           descriptor___6.flags = 0U;
-          tmp___15 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+          tmp___15 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
           }
           if (tmp___15 != 0L) {
             {
@@ -24751,7 +24750,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
         descriptor___7.format = "SERDES: Link down - no sync.\n";
         descriptor___7.lineno = 2422U;
         descriptor___7.flags = 0U;
-        tmp___17 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+        tmp___17 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
         }
         if (tmp___17 != 0L) {
           {
@@ -24772,7 +24771,7 @@ static s32 e1000_check_for_serdes_link_generic(struct e1000_hw *hw )
       descriptor___8.format = "SERDES: Link down - autoneg failed\n";
       descriptor___8.lineno = 2426U;
       descriptor___8.flags = 0U;
-      tmp___19 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___19 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
       }
       if (tmp___19 != 0L) {
         {
@@ -24826,7 +24825,7 @@ s32 e1000_check_for_link(struct e1000_hw *hw )
   descriptor.format = "e1000_check_for_link";
   descriptor.lineno = 2452U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24920,7 +24919,7 @@ s32 e1000_check_for_link(struct e1000_hw *hw )
         descriptor___0.format = "Error configuring MAC to PHY settings\n";
         descriptor___0.lineno = 2551U;
         descriptor___0.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -24947,7 +24946,7 @@ s32 e1000_check_for_link(struct e1000_hw *hw )
       descriptor___1.format = "Error configuring flow control\n";
       descriptor___1.lineno = 2563U;
       descriptor___1.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -24974,7 +24973,7 @@ s32 e1000_check_for_link(struct e1000_hw *hw )
         descriptor___2.format = "Error getting link speed and duplex\n";
         descriptor___2.lineno = 2581U;
         descriptor___2.flags = 0U;
-        tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___6 != 0L) {
           {
@@ -25062,7 +25061,7 @@ s32 e1000_get_speed_and_duplex(struct e1000_hw *hw , u16 *speed , u16 *duplex )
   descriptor.format = "e1000_get_speed_and_duplex";
   descriptor.lineno = 2635U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25085,7 +25084,7 @@ s32 e1000_get_speed_and_duplex(struct e1000_hw *hw , u16 *speed , u16 *duplex )
       descriptor___0.format = "1000 Mbs, ";
       descriptor___0.lineno = 2641U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -25106,7 +25105,7 @@ s32 e1000_get_speed_and_duplex(struct e1000_hw *hw , u16 *speed , u16 *duplex )
       descriptor___1.format = "100 Mbs, ";
       descriptor___1.lineno = 2644U;
       descriptor___1.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -25126,7 +25125,7 @@ s32 e1000_get_speed_and_duplex(struct e1000_hw *hw , u16 *speed , u16 *duplex )
       descriptor___2.format = "10 Mbs, ";
       descriptor___2.lineno = 2647U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -25147,7 +25146,7 @@ s32 e1000_get_speed_and_duplex(struct e1000_hw *hw , u16 *speed , u16 *duplex )
       descriptor___3.format = "Full Duplex\n";
       descriptor___3.lineno = 2652U;
       descriptor___3.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -25167,7 +25166,7 @@ s32 e1000_get_speed_and_duplex(struct e1000_hw *hw , u16 *speed , u16 *duplex )
       descriptor___4.format = " Half Duplex\n";
       descriptor___4.lineno = 2655U;
       descriptor___4.flags = 0U;
-      tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -25187,7 +25186,7 @@ s32 e1000_get_speed_and_duplex(struct e1000_hw *hw , u16 *speed , u16 *duplex )
     descriptor___5.format = "1000 Mbs, Full Duplex\n";
     descriptor___5.lineno = 2658U;
     descriptor___5.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -25253,7 +25252,7 @@ static s32 e1000_wait_autoneg(struct e1000_hw *hw )
   descriptor.format = "e1000_wait_autoneg";
   descriptor.lineno = 2702U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25270,7 +25269,7 @@ static s32 e1000_wait_autoneg(struct e1000_hw *hw )
   descriptor___0.format = "Waiting for Auto-Neg to complete.\n";
   descriptor___0.lineno = 2703U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -25447,7 +25446,7 @@ s32 e1000_read_phy_reg(struct e1000_hw *hw , u32 reg_addr , u16 *phy_data )
   descriptor.format = "e1000_read_phy_reg";
   descriptor.lineno = 2869U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25518,7 +25517,7 @@ static s32 e1000_read_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 *phy_d
   descriptor.format = "e1000_read_phy_reg_ex";
   descriptor.lineno = 2897U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25536,7 +25535,7 @@ static s32 e1000_read_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 *phy_d
     descriptor___0.format = "PHY Address %d is out of range\n";
     descriptor___0.lineno = 2900U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -25585,7 +25584,7 @@ static s32 e1000_read_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 *phy_d
         descriptor___1.format = "MDI Read did not complete\n";
         descriptor___1.lineno = 2928U;
         descriptor___1.flags = 0U;
-        tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___4 != 0L) {
           {
@@ -25611,7 +25610,7 @@ static s32 e1000_read_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 *phy_d
         descriptor___2.format = "MDI Read Error\n";
         descriptor___2.lineno = 2934U;
         descriptor___2.flags = 0U;
-        tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___6 != 0L) {
           {
@@ -25660,7 +25659,7 @@ static s32 e1000_read_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 *phy_d
         descriptor___3.format = "MDI Read did not complete\n";
         descriptor___3.lineno = 2955U;
         descriptor___3.flags = 0U;
-        tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___8 != 0L) {
           {
@@ -25683,7 +25682,7 @@ static s32 e1000_read_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 *phy_d
         descriptor___4.format = "MDI Error\n";
         descriptor___4.lineno = 2959U;
         descriptor___4.flags = 0U;
-        tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
         }
         if (tmp___10 != 0L) {
           {
@@ -25729,7 +25728,7 @@ s32 e1000_write_phy_reg(struct e1000_hw *hw , u32 reg_addr , u16 phy_data )
   descriptor.format = "e1000_write_phy_reg";
   descriptor.lineno = 3011U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25794,7 +25793,7 @@ static s32 e1000_write_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 phy_d
   descriptor.format = "e1000_write_phy_reg_ex";
   descriptor.lineno = 3039U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25812,7 +25811,7 @@ static s32 e1000_write_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 phy_d
     descriptor___0.format = "PHY Address %d is out of range\n";
     descriptor___0.lineno = 3042U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -25861,7 +25860,7 @@ static s32 e1000_write_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 phy_d
         descriptor___1.format = "MDI Write did not complete\n";
         descriptor___1.lineno = 3071U;
         descriptor___1.flags = 0U;
-        tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___4 != 0L) {
           {
@@ -25909,7 +25908,7 @@ static s32 e1000_write_phy_reg_ex(struct e1000_hw *hw , u32 reg_addr , u16 phy_d
         descriptor___2.format = "MDI Write did not complete\n";
         descriptor___2.lineno = 3092U;
         descriptor___2.flags = 0U;
-        tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___6 != 0L) {
           {
@@ -25958,7 +25957,7 @@ s32 e1000_phy_hw_reset(struct e1000_hw *hw )
   descriptor.format = "e1000_phy_hw_reset";
   descriptor.lineno = 3132U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25975,7 +25974,7 @@ s32 e1000_phy_hw_reset(struct e1000_hw *hw )
   descriptor___0.format = "Resetting Phy...\n";
   descriptor___0.lineno = 3134U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -26042,7 +26041,7 @@ s32 e1000_phy_reset(struct e1000_hw *hw )
   descriptor.format = "e1000_phy_reset";
   descriptor.lineno = 3192U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26133,7 +26132,7 @@ static s32 e1000_detect_gig_phy(struct e1000_hw *hw )
   descriptor.format = "e1000_detect_gig_phy";
   descriptor.lineno = 3232U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26280,7 +26279,7 @@ static s32 e1000_detect_gig_phy(struct e1000_hw *hw )
   descriptor___0.format = "Invalid MAC type %d\n";
   descriptor___0.lineno = 3282U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -26306,7 +26305,7 @@ static s32 e1000_detect_gig_phy(struct e1000_hw *hw )
     descriptor___1.format = "PHY ID 0x%X detected\n";
     descriptor___1.lineno = 3288U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -26328,7 +26327,7 @@ static s32 e1000_detect_gig_phy(struct e1000_hw *hw )
   descriptor___2.format = "Invalid PHY ID 0x%X\n";
   descriptor___2.lineno = 3291U;
   descriptor___2.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -26357,7 +26356,7 @@ static s32 e1000_phy_reset_dsp(struct e1000_hw *hw )
   descriptor.format = "e1000_phy_reset_dsp";
   descriptor.lineno = 3304U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26416,7 +26415,7 @@ static s32 e1000_phy_igp_get_info(struct e1000_hw *hw , struct e1000_phy_info *p
   descriptor.format = "e1000_phy_igp_get_info";
   descriptor.lineno = 3336U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26504,7 +26503,7 @@ static s32 e1000_phy_m88_get_info(struct e1000_hw *hw , struct e1000_phy_info *p
   descriptor.format = "e1000_phy_m88_get_info";
   descriptor.lineno = 3417U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26585,7 +26584,7 @@ s32 e1000_phy_get_info(struct e1000_hw *hw , struct e1000_phy_info *phy_info )
   descriptor.format = "e1000_phy_get_info";
   descriptor.lineno = 3490U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26611,7 +26610,7 @@ s32 e1000_phy_get_info(struct e1000_hw *hw , struct e1000_phy_info *phy_info )
     descriptor___0.format = "PHY info is only valid for copper media\n";
     descriptor___0.lineno = 3502U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -26650,7 +26649,7 @@ s32 e1000_phy_get_info(struct e1000_hw *hw , struct e1000_phy_info *phy_info )
     descriptor___1.format = "PHY info is only valid if link is up\n";
     descriptor___1.lineno = 3515U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -26698,7 +26697,7 @@ s32 e1000_validate_mdi_setting(struct e1000_hw *hw )
   descriptor.format = "e1000_validate_mdi_settings";
   descriptor.lineno = 3530U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26716,7 +26715,7 @@ s32 e1000_validate_mdi_setting(struct e1000_hw *hw )
     descriptor___0.format = "Invalid MDI setting detected\n";
     descriptor___0.lineno = 3533U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -26758,7 +26757,7 @@ s32 e1000_init_eeprom_params(struct e1000_hw *hw )
   descriptor.format = "e1000_init_eeprom_params";
   descriptor.lineno = 3554U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -27054,7 +27053,7 @@ static s32 e1000_acquire_eeprom(struct e1000_hw *hw )
   descriptor.format = "e1000_acquire_eeprom";
   descriptor.lineno = 3773U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27097,7 +27096,7 @@ static s32 e1000_acquire_eeprom(struct e1000_hw *hw )
       descriptor___0.format = "Could not acquire EEPROM grant\n";
       descriptor___0.lineno = 3791U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -27198,7 +27197,7 @@ static void e1000_release_eeprom(struct e1000_hw *hw )
   descriptor.format = "e1000_release_eeprom";
   descriptor.lineno = 3874U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27268,7 +27267,7 @@ static s32 e1000_spi_eeprom_ready(struct e1000_hw *hw )
   descriptor.format = "e1000_spi_eeprom_ready";
   descriptor.lineno = 3923U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27309,7 +27308,7 @@ static s32 e1000_spi_eeprom_ready(struct e1000_hw *hw )
     descriptor___0.format = "SPI EEPROM Status error\n";
     descriptor___0.lineno = 3948U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -27366,7 +27365,7 @@ static s32 e1000_do_read_eeprom(struct e1000_hw *hw , u16 offset , u16 words , u
   descriptor.format = "e1000_read_eeprom";
   descriptor.lineno = 3977U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27400,7 +27399,7 @@ static s32 e1000_do_read_eeprom(struct e1000_hw *hw , u16 offset , u16 words , u
     descriptor___0.format = "\"words\" parameter out of bounds. Words = %d,size = %d\n";
     descriptor___0.lineno = 3995U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -27517,7 +27516,7 @@ s32 e1000_validate_eeprom_checksum(struct e1000_hw *hw )
   descriptor.format = "e1000_validate_eeprom_checksum";
   descriptor.lineno = 4079U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27541,7 +27540,7 @@ s32 e1000_validate_eeprom_checksum(struct e1000_hw *hw )
     descriptor___0.format = "EEPROM Read Error\n";
     descriptor___0.lineno = 4083U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -27575,7 +27574,7 @@ s32 e1000_validate_eeprom_checksum(struct e1000_hw *hw )
     descriptor___1.format = "EEPROM Checksum Invalid\n";
     descriptor___1.lineno = 4098U;
     descriptor___1.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -27616,7 +27615,7 @@ s32 e1000_update_eeprom_checksum(struct e1000_hw *hw )
   descriptor.format = "e1000_update_eeprom_checksum";
   descriptor.lineno = 4115U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27640,7 +27639,7 @@ s32 e1000_update_eeprom_checksum(struct e1000_hw *hw )
     descriptor___0.format = "EEPROM Read Error\n";
     descriptor___0.lineno = 4119U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -27675,7 +27674,7 @@ s32 e1000_update_eeprom_checksum(struct e1000_hw *hw )
     descriptor___1.format = "EEPROM Write Error\n";
     descriptor___1.lineno = 4126U;
     descriptor___1.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -27729,7 +27728,7 @@ static s32 e1000_do_write_eeprom(struct e1000_hw *hw , u16 offset , u16 words , 
   descriptor.format = "e1000_write_eeprom";
   descriptor.lineno = 4157U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27763,7 +27762,7 @@ static s32 e1000_do_write_eeprom(struct e1000_hw *hw , u16 offset , u16 words , 
     descriptor___0.format = "\"words\" parameter out of bounds\n";
     descriptor___0.lineno = 4174U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -27823,7 +27822,7 @@ static s32 e1000_write_eeprom_spi(struct e1000_hw *hw , u16 offset , u16 words ,
   descriptor.format = "e1000_write_eeprom_spi";
   descriptor.lineno = 4208U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27917,7 +27916,7 @@ static s32 e1000_write_eeprom_microwire(struct e1000_hw *hw , u16 offset , u16 w
   descriptor.format = "e1000_write_eeprom_microwire";
   descriptor.lineno = 4277U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27970,7 +27969,7 @@ static s32 e1000_write_eeprom_microwire(struct e1000_hw *hw , u16 offset , u16 w
     descriptor___0.format = "EEPROM Write did not complete\n";
     descriptor___0.lineno = 4321U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -28024,7 +28023,7 @@ s32 e1000_read_mac_addr(struct e1000_hw *hw )
   descriptor.format = "e1000_read_mac_addr";
   descriptor.lineno = 4357U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28049,7 +28048,7 @@ s32 e1000_read_mac_addr(struct e1000_hw *hw )
     descriptor___0.format = "EEPROM Read Error\n";
     descriptor___0.lineno = 4362U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -28139,7 +28138,7 @@ static void e1000_init_rx_addrs(struct e1000_hw *hw )
   descriptor.format = "e1000_init_rx_addrs";
   descriptor.lineno = 4397U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28156,7 +28155,7 @@ static void e1000_init_rx_addrs(struct e1000_hw *hw )
   descriptor___0.format = "Programming MAC Address into RAR[0]\n";
   descriptor___0.lineno = 4400U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -28175,7 +28174,7 @@ static void e1000_init_rx_addrs(struct e1000_hw *hw )
   descriptor___1.format = "Clearing RAR[1-15]\n";
   descriptor___1.lineno = 4407U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -28359,7 +28358,7 @@ static s32 e1000_id_led_init(struct e1000_hw *hw )
   descriptor.format = "e1000_id_led_init";
   descriptor.lineno = 4556U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28389,7 +28388,7 @@ static s32 e1000_id_led_init(struct e1000_hw *hw )
     descriptor___0.format = "EEPROM Read Error\n";
     descriptor___0.lineno = 4569U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -28539,7 +28538,7 @@ s32 e1000_setup_led(struct e1000_hw *hw )
   descriptor.format = "e1000_setup_led";
   descriptor.lineno = 4629U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28656,7 +28655,7 @@ s32 e1000_cleanup_led(struct e1000_hw *hw )
   descriptor.format = "e1000_cleanup_led";
   descriptor.lineno = 4681U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28754,7 +28753,7 @@ s32 e1000_led_on(struct e1000_hw *hw )
   descriptor.format = "e1000_led_on";
   descriptor.lineno = 4717U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28842,7 +28841,7 @@ s32 e1000_led_off(struct e1000_hw *hw )
   descriptor.format = "e1000_led_off";
   descriptor.lineno = 4763U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -29127,7 +29126,7 @@ void e1000_reset_adaptive(struct e1000_hw *hw )
   descriptor.format = "e1000_reset_adaptive";
   descriptor.lineno = 4892U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29159,7 +29158,7 @@ void e1000_reset_adaptive(struct e1000_hw *hw )
     descriptor___0.format = "Not in Adaptive IFS mode!\n";
     descriptor___0.lineno = 4905U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -29191,7 +29190,7 @@ void e1000_update_adaptive(struct e1000_hw *hw )
   descriptor.format = "e1000_update_adaptive";
   descriptor.lineno = 4920U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29238,7 +29237,7 @@ void e1000_update_adaptive(struct e1000_hw *hw )
     descriptor___0.format = "Not in Adaptive IFS mode!\n";
     descriptor___0.lineno = 4945U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -29428,7 +29427,7 @@ static s32 e1000_get_cable_length(struct e1000_hw *hw , u16 *min_length , u16 *m
   descriptor.format = "e1000_get_cable_length";
   descriptor.lineno = 5117U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29571,7 +29570,7 @@ static s32 e1000_check_polarity(struct e1000_hw *hw , e1000_rev_polarity *polari
   descriptor.format = "e1000_check_polarity";
   descriptor.lineno = 5234U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29636,7 +29635,7 @@ static s32 e1000_check_downshift(struct e1000_hw *hw )
   descriptor.format = "e1000_check_downshift";
   descriptor.lineno = 5302U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29805,7 +29804,7 @@ static s32 e1000_config_dsp_after_link_change(struct e1000_hw *hw , bool link_up
   descriptor.format = "e1000_config_dsp_after_link_change";
   descriptor.lineno = 5414U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29832,7 +29831,7 @@ static s32 e1000_config_dsp_after_link_change(struct e1000_hw *hw , bool link_up
       descriptor___0.format = "Error getting link speed and duplex\n";
       descriptor___0.lineno = 5422U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -30010,7 +30009,7 @@ static s32 e1000_set_phy_mode(struct e1000_hw *hw )
   descriptor.format = "e1000_set_phy_mode";
   descriptor.lineno = 5549U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30072,7 +30071,7 @@ static s32 e1000_set_d3_lplu_state(struct e1000_hw *hw , bool active )
   descriptor.format = "e1000_set_d3_lplu_state";
   descriptor.lineno = 5597U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30209,7 +30208,7 @@ static s32 e1000_set_vco_speed(struct e1000_hw *hw )
   descriptor.format = "e1000_set_vco_speed";
   descriptor.lineno = 5702U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30495,7 +30494,7 @@ static s32 e1000_get_auto_rd_done(struct e1000_hw *hw )
   descriptor.format = "e1000_get_auto_rd_done";
   descriptor.lineno = 5875U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30525,7 +30524,7 @@ static s32 e1000_get_phy_cfg_done(struct e1000_hw *hw )
   descriptor.format = "e1000_get_phy_cfg_done";
   descriptor.lineno = 5890U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30630,7 +30629,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -30670,7 +30669,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -33087,7 +33086,7 @@ static int e1000_run_loopback_test(struct e1000_adapter *adapter )
                              (size_t )(txdr->buffer_info + (unsigned long )k)->length,
                              1);
   k = k + 1;
-  tmp = __builtin_expect((unsigned int )k == txdr->count, 0L);
+  tmp = ldv__builtin_expect((unsigned int )k == txdr->count, 0L);
   }
   if (tmp != 0L) {
     k = 0;
@@ -33123,7 +33122,7 @@ static int e1000_run_loopback_test(struct e1000_adapter *adapter )
   }
   {
   l = l + 1;
-  tmp___0 = __builtin_expect((unsigned int )l == rxdr->count, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )l == rxdr->count, 0L);
   }
   if (tmp___0 != 0L) {
     l = 0;
@@ -35751,7 +35750,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -35775,7 +35774,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -35783,7 +35782,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

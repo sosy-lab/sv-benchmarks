@@ -3816,9 +3816,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -4053,7 +4051,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4061,7 +4059,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4471,7 +4469,7 @@ static void free_imon_context(struct imon_context *ictx )
   descriptor.format = "%s: iMON context freed\n";
   descriptor.lineno = 380U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4550,7 +4548,7 @@ static int display_open(struct inode *inode , struct file *file )
     descriptor.format = "display port opened\n";
     descriptor.lineno = 423U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -4612,7 +4610,7 @@ static int display_close(struct inode *inode , struct file *file )
     descriptor.format = "display port closed\n";
     descriptor.lineno = 459U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5587,7 +5585,7 @@ static ssize_t lcd_write(struct file *file , char const   *buf , size_t n_bytes 
     descriptor.format = "%s: write %d bytes to LCD\n";
     descriptor.lineno = 953U;
     descriptor.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -5694,7 +5692,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 *rc_type )
     descriptor.format = "Configuring IR receiver for MCE protocol\n";
     descriptor.lineno = 1025U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5714,7 +5712,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 *rc_type )
     descriptor___0.format = "Configuring IR receiver for iMON protocol\n";
     descriptor___0.lineno = 1029U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5731,7 +5729,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 *rc_type )
       descriptor___1.format = "PAD stabilize functionality disabled\n";
       descriptor___1.lineno = 1031U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -5756,7 +5754,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 *rc_type )
       descriptor___2.format = "PAD stabilize functionality disabled\n";
       descriptor___2.lineno = 1038U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -6092,7 +6090,7 @@ static bool imon_mouse_event(struct imon_context *ictx , unsigned char *buf , in
     descriptor.format = "sending mouse data via input subsystem\n";
     descriptor.lineno = 1272U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6430,7 +6428,7 @@ static void imon_incoming_packet(struct imon_context *ictx , struct urb *urb , i
       descriptor.format = "toggling to %s mode\n";
       descriptor.lineno = 1535U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -6453,7 +6451,7 @@ static void imon_incoming_packet(struct imon_context *ictx , struct urb *urb , i
       descriptor___0.format = "mouse mode disabled, passing key value\n";
       descriptor___0.lineno = 1540U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -7200,7 +7198,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
     descriptor.format = "%s: found IR endpoint\n";
     descriptor.lineno = 2030U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7221,7 +7219,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
     descriptor___0.format = "%s: found display endpoint\n";
     descriptor___0.lineno = 2036U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7258,7 +7256,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
     descriptor___1.format = "%s: device uses control endpoint, not interface OUT endpoint\n";
     descriptor___1.lineno = 2059U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7280,7 +7278,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
     descriptor___2.format = "%s: device has no display\n";
     descriptor___2.lineno = 2069U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7302,7 +7300,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
     descriptor___3.format = "%s: iMON Touch device found\n";
     descriptor___3.lineno = 2078U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -7609,7 +7607,7 @@ static void imon_init_display(struct imon_context *ictx , struct usb_interface *
   descriptor.format = "Registering iMON display with sysfs\n";
   descriptor.lineno = 2266U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7686,7 +7684,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
   descriptor.format = "%s: found iMON device (%04x:%04x, intf%d)\n";
   descriptor.lineno = 2308U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7864,7 +7862,7 @@ static void imon_disconnect(struct usb_interface *interface )
   descriptor.format = "%s: iMON device (intf%d) disconnected\n";
   descriptor.lineno = 2433U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7990,7 +7988,7 @@ void ldv_dummy_resourceless_instance_callback_3_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_5(long long (*arg0)(struct file * , long long  ,
@@ -8532,7 +8530,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10566,7 +10564,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10590,7 +10588,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10598,7 +10596,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

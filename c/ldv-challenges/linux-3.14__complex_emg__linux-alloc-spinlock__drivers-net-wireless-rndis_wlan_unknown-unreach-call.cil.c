@@ -6686,8 +6686,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -6779,7 +6778,6 @@ extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
@@ -6967,7 +6965,7 @@ __inline static void *wiphy_priv(struct wiphy *wiphy )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )wiphy == (unsigned long )((struct wiphy *)0),
+  tmp = ldv__builtin_expect((unsigned long )wiphy == (unsigned long )((struct wiphy *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7387,7 +7385,7 @@ static int rndis_query_oid(struct usbnet *dev , u32 oid , void *data , int *len 
     descriptor.format = "%s(%s): rndis_command() failed, %d (%08x)\n";
     descriptor.lineno = 743U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7412,7 +7410,7 @@ static int rndis_query_oid(struct usbnet *dev , u32 oid , void *data , int *len 
       descriptor___0.format = "%s(%s): received invalid data offset: %d > %d\n";
       descriptor___0.lineno = 753U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -7452,7 +7450,7 @@ static int rndis_query_oid(struct usbnet *dev , u32 oid , void *data , int *len 
       descriptor___1.format = "%s(%s): device returned error,  0x%08x (%d)\n";
       descriptor___1.lineno = 779U;
       descriptor___1.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -7543,7 +7541,7 @@ static int rndis_set_oid(struct usbnet *dev , u32 oid , void const   *data , int
     descriptor.format = "%s(%s): rndis_command() failed, %d (%08x)\n";
     descriptor.lineno = 831U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7569,7 +7567,7 @@ static int rndis_set_oid(struct usbnet *dev , u32 oid , void const   *data , int
       descriptor___0.format = "%s(%s): device returned error, 0x%08x (%d)\n";
       descriptor___0.lineno = 839U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -7681,7 +7679,7 @@ static int rndis_set_config_parameter(struct usbnet *dev , char *param , int val
     descriptor.format = "setting config parameter: %s, value: %s\n";
     descriptor.lineno = 909U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7699,7 +7697,7 @@ static int rndis_set_config_parameter(struct usbnet *dev , char *param , int val
     descriptor___0.format = "setting config parameter: %s, value: %d\n";
     descriptor___0.lineno = 912U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -7757,7 +7755,7 @@ static int rndis_set_config_parameter(struct usbnet *dev , char *param , int val
     descriptor___1.format = "setting rndis config parameter failed, %d\n";
     descriptor___1.lineno = 949U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -7844,7 +7842,7 @@ static int set_essid(struct usbnet *usbdev , struct ndis_80211_ssid *ssid )
     descriptor.format = "%s(): radio_on = true\n";
     descriptor.lineno = 1001U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8002,7 +8000,7 @@ static int disassociate(struct usbnet *usbdev , bool reset_ssid )
       descriptor.format = "%s(): radio_on = false\n";
       descriptor.lineno = 1080U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -8074,7 +8072,7 @@ static int set_auth_mode(struct usbnet *usbdev , u32 wpa_version , enum nl80211_
   descriptor.format = "%s(): wpa_version=0x%x authalg=0x%x keymgmt=0x%x\n";
   descriptor.lineno = 1114U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8148,7 +8146,7 @@ static int set_priv_filter(struct usbnet *usbdev )
   descriptor.format = "%s(): wpa_version=0x%x\n";
   descriptor.lineno = 1158U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8185,7 +8183,7 @@ static int set_encr_mode(struct usbnet *usbdev , int pairwise , int groupwise )
   descriptor.format = "%s(): cipher_pair=0x%x cipher_group=0x%x\n";
   descriptor.lineno = 1177U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8247,7 +8245,7 @@ static int set_infra_mode(struct usbnet *usbdev , int mode )
   descriptor.format = "%s(): infra_mode=0x%x\n";
   descriptor.lineno = 1212U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8292,7 +8290,7 @@ static int set_rts_threshold(struct usbnet *usbdev , u32 rts_threshold )
   descriptor.format = "%s(): %i\n";
   descriptor.lineno = 1237U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8329,7 +8327,7 @@ static int set_frag_threshold(struct usbnet *usbdev , u32 frag_threshold )
   descriptor.format = "%s(): %i\n";
   descriptor.lineno = 1252U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8400,7 +8398,7 @@ static int set_channel(struct usbnet *usbdev , int channel )
   descriptor.format = "%s(%d)\n";
   descriptor.lineno = 1287U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8432,7 +8430,7 @@ static int set_channel(struct usbnet *usbdev , int channel )
     descriptor___0.format = "%s(): querying configuration failed\n";
     descriptor___0.lineno = 1301U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8455,7 +8453,7 @@ static int set_channel(struct usbnet *usbdev , int channel )
   descriptor___1.format = "%s(): %d -> %d\n";
   descriptor___1.lineno = 1310U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8491,7 +8489,7 @@ static struct ieee80211_channel *get_current_channel(struct usbnet *usbdev , u32
   descriptor.format = "%s(): RNDIS_OID_802_11_CONFIGURATION -> %d\n";
   descriptor.lineno = 1329U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8542,7 +8540,7 @@ static int add_wep_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
   descriptor.format = "%s(idx: %d, len: %d)\n";
   descriptor.lineno = 1353U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8651,7 +8649,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
     descriptor.format = "%s(): index out of range (%i)\n";
     descriptor.lineno = 1409U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8673,7 +8671,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
     descriptor___0.format = "%s(): key length out of range (%i)\n";
     descriptor___0.lineno = 1414U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8697,7 +8695,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
       descriptor___1.format = "%s(): recv seq flag without buffer\n";
       descriptor___1.lineno = 1420U;
       descriptor___1.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -8719,7 +8717,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
       descriptor___2.format = "%s(): too big recv seq buffer\n";
       descriptor___2.lineno = 1424U;
       descriptor___2.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -8774,7 +8772,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
     descriptor___3.format = "%s(): pairwise but bssid invalid (%pM)\n";
     descriptor___3.lineno = 1433U;
     descriptor___3.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -8796,7 +8794,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
   descriptor___4.format = "%s(%i): flags:%i%i%i\n";
   descriptor___4.lineno = 1441U;
   descriptor___4.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -8853,7 +8851,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
   descriptor___5.format = "%s(): RNDIS_OID_802_11_ADD_KEY -> %08X\n";
   descriptor___5.lineno = 1477U;
   descriptor___5.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -8922,7 +8920,7 @@ static int restore_key(struct usbnet *usbdev , u8 key_idx )
   descriptor.format = "%s(): %i:%i\n";
   descriptor.lineno = 1506U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9012,7 +9010,7 @@ static int remove_key(struct usbnet *usbdev , u8 index , u8 const   *bssid )
   descriptor.format = "%s(): %i:%s:%i\n";
   descriptor.lineno = 1546U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9193,7 +9191,7 @@ static void set_multicast_list(struct usbnet *usbdev )
     descriptor.format = "RNDIS_OID_802_3_MULTICAST_LIST(%d, max: %d) -> %d\n";
     descriptor.lineno = 1648U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9226,7 +9224,7 @@ static void set_multicast_list(struct usbnet *usbdev )
   descriptor___0.format = "RNDIS_OID_GEN_CURRENT_PACKET_FILTER(%08x) -> %d\n";
   descriptor___0.lineno = 1660U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9293,7 +9291,7 @@ static struct ndis_80211_pmkid *get_device_pmkids(struct usbnet *usbdev )
     descriptor.format = "%s(): RNDIS_OID_802_11_PMKID(%d, %d) -> %d\n";
     descriptor.lineno = 1722U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9347,7 +9345,7 @@ static int set_device_pmkids(struct usbnet *usbdev , struct ndis_80211_pmkid *pm
     descriptor.format = "%s(): RNDIS_OID_802_11_PMKID(%d, %d) -> %d\n";
     descriptor.lineno = 1751U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9413,7 +9411,7 @@ static struct ndis_80211_pmkid *remove_pmkid(struct usbnet *usbdev , struct ndis
     descriptor.format = "%s(): bssid not found (%pM)\n";
     descriptor.lineno = 1779U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9510,7 +9508,7 @@ static struct ndis_80211_pmkid *update_pmkid(struct usbnet *usbdev , struct ndis
     descriptor.format = "%s(): out of space\n";
     descriptor.lineno = 1827U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9660,7 +9658,7 @@ static int rndis_set_tx_power(struct wiphy *wiphy , struct wireless_dev *wdev , 
   descriptor.format = "%s(): type:0x%x mbm:%i\n";
   descriptor.lineno = 1912U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9720,7 +9718,7 @@ static int rndis_get_tx_power(struct wiphy *wiphy , struct wireless_dev *wdev , 
   descriptor.format = "%s(): dbm:%i\n";
   descriptor.lineno = 1941U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9759,7 +9757,7 @@ static int rndis_scan(struct wiphy *wiphy , struct cfg80211_scan_request *reques
   descriptor.format = "cfg80211.scan\n";
   descriptor.lineno = 1956U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9824,7 +9822,7 @@ static bool rndis_bss_info_update(struct usbnet *usbdev , struct ndis_80211_bssi
   descriptor.format = " found bssid: \'%.32s\' [%pM], len: %d\n";
   descriptor.lineno = 1995U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9940,7 +9938,7 @@ static int rndis_check_bssid_list(struct usbnet *usbdev , u8 *match_bssid , bool
   descriptor.format = "%s()\n";
   descriptor.lineno = 2073U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9990,7 +9988,7 @@ static int rndis_check_bssid_list(struct usbnet *usbdev , u8 *match_bssid , bool
   descriptor___0.format = "%s(): buflen: %d\n";
   descriptor___0.lineno = 2103U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10042,7 +10040,7 @@ static int rndis_check_bssid_list(struct usbnet *usbdev , u8 *match_bssid , bool
   descriptor___1.format = "%s(): num_items from device: %d, really found: %d\n";
   descriptor___1.lineno = 2123U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -10080,7 +10078,7 @@ static void rndis_get_scan_results(struct work_struct *work )
   descriptor.format = "get_scan_results\n";
   descriptor.lineno = 2137U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10214,7 +10212,7 @@ static int rndis_connect(struct wiphy *wiphy , struct net_device *dev , struct c
   descriptor.format = "cfg80211.connect(\'%.32s\':[%pM]:%d:[%d,0x%x:0x%x]:[0x%x:0x%x]:0x%x)\n";
   descriptor.lineno = 2188U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10246,7 +10244,7 @@ static int rndis_connect(struct wiphy *wiphy , struct net_device *dev , struct c
     descriptor___0.format = "connect: set_infra_mode failed, %d\n";
     descriptor___0.lineno = 2196U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -10271,7 +10269,7 @@ static int rndis_connect(struct wiphy *wiphy , struct net_device *dev , struct c
     descriptor___1.format = "connect: set_auth_mode failed, %d\n";
     descriptor___1.lineno = 2204U;
     descriptor___1.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -10297,7 +10295,7 @@ static int rndis_connect(struct wiphy *wiphy , struct net_device *dev , struct c
     descriptor___2.format = "connect: set_encr_mode failed, %d\n";
     descriptor___2.lineno = 2213U;
     descriptor___2.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -10323,7 +10321,7 @@ static int rndis_connect(struct wiphy *wiphy , struct net_device *dev , struct c
       descriptor___3.format = "connect: set_channel failed, %d\n";
       descriptor___3.lineno = 2221U;
       descriptor___3.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -10353,7 +10351,7 @@ static int rndis_connect(struct wiphy *wiphy , struct net_device *dev , struct c
       descriptor___4.format = "connect: add_wep_key failed, %d (%d, %d)\n";
       descriptor___4.lineno = 2231U;
       descriptor___4.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -10401,7 +10399,7 @@ static int rndis_connect(struct wiphy *wiphy , struct net_device *dev , struct c
           descriptor___5.format = "connect: set_bssid failed, %d\n";
           descriptor___5.lineno = 2241U;
           descriptor___5.flags = 0U;
-          tmp___9 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+          tmp___9 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
           }
           if (tmp___9 != 0L) {
             {
@@ -10452,7 +10450,7 @@ static int rndis_connect(struct wiphy *wiphy , struct net_device *dev , struct c
     descriptor___6.format = "connect: set_essid failed, %d\n";
     descriptor___6.lineno = 2263U;
     descriptor___6.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -10493,7 +10491,7 @@ static int rndis_disconnect(struct wiphy *wiphy , struct net_device *dev , u16 r
   descriptor.format = "cfg80211.disconnect(%d)\n";
   descriptor.lineno = 2278U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10572,7 +10570,7 @@ static int rndis_join_ibss(struct wiphy *wiphy , struct net_device *dev , struct
   descriptor.format = "cfg80211.join_ibss(\'%.32s\':[%pM]:%d:%d)\n";
   descriptor.lineno = 2313U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10603,7 +10601,7 @@ static int rndis_join_ibss(struct wiphy *wiphy , struct net_device *dev , struct
     descriptor___0.format = "join_ibss: set_infra_mode failed, %d\n";
     descriptor___0.lineno = 2321U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10628,7 +10626,7 @@ static int rndis_join_ibss(struct wiphy *wiphy , struct net_device *dev , struct
     descriptor___1.format = "join_ibss: set_auth_mode failed, %d\n";
     descriptor___1.lineno = 2328U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -10654,7 +10652,7 @@ static int rndis_join_ibss(struct wiphy *wiphy , struct net_device *dev , struct
     descriptor___2.format = "join_ibss: set_encr_mode failed, %d\n";
     descriptor___2.lineno = 2337U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -10680,7 +10678,7 @@ static int rndis_join_ibss(struct wiphy *wiphy , struct net_device *dev , struct
       descriptor___3.format = "join_ibss: set_channel failed, %d\n";
       descriptor___3.lineno = 2345U;
       descriptor___3.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -10727,7 +10725,7 @@ static int rndis_join_ibss(struct wiphy *wiphy , struct net_device *dev , struct
           descriptor___4.format = "join_ibss: set_bssid failed, %d\n";
           descriptor___4.lineno = 2355U;
           descriptor___4.flags = 0U;
-          tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+          tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
           }
           if (tmp___6 != 0L) {
             {
@@ -10778,7 +10776,7 @@ static int rndis_join_ibss(struct wiphy *wiphy , struct net_device *dev , struct
     descriptor___5.format = "join_ibss: set_essid failed, %d\n";
     descriptor___5.lineno = 2376U;
     descriptor___5.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -10819,7 +10817,7 @@ static int rndis_leave_ibss(struct wiphy *wiphy , struct net_device *dev )
   descriptor.format = "cfg80211.leave_ibss()\n";
   descriptor.lineno = 2390U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10861,7 +10859,7 @@ static int rndis_add_key(struct wiphy *wiphy , struct net_device *netdev , u8 ke
   descriptor.format = "%s(%i, %pM, %08x)\n";
   descriptor.lineno = 2407U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10926,7 +10924,7 @@ static int rndis_add_key(struct wiphy *wiphy , struct net_device *netdev , u8 ke
   descriptor___0.format = "%s(): unsupported cipher %08x\n";
   descriptor___0.lineno = 2429U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -10962,7 +10960,7 @@ static int rndis_del_key(struct wiphy *wiphy , struct net_device *netdev , u8 ke
   descriptor.format = "%s(%i, %pM)\n";
   descriptor.lineno = 2440U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11001,7 +10999,7 @@ static int rndis_set_default_key(struct wiphy *wiphy , struct net_device *netdev
   descriptor.format = "%s(%i)\n";
   descriptor.lineno = 2452U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11156,7 +11154,7 @@ static int rndis_set_pmksa(struct wiphy *wiphy , struct net_device *netdev , str
   descriptor.format = "%s(%pM, %08X:%08X:%08X:%08X)\n";
   descriptor.lineno = 2532U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -11232,7 +11230,7 @@ static int rndis_del_pmksa(struct wiphy *wiphy , struct net_device *netdev , str
   descriptor.format = "%s(%pM, %08X:%08X:%08X:%08X)\n";
   descriptor.lineno = 2560U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -11298,7 +11296,7 @@ static int rndis_flush_pmksa(struct wiphy *wiphy , struct net_device *netdev )
   descriptor.format = "%s()\n";
   descriptor.lineno = 2583U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11349,7 +11347,7 @@ static int rndis_set_power_mgmt(struct wiphy *wiphy , struct net_device *dev , b
   descriptor.format = "%s(): %s, %d\n";
   descriptor.lineno = 2608U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11380,7 +11378,7 @@ static int rndis_set_power_mgmt(struct wiphy *wiphy , struct net_device *dev , b
   descriptor___0.format = "%s(): RNDIS_OID_802_11_POWER_MODE -> %d\n";
   descriptor___0.lineno = 2625U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11450,7 +11448,7 @@ static void rndis_wlan_craft_connected_bss(struct usbnet *usbdev , u8 *bssid , s
   descriptor.format = "%s(): RNDIS_OID_802_11_RSSI -> %d, rssi:%d, qual: %d\n";
   descriptor.lineno = 2667U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11488,7 +11486,7 @@ static void rndis_wlan_craft_connected_bss(struct usbnet *usbdev , u8 *bssid , s
   descriptor___0.format = "%s(): RNDIS_OID_802_11_SSID -> %d, len: %d, ssid: \'%.32s\'\n";
   descriptor___0.lineno = 2693U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -11516,7 +11514,7 @@ static void rndis_wlan_craft_connected_bss(struct usbnet *usbdev , u8 *bssid , s
   descriptor___1.format = "%s(): channel:%d(freq), bssid:[%pM], tsf:%d, capa:%x, beacon int:%d, resp_ie(len:%d, essid:\'%.32s\'), signal:%d\n";
   descriptor___1.lineno = 2711U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -11649,7 +11647,7 @@ static void rndis_wlan_do_link_up_work(struct usbnet *usbdev )
   } else {
     {
     __ret_warn_on = priv->infra_mode != 0;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -11659,7 +11657,7 @@ static void rndis_wlan_do_link_up_work(struct usbnet *usbdev )
 
     }
     {
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___2 != 0L) {
       return;
@@ -11684,7 +11682,7 @@ static void rndis_wlan_do_link_up_work(struct usbnet *usbdev )
   descriptor.format = "link up work: [%pM]%s\n";
   descriptor.lineno = 2804U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -11989,7 +11987,7 @@ static void rndis_wlan_pmkid_cand_list_indication(struct usbnet *usbdev , struct
   descriptor.format = "cand[%i]: flags: 0x%08x, preauth: %d, bssid: %pM\n";
   descriptor.lineno = 3003U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12137,7 +12135,7 @@ static void rndis_wlan_indication(struct usbnet *usbdev , void *ind , int buflen
     descriptor.format = "ignored RNDIS_OID_802_11_ADD_KEY triggered \'media connect\'\n";
     descriptor.lineno = 3072U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12271,7 +12269,7 @@ static int rndis_wlan_get_caps(struct usbnet *usbdev , struct wiphy *wiphy )
     descriptor.format = "RNDIS_OID_802_11_CAPABILITY -> len %d, ver %d, pmkids %d, auth-encr-pairs %d\n";
     descriptor.lineno = 3152U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12399,7 +12397,7 @@ static void rndis_device_poller(struct work_struct *work )
   descriptor.format = "dev-poller: RNDIS_OID_802_11_RSSI -> %d, rssi:%d, qual: %d\n";
   descriptor.lineno = 3227U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -12780,7 +12778,7 @@ static int rndis_wlan_reset(struct usbnet *usbdev )
   descriptor.format = "%s()\n";
   descriptor.lineno = 3539U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12829,7 +12827,7 @@ static int rndis_wlan_stop(struct usbnet *usbdev )
   descriptor.format = "%s()\n";
   descriptor.lineno = 3561U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12984,7 +12982,7 @@ void ldv_dummy_resourceless_instance_callback_0_9(enum netdev_tx (*arg0)(struct 
                                                                          struct net_device * ) ,
                                                   struct sk_buff *arg1 , struct net_device *arg2 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_io_instance_callback_1_21(int (*arg0)(struct wiphy * , struct net_device * ,
                                                enum nl80211_iftype  , unsigned int * ,
@@ -13909,7 +13907,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -17150,7 +17148,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -17174,7 +17172,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -17182,7 +17180,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

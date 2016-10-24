@@ -8809,7 +8809,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 void ldv_check_final_state(void) ;
@@ -9037,7 +9037,7 @@ __inline static ktime_t ktime_set(long const   secs , unsigned long const   nsec
 
   {
   {
-  tmp = __builtin_expect((long long )secs > 9223372035LL, 0L);
+  tmp = ldv__builtin_expect((long long )secs > 9223372035LL, 0L);
   }
   if (tmp != 0L) {
     __constr_expr_0.tv64 = 9223372036854775807LL;
@@ -9176,7 +9176,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9186,7 +9186,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9404,7 +9404,7 @@ static void scan_delay_timer_fn(unsigned long data )
       descriptor.format = "info: aborting scan\n";
       descriptor.lineno = 61U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -9426,7 +9426,7 @@ static void scan_delay_timer_fn(unsigned long data )
       descriptor___0.format = "info: scan already aborted\n";
       descriptor___0.lineno = 66U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -9566,7 +9566,7 @@ static int mwifiex_register(void *card , struct mwifiex_if_ops *if_ops , void **
   descriptor.format = "info: leave mwifiex_register with error\n";
   descriptor.lineno = 170U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -9979,7 +9979,7 @@ static void mwifiex_free_adapter(struct mwifiex_adapter *adapter )
   descriptor.format = "info: %s: free adapter\n";
   descriptor.lineno = 391U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10203,7 +10203,7 @@ static void mwifiex_fw_dpc(struct firmware  const  *firmware , void *context )
   descriptor.format = "info: %s: unregister device\n";
   descriptor.lineno = 498U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -10227,7 +10227,7 @@ static void mwifiex_fw_dpc(struct firmware  const  *firmware , void *context )
     descriptor___0.format = "info: %s: shutdown mwifiex\n";
     descriptor___0.lineno = 504U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -10373,7 +10373,7 @@ static int mwifiex_close(struct net_device *dev )
     descriptor.format = "aborting scan on ndo_stop\n";
     descriptor.lineno = 568U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10428,7 +10428,7 @@ int mwifiex_queue_tx_pkt(struct mwifiex_private *priv , struct sk_buff *skb )
       descriptor.format = "stop queue: %d\n";
       descriptor.lineno = 589U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -10489,7 +10489,7 @@ static int mwifiex_hard_start_xmit(struct sk_buff *skb , struct net_device *dev 
   descriptor.format = "data: %lu BSS(%d-%d): Data <= kernel\n";
   descriptor.lineno = 616U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10531,7 +10531,7 @@ static int mwifiex_hard_start_xmit(struct sk_buff *skb , struct net_device *dev 
     descriptor___0.format = "data: Tx: insufficient skb headroom %d\n";
     descriptor___0.lineno = 632U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10544,7 +10544,7 @@ static int mwifiex_hard_start_xmit(struct sk_buff *skb , struct net_device *dev 
     }
     {
     new_skb = skb_realloc_headroom(skb, 36U);
-    tmp___3 = __builtin_expect((unsigned long )new_skb == (unsigned long )((struct sk_buff *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )new_skb == (unsigned long )((struct sk_buff *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -10566,7 +10566,7 @@ static int mwifiex_hard_start_xmit(struct sk_buff *skb , struct net_device *dev 
     descriptor___1.format = "info: new skb headroomd %d\n";
     descriptor___1.lineno = 645U;
     descriptor___1.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -10875,7 +10875,7 @@ int mwifiex_add_card(void *card , struct semaphore *sem , struct mwifiex_if_ops 
   descriptor.format = "info: %s: unregister device\n";
   descriptor.lineno = 902U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -10899,7 +10899,7 @@ int mwifiex_add_card(void *card , struct semaphore *sem , struct mwifiex_if_ops 
     descriptor___0.format = "info: %s: shutdown mwifiex\n";
     descriptor___0.lineno = 907U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -11063,7 +11063,7 @@ int mwifiex_remove_card(struct mwifiex_adapter *adapter , struct semaphore *sem 
   descriptor.format = "cmd: calling mwifiex_shutdown_drv...\n";
   descriptor.lineno = 967U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11122,7 +11122,7 @@ int mwifiex_remove_card(struct mwifiex_adapter *adapter , struct semaphore *sem 
   descriptor___0.format = "cmd: mwifiex_shutdown_drv done\n";
   descriptor___0.lineno = 973U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -11211,7 +11211,7 @@ int mwifiex_remove_card(struct mwifiex_adapter *adapter , struct semaphore *sem 
   descriptor___1.format = "info: unregister device\n";
   descriptor___1.lineno = 1002U;
   descriptor___1.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -11234,7 +11234,7 @@ int mwifiex_remove_card(struct mwifiex_adapter *adapter , struct semaphore *sem 
   descriptor___2.format = "info: free adapter\n";
   descriptor___2.lineno = 1006U;
   descriptor___2.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -11324,7 +11324,7 @@ void ldv_dummy_resourceless_instance_callback_5_9(unsigned short (*arg0)(struct 
                                                   void *arg3 , unsigned short (*arg4)(struct net_device * ,
                                                                                       struct sk_buff * ) ) ;
 void ldv_entry_EMGentry_15(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -12024,7 +12024,7 @@ void ldv_entry_EMGentry_15(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -13685,7 +13685,7 @@ static void mwifiex_adapter_cleanup(struct mwifiex_adapter *adapter )
   descriptor.format = "info: free cmd buffer\n";
   descriptor.lineno = 393U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13702,7 +13702,7 @@ static void mwifiex_adapter_cleanup(struct mwifiex_adapter *adapter )
   descriptor___0.format = "info: free scan table\n";
   descriptor___0.lineno = 396U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14001,7 +14001,7 @@ static void mwifiex_delete_bss_prio_tbl(struct mwifiex_private *priv )
   descriptor.format = "info: delete BSS priority table, bss_type = %d, bss_num = %d, i = %d, head = %p\n";
   descriptor.lineno = 551U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14037,7 +14037,7 @@ static void mwifiex_delete_bss_prio_tbl(struct mwifiex_private *priv )
     descriptor___0.format = "info: Delete node %p, next = %p\n";
     descriptor___0.lineno = 564U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -14135,7 +14135,7 @@ int mwifiex_shutdown_drv(struct mwifiex_adapter *adapter )
   descriptor.format = "info: shutdown mwifiex...\n";
   descriptor.lineno = 624U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15092,12 +15092,12 @@ u32 mwifiex_get_rates_from_cfg80211(struct mwifiex_private *priv , u8 *rates , u
     {
     sband = wiphy->bands[1];
     __ret_warn_once = (unsigned long )sband == (unsigned long )((struct ieee80211_supported_band *)0);
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
       __ret_warn_on = ! __warned;
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
       if (tmp != 0L) {
         {
@@ -15107,7 +15107,7 @@ u32 mwifiex_get_rates_from_cfg80211(struct mwifiex_private *priv , u8 *rates , u
 
       }
       {
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
       if (tmp___0 != 0L) {
         __warned = 1;
@@ -15118,7 +15118,7 @@ u32 mwifiex_get_rates_from_cfg80211(struct mwifiex_private *priv , u8 *rates , u
 
     }
     {
-    tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
     }
     if (tmp___2 != 0L) {
       return (0U);
@@ -15130,12 +15130,12 @@ u32 mwifiex_get_rates_from_cfg80211(struct mwifiex_private *priv , u8 *rates , u
     {
     sband = wiphy->bands[0];
     __ret_warn_once___0 = (unsigned long )sband == (unsigned long )((struct ieee80211_supported_band *)0);
-    tmp___5 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+    tmp___5 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
     }
     if (tmp___5 != 0L) {
       {
       __ret_warn_on___0 = ! __warned___0;
-      tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -15145,7 +15145,7 @@ u32 mwifiex_get_rates_from_cfg80211(struct mwifiex_private *priv , u8 *rates , u
 
       }
       {
-      tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       }
       if (tmp___4 != 0L) {
         __warned___0 = 1;
@@ -15156,7 +15156,7 @@ u32 mwifiex_get_rates_from_cfg80211(struct mwifiex_private *priv , u8 *rates , u
 
     }
     {
-    tmp___6 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
     }
     if (tmp___6 != 0L) {
       return (0U);
@@ -15333,7 +15333,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor.format = "info: infra band=%d supported_rates_b\n";
     descriptor.lineno = 455U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -15357,7 +15357,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor___0.format = "info: infra band=%d supported_rates_g\n";
     descriptor___0.lineno = 463U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15386,7 +15386,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor___1.format = "info: infra band=%d supported_rates_bg\n";
     descriptor___1.lineno = 477U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15409,7 +15409,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor___2.format = "info: infra band=%d supported_rates_a\n";
     descriptor___2.lineno = 484U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -15435,7 +15435,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor___3.format = "info: infra band=%d supported_rates_a\n";
     descriptor___3.lineno = 494U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15458,7 +15458,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor___4.format = "info: infra band=%d supported_rates_n\n";
     descriptor___4.lineno = 501U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -15521,7 +15521,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor___5.format = "info: adhoc B\n";
     descriptor___5.lineno = 510U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -15543,7 +15543,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor___6.format = "info: adhoc G only\n";
     descriptor___6.lineno = 516U;
     descriptor___6.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -15565,7 +15565,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor___7.format = "info: adhoc BG\n";
     descriptor___7.lineno = 522U;
     descriptor___7.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -15587,7 +15587,7 @@ u32 mwifiex_get_supported_rates(struct mwifiex_private *priv , u8 *rates )
     descriptor___8.format = "info: adhoc A\n";
     descriptor___8.lineno = 528U;
     descriptor___8.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -15882,7 +15882,7 @@ static int mwifiex_cmd_host_cmd(struct mwifiex_private *priv , struct host_cmd_d
   descriptor.format = "cmd: host cmd size = %d\n";
   descriptor.lineno = 120U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15973,7 +15973,7 @@ static int mwifiex_dnld_cmd_to_fw(struct mwifiex_private *priv , struct cmd_ctrl
   descriptor.format = "cmd: DNLD_CMD: (%lu.%lu): %#x, act %#x, len %d, seqno %#x\n";
   descriptor.lineno = 205U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16190,7 +16190,7 @@ int mwifiex_free_cmd_buffer(struct mwifiex_adapter *adapter )
     descriptor.format = "info: FREE_CMD_BUF: cmd_pool is null\n";
     descriptor.lineno = 387U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16215,7 +16215,7 @@ int mwifiex_free_cmd_buffer(struct mwifiex_adapter *adapter )
     descriptor___0.format = "cmd: free cmd buffer %d\n";
     descriptor___0.lineno = 396U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16262,7 +16262,7 @@ int mwifiex_free_cmd_buffer(struct mwifiex_adapter *adapter )
     descriptor___1.format = "cmd: free cmd pool\n";
     descriptor___1.lineno = 410U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -16330,7 +16330,7 @@ int mwifiex_process_event(struct mwifiex_adapter *adapter )
     descriptor.format = "event: %lu.%lu: cause: %#x\n";
     descriptor.lineno = 462U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16582,7 +16582,7 @@ void mwifiex_recycle_cmd_node(struct mwifiex_adapter *adapter , struct cmd_ctrl_
   descriptor.format = "cmd: FREE_CMD: cmd=%#x, cmd_pending=%d\n";
   descriptor.lineno = 647U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16654,7 +16654,7 @@ void mwifiex_insert_cmd_to_pending_q(struct mwifiex_adapter *adapter , struct cm
   descriptor.format = "cmd: QUEUE_CMD: cmd=%#x, cmd_pending=%d\n";
   descriptor.lineno = 693U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16804,7 +16804,7 @@ int mwifiex_process_cmdresp(struct mwifiex_adapter *adapter )
     descriptor.format = "info: host cmd resp size = %d\n";
     descriptor.lineno = 814U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16854,7 +16854,7 @@ int mwifiex_process_cmdresp(struct mwifiex_adapter *adapter )
   descriptor___0.format = "cmd: CMD_RESP: (%lu.%lu): 0x%x, result %d, len %d, seqno 0x%x\n";
   descriptor___0.lineno = 846U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -16953,7 +16953,7 @@ void mwifiex_cmd_timeout_func(unsigned long function_context )
     descriptor.format = "cmd: empty curr_cmd\n";
     descriptor.lineno = 911U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -17228,7 +17228,7 @@ void mwifiex_check_ps_cond(struct mwifiex_adapter *adapter )
     descriptor.format = "cmd: Delay Sleep Confirm (%s%s%s)\n";
     descriptor.lineno = 1110U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       if ((unsigned int )*((unsigned short *)adapter + 1673UL) != 0U || ((unsigned int )adapter->iface_type != 2U && (unsigned int )adapter->data_received != 0U)) {
@@ -17280,7 +17280,7 @@ void mwifiex_hs_activated_event(struct mwifiex_private *priv , u8 activated )
       descriptor.format = "event: hs_activated\n";
       descriptor.lineno = 1126U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -17302,7 +17302,7 @@ void mwifiex_hs_activated_event(struct mwifiex_private *priv , u8 activated )
       descriptor___0.format = "event: HS not configured\n";
       descriptor___0.lineno = 1131U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -17321,7 +17321,7 @@ void mwifiex_hs_activated_event(struct mwifiex_private *priv , u8 activated )
     descriptor___1.format = "event: hs_deactivated\n";
     descriptor___1.lineno = 1134U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -17361,7 +17361,7 @@ int mwifiex_ret_802_11_hs_cfg(struct mwifiex_private *priv , struct host_cmd_ds_
     descriptor.format = "cmd: CMD_RESP: HS_CFG cmd reply result=%#x, conditions=0x%x gpio=0x%x gap=0x%x\n";
     descriptor.lineno = 1166U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -17409,7 +17409,7 @@ void mwifiex_process_hs_config(struct mwifiex_adapter *adapter )
   descriptor.format = "info: %s: auto cancelling host sleep since there is interrupt from the firmware\n";
   descriptor.lineno = 1189U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17578,7 +17578,7 @@ int mwifiex_cmd_enh_power_mode(struct mwifiex_private *priv , struct host_cmd_ds
       descriptor.format = "cmd: PS Command: Enter PS\n";
       descriptor.lineno = 1307U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -17616,7 +17616,7 @@ int mwifiex_cmd_enh_power_mode(struct mwifiex_private *priv , struct host_cmd_ds
       descriptor___0.format = "cmd: PS Command: Enter Auto Deep Sleep\n";
       descriptor___0.lineno = 1338U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -17673,7 +17673,7 @@ int mwifiex_ret_enh_power_mode(struct mwifiex_private *priv , struct host_cmd_ds
   descriptor.format = "info: %s: PS_MODE cmd reply result=%#x action=%#X\n";
   descriptor.lineno = 1367U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17692,7 +17692,7 @@ int mwifiex_ret_enh_power_mode(struct mwifiex_private *priv , struct host_cmd_ds
       descriptor___0.format = "cmd: Enabled auto deep sleep\n";
       descriptor___0.lineno = 1370U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -17714,7 +17714,7 @@ int mwifiex_ret_enh_power_mode(struct mwifiex_private *priv , struct host_cmd_ds
       descriptor___1.format = "cmd: Enabled STA power save\n";
       descriptor___1.lineno = 1374U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -17732,7 +17732,7 @@ int mwifiex_ret_enh_power_mode(struct mwifiex_private *priv , struct host_cmd_ds
         descriptor___2.format = "cmd: set to uapsd/pps mode\n";
         descriptor___2.lineno = 1377U;
         descriptor___2.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -17759,7 +17759,7 @@ int mwifiex_ret_enh_power_mode(struct mwifiex_private *priv , struct host_cmd_ds
       descriptor___3.format = "cmd: Disabled auto deep sleep\n";
       descriptor___3.lineno = 1382U;
       descriptor___3.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -17780,7 +17780,7 @@ int mwifiex_ret_enh_power_mode(struct mwifiex_private *priv , struct host_cmd_ds
       descriptor___4.format = "cmd: Disabled STA power save\n";
       descriptor___4.lineno = 1385U;
       descriptor___4.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -17814,7 +17814,7 @@ int mwifiex_ret_enh_power_mode(struct mwifiex_private *priv , struct host_cmd_ds
     descriptor___5.format = "cmd: ps_bitmap=%#x\n";
     descriptor___5.lineno = 1398U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -17927,7 +17927,7 @@ int mwifiex_ret_get_hw_spec(struct mwifiex_private *priv , struct host_cmd_ds_co
   descriptor.format = "info: GET_HW_SPEC: fw_release_number- %#x\n";
   descriptor.lineno = 1514U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17944,7 +17944,7 @@ int mwifiex_ret_get_hw_spec(struct mwifiex_private *priv , struct host_cmd_ds_co
   descriptor___0.format = "info: GET_HW_SPEC: permanent addr: %pM\n";
   descriptor___0.lineno = 1516U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17961,7 +17961,7 @@ int mwifiex_ret_get_hw_spec(struct mwifiex_private *priv , struct host_cmd_ds_co
   descriptor___1.format = "info: GET_HW_SPEC: hw_if_version=%#x version=%#x\n";
   descriptor___1.lineno = 1520U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -18005,7 +18005,7 @@ int mwifiex_ret_get_hw_spec(struct mwifiex_private *priv , struct host_cmd_ds_co
     descriptor___2.format = "cmd: unknown region code, use default (USA)\n";
     descriptor___2.lineno = 1536U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -18607,7 +18607,7 @@ int mwifiex_complete_cmd(struct mwifiex_adapter *adapter , struct cmd_ctrl_node 
   descriptor.format = "cmd completed: status=%d\n";
   descriptor.lineno = 244U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -18857,7 +18857,7 @@ int mwifiex_process_tx(struct mwifiex_private *priv , struct sk_buff *skb , stru
   descriptor.format = "data: -ENOSR is returned\n";
   descriptor.lineno = 115U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -18885,7 +18885,7 @@ int mwifiex_process_tx(struct mwifiex_private *priv , struct sk_buff *skb , stru
   descriptor___0.format = "data: -EBUSY is returned\n";
   descriptor___0.lineno = 124U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -19005,7 +19005,7 @@ int mwifiex_write_data_complete(struct mwifiex_adapter *adapter , struct sk_buff
       descriptor.format = "wake queue: %d\n";
       descriptor.lineno = 199U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -19359,7 +19359,7 @@ static void mwifiex_wmm_ac_debug_print(struct ieee_types_wmm_ac_parameters  cons
   descriptor.format = "info: WMM AC_%s: ACI=%d, ACM=%d, Aifsn=%d, EcwMin=%d, EcwMax=%d, TxopLimit=%d\n";
   descriptor.lineno = 101U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19404,7 +19404,7 @@ static struct mwifiex_ra_list_tbl *mwifiex_wmm_allocate_ralist_node(struct mwifi
   descriptor.format = "info: allocated ra_list %p\n";
   descriptor.lineno = 125U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19466,7 +19466,7 @@ void mwifiex_ralist_add(struct mwifiex_private *priv , u8 *ra )
   descriptor.format = "info: created ra_list %p\n";
   descriptor.lineno = 172U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19505,7 +19505,7 @@ void mwifiex_ralist_add(struct mwifiex_private *priv , u8 *ra )
   descriptor___0.format = "data: ralist %p: is_11n_enabled=%d\n";
   descriptor___0.lineno = 188U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -19620,7 +19620,7 @@ void mwifiex_wmm_setup_queue_priorities(struct mwifiex_private *priv , struct ie
   descriptor.format = "info: WMM Parameter IE: version=%d, qos_info Parameter Set Count=%d, Reserved=%#x\n";
   descriptor.lineno = 253U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19649,7 +19649,7 @@ void mwifiex_wmm_setup_queue_priorities(struct mwifiex_private *priv , struct ie
   descriptor___0.format = "info: WMM: CWmax=%d CWmin=%d Avg Back-off=%d\n";
   descriptor___0.lineno = 268U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -19766,7 +19766,7 @@ void mwifiex_wmm_setup_ac_downgrade(struct mwifiex_private *priv )
   descriptor.format = "info: WMM: AC Priorities:BK(0), BE(1), VI(2), VO(3)\n";
   descriptor.lineno = 342U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19801,7 +19801,7 @@ void mwifiex_wmm_setup_ac_downgrade(struct mwifiex_private *priv )
     descriptor___0.format = "info: WMM: AC PRIO %d maps to %d\n";
     descriptor___0.lineno = 356U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -20055,7 +20055,7 @@ static void mwifiex_wmm_delete_all_ralist(struct mwifiex_private *priv )
   descriptor.format = "info: ra_list: freeing buf for tid %d\n";
   descriptor.lineno = 523U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20256,7 +20256,7 @@ void mwifiex_wmm_add_buf_txqueue(struct mwifiex_private *priv , struct sk_buff *
       descriptor.format = "data: drop packet in disconnect\n";
       descriptor.lineno = 646U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -20386,7 +20386,7 @@ int mwifiex_ret_wmm_get_status(struct mwifiex_private *priv , struct host_cmd_ds
   descriptor.format = "info: WMM: WMM_GET_STATUS cmdresp received: %d\n";
   descriptor.lineno = 720U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20426,7 +20426,7 @@ int mwifiex_ret_wmm_get_status(struct mwifiex_private *priv , struct host_cmd_ds
   descriptor___0.format = "info: CMD_RESP: WMM_GET_STATUS: QSTATUS TLV: %d, %d, %d\n";
   descriptor___0.lineno = 739U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20454,7 +20454,7 @@ int mwifiex_ret_wmm_get_status(struct mwifiex_private *priv , struct host_cmd_ds
   descriptor___1.format = "info: CMD_RESP: WMM_GET_STATUS: WMM Parameter Set Count: %d\n";
   descriptor___1.lineno = 766U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20525,7 +20525,7 @@ u32 mwifiex_wmm_process_association_req(struct mwifiex_private *priv , u8 **asso
   descriptor.format = "info: WMM: process assoc req: bss->wmm_ie=%#x\n";
   descriptor.lineno = 816U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20584,7 +20584,7 @@ u8 mwifiex_wmm_compute_drv_pkt_delay(struct mwifiex_private *priv , struct sk_bu
   descriptor.format = "data: WMM: Pkt Delay: %d ms, %d ms sent to FW\n";
   descriptor.lineno = 874U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20835,7 +20835,7 @@ static void mwifiex_send_single_packet(struct mwifiex_private *priv , struct mwi
     descriptor.format = "data: nothing to send\n";
     descriptor.lineno = 1035U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -20857,7 +20857,7 @@ static void mwifiex_send_single_packet(struct mwifiex_private *priv , struct mwi
   descriptor___0.format = "data: dequeuing the packet %p %p\n";
   descriptor___0.lineno = 1042U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -21020,7 +21020,7 @@ static void mwifiex_send_processed_packet(struct mwifiex_private *priv , struct 
   descriptor.format = "data: -EBUSY is returned\n";
   descriptor.lineno = 1150U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -21123,7 +21123,7 @@ static int mwifiex_dequeue_tx_packet(struct mwifiex_adapter *adapter )
   descriptor.format = "data: tid=%d\n";
   descriptor.lineno = 1205U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21625,7 +21625,7 @@ int mwifiex_ret_11n_addba_req(struct mwifiex_private *priv , struct host_cmd_ds_
       descriptor.format = "info: BA stream complete\n";
       descriptor.lineno = 164U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -21688,7 +21688,7 @@ int mwifiex_cmd_recfg_tx_buf(struct mwifiex_private *priv , struct host_cmd_ds_c
   descriptor.format = "cmd: set tx_buf=%d\n";
   descriptor.lineno = 201U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21934,7 +21934,7 @@ void mwifiex_11n_delete_tx_ba_stream_tbl_entry(struct mwifiex_private *priv , st
   descriptor.format = "info: tx_ba_tsr_tbl %p\n";
   descriptor.lineno = 444U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22096,7 +22096,7 @@ int mwifiex_send_addba(struct mwifiex_private *priv , int tid , u8 *peer_mac )
   descriptor.format = "cmd: %s: tid %d\n";
   descriptor.lineno = 533U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22254,7 +22254,7 @@ int mwifiex_get_tx_ba_stream_tbl(struct mwifiex_private *priv , struct mwifiex_d
   descriptor.format = "data: %s tid=%d\n";
   descriptor.lineno = 652U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23168,7 +23168,7 @@ int mwifiex_11n_aggregate_pkt(struct mwifiex_private *priv , struct mwifiex_ra_l
   descriptor.format = "data: -EBUSY is returned\n";
   descriptor.lineno = 280U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -23616,7 +23616,7 @@ static void mwifiex_flush_data(unsigned long context )
   descriptor.format = "info: flush data %d\n";
   descriptor.lineno = 238U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23685,7 +23685,7 @@ static void mwifiex_11n_create_rx_reorder_tbl(struct mwifiex_private *priv , u8 
     descriptor.format = "info: AP/ADHOC:last_seq=%d start_win=%d\n";
     descriptor.lineno = 286U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23870,7 +23870,7 @@ int mwifiex_11n_rx_reorder_pkt(struct mwifiex_private *priv , u16 seq_num , u16 
     descriptor.format = "RXREOR_FORCE_NO_DROP when HS is activated\n";
     descriptor.lineno = 458U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23960,7 +23960,7 @@ void mwifiex_del_ba_tbl(struct mwifiex_private *priv , int tid , u8 *peer_mac , 
   descriptor.format = "event: DELBA: %pM tid=%d initiator=%d\n";
   descriptor.lineno = 532U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23982,7 +23982,7 @@ void mwifiex_del_ba_tbl(struct mwifiex_private *priv , int tid , u8 *peer_mac , 
       descriptor___0.format = "event: TID, TA not found in table\n";
       descriptor___0.lineno = 539U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -24011,7 +24011,7 @@ void mwifiex_del_ba_tbl(struct mwifiex_private *priv , int tid , u8 *peer_mac , 
       descriptor___1.format = "event: TID, RA not found in table\n";
       descriptor___1.lineno = 547U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -24057,7 +24057,7 @@ int mwifiex_ret_11n_addba_resp(struct mwifiex_private *priv , struct host_cmd_ds
     descriptor.format = "cmd: ADDBA RSP: %pM tid=%d ssn=%d win_size=%d\n";
     descriptor.lineno = 587U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24607,7 +24607,7 @@ static u8 mwifiex_search_oui_in_ie(struct ie_body *iebody , u8 *oui )
   descriptor.format = "info: %s: OUI is not found in PTK\n";
   descriptor.lineno = 109U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24739,7 +24739,7 @@ static bool mwifiex_is_bss_wpa(struct mwifiex_private *priv , struct mwifiex_bss
     descriptor.format = "info: %s: WPA: wpa_ie=%#x wpa2_ie=%#x WEP=%s WPA=%s WPA2=%s EncMode=%#x privacy=%#x\n";
     descriptor.lineno = 260U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24776,7 +24776,7 @@ static bool mwifiex_is_bss_wpa2(struct mwifiex_private *priv , struct mwifiex_bs
     descriptor.format = "info: %s: WPA2:  wpa_ie=%#x wpa2_ie=%#x WEP=%s WPA=%s WPA2=%s EncMode=%#x privacy=%#x\n";
     descriptor.lineno = 296U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24826,7 +24826,7 @@ static bool mwifiex_is_bss_dynamic_wep(struct mwifiex_private *priv , struct mwi
     descriptor.format = "info: %s: dynamic WEP: wpa_ie=%#x wpa2_ie=%#x EncMode=%#x privacy=%#x\n";
     descriptor.lineno = 350U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24890,7 +24890,7 @@ static s32 mwifiex_is_network_compatible(struct mwifiex_private *priv , struct m
     descriptor.format = "info: return success directly in WPS period\n";
     descriptor.lineno = 390U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24922,7 +24922,7 @@ static s32 mwifiex_is_network_compatible(struct mwifiex_private *priv , struct m
     descriptor___0.format = "info: return success for WAPI AP\n";
     descriptor___0.lineno = 401U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24953,7 +24953,7 @@ static s32 mwifiex_is_network_compatible(struct mwifiex_private *priv , struct m
         descriptor___1.format = "info: Disable 11n in WEP mode.\n";
         descriptor___1.lineno = 411U;
         descriptor___1.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -24986,7 +24986,7 @@ static s32 mwifiex_is_network_compatible(struct mwifiex_private *priv , struct m
                 descriptor___2.format = "info: Disable 11n if AES is not supported by AP\n";
                 descriptor___2.lineno = 426U;
                 descriptor___2.flags = 0U;
-                tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+                tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
                 }
                 if (tmp___3 != 0L) {
                   {
@@ -25028,7 +25028,7 @@ static s32 mwifiex_is_network_compatible(struct mwifiex_private *priv , struct m
                   descriptor___3.format = "info: Disable 11n if AES is not supported by AP\n";
                   descriptor___3.lineno = 445U;
                   descriptor___3.flags = 0U;
-                  tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+                  tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
                   }
                   if (tmp___6 != 0L) {
                     {
@@ -25076,7 +25076,7 @@ static s32 mwifiex_is_network_compatible(struct mwifiex_private *priv , struct m
     descriptor___4.format = "info: %s: failed: wpa_ie=%#x wpa2_ie=%#x WEP=%s WPA=%s WPA2=%s EncMode=%#x privacy=%#x\n";
     descriptor___4.lineno = 471U;
     descriptor___4.flags = 0U;
-    tmp___15 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -25204,7 +25204,7 @@ static int mwifiex_append_rate_tlv(struct mwifiex_private *priv , struct mwifiex
   descriptor.format = "info: SCAN_CMD: Rates size = %d\n";
   descriptor.lineno = 567U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25253,7 +25253,7 @@ static int mwifiex_scan_channel_list(struct mwifiex_private *priv , u32 max_chan
     descriptor.format = "info: Scan: Null detect: %p, %p, %p\n";
     descriptor.lineno = 606U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25297,7 +25297,7 @@ static int mwifiex_scan_channel_list(struct mwifiex_private *priv , u32 max_chan
   descriptor___0.format = "info: Scan: Chan(%3d), Radio(%d), Mode(%d, %d), Dur(%d)\n";
   descriptor___0.lineno = 658U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25445,7 +25445,7 @@ static void mwifiex_config_scan(struct mwifiex_private *priv , struct mwifiex_us
     descriptor.format = "info: scan: ssid[%d]: %s, %d\n";
     descriptor.lineno = 883U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25502,7 +25502,7 @@ static void mwifiex_config_scan(struct mwifiex_private *priv , struct mwifiex_us
     descriptor___0.format = "info: scan: num_probes = %d\n";
     descriptor___0.lineno = 921U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -25545,7 +25545,7 @@ static void mwifiex_config_scan(struct mwifiex_private *priv , struct mwifiex_us
     descriptor___1.format = "info: Scan: Using supplied channel list\n";
     descriptor___1.lineno = 962U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -25602,7 +25602,7 @@ static void mwifiex_config_scan(struct mwifiex_private *priv , struct mwifiex_us
       descriptor___2.format = "info: Scan: Scanning current channel only\n";
       descriptor___2.lineno = 1016U;
       descriptor___2.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -25624,7 +25624,7 @@ static void mwifiex_config_scan(struct mwifiex_private *priv , struct mwifiex_us
     descriptor___3.format = "info: Scan: Creating full region channel list\n";
     descriptor___3.lineno = 1021U;
     descriptor___3.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -25684,7 +25684,7 @@ static void mwifiex_ret_802_11_scan_get_tlv_ptrs(struct mwifiex_adapter *adapter
   descriptor.format = "info: SCAN_RESP: tlv_buf_size = %d\n";
   descriptor.lineno = 1070U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25727,7 +25727,7 @@ static void mwifiex_ret_802_11_scan_get_tlv_ptrs(struct mwifiex_adapter *adapter
     descriptor___0.format = "info: SCAN_RESP: TSF timestamp TLV, len = %d\n";
     descriptor___0.lineno = 1086U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -25747,7 +25747,7 @@ static void mwifiex_ret_802_11_scan_get_tlv_ptrs(struct mwifiex_adapter *adapter
     descriptor___1.format = "info: SCAN_RESP: channel band list TLV, len = %d\n";
     descriptor___1.lineno = 1091U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -25966,7 +25966,7 @@ int mwifiex_update_bss_desc_with_ie(struct mwifiex_adapter *adapter , struct mwi
   descriptor.format = "info: InterpretIE: ssid: %-32s\n";
   descriptor.lineno = 1163U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -26246,7 +26246,7 @@ int mwifiex_scan_networks(struct mwifiex_private *priv , struct mwifiex_user_sca
         descriptor.format = "wait internal scan\n";
         descriptor.lineno = 1453U;
         descriptor.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -26501,7 +26501,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
   descriptor.format = "info: SCAN_RESP: bss_descript_size %d\n";
   descriptor.lineno = 1639U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -26519,7 +26519,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
   descriptor___0.format = "info: SCAN_RESP: returned %d APs before parsing\n";
   descriptor___0.lineno = 1645U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26584,7 +26584,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
   descriptor___1.format = "info: InterpretIE: RSSI=%d\n";
   descriptor___1.lineno = 1736U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -26604,7 +26604,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
   descriptor___2.format = "info: InterpretIE: capabilities=0x%X\n";
   descriptor___2.lineno = 1743U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -26623,7 +26623,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
   descriptor___3.format = "info: InterpretIE: IELength for this AP = %d\n";
   descriptor___3.lineno = 1750U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -26678,7 +26678,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
       descriptor___4.format = "Dropping entry on csa closed channel\n";
       descriptor___4.lineno = 1792U;
       descriptor___4.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -26744,7 +26744,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
     descriptor___5.format = "missing BSS channel IE\n";
     descriptor___5.lineno = 1828U;
     descriptor___5.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -26785,7 +26785,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
         descriptor___6.format = "complete internal scan\n";
         descriptor___6.lineno = 1845U;
         descriptor___6.flags = 0U;
-        tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+        tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
         }
         if (tmp___7 != 0L) {
           {
@@ -26817,7 +26817,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
       descriptor___7.format = "info: notifying scan done\n";
       descriptor___7.lineno = 1854U;
       descriptor___7.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -26840,7 +26840,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
       descriptor___8.format = "info: scan already aborted\n";
       descriptor___8.lineno = 1859U;
       descriptor___8.flags = 0U;
-      tmp___9 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
       }
       if (tmp___9 != 0L) {
         {
@@ -26863,7 +26863,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
     descriptor___9.format = "info: %s: triggerring scan abort\n";
     descriptor___9.lineno = 1869U;
     descriptor___9.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -26889,7 +26889,7 @@ int mwifiex_ret_802_11_scan(struct mwifiex_private *priv , struct host_cmd_ds_co
       descriptor___10.format = "info: %s: deferring scan\n";
       descriptor___10.lineno = 1879U;
       descriptor___10.flags = 0U;
-      tmp___12 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+      tmp___12 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
       }
       if (tmp___12 != 0L) {
         {
@@ -27099,7 +27099,7 @@ void mwifiex_save_curr_bcn(struct mwifiex_private *priv )
   descriptor.format = "info: current beacon saved %d\n";
   descriptor.lineno = 2077U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27356,7 +27356,7 @@ static int mwifiex_cmd_append_generic_ie(struct mwifiex_private *priv , u8 **buf
     descriptor.format = "info: %s: append generic ie len %d to %p\n";
     descriptor.lineno = 58U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -27419,7 +27419,7 @@ static int mwifiex_cmd_append_tsf_tlv(struct mwifiex_private *priv , u8 **buffer
   descriptor.format = "info: %s: TSF offset calc: %016llx - %016llx\n";
   descriptor.lineno = 130U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -27503,7 +27503,7 @@ static int mwifiex_get_common_rates(struct mwifiex_private *priv , u8 *rate1 , u
   descriptor.format = "info: Tx data rate set to %#x\n";
   descriptor.lineno = 173U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -27603,7 +27603,7 @@ static int mwifiex_cmd_append_wps_ie(struct mwifiex_private *priv , u8 **buffer 
     descriptor.format = "cmd: append wps ie %d to %p\n";
     descriptor.lineno = 250U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -27660,7 +27660,7 @@ static int mwifiex_cmd_append_wapi_ie(struct mwifiex_private *priv , u8 **buffer
     descriptor.format = "cmd: append wapi ie %d to %p\n";
     descriptor.lineno = 296U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -27794,7 +27794,7 @@ int mwifiex_cmd_802_11_associate(struct mwifiex_private *priv , struct host_cmd_
   descriptor.format = "info: ASSOC_CMD: rates size = %d\n";
   descriptor.lineno = 457U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27826,7 +27826,7 @@ int mwifiex_cmd_802_11_associate(struct mwifiex_private *priv , struct host_cmd_
     descriptor___0.format = "info: Assoc: TLV Chan = %d\n";
     descriptor___0.lineno = 491U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -27844,7 +27844,7 @@ int mwifiex_cmd_802_11_associate(struct mwifiex_private *priv , struct host_cmd_
     descriptor___1.format = "info: Assoc: TLV Band = %d\n";
     descriptor___1.lineno = 497U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -27926,7 +27926,7 @@ int mwifiex_cmd_802_11_associate(struct mwifiex_private *priv , struct host_cmd_
   descriptor___2.format = "info: ASSOC_CMD: tmp_cap=%4X CAPINFO_MASK=%4lX\n";
   descriptor___2.lineno = 549U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -28007,7 +28007,7 @@ int mwifiex_ret_802_11_associate(struct mwifiex_private *priv , struct host_cmd_
   descriptor.format = "info: ASSOC_RESP: %s\n";
   descriptor.lineno = 666U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -28046,7 +28046,7 @@ int mwifiex_ret_802_11_associate(struct mwifiex_private *priv , struct host_cmd_
   descriptor___0.format = "info: ASSOC_RESP: curr_pkt_filter is %#x\n";
   descriptor___0.lineno = 697U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28077,7 +28077,7 @@ int mwifiex_ret_802_11_associate(struct mwifiex_private *priv , struct host_cmd_
     descriptor___1.format = "info: post association, re-enabling data flow\n";
     descriptor___1.lineno = 714U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -28109,7 +28109,7 @@ int mwifiex_ret_802_11_associate(struct mwifiex_private *priv , struct host_cmd_
   descriptor___2.format = "info: ASSOC_RESP: associated\n";
   descriptor___2.lineno = 732U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -28216,7 +28216,7 @@ int mwifiex_cmd_802_11_ad_hoc_start(struct mwifiex_private *priv , struct host_c
   descriptor.format = "info: ADHOC_S_CMD: SSID = %s\n";
   descriptor.lineno = 820U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -28266,7 +28266,7 @@ int mwifiex_cmd_802_11_ad_hoc_start(struct mwifiex_private *priv , struct host_c
   descriptor___0.format = "info: ADHOC_S_CMD: creating ADHOC on channel %d\n";
   descriptor___0.lineno = 857U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28301,7 +28301,7 @@ int mwifiex_cmd_802_11_ad_hoc_start(struct mwifiex_private *priv , struct host_c
     descriptor___1.format = "info: ADHOC_S_CMD: wep_status set privacy to WEP\n";
     descriptor___1.lineno = 892U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -28320,7 +28320,7 @@ int mwifiex_cmd_802_11_ad_hoc_start(struct mwifiex_private *priv , struct host_c
     descriptor___2.format = "info: ADHOC_S_CMD: wep_status NOT set, setting privacy to ACCEPT ALL\n";
     descriptor___2.lineno = 897U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -28376,7 +28376,7 @@ int mwifiex_cmd_802_11_ad_hoc_start(struct mwifiex_private *priv , struct host_c
   descriptor___3.format = "info: ADHOC_S_CMD: rates=%4ph\n";
   descriptor___3.lineno = 925U;
   descriptor___3.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -28393,7 +28393,7 @@ int mwifiex_cmd_802_11_ad_hoc_start(struct mwifiex_private *priv , struct host_c
   descriptor___4.format = "info: ADHOC_S_CMD: AD-HOC Start command is ready\n";
   descriptor___4.lineno = 927U;
   descriptor___4.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -28415,7 +28415,7 @@ int mwifiex_cmd_802_11_ad_hoc_start(struct mwifiex_private *priv , struct host_c
     descriptor___5.format = "info: ADHOC_S_CMD: TLV Chan = %d\n";
     descriptor___5.lineno = 942U;
     descriptor___5.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -28447,7 +28447,7 @@ int mwifiex_cmd_802_11_ad_hoc_start(struct mwifiex_private *priv , struct host_c
     descriptor___6.format = "info: ADHOC_S_CMD: TLV Band = %d\n";
     descriptor___6.lineno = 958U;
     descriptor___6.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -28595,7 +28595,7 @@ int mwifiex_cmd_802_11_ad_hoc_join(struct mwifiex_private *priv , struct host_cm
   descriptor.format = "info: ADHOC_J_CMD: tmp_cap=%4X CAPINFO_MASK=%4lX\n";
   descriptor.lineno = 1114U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28613,7 +28613,7 @@ int mwifiex_cmd_802_11_ad_hoc_join(struct mwifiex_private *priv , struct host_cm
   descriptor___0.format = "info: ADHOC_J_CMD: BSSID=%pM, SSID=\'%s\'\n";
   descriptor___0.lineno = 1119U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28663,7 +28663,7 @@ int mwifiex_cmd_802_11_ad_hoc_join(struct mwifiex_private *priv , struct host_cm
     descriptor___1.format = "info: ADHOC_J_CMD: TLV Chan=%d\n";
     descriptor___1.lineno = 1156U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -28681,7 +28681,7 @@ int mwifiex_cmd_802_11_ad_hoc_join(struct mwifiex_private *priv , struct host_cm
     descriptor___2.format = "info: ADHOC_J_CMD: TLV Band=%d\n";
     descriptor___2.lineno = 1162U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -28778,7 +28778,7 @@ int mwifiex_ret_802_11_ad_hoc(struct mwifiex_private *priv , struct host_cmd_ds_
     descriptor.format = "info: ADHOC_S_RESP %s\n";
     descriptor.lineno = 1232U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28801,7 +28801,7 @@ int mwifiex_ret_802_11_ad_hoc(struct mwifiex_private *priv , struct host_cmd_ds_
     descriptor___0.format = "info: ADHOC_J_RESP %s\n";
     descriptor___0.lineno = 1245U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -28824,7 +28824,7 @@ int mwifiex_ret_802_11_ad_hoc(struct mwifiex_private *priv , struct host_cmd_ds_
   descriptor___1.format = "info: ADHOC_RESP: channel = %d\n";
   descriptor___1.lineno = 1259U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28841,7 +28841,7 @@ int mwifiex_ret_802_11_ad_hoc(struct mwifiex_private *priv , struct host_cmd_ds_
   descriptor___2.format = "info: ADHOC_RESP: BSSID = %pM\n";
   descriptor___2.lineno = 1261U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -28930,7 +28930,7 @@ int mwifiex_adhoc_start(struct mwifiex_private *priv , struct cfg80211_ssid *adh
   descriptor.format = "info: Adhoc Channel = %d\n";
   descriptor.lineno = 1331U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -28947,7 +28947,7 @@ int mwifiex_adhoc_start(struct mwifiex_private *priv , struct cfg80211_ssid *adh
   descriptor___0.format = "info: curr_bss_params.channel = %d\n";
   descriptor___0.lineno = 1333U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28964,7 +28964,7 @@ int mwifiex_adhoc_start(struct mwifiex_private *priv , struct cfg80211_ssid *adh
   descriptor___1.format = "info: curr_bss_params.band = %d\n";
   descriptor___1.lineno = 1335U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -29016,7 +29016,7 @@ int mwifiex_adhoc_join(struct mwifiex_private *priv , struct mwifiex_bssdescript
   descriptor.format = "info: adhoc join: curr_bss ssid =%s\n";
   descriptor.lineno = 1358U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29033,7 +29033,7 @@ int mwifiex_adhoc_join(struct mwifiex_private *priv , struct mwifiex_bssdescript
   descriptor___0.format = "info: adhoc join: curr_bss ssid_len =%u\n";
   descriptor___0.lineno = 1360U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29050,7 +29050,7 @@ int mwifiex_adhoc_join(struct mwifiex_private *priv , struct mwifiex_bssdescript
   descriptor___1.format = "info: adhoc join: ssid =%s\n";
   descriptor___1.lineno = 1362U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -29067,7 +29067,7 @@ int mwifiex_adhoc_join(struct mwifiex_private *priv , struct mwifiex_bssdescript
   descriptor___2.format = "info: adhoc join: ssid_len =%u\n";
   descriptor___2.lineno = 1364U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -29090,7 +29090,7 @@ int mwifiex_adhoc_join(struct mwifiex_private *priv , struct mwifiex_bssdescript
         descriptor___3.format = "info: ADHOC_J_CMD: new ad-hoc SSID is the same as current; not attempting to re-join\n";
         descriptor___3.lineno = 1373U;
         descriptor___3.flags = 0U;
-        tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___3 != 0L) {
           {
@@ -29126,7 +29126,7 @@ int mwifiex_adhoc_join(struct mwifiex_private *priv , struct mwifiex_bssdescript
   descriptor___4.format = "info: curr_bss_params.channel = %d\n";
   descriptor___4.lineno = 1386U;
   descriptor___4.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -29143,7 +29143,7 @@ int mwifiex_adhoc_join(struct mwifiex_private *priv , struct mwifiex_bssdescript
   descriptor___5.format = "info: curr_bss_params.band = %c\n";
   descriptor___5.lineno = 1388U;
   descriptor___5.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -29835,7 +29835,7 @@ int mwifiex_request_set_multicast_list(struct mwifiex_private *priv , struct mwi
     descriptor.format = "info: Enable Promiscuous mode\n";
     descriptor.lineno = 92U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -29857,7 +29857,7 @@ int mwifiex_request_set_multicast_list(struct mwifiex_private *priv , struct mwi
       descriptor___0.format = "info: Enabling All Multicast!\n";
       descriptor___0.lineno = 101U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -29877,7 +29877,7 @@ int mwifiex_request_set_multicast_list(struct mwifiex_private *priv , struct mwi
       descriptor___1.format = "info: Set multicast list=%d\n";
       descriptor___1.lineno = 109U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -29899,7 +29899,7 @@ int mwifiex_request_set_multicast_list(struct mwifiex_private *priv , struct mwi
   descriptor___2.format = "info: old_pkt_filter=%#x, curr_pkt_filter=%#x\n";
   descriptor___2.lineno = 119U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -29992,7 +29992,7 @@ int mwifiex_fill_new_bss_desc(struct mwifiex_private *priv , struct cfg80211_bss
     descriptor.format = "info: InterpretIE: AP WEP enabled\n";
     descriptor.lineno = 166U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -30108,7 +30108,7 @@ static int mwifiex_process_country_ie(struct mwifiex_private *priv , struct cfg8
     descriptor.format = "11D: skip setting domain info in FW\n";
     descriptor.lineno = 221U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30249,7 +30249,7 @@ int mwifiex_bss_start(struct mwifiex_private *priv , struct cfg80211_bss *bss , 
     descriptor.format = "info: SSID found in scan list ... associating...\n";
     descriptor.lineno = 313U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -30309,7 +30309,7 @@ int mwifiex_bss_start(struct mwifiex_private *priv , struct cfg80211_bss *bss , 
     descriptor___0.format = "info: Sending Adhoc Stop\n";
     descriptor___0.lineno = 347U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -30347,7 +30347,7 @@ int mwifiex_bss_start(struct mwifiex_private *priv , struct cfg80211_bss *bss , 
       descriptor___1.format = "info: network found in scan list. Joining...\n";
       descriptor___1.lineno = 362U;
       descriptor___1.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -30375,7 +30375,7 @@ int mwifiex_bss_start(struct mwifiex_private *priv , struct cfg80211_bss *bss , 
       descriptor___2.format = "info: Network not found in the list, creating adhoc with ssid = %s\n";
       descriptor___2.lineno = 369U;
       descriptor___2.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -30444,7 +30444,7 @@ static int mwifiex_set_hs_params(struct mwifiex_private *priv , u16 action , int
     descriptor.format = "info: Host Sleep IOCTL is blocked in UAPSD/PPS mode\n";
     descriptor.lineno = 405U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30586,7 +30586,7 @@ int mwifiex_enable_hs(struct mwifiex_adapter *adapter )
     descriptor.format = "cmd: HS Already activated\n";
     descriptor.lineno = 505U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30884,7 +30884,7 @@ static int mwifiex_set_wpa_ie_helper(struct mwifiex_private *priv , u8 *ie_data_
     descriptor.format = "cmd: Set Wpa_ie_len=%d IE=%#x\n";
     descriptor.lineno = 754U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30914,7 +30914,7 @@ static int mwifiex_set_wpa_ie_helper(struct mwifiex_private *priv , u8 *ie_data_
     descriptor___0.format = "info: reset wpa_ie_len=%d IE=%#x\n";
     descriptor___0.lineno = 768U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -30950,7 +30950,7 @@ static int mwifiex_set_wapi_ie(struct mwifiex_private *priv , u8 *ie_data_ptr , 
       descriptor.format = "info: failed to copy WAPI IE, too big\n";
       descriptor.lineno = 789U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -30973,7 +30973,7 @@ static int mwifiex_set_wapi_ie(struct mwifiex_private *priv , u8 *ie_data_ptr , 
     descriptor___0.format = "cmd: Set wapi_ie_len=%d IE=%#x\n";
     descriptor___0.lineno = 795U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -30999,7 +30999,7 @@ static int mwifiex_set_wapi_ie(struct mwifiex_private *priv , u8 *ie_data_ptr , 
     descriptor___1.format = "info: Reset wapi_ie_len=%d IE=%#x\n";
     descriptor___1.lineno = 804U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -31035,7 +31035,7 @@ static int mwifiex_set_wps_ie(struct mwifiex_private *priv , u8 *ie_data_ptr , u
       descriptor.format = "info: failed to copy WPS IE, too big\n";
       descriptor.lineno = 823U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -31067,7 +31067,7 @@ static int mwifiex_set_wps_ie(struct mwifiex_private *priv , u8 *ie_data_ptr , u
     descriptor___0.format = "cmd: Set wps_ie_len=%d IE=%#x\n";
     descriptor___0.lineno = 834U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -31088,7 +31088,7 @@ static int mwifiex_set_wps_ie(struct mwifiex_private *priv , u8 *ie_data_ptr , u
     descriptor___1.format = "info: Reset wps_ie_len=%d\n";
     descriptor___1.lineno = 839U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -31275,7 +31275,7 @@ int mwifiex_drv_get_driver_version(struct mwifiex_adapter *adapter , char *versi
   descriptor.format = "info: MWIFIEX VERSION: %s\n";
   descriptor.lineno = 1028U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31415,7 +31415,7 @@ int mwifiex_set_bss_role(struct mwifiex_private *priv , u8 bss_role )
     descriptor.format = "info: already in the desired role.\n";
     descriptor.lineno = 1120U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31679,7 +31679,7 @@ static int mwifiex_set_gen_ie_helper(struct mwifiex_private *priv , u8 *ie_data_
         descriptor.format = "info: WPS Session Enabled.\n";
         descriptor.lineno = 1325U;
         descriptor.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -31882,7 +31882,7 @@ static int mwifiex_cmd_802_11_snmp_mib(struct mwifiex_private *priv , struct hos
   descriptor.format = "cmd: SNMP_CMD: cmd_oid = 0x%x\n";
   descriptor.lineno = 111U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31919,7 +31919,7 @@ static int mwifiex_cmd_802_11_snmp_mib(struct mwifiex_private *priv , struct hos
   descriptor___0.format = "cmd: SNMP_CMD: Action=0x%x, OID=0x%x, OIDSize=0x%x, Value=0x%x\n";
   descriptor___0.lineno = 132U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -32115,7 +32115,7 @@ static int mwifiex_cmd_802_11_hs_cfg(struct mwifiex_private *priv , struct host_
     descriptor.format = "cmd: Attach %d bytes ArpFilter to HSCfg cmd\n";
     descriptor.lineno = 343U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32147,7 +32147,7 @@ static int mwifiex_cmd_802_11_hs_cfg(struct mwifiex_private *priv , struct host_
     descriptor___0.format = "cmd: HS_CFG_CMD: condition:0x%x gpio:0x%x gap:0x%x\n";
     descriptor___0.lineno = 367U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -32220,7 +32220,7 @@ static int mwifiex_cmd_802_11_deauthenticate(struct mwifiex_private *priv , stru
   descriptor.format = "cmd: Deauth: %pM\n";
   descriptor.lineno = 447U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -32346,7 +32346,7 @@ static int mwifiex_cmd_802_11_key_material(struct mwifiex_private *priv , struct
     descriptor.format = "info: Set WAPI Key\n";
     descriptor.lineno = 579U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32406,7 +32406,7 @@ static int mwifiex_cmd_802_11_key_material(struct mwifiex_private *priv , struct
       descriptor___0.format = "cmd: CMAC_AES\n";
       descriptor___0.lineno = 625U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -32431,7 +32431,7 @@ static int mwifiex_cmd_802_11_key_material(struct mwifiex_private *priv , struct
       descriptor___1.format = "cmd: WPA_AES\n";
       descriptor___1.lineno = 638U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -32462,7 +32462,7 @@ static int mwifiex_cmd_802_11_key_material(struct mwifiex_private *priv , struct
     descriptor___2.format = "cmd: WPA_TKIP\n";
     descriptor___2.lineno = 657U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -32547,7 +32547,7 @@ static int mwifiex_cmd_802_11d_domain_info(struct mwifiex_private *priv , struct
   descriptor.format = "info: 11D: no_of_triplet=0x%x\n";
   descriptor.lineno = 746U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -32761,7 +32761,7 @@ static int mwifiex_cmd_pcie_host_spec(struct mwifiex_private *priv , struct host
     descriptor.format = "sleep_cook_lo phy addr: 0x%x\n";
     descriptor.lineno = 963U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32807,7 +32807,7 @@ static int mwifiex_cmd_802_11_subsc_evt(struct mwifiex_private *priv , struct ho
   descriptor.format = "cmd: action: %d\n";
   descriptor.lineno = 990U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -32831,7 +32831,7 @@ static int mwifiex_cmd_802_11_subsc_evt(struct mwifiex_private *priv , struct ho
   descriptor___0.format = "cmd: event bitmap : %16x\n";
   descriptor___0.lineno = 1000U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -32849,7 +32849,7 @@ static int mwifiex_cmd_802_11_subsc_evt(struct mwifiex_private *priv , struct ho
     descriptor___1.format = "Error: No event specified for bitwise action type\n";
     descriptor___1.lineno = 1006U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -32882,7 +32882,7 @@ static int mwifiex_cmd_802_11_subsc_evt(struct mwifiex_private *priv , struct ho
     descriptor___2.format = "Cfg Beacon Low Rssi event, RSSI:-%d dBm, Freq:%d\n";
     descriptor___2.lineno = 1034U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -32913,7 +32913,7 @@ static int mwifiex_cmd_802_11_subsc_evt(struct mwifiex_private *priv , struct ho
     descriptor___3.format = "Cfg Beacon High Rssi event, RSSI:-%d dBm, Freq:%d\n";
     descriptor___3.lineno = 1054U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -33109,7 +33109,7 @@ static int mwifiex_cmd_cfg_data(struct mwifiex_private *priv , struct host_cmd_d
     descriptor.format = "download cfg_data from device tree: %s\n";
     descriptor.lineno = 1204U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -33130,7 +33130,7 @@ static int mwifiex_cmd_cfg_data(struct mwifiex_private *priv , struct host_cmd_d
     descriptor___0.format = "download cfg_data from config file\n";
     descriptor___0.lineno = 1208U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -33684,7 +33684,7 @@ int mwifiex_sta_prepare_cmd(struct mwifiex_private *priv , uint16_t cmd_no , u16
   descriptor.format = "cmd: WMM: WMM_GET_STATUS cmd sent\n";
   descriptor.lineno = 1464U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -35638,7 +35638,7 @@ static int mwifiex_ret_802_11_snmp_mib(struct mwifiex_private *priv , struct hos
   descriptor.format = "info: SNMP_RESP: oid value = %#x, query_type = %#x, buf size = %#x\n";
   descriptor.lineno = 189U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -35686,7 +35686,7 @@ static int mwifiex_ret_802_11_snmp_mib(struct mwifiex_private *priv , struct hos
     descriptor___0.format = "info: SNMP_RESP: FragThsd =%u\n";
     descriptor___0.lineno = 197U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -35705,7 +35705,7 @@ static int mwifiex_ret_802_11_snmp_mib(struct mwifiex_private *priv , struct hos
     descriptor___1.format = "info: SNMP_RESP: RTSThsd =%u\n";
     descriptor___1.lineno = 201U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -35724,7 +35724,7 @@ static int mwifiex_ret_802_11_snmp_mib(struct mwifiex_private *priv , struct hos
     descriptor___2.format = "info: SNMP_RESP: TxRetryCount=%u\n";
     descriptor___2.lineno = 205U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -35743,7 +35743,7 @@ static int mwifiex_ret_802_11_snmp_mib(struct mwifiex_private *priv , struct hos
     descriptor___3.format = "info: SNMP_RESP: DTIM period=%u\n";
     descriptor___3.lineno = 209U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -35995,7 +35995,7 @@ static int mwifiex_ret_tx_power_cfg(struct mwifiex_private *priv , struct host_c
   descriptor.format = "info: Current TxPower Level = %d, Max Power=%d, Min Power=%d\n";
   descriptor.lineno = 423U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36033,7 +36033,7 @@ static int mwifiex_ret_rf_tx_power(struct mwifiex_private *priv , struct host_cm
   descriptor.format = "Current TxPower Level=%d, Max Power=%d, Min Power=%d\n";
   descriptor.lineno = 447U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36069,7 +36069,7 @@ static int mwifiex_ret_rf_antenna(struct mwifiex_private *priv , struct host_cmd
     descriptor.format = "RF_ANT_RESP: Tx action = 0x%x, Tx Mode = 0x%04x Rx action = 0x%x, Rx Mode = 0x%04x\n";
     descriptor.lineno = 469U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -36088,7 +36088,7 @@ static int mwifiex_ret_rf_antenna(struct mwifiex_private *priv , struct host_cmd
     descriptor___0.format = "RF_ANT_RESP: action = 0x%x, Mode = 0x%04x\n";
     descriptor___0.lineno = 474U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -36119,7 +36119,7 @@ static int mwifiex_ret_802_11_mac_address(struct mwifiex_private *priv , struct 
   descriptor.format = "info: set mac address: %pM\n";
   descriptor.lineno = 493U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36207,7 +36207,7 @@ static int mwifiex_ret_802_11_key_material(struct mwifiex_private *priv , struct
       descriptor.format = "info: key: GTK is set\n";
       descriptor.lineno = 577U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -36255,7 +36255,7 @@ static int mwifiex_ret_802_11d_domain_info(struct mwifiex_private *priv , struct
   descriptor.format = "info: 11D Domain Info Resp: no_of_triplet=%d\n";
   descriptor.lineno = 610U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36439,7 +36439,7 @@ static int mwifiex_ret_reg_access(u16 type , struct host_cmd_ds_command *resp , 
   descriptor.format = "info: EEPROM read len=%x\n";
   descriptor.lineno = 739U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36457,7 +36457,7 @@ static int mwifiex_ret_reg_access(u16 type , struct host_cmd_ds_command *resp , 
     descriptor___0.format = "info: EEPROM read length is too big\n";
     descriptor___0.lineno = 743U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -36511,7 +36511,7 @@ static int mwifiex_ret_ibss_coalescing_status(struct mwifiex_private *priv , str
   descriptor.format = "info: new BSSID %pM\n";
   descriptor.lineno = 776U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36570,7 +36570,7 @@ static int mwifiex_ret_subsc_evt(struct mwifiex_private *priv , struct host_cmd_
   descriptor.format = "Bitmap of currently subscribed events: %16x\n";
   descriptor.lineno = 816U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36935,7 +36935,7 @@ int mwifiex_process_sta_cmdresp(struct mwifiex_private *priv , u16 cmdresp_no , 
   descriptor.format = "info: CMD_RESP: BG_SCAN result is ready!\n";
   descriptor.lineno = 877U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37068,7 +37068,7 @@ int mwifiex_process_sta_cmdresp(struct mwifiex_private *priv , u16 cmdresp_no , 
   descriptor___0.format = "cmd: curr_tx_buf_size=%d\n";
   descriptor___0.lineno = 957U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -37227,7 +37227,7 @@ void mwifiex_reset_connect_state(struct mwifiex_private *priv , u16 reason_code 
   descriptor.format = "info: handles disconnect event\n";
   descriptor.lineno = 51U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37273,7 +37273,7 @@ void mwifiex_reset_connect_state(struct mwifiex_private *priv , u16 reason_code 
   descriptor___0.format = "info: previous SSID=%s, SSID len=%u\n";
   descriptor___0.lineno = 96U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -37290,7 +37290,7 @@ void mwifiex_reset_connect_state(struct mwifiex_private *priv , u16 reason_code 
   descriptor___1.format = "info: current SSID=%s, SSID len=%u\n";
   descriptor___1.lineno = 100U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -37322,7 +37322,7 @@ void mwifiex_reset_connect_state(struct mwifiex_private *priv , u16 reason_code 
   descriptor___2.format = "info: successfully disconnected from %pM: reason code %d\n";
   descriptor___2.lineno = 120U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -37659,7 +37659,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor.format = "event: LINK_SENSED\n";
   descriptor.lineno = 197U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37695,7 +37695,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___0.format = "event: Deauthenticated\n";
   descriptor___0.lineno = 204U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -37712,7 +37712,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
     descriptor___1.format = "info: receive deauth event in wps session\n";
     descriptor___1.lineno = 207U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -37743,7 +37743,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___2.format = "event: Disassociated\n";
   descriptor___2.lineno = 219U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -37760,7 +37760,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
     descriptor___3.format = "info: receive disassoc event in wps session\n";
     descriptor___3.lineno = 222U;
     descriptor___3.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -37791,7 +37791,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___4.format = "event: Link lost\n";
   descriptor___4.lineno = 234U;
   descriptor___4.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -37818,7 +37818,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___5.format = "info: EVENT: SLEEP\n";
   descriptor___5.lineno = 244U;
   descriptor___5.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -37840,7 +37840,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___6.format = "info: EVENT: AWAKE\n";
   descriptor___6.lineno = 252U;
   descriptor___6.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -37858,7 +37858,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
     descriptor___7.format = "event: PPS/UAPSD mode activated\n";
     descriptor___7.lineno = 257U;
     descriptor___7.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -37912,7 +37912,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___8.format = "event: DS_AWAKE\n";
   descriptor___8.lineno = 285U;
   descriptor___8.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -37935,7 +37935,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___9.format = "event: HS_ACT_REQ\n";
   descriptor___9.lineno = 291U;
   descriptor___9.flags = 0U;
-  tmp___13 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -37956,7 +37956,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___10.format = "event: UNICAST MIC ERROR\n";
   descriptor___10.lineno = 298U;
   descriptor___10.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -37978,7 +37978,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___11.format = "event: MULTICAST MIC ERROR\n";
   descriptor___11.lineno = 305U;
   descriptor___11.flags = 0U;
-  tmp___15 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -38003,7 +38003,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___12.format = "event: ADHOC_BCN_LOST\n";
   descriptor___12.lineno = 315U;
   descriptor___12.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -38034,7 +38034,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___13.format = "event: BGS_REPORT\n";
   descriptor___13.lineno = 324U;
   descriptor___13.flags = 0U;
-  tmp___18 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -38055,7 +38055,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___14.format = "event: PORT RELEASE\n";
   descriptor___14.lineno = 331U;
   descriptor___14.flags = 0U;
-  tmp___19 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+  tmp___19 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -38073,7 +38073,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___15.format = "event: WMM status changed\n";
   descriptor___15.lineno = 335U;
   descriptor___15.flags = 0U;
-  tmp___20 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -38097,7 +38097,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___16.format = "event: Beacon RSSI_LOW\n";
   descriptor___16.lineno = 347U;
   descriptor___16.flags = 0U;
-  tmp___21 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -38115,7 +38115,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___17.format = "event: Beacon SNR_LOW\n";
   descriptor___17.lineno = 350U;
   descriptor___17.flags = 0U;
-  tmp___22 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -38133,7 +38133,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___18.format = "event: MAX_FAIL\n";
   descriptor___18.lineno = 353U;
   descriptor___18.flags = 0U;
-  tmp___23 = __builtin_expect((long )descriptor___18.flags & 1L, 0L);
+  tmp___23 = ldv__builtin_expect((long )descriptor___18.flags & 1L, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -38154,7 +38154,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___19.format = "event: Beacon RSSI_HIGH\n";
   descriptor___19.lineno = 362U;
   descriptor___19.flags = 0U;
-  tmp___24 = __builtin_expect((long )descriptor___19.flags & 1L, 0L);
+  tmp___24 = ldv__builtin_expect((long )descriptor___19.flags & 1L, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -38172,7 +38172,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___20.format = "event: Beacon SNR_HIGH\n";
   descriptor___20.lineno = 365U;
   descriptor___20.flags = 0U;
-  tmp___25 = __builtin_expect((long )descriptor___20.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___20.flags & 1L, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -38190,7 +38190,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___21.format = "event: Data RSSI_LOW\n";
   descriptor___21.lineno = 368U;
   descriptor___21.flags = 0U;
-  tmp___26 = __builtin_expect((long )descriptor___21.flags & 1L, 0L);
+  tmp___26 = ldv__builtin_expect((long )descriptor___21.flags & 1L, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -38208,7 +38208,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___22.format = "event: Data SNR_LOW\n";
   descriptor___22.lineno = 371U;
   descriptor___22.flags = 0U;
-  tmp___27 = __builtin_expect((long )descriptor___22.flags & 1L, 0L);
+  tmp___27 = ldv__builtin_expect((long )descriptor___22.flags & 1L, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -38226,7 +38226,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___23.format = "event: Data RSSI_HIGH\n";
   descriptor___23.lineno = 374U;
   descriptor___23.flags = 0U;
-  tmp___28 = __builtin_expect((long )descriptor___23.flags & 1L, 0L);
+  tmp___28 = ldv__builtin_expect((long )descriptor___23.flags & 1L, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -38244,7 +38244,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___24.format = "event: Data SNR_HIGH\n";
   descriptor___24.lineno = 377U;
   descriptor___24.flags = 0U;
-  tmp___29 = __builtin_expect((long )descriptor___24.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___24.flags & 1L, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -38262,7 +38262,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___25.format = "event: Link Quality\n";
   descriptor___25.lineno = 380U;
   descriptor___25.flags = 0U;
-  tmp___30 = __builtin_expect((long )descriptor___25.flags & 1L, 0L);
+  tmp___30 = ldv__builtin_expect((long )descriptor___25.flags & 1L, 0L);
   }
   if (tmp___30 != 0L) {
     {
@@ -38280,7 +38280,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___26.format = "event: Pre-Beacon Lost\n";
   descriptor___26.lineno = 383U;
   descriptor___26.flags = 0U;
-  tmp___31 = __builtin_expect((long )descriptor___26.flags & 1L, 0L);
+  tmp___31 = ldv__builtin_expect((long )descriptor___26.flags & 1L, 0L);
   }
   if (tmp___31 != 0L) {
     {
@@ -38298,7 +38298,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___27.format = "event: IBSS_COALESCED\n";
   descriptor___27.lineno = 386U;
   descriptor___27.flags = 0U;
-  tmp___32 = __builtin_expect((long )descriptor___27.flags & 1L, 0L);
+  tmp___32 = ldv__builtin_expect((long )descriptor___27.flags & 1L, 0L);
   }
   if (tmp___32 != 0L) {
     {
@@ -38319,7 +38319,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___28.format = "event: ADDBA Request\n";
   descriptor___28.lineno = 392U;
   descriptor___28.flags = 0U;
-  tmp___33 = __builtin_expect((long )descriptor___28.flags & 1L, 0L);
+  tmp___33 = ldv__builtin_expect((long )descriptor___28.flags & 1L, 0L);
   }
   if (tmp___33 != 0L) {
     {
@@ -38340,7 +38340,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___29.format = "event: DELBA Request\n";
   descriptor___29.lineno = 398U;
   descriptor___29.flags = 0U;
-  tmp___34 = __builtin_expect((long )descriptor___29.flags & 1L, 0L);
+  tmp___34 = ldv__builtin_expect((long )descriptor___29.flags & 1L, 0L);
   }
   if (tmp___34 != 0L) {
     {
@@ -38361,7 +38361,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___30.format = "event:  BA Stream timeout\n";
   descriptor___30.lineno = 402U;
   descriptor___30.flags = 0U;
-  tmp___35 = __builtin_expect((long )descriptor___30.flags & 1L, 0L);
+  tmp___35 = ldv__builtin_expect((long )descriptor___30.flags & 1L, 0L);
   }
   if (tmp___35 != 0L) {
     {
@@ -38383,7 +38383,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___31.format = "event: AMSDU_AGGR_CTRL %d\n";
   descriptor___31.lineno = 410U;
   descriptor___31.flags = 0U;
-  tmp___36 = __builtin_expect((long )descriptor___31.flags & 1L, 0L);
+  tmp___36 = ldv__builtin_expect((long )descriptor___31.flags & 1L, 0L);
   }
   if (tmp___36 != 0L) {
     {
@@ -38403,7 +38403,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___32.format = "event: tx_buf_size %d\n";
   descriptor___32.lineno = 415U;
   descriptor___32.flags = 0U;
-  tmp___37 = __builtin_expect((long )descriptor___32.flags & 1L, 0L);
+  tmp___37 = ldv__builtin_expect((long )descriptor___32.flags & 1L, 0L);
   }
   if (tmp___37 != 0L) {
     {
@@ -38422,7 +38422,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___33.format = "event: WEP ICV error\n";
   descriptor___33.lineno = 419U;
   descriptor___33.flags = 0U;
-  tmp___38 = __builtin_expect((long )descriptor___33.flags & 1L, 0L);
+  tmp___38 = ldv__builtin_expect((long )descriptor___33.flags & 1L, 0L);
   }
   if (tmp___38 != 0L) {
     {
@@ -38440,7 +38440,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___34.format = "event: BW Change\n";
   descriptor___34.lineno = 423U;
   descriptor___34.flags = 0U;
-  tmp___39 = __builtin_expect((long )descriptor___34.flags & 1L, 0L);
+  tmp___39 = ldv__builtin_expect((long )descriptor___34.flags & 1L, 0L);
   }
   if (tmp___39 != 0L) {
     {
@@ -38458,7 +38458,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___35.format = "event: HOSTWAKE_STAIE %d\n";
   descriptor___35.lineno = 427U;
   descriptor___35.flags = 0U;
-  tmp___40 = __builtin_expect((long )descriptor___35.flags & 1L, 0L);
+  tmp___40 = ldv__builtin_expect((long )descriptor___35.flags & 1L, 0L);
   }
   if (tmp___40 != 0L) {
     {
@@ -38477,7 +38477,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___36.format = "event: Remain on channel expired\n";
   descriptor___36.lineno = 431U;
   descriptor___36.flags = 0U;
-  tmp___41 = __builtin_expect((long )descriptor___36.flags & 1L, 0L);
+  tmp___41 = ldv__builtin_expect((long )descriptor___36.flags & 1L, 0L);
   }
   if (tmp___41 != 0L) {
     {
@@ -38500,7 +38500,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___37.format = "event: Channel Switch Announcement\n";
   descriptor___37.lineno = 442U;
   descriptor___37.flags = 0U;
-  tmp___42 = __builtin_expect((long )descriptor___37.flags & 1L, 0L);
+  tmp___42 = ldv__builtin_expect((long )descriptor___37.flags & 1L, 0L);
   }
   if (tmp___42 != 0L) {
     {
@@ -38524,7 +38524,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv )
   descriptor___38.format = "event: unknown event id: %#x\n";
   descriptor___38.lineno = 454U;
   descriptor___38.flags = 0U;
-  tmp___44 = __builtin_expect((long )descriptor___38.flags & 1L, 0L);
+  tmp___44 = ldv__builtin_expect((long )descriptor___38.flags & 1L, 0L);
   }
   if (tmp___44 != 0L) {
     {
@@ -38963,7 +38963,7 @@ int mwifiex_process_uap_event(struct mwifiex_private *priv )
   descriptor.format = "AP EVENT: event id: %#x\n";
   descriptor.lineno = 249U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -38986,7 +38986,7 @@ int mwifiex_process_uap_event(struct mwifiex_private *priv )
   descriptor___0.format = "AP EVENT: event id: %#x\n";
   descriptor___0.lineno = 255U;
   descriptor___0.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -39006,7 +39006,7 @@ int mwifiex_process_uap_event(struct mwifiex_private *priv )
   descriptor___1.format = "event: AMSDU_AGGR_CTRL %d\n";
   descriptor___1.lineno = 259U;
   descriptor___1.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -39027,7 +39027,7 @@ int mwifiex_process_uap_event(struct mwifiex_private *priv )
     descriptor___2.format = "event: tx_buf_size %d\n";
     descriptor___2.lineno = 265U;
     descriptor___2.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -39049,7 +39049,7 @@ int mwifiex_process_uap_event(struct mwifiex_private *priv )
   descriptor___3.format = "event: ADDBA Request\n";
   descriptor___3.lineno = 269U;
   descriptor___3.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -39074,7 +39074,7 @@ int mwifiex_process_uap_event(struct mwifiex_private *priv )
   descriptor___4.format = "event: DELBA Request\n";
   descriptor___4.lineno = 276U;
   descriptor___4.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -39099,7 +39099,7 @@ int mwifiex_process_uap_event(struct mwifiex_private *priv )
   descriptor___5.format = "event:  BA Stream timeout\n";
   descriptor___5.lineno = 281U;
   descriptor___5.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -39125,7 +39125,7 @@ int mwifiex_process_uap_event(struct mwifiex_private *priv )
   descriptor___6.format = "event: unknown event id: %#x\n";
   descriptor___6.lineno = 289U;
   descriptor___6.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -39197,7 +39197,6 @@ static void ldv___ldv_spin_lock_107___4(spinlock_t *ldv_func_arg1 )
   return;
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 static struct sk_buff *ldv___netdev_alloc_skb_58___2(struct net_device *ldv_func_arg1 ,
                                                      unsigned int ldv_func_arg2 ,
                                                      gfp_t flags ) ;
@@ -39258,7 +39257,7 @@ void *mwifiex_process_sta_txpd(struct mwifiex_private *priv , struct sk_buff *sk
   pkt_type = (int )tmp___0 ? 229U : 0U;
   pad = (u8 )((4L - ((long )skb->data & 3L)) % 4L);
   tmp___1 = skb_headroom((struct sk_buff  const  *)skb);
-  tmp___2 = __builtin_expect((unsigned long )tmp___1 < (unsigned long )pad + 20UL,
+  tmp___2 = ldv__builtin_expect((unsigned long )tmp___1 < (unsigned long )pad + 20UL,
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -39421,7 +39420,7 @@ int mwifiex_send_null_packet(struct mwifiex_private *priv , u8 flags )
   descriptor.format = "data: %s: host_to_card succeeded\n";
   descriptor.lineno = 184U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -39687,7 +39686,7 @@ int mwifiex_process_rx_packet(struct mwifiex_private *priv , struct sk_buff *skb
       descriptor.format = "Bypassed Gratuitous ARP\n";
       descriptor.lineno = 140U;
       descriptor.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -40118,7 +40117,7 @@ static void mwifiex_uap_queue_bridged_pkt(struct mwifiex_private *priv , struct 
     descriptor.format = "data: Tx: insufficient skb headroom %d\n";
     descriptor.lineno = 159U;
     descriptor.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -40131,7 +40130,7 @@ static void mwifiex_uap_queue_bridged_pkt(struct mwifiex_private *priv , struct 
     }
     {
     new_skb = skb_realloc_headroom(skb, 36U);
-    tmp___6 = __builtin_expect((unsigned long )new_skb == (unsigned long )((struct sk_buff *)0),
+    tmp___6 = ldv__builtin_expect((unsigned long )new_skb == (unsigned long )((struct sk_buff *)0),
                                0L);
     }
     if (tmp___6 != 0L) {
@@ -40153,7 +40152,7 @@ static void mwifiex_uap_queue_bridged_pkt(struct mwifiex_private *priv , struct 
     descriptor___0.format = "info: new skb headroom %d\n";
     descriptor___0.lineno = 174U;
     descriptor___0.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -40413,7 +40412,7 @@ void *mwifiex_process_uap_txpd(struct mwifiex_private *priv , struct sk_buff *sk
   pad = (int )((4L - ((long )skb->data & 3L)) % 4L);
   len = (int )((unsigned int )pad + 20U);
   tmp___1 = skb_headroom((struct sk_buff  const  *)skb);
-  tmp___2 = __builtin_expect(tmp___1 < (unsigned int )(len + 4), 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 < (unsigned int )(len + 4), 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -40645,7 +40644,7 @@ __inline static enum nl80211_channel_type cfg80211_get_chandef_type(struct cfg80
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -40655,7 +40654,7 @@ __inline static enum nl80211_channel_type cfg80211_get_chandef_type(struct cfg80
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (0);
   switch_break: /* CIL Label */ ;
@@ -40679,7 +40678,7 @@ __inline static void *wiphy_priv(struct wiphy *wiphy )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )wiphy == (unsigned long )((struct wiphy *)0),
+  tmp = ldv__builtin_expect((unsigned long )wiphy == (unsigned long )((struct wiphy *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -40889,7 +40888,7 @@ static int mwifiex_cfg80211_del_key(struct wiphy *wiphy , struct net_device *net
   descriptor.format = "info: crypto keys deleted\n";
   descriptor.lineno = 141U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -40992,7 +40991,7 @@ static int mwifiex_cfg80211_mgmt_tx(struct wiphy *wiphy , struct wireless_dev *w
       descriptor.format = "info: skip to send probe resp in AP or GO mode\n";
       descriptor.lineno = 208U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -41036,7 +41035,7 @@ static int mwifiex_cfg80211_mgmt_tx(struct wiphy *wiphy , struct wireless_dev *w
   descriptor___0.format = "info: management frame transmitted\n";
   descriptor___0.lineno = 233U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -41077,7 +41076,7 @@ static void mwifiex_cfg80211_mgmt_frame_register(struct wiphy *wiphy , struct wi
     descriptor.format = "info: mgmt frame registered\n";
     descriptor.lineno = 258U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -41126,7 +41125,7 @@ static int mwifiex_cfg80211_remain_on_channel(struct wiphy *wiphy , struct wirel
     descriptor.format = "info: ongoing ROC, cookie = 0x%llu\n";
     descriptor.lineno = 281U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -41156,7 +41155,7 @@ static int mwifiex_cfg80211_remain_on_channel(struct wiphy *wiphy , struct wirel
     descriptor___0.format = "info: ROC, cookie = 0x%llx\n";
     descriptor___0.lineno = 296U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -41204,7 +41203,7 @@ static int mwifiex_cfg80211_cancel_remain_on_channel(struct wiphy *wiphy , struc
     descriptor.format = "info: cancel ROC, cookie = 0x%llx\n";
     descriptor.lineno = 325U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -41272,7 +41271,7 @@ static int mwifiex_cfg80211_set_power_mgmt(struct wiphy *wiphy , struct net_devi
     descriptor.format = "info: ignore timeout value for IEEE Power Save\n";
     descriptor.lineno = 372U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -41518,7 +41517,7 @@ static void mwifiex_reg_notifier(struct wiphy *wiphy , struct regulatory_request
   descriptor.format = "info: cfg80211 regulatory domain callback for %c%c\n";
   descriptor.lineno = 545U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -42609,7 +42608,7 @@ static int mwifiex_cfg80211_del_station(struct wiphy *wiphy , struct net_device 
       descriptor.format = "%s: NULL/broadcast mac address\n";
       descriptor.lineno = 1277U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -42651,7 +42650,7 @@ static int mwifiex_cfg80211_del_station(struct wiphy *wiphy , struct net_device 
       descriptor___0.format = "%s: mac address %pM\n";
       descriptor___0.lineno = 1287U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -43026,7 +43025,7 @@ static int mwifiex_cfg80211_disconnect(struct wiphy *wiphy , struct net_device *
   descriptor.format = "info: successfully disconnected from %pM: reason code %d\n";
   descriptor.lineno = 1519U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -43184,7 +43183,7 @@ static int mwifiex_cfg80211_assoc(struct mwifiex_private *priv , size_t ssid_len
       descriptor.format = "info: setting wep encryption with key len %d\n";
       descriptor.lineno = 1664U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -43251,7 +43250,7 @@ static int mwifiex_cfg80211_assoc(struct mwifiex_private *priv , size_t ssid_len
     descriptor___0.format = "info: trying to associate to \'%s\' bssid %pM\n";
     descriptor___0.lineno = 1708U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -43326,7 +43325,7 @@ static int mwifiex_cfg80211_connect(struct wiphy *wiphy , struct net_device *dev
   descriptor.format = "info: Trying to associate to %s and bssid %pM\n";
   descriptor.lineno = 1750U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -43350,7 +43349,7 @@ static int mwifiex_cfg80211_connect(struct wiphy *wiphy , struct net_device *dev
     descriptor___0.format = "info: associated to bssid %pM successfully\n";
     descriptor___0.lineno = 1760U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -43368,7 +43367,7 @@ static int mwifiex_cfg80211_connect(struct wiphy *wiphy , struct net_device *dev
     descriptor___1.format = "info: association to bssid %pM failed\n";
     descriptor___1.lineno = 1764U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -43487,7 +43486,7 @@ static int mwifiex_set_ibss_params(struct mwifiex_private *priv , struct cfg8021
   descriptor.format = "info: set ibss band %d, chan %d, chan offset %d\n";
   descriptor.lineno = 1849U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -43534,7 +43533,7 @@ static int mwifiex_cfg80211_join_ibss(struct wiphy *wiphy , struct net_device *d
   descriptor.format = "info: trying to join to %s and bssid %pM\n";
   descriptor.lineno = 1874U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -43560,7 +43559,7 @@ static int mwifiex_cfg80211_join_ibss(struct wiphy *wiphy , struct net_device *d
     descriptor___0.format = "info: joined/created adhoc network with bssid %pM successfully\n";
     descriptor___0.lineno = 1887U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -43579,7 +43578,7 @@ static int mwifiex_cfg80211_join_ibss(struct wiphy *wiphy , struct net_device *d
     descriptor___1.format = "info: failed creating/joining adhoc network\n";
     descriptor___1.lineno = 1890U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -43611,7 +43610,7 @@ static int mwifiex_cfg80211_leave_ibss(struct wiphy *wiphy , struct net_device *
   descriptor.format = "info: disconnecting from essid %pM\n";
   descriptor.lineno = 1908U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -43666,7 +43665,7 @@ static int mwifiex_cfg80211_scan(struct wiphy *wiphy , struct cfg80211_scan_requ
   descriptor.format = "info: received scan request on %s\n";
   descriptor.lineno = 1935U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -43688,7 +43687,7 @@ static int mwifiex_cfg80211_scan(struct wiphy *wiphy , struct cfg80211_scan_requ
       descriptor___0.format = "scan rejected due to traffic\n";
       descriptor___0.lineno = 1940U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -44185,7 +44184,7 @@ struct wireless_dev *mwifiex_add_virtual_intf(struct wiphy *wiphy , char const  
   descriptor.format = "info: %s: Marvell 802.11 Adapter\n";
   descriptor.lineno = 2288U;
   descriptor.flags = 0U;
-  tmp___17 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -44695,7 +44694,7 @@ static int mwifiex_cfg80211_set_coalesce(struct wiphy *wiphy , struct cfg80211_c
     descriptor.format = "Disable coalesce and reset all previous rules\n";
     descriptor.lineno = 2576U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -46655,7 +46654,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -46663,7 +46662,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -49067,7 +49066,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -49091,7 +49090,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -49099,7 +49098,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

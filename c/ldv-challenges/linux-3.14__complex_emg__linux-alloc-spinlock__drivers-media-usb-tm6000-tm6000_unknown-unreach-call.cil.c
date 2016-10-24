@@ -8102,7 +8102,7 @@ void ldv_dummy_resourceless_instance_callback_3_9(int (*arg0)(struct videobuf_qu
                                                   struct videobuf_queue *arg1 , unsigned int *arg2 ,
                                                   unsigned int *arg3 ) ;
 void ldv_entry_EMGentry_12(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_io_instance_callback_8_17(int (*arg0)(struct file * , struct vm_area_struct * ) ,
                                    struct file *arg1 , struct vm_area_struct *arg2 ) ;
@@ -8821,7 +8821,7 @@ void ldv_entry_EMGentry_12(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -12206,7 +12206,7 @@ static int ldv_dev_set_drvdata_44(struct device *dev , void *data )
   return (tmp);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 int ldv_filter_err_code(int ret_val ) ;
 extern void ldv_after_alloc(void * ) ;
 __inline static int constant_test_bit(long nr , unsigned long const volatile   *addr ) 
@@ -12250,7 +12250,6 @@ __inline static void __swab16s(__u16 *p )
 extern void __bad_percpu_size(void) ;
 extern char *strcpy(char * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
 static void ldv___ldv_spin_lock_67(spinlock_t *ldv_func_arg1 ) ;
 void ldv_spin_lock_slock_of_tm6000_core(void) ;
@@ -12435,7 +12434,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
   if (is_out != 0) {
     {
     __ret_warn_on = (pipe & 128) != 0;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12445,13 +12444,13 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     ep = udev->ep_out[epnum];
     }
   } else {
     {
     __ret_warn_on___0 = (pipe & 128) == 0;
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12461,7 +12460,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
     {
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     ep = udev->ep_in[epnum];
     }
   }
@@ -13754,7 +13753,7 @@ static int buffer_prepare(struct videobuf_queue *vq , struct videobuf_buffer *vb
   buf = (struct tm6000_buffer *)__mptr;
   dev = fh->dev;
   rc = 0;
-  tmp = __builtin_expect((unsigned long )fh->fmt == (unsigned long )((struct tm6000_fmt *)0),
+  tmp = ldv__builtin_expect((unsigned long )fh->fmt == (unsigned long )((struct tm6000_fmt *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -19651,7 +19650,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -19675,7 +19674,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -19683,7 +19682,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

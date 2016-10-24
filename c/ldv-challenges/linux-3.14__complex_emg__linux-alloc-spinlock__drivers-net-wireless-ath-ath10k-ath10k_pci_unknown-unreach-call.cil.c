@@ -6670,7 +6670,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -6779,7 +6779,6 @@ extern void *memset(void * , int  , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6797,7 +6796,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7042,7 +7041,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7069,7 +7068,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7105,7 +7104,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7145,7 +7144,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7296,7 +7295,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7307,7 +7306,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -8127,12 +8126,12 @@ static int ath10k_pci_diag_read_mem(struct ath10k *ar , u32 address , void *data
   if (ret == 0) {
     {
     __ret_warn_once = (orig_nbytes & 3U) != 0U;
-    tmp___9 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___9 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
     }
     if (tmp___9 != 0L) {
       {
       __ret_warn_on = ! __warned;
-      tmp___7 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___7 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -8142,7 +8141,7 @@ static int ath10k_pci_diag_read_mem(struct ath10k *ar , u32 address , void *data
 
       }
       {
-      tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
       if (tmp___8 != 0L) {
         __warned = 1;
@@ -8153,7 +8152,7 @@ static int ath10k_pci_diag_read_mem(struct ath10k *ar , u32 address , void *data
 
     }
     {
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
     i = 0;
     }
     goto ldv_53101;
@@ -8257,12 +8256,12 @@ static int ath10k_pci_diag_write_mem(struct ath10k *ar , u32 address , void cons
   }
   {
   __ret_warn_once = (orig_nbytes & 3U) != 0U;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8272,7 +8271,7 @@ static int ath10k_pci_diag_write_mem(struct ath10k *ar , u32 address , void cons
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -8283,7 +8282,7 @@ static int ath10k_pci_diag_write_mem(struct ath10k *ar , u32 address , void cons
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   i = 0;
   }
   goto ldv_53135;
@@ -9574,12 +9573,12 @@ static int ath10k_pci_post_rx_pipe(struct ath10k_pci_pipe *pipe_info , int num )
   }
   {
   __ret_warn_once = ((unsigned long )skb->data & 3UL) != 0UL;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9589,7 +9588,7 @@ static int ath10k_pci_post_rx_pipe(struct ath10k_pci_pipe *pipe_info , int num )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -9600,12 +9599,12 @@ static int ath10k_pci_post_rx_pipe(struct ath10k_pci_pipe *pipe_info , int num )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   tmp___3 = skb_tailroom((struct sk_buff  const  *)skb);
   ce_data = dma_map_single_attrs(ar->dev, (void *)skb->data, (size_t )(skb->len + (unsigned int )tmp___3),
                                  2, (struct dma_attrs *)0);
   tmp___4 = dma_mapping_error(ar->dev, ce_data);
-  tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -11926,7 +11925,7 @@ void ldv_dispatch_irq_register_9_2(int arg0 , enum irqreturn (*arg1)(int  , void
 void ldv_dispatch_register_12_2(struct pci_driver *arg0 ) ;
 void ldv_dispatch_register_base_instance_7_13_5(void) ;
 void ldv_entry_EMGentry_13(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -12862,7 +12861,7 @@ void ldv_entry_EMGentry_13(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -15045,7 +15044,7 @@ static int ath10k_ce_send_nolock(struct ath10k_ce_pipe *ce_state , void *per_tra
 
   }
   {
-  tmp = __builtin_expect(((unsigned int )((int )(sw_index - 1U) - (int )write_index) & nentries_mask) == 0U,
+  tmp = ldv__builtin_expect(((unsigned int )((int )(sw_index - 1U) - (int )write_index) & nentries_mask) == 0U,
                          0L);
   }
   if (tmp != 0L) {
@@ -15672,7 +15671,7 @@ static int ath10k_ce_init_src_ring(struct ath10k *ar , unsigned int ce_id , stru
   if ((unsigned long )ce_state->src_ring != (unsigned long )((struct ath10k_ce_ring *)0)) {
     {
     __ret_warn_on = (ce_state->src_ring)->nentries != nentries;
-    tmp___70 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___70 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___70 != 0L) {
       {
@@ -15682,7 +15681,7 @@ static int ath10k_ce_init_src_ring(struct ath10k *ar , unsigned int ce_id , stru
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return (0);
   } else {
@@ -15784,7 +15783,7 @@ static int ath10k_ce_init_dest_ring(struct ath10k *ar , unsigned int ce_id , str
   if ((unsigned long )ce_state->dest_ring != (unsigned long )((struct ath10k_ce_ring *)0)) {
     {
     __ret_warn_on = (ce_state->dest_ring)->nentries != nentries;
-    tmp___70 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___70 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___70 != 0L) {
       {
@@ -15794,7 +15793,7 @@ static int ath10k_ce_init_dest_ring(struct ath10k *ar , unsigned int ce_id , str
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return (0);
   } else {
@@ -16206,7 +16205,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -16230,7 +16229,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -16238,7 +16237,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

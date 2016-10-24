@@ -7608,7 +7608,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_atomic_inc(atomic_t *v ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
@@ -7799,12 +7799,12 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
   {
   {
   __ret_warn_once = cpu >= (unsigned int )nr_cpu_ids;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7814,7 +7814,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -7825,7 +7825,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (cpu);
 }
@@ -7864,7 +7864,6 @@ __inline static void cpumask_or(struct cpumask *dstp , struct cpumask  const  *s
 }
 extern bool zalloc_cpumask_var(cpumask_var_t ** , gfp_t  ) ;
 extern void free_cpumask_var(cpumask_var_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
 
@@ -8236,7 +8235,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8402,7 +8401,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8412,7 +8411,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9777,7 +9776,7 @@ static int efx_process_channel(struct efx_channel *channel , int budget )
 
   {
   {
-  tmp = __builtin_expect((long )(! channel->enabled), 0L);
+  tmp = ldv__builtin_expect((long )(! channel->enabled), 0L);
   }
   if (tmp != 0L) {
     return (0);
@@ -10057,11 +10056,11 @@ static int efx_poll(struct napi_struct *napi , int budget )
     if ((int )tmp___1 && (int )efx->irq_rx_adaptive) {
       {
       channel->irq_count = channel->irq_count + 1U;
-      tmp___2 = __builtin_expect(channel->irq_count == 1000U, 0L);
+      tmp___2 = ldv__builtin_expect(channel->irq_count == 1000U, 0L);
       }
       if (tmp___2 != 0L) {
         {
-        tmp___0 = __builtin_expect(channel->irq_mod_score < irq_adapt_low_thresh,
+        tmp___0 = ldv__builtin_expect(channel->irq_mod_score < irq_adapt_low_thresh,
                                    0L);
         }
         if (tmp___0 != 0L) {
@@ -10075,7 +10074,7 @@ static int efx_poll(struct napi_struct *napi , int budget )
           }
         } else {
           {
-          tmp = __builtin_expect(channel->irq_mod_score > irq_adapt_high_thresh, 0L);
+          tmp = ldv__builtin_expect(channel->irq_mod_score > irq_adapt_high_thresh, 0L);
           }
           if (tmp != 0L) {
             if (channel->irq_moderation < efx->irq_rx_moderation) {
@@ -10130,7 +10129,7 @@ static int efx_probe_eventq(struct efx_channel *channel )
     descriptor.format = "chan %d create event queue\n";
     descriptor.lineno = 327U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10171,7 +10170,7 @@ static int efx_init_eventq(struct efx_channel *channel )
     descriptor.format = "chan %d init event queue\n";
     descriptor.lineno = 347U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10213,7 +10212,7 @@ static void efx_start_eventq(struct efx_channel *channel )
     descriptor.format = "chan %d start event queue\n";
     descriptor.lineno = 362U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10271,7 +10270,7 @@ static void efx_fini_eventq(struct efx_channel *channel )
     descriptor.format = "chan %d fini event queue\n";
     descriptor.lineno = 388U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10305,7 +10304,7 @@ static void efx_remove_eventq(struct efx_channel *channel )
     descriptor.format = "chan %d remove event queue\n";
     descriptor.lineno = 397U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10447,7 +10446,7 @@ static int efx_probe_channel(struct efx_channel *channel )
     descriptor.format = "creating channel %d\n";
     descriptor.lineno = 484U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10718,7 +10717,7 @@ static void efx_start_datapath(struct efx_nic *efx )
       descriptor.format = "RX buf len=%u; page order=%u batch=%u\n";
       descriptor.lineno = 618U;
       descriptor.flags = 0U;
-      tmp___70 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___70 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___70 != 0L) {
         {
@@ -10741,7 +10740,7 @@ static void efx_start_datapath(struct efx_nic *efx )
     descriptor___0.format = "RX buf len=%u step=%u bpp=%u; page batch=%u\n";
     descriptor___0.lineno = 623U;
     descriptor___0.flags = 0U;
-    tmp___71 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___71 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___71 != 0L) {
       {
@@ -10836,7 +10835,7 @@ static void efx_start_datapath(struct efx_nic *efx )
   }
   {
   __ret_warn_on = channel->rx_pkt_n_frags != 0U;
-  tmp___78 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___78 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___78 != 0L) {
     {
@@ -10846,7 +10845,7 @@ static void efx_start_datapath(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   channel = (unsigned int )(channel->channel + 1) < efx->n_channels ? efx->channel[channel->channel + 1] : (struct efx_channel *)0;
   }
   ldv_51084: ;
@@ -10893,7 +10892,7 @@ static void efx_stop_datapath(struct efx_nic *efx )
   if (((unsigned int )efx->state == 1U || (unsigned int )efx->state == 3U) || (unsigned int )efx->state == 2U) {
     {
     tmp = rtnl_is_locked();
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10908,7 +10907,7 @@ static void efx_stop_datapath(struct efx_nic *efx )
 
   }
   {
-  tmp___1 = __builtin_expect((long )efx->port_enabled, 0L);
+  tmp___1 = ldv__builtin_expect((long )efx->port_enabled, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11017,7 +11016,7 @@ static void efx_stop_datapath(struct efx_nic *efx )
     descriptor.format = "successfully flushed all queues\n";
     descriptor.lineno = 708U;
     descriptor.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -11116,7 +11115,7 @@ static void efx_remove_channel(struct efx_channel *channel )
     descriptor.format = "destroy chan %d\n";
     descriptor.lineno = 725U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11612,7 +11611,7 @@ int __efx_reconfigure_port(struct efx_nic *efx )
   {
   tmp = mutex_is_locked(& efx->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11622,7 +11621,7 @@ int __efx_reconfigure_port(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   phy_mode = efx->phy_mode;
   }
   if ((66600958 >> (int )efx->loopback_mode) & 1) {
@@ -11651,7 +11650,7 @@ int efx_reconfigure_port(struct efx_nic *efx )
   if (((unsigned int )efx->state == 1U || (unsigned int )efx->state == 3U) || (unsigned int )efx->state == 2U) {
     {
     tmp = rtnl_is_locked();
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11712,7 +11711,7 @@ static int efx_probe_port(struct efx_nic *efx )
     descriptor.format = "create port\n";
     descriptor.lineno = 1006U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11760,7 +11759,7 @@ static int efx_init_port(struct efx_nic *efx )
     descriptor.format = "init port\n";
     descriptor.lineno = 1026U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11822,7 +11821,7 @@ static void efx_start_port(struct efx_nic *efx )
     descriptor.format = "start port\n";
     descriptor.lineno = 1057U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11836,7 +11835,7 @@ static void efx_start_port(struct efx_nic *efx )
 
   }
   {
-  tmp___0 = __builtin_expect((long )efx->port_enabled, 0L);
+  tmp___0 = ldv__builtin_expect((long )efx->port_enabled, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11872,7 +11871,7 @@ static void efx_stop_port(struct efx_nic *efx )
     descriptor.format = "stop port\n";
     descriptor.lineno = 1076U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11888,7 +11887,7 @@ static void efx_stop_port(struct efx_nic *efx )
   if (((unsigned int )efx->state == 1U || (unsigned int )efx->state == 3U) || (unsigned int )efx->state == 2U) {
     {
     tmp___0 = rtnl_is_locked();
-    tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -11929,7 +11928,7 @@ static void efx_fini_port(struct efx_nic *efx )
     descriptor.format = "shut down port\n";
     descriptor.lineno = 1095U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11970,7 +11969,7 @@ static void efx_remove_port(struct efx_nic *efx )
     descriptor.format = "destroying port\n";
     descriptor.lineno = 1109U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12044,7 +12043,7 @@ static void efx_associate(struct efx_nic *efx )
       descriptor.format = "adding to primary list\n";
       descriptor.lineno = 1137U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -12081,7 +12080,7 @@ static void efx_associate(struct efx_nic *efx )
         descriptor___0.format = "moving to secondary list of %s %s\n";
         descriptor___0.lineno = 1147U;
         descriptor___0.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -12129,7 +12128,7 @@ static void efx_associate(struct efx_nic *efx )
         descriptor___1.format = "adding to secondary list of %s %s\n";
         descriptor___1.lineno = 1161U;
         descriptor___1.flags = 0U;
-        tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___4 != 0L) {
           {
@@ -12168,7 +12167,7 @@ static void efx_associate(struct efx_nic *efx )
       descriptor___2.format = "adding to unassociated list\n";
       descriptor___2.lineno = 1170U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -12220,7 +12219,7 @@ static void efx_dissociate(struct efx_nic *efx )
     descriptor.format = "moving to unassociated list\n";
     descriptor.lineno = 1185U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12280,7 +12279,7 @@ static int efx_init_io(struct efx_nic *efx )
     descriptor.format = "initialising I/O\n";
     descriptor.lineno = 1199U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12356,7 +12355,7 @@ static int efx_init_io(struct efx_nic *efx )
     descriptor___0.format = "using DMA mask %llx\n";
     descriptor___0.lineno = 1229U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -12411,7 +12410,7 @@ static int efx_init_io(struct efx_nic *efx )
     descriptor___1.format = "memory BAR at %llx+%x (virtual %p)\n";
     descriptor___1.lineno = 1250U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -12454,7 +12453,7 @@ static void efx_fini_io(struct efx_nic *efx )
     descriptor.format = "shutting down I/O\n";
     descriptor.lineno = 1266U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12520,7 +12519,7 @@ static unsigned int efx_wanted_parallelism(struct efx_nic *efx )
       tmp___0 = 1;
     }
     {
-    tmp___1 = __builtin_expect((long )tmp___0, 0L);
+    tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
     }
     if (tmp___1 != 0L) {
       if ((efx->msg_enable & 2U) != 0U) {
@@ -12831,7 +12830,7 @@ static int efx_soft_enable_interrupts(struct efx_nic *efx )
 
   {
   {
-  tmp = __builtin_expect((unsigned int )efx->state == 2U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )efx->state == 2U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12968,7 +12967,7 @@ static int efx_enable_interrupts(struct efx_nic *efx )
 
   {
   {
-  tmp = __builtin_expect((unsigned int )efx->state == 2U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )efx->state == 2U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13183,7 +13182,7 @@ static int efx_probe_nic(struct efx_nic *efx )
     descriptor.format = "creating NIC\n";
     descriptor.lineno = 1593U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13272,7 +13271,7 @@ static void efx_remove_nic(struct efx_nic *efx )
     descriptor.format = "destroying NIC\n";
     descriptor.lineno = 1635U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13405,7 +13404,7 @@ static int efx_probe_all(struct efx_nic *efx )
   {
   tmp = efx_tx_max_skb_descs(efx);
   __ret_warn_on = tmp * 2U > 1024U;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13415,7 +13414,7 @@ static int efx_probe_all(struct efx_nic *efx )
 
   }
   {
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     rc = -22;
@@ -13480,7 +13479,7 @@ static void efx_start_all(struct efx_nic *efx )
   if (((unsigned int )efx->state == 1U || (unsigned int )efx->state == 3U) || (unsigned int )efx->state == 2U) {
     {
     tmp = rtnl_is_locked();
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13495,7 +13494,7 @@ static void efx_start_all(struct efx_nic *efx )
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned int )efx->state == 2U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )efx->state == 2U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13579,7 +13578,7 @@ static void efx_stop_all(struct efx_nic *efx )
   if (((unsigned int )efx->state == 1U || (unsigned int )efx->state == 3U) || (unsigned int )efx->state == 2U) {
     {
     tmp = rtnl_is_locked();
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13621,7 +13620,7 @@ static void efx_stop_all(struct efx_nic *efx )
   }
   {
   __ret_warn_on = tmp___3;
-  tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -13631,7 +13630,7 @@ static void efx_stop_all(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   netif_tx_disable(efx->net_dev);
   efx_stop_datapath(efx);
   }
@@ -13687,7 +13686,7 @@ int efx_init_irq_moderation(struct efx_nic *efx , unsigned int tx_usecs , unsign
   if (((unsigned int )efx->state == 1U || (unsigned int )efx->state == 3U) || (unsigned int )efx->state == 2U) {
     {
     tmp = rtnl_is_locked();
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14005,7 +14004,7 @@ static void efx_monitor(struct work_struct *data )
 
   }
   {
-  tmp = __builtin_expect((unsigned long )(efx->type)->monitor == (unsigned long )((void (*/* const  */)(struct efx_nic * ))0),
+  tmp = ldv__builtin_expect((unsigned long )(efx->type)->monitor == (unsigned long )((void (*/* const  */)(struct efx_nic * ))0),
                          0L);
   }
   if (tmp != 0L) {
@@ -14214,7 +14213,7 @@ static int efx_net_open(struct net_device *net_dev )
     descriptor.format = "opening device on CPU %d\n";
     descriptor.lineno = 2025U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       __vpp_verify = (void const   *)0;
@@ -14496,7 +14495,7 @@ static int efx_net_stop(struct net_device *net_dev )
     descriptor.format = "closing on CPU %d\n";
     descriptor.lineno = 2053U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       __vpp_verify = (void const   *)0;
@@ -14794,7 +14793,7 @@ static int efx_change_mtu(struct net_device *net_dev , int new_mtu )
     descriptor.format = "changing MTU to %d\n";
     descriptor.lineno = 2099U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15136,7 +15135,7 @@ static void efx_unregister_netdev(struct efx_nic *efx )
   }
   {
   tmp = netdev_priv((struct net_device  const  *)efx->net_dev);
-  tmp___0 = __builtin_expect((unsigned long )tmp != (unsigned long )((void *)efx),
+  tmp___0 = ldv__builtin_expect((unsigned long )tmp != (unsigned long )((void *)efx),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15169,7 +15168,7 @@ void efx_reset_down(struct efx_nic *efx , enum reset_type method )
   if (((unsigned int )efx->state == 1U || (unsigned int )efx->state == 3U) || (unsigned int )efx->state == 2U) {
     {
     tmp = rtnl_is_locked();
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15212,7 +15211,7 @@ int efx_reset_up(struct efx_nic *efx , enum reset_type method , bool ok )
   if (((unsigned int )efx->state == 1U || (unsigned int )efx->state == 3U) || (unsigned int )efx->state == 2U) {
     {
     tmp = rtnl_is_locked();
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15368,7 +15367,7 @@ int efx_reset(struct efx_nic *efx , enum reset_type method )
       descriptor.format = "reset complete\n";
       descriptor.lineno = 2448U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -15513,7 +15512,7 @@ void efx_schedule_reset(struct efx_nic *efx , enum reset_type type )
       descriptor.format = "recovering: skip scheduling %s reset\n";
       descriptor.lineno = 2540U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -15583,7 +15582,7 @@ void efx_schedule_reset(struct efx_nic *efx , enum reset_type type )
     descriptor___0.format = "scheduling %s reset\n";
     descriptor___0.lineno = 2554U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15609,7 +15608,7 @@ void efx_schedule_reset(struct efx_nic *efx , enum reset_type type )
     descriptor___1.format = "scheduling %s reset for %s\n";
     descriptor___1.lineno = 2560U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15848,7 +15847,7 @@ static void efx_pci_remove_main(struct efx_nic *efx )
 
   {
   {
-  tmp = __builtin_expect((unsigned int )efx->state == 1U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )efx->state == 1U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15908,7 +15907,7 @@ static void efx_pci_remove(struct pci_dev *pci_dev )
     descriptor.format = "shutdown successful\n";
     descriptor.lineno = 2766U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16260,7 +16259,7 @@ static int efx_pci_probe(struct pci_dev *pci_dev , struct pci_device_id  const  
     descriptor.format = "initialisation successful\n";
     descriptor.lineno = 2960U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16321,7 +16320,7 @@ static int efx_pci_probe(struct pci_dev *pci_dev , struct pci_device_id  const  
   fail1: 
   {
   __ret_warn_on = rc > 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -16331,7 +16330,7 @@ static int efx_pci_probe(struct pci_dev *pci_dev , struct pci_device_id  const  
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((int )efx->msg_enable & 1) {
     {
@@ -16341,7 +16340,7 @@ static int efx_pci_probe(struct pci_dev *pci_dev , struct pci_device_id  const  
     descriptor___0.format = "initialisation failed. rc=%d\n";
     descriptor___0.lineno = 2985U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -16658,7 +16657,7 @@ static void efx_io_resume(struct pci_dev *pdev )
       descriptor.format = "Done resetting and resuming IO after PCI error.\n";
       descriptor.lineno = 3186U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -16969,7 +16968,7 @@ void ldv_dummy_resourceless_instance_callback_6_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_36(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -20529,7 +20528,7 @@ void ldv_entry_EMGentry_36(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -27348,7 +27347,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -27424,7 +27423,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -27532,7 +27531,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -27543,7 +27542,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -28187,7 +28186,7 @@ void efx_nic_get_regs(struct efx_nic *efx , void *buf )
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -28197,7 +28196,7 @@ void efx_nic_get_regs(struct efx_nic *efx , void *buf )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return;
   switch_break: /* CIL Label */ ;
@@ -28319,7 +28318,7 @@ void efx_nic_update_stats(struct efx_hw_stat_desc  const  *desc , size_t count ,
     switch_default: /* CIL Label */ 
     {
     __ret_warn_on = 1;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -28329,7 +28328,7 @@ void efx_nic_update_stats(struct efx_hw_stat_desc  const  *desc , size_t count ,
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     val = 0ULL;
     }
     goto ldv_46933;
@@ -28529,7 +28528,6 @@ static void ldv_free_irq_28(unsigned int ldv_func_arg1 , void *ldv_func_arg2 )
   return;
 }
 }
-int __builtin_bswap32(int  ) ;
 void ldv_atomic_dec(atomic_t *v ) ;
 __inline static void __set_bit(long nr , unsigned long volatile   *addr ) 
 { 
@@ -29880,7 +29878,7 @@ static void efx_init_special_buffer(struct efx_nic *efx , struct efx_special_buf
     descriptor.format = "mapping special buffer %d at %llx\n";
     descriptor.lineno = 185U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -29932,7 +29930,7 @@ static void efx_fini_special_buffer(struct efx_nic *efx , struct efx_special_buf
     descriptor.format = "unmapping special buffers %d-%d\n";
     descriptor.lineno = 206U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -29977,7 +29975,7 @@ static int efx_alloc_special_buffer(struct efx_nic *efx , struct efx_special_buf
   }
   {
   buffer->entries = len / 4096U;
-  tmp___0 = __builtin_expect((buffer->buf.dma_addr & 4095ULL) != 0ULL, 0L);
+  tmp___0 = ldv__builtin_expect((buffer->buf.dma_addr & 4095ULL) != 0ULL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29992,11 +29990,11 @@ static int efx_alloc_special_buffer(struct efx_nic *efx , struct efx_special_buf
   buffer->index = efx->next_buffer_table;
   efx->next_buffer_table = efx->next_buffer_table + buffer->entries;
   tmp___1 = efx_sriov_enabled(efx);
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
   }
   if (tmp___2 != 0L) {
     {
-    tmp___3 = __builtin_expect(efx->vf_buftbl_base < efx->next_buffer_table, 0L);
+    tmp___3 = ldv__builtin_expect(efx->vf_buftbl_base < efx->next_buffer_table, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -30018,7 +30016,7 @@ static int efx_alloc_special_buffer(struct efx_nic *efx , struct efx_special_buf
     descriptor.format = "allocating special buffers %d-%d at %llx+%x (virt %p phys %llx)\n";
     descriptor.lineno = 249U;
     descriptor.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -30057,7 +30055,7 @@ static void efx_free_special_buffer(struct efx_nic *efx , struct efx_special_buf
     descriptor.format = "deallocating special buffers %d-%d at %llx+%x (virt %p phys %llx)\n";
     descriptor.lineno = 265U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -30145,7 +30143,7 @@ void efx_farch_tx_write(struct efx_tx_queue *tx_queue )
   {
   {
   old_write_count = tx_queue->write_count;
-  tmp = __builtin_expect(tx_queue->write_count == tx_queue->insert_count, 0L);
+  tmp = ldv__builtin_expect(tx_queue->write_count == tx_queue->insert_count, 0L);
   }
   if (tmp != 0L) {
     {
@@ -30300,7 +30298,7 @@ static void efx_farch_flush_tx_queue(struct efx_tx_queue *tx_queue )
   efx = tx_queue->efx;
   tmp = atomic_read((atomic_t const   *)(& tx_queue->flush_outstanding));
   __ret_warn_on = tmp != 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30310,7 +30308,7 @@ static void efx_farch_flush_tx_queue(struct efx_tx_queue *tx_queue )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   atomic_set(& tx_queue->flush_outstanding, 1);
   tx_flush_descq.u64[0] = (unsigned long long )tx_queue->queue | 4096ULL;
   tx_flush_descq.u64[1] = 0ULL;
@@ -30439,7 +30437,7 @@ void efx_farch_rx_init(struct efx_rx_queue *rx_queue )
     descriptor.format = "RX queue %d ring in special buffers %d-%d\n";
     descriptor.lineno = 527U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -30596,7 +30594,7 @@ static bool efx_check_tx_flush_complete(struct efx_nic *efx )
         descriptor.format = "flush did not complete on TXQ %d\n";
         descriptor.lineno = 621U;
         descriptor.flags = 0U;
-        tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp != 0L) {
           {
@@ -30623,7 +30621,7 @@ static bool efx_check_tx_flush_complete(struct efx_nic *efx )
           descriptor___0.format = "flush complete on TXQ %d, so drain the queue\n";
           descriptor___0.lineno = 630U;
           descriptor___0.flags = 0U;
-          tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+          tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
           }
           if (tmp___0 != 0L) {
             {
@@ -31118,7 +31116,7 @@ static int efx_farch_handle_tx_event(struct efx_channel *channel , efx_qword_t *
   {
   efx = channel->efx;
   tx_packets = 0;
-  tmp = __builtin_expect((unsigned long )*((unsigned long volatile   *)(& efx->reset_pending)) != 0UL,
+  tmp = ldv__builtin_expect((unsigned long )*((unsigned long volatile   *)(& efx->reset_pending)) != 0UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -31127,7 +31125,7 @@ static int efx_farch_handle_tx_event(struct efx_channel *channel , efx_qword_t *
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )(event->u64[0] >> 12)) & 1L, 1L);
+  tmp___0 = ldv__builtin_expect((long )((int )(event->u64[0] >> 12)) & 1L, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -31287,7 +31285,7 @@ static void efx_farch_handle_rx_event(struct efx_channel *channel , efx_qword_t 
   {
   {
   efx = channel->efx;
-  tmp = __builtin_expect((unsigned long )*((unsigned long volatile   *)(& efx->reset_pending)) != 0UL,
+  tmp = ldv__builtin_expect((unsigned long )*((unsigned long volatile   *)(& efx->reset_pending)) != 0UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -31299,7 +31297,7 @@ static void efx_farch_handle_rx_event(struct efx_channel *channel , efx_qword_t 
   rx_ev_cont = ((event->u64[0] >> 31) & 1ULL) != 0ULL;
   rx_ev_sop = ((event->u64[0] >> 15) & 1ULL) != 0ULL;
   __ret_warn_on = ((event->u64[0] >> 32) & 31ULL) != (unsigned long long )channel->channel;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -31309,17 +31307,17 @@ static void efx_farch_handle_rx_event(struct efx_channel *channel , efx_qword_t 
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   rx_queue = efx_channel_get_rx_queue(channel);
   rx_ev_desc_ptr = (unsigned int )event->u64[0] & 4095U;
   expected_ptr = (rx_queue->removed_count + rx_queue->scatter_n) & rx_queue->ptr_mask;
-  tmp___3 = __builtin_expect(rx_ev_desc_ptr != expected_ptr, 0L);
+  tmp___3 = ldv__builtin_expect(rx_ev_desc_ptr != expected_ptr, 0L);
   }
   if (tmp___3 != 0L) {
     goto _L;
   } else {
     {
-    tmp___4 = __builtin_expect((int )rx_ev_sop != (rx_queue->scatter_n == 0U), 0L);
+    tmp___4 = ldv__builtin_expect((int )rx_ev_sop != (rx_queue->scatter_n == 0U), 0L);
     }
     if (tmp___4 != 0L) {
       _L: /* CIL Label */ 
@@ -31379,7 +31377,7 @@ static void efx_farch_handle_rx_event(struct efx_channel *channel , efx_qword_t 
   rx_ev_byte_cnt = (unsigned int )(event->u64[0] >> 16) & 16383U;
   rx_ev_pkt_ok = ((event->u64[0] >> 56) & 1ULL) != 0ULL;
   rx_ev_hdr_type = (unsigned int )(event->u64[0] >> 42) & 3U;
-  tmp___5 = __builtin_expect((long )rx_ev_pkt_ok, 1L);
+  tmp___5 = ldv__builtin_expect((long )rx_ev_pkt_ok, 1L);
   }
   if (tmp___5 != 0L) {
     flags = 0U;
@@ -31424,7 +31422,7 @@ static void efx_farch_handle_rx_event(struct efx_channel *channel , efx_qword_t 
   if (rx_ev_mcast_pkt != 0U) {
     {
     rx_ev_mcast_hash_match = (unsigned int )(event->u64[0] >> 40) & 1U;
-    tmp___6 = __builtin_expect(rx_ev_mcast_hash_match == 0U, 0L);
+    tmp___6 = ldv__builtin_expect(rx_ev_mcast_hash_match == 0U, 0L);
     }
     if (tmp___6 != 0L) {
       channel->n_rx_mcast_mismatch = channel->n_rx_mcast_mismatch + 1U;
@@ -31555,7 +31553,7 @@ static void efx_farch_handle_drain_event(struct efx_channel *channel )
   efx = channel->efx;
   tmp = atomic_read((atomic_t const   *)(& efx->active_queues));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -31565,7 +31563,7 @@ static void efx_farch_handle_drain_event(struct efx_channel *channel )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   atomic_dec(& efx->active_queues);
   tmp___1 = efx_farch_flush_wake(efx);
   }
@@ -31864,7 +31862,7 @@ static void efx_farch_handle_generated_event(struct efx_channel *channel , efx_q
     descriptor.format = "channel %d received generated event %08x:%08x\n";
     descriptor.lineno = 1158U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -31962,7 +31960,7 @@ static void efx_farch_handle_driver_event(struct efx_channel *channel , efx_qwor
     descriptor.format = "channel %d EVQ %d initialised\n";
     descriptor.lineno = 1188U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32222,7 +32220,7 @@ int efx_farch_ev_init(struct efx_channel *channel )
     descriptor.format = "channel %d event queue in special buffers %d-%d\n";
     descriptor.lineno = 1336U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32525,7 +32523,7 @@ irqreturn_t efx_farch_legacy_interrupt(int irq , void *dev_id )
   if ((queues & (1U << (int )efx->irq_level)) != 0U && (int )soft_enabled) {
     {
     syserr = (int )int_ker->u64[1] & 1;
-    tmp___1 = __builtin_expect(syserr != 0, 0L);
+    tmp___1 = ldv__builtin_expect(syserr != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -32749,7 +32747,7 @@ irqreturn_t efx_farch_legacy_interrupt(int irq , void *dev_id )
   if (queues != 0U) {
     {
     efx->irq_zero_count = 0U;
-    tmp___2 = __builtin_expect((long )soft_enabled, 1L);
+    tmp___2 = ldv__builtin_expect((long )soft_enabled, 1L);
     }
     if (tmp___2 != 0L) {
       channel = efx->channel[0];
@@ -32784,7 +32782,7 @@ irqreturn_t efx_farch_legacy_interrupt(int irq , void *dev_id )
 
     }
     {
-    tmp___5 = __builtin_expect((long )soft_enabled, 1L);
+    tmp___5 = ldv__builtin_expect((long )soft_enabled, 1L);
     }
     if (tmp___5 != 0L) {
       channel = efx->channel[0];
@@ -33288,7 +33286,7 @@ irqreturn_t efx_farch_msi_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp = __builtin_expect((long )*((bool volatile   *)(& efx->irq_soft_enabled)), 1L);
+  tmp = ldv__builtin_expect((long )*((bool volatile   *)(& efx->irq_soft_enabled)), 1L);
   }
   if (tmp == 0L) {
     return (1);
@@ -33298,7 +33296,7 @@ irqreturn_t efx_farch_msi_interrupt(int irq , void *dev_id )
   if (context->index == efx->irq_level) {
     {
     syserr = (int )int_ker->u64[1] & 1;
-    tmp___1 = __builtin_expect(syserr != 0, 0L);
+    tmp___1 = ldv__builtin_expect(syserr != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -33538,7 +33536,7 @@ void efx_farch_rx_push_indir_table(struct efx_nic *efx )
   {
   i = 0UL;
   tmp = efx_nic_rev(efx);
-  tmp___0 = __builtin_expect(tmp <= 1, 0L);
+  tmp___0 = ldv__builtin_expect(tmp <= 1, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -34224,7 +34222,7 @@ static void efx_farch_filter_to_gen_spec(struct efx_filter_spec *gen_spec , stru
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -34234,7 +34232,7 @@ static void efx_farch_filter_to_gen_spec(struct efx_filter_spec *gen_spec , stru
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   goto ldv_47644;
   switch_break: /* CIL Label */ ;
@@ -34622,7 +34620,7 @@ static void efx_farch_filter_table_clear_entry(struct efx_nic *efx , struct efx_
 
   {
   {
-  tmp = __builtin_expect(table->offset == 0U, 0L);
+  tmp = ldv__builtin_expect(table->offset == 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -34638,7 +34636,7 @@ static void efx_farch_filter_table_clear_entry(struct efx_nic *efx , struct efx_
   table->used = table->used - 1U;
   memset((void *)table->spec + (unsigned long )filter_idx, 0, 16UL);
   efx_writeo(efx, (efx_oword_t const   *)(& filter), table->offset + table->step * filter_idx);
-  tmp___0 = __builtin_expect(table->used == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(table->used == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -35412,7 +35410,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -36004,7 +36002,7 @@ __inline static bool efx_mdio_phyxgxs_lane_sync(struct efx_nic *efx )
       descriptor.format = "XGXS lane status: %x\n";
       descriptor.lineno = 55U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -36228,7 +36226,7 @@ static irqreturn_t falcon_legacy_interrupt_a1(int irq , void *dev_id )
   {
   efx = (struct efx_nic *)dev_id;
   int_ker = (efx_oword_t *)efx->irq_status.addr;
-  tmp = __builtin_expect((int_ker->u64[0] | int_ker->u64[1]) == 0ULL, 0L);
+  tmp = ldv__builtin_expect((int_ker->u64[0] | int_ker->u64[1]) == 0ULL, 0L);
   }
   if (tmp != 0L) {
     if (0) {
@@ -36883,7 +36881,7 @@ static irqreturn_t falcon_legacy_interrupt_a1(int irq , void *dev_id )
 
   }
   {
-  tmp___0 = __builtin_expect((long )*((bool volatile   *)(& efx->irq_soft_enabled)),
+  tmp___0 = ldv__builtin_expect((long )*((bool volatile   *)(& efx->irq_soft_enabled)),
                              1L);
   }
   if (tmp___0 == 0L) {
@@ -36893,7 +36891,7 @@ static irqreturn_t falcon_legacy_interrupt_a1(int irq , void *dev_id )
   }
   {
   syserr = (int )int_ker->u64[1] & 1;
-  tmp___2 = __builtin_expect(syserr != 0, 0L);
+  tmp___2 = ldv__builtin_expect(syserr != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -37655,7 +37653,7 @@ static int falcon_mtd_probe(struct efx_nic *efx )
   nic_data = (struct falcon_nic_data *)efx->nic_data;
   rc = -19;
   tmp = rtnl_is_locked();
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -37774,7 +37772,7 @@ int falcon_reset_xaui(struct efx_nic *efx )
   {
   nic_data = (struct falcon_nic_data *)efx->nic_data;
   __ret_warn_on = nic_data->stats_disable_count == 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37784,7 +37782,7 @@ int falcon_reset_xaui(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   reg.u64[0] = 1ULL;
   reg.u64[1] = 0ULL;
   efx_writeo(efx, (efx_oword_t const   *)(& reg), 4864U);
@@ -38048,7 +38046,7 @@ static bool falcon_xmac_link_ok_retry(struct efx_nic *efx , int tries )
     descriptor.format = "bashing xaui\n";
     descriptor.lineno = 1187U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -38163,7 +38161,7 @@ static void falcon_push_multicast_hash(struct efx_nic *efx )
   mc_hash = & efx->multicast_hash;
   tmp = mutex_is_locked(& efx->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -38173,7 +38171,7 @@ static void falcon_push_multicast_hash(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   efx_writeo(efx, (efx_oword_t const   *)(& mc_hash->oword), 3232U);
   efx_writeo(efx, (efx_oword_t const   *)(& mc_hash->oword) + 1U, 3248U);
   }
@@ -38237,7 +38235,7 @@ static void falcon_reset_macs(struct efx_nic *efx )
   }
   {
   __ret_warn_on = nic_data->stats_disable_count == 0U;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -38247,7 +38245,7 @@ static void falcon_reset_macs(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   efx_reado(efx, & mac_ctrl, 3200U);
   mac_ctrl.u64[0] = mac_ctrl.u64[0] | 128ULL;
   mac_ctrl.u64[1] = mac_ctrl.u64[1];
@@ -38275,7 +38273,7 @@ static void falcon_reset_macs(struct efx_nic *efx )
       descriptor.format = "Completed MAC reset after %d loops\n";
       descriptor.lineno = 1297U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -38458,7 +38456,7 @@ static void falcon_stats_request(struct efx_nic *efx )
   {
   nic_data = (struct falcon_nic_data *)efx->nic_data;
   __ret_warn_on = (int )nic_data->stats_pending;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -38468,9 +38466,9 @@ static void falcon_stats_request(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = nic_data->stats_disable_count != 0U;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -38480,7 +38478,7 @@ static void falcon_stats_request(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   *((u32 *)efx->stats_buffer.addr + 212U) = 0U;
   nic_data->stats_pending = 1;
   __asm__  volatile   ("sfence": : : "memory");
@@ -38564,7 +38562,7 @@ static bool falcon_loopback_link_poll(struct efx_nic *efx )
   old_state = efx->link_state;
   tmp = mutex_is_locked(& efx->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -38574,9 +38572,9 @@ static bool falcon_loopback_link_poll(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = ((66600958 >> (int )efx->loopback_mode) & 1) == 0;
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -38586,7 +38584,7 @@ static bool falcon_loopback_link_poll(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   efx->link_state.fd = 1;
   efx->link_state.fc = efx->wanted_fc;
   efx->link_state.up = 1;
@@ -38614,7 +38612,7 @@ static int falcon_reconfigure_port(struct efx_nic *efx )
   {
   tmp = efx_nic_rev(efx);
   __ret_warn_on = tmp > 2;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -38624,7 +38622,7 @@ static int falcon_reconfigure_port(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((66600958 >> (int )efx->loopback_mode) & 1) {
     {
@@ -38641,7 +38639,7 @@ static int falcon_reconfigure_port(struct efx_nic *efx )
   falcon_reset_macs(efx);
   (*((efx->phy_op)->reconfigure))(efx);
   rc = falcon_reconfigure_xmac(efx);
-  tmp___1 = __builtin_expect(rc != 0, 0L);
+  tmp___1 = ldv__builtin_expect(rc != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -38843,7 +38841,7 @@ static int falcon_mdio_read(struct net_device *net_dev , int prtad , int devad ,
       descriptor.format = "read from MDIO %d register %d.%d, got error %d\n";
       descriptor.lineno = 1647U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -38964,7 +38962,7 @@ static int falcon_probe_port(struct efx_nic *efx )
     descriptor.format = "stats buffer at %llx (virt %p phys %llx)\n";
     descriptor.lineno = 1707U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -39331,7 +39329,7 @@ static int __falcon_reset_hw(struct efx_nic *efx , enum reset_type method )
     descriptor.format = "performing %s hardware reset\n";
     descriptor.lineno = 1963U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -39399,7 +39397,7 @@ static int __falcon_reset_hw(struct efx_nic *efx , enum reset_type method )
     descriptor___0.format = "waiting for hardware reset\n";
     descriptor___0.lineno = 2005U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -39437,7 +39435,7 @@ static int __falcon_reset_hw(struct efx_nic *efx , enum reset_type method )
       descriptor___1.format = "successfully restored PCI config\n";
       descriptor___1.lineno = 2014U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -39477,7 +39475,7 @@ static int __falcon_reset_hw(struct efx_nic *efx , enum reset_type method )
     descriptor___2.format = "hardware reset complete\n";
     descriptor___2.lineno = 2025U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -39529,7 +39527,7 @@ static void falcon_monitor(struct efx_nic *efx )
   {
   {
   tmp = mutex_is_locked(& efx->mac_lock);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -39557,7 +39555,7 @@ static void falcon_monitor(struct efx_nic *efx )
     efx->phy_mode = (enum efx_phy_mode )((unsigned int )efx->phy_mode | 2U);
     rc = __efx_reconfigure_port(efx);
     __ret_warn_on = rc != 0;
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -39567,7 +39565,7 @@ static void falcon_monitor(struct efx_nic *efx )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -39587,7 +39585,7 @@ static void falcon_monitor(struct efx_nic *efx )
     falcon_deconfigure_mac_wrapper(efx);
     falcon_reset_macs(efx);
     rc = falcon_reconfigure_xmac(efx);
-    tmp___3 = __builtin_expect(rc != 0, 0L);
+    tmp___3 = ldv__builtin_expect(rc != 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -39643,7 +39641,7 @@ static int falcon_reset_sram(struct efx_nic *efx )
     descriptor.format = "waiting for SRAM reset (attempt %d)...\n";
     descriptor.lineno = 2111U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -39669,7 +39667,7 @@ static int falcon_reset_sram(struct efx_nic *efx )
       descriptor___0.format = "SRAM reset complete\n";
       descriptor___0.lineno = 2120U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -39773,7 +39771,7 @@ static int falcon_probe_nvconfig(struct efx_nic *efx )
     descriptor.format = "PHY is %d phy_id %d\n";
     descriptor.lineno = 2188U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -39836,7 +39834,7 @@ static void falcon_probe_spi_devices(struct efx_nic *efx )
       descriptor.format = "Booted from %s\n";
       descriptor.lineno = 2220U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -39859,7 +39857,7 @@ static void falcon_probe_spi_devices(struct efx_nic *efx )
       descriptor___0.format = "Booted from internal ASIC settings; setting SPI config\n";
       descriptor___0.lineno = 2227U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -40066,7 +40064,7 @@ static int falcon_probe_nic(struct efx_nic *efx )
 
   }
   {
-  tmp___2 = __builtin_expect((efx->irq_status.dma_addr & 15ULL) != 0ULL, 0L);
+  tmp___2 = ldv__builtin_expect((efx->irq_status.dma_addr & 15ULL) != 0ULL, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -40085,7 +40083,7 @@ static int falcon_probe_nic(struct efx_nic *efx )
     descriptor.format = "INT_KER at %llx (virt %p phys %llx)\n";
     descriptor.lineno = 2342U;
     descriptor.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -45618,7 +45616,7 @@ static int siena_probe_nic(struct efx_nic *efx )
 
   }
   {
-  tmp___1 = __builtin_expect((efx->irq_status.dma_addr & 15ULL) != 0ULL, 0L);
+  tmp___1 = ldv__builtin_expect((efx->irq_status.dma_addr & 15ULL) != 0ULL, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -45637,7 +45635,7 @@ static int siena_probe_nic(struct efx_nic *efx )
     descriptor.format = "INT_KER at %llx (virt %p phys %llx)\n";
     descriptor.lineno = 292U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -46004,7 +46002,7 @@ static int siena_mac_reconfigure(struct efx_nic *efx )
   efx_farch_filter_sync_rx_mode(efx);
   tmp = mutex_is_locked(& efx->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -46014,7 +46012,7 @@ static int siena_mac_reconfigure(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   rc = efx_mcdi_set_mac(efx);
   }
   if (rc != 0) {
@@ -46359,7 +46357,7 @@ static int siena_mtd_probe(struct efx_nic *efx )
   {
   {
   tmp = rtnl_is_locked();
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -52318,7 +52316,7 @@ static int efx_ef10_probe(struct efx_nic *efx )
   tmp = resource_size((struct resource  const  *)(& (efx->pci_dev)->resource) + 2U);
   __min2 = (unsigned int )(tmp / 32768ULL);
   efx->max_channels = __min1 < __min2 ? __min1 : __min2;
-  tmp___0 = __builtin_expect(efx->max_channels == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(efx->max_channels == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -52449,7 +52447,7 @@ static int efx_ef10_probe(struct efx_nic *efx )
     descriptor.format = "workaround for bug 35388 is %sabled\n";
     descriptor.lineno = 261U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -52561,7 +52559,7 @@ static void efx_ef10_free_piobufs(struct efx_nic *efx )
   rc = efx_mcdi_rpc(efx, 144U, (efx_dword_t const   *)(& inbuf), 4UL, (efx_dword_t *)0,
                     0UL, (size_t *)0UL);
   __ret_warn_on = rc != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -52571,7 +52569,7 @@ static void efx_ef10_free_piobufs(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   i = i + 1U;
   }
   ldv_45801: ;
@@ -52634,7 +52632,7 @@ static int efx_ef10_alloc_piobufs(struct efx_nic *efx , unsigned int n )
     descriptor.format = "allocated PIO buffer %u handle %x\n";
     descriptor.lineno = 342U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -52748,7 +52746,7 @@ static int efx_ef10_link_piobufs(struct efx_nic *efx )
     descriptor.format = "linked VI %u to PIO buffer %u\n";
     descriptor.lineno = 383U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -52791,7 +52789,7 @@ static int efx_ef10_link_piobufs(struct efx_nic *efx )
     offset = offset & 2047U;
     if (tx_queue->queue == nic_data->pio_write_vi_base) {
       {
-      tmp___1 = __builtin_expect(index != 0U, 0L);
+      tmp___1 = ldv__builtin_expect(index != 0U, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -52832,7 +52830,7 @@ static int efx_ef10_link_piobufs(struct efx_nic *efx )
         descriptor___0.format = "linked VI %u to PIO buffer %u offset %x addr %p\n";
         descriptor___0.lineno = 436U;
         descriptor___0.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -52916,7 +52914,7 @@ static void efx_ef10_remove(struct efx_nic *efx )
   {
   rc = efx_ef10_free_vis(efx);
   __ret_warn_on = rc != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -52926,7 +52924,7 @@ static void efx_ef10_remove(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (! nic_data->must_restore_piobufs) {
     {
@@ -52979,7 +52977,7 @@ static int efx_ef10_alloc_vis(struct efx_nic *efx , unsigned int min_vis , unsig
     descriptor.format = "base VI is A0x%03x\n";
     descriptor.lineno = 517U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -53045,7 +53043,7 @@ static int efx_ef10_dimension_resources(struct efx_nic *efx )
       descriptor.format = "allocated %u PIO buffers\n";
       descriptor.lineno = 557U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -53096,7 +53094,7 @@ static int efx_ef10_dimension_resources(struct efx_nic *efx )
       descriptor___0.format = "%u VIs are not sufficient to map %u PIO buffers\n";
       descriptor___0.lineno = 601U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -53177,7 +53175,7 @@ static int efx_ef10_dimension_resources(struct efx_nic *efx )
     descriptor___1.format = "memory BAR at %pa (virtual %p+%x UC, %p+%x WC)\n";
     descriptor___1.lineno = 641U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -53930,7 +53928,7 @@ static irqreturn_t efx_ef10_msi_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp = __builtin_expect((long )*((bool volatile   *)(& efx->irq_soft_enabled)), 1L);
+  tmp = ldv__builtin_expect((long )*((bool volatile   *)(& efx->irq_soft_enabled)), 1L);
   }
   if (tmp != 0L) {
     if (context->index == efx->irq_level) {
@@ -54188,7 +54186,7 @@ static irqreturn_t efx_ef10_legacy_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp = __builtin_expect((long )soft_enabled, 1L);
+  tmp = ldv__builtin_expect((long )soft_enabled, 1L);
   }
   if (tmp != 0L) {
     if ((queues & (1U << (int )efx->irq_level)) != 0U) {
@@ -54739,7 +54737,7 @@ static void efx_ef10_tx_init(struct efx_tx_queue *tx_queue )
     descriptor.format = "pushing TXQ %d. %zu entries (%llx)\n";
     descriptor.lineno = 1240U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -54789,7 +54787,7 @@ static void efx_ef10_tx_init(struct efx_tx_queue *tx_queue )
   fail: 
   {
   __ret_warn_on = 1;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -54801,7 +54799,7 @@ static void efx_ef10_tx_init(struct efx_tx_queue *tx_queue )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return;
 }
@@ -54873,7 +54871,7 @@ static void efx_ef10_tx_write(struct efx_tx_queue *tx_queue )
   {
   {
   old_write_count = tx_queue->write_count;
-  tmp = __builtin_expect(tx_queue->write_count == tx_queue->insert_count, 0L);
+  tmp = ldv__builtin_expect(tx_queue->write_count == tx_queue->insert_count, 0L);
   }
   if (tmp != 0L) {
     {
@@ -54969,7 +54967,7 @@ static void efx_ef10_free_rss_context(struct efx_nic *efx , u32 context )
   rc = efx_mcdi_rpc(efx, 159U, (efx_dword_t const   *)(& inbuf), 4UL, (efx_dword_t *)0,
                     0UL, (size_t *)0UL);
   __ret_warn_on = rc != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -54979,7 +54977,7 @@ static void efx_ef10_free_rss_context(struct efx_nic *efx , u32 context )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return;
 }
@@ -55087,7 +55085,7 @@ static void efx_ef10_rx_push_rss_config(struct efx_nic *efx )
     descriptor.format = "pushing RSS config\n";
     descriptor.lineno = 1449U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -55195,7 +55193,7 @@ static void efx_ef10_rx_init(struct efx_rx_queue *rx_queue )
     descriptor.format = "pushing RXQ %d. %zu entries (%llx)\n";
     descriptor.lineno = 1506U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -55231,7 +55229,7 @@ static void efx_ef10_rx_init(struct efx_rx_queue *rx_queue )
   if (rc != 0) {
     {
     __ret_warn_on = 1;
-    tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -55244,7 +55242,7 @@ static void efx_ef10_rx_init(struct efx_rx_queue *rx_queue )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -55537,7 +55535,7 @@ static void efx_ef10_handle_rx_abort(struct efx_rx_queue *rx_queue )
     descriptor.format = "scattered RX aborted (dropping %u buffers)\n";
     descriptor.lineno = 1745U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -55594,7 +55592,7 @@ static int efx_ef10_handle_rx_event(struct efx_channel *channel , efx_qword_t co
   {
   efx = channel->efx;
   flags = 0U;
-  tmp = __builtin_expect((unsigned long )*((unsigned long volatile   *)(& efx->reset_pending)) != 0UL,
+  tmp = ldv__builtin_expect((unsigned long )*((unsigned long volatile   *)(& efx->reset_pending)) != 0UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -55610,7 +55608,7 @@ static int efx_ef10_handle_rx_event(struct efx_channel *channel , efx_qword_t co
   if ((int )(event->u64[0] >> 58) & 1) {
     {
     __ret_warn_on = 1;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -55622,7 +55620,7 @@ static int efx_ef10_handle_rx_event(struct efx_channel *channel , efx_qword_t co
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -55630,7 +55628,7 @@ static int efx_ef10_handle_rx_event(struct efx_channel *channel , efx_qword_t co
   {
   rx_queue = efx_channel_get_rx_queue(channel);
   tmp___2 = efx_rx_queue_index(rx_queue);
-  tmp___3 = __builtin_expect(rx_queue_label != (unsigned int )tmp___2, 0L);
+  tmp___3 = ldv__builtin_expect(rx_queue_label != (unsigned int )tmp___2, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -55643,13 +55641,13 @@ static int efx_ef10_handle_rx_event(struct efx_channel *channel , efx_qword_t co
   if (n_descs != rx_queue->scatter_n + 1U) {
     {
     nic_data = (struct efx_ef10_nic_data *)efx->nic_data;
-    tmp___6 = __builtin_expect(n_descs == rx_queue->scatter_n, 0L);
+    tmp___6 = ldv__builtin_expect(n_descs == rx_queue->scatter_n, 0L);
     }
     if (tmp___6 != 0L) {
       if (rx_queue->scatter_n == 0U || rx_bytes != 0U) {
         {
         __ret_warn_on___0 = 1;
-        tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+        tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
         }
         if (tmp___5 != 0L) {
           {
@@ -55661,7 +55659,7 @@ static int efx_ef10_handle_rx_event(struct efx_channel *channel , efx_qword_t co
 
         }
         {
-        __builtin_expect(__ret_warn_on___0 != 0, 0L);
+        ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
         }
       } else {
 
@@ -55698,7 +55696,7 @@ static int efx_ef10_handle_rx_event(struct efx_channel *channel , efx_qword_t co
     n_packets = 1U;
   }
   {
-  tmp___7 = __builtin_expect((long )((int )(event->u64[0] >> 24)) & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )((int )(event->u64[0] >> 24)) & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     flags = (u16 )((unsigned int )flags | 4U);
@@ -55706,13 +55704,13 @@ static int efx_ef10_handle_rx_event(struct efx_channel *channel , efx_qword_t co
 
   }
   {
-  tmp___9 = __builtin_expect((long )((int )(event->u64[0] >> 25)) & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )((int )(event->u64[0] >> 25)) & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     channel->n_rx_ip_hdr_chksum_err = channel->n_rx_ip_hdr_chksum_err + n_packets;
   } else {
     {
-    tmp___8 = __builtin_expect((long )((int )(event->u64[0] >> 26)) & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )((int )(event->u64[0] >> 26)) & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       channel->n_rx_tcp_udp_chksum_err = channel->n_rx_tcp_udp_chksum_err + n_packets;
@@ -55763,7 +55761,7 @@ static int efx_ef10_handle_tx_event(struct efx_channel *channel , efx_qword_t *e
   {
   efx = channel->efx;
   tx_descs = 0;
-  tmp = __builtin_expect((unsigned long )*((unsigned long volatile   *)(& efx->reset_pending)) != 0UL,
+  tmp = ldv__builtin_expect((unsigned long )*((unsigned long volatile   *)(& efx->reset_pending)) != 0UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -55772,7 +55770,7 @@ static int efx_ef10_handle_tx_event(struct efx_channel *channel , efx_qword_t *e
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )(event->u64[0] >> 58)) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )(event->u64[0] >> 58)) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -56288,7 +56286,7 @@ static void efx_ef10_ev_test_generate(struct efx_channel *channel )
   fail: 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -56298,7 +56296,7 @@ static void efx_ef10_ev_test_generate(struct efx_channel *channel )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((efx->msg_enable & 8192U) != 0U) {
     {
@@ -56332,7 +56330,7 @@ void efx_ef10_handle_drain_event(struct efx_nic *efx )
   {
   tmp___0 = atomic_read((atomic_t const   *)(& efx->active_queues));
   __ret_warn_on = tmp___0 < 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -56342,7 +56340,7 @@ void efx_ef10_handle_drain_event(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return;
 }
@@ -57965,7 +57963,7 @@ static int efx_ef10_filter_table_probe(struct efx_nic *efx )
       descriptor.format = "%s: fw flags %#x pri %u not supported in driver\n";
       descriptor.lineno = 3006U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -57988,7 +57986,7 @@ static int efx_ef10_filter_table_probe(struct efx_nic *efx )
       descriptor___0.format = "%s: fw flags %#x pri %u supported as driver flags %#x pri %u\n";
       descriptor___0.lineno = 3011U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -58154,7 +58152,7 @@ static void efx_ef10_filter_table_remove(struct efx_nic *efx )
   if (rc != 0) {
     {
     __ret_warn_on = 1;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -58166,7 +58164,7 @@ static void efx_ef10_filter_table_remove(struct efx_nic *efx )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -58366,7 +58364,7 @@ static void efx_ef10_filter_sync_rx_mode(struct efx_nic *efx )
     if (rc < 0) {
       {
       __ret_warn_on = 1;
-      tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -58376,7 +58374,7 @@ static void efx_ef10_filter_sync_rx_mode(struct efx_nic *efx )
 
       }
       {
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
       table->dev_uc_count = 0;
       }
     } else {
@@ -58434,7 +58432,7 @@ static void efx_ef10_filter_sync_rx_mode(struct efx_nic *efx )
     if (rc < 0) {
       {
       __ret_warn_on___0 = 1;
-      tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -58444,7 +58442,7 @@ static void efx_ef10_filter_sync_rx_mode(struct efx_nic *efx )
 
       }
       {
-      __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       table->dev_mc_count = 0;
       }
     } else {
@@ -58477,7 +58475,7 @@ static void efx_ef10_filter_sync_rx_mode(struct efx_nic *efx )
   }
   {
   __ret_warn_on___1 = (int )remove_failed;
-  tmp___5 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -58487,7 +58485,7 @@ static void efx_ef10_filter_sync_rx_mode(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   return;
 }
@@ -58569,7 +58567,7 @@ static int efx_ef10_poll_bist(struct efx_nic *efx )
     descriptor.format = "BIST passed.\n";
     descriptor.lineno = 3297U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -58631,7 +58629,7 @@ static int efx_ef10_run_bist(struct efx_nic *efx , u32 bist_type )
     descriptor.format = "starting BIST type %u\n";
     descriptor.lineno = 3316U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -58803,7 +58801,7 @@ static int efx_ef10_mtd_probe(struct efx_nic *efx )
   {
   {
   tmp = rtnl_is_locked();
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -75764,7 +75762,7 @@ __inline static void dql_queued(struct dql *dql , unsigned int count )
 
   {
   {
-  tmp = __builtin_expect(count > 268435455U, 0L);
+  tmp = ldv__builtin_expect(count > 268435455U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -75828,7 +75826,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -75864,7 +75862,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -75908,7 +75906,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -75939,7 +75937,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -76083,7 +76081,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
   {
   dql_queued(& dev_queue->dql, bytes);
   tmp = dql_avail((struct dql  const  *)(& dev_queue->dql));
-  tmp___0 = __builtin_expect(tmp >= 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp >= 0, 1L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -76094,7 +76092,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
   set_bit(1L, (unsigned long volatile   *)(& dev_queue->state));
   __asm__  volatile   ("mfence": : : "memory");
   tmp___1 = dql_avail((struct dql  const  *)(& dev_queue->dql));
-  tmp___2 = __builtin_expect(tmp___1 >= 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 >= 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -76115,7 +76113,7 @@ __inline static void netdev_tx_completed_queue(struct netdev_queue *dev_queue , 
 
   {
   {
-  tmp = __builtin_expect(bytes == 0U, 0L);
+  tmp = ldv__builtin_expect(bytes == 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -76465,7 +76463,7 @@ static void efx_tx_maybe_stop_queue(struct efx_tx_queue *txq1 )
   _max1 = txq1->insert_count - txq1->old_read_count;
   _max2 = txq2->insert_count - txq2->old_read_count;
   fill_level = _max1 > _max2 ? _max1 : _max2;
-  tmp___0 = __builtin_expect(fill_level < efx->txq_stop_thresh, 1L);
+  tmp___0 = ldv__builtin_expect(fill_level < efx->txq_stop_thresh, 1L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -76480,12 +76478,12 @@ static void efx_tx_maybe_stop_queue(struct efx_tx_queue *txq1 )
   _max1___0 = txq1->insert_count - txq1->old_read_count;
   _max2___0 = txq2->insert_count - txq2->old_read_count;
   fill_level = _max1___0 > _max2___0 ? _max1___0 : _max2___0;
-  tmp___2 = __builtin_expect(fill_level < efx->txq_stop_thresh, 1L);
+  tmp___2 = ldv__builtin_expect(fill_level < efx->txq_stop_thresh, 1L);
   }
   if (tmp___2 != 0L) {
     {
     __asm__  volatile   ("mfence": : : "memory");
-    tmp___1 = __builtin_expect((unsigned long )efx->loopback_selftest == (unsigned long )((void *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )efx->loopback_selftest == (unsigned long )((void *)0),
                                1L);
     }
     if (tmp___1 != 0L) {
@@ -76518,7 +76516,7 @@ static void efx_memcpy_toio_aligned(struct efx_nic *efx , u8 **piobuf , u8 *data
   if (len != 0) {
     {
     data = data + (unsigned long )block_len;
-    tmp = __builtin_expect(copy_buf->used != 0, 0L);
+    tmp = ldv__builtin_expect(copy_buf->used != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -76530,7 +76528,7 @@ static void efx_memcpy_toio_aligned(struct efx_nic *efx , u8 **piobuf , u8 *data
 
     }
     {
-    tmp___0 = __builtin_expect((unsigned int )len > 64U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )len > 64U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -76797,7 +76795,7 @@ netdev_tx_t efx_enqueue_skb(struct efx_tx_queue *tx_queue , struct sk_buff *skb 
   ldv_50955: 
   {
   tmp___6 = dma_mapping_error(dma_dev, dma_addr);
-  tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
   }
   if (tmp___7 != 0L) {
     goto dma_err;
@@ -76810,7 +76808,7 @@ netdev_tx_t efx_enqueue_skb(struct efx_tx_queue *tx_queue , struct sk_buff *skb 
   {
   buffer = efx_tx_queue_get_insert_buffer((struct efx_tx_queue  const  *)tx_queue);
   dma_len = efx_max_tx_len(efx, dma_addr);
-  tmp___8 = __builtin_expect(dma_len >= len, 1L);
+  tmp___8 = ldv__builtin_expect(dma_len >= len, 1L);
   }
   if (tmp___8 != 0L) {
     dma_len = len;
@@ -76923,7 +76921,7 @@ static void efx_dequeue_buffers(struct efx_tx_queue *tx_queue , unsigned int ind
   buffer = tx_queue->buffer + (unsigned long )read_ptr;
   if (((int )buffer->flags & 16) == 0) {
     {
-    tmp = __builtin_expect((unsigned int )buffer->len == 0U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )buffer->len == 0U, 0L);
     }
     if (tmp != 0L) {
       if ((efx->msg_enable & 128U) != 0U) {
@@ -76979,12 +76977,12 @@ netdev_tx_t efx_hard_start_xmit(struct sk_buff *skb , struct net_device *net_dev
   tmp = netdev_priv((struct net_device  const  *)net_dev);
   efx = (struct efx_nic *)tmp;
   tmp___1 = efx_xmit_with_hwtstamp(skb);
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
   }
   if (tmp___2 != 0L) {
     {
     tmp___3 = efx_ptp_is_ptp_tx(efx, skb);
-    tmp___4 = __builtin_expect((long )tmp___3, 0L);
+    tmp___4 = ldv__builtin_expect((long )tmp___3, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -77182,16 +77180,16 @@ void efx_xmit_done(struct efx_tx_queue *tx_queue , unsigned int index )
   {
   __asm__  volatile   ("mfence": : : "memory");
   tmp = netif_tx_queue_stopped((struct netdev_queue  const  *)tx_queue->core_txq);
-  tmp___0 = __builtin_expect((long )tmp, 0L);
+  tmp___0 = ldv__builtin_expect((long )tmp, 0L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp___1 = __builtin_expect((long )efx->port_enabled, 1L);
+    tmp___1 = ldv__builtin_expect((long )efx->port_enabled, 1L);
     }
     if (tmp___1 != 0L) {
       {
       tmp___2 = netif_device_present(efx->net_dev);
-      tmp___3 = __builtin_expect((long )tmp___2, 1L);
+      tmp___3 = ldv__builtin_expect((long )tmp___2, 1L);
       }
       if (tmp___3 != 0L) {
         {
@@ -77269,7 +77267,7 @@ int efx_probe_tx_queue(struct efx_tx_queue *tx_queue )
     descriptor.format = "creating TX queue %d size %#x mask %#x\n";
     descriptor.lineno = 685U;
     descriptor.flags = 0U;
-    tmp___68 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___68 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___68 != 0L) {
       {
@@ -77343,7 +77341,7 @@ void efx_init_tx_queue(struct efx_tx_queue *tx_queue )
     descriptor.format = "initialising TX queue %d\n";
     descriptor.lineno = 722U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -77386,7 +77384,7 @@ void efx_fini_tx_queue(struct efx_tx_queue *tx_queue )
     descriptor.format = "shutting down TX queue %d\n";
     descriptor.lineno = 742U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -77446,7 +77444,7 @@ void efx_remove_tx_queue(struct efx_tx_queue *tx_queue )
     descriptor.format = "destroying TX queue %d\n";
     descriptor.lineno = 766U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -77523,14 +77521,14 @@ static u8 *efx_tsoh_get_buffer(struct efx_tx_queue *tx_queue , struct efx_tx_buf
 
   {
   {
-  tmp___2 = __builtin_expect(len <= 128U, 1L);
+  tmp___2 = ldv__builtin_expect(len <= 128U, 1L);
   }
   if (tmp___2 != 0L) {
     {
     index = (tx_queue->insert_count & tx_queue->ptr_mask) / 2U;
     page_buf = tx_queue->tsoh_page + (unsigned long )(index / 32U);
     offset = (index & 31U) * 128U;
-    tmp = __builtin_expect((unsigned long )page_buf->addr == (unsigned long )((void *)0),
+    tmp = ldv__builtin_expect((unsigned long )page_buf->addr == (unsigned long )((void *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -77552,7 +77550,7 @@ static u8 *efx_tsoh_get_buffer(struct efx_tx_queue *tx_queue , struct efx_tx_buf
     {
     tx_queue->tso_long_headers = tx_queue->tso_long_headers + 1U;
     buffer->__annonCompField86.heap_buf = kmalloc((size_t )len, 32U);
-    tmp___1 = __builtin_expect((unsigned long )buffer->__annonCompField86.heap_buf == (unsigned long )((void *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )buffer->__annonCompField86.heap_buf == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -77608,7 +77606,7 @@ static int efx_tso_put_header(struct efx_tx_queue *tx_queue , struct efx_tx_buff
 
   {
   {
-  tmp___1 = __builtin_expect(((int )buffer->flags & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect(((int )buffer->flags & 4) != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -77616,7 +77614,7 @@ static int efx_tso_put_header(struct efx_tx_queue *tx_queue , struct efx_tx_buff
                                                                (void *)header, (size_t )buffer->len,
                                                                1, (struct dma_attrs *)0);
     tmp = dma_mapping_error(& ((tx_queue->efx)->pci_dev)->dev, buffer->__annonCompField87.dma_addr);
-    tmp___0 = __builtin_expect(tmp != 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -77717,7 +77715,7 @@ static int tso_start(struct tso_state *st , struct efx_nic *efx , struct sk_buff
   if (! use_options) {
     {
     st->header_unmap_len = 0U;
-    tmp___8 = __builtin_expect(in_len == 0U, 1L);
+    tmp___8 = ldv__builtin_expect(in_len == 0U, 1L);
     }
     if (tmp___8 != 0L) {
       st->dma_flags = 0U;
@@ -77748,7 +77746,7 @@ static int tso_start(struct tso_state *st , struct efx_nic *efx , struct sk_buff
   }
   {
   tmp___10 = dma_mapping_error(dma_dev, dma_addr);
-  tmp___11 = __builtin_expect(tmp___10 != 0, 0L);
+  tmp___11 = ldv__builtin_expect(tmp___10 != 0, 0L);
   }
   return (tmp___11 != 0L ? -12 : 0);
 }
@@ -77765,7 +77763,7 @@ static int tso_get_fragment(struct tso_state *st , struct efx_nic *efx , skb_fra
   st->unmap_addr = skb_frag_dma_map(& (efx->pci_dev)->dev, (skb_frag_t const   *)frag,
                                     0UL, (size_t )tmp, 1);
   tmp___0 = dma_mapping_error(& (efx->pci_dev)->dev, st->unmap_addr);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 1L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -77905,7 +77903,7 @@ static int tso_start_new_packet(struct efx_tx_queue *tx_queue , struct sk_buff  
     }
     {
     rc = efx_tso_put_header(tx_queue, buffer, header);
-    tmp___6 = __builtin_expect(rc != 0, 0L);
+    tmp___6 = ldv__builtin_expect(rc != 0, 0L);
     }
     if (tmp___6 != 0L) {
       return (rc);
@@ -77970,7 +77968,7 @@ static int efx_enqueue_skb_tso(struct efx_tx_queue *tx_queue , struct sk_buff *s
 
   }
   {
-  tmp___0 = __builtin_expect(state.in_len == 0U, 1L);
+  tmp___0 = ldv__builtin_expect(state.in_len == 0U, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -78132,14 +78130,14 @@ __inline static struct page *compound_head(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     head = page->__annonCompField46.first_page;
     __asm__  volatile   ("": : : "memory");
     tmp = PageTail((struct page  const  *)page);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     }
     if (tmp___0 != 0L) {
       return (head);
@@ -78178,12 +78176,12 @@ __inline static void get_page(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     tmp = __get_page_tail(page);
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
     }
     if (tmp___0 != 0L) {
       return;
@@ -78195,7 +78193,7 @@ __inline static void get_page(struct page *page )
   }
   {
   tmp___3 = atomic_read((atomic_t const   *)(& page->__annonCompField43.__annonCompField42.__annonCompField41._count));
-  tmp___4 = __builtin_expect(tmp___3 <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 <= 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -78230,7 +78228,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -78341,7 +78339,7 @@ __inline static unsigned char *__skb_put(struct sk_buff *skb , unsigned int len 
   tmp___0 = skb_tail_pointer((struct sk_buff  const  *)skb);
   tmp = tmp___0;
   tmp___1 = skb_is_nonlinear((struct sk_buff  const  *)skb);
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -78523,7 +78521,7 @@ __inline static struct efx_rx_buffer *efx_rx_buf_next(struct efx_rx_queue *rx_qu
   {
   {
   tmp___0 = efx_rx_buffer(rx_queue, rx_queue->ptr_mask);
-  tmp___1 = __builtin_expect((unsigned long )rx_buf == (unsigned long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )rx_buf == (unsigned long )tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -78628,7 +78626,7 @@ static int efx_init_rx_buffers(struct efx_rx_queue *rx_queue , bool atomic )
   if ((unsigned long )page == (unsigned long )((struct page *)0)) {
     {
     page = alloc_pages((int )atomic ? 16672U : 16848U, efx->rx_buffer_order);
-    tmp = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+    tmp = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -78640,7 +78638,7 @@ static int efx_init_rx_buffers(struct efx_rx_queue *rx_queue , bool atomic )
     dma_addr = dma_map_page(& (efx->pci_dev)->dev, page, 0UL, 4096UL << (int )efx->rx_buffer_order,
                             2);
     tmp___0 = dma_mapping_error(& (efx->pci_dev)->dev, dma_addr);
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -78876,7 +78874,7 @@ void efx_fast_push_rx_descriptors(struct efx_rx_queue *rx_queue , bool atomic )
 
   }
   {
-  tmp = __builtin_expect(fill_level < rx_queue->min_fill, 0L);
+  tmp = ldv__builtin_expect(fill_level < rx_queue->min_fill, 0L);
   }
   if (tmp != 0L) {
     if (fill_level != 0U) {
@@ -78892,7 +78890,7 @@ void efx_fast_push_rx_descriptors(struct efx_rx_queue *rx_queue , bool atomic )
   ldv_52214: 
   {
   rc = efx_init_rx_buffers(rx_queue, (int )atomic);
-  tmp___1 = __builtin_expect(rc != 0, 0L);
+  tmp___1 = ldv__builtin_expect(rc != 0, 0L);
   }
   if (tmp___1 != 0L) {
     if (rx_queue->added_count == rx_queue->removed_count) {
@@ -78954,7 +78952,7 @@ static void efx_rx_packet__check_len(struct efx_rx_queue *rx_queue , struct efx_
   {
   efx = rx_queue->efx;
   max_len = (unsigned int )rx_buf->len - (unsigned int )(efx->type)->rx_buffer_padding;
-  tmp = __builtin_expect((unsigned int )len <= max_len, 1L);
+  tmp = ldv__builtin_expect((unsigned int )len <= max_len, 1L);
   }
   if (tmp != 0L) {
     return;
@@ -79033,7 +79031,7 @@ static void efx_rx_packet_gro(struct efx_channel *channel , struct efx_rx_buffer
   napi = & channel->napi_str;
   efx = channel->efx;
   skb = napi_get_frags(napi);
-  tmp___0 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -79112,7 +79110,7 @@ static struct sk_buff *efx_rx_mk_skb(struct efx_channel *channel , struct efx_rx
   {
   efx = channel->efx;
   skb = netdev_alloc_skb(efx->net_dev, (efx->rx_ip_align + efx->rx_prefix_size) + (unsigned int )hdr_len);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -79198,31 +79196,31 @@ void efx_rx_packet(struct efx_rx_queue *rx_queue , unsigned int index , unsigned
     }
   } else {
     {
-    tmp___1 = __builtin_expect(n_frags > 6U, 0L);
+    tmp___1 = ldv__builtin_expect(n_frags > 6U, 0L);
     }
     if (tmp___1 != 0L) {
       goto _L;
     } else {
       {
-      tmp___2 = __builtin_expect(len <= (n_frags - 1U) * efx->rx_dma_len, 0L);
+      tmp___2 = ldv__builtin_expect(len <= (n_frags - 1U) * efx->rx_dma_len, 0L);
       }
       if (tmp___2 != 0L) {
         goto _L;
       } else {
         {
-        tmp___3 = __builtin_expect(len > n_frags * efx->rx_dma_len, 0L);
+        tmp___3 = ldv__builtin_expect(len > n_frags * efx->rx_dma_len, 0L);
         }
         if (tmp___3 != 0L) {
           goto _L;
         } else {
           {
-          tmp___4 = __builtin_expect((long )(! efx->rx_scatter), 0L);
+          tmp___4 = ldv__builtin_expect((long )(! efx->rx_scatter), 0L);
           }
           if (tmp___4 != 0L) {
             _L: /* CIL Label */ 
             {
             __ret_warn_on = len != 0U || ((int )rx_buf->flags & 4) == 0;
-            tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+            tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
             }
             if (tmp___0 != 0L) {
               {
@@ -79232,7 +79230,7 @@ void efx_rx_packet(struct efx_rx_queue *rx_queue , unsigned int index , unsigned
 
             }
             {
-            __builtin_expect(__ret_warn_on != 0, 0L);
+            ldv__builtin_expect(__ret_warn_on != 0, 0L);
             rx_buf->flags = (u16 )((unsigned int )rx_buf->flags | 4U);
             }
           } else {
@@ -79243,7 +79241,7 @@ void efx_rx_packet(struct efx_rx_queue *rx_queue , unsigned int index , unsigned
     }
   }
   {
-  tmp___6 = __builtin_expect(((int )rx_buf->flags & 4) != 0, 0L);
+  tmp___6 = ldv__builtin_expect(((int )rx_buf->flags & 4) != 0, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -79317,7 +79315,7 @@ static void efx_rx_deliver(struct efx_channel *channel , u8 *eh , struct efx_rx_
   __min2 = 128U;
   hdr_len = (u16 )((int )__min1 < (int )__min2 ? __min1 : __min2);
   skb = efx_rx_mk_skb(channel, rx_buf, n_frags, eh, (int )hdr_len);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -79331,7 +79329,7 @@ static void efx_rx_deliver(struct efx_channel *channel , u8 *eh , struct efx_rx_
   {
   skb_record_rx_queue(skb, (int )((u16 )channel->rx_queue.core_index));
   skb_checksum_none_assert((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect(((int )rx_buf->flags & 2) != 0, 1L);
+  tmp___0 = ldv__builtin_expect(((int )rx_buf->flags & 2) != 0, 1L);
   }
   if (tmp___0 != 0L) {
     skb->ip_summed = 1U;
@@ -79386,7 +79384,7 @@ void __efx_rx_packet(struct efx_channel *channel )
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )efx->loopback_selftest != (unsigned long )((void *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )efx->loopback_selftest != (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -79399,7 +79397,7 @@ void __efx_rx_packet(struct efx_channel *channel )
 
   }
   {
-  tmp___2 = __builtin_expect(((efx->net_dev)->features & 4294967296ULL) == 0ULL, 0L);
+  tmp___2 = ldv__builtin_expect(((efx->net_dev)->features & 4294967296ULL) == 0ULL, 0L);
   }
   if (tmp___2 != 0L) {
     rx_buf->flags = (unsigned int )rx_buf->flags & 65533U;
@@ -79451,7 +79449,7 @@ int efx_probe_rx_queue(struct efx_rx_queue *rx_queue )
     descriptor.format = "creating RX queue %d size %#x mask %#x\n";
     descriptor.lineno = 687U;
     descriptor.flags = 0U;
-    tmp___69 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___69 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___69 != 0L) {
       {
@@ -79538,7 +79536,7 @@ void efx_init_rx_queue(struct efx_rx_queue *rx_queue )
     descriptor.format = "initialising RX queue %d\n";
     descriptor.lineno = 732U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -79610,7 +79608,7 @@ void efx_fini_rx_queue(struct efx_rx_queue *rx_queue )
     descriptor.format = "shutting down RX queue %d\n";
     descriptor.lineno = 774U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -79693,7 +79691,7 @@ void efx_remove_rx_queue(struct efx_rx_queue *rx_queue )
     descriptor.format = "destroying RX queue %d\n";
     descriptor.lineno = 809U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -80159,7 +80157,7 @@ static int efx_test_interrupts(struct efx_nic *efx , struct efx_self_tests *test
     descriptor.format = "testing interrupts\n";
     descriptor.lineno = 136U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -80186,7 +80184,7 @@ static int efx_test_interrupts(struct efx_nic *efx , struct efx_self_tests *test
     descriptor___0.format = "waiting for test interrupt\n";
     descriptor___0.lineno = 144U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -80233,7 +80231,7 @@ static int efx_test_interrupts(struct efx_nic *efx , struct efx_self_tests *test
     descriptor___1.format = "%s test interrupt seen on CPU%d\n";
     descriptor___1.lineno = 158U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -80377,7 +80375,7 @@ static int efx_test_eventq_irq(struct efx_nic *efx , struct efx_self_tests *test
       descriptor.format = "channel %d event queue passed (with%s NAPI)\n";
       descriptor.lineno = 222U;
       descriptor.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -80472,7 +80470,7 @@ void efx_loopback_rx_packet(struct efx_nic *efx , char const   *buf_ptr , int pk
   {
   {
   state = (struct efx_loopback_state *)efx->loopback_selftest;
-  tmp = __builtin_expect((unsigned long )buf_ptr == (unsigned long )((char const   *)0),
+  tmp = ldv__builtin_expect((unsigned long )buf_ptr == (unsigned long )((char const   *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -80790,7 +80788,7 @@ static int efx_end_loopback(struct efx_tx_queue *tx_queue , struct efx_loopback_
       descriptor.format = "TX queue %d saw only %d out of an expected %d received packets in %s loopback test\n";
       descriptor.lineno = 498U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -80859,7 +80857,7 @@ static int efx_test_loopback(struct efx_tx_queue *tx_queue , struct efx_loopback
     descriptor.format = "TX queue %d testing %s loopback with %d packets\n";
     descriptor.lineno = 533U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -80916,7 +80914,7 @@ static int efx_test_loopback(struct efx_tx_queue *tx_queue , struct efx_loopback
     descriptor___0.format = "TX queue %d passed %s loopback test with a burst length of %d packets\n";
     descriptor___0.lineno = 560U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -81031,7 +81029,7 @@ static int efx_test_loopbacks(struct efx_nic *efx , struct efx_self_tests *tests
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )efx->loopback_selftest != (unsigned long )((void *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )efx->loopback_selftest != (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -81340,7 +81338,7 @@ void efx_selftest_async_work(struct work_struct *data )
     descriptor.format = "channel %d triggered interrupt on CPU %d\n";
     descriptor.lineno = 787U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -81619,7 +81617,7 @@ static int efx_ethtool_set_settings(struct net_device *net_dev , struct ethtool_
       descriptor.format = "rejecting unsupported 1000Mbps HD setting\n";
       descriptor.lineno = 154U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -82488,7 +82486,7 @@ static int efx_ethtool_set_pauseparam(struct net_device *net_dev , struct ethtoo
       descriptor.format = "Flow control unsupported: tx ON rx OFF\n";
       descriptor.lineno = 642U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -82515,7 +82513,7 @@ static int efx_ethtool_set_pauseparam(struct net_device *net_dev , struct ethtoo
       descriptor___0.format = "Autonegotiation is disabled\n";
       descriptor___0.lineno = 649U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -82736,7 +82734,7 @@ static int efx_ethtool_get_class_rule(struct efx_nic *efx , struct ethtool_rx_fl
   } else {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -82746,7 +82744,7 @@ static int efx_ethtool_get_class_rule(struct efx_nic *efx , struct ethtool_rx_fl
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return (-22);
   }
@@ -84012,7 +84010,7 @@ static int qt2025c_wait_reset(struct efx_nic *efx )
       descriptor.format = "bashing QT2025C microcontroller\n";
       descriptor.lineno = 152U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -84127,7 +84125,7 @@ static void qt2025c_bug17190_workaround(struct efx_nic *efx )
       descriptor.format = "bashing QT2025C PMA/PMD\n";
       descriptor.lineno = 206U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -84192,7 +84190,7 @@ static int qt2025c_select_phy_mode(struct efx_nic *efx )
     descriptor.format = "Switching PHY to mode 0x%04x\n";
     descriptor.lineno = 240U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -85096,7 +85094,7 @@ void efx_mdio_an_reconfigure(struct efx_nic *efx )
   {
   {
   __ret_warn_on = (efx->mdio.mmds & 128U) == 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -85106,7 +85104,7 @@ void efx_mdio_an_reconfigure(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   reg = 4097;
   }
   if ((efx->link_advertising & 8192U) != 0U) {
@@ -85155,7 +85153,7 @@ u8 efx_mdio_get_pause(struct efx_nic *efx )
   }
   {
   __ret_warn_on = (efx->mdio.mmds & 128U) == 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -85165,7 +85163,7 @@ u8 efx_mdio_get_pause(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = efx_mdio_read(efx, 7, 19);
   tmp___1 = mii_advertise_flowctrl((int )efx->wanted_fc);
   tmp___2 = mii_resolve_flowctrl_fdx((int )tmp___1, (int )((u16 )tmp___0));
@@ -88303,7 +88301,7 @@ void efx_mcdi_fini(struct efx_nic *efx )
 
   }
   {
-  tmp = __builtin_expect((unsigned int )(efx->mcdi)->iface.state != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )(efx->mcdi)->iface.state != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -88337,7 +88335,7 @@ static void efx_mcdi_send_request(struct efx_nic *efx , unsigned int cmd , efx_d
   {
   tmp = efx_mcdi(efx);
   mcdi = tmp;
-  tmp___0 = __builtin_expect((unsigned int )mcdi->state == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )mcdi->state == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -88365,7 +88363,7 @@ static void efx_mcdi_send_request(struct efx_nic *efx , unsigned int cmd , efx_d
     hdr_len = 4UL;
   } else {
     {
-    tmp___1 = __builtin_expect(inlen > 1024UL, 0L);
+    tmp___1 = ldv__builtin_expect(inlen > 1024UL, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -89449,7 +89447,7 @@ static int _efx_mcdi_rpc_finish(struct efx_nic *efx , unsigned int cmd , size_t 
     _min2 = data_len;
     err_len = _min1 < _min2 ? _min1 : _min2;
     spin_unlock_bh(& mcdi->iface_lock);
-    tmp___2 = __builtin_expect(rc > 0, 0L);
+    tmp___2 = ldv__builtin_expect(rc > 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -89802,7 +89800,7 @@ void efx_mcdi_flush_async(struct efx_nic *efx )
   }
   {
   mcdi = efx_mcdi(efx);
-  tmp = __builtin_expect((unsigned int )mcdi->mode != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )mcdi->mode != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -90124,7 +90122,7 @@ void efx_mcdi_process_event(struct efx_channel *channel , efx_qword_t *event )
     descriptor.format = "MC Scheduler alert (0x%x)\n";
     descriptor.lineno = 1003U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -90327,7 +90325,7 @@ void efx_mcdi_print_fwver(struct efx_nic *efx , char *buf , size_t len )
     }
     {
     __ret_warn_on = offset >= len;
-    tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -90337,7 +90335,7 @@ void efx_mcdi_print_fwver(struct efx_nic *efx , char *buf , size_t len )
 
     }
     {
-    tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___4 != 0L) {
       *buf = 0;
@@ -91219,7 +91217,7 @@ int efx_mcdi_flush_rxqs(struct efx_nic *efx )
   rc = efx_mcdi_rpc(efx, 39U, (efx_dword_t const   *)(& inbuf), (size_t )(count * 4),
                     (efx_dword_t *)0, 0UL, (size_t *)0UL);
   __ret_warn_on = rc < 0;
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -91229,7 +91227,7 @@ int efx_mcdi_flush_rxqs(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (rc);
 }
@@ -92175,7 +92173,7 @@ static void efx_mcdi_phy_decode_link(struct efx_nic *efx , struct efx_link_state
   case_3: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -92185,7 +92183,7 @@ static void efx_mcdi_phy_decode_link(struct efx_nic *efx , struct efx_link_state
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   link_state->fc = 7U;
   }
   goto ldv_45706;
@@ -92198,7 +92196,7 @@ static void efx_mcdi_phy_decode_link(struct efx_nic *efx , struct efx_link_state
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on___0 = 1;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -92208,7 +92206,7 @@ static void efx_mcdi_phy_decode_link(struct efx_nic *efx , struct efx_link_state
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   case_0: /* CIL Label */ 
   link_state->fc = 0U;
@@ -92677,7 +92675,7 @@ static bool efx_mcdi_phy_poll(struct efx_nic *efx )
   old_state = efx->link_state;
   tmp = mutex_is_locked(& efx->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -92687,7 +92685,7 @@ static bool efx_mcdi_phy_poll(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __cond = 0;
   }
   if ((int )__cond) {
@@ -93503,7 +93501,7 @@ int efx_mcdi_port_probe(struct efx_nic *efx )
     descriptor.format = "stats buffer at %llx (virt %p phys %llx)\n";
     descriptor.lineno = 999U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -94537,7 +94535,7 @@ __inline static ktime_t ktime_set(long const   secs , unsigned long const   nsec
 
   {
   {
-  tmp = __builtin_expect((long long )secs > 9223372035LL, 0L);
+  tmp = ldv__builtin_expect((long long )secs > 9223372035LL, 0L);
   }
   if (tmp != 0L) {
     __constr_expr_0.tv64 = 9223372036854775807LL;
@@ -94564,7 +94562,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -94572,7 +94570,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -94597,7 +94595,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -94605,7 +94603,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -94762,7 +94760,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
   {
   {
   tmp = skb_headlen((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect(len <= tmp, 1L);
+  tmp___0 = ldv__builtin_expect(len <= tmp, 1L);
   }
   if (tmp___0 != 0L) {
     return (1);
@@ -94770,7 +94768,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
 
   }
   {
-  tmp___1 = __builtin_expect(len > skb->len, 0L);
+  tmp___1 = ldv__builtin_expect(len > skb->len, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -95759,12 +95757,12 @@ static enum ptp_packet_state efx_ptp_match_rx(struct efx_nic *efx , struct sk_bu
   ptp = efx->ptp_data;
   rc = 0;
   __ret_warn_once = (int )ptp->rx_ts_inline;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -95774,7 +95772,7 @@ static enum ptp_packet_state efx_ptp_match_rx(struct efx_nic *efx , struct sk_bu
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -95785,7 +95783,7 @@ static enum ptp_packet_state efx_ptp_match_rx(struct efx_nic *efx , struct sk_bu
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   spin_lock_bh(& ptp->evt_lock);
   tmp___2 = list_empty((struct list_head  const  *)(& ptp->evt_list));
   evts_waiting = tmp___2 == 0;
@@ -96422,7 +96420,7 @@ bool efx_ptp_is_ptp_tx(struct efx_nic *efx , struct sk_buff *skb )
   {
   if ((((unsigned long )efx->ptp_data != (unsigned long )((struct efx_ptp_data *)0) && (int )(efx->ptp_data)->enabled) && skb->len > 62U) && skb->len <= 240U) {
     {
-    tmp = __builtin_expect((unsigned int )skb->protocol == 8U, 1L);
+    tmp = ldv__builtin_expect((unsigned int )skb->protocol == 8U, 1L);
     }
     if (tmp != 0L) {
       {
@@ -96539,7 +96537,7 @@ static bool efx_ptp_rx(struct efx_channel *channel , struct sk_buff *skb )
     } else {
       {
       match_data_012 = skb->data + 48U;
-      tmp___3 = __builtin_expect(ptp->mode != 4U, 0L);
+      tmp___3 = ldv__builtin_expect(ptp->mode != 4U, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -96720,7 +96718,7 @@ void efx_ptp_get_ts_info(struct efx_nic *efx , struct ethtool_ts_info *ts_info )
   ptp = efx->ptp_data;
   primary = efx->primary;
   tmp = rtnl_is_locked();
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -96841,12 +96839,12 @@ static void ptp_event_rx(struct efx_nic *efx , struct efx_ptp_data *ptp )
   {
   evt = (struct efx_ptp_event_rx *)0;
   __ret_warn_once = (int )ptp->rx_ts_inline;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -96856,7 +96854,7 @@ static void ptp_event_rx(struct efx_nic *efx , struct efx_ptp_data *ptp )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -96867,7 +96865,7 @@ static void ptp_event_rx(struct efx_nic *efx , struct efx_ptp_data *ptp )
 
   }
   {
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     return;
@@ -98045,7 +98043,7 @@ static void efx_mtd_remove_partition(struct efx_mtd_partition *part )
   ldv_45383: 
   {
   __ret_warn_on = rc != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -98055,7 +98053,7 @@ static void efx_mtd_remove_partition(struct efx_mtd_partition *part )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   list_del(& part->node);
   }
   return;
@@ -98141,7 +98139,7 @@ void efx_mtd_remove(struct efx_nic *efx )
   {
   tmp = efx_dev_registered(efx);
   __ret_warn_on = tmp != 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -98151,7 +98149,7 @@ void efx_mtd_remove(struct efx_nic *efx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___1 = list_empty((struct list_head  const  *)(& efx->mtd_list));
   }
   if (tmp___1 != 0) {
@@ -98196,7 +98194,7 @@ void efx_mtd_rename(struct efx_nic *efx )
   {
   {
   tmp = rtnl_is_locked();
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -98407,7 +98405,7 @@ static int efx_sriov_memcpy(struct efx_nic *efx , struct efx_memcpy_req *req , u
   {
   __asm__  volatile   ("mfence": : : "memory");
   __ret_warn_on = count > 7U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -98417,7 +98415,7 @@ static int efx_sriov_memcpy(struct efx_nic *efx , struct efx_memcpy_req *req , u
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (-105);
@@ -98439,7 +98437,7 @@ static int efx_sriov_memcpy(struct efx_nic *efx , struct efx_memcpy_req *req , u
   } else {
     {
     __ret_warn_on___0 = used + req->length > 252U;
-    tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -98449,7 +98447,7 @@ static int efx_sriov_memcpy(struct efx_nic *efx , struct efx_memcpy_req *req , u
 
     }
     {
-    tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___2 != 0L) {
       rc = -105;
@@ -98515,7 +98513,7 @@ static void efx_sriov_reset_tx_filter(struct efx_vf *vf )
       descriptor.format = "Removed vf %s tx filter %d\n";
       descriptor.lineno = 311U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -98553,7 +98551,7 @@ static void efx_sriov_reset_tx_filter(struct efx_vf *vf )
   efx_filter_init_tx(& filter, tmp___2);
   rc = efx_filter_set_eth_local(& filter, (unsigned int )vlan != 0U ? (int )vlan : 65535,
                                 (u8 const   *)(& vf->addr.mac_addr));
-  tmp___3 = __builtin_expect(rc != 0, 0L);
+  tmp___3 = ldv__builtin_expect(rc != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -98585,7 +98583,7 @@ static void efx_sriov_reset_tx_filter(struct efx_vf *vf )
       descriptor___0.format = "Inserted vf %s tx filter %d\n";
       descriptor___0.lineno = 338U;
       descriptor___0.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -98633,7 +98631,7 @@ static void efx_sriov_reset_rx_filter(struct efx_vf *vf )
       descriptor.format = "Removed vf %s rx filter %d\n";
       descriptor.lineno = 355U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -98670,7 +98668,7 @@ static void efx_sriov_reset_rx_filter(struct efx_vf *vf )
   efx_filter_init_rx(& filter, 3, vf->rx_filter_flags, tmp___2);
   rc = efx_filter_set_eth_local(& filter, (unsigned int )vlan != 0U ? (int )vlan : 65535,
                                 (u8 const   *)(& vf->addr.mac_addr));
-  tmp___3 = __builtin_expect(rc != 0, 0L);
+  tmp___3 = ldv__builtin_expect(rc != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -98702,7 +98700,7 @@ static void efx_sriov_reset_rx_filter(struct efx_vf *vf )
       descriptor___0.format = "Inserted vf %s rx filter %d\n";
       descriptor___0.lineno = 378U;
       descriptor___0.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -98759,7 +98757,7 @@ static void __efx_sriov_push_vf_status(struct efx_vf *vf )
   status = (struct vfdi_status *)efx->vfdi_status.addr;
   tmp = mutex_is_locked(& vf->status_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -98769,9 +98767,9 @@ static void __efx_sriov_push_vf_status(struct efx_vf *vf )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = vf->status_addr == 0ULL;
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -98781,7 +98779,7 @@ static void __efx_sriov_push_vf_status(struct efx_vf *vf )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   status->local = vf->addr;
   status->generation_start = status->generation_start + 1U;
   status->generation_end = status->generation_start;
@@ -99321,7 +99319,7 @@ static int efx_vfdi_fini_all_queues(struct efx_vf *vf )
   rc = efx_mcdi_rpc(efx, 39U, (efx_dword_t const   *)(& inbuf), (size_t )(rxqs_count * 4U),
                     (efx_dword_t *)0, 0UL, (size_t *)0UL);
   __ret_warn_on = rc < 0;
-  tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -99331,7 +99329,7 @@ static int efx_vfdi_fini_all_queues(struct efx_vf *vf )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret = (long )timeout;
   tmp___8 = efx_vfdi_flush_wake(vf);
   __cond___1 = tmp___8;
@@ -99655,7 +99653,7 @@ static void efx_sriov_vfdi(struct work_struct *work )
         descriptor.format = "vfdi request %d from %s ok\n";
         descriptor.lineno = 891U;
         descriptor.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -99680,7 +99678,7 @@ static void efx_sriov_vfdi(struct work_struct *work )
       descriptor___0.format = "ERROR: Unrecognised request %d from VF %s addr %llx\n";
       descriptor___0.lineno = 897U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -99738,7 +99736,7 @@ static void efx_sriov_reset_vf(struct efx_vf *vf , struct efx_buffer *buffer )
   {
   {
   efx = vf->efx;
-  tmp = __builtin_expect(buffer->len != 4096U, 0L);
+  tmp = ldv__builtin_expect(buffer->len != 4096U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -99755,7 +99753,7 @@ static void efx_sriov_reset_vf(struct efx_vf *vf , struct efx_buffer *buffer )
 
   }
   {
-  tmp___0 = __builtin_expect((vf->evq0_count & (vf->evq0_count - 1U)) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((vf->evq0_count & (vf->evq0_count - 1U)) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -100008,7 +100006,7 @@ static void efx_sriov_peer_work(struct work_struct *data )
       *tmp = vf->addr;
       peer_count = peer_count + 1U;
       peer_space = peer_space - 1U;
-      tmp___0 = __builtin_expect(peer_space == 0U, 0L);
+      tmp___0 = ldv__builtin_expect(peer_space == 0U, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -100504,7 +100502,7 @@ void efx_sriov_fini(struct efx_nic *efx )
 
   }
   {
-  tmp = __builtin_expect((long )(efx->vfdi_channel)->enabled, 0L);
+  tmp = ldv__builtin_expect((long )(efx->vfdi_channel)->enabled, 0L);
   }
   if (tmp != 0L) {
     {
@@ -100851,7 +100849,7 @@ void efx_sriov_reset(struct efx_nic *efx )
   {
   {
   tmp = rtnl_is_locked();
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -101665,7 +101663,7 @@ void ldv_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -101689,7 +101687,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -101697,7 +101695,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

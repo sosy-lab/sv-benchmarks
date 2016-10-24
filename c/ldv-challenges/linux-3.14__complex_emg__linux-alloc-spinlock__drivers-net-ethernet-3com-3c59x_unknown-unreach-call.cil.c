@@ -5354,7 +5354,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -5438,7 +5438,6 @@ extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5456,7 +5455,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5491,7 +5490,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5525,7 +5524,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5808,7 +5807,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5835,7 +5834,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5871,7 +5870,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5911,7 +5910,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5951,7 +5950,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6076,7 +6075,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6087,7 +6086,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -6342,7 +6341,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6352,7 +6351,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7735,7 +7734,7 @@ static int vortex_probe1(struct device *gendev , void *ioaddr , int irq , int ch
     descriptor.format = "  Internal config register is %4.4x, transceivers %#x.\n";
     descriptor.lineno = 1371U;
     descriptor.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -8214,7 +8213,7 @@ static int vortex_up(struct net_device *dev )
     descriptor.format = "%s: Initial media type %s.\n";
     descriptor.lineno = 1617U;
     descriptor.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -8237,7 +8236,7 @@ static int vortex_up(struct net_device *dev )
     descriptor___0.format = "vortex_up(): writing 0x%x to InternalConfig\n";
     descriptor___0.lineno = 1622U;
     descriptor___0.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -8279,7 +8278,7 @@ static int vortex_up(struct net_device *dev )
     descriptor___1.format = "%s: vortex_up() irq %d media status %4.4x.\n";
     descriptor___1.lineno = 1647U;
     descriptor___1.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -8495,7 +8494,7 @@ static int vortex_open(struct net_device *dev )
       descriptor.format = "%s:  Filling in the Rx ring.\n";
       descriptor.lineno = 1750U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -8652,7 +8651,7 @@ static void vortex_timer(unsigned long data )
     descriptor.format = "%s: Media selection timer tick happened, %s.\n";
     descriptor.lineno = 1807U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8669,7 +8668,7 @@ static void vortex_timer(unsigned long data )
     descriptor___0.format = "dev->watchdog_timeo=%d\n";
     descriptor___0.lineno = 1808U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8728,7 +8727,7 @@ static void vortex_timer(unsigned long data )
       descriptor___1.format = "%s: Media %s has link beat, %x.\n";
       descriptor___1.lineno = 1819U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -8754,7 +8753,7 @@ static void vortex_timer(unsigned long data )
       descriptor___2.format = "%s: Media %s has no link beat, %x.\n";
       descriptor___2.lineno = 1824U;
       descriptor___2.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -8786,7 +8785,7 @@ static void vortex_timer(unsigned long data )
     descriptor___3.format = "%s: Media %s has no indication, %x.\n";
     descriptor___3.lineno = 1837U;
     descriptor___3.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -8848,7 +8847,7 @@ static void vortex_timer(unsigned long data )
         descriptor___4.format = "%s: Media selection failing, using default %s port.\n";
         descriptor___4.lineno = 1859U;
         descriptor___4.flags = 0U;
-        tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
         }
         if (tmp___8 != 0L) {
           {
@@ -8870,7 +8869,7 @@ static void vortex_timer(unsigned long data )
         descriptor___5.format = "%s: Media selection failed, now trying %s port.\n";
         descriptor___5.lineno = 1863U;
         descriptor___5.flags = 0U;
-        tmp___9 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
         }
         if (tmp___9 != 0L) {
           {
@@ -8901,7 +8900,7 @@ static void vortex_timer(unsigned long data )
       descriptor___6.format = "wrote 0x%08x to Wn3_Config\n";
       descriptor___6.lineno = 1878U;
       descriptor___6.flags = 0U;
-      tmp___10 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -8928,7 +8927,7 @@ static void vortex_timer(unsigned long data )
     descriptor___7.format = "%s: Media selection timer finished, %s.\n";
     descriptor___7.lineno = 1887U;
     descriptor___7.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -9053,7 +9052,7 @@ static void vortex_tx_timeout(struct net_device *dev )
     descriptor.format = "%s: Resetting the Tx ring pointer.\n";
     descriptor.lineno = 1936U;
     descriptor.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -9211,7 +9210,7 @@ static void vortex_error(struct net_device *dev , int status )
       descriptor.format = "%s: Updating stats.\n";
       descriptor.lineno = 2004U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -9394,7 +9393,7 @@ static netdev_tx_t vortex_start_xmit(struct sk_buff *skb , struct net_device *de
       descriptor.format = "%s: Tx error, status %2.2x.\n";
       descriptor.lineno = 2109U;
       descriptor.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -9504,7 +9503,7 @@ static netdev_tx_t boomerang_start_xmit(struct sk_buff *skb , struct net_device 
     descriptor.format = "boomerang_start_xmit()\n";
     descriptor.lineno = 2134U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9520,7 +9519,7 @@ static netdev_tx_t boomerang_start_xmit(struct sk_buff *skb , struct net_device 
     descriptor___0.format = "%s: Trying to send a packet, Tx index %d.\n";
     descriptor___0.lineno = 2136U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9726,7 +9725,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
     descriptor.format = "vortex_interrupt(). status=0x%4x\n";
     descriptor.lineno = 2247U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9763,7 +9762,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
     descriptor___0.format = "%s: interrupt, status %4.4x, latency %d ticks.\n";
     descriptor___0.lineno = 2263U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -9790,7 +9789,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
     descriptor___1.format = "%s: In interrupt loop, status %4.4x.\n";
     descriptor___1.lineno = 2271U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -9819,7 +9818,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
       descriptor___2.format = "\tTX room bit was handled.\n";
       descriptor___2.lineno = 2277U;
       descriptor___2.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -9950,7 +9949,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
     descriptor___3.format = "%s: exiting interrupt, status %4.4x.\n";
     descriptor___3.lineno = 2335U;
     descriptor___3.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -10028,7 +10027,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
     descriptor.format = "boomerang_interrupt. status=0x%4x\n";
     descriptor.lineno = 2368U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10054,7 +10053,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
       descriptor___0.format = "boomerang_interrupt(1): status = 0xffff\n";
       descriptor___0.lineno = 2375U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -10084,7 +10083,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
     descriptor___1.format = "%s: interrupt, status %4.4x, latency %d ticks.\n";
     descriptor___1.lineno = 2386U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -10107,7 +10106,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
     descriptor___2.format = "%s: In interrupt loop, status %4.4x.\n";
     descriptor___2.lineno = 2390U;
     descriptor___2.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -10132,7 +10131,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
       descriptor___3.format = "boomerang_interrupt->boomerang_rx\n";
       descriptor___3.lineno = 2394U;
       descriptor___3.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -10209,7 +10208,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
       descriptor___4.format = "boomerang_interrupt: no skb!\n";
       descriptor___4.lineno = 2429U;
       descriptor___4.flags = 0U;
-      tmp___11 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -10237,7 +10236,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
         descriptor___5.format = "boomerang_interrupt: wake queue\n";
         descriptor___5.lineno = 2437U;
         descriptor___5.flags = 0U;
-        tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+        tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
         }
         if (tmp___12 != 0L) {
           {
@@ -10320,7 +10319,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
     descriptor___6.format = "%s: exiting interrupt, status %4.4x.\n";
     descriptor___6.lineno = 2469U;
     descriptor___6.flags = 0U;
-    tmp___15 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -10389,7 +10388,7 @@ static int vortex_rx(struct net_device *dev )
     descriptor.format = "vortex_rx(): status %4.4x, rx_status %4.4x.\n";
     descriptor.lineno = 2485U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10419,7 +10418,7 @@ static int vortex_rx(struct net_device *dev )
       descriptor___0.format = " Rx error: status %2.2x.\n";
       descriptor___0.lineno = 2490U;
       descriptor___0.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -10470,7 +10469,7 @@ static int vortex_rx(struct net_device *dev )
       descriptor___1.format = "Receiving packet size %d status %4.4x.\n";
       descriptor___1.lineno = 2505U;
       descriptor___1.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -10658,7 +10657,7 @@ static int boomerang_rx(struct net_device *dev )
     descriptor.format = "boomerang_rx(): status %4.4x\n";
     descriptor.lineno = 2554U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10689,7 +10688,7 @@ static int boomerang_rx(struct net_device *dev )
       descriptor___0.format = " Rx error: status %2.2x.\n";
       descriptor___0.lineno = 2562U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -10738,7 +10737,7 @@ static int boomerang_rx(struct net_device *dev )
       descriptor___1.format = "Receiving packet size %d status %4.4x.\n";
       descriptor___1.lineno = 2577U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -10932,7 +10931,7 @@ static void rx_oom_timer(unsigned long arg )
     descriptor.format = "%s: rx_oom_timer %s\n";
     descriptor.lineno = 2655U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11080,7 +11079,7 @@ static int vortex_close(struct net_device *dev )
     descriptor.format = "%s: vortex_close() status %4.4x, Tx status %2.2x.\n";
     descriptor.lineno = 2712U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -11099,7 +11098,7 @@ static int vortex_close(struct net_device *dev )
     descriptor___0.format = "%s: vortex close stats: rx_nocopy %d rx_copy %d tx_queued %d Rx pre-checksummed %d.\n";
     descriptor___0.lineno = 2715U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -11487,7 +11486,7 @@ static void vortex_get_strings(struct net_device *dev , u32 stringset , u8 *data
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11497,7 +11496,7 @@ static void vortex_get_strings(struct net_device *dev , u32 stringset , u8 *data
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   goto ldv_45287;
   switch_break: /* CIL Label */ ;
@@ -12296,7 +12295,7 @@ void ldv_dummy_resourceless_instance_callback_1_7(void (*arg0)(struct net_device
                                                   struct net_device *arg1 , struct ethtool_stats *arg2 ,
                                                   unsigned long long *arg3 ) ;
 void ldv_entry_EMGentry_16(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -13153,7 +13152,7 @@ void ldv_entry_EMGentry_16(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -16355,7 +16354,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -16379,7 +16378,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -16387,7 +16386,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

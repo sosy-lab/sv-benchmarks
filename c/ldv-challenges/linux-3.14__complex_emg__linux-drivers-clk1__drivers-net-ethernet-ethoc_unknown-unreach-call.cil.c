@@ -5209,7 +5209,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 long ldv_is_err(void const   *ptr ) ;
@@ -5307,7 +5307,6 @@ extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static long IS_ERR(void const   *ptr ) ;
 extern void __local_bh_disable_ip(unsigned long  , unsigned int  ) ;
 __inline static void local_bh_disable(void) 
@@ -5651,7 +5650,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5769,7 +5768,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5779,7 +5778,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6602,7 +6601,7 @@ static int ethoc_rx(struct net_device *dev , int limit )
     size = (int )(bd.stat >> 16);
     size = size + -4;
     skb = netdev_alloc_skb_ip_align(dev, (unsigned int )size);
-    tmp___2 = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                                1L);
     }
     if (tmp___2 != 0L) {
@@ -6775,7 +6774,7 @@ static irqreturn_t ethoc_interrupt(int irq , void *dev_id )
   mask = ethoc_read(priv, 8LL);
   pending = ethoc_read(priv, 4LL);
   pending = pending & mask;
-  tmp___0 = __builtin_expect(pending == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(pending == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -7040,7 +7039,7 @@ static int ethoc_open(struct net_device *dev )
     descriptor.format = " resuming queue\n";
     descriptor.lineno = 718U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7060,7 +7059,7 @@ static int ethoc_open(struct net_device *dev )
     descriptor___0.format = " starting queue\n";
     descriptor___0.lineno = 721U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7328,7 +7327,7 @@ static void ethoc_tx_timeout(struct net_device *dev )
   priv = (struct ethoc *)tmp;
   tmp___0 = ethoc_read(priv, 4LL);
   pending = tmp___0;
-  tmp___1 = __builtin_expect(pending != 0U, 1L);
+  tmp___1 = ldv__builtin_expect(pending != 0U, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7356,7 +7355,7 @@ static netdev_tx_t ethoc_start_xmit(struct sk_buff *skb , struct net_device *dev
   {
   tmp = netdev_priv((struct net_device  const  *)dev);
   priv = (struct ethoc *)tmp;
-  tmp___0 = __builtin_expect(skb->len > 1536U, 0L);
+  tmp___0 = ldv__builtin_expect(skb->len > 1536U, 0L);
   }
   if (tmp___0 != 0L) {
     dev->stats.tx_errors = dev->stats.tx_errors + 1UL;
@@ -7369,7 +7368,7 @@ static netdev_tx_t ethoc_start_xmit(struct sk_buff *skb , struct net_device *dev
   spin_lock_irq(& priv->lock);
   priv->cur_tx = priv->cur_tx + 1U;
   ethoc_read_bd(priv, (int )entry, & bd);
-  tmp___1 = __builtin_expect(skb->len <= 63U, 0L);
+  tmp___1 = ldv__builtin_expect(skb->len <= 63U, 0L);
   }
   if (tmp___1 != 0L) {
     bd.stat = bd.stat | 4096U;
@@ -7393,7 +7392,7 @@ static netdev_tx_t ethoc_start_xmit(struct sk_buff *skb , struct net_device *dev
     descriptor.format = "stopping queue\n";
     descriptor.lineno = 892U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7789,7 +7788,7 @@ static int ethoc_probe(struct platform_device *pdev )
   descriptor.format = "ethoc: num_tx: %d num_rx: %d\n";
   descriptor.lineno = 1133U;
   descriptor.flags = 0U;
-  tmp___74 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___74 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___74 != 0L) {
     {
@@ -7889,7 +7888,7 @@ static int ethoc_probe(struct platform_device *pdev )
     descriptor___0.format = "setting MII clkdiv to %u\n";
     descriptor___0.lineno = 1195U;
     descriptor___0.flags = 0U;
-    tmp___83 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___83 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___83 != 0L) {
       {
@@ -8180,7 +8179,7 @@ void ldv_dummy_resourceless_instance_callback_1_9(void (*arg0)(struct net_device
                                                                struct ethtool_ringparam * ) ,
                                                   struct net_device *arg1 , struct ethtool_ringparam *arg2 ) ;
 void ldv_entry_EMGentry_12(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -8789,7 +8788,7 @@ void ldv_entry_EMGentry_12(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10982,7 +10981,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11006,7 +11005,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11014,7 +11013,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

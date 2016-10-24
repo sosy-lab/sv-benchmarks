@@ -4916,7 +4916,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 long ldv_is_err(void const   *ptr ) ;
@@ -5699,7 +5699,7 @@ static int si476x_radio_init_vtable(struct si476x_radio *radio , enum si476x_fun
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5709,7 +5709,7 @@ static int si476x_radio_init_vtable(struct si476x_radio *radio , enum si476x_fun
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (-22);
   switch_break: /* CIL Label */ ;
@@ -5762,7 +5762,7 @@ static int si476x_radio_pretune(struct si476x_radio *radio , enum si476x_func fu
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5772,7 +5772,7 @@ static int si476x_radio_pretune(struct si476x_radio *radio , enum si476x_func fu
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   retval = -22;
   }
   switch_break: /* CIL Label */ ;
@@ -7510,7 +7510,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(int (*arg0)(struct file * , vo
                                                   struct file *arg1 , void *arg2 ,
                                                   struct v4l2_tuner *arg3 ) ;
 void ldv_entry_EMGentry_17(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -8748,7 +8748,7 @@ void ldv_entry_EMGentry_17(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -14058,7 +14058,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -14082,7 +14082,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -14090,7 +14090,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

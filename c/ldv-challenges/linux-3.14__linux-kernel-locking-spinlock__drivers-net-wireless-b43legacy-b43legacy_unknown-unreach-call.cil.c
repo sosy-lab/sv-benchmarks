@@ -7434,10 +7434,9 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-void __builtin_va_end(__builtin_va_list  ) ;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
-void __builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list  ) ;
+long ldv__builtin_expect(long exp , long c ) ;
+void ldv__builtin_va_start(__builtin_va_list  ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 extern struct module __this_module ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
@@ -7591,7 +7590,6 @@ __inline static struct task_struct *get_current(void)
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -7609,7 +7607,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7892,7 +7890,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -8233,12 +8231,12 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
   {
   {
   __ret_warn_once = (int )((signed char )c->__annonCompField84.control.__annonCompField82.__annonCompField81.rates[0].idx) < 0;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8248,7 +8246,7 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -8259,7 +8257,7 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 
   }
   {
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     return ((struct ieee80211_rate *)0);
@@ -8547,7 +8545,7 @@ void b43legacyinfo(struct b43legacy_wl *wl , char const   *fmt  , ...)
 
   }
   {
-  __builtin_va_start((__va_list_tag *)(& args));
+  ldv__builtin_va_start((__va_list_tag *)(& args));
   vaf.fmt = fmt;
   vaf.va = & args;
   }
@@ -8561,7 +8559,7 @@ void b43legacyinfo(struct b43legacy_wl *wl , char const   *fmt  , ...)
   }
   {
   printk("\016b43legacy-%s: %pV", tmp___1, & vaf);
-  __builtin_va_end((__va_list_tag *)(& args));
+  ldv__builtin_va_end((__va_list_tag *)(& args));
   }
   return;
 }
@@ -8584,7 +8582,7 @@ void b43legacyerr(struct b43legacy_wl *wl , char const   *fmt  , ...)
 
   }
   {
-  __builtin_va_start((__va_list_tag *)(& args));
+  ldv__builtin_va_start((__va_list_tag *)(& args));
   vaf.fmt = fmt;
   vaf.va = & args;
   }
@@ -8598,7 +8596,7 @@ void b43legacyerr(struct b43legacy_wl *wl , char const   *fmt  , ...)
   }
   {
   printk("\vb43legacy-%s ERROR: %pV", tmp___1, & vaf);
-  __builtin_va_end((__va_list_tag *)(& args));
+  ldv__builtin_va_end((__va_list_tag *)(& args));
   }
   return;
 }
@@ -8621,7 +8619,7 @@ void b43legacywarn(struct b43legacy_wl *wl , char const   *fmt  , ...)
 
   }
   {
-  __builtin_va_start((__va_list_tag *)(& args));
+  ldv__builtin_va_start((__va_list_tag *)(& args));
   vaf.fmt = fmt;
   vaf.va = & args;
   }
@@ -8635,7 +8633,7 @@ void b43legacywarn(struct b43legacy_wl *wl , char const   *fmt  , ...)
   }
   {
   printk("\fb43legacy-%s warning: %pV", tmp___1, & vaf);
-  __builtin_va_end((__va_list_tag *)(& args));
+  ldv__builtin_va_end((__va_list_tag *)(& args));
   }
   return;
 }
@@ -8649,7 +8647,7 @@ void b43legacydbg(struct b43legacy_wl *wl , char const   *fmt  , ...)
 
   {
   {
-  __builtin_va_start((__va_list_tag *)(& args));
+  ldv__builtin_va_start((__va_list_tag *)(& args));
   vaf.fmt = fmt;
   vaf.va = & args;
   }
@@ -8663,7 +8661,7 @@ void b43legacydbg(struct b43legacy_wl *wl , char const   *fmt  , ...)
   }
   {
   printk("\017b43legacy-%s debug: %pV", tmp___0, & vaf);
-  __builtin_va_end((__va_list_tag *)(& args));
+  ldv__builtin_va_end((__va_list_tag *)(& args));
   }
   return;
 }
@@ -8678,7 +8676,7 @@ static void b43legacy_ram_write(struct b43legacy_wldev *dev , u16 offset , u32 v
   {
   {
   __ret_warn_on = ((unsigned int )offset & 3U) != 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8688,7 +8686,7 @@ static void b43legacy_ram_write(struct b43legacy_wldev *dev , u16 offset , u32 v
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   status = b43legacy_read32(dev, 288);
   }
   if ((status & 65536U) != 0U) {
@@ -8734,7 +8732,7 @@ u32 b43legacy_shm_read32(struct b43legacy_wldev *dev , u16 routing , u16 offset 
   if ((unsigned int )routing == 1U) {
     {
     __ret_warn_on = (int )offset & 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8744,7 +8742,7 @@ u32 b43legacy_shm_read32(struct b43legacy_wldev *dev , u16 routing , u16 offset 
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (((int )offset & 3) != 0) {
       {
@@ -8781,7 +8779,7 @@ u16 b43legacy_shm_read16(struct b43legacy_wldev *dev , u16 routing , u16 offset 
   if ((unsigned int )routing == 1U) {
     {
     __ret_warn_on = (int )offset & 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8791,7 +8789,7 @@ u16 b43legacy_shm_read16(struct b43legacy_wldev *dev , u16 routing , u16 offset 
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (((int )offset & 3) != 0) {
       {
@@ -8823,7 +8821,7 @@ void b43legacy_shm_write32(struct b43legacy_wldev *dev , u16 routing , u16 offse
   if ((unsigned int )routing == 1U) {
     {
     __ret_warn_on = (int )offset & 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8833,7 +8831,7 @@ void b43legacy_shm_write32(struct b43legacy_wldev *dev , u16 routing , u16 offse
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (((int )offset & 3) != 0) {
       {
@@ -8871,7 +8869,7 @@ void b43legacy_shm_write16(struct b43legacy_wldev *dev , u16 routing , u16 offse
   if ((unsigned int )routing == 1U) {
     {
     __ret_warn_on = (int )offset & 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8881,7 +8879,7 @@ void b43legacy_shm_write16(struct b43legacy_wldev *dev , u16 routing , u16 offse
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (((int )offset & 3) != 0) {
       {
@@ -8956,7 +8954,7 @@ void b43legacy_tsf_read(struct b43legacy_wldev *dev , u64 *tsf )
     high = b43legacy_read32(dev, 388);
     low = b43legacy_read32(dev, 384);
     high2 = b43legacy_read32(dev, 388);
-    tmp = __builtin_expect(high != high2, 0L);
+    tmp = ldv__builtin_expect(high != high2, 0L);
     }
     if (tmp != 0L) {
       goto ldv_52770;
@@ -9554,7 +9552,7 @@ static void b43legacy_generate_noise_sample(struct b43legacy_wldev *dev )
   tmp = b43legacy_read32(dev, 292);
   b43legacy_write32(dev, 292, tmp | 16U);
   __ret_warn_on = (int )dev->noisecalc.channel_at_start != (int )dev->phy.channel;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9564,7 +9562,7 @@ static void b43legacy_generate_noise_sample(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return;
 }
@@ -9617,7 +9615,7 @@ static void handle_irq_noise(struct b43legacy_wldev *dev )
   {
   phy = & dev->phy;
   __ret_warn_on = ! dev->noisecalc.calculation_running;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9627,7 +9625,7 @@ static void handle_irq_noise(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((int )dev->noisecalc.channel_at_start != (int )phy->channel) {
     goto drop_calculation;
@@ -9644,7 +9642,7 @@ static void handle_irq_noise(struct b43legacy_wldev *dev )
   }
   {
   __ret_warn_on___0 = (unsigned int )dev->noisecalc.nr_samples > 7U;
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9654,7 +9652,7 @@ static void handle_irq_noise(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   i = dev->noisecalc.nr_samples;
   __val = noise[0];
   __min = 0U;
@@ -10031,7 +10029,7 @@ static u8 const   *b43legacy_generate_probe_resp(struct b43legacy_wldev *dev , u
   src_data = (u8 const   *)((dev->wl)->current_beacon)->data;
   ie_start = 36UL;
   __ret_warn_on = ie_start != 36UL;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10041,9 +10039,9 @@ static u8 const   *b43legacy_generate_probe_resp(struct b43legacy_wldev *dev , u
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = (size_t )src_size < ie_start;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10053,7 +10051,7 @@ static u8 const   *b43legacy_generate_probe_resp(struct b43legacy_wldev *dev , u
 
   }
   {
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return ((u8 const   *)0U);
@@ -10063,7 +10061,7 @@ static u8 const   *b43legacy_generate_probe_resp(struct b43legacy_wldev *dev , u
   {
   tmp___2 = kmalloc((size_t )src_size, 32U);
   dest_data = (u8 *)tmp___2;
-  tmp___3 = __builtin_expect((unsigned long )dest_data == (unsigned long )((u8 *)0U),
+  tmp___3 = ldv__builtin_expect((unsigned long )dest_data == (unsigned long )((u8 *)0U),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -10121,7 +10119,7 @@ static void b43legacy_write_probe_resp_template(struct b43legacy_wldev *dev , u1
   {
   size = (u16 )((dev->wl)->current_beacon)->len;
   probe_resp_data = b43legacy_generate_probe_resp(dev, & size, rate);
-  tmp = __builtin_expect((unsigned long )probe_resp_data == (unsigned long )((u8 const   *)0U),
+  tmp = ldv__builtin_expect((unsigned long )probe_resp_data == (unsigned long )((u8 const   *)0U),
                          0L);
   }
   if (tmp != 0L) {
@@ -10216,7 +10214,7 @@ static void handle_irq_beacon(struct b43legacy_wldev *dev )
 
   }
   {
-  tmp___0 = __builtin_expect((long )wl->beacon_templates_virgin, 0L);
+  tmp___0 = ldv__builtin_expect((long )wl->beacon_templates_virgin, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10264,13 +10262,13 @@ static void b43legacy_beacon_update_trigger_work(struct work_struct *work )
   wl = (struct b43legacy_wl *)__mptr + 0xfffffffffffffda8UL;
   mutex_lock_nested(& wl->mutex, 0U);
   dev = wl->current_dev;
-  tmp = __builtin_expect((unsigned long )dev != (unsigned long )((struct b43legacy_wldev *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev != (unsigned long )((struct b43legacy_wldev *)0),
                          1L);
   }
   if (tmp != 0L) {
     {
     tmp___0 = atomic_read((atomic_t const   *)(& dev->__init_status));
-    tmp___1 = __builtin_expect(tmp___0 > 0, 1L);
+    tmp___1 = ldv__builtin_expect(tmp___0 > 0, 1L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10300,7 +10298,7 @@ static void b43legacy_update_templates(struct b43legacy_wl *wl )
   {
   {
   beacon = ieee80211_beacon_get(wl->hw, wl->vif);
-  tmp = __builtin_expect((unsigned long )beacon == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )beacon == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -10391,7 +10389,7 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
   ldv___ldv_spin_lock_64(& (dev->wl)->irq_lock);
   tmp = atomic_read((atomic_t const   *)(& dev->__init_status));
   __ret_warn_on = tmp <= 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10401,7 +10399,7 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   reason = dev->irq_reason;
   i = 0;
   }
@@ -10417,7 +10415,7 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
 
   }
   {
-  tmp___1 = __builtin_expect((reason & 512U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((reason & 512U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10427,14 +10425,14 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
 
   }
   {
-  tmp___4 = __builtin_expect((reason & 2048U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((reason & 2048U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
     b43legacyerr(dev->wl, "PHY transmission error\n");
     __asm__  volatile   ("lfence": : : "memory");
     tmp___2 = atomic_dec_and_test(& dev->phy.txerr_cnt);
-    tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -10448,7 +10446,7 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
 
   }
   {
-  tmp___5 = __builtin_expect((merged_dma_reason & 64512U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((merged_dma_reason & 64512U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     if ((merged_dma_reason & 56320U) != 0U) {
@@ -10477,7 +10475,7 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
 
   }
   {
-  tmp___6 = __builtin_expect((reason & 134217728U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((reason & 134217728U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -10539,7 +10537,7 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
   }
   {
   __ret_warn_on___0 = (dma_reason[1] & 65536U) != 0U;
-  tmp___8 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -10549,9 +10547,9 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   __ret_warn_on___1 = (dma_reason[2] & 65536U) != 0U;
-  tmp___9 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___9 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -10561,7 +10559,7 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   if ((dma_reason[3] & 65536U) != 0U) {
     {
@@ -10581,7 +10579,7 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
   }
   {
   __ret_warn_on___2 = (dma_reason[4] & 65536U) != 0U;
-  tmp___11 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  tmp___11 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -10591,9 +10589,9 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
   __ret_warn_on___3 = (dma_reason[5] & 65536U) != 0U;
-  tmp___12 = __builtin_expect(__ret_warn_on___3 != 0, 0L);
+  tmp___12 = ldv__builtin_expect(__ret_warn_on___3 != 0, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -10603,7 +10601,7 @@ static void b43legacy_interrupt_tasklet(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on___3 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___3 != 0, 0L);
   }
   if ((reason & 536870912U) != 0U) {
     {
@@ -10687,7 +10685,7 @@ static irqreturn_t b43legacy_interrupt_handler(int irq , void *dev_id )
   ret = 0;
   dev = (struct b43legacy_wldev *)dev_id;
   __ret_warn_on = (unsigned long )dev == (unsigned long )((struct b43legacy_wldev *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10697,10 +10695,10 @@ static irqreturn_t b43legacy_interrupt_handler(int irq , void *dev_id )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ldv_spin_lock_67(& (dev->wl)->irq_lock);
   tmp___0 = atomic_read((atomic_t const   *)(& dev->__init_status));
-  tmp___1 = __builtin_expect(tmp___0 <= 1, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 <= 1, 0L);
   }
   if (tmp___1 != 0L) {
     goto out;
@@ -11099,7 +11097,7 @@ static int b43legacy_upload_microcode(struct b43legacy_wldev *dev )
   err = 0;
   macctl = b43legacy_read32(dev, 288);
   __ret_warn_on = (macctl & 2U) != 0U;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11109,7 +11107,7 @@ static int b43legacy_upload_microcode(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   macctl = macctl | 4U;
   b43legacy_write32(dev, 288, macctl);
   i = 0U;
@@ -11498,7 +11496,7 @@ void b43legacy_mac_enable(struct b43legacy_wldev *dev )
   {
   dev->mac_suspended = dev->mac_suspended - 1;
   __ret_warn_on = dev->mac_suspended < 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11508,11 +11506,11 @@ void b43legacy_mac_enable(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on___0 = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11522,7 +11520,7 @@ void b43legacy_mac_enable(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (dev->mac_suspended == 0) {
     {
@@ -11560,7 +11558,7 @@ void b43legacy_mac_suspend(struct b43legacy_wldev *dev )
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11570,9 +11568,9 @@ void b43legacy_mac_suspend(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = dev->mac_suspended < 0;
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -11582,7 +11580,7 @@ void b43legacy_mac_suspend(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (dev->mac_suspended == 0) {
     {
@@ -11987,7 +11985,7 @@ static int b43legacy_chip_init(struct b43legacy_wldev *dev )
   b43legacy_write16(dev, 1704, (int )((dev->dev)->bus)->chipco.fast_pwrup_delay);
   atomic_set(& phy->txerr_cnt, 1000);
   __ret_warn_on = err != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11997,7 +11995,7 @@ static int b43legacy_chip_init(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   b43legacydbg(dev->wl, "Chip initialized\n");
   }
   out: ;
@@ -12127,7 +12125,7 @@ static void b43legacy_periodic_work_handler(struct work_struct *work )
   wl = dev->wl;
   mutex_lock_nested(& wl->mutex, 0U);
   tmp = atomic_read((atomic_t const   *)(& dev->__init_status));
-  tmp___0 = __builtin_expect(tmp != 2, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 2, 0L);
   }
   if (tmp___0 != 0L) {
     goto out;
@@ -12255,7 +12253,7 @@ static void b43legacy_security_init(struct b43legacy_wldev *dev )
   {
   dev->max_nr_keys = (unsigned int )(dev->dev)->id.revision > 4U ? 58U : 20U;
   __ret_warn_on = (unsigned int )dev->max_nr_keys > 58U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12265,7 +12263,7 @@ static void b43legacy_security_init(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   dev->ktp = b43legacy_shm_read16(dev, 1, 86);
   dev->ktp = (unsigned int )dev->ktp * 2U;
   }
@@ -12360,7 +12358,7 @@ static void b43legacy_tx_work(struct work_struct *work )
   err = 0;
   mutex_lock_nested(& wl->mutex, 0U);
   dev = wl->current_dev;
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct b43legacy_wldev *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct b43legacy_wldev *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -12371,7 +12369,7 @@ static void b43legacy_tx_work(struct work_struct *work )
   } else {
     {
     tmp___0 = atomic_read((atomic_t const   *)(& dev->__init_status));
-    tmp___1 = __builtin_expect(tmp___0 <= 1, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 <= 1, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -12412,7 +12410,7 @@ static void b43legacy_tx_work(struct work_struct *work )
 
   }
   {
-  tmp___3 = __builtin_expect(err != 0, 0L);
+  tmp___3 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -12464,7 +12462,7 @@ static void b43legacy_op_tx(struct ieee80211_hw *hw , struct ieee80211_tx_contro
   {
   tmp = hw_to_b43legacy_wl(hw);
   wl = tmp;
-  tmp___0 = __builtin_expect(skb->len <= 9U, 0L);
+  tmp___0 = ldv__builtin_expect(skb->len <= 9U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12477,7 +12475,7 @@ static void b43legacy_op_tx(struct ieee80211_hw *hw , struct ieee80211_tx_contro
   {
   tmp___1 = skb_end_pointer((struct sk_buff  const  *)skb);
   __ret_warn_on = (unsigned int )((struct skb_shared_info *)tmp___1)->nr_frags != 0U;
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12487,7 +12485,7 @@ static void b43legacy_op_tx(struct ieee80211_hw *hw , struct ieee80211_tx_contro
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   skb_queue_tail((struct sk_buff_head *)(& wl->tx_queue) + (unsigned long )skb->queue_mapping,
                  skb);
   }
@@ -12717,7 +12715,7 @@ static int b43legacy_switch_phymode(struct b43legacy_wl *wl , unsigned int new_m
   {
   tmp___3 = atomic_read((atomic_t const   *)(& up_dev->__init_status));
   __ret_warn_on = tmp___3 != prev_status;
-  tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -12727,7 +12725,7 @@ static int b43legacy_switch_phymode(struct b43legacy_wl *wl , unsigned int new_m
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   b43legacy_shm_write32(up_dev, 1, 62, 0U);
   wl->current_dev = up_dev;
   }
@@ -12817,7 +12815,7 @@ static int b43legacy_op_dev_config(struct ieee80211_hw *hw , u32 changed )
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12827,7 +12825,7 @@ static int b43legacy_op_dev_config(struct ieee80211_hw *hw , u32 changed )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -13014,7 +13012,7 @@ static void b43legacy_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8
   wl = tmp;
   mutex_lock_nested(& wl->mutex, 0U);
   __ret_warn_on = (unsigned long )wl->vif != (unsigned long )vif;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13024,7 +13022,7 @@ static void b43legacy_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee8
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   dev = wl->current_dev;
   ldv___ldv_spin_lock_82(& wl->irq_lock);
   tmp___1 = atomic_read((atomic_t const   *)(& dev->__init_status));
@@ -13277,7 +13275,7 @@ static int b43legacy_wireless_core_start(struct b43legacy_wldev *dev )
   {
   tmp = atomic_read((atomic_t const   *)(& dev->__init_status));
   __ret_warn_on = tmp != 1;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13287,7 +13285,7 @@ static int b43legacy_wireless_core_start(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   drain_txstatus_queue(dev);
   err = ldv_request_irq_92((dev->dev)->irq, & b43legacy_interrupt_handler, 128UL,
                            "b43legacy", (void *)dev);
@@ -13607,7 +13605,7 @@ static void b43legacy_wireless_core_exit(struct b43legacy_wldev *dev )
   phy = & dev->phy;
   tmp = atomic_read((atomic_t const   *)(& dev->__init_status));
   __ret_warn_on = tmp > 1;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13617,7 +13615,7 @@ static void b43legacy_wireless_core_exit(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___1 = atomic_read((atomic_t const   *)(& dev->__init_status));
   }
   if (tmp___1 != 1) {
@@ -13754,7 +13752,7 @@ static int b43legacy_wireless_core_init(struct b43legacy_wldev *dev )
   sprom = & ((dev->dev)->bus)->sprom;
   tmp___0 = atomic_read((atomic_t const   *)(& dev->__init_status));
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13764,7 +13762,7 @@ static int b43legacy_wireless_core_init(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   err = ssb_bus_powerup(bus, 0);
   }
   if (err != 0) {
@@ -13926,7 +13924,7 @@ static int b43legacy_wireless_core_init(struct b43legacy_wldev *dev )
   ssb_bus_may_powerdown(bus);
   tmp___5 = atomic_read((atomic_t const   *)(& dev->__init_status));
   __ret_warn_on___0 = tmp___5 != 0;
-  tmp___6 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -13936,7 +13934,7 @@ static int b43legacy_wireless_core_init(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   return (err);
 }
@@ -14009,7 +14007,7 @@ static void b43legacy_op_remove_interface(struct ieee80211_hw *hw , struct ieee8
   b43legacydbg(wl, "Removing Interface type %d\n", (unsigned int )vif->type);
   mutex_lock_nested(& wl->mutex, 0U);
   __ret_warn_on = ! wl->operating;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14019,9 +14017,9 @@ static void b43legacy_op_remove_interface(struct ieee80211_hw *hw , struct ieee8
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = (unsigned long )wl->vif != (unsigned long )vif;
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14031,7 +14029,7 @@ static void b43legacy_op_remove_interface(struct ieee80211_hw *hw , struct ieee8
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   wl->vif = (struct ieee80211_vif *)0;
   wl->operating = 0;
   ldv___ldv_spin_lock_95(& wl->irq_lock);
@@ -14682,7 +14680,7 @@ static int b43legacy_probe(struct ssb_device *dev , struct ssb_device_id  const 
     tmp___0 = ssb_get_devtypedata(dev);
     wl = (struct b43legacy_wl *)tmp___0;
     __ret_warn_on = (unsigned long )wl == (unsigned long )((struct b43legacy_wl *)0);
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -14692,7 +14690,7 @@ static int b43legacy_probe(struct ssb_device *dev , struct ssb_device_id  const 
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -14748,7 +14746,7 @@ static void b43legacy_remove(struct ssb_device *dev )
   cancel_work_sync(& wl->firmware_load);
   complete(& wldev->fw_load_complete);
   __ret_warn_on = (unsigned long )wl == (unsigned long )((struct b43legacy_wl *)0);
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14758,7 +14756,7 @@ static void b43legacy_remove(struct ssb_device *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned long )wldev->fw.ucode == (unsigned long )((struct firmware  const  *)0)) {
     return;
@@ -14989,7 +14987,7 @@ void ldv_dispatch_register_dummy_factory_13_14_7(void) ;
 void ldv_dispatch_register_dummy_resourceless_instance_8_14_8(void) ;
 void ldv_dispatch_register_file_operations_instance_5_14_9(void) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(long (*arg0)(struct file * , char * ,
                                                              unsigned long  , long long * ) ,
@@ -15372,7 +15370,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -15381,7 +15379,7 @@ void main(void)
   ldv_initialize();
   ldv_entry_EMGentry_14((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -16999,7 +16997,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -17033,7 +17031,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -17212,7 +17210,7 @@ __inline static void b43legacy_voluntary_preempt(void)
   {
   {
   tmp___9 = preempt_count();
-  tmp___10 = __builtin_expect(((unsigned long )tmp___9 & 0xffffffffffdfffffUL) != 0UL,
+  tmp___10 = ldv__builtin_expect(((unsigned long )tmp___9 & 0xffffffffffdfffffUL) != 0UL,
                               0L);
   }
   if (tmp___10 != 0L) {
@@ -17220,7 +17218,7 @@ __inline static void b43legacy_voluntary_preempt(void)
   } else {
     {
     tmp___11 = preempt_count();
-    tmp___12 = __builtin_expect(((unsigned long )tmp___11 & 983040UL) != 0UL, 0L);
+    tmp___12 = ldv__builtin_expect(((unsigned long )tmp___11 & 983040UL) != 0UL, 0L);
     }
     if (tmp___12 != 0L) {
       tmp___13 = 1;
@@ -17233,7 +17231,7 @@ __inline static void b43legacy_voluntary_preempt(void)
   } else {
     {
     tmp___14 = preempt_count();
-    tmp___15 = __builtin_expect(((unsigned long )tmp___14 & 2096896UL) != 0UL, 0L);
+    tmp___15 = ldv__builtin_expect(((unsigned long )tmp___14 & 2096896UL) != 0UL, 0L);
     }
     if (tmp___15 != 0L) {
       tmp___16 = 1;
@@ -17247,14 +17245,14 @@ __inline static void b43legacy_voluntary_preempt(void)
     {
     _flags___0 = arch_local_save_flags();
     tmp___17 = arch_irqs_disabled_flags(_flags___0);
-    tmp___18 = __builtin_expect(tmp___17 != 0, 0L);
+    tmp___18 = ldv__builtin_expect(tmp___17 != 0, 0L);
     }
     if (tmp___18 != 0L) {
       _L: /* CIL Label */ 
       {
       printk("\016b43legacy: Test (%s) failed\n", (char *)"!(!in_atomic() && !in_irq() && !in_interrupt() && !irqs_disabled())");
       tmp = preempt_count();
-      tmp___0 = __builtin_expect(((unsigned long )tmp & 0xffffffffffdfffffUL) != 0UL,
+      tmp___0 = ldv__builtin_expect(((unsigned long )tmp & 0xffffffffffdfffffUL) != 0UL,
                                  0L);
       }
       if (tmp___0 != 0L) {
@@ -17262,7 +17260,7 @@ __inline static void b43legacy_voluntary_preempt(void)
       } else {
         {
         tmp___1 = preempt_count();
-        tmp___2 = __builtin_expect(((unsigned long )tmp___1 & 983040UL) != 0UL, 0L);
+        tmp___2 = ldv__builtin_expect(((unsigned long )tmp___1 & 983040UL) != 0UL, 0L);
         }
         if (tmp___2 != 0L) {
           tmp___3 = 1;
@@ -17275,7 +17273,7 @@ __inline static void b43legacy_voluntary_preempt(void)
       } else {
         {
         tmp___4 = preempt_count();
-        tmp___5 = __builtin_expect(((unsigned long )tmp___4 & 2096896UL) != 0UL, 0L);
+        tmp___5 = ldv__builtin_expect(((unsigned long )tmp___4 & 2096896UL) != 0UL, 0L);
         }
         if (tmp___5 != 0L) {
           tmp___6 = 1;
@@ -17293,7 +17291,7 @@ __inline static void b43legacy_voluntary_preempt(void)
         {
         _flags = arch_local_save_flags();
         tmp___7 = arch_irqs_disabled_flags(_flags);
-        tmp___8 = __builtin_expect(tmp___7 != 0, 0L);
+        tmp___8 = ldv__builtin_expect(tmp___7 != 0, 0L);
         }
         if (tmp___8 != 0L) {
           {
@@ -17325,7 +17323,7 @@ void b43legacy_phy_lock(struct b43legacy_wldev *dev )
   {
   {
   __ret_warn_on = (int )dev->phy.phy_locked;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17335,7 +17333,7 @@ void b43legacy_phy_lock(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   dev->phy.phy_locked = 1;
   }
   if ((unsigned int )(dev->dev)->id.revision <= 2U) {
@@ -17366,7 +17364,7 @@ void b43legacy_phy_unlock(struct b43legacy_wldev *dev )
   {
   {
   __ret_warn_on = ! dev->phy.phy_locked;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17376,7 +17374,7 @@ void b43legacy_phy_unlock(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   dev->phy.phy_locked = 0;
   }
   if ((unsigned int )(dev->dev)->id.revision <= 2U) {
@@ -17471,12 +17469,12 @@ static void b43legacy_phy_init_pctl(struct b43legacy_wldev *dev )
   saved_ratt = 0U;
   saved_txctl1 = 0U;
   must_reset_txpower = 0;
-  tmp___0 = __builtin_expect((unsigned int )phy->type - 1U > 1U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )phy->type - 1U > 1U, 0L);
   }
   if (tmp___0 != 0L) {
     {
     printk("\016b43legacy: Test (%s) failed\n", (char *)"!(phy->type == B43legacy_PHYTYPE_B || phy->type == B43legacy_PHYTYPE_G)");
-    tmp = __builtin_expect((unsigned int )phy->type - 1U > 1U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )phy->type - 1U > 1U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -17740,12 +17738,12 @@ static void b43legacy_phy_setupg(struct b43legacy_wldev *dev )
   {
   {
   phy = & dev->phy;
-  tmp___0 = __builtin_expect((unsigned int )phy->type != 2U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )phy->type != 2U, 0L);
   }
   if (tmp___0 != 0L) {
     {
     printk("\016b43legacy: Test (%s) failed\n", (char *)"phy->type != B43legacy_PHYTYPE_G");
-    tmp = __builtin_expect((unsigned int )phy->type != 2U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )phy->type != 2U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19175,7 +19173,7 @@ static void b43legacy_phy_initg(struct b43legacy_wldev *dev )
     if ((int )phy->nrssi[0] == -1000) {
       {
       __ret_warn_on = (int )phy->nrssi[1] != -1000;
-      tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -19185,13 +19183,13 @@ static void b43legacy_phy_initg(struct b43legacy_wldev *dev )
 
       }
       {
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
       b43legacy_calc_nrssi_slope(dev);
       }
     } else {
       {
       __ret_warn_on___0 = (int )phy->nrssi[1] == -1000;
-      tmp___7 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___7 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -19201,7 +19199,7 @@ static void b43legacy_phy_initg(struct b43legacy_wldev *dev )
 
       }
       {
-      __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       b43legacy_calc_nrssi_threshold(dev);
       }
     }
@@ -19594,7 +19592,7 @@ __inline static struct b43legacy_lopair *b43legacy_find_lopair(struct b43legacy_
   }
   {
   __ret_warn_on = (unsigned int )rfatt > 9U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19604,7 +19602,7 @@ __inline static struct b43legacy_lopair *b43legacy_find_lopair(struct b43legacy_
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned int )tx == 3U) {
     {
@@ -19758,7 +19756,7 @@ static void b43legacy_phy_lo_g_state(struct b43legacy_wldev *dev , struct b43leg
   {
   found_lower = 0;
   __ret_warn_on = (unsigned int )state > 8U;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19768,7 +19766,7 @@ static void b43legacy_phy_lo_g_state(struct b43legacy_wldev *dev , struct b43leg
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (state == 0) {
     begin = 1;
@@ -19797,7 +19795,7 @@ static void b43legacy_phy_lo_g_state(struct b43legacy_wldev *dev , struct b43leg
   ldv_51167: 
   {
   __ret_warn_on___0 = (unsigned int )j - 1U > 7U;
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -19807,7 +19805,7 @@ static void b43legacy_phy_lo_g_state(struct b43legacy_wldev *dev , struct b43leg
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   transition.high = (s8 )((int )((unsigned char )tmp_pair.high) + (int )((unsigned char )transitions[j + -1].high));
   transition.low = (s8 )((int )((unsigned char )tmp_pair.low) + (int )((unsigned char )transitions[j + -1].low));
   __x___0 = (int )transition.low;
@@ -20435,12 +20433,12 @@ void b43legacy_phy_xmitpower(struct b43legacy_wldev *dev )
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned int )phy->type - 1U > 1U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )phy->type - 1U > 1U, 0L);
   }
   if (tmp___2 != 0L) {
     {
     printk("\016b43legacy: Test (%s) failed\n", (char *)"!(phy->type == B43legacy_PHYTYPE_B || phy->type == B43legacy_PHYTYPE_G)");
-    tmp___1 = __builtin_expect((unsigned int )phy->type - 1U > 1U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )phy->type - 1U > 1U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -20512,7 +20510,7 @@ void b43legacy_phy_xmitpower(struct b43legacy_wldev *dev )
 
   }
   {
-  tmp___5 = __builtin_expect(max_pwr <= 0, 0L);
+  tmp___5 = ldv__builtin_expect(max_pwr <= 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -20739,7 +20737,7 @@ int b43legacy_phy_init_tssi2dbm_table(struct b43legacy_wldev *dev )
   {
   phy = & dev->phy;
   __ret_warn_on = (unsigned int )phy->type - 1U > 1U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20749,7 +20747,7 @@ int b43legacy_phy_init_tssi2dbm_table(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   pab0 = (short )((dev->dev)->bus)->sprom.pa0b0;
   pab1 = (short )((dev->dev)->bus)->sprom.pa0b1;
   pab2 = (short )((dev->dev)->bus)->sprom.pa0b2;
@@ -20956,7 +20954,7 @@ void b43legacy_phy_set_antenna_diversity(struct b43legacy_wldev *dev )
   }
   {
   __ret_warn_on = (unsigned int )antennadiv > 3U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20966,7 +20964,7 @@ void b43legacy_phy_set_antenna_diversity(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ucodeflags = b43legacy_shm_read32(dev, 1, 94);
   b43legacy_shm_write32(dev, 1, 94, ucodeflags & 4294967294U);
   }
@@ -21082,7 +21080,7 @@ void b43legacy_phy_set_antenna_diversity(struct b43legacy_wldev *dev )
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on___0 = 1;
-  tmp___11 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___11 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -21092,7 +21090,7 @@ void b43legacy_phy_set_antenna_diversity(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -21185,12 +21183,12 @@ static u16 flip_4bit(u16 value )
   {
   {
   flipped = 0U;
-  tmp___0 = __builtin_expect(((int )value & -16) != 0, 0L);
+  tmp___0 = ldv__builtin_expect(((int )value & -16) != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
     printk("\016b43legacy: Test (%s) failed\n", (char *)"!((value & ~0x000F) == 0x0000)");
-    tmp = __builtin_expect(((int )value & -16) != 0, 0L);
+    tmp = ldv__builtin_expect(((int )value & -16) != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21232,7 +21230,7 @@ __inline static u16 channel2freq_bg(u8 channel )
   frequencies_bg[11] = 67U;
   frequencies_bg[12] = 72U;
   frequencies_bg[13] = 84U;
-  tmp = __builtin_expect((unsigned int )channel - 1U > 13U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )channel - 1U > 13U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21256,7 +21254,7 @@ void b43legacy_radio_lock(struct b43legacy_wldev *dev )
   {
   status = b43legacy_read32(dev, 288);
   __ret_warn_on = (status & 524288U) != 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21266,7 +21264,7 @@ void b43legacy_radio_lock(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   status = status | 524288U;
   b43legacy_write32(dev, 288, status);
   __asm__  volatile   ("": : : "memory");
@@ -21286,7 +21284,7 @@ void b43legacy_radio_unlock(struct b43legacy_wldev *dev )
   b43legacy_read16(dev, 992);
   status = b43legacy_read32(dev, 288);
   __ret_warn_on = (status & 524288U) == 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21296,7 +21294,7 @@ void b43legacy_radio_unlock(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   status = status & 4294443007U;
   b43legacy_write32(dev, 288, status);
   __asm__  volatile   ("": : : "memory");
@@ -21341,7 +21339,7 @@ u16 b43legacy_radio_read16(struct b43legacy_wldev *dev , u16 offset )
   } else {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21351,7 +21349,7 @@ u16 b43legacy_radio_read16(struct b43legacy_wldev *dev , u16 offset )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
   goto ldv_50878;
@@ -22716,7 +22714,7 @@ static void _stack_save(u32 *_stackptr , size_t *stackidx , u8 id , u16 offset ,
   {
   stackptr = _stackptr + *stackidx;
   __ret_warn_on = ((int )offset & 57344) != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22726,9 +22724,9 @@ static void _stack_save(u32 *_stackptr , size_t *stackidx , u8 id , u16 offset ,
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = ((int )id & 248) != 0;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22738,13 +22736,13 @@ static void _stack_save(u32 *_stackptr , size_t *stackidx , u8 id , u16 offset ,
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   *stackptr = (u32 )offset;
   *stackptr = *stackptr | ((unsigned int )id << 13);
   *stackptr = *stackptr | ((unsigned int )value << 16);
   *stackidx = *stackidx + 1UL;
   __ret_warn_on___1 = *stackidx > 25UL;
-  tmp___1 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -22754,7 +22752,7 @@ static void _stack_save(u32 *_stackptr , size_t *stackidx , u8 id , u16 offset ,
 
   }
   {
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   return;
 }
@@ -22770,7 +22768,7 @@ static u16 _stack_restore(u32 *stackptr , u8 id , u16 offset )
   {
   {
   __ret_warn_on = ((int )offset & 57344) != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22780,9 +22778,9 @@ static u16 _stack_restore(u32 *stackptr , u8 id , u16 offset )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = ((int )id & 248) != 0;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22792,7 +22790,7 @@ static u16 _stack_restore(u32 *stackptr , u8 id , u16 offset )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   i = 0UL;
   }
   goto ldv_51082;
@@ -24300,7 +24298,7 @@ int b43legacy_radio_selectchannel(struct b43legacy_wldev *dev , u8 channel , int
     switch_default: /* CIL Label */ 
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24310,7 +24308,7 @@ int b43legacy_radio_selectchannel(struct b43legacy_wldev *dev , u8 channel , int
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -24390,7 +24388,7 @@ static u16 b43legacy_get_txgain_base_band(u16 txpower )
   {
   {
   __ret_warn_on = (unsigned int )txpower > 63U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -24400,7 +24398,7 @@ static u16 b43legacy_get_txgain_base_band(u16 txpower )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned int )txpower > 53U) {
     ret = 2U;
@@ -24425,7 +24423,7 @@ static u16 b43legacy_get_txgain_freq_power_amp(u16 txpower )
   {
   {
   __ret_warn_on = (unsigned int )txpower > 63U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -24435,7 +24433,7 @@ static u16 b43legacy_get_txgain_freq_power_amp(u16 txpower )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned int )txpower > 31U) {
     ret = 0U;
@@ -24463,7 +24461,7 @@ static u16 b43legacy_get_txgain_dac(u16 txpower )
   {
   {
   __ret_warn_on = (unsigned int )txpower > 63U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -24473,7 +24471,7 @@ static u16 b43legacy_get_txgain_dac(u16 txpower )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned int )txpower > 53U) {
     ret = (unsigned int )txpower + 65483U;
@@ -24574,7 +24572,7 @@ void b43legacy_radio_set_txpower_bg(struct b43legacy_wldev *dev , u16 baseband_a
   phy->__annonCompField86.rfatt = radio_attenuation;
   phy->__annonCompField86.txctl1 = txpower;
   __ret_warn_on = (unsigned int )baseband_attenuation > 11U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -24584,12 +24582,12 @@ void b43legacy_radio_set_txpower_bg(struct b43legacy_wldev *dev , u16 baseband_a
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned int )phy->radio_rev <= 5U) {
     {
     __ret_warn_on___0 = (unsigned int )radio_attenuation > 9U;
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24599,12 +24597,12 @@ void b43legacy_radio_set_txpower_bg(struct b43legacy_wldev *dev , u16 baseband_a
 
     }
     {
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
   } else {
     {
     __ret_warn_on___1 = (unsigned int )radio_attenuation > 31U;
-    tmp___1 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -24614,12 +24612,12 @@ void b43legacy_radio_set_txpower_bg(struct b43legacy_wldev *dev , u16 baseband_a
 
     }
     {
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
   }
   {
   __ret_warn_on___2 = (unsigned int )txpower > 7U;
-  tmp___2 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -24629,7 +24627,7 @@ void b43legacy_radio_set_txpower_bg(struct b43legacy_wldev *dev , u16 baseband_a
 
   }
   {
-  __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
   b43legacy_phy_set_baseband_attenuation(dev, (int )baseband_attenuation);
   b43legacy_radio_write16(dev, 67, (int )radio_attenuation);
   b43legacy_shm_write16(dev, 1, 100, (int )radio_attenuation);
@@ -24943,7 +24941,7 @@ void b43legacy_radio_turn_on(struct b43legacy_wldev *dev )
   tmp = b43legacy_radio_selectchannel(dev, (int )channel, 0);
   err = err | tmp;
   __ret_warn_on = err != 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24953,7 +24951,7 @@ void b43legacy_radio_turn_on(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   goto ldv_51300;
   switch_default: /* CIL Label */ 
@@ -25295,7 +25293,7 @@ static ssize_t b43legacy_attr_interfmode_show(struct device *dev , struct device
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -25305,7 +25303,7 @@ static ssize_t b43legacy_attr_interfmode_show(struct device *dev , struct device
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -25515,7 +25513,7 @@ int b43legacy_sysfs_register(struct b43legacy_wldev *wldev )
   dev = (wldev->dev)->dev;
   tmp = atomic_read((atomic_t const   *)(& wldev->__init_status));
   __ret_warn_on = tmp != 1;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25525,7 +25523,7 @@ int b43legacy_sysfs_register(struct b43legacy_wldev *wldev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   err = device_create_file(dev, (struct device_attribute  const  *)(& dev_attr_interference));
   }
   if (err != 0) {
@@ -26166,7 +26164,7 @@ void b43legacy_generate_plcp_hdr(struct b43legacy_plcp_hdr4 *plcp , u16 const   
     tmp = b43legacy_plcp_get_ratecode_ofdm((int )bitrate);
     d = (u16 )tmp;
     __ret_warn_on = ((int )octets & 61440) != 0;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -26176,7 +26174,7 @@ void b43legacy_generate_plcp_hdr(struct b43legacy_plcp_hdr4 *plcp , u16 const   
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     d = (u16 )((int )((short )d) | (int )((short )((int )octets << 5)));
     *data = (unsigned int )d;
     }
@@ -26366,7 +26364,7 @@ static int generate_txhdr_fw3(struct b43legacy_wldev *dev , struct b43legacy_txh
     {
     key_idx = (info->__annonCompField84.control.hw_key)->hw_key_idx;
     __ret_warn_on = (int )key_idx >= (int )dev->max_nr_keys;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -26376,7 +26374,7 @@ static int generate_txhdr_fw3(struct b43legacy_wldev *dev , struct b43legacy_txh
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     key = (struct b43legacy_key *)(& dev->key) + (unsigned long )key_idx;
     }
     if ((int )key->enabled) {
@@ -26641,7 +26639,7 @@ void b43legacy_rx(struct b43legacy_wldev *dev , struct sk_buff *skb , void const
   }
   {
   padding = (macstat & 4U) != 0U ? 2 : 0;
-  tmp = __builtin_expect((unsigned long )skb->len < (unsigned long )padding + 6UL,
+  tmp = ldv__builtin_expect((unsigned long )skb->len < (unsigned long )padding + 6UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -26655,7 +26653,7 @@ void b43legacy_rx(struct b43legacy_wldev *dev , struct sk_buff *skb , void const
   {
   plcp = (struct b43legacy_plcp_hdr6 *)skb->data + (unsigned long )padding;
   skb_pull(skb, (unsigned int )padding + 6U);
-  tmp___0 = __builtin_expect(skb->len <= 13U, 0L);
+  tmp___0 = ldv__builtin_expect(skb->len <= 13U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26673,7 +26671,7 @@ void b43legacy_rx(struct b43legacy_wldev *dev , struct sk_buff *skb , void const
     tmp___1 = b43legacy_kidx_to_raw(dev, (int )((u8 )keyidx));
     keyidx = (unsigned int )tmp___1;
     __ret_warn_on = keyidx >= (unsigned int )dev->max_nr_keys;
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -26683,13 +26681,13 @@ void b43legacy_rx(struct b43legacy_wldev *dev , struct sk_buff *skb , void const
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if ((unsigned int )dev->key[keyidx].algorithm != 0U) {
       {
       tmp___3 = ieee80211_has_protected((int )fctl);
       __ret_warn_on___0 = tmp___3 == 0;
-      tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -26699,12 +26697,12 @@ void b43legacy_rx(struct b43legacy_wldev *dev , struct sk_buff *skb , void const
 
       }
       {
-      __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       fctl = (unsigned int )fctl & 49151U;
       wlhdr->frame_control = fctl;
       tmp___5 = ieee80211_hdrlen((int )fctl);
       wlhdr_len = (int )tmp___5;
-      tmp___6 = __builtin_expect(skb->len < (unsigned int )(wlhdr_len + 3), 0L);
+      tmp___6 = ldv__builtin_expect(skb->len < (unsigned int )(wlhdr_len + 3), 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -26722,7 +26720,7 @@ void b43legacy_rx(struct b43legacy_wldev *dev , struct sk_buff *skb , void const
         icv_len = 4;
       }
       {
-      tmp___7 = __builtin_expect(skb->len < (unsigned int )((wlhdr_len + iv_len) + icv_len),
+      tmp___7 = ldv__builtin_expect(skb->len < (unsigned int )((wlhdr_len + iv_len) + icv_len),
                                  0L);
       }
       if (tmp___7 != 0L) {
@@ -27005,7 +27003,7 @@ void b43legacy_rfkill_poll(struct ieee80211_hw *hw )
   brought_up = 0;
   mutex_lock_nested(& wl->mutex, 0U);
   tmp___1 = atomic_read((atomic_t const   *)(& dev->__init_status));
-  tmp___2 = __builtin_expect(tmp___1 <= 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 <= 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -27028,7 +27026,7 @@ void b43legacy_rfkill_poll(struct ieee80211_hw *hw )
   }
   {
   enabled = b43legacy_is_hw_radio_enabled(dev);
-  tmp___3 = __builtin_expect((int )enabled != (int )dev->radio_hw_enable, 0L);
+  tmp___3 = ldv__builtin_expect((int )enabled != (int )dev->radio_hw_enable, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -27478,7 +27476,7 @@ void b43legacy_leds_init(struct b43legacy_wldev *dev )
     switch_default: /* CIL Label */ 
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -27488,7 +27486,7 @@ void b43legacy_leds_init(struct b43legacy_wldev *dev )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return;
     switch_break: /* CIL Label */ ;
@@ -27620,7 +27618,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -27628,7 +27626,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -28264,7 +28262,7 @@ void b43legacy_debugfs_add_device(struct b43legacy_wldev *dev )
   {
   {
   __ret_warn_on = (unsigned long )dev == (unsigned long )((struct b43legacy_wldev *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -28274,7 +28272,7 @@ void b43legacy_debugfs_add_device(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = kzalloc(336UL, 208U);
   e = (struct b43legacy_dfsentry *)tmp___0;
   }
@@ -28450,7 +28448,7 @@ void b43legacy_debugfs_log_txstat(struct b43legacy_wldev *dev , struct b43legacy
   _flags = arch_local_save_flags();
   tmp = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28460,7 +28458,7 @@ void b43legacy_debugfs_log_txstat(struct b43legacy_wldev *dev , struct b43legacy
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ldv_spin_lock_68(& log->lock);
   i = log->end + 1;
   }
@@ -28675,7 +28673,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -28702,7 +28700,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28738,7 +28736,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28778,7 +28776,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28818,7 +28816,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28969,7 +28967,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28980,7 +28978,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -29217,7 +29215,7 @@ static void op32_fill_descriptor(struct b43legacy_dmaring *ring , struct b43lega
   descbase = (struct b43legacy_dmadesc32 *)ring->descbase;
   slot = (int )(((long )desc - (long )descbase) / 8L);
   __ret_warn_on = slot < 0 || slot >= ring->nr_slots;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29227,7 +29225,7 @@ static void op32_fill_descriptor(struct b43legacy_dmaring *ring , struct b43lega
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   addr = (unsigned int )dmaaddr & 1073741823U;
   addrext = (unsigned int )dmaaddr >> 30;
   addr = addr | (ring->dev)->__annonCompField88.dma.translation;
@@ -29333,7 +29331,7 @@ __inline static int next_slot(struct b43legacy_dmaring *ring , int slot )
   {
   {
   __ret_warn_on = slot < -1 || slot > ring->nr_slots + -1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29343,7 +29341,7 @@ __inline static int next_slot(struct b43legacy_dmaring *ring , int slot )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (slot == ring->nr_slots + -1) {
     return (0);
@@ -29393,7 +29391,7 @@ __inline static int request_slot(struct b43legacy_dmaring *ring )
   {
   {
   __ret_warn_on = ! ring->tx;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29403,9 +29401,9 @@ __inline static int request_slot(struct b43legacy_dmaring *ring )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = (int )ring->stopped;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29415,10 +29413,10 @@ __inline static int request_slot(struct b43legacy_dmaring *ring )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   tmp___1 = free_slots(ring);
   __ret_warn_on___1 = tmp___1 == 0;
-  tmp___2 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -29428,7 +29426,7 @@ __inline static int request_slot(struct b43legacy_dmaring *ring )
 
   }
   {
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   slot = next_slot(ring, ring->current_slot);
   ring->current_slot = slot;
   ring->used_slots = ring->used_slots + 1;
@@ -29481,7 +29479,7 @@ static struct b43legacy_dmaring *priority_to_txring(struct b43legacy_wldev *dev 
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29491,7 +29489,7 @@ static struct b43legacy_dmaring *priority_to_txring(struct b43legacy_wldev *dev 
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   case_0: /* CIL Label */ 
   ring = dev->__annonCompField88.dma.tx_ring3;
@@ -29532,7 +29530,7 @@ static u16 b43legacy_dmacontroller_base(enum b43legacy_dmatype type , int contro
   map32[4] = 640U;
   map32[5] = 672U;
   __ret_warn_on = (unsigned int )controller_idx > 5U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29542,7 +29540,7 @@ static u16 b43legacy_dmacontroller_base(enum b43legacy_dmatype type , int contro
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (map32[controller_idx]);
 }
@@ -29594,7 +29592,7 @@ __inline static void sync_descbuffer_for_cpu(struct b43legacy_dmaring *ring , dm
   {
   {
   __ret_warn_on = (int )ring->tx;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29604,7 +29602,7 @@ __inline static void sync_descbuffer_for_cpu(struct b43legacy_dmaring *ring , dm
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   dma_sync_single_for_cpu(((ring->dev)->dev)->dma_dev, addr, len, 2);
   }
   return;
@@ -29619,7 +29617,7 @@ __inline static void sync_descbuffer_for_device(struct b43legacy_dmaring *ring ,
   {
   {
   __ret_warn_on = (int )ring->tx;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29629,7 +29627,7 @@ __inline static void sync_descbuffer_for_device(struct b43legacy_dmaring *ring ,
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   dma_sync_single_for_device(((ring->dev)->dev)->dma_dev, addr, len, 2);
   }
   return;
@@ -29823,7 +29821,7 @@ static bool b43legacy_dma_mapping_error(struct b43legacy_dmaring *ring , dma_add
   {
   {
   tmp = dma_mapping_error(((ring->dev)->dev)->dma_dev, addr);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (1);
@@ -29884,7 +29882,7 @@ static int setup_rx_descbuffer(struct b43legacy_dmaring *ring , struct b43legacy
   {
   {
   __ret_warn_on = (int )ring->tx;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29894,9 +29892,9 @@ static int setup_rx_descbuffer(struct b43legacy_dmaring *ring , struct b43legacy
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   skb = __dev_alloc_skb((unsigned int )ring->rx_buffersize, gfp_flags);
-  tmp___0 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -29914,7 +29912,7 @@ static int setup_rx_descbuffer(struct b43legacy_dmaring *ring , struct b43legacy
     gfp_flags = gfp_flags | 1U;
     dev_kfree_skb_any(skb);
     skb = __dev_alloc_skb((unsigned int )ring->rx_buffersize, gfp_flags);
-    tmp___1 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -30092,7 +30090,7 @@ static void free_all_descbuffers(struct b43legacy_dmaring *ring )
   if ((unsigned long )meta->skb == (unsigned long )((struct sk_buff *)0)) {
     {
     __ret_warn_on = ! ring->tx;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30102,7 +30100,7 @@ static void free_all_descbuffers(struct b43legacy_dmaring *ring )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     goto ldv_52278;
   } else {
@@ -30169,7 +30167,7 @@ static enum b43legacy_dmatype dma_mask_to_engine_type(u64 dmamask )
   }
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -30179,7 +30177,7 @@ static enum b43legacy_dmatype dma_mask_to_engine_type(u64 dmamask )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (30);
 }
@@ -30292,7 +30290,7 @@ static struct b43legacy_dmaring *b43legacy_setup_dmaring(struct b43legacy_wldev 
   } else {
     {
     __ret_warn_on = 1;
-    tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -30302,7 +30300,7 @@ static struct b43legacy_dmaring *b43legacy_setup_dmaring(struct b43legacy_wldev 
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
   {
@@ -30670,7 +30668,7 @@ static u16 generate_cookie(struct b43legacy_dmaring *ring , int slot )
   ldv_52348: 
   {
   __ret_warn_on = ((int )((unsigned short )slot) & 61440) != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -30680,7 +30678,7 @@ static u16 generate_cookie(struct b43legacy_dmaring *ring , int slot )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   cookie = (u16 )((int )cookie | (int )((unsigned short )slot));
   }
   return (cookie);
@@ -30752,7 +30750,7 @@ static struct b43legacy_dmaring *parse_cookie(struct b43legacy_wldev *dev , u16 
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -30762,7 +30760,7 @@ static struct b43legacy_dmaring *parse_cookie(struct b43legacy_wldev *dev , u16 
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -30770,7 +30768,7 @@ static struct b43legacy_dmaring *parse_cookie(struct b43legacy_wldev *dev , u16 
   {
   *slot = (int )cookie & 4095;
   __ret_warn_on___0 = ((unsigned long )ring == (unsigned long )((struct b43legacy_dmaring *)0) || *slot < 0) || *slot >= ring->nr_slots;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30780,7 +30778,7 @@ static struct b43legacy_dmaring *parse_cookie(struct b43legacy_wldev *dev , u16 
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   return (ring);
 }
@@ -30818,7 +30816,7 @@ static int dma_tx_fragment(struct b43legacy_dmaring *ring , struct sk_buff **in_
   info = tmp;
   tmp___0 = skb_end_pointer((struct sk_buff  const  *)skb);
   __ret_warn_on = (unsigned int )((struct skb_shared_info *)tmp___0)->nr_frags != 0U;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -30828,7 +30826,7 @@ static int dma_tx_fragment(struct b43legacy_dmaring *ring , struct sk_buff **in_
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   old_top_slot = ring->current_slot;
   old_used_slots = ring->used_slots;
   slot = request_slot(ring);
@@ -30838,7 +30836,7 @@ static int dma_tx_fragment(struct b43legacy_dmaring *ring , struct sk_buff **in_
   tmp___2 = generate_cookie(ring, slot);
   err = b43legacy_generate_txhdr(ring->dev, header, (unsigned char const   *)skb->data,
                                  skb->len, info, (int )tmp___2);
-  tmp___3 = __builtin_expect(err != 0, 0L);
+  tmp___3 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___3 != 0L) {
     ring->current_slot = old_top_slot;
@@ -30934,7 +30932,7 @@ __inline static int should_inject_overflow(struct b43legacy_dmaring *ring )
   {
   {
   tmp = b43legacy_debug(ring->dev, 1);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     next_overflow = ring->last_injected_overflow + 250UL;
@@ -30982,7 +30980,7 @@ int b43legacy_dma_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
   tmp = skb_get_queue_mapping((struct sk_buff  const  *)skb);
   ring = priority_to_txring(dev, (int )tmp);
   __ret_warn_on = ! ring->tx;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30992,8 +30990,8 @@ int b43legacy_dma_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
-  tmp___2 = __builtin_expect((long )ring->stopped, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect((long )ring->stopped, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -31013,7 +31011,7 @@ int b43legacy_dma_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
   {
   tmp___3 = free_slots(ring);
   __ret_warn_on___0 = tmp___3 <= 1;
-  tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -31023,8 +31021,8 @@ int b43legacy_dma_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
 
   }
   {
-  tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
-  tmp___6 = __builtin_expect(tmp___5 != 0L, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 != 0L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -31036,7 +31034,7 @@ int b43legacy_dma_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
   }
   {
   err = dma_tx_fragment(ring, & skb);
-  tmp___7 = __builtin_expect(err == -126, 0L);
+  tmp___7 = ldv__builtin_expect(err == -126, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -31047,7 +31045,7 @@ int b43legacy_dma_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
 
   }
   {
-  tmp___8 = __builtin_expect(err != 0, 0L);
+  tmp___8 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -31115,7 +31113,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
   {
   {
   ring = parse_cookie(dev, (int )status->cookie, & slot);
-  tmp = __builtin_expect((unsigned long )ring == (unsigned long )((struct b43legacy_dmaring *)0),
+  tmp = ldv__builtin_expect((unsigned long )ring == (unsigned long )((struct b43legacy_dmaring *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -31125,7 +31123,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
   }
   {
   __ret_warn_on = ! ring->tx;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -31135,7 +31133,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   firstused = (ring->current_slot - ring->used_slots) + 1;
   }
   if (firstused < 0) {
@@ -31144,7 +31142,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
 
   }
   {
-  tmp___1 = __builtin_expect(slot != firstused, 0L);
+  tmp___1 = ldv__builtin_expect(slot != firstused, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -31158,7 +31156,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
   ldv_52432: 
   {
   __ret_warn_on___0 = slot < 0 || slot >= ring->nr_slots;
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -31168,7 +31166,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   op32_idx2desc(ring, slot, & meta);
   }
   if ((unsigned long )meta->skb != (unsigned long )((struct sk_buff *)0)) {
@@ -31182,7 +31180,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
   }
   if ((int )meta->is_last_fragment) {
     {
-    tmp___3 = __builtin_expect((unsigned long )meta->skb == (unsigned long )((struct sk_buff *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )meta->skb == (unsigned long )((struct sk_buff *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -31222,7 +31220,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
   } else {
     {
     __ret_warn_on___1 = (unsigned long )meta->skb != (unsigned long )((struct sk_buff *)0);
-    tmp___4 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -31232,7 +31230,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
 
     }
     {
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
   }
   ring->used_slots = ring->used_slots - 1;
@@ -31251,7 +31249,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
     {
     tmp___5 = free_slots(ring);
     __ret_warn_on___2 = tmp___5 <= 1;
-    tmp___6 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -31261,7 +31259,7 @@ void b43legacy_dma_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
 
     }
     {
-    __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
     ring->stopped = 0;
     }
   } else {
@@ -31366,7 +31364,7 @@ static void dma_rx(struct b43legacy_dmaring *ring , int *slot )
     }
     ldv_52453: 
     {
-    tmp___0 = __builtin_expect((unsigned int )len == 0U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )len == 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -31380,7 +31378,7 @@ static void dma_rx(struct b43legacy_dmaring *ring , int *slot )
 
   }
   {
-  tmp___2 = __builtin_expect((int )len > (int )ring->rx_buffersize, 0L);
+  tmp___2 = ldv__builtin_expect((int )len > (int )ring->rx_buffersize, 0L);
   }
   if (tmp___2 != 0L) {
     cnt = 0;
@@ -31411,7 +31409,7 @@ static void dma_rx(struct b43legacy_dmaring *ring , int *slot )
   {
   dmaaddr = meta->dmaaddr;
   err = setup_rx_descbuffer(ring, desc, meta, 32U);
-  tmp___3 = __builtin_expect(err != 0, 0L);
+  tmp___3 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -31446,7 +31444,7 @@ void b43legacy_dma_rx(struct b43legacy_dmaring *ring )
   {
   used_slots = 0;
   __ret_warn_on = (int )ring->tx;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31456,10 +31454,10 @@ void b43legacy_dma_rx(struct b43legacy_dmaring *ring )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   current_slot = op32_get_current_rxslot(ring);
   __ret_warn_on___0 = current_slot < 0 || current_slot >= ring->nr_slots;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -31469,7 +31467,7 @@ void b43legacy_dma_rx(struct b43legacy_dmaring *ring )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   slot = ring->current_slot;
   }
   goto ldv_52470;
@@ -31501,7 +31499,7 @@ static void b43legacy_dma_tx_suspend_ring(struct b43legacy_dmaring *ring )
   {
   {
   __ret_warn_on = ! ring->tx;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31511,7 +31509,7 @@ static void b43legacy_dma_tx_suspend_ring(struct b43legacy_dmaring *ring )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   op32_tx_suspend(ring);
   }
   return;
@@ -31525,7 +31523,7 @@ static void b43legacy_dma_tx_resume_ring(struct b43legacy_dmaring *ring )
   {
   {
   __ret_warn_on = ! ring->tx;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31535,7 +31533,7 @@ static void b43legacy_dma_tx_resume_ring(struct b43legacy_dmaring *ring )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   op32_tx_resume(ring);
   }
   return;
@@ -31877,7 +31875,7 @@ static u16 generate_cookie___0(struct b43legacy_pioqueue *queue , struct b43lega
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31887,7 +31885,7 @@ static u16 generate_cookie___0(struct b43legacy_pioqueue *queue , struct b43lega
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -31895,7 +31893,7 @@ static u16 generate_cookie___0(struct b43legacy_pioqueue *queue , struct b43lega
   {
   packetindex = (int )(((long )packet - (long )(& (packet->queue)->tx_packets_cache)) / 32L);
   __ret_warn_on___0 = ((int )((unsigned short )packetindex) & 61440) != 0;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -31905,7 +31903,7 @@ static u16 generate_cookie___0(struct b43legacy_pioqueue *queue , struct b43lega
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   cookie = (u16 )((int )cookie | (int )((unsigned short )packetindex));
   }
   return (cookie);
@@ -31962,7 +31960,7 @@ static struct b43legacy_pioqueue *parse_cookie___0(struct b43legacy_wldev *dev ,
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31972,7 +31970,7 @@ static struct b43legacy_pioqueue *parse_cookie___0(struct b43legacy_wldev *dev ,
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -31980,7 +31978,7 @@ static struct b43legacy_pioqueue *parse_cookie___0(struct b43legacy_wldev *dev ,
   {
   packetindex = (int )cookie & 4095;
   __ret_warn_on___0 = (unsigned int )packetindex > 255U;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -31990,7 +31988,7 @@ static struct b43legacy_pioqueue *parse_cookie___0(struct b43legacy_wldev *dev ,
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   *packet = (struct b43legacy_pio_txpacket *)(& queue->tx_packets_cache) + (unsigned long )packetindex;
   }
   return (queue);
@@ -32015,7 +32013,7 @@ static int pio_tx_write_fragment(struct b43legacy_pioqueue *queue , struct sk_bu
   txhdr = (u8 *)(& txhdr_data.txhdr_fw3);
   tmp = skb_end_pointer((struct sk_buff  const  *)skb);
   __ret_warn_on = (unsigned int )((struct skb_shared_info *)tmp)->nr_frags != 0U;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -32025,7 +32023,7 @@ static int pio_tx_write_fragment(struct b43legacy_pioqueue *queue , struct sk_bu
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___1 = generate_cookie___0(queue, packet);
   tmp___2 = IEEE80211_SKB_CB(skb);
   err = b43legacy_generate_txhdr(queue->dev, txhdr, (unsigned char const   *)skb->data,
@@ -32105,7 +32103,7 @@ static int pio_tx_packet(struct b43legacy_pio_txpacket *packet )
   }
   {
   __ret_warn_on = (unsigned int )queue->tx_devq_packets > 31U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -32115,9 +32113,9 @@ static int pio_tx_packet(struct b43legacy_pio_txpacket *packet )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = (int )queue->tx_devq_used > (int )queue->tx_devq_size;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -32127,7 +32125,7 @@ static int pio_tx_packet(struct b43legacy_pio_txpacket *packet )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if ((unsigned int )queue->tx_devq_packets == 31U) {
     return (-16);
@@ -32141,7 +32139,7 @@ static int pio_tx_packet(struct b43legacy_pio_txpacket *packet )
   }
   {
   err = pio_tx_write_fragment(queue, skb, packet, 82UL);
-  tmp___1 = __builtin_expect(err == -126, 0L);
+  tmp___1 = ldv__builtin_expect(err == -126, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -32502,7 +32500,7 @@ int b43legacy_pio_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
   {
   queue = dev->__annonCompField88.pio.queue1;
   __ret_warn_on = (int )queue->tx_suspended;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -32512,10 +32510,10 @@ int b43legacy_pio_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = list_empty((struct list_head  const  *)(& queue->txfree));
   __ret_warn_on___0 = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -32525,14 +32523,14 @@ int b43legacy_pio_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   __mptr = (struct list_head  const  *)queue->txfree.next;
   packet = (struct b43legacy_pio_txpacket *)__mptr + 0xfffffffffffffff0UL;
   packet->skb = skb;
   list_move_tail(& packet->list, & queue->txqueue);
   queue->nr_txfree = queue->nr_txfree - 1U;
   __ret_warn_on___1 = queue->nr_txfree > 255U;
-  tmp___2 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -32542,7 +32540,7 @@ int b43legacy_pio_tx(struct b43legacy_wldev *dev , struct sk_buff *skb )
 
   }
   {
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   tasklet_schedule(& queue->txtask);
   }
   return (0);
@@ -32562,7 +32560,7 @@ void b43legacy_pio_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
   {
   queue = parse_cookie___0(dev, (int )status->cookie, & packet);
   __ret_warn_on = (unsigned long )queue == (unsigned long )((struct b43legacy_pioqueue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -32572,7 +32570,7 @@ void b43legacy_pio_handle_txstatus(struct b43legacy_wldev *dev , struct b43legac
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned long )packet->skb == (unsigned long )((struct sk_buff *)0)) {
     return;
@@ -32632,7 +32630,7 @@ static void pio_rx_error(struct b43legacy_pioqueue *queue , int clear_buffers , 
   if (clear_buffers != 0) {
     {
     __ret_warn_on = (unsigned int )queue->mmio_base != 768U;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32642,7 +32640,7 @@ static void pio_rx_error(struct b43legacy_pioqueue *queue , int clear_buffers , 
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     i = 0;
     }
     goto ldv_51141;
@@ -32736,7 +32734,7 @@ void b43legacy_pio_rx(struct b43legacy_pioqueue *queue )
   data_ready: 
   {
   len = b43legacy_pio_read(queue, 10);
-  tmp___1 = __builtin_expect((unsigned int )len > 1792U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )len > 1792U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -32747,11 +32745,11 @@ void b43legacy_pio_rx(struct b43legacy_pioqueue *queue )
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned int )len == 0U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )len == 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
-    tmp___3 = __builtin_expect((unsigned int )queue->mmio_base != 816U, 0L);
+    tmp___3 = ldv__builtin_expect((unsigned int )queue->mmio_base != 816U, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -32805,7 +32803,7 @@ void b43legacy_pio_rx(struct b43legacy_pioqueue *queue )
   }
   {
   skb = dev_alloc_skb((unsigned int )len);
-  tmp___4 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___4 != 0L) {
@@ -32886,7 +32884,7 @@ void b43legacy_pio_freeze_txqueues(struct b43legacy_wldev *dev )
   {
   tmp = b43legacy_using_pio(dev);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -32896,7 +32894,7 @@ void b43legacy_pio_freeze_txqueues(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   pio = & dev->__annonCompField88.pio;
   (pio->queue0)->tx_frozen = 1;
   (pio->queue1)->tx_frozen = 1;
@@ -32921,7 +32919,7 @@ void b43legacy_pio_thaw_txqueues(struct b43legacy_wldev *dev )
   {
   tmp = b43legacy_using_pio(dev);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -32931,7 +32929,7 @@ void b43legacy_pio_thaw_txqueues(struct b43legacy_wldev *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   pio = & dev->__annonCompField88.pio;
   (pio->queue0)->tx_frozen = 0;
   (pio->queue1)->tx_frozen = 0;
@@ -33146,7 +33144,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -33170,7 +33168,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -33178,7 +33176,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

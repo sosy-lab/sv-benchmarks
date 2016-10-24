@@ -5281,7 +5281,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
@@ -5448,7 +5448,7 @@ __inline static ktime_t ktime_set(long const   secs , unsigned long const   nsec
 
   {
   {
-  tmp = __builtin_expect((long long )secs > 9223372035LL, 0L);
+  tmp = ldv__builtin_expect((long long )secs > 9223372035LL, 0L);
   }
   if (tmp != 0L) {
     __constr_expr_0.tv64 = 9223372036854775807LL;
@@ -5617,7 +5617,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5627,7 +5627,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5719,13 +5719,13 @@ __inline static int can_dropped_invalid_skb(struct net_device *dev , struct sk_b
   cfd = (struct canfd_frame  const  *)skb->data;
   if ((unsigned int )skb->protocol == 3072U) {
     {
-    tmp = __builtin_expect(skb->len != 16U, 0L);
+    tmp = ldv__builtin_expect(skb->len != 16U, 0L);
     }
     if (tmp != 0L) {
       goto inval_skb;
     } else {
       {
-      tmp___0 = __builtin_expect((unsigned int )((unsigned char )cfd->len) > 8U, 0L);
+      tmp___0 = ldv__builtin_expect((unsigned int )((unsigned char )cfd->len) > 8U, 0L);
       }
       if (tmp___0 != 0L) {
         goto inval_skb;
@@ -5736,13 +5736,13 @@ __inline static int can_dropped_invalid_skb(struct net_device *dev , struct sk_b
   } else
   if ((unsigned int )skb->protocol == 3328U) {
     {
-    tmp___1 = __builtin_expect(skb->len != 72U, 0L);
+    tmp___1 = ldv__builtin_expect(skb->len != 72U, 0L);
     }
     if (tmp___1 != 0L) {
       goto inval_skb;
     } else {
       {
-      tmp___2 = __builtin_expect((unsigned int )((unsigned char )cfd->len) > 64U,
+      tmp___2 = ldv__builtin_expect((unsigned int )((unsigned char )cfd->len) > 64U,
                                  0L);
       }
       if (tmp___2 != 0L) {
@@ -7489,7 +7489,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_21(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 extern void ldv_free_irq(void * , int  , void * ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -8530,7 +8530,7 @@ void ldv_entry_EMGentry_21(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -11964,7 +11964,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -12174,7 +12174,7 @@ int softing_load_fw(char const   *file , struct softing *card , uint8_t *dpram ,
   descriptor.format = "%s, firmware(%s) got %u bytes, offset %c0x%04x\n";
   descriptor.lineno = 162U;
   descriptor.flags = 1U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12347,7 +12347,7 @@ int softing_load_app_fw(char const   *file , struct softing *card )
   descriptor.format = "firmware(%s) got %lu bytes\n";
   descriptor.lineno = 246U;
   descriptor.flags = 1U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12662,7 +12662,7 @@ ktime_t softing_raw2ktime(struct softing *card , u32 raw )
   tmp = __constr_expr_3;
   ldv_40830: 
   {
-  tmp___1 = __builtin_expect(tmp.tv64 > now.tv64, 0L);
+  tmp___1 = ldv__builtin_expect(tmp.tv64 > now.tv64, 0L);
   }
   if (tmp___1 != 0L) {
     goto ldv_40829;
@@ -13267,7 +13267,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13291,7 +13291,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13299,7 +13299,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

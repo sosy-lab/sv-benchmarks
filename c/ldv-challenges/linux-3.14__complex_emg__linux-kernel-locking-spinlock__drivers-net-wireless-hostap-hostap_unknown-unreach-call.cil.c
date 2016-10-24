@@ -6039,8 +6039,6 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
 extern void __list_add(struct list_head * , struct list_head * , struct list_head * ) ;
 __inline static void list_add(struct list_head *new , struct list_head *head ) 
 { 
@@ -8874,7 +8872,7 @@ static char const   __kstrtab_hostap_master_start_xmit[25U]  =
         '\000'};
 struct kernel_symbol  const  __ksymtab_hostap_master_start_xmit ;
 struct kernel_symbol  const  __ksymtab_hostap_master_start_xmit  =    {(unsigned long )(& hostap_master_start_xmit), (char const   *)(& __kstrtab_hostap_master_start_xmit)};
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
@@ -9243,7 +9241,7 @@ __inline static char *iwe_stream_add_event(struct iw_request_info *info , char *
   tmp = iwe_stream_lcp_len(info);
   lcp_len = tmp;
   event_len = iwe_stream_event_len_adjust(info, event_len);
-  tmp___0 = __builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
+  tmp___0 = ldv__builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
                              1L);
   }
   if (tmp___0 != 0L) {
@@ -9278,7 +9276,7 @@ __inline static char *iwe_stream_add_point(struct iw_request_info *info , char *
   point_len = tmp___0;
   tmp___1 = iwe_stream_lcp_len(info);
   lcp_len = tmp___1;
-  tmp___2 = __builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
+  tmp___2 = ldv__builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
                              1L);
   }
   if (tmp___2 != 0L) {
@@ -18143,7 +18141,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -18151,7 +18149,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -18176,7 +18174,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -18184,7 +18182,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -18229,7 +18227,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -18265,7 +18263,7 @@ __inline static char *iwe_stream_add_value(struct iw_request_info *info , char *
   tmp = iwe_stream_lcp_len(info);
   lcp_len = tmp;
   event_len = (int )((unsigned int )event_len - 8U);
-  tmp___0 = __builtin_expect((unsigned long )(value + (unsigned long )event_len) < (unsigned long )ends,
+  tmp___0 = ldv__builtin_expect((unsigned long )(value + (unsigned long )event_len) < (unsigned long )ends,
                              1L);
   }
   if (tmp___0 != 0L) {
@@ -24766,7 +24764,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -24776,7 +24774,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26712,7 +26710,7 @@ void ldv_dummy_resourceless_instance_callback_24_9(void (*arg0)(struct hh_cache 
                                                    struct hh_cache *arg1 , struct net_device *arg2 ,
                                                    unsigned char *arg3 ) ;
 void ldv_entry_EMGentry_35(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_10(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_11(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_3(void *arg0 ) ;
@@ -28173,7 +28171,7 @@ void ldv_entry_EMGentry_35(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -34006,7 +34004,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -34030,7 +34028,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -34038,7 +34036,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

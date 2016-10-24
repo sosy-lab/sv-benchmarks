@@ -5561,7 +5561,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
@@ -5643,7 +5643,6 @@ extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
                              int  ) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
@@ -5873,7 +5872,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -5881,7 +5880,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6530,7 +6529,7 @@ static void set_pll(struct bttv *btv )
       descriptor.format = "%d: PLL: no change required\n";
       descriptor.lineno = 834U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -6643,7 +6642,7 @@ static void bt848A_set_timing(struct bttv *btv )
       descriptor.format = "%d: load digital timing table (table_idx=%d)\n";
       descriptor.lineno = 886U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -6819,7 +6818,7 @@ static int video_mux(struct bttv *btv , unsigned int input )
     descriptor.format = "%d: video mux: input=%d mux=%d\n";
     descriptor.lineno = 988U;
     descriptor.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -7090,7 +7089,7 @@ static int set_tvnorm(struct bttv *btv , unsigned int norm )
 
   {
   {
-  tmp = __builtin_expect(norm > 7U, 0L);
+  tmp = ldv__builtin_expect(norm > 7U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7102,7 +7101,7 @@ static int set_tvnorm(struct bttv *btv , unsigned int norm )
 
   }
   {
-  tmp___0 = __builtin_expect(btv->tvnorm > 7U, 0L);
+  tmp___0 = ldv__builtin_expect(btv->tvnorm > 7U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7572,7 +7571,7 @@ void bttv_gpio_tracking(struct bttv *btv , char *comment )
   descriptor.format = "%d: gpio: en=%08x, out=%08x in=%08x [%s]\n";
   descriptor.lineno = 1491U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7666,7 +7665,7 @@ static int bttv_switch_overlay(struct bttv *btv , struct bttv_fh *fh , struct bt
     descriptor.format = "switch_overlay: enter [new=%p]\n";
     descriptor.lineno = 1536U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7701,7 +7700,7 @@ static int bttv_switch_overlay(struct bttv *btv , struct bttv_fh *fh , struct bt
       descriptor___0.format = "switch_overlay: old=%p state is %d\n";
       descriptor___0.lineno = 1547U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -7736,7 +7735,7 @@ static int bttv_switch_overlay(struct bttv *btv , struct bttv_fh *fh , struct bt
     descriptor___1.format = "switch_overlay: done\n";
     descriptor___1.lineno = 1553U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8478,7 +8477,7 @@ static int limit_scaled_size_lock(struct bttv_fh *fh , __s32 *width , __s32 *hei
   {
   {
   btv = fh->btv;
-  tmp = __builtin_expect((int )width_mask >= 0, 0L);
+  tmp = ldv__builtin_expect((int )width_mask >= 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8488,7 +8487,7 @@ static int limit_scaled_size_lock(struct bttv_fh *fh , __s32 *width , __s32 *hei
     }
   } else {
     {
-    tmp___0 = __builtin_expect(width_bias >= - width_mask, 0L);
+    tmp___0 = ldv__builtin_expect(width_bias >= - width_mask, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9372,7 +9371,7 @@ static int bttv_overlay(struct file *file , void *f , unsigned int on )
   retval = 0;
   if (on != 0U) {
     {
-    tmp = __builtin_expect((unsigned long )btv->fbuf.base == (unsigned long )((void *)0),
+    tmp = ldv__builtin_expect((unsigned long )btv->fbuf.base == (unsigned long )((void *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -9381,7 +9380,7 @@ static int bttv_overlay(struct file *file , void *f , unsigned int on )
 
     }
     {
-    tmp___1 = __builtin_expect(fh->ov.setup_ok == 0, 0L);
+    tmp___1 = ldv__builtin_expect(fh->ov.setup_ok == 0, 0L);
     }
     if (tmp___1 != 0L) {
       if (bttv_debug != 0U) {
@@ -9392,7 +9391,7 @@ static int bttv_overlay(struct file *file , void *f , unsigned int on )
         descriptor.format = "%d: overlay: !setup_ok\n";
         descriptor.lineno = 2599U;
         descriptor.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -9944,7 +9943,7 @@ static ssize_t bttv_read(struct file *file , char *data , size_t count , loff_t 
     descriptor.format = "%d: read count=%d type=%s\n";
     descriptor.lineno = 2910U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10168,7 +10167,7 @@ static int bttv_open(struct file *file )
     descriptor.format = "open dev=%s\n";
     descriptor.lineno = 2998U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10189,7 +10188,7 @@ static int bttv_open(struct file *file )
   } else {
     {
     __ret_warn_on = 1;
-    tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -10199,7 +10198,7 @@ static int bttv_open(struct file *file )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return (-19);
   }
@@ -10211,7 +10210,7 @@ static int bttv_open(struct file *file )
     descriptor___0.format = "%d: open called (type=%s)\n";
     descriptor___0.lineno = 3010U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -10227,7 +10226,7 @@ static int bttv_open(struct file *file )
   {
   tmp___5 = kmalloc(1560UL, 208U);
   fh = (struct bttv_fh *)tmp___5;
-  tmp___6 = __builtin_expect((unsigned long )fh == (unsigned long )((struct bttv_fh *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )fh == (unsigned long )((struct bttv_fh *)0),
                              0L);
   }
   if (tmp___6 != 0L) {
@@ -10361,7 +10360,7 @@ static int bttv_mmap(struct file *file , struct vm_area_struct *vma )
     descriptor.format = "%d: mmap type=%s 0x%lx+%ld\n";
     descriptor.lineno = 3115U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10671,7 +10670,7 @@ static int radio_open(struct file *file )
     descriptor.format = "open dev=%s\n";
     descriptor.lineno = 3190U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10692,7 +10691,7 @@ static int radio_open(struct file *file )
     descriptor___0.format = "%d: open called (radio)\n";
     descriptor___0.lineno = 3192U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -10707,7 +10706,7 @@ static int radio_open(struct file *file )
   {
   tmp___4 = kmalloc(1560UL, 208U);
   fh = (struct bttv_fh *)tmp___4;
-  tmp___5 = __builtin_expect((unsigned long )fh == (unsigned long )((struct bttv_fh *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )fh == (unsigned long )((struct bttv_fh *)0),
                              0L);
   }
   if (tmp___5 != 0L) {
@@ -11559,7 +11558,7 @@ static int bttv_irq_next_video(struct bttv *btv , struct bttv_buffer_set *set )
     descriptor.format = "%d: next set: top=%p bottom=%p [screen=%p,irq=%d,%d]\n";
     descriptor.lineno = 3547U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11601,7 +11600,7 @@ static void bttv_irq_wakeup_video(struct bttv *btv , struct bttv_buffer_set *wak
         descriptor.format = "%d: wakeup: both=%p\n";
         descriptor.lineno = 3563U;
         descriptor.flags = 0U;
-        tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp != 0L) {
           {
@@ -11633,7 +11632,7 @@ static void bttv_irq_wakeup_video(struct bttv *btv , struct bttv_buffer_set *wak
         descriptor___0.format = "%d: wakeup: top=%p\n";
         descriptor___0.lineno = 3573U;
         descriptor___0.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -11664,7 +11663,7 @@ static void bttv_irq_wakeup_video(struct bttv *btv , struct bttv_buffer_set *wak
         descriptor___1.format = "%d: wakeup: bottom=%p\n";
         descriptor___1.lineno = 3582U;
         descriptor___1.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -12027,7 +12026,7 @@ static irqreturn_t bttv_irq(int irq , void *dev_id )
     descriptor.format = "%d: irq loop=%d fc=%d riscs=%x, riscc=%08x, ";
     descriptor.lineno = 3785U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -12831,7 +12830,7 @@ static int bttv_suspend(struct pci_dev *pci_dev , pm_message_t state )
     descriptor.format = "%d: suspend %d\n";
     descriptor.lineno = 4299U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -12901,7 +12900,7 @@ static int bttv_resume(struct pci_dev *pci_dev )
     descriptor.format = "%d: resume\n";
     descriptor.lineno = 4335U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -13291,7 +13290,7 @@ void ldv_dummy_resourceless_instance_callback_9_3(void (*arg0)(struct bttv * , s
 void ldv_dummy_resourceless_instance_callback_9_9(void (*arg0)(struct bttv * , unsigned int  ) ,
                                                   struct bttv *arg1 , unsigned int arg2 ) ;
 void ldv_entry_EMGentry_44(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -15269,7 +15268,7 @@ void ldv_entry_EMGentry_44(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -24566,7 +24565,6 @@ static void ldv_pci_unregister_driver_38(struct pci_driver *ldv_func_arg1 )
   return;
 }
 }
-int __builtin_bswap32(int  ) ;
 __inline static __u16 __fswab16(__u16 val ) 
 { 
 
@@ -25455,7 +25453,7 @@ void bttv_idcard(struct bttv *btv )
       descriptor.format = "please mail id, board name and the correct card= insmod option to linux-media@vger.kernel.org\n";
       descriptor.lineno = 2897U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -25900,7 +25898,7 @@ static void init_lmlbt4x(struct bttv *btv )
   descriptor.format = "LMLBT4x init\n";
   descriptor.lineno = 3181U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -26007,7 +26005,7 @@ static void bttv_reset_audio(struct bttv *btv )
     descriptor.format = "%d: BT878A ARESET\n";
     descriptor.lineno = 3261U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -27851,7 +27849,7 @@ static int tea5757_read(struct bttv *btv )
     descriptor.format = "%d: tea5757:";
     descriptor.lineno = 4288U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -27916,7 +27914,7 @@ static int tea5757_read(struct bttv *btv )
     descriptor___0.format = "%d: tea5757: read 0x%X\n";
     descriptor___0.lineno = 4302U;
     descriptor___0.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -27968,7 +27966,7 @@ static int tea5757_write(struct bttv *btv , int value )
     descriptor.format = "%d: tea5757: write 0x%X\n";
     descriptor.lineno = 4321U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28031,7 +28029,7 @@ void tea5757_set_freq(struct bttv *btv , unsigned short freq )
     descriptor.format = "tea5757_set_freq %d\n";
     descriptor.lineno = 4341U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28342,7 +28340,7 @@ static void picolo_tetra_muxsel(struct bttv *btv , unsigned int input )
     descriptor.format = "%d : picolo_tetra_muxsel =>  input = %d\n";
     descriptor.lineno = 4568U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28379,7 +28377,7 @@ static void ivc120_muxsel(struct bttv *btv , unsigned int input )
     descriptor.format = "%d: ivc120_muxsel: Input - %02d | TDA - %02d | In - %02d\n";
     descriptor.lineno = 4614U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28439,7 +28437,7 @@ static void PXC200_muxsel(struct bttv *btv , unsigned int input )
     descriptor.format = "%d: PXC200_muxsel: pic cfg write failed:%d\n";
     descriptor.lineno = 4671U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28464,7 +28462,7 @@ static void PXC200_muxsel(struct bttv *btv , unsigned int input )
     descriptor___0.format = "%d: PXC200_muxsel: not PXC200F rc:%d\n";
     descriptor___0.lineno = 4679U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -28517,7 +28515,7 @@ static void PXC200_muxsel(struct bttv *btv , unsigned int input )
   descriptor___1.format = "%d: setting input channel to:%d\n";
   descriptor___1.lineno = 4719U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -30111,7 +30109,7 @@ int bttv_risc_packed(struct bttv *btv , struct btcx_riscmem *risc , struct scatt
   }
   {
   risc->jmp = rp;
-  tmp___11 = __builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
+  tmp___11 = ldv__builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
                               0L);
   }
   if (tmp___11 != 0L) {
@@ -30334,7 +30332,7 @@ static int bttv_risc_planar(struct bttv *btv , struct btcx_riscmem *risc , struc
   }
   {
   risc->jmp = rp;
-  tmp___6 = __builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
+  tmp___6 = ldv__builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
                              0L);
   }
   if (tmp___6 != 0L) {
@@ -30493,7 +30491,7 @@ static int bttv_risc_overlay(struct bttv *btv , struct btcx_riscmem *risc , stru
   }
   {
   risc->jmp = rp;
-  tmp___4 = __builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
+  tmp___4 = ldv__builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
                              0L);
   }
   if (tmp___4 != 0L) {
@@ -30756,7 +30754,7 @@ int bttv_risc_init_main(struct bttv *btv )
     descriptor.format = "%d: risc main @ %08llx\n";
     descriptor.lineno = 522U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30840,7 +30838,7 @@ void bttv_dma_free(struct videobuf_queue *q , struct bttv *btv , struct bttv_buf
   tmp = videobuf_to_dma(& buf->vb);
   dma = tmp;
   tmp___0 = preempt_count();
-  tmp___1 = __builtin_expect(((unsigned long )tmp___0 & 2096896UL) != 0UL, 0L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )tmp___0 & 2096896UL) != 0UL, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -31051,7 +31049,7 @@ int bttv_buffer_risc(struct bttv *btv , struct bttv_buffer *buf )
     descriptor.format = "%d: buffer field: %s  format: %s  size: %dx%d\n";
     descriptor.lineno = 714U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -31260,7 +31258,7 @@ int bttv_overlay_risc(struct bttv *btv , struct bttv_overlay *ov , struct bttv_f
     descriptor.format = "%d: overlay fields: %s format: %s  size: %dx%d\n";
     descriptor.lineno = 875U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31397,7 +31395,7 @@ static int vbi_buffer_setup(struct videobuf_queue *q , unsigned int *count , uns
     descriptor.format = "%d: setup: samples=%u start=%d,%d count=%u,%u\n";
     descriptor.lineno = 98U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31544,7 +31542,7 @@ static int vbi_buffer_prepare(struct videobuf_queue *q , struct videobuf_buffer 
     descriptor.format = "%d: buf prepare %p: top=%p bottom=%p field=%s\n";
     descriptor.lineno = 202U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -31587,7 +31585,7 @@ static void vbi_buffer_queue(struct videobuf_queue *q , struct videobuf_buffer *
     descriptor.format = "%d: queue %p\n";
     descriptor.lineno = 217U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31636,7 +31634,7 @@ static void vbi_buffer_release(struct videobuf_queue *q , struct videobuf_buffer
     descriptor.format = "%d: free %p\n";
     descriptor.lineno = 232U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31683,7 +31681,7 @@ static int try_fmt(struct v4l2_vbi_format *f , struct bttv_tvnorm  const  *tvnor
 
   }
   {
-  tmp = __builtin_expect(max_start >= max_end, 0L);
+  tmp = ldv__builtin_expect(max_start >= max_end, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31883,7 +31881,7 @@ void bttv_vbi_fmt_reset(struct bttv_vbi_fmt *f , unsigned int norm )
   f->fmt.reserved[1] = 0U;
   real_samples_per_line = (unsigned int )(((int )tvnorm->vbipack + 256) * 4);
   real_count = (unsigned int )((int )(tvnorm->cropcap.defrect.top >> 1) - (int )tvnorm->vbistart[0]);
-  tmp = __builtin_expect(real_samples_per_line > 2048U, 0L);
+  tmp = ldv__builtin_expect(real_samples_per_line > 2048U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31895,7 +31893,7 @@ void bttv_vbi_fmt_reset(struct bttv_vbi_fmt *f , unsigned int norm )
 
   }
   {
-  tmp___0 = __builtin_expect(real_count > 16U, 0L);
+  tmp___0 = ldv__builtin_expect(real_count > 16U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -32448,7 +32446,7 @@ static int bttv_i2c_xfer(struct i2c_adapter *i2c_adap , struct i2c_msg *msgs , i
     descriptor.format = "bt-i2c:";
     descriptor.lineno = 242U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -34827,7 +34825,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -34851,7 +34849,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -34859,7 +34857,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

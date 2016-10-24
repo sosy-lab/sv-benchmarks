@@ -6120,7 +6120,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 int ldv_filter_err_code(int ret_val ) ;
@@ -6179,7 +6179,6 @@ extern void might_fault(void) ;
 extern char *kasprintf(gfp_t  , char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
 extern void ldv_switch_to_interrupt_context(void) ;
@@ -6234,7 +6233,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6242,7 +6241,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6267,7 +6266,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6275,7 +6274,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6374,7 +6373,7 @@ static int dvb_device_open(struct inode *inode , struct file *file )
     {
     tmp___2 = new_fops;
     __file->f_op = tmp___2;
-    tmp___3 = __builtin_expect((unsigned long )tmp___2 == (unsigned long )((struct file_operations  const  *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )tmp___2 == (unsigned long )((struct file_operations  const  *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -7133,7 +7132,7 @@ void ldv_dummy_resourceless_instance_callback_7_3(int (*arg0)(struct sk_buff * ,
 void ldv_dummy_resourceless_instance_callback_7_9(int (*arg0)(struct sk_buff * , unsigned char * ) ,
                                                   struct sk_buff *arg1 , unsigned char *arg2 ) ;
 void ldv_entry_EMGentry_17(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -7949,7 +7948,7 @@ void ldv_entry_EMGentry_17(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10424,7 +10423,7 @@ static void dvb_dmxdev_delete_pids(struct dmxdev_filter *dmxdevfilter )
   }
   {
   tmp___0 = list_empty((struct list_head  const  *)(& dmxdevfilter->feed.ts));
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12829,7 +12828,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -18186,7 +18185,7 @@ __inline static bool freezing(struct task_struct *p )
   {
   {
   tmp = atomic_read((atomic_t const   *)(& system_freezing_cnt));
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -18220,7 +18219,7 @@ __inline static bool try_to_freeze_unsafe(void)
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
   }
   if (tmp___2 != 0L) {
     return (0);
@@ -18430,7 +18429,7 @@ static void dvb_frontend_add_event(struct dvb_frontend *fe , fe_status_t status 
   descriptor.format = "%s:\n";
   descriptor.lineno = 208U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -18500,7 +18499,7 @@ static int dvb_frontend_get_event(struct dvb_frontend *fe , struct dvb_frontend_
   descriptor.format = "%s:\n";
   descriptor.lineno = 238U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -18615,7 +18614,7 @@ static void dvb_frontend_init(struct dvb_frontend *fe )
   descriptor.format = "%s: initialising adapter %i frontend %i (%s)...\n";
   descriptor.lineno = 285U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -18698,7 +18697,7 @@ static void dvb_frontend_swzigzag_update_delay(struct dvb_frontend_private *fepr
   descriptor.format = "%s:\n";
   descriptor.lineno = 312U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -18839,7 +18838,7 @@ static int dvb_frontend_swzigzag_autotune(struct dvb_frontend *fe , int check_wr
   descriptor.format = "%s: drift:%i inversion:%i auto_step:%i auto_sub_step:%i started_auto_step:%i\n";
   descriptor.lineno = 408U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19145,7 +19144,7 @@ static int dvb_frontend_thread(void *data )
   descriptor.format = "%s:\n";
   descriptor.lineno = 608U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19355,7 +19354,7 @@ static int dvb_frontend_thread(void *data )
     descriptor___0.format = "%s: Frontend ALGO = DVBFE_ALGO_HW\n";
     descriptor___0.lineno = 656U;
     descriptor___0.flags = 0U;
-    tmp___16 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___16 != 0L) {
       {
@@ -19373,7 +19372,7 @@ static int dvb_frontend_thread(void *data )
       descriptor___1.format = "%s: Retune requested, FESTATE_RETUNE\n";
       descriptor___1.lineno = 659U;
       descriptor___1.flags = 0U;
-      tmp___17 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___17 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___17 != 0L) {
         {
@@ -19407,7 +19406,7 @@ static int dvb_frontend_thread(void *data )
       descriptor___2.format = "%s: state changed, adding current state\n";
       descriptor___2.lineno = 670U;
       descriptor___2.flags = 0U;
-      tmp___18 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___18 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -19433,7 +19432,7 @@ static int dvb_frontend_thread(void *data )
     descriptor___3.format = "%s: Frontend ALGO = DVBFE_ALGO_SW\n";
     descriptor___3.lineno = 676U;
     descriptor___3.flags = 0U;
-    tmp___19 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___19 != 0L) {
       {
@@ -19455,7 +19454,7 @@ static int dvb_frontend_thread(void *data )
     descriptor___4.format = "%s: Frontend ALGO = DVBFE_ALGO_CUSTOM, state=%d\n";
     descriptor___4.lineno = 680U;
     descriptor___4.flags = 0U;
-    tmp___20 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___20 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___20 != 0L) {
       {
@@ -19474,7 +19473,7 @@ static int dvb_frontend_thread(void *data )
       descriptor___5.format = "%s: Retune requested, FESTAT_RETUNE\n";
       descriptor___5.lineno = 682U;
       descriptor___5.flags = 0U;
-      tmp___21 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___21 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
       }
       if (tmp___21 != 0L) {
         {
@@ -19532,7 +19531,7 @@ static int dvb_frontend_thread(void *data )
     descriptor___6.format = "%s: UNDEFINED ALGO !\n";
     descriptor___6.lineno = 718U;
     descriptor___6.flags = 0U;
-    tmp___22 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___22 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___22 != 0L) {
       {
@@ -19633,7 +19632,7 @@ static void dvb_frontend_stop(struct dvb_frontend *fe )
   descriptor.format = "%s:\n";
   descriptor.lineno = 757U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19764,7 +19763,7 @@ static int dvb_frontend_start(struct dvb_frontend *fe )
   descriptor.format = "%s:\n";
   descriptor.lineno = 826U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19963,7 +19962,7 @@ static int dvb_frontend_clear_cache(struct dvb_frontend *fe )
   descriptor.format = "%s: Clearing cache for delivery system %d\n";
   descriptor.lineno = 929U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20147,7 +20146,7 @@ static void dtv_property_dump(struct dvb_frontend *fe , struct dtv_property *tvp
   descriptor.format = "%s: tvp.cmd    = 0x%08x (%s)\n";
   descriptor.lineno = 1079U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20165,7 +20164,7 @@ static void dtv_property_dump(struct dvb_frontend *fe , struct dtv_property *tvp
     descriptor___0.format = "%s: tvp.u.buffer.len = 0x%02x\n";
     descriptor___0.lineno = 1083U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -20185,7 +20184,7 @@ static void dtv_property_dump(struct dvb_frontend *fe , struct dtv_property *tvp
     descriptor___1.format = "%s: tvp.u.buffer.data[0x%02x] = 0x%02x\n";
     descriptor___1.lineno = 1088U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -20212,7 +20211,7 @@ static void dtv_property_dump(struct dvb_frontend *fe , struct dtv_property *tvp
     descriptor___2.format = "%s: tvp.u.data = 0x%08x\n";
     descriptor___2.lineno = 1091U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -20280,7 +20279,7 @@ static int dtv_property_cache_sync(struct dvb_frontend *fe , struct dtv_frontend
   descriptor.format = "%s: Preparing QPSK req\n";
   descriptor.lineno = 1108U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20301,7 +20300,7 @@ static int dtv_property_cache_sync(struct dvb_frontend *fe , struct dtv_frontend
   descriptor___0.format = "%s: Preparing QAM req\n";
   descriptor___0.lineno = 1113U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20323,7 +20322,7 @@ static int dtv_property_cache_sync(struct dvb_frontend *fe , struct dtv_frontend
   descriptor___1.format = "%s: Preparing OFDM req\n";
   descriptor___1.lineno = 1119U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -20408,7 +20407,7 @@ static int dtv_property_cache_sync(struct dvb_frontend *fe , struct dtv_frontend
   descriptor___2.format = "%s: Preparing ATSC req\n";
   descriptor___2.lineno = 1152U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -20503,7 +20502,7 @@ static int dtv_property_legacy_params_sync(struct dvb_frontend *fe , struct dvb_
   descriptor.format = "%s: Preparing QPSK req\n";
   descriptor.lineno = 1189U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20524,7 +20523,7 @@ static int dtv_property_legacy_params_sync(struct dvb_frontend *fe , struct dvb_
   descriptor___0.format = "%s: Preparing QAM req\n";
   descriptor___0.lineno = 1194U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20546,7 +20545,7 @@ static int dtv_property_legacy_params_sync(struct dvb_frontend *fe , struct dvb_
   descriptor___1.format = "%s: Preparing OFDM req\n";
   descriptor___1.lineno = 1200U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -20632,7 +20631,7 @@ static int dtv_property_legacy_params_sync(struct dvb_frontend *fe , struct dvb_
   descriptor___2.format = "%s: Preparing VSB req\n";
   descriptor___2.lineno = 1232U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -20659,7 +20658,7 @@ static int dtv_get_frontend(struct dvb_frontend *fe , struct dvb_frontend_parame
   if ((unsigned long )fe->ops.get_frontend != (unsigned long )((int (*)(struct dvb_frontend * ))0)) {
     {
     r = (*(fe->ops.get_frontend))(fe);
-    tmp = __builtin_expect(r < 0, 0L);
+    tmp = ldv__builtin_expect(r < 0, 0L);
     }
     if (tmp != 0L) {
       return (r);
@@ -21214,7 +21213,7 @@ static int dtv_property_process_get(struct dvb_frontend *fe , struct dtv_fronten
   descriptor.format = "%s: FE property %d doesn\'t exist\n";
   descriptor.lineno = 1484U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21277,7 +21276,7 @@ static int emulate_delivery_system(struct dvb_frontend *fe , u32 delsys )
     descriptor.format = "%s: Using defaults for SYS_ISDBT\n";
     descriptor.lineno = 1535U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21323,7 +21322,7 @@ static int emulate_delivery_system(struct dvb_frontend *fe , u32 delsys )
   descriptor___0.format = "%s: change delivery system on cache to %d\n";
   descriptor___0.lineno = 1554U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21376,7 +21375,7 @@ static int dvbv5_set_delivery_system(struct dvb_frontend *fe , u32 desired_syste
     descriptor.format = "%s: Changing delivery system to %d\n";
     descriptor.lineno = 1604U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21414,7 +21413,7 @@ static int dvbv5_set_delivery_system(struct dvb_frontend *fe , u32 desired_syste
     descriptor___0.format = "%s: Delivery system %d not supported.\n";
     descriptor___0.lineno = 1620U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -21459,7 +21458,7 @@ static int dvbv5_set_delivery_system(struct dvb_frontend *fe , u32 desired_syste
     descriptor___1.format = "%s: Delivery system %d not supported on emulation mode.\n";
     descriptor___1.lineno = 1641U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -21481,7 +21480,7 @@ static int dvbv5_set_delivery_system(struct dvb_frontend *fe , u32 desired_syste
   descriptor___2.format = "%s: Using delivery system %d emulated as if it were %d\n";
   descriptor___2.lineno = 1647U;
   descriptor___2.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -21530,7 +21529,7 @@ static int dvbv3_set_delivery_system(struct dvb_frontend *fe )
     descriptor.format = "%s: Using delivery system to %d\n";
     descriptor.lineno = 1697U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21573,7 +21572,7 @@ static int dvbv3_set_delivery_system(struct dvb_frontend *fe )
     descriptor___0.format = "%s: Couldn\'t find a delivery system that works with FE_SET_FRONTEND\n";
     descriptor___0.lineno = 1716U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21844,7 +21843,7 @@ static int dtv_property_process_set(struct dvb_frontend *fe , struct dtv_propert
   descriptor.format = "%s: Finalised property cache\n";
   descriptor.lineno = 1751U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22023,7 +22022,7 @@ static int dvb_frontend_ioctl(struct file *file , unsigned int cmd , void *parg 
   descriptor.format = "%s: (%d)\n";
   descriptor.lineno = 1903U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22116,7 +22115,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
   descriptor.format = "%s:\n";
   descriptor.lineno = 1943U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22135,7 +22134,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
     descriptor___0.format = "%s: properties.num = %d\n";
     descriptor___0.lineno = 1948U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -22153,7 +22152,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
     descriptor___1.format = "%s: properties.props = %p\n";
     descriptor___1.lineno = 1949U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -22216,7 +22215,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
       descriptor___2.format = "%s: Property cache is full, tuning\n";
       descriptor___2.lineno = 1975U;
       descriptor___2.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -22239,7 +22238,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
     descriptor___3.format = "%s: properties.num = %d\n";
     descriptor___3.lineno = 1981U;
     descriptor___3.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -22257,7 +22256,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
     descriptor___4.format = "%s: properties.props = %p\n";
     descriptor___4.lineno = 1982U;
     descriptor___4.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -22705,7 +22704,7 @@ static int dvb_frontend_ioctl_legacy(struct file *file , unsigned int cmd , void
   descriptor.format = "%s: current delivery system on cache: %d, V3 type: %d\n";
   descriptor.lineno = 2196U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23047,7 +23046,7 @@ static unsigned int dvb_frontend_poll(struct file *file , struct poll_table_stru
   descriptor.format = "%s:\n";
   descriptor.lineno = 2406U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23106,7 +23105,7 @@ static int dvb_frontend_open(struct inode *inode , struct file *file )
   descriptor.format = "%s:\n";
   descriptor.lineno = 2424U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23279,7 +23278,7 @@ static int dvb_frontend_release(struct inode *inode , struct file *file )
   descriptor.format = "%s:\n";
   descriptor.lineno = 2519U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23342,7 +23341,7 @@ int dvb_frontend_suspend(struct dvb_frontend *fe )
   descriptor.format = "%s: adap=%d fe=%d\n";
   descriptor.lineno = 2553U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23395,7 +23394,7 @@ int dvb_frontend_resume(struct dvb_frontend *fe )
   descriptor.format = "%s: adap=%d fe=%d\n";
   descriptor.lineno = 2571U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23477,7 +23476,7 @@ int dvb_register_frontend(struct dvb_adapter *dvb , struct dvb_frontend *fe )
   descriptor.format = "%s:\n";
   descriptor.lineno = 2598U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23553,7 +23552,7 @@ int dvb_unregister_frontend(struct dvb_frontend *fe )
   descriptor.format = "%s:\n";
   descriptor.lineno = 2640U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -27629,12 +27628,12 @@ unsigned int intlog2(u32 value )
 
   {
   {
-  tmp___0 = __builtin_expect(value == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(value == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -27644,7 +27643,7 @@ unsigned int intlog2(u32 value )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return (0U);
   } else {
@@ -27675,12 +27674,12 @@ unsigned int intlog10(u32 value )
 
   {
   {
-  tmp___0 = __builtin_expect(value == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(value == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -27690,7 +27689,7 @@ unsigned int intlog10(u32 value )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return (0U);
   } else {
@@ -27893,7 +27892,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -27917,7 +27916,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -27925,7 +27924,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

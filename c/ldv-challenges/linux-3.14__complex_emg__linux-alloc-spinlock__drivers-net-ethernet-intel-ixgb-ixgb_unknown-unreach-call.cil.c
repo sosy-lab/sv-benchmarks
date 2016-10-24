@@ -6220,7 +6220,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -6312,7 +6312,6 @@ extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6330,7 +6329,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6538,7 +6537,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6565,7 +6564,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6601,7 +6600,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6645,7 +6644,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6676,7 +6675,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6827,7 +6826,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6838,7 +6837,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7161,7 +7160,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7278,7 +7277,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7288,7 +7287,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8952,7 +8951,7 @@ static int ixgb_tso(struct ixgb_adapter *adapter , struct sk_buff *skb )
   {
   {
   tmp___10 = skb_is_gso((struct sk_buff  const  *)skb);
-  tmp___11 = __builtin_expect((long )tmp___10, 1L);
+  tmp___11 = ldv__builtin_expect((long )tmp___10, 1L);
   }
   if (tmp___11 != 0L) {
     {
@@ -8996,7 +8995,7 @@ static int ixgb_tso(struct ixgb_adapter *adapter , struct sk_buff *skb )
     context_desc = (struct ixgb_context_desc *)adapter->tx_ring.desc + (unsigned long )i;
     buffer_info = adapter->tx_ring.buffer_info + (unsigned long )i;
     __ret_warn_on = buffer_info->dma != 0ULL;
-    tmp___9 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___9 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -9006,7 +9005,7 @@ static int ixgb_tso(struct ixgb_adapter *adapter , struct sk_buff *skb )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     context_desc->ipcss = ipcss;
     context_desc->ipcso = ipcso;
     context_desc->ipcse = ipcse;
@@ -9046,7 +9045,7 @@ static bool ixgb_tx_csum(struct ixgb_adapter *adapter , struct sk_buff *skb )
 
   {
   {
-  tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)skb + 124UL) == 12U,
+  tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)skb + 124UL) == 12U,
                              1L);
   }
   if (tmp___1 != 0L) {
@@ -9058,7 +9057,7 @@ static bool ixgb_tx_csum(struct ixgb_adapter *adapter , struct sk_buff *skb )
     context_desc = (struct ixgb_context_desc *)adapter->tx_ring.desc + (unsigned long )i;
     buffer_info = adapter->tx_ring.buffer_info + (unsigned long )i;
     __ret_warn_on = buffer_info->dma != 0ULL;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9068,7 +9067,7 @@ static bool ixgb_tx_csum(struct ixgb_adapter *adapter , struct sk_buff *skb )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     context_desc->tucss = css;
     context_desc->tucso = cso;
     context_desc->tucse = 0U;
@@ -9148,11 +9147,11 @@ static int ixgb_tx_map(struct ixgb_adapter *adapter , struct sk_buff *skb , unsi
   _min1 = len;
   _min2 = 16384;
   size = (unsigned int )(_min1 < _min2 ? _min1 : _min2);
-  tmp___2 = __builtin_expect((long )(mss != 0U && nr_frags == 0U), 0L);
+  tmp___2 = ldv__builtin_expect((long )(mss != 0U && nr_frags == 0U), 0L);
   }
   if (tmp___2 != 0L) {
     {
-    tmp___3 = __builtin_expect((long )(size == (unsigned int )len && size > 8U), 0L);
+    tmp___3 = ldv__builtin_expect((long )(size == (unsigned int )len && size > 8U), 0L);
     }
     if (tmp___3 != 0L) {
       size = size - 4U;
@@ -9165,7 +9164,7 @@ static int ixgb_tx_map(struct ixgb_adapter *adapter , struct sk_buff *skb , unsi
   {
   buffer_info->length = (u16 )size;
   __ret_warn_on = buffer_info->dma != 0ULL;
-  tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -9175,7 +9174,7 @@ static int ixgb_tx_map(struct ixgb_adapter *adapter , struct sk_buff *skb , unsi
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   buffer_info->time_stamp = jiffies;
   buffer_info->mapped_as_page = 0U;
   buffer_info->dma = dma_map_single_attrs(& pdev->dev, (void *)skb->data + (unsigned long )offset,
@@ -9230,11 +9229,11 @@ static int ixgb_tx_map(struct ixgb_adapter *adapter , struct sk_buff *skb , unsi
   _min1___0 = len;
   _min2___0 = 16384;
   size = (unsigned int )(_min1___0 < _min2___0 ? _min1___0 : _min2___0);
-  tmp___8 = __builtin_expect(mss != 0U, 0L);
+  tmp___8 = ldv__builtin_expect(mss != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
-    tmp___9 = __builtin_expect((long )(f == nr_frags - 1U && size == (unsigned int )len),
+    tmp___9 = ldv__builtin_expect((long )(f == nr_frags - 1U && size == (unsigned int )len),
                                0L);
     }
     if (tmp___9 != 0L) {
@@ -9247,7 +9246,7 @@ static int ixgb_tx_map(struct ixgb_adapter *adapter , struct sk_buff *skb , unsi
   }
   if (tmp___10 != 0) {
     {
-    tmp___11 = __builtin_expect(size > 8U, 0L);
+    tmp___11 = ldv__builtin_expect(size > 8U, 0L);
     }
     if (tmp___11 != 0L) {
       size = size - 4U;
@@ -9405,7 +9404,7 @@ static int __ixgb_maybe_stop_tx(struct net_device *netdev , int size )
   tx_ring = & adapter->tx_ring;
   netif_stop_queue(netdev);
   __asm__  volatile   ("mfence": : : "memory");
-  tmp___0 = __builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U < (unsigned int )size,
+  tmp___0 = ldv__builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U < (unsigned int )size,
                              1L);
   }
   if (tmp___0 != 0L) {
@@ -9428,7 +9427,7 @@ static int ixgb_maybe_stop_tx(struct net_device *netdev , struct ixgb_desc_ring 
 
   {
   {
-  tmp = __builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U >= (unsigned int )size,
+  tmp = ldv__builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U >= (unsigned int )size,
                          1L);
   }
   if (tmp != 0L) {
@@ -9484,7 +9483,7 @@ static netdev_tx_t ixgb_xmit_frame(struct sk_buff *skb , struct net_device *netd
   }
   {
   tmp___1 = ixgb_maybe_stop_tx(netdev, & adapter->tx_ring, 20);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     return (16);
@@ -9510,7 +9509,7 @@ static netdev_tx_t ixgb_xmit_frame(struct sk_buff *skb , struct net_device *netd
 
   }
   {
-  tmp___4 = __builtin_expect(tso != 0, 1L);
+  tmp___4 = ldv__builtin_expect(tso != 0, 1L);
   }
   if (tmp___4 != 0L) {
     tx_flags = tx_flags | 4U;
@@ -9913,7 +9912,7 @@ static irqreturn_t ixgb_intr(int irq , void *data )
   hw = & adapter->hw;
   tmp___0 = readl((void const volatile   *)hw->hw_addr + 128U);
   icr = tmp___0;
-  tmp___1 = __builtin_expect(icr == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(icr == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -9921,7 +9920,7 @@ static irqreturn_t ixgb_intr(int irq , void *data )
 
   }
   {
-  tmp___3 = __builtin_expect((icr & 12U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((icr & 12U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -10052,12 +10051,12 @@ static bool ixgb_clean_tx_irq(struct ixgb_adapter *adapter )
   }
   {
   tx_ring->next_to_clean = i;
-  tmp___1 = __builtin_expect((long )cleaned, 0L);
+  tmp___1 = ldv__builtin_expect((long )cleaned, 0L);
   }
   if (tmp___1 != 0L) {
     {
     tmp___2 = netif_carrier_ok((struct net_device  const  *)netdev);
-    tmp___3 = __builtin_expect((long )tmp___2, 0L);
+    tmp___3 = ldv__builtin_expect((long )tmp___2, 0L);
     }
     if (tmp___3 != 0L) {
       tmp___4 = 1;
@@ -10069,7 +10068,7 @@ static bool ixgb_clean_tx_irq(struct ixgb_adapter *adapter )
   }
   if (tmp___4 != 0) {
     {
-    tmp___5 = __builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U > 19U,
+    tmp___5 = ldv__builtin_expect((((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use) - 1U > 19U,
                                0L);
     }
     if (tmp___5 != 0L) {
@@ -10259,7 +10258,7 @@ static bool ixgb_clean_rx_irq(struct ixgb_adapter *adapter , int *work_done , in
   buffer_info->dma = 0ULL;
   length = (u32 )rx_desc->length;
   rx_desc->length = 0U;
-  tmp___0 = __builtin_expect(((int )status & 2) == 0, 0L);
+  tmp___0 = ldv__builtin_expect(((int )status & 2) == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10269,7 +10268,7 @@ static bool ixgb_clean_rx_irq(struct ixgb_adapter *adapter , int *work_done , in
     descriptor.format = "Receive packet consumed multiple buffers length<%x>\n";
     descriptor.lineno = 2056U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10287,7 +10286,7 @@ static bool ixgb_clean_rx_irq(struct ixgb_adapter *adapter , int *work_done , in
 
   }
   {
-  tmp___1 = __builtin_expect(((int )rx_desc->errors & 139) != 0, 0L);
+  tmp___1 = ldv__builtin_expect(((int )rx_desc->errors & 139) != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10316,7 +10315,7 @@ static bool ixgb_clean_rx_irq(struct ixgb_adapter *adapter , int *work_done , in
   rxdesc_done: 
   {
   rx_desc->status = 0U;
-  tmp___2 = __builtin_expect(cleaned_count > 7, 0L);
+  tmp___2 = ldv__builtin_expect(cleaned_count > 7, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10384,7 +10383,7 @@ static void ixgb_alloc_rx_buffers(struct ixgb_adapter *adapter , int cleaned_cou
   }
   {
   skb = netdev_alloc_skb_ip_align(netdev, adapter->rx_buffer_len);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -10432,14 +10431,14 @@ static void ixgb_alloc_rx_buffers(struct ixgb_adapter *adapter , int cleaned_cou
   }
   ldv_51083: 
   {
-  tmp___4 = __builtin_expect(rx_ring->next_to_use != i, 1L);
+  tmp___4 = ldv__builtin_expect(rx_ring->next_to_use != i, 1L);
   }
   if (tmp___4 != 0L) {
     {
     rx_ring->next_to_use = i;
     tmp___2 = i;
     i = i - 1U;
-    tmp___3 = __builtin_expect(tmp___2 == 0U, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 0U, 0L);
     }
     if (tmp___3 != 0L) {
       i = rx_ring->count - 1U;
@@ -10839,7 +10838,7 @@ void ldv_dummy_resourceless_instance_callback_1_7(int (*arg0)(struct net_device 
                                                   struct net_device *arg1 , struct ethtool_eeprom *arg2 ,
                                                   unsigned char *arg3 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 extern void ldv_free_irq(void * , int  , void * ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -11394,7 +11393,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -13364,7 +13363,7 @@ bool ixgb_adapter_stop(struct ixgb_hw *hw )
   descriptor.format = "%s\n";
   descriptor.lineno = 128U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13381,7 +13380,7 @@ bool ixgb_adapter_stop(struct ixgb_hw *hw )
     descriptor___0.format = "Exiting because the adapter is already stopped!!!\n";
     descriptor___0.lineno = 134U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13402,7 +13401,7 @@ bool ixgb_adapter_stop(struct ixgb_hw *hw )
   descriptor___1.format = "Masking off all interrupts\n";
   descriptor___1.lineno = 144U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13425,7 +13424,7 @@ bool ixgb_adapter_stop(struct ixgb_hw *hw )
   descriptor___2.format = "Issuing a global reset to MAC\n";
   descriptor___2.lineno = 161U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -13442,7 +13441,7 @@ bool ixgb_adapter_stop(struct ixgb_hw *hw )
   descriptor___3.format = "Masking off all interrupts\n";
   descriptor___3.lineno = 166U;
   descriptor___3.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -13474,7 +13473,7 @@ static ixgb_xpak_vendor ixgb_identify_xpak_vendor(struct ixgb_hw *hw )
   descriptor.format = "%s\n";
   descriptor.lineno = 192U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13536,7 +13535,7 @@ static ixgb_phy_type ixgb_identify_phy(struct ixgb_hw *hw )
   descriptor.format = "%s\n";
   descriptor.lineno = 231U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13575,7 +13574,7 @@ static ixgb_phy_type ixgb_identify_phy(struct ixgb_hw *hw )
   descriptor___0.format = "Identified TXN17401 optics\n";
   descriptor___0.lineno = 236U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13598,7 +13597,7 @@ static ixgb_phy_type ixgb_identify_phy(struct ixgb_hw *hw )
     descriptor___1.format = "Identified TXN17201 optics\n";
     descriptor___1.lineno = 246U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -13616,7 +13615,7 @@ static ixgb_phy_type ixgb_identify_phy(struct ixgb_hw *hw )
     descriptor___2.format = "Identified G6005 optics\n";
     descriptor___2.lineno = 249U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -13636,7 +13635,7 @@ static ixgb_phy_type ixgb_identify_phy(struct ixgb_hw *hw )
   descriptor___3.format = "Identified G6104 optics\n";
   descriptor___3.lineno = 254U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -13655,7 +13654,7 @@ static ixgb_phy_type ixgb_identify_phy(struct ixgb_hw *hw )
   descriptor___4.format = "Identified CX4\n";
   descriptor___4.lineno = 258U;
   descriptor___4.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -13675,7 +13674,7 @@ static ixgb_phy_type ixgb_identify_phy(struct ixgb_hw *hw )
     descriptor___5.format = "Identified TXN17201 optics\n";
     descriptor___5.lineno = 261U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -13693,7 +13692,7 @@ static ixgb_phy_type ixgb_identify_phy(struct ixgb_hw *hw )
     descriptor___6.format = "Identified G6005 optics\n";
     descriptor___6.lineno = 264U;
     descriptor___6.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -13713,7 +13712,7 @@ static ixgb_phy_type ixgb_identify_phy(struct ixgb_hw *hw )
   descriptor___7.format = "Unknown physical layer module\n";
   descriptor___7.lineno = 269U;
   descriptor___7.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -13763,7 +13762,7 @@ bool ixgb_init_hw(struct ixgb_hw *hw )
   descriptor.format = "%s\n";
   descriptor.lineno = 305U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13779,7 +13778,7 @@ bool ixgb_init_hw(struct ixgb_hw *hw )
   descriptor___0.format = "Issuing a global reset to MAC\n";
   descriptor___0.lineno = 312U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13796,7 +13795,7 @@ bool ixgb_init_hw(struct ixgb_hw *hw )
   descriptor___1.format = "Issuing an EE reset to MAC\n";
   descriptor___1.lineno = 316U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13839,7 +13838,7 @@ bool ixgb_init_hw(struct ixgb_hw *hw )
     descriptor___2.format = "MAC address invalid after ixgb_init_rx_addrs\n";
     descriptor___2.lineno = 344U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -13861,7 +13860,7 @@ bool ixgb_init_hw(struct ixgb_hw *hw )
   descriptor___3.format = "Zeroing the MTA\n";
   descriptor___3.lineno = 355U;
   descriptor___3.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -13916,7 +13915,7 @@ static void ixgb_init_rx_addrs(struct ixgb_hw *hw )
   descriptor.format = "%s\n";
   descriptor.lineno = 388U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13942,7 +13941,7 @@ static void ixgb_init_rx_addrs(struct ixgb_hw *hw )
     descriptor___0.format = "Keeping Permanent MAC Addr = %pM\n";
     descriptor___0.lineno = 401U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13960,7 +13959,7 @@ static void ixgb_init_rx_addrs(struct ixgb_hw *hw )
     descriptor___1.format = "Overriding MAC Address in RAR[0]\n";
     descriptor___1.lineno = 405U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -13976,7 +13975,7 @@ static void ixgb_init_rx_addrs(struct ixgb_hw *hw )
     descriptor___2.format = "New MAC Addr = %pM\n";
     descriptor___2.lineno = 406U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -13996,7 +13995,7 @@ static void ixgb_init_rx_addrs(struct ixgb_hw *hw )
   descriptor___3.format = "Clearing RAR[1-15]\n";
   descriptor___3.lineno = 412U;
   descriptor___3.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -14056,7 +14055,7 @@ void ixgb_mc_addr_list_update(struct ixgb_hw *hw , u8 *mc_addr_list , u32 mc_add
   descriptor.format = "%s\n";
   descriptor.lineno = 444U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14073,7 +14072,7 @@ void ixgb_mc_addr_list_update(struct ixgb_hw *hw , u8 *mc_addr_list , u32 mc_add
   descriptor___0.format = "Clearing RAR[1-15]\n";
   descriptor___0.lineno = 450U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14103,7 +14102,7 @@ void ixgb_mc_addr_list_update(struct ixgb_hw *hw , u8 *mc_addr_list , u32 mc_add
   descriptor___1.format = "Clearing MTA\n";
   descriptor___1.lineno = 457U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14136,7 +14135,7 @@ void ixgb_mc_addr_list_update(struct ixgb_hw *hw , u8 *mc_addr_list , u32 mc_add
   descriptor___2.format = "Adding the multicast addresses:\n";
   descriptor___2.lineno = 464U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14152,7 +14151,7 @@ void ixgb_mc_addr_list_update(struct ixgb_hw *hw , u8 *mc_addr_list , u32 mc_add
   descriptor___3.format = "MC Addr #%d = %pM\n";
   descriptor___3.lineno = 465U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -14170,7 +14169,7 @@ void ixgb_mc_addr_list_update(struct ixgb_hw *hw , u8 *mc_addr_list , u32 mc_add
     descriptor___4.format = "Added a multicast address to RAR[%d]\n";
     descriptor___4.lineno = 472U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -14190,7 +14189,7 @@ void ixgb_mc_addr_list_update(struct ixgb_hw *hw , u8 *mc_addr_list , u32 mc_add
     descriptor___5.format = "Hash value = 0x%03X\n";
     descriptor___5.lineno = 477U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -14218,7 +14217,7 @@ void ixgb_mc_addr_list_update(struct ixgb_hw *hw , u8 *mc_addr_list , u32 mc_add
   descriptor___6.format = "MC Update Complete\n";
   descriptor___6.lineno = 485U;
   descriptor___6.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -14247,7 +14246,7 @@ static u32 ixgb_hash_mc_addr(struct ixgb_hw *hw , u8 *mc_addr )
   descriptor.format = "%s\n";
   descriptor.lineno = 503U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14298,7 +14297,7 @@ static u32 ixgb_hash_mc_addr(struct ixgb_hw *hw , u8 *mc_addr )
   descriptor___0.format = "MC filter type param set incorrectly\n";
   descriptor___0.lineno = 530U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14352,7 +14351,7 @@ void ixgb_rar_set(struct ixgb_hw *hw , u8 *addr , u32 index )
   descriptor.format = "%s\n";
   descriptor.lineno = 584U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14423,7 +14422,7 @@ static bool ixgb_setup_fc(struct ixgb_hw *hw )
   descriptor.format = "%s\n";
   descriptor.lineno = 644U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14480,7 +14479,7 @@ static bool ixgb_setup_fc(struct ixgb_hw *hw )
   descriptor___0.format = "Flow control param set incorrectly\n";
   descriptor___0.lineno = 688U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14545,7 +14544,7 @@ static u16 ixgb_read_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_addr
   {
   {
   command = 0U;
-  tmp = __builtin_expect(reg_address > 65535U, 0L);
+  tmp = ldv__builtin_expect(reg_address > 65535U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14557,7 +14556,7 @@ static u16 ixgb_read_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_addr
 
   }
   {
-  tmp___0 = __builtin_expect(phy_address > 31U, 0L);
+  tmp___0 = ldv__builtin_expect(phy_address > 31U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14569,7 +14568,7 @@ static u16 ixgb_read_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_addr
 
   }
   {
-  tmp___1 = __builtin_expect(device_type > 31U, 0L);
+  tmp___1 = ldv__builtin_expect(device_type > 31U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14605,7 +14604,7 @@ static u16 ixgb_read_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_addr
   }
   ldv_43026: 
   {
-  tmp___2 = __builtin_expect((command & 1073741824U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((command & 1073741824U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14641,7 +14640,7 @@ static u16 ixgb_read_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_addr
   }
   ldv_43029: 
   {
-  tmp___3 = __builtin_expect((command & 1073741824U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((command & 1073741824U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -14673,7 +14672,7 @@ static void ixgb_write_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_ad
   {
   {
   command = 0U;
-  tmp = __builtin_expect(reg_address > 65535U, 0L);
+  tmp = ldv__builtin_expect(reg_address > 65535U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14685,7 +14684,7 @@ static void ixgb_write_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_ad
 
   }
   {
-  tmp___0 = __builtin_expect(phy_address > 31U, 0L);
+  tmp___0 = ldv__builtin_expect(phy_address > 31U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14697,7 +14696,7 @@ static void ixgb_write_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_ad
 
   }
   {
-  tmp___1 = __builtin_expect(device_type > 31U, 0L);
+  tmp___1 = ldv__builtin_expect(device_type > 31U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14734,7 +14733,7 @@ static void ixgb_write_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_ad
   }
   ldv_43041: 
   {
-  tmp___2 = __builtin_expect((command & 1073741824U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((command & 1073741824U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14770,7 +14769,7 @@ static void ixgb_write_phy_reg(struct ixgb_hw *hw , u32 reg_address , u32 phy_ad
   }
   ldv_43044: 
   {
-  tmp___3 = __builtin_expect((command & 1073741824U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((command & 1073741824U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -14801,7 +14800,7 @@ void ixgb_check_for_link(struct ixgb_hw *hw )
   descriptor.format = "%s\n";
   descriptor.lineno = 918U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14825,7 +14824,7 @@ void ixgb_check_for_link(struct ixgb_hw *hw )
     descriptor___0.format = "XPCSS Not Aligned while Status:LU is set\n";
     descriptor___0.lineno = 928U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14868,7 +14867,7 @@ bool ixgb_check_for_bad_link(struct ixgb_hw *hw )
       descriptor.format = "BAD LINK! too many LFC/RFC since last check\n";
       descriptor.lineno = 959U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -14965,7 +14964,7 @@ static void ixgb_clear_hw_cntrs(struct ixgb_hw *hw )
   descriptor.format = "%s\n";
   descriptor.lineno = 979U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14982,7 +14981,7 @@ static void ixgb_clear_hw_cntrs(struct ixgb_hw *hw )
     descriptor___0.format = "Exiting because the adapter is stopped!!!\n";
     descriptor___0.lineno = 983U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15223,7 +15222,7 @@ static bool mac_addr_valid(u8 *mac_addr )
   descriptor.format = "%s\n";
   descriptor.lineno = 1128U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15243,7 +15242,7 @@ static bool mac_addr_valid(u8 *mac_addr )
     descriptor___0.format = "MAC address is multicast\n";
     descriptor___0.lineno = 1132U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15265,7 +15264,7 @@ static bool mac_addr_valid(u8 *mac_addr )
       descriptor___1.format = "MAC address is broadcast\n";
       descriptor___1.lineno = 1137U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -15287,7 +15286,7 @@ static bool mac_addr_valid(u8 *mac_addr )
         descriptor___2.format = "MAC address is all zeros\n";
         descriptor___2.lineno = 1142U;
         descriptor___2.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -15758,7 +15757,7 @@ bool ixgb_get_eeprom_data(struct ixgb_hw *hw )
   descriptor.format = "%s\n";
   descriptor.lineno = 471U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15775,7 +15774,7 @@ bool ixgb_get_eeprom_data(struct ixgb_hw *hw )
   descriptor___0.format = "Reading eeprom data\n";
   descriptor___0.lineno = 475U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -15808,7 +15807,7 @@ bool ixgb_get_eeprom_data(struct ixgb_hw *hw )
     descriptor___1.format = "Checksum invalid\n";
     descriptor___1.lineno = 484U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15830,7 +15829,7 @@ bool ixgb_get_eeprom_data(struct ixgb_hw *hw )
     descriptor___2.format = "Signature invalid\n";
     descriptor___2.lineno = 493U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -15902,7 +15901,7 @@ void ixgb_get_ee_mac_addr(struct ixgb_hw *hw , u8 *mac_addr )
   descriptor.format = "%s\n";
   descriptor.lineno = 557U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15933,7 +15932,7 @@ void ixgb_get_ee_mac_addr(struct ixgb_hw *hw , u8 *mac_addr )
     descriptor___0.format = "eeprom mac address = %pM\n";
     descriptor___0.lineno = 563U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -18080,7 +18079,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -18104,7 +18103,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -18112,7 +18111,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

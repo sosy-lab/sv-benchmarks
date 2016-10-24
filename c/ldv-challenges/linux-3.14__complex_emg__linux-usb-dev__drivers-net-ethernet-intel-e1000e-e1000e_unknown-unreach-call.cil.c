@@ -6834,7 +6834,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 int ldv_filter_err_code(int ret_val ) ;
 int ldv_undef_int(void) ;
@@ -7148,7 +7148,7 @@ static s32 e1000_init_phy_params_82571(struct e1000_hw *hw )
     descriptor.format = "Error getting PHY ID\n";
     descriptor.lineno = 111U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7226,7 +7226,7 @@ static s32 e1000_init_phy_params_82571(struct e1000_hw *hw )
     descriptor___0.format = "PHY ID unknown: type = 0x%08x\n";
     descriptor___0.lineno = 137U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7522,7 +7522,7 @@ static s32 e1000_init_mac_params_82571(struct e1000_hw *hw )
       descriptor.format = "Please update your 82571 Bootagent\n";
       descriptor.lineno = 328U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -7799,7 +7799,7 @@ static s32 e1000_get_hw_semaphore_82571(struct e1000_hw *hw )
     descriptor.format = "Driver can\'t access device - SMBI bit is set.\n";
     descriptor.lineno = 490U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7846,7 +7846,7 @@ static s32 e1000_get_hw_semaphore_82571(struct e1000_hw *hw )
     descriptor___0.format = "Driver can\'t access the NVM\n";
     descriptor___0.lineno = 508U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7918,7 +7918,7 @@ static s32 e1000_get_hw_semaphore_82573(struct e1000_hw *hw )
     descriptor.format = "Driver can\'t access the PHY\n";
     descriptor.lineno = 558U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8268,7 +8268,7 @@ static s32 e1000_write_nvm_eewr_82571(struct e1000_hw *hw , u16 offset , u16 wor
     descriptor.format = "nvm parameter(s) out of bounds\n";
     descriptor.lineno = 845U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8352,7 +8352,7 @@ static s32 e1000_get_cfg_done_82571(struct e1000_hw *hw )
     descriptor.format = "MNG configuration cycle has not completed.\n";
     descriptor.lineno = 885U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8487,7 +8487,7 @@ static s32 e1000_reset_hw_82571(struct e1000_hw *hw )
     descriptor.format = "PCI-E Master disable polling has failed.\n";
     descriptor.lineno = 979U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8507,7 +8507,7 @@ static s32 e1000_reset_hw_82571(struct e1000_hw *hw )
   descriptor___0.format = "Masking off all interrupts\n";
   descriptor___0.lineno = 981U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8567,7 +8567,7 @@ static s32 e1000_reset_hw_82571(struct e1000_hw *hw )
   descriptor___1.format = "Issuing a global reset to MAC\n";
   descriptor___1.lineno = 1009U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8744,7 +8744,7 @@ static s32 e1000_init_hw_82571(struct e1000_hw *hw )
     descriptor.format = "Error initializing identification LED\n";
     descriptor.lineno = 1105U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8764,7 +8764,7 @@ static s32 e1000_init_hw_82571(struct e1000_hw *hw )
   descriptor___0.format = "Initializing the IEEE VLAN\n";
   descriptor___0.lineno = 1108U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8791,7 +8791,7 @@ static s32 e1000_init_hw_82571(struct e1000_hw *hw )
   descriptor___1.format = "Zeroing the MTA\n";
   descriptor___1.lineno = 1121U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -9428,7 +9428,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
       descriptor.format = "AN_UP     -> AN_PROG\n";
       descriptor.lineno = 1551U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -9455,7 +9455,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
       descriptor___0.format = "FORCED_UP -> AN_PROG\n";
       descriptor___0.lineno = 1570U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -9480,7 +9480,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
         descriptor___1.format = "AN_PROG   -> AN_UP\n";
         descriptor___1.lineno = 1585U;
         descriptor___1.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -9500,7 +9500,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
         descriptor___2.format = "AN_PROG   -> DOWN\n";
         descriptor___2.lineno = 1591U;
         descriptor___2.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -9526,7 +9526,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
         descriptor___3.format = "Error config flow control\n";
         descriptor___3.lineno = 1605U;
         descriptor___3.flags = 0U;
-        tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___3 != 0L) {
           {
@@ -9549,7 +9549,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
       descriptor___4.format = "AN_PROG   -> FORCED_UP\n";
       descriptor___4.lineno = 1611U;
       descriptor___4.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -9574,7 +9574,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
     descriptor___5.format = "DOWN      -> AN_PROG\n";
     descriptor___5.lineno = 1626U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -9599,7 +9599,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
     descriptor___6.format = "ANYSTATE  -> DOWN\n";
     descriptor___6.lineno = 1633U;
     descriptor___6.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -9632,7 +9632,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
       descriptor___7.format = "ANYSTATE  -> DOWN\n";
       descriptor___7.lineno = 1650U;
       descriptor___7.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -9668,7 +9668,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
       descriptor___8.format = "ANYSTATE  -> AN_PROG\n";
       descriptor___8.lineno = 1662U;
       descriptor___8.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -9703,7 +9703,7 @@ static s32 e1000_valid_led_default_82571(struct e1000_hw *hw , u16 *data )
     descriptor.format = "NVM Read Error\n";
     descriptor.lineno = 1684U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -15681,7 +15681,7 @@ static s32 e1000_init_phy_workarounds_pchlan(struct e1000_hw *hw )
     descriptor.format = "Failed to initialize PHY flow\n";
     descriptor.lineno = 260U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15753,7 +15753,7 @@ static s32 e1000_init_phy_workarounds_pchlan(struct e1000_hw *hw )
     descriptor___0.format = "Required LANPHYPC toggle blocked by ME\n";
     descriptor___0.lineno = 298U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15775,7 +15775,7 @@ static s32 e1000_init_phy_workarounds_pchlan(struct e1000_hw *hw )
   descriptor___1.format = "Toggling LANPHYPC\n";
   descriptor___1.lineno = 303U;
   descriptor___1.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -16038,7 +16038,7 @@ static s32 e1000_init_phy_params_ich8lan(struct e1000_hw *hw )
       descriptor.format = "Cannot determine PHY addr. Erroring out\n";
       descriptor.lineno = 480U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -16168,7 +16168,7 @@ static s32 e1000_init_nvm_params_ich8lan(struct e1000_hw *hw )
     descriptor.format = "ERROR: Flash registers not mapped\n";
     descriptor.lineno = 548U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16591,7 +16591,7 @@ static s32 e1000_platform_pm_pch_lpt(struct e1000_hw *hw , bool link )
       descriptor.format = "max_frame_size not set.\n";
       descriptor.lineno = 924U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -16616,7 +16616,7 @@ static s32 e1000_platform_pm_pch_lpt(struct e1000_hw *hw , bool link )
       descriptor___0.format = "Speed not set.\n";
       descriptor___0.lineno = 930U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -16662,7 +16662,7 @@ static s32 e1000_platform_pm_pch_lpt(struct e1000_hw *hw , bool link )
       descriptor___1.format = "Invalid LTR latency scale %d\n";
       descriptor___1.lineno = 958U;
       descriptor___1.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -16879,7 +16879,7 @@ static s32 e1000_check_for_copper_link_ich8lan(struct e1000_hw *hw )
     descriptor.format = "Error configuring flow control\n";
     descriptor.lineno = 1132U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -17073,7 +17073,7 @@ static s32 e1000_acquire_swflag_ich8lan(struct e1000_hw *hw )
     descriptor.format = "contention for Phy access\n";
     descriptor.lineno = 1231U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -17134,7 +17134,7 @@ static s32 e1000_acquire_swflag_ich8lan(struct e1000_hw *hw )
     descriptor___0.format = "SW has already locked the resource.\n";
     descriptor___0.lineno = 1245U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -17201,7 +17201,7 @@ static s32 e1000_acquire_swflag_ich8lan(struct e1000_hw *hw )
     descriptor___1.format = "Failed to acquire the semaphore, FW or HW has it: FWSM=0x%8.8x EXTCNF_CTRL=0x%8.8x)\n";
     descriptor___1.lineno = 1266U;
     descriptor___1.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -17256,7 +17256,7 @@ static void e1000_release_swflag_ich8lan(struct e1000_hw *hw )
     descriptor.format = "Semaphore unexpectedly released by sw/fw/hw\n";
     descriptor.lineno = 1297U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -17365,7 +17365,7 @@ static void e1000_rar_set_pch2lan(struct e1000_hw *hw , u8 *addr , u32 index )
     descriptor.format = "SHRA[%d] might be locked by ME - FWSM=0x%8.8x\n";
     descriptor.lineno = 1397U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -17388,7 +17388,7 @@ static void e1000_rar_set_pch2lan(struct e1000_hw *hw , u8 *addr , u32 index )
   descriptor___0.format = "Failed to write receive address at index %d\n";
   descriptor___0.lineno = 1401U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -17488,7 +17488,7 @@ static void e1000_rar_set_pch_lpt(struct e1000_hw *hw , u8 *addr , u32 index )
   descriptor.format = "Failed to write receive address at index %d\n";
   descriptor.lineno = 1474U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -17555,7 +17555,7 @@ static s32 e1000_write_smbus_addr(struct e1000_hw *hw )
       descriptor.format = "Unsupported SMB frequency in PHY\n";
       descriptor.lineno = 1528U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -18614,7 +18614,7 @@ static void e1000_lan_init_done_ich8lan(struct e1000_hw *hw )
     descriptor.format = "LAN_INIT_DONE not set, increase timeout\n";
     descriptor.lineno = 2291U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19070,7 +19070,7 @@ static s32 e1000_valid_nvm_bank_detect_ich8lan(struct e1000_hw *hw , u32 *bank )
   descriptor.format = "Unable to determine valid NVM bank via EEC - reading flash signature\n";
   descriptor.lineno = 2620U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19117,7 +19117,7 @@ static s32 e1000_valid_nvm_bank_detect_ich8lan(struct e1000_hw *hw , u32 *bank )
   descriptor___0.format = "ERROR: No valid NVM bank present\n";
   descriptor___0.lineno = 2649U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19161,7 +19161,7 @@ static s32 e1000_read_nvm_ich8lan(struct e1000_hw *hw , u16 offset , u16 words ,
     descriptor.format = "nvm parameter(s) out of bounds\n";
     descriptor.lineno = 2675U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19188,7 +19188,7 @@ static s32 e1000_read_nvm_ich8lan(struct e1000_hw *hw , u16 offset , u16 words ,
     descriptor___0.format = "Could not detect valid bank, assuming bank 0\n";
     descriptor___0.lineno = 2684U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -19241,7 +19241,7 @@ static s32 e1000_read_nvm_ich8lan(struct e1000_hw *hw , u16 offset , u16 words ,
     descriptor___1.format = "NVM read error: %d\n";
     descriptor___1.lineno = 2709U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -19280,7 +19280,7 @@ static s32 e1000_flash_cycle_init_ich8lan(struct e1000_hw *hw )
     descriptor.format = "Flash descriptor invalid.  SW Sequencing must be used.\n";
     descriptor.lineno = 2730U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19342,7 +19342,7 @@ static s32 e1000_flash_cycle_init_ich8lan(struct e1000_hw *hw )
       descriptor___0.format = "Flash controller busy, cannot get access\n";
       descriptor___0.lineno = 2777U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -19499,7 +19499,7 @@ static s32 e1000_read_flash_data_ich8lan(struct e1000_hw *hw , u32 offset , u8 s
       descriptor.format = "Timeout error - flash cycle did not complete.\n";
       descriptor.lineno = 2924U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -19546,7 +19546,7 @@ static s32 e1000_write_nvm_ich8lan(struct e1000_hw *hw , u16 offset , u16 words 
     descriptor.format = "nvm parameter(s) out of bounds\n";
     descriptor.lineno = 2951U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19627,7 +19627,7 @@ static s32 e1000_update_nvm_checksum_ich8lan(struct e1000_hw *hw )
     descriptor.format = "Could not detect valid bank, assuming bank 0\n";
     descriptor.lineno = 3001U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19719,7 +19719,7 @@ static s32 e1000_update_nvm_checksum_ich8lan(struct e1000_hw *hw )
     descriptor___0.format = "Flash commit failed.\n";
     descriptor___0.lineno = 3068U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -19794,7 +19794,7 @@ static s32 e1000_update_nvm_checksum_ich8lan(struct e1000_hw *hw )
     descriptor___1.format = "NVM update error: %d\n";
     descriptor___1.lineno = 3118U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -19966,7 +19966,7 @@ static s32 e1000_write_flash_data_ich8lan(struct e1000_hw *hw , u32 offset , u8 
     descriptor.format = "Timeout error - flash cycle did not complete.\n";
     descriptor.lineno = 3278U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -20032,7 +20032,7 @@ static s32 e1000_retry_write_flash_byte_ich8lan(struct e1000_hw *hw , u32 offset
   descriptor.format = "Retrying Byte %2.2X at offset %u\n";
   descriptor.lineno = 3322U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20207,7 +20207,7 @@ static s32 e1000_valid_led_default_ich8lan(struct e1000_hw *hw , u16 *data )
     descriptor.format = "NVM Read Error\n";
     descriptor.lineno = 3452U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -20418,7 +20418,7 @@ static s32 e1000_reset_hw_ich8lan(struct e1000_hw *hw )
     descriptor.format = "PCI-E Master disable polling has failed.\n";
     descriptor.lineno = 3578U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -20438,7 +20438,7 @@ static s32 e1000_reset_hw_ich8lan(struct e1000_hw *hw )
   descriptor___0.format = "Masking off all interrupts\n";
   descriptor___0.lineno = 3580U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20511,7 +20511,7 @@ static s32 e1000_reset_hw_ich8lan(struct e1000_hw *hw )
   descriptor___1.format = "Issuing a global reset to ich8lan\n";
   descriptor___1.lineno = 3630U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -20606,7 +20606,7 @@ static s32 e1000_init_hw_ich8lan(struct e1000_hw *hw )
     descriptor.format = "Error initializing identification LED\n";
     descriptor.lineno = 3698U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -20627,7 +20627,7 @@ static s32 e1000_init_hw_ich8lan(struct e1000_hw *hw )
   descriptor___0.format = "Zeroing the MTA\n";
   descriptor___0.lineno = 3704U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20807,7 +20807,7 @@ static s32 e1000_setup_link_ich8lan(struct e1000_hw *hw )
   descriptor.format = "After fix-ups FlowControl is now = %x\n";
   descriptor.lineno = 3872U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21162,7 +21162,7 @@ void e1000e_set_kmrn_lock_loss_workaround_ich8lan(struct e1000_hw *hw , bool sta
     descriptor.format = "Workaround applies to ICH8 only.\n";
     descriptor.lineno = 4112U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21420,7 +21420,7 @@ void e1000_resume_workarounds_pchlan(struct e1000_hw *hw )
     descriptor.format = "Failed to init PHY flow ret_val=%d\n";
     descriptor.lineno = 4338U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21446,7 +21446,7 @@ void e1000_resume_workarounds_pchlan(struct e1000_hw *hw )
       descriptor___0.format = "Failed to setup iRST\n";
       descriptor___0.lineno = 4352U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -21501,7 +21501,7 @@ void e1000_resume_workarounds_pchlan(struct e1000_hw *hw )
       descriptor___1.format = "Error %d in resume workarounds\n";
       descriptor___1.lineno = 4377U;
       descriptor___1.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -21730,7 +21730,7 @@ static s32 e1000_get_cfg_done_ich8lan(struct e1000_hw *hw )
       descriptor.format = "Auto Read Done did not complete\n";
       descriptor.lineno = 4542U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -21760,7 +21760,7 @@ static s32 e1000_get_cfg_done_ich8lan(struct e1000_hw *hw )
     descriptor___0.format = "PHY Reset Asserted not set - needs delay\n";
     descriptor___0.lineno = 4552U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -21794,7 +21794,7 @@ static s32 e1000_get_cfg_done_ich8lan(struct e1000_hw *hw )
       descriptor___1.format = "EEPROM not present\n";
       descriptor___1.lineno = 4563U;
       descriptor___1.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -23640,7 +23640,7 @@ static s32 e1000_acquire_swfw_sync_80003es2lan(struct e1000_hw *hw , u16 mask )
     descriptor.format = "Driver can\'t access resource, SW_FW_SYNC timeout.\n";
     descriptor.lineno = 323U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -23869,7 +23869,7 @@ static s32 e1000_get_cfg_done_80003es2lan(struct e1000_hw *hw )
     descriptor.format = "MNG configuration cycle has not completed.\n";
     descriptor.lineno = 532U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23921,7 +23921,7 @@ static s32 e1000_phy_force_speed_duplex_80003es2lan(struct e1000_hw *hw )
   descriptor.format = "GG82563 PSCR: %X\n";
   descriptor.lineno = 564U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23960,7 +23960,7 @@ static s32 e1000_phy_force_speed_duplex_80003es2lan(struct e1000_hw *hw )
     descriptor___0.format = "Waiting for forced speed/duplex link on GG82563 phy.\n";
     descriptor___0.lineno = 582U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24094,7 +24094,7 @@ static s32 e1000_reset_hw_80003es2lan(struct e1000_hw *hw )
     descriptor.format = "PCI-E Master disable polling has failed.\n";
     descriptor.lineno = 699U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24114,7 +24114,7 @@ static s32 e1000_reset_hw_80003es2lan(struct e1000_hw *hw )
   descriptor___0.format = "Masking off all interrupts\n";
   descriptor___0.lineno = 701U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24145,7 +24145,7 @@ static s32 e1000_reset_hw_80003es2lan(struct e1000_hw *hw )
   descriptor___1.format = "Issuing a global reset to MAC\n";
   descriptor___1.lineno = 716U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -24211,7 +24211,7 @@ static s32 e1000_init_hw_80003es2lan(struct e1000_hw *hw )
     descriptor.format = "Error initializing identification LED\n";
     descriptor.lineno = 762U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24231,7 +24231,7 @@ static s32 e1000_init_hw_80003es2lan(struct e1000_hw *hw )
   descriptor___0.format = "Initializing the IEEE VLAN\n";
   descriptor___0.lineno = 765U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24250,7 +24250,7 @@ static s32 e1000_init_hw_80003es2lan(struct e1000_hw *hw )
   descriptor___1.format = "Zeroing the MTA\n";
   descriptor___1.lineno = 772U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -24458,7 +24458,7 @@ static s32 e1000_copper_link_setup_gg82563_80003es2lan(struct e1000_hw *hw )
     descriptor.format = "Error Resetting the PHY\n";
     descriptor.lineno = 954U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28060,7 +28060,7 @@ void e1000e_init_rx_addrs(struct e1000_hw *hw , u16 rar_count )
   descriptor.format = "Programming MAC Address into RAR[0]\n";
   descriptor.lineno = 143U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28078,7 +28078,7 @@ void e1000e_init_rx_addrs(struct e1000_hw *hw , u16 rar_count )
   descriptor___0.format = "Clearing RAR[1-%u]\n";
   descriptor___0.lineno = 148U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -28146,7 +28146,7 @@ s32 e1000_check_alt_mac_addr_generic(struct e1000_hw *hw )
     descriptor.format = "NVM Read Error\n";
     descriptor.lineno = 183U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28185,7 +28185,7 @@ s32 e1000_check_alt_mac_addr_generic(struct e1000_hw *hw )
     descriptor___0.format = "NVM Read Error\n";
     descriptor___0.lineno = 198U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -28219,7 +28219,7 @@ s32 e1000_check_alt_mac_addr_generic(struct e1000_hw *hw )
     descriptor___1.format = "Ignoring Alternate Mac Address with MC bit set\n";
     descriptor___1.lineno = 208U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -28466,7 +28466,7 @@ s32 e1000e_check_for_copper_link(struct e1000_hw *hw )
     descriptor.format = "Error configuring flow control\n";
     descriptor.lineno = 465U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28517,7 +28517,7 @@ s32 e1000e_check_for_fiber_link(struct e1000_hw *hw )
     descriptor.format = "NOT Rx\'ing /C/, disable AutoNeg and force link.\n";
     descriptor.lineno = 503U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28542,7 +28542,7 @@ s32 e1000e_check_for_fiber_link(struct e1000_hw *hw )
       descriptor___0.format = "Error configuring flow control\n";
       descriptor___0.lineno = 516U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -28565,7 +28565,7 @@ s32 e1000e_check_for_fiber_link(struct e1000_hw *hw )
     descriptor___1.format = "Rx\'ing /C/, enable AutoNeg and stop forcing link.\n";
     descriptor___1.lineno = 525U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -28635,7 +28635,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
     descriptor.format = "NOT Rx\'ing /C/, disable AutoNeg and force link.\n";
     descriptor.lineno = 566U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28660,7 +28660,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
       descriptor___0.format = "Error configuring flow control\n";
       descriptor___0.lineno = 579U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -28683,7 +28683,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
     descriptor___1.format = "Rx\'ing /C/, enable AutoNeg and stop forcing link.\n";
     descriptor___1.lineno = 588U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -28717,7 +28717,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
           descriptor___2.format = "SERDES: Link up - forced.\n";
           descriptor___2.lineno = 604U;
           descriptor___2.flags = 0U;
-          tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+          tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
           }
           if (tmp___2 != 0L) {
             {
@@ -28739,7 +28739,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
         descriptor___3.format = "SERDES: Link down - force failed.\n";
         descriptor___3.lineno = 608U;
         descriptor___3.flags = 0U;
-        tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___3 != 0L) {
           {
@@ -28776,7 +28776,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
           descriptor___4.format = "SERDES: Link up - autoneg completed successfully.\n";
           descriptor___4.lineno = 621U;
           descriptor___4.flags = 0U;
-          tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+          tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
           }
           if (tmp___5 != 0L) {
             {
@@ -28795,7 +28795,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
           descriptor___5.format = "SERDES: Link down - invalid codewords detected in autoneg.\n";
           descriptor___5.lineno = 624U;
           descriptor___5.flags = 0U;
-          tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+          tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
           }
           if (tmp___6 != 0L) {
             {
@@ -28815,7 +28815,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
         descriptor___6.format = "SERDES: Link down - no sync.\n";
         descriptor___6.lineno = 628U;
         descriptor___6.flags = 0U;
-        tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+        tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
         }
         if (tmp___7 != 0L) {
           {
@@ -28835,7 +28835,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
       descriptor___7.format = "SERDES: Link down - autoneg failed\n";
       descriptor___7.lineno = 632U;
       descriptor___7.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -28871,7 +28871,7 @@ static s32 e1000_set_default_fc_generic(struct e1000_hw *hw )
     descriptor.format = "NVM Read Error\n";
     descriptor.lineno = 662U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28939,7 +28939,7 @@ s32 e1000e_setup_link_generic(struct e1000_hw *hw )
   descriptor.format = "After fix-ups FlowControl is now = %x\n";
   descriptor.lineno = 710U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28964,7 +28964,7 @@ s32 e1000e_setup_link_generic(struct e1000_hw *hw )
   descriptor___0.format = "Initializing the Flow Control address, type and timer regs\n";
   descriptor___0.lineno = 722U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -29035,7 +29035,7 @@ static s32 e1000_commit_fc_settings_generic(struct e1000_hw *hw )
   descriptor.format = "Flow control param set incorrectly\n";
   descriptor.lineno = 788U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29099,7 +29099,7 @@ static s32 e1000_poll_fiber_serdes_link_generic(struct e1000_hw *hw )
     descriptor.format = "Never got a valid link from auto-neg!!!\n";
     descriptor.lineno = 825U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -29121,7 +29121,7 @@ static s32 e1000_poll_fiber_serdes_link_generic(struct e1000_hw *hw )
       descriptor___0.format = "Error while checking for link\n";
       descriptor___0.lineno = 834U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -29145,7 +29145,7 @@ static s32 e1000_poll_fiber_serdes_link_generic(struct e1000_hw *hw )
     descriptor___1.format = "Valid Link Found\n";
     descriptor___1.lineno = 840U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -29188,7 +29188,7 @@ s32 e1000e_setup_fiber_serdes_link(struct e1000_hw *hw )
   descriptor.format = "Auto-negotiation enabled\n";
   descriptor.lineno = 875U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29223,7 +29223,7 @@ s32 e1000e_setup_fiber_serdes_link(struct e1000_hw *hw )
       descriptor___0.format = "No signal detected\n";
       descriptor___0.lineno = 889U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -29296,7 +29296,7 @@ s32 e1000e_force_mac_fc(struct e1000_hw *hw )
   descriptor.format = "hw->fc.current_mode = %u\n";
   descriptor.lineno = 983U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29350,7 +29350,7 @@ s32 e1000e_force_mac_fc(struct e1000_hw *hw )
   descriptor___0.format = "Flow control param set incorrectly\n";
   descriptor___0.lineno = 1001U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29443,7 +29443,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
     descriptor.format = "Error forcing flow control settings\n";
     descriptor.lineno = 1042U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -29482,7 +29482,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___0.format = "Copper PHY and Auto Neg has not completed.\n";
       descriptor___0.lineno = 1064U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -29522,7 +29522,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___1.format = "Flow Control = FULL.\n";
         descriptor___1.lineno = 1124U;
         descriptor___1.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -29541,7 +29541,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___2.format = "Flow Control = Rx PAUSE frames only.\n";
         descriptor___2.lineno = 1127U;
         descriptor___2.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -29562,7 +29562,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___3.format = "Flow Control = Tx PAUSE frames only.\n";
       descriptor___3.lineno = 1142U;
       descriptor___3.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -29582,7 +29582,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___4.format = "Flow Control = Rx PAUSE frames only.\n";
       descriptor___4.lineno = 1156U;
       descriptor___4.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -29601,7 +29601,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___5.format = "Flow Control = NONE.\n";
       descriptor___5.lineno = 1162U;
       descriptor___5.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -29623,7 +29623,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___6.format = "Error getting link speed and duplex\n";
       descriptor___6.lineno = 1171U;
       descriptor___6.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -29653,7 +29653,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___7.format = "Error forcing flow control settings\n";
       descriptor___7.lineno = 1183U;
       descriptor___7.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -29682,7 +29682,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___8.format = "PCS Auto Neg has not completed.\n";
       descriptor___8.lineno = 1201U;
       descriptor___8.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -29710,7 +29710,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___9.format = "Flow Control = FULL.\n";
         descriptor___9.lineno = 1257U;
         descriptor___9.flags = 0U;
-        tmp___9 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
         }
         if (tmp___9 != 0L) {
           {
@@ -29729,7 +29729,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
         descriptor___10.format = "Flow Control = Rx PAUSE frames only.\n";
         descriptor___10.lineno = 1260U;
         descriptor___10.flags = 0U;
-        tmp___10 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
         }
         if (tmp___10 != 0L) {
           {
@@ -29750,7 +29750,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___11.format = "Flow Control = Tx PAUSE frames only.\n";
       descriptor___11.lineno = 1275U;
       descriptor___11.flags = 0U;
-      tmp___11 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -29770,7 +29770,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___12.format = "Flow Control = Rx PAUSE frames only.\n";
       descriptor___12.lineno = 1289U;
       descriptor___12.flags = 0U;
-      tmp___12 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+      tmp___12 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
       }
       if (tmp___12 != 0L) {
         {
@@ -29789,7 +29789,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___13.format = "Flow Control = NONE.\n";
       descriptor___13.lineno = 1295U;
       descriptor___13.flags = 0U;
-      tmp___13 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+      tmp___13 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
       }
       if (tmp___13 != 0L) {
         {
@@ -29814,7 +29814,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
       descriptor___14.format = "Error forcing flow control settings\n";
       descriptor___14.lineno = 1307U;
       descriptor___14.flags = 0U;
-      tmp___14 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+      tmp___14 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -29864,7 +29864,7 @@ s32 e1000e_get_speed_and_duplex_copper(struct e1000_hw *hw , u16 *speed , u16 *d
   descriptor.format = "%u Mbps, %s Duplex\n";
   descriptor.lineno = 1344U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29931,7 +29931,7 @@ s32 e1000e_get_hw_semaphore(struct e1000_hw *hw )
     descriptor.format = "Driver can\'t access device - SMBI bit is set.\n";
     descriptor.lineno = 1390U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -29978,7 +29978,7 @@ s32 e1000e_get_hw_semaphore(struct e1000_hw *hw )
     descriptor___0.format = "Driver can\'t access the NVM\n";
     descriptor___0.lineno = 1409U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -30046,7 +30046,7 @@ s32 e1000e_get_auto_rd_done(struct e1000_hw *hw )
     descriptor.format = "Auto read by HW from NVM has not completed.\n";
     descriptor.lineno = 1449U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -30081,7 +30081,7 @@ s32 e1000e_valid_led_default(struct e1000_hw *hw , u16 *data )
     descriptor.format = "NVM Read Error\n";
     descriptor.lineno = 1470U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30464,7 +30464,7 @@ s32 e1000e_disable_pcie_master(struct e1000_hw *hw )
     descriptor.format = "Master requests are pending.\n";
     descriptor.lineno = 1733U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -30497,7 +30497,7 @@ void e1000e_reset_adaptive(struct e1000_hw *hw )
     descriptor.format = "Not in Adaptive IFS mode!\n";
     descriptor.lineno = 1751U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30539,7 +30539,7 @@ void e1000e_update_adaptive(struct e1000_hw *hw )
     descriptor.format = "Not in Adaptive IFS mode!\n";
     descriptor.lineno = 1777U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30635,7 +30635,7 @@ static s32 e1000_mng_enable_host_if(struct e1000_hw *hw )
     descriptor.format = "ARC subsystem not valid.\n";
     descriptor.lineno = 69U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30660,7 +30660,7 @@ static s32 e1000_mng_enable_host_if(struct e1000_hw *hw )
     descriptor___0.format = "E1000_HOST_EN bit disabled.\n";
     descriptor___0.lineno = 76U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -30722,7 +30722,7 @@ static s32 e1000_mng_enable_host_if(struct e1000_hw *hw )
     descriptor___1.format = "Previous command timeout failed .\n";
     descriptor___1.lineno = 88U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -31257,7 +31257,7 @@ s32 e1000e_acquire_nvm(struct e1000_hw *hw )
     descriptor.format = "Could not acquire NVM grant\n";
     descriptor.lineno = 194U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -31393,7 +31393,7 @@ static s32 e1000_ready_nvm_eeprom(struct e1000_hw *hw )
       descriptor.format = "SPI NVM Status error\n";
       descriptor.lineno = 299U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -31435,7 +31435,7 @@ s32 e1000e_read_nvm_eerd(struct e1000_hw *hw , u16 offset , u16 words , u16 *dat
     descriptor.format = "nvm parameter(s) out of bounds\n";
     descriptor.lineno = 327U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31499,7 +31499,7 @@ s32 e1000e_write_nvm_spi(struct e1000_hw *hw , u16 offset , u16 words , u16 *dat
     descriptor.format = "nvm parameter(s) out of bounds\n";
     descriptor.lineno = 369U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31622,7 +31622,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor.format = "PBA string buffer was null\n";
     descriptor.lineno = 443U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31647,7 +31647,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___0.format = "NVM Read Error\n";
     descriptor___0.lineno = 449U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -31672,7 +31672,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___1.format = "NVM Read Error\n";
     descriptor___1.lineno = 455U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -31694,7 +31694,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___2.format = "NVM PBA number is not stored as string\n";
     descriptor___2.lineno = 464U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -31712,7 +31712,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
       descriptor___3.format = "PBA string buffer too small\n";
       descriptor___3.lineno = 468U;
       descriptor___3.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -31771,7 +31771,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___4.format = "NVM Read Error\n";
     descriptor___4.lineno = 500U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -31793,7 +31793,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___5.format = "NVM PBA number section invalid length\n";
     descriptor___5.lineno = 505U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -31815,7 +31815,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___6.format = "PBA string buffer too small\n";
     descriptor___6.lineno = 510U;
     descriptor___6.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -31845,7 +31845,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
     descriptor___7.format = "NVM Read Error\n";
     descriptor___7.lineno = 521U;
     descriptor___7.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -31947,7 +31947,7 @@ s32 e1000e_validate_nvm_checksum_generic(struct e1000_hw *hw )
     descriptor.format = "NVM Read Error\n";
     descriptor.lineno = 577U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31978,7 +31978,7 @@ s32 e1000e_validate_nvm_checksum_generic(struct e1000_hw *hw )
     descriptor___0.format = "NVM Checksum Invalid\n";
     descriptor___0.lineno = 584U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -32022,7 +32022,7 @@ s32 e1000e_update_nvm_checksum_generic(struct e1000_hw *hw )
     descriptor.format = "NVM Read Error while updating checksum.\n";
     descriptor.lineno = 608U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32056,7 +32056,7 @@ s32 e1000e_update_nvm_checksum_generic(struct e1000_hw *hw )
     descriptor___0.format = "NVM Write Error while updating checksum.\n";
     descriptor___0.lineno = 616U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -32236,7 +32236,7 @@ s32 e1000e_read_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 *data )
     descriptor.format = "PHY Address %d is out of range\n";
     descriptor.lineno = 149U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32282,7 +32282,7 @@ s32 e1000e_read_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 *data )
     descriptor___0.format = "MDI Read did not complete\n";
     descriptor___0.lineno = 174U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -32304,7 +32304,7 @@ s32 e1000e_read_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 *data )
     descriptor___1.format = "MDI Error\n";
     descriptor___1.lineno = 178U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -32326,7 +32326,7 @@ s32 e1000e_read_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 *data )
     descriptor___2.format = "MDI Read offset error - requested %d, returned %d\n";
     descriptor___2.lineno = 184U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -32377,7 +32377,7 @@ s32 e1000e_write_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 data )
     descriptor.format = "PHY Address %d is out of range\n";
     descriptor.lineno = 212U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32423,7 +32423,7 @@ s32 e1000e_write_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 data )
     descriptor___0.format = "MDI Write did not complete\n";
     descriptor___0.lineno = 238U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -32445,7 +32445,7 @@ s32 e1000e_write_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 data )
     descriptor___1.format = "MDI Error\n";
     descriptor___1.lineno = 242U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -32467,7 +32467,7 @@ s32 e1000e_write_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 data )
     descriptor___2.format = "MDI Write offset error - requested %d, returned %d\n";
     descriptor___2.lineno = 248U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -32546,7 +32546,7 @@ s32 e1000_set_page_igp(struct e1000_hw *hw , u16 page )
   descriptor.format = "Setting page 0x%x\n";
   descriptor.lineno = 323U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -33051,7 +33051,7 @@ s32 e1000e_copper_link_setup_m88(struct e1000_hw *hw )
         descriptor.format = "Error committing the PHY changes\n";
         descriptor.lineno = 765U;
         descriptor.flags = 0U;
-        tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp != 0L) {
           {
@@ -33140,7 +33140,7 @@ s32 e1000e_copper_link_setup_m88(struct e1000_hw *hw )
       descriptor___0.format = "Error committing the PHY changes\n";
       descriptor___0.lineno = 821U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -33205,7 +33205,7 @@ s32 e1000e_copper_link_setup_igp(struct e1000_hw *hw )
     descriptor.format = "Error resetting the PHY.\n";
     descriptor.lineno = 857U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -33235,7 +33235,7 @@ s32 e1000e_copper_link_setup_igp(struct e1000_hw *hw )
       descriptor___0.format = "Error Disabling LPLU D0\n";
       descriptor___0.lineno = 870U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -33405,7 +33405,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
   descriptor.format = "autoneg_advertised %x\n";
   descriptor.lineno = 979U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -33423,7 +33423,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___0.format = "Advertise 10mb Half duplex\n";
     descriptor___0.lineno = 983U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -33445,7 +33445,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___1.format = "Advertise 10mb Full duplex\n";
     descriptor___1.lineno = 989U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -33467,7 +33467,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___2.format = "Advertise 100mb Half duplex\n";
     descriptor___2.lineno = 995U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -33489,7 +33489,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___3.format = "Advertise 100mb Full duplex\n";
     descriptor___3.lineno = 1001U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -33511,7 +33511,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___4.format = "Advertise 1000mb Half duplex request denied!\n";
     descriptor___4.lineno = 1007U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -33532,7 +33532,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
     descriptor___5.format = "Advertise 1000mb Full duplex\n";
     descriptor___5.lineno = 1011U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -33589,7 +33589,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
   descriptor___6.format = "Flow control param set incorrectly\n";
   descriptor___6.lineno = 1068U;
   descriptor___6.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -33618,7 +33618,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
   descriptor___7.format = "Auto-Neg Advertising %x\n";
   descriptor___7.lineno = 1076U;
   descriptor___7.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -33667,7 +33667,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
   descriptor.format = "Reconfiguring auto-neg advertisement params\n";
   descriptor.lineno = 1110U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -33688,7 +33688,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
     descriptor___0.format = "Error Setting up Auto-Negotiation\n";
     descriptor___0.lineno = 1113U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -33709,7 +33709,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
   descriptor___1.format = "Restarting Auto-Neg\n";
   descriptor___1.lineno = 1116U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -33748,7 +33748,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
       descriptor___2.format = "Error while waiting for autoneg to complete\n";
       descriptor___2.lineno = 1136U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -33800,7 +33800,7 @@ s32 e1000e_setup_copper_link(struct e1000_hw *hw )
     descriptor.format = "Forcing Speed and Duplex\n";
     descriptor.lineno = 1171U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -33821,7 +33821,7 @@ s32 e1000e_setup_copper_link(struct e1000_hw *hw )
       descriptor___0.format = "Error Forcing Speed and Duplex\n";
       descriptor___0.lineno = 1174U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -33852,7 +33852,7 @@ s32 e1000e_setup_copper_link(struct e1000_hw *hw )
     descriptor___1.format = "Valid link established!!!\n";
     descriptor___1.lineno = 1188U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -33874,7 +33874,7 @@ s32 e1000e_setup_copper_link(struct e1000_hw *hw )
     descriptor___2.format = "Unable to establish link!!!\n";
     descriptor___2.lineno = 1192U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -33945,7 +33945,7 @@ s32 e1000e_phy_force_speed_duplex_igp(struct e1000_hw *hw )
   descriptor.format = "IGP PSCR: %X\n";
   descriptor.lineno = 1237U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -33966,7 +33966,7 @@ s32 e1000e_phy_force_speed_duplex_igp(struct e1000_hw *hw )
     descriptor___0.format = "Waiting for forced speed/duplex link on IGP phy.\n";
     descriptor___0.lineno = 1242U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -33992,7 +33992,7 @@ s32 e1000e_phy_force_speed_duplex_igp(struct e1000_hw *hw )
       descriptor___1.format = "Link taking longer than expected.\n";
       descriptor___1.lineno = 1250U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -34053,7 +34053,7 @@ s32 e1000e_phy_force_speed_duplex_m88(struct e1000_hw *hw )
   descriptor.format = "M88E1000 PSCR: %X\n";
   descriptor.lineno = 1289U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -34100,7 +34100,7 @@ s32 e1000e_phy_force_speed_duplex_m88(struct e1000_hw *hw )
     descriptor___0.format = "Waiting for forced speed/duplex link on M88 phy.\n";
     descriptor___0.lineno = 1309U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -34127,7 +34127,7 @@ s32 e1000e_phy_force_speed_duplex_m88(struct e1000_hw *hw )
         descriptor___1.format = "Link taking longer than expected.\n";
         descriptor___1.lineno = 1318U;
         descriptor___1.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -34263,7 +34263,7 @@ s32 e1000_phy_force_speed_duplex_ife(struct e1000_hw *hw )
   descriptor.format = "IFE PMC: %X\n";
   descriptor.lineno = 1406U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -34284,7 +34284,7 @@ s32 e1000_phy_force_speed_duplex_ife(struct e1000_hw *hw )
     descriptor___0.format = "Waiting for forced speed/duplex link on IFE phy.\n";
     descriptor___0.lineno = 1411U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -34310,7 +34310,7 @@ s32 e1000_phy_force_speed_duplex_ife(struct e1000_hw *hw )
       descriptor___1.format = "Link taking longer than expected.\n";
       descriptor___1.lineno = 1419U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -34370,7 +34370,7 @@ void e1000e_phy_force_speed_duplex_setup(struct e1000_hw *hw , u16 *phy_ctrl )
     descriptor.format = "Half Duplex\n";
     descriptor.lineno = 1466U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -34390,7 +34390,7 @@ void e1000e_phy_force_speed_duplex_setup(struct e1000_hw *hw , u16 *phy_ctrl )
     descriptor___0.format = "Full Duplex\n";
     descriptor___0.lineno = 1470U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -34412,7 +34412,7 @@ void e1000e_phy_force_speed_duplex_setup(struct e1000_hw *hw , u16 *phy_ctrl )
     descriptor___1.format = "Forcing 100mb\n";
     descriptor___1.lineno = 1478U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -34432,7 +34432,7 @@ void e1000e_phy_force_speed_duplex_setup(struct e1000_hw *hw , u16 *phy_ctrl )
     descriptor___2.format = "Forcing 10mb\n";
     descriptor___2.lineno = 1482U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -34921,7 +34921,7 @@ s32 e1000e_get_phy_info_m88(struct e1000_hw *hw )
     descriptor.format = "Phy info is only valid for copper media\n";
     descriptor.lineno = 1912U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -34951,7 +34951,7 @@ s32 e1000e_get_phy_info_m88(struct e1000_hw *hw )
     descriptor___0.format = "Phy info is only valid if link is up\n";
     descriptor___0.lineno = 1921U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -35045,7 +35045,7 @@ s32 e1000e_get_phy_info_igp(struct e1000_hw *hw )
     descriptor.format = "Phy info is only valid if link is up\n";
     descriptor.lineno = 1987U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -35131,7 +35131,7 @@ s32 e1000_get_phy_info_ife(struct e1000_hw *hw )
     descriptor.format = "Phy info is only valid if link is up\n";
     descriptor.lineno = 2045U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -35290,7 +35290,7 @@ s32 e1000e_phy_init_script_igp3(struct e1000_hw *hw )
   descriptor.format = "Running IGP 3 PHY init script\n";
   descriptor.lineno = 2168U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -35760,7 +35760,7 @@ s32 e1000_enable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
     descriptor.format = "Could not set Port Control page\n";
     descriptor.lineno = 2572U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -35785,7 +35785,7 @@ s32 e1000_enable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
     descriptor___0.format = "Could not read PHY register %d.%d\n";
     descriptor___0.lineno = 2579U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -35813,7 +35813,7 @@ s32 e1000_enable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
     descriptor___1.format = "Could not write PHY register %d.%d\n";
     descriptor___1.lineno = 2593U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -35853,7 +35853,7 @@ s32 e1000_disable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
     descriptor.format = "Could not set Port Control page\n";
     descriptor.lineno = 2621U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -35878,7 +35878,7 @@ s32 e1000_disable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
     descriptor___0.format = "Could not restore PHY register %d.%d\n";
     descriptor___0.lineno = 2629U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -35929,7 +35929,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
       descriptor.format = "Attempting to access page %d while gig enabled.\n";
       descriptor.lineno = 2671U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -35958,7 +35958,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
       descriptor___0.format = "Could not enable PHY wakeup reg access\n";
       descriptor___0.lineno = 2677U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -35982,7 +35982,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
   descriptor___1.format = "Accessing PHY page %d reg 0x%x\n";
   descriptor___1.lineno = 2682U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -36003,7 +36003,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
     descriptor___2.format = "Could not write address opcode to page %d\n";
     descriptor___2.lineno = 2687U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -36034,7 +36034,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
     descriptor___3.format = "Could not access PHY reg %d.%d\n";
     descriptor___3.lineno = 2702U;
     descriptor___3.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -36163,7 +36163,7 @@ static s32 __e1000_read_phy_reg_hv(struct e1000_hw *hw , u32 offset , u16 *data 
   descriptor.format = "reading PHY page %d (or 0x%x shifted) reg 0x%x\n";
   descriptor.lineno = 2804U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -36311,7 +36311,7 @@ static s32 __e1000_write_phy_reg_hv(struct e1000_hw *hw , u32 offset , u16 data 
   descriptor.format = "writing PHY page %d (or 0x%x shifted) reg 0x%x\n";
   descriptor.lineno = 2926U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -36409,7 +36409,7 @@ static s32 e1000_access_phy_debug_regs_hv(struct e1000_hw *hw , u32 offset , u16
     descriptor.format = "Could not write the Address Offset port register\n";
     descriptor.lineno = 3024U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -36440,7 +36440,7 @@ static s32 e1000_access_phy_debug_regs_hv(struct e1000_hw *hw , u32 offset , u16
     descriptor___0.format = "Could not access the Data port register\n";
     descriptor___0.lineno = 3035U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -36566,7 +36566,7 @@ s32 e1000_phy_force_speed_duplex_82577(struct e1000_hw *hw )
     descriptor.format = "Waiting for forced speed/duplex link on 82577 phy\n";
     descriptor.lineno = 3138U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -36592,7 +36592,7 @@ s32 e1000_phy_force_speed_duplex_82577(struct e1000_hw *hw )
       descriptor___0.format = "Link taking longer than expected.\n";
       descriptor___0.lineno = 3146U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -36641,7 +36641,7 @@ s32 e1000_get_phy_info_82577(struct e1000_hw *hw )
     descriptor.format = "Phy info is only valid if link is up\n";
     descriptor.lineno = 3177U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -36728,7 +36728,6 @@ s32 e1000_get_cable_length_82577(struct e1000_hw *hw )
 }
 }
 extern char *kstrdup(char const   * , gfp_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern int dev_err(struct device  const  * , char const   *  , ...) ;
 extern int dev_notice(struct device  const  * , char const   *  , ...) ;
 extern int _dev_info(struct device  const  * , char const   *  , ...) ;
@@ -37312,7 +37311,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -37458,7 +37457,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -37485,7 +37484,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -37521,7 +37520,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -37561,7 +37560,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -37601,7 +37600,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -37750,7 +37749,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -37761,7 +37760,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -42949,7 +42948,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   ldv_5740: 
   {
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   }
   if (tmp != 0L) {
     goto ldv_5739;
@@ -42958,7 +42957,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   {
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_5739;
@@ -43297,14 +43296,14 @@ __inline static struct page *compound_head(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     head = page->__annonCompField46.first_page;
     __asm__  volatile   ("": : : "memory");
     tmp = PageTail((struct page  const  *)page);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     }
     if (tmp___0 != 0L) {
       return (head);
@@ -43332,7 +43331,7 @@ __inline static void dql_queued(struct dql *dql , unsigned int count )
 
   {
   {
-  tmp = __builtin_expect(count > 268435455U, 0L);
+  tmp = ldv__builtin_expect(count > 268435455U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -43375,7 +43374,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -43383,7 +43382,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -43408,7 +43407,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -43416,7 +43415,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -43484,7 +43483,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -43515,7 +43514,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -43743,7 +43742,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
   {
   {
   tmp = skb_headlen((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect(len <= tmp, 1L);
+  tmp___0 = ldv__builtin_expect(len <= tmp, 1L);
   }
   if (tmp___0 != 0L) {
     return (1);
@@ -43751,7 +43750,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
 
   }
   {
-  tmp___1 = __builtin_expect(len > skb->len, 0L);
+  tmp___1 = ldv__builtin_expect(len > skb->len, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -43852,12 +43851,12 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
   {
   {
   tmp___0 = skb_is_nonlinear((struct sk_buff  const  *)skb);
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -43867,7 +43866,7 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return;
   } else {
@@ -44131,7 +44130,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -44278,7 +44277,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -44288,7 +44287,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -44351,7 +44350,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
   {
   dql_queued(& dev_queue->dql, bytes);
   tmp = dql_avail((struct dql  const  *)(& dev_queue->dql));
-  tmp___0 = __builtin_expect(tmp >= 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp >= 0, 1L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -44362,7 +44361,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
   set_bit(1L, (unsigned long volatile   *)(& dev_queue->state));
   __asm__  volatile   ("mfence": : : "memory");
   tmp___1 = dql_avail((struct dql  const  *)(& dev_queue->dql));
-  tmp___2 = __builtin_expect(tmp___1 >= 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 >= 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -44395,7 +44394,7 @@ __inline static void netdev_tx_completed_queue(struct netdev_queue *dev_queue , 
 
   {
   {
-  tmp = __builtin_expect(bytes == 0U, 0L);
+  tmp = ldv__builtin_expect(bytes == 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -45536,12 +45535,12 @@ static void e1000e_update_rdt_wa(struct e1000_ring *rx_ring , unsigned int i )
   tmp = __ew32_prepare___7(hw);
   ret_val = tmp;
   writel(i, (void volatile   *)rx_ring->tail);
-  tmp___1 = __builtin_expect(ret_val == 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret_val == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     tmp___2 = readl((void const volatile   *)rx_ring->tail);
-    tmp___3 = __builtin_expect(i != tmp___2, 0L);
+    tmp___3 = ldv__builtin_expect(i != tmp___2, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -45579,12 +45578,12 @@ static void e1000e_update_tdt_wa(struct e1000_ring *tx_ring , unsigned int i )
   tmp = __ew32_prepare___7(hw);
   ret_val = tmp;
   writel(i, (void volatile   *)tx_ring->tail);
-  tmp___1 = __builtin_expect(ret_val == 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret_val == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     tmp___2 = readl((void const volatile   *)tx_ring->tail);
-    tmp___3 = __builtin_expect(i != tmp___2, 0L);
+    tmp___3 = ldv__builtin_expect(i != tmp___2, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -45664,7 +45663,7 @@ static void e1000_alloc_rx_buffers(struct e1000_ring *rx_ring , int cleaned_coun
   {
   rx_desc = (union e1000_rx_desc_extended *)rx_ring->desc + (unsigned long )i;
   rx_desc->read.buffer_addr = buffer_info->dma;
-  tmp___0 = __builtin_expect((i & 15U) == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((i & 15U) == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     __asm__  volatile   ("sfence": : : "memory");
@@ -45800,7 +45799,7 @@ static void e1000_alloc_rx_buffers_ps(struct e1000_ring *rx_ring , int cleaned_c
   }
   {
   rx_desc->read.buffer_addr[0] = buffer_info->dma;
-  tmp___1 = __builtin_expect((i & 15U) == 0U, 0L);
+  tmp___1 = ldv__builtin_expect((i & 15U) == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     __asm__  volatile   ("sfence": : : "memory");
@@ -45877,7 +45876,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_ring *rx_ring , int cleane
   }
   {
   skb = __netdev_alloc_skb_ip_align(netdev, bufsz, gfp);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -45891,7 +45890,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_ring *rx_ring , int cleane
   if ((unsigned long )buffer_info->__annonCompField81.__annonCompField80.page == (unsigned long )((struct page *)0)) {
     {
     buffer_info->__annonCompField81.__annonCompField80.page = alloc_pages(gfp, 0U);
-    tmp___0 = __builtin_expect((unsigned long )buffer_info->__annonCompField81.__annonCompField80.page == (unsigned long )((struct page *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )buffer_info->__annonCompField81.__annonCompField80.page == (unsigned long )((struct page *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -45922,7 +45921,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_ring *rx_ring , int cleane
   rx_desc = (union e1000_rx_desc_extended *)rx_ring->desc + (unsigned long )i;
   rx_desc->read.buffer_addr = buffer_info->dma;
   i = i + 1U;
-  tmp___2 = __builtin_expect(i == rx_ring->count, 0L);
+  tmp___2 = ldv__builtin_expect(i == rx_ring->count, 0L);
   }
   if (tmp___2 != 0L) {
     i = 0U;
@@ -45940,14 +45939,14 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_ring *rx_ring , int cleane
   }
   ldv_52260: 
   {
-  tmp___6 = __builtin_expect((unsigned int )rx_ring->next_to_use != i, 1L);
+  tmp___6 = ldv__builtin_expect((unsigned int )rx_ring->next_to_use != i, 1L);
   }
   if (tmp___6 != 0L) {
     {
     rx_ring->next_to_use = (u16 )i;
     tmp___4 = i;
     i = i - 1U;
-    tmp___5 = __builtin_expect(tmp___4 == 0U, 0L);
+    tmp___5 = ldv__builtin_expect(tmp___4 == 0U, 0L);
     }
     if (tmp___5 != 0L) {
       i = rx_ring->count - 1U;
@@ -46052,7 +46051,7 @@ static bool e1000_clean_rx_irq(struct e1000_ring *rx_ring , int *work_done , int
                          2, (struct dma_attrs *)0);
   buffer_info->dma = 0ULL;
   length = (u32 )rx_desc->wb.upper.length;
-  tmp = __builtin_expect((staterr & 2U) == 0U, 0L);
+  tmp = ldv__builtin_expect((staterr & 2U) == 0U, 0L);
   }
   if (tmp != 0L) {
     adapter->flags2 = adapter->flags2 | 4U;
@@ -46067,7 +46066,7 @@ static bool e1000_clean_rx_irq(struct e1000_ring *rx_ring , int *work_done , int
     descriptor.format = "Receive packet consumed multiple buffers\n";
     descriptor.lineno = 958U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -46088,11 +46087,11 @@ static bool e1000_clean_rx_irq(struct e1000_ring *rx_ring , int *work_done , int
 
   }
   {
-  tmp___1 = __builtin_expect((staterr & 2533359616U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((staterr & 2533359616U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect((netdev->features & 68719476736ULL) == 0ULL, 0L);
+    tmp___2 = ldv__builtin_expect((netdev->features & 68719476736ULL) == 0ULL, 0L);
     }
     if (tmp___2 != 0L) {
       buffer_info->skb = skb;
@@ -46571,7 +46570,7 @@ static bool e1000_clean_rx_irq_ps(struct e1000_ring *rx_ring , int *work_done , 
     descriptor.format = "Packet Split buffers didn\'t pick up the full packet\n";
     descriptor.lineno = 1321U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -46594,11 +46593,11 @@ static bool e1000_clean_rx_irq_ps(struct e1000_ring *rx_ring , int *work_done , 
 
   }
   {
-  tmp___0 = __builtin_expect((staterr & 2533359616U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((staterr & 2533359616U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp___1 = __builtin_expect((netdev->features & 68719476736ULL) == 0ULL, 0L);
+    tmp___1 = ldv__builtin_expect((netdev->features & 68719476736ULL) == 0ULL, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -46620,7 +46619,7 @@ static bool e1000_clean_rx_irq_ps(struct e1000_ring *rx_ring , int *work_done , 
     descriptor___0.format = "Last part of the packet spanning multiple descriptors\n";
     descriptor___0.lineno = 1337U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -46852,15 +46851,15 @@ static bool e1000_clean_jumbo_rx_irq(struct e1000_ring *rx_ring , int *work_done
   dma_unmap_page(& pdev->dev, buffer_info->dma, 4096UL, 2);
   buffer_info->dma = 0ULL;
   length = (u32 )rx_desc->wb.upper.length;
-  tmp = __builtin_expect((staterr & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((staterr & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
-    tmp___0 = __builtin_expect((staterr & 2533359616U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((staterr & 2533359616U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
-      tmp___1 = __builtin_expect((netdev->features & 68719476736ULL) == 0ULL, 0L);
+      tmp___1 = ldv__builtin_expect((netdev->features & 68719476736ULL) == 0ULL, 0L);
       }
       if (tmp___1 != 0L) {
         tmp___2 = 1;
@@ -46979,7 +46978,7 @@ static bool e1000_clean_jumbo_rx_irq(struct e1000_ring *rx_ring , int *work_done
   next_desc: 
   {
   rx_desc->wb.upper.status_error = rx_desc->wb.upper.status_error & 4294967040U;
-  tmp___9 = __builtin_expect(cleaned_count > 15, 0L);
+  tmp___9 = ldv__builtin_expect(cleaned_count > 15, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -48972,7 +48971,7 @@ static void e1000_setup_rctl(struct e1000_adapter *adapter )
       descriptor.format = "failed to enable jumbo frame workaround mode\n";
       descriptor.lineno = 2983U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -50328,7 +50327,7 @@ void e1000e_down(struct e1000_adapter *adapter )
       descriptor.format = "failed to disable jumbo frame workaround mode\n";
       descriptor.lineno = 4036U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -50489,7 +50488,7 @@ static irqreturn_t e1000_intr_msi_test(int irq , void *data )
   descriptor.format = "icr is %08X\n";
   descriptor.lineno = 4130U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -50566,7 +50565,7 @@ static int e1000_test_msi_interrupt(struct e1000_adapter *adapter )
     descriptor.format = "MSI interrupt test succeeded!\n";
     descriptor.lineno = 4198U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -50792,7 +50791,7 @@ static int e1000_close(struct net_device *netdev )
   {
   tmp___2 = constant_test_bit(1L, (unsigned long const volatile   *)(& adapter->state));
   __ret_warn_on = tmp___2 != 0;
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -50802,7 +50801,7 @@ static int e1000_close(struct net_device *netdev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   pm_runtime_get_sync(& pdev->dev);
   tmp___4 = constant_test_bit(3L, (unsigned long const volatile   *)(& adapter->state));
   }
@@ -52004,7 +52003,7 @@ static bool e1000_tx_csum(struct e1000_ring *tx_ring , struct sk_buff *skb )
   switch_default: /* CIL Label */ 
   {
   tmp___3 = net_ratelimit();
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -52267,7 +52266,7 @@ static void e1000_tx_queue(struct e1000_ring *tx_ring , int tx_flags , int count
 
   }
   {
-  tmp = __builtin_expect((tx_flags & 16) != 0, 0L);
+  tmp = ldv__builtin_expect((tx_flags & 16) != 0, 0L);
   }
   if (tmp != 0L) {
     txd_lower = txd_lower & 4261412863U;
@@ -52275,7 +52274,7 @@ static void e1000_tx_queue(struct e1000_ring *tx_ring , int tx_flags , int count
 
   }
   {
-  tmp___0 = __builtin_expect((tx_flags & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((tx_flags & 32) != 0, 0L);
   }
   if (tmp___0 != 0L) {
     txd_lower = txd_lower | 537919488U;
@@ -52304,7 +52303,7 @@ static void e1000_tx_queue(struct e1000_ring *tx_ring , int tx_flags , int count
   }
   {
   tx_desc->lower.data = tx_desc->lower.data | adapter->txd_cmd;
-  tmp___1 = __builtin_expect((tx_flags & 16) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((tx_flags & 16) != 0, 0L);
   }
   if (tmp___1 != 0L) {
     tx_desc->lower.data = tx_desc->lower.data & 4261412863U;
@@ -52409,7 +52408,7 @@ static int e1000_maybe_stop_tx(struct e1000_ring *tx_ring , int size )
 
   {
   {
-  tmp = __builtin_expect((unsigned int )size > tx_ring->count, 0L);
+  tmp = ldv__builtin_expect((unsigned int )size > tx_ring->count, 0L);
   }
   if (tmp != 0L) {
     {
@@ -52499,7 +52498,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
   {
-  tmp___3 = __builtin_expect(skb->len <= 16U, 0L);
+  tmp___3 = ldv__builtin_expect(skb->len <= 16U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -52630,7 +52629,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
   {
-  tmp___13 = __builtin_expect((int )((signed char )*((unsigned char *)skb + 170UL)) < 0,
+  tmp___13 = ldv__builtin_expect((int )((signed char )*((unsigned char *)skb + 170UL)) < 0,
                               0L);
   }
   if (tmp___13 != 0L) {
@@ -52644,12 +52643,12 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
   if (count != 0) {
     {
     tmp___16 = skb_end_pointer((struct sk_buff  const  *)skb);
-    tmp___17 = __builtin_expect((long )((struct skb_shared_info *)tmp___16)->tx_flags & 1L,
+    tmp___17 = ldv__builtin_expect((long )((struct skb_shared_info *)tmp___16)->tx_flags & 1L,
                                 0L);
     }
     if (tmp___17 != 0L) {
       {
-      tmp___18 = __builtin_expect((unsigned long )adapter->tx_hwtstamp_skb == (unsigned long )((struct sk_buff *)0),
+      tmp___18 = ldv__builtin_expect((unsigned long )adapter->tx_hwtstamp_skb == (unsigned long )((struct sk_buff *)0),
                                   0L);
       }
       if (tmp___18 != 0L) {
@@ -53322,7 +53321,7 @@ static int __e1000_shutdown(struct pci_dev *pdev , bool runtime )
     {
     tmp___3 = constant_test_bit(1L, (unsigned long const volatile   *)(& adapter->state));
     __ret_warn_on = tmp___3 != 0;
-    tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -53332,7 +53331,7 @@ static int __e1000_shutdown(struct pci_dev *pdev , bool runtime )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     e1000e_down(adapter);
     e1000_free_irq(adapter);
     }
@@ -54980,7 +54979,7 @@ void ldv_dummy_resourceless_instance_callback_7_53(int (*arg0)(struct net_device
                                                    struct net_device *arg1 , unsigned short arg2 ,
                                                    unsigned short arg3 ) ;
 void ldv_entry_EMGentry_37(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -57020,7 +57019,7 @@ void ldv_entry_EMGentry_37(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -61851,7 +61850,7 @@ static void e1000e_systim_overflow_work(struct work_struct *work )
   descriptor.format = "SYSTIM overflow check at %ld.%09lu\n";
   descriptor.lineno = 183U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -62577,7 +62576,7 @@ void ldv_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -62601,7 +62600,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -62609,7 +62608,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 
