@@ -12,6 +12,7 @@ CLANG_BUILD_HACK ?= 0
 # per line so that it easy to comment out a single directory
 DIRS += array-examples
 DIRS += array-memsafety
+DIRS += arrays_arraysreach
 DIRS += bitvector
 DIRS += bitvector-loops
 DIRS += bitvector-regression
@@ -24,6 +25,7 @@ DIRS += floats-cdfpl
 DIRS += floats-esbmc-regression
 DIRS += forester-heap
 DIRS += heap-manipulation
+DIRS += integers_controlflow_loops
 DIRS += ldv-challenges
 DIRS += ldv-commit-tester
 DIRS += ldv-consumption
