@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error("assertion failed: " #cond);} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
 /*
  * A list containing nodes with integer values 0 and 1.
  * The list is created such way that nodes are sorted by value.

@@ -1172,7 +1172,7 @@ int main()
     while (x)
  {
   if (x->data != 1)
-   do { if (!(0)) __VERIFIER_error("assertion failed: " "0");} while (0);
+   do { if (!(0)) __VERIFIER_error();} while (0);
         x = x->next;
     }
 

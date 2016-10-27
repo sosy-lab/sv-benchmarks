@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error("assertion failed: " #cond);} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
 /*
  * A circular list where a head of list is marked
  * by integer value 0. The rest of list forms

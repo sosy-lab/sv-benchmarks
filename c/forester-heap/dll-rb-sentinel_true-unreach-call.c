@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error("assertion failed: " #cond);} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
 /**
  * Red-black list, i.e. a list with coloured nodes (black or red) that satisfies
  * the condition B . (B + RB)*. Null is modelled by a special node.

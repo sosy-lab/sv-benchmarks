@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error("assertion failed: " #cond);} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
 /*
  * A list with inner list of length 0 or 1.
  *

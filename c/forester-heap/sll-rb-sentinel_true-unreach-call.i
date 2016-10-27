@@ -1159,16 +1159,16 @@ int main()
  end = list;
 
 
- do { if (!(null != end)) __VERIFIER_error("assertion failed: " "null != end");} while (0);
- do { if (!(BLACK == end->colour)) __VERIFIER_error("assertion failed: " "BLACK == end->colour");} while (0);
+ do { if (!(null != end)) __VERIFIER_error();} while (0);
+ do { if (!(BLACK == end->colour)) __VERIFIER_error();} while (0);
 
  while (null != end)
  {
   if (RED == end->colour)
   {
    end = end->next;
-   do { if (!(null != end)) __VERIFIER_error("assertion failed: " "null != end");} while (0);
-   do { if (!(BLACK == end->colour)) __VERIFIER_error("assertion failed: " "BLACK == end->colour");} while (0);
+   do { if (!(null != end)) __VERIFIER_error();} while (0);
+   do { if (!(BLACK == end->colour)) __VERIFIER_error();} while (0);
   }
 
   end = end->next;

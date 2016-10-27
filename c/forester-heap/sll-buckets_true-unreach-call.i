@@ -1153,11 +1153,11 @@ int main()
 
   bcki = bucket;
 
-  do { if (!(bcki != ((void*)0))) __VERIFIER_error("assertion failed: " "bcki != NULL");} while (0);
-  do { if (!(item != ((void*)0))) __VERIFIER_error("assertion failed: " "item != NULL");} while (0);
+  do { if (!(bcki != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(item != ((void*)0))) __VERIFIER_error();} while (0);
   while (bcki->data != item->data)
    bcki = bcki->next;
-  do { if (!(bcki != ((void*)0))) __VERIFIER_error("assertion failed: " "bcki != NULL");} while (0);
+  do { if (!(bcki != ((void*)0))) __VERIFIER_error();} while (0);
 
   if (bcki->list == ((void*)0))
    bcki->list = item;
@@ -1180,10 +1180,10 @@ int main()
   {
    itr = item;
    item = item->next;
-   do { if (!(itr->data == bcki->data)) __VERIFIER_error("assertion failed: " "itr->data == bcki->data");} while (0);
+   do { if (!(itr->data == bcki->data)) __VERIFIER_error();} while (0);
    free(itr);
   }
-  do { if (!(item == ((void*)0))) __VERIFIER_error("assertion failed: " "item == NULL");} while (0);
+  do { if (!(item == ((void*)0))) __VERIFIER_error();} while (0);
   bucket = bcki;
   bcki = bcki->next;
   free(bucket);

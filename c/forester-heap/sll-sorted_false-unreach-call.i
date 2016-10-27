@@ -1143,7 +1143,7 @@ int main()
 
  x = head;
 
- do { if (!(((void*)0) != x)) __VERIFIER_error("assertion failed: " "NULL != x");} while (0);
+ do { if (!(((void*)0) != x)) __VERIFIER_error();} while (0);
  marked = 0;
 
  while (x->next != ((void*)0) && x->next->data == 0)
@@ -1154,7 +1154,7 @@ int main()
  while (x->next != ((void*)0) && __VERIFIER_nondet_int())
  {
   x = x->next;
-  do { if (!(x->data == 1)) __VERIFIER_error("assertion failed: " "x->data == 1");} while (0);
+  do { if (!(x->data == 1)) __VERIFIER_error();} while (0);
  }
 
  SLL* tmp = malloc(sizeof(SLL));
@@ -1174,15 +1174,15 @@ int main()
  while (x != ((void*)0) && x->data != 1)
  {
   marked = x->data;
-  do { if (!(x->data == 0)) __VERIFIER_error("assertion failed: " "x->data == 0");} while (0);
-  do { if (!(marked == 0)) __VERIFIER_error("assertion failed: " "marked == 0");} while (0);
+  do { if (!(x->data == 0)) __VERIFIER_error();} while (0);
+  do { if (!(marked == 0)) __VERIFIER_error();} while (0);
   x = x->next;
  }
  while (x != ((void*)0))
  {
   marked = x->data;
-  do { if (!(x->data != 1)) __VERIFIER_error("assertion failed: " "x->data != 1");} while (0);
-  do { if (!(marked == 1)) __VERIFIER_error("assertion failed: " "marked == 1");} while (0);
+  do { if (!(x->data != 1)) __VERIFIER_error();} while (0);
+  do { if (!(marked == 1)) __VERIFIER_error();} while (0);
   x = x->next;
  }
 # 107 "sll-sorted_false-unreach-call.c"
