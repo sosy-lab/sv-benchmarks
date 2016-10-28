@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error("assertion failed: " #cond);} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
 /*
  * A list with nodes which can point to an optional
  * external node. Whether an optional node is allocated

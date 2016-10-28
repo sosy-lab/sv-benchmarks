@@ -1128,10 +1128,10 @@ int main()
  x = head;
  while (x->next != ((void*)0) && __VERIFIER_nondet_int())
  {
-  do { if (!(x != ((void*)0))) __VERIFIER_error("assertion failed: " "x != NULL");} while (0);
+  do { if (!(x != ((void*)0))) __VERIFIER_error();} while (0);
   x = x->next;
  }
- do { if (!(x != ((void*)0))) __VERIFIER_error("assertion failed: " "x != NULL");} while (0);
+ do { if (!(x != ((void*)0))) __VERIFIER_error();} while (0);
 
  x->data = 1;
 
@@ -1166,7 +1166,7 @@ int main()
   int t2 = 0;
   if (t1 == 2)
    t2 = x->next->data;
-  do { if (!(t1 != 2 || t2 == 1)) __VERIFIER_error("assertion failed: " "t1 != RED || t2 == GREEN");} while (0);
+  do { if (!(t1 != 2 || t2 == 1)) __VERIFIER_error();} while (0);
 
 
   if (x->data == 2)

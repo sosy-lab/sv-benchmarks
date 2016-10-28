@@ -1129,7 +1129,7 @@ int main()
  x = head;
  while (x != ((void*)0))
  {
-  do { if (!(x->data == 2 && x->opt == x)) __VERIFIER_error("assertion failed: " "x->data == 2 && x->opt == x");} while (0);
+  do { if (!(x->data == 2 && x->opt == x)) __VERIFIER_error();} while (0);
   x = x->next;
  }
 

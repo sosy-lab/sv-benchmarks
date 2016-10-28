@@ -1143,36 +1143,36 @@ int main()
    status = 3;
   }
 
-  do { if (!(head != ((void*)0))) __VERIFIER_error("assertion failed: " "head != NULL");} while (0);
-  do { if (!(item != ((void*)0))) __VERIFIER_error("assertion failed: " "item != NULL");} while (0);
+  do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(item != ((void*)0))) __VERIFIER_error();} while (0);
  }
 
- do { if (!(head != ((void*)0))) __VERIFIER_error("assertion failed: " "head != NULL");} while (0);
+ do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
  if (status == 1)
  {
-  do { if (!(head != ((void*)0))) __VERIFIER_error("assertion failed: " "head != NULL");} while (0);
-  do { if (!(head->next != ((void*)0))) __VERIFIER_error("assertion failed: " "head->next != NULL");} while (0);
+  do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head->next != ((void*)0))) __VERIFIER_error();} while (0);
  }
  if (status == 2)
  {
-  do { if (!(head != ((void*)0))) __VERIFIER_error("assertion failed: " "head != NULL");} while (0);
-  do { if (!(head->next != ((void*)0))) __VERIFIER_error("assertion failed: " "head->next != NULL");} while (0);
-  do { if (!(head->next->next != ((void*)0))) __VERIFIER_error("assertion failed: " "head->next->next != NULL");} while (0);
+  do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head->next != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head->next->next != ((void*)0))) __VERIFIER_error();} while (0);
  }
  if (status == 3)
  {
-  do { if (!(head != ((void*)0))) __VERIFIER_error("assertion failed: " "head != NULL");} while (0);
-  do { if (!(head->next != ((void*)0))) __VERIFIER_error("assertion failed: " "head->next != NULL");} while (0);
-  do { if (!(head->next->next != ((void*)0))) __VERIFIER_error("assertion failed: " "head->next->next != NULL");} while (0);
-  do { if (!(head->next->next->next != ((void*)0))) __VERIFIER_error("assertion failed: " "head->next->next->next != NULL");} while (0);
-  do { if (!(head->next->next->next->data == 3)) __VERIFIER_error("assertion failed: " "head->next->next->next->data == 3");} while (0);
+  do { if (!(head != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head->next != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head->next->next != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head->next->next->next != ((void*)0))) __VERIFIER_error();} while (0);
+  do { if (!(head->next->next->next->data == 3)) __VERIFIER_error();} while (0);
  }
 
  item = head->next;
 
  while(item && __VERIFIER_nondet_int())
  {
-  do { if (!(!status || item->data > 0)) __VERIFIER_error("assertion failed: " "!status || item->data > 0");} while (0);
+  do { if (!(!status || item->data > 0)) __VERIFIER_error();} while (0);
 # 107 "sll-queue_true-unreach-call.c"
   item = item->next;
  }

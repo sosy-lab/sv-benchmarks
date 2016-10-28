@@ -1158,24 +1158,24 @@ int main()
    end->next = null;
    end->colour = BLACK;
   }
-  do { if (!(BLACK == end->colour)) __VERIFIER_error("assertion failed: " "BLACK == end->colour");} while (0);
-  do { if (!(null == end->next)) __VERIFIER_error("assertion failed: " "null == end->next");} while (0);
-  do { if (!(null != end)) __VERIFIER_error("assertion failed: " "null != end");} while (0);
+  do { if (!(BLACK == end->colour)) __VERIFIER_error();} while (0);
+  do { if (!(null == end->next)) __VERIFIER_error();} while (0);
+  do { if (!(null != end)) __VERIFIER_error();} while (0);
  }
 
  end = null;
  end = list;
 
 
- do { if (!(null != end)) __VERIFIER_error("assertion failed: " "null != end");} while (0);
- do { if (!(BLACK == end->colour)) __VERIFIER_error("assertion failed: " "BLACK == end->colour");} while (0);
+ do { if (!(null != end)) __VERIFIER_error();} while (0);
+ do { if (!(BLACK == end->colour)) __VERIFIER_error();} while (0);
  while (null != end)
  {
   if (RED == end->colour)
   {
    end = end->next;
-   do { if (!(null != end)) __VERIFIER_error("assertion failed: " "null != end");} while (0);
-   do { if (!(BLACK == end->colour)) __VERIFIER_error("assertion failed: " "BLACK == end->colour");} while (0);
+   do { if (!(null != end)) __VERIFIER_error();} while (0);
+   do { if (!(BLACK == end->colour)) __VERIFIER_error();} while (0);
   }
 
   end = end->next;

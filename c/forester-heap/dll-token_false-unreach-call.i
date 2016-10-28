@@ -1137,7 +1137,7 @@ int main()
   x->next->prev = x;
   x = x->next;
   x->data = 0;
-  do { if (!(((void*)0) != x)) __VERIFIER_error("assertion failed: " "NULL != x");} while (0);
+  do { if (!(((void*)0) != x)) __VERIFIER_error();} while (0);
  }
  x->data = 1;
  x->next = malloc(sizeof(SLL));
@@ -1146,16 +1146,16 @@ int main()
 
  x = head;
 
- do { if (!(((void*)0) != x)) __VERIFIER_error("assertion failed: " "NULL != x");} while (0);
+ do { if (!(((void*)0) != x)) __VERIFIER_error();} while (0);
 
  while (1 != x->data)
  {
-  do { if (!(0 == x->data)) __VERIFIER_error("assertion failed: " "0 == x->data");} while (0);
+  do { if (!(0 == x->data)) __VERIFIER_error();} while (0);
   x = x->next;
  }
- do { if (!(1 == x->data)) __VERIFIER_error("assertion failed: " "1 == x->data");} while (0);
+ do { if (!(1 == x->data)) __VERIFIER_error();} while (0);
  x = x->next;
- do { if (!(2 != x->data)) __VERIFIER_error("assertion failed: " "2 != x->data");} while (0);
+ do { if (!(2 != x->data)) __VERIFIER_error();} while (0);
 
  x = head;
 
@@ -1165,7 +1165,7 @@ int main()
   x = x->next;
   free(head);
  }
- do { if (!(1 == x->data)) __VERIFIER_error("assertion failed: " "1 == x->data");} while (0);
+ do { if (!(1 == x->data)) __VERIFIER_error();} while (0);
  free(x->next);
  free(x);
 

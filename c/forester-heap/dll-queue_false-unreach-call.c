@@ -1,4 +1,4 @@
-#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error("assertion failed: " #cond);} while (0)
+#define __VERIFIER_assert(cond) do { if (!(cond)) __VERIFIER_error();} while (0)
 /*
  * We create a list with nodes containing the integers 0, 1, 2, and 3.
  * The list can form sequences 0, 01, 012, 0123^*. A particular sequence is created
