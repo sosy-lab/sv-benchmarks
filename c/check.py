@@ -51,6 +51,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
     ("busybox-1.22.0", "missing license"), # included in .c files
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
+    ("regression", 'not listed in global Makefile, please add "DIRS += regression"'), # present but indented
 
     # historical
     ("ntdrivers", "missing license"),
@@ -76,9 +77,9 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
 KNOWN_SET_PROBLEMS = [
     # TODO Please fix
-    ("HeapReach-validate.set", "32 bit category contains 64 bit benchmarks in ./ldv-regression"),
-    ("HeapReach.set", "32 bit category contains 64 bit benchmarks in ./ldv-regression"),
-    ("Termination.set", "64 bit category contains 32 bit benchmarks in ./product-lines"),
+    ("HeapReach-validate.set", "32 bit category contains 64 bit benchmarks in ldv-regression"),
+    ("HeapReach.set", "32 bit category contains 64 bit benchmarks in ldv-regression"),
+    ("Termination.set", "64 bit category contains 32 bit benchmarks in product-lines"),
     ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
 
     # psyco.set should be deleted
@@ -214,10 +215,14 @@ class SetFileChecks(Checks):
                 arch = int(next(iter(archs), "32").split(" ")[-1])
                 if arch == 64:
                     if self.category not in ARCH64_CATEGORIES:
-                        self.error("32 bit category contains 64 bit benchmarks in %s", directory)
+                        self.error(
+                            "32 bit category contains 64 bit benchmarks in %s",
+                            os.path.basename(directory))
                 elif arch == 32:
                     if self.category in ARCH64_CATEGORIES:
-                        self.error("64 bit category contains 32 bit benchmarks in %s", directory)
+                        self.error(
+                            "64 bit category contains 32 bit benchmarks in %s",
+                            os.path.basename(directory))
                 else:
                     self.error("unknown architecture %s", arch)
 
