@@ -1,19 +1,12 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 #define N 100000
 
 int main ( ) {
-  int a[N]; int e = __VERIFIER_nondet_int();
+  int a[N]; int e;
   int i = 0;
-  int j;
-  
-  for ( j = 0 ; j < N; j++ ) {
-    a[j] = __VERIFIER_nondet_int();
-  }
-
-  while( i < N && a[i] != e ) {
+  while( i < N && a[i] != e ) { // use of uninitialized e
     i = i + 1;
   }
   
