@@ -1,6 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-typedef unsigned int size_t;
-typedef long int wchar_t;
+typedef long unsigned int size_t;
+typedef int wchar_t;
 
 typedef enum
 {
@@ -18,48 +18,48 @@ typedef signed short int __int16_t;
 typedef unsigned short int __uint16_t;
 typedef signed int __int32_t;
 typedef unsigned int __uint32_t;
-__extension__ typedef signed long long int __int64_t;
-__extension__ typedef unsigned long long int __uint64_t;
-__extension__ typedef long long int __quad_t;
-__extension__ typedef unsigned long long int __u_quad_t;
-__extension__ typedef __u_quad_t __dev_t;
-__extension__ typedef unsigned int __uid_t;
-__extension__ typedef unsigned int __gid_t;
-__extension__ typedef unsigned long int __ino_t;
-__extension__ typedef __u_quad_t __ino64_t;
-__extension__ typedef unsigned int __mode_t;
-__extension__ typedef unsigned int __nlink_t;
-__extension__ typedef long int __off_t;
-__extension__ typedef __quad_t __off64_t;
-__extension__ typedef int __pid_t;
-__extension__ typedef struct { int __val[2]; } __fsid_t;
-__extension__ typedef long int __clock_t;
-__extension__ typedef unsigned long int __rlim_t;
-__extension__ typedef __u_quad_t __rlim64_t;
-__extension__ typedef unsigned int __id_t;
-__extension__ typedef long int __time_t;
-__extension__ typedef unsigned int __useconds_t;
-__extension__ typedef long int __suseconds_t;
-__extension__ typedef int __daddr_t;
-__extension__ typedef int __key_t;
-__extension__ typedef int __clockid_t;
-__extension__ typedef void * __timer_t;
-__extension__ typedef long int __blksize_t;
-__extension__ typedef long int __blkcnt_t;
-__extension__ typedef __quad_t __blkcnt64_t;
-__extension__ typedef unsigned long int __fsblkcnt_t;
-__extension__ typedef __u_quad_t __fsblkcnt64_t;
-__extension__ typedef unsigned long int __fsfilcnt_t;
-__extension__ typedef __u_quad_t __fsfilcnt64_t;
-__extension__ typedef int __fsword_t;
-__extension__ typedef int __ssize_t;
-__extension__ typedef long int __syscall_slong_t;
-__extension__ typedef unsigned long int __syscall_ulong_t;
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+typedef int __daddr_t;
+typedef int __key_t;
+typedef int __clockid_t;
+typedef void * __timer_t;
+typedef long int __blksize_t;
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+typedef long int __fsword_t;
+typedef long int __ssize_t;
+typedef long int __syscall_slong_t;
+typedef unsigned long int __syscall_ulong_t;
 typedef __off64_t __loff_t;
 typedef __quad_t *__qaddr_t;
 typedef char *__caddr_t;
-__extension__ typedef int __intptr_t;
-__extension__ typedef unsigned int __socklen_t;
+typedef long int __intptr_t;
+typedef unsigned int __socklen_t;
 static __inline unsigned int
 __bswap_32 (unsigned int __bsx)
 {
@@ -262,14 +262,15 @@ typedef __fsfilcnt_t fsfilcnt_t;
 typedef unsigned long int pthread_t;
 union pthread_attr_t
 {
-  char __size[36];
+  char __size[56];
   long int __align;
 };
 typedef union pthread_attr_t pthread_attr_t;
-typedef struct __pthread_internal_slist
+typedef struct __pthread_internal_list
 {
-  struct __pthread_internal_slist *__next;
-} __pthread_slist_t;
+  struct __pthread_internal_list *__prev;
+  struct __pthread_internal_list *__next;
+} __pthread_list_t;
 typedef union
 {
   struct __pthread_mutex_s
@@ -277,19 +278,13 @@ typedef union
     int __lock;
     unsigned int __count;
     int __owner;
-    int __kind;
     unsigned int __nusers;
-    __extension__ union
-    {
-      struct
-      {
- short __espins;
- short __elision;
-      } d;
-      __pthread_slist_t __list;
-    };
+    int __kind;
+    short __spins;
+    short __elision;
+    __pthread_list_t __list;
   } __data;
-  char __size[24];
+  char __size[40];
   long int __align;
 } pthread_mutex_t;
 typedef union
@@ -330,13 +325,14 @@ typedef union
     unsigned int __writer_wakeup;
     unsigned int __nr_readers_queued;
     unsigned int __nr_writers_queued;
-    unsigned char __flags;
-    unsigned char __shared;
-    unsigned char __pad1;
-    unsigned char __pad2;
     int __writer;
+    int __shared;
+    signed char __rwelision;
+    unsigned char __pad1[7];
+    unsigned long int __pad2;
+    unsigned int __flags;
   } __data;
-  char __size[32];
+  char __size[56];
   long int __align;
 } pthread_rwlock_t;
 typedef union
@@ -347,7 +343,7 @@ typedef union
 typedef volatile int pthread_spinlock_t;
 typedef union
 {
-  char __size[20];
+  char __size[32];
   long int __align;
 } pthread_barrier_t;
 typedef union
@@ -450,14 +446,18 @@ extern void *alloca (size_t __size) __attribute__ ((__nothrow__ , __leaf__));
 extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
 extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
+extern void *aligned_alloc (size_t __alignment, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_size__ (2))) ;
 
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 extern int atexit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int at_quick_exit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern int on_exit (void (*__func) (int __status, void *__arg), void *__arg)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern void exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void quick_exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
 extern void _Exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
@@ -767,7 +767,6 @@ extern int putw (int __w, FILE *__stream);
 
 extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
      ;
-extern char *gets (char *__s) __attribute__ ((__deprecated__));
 
 extern __ssize_t __getdelim (char **__restrict __lineptr,
           size_t *__restrict __n, int __delimiter,
@@ -824,6 +823,11 @@ extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 
+typedef long int ptrdiff_t;
+typedef struct {
+  long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
+  long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
+} max_align_t;
 extern int __VERIFIER_nondet_int(void);
 static void fail(void) {
 ERROR: __VERIFIER_error();
@@ -846,7 +850,7 @@ static void inspect(const struct list_head *head)
     do { if (!(head)) fail(); } while (0);
     do { if (!(head->next != head)) fail(); } while (0);
     do { if (!(head->prev != head)) fail(); } while (0);
-    const struct node *node = ((struct node *)((char *)(head)-(unsigned long)(&((struct node *)0)->linkage)));
+    const struct node *node = ((struct node *)((char *)(head)-__builtin_offsetof (struct node, linkage)));
     do { if (!(node)) fail(); } while (0);
     do { if (!(node->nested.next == &node->nested)) fail(); } while (0);
     do { if (!(node->nested.prev == &node->nested)) fail(); } while (0);
@@ -858,7 +862,7 @@ static void inspect(const struct list_head *head)
     do { if (!(head == node->linkage.next->prev)) fail(); } while (0);
     do { if (!(head == node->linkage.prev->next)) fail(); } while (0);
     for (head = head->next; &node->linkage != head; head = head->next);
-    do { if (!(((struct node *)((char *)(head)-(unsigned long)(&((struct node *)0)->linkage))) == node)) fail(); } while (0);
+    do { if (!(((struct node *)((char *)(head)-__builtin_offsetof (struct node, linkage))) == node)) fail(); } while (0);
 }
 static inline void __list_add(struct list_head *new,
          struct list_head *prev,
@@ -904,11 +908,11 @@ static void gl_destroy()
     struct list_head *next;
     while (&gl_list != (next = gl_list.next)) {
         gl_list.next = next->next;
-        free(((struct node *)((char *)(next)-(unsigned long)(&((struct node *)0)->linkage))));
+        free(((struct node *)((char *)(next)-__builtin_offsetof (struct node, linkage))));
  }
 }
 static int val_from_node(struct list_head *head) {
-    struct node *entry = ((struct node *)((char *)(head)-(unsigned long)(&((struct node *)0)->linkage)));
+    struct node *entry = ((struct node *)((char *)(head)-__builtin_offsetof (struct node, linkage)));
     return entry->value;
 }
 static _Bool gl_sort_pass()
