@@ -51,7 +51,6 @@ DIRS += loop-lit
 DIRS += loop-new
 DIRS += loops
 DIRS += memory-alloca
-DIRS += memory-unsafe
 DIRS += memsafety
 DIRS += memsafety-ext
 DIRS += ntdrivers
