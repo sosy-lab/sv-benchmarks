@@ -11,29 +11,34 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 # 21 "/usr/include/pthread.h" 3 4
 # 1 "/usr/include/features.h" 1 3 4
 # 374 "/usr/include/features.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
-# 385 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
-# 386 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 1 "/usr/include/sys/cdefs.h" 1 3 4
+# 385 "/usr/include/sys/cdefs.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 386 "/usr/include/sys/cdefs.h" 2 3 4
 # 375 "/usr/include/features.h" 2 3 4
 # 398 "/usr/include/features.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
-# 10 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h" 1 3 4
-# 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4
+# 1 "/usr/include/gnu/stubs.h" 1 3 4
+
+
+
+
+
+
+# 1 "/usr/include/gnu/stubs-32.h" 1 3 4
+# 8 "/usr/include/gnu/stubs.h" 2 3 4
 # 399 "/usr/include/features.h" 2 3 4
 # 22 "/usr/include/pthread.h" 2 3 4
 # 1 "/usr/include/endian.h" 1 3 4
 # 36 "/usr/include/endian.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/endian.h" 1 3 4
+# 1 "/usr/include/bits/endian.h" 1 3 4
 # 37 "/usr/include/endian.h" 2 3 4
 # 60 "/usr/include/endian.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/byteswap.h" 1 3 4
-# 27 "/usr/include/x86_64-linux-gnu/bits/byteswap.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/types.h" 1 3 4
-# 27 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
-# 28 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+# 1 "/usr/include/bits/byteswap.h" 1 3 4
+# 27 "/usr/include/bits/byteswap.h" 3 4
+# 1 "/usr/include/bits/types.h" 1 3 4
+# 27 "/usr/include/bits/types.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/bits/types.h" 2 3 4
 
 
 typedef unsigned char __u_char;
@@ -49,8 +54,11 @@ typedef unsigned short int __uint16_t;
 typedef signed int __int32_t;
 typedef unsigned int __uint32_t;
 
-typedef signed long int __int64_t;
-typedef unsigned long int __uint64_t;
+
+
+
+__extension__ typedef signed long long int __int64_t;
+__extension__ typedef unsigned long long int __uint64_t;
 
 
 
@@ -58,67 +66,67 @@ typedef unsigned long int __uint64_t;
 
 
 
-typedef long int __quad_t;
-typedef unsigned long int __u_quad_t;
-# 121 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/typesizes.h" 1 3 4
-# 122 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+__extension__ typedef long long int __quad_t;
+__extension__ typedef unsigned long long int __u_quad_t;
+# 121 "/usr/include/bits/types.h" 3 4
+# 1 "/usr/include/bits/typesizes.h" 1 3 4
+# 122 "/usr/include/bits/types.h" 2 3 4
 
 
-typedef unsigned long int __dev_t;
-typedef unsigned int __uid_t;
-typedef unsigned int __gid_t;
-typedef unsigned long int __ino_t;
-typedef unsigned long int __ino64_t;
-typedef unsigned int __mode_t;
-typedef unsigned long int __nlink_t;
-typedef long int __off_t;
-typedef long int __off64_t;
-typedef int __pid_t;
-typedef struct { int __val[2]; } __fsid_t;
-typedef long int __clock_t;
-typedef unsigned long int __rlim_t;
-typedef unsigned long int __rlim64_t;
-typedef unsigned int __id_t;
-typedef long int __time_t;
-typedef unsigned int __useconds_t;
-typedef long int __suseconds_t;
+__extension__ typedef __u_quad_t __dev_t;
+__extension__ typedef unsigned int __uid_t;
+__extension__ typedef unsigned int __gid_t;
+__extension__ typedef unsigned long int __ino_t;
+__extension__ typedef __u_quad_t __ino64_t;
+__extension__ typedef unsigned int __mode_t;
+__extension__ typedef unsigned int __nlink_t;
+__extension__ typedef long int __off_t;
+__extension__ typedef __quad_t __off64_t;
+__extension__ typedef int __pid_t;
+__extension__ typedef struct { int __val[2]; } __fsid_t;
+__extension__ typedef long int __clock_t;
+__extension__ typedef unsigned long int __rlim_t;
+__extension__ typedef __u_quad_t __rlim64_t;
+__extension__ typedef unsigned int __id_t;
+__extension__ typedef long int __time_t;
+__extension__ typedef unsigned int __useconds_t;
+__extension__ typedef long int __suseconds_t;
 
-typedef int __daddr_t;
-typedef int __key_t;
-
-
-typedef int __clockid_t;
+__extension__ typedef int __daddr_t;
+__extension__ typedef int __key_t;
 
 
-typedef void * __timer_t;
+__extension__ typedef int __clockid_t;
 
 
-typedef long int __blksize_t;
+__extension__ typedef void * __timer_t;
+
+
+__extension__ typedef long int __blksize_t;
 
 
 
 
-typedef long int __blkcnt_t;
-typedef long int __blkcnt64_t;
+__extension__ typedef long int __blkcnt_t;
+__extension__ typedef __quad_t __blkcnt64_t;
 
 
-typedef unsigned long int __fsblkcnt_t;
-typedef unsigned long int __fsblkcnt64_t;
+__extension__ typedef unsigned long int __fsblkcnt_t;
+__extension__ typedef __u_quad_t __fsblkcnt64_t;
 
 
-typedef unsigned long int __fsfilcnt_t;
-typedef unsigned long int __fsfilcnt64_t;
+__extension__ typedef unsigned long int __fsfilcnt_t;
+__extension__ typedef __u_quad_t __fsfilcnt64_t;
 
 
-typedef long int __fsword_t;
+__extension__ typedef int __fsword_t;
 
-typedef long int __ssize_t;
+__extension__ typedef int __ssize_t;
 
 
-typedef long int __syscall_slong_t;
+__extension__ typedef long int __syscall_slong_t;
 
-typedef unsigned long int __syscall_ulong_t;
+__extension__ typedef unsigned long int __syscall_ulong_t;
 
 
 
@@ -127,28 +135,28 @@ typedef __quad_t *__qaddr_t;
 typedef char *__caddr_t;
 
 
-typedef long int __intptr_t;
+__extension__ typedef int __intptr_t;
 
 
-typedef unsigned int __socklen_t;
-# 28 "/usr/include/x86_64-linux-gnu/bits/byteswap.h" 2 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
-# 29 "/usr/include/x86_64-linux-gnu/bits/byteswap.h" 2 3 4
-
-
-
+__extension__ typedef unsigned int __socklen_t;
+# 28 "/usr/include/bits/byteswap.h" 2 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 29 "/usr/include/bits/byteswap.h" 2 3 4
 
 
 
-# 1 "/usr/include/x86_64-linux-gnu/bits/byteswap-16.h" 1 3 4
-# 36 "/usr/include/x86_64-linux-gnu/bits/byteswap.h" 2 3 4
-# 44 "/usr/include/x86_64-linux-gnu/bits/byteswap.h" 3 4
+
+
+
+# 1 "/usr/include/bits/byteswap-16.h" 1 3 4
+# 36 "/usr/include/bits/byteswap.h" 2 3 4
+# 44 "/usr/include/bits/byteswap.h" 3 4
 static __inline unsigned int
 __bswap_32 (unsigned int __bsx)
 {
   return __builtin_bswap32 (__bsx);
 }
-# 108 "/usr/include/x86_64-linux-gnu/bits/byteswap.h" 3 4
+# 108 "/usr/include/bits/byteswap.h" 3 4
 static __inline __uint64_t
 __bswap_64 (__uint64_t __bsx)
 {
@@ -160,7 +168,7 @@ __bswap_64 (__uint64_t __bsx)
 # 28 "/usr/include/sched.h" 3 4
 # 1 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 1 3 4
 # 212 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 3 4
-typedef long unsigned int size_t;
+typedef unsigned int size_t;
 # 29 "/usr/include/sched.h" 2 3 4
 
 
@@ -188,15 +196,15 @@ typedef __pid_t pid_t;
 
 
 
-# 1 "/usr/include/x86_64-linux-gnu/bits/sched.h" 1 3 4
-# 72 "/usr/include/x86_64-linux-gnu/bits/sched.h" 3 4
+# 1 "/usr/include/bits/sched.h" 1 3 4
+# 72 "/usr/include/bits/sched.h" 3 4
 struct sched_param
   {
     int __sched_priority;
   };
 
 
-# 95 "/usr/include/x86_64-linux-gnu/bits/sched.h" 3 4
+# 95 "/usr/include/bits/sched.h" 3 4
 
 
 
@@ -209,7 +217,7 @@ struct __sched_param
   {
     int __sched_priority;
   };
-# 118 "/usr/include/x86_64-linux-gnu/bits/sched.h" 3 4
+# 118 "/usr/include/bits/sched.h" 3 4
 typedef unsigned long int __cpu_mask;
 
 
@@ -221,7 +229,7 @@ typedef struct
 {
   __cpu_mask __bits[1024 / (8 * sizeof (__cpu_mask))];
 } cpu_set_t;
-# 201 "/usr/include/x86_64-linux-gnu/bits/sched.h" 3 4
+# 201 "/usr/include/bits/sched.h" 3 4
 
 
 extern int __sched_cpucount (size_t __setsize, const cpu_set_t *__setp)
@@ -280,7 +288,7 @@ extern int sched_rr_get_interval (__pid_t __pid, struct timespec *__t) __attribu
 
 
 
-# 1 "/usr/include/x86_64-linux-gnu/bits/time.h" 1 3 4
+# 1 "/usr/include/bits/time.h" 1 3 4
 # 42 "/usr/include/time.h" 2 3 4
 # 57 "/usr/include/time.h" 3 4
 
@@ -511,32 +519,31 @@ extern int timer_getoverrun (timer_t __timerid) __attribute__ ((__nothrow__ , __
 
 # 25 "/usr/include/pthread.h" 2 3 4
 
-# 1 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 1 3 4
-# 21 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
-# 22 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 2 3 4
-# 60 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
+# 1 "/usr/include/bits/pthreadtypes.h" 1 3 4
+# 21 "/usr/include/bits/pthreadtypes.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 22 "/usr/include/bits/pthreadtypes.h" 2 3 4
+# 60 "/usr/include/bits/pthreadtypes.h" 3 4
 typedef unsigned long int pthread_t;
 
 
 union pthread_attr_t
 {
-  char __size[56];
+  char __size[36];
   long int __align;
 };
 
 typedef union pthread_attr_t pthread_attr_t;
-
-
-
-
-
-typedef struct __pthread_internal_list
+# 81 "/usr/include/bits/pthreadtypes.h" 3 4
+typedef struct __pthread_internal_slist
 {
-  struct __pthread_internal_list *__prev;
-  struct __pthread_internal_list *__next;
-} __pthread_list_t;
-# 90 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
+  struct __pthread_internal_slist *__next;
+} __pthread_slist_t;
+
+
+
+
+
 typedef union
 {
   struct __pthread_mutex_s
@@ -545,18 +552,34 @@ typedef union
     unsigned int __count;
     int __owner;
 
-    unsigned int __nusers;
+
 
 
 
     int __kind;
 
-    short __spins;
-    short __elision;
-    __pthread_list_t __list;
-# 124 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
+
+
+
+
+
+
+    unsigned int __nusers;
+    __extension__ union
+    {
+      struct
+      {
+ short __espins;
+ short __elision;
+
+
+
+      } d;
+      __pthread_slist_t __list;
+    };
+
   } __data;
-  char __size[40];
+  char __size[24];
   long int __align;
 } pthread_mutex_t;
 
@@ -606,7 +629,7 @@ typedef int pthread_once_t;
 
 typedef union
 {
-
+# 194 "/usr/include/bits/pthreadtypes.h" 3 4
   struct
   {
     int __lock;
@@ -615,17 +638,16 @@ typedef union
     unsigned int __writer_wakeup;
     unsigned int __nr_readers_queued;
     unsigned int __nr_writers_queued;
+
+
+    unsigned char __flags;
+    unsigned char __shared;
+    unsigned char __pad1;
+    unsigned char __pad2;
     int __writer;
-    int __shared;
-    unsigned long int __pad1;
-    unsigned long int __pad2;
-
-
-    unsigned int __flags;
-
   } __data;
-# 211 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h" 3 4
-  char __size[56];
+
+  char __size[32];
   long int __align;
 } pthread_rwlock_t;
 
@@ -646,7 +668,7 @@ typedef volatile int pthread_spinlock_t;
 
 typedef union
 {
-  char __size[32];
+  char __size[20];
   long int __align;
 } pthread_barrier_t;
 
@@ -656,17 +678,14 @@ typedef union
   int __align;
 } pthread_barrierattr_t;
 # 27 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/setjmp.h" 1 3 4
-# 26 "/usr/include/x86_64-linux-gnu/bits/setjmp.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
-# 27 "/usr/include/x86_64-linux-gnu/bits/setjmp.h" 2 3 4
-
-
-
-
-typedef long int __jmp_buf[8];
+# 1 "/usr/include/bits/setjmp.h" 1 3 4
+# 26 "/usr/include/bits/setjmp.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 27 "/usr/include/bits/setjmp.h" 2 3 4
+# 35 "/usr/include/bits/setjmp.h" 3 4
+typedef int __jmp_buf[6];
 # 28 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
 # 29 "/usr/include/pthread.h" 2 3 4
 
 
@@ -980,13 +999,13 @@ struct __pthread_cleanup_frame
 };
 # 691 "/usr/include/pthread.h" 3 4
 extern void __pthread_register_cancel (__pthread_unwind_buf_t *__buf)
-     ;
+     __attribute__ ((__regparm__ (1)));
 # 703 "/usr/include/pthread.h" 3 4
 extern void __pthread_unregister_cancel (__pthread_unwind_buf_t *__buf)
-  ;
+  __attribute__ ((__regparm__ (1)));
 # 744 "/usr/include/pthread.h" 3 4
 extern void __pthread_unwind_next (__pthread_unwind_buf_t *__buf)
-     __attribute__ ((__noreturn__))
+     __attribute__ ((__regparm__ (1))) __attribute__ ((__noreturn__))
 
      __attribute__ ((__weak__))
 
@@ -1576,7 +1595,7 @@ typedef _G_fpos_t fpos_t;
 
 
 # 164 "/usr/include/stdio.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/stdio_lim.h" 1 3 4
+# 1 "/usr/include/bits/stdio_lim.h" 1 3 4
 # 165 "/usr/include/stdio.h" 2 3 4
 
 
@@ -2014,8 +2033,8 @@ extern void perror (const char *__s);
 
 
 
-# 1 "/usr/include/x86_64-linux-gnu/bits/sys_errlist.h" 1 3 4
-# 26 "/usr/include/x86_64-linux-gnu/bits/sys_errlist.h" 3 4
+# 1 "/usr/include/bits/sys_errlist.h" 1 3 4
+# 26 "/usr/include/bits/sys_errlist.h" 3 4
 extern int sys_nerr;
 extern const char *const sys_errlist[];
 # 854 "/usr/include/stdio.h" 2 3 4
@@ -2059,7 +2078,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 # 32 "/usr/include/stdlib.h" 3 4
 # 1 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 1 3 4
 # 324 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 3 4
-typedef int wchar_t;
+typedef long int wchar_t;
 # 33 "/usr/include/stdlib.h" 2 3 4
 
 
@@ -2069,8 +2088,8 @@ typedef int wchar_t;
 
 
 
-# 1 "/usr/include/x86_64-linux-gnu/bits/waitflags.h" 1 3 4
-# 50 "/usr/include/x86_64-linux-gnu/bits/waitflags.h" 3 4
+# 1 "/usr/include/bits/waitflags.h" 1 3 4
+# 50 "/usr/include/bits/waitflags.h" 3 4
 typedef enum
 {
   P_ALL,
@@ -2078,8 +2097,8 @@ typedef enum
   P_PGID
 } idtype_t;
 # 42 "/usr/include/stdlib.h" 2 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/waitstatus.h" 1 3 4
-# 66 "/usr/include/x86_64-linux-gnu/bits/waitstatus.h" 3 4
+# 1 "/usr/include/bits/waitstatus.h" 1 3 4
+# 66 "/usr/include/bits/waitstatus.h" 3 4
 union wait
   {
     int w_status;
@@ -2239,8 +2258,8 @@ extern long int a64l (const char *__s)
 
 
 
-# 1 "/usr/include/x86_64-linux-gnu/sys/types.h" 1 3 4
-# 27 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
+# 1 "/usr/include/sys/types.h" 1 3 4
+# 27 "/usr/include/sys/types.h" 3 4
 
 
 
@@ -2263,7 +2282,7 @@ typedef __loff_t loff_t;
 
 
 typedef __ino_t ino_t;
-# 60 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
+# 60 "/usr/include/sys/types.h" 3 4
 typedef __dev_t dev_t;
 
 
@@ -2285,9 +2304,9 @@ typedef __nlink_t nlink_t;
 
 
 typedef __uid_t uid_t;
-# 104 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
+# 104 "/usr/include/sys/types.h" 3 4
 typedef __id_t id_t;
-# 115 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
+# 115 "/usr/include/sys/types.h" 3 4
 typedef __daddr_t daddr_t;
 typedef __caddr_t caddr_t;
 
@@ -2296,16 +2315,16 @@ typedef __caddr_t caddr_t;
 
 
 typedef __key_t key_t;
-# 146 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
+# 146 "/usr/include/sys/types.h" 3 4
 # 1 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 1 3 4
-# 147 "/usr/include/x86_64-linux-gnu/sys/types.h" 2 3 4
+# 147 "/usr/include/sys/types.h" 2 3 4
 
 
 
 typedef unsigned long int ulong;
 typedef unsigned short int ushort;
 typedef unsigned int uint;
-# 194 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
+# 194 "/usr/include/sys/types.h" 3 4
 typedef int int8_t __attribute__ ((__mode__ (__QI__)));
 typedef int int16_t __attribute__ ((__mode__ (__HI__)));
 typedef int int32_t __attribute__ ((__mode__ (__SI__)));
@@ -2318,18 +2337,18 @@ typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
 typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
 
 typedef int register_t __attribute__ ((__mode__ (__word__)));
-# 219 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/sys/select.h" 1 3 4
-# 30 "/usr/include/x86_64-linux-gnu/sys/select.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/select.h" 1 3 4
-# 22 "/usr/include/x86_64-linux-gnu/bits/select.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
-# 23 "/usr/include/x86_64-linux-gnu/bits/select.h" 2 3 4
-# 31 "/usr/include/x86_64-linux-gnu/sys/select.h" 2 3 4
+# 219 "/usr/include/sys/types.h" 3 4
+# 1 "/usr/include/sys/select.h" 1 3 4
+# 30 "/usr/include/sys/select.h" 3 4
+# 1 "/usr/include/bits/select.h" 1 3 4
+# 22 "/usr/include/bits/select.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 23 "/usr/include/bits/select.h" 2 3 4
+# 31 "/usr/include/sys/select.h" 2 3 4
 
 
-# 1 "/usr/include/x86_64-linux-gnu/bits/sigset.h" 1 3 4
-# 22 "/usr/include/x86_64-linux-gnu/bits/sigset.h" 3 4
+# 1 "/usr/include/bits/sigset.h" 1 3 4
+# 22 "/usr/include/bits/sigset.h" 3 4
 typedef int __sig_atomic_t;
 
 
@@ -2339,7 +2358,7 @@ typedef struct
   {
     unsigned long int __val[(1024 / (8 * sizeof (unsigned long int)))];
   } __sigset_t;
-# 34 "/usr/include/x86_64-linux-gnu/sys/select.h" 2 3 4
+# 34 "/usr/include/sys/select.h" 2 3 4
 
 
 
@@ -2351,14 +2370,14 @@ typedef __sigset_t sigset_t;
 
 
 
-# 1 "/usr/include/x86_64-linux-gnu/bits/time.h" 1 3 4
-# 30 "/usr/include/x86_64-linux-gnu/bits/time.h" 3 4
+# 1 "/usr/include/bits/time.h" 1 3 4
+# 30 "/usr/include/bits/time.h" 3 4
 struct timeval
   {
     __time_t tv_sec;
     __suseconds_t tv_usec;
   };
-# 46 "/usr/include/x86_64-linux-gnu/sys/select.h" 2 3 4
+# 46 "/usr/include/sys/select.h" 2 3 4
 
 
 typedef __suseconds_t suseconds_t;
@@ -2368,7 +2387,7 @@ typedef __suseconds_t suseconds_t;
 
 
 typedef long int __fd_mask;
-# 64 "/usr/include/x86_64-linux-gnu/sys/select.h" 3 4
+# 64 "/usr/include/sys/select.h" 3 4
 typedef struct
   {
 
@@ -2388,26 +2407,26 @@ typedef struct
 
 
 typedef __fd_mask fd_mask;
-# 96 "/usr/include/x86_64-linux-gnu/sys/select.h" 3 4
+# 96 "/usr/include/sys/select.h" 3 4
 
-# 106 "/usr/include/x86_64-linux-gnu/sys/select.h" 3 4
+# 106 "/usr/include/sys/select.h" 3 4
 extern int select (int __nfds, fd_set *__restrict __readfds,
      fd_set *__restrict __writefds,
      fd_set *__restrict __exceptfds,
      struct timeval *__restrict __timeout);
-# 118 "/usr/include/x86_64-linux-gnu/sys/select.h" 3 4
+# 118 "/usr/include/sys/select.h" 3 4
 extern int pselect (int __nfds, fd_set *__restrict __readfds,
       fd_set *__restrict __writefds,
       fd_set *__restrict __exceptfds,
       const struct timespec *__restrict __timeout,
       const __sigset_t *__restrict __sigmask);
-# 131 "/usr/include/x86_64-linux-gnu/sys/select.h" 3 4
+# 131 "/usr/include/sys/select.h" 3 4
 
-# 220 "/usr/include/x86_64-linux-gnu/sys/types.h" 2 3 4
+# 220 "/usr/include/sys/types.h" 2 3 4
 
 
-# 1 "/usr/include/x86_64-linux-gnu/sys/sysmacros.h" 1 3 4
-# 24 "/usr/include/x86_64-linux-gnu/sys/sysmacros.h" 3 4
+# 1 "/usr/include/sys/sysmacros.h" 1 3 4
+# 24 "/usr/include/sys/sysmacros.h" 3 4
 
 
 __extension__
@@ -2420,9 +2439,9 @@ __extension__
 extern unsigned long long int gnu_dev_makedev (unsigned int __major,
             unsigned int __minor)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-# 58 "/usr/include/x86_64-linux-gnu/sys/sysmacros.h" 3 4
+# 58 "/usr/include/sys/sysmacros.h" 3 4
 
-# 223 "/usr/include/x86_64-linux-gnu/sys/types.h" 2 3 4
+# 223 "/usr/include/sys/types.h" 2 3 4
 
 
 
@@ -2444,7 +2463,7 @@ typedef __fsblkcnt_t fsblkcnt_t;
 
 
 typedef __fsfilcnt_t fsfilcnt_t;
-# 273 "/usr/include/x86_64-linux-gnu/sys/types.h" 3 4
+# 273 "/usr/include/sys/types.h" 3 4
 
 # 315 "/usr/include/stdlib.h" 2 3 4
 
@@ -2876,7 +2895,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 
-# 1 "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h" 1 3 4
+# 1 "/usr/include/bits/stdlib-float.h" 1 3 4
 # 956 "/usr/include/stdlib.h" 2 3 4
 # 968 "/usr/include/stdlib.h" 3 4
 
