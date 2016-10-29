@@ -6,17 +6,17 @@ import os
 import re
 import sys
 
+try:
+    import yaml
+except ImportError:
+    yaml = None
+
 README_PATTERN = re.compile('readme(\.(txt|md))?', re.I)
 LICENSE_PATTERN = re.compile('license([-.].*)?(\.(txt|md))?', re.I)
 BENCHMARK_PATTERN = re.compile('.*\.[ci]')
 EXPECTED_FILE_PATTERN = re.compile(
     '(.*\.(c|h|i)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)', re.I)
-ARCH64_CATEGORIES = [
-    "BusyBox",
-    "BitVectorsOverflows",
-    "DeviceDriversLinux64",
-    "Termination",
-    ]
+CONFIG_KEYS = set(["Architecture", "Description", "Memory Model"])
 
 KNOWN_DIRECTORY_PROBLEMS = [
     # TODO Please fix
@@ -83,6 +83,7 @@ KNOWN_SET_PROBLEMS = [
     ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
 
     # psyco.set should be deleted
+    ("psyco.set", "missing configuration file"),
     ("psyco.set", "missing property file"),
     ("psyco.set", "Pattern <psyco_security_true-unreach-call.c> does not match anything."),
     ("psyco.set", "Pattern <psyco_net_1_true-unreach-call.c> does not match anything."),
@@ -186,10 +187,14 @@ class SetFileChecks(Checks):
             self.category = self.category[:-9]
         with open(path) as f:
             self.content = f.readlines()
+        self.cfg_file = os.path.join(self.base_path, self.category + ".cfg")
 
     def check_has_property_file(self):
-        if not os.path.isfile(os.path.join(self.base_path, self.category + ".prp")):
+        prp_file = os.path.join(self.base_path, self.category + ".prp")
+        if not os.path.isfile(prp_file):
             self.error("missing property file")
+        elif not os.path.islink(prp_file):
+            self.error("property file is not a symlink")
 
     def check_all_patterns_match_files(self):
         for pattern in self.content:
@@ -201,6 +206,8 @@ class SetFileChecks(Checks):
                 self.error("Pattern <%s> does not match anything.", pattern)
 
     def check_declared_architecture_of_benchmarks(self):
+        cfg = self._load_config()
+        expected_arch = int(cfg["Architecture"].split(" ")[0]) if cfg else None
         directories = set(
             os.path.dirname(file)
                 for pattern in self.content if pattern.strip() and not pattern[0] == '#'
@@ -213,18 +220,41 @@ class SetFileChecks(Checks):
                 if len(archs) > 1:
                     self.error("multiple architecture declarations in %s", makefile_path)
                 arch = int(next(iter(archs), "32").split(" ")[-1])
-                if arch == 64:
-                    if self.category not in ARCH64_CATEGORIES:
-                        self.error(
-                            "32 bit category contains 64 bit benchmarks in %s",
-                            os.path.basename(directory))
-                elif arch == 32:
-                    if self.category in ARCH64_CATEGORIES:
-                        self.error(
-                            "64 bit category contains 32 bit benchmarks in %s",
-                            os.path.basename(directory))
-                else:
-                    self.error("unknown architecture %s", arch)
+                if expected_arch and arch != expected_arch:
+                    self.error(
+                        "%d bit category contains %d bit benchmarks in %s",
+                        expected_arch,
+                        arch,
+                        os.path.basename(directory))
+
+    def check_has_config_file(self):
+        if not os.path.isfile(self.cfg_file):
+            self.error("missing configuration file")
+
+    def _load_config(self):
+        if not yaml:
+            return None
+        if not os.path.isfile(self.cfg_file):
+            return None
+        with open(self.cfg_file) as f:
+            return yaml.safe_load(f)
+
+    def check_config_file(self):
+        cfg = self._load_config()
+        if not cfg:
+            return
+        unknown_keys = set(cfg.keys()).difference(CONFIG_KEYS)
+        missing_keys = CONFIG_KEYS.difference(cfg.keys())
+        if unknown_keys:
+            self.error("unexpected config entries <%s>", ">, <".join(unknown_keys))
+        if missing_keys:
+            self.error("missing config entries <%s>", ">, <".join(missing_keys))
+        if not cfg.get("Description", "dummy"):
+            self.error("missing description")
+        if cfg.get("Architecture", "32 bit") not in ["32 bit", "64 bit"]:
+            self.error("invalid memory model <%s>", cfg.get("Memory Model"))
+        if cfg.get("Memory Model", "Precise") not in ["Precise", "Simple"]:
+            self.error("invalid memory model <%s>", cfg.get("Memory Model"))
 
 
 def main():
