@@ -34,11 +34,12 @@ which is the reason why some of the text below is specific to SV-COMP.
 
 The programs are accompanied by a license, either via a file LICENSE.txt in the same directory,
 or via a comment in the program header.
-The licenses allow to:
-- view, understand, investigate, reverse engineer the algorithm or system
-- change the program (in particular, adopt the programs to be useful for a verification task)
-- distribute the program (in particular, in replication packages for research projects or as regression tests)
-- compile and execute the program (in particular, for the purpose of verifying that a specification violation exists)
+The licenses must allow to:
+- view, understand, investigate, reverse engineer the algorithm or system,
+- change the program (in particular, pre-process and adopt the programs to be useful for a verification task),
+- distribute the (original and changed) program (in particular, in replication packages for research projects or as regression tests),
+- compile and execute the program (in particular, for the purpose of verifying that a specification violation exists), and
+- commercially take advantage of the program.
 
 ### Origin, Description, and Attribution
 
