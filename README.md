@@ -62,10 +62,10 @@ A *category* is a set of verification tasks.
 
 A *sub-category* is a set of verification tasks that consist of the same
 specification and the same parameters.
-A sub-category <category> is defined by the following three files:
-- <category>.set contains patterns that specify the set of programs,
-- <category>.prp contains the specification, and
-- <category>.cfg contains the parameters (and a description of the sub-category).
+A sub-category <sub-category> is defined by the following three files:
+- <sub-category>.set contains patterns that specify the set of programs,
+- <sub-category>.prp contains the specification, and
+- <sub-category>.cfg contains the parameters (and a description of the sub-category).
 
 A *verification run* is
 - a non-interactive execution
@@ -80,6 +80,10 @@ A *verification result* is a triple (ANSWER, WITNESS, TIME) with
 - WITNESS is a violation witness or correctness witness that supports validation of the (untrusted) answer, and
 - TIME is the CPU time that the verification run has consumed (in pratice, also other resource measurement values are reported).
 
+## Name Convention for Programs
+
+to be written
+
 ## How to Submit Verification Tasks to this Repository
 
 This collection relies on contributions from many people.
@@ -89,13 +93,7 @@ In order to contribute verification tasks, please use the following steps:
 - file a pull request, and
 - discuss with community members until your contribution is approved and merged into the repository.
 
-### License and Origin
-
-If you submit a few new files within an existing directory, then you can insert the license and attribution information
-at the beginning of the file as comment.
-If you start a new directory, please add two files LICENSE.txt and README.txt.
-
-### Category
+#### Category
 
 In order to be effectively used by people (e.g., in SV-COMP), the verification tasks need to be part of some category.
 Thus, please make sure that your programs are 
@@ -125,14 +123,14 @@ checklist as comment to the pull request:
 ## Specification Properties
 
 For SV-COMP, the [rules page](http://sv-comp.sosy-lab.org/2017/rules.php) explains all currently supported properties:
-  - [unreach-call](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyUnreachCall.prp)
+  - [unreach-call](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyUnreachCall.prp):
     A certain function call must not be reachable in the program.
-  - [valid-memsafety, valid-deref, valid-free, valid-memtrack](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyMemSafety.prp)
+  - [valid-memsafety, valid-deref, valid-free, valid-memtrack](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyMemSafety.prp):
     A certain memory safety property must hold in the program.
     "memsafety" is the conjunction the other three properties.
-  - [no-overflow](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyOverflow.prp)
+  - [no-overflow](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyOverflow.prp):
     A certain kind of undefined behavior (overflows of signed ints) must not be present in the program.
-  - [termination](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyTermination.prp)
+  - [termination](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyTermination.prp):
     The program must terminate on all execution paths.
 
 
