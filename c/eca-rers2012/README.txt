@@ -1,4 +1,4 @@
-Verification tasks from the RERS Grey Box Challenge 2012:
+Contributed by: RERS Grey Box Challenge 2012
 http://www.rers-challenge.org/2012/index.php?page=download
 
 Documentation of the challenge:
