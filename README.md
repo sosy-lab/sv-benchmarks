@@ -82,7 +82,16 @@ A *verification result* is a triple (ANSWER, WITNESS, TIME) with
 
 ## Name Convention for Programs
 
-to be written
+A program file should be named as follows:
+- the original file name or short title of the program is given at the beginning,
+- for each property against which the program is to be verified,
+  the string `_false-<property>` or `_true-<property>` is included, according to the expected verification answer, and
+- the filename ends with ending .c for not pre-processed files and .i for pre-processed files.
+
+For example, the program `minepump_spec5_product61_true-unreach-call_false-termination.cil.c`
+is expected to satisfy property `unreach-call` and to violate property `termination`.
+
+There are some old programs that have ending .c although they are pre-processed.
 
 ## How to Submit Verification Tasks to this Repository
 
