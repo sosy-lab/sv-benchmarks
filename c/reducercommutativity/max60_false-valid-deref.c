@@ -10,11 +10,10 @@
  * the same results on the same input data set.
  */
 
-#define N 5
+#define N 60
 #define fun max
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern int __VERIFIER_nondet_int();
 
 int max (int x[N])
 {
@@ -34,10 +33,6 @@ int main ()
   int ret;
   int ret2;
   int ret5;
-
-  for (int i = 0; i < N; i++) {
-    x[i] = __VERIFIER_nondet_int();
-  }
 
   ret = fun(x);
 
