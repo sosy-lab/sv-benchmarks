@@ -948,9 +948,11 @@ struct exception
 extern int matherr (struct exception *__exc);
 
 extern void __VERIFIER_error(void);
+extern double __VERIFIER_nondet_double(void);
 int main()
 {
   double f, f2;
+  f2 = __VERIFIER_nondet_double();
 
   __VERIFIER_assume(!(sizeof (f2) == sizeof (float) ? __isnanf (f2) : sizeof (f2) == sizeof (double) ? __isnan (f2) : __isnanl (f2)));
   __VERIFIER_assume((sizeof (f2) == sizeof (float) ? __finitef (f2) : sizeof (f2) == sizeof (double) ? __finite (f2) : __finitel (f2)));
