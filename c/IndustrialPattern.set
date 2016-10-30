@@ -1,2 +1,2 @@
-arrays_arraysreach\*.i
-integers_controlflow_loops\*.c
+arrays_arraysreach/*.i
+integers_controlflow_loops/*.c
