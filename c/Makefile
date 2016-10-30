@@ -11,8 +11,8 @@ CLANG_BUILD_HACK ?= 0
 # Add directories to build. Make sure that you add a single directory
 # per line so that it easy to comment out a single directory
 DIRS += array-examples
+DIRS += array-industry-pattern
 DIRS += array-memsafety
-DIRS += arrays-arraysreach
 DIRS += bitvector
 DIRS += bitvector-loops
 DIRS += bitvector-regression
@@ -25,7 +25,6 @@ DIRS += floats-cdfpl
 DIRS += floats-esbmc-regression
 DIRS += forester-heap
 DIRS += heap-manipulation
-DIRS += integers_controlflow_loops
 DIRS += ldv-challenges
 DIRS += ldv-commit-tester
 DIRS += ldv-consumption
@@ -48,6 +47,7 @@ DIRS += list-ext-properties
 DIRS += list-properties
 DIRS += locks
 DIRS += loop-acceleration
+DIRS += loop-industry-pattern
 DIRS += loop-invgen
 DIRS += loop-lit
 DIRS += loop-new
