@@ -1,3 +1,4 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 // Category: Loops
 // Verification result: TRUE

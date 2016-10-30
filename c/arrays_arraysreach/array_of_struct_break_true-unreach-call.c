@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 #define SIZE 100000
 struct S
@@ -11,7 +13,7 @@ int main()
 {
 	int i;
 	int c;
-	c = user_input();
+	c = __VERIFIER_nondet_int();
 	for(i = 0; i < SIZE; i++)
 	{
 		if(c > 5)

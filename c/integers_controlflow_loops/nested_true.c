@@ -1,3 +1,4 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 //VERIFICATION RESULT : TRUE
@@ -17,7 +18,7 @@ int nondet()
 	return x;
 }
 
-main() {
+int main() {
 	last = nondet();
 	int a=0,b=0,c=0,st=0;
 	while(1) {
@@ -31,4 +32,4 @@ main() {
 			a = a+1;
 		__VERIFIER_assert(a==b && c==200000);
 	}
-}  
+}

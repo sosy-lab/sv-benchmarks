@@ -1,3 +1,4 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 #define SIZE 100000
 
@@ -17,7 +18,7 @@ int main()
 
 	for(i = 0; i < SIZE; i++)
 	{
-		__CPROVER___VERIFIER_assert(a[i] == 10," ");
+		__VERIFIER_assert(a[i] == 10);
 		
 	}
 
