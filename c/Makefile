@@ -12,7 +12,7 @@ CLANG_BUILD_HACK ?= 0
 # per line so that it easy to comment out a single directory
 DIRS += array-examples
 DIRS += array-memsafety
-DIRS += arrays_arraysreach
+DIRS += arrays-arraysreach
 DIRS += bitvector
 DIRS += bitvector-loops
 DIRS += bitvector-regression
