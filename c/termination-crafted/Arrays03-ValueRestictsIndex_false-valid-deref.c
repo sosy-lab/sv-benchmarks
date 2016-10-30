@@ -11,10 +11,6 @@ extern int __VERIFIER_nondet_int(void);
 int main() {
 	int k = __VERIFIER_nondet_int();
 	int a[1048];
- 
-  for (int i = 0; i < 1048; i++) {
-    a[i] = __VERIFIER_nondet_int();
-  }
 
 	if (k >= 0 && k < 1048) {
 		if (a[0] == 23 && a[k] == 42) {
