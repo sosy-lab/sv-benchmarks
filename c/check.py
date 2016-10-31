@@ -279,17 +279,17 @@ class DirectoryChecks(Checks):
                 self.error("%s has no known verdict", entry)
                 continue
 
-            file = os.path.join(self.name, entry)
-            if self.all_patterns.match(file):
+            if self.all_patterns.match(os.path.join(self.name, entry)):
                 continue
 
             def alternative_exists(alt_name):
-                return os.path.exists(alt_name) and self.all_patterns.match(alt_name)
+                return (os.path.exists(os.path.join(self.path, alt_name)) and
+                        self.all_patterns.match(os.path.join(self.name, alt_name)))
 
-            if (file.endswith(".c") and
-                    (alternative_exists(file[:-2] + ".i") or alternative_exists(file + ".i"))):
+            if (entry.endswith(".c") and
+                    (alternative_exists(entry[:-2] + ".i") or alternative_exists(entry + ".i"))):
                 continue
-            if file.endswith(".cil.c") and alternative_exists(file[:-6] + ".i"):
+            if entry.endswith(".cil.c") and alternative_exists(entry[:-6] + ".i"):
                 continue
             self.error("%s is not contained in any category", entry)
 
