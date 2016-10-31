@@ -119,6 +119,16 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
+    ("bitvector-regression", "pointer_extension3_false-unreach-call.c is not contained in any category"),
+    ("bitvector-regression", "pointer_extension2_false-unreach-call.c is not contained in any category"),
+    ("bitvector-regression", "pointer_extension_true-unreach-call.c is not contained in any category"),
+    ("bitvector-regression", "pointer_extension_false-unreach-call.c is not contained in any category"),
+    ("floats-cbmc-regression", "float-div1_true-unreach-call.c is not contained in any category"),
+    ("floats-cbmc-regression", "float_lib1_true-unreach-call.c is not contained in any category"),
+    ("floats-cbmc-regression", "float21_true-unreach-call.c is not contained in any category"),
+    ("floats-cbmc-regression", "float_lib2_true-unreach-call.c is not contained in any category"),
+    ("heap-manipulation", "tree_false-unreach-call.c is not contained in any category"),
+    ("heap-manipulation", "tree_true-unreach-call.c is not contained in any category"),
     ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-media-video-vivi.c.common.i is not contained in any category"),
     ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-mtd-chips-cfi_cmdset_0001.c.common.i is not contained in any category"),
     ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-net-wireless-mwl8k.c.common.i is not contained in any category"),
@@ -132,9 +142,15 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("list-ext-properties", "simple-ext_false-not-label.i is not contained in any category"),
     ("list-ext-properties", "list-ext_flag_false-not-label.i is not contained in any category"),
     ("list-ext-properties", "list-ext_false-not-label.c is not contained in any category"),
+    ("loop-lit", "ddlm2013_true-unreach-call.c is not contained in any category"),
     ("loop-lit", "ddlm2013_true-unreach-call.i is not contained in any category"),
     ("loop-lit", "gcnr2008_false-unreach-call.c_false-termination.i is not contained in any category"),
     ("loop-lit", "gcnr2008_false-unreach-call_false-termination.c is not contained in any category"),
+    ("loops", "heavy_true-unreach-call.c is not contained in any category"),
+    ("loops", "array_true-unreach-call_true-termination_true-termination.c is not contained in any category"),
+    ("loops", "compact_false-unreach-call.c is not contained in any category"),
+    ("loops", "trex03_true-unreach-call_true-termination_true-termination.c is not contained in any category"),
+    ("loops", "heavy_false-unreach-call.c is not contained in any category"),
     ("recursive", "Addition03_false-no-overflow.c is not contained in any category"),
     ("ssh-simplified", "s3_clnt_3.cil_true-unreach-call_true-termination.c is not contained in any category"),
     ("termination-crafted", "LexIndexValue-Pointer_false-valid-deref.c is not contained in any category"),
@@ -266,9 +282,14 @@ class DirectoryChecks(Checks):
             file = os.path.join(self.name, entry)
             if self.all_patterns.match(file):
                 continue
+
+            def alternative_exists(alt_name):
+                return os.path.exists(alt_name) and self.all_patterns.match(alt_name)
+
             if (file.endswith(".c") and
-                    (self.all_patterns.match(file[:-2] + ".i") or
-                     self.all_patterns.match(file + ".i"))):
+                    (alternative_exists(file[:-2] + ".i") or alternative_exists(file + ".i"))):
+                continue
+            if file.endswith(".cil.c") and alternative_exists(file[:-6] + ".i"):
                 continue
             self.error("%s is not contained in any category", entry)
 
