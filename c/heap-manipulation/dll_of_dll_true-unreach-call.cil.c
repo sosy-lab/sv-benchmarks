@@ -317,7 +317,7 @@ void inspect_base(struct master_item *dll )
   unsigned int __cil_tmp3 ;
   unsigned int __cil_tmp4 ;
   struct master_item *__cil_tmp5 ;
-  int __cil_tmp6 ;
+  unsigned int __cil_tmp6 ;
   unsigned int __cil_tmp7 ;
   unsigned int __cil_tmp8 ;
   struct master_item *__cil_tmp9 ;
