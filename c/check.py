@@ -363,10 +363,11 @@ def main():
 
     main_directory = os.path.relpath(os.path.dirname(__file__))
     entries = sorted(os.listdir(main_directory))
-    all_patterns = re.compile("|".join(
+    all_patterns_re = (
         fnmatch.translate(pattern)
-            for entry in entries if entry.endswith(".set")
-            for pattern in read_set_file(os.path.join(main_directory, entry))))
+        for entry in entries if entry.endswith(".set")
+        for pattern in read_set_file(os.path.join(main_directory, entry)))
+    all_patterns = re.compile("^(" + "|".join(all_patterns_re) + ")$")
 
     ok = True
     for entry in entries:
