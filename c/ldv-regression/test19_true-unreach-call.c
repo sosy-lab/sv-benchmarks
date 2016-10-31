@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int();
 
 void printf(char *format);
 void assert_fail(void);
@@ -10,7 +11,8 @@ void assign(int **ppa, int  **ppb) {
 }
 
 int main() {
-        int a, b;
+        int a = __VERIFIER_nondet_int();
+        int b = __VERIFIER_nondet_int();
         int *pa = &a, *pb = &b;
         assign(&pa, &pb);
         if (a != b) {

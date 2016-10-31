@@ -1,11 +1,17 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
+extern void* __VERIFIER_nondet_pointer(void);
 
 void printf(char *format);
 void assert_fail(void);
 
 int main() {
-        int a, b, c;
-        int *pa, *pb, *pc = &c;
+        int a, b; int c = __VERIFIER_nondet_int();
+        int *pa, *pb; int *pc = &c;
+        a = __VERIFIER_nondet_int();
+        b = __VERIFIER_nondet_int();
+        pa = (int*) __VERIFIER_nondet_pointer();
+        pb = (int*) __VERIFIER_nondet_pointer();
         if (pc == 0 ||
             pa == pb && *pa != *pb) {
                 printf("ERROR\n");
