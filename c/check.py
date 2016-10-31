@@ -11,11 +11,12 @@ try:
 except ImportError:
     yaml = None
 
-README_PATTERN = re.compile('readme(\.(txt|md))?', re.I)
-LICENSE_PATTERN = re.compile('license([-.].*)?(\.(txt|md))?', re.I)
-BENCHMARK_PATTERN = re.compile('.*\.[ci]')
+README_PATTERN = re.compile('^readme(\.(txt|md))?$', re.I)
+LICENSE_PATTERN = re.compile('^license([-.].*)?(\.(txt|md))?$', re.I)
+BENCHMARK_PATTERN = re.compile('^.*\.[ci]$')
 EXPECTED_FILE_PATTERN = re.compile(
-    '(.*\.(c|h|i)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)', re.I)
+    '^(.*\.(c|h|i|verdict)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
+    re.I)
 CONFIG_KEYS = set(["Architecture", "Description", "Memory Model"])
 
 KNOWN_DIRECTORY_PROBLEMS = [
@@ -26,6 +27,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("eca-rers2012", "missing license"),
     ("floats-cbmc-regression", "missing license"),
     ("floats-cdfpl", "missing license"),
+    ("ldv-linux-3.4-simple", "unexpected file 32_1_cilled_true-unreach-call_ok_nondet_linux-3.4-32_1-drivers--media--video--videobuf-vmalloc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c.problem-report"),
     ("ldv-linux-3.12-rc1", "missing license"),
     ("ldv-linux-3.16-rc1", "missing license"),
     ("ldv-linux-4.2-rc1", "missing readme"),
