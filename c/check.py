@@ -81,19 +81,6 @@ KNOWN_SET_PROBLEMS = [
     ("HeapReach.set", "32 bit category contains 64 bit benchmarks in ldv-regression"),
     ("Termination.set", "64 bit category contains 32 bit benchmarks in product-lines"),
     ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
-
-    # psyco.set should be deleted
-    ("psyco.set", "missing configuration file"),
-    ("psyco.set", "missing property file"),
-    ("psyco.set", "Pattern <psyco_security_true-unreach-call.c> does not match anything."),
-    ("psyco.set", "Pattern <psyco_net_1_true-unreach-call.c> does not match anything."),
-    ("psyco.set", "Pattern <psyco_math_1_true-unreach-call.c> does not match anything."),
-    ("psyco.set", "Pattern <psyco_io_1_true-unreach-call.c> does not match anything."),
-    ("psyco.set", "Pattern <psyco_cev_1_false-unreach-call.c> does not match anything."),
-    ("psyco.set", "Pattern <psyco_cev_2_false-unreach-call.c> does not match anything."),
-    ("psyco.set", "Pattern <psyco_cev_3_false-unreach-call.c> does not match anything."),
-    ("psyco.set", "Pattern <psyco_accelerometer_1_true-unreach-call.c> does not match anything."),
-    ("psyco.set", "Pattern <psyco_abp_1_false-unreach-call.c> does not match anything."),
     ]
 
 
