@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import fnmatch
 import glob
 import logging
 import os
@@ -18,6 +19,8 @@ EXPECTED_FILE_PATTERN = re.compile(
     '^(.*\.(c|h|i|verdict)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description", "Memory Model"])
+
+UNUSED_DIRECTORIES = set(["busybox-1.22.0", "ldv-challenges", "ldv-multiproperty", "regression"])
 
 KNOWN_DIRECTORY_PROBLEMS = [
     # TODO Please fix
@@ -50,6 +53,79 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("recursive-simple", "missing readme"),
     ("seq-pthread", "missing license"),
     ("systemc", "missing license"),
+
+    ("bitvector-regression", "recHanoi03_unsafe.c has no known verdict"),
+    ("float-benchs", "zonotope_2.c has no known verdict"),
+    ("float-benchs", "addsub_float_inexact.c has no known verdict"),
+    ("float-benchs", "inv_sqrt_Quake.c has no known verdict"),
+    ("float-benchs", "cast_union_tight.c has no known verdict"),
+    ("float-benchs", "interpolation2.c has no known verdict"),
+    ("float-benchs", "cast_union_loose.c has no known verdict"),
+    ("float-benchs", "divmul_buf_diverge.c has no known verdict"),
+    ("float-benchs", "sqrt_Householder_constant.c has no known verdict"),
+    ("float-benchs", "bary_diverge.c has no known verdict"),
+    ("float-benchs", "sqrt_Householder_pseudoconstant.c has no known verdict"),
+    ("float-benchs", "sqrt_poly.c has no known verdict"),
+    ("float-benchs", "Rump_float.c has no known verdict"),
+    ("float-benchs", "addsub_float_exact.c has no known verdict"),
+    ("float-benchs", "addsub_double_exact.c has no known verdict"),
+    ("float-benchs", "drift_tenth.c has no known verdict"),
+    ("float-benchs", "rlim_invariant.c has no known verdict"),
+    ("float-benchs", "filter2_iterated.c has no known verdict"),
+    ("float-benchs", "sin_interpolated_negation.c has no known verdict"),
+    ("float-benchs", "sqrt_Householder_interval.c has no known verdict"),
+    ("float-benchs", "cast_float_ptr.c has no known verdict"),
+    ("float-benchs", "zonotope_tight.c has no known verdict"),
+    ("float-benchs", "filter2_reinit.c has no known verdict"),
+    ("float-benchs", "float_double.c has no known verdict"),
+    ("float-benchs", "Muller_Kahan.c has no known verdict"),
+    ("float-benchs", "feedback_diverge.c has no known verdict"),
+    ("float-benchs", "Rump_double.c has no known verdict"),
+    ("float-benchs", "mea8000.c has no known verdict"),
+    ("float-benchs", "inv_Newton.c has no known verdict"),
+    ("float-benchs", "image_filter.c has no known verdict"),
+    ("float-benchs", "cast_float_union.c has no known verdict"),
+    ("float-benchs", "filter1.c has no known verdict"),
+    ("float-benchs", "zonotope_3.c has no known verdict"),
+    ("float-benchs", "filter2_set.c has no known verdict"),
+    ("float-benchs", "divmul_diverge.c has no known verdict"),
+    ("float-benchs", "filter2_alt.c has no known verdict"),
+    ("float-benchs", "filter2.c has no known verdict"),
+    ("float-benchs", "sqrt_biNewton_pseudoconstant.c has no known verdict"),
+    ("float-benchs", "arctan_Pade.c has no known verdict"),
+    ("float-benchs", "interpolation.c has no known verdict"),
+    ("float-benchs", "cos_polynomial.c has no known verdict"),
+    ("float-benchs", "rlim_exit.c has no known verdict"),
+    ("float-benchs", "zonotope_loose.c has no known verdict"),
+    ("float-benchs", "filter_iir.c has no known verdict"),
+    ("float-benchs", "sqrt_poly2.c has no known verdict"),
+    ("float-benchs", "water_pid.c has no known verdict"),
+    ("float-benchs", "sqrt_Newton_pseudoconstant.c has no known verdict"),
+    ("float-benchs", "loop.c has no known verdict"),
+    ("float-benchs", "exp_loop.c has no known verdict"),
+    ("memsafety", "test-memleak_nexttime-valid-memtrack.c has no known verdict"),
+    ("memsafety", "test-memleak_nexttime-valid-memtrack.i has no known verdict"),
+    ("pthread", "singleton_with-uninit-problems-true.c has no known verdict"),
+    ("pthread", "singleton_with-uninit-problems-true.i has no known verdict"),
+
+    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-media-video-vivi.c.common.i is not contained in any category"),
+    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-mtd-chips-cfi_cmdset_0001.c.common.i is not contained in any category"),
+    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-net-wireless-mwl8k.c.common.i is not contained in any category"),
+    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-usb-image-microtek.c.common.i is not contained in any category"),
+    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-staging-media-dt3155v4l-dt3155v4l.c.common.i is not contained in any category"),
+    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-net-wireless-p54-p54usb.c.common.i is not contained in any category"),
+    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-net-phy-dp83640.c.common.i is not contained in any category"),
+    ("list-ext-properties", "list-ext_flag_false-not-label.c is not contained in any category"),
+    ("list-ext-properties", "simple-ext_false-not-label.c is not contained in any category"),
+    ("list-ext-properties", "list-ext_false-not-label.i is not contained in any category"),
+    ("list-ext-properties", "simple-ext_false-not-label.i is not contained in any category"),
+    ("list-ext-properties", "list-ext_flag_false-not-label.i is not contained in any category"),
+    ("list-ext-properties", "list-ext_false-not-label.c is not contained in any category"),
+    ("loop-lit", "ddlm2013_true-unreach-call.i is not contained in any category"),
+    ("loop-lit", "gcnr2008_false-unreach-call.c_false-termination.i is not contained in any category"),
+    ("loop-lit", "gcnr2008_false-unreach-call_false-termination.c is not contained in any category"),
+    ("recursive", "Addition03_false-no-overflow.c is not contained in any category"),
+    ("ssh-simplified", "s3_clnt_3.cil_true-unreach-call_true-termination.c is not contained in any category"),
 
     ("busybox-1.22.0", "missing license"), # included in .c files
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
@@ -119,10 +195,11 @@ class Checks(object):
 
 class DirectoryChecks(Checks):
 
-    def __init__(self, path, *args, **kwargs):
+    def __init__(self, path, all_patterns, *args, **kwargs):
         super(DirectoryChecks, self).__init__(known_problems=KNOWN_DIRECTORY_PROBLEMS, *args, **kwargs)
         self.path = path
         self.content = os.listdir(path)
+        self.all_patterns = all_patterns
 
     def check_has_benchmarks(self):
         for entry in self.content:
@@ -162,6 +239,26 @@ class DirectoryChecks(Checks):
             if not ('DIRS += ' + self.name + '\n') in makefile:
                 self.error('not listed in global Makefile, please add "DIRS += %s"', self.name)
 
+    def check_files_contained_in_category(self):
+        if self.name in UNUSED_DIRECTORIES:
+            return
+
+        for entry in self.content:
+            if not BENCHMARK_PATTERN.match(entry):
+                continue
+
+            if not "_true-" in entry and not "_false-" in entry:
+                self.error("%s has no known verdict", entry)
+                continue
+
+            file = os.path.join(self.name, entry)
+            if self.all_patterns.match(file):
+                continue
+            if (file.endswith(".c") and
+                    (self.all_patterns.match(file[:-2] + ".i") or
+                     self.all_patterns.match(file + ".i"))):
+                continue
+            self.error("%s is not contained in any category", entry)
 
 class SetFileChecks(Checks):
 
@@ -253,12 +350,18 @@ def main():
     logging.basicConfig(format="%(levelname)-7s %(message)s", level='INFO')
 
     main_directory = os.path.relpath(os.path.dirname(__file__))
+    entries = sorted(os.listdir(main_directory))
+    all_patterns = re.compile("|".join(
+        fnmatch.translate(pattern)
+            for entry in entries if entry.endswith(".set")
+            for pattern in read_set_file(os.path.join(main_directory, entry))))
+
     ok = True
-    for entry in sorted(os.listdir(main_directory)):
+    for entry in entries:
         path = os.path.join(main_directory, entry)
         if not entry[0] == '.':
             if os.path.isdir(path):
-                ok &= DirectoryChecks(path, entry).run()
+                ok &= DirectoryChecks(path, all_patterns, entry).run()
             elif entry.endswith(".set"):
                 ok &= SetFileChecks(path, entry).run()
             else:
