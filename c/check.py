@@ -107,6 +107,17 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("memsafety", "test-memleak_nexttime-valid-memtrack.i has no known verdict"),
     ("pthread", "singleton_with-uninit-problems-true.c has no known verdict"),
     ("pthread", "singleton_with-uninit-problems-true.i has no known verdict"),
+    ("termination-crafted", "Collatz_unknown-termination.c has no known verdict"),
+    ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c has no known verdict"),
+    ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c.i has no known verdict"),
+    ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-modified-alloca_unknown-termination.c has no known verdict"),
+    ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-modified-alloca_unknown-termination.c.i has no known verdict"),
+    ("termination-memory-alloca", "BradleyMannaSipma-2005ICALP-Fig1-alloca_unknown-termination.c has no known verdict"),
+    ("termination-memory-alloca", "BradleyMannaSipma-2005ICALP-Fig1-alloca_unknown-termination.c.i has no known verdict"),
+    ("termination-memory-alloca", "HarrisLalNoriRajamani-2010SAS-Fig2-alloca_unknown-termination.c has no known verdict"),
+    ("termination-memory-alloca", "HarrisLalNoriRajamani-2010SAS-Fig2-alloca_unknown-termination.c.i has no known verdict"),
+    ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
+    ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
     ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-media-video-vivi.c.common.i is not contained in any category"),
     ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-mtd-chips-cfi_cmdset_0001.c.common.i is not contained in any category"),
@@ -126,6 +137,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("loop-lit", "gcnr2008_false-unreach-call_false-termination.c is not contained in any category"),
     ("recursive", "Addition03_false-no-overflow.c is not contained in any category"),
     ("ssh-simplified", "s3_clnt_3.cil_true-unreach-call_true-termination.c is not contained in any category"),
+    ("termination-crafted", "LexIndexValue-Pointer_false-valid-deref.c is not contained in any category"),
 
     ("busybox-1.22.0", "missing license"), # included in .c files
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
