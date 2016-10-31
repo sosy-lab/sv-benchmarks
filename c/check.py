@@ -174,8 +174,7 @@ class SetFileChecks(Checks):
             self.category = self.category[:-4]
         if self.category.endswith("-validate"):
             self.category = self.category[:-9]
-        with open(path) as f:
-            self.content = f.readlines()
+        self.patterns = list(read_set_file(path))
         self.cfg_file = os.path.join(self.base_path, self.category + ".cfg")
 
     def check_has_property_file(self):
@@ -186,10 +185,7 @@ class SetFileChecks(Checks):
             self.error("property file is not a symlink")
 
     def check_all_patterns_match_files(self):
-        for pattern in self.content:
-            pattern = pattern.strip()
-            if not pattern or pattern[0] == '#':
-                continue
+        for pattern in self.patterns:
             first_match = next(glob.iglob(os.path.join(self.base_path, pattern)), None)
             if not first_match:
                 self.error("Pattern <%s> does not match anything.", pattern)
@@ -199,8 +195,8 @@ class SetFileChecks(Checks):
         expected_arch = int(cfg["Architecture"].split(" ")[0]) if cfg else None
         directories = set(
             os.path.dirname(file)
-                for pattern in self.content if pattern.strip() and not pattern[0] == '#'
-                for file in glob.iglob(os.path.join(self.base_path, pattern.strip())))
+                for pattern in self.patterns
+                for file in glob.iglob(os.path.join(self.base_path, pattern)))
         for directory in directories:
             makefile_path = os.path.join(directory, "Makefile")
             if os.path.exists(makefile_path):
@@ -244,6 +240,13 @@ class SetFileChecks(Checks):
             self.error("invalid memory model <%s>", cfg.get("Memory Model"))
         if cfg.get("Memory Model", "Precise") not in ["Precise", "Simple"]:
             self.error("invalid memory model <%s>", cfg.get("Memory Model"))
+
+def read_set_file(path):
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line[0] == '#':
+                yield line
 
 
 def main():
