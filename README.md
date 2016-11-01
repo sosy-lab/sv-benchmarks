@@ -116,18 +116,18 @@ of the category.
 For approving a pull request, it is a good idea to copy&paste the following
 checklist as comment to the pull request:
 
-- [] license present and acceptable (either in LICENCE.txt or as comment at beginning of program)
-- [] contributed-by present (either in README.txt or as comment at beginning of program
-- [] programs added to a .set file of an existing category, or new sub-category established (if justified)
+- [ ] license present and acceptable (either in LICENCE.txt or as comment at beginning of program)
+- [ ] contributed-by present (either in README.txt or as comment at beginning of program
+- [ ] programs added to a .set file of an existing category, or new sub-category established (if justified)
 
-- [] intended property matches the corresponding .prp file
-- [] architecture (32 bit vs. 64 bit) matches the corresponding .cfg file
-- [] original sources present
-- [] preprocessed files present
-- [] preprocessed files generated with correct architecture
+- [ ] intended property matches the corresponding .prp file
+- [ ] architecture (32 bit vs. 64 bit) matches the corresponding .cfg file
+- [ ] original sources present
+- [ ] preprocessed files present
+- [ ] preprocessed files generated with correct architecture
 
-- [] expected answer in file names according to convention
-- [] build system adjusted for enabling checks of this directory
+- [ ] expected answer in file names according to convention
+- [ ] build system adjusted for enabling checks of this directory
 
 ## Specification Properties
 
