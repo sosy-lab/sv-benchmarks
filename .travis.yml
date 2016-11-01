@@ -27,3 +27,8 @@ addons:
 script:
   - ${C_COMPILER} -v --version
   - cd c/ && make -j2 CC=${C_COMPILER}
+matrix:
+  include:
+    env: NAME="Sanity checks"
+    script:
+      - c/check.py

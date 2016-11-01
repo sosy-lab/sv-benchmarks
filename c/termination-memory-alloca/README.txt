@@ -1,6 +1,6 @@
-C programs for termination analysis, that were used by AProVE:
+C programs for termination analysis
 
-http://aprove.informatik.rwth-aachen.de/
+Contributed by: [AProVE](http://aprove.informatik.rwth-aachen.de/)
 
 The benchmarks were contributed by:
 Frank Emrich

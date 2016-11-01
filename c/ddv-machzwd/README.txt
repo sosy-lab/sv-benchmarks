@@ -1,4 +1,4 @@
-The benchmarks in this directory were generated with DDVerify, which is described in the paper
+The benchmarks in this directory were generated with [DDVerify](http://www.cprover.org/ddverify/), which is described in the paper
 
 Thomas Witkowski, Nicolas Blanc, Daniel Kroening, and Georg Weissenbacher.
 Model Checking Concurrent Linux Device Drivers.

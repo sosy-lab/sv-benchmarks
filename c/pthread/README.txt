@@ -1,4 +1,4 @@
-Benchmarks in this directory are from the ESBMC project.
+Contributed by: ESBMC project
 
 *.cil.cil.c - CIL-preprocessed sources (32-bit machine architecture)
 
