@@ -1,4 +1,5 @@
-Benchmarks in this directory are from the LDV Project.
+Contributed by: [LDV](http://linuxtesting.org/project/ldv) project
+
 Taken from the x86_64 kernel.
 
 The directory contains 41 fresh (2011-09), just-from-kernel driver verification tasks.

@@ -6,4 +6,5 @@ loop-invgen/*_false-unreach-call*.i
 loop-invgen/*_true-unreach-call*.i
 loop-lit/*_true-unreach-call*.c.i
 loop-new/*_true-unreach-call*.i
+loop-industry-pattern/*_true-unreach-call*.c
 
