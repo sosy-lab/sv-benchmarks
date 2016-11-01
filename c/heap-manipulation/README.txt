@@ -1,3 +1,5 @@
+Contributed by: [Predator](https://www.fit.vutbr.cz/research/groups/verifit/tools/predator/) project
+
 bubble_sort_linux.c - Bubble-Sort implementation operating on native Linux lists
 bubble_sort_linux_BUG.c - bubble_sort_linux.c with an injected bug
 

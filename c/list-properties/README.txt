@@ -1,4 +1,4 @@
-The benchmarks in this directory are taken from the supplementary web page of the paper
+The benchmarks in this directory are taken from the supplementary web page of [BLAST 3.0](https://www.sosy-lab.org/~dbeyer/Blast/) and the paper
 
 D. Beyer, T. A. Henzinger, and G. Théoduloz.
 Lazy Shape Analysis.

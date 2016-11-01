@@ -3,11 +3,15 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#ifndef offsetof
 #define offsetof(TYPE, MEMBER) ((unsigned long) &((TYPE *)0)->MEMBER)
+#endif
 
+#ifndef container_of
 #define container_of(ptr, type, member) ({                      \
 	const typeof( ((type *)0)->member ) *__mptr = (ptr);    \
 	(type *)( (char *)__mptr - offsetof(type,member) );})
+#endif
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 int __VERIFIER_nondet_int(void);
