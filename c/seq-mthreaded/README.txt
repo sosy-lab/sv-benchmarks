@@ -1,4 +1,4 @@
-Contributed by the HCCPS project (http://www.sei.cmu.edu/cyber-physical/research/high-confidence).
+Contributed by: [HCCPS](http://www.sei.cmu.edu/cyber-physical/research/high-confidence) project
 
 The verification tasks should have the following convention:
 
