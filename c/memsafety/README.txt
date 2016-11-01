@@ -2,6 +2,7 @@ This directory contains verification tasks for checking memory safety.
 
 A verifications task consists of a C program and a property.
 
+Contributed by: [Predator](https://www.fit.vutbr.cz/research/groups/verifit/tools/predator/) project
 
 __PROGRAM__
 
