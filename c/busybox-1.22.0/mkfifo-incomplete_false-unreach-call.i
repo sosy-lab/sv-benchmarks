@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int(void);
 extern char __VERIFIER_nondet_char(void);
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
@@ -1897,7 +1898,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 int main()
 {
-  int argc;
+  int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc>=0);
   char **argv=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;
