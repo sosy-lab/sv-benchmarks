@@ -1420,7 +1420,8 @@ int main()
   {
     // let's limit the size of arguments to 10, which is an
     // underapproximation obviously
-    argv[i]=malloc(10);
+    argv[i]=malloc(11);
+    argv[i][10] = 0;
     for(int j=0; j<10; ++j)
       argv[i][j]=__VERIFIER_nondet_char();
   }

@@ -3283,7 +3283,8 @@ int main()
   argv[argc]=0;
   for(int i=0; i<argc; ++i)
   {
-    argv[i]=malloc(10);
+    argv[i]=malloc(11);
+    argv[i][10] = 0;
     for(int j=0; j<10; ++j)
       argv[i][j]=__VERIFIER_nondet_char();
   }
