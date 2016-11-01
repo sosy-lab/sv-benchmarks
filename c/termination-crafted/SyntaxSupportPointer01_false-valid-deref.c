@@ -9,7 +9,6 @@ extern int __VERIFIER_nondet_int(void);
 
 int main() {
 	int *p = malloc(sizeof(int));
-  *p = __VERIFIER_nondet_int();
 	while (*p >= 0) {
 		(*p)--;
 	}
