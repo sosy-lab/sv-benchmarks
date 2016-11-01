@@ -201,8 +201,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
 KNOWN_SET_PROBLEMS = [
     # TODO Please fix
-    ("HeapReach-validate.set", "32 bit category contains 64 bit benchmarks in ldv-regression"),
-    ("HeapReach.set", "32 bit category contains 64 bit benchmarks in ldv-regression"),
     ("Termination.set", "64 bit category contains 32 bit benchmarks in product-lines"),
     ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
     ]
