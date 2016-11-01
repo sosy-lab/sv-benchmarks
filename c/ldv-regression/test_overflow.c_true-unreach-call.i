@@ -1613,10 +1613,10 @@ int globalSize;
 
 int
 main(int argc, char* argv[]) {
- int retVal;
+ long int retVal;
  retVal = getService();
  ((sizeof(retVal)==globalSize) ? (0) : __blast_assert ());
- printf("returned value: %d\n", retVal);
+ printf("returned value: %ld\n", retVal);
  return 0;
 }
 
@@ -1624,6 +1624,6 @@ main(int argc, char* argv[]) {
 ssize_t getService() {
  ssize_t localVar = 999999999999;
  globalSize = sizeof(localVar);
- printf("localVar: %d\n", localVar);
+ printf("localVar: %zd\n", localVar);
  return localVar;
 }

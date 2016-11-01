@@ -49,7 +49,7 @@ static void merge_pair(struct node **dst , struct node *sub1 , struct node *sub2
   struct node *__cil_tmp10 ;
   unsigned int __cil_tmp11 ;
   unsigned int __cil_tmp12 ;
-  int __cil_tmp13 ;
+  unsigned int __cil_tmp13 ;
   struct node **__cil_tmp14 ;
   struct node *__cil_tmp15 ;
   unsigned int __cil_tmp16 ;

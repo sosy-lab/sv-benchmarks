@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
 
 void printf(char *format);
 void assert_fail(void);
@@ -8,7 +9,7 @@ int *p1, *p2;
 int **pp1, **pp2;
 
 int f() {
-    int v;
+    int v = __VERIFIER_nondet_int();
     *pp1 = *pp2;
     pp2 = pp1;
     return v;
