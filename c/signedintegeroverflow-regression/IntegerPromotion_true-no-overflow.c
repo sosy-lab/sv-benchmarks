@@ -13,6 +13,6 @@ int main() {
 	// which is defined in 6.3.1.3.2 of C11
 	// http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf
 	unsigned short b = a + a + a;
-	printf("value %u",b);
+	printf("value %hu",b);
 	return 0;
 }
