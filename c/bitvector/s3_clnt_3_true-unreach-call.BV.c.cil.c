@@ -21,7 +21,7 @@ int ssl3_connect(void)
   int s__debug  = __VERIFIER_nondet_int();
   int s__shutdown ;
   int s__ctx__info_callback  = __VERIFIER_nondet_int();
-  int s__ctx__stats__sess_connect_renegotiate ;
+  int s__ctx__stats__sess_connect_renegotiate = __VERIFIER_nondet_int();
   int s__ctx__stats__sess_connect ;
   int s__ctx__stats__sess_hit  = __VERIFIER_nondet_int();
   int s__ctx__stats__sess_connect_good  = __VERIFIER_nondet_int();
