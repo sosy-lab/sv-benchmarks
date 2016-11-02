@@ -8712,12 +8712,12 @@ int main(void)
   ldv_memset((void *)(& ldvarg4), 0, 4UL);
   ldv_state_variable_6 = 0;
   ldv_state_variable_4 = 0;
-  ldv_state_variable_1 = 1;
+  ldv_state_variable_1 = 0;
   ref_cnt = 0;
   ldv_state_variable_0 = 1;
-  ldv_state_variable_3 = 1;
+  ldv_state_variable_3 = 0;
   work_init_2();
-  ldv_state_variable_2 = 1;
+  ldv_state_variable_2 = 0;
   ldv_state_variable_5 = 0;
   ldv_46913: 
   tmp___3 = __VERIFIER_nondet_int();
