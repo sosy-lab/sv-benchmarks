@@ -70,7 +70,7 @@ signed int __main(signed int argc, char **argv)
 int main()
 {
   int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=0);
+  __VERIFIER_assume(argc>=1);
 
   char **argv=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;
