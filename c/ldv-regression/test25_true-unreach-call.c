@@ -1,7 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void printf(char *format);
-void assert_fail(void);
 
 extern int __VERIFIER_nondet_int(void);
 
@@ -40,8 +38,6 @@ int main()
         ++i;
       }
       if (!check(&cont, i)) {
-        printf("ERROR!\n");
-        assert_fail();
         goto ERROR;
       }
     }

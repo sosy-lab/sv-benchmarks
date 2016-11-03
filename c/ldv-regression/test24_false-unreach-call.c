@@ -1,7 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void printf(char *format);
-void assert_fail(void);
 
 extern void *__VERIFIER_nondet_pointer();
 
@@ -27,8 +25,6 @@ int main()
       ++i;
     }
     if (!check(ad1, i)) {
-      printf("ERROR!\n");
-      assert_fail();
       goto ERROR;
     }
   }

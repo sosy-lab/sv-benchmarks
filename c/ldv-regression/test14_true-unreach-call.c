@@ -1,8 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void* __VERIFIER_nondet_pointer(void);
 
-void printf(char *format);
-void assert_fail(void);
 
 int main() {
         int a, b; int c = 5; // The value of c is not important and may be arbitrary for this example
@@ -11,8 +9,6 @@ int main() {
         int *pc = &c;
         if (pc == 0 ||
             pa == pb && *pa != *pb) {
-                printf("ERROR\n");
-                assert_fail();
                 goto ERROR;
         }
 
