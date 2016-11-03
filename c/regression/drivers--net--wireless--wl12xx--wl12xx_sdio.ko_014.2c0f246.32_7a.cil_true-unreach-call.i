@@ -5029,7 +5029,7 @@ struct wl1271 {
    unsigned int platform_quirks ;
 };
 typedef int ldv_func_ret_type___0;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -5057,7 +5057,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -5129,14 +5129,14 @@ __inline static int atomic_add_unless(atomic_t *v , int a , int u )
   {
   c = atomic_read((atomic_t const   *)v);
   ldv_5409: 
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   if (tmp != 0L) {
     goto ldv_5408;
   } else {
 
   }
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   if (tmp___0 != 0L) {
     goto ldv_5408;
   } else {
@@ -5313,7 +5313,7 @@ static irqreturn_t wl1271_hardirq(int irq , void *cookie )
     descriptor.lineno = 92U;
     descriptor.flags = 0U;
     descriptor.enabled = (char)0;
-    tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
     if (tmp != 0L) {
       __dynamic_pr_debug(& descriptor, "wl1271: IRQ\n");
     } else {
@@ -5386,7 +5386,7 @@ static void wl1271_sdio_raw_read(struct wl1271 *wl , int addr , void *buf , size
   {
   tmp = wl_to_func(wl);
   func = tmp;
-  tmp___2 = __builtin_expect(addr == 131068, 0L);
+  tmp___2 = ldv__builtin_expect(addr == 131068, 0L);
   if (tmp___2 != 0L) {
     *((u8 *)buf) = sdio_f0_readb(func, (unsigned int )addr, & ret);
     if ((wl12xx_debug_level & 16384U) != 0U) {
@@ -5397,7 +5397,7 @@ static void wl1271_sdio_raw_read(struct wl1271 *wl , int addr , void *buf , size
       descriptor.lineno = 133U;
       descriptor.flags = 0U;
       descriptor.enabled = (char)0;
-      tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
       if (tmp___0 != 0L) {
         __dynamic_pr_debug(& descriptor, "wl1271: sdio read 52 addr 0x%x, byte 0x%02x\n",
                            addr, (int )*((u8 *)buf));
@@ -5421,7 +5421,7 @@ static void wl1271_sdio_raw_read(struct wl1271 *wl , int addr , void *buf , size
       descriptor___0.lineno = 141U;
       descriptor___0.flags = 0U;
       descriptor___0.enabled = (char)0;
-      tmp___1 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
+      tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
                                  0L);
       if (tmp___1 != 0L) {
         __dynamic_pr_debug(& descriptor___0, "wl1271: sdio read 53 addr 0x%x, %zu bytes\n",
@@ -5466,7 +5466,7 @@ static void wl1271_sdio_raw_write(struct wl1271 *wl , int addr , void *buf , siz
   {
   tmp = wl_to_func(wl);
   func = tmp;
-  tmp___2 = __builtin_expect(addr == 131068, 0L);
+  tmp___2 = ldv__builtin_expect(addr == 131068, 0L);
   if (tmp___2 != 0L) {
     sdio_f0_writeb(func, (int )*((u8 *)buf), (unsigned int )addr, & ret);
     if ((wl12xx_debug_level & 16384U) != 0U) {
@@ -5477,7 +5477,7 @@ static void wl1271_sdio_raw_write(struct wl1271 *wl , int addr , void *buf , siz
       descriptor.lineno = 158U;
       descriptor.flags = 0U;
       descriptor.enabled = (char)0;
-      tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
       if (tmp___0 != 0L) {
         __dynamic_pr_debug(& descriptor, "wl1271: sdio write 52 addr 0x%x, byte 0x%02x\n",
                            addr, (int )*((u8 *)buf));
@@ -5496,7 +5496,7 @@ static void wl1271_sdio_raw_write(struct wl1271 *wl , int addr , void *buf , siz
       descriptor___0.lineno = 161U;
       descriptor___0.flags = 0U;
       descriptor___0.enabled = (char)0;
-      tmp___1 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
+      tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
                                  0L);
       if (tmp___1 != 0L) {
         __dynamic_pr_debug(& descriptor___0, "wl1271: sdio write 53 addr 0x%x, %zu bytes\n",
@@ -5928,7 +5928,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

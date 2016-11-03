@@ -3181,7 +3181,7 @@ struct usb_serial_driver {
    void (*write_bulk_callback)(struct urb *urb ) ;
 };
 enum hrtimer_restart;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data *f , int val , int expect ) ;
 extern  __attribute__((__noreturn__)) int ____ilog2_NaN(void)  __attribute__((__const__)) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
@@ -3238,7 +3238,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   int tmp___3 ;
 
   {
-  tmp___2 = __builtin_expect(! (! __tracepoint_kmalloc.state), 1);
+  tmp___2 = ldv__builtin_expect(! (! __tracepoint_kmalloc.state), 1);
   ______r___3 = tmp___2;
   ftrace_likely_update(& ______f___615, ______r___3, 0);
   if (______r___3) {
@@ -6450,7 +6450,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

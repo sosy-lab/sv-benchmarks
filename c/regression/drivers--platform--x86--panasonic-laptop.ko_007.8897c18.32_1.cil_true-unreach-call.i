@@ -2967,7 +2967,7 @@ struct pcc_acpi {
    int keymap[11] ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr ) 
 { 
@@ -3058,7 +3058,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
+  tmp = ldv__builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
   return (tmp);
 }
 }
@@ -3077,7 +3077,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! __tracepoint_kmalloc.state), 0);
+  tmp = ldv__builtin_expect(! (! __tracepoint_kmalloc.state), 0);
   if (tmp) {
     while (1) {
       while (1) {
@@ -3942,7 +3942,7 @@ static int acpi_pcc_retrieve_biosdata(struct pcc_acpi *pcc , u32 *sinf )
       break;
     }
     element = hkey->package.elements + i;
-    tmp = __builtin_expect(! (! (element->type == (acpi_object_type )1)), 1);
+    tmp = ldv__builtin_expect(! (! (element->type == (acpi_object_type )1)), 1);
     if (tmp) {
       *(sinf + i) = element->integer.value;
     } else {
@@ -4595,7 +4595,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

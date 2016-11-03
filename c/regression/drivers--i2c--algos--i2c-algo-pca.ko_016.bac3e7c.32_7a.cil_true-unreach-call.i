@@ -2292,8 +2292,8 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

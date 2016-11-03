@@ -1881,7 +1881,7 @@ struct i2c_algo_pca_data {
    unsigned int i2c_clock ;
 };
 typedef int ldv_func_ret_type___0;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
@@ -2099,7 +2099,7 @@ static int pca_xfer(struct i2c_adapter *i2c_adap , struct i2c_msg *msgs , int nu
     descriptor.format = "bus is not idle. status is %#04x\n";
     descriptor.lineno = 223U;
     descriptor.flags = 1U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& i2c_adap->dev),
                         "bus is not idle. status is %#04x\n", state);
@@ -2621,7 +2621,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

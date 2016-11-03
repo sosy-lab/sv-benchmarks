@@ -5412,7 +5412,7 @@ struct wl12xx_sdio_glue {
    struct platform_device *core ;
 };
 typedef int ldv_func_ret_type___0;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
 extern void __cmpxchg_wrong_size(void) ;
@@ -5430,7 +5430,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -5502,14 +5502,14 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   {
   c = atomic_read((atomic_t const   *)v);
   ldv_5580: 
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   if (tmp != 0L) {
     goto ldv_5579;
   } else {
 
   }
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   if (tmp___0 != 0L) {
     goto ldv_5579;
   } else {
@@ -5686,7 +5686,7 @@ static void wl12xx_sdio_raw_read(struct device *child , int addr , void *buf , s
   __mptr = (struct device  const  *)glue->dev;
   func = (struct sdio_func *)__mptr + 0xfffffffffffffff8UL;
   sdio_claim_host(func);
-  tmp___2 = __builtin_expect(addr == 131068, 0L);
+  tmp___2 = ldv__builtin_expect(addr == 131068, 0L);
   if (tmp___2 != 0L) {
     *((u8 *)buf) = sdio_f0_readb(func, (unsigned int )addr, & ret);
     descriptor.modname = "wl12xx_sdio";
@@ -5696,7 +5696,7 @@ static void wl12xx_sdio_raw_read(struct device *child , int addr , void *buf , s
     descriptor.lineno = 106U;
     descriptor.flags = 0U;
     descriptor.enabled = 0;
-    tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)child->parent, "sdio read 52 addr 0x%x, byte 0x%02x\n",
                         addr, (int )*((u8 *)buf));
@@ -5716,7 +5716,7 @@ static void wl12xx_sdio_raw_read(struct device *child , int addr , void *buf , s
     descriptor___0.lineno = 114U;
     descriptor___0.flags = 0U;
     descriptor___0.enabled = 0;
-    tmp___1 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
+    tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
                                0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)child->parent,
@@ -5754,7 +5754,7 @@ static void wl12xx_sdio_raw_write(struct device *child , int addr , void *buf , 
   __mptr = (struct device  const  *)glue->dev;
   func = (struct sdio_func *)__mptr + 0xfffffffffffffff8UL;
   sdio_claim_host(func);
-  tmp___2 = __builtin_expect(addr == 131068, 0L);
+  tmp___2 = ldv__builtin_expect(addr == 131068, 0L);
   if (tmp___2 != 0L) {
     sdio_f0_writeb(func, (int )*((u8 *)buf), (unsigned int )addr, & ret);
     descriptor.modname = "wl12xx_sdio";
@@ -5764,7 +5764,7 @@ static void wl12xx_sdio_raw_write(struct device *child , int addr , void *buf , 
     descriptor.lineno = 135U;
     descriptor.flags = 0U;
     descriptor.enabled = 0;
-    tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)child->parent, "sdio write 52 addr 0x%x, byte 0x%02x\n",
                         addr, (int )*((u8 *)buf));
@@ -5779,7 +5779,7 @@ static void wl12xx_sdio_raw_write(struct device *child , int addr , void *buf , 
     descriptor___0.lineno = 138U;
     descriptor___0.flags = 0U;
     descriptor___0.enabled = 0;
-    tmp___1 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
+    tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
                                0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)child->parent,
@@ -5934,7 +5934,7 @@ static int wl1271_probe(struct sdio_func *func , struct sdio_device_id  const  *
   descriptor.lineno = 251U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___2 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)glue->dev, "sdio PM caps = 0x%x\n",
                       mmcflags);
@@ -6036,7 +6036,7 @@ static int wl1271_suspend(struct device *dev )
   descriptor.lineno = 332U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___1 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "wl1271 suspend. wow_enabled: %d\n",
                       (int )wl->wow_enabled);
@@ -6079,7 +6079,7 @@ static int wl1271_resume(struct device *dev )
   descriptor.lineno = 358U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "wl1271 resume\n");
   } else {
@@ -6287,7 +6287,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

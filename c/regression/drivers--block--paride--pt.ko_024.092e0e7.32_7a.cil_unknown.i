@@ -2574,8 +2574,7 @@ struct pt_unit {
    char name[8U] ;
 };
 typedef int ldv_func_ret_type___0;
-unsigned long __builtin_object_size(void * , int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void might_fault(void) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
@@ -2612,7 +2611,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -2760,7 +2759,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   int tmp___1 ;
 
   {
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp != 0L) {
     goto do_trace;
   } else {
@@ -3026,23 +3025,23 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   tmp = __builtin_object_size((void const   *)to, 0);
   sz = (int )tmp;
   might_fault();
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
   if (tmp___1 != 0L) {
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     if (tmp___2 != 0L) {
       n = _copy_from_user(to, from, (unsigned int )n);
     } else {
       __ret_warn_on = 1;
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       if (tmp___0 != 0L) {
         warn_slowpath_fmt("/work/ldvuser/novikov/inst/current/envs/linux/linux/arch/x86/include/asm/uaccess_64.h",
                           58, "Buffer overflow detected!\n");
       } else {
 
       }
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
   return (n);
@@ -4765,7 +4764,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

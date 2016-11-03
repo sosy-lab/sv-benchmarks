@@ -2809,7 +2809,7 @@ struct it87_data {
    u8 auto_pwm[3U][4U] ;
    s8 auto_temp[3U][5U] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
@@ -2860,7 +2860,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -5064,7 +5064,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
   descriptor.format = "Unsupported chip (DEVID=0x%x)\n";
   descriptor.lineno = 1709U;
   descriptor.flags = 1U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_pr_debug(& descriptor, "it87: Unsupported chip (DEVID=0x%x)\n", (int )chip_type);
   } else {
@@ -5550,7 +5550,7 @@ static int it87_probe(struct platform_device *pdev___0 )
       descriptor.format = "chmod +w fan%d_beep failed\n";
       descriptor.lineno = 2075U;
       descriptor.flags = 1U;
-      tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       if (tmp___4 != 0L) {
         __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "chmod +w fan%d_beep failed\n",
                           i + 1);
@@ -5847,7 +5847,7 @@ static void it87_init_device(struct platform_device *pdev___0 )
       descriptor.format = "Setting fan1-3 to 16-bit mode\n";
       descriptor.lineno = 2294U;
       descriptor.flags = 1U;
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       if (tmp___2 != 0L) {
         __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& pdev___0->dev),
                           "Setting fan1-3 to 16-bit mode\n");
@@ -6273,7 +6273,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

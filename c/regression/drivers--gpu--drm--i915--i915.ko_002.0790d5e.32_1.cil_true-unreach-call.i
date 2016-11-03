@@ -4362,7 +4362,7 @@ int main(void)
 }
 }
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern  __attribute__((__noreturn__)) void __bad_pda_field(void) ;
 extern struct x8664_pda _proxy_pda ;
@@ -4592,7 +4592,7 @@ __inline static int ( __attribute__((__warn_unused_result__, __always_inline__))
                        "\n"
                        " .previous\n": "=r" (ret), "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)((u64 *)src))),
                        "i" (16), "0" (ret));
-  tmp___0 = __builtin_expect(! (! ret), 0);
+  tmp___0 = ldv__builtin_expect(! (! ret), 0);
   if (tmp___0) {
     return (ret);
   } else {
@@ -4662,7 +4662,7 @@ __inline static int ( __attribute__((__warn_unused_result__, __always_inline__))
                        "\n"
                        " .previous\n": "=r" (ret), "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)((u64 *)src))),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(! (! ret), 0);
+  tmp___1 = ldv__builtin_expect(! (! ret), 0);
   if (tmp___1) {
     return (ret);
   } else {
@@ -5913,7 +5913,7 @@ static int i915_batchbuffer(struct drm_device *dev , void *data , struct drm_fil
     } else {
       tmp___0 = 0;
     }
-    tmp___1 = __builtin_expect(tmp___0, 1);
+    tmp___1 = ldv__builtin_expect(tmp___0, 1);
     if (tmp___1 ? 0 : -14) {
       return (-14);
     } else {
@@ -5975,7 +5975,7 @@ static int i915_cmdbuffer(struct drm_device *dev , void *data , struct drm_file 
     } else {
       tmp___0 = 0;
     }
-    tmp___1 = __builtin_expect(tmp___0, 1);
+    tmp___1 = ldv__builtin_expect(tmp___0, 1);
     if (tmp___1 ? 0 : -14) {
       printk("<3>[drm:%s] *ERROR* Fault accessing cliprects\n", "i915_cmdbuffer");
       return (-14);
@@ -6418,7 +6418,7 @@ __inline static int signal_pending(struct task_struct *p )
   } else {
     tmp___0 = 0;
   }
-  tmp___1 = __builtin_expect(tmp___0, 0);
+  tmp___1 = ldv__builtin_expect(tmp___0, 0);
   return (tmp___1);
 }
 }
@@ -8096,7 +8096,7 @@ static int compat_i915_batchbuffer(struct file *file , unsigned int cmd , unsign
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -8863,7 +8863,7 @@ static int compat_i915_cmdbuffer(struct file *file , unsigned int cmd , unsigned
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -9625,7 +9625,7 @@ static int compat_i915_irq_emit(struct file *file , unsigned int cmd , unsigned 
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -9788,7 +9788,7 @@ static int compat_i915_getparam(struct file *file , unsigned int cmd , unsigned 
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -10069,7 +10069,7 @@ static int compat_i915_alloc(struct file *file , unsigned int cmd , unsigned lon
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -10605,7 +10605,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -2847,7 +2847,7 @@ struct urb {
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern void *__memcpy(void *to , void const   *from , size_t len ) ;
 extern int param_set_int(char const   *val , struct kernel_param *kp ) ;
@@ -3047,7 +3047,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
   {
   mem = vb->priv;
   while (1) {
-    tmp = __builtin_expect(! (! (! mem)), 0);
+    tmp = ldv__builtin_expect(! (! (! mem)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -3067,7 +3067,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
     }
     break;
   }
-  tmp___0 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
+  tmp___0 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
   if (tmp___0) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     while (1) {
@@ -3237,7 +3237,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
   vma->vm_private_data = map;
   mem = (q->bufs[first])->priv;
   while (1) {
-    tmp___1 = __builtin_expect(! (! (! mem)), 0);
+    tmp___1 = ldv__builtin_expect(! (! (! mem)), 0);
     if (tmp___1) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -3257,7 +3257,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
     }
     break;
   }
-  tmp___2 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
+  tmp___2 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
   if (tmp___2) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     while (1) {
@@ -3324,7 +3324,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
   {
   mem = (q->read_buf)->priv;
   while (1) {
-    tmp = __builtin_expect(! (! (! mem)), 0);
+    tmp = ldv__builtin_expect(! (! (! mem)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -3344,7 +3344,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
     }
     break;
   }
-  tmp___0 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
+  tmp___0 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
   if (tmp___0) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     while (1) {
@@ -3364,7 +3364,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
 
   }
   while (1) {
-    tmp___1 = __builtin_expect(! (! (! mem->vmalloc)), 0);
+    tmp___1 = ldv__builtin_expect(! (! (! mem->vmalloc)), 0);
     if (tmp___1) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -3410,7 +3410,7 @@ static int __videobuf_copy_stream(struct videobuf_queue *q , char *data , size_t
   {
   mem = (q->read_buf)->priv;
   while (1) {
-    tmp = __builtin_expect(! (! (! mem)), 0);
+    tmp = ldv__builtin_expect(! (! (! mem)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -3430,7 +3430,7 @@ static int __videobuf_copy_stream(struct videobuf_queue *q , char *data , size_t
     }
     break;
   }
-  tmp___0 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
+  tmp___0 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
   if (tmp___0) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     while (1) {
@@ -3507,7 +3507,7 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *buf )
   {
   mem = buf->priv;
   while (1) {
-    tmp = __builtin_expect(! (! (! mem)), 0);
+    tmp = ldv__builtin_expect(! (! (! mem)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -3527,7 +3527,7 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *buf )
     }
     break;
   }
-  tmp___0 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
+  tmp___0 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
   if (tmp___0) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     while (1) {
@@ -3569,7 +3569,7 @@ void videobuf_vmalloc_free(struct videobuf_buffer *buf )
   {
   mem = buf->priv;
   while (1) {
-    tmp = __builtin_expect(! (! (! mem)), 0);
+    tmp = ldv__builtin_expect(! (! (! mem)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -3589,7 +3589,7 @@ void videobuf_vmalloc_free(struct videobuf_buffer *buf )
     }
     break;
   }
-  tmp___0 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
+  tmp___0 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 0);
   if (tmp___0) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     while (1) {
@@ -3740,7 +3740,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_stop)(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

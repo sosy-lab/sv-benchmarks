@@ -2655,7 +2655,7 @@ struct it87_data {
    u8 pwm_duty[3U] ;
    u8 pwm_temp_map[3U] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern long simple_strtol(char const   * , char ** , unsigned int  ) ;
 extern int strict_strtol(char const   * , unsigned int  , long * ) ;
@@ -2705,7 +2705,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -2799,7 +2799,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp___0 ;
 
   {
-  tmp___0 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp___0 != 0L) {
     rcu_read_lock_sched_notrace();
     if (debug_locks != 0) {
@@ -5708,7 +5708,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -3621,7 +3621,7 @@ struct ics5342_info {
    struct dac_info dac ;
    u8 mode ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern struct pv_cpu_ops pv_cpu_ops ;
@@ -4800,7 +4800,7 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor.lineno = 756U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "fb%d: offset register       : %d\n", info->node,
                        offset_value);
@@ -4834,7 +4834,7 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___0.lineno = 779U;
   descriptor___0.flags = 0U;
   descriptor___0.enabled = (char)0;
-  tmp___1 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
   if (tmp___1 != 0L) {
     __dynamic_pr_debug(& descriptor___0, "fb%d: text mode\n", info->node);
   } else {
@@ -4853,7 +4853,7 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___1.lineno = 788U;
   descriptor___1.flags = 0U;
   descriptor___1.enabled = (char)0;
-  tmp___2 = __builtin_expect((int )((signed char )descriptor___1.enabled) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((int )((signed char )descriptor___1.enabled) != 0, 0L);
   if (tmp___2 != 0L) {
     __dynamic_pr_debug(& descriptor___1, "fb%d: 4 bit pseudocolor\n", info->node);
   } else {
@@ -4872,7 +4872,7 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___2.lineno = 796U;
   descriptor___2.flags = 0U;
   descriptor___2.enabled = (char)0;
-  tmp___3 = __builtin_expect((int )((signed char )descriptor___2.enabled) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((int )((signed char )descriptor___2.enabled) != 0, 0L);
   if (tmp___3 != 0L) {
     __dynamic_pr_debug(& descriptor___2, "fb%d: 4 bit pseudocolor, planar\n", info->node);
   } else {
@@ -4890,7 +4890,7 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___3.lineno = 803U;
   descriptor___3.flags = 0U;
   descriptor___3.enabled = (char)0;
-  tmp___4 = __builtin_expect((int )((signed char )descriptor___3.enabled) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((int )((signed char )descriptor___3.enabled) != 0, 0L);
   if (tmp___4 != 0L) {
     __dynamic_pr_debug(& descriptor___3, "fb%d: 8 bit pseudocolor\n", info->node);
   } else {
@@ -4905,7 +4905,7 @@ static int arkfb_set_par(struct fb_info *info )
     descriptor___4.lineno = 808U;
     descriptor___4.flags = 0U;
     descriptor___4.enabled = (char)0;
-    tmp___5 = __builtin_expect((int )((signed char )descriptor___4.enabled) != 0,
+    tmp___5 = ldv__builtin_expect((int )((signed char )descriptor___4.enabled) != 0,
                                0L);
     if (tmp___5 != 0L) {
       __dynamic_pr_debug(& descriptor___4, "fb%d: not using multiplex\n", info->node);
@@ -4922,7 +4922,7 @@ static int arkfb_set_par(struct fb_info *info )
     descriptor___5.lineno = 812U;
     descriptor___5.flags = 0U;
     descriptor___5.enabled = (char)0;
-    tmp___6 = __builtin_expect((int )((signed char )descriptor___5.enabled) != 0,
+    tmp___6 = ldv__builtin_expect((int )((signed char )descriptor___5.enabled) != 0,
                                0L);
     if (tmp___6 != 0L) {
       __dynamic_pr_debug(& descriptor___5, "fb%d: using multiplex\n", info->node);
@@ -4942,7 +4942,7 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___6.lineno = 819U;
   descriptor___6.flags = 0U;
   descriptor___6.enabled = (char)0;
-  tmp___7 = __builtin_expect((int )((signed char )descriptor___6.enabled) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((int )((signed char )descriptor___6.enabled) != 0, 0L);
   if (tmp___7 != 0L) {
     __dynamic_pr_debug(& descriptor___6, "fb%d: 5/5/5 truecolor\n", info->node);
   } else {
@@ -4960,7 +4960,7 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___7.lineno = 826U;
   descriptor___7.flags = 0U;
   descriptor___7.enabled = (char)0;
-  tmp___8 = __builtin_expect((int )((signed char )descriptor___7.enabled) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((int )((signed char )descriptor___7.enabled) != 0, 0L);
   if (tmp___8 != 0L) {
     __dynamic_pr_debug(& descriptor___7, "fb%d: 5/6/5 truecolor\n", info->node);
   } else {
@@ -4978,7 +4978,7 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___8.lineno = 833U;
   descriptor___8.flags = 0U;
   descriptor___8.enabled = (char)0;
-  tmp___9 = __builtin_expect((int )((signed char )descriptor___8.enabled) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((int )((signed char )descriptor___8.enabled) != 0, 0L);
   if (tmp___9 != 0L) {
     __dynamic_pr_debug(& descriptor___8, "fb%d: 8/8/8 truecolor\n", info->node);
   } else {
@@ -4998,7 +4998,7 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___9.lineno = 842U;
   descriptor___9.flags = 0U;
   descriptor___9.enabled = (char)0;
-  tmp___10 = __builtin_expect((int )((signed char )descriptor___9.enabled) != 0, 0L);
+  tmp___10 = ldv__builtin_expect((int )((signed char )descriptor___9.enabled) != 0, 0L);
   if (tmp___10 != 0L) {
     __dynamic_pr_debug(& descriptor___9, "fb%d: 8/8/8/8 truecolor\n", info->node);
   } else {
@@ -5116,7 +5116,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   descriptor.lineno = 942U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "fb%d: unblank\n", info->node);
   } else {
@@ -5133,7 +5133,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   descriptor___0.lineno = 947U;
   descriptor___0.flags = 0U;
   descriptor___0.enabled = (char)0;
-  tmp___0 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
   if (tmp___0 != 0L) {
     __dynamic_pr_debug(& descriptor___0, "fb%d: blank\n", info->node);
   } else {
@@ -5152,7 +5152,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   descriptor___1.lineno = 954U;
   descriptor___1.flags = 0U;
   descriptor___1.enabled = (char)0;
-  tmp___1 = __builtin_expect((int )((signed char )descriptor___1.enabled) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___1.enabled) != 0, 0L);
   if (tmp___1 != 0L) {
     __dynamic_pr_debug(& descriptor___1, "fb%d: sync down\n", info->node);
   } else {
@@ -5442,7 +5442,7 @@ static void arkfb_cleanup(void)
   descriptor.lineno = 1256U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "arkfb: cleaning up\n");
   } else {
@@ -5466,7 +5466,7 @@ static int arkfb_init(void)
   descriptor.lineno = 1275U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "arkfb: initializing\n");
   } else {
@@ -5667,7 +5667,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
