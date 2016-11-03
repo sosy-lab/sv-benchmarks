@@ -5944,7 +5944,7 @@ long ldv_is_err(void const   *ptr )
 
 
   {
-  return ((unsigned long )ptr > 2012UL);
+  return ((unsigned long )ptr > 18446744073709547521UL);
 }
 }
 void *ldv_err_ptr(long error ) 
@@ -5952,7 +5952,7 @@ void *ldv_err_ptr(long error )
 
 
   {
-  return ((void *)(2012L - error));
+  return ((void *)(18446744073709547521UL - error));
 }
 }
 long ldv_ptr_err(void const   *ptr ) 
@@ -5960,7 +5960,7 @@ long ldv_ptr_err(void const   *ptr )
 
 
   {
-  return ((long )(2012UL - (unsigned long )ptr));
+  return ((long )(18446744073709547521UL - (unsigned long )ptr));
 }
 }
 long ldv_is_err_or_null(void const   *ptr ) 
@@ -5991,7 +5991,7 @@ void *ldv_create_class(void)
 
   {
   is_got = ldv_undef_ptr();
-  if ((unsigned long )is_got <= 2012UL) {
+  if ((unsigned long )is_got <= 18446744073709547521UL) {
     if (ldv_usb_gadget == 0) {
 
     } else {
