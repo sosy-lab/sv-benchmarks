@@ -4128,7 +4128,7 @@ struct ems_usb {
    struct ems_cpc_msg active_params ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -4261,7 +4261,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp ;
 
   {
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp != 0L) {
     rcu_read_lock_sched_notrace();
     _________p1 = *((void ** volatile  *)(& __tracepoint_kmalloc.funcs));
@@ -5043,7 +5043,7 @@ static void ems_usb_write_bulk_callback(struct urb *urb )
 
   {
   context = (struct ems_tx_urb_context *)urb->context;
-  tmp = __builtin_expect((unsigned long )context == (unsigned long )((struct ems_tx_urb_context *)0),
+  tmp = ldv__builtin_expect((unsigned long )context == (unsigned long )((struct ems_tx_urb_context *)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/net/can/usb/ems_usb.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/net/can/usb/ems_usb.c.prepared"),
@@ -5455,7 +5455,7 @@ static netdev_tx_t ems_usb_start_xmit(struct sk_buff *skb , struct net_device *n
   can_put_echo_skb(skb, netdev, context->echo_index);
   atomic_inc(& dev->active_tx_urbs);
   err = usb_submit_urb(urb, 32U);
-  tmp___11 = __builtin_expect(err != 0, 0L);
+  tmp___11 = ldv__builtin_expect(err != 0, 0L);
   if (tmp___11 != 0L) {
     can_free_echo_skb(netdev, context->echo_index);
     usb_unanchor_urb(urb);
@@ -5920,7 +5920,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

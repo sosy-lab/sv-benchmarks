@@ -3614,7 +3614,7 @@ struct moschip_port {
 };
 typedef int ldv_func_ret_type___6;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
   int oldbit ;
@@ -3809,7 +3809,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -3917,7 +3917,7 @@ __inline static void usb_serial_debug_data(struct device *dev , char const   *fu
   descriptor.format = "%s - length = %d, data = %*ph\n";
   descriptor.lineno = 359U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "%s - length = %d, data = %*ph\n",
                       function, size, size, data);
@@ -3946,7 +3946,7 @@ static int mos7840_set_reg_sync(struct usb_serial_port *port , __u16 reg , __u16
   descriptor.format = "mos7840_set_reg_sync offset is %x, value %x\n";
   descriptor.lineno = 304U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "mos7840_set_reg_sync offset is %x, value %x\n",
                       (int )reg, (int )val);
@@ -3989,7 +3989,7 @@ static int mos7840_get_reg_sync(struct usb_serial_port *port , __u16 reg , __u16
   descriptor.format = "%s offset is %x, return val %x\n";
   descriptor.lineno = 332U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s offset is %x, return val %x\n",
                       "mos7840_get_reg_sync", (int )reg, (int )*val);
@@ -4025,7 +4025,7 @@ static int mos7840_set_uart_reg(struct usb_serial_port *port , __u16 reg , __u16
   descriptor.format = "%s application number is %x\n";
   descriptor.lineno = 364U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s application number is %x\n",
                       "mos7840_set_uart_reg", (int )val);
@@ -4073,7 +4073,7 @@ static int mos7840_get_uart_reg(struct usb_serial_port *port , __u16 reg , __u16
   descriptor.format = "%s application number is %x\n";
   descriptor.lineno = 402U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s application number is %x\n",
                       "mos7840_get_uart_reg", (int )Wval);
@@ -4104,7 +4104,7 @@ static void mos7840_dump_serial_port(struct usb_serial_port *port , struct mosch
   descriptor.format = "SpRegOffset is %2x\n";
   descriptor.lineno = 416U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "SpRegOffset is %2x\n",
                       (int )mos7840_port->SpRegOffset);
@@ -4117,7 +4117,7 @@ static void mos7840_dump_serial_port(struct usb_serial_port *port , struct mosch
   descriptor___0.format = "ControlRegOffset is %2x\n";
   descriptor___0.lineno = 417U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev), "ControlRegOffset is %2x\n",
                       (int )mos7840_port->ControlRegOffset);
@@ -4130,7 +4130,7 @@ static void mos7840_dump_serial_port(struct usb_serial_port *port , struct mosch
   descriptor___1.format = "DCRRegOffset is %2x\n";
   descriptor___1.lineno = 418U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev), "DCRRegOffset is %2x\n",
                       (int )mos7840_port->DcrRegOffset);
@@ -4271,7 +4271,7 @@ static void mos7840_control_callback(struct urb *urb )
   descriptor.format = "%s - urb shutting down with status: %d\n";
   descriptor.lineno = 531U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "%s - urb shutting down with status: %d\n",
                       "mos7840_control_callback", status);
@@ -4286,7 +4286,7 @@ static void mos7840_control_callback(struct urb *urb )
   descriptor___0.format = "%s - nonzero urb status received: %d\n";
   descriptor___0.lineno = 534U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)dev, "%s - nonzero urb status received: %d\n",
                       "mos7840_control_callback", status);
@@ -4302,7 +4302,7 @@ static void mos7840_control_callback(struct urb *urb )
   descriptor___1.format = "%s urb buffer size is %d\n";
   descriptor___1.lineno = 538U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)dev, "%s urb buffer size is %d\n",
                       "mos7840_control_callback", urb->actual_length);
@@ -4315,7 +4315,7 @@ static void mos7840_control_callback(struct urb *urb )
   descriptor___2.format = "%s mos7840_port->MsrLsr is %d port %d\n";
   descriptor___2.lineno = 540U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)dev, "%s mos7840_port->MsrLsr is %d port %d\n",
                       "mos7840_control_callback", mos7840_port->MsrLsr, mos7840_port->port_num);
@@ -4330,7 +4330,7 @@ static void mos7840_control_callback(struct urb *urb )
   descriptor___3.format = "%s data is %x\n";
   descriptor___3.lineno = 543U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)dev, "%s data is %x\n",
                       "mos7840_control_callback", (int )regval);
@@ -4393,7 +4393,7 @@ static void mos7840_set_led_callback(struct urb *urb )
   descriptor.format = "%s - urb shutting down with status: %d";
   descriptor.lineno = 583U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (urb->dev)->dev),
                       "%s - urb shutting down with status: %d", "mos7840_set_led_callback",
@@ -4409,7 +4409,7 @@ static void mos7840_set_led_callback(struct urb *urb )
   descriptor___0.format = "%s - nonzero urb status received: %d";
   descriptor___0.lineno = 587U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& (urb->dev)->dev),
                       "%s - nonzero urb status received: %d", "mos7840_set_led_callback",
@@ -4524,7 +4524,7 @@ static void mos7840_interrupt_callback(struct urb *urb )
   descriptor.format = "%s - urb shutting down with status: %d\n";
   descriptor.lineno = 663U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (urb->dev)->dev),
                       "%s - urb shutting down with status: %d\n", "mos7840_interrupt_callback",
@@ -4540,7 +4540,7 @@ static void mos7840_interrupt_callback(struct urb *urb )
   descriptor___0.format = "%s - nonzero urb status received: %d\n";
   descriptor___0.lineno = 667U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& (urb->dev)->dev),
                       "%s - nonzero urb status received: %d\n", "mos7840_interrupt_callback",
@@ -4561,7 +4561,7 @@ static void mos7840_interrupt_callback(struct urb *urb )
     descriptor___1.format = "%s";
     descriptor___1.lineno = 684U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& (urb->dev)->dev),
                         "%s", (char *)"Wrong data !!!\n");
@@ -4590,7 +4590,7 @@ static void mos7840_interrupt_callback(struct urb *urb )
       descriptor___2.format = "SP%d No Interrupt !!!\n";
       descriptor___2.lineno = 701U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       if (tmp___2 != 0L) {
         __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& (urb->dev)->dev),
                           "SP%d No Interrupt !!!\n", i);
@@ -4606,7 +4606,7 @@ static void mos7840_interrupt_callback(struct urb *urb )
       descriptor___3.format = "Serial Port %d: Receiver status error or \n";
       descriptor___3.lineno = 705U;
       descriptor___3.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       if (tmp___3 != 0L) {
         __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)(& (urb->dev)->dev),
                           "Serial Port %d: Receiver status error or \n", i);
@@ -4619,7 +4619,7 @@ static void mos7840_interrupt_callback(struct urb *urb )
       descriptor___4.format = "address bit detected in 9-bit mode\n";
       descriptor___4.lineno = 706U;
       descriptor___4.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       if (tmp___4 != 0L) {
         __dynamic_dev_dbg(& descriptor___4, (struct device  const  *)(& (urb->dev)->dev),
                           "address bit detected in 9-bit mode\n");
@@ -4636,7 +4636,7 @@ static void mos7840_interrupt_callback(struct urb *urb )
       descriptor___5.format = "Serial Port %d: Modem status change\n";
       descriptor___5.lineno = 711U;
       descriptor___5.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
       if (tmp___5 != 0L) {
         __dynamic_dev_dbg(& descriptor___5, (struct device  const  *)(& (urb->dev)->dev),
                           "Serial Port %d: Modem status change\n", i);
@@ -4692,7 +4692,7 @@ static int mos7840_port_paranoia_check(struct usb_serial_port *port , char const
     descriptor.format = "%s - port == NULL\n";
     descriptor.lineno = 736U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_pr_debug(& descriptor, "%s - port == NULL\n", function);
     } else {
@@ -4709,7 +4709,7 @@ static int mos7840_port_paranoia_check(struct usb_serial_port *port , char const
     descriptor___0.format = "%s - port->serial == NULL\n";
     descriptor___0.lineno = 740U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_pr_debug(& descriptor___0, "%s - port->serial == NULL\n", function);
     } else {
@@ -4737,7 +4737,7 @@ static int mos7840_serial_paranoia_check(struct usb_serial *serial , char const 
     descriptor.format = "%s - serial == NULL\n";
     descriptor.lineno = 752U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_pr_debug(& descriptor, "%s - serial == NULL\n", function);
     } else {
@@ -4754,7 +4754,7 @@ static int mos7840_serial_paranoia_check(struct usb_serial *serial , char const 
     descriptor___0.format = "%s - serial->type == NULL!\n";
     descriptor___0.lineno = 756U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_pr_debug(& descriptor___0, "%s - serial->type == NULL!\n", function);
     } else {
@@ -4826,7 +4826,7 @@ static void mos7840_bulk_in_callback(struct urb *urb )
     descriptor.format = "nonzero read bulk status received: %d\n";
     descriptor.lineno = 799U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (urb->dev)->dev),
                         "nonzero read bulk status received: %d\n", status);
@@ -4873,7 +4873,7 @@ static void mos7840_bulk_in_callback(struct urb *urb )
     descriptor___0.format = "mos7840_port->icount.rx is %d:\n";
     descriptor___0.lineno = 828U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev),
                         "mos7840_port->icount.rx is %d:\n", mos7840_port->icount.rx);
@@ -4890,7 +4890,7 @@ static void mos7840_bulk_in_callback(struct urb *urb )
     descriptor___1.format = "%s";
     descriptor___1.lineno = 832U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev),
                         "%s", (char *)"URB KILLED !!!\n");
@@ -4919,7 +4919,7 @@ static void mos7840_bulk_in_callback(struct urb *urb )
     descriptor___2.format = "usb_submit_urb(read bulk) failed, retval = %d\n";
     descriptor___2.lineno = 850U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     if (tmp___4 != 0L) {
       __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& port->dev),
                         "usb_submit_urb(read bulk) failed, retval = %d\n", retval);
@@ -4974,7 +4974,7 @@ static void mos7840_bulk_out_data_callback(struct urb *urb )
     descriptor.format = "nonzero write bulk status received:%d\n";
     descriptor.lineno = 881U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "nonzero write bulk status received:%d\n",
                         status);
@@ -5111,7 +5111,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor.format = "Reading Spreg failed\n";
     descriptor.lineno = 986U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "Reading Spreg failed\n");
     } else {
@@ -5130,7 +5130,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor___0.format = "writing Spreg failed\n";
     descriptor___0.lineno = 992U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev),
                         "writing Spreg failed\n");
@@ -5150,7 +5150,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor___1.format = "writing Spreg failed\n";
     descriptor___1.lineno = 999U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     if (tmp___3 != 0L) {
       __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev),
                         "writing Spreg failed\n");
@@ -5170,7 +5170,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor___2.format = "Reading Controlreg failed\n";
     descriptor___2.lineno = 1008U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     if (tmp___4 != 0L) {
       __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& port->dev),
                         "Reading Controlreg failed\n");
@@ -5191,7 +5191,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor___3.format = "writing Controlreg failed\n";
     descriptor___3.lineno = 1016U;
     descriptor___3.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     if (tmp___5 != 0L) {
       __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)(& port->dev),
                         "writing Controlreg failed\n");
@@ -5211,7 +5211,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor___4.format = "disabling interrupts failed\n";
     descriptor___4.lineno = 1027U;
     descriptor___4.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     if (tmp___6 != 0L) {
       __dynamic_dev_dbg(& descriptor___4, (struct device  const  *)(& port->dev),
                         "disabling interrupts failed\n");
@@ -5231,7 +5231,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor___5.format = "Writing FIFO_CONTROL_REGISTER  failed\n";
     descriptor___5.lineno = 1034U;
     descriptor___5.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     if (tmp___7 != 0L) {
       __dynamic_dev_dbg(& descriptor___5, (struct device  const  *)(& port->dev),
                         "Writing FIFO_CONTROL_REGISTER  failed\n");
@@ -5251,7 +5251,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor___6.format = "Writing FIFO_CONTROL_REGISTER  failed\n";
     descriptor___6.lineno = 1041U;
     descriptor___6.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     if (tmp___8 != 0L) {
       __dynamic_dev_dbg(& descriptor___6, (struct device  const  *)(& port->dev),
                         "Writing FIFO_CONTROL_REGISTER  failed\n");
@@ -5323,7 +5323,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
   descriptor___7.format = "port number is %d\n";
   descriptor___7.lineno = 1138U;
   descriptor___7.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   if (tmp___10 != 0L) {
     __dynamic_dev_dbg(& descriptor___7, (struct device  const  *)(& port->dev), "port number is %d\n",
                       (int )port->number);
@@ -5336,7 +5336,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
   descriptor___8.format = "serial number is %d\n";
   descriptor___8.lineno = 1139U;
   descriptor___8.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   if (tmp___11 != 0L) {
     __dynamic_dev_dbg(& descriptor___8, (struct device  const  *)(& port->dev), "serial number is %d\n",
                       (int )(port->serial)->minor);
@@ -5349,7 +5349,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
   descriptor___9.format = "Bulkin endpoint is %d\n";
   descriptor___9.lineno = 1140U;
   descriptor___9.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   if (tmp___12 != 0L) {
     __dynamic_dev_dbg(& descriptor___9, (struct device  const  *)(& port->dev), "Bulkin endpoint is %d\n",
                       (int )port->bulk_in_endpointAddress);
@@ -5362,7 +5362,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
   descriptor___10.format = "BulkOut endpoint is %d\n";
   descriptor___10.lineno = 1141U;
   descriptor___10.flags = 0U;
-  tmp___13 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
   if (tmp___13 != 0L) {
     __dynamic_dev_dbg(& descriptor___10, (struct device  const  *)(& port->dev), "BulkOut endpoint is %d\n",
                       (int )port->bulk_out_endpointAddress);
@@ -5375,7 +5375,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
   descriptor___11.format = "Interrupt endpoint is %d\n";
   descriptor___11.lineno = 1142U;
   descriptor___11.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
   if (tmp___14 != 0L) {
     __dynamic_dev_dbg(& descriptor___11, (struct device  const  *)(& port->dev), "Interrupt endpoint is %d\n",
                       (int )port->interrupt_in_endpointAddress);
@@ -5388,7 +5388,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
   descriptor___12.format = "port\'s number in the device is %d\n";
   descriptor___12.lineno = 1143U;
   descriptor___12.flags = 0U;
-  tmp___15 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
   if (tmp___15 != 0L) {
     __dynamic_dev_dbg(& descriptor___12, (struct device  const  *)(& port->dev), "port\'s number in the device is %d\n",
                       mos7840_port->port_num);
@@ -5413,7 +5413,7 @@ static int mos7840_open(struct tty_struct *tty , struct usb_serial_port *port )
   descriptor___13.format = "%s: bulkin endpoint is %d\n";
   descriptor___13.lineno = 1167U;
   descriptor___13.flags = 0U;
-  tmp___18 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
   if (tmp___18 != 0L) {
     __dynamic_dev_dbg(& descriptor___13, (struct device  const  *)(& port->dev), "%s: bulkin endpoint is %d\n",
                       "mos7840_open", (int )port->bulk_in_endpointAddress);
@@ -5493,7 +5493,7 @@ static int mos7840_chars_in_buffer(struct tty_struct *tty )
   descriptor.format = "%s - returns %d\n";
   descriptor.lineno = 1228U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - returns %d\n",
                       "mos7840_chars_in_buffer", chars);
@@ -5582,7 +5582,7 @@ static void mos7840_close(struct usb_serial_port *port )
       descriptor.format = "%s";
       descriptor.lineno = 1277U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       if (tmp___0 != 0L) {
         __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s",
                           (char *)"Shutdown bulk write\n");
@@ -5600,7 +5600,7 @@ static void mos7840_close(struct usb_serial_port *port )
       descriptor___0.format = "%s";
       descriptor___0.lineno = 1281U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       if (tmp___1 != 0L) {
         __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev),
                           "%s", (char *)"Shutdown bulk read\n");
@@ -5619,7 +5619,7 @@ static void mos7840_close(struct usb_serial_port *port )
       descriptor___1.format = "%s";
       descriptor___1.lineno = 1286U;
       descriptor___1.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       if (tmp___2 != 0L) {
         __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev),
                           "%s", (char *)"Shutdown control read\n");
@@ -5639,7 +5639,7 @@ static void mos7840_close(struct usb_serial_port *port )
   descriptor___2.format = "%s in close%d:in port%d\n";
   descriptor___2.lineno = 1293U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& port->dev), "%s in close%d:in port%d\n",
                       "mos7840_close", (int )port0->open_ports, (int )port->number);
@@ -5654,7 +5654,7 @@ static void mos7840_close(struct usb_serial_port *port )
       descriptor___3.format = "Shutdown interrupt_in_urb\n";
       descriptor___3.lineno = 1296U;
       descriptor___3.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       if (tmp___4 != 0L) {
         __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)(& port->dev),
                           "Shutdown interrupt_in_urb\n");
@@ -5715,7 +5715,7 @@ static void mos7840_block_until_chase_response(struct tty_struct *tty , struct m
     descriptor.format = "%s - TIMEOUT\n";
     descriptor.lineno = 1348U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (mos7840_port->port)->dev),
                         "%s - TIMEOUT\n", "mos7840_block_until_chase_response");
@@ -5776,7 +5776,7 @@ static void mos7840_break(struct tty_struct *tty , int break_state )
   descriptor.format = "%s mos7840_port->shadowLCR is %x\n";
   descriptor.lineno = 1392U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s mos7840_port->shadowLCR is %x\n",
                       "mos7840_break", (int )mos7840_port->shadowLCR);
@@ -5839,7 +5839,7 @@ static int mos7840_write_room(struct tty_struct *tty )
   descriptor.format = "%s - returns %d\n";
   descriptor.lineno = 1428U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (mos7840_port->port)->dev),
                       "%s - returns %d\n", "mos7840_write_room", room);
@@ -5922,7 +5922,7 @@ static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port ,
     descriptor.format = "URB:%d\n";
     descriptor.lineno = 1505U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "URB:%d\n",
                         i);
@@ -5949,7 +5949,7 @@ static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port ,
     descriptor___0.format = "%s - no more free urbs\n";
     descriptor___0.lineno = 1512U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___3 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev),
                         "%s - no more free urbs\n", "mos7840_write");
@@ -6000,7 +6000,7 @@ static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port ,
   descriptor___1.format = "bulkout endpoint is %d\n";
   descriptor___1.lineno = 1552U;
   descriptor___1.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___6 != 0L) {
     __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev), "bulkout endpoint is %d\n",
                       (int )port->bulk_out_endpointAddress);
@@ -6040,7 +6040,7 @@ static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port ,
   descriptor___2.format = "mos7840_port->icount.tx is %d:\n";
   descriptor___2.lineno = 1575U;
   descriptor___2.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   if (tmp___8 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& port->dev), "mos7840_port->icount.tx is %d:\n",
                       mos7840_port->icount.tx);
@@ -6082,7 +6082,7 @@ static void mos7840_throttle(struct tty_struct *tty )
     descriptor.format = "%s";
     descriptor.lineno = 1602U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s",
                         (char *)"port not opened\n");
@@ -6151,7 +6151,7 @@ static void mos7840_unthrottle(struct tty_struct *tty )
     descriptor.format = "%s - port not opened\n";
     descriptor.lineno = 1642U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - port not opened\n",
                         "mos7840_unthrottle");
@@ -6215,7 +6215,7 @@ static int mos7840_tiocmget(struct tty_struct *tty )
   descriptor.format = "%s - 0x%04X\n";
   descriptor.lineno = 1687U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - 0x%04X\n",
                       "mos7840_tiocmget", result);
@@ -6282,7 +6282,7 @@ static int mos7840_tiocmset(struct tty_struct *tty , unsigned int set , unsigned
     descriptor.format = "setting MODEM_CONTROL_REGISTER Failed\n";
     descriptor.lineno = 1725U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "setting MODEM_CONTROL_REGISTER Failed\n");
     } else {
@@ -6308,7 +6308,7 @@ static int mos7840_calc_baud_rate_divisor(struct usb_serial_port *port , int bau
   descriptor.format = "%s - %d\n";
   descriptor.lineno = 1741U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - %d\n",
                       "mos7840_calc_baud_rate_divisor", baudRate);
@@ -6402,7 +6402,7 @@ static int mos7840_send_cmd_write_baud_rate(struct moschip_port *mos7840_port , 
   descriptor.format = "%s - port = %d, baud = %d\n";
   descriptor.lineno = 1832U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - port = %d, baud = %d\n",
                       "mos7840_send_cmd_write_baud_rate", (int )(mos7840_port->port)->number,
@@ -6421,7 +6421,7 @@ static int mos7840_send_cmd_write_baud_rate(struct moschip_port *mos7840_port , 
     descriptor___0.format = "reading spreg failed in set_serial_baud\n";
     descriptor___0.lineno = 1871U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev),
                         "reading spreg failed in set_serial_baud\n");
@@ -6441,7 +6441,7 @@ static int mos7840_send_cmd_write_baud_rate(struct moschip_port *mos7840_port , 
     descriptor___1.format = "Writing spreg failed in set_serial_baud\n";
     descriptor___1.lineno = 1878U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     if (tmp___3 != 0L) {
       __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev),
                         "Writing spreg failed in set_serial_baud\n");
@@ -6468,7 +6468,7 @@ static int mos7840_send_cmd_write_baud_rate(struct moschip_port *mos7840_port , 
   descriptor___2.format = "set_serial_baud Value to write DLL is %x\n";
   descriptor___2.lineno = 1894U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   if (tmp___4 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& port->dev), "set_serial_baud Value to write DLL is %x\n",
                       (int )Data);
@@ -6483,7 +6483,7 @@ static int mos7840_send_cmd_write_baud_rate(struct moschip_port *mos7840_port , 
   descriptor___3.format = "set_serial_baud Value to write DLM is %x\n";
   descriptor___3.lineno = 1898U;
   descriptor___3.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   if (tmp___5 != 0L) {
     __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)(& port->dev), "set_serial_baud Value to write DLM is %x\n",
                       (int )Data);
@@ -6563,7 +6563,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
     descriptor.format = "%s - port not opened\n";
     descriptor.lineno = 1944U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - port not opened\n",
                         "mos7840_change_port_settings");
@@ -6608,7 +6608,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
       descriptor___0.format = "%s - parity = odd\n";
       descriptor___0.lineno = 1979U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       if (tmp___2 != 0L) {
         __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev),
                           "%s - parity = odd\n", "mos7840_change_port_settings");
@@ -6623,7 +6623,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
       descriptor___1.format = "%s - parity = even\n";
       descriptor___1.lineno = 1982U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       if (tmp___3 != 0L) {
         __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev),
                           "%s - parity = even\n", "mos7840_change_port_settings");
@@ -6638,7 +6638,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
     descriptor___2.format = "%s - parity = none\n";
     descriptor___2.lineno = 1986U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     if (tmp___4 != 0L) {
       __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& port->dev),
                         "%s - parity = none\n", "mos7840_change_port_settings");
@@ -6659,7 +6659,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
     descriptor___3.format = "%s - stop bits = 2\n";
     descriptor___3.lineno = 1995U;
     descriptor___3.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     if (tmp___5 != 0L) {
       __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)(& port->dev),
                         "%s - stop bits = 2\n", "mos7840_change_port_settings");
@@ -6674,7 +6674,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
     descriptor___4.format = "%s - stop bits = 1\n";
     descriptor___4.lineno = 1998U;
     descriptor___4.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     if (tmp___6 != 0L) {
       __dynamic_dev_dbg(& descriptor___4, (struct device  const  *)(& port->dev),
                         "%s - stop bits = 1\n", "mos7840_change_port_settings");
@@ -6690,7 +6690,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
   descriptor___5.format = "%s - mos7840_port->shadowLCR is %x\n";
   descriptor___5.lineno = 2007U;
   descriptor___5.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   if (tmp___7 != 0L) {
     __dynamic_dev_dbg(& descriptor___5, (struct device  const  *)(& port->dev), "%s - mos7840_port->shadowLCR is %x\n",
                       "mos7840_change_port_settings", (int )mos7840_port->shadowLCR);
@@ -6732,7 +6732,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
     descriptor___6.format = "%s";
     descriptor___6.lineno = 2048U;
     descriptor___6.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     if (tmp___9 != 0L) {
       __dynamic_dev_dbg(& descriptor___6, (struct device  const  *)(& port->dev),
                         "%s", (char *)"Picked default baud...\n");
@@ -6749,7 +6749,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
   descriptor___7.format = "%s - baud rate = %d\n";
   descriptor___7.lineno = 2052U;
   descriptor___7.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   if (tmp___10 != 0L) {
     __dynamic_dev_dbg(& descriptor___7, (struct device  const  *)(& port->dev), "%s - baud rate = %d\n",
                       "mos7840_change_port_settings", baud);
@@ -6769,7 +6769,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
       descriptor___8.format = "usb_submit_urb(read bulk) failed, status = %d\n";
       descriptor___8.lineno = 2064U;
       descriptor___8.flags = 0U;
-      tmp___11 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
       if (tmp___11 != 0L) {
         __dynamic_dev_dbg(& descriptor___8, (struct device  const  *)(& port->dev),
                           "usb_submit_urb(read bulk) failed, status = %d\n", status);
@@ -6791,7 +6791,7 @@ static void mos7840_change_port_settings(struct tty_struct *tty , struct moschip
   descriptor___9.format = "%s - mos7840_port->shadowLCR is End %x\n";
   descriptor___9.lineno = 2071U;
   descriptor___9.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   if (tmp___12 != 0L) {
     __dynamic_dev_dbg(& descriptor___9, (struct device  const  *)(& port->dev), "%s - mos7840_port->shadowLCR is End %x\n",
                       "mos7840_change_port_settings", (int )mos7840_port->shadowLCR);
@@ -6852,7 +6852,7 @@ static void mos7840_set_termios(struct tty_struct *tty , struct usb_serial_port 
     descriptor.format = "%s - port not opened\n";
     descriptor.lineno = 2103U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - port not opened\n",
                         "mos7840_set_termios");
@@ -6869,7 +6869,7 @@ static void mos7840_set_termios(struct tty_struct *tty , struct usb_serial_port 
   descriptor___0.format = "%s";
   descriptor___0.lineno = 2107U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev), "%s",
                       (char *)"setting termios - \n");
@@ -6883,7 +6883,7 @@ static void mos7840_set_termios(struct tty_struct *tty , struct usb_serial_port 
   descriptor___1.format = "%s - clfag %08x iflag %08x\n";
   descriptor___1.lineno = 2112U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev), "%s - clfag %08x iflag %08x\n",
                       "mos7840_set_termios", tty->termios.c_cflag, tty->termios.c_iflag & 31U);
@@ -6896,7 +6896,7 @@ static void mos7840_set_termios(struct tty_struct *tty , struct usb_serial_port 
   descriptor___2.format = "%s - old clfag %08x old iflag %08x\n";
   descriptor___2.lineno = 2114U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   if (tmp___4 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& port->dev), "%s - old clfag %08x old iflag %08x\n",
                       "mos7840_set_termios", old_termios->c_cflag, old_termios->c_iflag & 31U);
@@ -6909,7 +6909,7 @@ static void mos7840_set_termios(struct tty_struct *tty , struct usb_serial_port 
   descriptor___3.format = "%s - port %d\n";
   descriptor___3.lineno = 2115U;
   descriptor___3.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   if (tmp___5 != 0L) {
     __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)(& port->dev), "%s - port %d\n",
                       "mos7840_set_termios", (int )port->number);
@@ -6924,7 +6924,7 @@ static void mos7840_set_termios(struct tty_struct *tty , struct usb_serial_port 
     descriptor___4.format = "%s";
     descriptor___4.lineno = 2122U;
     descriptor___4.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     if (tmp___6 != 0L) {
       __dynamic_dev_dbg(& descriptor___4, (struct device  const  *)(& port->dev),
                         "%s", (char *)"URB KILLED !!!!!\n");
@@ -6945,7 +6945,7 @@ static void mos7840_set_termios(struct tty_struct *tty , struct usb_serial_port 
       descriptor___5.format = "usb_submit_urb(read bulk) failed, status = %d\n";
       descriptor___5.lineno = 2131U;
       descriptor___5.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
       if (tmp___7 != 0L) {
         __dynamic_dev_dbg(& descriptor___5, (struct device  const  *)(& port->dev),
                           "usb_submit_urb(read bulk) failed, status = %d\n", status);
@@ -7050,7 +7050,7 @@ static int mos7840_get_icount(struct tty_struct *tty , struct serial_icounter_st
   descriptor.format = "%s TIOCGICOUNT RX=%d, TX=%d\n";
   descriptor.lineno = 2220U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s TIOCGICOUNT RX=%d, TX=%d\n",
                       "mos7840_get_icount", icount->rx, icount->tx);
@@ -7109,7 +7109,7 @@ static int mos7840_ioctl(struct tty_struct *tty , unsigned int cmd , unsigned lo
   descriptor.format = "%s - cmd = 0x%x\n";
   descriptor.lineno = 2247U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - cmd = 0x%x\n",
                       "mos7840_ioctl", cmd);
@@ -7124,7 +7124,7 @@ static int mos7840_ioctl(struct tty_struct *tty , unsigned int cmd , unsigned lo
   descriptor___0.format = "%s TIOCSERGETLSR\n";
   descriptor___0.lineno = 2253U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev), "%s TIOCSERGETLSR\n",
                       "mos7840_ioctl");
@@ -7140,7 +7140,7 @@ static int mos7840_ioctl(struct tty_struct *tty , unsigned int cmd , unsigned lo
   descriptor___1.format = "%s TIOCGSERIAL\n";
   descriptor___1.lineno = 2257U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev), "%s TIOCGSERIAL\n",
                       "mos7840_ioctl");
@@ -7156,7 +7156,7 @@ static int mos7840_ioctl(struct tty_struct *tty , unsigned int cmd , unsigned lo
   descriptor___2.format = "%s TIOCSSERIAL\n";
   descriptor___2.lineno = 2261U;
   descriptor___2.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   if (tmp___5 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& port->dev), "%s TIOCSSERIAL\n",
                       "mos7840_ioctl");
@@ -7171,7 +7171,7 @@ static int mos7840_ioctl(struct tty_struct *tty , unsigned int cmd , unsigned lo
   descriptor___3.format = "%s  TIOCMIWAIT\n";
   descriptor___3.lineno = 2265U;
   descriptor___3.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   if (tmp___6 != 0L) {
     __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)(& port->dev), "%s  TIOCMIWAIT\n",
                       "mos7840_ioctl");
@@ -7413,7 +7413,7 @@ static int mos7840_startup(struct usb_serial *serial )
   descriptor.format = "mos7840_startup: configuring port %d............\n";
   descriptor.lineno = 2388U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& dev->dev), "mos7840_startup: configuring port %d............\n",
                       i);
@@ -7442,7 +7442,7 @@ static int mos7840_startup(struct usb_serial *serial )
   descriptor___0.format = "serial->port[i]->number = %d\n";
   descriptor___0.lineno = 2409U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& dev->dev), "serial->port[i]->number = %d\n",
                       (int )(serial->port[i])->number);
@@ -7455,7 +7455,7 @@ static int mos7840_startup(struct usb_serial *serial )
   descriptor___1.format = "serial->port[i]->serial->minor = %d\n";
   descriptor___1.lineno = 2410U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& dev->dev), "serial->port[i]->serial->minor = %d\n",
                       (int )((serial->port[i])->serial)->minor);
@@ -7468,7 +7468,7 @@ static int mos7840_startup(struct usb_serial *serial )
   descriptor___2.format = "mos7840_port->port_num = %d\n";
   descriptor___2.lineno = 2411U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& dev->dev), "mos7840_port->port_num = %d\n",
                       mos7840_port->port_num);
@@ -7481,7 +7481,7 @@ static int mos7840_startup(struct usb_serial *serial )
   descriptor___3.format = "serial->minor = %d\n";
   descriptor___3.lineno = 2412U;
   descriptor___3.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   if (tmp___4 != 0L) {
     __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)(& dev->dev), "serial->minor = %d\n",
                       (int )serial->minor);
@@ -7526,7 +7526,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___4.format = "Reading ControlReg failed status-0x%x\n";
     descriptor___4.lineno = 2446U;
     descriptor___4.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     if (tmp___5 != 0L) {
       __dynamic_dev_dbg(& descriptor___4, (struct device  const  *)(& dev->dev), "Reading ControlReg failed status-0x%x\n",
                         status);
@@ -7541,7 +7541,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___5.format = "ControlReg Reading success val is %x, status%d\n";
     descriptor___5.lineno = 2449U;
     descriptor___5.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     if (tmp___6 != 0L) {
       __dynamic_dev_dbg(& descriptor___5, (struct device  const  *)(& dev->dev), "ControlReg Reading success val is %x, status%d\n",
                         (int )Data, status);
@@ -7560,7 +7560,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___6.format = "Writing ControlReg failed(rx_disable) status-0x%x\n";
     descriptor___6.lineno = 2458U;
     descriptor___6.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     if (tmp___7 != 0L) {
       __dynamic_dev_dbg(& descriptor___6, (struct device  const  *)(& dev->dev), "Writing ControlReg failed(rx_disable) status-0x%x\n",
                         status);
@@ -7575,7 +7575,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___7.format = "ControlReg Writing success(rx_disable) status%d\n";
     descriptor___7.lineno = 2461U;
     descriptor___7.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     if (tmp___8 != 0L) {
       __dynamic_dev_dbg(& descriptor___7, (struct device  const  *)(& dev->dev), "ControlReg Writing success(rx_disable) status%d\n",
                         status);
@@ -7593,7 +7593,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___8.format = "Writing DCR0 failed status-0x%x\n";
     descriptor___8.lineno = 2469U;
     descriptor___8.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     if (tmp___9 != 0L) {
       __dynamic_dev_dbg(& descriptor___8, (struct device  const  *)(& dev->dev), "Writing DCR0 failed status-0x%x\n",
                         status);
@@ -7608,7 +7608,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___9.format = "DCR0 Writing success status%d\n";
     descriptor___9.lineno = 2472U;
     descriptor___9.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     if (tmp___10 != 0L) {
       __dynamic_dev_dbg(& descriptor___9, (struct device  const  *)(& dev->dev), "DCR0 Writing success status%d\n",
                         status);
@@ -7626,7 +7626,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___10.format = "Writing DCR1 failed status-0x%x\n";
     descriptor___10.lineno = 2478U;
     descriptor___10.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
     if (tmp___11 != 0L) {
       __dynamic_dev_dbg(& descriptor___10, (struct device  const  *)(& dev->dev),
                         "Writing DCR1 failed status-0x%x\n", status);
@@ -7641,7 +7641,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___11.format = "DCR1 Writing success status%d\n";
     descriptor___11.lineno = 2481U;
     descriptor___11.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
     if (tmp___12 != 0L) {
       __dynamic_dev_dbg(& descriptor___11, (struct device  const  *)(& dev->dev),
                         "DCR1 Writing success status%d\n", status);
@@ -7659,7 +7659,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___12.format = "Writing DCR2 failed status-0x%x\n";
     descriptor___12.lineno = 2487U;
     descriptor___12.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
     if (tmp___13 != 0L) {
       __dynamic_dev_dbg(& descriptor___12, (struct device  const  *)(& dev->dev),
                         "Writing DCR2 failed status-0x%x\n", status);
@@ -7674,7 +7674,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___13.format = "DCR2 Writing success status%d\n";
     descriptor___13.lineno = 2490U;
     descriptor___13.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
     if (tmp___14 != 0L) {
       __dynamic_dev_dbg(& descriptor___13, (struct device  const  *)(& dev->dev),
                         "DCR2 Writing success status%d\n", status);
@@ -7691,7 +7691,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___14.format = "Writing CLK_START_VALUE_REGISTER failed status-0x%x\n";
     descriptor___14.lineno = 2497U;
     descriptor___14.flags = 0U;
-    tmp___15 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
     if (tmp___15 != 0L) {
       __dynamic_dev_dbg(& descriptor___14, (struct device  const  *)(& dev->dev),
                         "Writing CLK_START_VALUE_REGISTER failed status-0x%x\n", status);
@@ -7706,7 +7706,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___15.format = "CLK_START_VALUE_REGISTER Writing success status%d\n";
     descriptor___15.lineno = 2500U;
     descriptor___15.flags = 0U;
-    tmp___16 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
     if (tmp___16 != 0L) {
       __dynamic_dev_dbg(& descriptor___15, (struct device  const  *)(& dev->dev),
                         "CLK_START_VALUE_REGISTER Writing success status%d\n", status);
@@ -7723,7 +7723,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___16.format = "Writing CLK_MULTI_REGISTER failed status-0x%x\n";
     descriptor___16.lineno = 2506U;
     descriptor___16.flags = 0U;
-    tmp___17 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
     if (tmp___17 != 0L) {
       __dynamic_dev_dbg(& descriptor___16, (struct device  const  *)(& dev->dev),
                         "Writing CLK_MULTI_REGISTER failed status-0x%x\n", status);
@@ -7738,7 +7738,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___17.format = "CLK_MULTI_REGISTER Writing success status%d\n";
     descriptor___17.lineno = 2509U;
     descriptor___17.flags = 0U;
-    tmp___18 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+    tmp___18 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
     if (tmp___18 != 0L) {
       __dynamic_dev_dbg(& descriptor___17, (struct device  const  *)(& dev->dev),
                         "CLK_MULTI_REGISTER Writing success status%d\n", status);
@@ -7755,7 +7755,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___18.format = "Writing SCRATCH_PAD_REGISTER failed status-0x%x\n";
     descriptor___18.lineno = 2516U;
     descriptor___18.flags = 0U;
-    tmp___19 = __builtin_expect((long )descriptor___18.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___18.flags & 1L, 0L);
     if (tmp___19 != 0L) {
       __dynamic_dev_dbg(& descriptor___18, (struct device  const  *)(& dev->dev),
                         "Writing SCRATCH_PAD_REGISTER failed status-0x%x\n", status);
@@ -7770,7 +7770,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___19.format = "SCRATCH_PAD_REGISTER Writing success status%d\n";
     descriptor___19.lineno = 2519U;
     descriptor___19.flags = 0U;
-    tmp___20 = __builtin_expect((long )descriptor___19.flags & 1L, 0L);
+    tmp___20 = ldv__builtin_expect((long )descriptor___19.flags & 1L, 0L);
     if (tmp___20 != 0L) {
       __dynamic_dev_dbg(& descriptor___19, (struct device  const  *)(& dev->dev),
                         "SCRATCH_PAD_REGISTER Writing success status%d\n", status);
@@ -7788,7 +7788,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___20.format = "ZLIP offset %x\n";
     descriptor___20.lineno = 2530U;
     descriptor___20.flags = 0U;
-    tmp___21 = __builtin_expect((long )descriptor___20.flags & 1L, 0L);
+    tmp___21 = ldv__builtin_expect((long )descriptor___20.flags & 1L, 0L);
     if (tmp___21 != 0L) {
       __dynamic_dev_dbg(& descriptor___20, (struct device  const  *)(& dev->dev),
                         "ZLIP offset %x\n", (int )((unsigned int )((unsigned short )mos7840_port->port_num) + 58U));
@@ -7802,7 +7802,7 @@ static int mos7840_startup(struct usb_serial *serial )
       descriptor___21.format = "Writing ZLP_REG%d failed status-0x%x\n";
       descriptor___21.lineno = 2532U;
       descriptor___21.flags = 0U;
-      tmp___22 = __builtin_expect((long )descriptor___21.flags & 1L, 0L);
+      tmp___22 = ldv__builtin_expect((long )descriptor___21.flags & 1L, 0L);
       if (tmp___22 != 0L) {
         __dynamic_dev_dbg(& descriptor___21, (struct device  const  *)(& dev->dev),
                           "Writing ZLP_REG%d failed status-0x%x\n", i + 2, status);
@@ -7817,7 +7817,7 @@ static int mos7840_startup(struct usb_serial *serial )
       descriptor___22.format = "ZLP_REG%d Writing success status%d\n";
       descriptor___22.lineno = 2535U;
       descriptor___22.flags = 0U;
-      tmp___23 = __builtin_expect((long )descriptor___22.flags & 1L, 0L);
+      tmp___23 = ldv__builtin_expect((long )descriptor___22.flags & 1L, 0L);
       if (tmp___23 != 0L) {
         __dynamic_dev_dbg(& descriptor___22, (struct device  const  *)(& dev->dev),
                           "ZLP_REG%d Writing success status%d\n", i + 2, status);
@@ -7835,7 +7835,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___23.format = "ZLIP offset %x\n";
     descriptor___23.lineno = 2542U;
     descriptor___23.flags = 0U;
-    tmp___24 = __builtin_expect((long )descriptor___23.flags & 1L, 0L);
+    tmp___24 = ldv__builtin_expect((long )descriptor___23.flags & 1L, 0L);
     if (tmp___24 != 0L) {
       __dynamic_dev_dbg(& descriptor___23, (struct device  const  *)(& dev->dev),
                         "ZLIP offset %x\n", (int )((unsigned int )((unsigned short )mos7840_port->port_num) + 57U));
@@ -7849,7 +7849,7 @@ static int mos7840_startup(struct usb_serial *serial )
       descriptor___24.format = "Writing ZLP_REG%d failed status-0x%x\n";
       descriptor___24.lineno = 2544U;
       descriptor___24.flags = 0U;
-      tmp___25 = __builtin_expect((long )descriptor___24.flags & 1L, 0L);
+      tmp___25 = ldv__builtin_expect((long )descriptor___24.flags & 1L, 0L);
       if (tmp___25 != 0L) {
         __dynamic_dev_dbg(& descriptor___24, (struct device  const  *)(& dev->dev),
                           "Writing ZLP_REG%d failed status-0x%x\n", i + 1, status);
@@ -7864,7 +7864,7 @@ static int mos7840_startup(struct usb_serial *serial )
       descriptor___25.format = "ZLP_REG%d Writing success status%d\n";
       descriptor___25.lineno = 2547U;
       descriptor___25.flags = 0U;
-      tmp___26 = __builtin_expect((long )descriptor___25.flags & 1L, 0L);
+      tmp___26 = ldv__builtin_expect((long )descriptor___25.flags & 1L, 0L);
       if (tmp___26 != 0L) {
         __dynamic_dev_dbg(& descriptor___25, (struct device  const  *)(& dev->dev),
                           "ZLP_REG%d Writing success status%d\n", i + 1, status);
@@ -7921,7 +7921,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___26.format = "Writing ZLP_REG5 failed status-0x%x\n";
     descriptor___26.lineno = 2593U;
     descriptor___26.flags = 0U;
-    tmp___31 = __builtin_expect((long )descriptor___26.flags & 1L, 0L);
+    tmp___31 = ldv__builtin_expect((long )descriptor___26.flags & 1L, 0L);
     if (tmp___31 != 0L) {
       __dynamic_dev_dbg(& descriptor___26, (struct device  const  *)(& dev->dev),
                         "Writing ZLP_REG5 failed status-0x%x\n", status);
@@ -7936,7 +7936,7 @@ static int mos7840_startup(struct usb_serial *serial )
     descriptor___27.format = "ZLP_REG5 Writing success status%d\n";
     descriptor___27.lineno = 2596U;
     descriptor___27.flags = 0U;
-    tmp___32 = __builtin_expect((long )descriptor___27.flags & 1L, 0L);
+    tmp___32 = ldv__builtin_expect((long )descriptor___27.flags & 1L, 0L);
     if (tmp___32 != 0L) {
       __dynamic_dev_dbg(& descriptor___27, (struct device  const  *)(& dev->dev),
                         "ZLP_REG5 Writing success status%d\n", status);
@@ -8322,7 +8322,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

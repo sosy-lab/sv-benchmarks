@@ -3079,7 +3079,7 @@ enum __anonenum_96 {
     LDV_SPIN_LOCKED = 1
 } ;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
@@ -3244,7 +3244,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -3579,9 +3579,9 @@ static int spcp8x5_startup(struct usb_serial *serial )
   descriptor.hash = 7;
   descriptor.hash2 = 62;
   __ret = 0;
-  tmp___1 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+  tmp___1 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
   if (tmp___1 != 0L) {
-    tmp___2 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___2 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                0L);
     if (tmp___2 != 0L) {
       __ret = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -3718,9 +3718,9 @@ static int spcp8x5_set_ctrlLine(struct usb_device *dev , u8 value , enum spcp8x5
     descriptor.hash = 7;
     descriptor.hash2 = 62;
     __ret = 0;
-    tmp___2 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+    tmp___2 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
     if (tmp___2 != 0L) {
-      tmp___3 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___3 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___3 != 0L) {
         __ret = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -3803,9 +3803,9 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
     descriptor.hash = 7;
     descriptor.hash2 = 62;
     __ret = 0;
-    tmp___3 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+    tmp___3 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
     if (tmp___3 != 0L) {
-      tmp___4 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___4 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___4 != 0L) {
         __ret = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -3841,9 +3841,9 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
   descriptor___0.hash = 7;
   descriptor___0.hash2 = 62;
   __ret___0 = 0;
-  tmp___7 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+  tmp___7 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
   if (tmp___7 != 0L) {
-    tmp___8 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___8 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                0L);
     if (tmp___8 != 0L) {
       __ret___0 = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -3910,9 +3910,9 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
   descriptor.hash = 7;
   descriptor.hash2 = 62;
   __ret = 0;
-  tmp___2 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+  tmp___2 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                0L);
     if (tmp___3 != 0L) {
       __ret = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -3946,9 +3946,9 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
     descriptor___0.hash = 7;
     descriptor___0.hash2 = 62;
     __ret___0 = 0;
-    tmp___6 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+    tmp___6 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
     if (tmp___6 != 0L) {
-      tmp___7 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___7 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___7 != 0L) {
         __ret___0 = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4089,9 +4089,9 @@ static void spcp8x5_close(struct tty_struct *tty , struct usb_serial_port *port 
       descriptor.hash = 7;
       descriptor.hash2 = 62;
       __ret = 0;
-      tmp___10 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+      tmp___10 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
       if (tmp___10 != 0L) {
-        tmp___11 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+        tmp___11 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                     0L);
         if (tmp___11 != 0L) {
           __ret = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4132,9 +4132,9 @@ static void spcp8x5_close(struct tty_struct *tty , struct usb_serial_port *port 
     descriptor___0.hash = 7;
     descriptor___0.hash2 = 62;
     __ret___0 = 0;
-    tmp___14 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+    tmp___14 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
     if (tmp___14 != 0L) {
-      tmp___15 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___15 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                   0L);
       if (tmp___15 != 0L) {
         __ret___0 = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4454,9 +4454,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
   descriptor.hash = 7;
   descriptor.hash2 = 62;
   __ret = 0;
-  tmp___2 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+  tmp___2 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                0L);
     if (tmp___3 != 0L) {
       __ret = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4500,9 +4500,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
         descriptor___0.hash = 7;
         descriptor___0.hash2 = 62;
         __ret___0 = 0;
-        tmp___6 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+        tmp___6 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
         if (tmp___6 != 0L) {
-          tmp___7 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+          tmp___7 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                      0L);
           if (tmp___7 != 0L) {
             __ret___0 = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4542,9 +4542,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
     descriptor___1.hash = 7;
     descriptor___1.hash2 = 62;
     __ret___1 = 0;
-    tmp___10 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+    tmp___10 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
     if (tmp___10 != 0L) {
-      tmp___11 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___11 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                   0L);
       if (tmp___11 != 0L) {
         __ret___1 = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4598,9 +4598,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
   descriptor___2.hash = 7;
   descriptor___2.hash2 = 62;
   __ret___2 = 0;
-  tmp___14 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+  tmp___14 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
   if (tmp___14 != 0L) {
-    tmp___15 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___15 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                 0L);
     if (tmp___15 != 0L) {
       __ret___2 = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4660,9 +4660,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
       descriptor___3.hash = 7;
       descriptor___3.hash2 = 62;
       __ret___3 = 0;
-      tmp___18 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+      tmp___18 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
       if (tmp___18 != 0L) {
-        tmp___19 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+        tmp___19 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                     0L);
         if (tmp___19 != 0L) {
           __ret___3 = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4731,9 +4731,9 @@ static void spcp8x5_send(struct usb_serial_port *port )
     descriptor.hash = 7;
     descriptor.hash2 = 62;
     __ret = 0;
-    tmp___2 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+    tmp___2 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
     if (tmp___2 != 0L) {
-      tmp___3 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___3 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___3 != 0L) {
         __ret = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4785,9 +4785,9 @@ static void spcp8x5_send(struct usb_serial_port *port )
     descriptor___0.hash = 7;
     descriptor___0.hash2 = 62;
     __ret___0 = 0;
-    tmp___7 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+    tmp___7 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
     if (tmp___7 != 0L) {
-      tmp___8 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___8 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___8 != 0L) {
         __ret___0 = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4859,9 +4859,9 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
   descriptor.hash = 7;
   descriptor.hash2 = 62;
   __ret = 0;
-  tmp___2 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+  tmp___2 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                0L);
     if (tmp___3 != 0L) {
       __ret = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4913,9 +4913,9 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
     descriptor___0.hash = 7;
     descriptor___0.hash2 = 62;
     __ret___0 = 0;
-    tmp___6 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+    tmp___6 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
     if (tmp___6 != 0L) {
-      tmp___7 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___7 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___7 != 0L) {
         __ret___0 = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -4975,9 +4975,9 @@ static int spcp8x5_write(struct tty_struct *tty , struct usb_serial_port *port ,
   descriptor.hash = 7;
   descriptor.hash2 = 62;
   __ret = 0;
-  tmp___2 = __builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
+  tmp___2 = ldv__builtin_expect((dynamic_printk_enabled & 128LL) != 0LL, 0L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_printk_enabled2 & 4611686018427387904LL) != 0LL,
                                0L);
     if (tmp___3 != 0L) {
       __ret = __dynamic_dbg_enabled_helper((char *)"spcp8x5", 1, 0, 7);
@@ -5475,7 +5475,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

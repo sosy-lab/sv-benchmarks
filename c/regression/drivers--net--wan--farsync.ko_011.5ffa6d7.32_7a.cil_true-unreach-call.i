@@ -2434,7 +2434,7 @@ struct fst_card_info {
    int dma_rxpos ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(int nr , void volatile   *addr ) 
 { 
 
@@ -2580,7 +2580,7 @@ __inline static int try_module_get(struct module *module )
     ldv_8301: 
     cpu = ret__;
     tmp = module_is_live(module);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     if (tmp___0 != 0L) {
       local_inc(& module->ref[cpu].count);
     } else {
@@ -2857,7 +2857,7 @@ __inline static unsigned char *skb_put(struct sk_buff *skb , unsigned int len )
   tmp___0 = skb_tail_pointer((struct sk_buff  const  *)skb);
   tmp = tmp___0;
   tmp___1 = skb_is_nonlinear((struct sk_buff  const  *)skb);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   if (tmp___2 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/skbuff.h"),
                          "i" (913), "i" (24UL));
@@ -2868,7 +2868,7 @@ __inline static unsigned char *skb_put(struct sk_buff *skb , unsigned int len )
   }
   skb->tail = skb->tail + len;
   skb->len = skb->len + len;
-  tmp___4 = __builtin_expect(skb->tail > skb->end, 0L);
+  tmp___4 = ldv__builtin_expect(skb->tail > skb->end, 0L);
   if (tmp___4 != 0L) {
     tmp___3 = current_text_addr();
     skb_over_panic(skb, (int )len, tmp___3);
@@ -2906,7 +2906,7 @@ __inline static struct sk_buff *__dev_alloc_skb(unsigned int length , gfp_t gfp_
   {
   tmp = alloc_skb(length + 16U, gfp_mask);
   skb = tmp;
-  tmp___0 = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                              1L);
   if (tmp___0 != 0L) {
     skb_reserve(skb, 16);
@@ -5191,7 +5191,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

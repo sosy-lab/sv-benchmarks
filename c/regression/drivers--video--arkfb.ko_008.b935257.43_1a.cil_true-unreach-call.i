@@ -3466,7 +3466,7 @@ enum __anonenum_103 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
 extern long long dynamic_debug_enabled ;
 extern long long dynamic_debug_enabled2 ;
@@ -5073,9 +5073,9 @@ static int arkfb_set_par(struct fb_info *info )
   ______f___4.line = 693U;
   ______f___4.ldv_814.ldv_809.correct = 0UL;
   ______f___4.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___0 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___0 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___1 != 0L) {
       tmp___2 = 1;
     } else {
@@ -5103,7 +5103,7 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___2.line = 693U;
     ______f___2.ldv_814.ldv_809.correct = 0UL;
     ______f___2.ldv_814.ldv_809.incorrect = 0UL;
-    tmp = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+    tmp = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
     ______r___2 = (int )tmp;
     ftrace_likely_update(& ______f___2, ______r___2, 0);
     ______r___1 = ______r___2 != 0;
@@ -5196,9 +5196,9 @@ static int arkfb_set_par(struct fb_info *info )
   ______f___11.line = 716U;
   ______f___11.ldv_814.ldv_809.correct = 0UL;
   ______f___11.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___5 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___5 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___5 != 0L) {
-    tmp___6 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___6 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___6 != 0L) {
       tmp___7 = 1;
     } else {
@@ -5226,7 +5226,7 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___9.line = 716U;
     ______f___9.ldv_814.ldv_809.correct = 0UL;
     ______f___9.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___4 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
+    tmp___4 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
     ______r___9 = (int )tmp___4;
     ftrace_likely_update(& ______f___9, ______r___9, 0);
     ______r___8 = ______r___9 != 0;
@@ -5284,9 +5284,9 @@ static int arkfb_set_par(struct fb_info *info )
   ______f___16.line = 725U;
   ______f___16.ldv_814.ldv_809.correct = 0UL;
   ______f___16.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___9 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___9 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___9 != 0L) {
-    tmp___10 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___10 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___10 != 0L) {
       tmp___11 = 1;
     } else {
@@ -5314,7 +5314,7 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___14.line = 725U;
     ______f___14.ldv_814.ldv_809.correct = 0UL;
     ______f___14.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___8 = __builtin_expect((unsigned int )descriptor___1.flags != 0U, 1L);
+    tmp___8 = ldv__builtin_expect((unsigned int )descriptor___1.flags != 0U, 1L);
     ______r___14 = (int )tmp___8;
     ftrace_likely_update(& ______f___14, ______r___14, 0);
     ______r___13 = ______r___14 != 0;
@@ -5372,9 +5372,9 @@ static int arkfb_set_par(struct fb_info *info )
   ______f___21.line = 733U;
   ______f___21.ldv_814.ldv_809.correct = 0UL;
   ______f___21.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___13 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___13 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___13 != 0L) {
-    tmp___14 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___14 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___14 != 0L) {
       tmp___15 = 1;
     } else {
@@ -5402,7 +5402,7 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___19.line = 733U;
     ______f___19.ldv_814.ldv_809.correct = 0UL;
     ______f___19.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___12 = __builtin_expect((unsigned int )descriptor___2.flags != 0U, 1L);
+    tmp___12 = ldv__builtin_expect((unsigned int )descriptor___2.flags != 0U, 1L);
     ______r___19 = (int )tmp___12;
     ftrace_likely_update(& ______f___19, ______r___19, 0);
     ______r___18 = ______r___19 != 0;
@@ -5459,9 +5459,9 @@ static int arkfb_set_par(struct fb_info *info )
   ______f___26.line = 740U;
   ______f___26.ldv_814.ldv_809.correct = 0UL;
   ______f___26.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___17 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___17 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___17 != 0L) {
-    tmp___18 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___18 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___18 != 0L) {
       tmp___19 = 1;
     } else {
@@ -5489,7 +5489,7 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___24.line = 740U;
     ______f___24.ldv_814.ldv_809.correct = 0UL;
     ______f___24.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___16 = __builtin_expect((unsigned int )descriptor___3.flags != 0U, 1L);
+    tmp___16 = ldv__builtin_expect((unsigned int )descriptor___3.flags != 0U, 1L);
     ______r___24 = (int )tmp___16;
     ftrace_likely_update(& ______f___24, ______r___24, 0);
     ______r___23 = ______r___24 != 0;
@@ -5554,9 +5554,9 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___31.line = 745U;
     ______f___31.ldv_814.ldv_809.correct = 0UL;
     ______f___31.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___21 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+    tmp___21 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
     if (tmp___21 != 0L) {
-      tmp___22 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL,
+      tmp___22 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL,
                                   1L);
       if (tmp___22 != 0L) {
         tmp___23 = 1;
@@ -5585,7 +5585,7 @@ static int arkfb_set_par(struct fb_info *info )
       ______f___29.line = 745U;
       ______f___29.ldv_814.ldv_809.correct = 0UL;
       ______f___29.ldv_814.ldv_809.incorrect = 0UL;
-      tmp___20 = __builtin_expect((unsigned int )descriptor___4.flags != 0U, 1L);
+      tmp___20 = ldv__builtin_expect((unsigned int )descriptor___4.flags != 0U, 1L);
       ______r___29 = (int )tmp___20;
       ftrace_likely_update(& ______f___29, ______r___29, 0);
       ______r___28 = ______r___29 != 0;
@@ -5640,9 +5640,9 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___36.line = 749U;
     ______f___36.ldv_814.ldv_809.correct = 0UL;
     ______f___36.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___25 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+    tmp___25 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
     if (tmp___25 != 0L) {
-      tmp___26 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL,
+      tmp___26 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL,
                                   1L);
       if (tmp___26 != 0L) {
         tmp___27 = 1;
@@ -5671,7 +5671,7 @@ static int arkfb_set_par(struct fb_info *info )
       ______f___34.line = 749U;
       ______f___34.ldv_814.ldv_809.correct = 0UL;
       ______f___34.ldv_814.ldv_809.incorrect = 0UL;
-      tmp___24 = __builtin_expect((unsigned int )descriptor___5.flags != 0U, 1L);
+      tmp___24 = ldv__builtin_expect((unsigned int )descriptor___5.flags != 0U, 1L);
       ______r___34 = (int )tmp___24;
       ftrace_likely_update(& ______f___34, ______r___34, 0);
       ______r___33 = ______r___34 != 0;
@@ -5729,9 +5729,9 @@ static int arkfb_set_par(struct fb_info *info )
   ______f___42.line = 756U;
   ______f___42.ldv_814.ldv_809.correct = 0UL;
   ______f___42.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___29 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___29 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___29 != 0L) {
-    tmp___30 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___30 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___30 != 0L) {
       tmp___31 = 1;
     } else {
@@ -5759,7 +5759,7 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___40.line = 756U;
     ______f___40.ldv_814.ldv_809.correct = 0UL;
     ______f___40.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___28 = __builtin_expect((unsigned int )descriptor___6.flags != 0U, 1L);
+    tmp___28 = ldv__builtin_expect((unsigned int )descriptor___6.flags != 0U, 1L);
     ______r___40 = (int )tmp___28;
     ftrace_likely_update(& ______f___40, ______r___40, 0);
     ______r___39 = ______r___40 != 0;
@@ -5816,9 +5816,9 @@ static int arkfb_set_par(struct fb_info *info )
   ______f___47.line = 763U;
   ______f___47.ldv_814.ldv_809.correct = 0UL;
   ______f___47.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___33 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___33 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___33 != 0L) {
-    tmp___34 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___34 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___34 != 0L) {
       tmp___35 = 1;
     } else {
@@ -5846,7 +5846,7 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___45.line = 763U;
     ______f___45.ldv_814.ldv_809.correct = 0UL;
     ______f___45.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___32 = __builtin_expect((unsigned int )descriptor___7.flags != 0U, 1L);
+    tmp___32 = ldv__builtin_expect((unsigned int )descriptor___7.flags != 0U, 1L);
     ______r___45 = (int )tmp___32;
     ftrace_likely_update(& ______f___45, ______r___45, 0);
     ______r___44 = ______r___45 != 0;
@@ -5903,9 +5903,9 @@ static int arkfb_set_par(struct fb_info *info )
   ______f___52.line = 770U;
   ______f___52.ldv_814.ldv_809.correct = 0UL;
   ______f___52.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___37 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___37 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___37 != 0L) {
-    tmp___38 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___38 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___38 != 0L) {
       tmp___39 = 1;
     } else {
@@ -5933,7 +5933,7 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___50.line = 770U;
     ______f___50.ldv_814.ldv_809.correct = 0UL;
     ______f___50.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___36 = __builtin_expect((unsigned int )descriptor___8.flags != 0U, 1L);
+    tmp___36 = ldv__builtin_expect((unsigned int )descriptor___8.flags != 0U, 1L);
     ______r___50 = (int )tmp___36;
     ftrace_likely_update(& ______f___50, ______r___50, 0);
     ______r___49 = ______r___50 != 0;
@@ -5992,9 +5992,9 @@ static int arkfb_set_par(struct fb_info *info )
   ______f___57.line = 779U;
   ______f___57.ldv_814.ldv_809.correct = 0UL;
   ______f___57.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___41 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___41 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___41 != 0L) {
-    tmp___42 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___42 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___42 != 0L) {
       tmp___43 = 1;
     } else {
@@ -6022,7 +6022,7 @@ static int arkfb_set_par(struct fb_info *info )
     ______f___55.line = 779U;
     ______f___55.ldv_814.ldv_809.correct = 0UL;
     ______f___55.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___40 = __builtin_expect((unsigned int )descriptor___9.flags != 0U, 1L);
+    tmp___40 = ldv__builtin_expect((unsigned int )descriptor___9.flags != 0U, 1L);
     ______r___55 = (int )tmp___40;
     ftrace_likely_update(& ______f___55, ______r___55, 0);
     ______r___54 = ______r___55 != 0;
@@ -6309,9 +6309,9 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   ______f___3.line = 877U;
   ______f___3.ldv_814.ldv_809.correct = 0UL;
   ______f___3.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___0 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___0 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___1 != 0L) {
       tmp___2 = 1;
     } else {
@@ -6339,7 +6339,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
     ______f___1.line = 877U;
     ______f___1.ldv_814.ldv_809.correct = 0UL;
     ______f___1.ldv_814.ldv_809.incorrect = 0UL;
-    tmp = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+    tmp = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
     ______r___1 = (int )tmp;
     ftrace_likely_update(& ______f___1, ______r___1, 0);
     ______r___0 = ______r___1 != 0;
@@ -6395,9 +6395,9 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   ______f___8.line = 882U;
   ______f___8.ldv_814.ldv_809.correct = 0UL;
   ______f___8.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___4 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___4 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___4 != 0L) {
-    tmp___5 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___5 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___5 != 0L) {
       tmp___6 = 1;
     } else {
@@ -6425,7 +6425,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
     ______f___6.line = 882U;
     ______f___6.ldv_814.ldv_809.correct = 0UL;
     ______f___6.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___3 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
+    tmp___3 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
     ______r___6 = (int )tmp___3;
     ftrace_likely_update(& ______f___6, ______r___6, 0);
     ______r___5 = ______r___6 != 0;
@@ -6483,9 +6483,9 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   ______f___13.line = 889U;
   ______f___13.ldv_814.ldv_809.correct = 0UL;
   ______f___13.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___8 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___8 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___8 != 0L) {
-    tmp___9 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___9 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___9 != 0L) {
       tmp___10 = 1;
     } else {
@@ -6513,7 +6513,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
     ______f___11.line = 889U;
     ______f___11.ldv_814.ldv_809.correct = 0UL;
     ______f___11.ldv_814.ldv_809.incorrect = 0UL;
-    tmp___7 = __builtin_expect((unsigned int )descriptor___1.flags != 0U, 1L);
+    tmp___7 = ldv__builtin_expect((unsigned int )descriptor___1.flags != 0U, 1L);
     ______r___11 = (int )tmp___7;
     ftrace_likely_update(& ______f___11, ______r___11, 0);
     ______r___10 = ______r___11 != 0;
@@ -7094,9 +7094,9 @@ static void arkfb_cleanup(void)
   ______f___3.line = 1190U;
   ______f___3.ldv_814.ldv_809.correct = 0UL;
   ______f___3.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___0 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___0 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___1 != 0L) {
       tmp___2 = 1;
     } else {
@@ -7124,7 +7124,7 @@ static void arkfb_cleanup(void)
     ______f___1.line = 1190U;
     ______f___1.ldv_814.ldv_809.correct = 0UL;
     ______f___1.ldv_814.ldv_809.incorrect = 0UL;
-    tmp = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+    tmp = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
     ______r___1 = (int )tmp;
     ftrace_likely_update(& ______f___1, ______r___1, 0);
     ______r___0 = ______r___1 != 0;
@@ -7201,9 +7201,9 @@ static int arkfb_init(void)
   ______f___3.line = 1209U;
   ______f___3.ldv_814.ldv_809.correct = 0UL;
   ______f___3.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___0 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
+  tmp___0 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 1L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 1L);
     if (tmp___1 != 0L) {
       tmp___2 = 1;
     } else {
@@ -7231,7 +7231,7 @@ static int arkfb_init(void)
     ______f___1.line = 1209U;
     ______f___1.ldv_814.ldv_809.correct = 0UL;
     ______f___1.ldv_814.ldv_809.incorrect = 0UL;
-    tmp = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+    tmp = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
     ______r___1 = (int )tmp;
     ftrace_likely_update(& ______f___1, ______r___1, 0);
     ______r___0 = ______r___1 != 0;
@@ -7520,7 +7520,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

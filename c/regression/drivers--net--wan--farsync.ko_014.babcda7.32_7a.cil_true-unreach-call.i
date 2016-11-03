@@ -3468,7 +3468,7 @@ struct fst_card_info {
    int dma_rxpos ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -3626,7 +3626,7 @@ __inline static int try_module_get(struct module *module )
     ldv_9587: 
     cpu = ret__;
     tmp = module_is_live(module);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     if (tmp___0 != 0L) {
       local_inc(& module->ref[cpu].count);
     } else {
@@ -3828,7 +3828,7 @@ __inline static struct dma_mapping_ops *get_dma_ops(struct device *dev )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_mapping_ops *)0)) {
     return (dma_ops);
@@ -3927,14 +3927,14 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
   _flags = __raw_local_save_flags();
   tmp___0 = raw_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp___1 != 0L) {
     warn_on_slowpath("/work/ldvuser/novikov/inst/current/envs/linux/linux/arch/x86/include/asm/dma-mapping.h",
                      301);
   } else {
 
   }
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if ((unsigned long )ops->free_coherent != (unsigned long )((void (*)(struct device * ,
                                                                        size_t  , void * ,
                                                                        dma_addr_t  ))0)) {
@@ -6254,7 +6254,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

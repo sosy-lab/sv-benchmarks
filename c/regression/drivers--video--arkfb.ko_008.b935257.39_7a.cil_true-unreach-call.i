@@ -3439,7 +3439,7 @@ struct ics5342_info {
    u8 mode ;
 };
 typedef int ldv_func_ret_type___1;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern long long dynamic_debug_enabled ;
 extern long long dynamic_debug_enabled2 ;
 extern int printk(char const   *  , ...) ;
@@ -4654,11 +4654,11 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor.lineno = 738U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___0 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___0 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___1 != 0L) {
-      tmp = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp != 0L) {
         __ret = 1;
       } else {
@@ -4703,11 +4703,11 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___0.lineno = 761U;
   descriptor___0.flags = 0U;
   __ret___0 = 0;
-  tmp___4 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___4 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___4 != 0L) {
-    tmp___5 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___5 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___5 != 0L) {
-      tmp___3 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
+      tmp___3 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
       if (tmp___3 != 0L) {
         __ret___0 = 1;
       } else {
@@ -4739,11 +4739,11 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___1.lineno = 770U;
   descriptor___1.flags = 0U;
   __ret___1 = 0;
-  tmp___7 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___7 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___7 != 0L) {
-    tmp___8 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___8 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___8 != 0L) {
-      tmp___6 = __builtin_expect((unsigned int )descriptor___1.flags != 0U, 0L);
+      tmp___6 = ldv__builtin_expect((unsigned int )descriptor___1.flags != 0U, 0L);
       if (tmp___6 != 0L) {
         __ret___1 = 1;
       } else {
@@ -4775,11 +4775,11 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___2.lineno = 778U;
   descriptor___2.flags = 0U;
   __ret___2 = 0;
-  tmp___10 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___10 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___10 != 0L) {
-    tmp___11 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___11 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___11 != 0L) {
-      tmp___9 = __builtin_expect((unsigned int )descriptor___2.flags != 0U, 0L);
+      tmp___9 = ldv__builtin_expect((unsigned int )descriptor___2.flags != 0U, 0L);
       if (tmp___9 != 0L) {
         __ret___2 = 1;
       } else {
@@ -4810,11 +4810,11 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___3.lineno = 785U;
   descriptor___3.flags = 0U;
   __ret___3 = 0;
-  tmp___13 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___13 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___13 != 0L) {
-    tmp___14 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___14 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___14 != 0L) {
-      tmp___12 = __builtin_expect((unsigned int )descriptor___3.flags != 0U, 0L);
+      tmp___12 = ldv__builtin_expect((unsigned int )descriptor___3.flags != 0U, 0L);
       if (tmp___12 != 0L) {
         __ret___3 = 1;
       } else {
@@ -4842,12 +4842,12 @@ static int arkfb_set_par(struct fb_info *info )
     descriptor___4.lineno = 790U;
     descriptor___4.flags = 0U;
     __ret___4 = 0;
-    tmp___16 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+    tmp___16 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
     if (tmp___16 != 0L) {
-      tmp___17 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL,
+      tmp___17 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL,
                                   0L);
       if (tmp___17 != 0L) {
-        tmp___15 = __builtin_expect((unsigned int )descriptor___4.flags != 0U, 0L);
+        tmp___15 = ldv__builtin_expect((unsigned int )descriptor___4.flags != 0U, 0L);
         if (tmp___15 != 0L) {
           __ret___4 = 1;
         } else {
@@ -4876,12 +4876,12 @@ static int arkfb_set_par(struct fb_info *info )
     descriptor___5.lineno = 794U;
     descriptor___5.flags = 0U;
     __ret___5 = 0;
-    tmp___19 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+    tmp___19 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
     if (tmp___19 != 0L) {
-      tmp___20 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL,
+      tmp___20 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL,
                                   0L);
       if (tmp___20 != 0L) {
-        tmp___18 = __builtin_expect((unsigned int )descriptor___5.flags != 0U, 0L);
+        tmp___18 = ldv__builtin_expect((unsigned int )descriptor___5.flags != 0U, 0L);
         if (tmp___18 != 0L) {
           __ret___5 = 1;
         } else {
@@ -4913,11 +4913,11 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___6.lineno = 801U;
   descriptor___6.flags = 0U;
   __ret___6 = 0;
-  tmp___22 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___22 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___22 != 0L) {
-    tmp___23 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___23 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___23 != 0L) {
-      tmp___21 = __builtin_expect((unsigned int )descriptor___6.flags != 0U, 0L);
+      tmp___21 = ldv__builtin_expect((unsigned int )descriptor___6.flags != 0U, 0L);
       if (tmp___21 != 0L) {
         __ret___6 = 1;
       } else {
@@ -4948,11 +4948,11 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___7.lineno = 808U;
   descriptor___7.flags = 0U;
   __ret___7 = 0;
-  tmp___25 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___25 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___25 != 0L) {
-    tmp___26 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___26 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___26 != 0L) {
-      tmp___24 = __builtin_expect((unsigned int )descriptor___7.flags != 0U, 0L);
+      tmp___24 = ldv__builtin_expect((unsigned int )descriptor___7.flags != 0U, 0L);
       if (tmp___24 != 0L) {
         __ret___7 = 1;
       } else {
@@ -4983,11 +4983,11 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___8.lineno = 815U;
   descriptor___8.flags = 0U;
   __ret___8 = 0;
-  tmp___28 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___28 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___28 != 0L) {
-    tmp___29 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___29 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___29 != 0L) {
-      tmp___27 = __builtin_expect((unsigned int )descriptor___8.flags != 0U, 0L);
+      tmp___27 = ldv__builtin_expect((unsigned int )descriptor___8.flags != 0U, 0L);
       if (tmp___27 != 0L) {
         __ret___8 = 1;
       } else {
@@ -5020,11 +5020,11 @@ static int arkfb_set_par(struct fb_info *info )
   descriptor___9.lineno = 824U;
   descriptor___9.flags = 0U;
   __ret___9 = 0;
-  tmp___31 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___31 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___31 != 0L) {
-    tmp___32 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___32 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___32 != 0L) {
-      tmp___30 = __builtin_expect((unsigned int )descriptor___9.flags != 0U, 0L);
+      tmp___30 = ldv__builtin_expect((unsigned int )descriptor___9.flags != 0U, 0L);
       if (tmp___30 != 0L) {
         __ret___9 = 1;
       } else {
@@ -5161,11 +5161,11 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   descriptor.lineno = 922U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___0 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___0 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___1 != 0L) {
-      tmp = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp != 0L) {
         __ret = 1;
       } else {
@@ -5195,11 +5195,11 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   descriptor___0.lineno = 927U;
   descriptor___0.flags = 0U;
   __ret___0 = 0;
-  tmp___3 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___3 != 0L) {
-    tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___4 != 0L) {
-      tmp___2 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
       if (tmp___2 != 0L) {
         __ret___0 = 1;
       } else {
@@ -5231,11 +5231,11 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   descriptor___1.lineno = 934U;
   descriptor___1.flags = 0U;
   __ret___1 = 0;
-  tmp___6 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___6 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___6 != 0L) {
-    tmp___7 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___7 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___7 != 0L) {
-      tmp___5 = __builtin_expect((unsigned int )descriptor___1.flags != 0U, 0L);
+      tmp___5 = ldv__builtin_expect((unsigned int )descriptor___1.flags != 0U, 0L);
       if (tmp___5 != 0L) {
         __ret___1 = 1;
       } else {
@@ -5571,11 +5571,11 @@ static void arkfb_cleanup(void)
   descriptor.lineno = 1235U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___0 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___0 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___1 != 0L) {
-      tmp = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp != 0L) {
         __ret = 1;
       } else {
@@ -5615,11 +5615,11 @@ static int arkfb_init(void)
   descriptor.lineno = 1254U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___0 = __builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
+  tmp___0 = ldv__builtin_expect((dynamic_debug_enabled & 65536LL) != 0LL, 0L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled2 & 4294967296LL) != 0LL, 0L);
     if (tmp___1 != 0L) {
-      tmp = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp != 0L) {
         __ret = 1;
       } else {
@@ -5990,7 +5990,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

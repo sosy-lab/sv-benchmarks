@@ -3898,7 +3898,7 @@ enum __anonenum_121 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 extern long long dynamic_debug_enabled ;
@@ -4006,7 +4006,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
   long tmp___0 ;
 
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (96), "i" (12UL));
@@ -4015,7 +4015,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
   } else {
 
   }
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (97), "i" (12UL));
@@ -4493,12 +4493,12 @@ static void SYM53C500_release(struct pcmcia_device *link )
   descriptor.lineno = 532U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___2 = __builtin_expect((dynamic_debug_enabled & 32768LL) != 0LL, 0L);
+  tmp___2 = ldv__builtin_expect((dynamic_debug_enabled & 32768LL) != 0LL, 0L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_debug_enabled2 & 72057594037927936LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_debug_enabled2 & 72057594037927936LL) != 0LL,
                                0L);
     if (tmp___3 != 0L) {
-      tmp___1 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___1 != 0L) {
         __ret = 1;
       } else {
@@ -4707,12 +4707,12 @@ static int SYM53C500_config(struct pcmcia_device *link )
   descriptor.lineno = 729U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___2 = __builtin_expect((dynamic_debug_enabled & 32768LL) != 0LL, 0L);
+  tmp___2 = ldv__builtin_expect((dynamic_debug_enabled & 32768LL) != 0LL, 0L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_debug_enabled2 & 72057594037927936LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_debug_enabled2 & 72057594037927936LL) != 0LL,
                                0L);
     if (tmp___3 != 0L) {
-      tmp___1 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___1 != 0L) {
         __ret = 1;
       } else {
@@ -4850,12 +4850,12 @@ static void SYM53C500_detach(struct pcmcia_device *link )
   descriptor.lineno = 860U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___2 = __builtin_expect((dynamic_debug_enabled & 32768LL) != 0LL, 0L);
+  tmp___2 = ldv__builtin_expect((dynamic_debug_enabled & 32768LL) != 0LL, 0L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_debug_enabled2 & 72057594037927936LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_debug_enabled2 & 72057594037927936LL) != 0LL,
                                0L);
     if (tmp___3 != 0L) {
-      tmp___1 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___1 != 0L) {
         __ret = 1;
       } else {
@@ -4903,12 +4903,12 @@ static int SYM53C500_probe(struct pcmcia_device *link )
   descriptor.lineno = 873U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___2 = __builtin_expect((dynamic_debug_enabled & 32768LL) != 0LL, 0L);
+  tmp___2 = ldv__builtin_expect((dynamic_debug_enabled & 32768LL) != 0LL, 0L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_debug_enabled2 & 72057594037927936LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_debug_enabled2 & 72057594037927936LL) != 0LL,
                                0L);
     if (tmp___3 != 0L) {
-      tmp___1 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___1 != 0L) {
         __ret = 1;
       } else {
@@ -5154,7 +5154,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

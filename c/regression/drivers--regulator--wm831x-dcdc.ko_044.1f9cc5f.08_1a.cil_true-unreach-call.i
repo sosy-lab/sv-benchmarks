@@ -2394,7 +2394,7 @@ struct wm831x_dcdc {
    int on_vsel ;
    int dvs_vsel ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
@@ -2412,7 +2412,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -2625,7 +2625,7 @@ static int wm831x_dcdc_get_status(struct regulator_dev *rdev )
     descriptor.format = "DCDC%d under voltage\n";
     descriptor.lineno = 159U;
     descriptor.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       tmp___0 = rdev_get_id(rdev);
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)wm831x->dev, "DCDC%d under voltage\n",
@@ -2647,7 +2647,7 @@ static int wm831x_dcdc_get_status(struct regulator_dev *rdev )
       descriptor___0.format = "DCDC%d over voltage\n";
       descriptor___0.lineno = 167U;
       descriptor___0.flags = 1U;
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       if (tmp___4 != 0L) {
         tmp___3 = rdev_get_id(rdev);
         __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)wm831x->dev,
@@ -2667,7 +2667,7 @@ static int wm831x_dcdc_get_status(struct regulator_dev *rdev )
       descriptor___1.format = "DCDC%d over current\n";
       descriptor___1.lineno = 173U;
       descriptor___1.flags = 1U;
-      tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       if (tmp___7 != 0L) {
         tmp___6 = rdev_get_id(rdev);
         __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)wm831x->dev,
@@ -3048,7 +3048,7 @@ static int wm831x_buckv_probe(struct platform_device *pdev )
   descriptor.format = "Probing DCDC%d\n";
   descriptor.lineno = 475U;
   descriptor.flags = 1U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& pdev->dev), "Probing DCDC%d\n",
                       id + 1);
@@ -3271,7 +3271,7 @@ static int wm831x_buckp_probe(struct platform_device *pdev )
   descriptor.format = "Probing DCDC%d\n";
   descriptor.lineno = 650U;
   descriptor.flags = 1U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& pdev->dev), "Probing DCDC%d\n",
                       id + 1);
@@ -3401,7 +3401,7 @@ static int wm831x_boostp_get_status(struct regulator_dev *rdev )
     descriptor.format = "DCDC%d under voltage\n";
     descriptor.lineno = 760U;
     descriptor.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       tmp___0 = rdev_get_id(rdev);
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)wm831x->dev, "DCDC%d under voltage\n",
@@ -3468,7 +3468,7 @@ static int wm831x_boostp_probe(struct platform_device *pdev )
   descriptor.format = "Probing DCDC%d\n";
   descriptor.lineno = 792U;
   descriptor.flags = 1U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& pdev->dev), "Probing DCDC%d\n",
                       id + 1);
@@ -3604,7 +3604,7 @@ static int wm831x_epe_probe(struct platform_device *pdev )
   descriptor.format = "Probing EPE%d\n";
   descriptor.lineno = 903U;
   descriptor.flags = 1U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& pdev->dev), "Probing EPE%d\n",
                       id + 1);
@@ -3979,7 +3979,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

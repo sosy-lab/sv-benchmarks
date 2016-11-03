@@ -3263,7 +3263,7 @@ struct moschip_port {
 };
 enum hrtimer_restart;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data *f , int val , int expect ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
@@ -3401,7 +3401,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   int tmp___3 ;
 
   {
-  tmp___2 = __builtin_expect(! (! __tracepoint_kmalloc.state), 1);
+  tmp___2 = ldv__builtin_expect(! (! __tracepoint_kmalloc.state), 1);
   ______r___3 = tmp___2;
   ftrace_likely_update(& ______f___615, ______r___3, 0);
   if (______r___3) {
@@ -4235,7 +4235,7 @@ __inline static int signal_pending(struct task_struct *p )
   } else {
     tmp___3 = 0;
   }
-  tmp___4 = __builtin_expect(tmp___3, 1);
+  tmp___4 = ldv__builtin_expect(tmp___3, 1);
   ______r = tmp___4;
   ftrace_likely_update(& ______f___815, ______r, 0);
   return (______r);
@@ -11348,7 +11348,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

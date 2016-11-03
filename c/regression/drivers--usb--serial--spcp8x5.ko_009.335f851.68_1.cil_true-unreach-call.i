@@ -3213,7 +3213,7 @@ struct spcp8x5_private {
 };
 enum hrtimer_restart;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data *f , int val , int expect ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
@@ -3348,7 +3348,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   int tmp___3 ;
 
   {
-  tmp___2 = __builtin_expect(! (! __tracepoint_kmalloc.state), 1);
+  tmp___2 = ldv__builtin_expect(! (! __tracepoint_kmalloc.state), 1);
   ______r___3 = tmp___2;
   ftrace_likely_update(& ______f___615, ______r___3, 0);
   if (______r___3) {
@@ -4205,7 +4205,7 @@ __inline static int signal_pending(struct task_struct *p )
   } else {
     tmp___3 = 0;
   }
-  tmp___4 = __builtin_expect(tmp___3, 1);
+  tmp___4 = ldv__builtin_expect(tmp___3, 1);
   ______r = tmp___4;
   ftrace_likely_update(& ______f___815, ______r, 0);
   return (______r);
@@ -4699,7 +4699,7 @@ static int spcp8x5_startup(struct usb_serial *serial )
   while (1) {
     while (1) {
       __ret___1 = 0;
-      tmp___30 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+      tmp___30 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                   1);
       ______r___28 = tmp___30;
       ftrace_likely_update(& ______f___900, ______r___28, 0);
@@ -4711,7 +4711,7 @@ static int spcp8x5_startup(struct usb_serial *serial )
       ______r___27 = tmp___31;
       ______f___899.__annonCompField3.miss_hit[______r___27] = ______f___899.__annonCompField3.miss_hit[______r___27] + 1UL;
       if (______r___27) {
-        tmp___25 = __builtin_expect(! (! descriptor.flags), 1);
+        tmp___25 = ldv__builtin_expect(! (! descriptor.flags), 1);
         ______r___24 = tmp___25;
         ftrace_likely_update(& ______f___896, ______r___24, 0);
         if (______r___24) {
@@ -4902,7 +4902,7 @@ static int spcp8x5_set_ctrlLine(struct usb_device *dev , u8 value , enum spcp8x5
     while (1) {
       while (1) {
         __ret___1 = 0;
-        tmp___31 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+        tmp___31 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                     1);
         ______r___24 = tmp___31;
         ftrace_likely_update(& ______f___929, ______r___24, 0);
@@ -4914,7 +4914,7 @@ static int spcp8x5_set_ctrlLine(struct usb_device *dev , u8 value , enum spcp8x5
         ______r___23 = tmp___32;
         ______f___928.__annonCompField3.miss_hit[______r___23] = ______f___928.__annonCompField3.miss_hit[______r___23] + 1UL;
         if (______r___23) {
-          tmp___26 = __builtin_expect(! (! descriptor___0.flags), 1);
+          tmp___26 = ldv__builtin_expect(! (! descriptor___0.flags), 1);
           ______r___20 = tmp___26;
           ftrace_likely_update(& ______f___925, ______r___20, 0);
           if (______r___20) {
@@ -5079,7 +5079,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
     while (1) {
       while (1) {
         __ret___1 = 0;
-        tmp___32 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+        tmp___32 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                     1);
         ______r___26 = tmp___32;
         ftrace_likely_update(& ______f___958, ______r___26, 0);
@@ -5091,7 +5091,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
         ______r___25 = tmp___33;
         ______f___957.__annonCompField3.miss_hit[______r___25] = ______f___957.__annonCompField3.miss_hit[______r___25] + 1UL;
         if (______r___25) {
-          tmp___27 = __builtin_expect(! (! descriptor___1.flags), 1);
+          tmp___27 = ldv__builtin_expect(! (! descriptor___1.flags), 1);
           ______r___22 = tmp___27;
           ftrace_likely_update(& ______f___954, ______r___22, 0);
           if (______r___22) {
@@ -5134,7 +5134,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
   while (1) {
     while (1) {
       __ret___4 = 0;
-      tmp___66 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+      tmp___66 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                   1);
       ______r___52 = tmp___66;
       ftrace_likely_update(& ______f___984, ______r___52, 0);
@@ -5146,7 +5146,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
       ______r___51 = tmp___67;
       ______f___983.__annonCompField3.miss_hit[______r___51] = ______f___983.__annonCompField3.miss_hit[______r___51] + 1UL;
       if (______r___51) {
-        tmp___61 = __builtin_expect(! (! descriptor___2.flags), 1);
+        tmp___61 = ldv__builtin_expect(! (! descriptor___2.flags), 1);
         ______r___48 = tmp___61;
         ftrace_likely_update(& ______f___980, ______r___48, 0);
         if (______r___48) {
@@ -5282,7 +5282,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
   while (1) {
     while (1) {
       __ret___1 = 0;
-      tmp___31 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+      tmp___31 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                   1);
       ______r___24 = tmp___31;
       ftrace_likely_update(& ______f___1010, ______r___24, 0);
@@ -5294,7 +5294,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
       ______r___23 = tmp___32;
       ______f___1009.__annonCompField3.miss_hit[______r___23] = ______f___1009.__annonCompField3.miss_hit[______r___23] + 1UL;
       if (______r___23) {
-        tmp___26 = __builtin_expect(! (! descriptor___3.flags), 1);
+        tmp___26 = ldv__builtin_expect(! (! descriptor___3.flags), 1);
         ______r___20 = tmp___26;
         ftrace_likely_update(& ______f___1006, ______r___20, 0);
         if (______r___20) {
@@ -5337,7 +5337,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
     while (1) {
       while (1) {
         __ret___4 = 0;
-        tmp___65 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+        tmp___65 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                     1);
         ______r___49 = tmp___65;
         ftrace_likely_update(& ______f___1035, ______r___49, 0);
@@ -5349,7 +5349,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
         ______r___48 = tmp___66;
         ______f___1034.__annonCompField3.miss_hit[______r___48] = ______f___1034.__annonCompField3.miss_hit[______r___48] + 1UL;
         if (______r___48) {
-          tmp___60 = __builtin_expect(! (! descriptor___4.flags), 1);
+          tmp___60 = ldv__builtin_expect(! (! descriptor___4.flags), 1);
           ______r___45 = tmp___60;
           ftrace_likely_update(& ______f___1031, ______r___45, 0);
           if (______r___45) {
@@ -5571,7 +5571,7 @@ static void spcp8x5_close(struct usb_serial_port *port )
       while (1) {
         while (1) {
           __ret___1 = 0;
-          tmp___31 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+          tmp___31 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                       1);
           ______r___24 = tmp___31;
           ftrace_likely_update(& ______f___1064, ______r___24, 0);
@@ -5583,7 +5583,7 @@ static void spcp8x5_close(struct usb_serial_port *port )
           ______r___23 = tmp___32;
           ______f___1063.__annonCompField3.miss_hit[______r___23] = ______f___1063.__annonCompField3.miss_hit[______r___23] + 1UL;
           if (______r___23) {
-            tmp___26 = __builtin_expect(! (! descriptor___5.flags), 1);
+            tmp___26 = ldv__builtin_expect(! (! descriptor___5.flags), 1);
             ______r___20 = tmp___26;
             ftrace_likely_update(& ______f___1060, ______r___20, 0);
             if (______r___20) {
@@ -5633,7 +5633,7 @@ static void spcp8x5_close(struct usb_serial_port *port )
     while (1) {
       while (1) {
         __ret___4 = 0;
-        tmp___65 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+        tmp___65 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                     1);
         ______r___51 = tmp___65;
         ftrace_likely_update(& ______f___1091, ______r___51, 0);
@@ -5645,7 +5645,7 @@ static void spcp8x5_close(struct usb_serial_port *port )
         ______r___50 = tmp___66;
         ______f___1090.__annonCompField3.miss_hit[______r___50] = ______f___1090.__annonCompField3.miss_hit[______r___50] + 1UL;
         if (______r___50) {
-          tmp___60 = __builtin_expect(! (! descriptor___6.flags), 1);
+          tmp___60 = ldv__builtin_expect(! (! descriptor___6.flags), 1);
           ______r___47 = tmp___60;
           ftrace_likely_update(& ______f___1087, ______r___47, 0);
           if (______r___47) {
@@ -6275,7 +6275,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
   while (1) {
     while (1) {
       __ret___1 = 0;
-      tmp___31 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+      tmp___31 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                   1);
       ______r___23 = tmp___31;
       ftrace_likely_update(& ______f___1132, ______r___23, 0);
@@ -6287,7 +6287,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
       ______r___22 = tmp___32;
       ______f___1131.__annonCompField3.miss_hit[______r___22] = ______f___1131.__annonCompField3.miss_hit[______r___22] + 1UL;
       if (______r___22) {
-        tmp___26 = __builtin_expect(! (! descriptor___7.flags), 1);
+        tmp___26 = ldv__builtin_expect(! (! descriptor___7.flags), 1);
         ______r___19 = tmp___26;
         ftrace_likely_update(& ______f___1128, ______r___19, 0);
         if (______r___19) {
@@ -6345,7 +6345,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
         while (1) {
           while (1) {
             __ret___4 = 0;
-            tmp___65 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+            tmp___65 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                         1);
             ______r___49 = tmp___65;
             ftrace_likely_update(& ______f___1158, ______r___49, 0);
@@ -6357,7 +6357,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
             ______r___48 = tmp___66;
             ______f___1157.__annonCompField3.miss_hit[______r___48] = ______f___1157.__annonCompField3.miss_hit[______r___48] + 1UL;
             if (______r___48) {
-              tmp___60 = __builtin_expect(! (! descriptor___8.flags), 1);
+              tmp___60 = ldv__builtin_expect(! (! descriptor___8.flags), 1);
               ______r___45 = tmp___60;
               ftrace_likely_update(& ______f___1154, ______r___45, 0);
               if (______r___45) {
@@ -6404,7 +6404,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
     while (1) {
       while (1) {
         __ret___7 = 0;
-        tmp___99 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+        tmp___99 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                     1);
         ______r___76 = tmp___99;
         ftrace_likely_update(& ______f___1185, ______r___76, 0);
@@ -6416,7 +6416,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
         ______r___75 = tmp___100;
         ______f___1184.__annonCompField3.miss_hit[______r___75] = ______f___1184.__annonCompField3.miss_hit[______r___75] + 1UL;
         if (______r___75) {
-          tmp___94 = __builtin_expect(! (! descriptor___9.flags), 1);
+          tmp___94 = ldv__builtin_expect(! (! descriptor___9.flags), 1);
           ______r___72 = tmp___94;
           ftrace_likely_update(& ______f___1181, ______r___72, 0);
           if (______r___72) {
@@ -6491,7 +6491,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
   while (1) {
     while (1) {
       __ret___10 = 0;
-      tmp___133 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+      tmp___133 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                    1);
       ______r___105 = tmp___133;
       ftrace_likely_update(& ______f___1214, ______r___105, 0);
@@ -6503,7 +6503,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
       ______r___104 = tmp___134;
       ______f___1213.__annonCompField3.miss_hit[______r___104] = ______f___1213.__annonCompField3.miss_hit[______r___104] + 1UL;
       if (______r___104) {
-        tmp___128 = __builtin_expect(! (! descriptor___10.flags), 1);
+        tmp___128 = ldv__builtin_expect(! (! descriptor___10.flags), 1);
         ______r___101 = tmp___128;
         ftrace_likely_update(& ______f___1210, ______r___101, 0);
         if (______r___101) {
@@ -6577,7 +6577,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
       while (1) {
         while (1) {
           __ret___13 = 0;
-          tmp___167 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+          tmp___167 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                        1);
           ______r___132 = tmp___167;
           ftrace_likely_update(& ______f___1241, ______r___132, 0);
@@ -6589,7 +6589,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
           ______r___131 = tmp___168;
           ______f___1240.__annonCompField3.miss_hit[______r___131] = ______f___1240.__annonCompField3.miss_hit[______r___131] + 1UL;
           if (______r___131) {
-            tmp___162 = __builtin_expect(! (! descriptor___11.flags), 1);
+            tmp___162 = ldv__builtin_expect(! (! descriptor___11.flags), 1);
             ______r___128 = tmp___162;
             ftrace_likely_update(& ______f___1237, ______r___128, 0);
             if (______r___128) {
@@ -6734,7 +6734,7 @@ static void spcp8x5_send(struct usb_serial_port *port )
     while (1) {
       while (1) {
         __ret___1 = 0;
-        tmp___31 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+        tmp___31 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                     1);
         ______r___23 = tmp___31;
         ftrace_likely_update(& ______f___1268, ______r___23, 0);
@@ -6746,7 +6746,7 @@ static void spcp8x5_send(struct usb_serial_port *port )
         ______r___22 = tmp___32;
         ______f___1267.__annonCompField3.miss_hit[______r___22] = ______f___1267.__annonCompField3.miss_hit[______r___22] + 1UL;
         if (______r___22) {
-          tmp___26 = __builtin_expect(! (! descriptor___12.flags), 1);
+          tmp___26 = ldv__builtin_expect(! (! descriptor___12.flags), 1);
           ______r___19 = tmp___26;
           ftrace_likely_update(& ______f___1264, ______r___19, 0);
           if (______r___19) {
@@ -6818,7 +6818,7 @@ static void spcp8x5_send(struct usb_serial_port *port )
     while (1) {
       while (1) {
         __ret___4 = 0;
-        tmp___66 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+        tmp___66 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                     1);
         ______r___50 = tmp___66;
         ftrace_likely_update(& ______f___1295, ______r___50, 0);
@@ -6830,7 +6830,7 @@ static void spcp8x5_send(struct usb_serial_port *port )
         ______r___49 = tmp___67;
         ______f___1294.__annonCompField3.miss_hit[______r___49] = ______f___1294.__annonCompField3.miss_hit[______r___49] + 1UL;
         if (______r___49) {
-          tmp___61 = __builtin_expect(! (! descriptor___13.flags), 1);
+          tmp___61 = ldv__builtin_expect(! (! descriptor___13.flags), 1);
           ______r___46 = tmp___61;
           ftrace_likely_update(& ______f___1291, ______r___46, 0);
           if (______r___46) {
@@ -6974,7 +6974,7 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
   while (1) {
     while (1) {
       __ret___1 = 0;
-      tmp___31 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+      tmp___31 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                   1);
       ______r___23 = tmp___31;
       ftrace_likely_update(& ______f___1321, ______r___23, 0);
@@ -6986,7 +6986,7 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
       ______r___22 = tmp___32;
       ______f___1320.__annonCompField3.miss_hit[______r___22] = ______f___1320.__annonCompField3.miss_hit[______r___22] + 1UL;
       if (______r___22) {
-        tmp___26 = __builtin_expect(! (! descriptor___14.flags), 1);
+        tmp___26 = ldv__builtin_expect(! (! descriptor___14.flags), 1);
         ______r___19 = tmp___26;
         ftrace_likely_update(& ______f___1317, ______r___19, 0);
         if (______r___19) {
@@ -7057,7 +7057,7 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
     while (1) {
       while (1) {
         __ret___4 = 0;
-        tmp___65 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+        tmp___65 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                     1);
         ______r___50 = tmp___65;
         ftrace_likely_update(& ______f___1348, ______r___50, 0);
@@ -7069,7 +7069,7 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
         ______r___49 = tmp___66;
         ______f___1347.__annonCompField3.miss_hit[______r___49] = ______f___1347.__annonCompField3.miss_hit[______r___49] + 1UL;
         if (______r___49) {
-          tmp___60 = __builtin_expect(! (! descriptor___15.flags), 1);
+          tmp___60 = ldv__builtin_expect(! (! descriptor___15.flags), 1);
           ______r___46 = tmp___60;
           ftrace_likely_update(& ______f___1344, ______r___46, 0);
           if (______r___46) {
@@ -7167,7 +7167,7 @@ static int spcp8x5_write(struct tty_struct *tty , struct usb_serial_port *port ,
   while (1) {
     while (1) {
       __ret___1 = 0;
-      tmp___31 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
+      tmp___31 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 7) && dynamic_debug_enabled2 & (1LL << 62))),
                                   1);
       ______r___23 = tmp___31;
       ftrace_likely_update(& ______f___1374, ______r___23, 0);
@@ -7179,7 +7179,7 @@ static int spcp8x5_write(struct tty_struct *tty , struct usb_serial_port *port ,
       ______r___22 = tmp___32;
       ______f___1373.__annonCompField3.miss_hit[______r___22] = ______f___1373.__annonCompField3.miss_hit[______r___22] + 1UL;
       if (______r___22) {
-        tmp___26 = __builtin_expect(! (! descriptor___16.flags), 1);
+        tmp___26 = ldv__builtin_expect(! (! descriptor___16.flags), 1);
         ______r___19 = tmp___26;
         ftrace_likely_update(& ______f___1370, ______r___19, 0);
         if (______r___19) {
@@ -7834,7 +7834,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

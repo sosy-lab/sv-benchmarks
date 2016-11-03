@@ -2182,7 +2182,7 @@ struct wm831x_dcdc {
    int dvs_vsel ;
 };
 typedef int ldv_func_ret_type___0;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
@@ -2199,7 +2199,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -2698,14 +2698,14 @@ static int wm831x_buckv_set_voltage(struct regulator_dev *rdev , int min_uV , in
   vsel = wm831x_buckv_select_max_voltage(rdev, min_uV, max_uV);
   if (vsel < 0) {
     __ret_warn_on = vsel < 0;
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     if (tmp___2 != 0L) {
       warn_slowpath_null("/work/ldvuser/novikov/work/current--X--drivers/regulator/wm831x-dcdc.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/regulator/wm831x-dcdc.c.prepared",
                          372);
     } else {
 
     }
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     return (0);
   } else {
 
@@ -3901,7 +3901,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

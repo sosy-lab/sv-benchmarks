@@ -3329,7 +3329,7 @@ struct urb {
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data *f , int val , int expect ) ;
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr ) ;
@@ -3428,7 +3428,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 1);
+  tmp = ldv__builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 1);
   ______r = tmp;
   ftrace_likely_update(& ______f___505, ______r, 0);
   return (______r);
@@ -3461,7 +3461,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   int tmp___3 ;
 
   {
-  tmp___2 = __builtin_expect(! (! __tracepoint_kmalloc.state), 1);
+  tmp___2 = ldv__builtin_expect(! (! __tracepoint_kmalloc.state), 1);
   ______r___3 = tmp___2;
   ftrace_likely_update(& ______f___617, ______r___3, 0);
   if (______r___3) {
@@ -4501,7 +4501,7 @@ static int acpi_pcc_retrieve_biosdata(struct pcc_acpi *pcc , u32 *sinf )
       break;
     }
     element = hkey->package.elements + i;
-    tmp___2 = __builtin_expect(! (! (element->type == (acpi_object_type )1)), 1);
+    tmp___2 = ldv__builtin_expect(! (! (element->type == (acpi_object_type )1)), 1);
     ______r___5 = tmp___2;
     ftrace_likely_update(& ______f___829, ______r___5, 1);
     if (______r___5) {
@@ -5466,7 +5466,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

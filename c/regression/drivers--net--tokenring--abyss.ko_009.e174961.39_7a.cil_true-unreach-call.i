@@ -3256,7 +3256,7 @@ struct net_local {
 typedef int ldv_func_ret_type___1;
 typedef int ldv_func_ret_type___19;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
@@ -3935,7 +3935,7 @@ static void abyss_detach(struct pci_dev *pdev )
   {
   tmp = pci_get_drvdata(pdev);
   dev = (struct net_device *)tmp;
-  tmp___0 = __builtin_expect((unsigned long )dev == (unsigned long )((struct net_device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct net_device *)0),
                              0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/net/tokenring/abyss.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/tokenring/abyss.c.prepared"),
@@ -4367,7 +4367,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

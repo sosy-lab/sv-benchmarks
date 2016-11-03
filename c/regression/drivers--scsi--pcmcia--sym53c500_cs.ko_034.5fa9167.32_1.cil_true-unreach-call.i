@@ -3887,7 +3887,7 @@ enum Phase {
     message_out = 5,
     message_in = 6
 } ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern  __attribute__((__noreturn__)) int ____ilog2_NaN(void)  __attribute__((__const__)) ;
 extern long long dynamic_debug_enabled ;
 extern long long dynamic_debug_enabled2 ;
@@ -3953,7 +3953,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! __tracepoint_kmalloc.state), 0);
+  tmp = ldv__builtin_expect(! (! __tracepoint_kmalloc.state), 0);
   if (tmp) {
     while (1) {
       rcu_read_lock_sched_notrace();
@@ -4701,7 +4701,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   while (1) {
-    tmp = __builtin_expect(! (! (sg->sg_magic != 2271560481UL)), 0);
+    tmp = ldv__builtin_expect(! (! (sg->sg_magic != 2271560481UL)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -4722,7 +4722,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
     break;
   }
   while (1) {
-    tmp___0 = __builtin_expect(! (! (sg->page_link & 1UL)), 0);
+    tmp___0 = ldv__builtin_expect(! (! (sg->page_link & 1UL)), 0);
     if (tmp___0) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -5201,10 +5201,10 @@ static void SYM53C500_release(struct pcmcia_device *link )
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___2 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 15) && dynamic_debug_enabled2 & (1LL << 56))),
+      tmp___2 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 15) && dynamic_debug_enabled2 & (1LL << 56))),
                                  0);
       if (tmp___2) {
-        tmp___1 = __builtin_expect(! (! descriptor.flags), 0);
+        tmp___1 = ldv__builtin_expect(! (! descriptor.flags), 0);
         if (tmp___1) {
           __ret = 1;
         } else {
@@ -5409,10 +5409,10 @@ static int SYM53C500_config(struct pcmcia_device *link )
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___2 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 15) && dynamic_debug_enabled2 & (1LL << 56))),
+      tmp___2 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 15) && dynamic_debug_enabled2 & (1LL << 56))),
                                  0);
       if (tmp___2) {
-        tmp___1 = __builtin_expect(! (! descriptor___0.flags), 0);
+        tmp___1 = ldv__builtin_expect(! (! descriptor___0.flags), 0);
         if (tmp___1) {
           __ret = 1;
         } else {
@@ -5547,10 +5547,10 @@ static void SYM53C500_detach(struct pcmcia_device *link )
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___2 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 15) && dynamic_debug_enabled2 & (1LL << 56))),
+      tmp___2 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 15) && dynamic_debug_enabled2 & (1LL << 56))),
                                  0);
       if (tmp___2) {
-        tmp___1 = __builtin_expect(! (! descriptor___1.flags), 0);
+        tmp___1 = ldv__builtin_expect(! (! descriptor___1.flags), 0);
         if (tmp___1) {
           __ret = 1;
         } else {
@@ -5596,10 +5596,10 @@ static int SYM53C500_probe(struct pcmcia_device *link )
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___2 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 15) && dynamic_debug_enabled2 & (1LL << 56))),
+      tmp___2 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 15) && dynamic_debug_enabled2 & (1LL << 56))),
                                  0);
       if (tmp___2) {
-        tmp___1 = __builtin_expect(! (! descriptor___2.flags), 0);
+        tmp___1 = ldv__builtin_expect(! (! descriptor___2.flags), 0);
         if (tmp___1) {
           __ret = 1;
         } else {
@@ -5852,7 +5852,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

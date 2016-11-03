@@ -5162,7 +5162,7 @@ void ldv_main1_sequence_infinite_withcheck_stateful(void)
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void mutex_lock(struct mutex *lock ) ;
 int ( __attribute__((__warn_unused_result__)) mutex_lock_killable)(struct mutex *lock ) ;
 int mutex_trylock(struct mutex *lock ) ;
@@ -5175,7 +5175,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_error)(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

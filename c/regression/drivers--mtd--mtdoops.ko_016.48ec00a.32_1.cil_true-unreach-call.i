@@ -2444,7 +2444,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void mutex_lock(struct mutex *lock ) ;
 int ( __attribute__((__warn_unused_result__)) mutex_lock_interruptible)(struct mutex *lock ) ;
 int ( __attribute__((__warn_unused_result__)) mutex_lock_killable)(struct mutex *lock ) ;
@@ -2459,7 +2459,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

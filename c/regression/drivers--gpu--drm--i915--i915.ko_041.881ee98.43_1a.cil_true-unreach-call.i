@@ -4043,7 +4043,7 @@ struct page *ldv_alloc_page_vma_12(gfp_t ldv_func_arg1 , struct vm_area_struct *
   return (tmp);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __bad_pda_field(void) ;
 extern struct x8664_pda _proxy_pda ;
@@ -4162,7 +4162,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
   __asm__  volatile   ("1:\tmovq %2,%1\n2:\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .section __ex_table,\"a\"\n .balign 8 \n .quad 1b,3b\n .previous\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   if (tmp___0 != 0L) {
     return (ret);
   } else {
@@ -4176,7 +4176,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
   __asm__  volatile   ("1:\tmovq %2,%1\n2:\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .section __ex_table,\"a\"\n .balign 8 \n .quad 1b,3b\n .previous\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   if (tmp___1 != 0L) {
     return (ret);
   } else {
@@ -5245,7 +5245,7 @@ static int i915_batchbuffer(struct drm_device *dev , void *data , struct drm_fil
     tmp = current_thread_info();
     __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (batch->cliprects),
               "g" ((long )((unsigned long )batch->num_cliprects * 8UL)), "rm" (tmp->addr_limit.seg));
-    tmp___0 = __builtin_expect(flag == 0UL, 1L);
+    tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
     if (tmp___0 == 0L) {
       return (-14);
     } else {
@@ -5304,7 +5304,7 @@ static int i915_cmdbuffer(struct drm_device *dev , void *data , struct drm_file 
     tmp = current_thread_info();
     __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (cmdbuf->cliprects),
               "g" ((long )((unsigned long )cmdbuf->num_cliprects * 8UL)), "rm" (tmp->addr_limit.seg));
-    tmp___0 = __builtin_expect(flag == 0UL, 1L);
+    tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
     if (tmp___0 == 0L) {
       printk("<3>[drm:%s] *ERROR* Fault accessing cliprects\n", "i915_cmdbuffer");
       return (-14);
@@ -5855,7 +5855,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -6571,9 +6571,9 @@ void i915_user_irq_put(struct drm_device *dev )
   {
   dev_priv = (drm_i915_private_t *)dev->dev_private;
   ldv_spin_lock();
-  tmp = __builtin_expect(dev->irq_enabled != 0, 0L);
+  tmp = ldv__builtin_expect(dev->irq_enabled != 0, 0L);
   if (tmp != 0L) {
-    tmp___0 = __builtin_expect(dev_priv->user_irq_refcount <= 0, 0L);
+    tmp___0 = ldv__builtin_expect(dev_priv->user_irq_refcount <= 0, 0L);
     if (tmp___0 != 0L) {
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_irq.c.prepared"),
                            "i" (500), "i" (24UL));
@@ -8505,7 +8505,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -8916,7 +8916,7 @@ static int i915_gem_gtt_pwrite(struct drm_device *dev , struct drm_gem_object *o
   tmp = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (user_data),
             "g" (remain), "rm" (tmp->addr_limit.seg));
-  tmp___0 = __builtin_expect(flag == 0UL, 1L);
+  tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___0 == 0L) {
     return (-14);
   } else {
@@ -9518,7 +9518,7 @@ static int i915_wait_request(struct drm_device *dev , uint32_t seqno )
   {
   dev_priv = (drm_i915_private_t *)dev->dev_private;
   ret = 0;
-  tmp = __builtin_expect(seqno == 0U, 0L);
+  tmp = ldv__builtin_expect(seqno == 0U, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (800), "i" (24UL));
@@ -9674,7 +9674,7 @@ static int i915_gem_object_wait_rendering(struct drm_gem_object *obj )
     i915_gem_flush(dev, 0U, write_domain);
     i915_gem_object_move_to_active(obj);
     obj_priv->last_rendering_seqno = i915_add_request(dev, write_domain);
-    tmp = __builtin_expect(obj_priv->last_rendering_seqno == 0U, 0L);
+    tmp = ldv__builtin_expect(obj_priv->last_rendering_seqno == 0U, 0L);
     if (tmp != 0L) {
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                            "i" (927), "i" (24UL));
@@ -9745,7 +9745,7 @@ static int i915_gem_object_unbind(struct drm_gem_object *obj )
   } else {
 
   }
-  tmp = __builtin_expect(obj_priv->active != 0, 0L);
+  tmp = ldv__builtin_expect(obj_priv->active != 0, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (998), "i" (24UL));
@@ -9801,7 +9801,7 @@ static int i915_gem_evict_something(struct drm_device *dev )
     __mptr = (struct list_head  const  *)dev_priv->mm.inactive_list.next;
     obj_priv = (struct drm_i915_gem_object *)__mptr + 0xfffffffffffffff0UL;
     obj = obj_priv->obj;
-    tmp = __builtin_expect(obj_priv->pin_count != 0, 0L);
+    tmp = ldv__builtin_expect(obj_priv->pin_count != 0, 0L);
     if (tmp != 0L) {
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                            "i" (1034), "i" (24UL));
@@ -9810,7 +9810,7 @@ static int i915_gem_evict_something(struct drm_device *dev )
     } else {
 
     }
-    tmp___0 = __builtin_expect(obj_priv->active != 0, 0L);
+    tmp___0 = ldv__builtin_expect(obj_priv->active != 0, 0L);
     if (tmp___0 != 0L) {
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                            "i" (1038), "i" (24UL));
@@ -9890,7 +9890,7 @@ static int i915_gem_object_get_page_list(struct drm_gem_object *obj )
 
   }
   page_count___0 = (int )(obj->size / 4096UL);
-  tmp = __builtin_expect((unsigned long )obj_priv->page_list != (unsigned long )((struct page **)0),
+  tmp = ldv__builtin_expect((unsigned long )obj_priv->page_list != (unsigned long )((struct page **)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
@@ -10032,7 +10032,7 @@ static int i915_gem_object_bind_to_gtt(struct drm_gem_object *obj , unsigned int
   }
   atomic_inc(& dev->gtt_count);
   atomic_add((int )obj->size, & dev->gtt_memory);
-  tmp___2 = __builtin_expect((obj->read_domains & 4294967230U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((obj->read_domains & 4294967230U) != 0U, 0L);
   if (tmp___2 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (1228), "i" (24UL));
@@ -10041,7 +10041,7 @@ static int i915_gem_object_bind_to_gtt(struct drm_gem_object *obj , unsigned int
   } else {
 
   }
-  tmp___3 = __builtin_expect((obj->write_domain & 4294967230U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((obj->write_domain & 4294967230U) != 0U, 0L);
   if (tmp___3 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (1229), "i" (24UL));
@@ -10628,7 +10628,7 @@ int i915_gem_execbuffer(struct drm_device *dev , void *data , struct drm_file *f
   }
   flush_domains = i915_retire_commands(dev);
   seqno = i915_add_request(dev, flush_domains);
-  tmp___2 = __builtin_expect(seqno == 0U, 0L);
+  tmp___2 = ldv__builtin_expect(seqno == 0U, 0L);
   if (tmp___2 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (1957), "i" (24UL));
@@ -10749,7 +10749,7 @@ void i915_gem_object_unpin(struct drm_gem_object *obj )
   dev_priv = (drm_i915_private_t *)dev->dev_private;
   obj_priv = (struct drm_i915_gem_object *)obj->driver_private;
   obj_priv->pin_count = obj_priv->pin_count - 1;
-  tmp = __builtin_expect(obj_priv->pin_count < 0, 0L);
+  tmp = ldv__builtin_expect(obj_priv->pin_count < 0, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2046), "i" (24UL));
@@ -10758,7 +10758,7 @@ void i915_gem_object_unpin(struct drm_gem_object *obj )
   } else {
 
   }
-  tmp___0 = __builtin_expect((unsigned long )obj_priv->gtt_space == (unsigned long )((struct drm_mm_node *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )obj_priv->gtt_space == (unsigned long )((struct drm_mm_node *)0),
                              0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
@@ -10935,7 +10935,7 @@ static int i915_gem_set_domain(struct drm_gem_object *obj , struct drm_file *fil
   {
   dev = obj->dev;
   tmp = mutex_is_locked(& dev->struct_mutex);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2211), "i" (24UL));
@@ -11079,7 +11079,7 @@ static int i915_gem_idle(struct drm_device *dev )
   dev_priv->mm.waiting_gem_seqno = 0U;
   i915_gem_retire_requests(dev);
   tmp___1 = list_empty((struct list_head  const  *)(& dev_priv->mm.active_list));
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   if (tmp___2 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2321), "i" (24UL));
@@ -11089,7 +11089,7 @@ static int i915_gem_idle(struct drm_device *dev )
 
   }
   tmp___3 = list_empty((struct list_head  const  *)(& dev_priv->mm.flushing_list));
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
   if (tmp___4 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2322), "i" (24UL));
@@ -11099,7 +11099,7 @@ static int i915_gem_idle(struct drm_device *dev )
 
   }
   tmp___5 = list_empty((struct list_head  const  *)(& dev_priv->mm.request_list));
-  tmp___6 = __builtin_expect(tmp___5 == 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 == 0, 0L);
   if (tmp___6 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2327), "i" (24UL));
@@ -11116,7 +11116,7 @@ static int i915_gem_idle(struct drm_device *dev )
 
   }
   tmp___7 = list_empty((struct list_head  const  *)(& dev_priv->mm.active_list));
-  tmp___8 = __builtin_expect(tmp___7 == 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 == 0, 0L);
   if (tmp___8 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2336), "i" (24UL));
@@ -11126,7 +11126,7 @@ static int i915_gem_idle(struct drm_device *dev )
 
   }
   tmp___9 = list_empty((struct list_head  const  *)(& dev_priv->mm.flushing_list));
-  tmp___10 = __builtin_expect(tmp___9 == 0, 0L);
+  tmp___10 = ldv__builtin_expect(tmp___9 == 0, 0L);
   if (tmp___10 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2337), "i" (24UL));
@@ -11136,7 +11136,7 @@ static int i915_gem_idle(struct drm_device *dev )
 
   }
   tmp___11 = list_empty((struct list_head  const  *)(& dev_priv->mm.inactive_list));
-  tmp___12 = __builtin_expect(tmp___11 == 0, 0L);
+  tmp___12 = ldv__builtin_expect(tmp___11 == 0, 0L);
   if (tmp___12 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2338), "i" (24UL));
@@ -11146,7 +11146,7 @@ static int i915_gem_idle(struct drm_device *dev )
 
   }
   tmp___13 = list_empty((struct list_head  const  *)(& dev_priv->mm.request_list));
-  tmp___14 = __builtin_expect(tmp___13 == 0, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 == 0, 0L);
   if (tmp___14 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2339), "i" (24UL));
@@ -11379,7 +11379,7 @@ int i915_gem_entervt_ioctl(struct drm_device *dev , void *data , struct drm_file
   dev_priv->mm.gtt_mapping = io_mapping_create_wc((dev->agp)->base, (dev->agp)->agp_info.aper_size * 1048576UL);
   mutex_lock_nested(& dev->struct_mutex, 0U);
   tmp = list_empty((struct list_head  const  *)(& dev_priv->mm.active_list));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2542), "i" (24UL));
@@ -11389,7 +11389,7 @@ int i915_gem_entervt_ioctl(struct drm_device *dev , void *data , struct drm_file
 
   }
   tmp___1 = list_empty((struct list_head  const  *)(& dev_priv->mm.flushing_list));
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   if (tmp___2 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2543), "i" (24UL));
@@ -11399,7 +11399,7 @@ int i915_gem_entervt_ioctl(struct drm_device *dev , void *data , struct drm_file
 
   }
   tmp___3 = list_empty((struct list_head  const  *)(& dev_priv->mm.inactive_list));
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
   if (tmp___4 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2544), "i" (24UL));
@@ -11409,7 +11409,7 @@ int i915_gem_entervt_ioctl(struct drm_device *dev , void *data , struct drm_file
 
   }
   tmp___5 = list_empty((struct list_head  const  *)(& dev_priv->mm.request_list));
-  tmp___6 = __builtin_expect(tmp___5 == 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 == 0, 0L);
   if (tmp___6 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/43_1a/drivers/gpu/drm/i915/i915_gem.c.prepared"),
                          "i" (2545), "i" (24UL));
@@ -12858,7 +12858,7 @@ static int compat_i915_batchbuffer(struct file *file , unsigned int cmd , unsign
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (batchbuffer),
             "g" (32L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -13078,7 +13078,7 @@ static int compat_i915_cmdbuffer(struct file *file , unsigned int cmd , unsigned
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (cmdbuffer),
             "g" (32L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -13293,7 +13293,7 @@ static int compat_i915_irq_emit(struct file *file , unsigned int cmd , unsigned 
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (request),
             "g" (8L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -13359,7 +13359,7 @@ static int compat_i915_getparam(struct file *file , unsigned int cmd , unsigned 
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (request),
             "g" (16L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -13457,7 +13457,7 @@ static int compat_i915_alloc(struct file *file , unsigned int cmd , unsigned lon
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (request),
             "g" (24L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -13672,7 +13672,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -4151,7 +4151,7 @@ enum __anonenum_122 {
     LDV_SPIN_LOCKED = 1
 } ;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -4524,13 +4524,13 @@ __inline static int can_dropped_invalid_skb(struct net_device *dev , struct sk_b
 
   {
   cf = (struct can_frame  const  *)skb->data;
-  tmp = __builtin_expect(skb->len != 16U, 0L);
+  tmp = ldv__builtin_expect(skb->len != 16U, 0L);
   if (tmp != 0L) {
     kfree_skb(skb);
     dev->stats.tx_dropped = dev->stats.tx_dropped + 1UL;
     return (1);
   } else {
-    tmp___0 = __builtin_expect((unsigned int )((unsigned char )cf->can_dlc) > 8U,
+    tmp___0 = ldv__builtin_expect((unsigned int )((unsigned char )cf->can_dlc) > 8U,
                                0L);
     if (tmp___0 != 0L) {
       kfree_skb(skb);
@@ -4853,7 +4853,7 @@ static void ems_usb_write_bulk_callback(struct urb *urb )
 
   {
   context = (struct ems_tx_urb_context *)urb->context;
-  tmp = __builtin_expect((unsigned long )context == (unsigned long )((struct ems_tx_urb_context *)0),
+  tmp = ldv__builtin_expect((unsigned long )context == (unsigned long )((struct ems_tx_urb_context *)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/net/can/usb/ems_usb.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/net/can/usb/ems_usb.c.prepared"),
@@ -5273,7 +5273,7 @@ static netdev_tx_t ems_usb_start_xmit(struct sk_buff *skb , struct net_device *n
   can_put_echo_skb(skb, netdev, context->echo_index);
   atomic_inc(& dev->active_tx_urbs);
   err = ldv_usb_submit_urb_35(urb, 32U);
-  tmp___12 = __builtin_expect(err != 0, 0L);
+  tmp___12 = ldv__builtin_expect(err != 0, 0L);
   if (tmp___12 != 0L) {
     can_free_echo_skb(netdev, context->echo_index);
     usb_unanchor_urb(urb);
@@ -5890,7 +5890,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -1057,7 +1057,7 @@ unsigned long ldv___get_free_pages_11(gfp_t ldv_func_arg1 , unsigned int ldv_fun
   return (tmp);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ( __attribute__((__always_inline__)) ldv_error)(void) 
 { 
 
@@ -1067,7 +1067,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_error)(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

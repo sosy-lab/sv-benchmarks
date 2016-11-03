@@ -4269,7 +4269,7 @@ struct catc {
 };
 enum hrtimer_restart;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr ) 
 { 
@@ -5026,7 +5026,7 @@ static void catc_tx_done(struct urb *urb )
   }
   if (catc->tx_ptr) {
     r = catc_tx_run(catc);
-    tmp = __builtin_expect(! (! (r < 0)), 0);
+    tmp = ldv__builtin_expect(! (! (r < 0)), 0);
     if (tmp) {
       clear_bit(2, & catc->flags);
     } else {
@@ -5964,7 +5964,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

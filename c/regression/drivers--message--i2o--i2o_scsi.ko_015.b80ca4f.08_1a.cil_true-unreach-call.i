@@ -3320,7 +3320,7 @@ struct i2o_scsi_host {
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern int sysfs_create_link(struct kobject * , struct kobject * , char const   * ) ;
@@ -3346,7 +3346,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -3391,7 +3391,7 @@ __inline static struct scatterlist *sg_next(struct scatterlist *sg )
   long tmp___0 ;
 
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (122), "i" (24UL));
@@ -3406,7 +3406,7 @@ __inline static struct scatterlist *sg_next(struct scatterlist *sg )
 
   }
   sg = sg + 1;
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   if (tmp___0 != 0L) {
     sg = (struct scatterlist *)(sg->page_link & 0xfffffffffffffffcUL);
   } else {
@@ -3425,7 +3425,7 @@ __inline static int dma_map_sg(struct device *hwdev , struct scatterlist *sg , i
 
   {
   tmp = valid_dma_direction(direction);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/asm/dma-mapping_64.h"),
                          "i" (168), "i" (24UL));
@@ -3595,7 +3595,7 @@ __inline static struct i2o_message *i2o_msg_get(struct i2o_controller *c )
 
   }
   mmsg->mfa = __readl((void const volatile   *)c->in_port);
-  tmp___3 = __builtin_expect((unsigned long )mmsg->mfa >= c->in_queue.len, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )mmsg->mfa >= c->in_queue.len, 0L);
   if (tmp___3 != 0L) {
     mfa = mmsg->mfa;
     mempool_free((void *)mmsg, c->in_msg.mempool);
@@ -4014,7 +4014,7 @@ static int i2o_scsi_reply(struct i2o_controller *c , u32 m , struct i2o_message 
   {
   tmp = i2o_cntxt_list_get(c, msg->u.s.tcntxt);
   cmd = (struct scsi_cmnd *)tmp;
-  tmp___0 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct scsi_cmnd *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct scsi_cmnd *)0),
                              0L);
   if (tmp___0 != 0L) {
     printk("<3>%s: NULL reply received!\n", (char *)"scsi-osm");
@@ -4161,7 +4161,7 @@ static int i2o_scsi_queuecommand(struct scsi_cmnd *SCpnt , void (*done)(struct s
   i2o_dev = (struct i2o_device *)(SCpnt->device)->hostdata;
   c = i2o_dev->iop;
   SCpnt->scsi_done = done;
-  tmp = __builtin_expect((unsigned long )i2o_dev == (unsigned long )((struct i2o_device *)0),
+  tmp = ldv__builtin_expect((unsigned long )i2o_dev == (unsigned long )((struct i2o_device *)0),
                          0L);
   if (tmp != 0L) {
     printk("<4>%s: no I2O device in request\n", (char *)"scsi-osm");
@@ -4454,7 +4454,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

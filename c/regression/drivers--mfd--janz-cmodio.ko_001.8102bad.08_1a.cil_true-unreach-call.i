@@ -1233,7 +1233,7 @@ struct cmodio_device {
    struct resource resources[12U] ;
    struct janz_platform_data pdata[4U] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern long long dynamic_debug_enabled ;
 extern long long dynamic_debug_enabled2 ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
@@ -1317,7 +1317,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp___1 ;
 
   {
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp___1 != 0L) {
     rcu_read_lock_sched_notrace();
     tmp = debug_lockdep_rcu_enabled();
@@ -1673,12 +1673,12 @@ static int cmodio_probe_submodules(struct cmodio_device *priv )
   descriptor.lineno = 143U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___2 = __builtin_expect((dynamic_debug_enabled & 32LL) != 0LL, 0L);
+  tmp___2 = ldv__builtin_expect((dynamic_debug_enabled & 32LL) != 0LL, 0L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_debug_enabled2 & 8796093022208LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_debug_enabled2 & 8796093022208LL) != 0LL,
                                0L);
     if (tmp___3 != 0L) {
-      tmp___1 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___1 != 0L) {
         __ret = 1;
       } else {
@@ -1946,7 +1946,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -1984,7 +1984,7 @@ struct ks8995_switch {
 };
 struct ks8995_data;
 typedef int ldv_func_ret_type___0;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
@@ -2239,7 +2239,7 @@ static ssize_t ks8995_registers_read(struct file *filp , struct kobject *kobj , 
   dev = (struct device *)__mptr + 0xfffffffffffffff0UL;
   tmp = dev_get_drvdata((struct device  const  *)dev);
   ks8995 = (struct ks8995_switch *)tmp;
-  tmp___0 = __builtin_expect(off > 128LL, 0L);
+  tmp___0 = ldv__builtin_expect(off > 128LL, 0L);
   if (tmp___0 != 0L) {
     return (0L);
   } else {
@@ -2250,7 +2250,7 @@ static ssize_t ks8995_registers_read(struct file *filp , struct kobject *kobj , 
   } else {
 
   }
-  tmp___1 = __builtin_expect(count == 0UL, 0L);
+  tmp___1 = ldv__builtin_expect(count == 0UL, 0L);
   if (tmp___1 != 0L) {
     return ((ssize_t )count);
   } else {
@@ -2276,7 +2276,7 @@ static ssize_t ks8995_registers_write(struct file *filp , struct kobject *kobj ,
   dev = (struct device *)__mptr + 0xfffffffffffffff0UL;
   tmp = dev_get_drvdata((struct device  const  *)dev);
   ks8995 = (struct ks8995_switch *)tmp;
-  tmp___0 = __builtin_expect(off > 127LL, 0L);
+  tmp___0 = ldv__builtin_expect(off > 127LL, 0L);
   if (tmp___0 != 0L) {
     return (-27L);
   } else {
@@ -2287,7 +2287,7 @@ static ssize_t ks8995_registers_write(struct file *filp , struct kobject *kobj ,
   } else {
 
   }
-  tmp___1 = __builtin_expect(count == 0UL, 0L);
+  tmp___1 = ldv__builtin_expect(count == 0UL, 0L);
   if (tmp___1 != 0L) {
     return ((ssize_t )count);
   } else {
@@ -2612,7 +2612,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

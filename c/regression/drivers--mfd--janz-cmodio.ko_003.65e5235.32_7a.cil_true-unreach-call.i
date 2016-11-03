@@ -1266,7 +1266,7 @@ struct cmodio_device {
    struct janz_platform_data pdata[4U] ;
 };
 typedef int ldv_func_ret_type___0;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern int mutex_trylock(struct mutex * ) ;
@@ -1417,7 +1417,7 @@ static int cmodio_probe_submodules(struct cmodio_device *priv )
   descriptor.lineno = 150U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp___1 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___1 != 0L) {
     dev_printk("<7>", (struct device  const  *)(& (priv->pdev)->dev), "MODULbus %d: name %s\n",
                i, name);
@@ -1706,7 +1706,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -3047,7 +3047,7 @@ struct pcc_cpu {
    u32 input_offset ;
    u32 output_offset ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern unsigned long __per_cpu_offset[4096U] ;
 extern void *memset(void * , int  , size_t  ) ;
@@ -3219,7 +3219,7 @@ static unsigned int pcc_get_freq(unsigned int cpu )
   descriptor.format = "get: get_freq for CPU %d\n";
   descriptor.lineno = 160U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "get: get_freq for CPU %d\n", cpu);
   } else {
@@ -3244,7 +3244,7 @@ static unsigned int pcc_get_freq(unsigned int cpu )
     descriptor___0.format = "get: FAILED: for CPU %d, status is %d\n";
     descriptor___0.lineno = 179U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_pr_debug(& descriptor___0, "get: FAILED: for CPU %d, status is %d\n",
                          cpu, (int )status);
@@ -3264,7 +3264,7 @@ static unsigned int pcc_get_freq(unsigned int cpu )
   descriptor___1.format = "get: SUCCESS: (virtual) output_offset for cpu %d is 0x%p, contains a value of: 0x%x. Speed is: %d MHz\n";
   descriptor___1.lineno = 189U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_pr_debug(& descriptor___1, "get: SUCCESS: (virtual) output_offset for cpu %d is 0x%p, contains a value of: 0x%x. Speed is: %d MHz\n",
                        cpu, pcch_virt_addr + (unsigned long )pcc_cpu_data->output_offset,
@@ -3280,7 +3280,7 @@ static unsigned int pcc_get_freq(unsigned int cpu )
     descriptor___2.format = "get: frequency for cpu %d is being temporarily capped at %d\n";
     descriptor___2.lineno = 194U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     if (tmp___4 != 0L) {
       __dynamic_pr_debug(& descriptor___2, "get: frequency for cpu %d is being temporarily capped at %d\n",
                          cpu, curr_freq);
@@ -3329,7 +3329,7 @@ static int pcc_cpufreq_target(struct cpufreq_policy *policy , unsigned int targe
   descriptor.format = "target: CPU %d should go to target freq: %d (virtual) input_offset is 0x%p\n";
   descriptor.lineno = 223U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "target: CPU %d should go to target freq: %d (virtual) input_offset is 0x%p\n",
                        cpu, target_freq, pcch_virt_addr + (unsigned long )pcc_cpu_data->input_offset);
@@ -3355,7 +3355,7 @@ static int pcc_cpufreq_target(struct cpufreq_policy *policy , unsigned int targe
     descriptor___0.format = "target: FAILED for cpu %d, with status: 0x%x\n";
     descriptor___0.lineno = 243U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_pr_debug(& descriptor___0, "target: FAILED for cpu %d, with status: 0x%x\n",
                          cpu, (int )status);
@@ -3374,7 +3374,7 @@ static int pcc_cpufreq_target(struct cpufreq_policy *policy , unsigned int targe
   descriptor___1.format = "target: was SUCCESSFUL for cpu %d\n";
   descriptor___1.lineno = 249U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_pr_debug(& descriptor___1, "target: was SUCCESSFUL for cpu %d\n", cpu);
   } else {
@@ -3458,7 +3458,7 @@ static int pcc_get_offset(int cpu )
   descriptor.format = "pcc_get_offset: for CPU %d: pcc_cpu_data input_offset: 0x%x, pcc_cpu_data output_offset: 0x%x\n";
   descriptor.lineno = 306U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "pcc_get_offset: for CPU %d: pcc_cpu_data input_offset: 0x%x, pcc_cpu_data output_offset: 0x%x\n",
                        cpu, pcc_cpu_data->input_offset, pcc_cpu_data->output_offset);
@@ -3504,7 +3504,7 @@ static int pcc_cpufreq_cpu_init(struct cpufreq_policy *policy )
     descriptor.format = "init: PCCP evaluation failed\n";
     descriptor.lineno = 562U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_pr_debug(& descriptor, "init: PCCP evaluation failed\n");
     } else {
@@ -3530,7 +3530,7 @@ static int pcc_cpufreq_cpu_init(struct cpufreq_policy *policy )
     descriptor___0.format = "init: Unable to get current CPU frequency\n";
     descriptor___0.lineno = 573U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___5 != 0L) {
       __dynamic_pr_debug(& descriptor___0, "init: Unable to get current CPU frequency\n");
     } else {
@@ -3547,7 +3547,7 @@ static int pcc_cpufreq_cpu_init(struct cpufreq_policy *policy )
   descriptor___1.format = "init: policy->max is %d, policy->min is %d\n";
   descriptor___1.lineno = 579U;
   descriptor___1.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___6 != 0L) {
     __dynamic_pr_debug(& descriptor___1, "init: policy->max is %d, policy->min is %d\n",
                        policy->max, policy->min);
@@ -3649,7 +3649,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

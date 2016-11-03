@@ -4397,7 +4397,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern  __attribute__((__noreturn__)) void __bad_pda_field(void) ;
 extern struct x8664_pda _proxy_pda ;
@@ -4680,7 +4680,7 @@ __inline static int ( __attribute__((__warn_unused_result__, __always_inline__))
                        "\n"
                        " .previous\n": "=r" (ret), "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)((u64 *)src))),
                        "i" (10), "0" (ret));
-  tmp___0 = __builtin_expect(! (! ret), 0);
+  tmp___0 = ldv__builtin_expect(! (! ret), 0);
   if (tmp___0) {
     return (ret);
   } else {
@@ -4750,7 +4750,7 @@ __inline static int ( __attribute__((__warn_unused_result__, __always_inline__))
                        "\n"
                        " .previous\n": "=r" (ret), "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)((u64 *)src))),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(! (! ret), 0);
+  tmp___1 = ldv__builtin_expect(! (! ret), 0);
   if (tmp___1) {
     return (ret);
   } else {
@@ -6060,7 +6060,7 @@ static int i915_batchbuffer(struct drm_device *dev , void *data , struct drm_fil
     } else {
       tmp___0 = 0;
     }
-    tmp___1 = __builtin_expect(tmp___0, 1);
+    tmp___1 = ldv__builtin_expect(tmp___0, 1);
     if (tmp___1 ? 0 : -14) {
       return (-14);
     } else {
@@ -6135,7 +6135,7 @@ static int i915_cmdbuffer(struct drm_device *dev , void *data , struct drm_file 
     } else {
       tmp___0 = 0;
     }
-    tmp___1 = __builtin_expect(tmp___0, 1);
+    tmp___1 = ldv__builtin_expect(tmp___0, 1);
     if (tmp___1 ? 0 : -14) {
       printk("<3>[drm:%s] *ERROR* Fault accessing cliprects\n", "i915_cmdbuffer");
       return (-14);
@@ -6667,7 +6667,7 @@ __inline static int signal_pending(struct task_struct *p )
   } else {
     tmp___0 = 0;
   }
-  tmp___1 = __builtin_expect(tmp___0, 0);
+  tmp___1 = ldv__builtin_expect(tmp___0, 0);
   return (tmp___1);
 }
 }
@@ -7060,7 +7060,7 @@ void i915_user_irq_put(struct drm_device *dev )
     break;
   }
   while (1) {
-    tmp = __builtin_expect(! (! (dev->irq_enabled && dev_priv->user_irq_refcount <= 0)),
+    tmp = ldv__builtin_expect(! (! (dev->irq_enabled && dev_priv->user_irq_refcount <= 0)),
                            0);
     if (tmp) {
       while (1) {
@@ -8719,7 +8719,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
+  tmp = ldv__builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
   return (tmp);
 }
 }
@@ -9136,7 +9136,7 @@ static int i915_gem_gtt_pwrite(struct drm_device *dev , struct drm_gem_object *o
   } else {
     tmp___0 = 0;
   }
-  tmp___1 = __builtin_expect(tmp___0, 1);
+  tmp___1 = ldv__builtin_expect(tmp___0, 1);
   if (tmp___1) {
 
   } else {
@@ -9672,7 +9672,7 @@ static void i915_gem_object_move_to_flushing(struct drm_gem_object *obj )
   dev_priv = dev->dev_private;
   obj_priv = obj->driver_private;
   while (1) {
-    tmp = __builtin_expect(! (! (! obj_priv->active)), 0);
+    tmp = ldv__builtin_expect(! (! (! obj_priv->active)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -10036,7 +10036,7 @@ static int i915_wait_request(struct drm_device *dev , uint32_t seqno )
   dev_priv = dev->dev_private;
   ret = 0;
   while (1) {
-    tmp = __builtin_expect(! (! (seqno == (uint32_t )0)), 0);
+    tmp = ldv__builtin_expect(! (! (seqno == (uint32_t )0)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -10212,7 +10212,7 @@ static int i915_gem_object_wait_rendering(struct drm_gem_object *obj )
   dev = obj->dev;
   obj_priv = obj->driver_private;
   while (1) {
-    tmp = __builtin_expect(! (! ((obj->write_domain & (unsigned int )(~ (1 | 64))) != 0U)),
+    tmp = ldv__builtin_expect(! (! ((obj->write_domain & (unsigned int )(~ (1 | 64))) != 0U)),
                            0);
     if (tmp) {
       while (1) {
@@ -10290,7 +10290,7 @@ static int i915_gem_object_unbind(struct drm_gem_object *obj )
 
   }
   while (1) {
-    tmp = __builtin_expect(! (! obj_priv->active), 0);
+    tmp = ldv__builtin_expect(! (! obj_priv->active), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -10367,7 +10367,7 @@ static int i915_gem_evict_something(struct drm_device *dev )
       obj_priv = (struct drm_i915_gem_object *)((char *)__mptr - (unsigned int )(& ((struct drm_i915_gem_object *)0)->list));
       obj = obj_priv->obj;
       while (1) {
-        tmp = __builtin_expect(! (! (obj_priv->pin_count != 0)), 0);
+        tmp = ldv__builtin_expect(! (! (obj_priv->pin_count != 0)), 0);
         if (tmp) {
           while (1) {
             __asm__  volatile   ("1:\tud2\n"
@@ -10388,7 +10388,7 @@ static int i915_gem_evict_something(struct drm_device *dev )
         break;
       }
       while (1) {
-        tmp___0 = __builtin_expect(! (! obj_priv->active), 0);
+        tmp___0 = ldv__builtin_expect(! (! obj_priv->active), 0);
         if (tmp___0) {
           while (1) {
             __asm__  volatile   ("1:\tud2\n"
@@ -10498,7 +10498,7 @@ static int i915_gem_object_get_page_list(struct drm_gem_object *obj )
   }
   page_count___0 = obj->size / (1UL << 12);
   while (1) {
-    tmp = __builtin_expect(! (! ((unsigned long )obj_priv->page_list != (unsigned long )((void *)0))),
+    tmp = ldv__builtin_expect(! (! ((unsigned long )obj_priv->page_list != (unsigned long )((void *)0))),
                            0);
     if (tmp) {
       while (1) {
@@ -10603,14 +10603,14 @@ static void i915_write_fence_reg(struct drm_i915_fence_reg *reg )
   regnum = obj_priv->fence_reg;
   if (obj_priv->gtt_offset & (unsigned int )(~ 267386880) || (unsigned long )obj_priv->gtt_offset & (obj->size - (size_t )1)) {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(! (! __ret_warn_on), 0);
+    tmp = ldv__builtin_expect(! (! __ret_warn_on), 0);
     if (tmp) {
       warn_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                     1444, "%s: object not 1M or size aligned\n", "i915_write_fence_reg");
     } else {
 
     }
-    __builtin_expect(! (! __ret_warn_on), 0);
+    ldv__builtin_expect(! (! __ret_warn_on), 0);
     return;
   } else {
 
@@ -10655,14 +10655,14 @@ static void i830_write_fence_reg(struct drm_i915_fence_reg *reg )
   regnum = obj_priv->fence_reg;
   if (obj_priv->gtt_offset & (unsigned int )(~ 267386880) || (unsigned long )obj_priv->gtt_offset & (obj->size - (size_t )1)) {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(! (! __ret_warn_on), 0);
+    tmp = ldv__builtin_expect(! (! __ret_warn_on), 0);
     if (tmp) {
       warn_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                     1477, "%s: object not 1M or size aligned\n", "i830_write_fence_reg");
     } else {
 
     }
-    __builtin_expect(! (! __ret_warn_on), 0);
+    ldv__builtin_expect(! (! __ret_warn_on), 0);
     return;
   } else {
 
@@ -10709,36 +10709,36 @@ static void i915_gem_object_get_fence_reg(struct drm_gem_object *obj )
   switch (obj_priv->tiling_mode) {
   case (uint32_t )0: 
   __ret_warn_on = 1;
-  tmp = __builtin_expect(! (! __ret_warn_on), 0);
+  tmp = ldv__builtin_expect(! (! __ret_warn_on), 0);
   if (tmp) {
     warn_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                   1518, "allocating a fence for non-tiled object?\n");
   } else {
 
   }
-  __builtin_expect(! (! __ret_warn_on), 0);
+  ldv__builtin_expect(! (! __ret_warn_on), 0);
   break;
   case (uint32_t )1: 
   __ret_warn_on___0 = ! (! (obj_priv->stride & (unsigned int )(512 - 1)));
-  tmp___0 = __builtin_expect(! (! __ret_warn_on___0), 0);
+  tmp___0 = ldv__builtin_expect(! (! __ret_warn_on___0), 0);
   if (tmp___0) {
     warn_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                   1522, "object is X tiled but has non-512B pitch\n");
   } else {
 
   }
-  __builtin_expect(! (! __ret_warn_on___0), 0);
+  ldv__builtin_expect(! (! __ret_warn_on___0), 0);
   break;
   case (uint32_t )2: 
   __ret_warn_on___1 = ! (! (obj_priv->stride & (unsigned int )(128 - 1)));
-  tmp___1 = __builtin_expect(! (! __ret_warn_on___1), 0);
+  tmp___1 = ldv__builtin_expect(! (! __ret_warn_on___1), 0);
   if (tmp___1) {
     warn_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                   1526, "object is Y tiled but has non-128B pitch\n");
   } else {
 
   }
-  __builtin_expect(! (! __ret_warn_on___1), 0);
+  ldv__builtin_expect(! (! __ret_warn_on___1), 0);
   break;
   }
   i = dev_priv->fence_reg_start;
@@ -10779,14 +10779,14 @@ static void i915_gem_object_get_fence_reg(struct drm_gem_object *obj )
       ret = i915_gem_object_wait_rendering(reg->obj);
       if (ret) {
         __ret_warn_on___2 = ! (! ret);
-        tmp___2 = __builtin_expect(! (! __ret_warn_on___2), 0);
+        tmp___2 = ldv__builtin_expect(! (! __ret_warn_on___2), 0);
         if (tmp___2) {
           warn_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                         1559, "wait_rendering failed: %d\n", ret);
         } else {
 
         }
-        __builtin_expect(! (! __ret_warn_on___2), 0);
+        ldv__builtin_expect(! (! __ret_warn_on___2), 0);
         return;
       } else {
 
@@ -10934,7 +10934,7 @@ static int i915_gem_object_bind_to_gtt(struct drm_gem_object *obj , unsigned int
   atomic_inc(& dev->gtt_count);
   atomic_add(obj->size, & dev->gtt_memory);
   while (1) {
-    tmp___2 = __builtin_expect(! (! (obj->read_domains & (unsigned int )(~ (1 | 64)))),
+    tmp___2 = ldv__builtin_expect(! (! (obj->read_domains & (unsigned int )(~ (1 | 64)))),
                                0);
     if (tmp___2) {
       while (1) {
@@ -10956,7 +10956,7 @@ static int i915_gem_object_bind_to_gtt(struct drm_gem_object *obj , unsigned int
     break;
   }
   while (1) {
-    tmp___3 = __builtin_expect(! (! (obj->write_domain & (unsigned int )(~ (1 | 64)))),
+    tmp___3 = ldv__builtin_expect(! (! (obj->write_domain & (unsigned int )(~ (1 | 64)))),
                                0);
     if (tmp___3) {
       while (1) {
@@ -11072,7 +11072,7 @@ static int i915_gem_object_set_to_gtt_domain(struct drm_gem_object *obj , int wr
   }
   i915_gem_object_flush_cpu_write_domain(obj);
   while (1) {
-    tmp = __builtin_expect(! (! ((obj->write_domain & (unsigned int )(~ 64)) != 0U)),
+    tmp = ldv__builtin_expect(! (! ((obj->write_domain & (unsigned int )(~ 64)) != 0U)),
                            0);
     if (tmp) {
       while (1) {
@@ -11128,7 +11128,7 @@ static int i915_gem_object_set_to_cpu_domain(struct drm_gem_object *obj , int wr
 
   }
   while (1) {
-    tmp = __builtin_expect(! (! ((obj->write_domain & (unsigned int )(~ 1)) != 0U)),
+    tmp = ldv__builtin_expect(! (! ((obj->write_domain & (unsigned int )(~ 1)) != 0U)),
                            0);
     if (tmp) {
       while (1) {
@@ -11174,7 +11174,7 @@ static void i915_gem_object_set_to_gpu_domain(struct drm_gem_object *obj , uint3
   invalidate_domains = 0;
   flush_domains = 0;
   while (1) {
-    tmp = __builtin_expect(! (! (read_domains & 1U)), 0);
+    tmp = ldv__builtin_expect(! (! (read_domains & 1U)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -11195,7 +11195,7 @@ static void i915_gem_object_set_to_gpu_domain(struct drm_gem_object *obj , uint3
     break;
   }
   while (1) {
-    tmp___0 = __builtin_expect(! (! (write_domain == (uint32_t )1)), 0);
+    tmp___0 = ldv__builtin_expect(! (! (write_domain == (uint32_t )1)), 0);
     if (tmp___0) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -11346,7 +11346,7 @@ static int i915_gem_object_set_cpu_read_domain_range(struct drm_gem_object *obj 
     i = i + 1;
   }
   while (1) {
-    tmp___1 = __builtin_expect(! (! ((obj->write_domain & (unsigned int )(~ 1)) != 0U)),
+    tmp___1 = ldv__builtin_expect(! (! ((obj->write_domain & (unsigned int )(~ 1)) != 0U)),
                                0);
     if (tmp___1) {
       while (1) {
@@ -11868,7 +11868,7 @@ int i915_gem_execbuffer(struct drm_device *dev , void *data , struct drm_file *f
   flush_domains = i915_retire_commands(dev);
   seqno = i915_add_request(dev, flush_domains);
   while (1) {
-    tmp___2 = __builtin_expect(! (! (seqno == (uint32_t )0)), 0);
+    tmp___2 = ldv__builtin_expect(! (! (seqno == (uint32_t )0)), 0);
     if (tmp___2) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -11997,7 +11997,7 @@ void i915_gem_object_unpin(struct drm_gem_object *obj )
   obj_priv = obj->driver_private;
   obj_priv->pin_count = obj_priv->pin_count - 1;
   while (1) {
-    tmp = __builtin_expect(! (! (obj_priv->pin_count < 0)), 0);
+    tmp = ldv__builtin_expect(! (! (obj_priv->pin_count < 0)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -12018,7 +12018,7 @@ void i915_gem_object_unpin(struct drm_gem_object *obj )
     break;
   }
   while (1) {
-    tmp___0 = __builtin_expect(! (! ((unsigned long )obj_priv->gtt_space == (unsigned long )((void *)0))),
+    tmp___0 = ldv__builtin_expect(! (! ((unsigned long )obj_priv->gtt_space == (unsigned long )((void *)0))),
                                0);
     if (tmp___0) {
       while (1) {
@@ -12341,14 +12341,14 @@ static int i915_gem_idle(struct drm_device *dev )
       tmp___2 = 1;
     }
     __ret_warn_on = tmp___2;
-    tmp___3 = __builtin_expect(! (! __ret_warn_on), 0);
+    tmp___3 = ldv__builtin_expect(! (! __ret_warn_on), 0);
     if (tmp___3) {
       warn_on_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                        2945);
     } else {
 
     }
-    __builtin_expect(! (! __ret_warn_on), 0);
+    ldv__builtin_expect(! (! __ret_warn_on), 0);
     tmp___4 = list_empty(& dev_priv->mm.flushing_list);
     if (tmp___4) {
       tmp___5 = 0;
@@ -12356,14 +12356,14 @@ static int i915_gem_idle(struct drm_device *dev )
       tmp___5 = 1;
     }
     __ret_warn_on___0 = tmp___5;
-    tmp___6 = __builtin_expect(! (! __ret_warn_on___0), 0);
+    tmp___6 = ldv__builtin_expect(! (! __ret_warn_on___0), 0);
     if (tmp___6) {
       warn_on_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                        2946);
     } else {
 
     }
-    __builtin_expect(! (! __ret_warn_on___0), 0);
+    ldv__builtin_expect(! (! __ret_warn_on___0), 0);
     tmp___7 = list_empty(& dev_priv->mm.request_list);
     if (tmp___7) {
       tmp___8 = 0;
@@ -12371,14 +12371,14 @@ static int i915_gem_idle(struct drm_device *dev )
       tmp___8 = 1;
     }
     __ret_warn_on___1 = tmp___8;
-    tmp___9 = __builtin_expect(! (! __ret_warn_on___1), 0);
+    tmp___9 = ldv__builtin_expect(! (! __ret_warn_on___1), 0);
     if (tmp___9) {
       warn_on_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                        2950);
     } else {
 
     }
-    __builtin_expect(! (! __ret_warn_on___1), 0);
+    ldv__builtin_expect(! (! __ret_warn_on___1), 0);
   } else {
 
   }
@@ -12414,14 +12414,14 @@ static int i915_gem_idle(struct drm_device *dev )
     tmp___13 = 1;
   }
   __ret_warn_on___2 = tmp___13;
-  tmp___14 = __builtin_expect(! (! __ret_warn_on___2), 0);
+  tmp___14 = ldv__builtin_expect(! (! __ret_warn_on___2), 0);
   if (tmp___14) {
     warn_on_slowpath("/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/68_1/drivers/gpu/drm/i915/i915_gem.c",
                      2981);
   } else {
 
   }
-  __builtin_expect(! (! __ret_warn_on___2), 0);
+  ldv__builtin_expect(! (! __ret_warn_on___2), 0);
   if (ret) {
     mutex_unlock(& dev->struct_mutex);
     return (ret);
@@ -12668,7 +12668,7 @@ int i915_gem_entervt_ioctl(struct drm_device *dev , void *data , struct drm_file
     } else {
       tmp___0 = 1;
     }
-    tmp___1 = __builtin_expect(tmp___0, 0);
+    tmp___1 = ldv__builtin_expect(tmp___0, 0);
     if (tmp___1) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -12695,7 +12695,7 @@ int i915_gem_entervt_ioctl(struct drm_device *dev , void *data , struct drm_file
     } else {
       tmp___3 = 1;
     }
-    tmp___4 = __builtin_expect(tmp___3, 0);
+    tmp___4 = ldv__builtin_expect(tmp___3, 0);
     if (tmp___4) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -12722,7 +12722,7 @@ int i915_gem_entervt_ioctl(struct drm_device *dev , void *data , struct drm_file
     } else {
       tmp___6 = 1;
     }
-    tmp___7 = __builtin_expect(tmp___6, 0);
+    tmp___7 = ldv__builtin_expect(tmp___6, 0);
     if (tmp___7) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -12749,7 +12749,7 @@ int i915_gem_entervt_ioctl(struct drm_device *dev , void *data , struct drm_file
     } else {
       tmp___9 = 1;
     }
-    tmp___10 = __builtin_expect(tmp___9, 0);
+    tmp___10 = ldv__builtin_expect(tmp___9, 0);
     if (tmp___10) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -14072,7 +14072,7 @@ static int compat_i915_batchbuffer(struct file *file , unsigned int cmd , unsign
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -14839,7 +14839,7 @@ static int compat_i915_cmdbuffer(struct file *file , unsigned int cmd , unsigned
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -15601,7 +15601,7 @@ static int compat_i915_irq_emit(struct file *file , unsigned int cmd , unsigned 
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -15764,7 +15764,7 @@ static int compat_i915_getparam(struct file *file , unsigned int cmd , unsigned 
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -16045,7 +16045,7 @@ static int compat_i915_alloc(struct file *file , unsigned int cmd , unsigned lon
   } else {
     tmp___2 = 0;
   }
-  tmp___3 = __builtin_expect(tmp___2, 1);
+  tmp___3 = ldv__builtin_expect(tmp___2, 1);
   if (tmp___3) {
     while (1) {
       __pu_err = 0;
@@ -16587,7 +16587,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
