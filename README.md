@@ -102,6 +102,11 @@ In order to contribute verification tasks, please use the following steps:
 - file a pull request, and
 - discuss with community members until your contribution is approved and merged into the repository.
 
+When pre-processing C files, please use the command `cpp -P` or something similar
+that does not add line directives to the output.
+Please make sure that you are pre-processing the files with the correct architecture
+(e.g., on a 64-bit system, you need to specify `-m32` for 32-bit programs)!
+
 #### Category
 
 In order to be effectively used by people (e.g., in SV-COMP), the verification tasks need to be part of some category.

@@ -22,6 +22,8 @@ CONFIG_KEYS = set(["Architecture", "Description", "Memory Model"])
 
 UNUSED_DIRECTORIES = set(["busybox-1.22.0", "ldv-challenges", "ldv-multiproperty", "regression"])
 
+LINE_DIRECTIVE = re.compile('^#(line| [0-9]+) ')
+
 KNOWN_DIRECTORY_PROBLEMS = [
     # TODO Please fix
     ("bitvector", "missing license"),
@@ -320,6 +322,18 @@ class DirectoryChecks(Checks):
             if entry.endswith(".cil.c") and alternative_exists(entry[:-6] + ".i"):
                 continue
             self.error("%s is not contained in any category", entry)
+
+    def check_file_has_no_line_directive(self):
+        for entry in self.content:
+            if not BENCHMARK_PATTERN.match(entry):
+                continue
+
+            with open(os.path.join(self.path, entry)) as f:
+                if any(LINE_DIRECTIVE.match(line) for line in f):
+                    self.error(
+                        "%s has line directives from preprocessor, "
+                        "please use 'cpp -P' for preprocessing", entry)
+
 
 class SetFileChecks(Checks):
 
