@@ -214,7 +214,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
 KNOWN_SET_PROBLEMS = [
     # TODO Please fix
-    ("BusyBox.set", "./busybox-1.22.0/dirname_true-unreach-call.i has property unreach-call, but does not call __VERIFIER_error"),
+    ("BusyBox.set", "busybox-1.22.0/dirname_true-unreach-call.i has property unreach-call, but does not call __VERIFIER_error"),
     ("Termination.set", "64 bit category contains 32 bit benchmarks in product-lines"),
     ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
     ]
@@ -422,7 +422,8 @@ class SetFileChecks(Checks):
             with open(file) as f:
                 if not any("__VERIFIER_error();" in line for line in f if not "extern" in line):
                     self.error(
-                        "%s has property unreach-call, but does not call __VERIFIER_error", file)
+                        "%s has property unreach-call, but does not call __VERIFIER_error",
+                        os.path.relpath(file, self.base_path))
 
 
 def read_set_file(path):
