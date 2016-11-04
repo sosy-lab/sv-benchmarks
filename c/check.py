@@ -215,6 +215,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
 KNOWN_SET_PROBLEMS = [
     # TODO Please fix
+    ("BusyBox.set", "./busybox-1.22.0/dirname_true-unreach-call.i has property unreach-call, but does not call __VERIFIER_error"),
     ("Termination.set", "64 bit category contains 32 bit benchmarks in product-lines"),
     ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
     ]
@@ -412,6 +413,18 @@ class SetFileChecks(Checks):
             self.error("invalid memory model <%s>", cfg.get("Memory Model"))
         if cfg.get("Memory Model", "Precise") not in ["Precise", "Simple"]:
             self.error("invalid memory model <%s>", cfg.get("Memory Model"))
+
+    def check_unreach_call_tasks_have_verifier_error(self):
+        for file in (file for pattern in self.patterns
+                     for file in glob.iglob(os.path.join(self.base_path, pattern))):
+            if not "unreach-call" in file:
+                continue
+
+            with open(file) as f:
+                if not any("__VERIFIER_error();" in line for line in f if not "extern" in line):
+                    self.error(
+                        "%s has property unreach-call, but does not call __VERIFIER_error", file)
+
 
 def read_set_file(path):
     with open(path) as f:
