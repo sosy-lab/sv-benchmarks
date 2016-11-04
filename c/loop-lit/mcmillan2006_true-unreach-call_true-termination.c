@@ -2,6 +2,8 @@
 
 #include "assert.h"
 
+extern void *malloc(unsigned int size);
+
 int main() {
     int n = __VERIFIER_nondet_int();
     __VERIFIER_assume(0 <= n && n <= 1000);
