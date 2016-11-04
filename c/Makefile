@@ -6,7 +6,6 @@ SKIP_LEVEL := 1
 # FIXME: Remove this once we can compile everything using Clang
 CC_VERSION_INFO :=$(shell $(CC) --version)
 CC_IS_CLANG:=$(shell echo '$(CC_VERSION_INFO)' | grep -ic clang)
-CLANG_BUILD_HACK ?= 0
 
 # Add directories to build. Make sure that you add a single directory
 # per line so that it easy to comment out a single directory
@@ -67,11 +66,7 @@ DIRS += pthread-wmm
 DIRS += recursive
 DIRS += recursive-simple
 DIRS += reducercommutativity
-ifeq ($(CC_IS_CLANG)$(CLANG_BUILD_HACK),11)
-  $(warning Skipping regression due to Clang compilation issues)
-else
-  DIRS += regression
-endif
+DIRS += regression
 DIRS += seq-mthreaded
 DIRS += seq-pthread
 DIRS += signedintegeroverflow-regression

@@ -3019,7 +3019,7 @@ struct device_node {
    void *data ;
 };
 typedef int ldv_func_ret_type___0;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 __inline static void rep_nop(void) 
 { 
@@ -3465,7 +3465,7 @@ static int ulite_request_port(struct uart_port *port )
   descriptor.lineno = 301U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     printk("<7>ulite console: port=%p; port->mapbase=%llx\n", port, port->mapbase);
   } else {
@@ -3695,7 +3695,7 @@ int ulite_init(void)
   descriptor.lineno = 640U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     printk("<7>uartlite: calling uart_register_driver()\n");
   } else {
@@ -3714,7 +3714,7 @@ int ulite_init(void)
   descriptor___0.lineno = 645U;
   descriptor___0.flags = 0U;
   descriptor___0.enabled = (char)0;
-  tmp___0 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
   if (tmp___0 != 0L) {
     printk("<7>uartlite: calling platform_driver_register()\n");
   } else {
@@ -3954,7 +3954,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

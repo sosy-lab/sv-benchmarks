@@ -1338,7 +1338,7 @@ struct comedi_lrange {
    int length ;
    struct comedi_krange range[] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 __inline static void outl(unsigned int value , int port ) 
 { 
@@ -1413,7 +1413,7 @@ __inline static void comedi_set_hw_dev(struct comedi_device *dev , struct device
   dev->hw_dev = hw_dev;
   if ((unsigned long )dev->hw_dev != (unsigned long )((struct device *)0)) {
     dev->hw_dev = get_device(dev->hw_dev);
-    tmp = __builtin_expect((unsigned long )dev->hw_dev == (unsigned long )((struct device *)0),
+    tmp = ldv__builtin_expect((unsigned long )dev->hw_dev == (unsigned long )((struct device *)0),
                            0L);
     if (tmp != 0L) {
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/inst/current/envs/linux/linux/drivers/staging/comedi/drivers/../comedidev.h"),
@@ -1705,7 +1705,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

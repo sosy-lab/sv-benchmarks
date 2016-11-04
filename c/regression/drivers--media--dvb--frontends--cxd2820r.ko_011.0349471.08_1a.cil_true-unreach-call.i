@@ -5980,7 +5980,7 @@ int cxd2820r_get_tune_settings_t2(struct dvb_frontend *fe , struct dvb_frontend_
   return (0);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ldv_error(void) 
 { 
 
@@ -5990,7 +5990,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

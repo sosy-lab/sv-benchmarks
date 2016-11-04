@@ -3584,7 +3584,7 @@ struct ssu100_port_private {
    wait_queue_head_t delta_msr_wait ;
    struct async_icount icount ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
   int oldbit ;
@@ -3760,7 +3760,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -3878,7 +3878,7 @@ __inline static int update_mctrl(struct usb_device *dev , unsigned int set , uns
     descriptor.format = "%s - DTR|RTS not being set|cleared\n";
     descriptor.lineno = 197U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& dev->dev), "%s - DTR|RTS not being set|cleared\n",
                         "update_mctrl");
@@ -3909,7 +3909,7 @@ __inline static int update_mctrl(struct usb_device *dev , unsigned int set , uns
     descriptor___0.format = "%s Error from MODEM_CTRL urb\n";
     descriptor___0.lineno = 210U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& dev->dev), "%s Error from MODEM_CTRL urb\n",
                         "update_mctrl");
@@ -3957,7 +3957,7 @@ static int ssu100_initdevice(struct usb_device *dev )
     descriptor.format = "%s - get_device failed %i\n";
     descriptor.lineno = 226U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& dev->dev), "%s - get_device failed %i\n",
                         "ssu100_initdevice", result);
@@ -3977,7 +3977,7 @@ static int ssu100_initdevice(struct usb_device *dev )
     descriptor___0.format = "%s - setdevice failed %i\n";
     descriptor___0.lineno = 234U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& dev->dev), "%s - setdevice failed %i\n",
                         "ssu100_initdevice", result);
@@ -3996,7 +3996,7 @@ static int ssu100_initdevice(struct usb_device *dev )
     descriptor___1.format = "%s - set prebuffer level failed %i\n";
     descriptor___1.lineno = 240U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& dev->dev), "%s - set prebuffer level failed %i\n",
                         "ssu100_initdevice", result);
@@ -4015,7 +4015,7 @@ static int ssu100_initdevice(struct usb_device *dev )
     descriptor___2.format = "%s - set ATFprebuffer level failed %i\n";
     descriptor___2.lineno = 246U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     if (tmp___3 != 0L) {
       __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& dev->dev), "%s - set ATFprebuffer level failed %i\n",
                         "ssu100_initdevice", result);
@@ -4034,7 +4034,7 @@ static int ssu100_initdevice(struct usb_device *dev )
     descriptor___3.format = "%s - get_device failed %i\n";
     descriptor___3.lineno = 252U;
     descriptor___3.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     if (tmp___4 != 0L) {
       __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)(& dev->dev), "%s - get_device failed %i\n",
                         "ssu100_initdevice", result);
@@ -4057,7 +4057,7 @@ static int ssu100_initdevice(struct usb_device *dev )
     descriptor___4.format = "%s - setdevice failed %i\n";
     descriptor___4.lineno = 263U;
     descriptor___4.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     if (tmp___5 != 0L) {
       __dynamic_dev_dbg(& descriptor___4, (struct device  const  *)(& dev->dev), "%s - setdevice failed %i\n",
                         "ssu100_initdevice", result);
@@ -4138,7 +4138,7 @@ static void ssu100_set_termios(struct tty_struct *tty , struct usb_serial_port *
   descriptor.format = "%s - got baud = %d\n";
   descriptor.lineno = 311U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - got baud = %d\n",
                       "ssu100_set_termios", (int )baud);
@@ -4161,7 +4161,7 @@ static void ssu100_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___0.format = "%s - set uart failed\n";
     descriptor___0.lineno = 323U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev),
                         "%s - set uart failed\n", "ssu100_set_termios");
@@ -4183,7 +4183,7 @@ static void ssu100_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___1.format = "%s - set HW flow control failed\n";
     descriptor___1.lineno = 332U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev),
                         "%s - set HW flow control failed\n", "ssu100_set_termios");
@@ -4206,7 +4206,7 @@ static void ssu100_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___2.format = "%s - set SW flow control failed\n";
     descriptor___2.lineno = 344U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     if (tmp___3 != 0L) {
       __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& port->dev),
                         "%s - set SW flow control failed\n", "ssu100_set_termios");
@@ -4256,7 +4256,7 @@ static int ssu100_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor.format = "%s - open failed %i\n";
     descriptor.lineno = 366U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - open failed %i\n",
                         "ssu100_open", result);
@@ -4281,7 +4281,7 @@ static int ssu100_open(struct tty_struct *tty , struct usb_serial_port *port )
     descriptor___0.format = "%s - set uart failed\n";
     descriptor___0.lineno = 381U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___3 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev),
                         "%s - set uart failed\n", "ssu100_open");
@@ -4460,7 +4460,7 @@ static int ssu100_ioctl(struct tty_struct *tty , unsigned int cmd , unsigned lon
   descriptor.format = "%s cmd 0x%04x\n";
   descriptor.lineno = 485U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s cmd 0x%04x\n",
                       "ssu100_ioctl", cmd);
@@ -4484,7 +4484,7 @@ static int ssu100_ioctl(struct tty_struct *tty , unsigned int cmd , unsigned lon
   descriptor___0.format = "%s arg not supported\n";
   descriptor___0.lineno = 499U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev), "%s arg not supported\n",
                       "ssu100_ioctl");
@@ -5009,7 +5009,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

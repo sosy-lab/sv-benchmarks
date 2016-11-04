@@ -4366,7 +4366,7 @@ struct com20020_dev_t {
    struct net_device *dev ;
 };
 typedef struct com20020_dev_t com20020_dev_t;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
 void ldv___ldv_spin_lock_4(spinlock_t *ldv_func_arg1 ) ;
 void ldv___ldv_spin_lock_6(spinlock_t *ldv_func_arg1 ) ;
@@ -4473,7 +4473,7 @@ static int com20020_probe(struct pcmcia_device *p_dev )
   descriptor.lineno = 211U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     dev_printk("<7>", (struct device  const  *)(& p_dev->dev), "com20020_attach()\n");
   } else {
@@ -4540,7 +4540,7 @@ static void com20020_detach(struct pcmcia_device *link )
   descriptor.lineno = 252U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "detach...\n");
   } else {
@@ -4553,7 +4553,7 @@ static void com20020_detach(struct pcmcia_device *link )
   descriptor___0.lineno = 254U;
   descriptor___0.flags = 0U;
   descriptor___0.enabled = (char)0;
-  tmp___0 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
   if (tmp___0 != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "com20020_detach\n");
   } else {
@@ -4566,7 +4566,7 @@ static void com20020_detach(struct pcmcia_device *link )
   descriptor___1.lineno = 256U;
   descriptor___1.flags = 0U;
   descriptor___1.enabled = (char)0;
-  tmp___1 = __builtin_expect((int )((signed char )descriptor___1.enabled) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___1.enabled) != 0, 0L);
   if (tmp___1 != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "unregister...\n");
   } else {
@@ -4586,7 +4586,7 @@ static void com20020_detach(struct pcmcia_device *link )
   descriptor___2.lineno = 270U;
   descriptor___2.flags = 0U;
   descriptor___2.enabled = (char)0;
-  tmp___2 = __builtin_expect((int )((signed char )descriptor___2.enabled) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((int )((signed char )descriptor___2.enabled) != 0, 0L);
   if (tmp___2 != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "unlinking...\n");
   } else {
@@ -4602,7 +4602,7 @@ static void com20020_detach(struct pcmcia_device *link )
       descriptor___3.lineno = 276U;
       descriptor___3.flags = 0U;
       descriptor___3.enabled = (char)0;
-      tmp___3 = __builtin_expect((int )((signed char )descriptor___3.enabled) != 0,
+      tmp___3 = ldv__builtin_expect((int )((signed char )descriptor___3.enabled) != 0,
                                  0L);
       if (tmp___3 != 0L) {
         dev_printk("<7>", (struct device  const  *)(& link->dev), "kfree...\n");
@@ -4620,7 +4620,7 @@ static void com20020_detach(struct pcmcia_device *link )
     descriptor___4.lineno = 279U;
     descriptor___4.flags = 0U;
     descriptor___4.enabled = (char)0;
-    tmp___4 = __builtin_expect((int )((signed char )descriptor___4.enabled) != 0,
+    tmp___4 = ldv__builtin_expect((int )((signed char )descriptor___4.enabled) != 0,
                                0L);
     if (tmp___4 != 0L) {
       dev_printk("<7>", (struct device  const  *)(& link->dev), "kfree2...\n");
@@ -4675,7 +4675,7 @@ static int com20020_config(struct pcmcia_device *link )
   descriptor.lineno = 296U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "config...\n");
   } else {
@@ -4688,7 +4688,7 @@ static int com20020_config(struct pcmcia_device *link )
   descriptor___0.lineno = 298U;
   descriptor___0.flags = 0U;
   descriptor___0.enabled = (char)0;
-  tmp___0 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
   if (tmp___0 != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "com20020_config\n");
   } else {
@@ -4701,7 +4701,7 @@ static int com20020_config(struct pcmcia_device *link )
   descriptor___1.lineno = 301U;
   descriptor___1.flags = 0U;
   descriptor___1.enabled = (char)0;
-  tmp___1 = __builtin_expect((int )((signed char )descriptor___1.enabled) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___1.enabled) != 0, 0L);
   if (tmp___1 != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "baseport1 is %Xh\n",
                (unsigned int )(link->resource[0])->start);
@@ -4740,7 +4740,7 @@ static int com20020_config(struct pcmcia_device *link )
     descriptor___2.lineno = 321U;
     descriptor___2.flags = 0U;
     descriptor___2.enabled = (char)0;
-    tmp___2 = __builtin_expect((int )((signed char )descriptor___2.enabled) != 0,
+    tmp___2 = ldv__builtin_expect((int )((signed char )descriptor___2.enabled) != 0,
                                0L);
     if (tmp___2 != 0L) {
       dev_printk("<7>", (struct device  const  *)(& link->dev), "requestIO failed totally!\n");
@@ -4761,7 +4761,7 @@ static int com20020_config(struct pcmcia_device *link )
   descriptor___3.lineno = 326U;
   descriptor___3.flags = 0U;
   descriptor___3.enabled = (char)0;
-  tmp___4 = __builtin_expect((int )((signed char )descriptor___3.enabled) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((int )((signed char )descriptor___3.enabled) != 0, 0L);
   if (tmp___4 != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "got ioaddr %Xh\n",
                ioaddr);
@@ -4775,7 +4775,7 @@ static int com20020_config(struct pcmcia_device *link )
   descriptor___4.lineno = 329U;
   descriptor___4.flags = 0U;
   descriptor___4.enabled = (char)0;
-  tmp___5 = __builtin_expect((int )((signed char )descriptor___4.enabled) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((int )((signed char )descriptor___4.enabled) != 0, 0L);
   if (tmp___5 != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "request IRQ %d\n",
                link->irq);
@@ -4790,7 +4790,7 @@ static int com20020_config(struct pcmcia_device *link )
     descriptor___5.lineno = 332U;
     descriptor___5.flags = 0U;
     descriptor___5.enabled = (char)0;
-    tmp___6 = __builtin_expect((int )((signed char )descriptor___5.enabled) != 0,
+    tmp___6 = ldv__builtin_expect((int )((signed char )descriptor___5.enabled) != 0,
                                0L);
     if (tmp___6 != 0L) {
       dev_printk("<7>", (struct device  const  *)(& link->dev), "requestIRQ failed totally!\n");
@@ -4834,7 +4834,7 @@ static int com20020_config(struct pcmcia_device *link )
   descriptor___6.lineno = 363U;
   descriptor___6.flags = 0U;
   descriptor___6.enabled = (char)0;
-  tmp___10 = __builtin_expect((int )((signed char )descriptor___6.enabled) != 0, 0L);
+  tmp___10 = ldv__builtin_expect((int )((signed char )descriptor___6.enabled) != 0, 0L);
   if (tmp___10 != 0L) {
     tmp___9 = netdev_name((struct net_device  const  *)dev);
     dev_printk("<7>", (struct device  const  *)dev->dev.parent, "%s: port %#3lx, irq %d\n",
@@ -4851,7 +4851,7 @@ static int com20020_config(struct pcmcia_device *link )
   descriptor___7.lineno = 367U;
   descriptor___7.flags = 0U;
   descriptor___7.enabled = (char)0;
-  tmp___11 = __builtin_expect((int )((signed char )descriptor___7.enabled) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((int )((signed char )descriptor___7.enabled) != 0, 0L);
   if (tmp___11 != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "com20020_config failed...\n");
   } else {
@@ -4874,7 +4874,7 @@ static void com20020_release(struct pcmcia_device *link )
   descriptor.lineno = 374U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "com20020_release\n");
   } else {
@@ -5076,7 +5076,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

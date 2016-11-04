@@ -3452,7 +3452,7 @@ struct cp210x_port_private {
    __u8 bInterfaceNumber ;
 };
 typedef int ldv_func_ret_type___2;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
 extern int mutex_trylock(struct mutex * ) ;
@@ -3624,7 +3624,7 @@ static int cp210x_get_config(struct usb_serial_port *port , u8 request , unsigne
     descriptor.format = "%s - Unable to send config request, request=0x%x size=%d result=%d\n";
     descriptor.lineno = 346U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - Unable to send config request, request=0x%x size=%d result=%d\n",
                         "cp210x_get_config", (int )request, size, result);
@@ -3703,7 +3703,7 @@ static int cp210x_set_config(struct usb_serial_port *port , u8 request , unsigne
     descriptor.format = "%s - Unable to send request, request=0x%x size=%d result=%d\n";
     descriptor.lineno = 402U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___3 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - Unable to send request, request=0x%x size=%d result=%d\n",
                         "cp210x_set_config", (int )request, size, result);
@@ -3945,7 +3945,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor.format = "%s - baud rate = %d\n";
   descriptor.lineno = 533U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "%s - baud rate = %d\n",
                       "cp210x_get_termios_port", baud);
@@ -3964,7 +3964,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___0.format = "%s - data bits = 5\n";
   descriptor___0.lineno = 542U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)dev, "%s - data bits = 5\n",
                       "cp210x_get_termios_port");
@@ -3980,7 +3980,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___1.format = "%s - data bits = 6\n";
   descriptor___1.lineno = 546U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)dev, "%s - data bits = 6\n",
                       "cp210x_get_termios_port");
@@ -3996,7 +3996,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___2.format = "%s - data bits = 7\n";
   descriptor___2.lineno = 550U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)dev, "%s - data bits = 7\n",
                       "cp210x_get_termios_port");
@@ -4012,7 +4012,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___3.format = "%s - data bits = 8\n";
   descriptor___3.lineno = 554U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)dev, "%s - data bits = 8\n",
                       "cp210x_get_termios_port");
@@ -4028,7 +4028,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___4.format = "%s - data bits = 9 (not supported, using 8 data bits)\n";
   descriptor___4.lineno = 558U;
   descriptor___4.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   if (tmp___4 != 0L) {
     __dynamic_dev_dbg(& descriptor___4, (struct device  const  *)dev, "%s - data bits = 9 (not supported, using 8 data bits)\n",
                       "cp210x_get_termios_port");
@@ -4047,7 +4047,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___5.format = "%s - Unknown number of data bits, using 8\n";
   descriptor___5.lineno = 565U;
   descriptor___5.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   if (tmp___5 != 0L) {
     __dynamic_dev_dbg(& descriptor___5, (struct device  const  *)dev, "%s - Unknown number of data bits, using 8\n",
                       "cp210x_get_termios_port");
@@ -4069,7 +4069,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___6.format = "%s - parity = NONE\n";
   descriptor___6.lineno = 575U;
   descriptor___6.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   if (tmp___6 != 0L) {
     __dynamic_dev_dbg(& descriptor___6, (struct device  const  *)dev, "%s - parity = NONE\n",
                       "cp210x_get_termios_port");
@@ -4085,7 +4085,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___7.format = "%s - parity = ODD\n";
   descriptor___7.lineno = 579U;
   descriptor___7.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   if (tmp___7 != 0L) {
     __dynamic_dev_dbg(& descriptor___7, (struct device  const  *)dev, "%s - parity = ODD\n",
                       "cp210x_get_termios_port");
@@ -4101,7 +4101,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___8.format = "%s - parity = EVEN\n";
   descriptor___8.lineno = 583U;
   descriptor___8.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   if (tmp___8 != 0L) {
     __dynamic_dev_dbg(& descriptor___8, (struct device  const  *)dev, "%s - parity = EVEN\n",
                       "cp210x_get_termios_port");
@@ -4118,7 +4118,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___9.format = "%s - parity = MARK\n";
   descriptor___9.lineno = 588U;
   descriptor___9.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   if (tmp___9 != 0L) {
     __dynamic_dev_dbg(& descriptor___9, (struct device  const  *)dev, "%s - parity = MARK\n",
                       "cp210x_get_termios_port");
@@ -4134,7 +4134,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___10.format = "%s - parity = SPACE\n";
   descriptor___10.lineno = 592U;
   descriptor___10.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
   if (tmp___10 != 0L) {
     __dynamic_dev_dbg(& descriptor___10, (struct device  const  *)dev, "%s - parity = SPACE\n",
                       "cp210x_get_termios_port");
@@ -4151,7 +4151,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___11.format = "%s - Unknown parity mode, disabling parity\n";
   descriptor___11.lineno = 597U;
   descriptor___11.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
   if (tmp___11 != 0L) {
     __dynamic_dev_dbg(& descriptor___11, (struct device  const  *)dev, "%s - Unknown parity mode, disabling parity\n",
                       "cp210x_get_termios_port");
@@ -4173,7 +4173,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___12.format = "%s - stop bits = 1\n";
   descriptor___12.lineno = 607U;
   descriptor___12.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
   if (tmp___12 != 0L) {
     __dynamic_dev_dbg(& descriptor___12, (struct device  const  *)dev, "%s - stop bits = 1\n",
                       "cp210x_get_termios_port");
@@ -4188,7 +4188,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___13.format = "%s - stop bits = 1.5 (not supported, using 1 stop bit)\n";
   descriptor___13.lineno = 610U;
   descriptor___13.flags = 0U;
-  tmp___13 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
   if (tmp___13 != 0L) {
     __dynamic_dev_dbg(& descriptor___13, (struct device  const  *)dev, "%s - stop bits = 1.5 (not supported, using 1 stop bit)\n",
                       "cp210x_get_termios_port");
@@ -4205,7 +4205,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___14.format = "%s - stop bits = 2\n";
   descriptor___14.lineno = 615U;
   descriptor___14.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
   if (tmp___14 != 0L) {
     __dynamic_dev_dbg(& descriptor___14, (struct device  const  *)dev, "%s - stop bits = 2\n",
                       "cp210x_get_termios_port");
@@ -4221,7 +4221,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
   descriptor___15.format = "%s - Unknown number of stop bits, using 1 stop bit\n";
   descriptor___15.lineno = 619U;
   descriptor___15.flags = 0U;
-  tmp___15 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
   if (tmp___15 != 0L) {
     __dynamic_dev_dbg(& descriptor___15, (struct device  const  *)dev, "%s - Unknown number of stop bits, using 1 stop bit\n",
                       "cp210x_get_termios_port");
@@ -4241,7 +4241,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
     descriptor___16.format = "%s - flow control = CRTSCTS\n";
     descriptor___16.lineno = 627U;
     descriptor___16.flags = 0U;
-    tmp___16 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
     if (tmp___16 != 0L) {
       __dynamic_dev_dbg(& descriptor___16, (struct device  const  *)dev, "%s - flow control = CRTSCTS\n",
                         "cp210x_get_termios_port");
@@ -4256,7 +4256,7 @@ static void cp210x_get_termios_port(struct usb_serial_port *port , unsigned int 
     descriptor___17.format = "%s - flow control = NONE\n";
     descriptor___17.lineno = 630U;
     descriptor___17.flags = 0U;
-    tmp___17 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
     if (tmp___17 != 0L) {
       __dynamic_dev_dbg(& descriptor___17, (struct device  const  *)dev, "%s - flow control = NONE\n",
                         "cp210x_get_termios_port");
@@ -4286,7 +4286,7 @@ static void cp210x_change_speed(struct tty_struct *tty , struct usb_serial_port 
   descriptor.format = "%s - setting baud rate to %u\n";
   descriptor.lineno = 677U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - setting baud rate to %u\n",
                       "cp210x_change_speed", baud);
@@ -4367,7 +4367,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
   descriptor.format = "%s - port %d\n";
   descriptor.lineno = 698U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "%s - port %d\n",
                       "cp210x_set_termios", (int )port->number);
@@ -4398,7 +4398,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___0.format = "%s - data bits = 5\n";
     descriptor___0.lineno = 716U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)dev, "%s - data bits = 5\n",
                         "cp210x_set_termios");
@@ -4414,7 +4414,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___1.format = "%s - data bits = 6\n";
     descriptor___1.lineno = 720U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)dev, "%s - data bits = 6\n",
                         "cp210x_set_termios");
@@ -4430,7 +4430,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___2.format = "%s - data bits = 7\n";
     descriptor___2.lineno = 724U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)dev, "%s - data bits = 7\n",
                         "cp210x_set_termios");
@@ -4446,7 +4446,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___3.format = "%s - data bits = 8\n";
     descriptor___3.lineno = 728U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     if (tmp___3 != 0L) {
       __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)dev, "%s - data bits = 8\n",
                         "cp210x_set_termios");
@@ -4461,7 +4461,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___4.format = "cp210x driver does not support the number of bits requested, using 8 bit mode\n";
     descriptor___4.lineno = 735U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     if (tmp___4 != 0L) {
       __dynamic_dev_dbg(& descriptor___4, (struct device  const  *)dev, "cp210x driver does not support the number of bits requested, using 8 bit mode\n");
     } else {
@@ -4479,7 +4479,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
       descriptor___5.format = "Number of data bits requested not supported by device\n";
       descriptor___5.lineno = 740U;
       descriptor___5.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
       if (tmp___5 != 0L) {
         __dynamic_dev_dbg(& descriptor___5, (struct device  const  *)dev, "Number of data bits requested not supported by device\n");
       } else {
@@ -4504,7 +4504,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
           descriptor___6.format = "%s - parity = MARK\n";
           descriptor___6.lineno = 751U;
           descriptor___6.flags = 0U;
-          tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+          tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
           if (tmp___7 != 0L) {
             __dynamic_dev_dbg(& descriptor___6, (struct device  const  *)dev, "%s - parity = MARK\n",
                               "cp210x_set_termios");
@@ -4519,7 +4519,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
           descriptor___7.format = "%s - parity = SPACE\n";
           descriptor___7.lineno = 754U;
           descriptor___7.flags = 0U;
-          tmp___8 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+          tmp___8 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
           if (tmp___8 != 0L) {
             __dynamic_dev_dbg(& descriptor___7, (struct device  const  *)dev, "%s - parity = SPACE\n",
                               "cp210x_set_termios");
@@ -4536,7 +4536,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
         descriptor___8.format = "%s - parity = ODD\n";
         descriptor___8.lineno = 759U;
         descriptor___8.flags = 0U;
-        tmp___9 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
         if (tmp___9 != 0L) {
           __dynamic_dev_dbg(& descriptor___8, (struct device  const  *)dev, "%s - parity = ODD\n",
                             "cp210x_set_termios");
@@ -4551,7 +4551,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
         descriptor___9.format = "%s - parity = EVEN\n";
         descriptor___9.lineno = 762U;
         descriptor___9.flags = 0U;
-        tmp___10 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
         if (tmp___10 != 0L) {
           __dynamic_dev_dbg(& descriptor___9, (struct device  const  *)dev, "%s - parity = EVEN\n",
                             "cp210x_set_termios");
@@ -4570,7 +4570,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
       descriptor___10.format = "Parity mode not supported by device\n";
       descriptor___10.lineno = 767U;
       descriptor___10.flags = 0U;
-      tmp___11 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
       if (tmp___11 != 0L) {
         __dynamic_dev_dbg(& descriptor___10, (struct device  const  *)dev, "Parity mode not supported by device\n");
       } else {
@@ -4593,7 +4593,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
       descriptor___11.format = "%s - stop bits = 2\n";
       descriptor___11.lineno = 775U;
       descriptor___11.flags = 0U;
-      tmp___13 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+      tmp___13 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
       if (tmp___13 != 0L) {
         __dynamic_dev_dbg(& descriptor___11, (struct device  const  *)dev, "%s - stop bits = 2\n",
                           "cp210x_set_termios");
@@ -4608,7 +4608,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
       descriptor___12.format = "%s - stop bits = 1\n";
       descriptor___12.lineno = 778U;
       descriptor___12.flags = 0U;
-      tmp___14 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+      tmp___14 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
       if (tmp___14 != 0L) {
         __dynamic_dev_dbg(& descriptor___12, (struct device  const  *)dev, "%s - stop bits = 1\n",
                           "cp210x_set_termios");
@@ -4624,7 +4624,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
       descriptor___13.format = "Number of stop bits requested not supported by device\n";
       descriptor___13.lineno = 781U;
       descriptor___13.flags = 0U;
-      tmp___15 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+      tmp___15 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
       if (tmp___15 != 0L) {
         __dynamic_dev_dbg(& descriptor___13, (struct device  const  *)dev, "Number of stop bits requested not supported by device\n");
       } else {
@@ -4644,7 +4644,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___14.format = "%s - read modem controls = 0x%.4x 0x%.4x 0x%.4x 0x%.4x\n";
     descriptor___14.lineno = 788U;
     descriptor___14.flags = 0U;
-    tmp___17 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
     if (tmp___17 != 0L) {
       __dynamic_dev_dbg(& descriptor___14, (struct device  const  *)dev, "%s - read modem controls = 0x%.4x 0x%.4x 0x%.4x 0x%.4x\n",
                         "cp210x_set_termios", modem_ctl[0], modem_ctl[1], modem_ctl[2],
@@ -4662,7 +4662,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
       descriptor___15.format = "%s - flow control = CRTSCTS\n";
       descriptor___15.lineno = 794U;
       descriptor___15.flags = 0U;
-      tmp___18 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+      tmp___18 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
       if (tmp___18 != 0L) {
         __dynamic_dev_dbg(& descriptor___15, (struct device  const  *)dev, "%s - flow control = CRTSCTS\n",
                           "cp210x_set_termios");
@@ -4679,7 +4679,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
       descriptor___16.format = "%s - flow control = NONE\n";
       descriptor___16.lineno = 799U;
       descriptor___16.flags = 0U;
-      tmp___19 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+      tmp___19 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
       if (tmp___19 != 0L) {
         __dynamic_dev_dbg(& descriptor___16, (struct device  const  *)dev, "%s - flow control = NONE\n",
                           "cp210x_set_termios");
@@ -4693,7 +4693,7 @@ static void cp210x_set_termios(struct tty_struct *tty , struct usb_serial_port *
     descriptor___17.format = "%s - write modem controls = 0x%.4x 0x%.4x 0x%.4x 0x%.4x\n";
     descriptor___17.lineno = 804U;
     descriptor___17.flags = 0U;
-    tmp___20 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+    tmp___20 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
     if (tmp___20 != 0L) {
       __dynamic_dev_dbg(& descriptor___17, (struct device  const  *)dev, "%s - write modem controls = 0x%.4x 0x%.4x 0x%.4x 0x%.4x\n",
                         "cp210x_set_termios", modem_ctl[0], modem_ctl[1], modem_ctl[2],
@@ -4759,7 +4759,7 @@ static int cp210x_tiocmset_port(struct usb_serial_port *port , unsigned int set 
   descriptor.format = "%s - control = 0x%.4x\n";
   descriptor.lineno = 839U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - control = 0x%.4x\n",
                       "cp210x_tiocmset_port", control);
@@ -4801,7 +4801,7 @@ static int cp210x_tiocmget(struct tty_struct *tty )
   descriptor.format = "%s - control = 0x%.2x\n";
   descriptor.lineno = 867U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - control = 0x%.2x\n",
                       "cp210x_tiocmget", control);
@@ -4831,7 +4831,7 @@ static void cp210x_break_ctl(struct tty_struct *tty , int break_state )
   descriptor.format = "%s - turning break %s\n";
   descriptor.lineno = 882U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s - turning break %s\n",
                       "cp210x_break_ctl", state == 0U ? (char *)"off" : (char *)"on");
@@ -5105,7 +5105,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -2974,7 +2974,7 @@ struct mt2266_priv {
    u8 band ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 __inline static int get_order(unsigned long size ) 
@@ -3008,9 +3008,9 @@ __inline static int debug_lockdep_rcu_enabled(void)
   int tmp___1 ;
 
   {
-  tmp = __builtin_expect(rcu_scheduler_active != 0, 1L);
+  tmp = ldv__builtin_expect(rcu_scheduler_active != 0, 1L);
   if (tmp != 0L) {
-    tmp___0 = __builtin_expect(debug_locks != 0, 1L);
+    tmp___0 = ldv__builtin_expect(debug_locks != 0, 1L);
     if (tmp___0 != 0L) {
       tmp___1 = 1;
     } else {
@@ -3050,7 +3050,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp___1 ;
 
   {
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp___1 != 0L) {
     rcu_read_lock_sched_notrace();
     tmp = debug_lockdep_rcu_enabled();
@@ -3787,7 +3787,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

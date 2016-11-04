@@ -2921,7 +2921,7 @@ struct urb {
    void (*complete)(struct urb * ) ;
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern long long dynamic_printk_enabled ;
 extern long long dynamic_printk_enabled2 ;
 extern int __dynamic_dbg_enabled_helper(char *modname , int type , int value , int hash ) ;
@@ -3052,7 +3052,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
+  tmp = ldv__builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
   return (tmp);
 }
 }
@@ -4262,7 +4262,7 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___0 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 8) && dynamic_printk_enabled2 & (1LL << 36))),
+      tmp___0 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 8) && dynamic_printk_enabled2 & (1LL << 36))),
                                  0);
       if (tmp___0) {
         __ret = __dynamic_dbg_enabled_helper("it87", 1, 0, 8);
@@ -4911,7 +4911,7 @@ static void it87_init_device(struct platform_device *pdev___0 )
       while (1) {
         while (1) {
           __ret = 0;
-          tmp___4 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 8) && dynamic_printk_enabled2 & (1LL << 36))),
+          tmp___4 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 8) && dynamic_printk_enabled2 & (1LL << 36))),
                                      0);
           if (tmp___4) {
             __ret = __dynamic_dbg_enabled_helper("it87", 1, 0, 8);
@@ -5421,7 +5421,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -3433,7 +3433,7 @@ struct spcp8x5_private {
    u8 line_control ;
    u8 line_status ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
   int oldbit ;
@@ -3601,7 +3601,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -3678,7 +3678,7 @@ static int spcp8x5_startup(struct usb_serial *serial )
   descriptor.format = "device type = %d\n";
   descriptor.lineno = 251U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (serial->dev)->dev),
                       "device type = %d\n", (int )type);
@@ -3775,7 +3775,7 @@ static int spcp8x5_set_ctrlLine(struct usb_device *dev , u8 value , enum spcp8x5
     descriptor.format = "usb_control_msg return %#x\n";
     descriptor.lineno = 299U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& dev->dev), "usb_control_msg return %#x\n",
                         retval);
@@ -3828,7 +3828,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
     descriptor.format = "Get MSR = 0x%p failed (error = %d)";
     descriptor.lineno = 328U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& dev->dev), "Get MSR = 0x%p failed (error = %d)",
                         status_buffer, ret);
@@ -3844,7 +3844,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
   descriptor___0.format = "0xc0:0x22:0:6  %d - 0x%p ";
   descriptor___0.lineno = 330U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& dev->dev), "0xc0:0x22:0:6  %d - 0x%p ",
                       ret, status_buffer);
@@ -3881,7 +3881,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
   descriptor.format = "value = %#x , index = %#x\n";
   descriptor.lineno = 352U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& dev->dev), "value = %#x , index = %#x\n",
                       (int )value, (int )index);
@@ -3895,7 +3895,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
     descriptor___0.format = "RTSCTS usb_control_msg(enable flowctrl) = %d\n";
     descriptor___0.lineno = 355U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& dev->dev), "RTSCTS usb_control_msg(enable flowctrl) = %d\n",
                         ret);
@@ -4206,7 +4206,7 @@ static void spcp8x5_process_read_urb(struct urb *urb )
     descriptor.format = "tty_flag = %d\n";
     descriptor.lineno = 580U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "tty_flag = %d\n",
                         (int )tty_flag);
@@ -4599,7 +4599,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

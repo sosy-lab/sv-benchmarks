@@ -3643,7 +3643,7 @@ enum __anonenum_103 {
     LDV_SPIN_LOCKED = 1
 } ;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
@@ -3823,7 +3823,7 @@ __inline static int try_module_get(struct module *module )
     ______f___0.ldv_814.ldv_809.correct = 0UL;
     ______f___0.ldv_814.ldv_809.incorrect = 0UL;
     tmp___0 = module_is_live(module);
-    tmp___1 = __builtin_expect(tmp___0 != 0, 1L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 1L);
     ______r___0 = (int )tmp___1;
     ftrace_likely_update(& ______f___0, ______r___0, 1);
     ______r = ______r___0 != 0;
@@ -4049,7 +4049,7 @@ __inline static struct dma_mapping_ops *get_dma_ops(struct device *dev )
   ______f___0.line = 64U;
   ______f___0.ldv_814.ldv_809.correct = 0UL;
   ______f___0.ldv_814.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          1L);
   ______r___0 = (int )tmp;
   ftrace_likely_update(& ______f___0, ______r___0, 0);
@@ -4255,7 +4255,7 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
   ______f___0.line = 297U;
   ______f___0.ldv_814.ldv_809.correct = 0UL;
   ______f___0.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 1L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 1L);
   ______r___0 = (int )tmp___1;
   ftrace_likely_update(& ______f___0, ______r___0, 0);
   ______r = ______r___0 != 0;
@@ -4275,7 +4275,7 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
   ______f___1.line = 297U;
   ______f___1.ldv_814.ldv_809.correct = 0UL;
   ______f___1.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 1L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 1L);
   ______r___1 = (int )tmp___2;
   ftrace_likely_update(& ______f___1, ______r___1, 0);
   ______f___2.func = "dma_free_coherent";
@@ -8731,7 +8731,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

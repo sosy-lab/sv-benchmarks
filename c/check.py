@@ -188,7 +188,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
     ("busybox-1.22.0", "missing license"), # included in .c files
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
-    ("regression", 'not listed in global Makefile, please add "DIRS += regression"'), # present but indented
 
     # historical
     ("ntdrivers", "missing license"),

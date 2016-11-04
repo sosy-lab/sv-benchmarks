@@ -3267,7 +3267,7 @@ struct net_local {
    void *tmspriv ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern void *__memcpy(void *to , void const   *from , size_t len ) ;
 extern struct resource ioport_resource ;
@@ -3922,7 +3922,7 @@ static void abyss_detach(struct pci_dev *pdev )
   tmp = pci_get_drvdata(pdev);
   dev = tmp;
   while (1) {
-    tmp___0 = __builtin_expect(! (! (! dev)), 0);
+    tmp___0 = ldv__builtin_expect(! (! (! dev)), 0);
     if (tmp___0) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -4084,7 +4084,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

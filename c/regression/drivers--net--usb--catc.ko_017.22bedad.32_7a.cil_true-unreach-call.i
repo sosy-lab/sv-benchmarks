@@ -4012,7 +4012,7 @@ struct catc {
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -4641,7 +4641,7 @@ static void catc_tx_done(struct urb *urb )
   flags = _raw_spin_lock_irqsave(tmp);
   if (catc->tx_ptr != 0U) {
     r = catc_tx_run(catc);
-    tmp___0 = __builtin_expect(r < 0, 0L);
+    tmp___0 = ldv__builtin_expect(r < 0, 0L);
     if (tmp___0 != 0L) {
       clear_bit(2, (unsigned long volatile   *)(& catc->flags));
     } else {
@@ -5482,7 +5482,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

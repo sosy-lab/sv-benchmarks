@@ -3535,7 +3535,7 @@ struct matroxfb_dh_maven_info {
    struct i2c_bit_adapter ddc1 ;
    struct i2c_bit_adapter ddc2 ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern int printk(char const   *  , ...) ;
 __inline static int get_order(unsigned long size ) 
@@ -3578,7 +3578,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp ;
 
   {
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp != 0L) {
     rcu_read_lock_sched_notrace();
     _________p1 = *((void ** volatile  *)(& __tracepoint_kmalloc.funcs));
@@ -4206,7 +4206,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

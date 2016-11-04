@@ -4019,7 +4019,7 @@ struct urb {
    void (*complete)(struct urb * ) ;
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern int ( /* format attribute */  sprintf)(char *buf , char const   *fmt  , ...) ;
 extern int ( /* format attribute */  snprintf)(char *buf , size_t size , char const   *fmt 
@@ -4127,7 +4127,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   while (1) {
-    tmp = __builtin_expect(! (! (sg->sg_magic != 2271560481UL)), 0);
+    tmp = ldv__builtin_expect(! (! (sg->sg_magic != 2271560481UL)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -4148,7 +4148,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
     break;
   }
   while (1) {
-    tmp___0 = __builtin_expect(! (! (sg->page_link & 1UL)), 0);
+    tmp___0 = ldv__builtin_expect(! (! (sg->page_link & 1UL)), 0);
     if (tmp___0) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -5155,7 +5155,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

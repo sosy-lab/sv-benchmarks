@@ -3033,7 +3033,7 @@ struct usb_keyspan {
    int toggle ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void __set_bit(int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -3123,7 +3123,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp___1 ;
 
   {
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp___1 != 0L) {
     rcu_read_lock_sched_notrace();
     tmp = debug_lockdep_rcu_enabled();
@@ -3626,11 +3626,11 @@ static int keyspan_load_tester(struct usb_keyspan *dev , int bits_needed )
     descriptor.lineno = 230U;
     descriptor.flags = 0U;
     __ret = 0;
-    tmp___2 = __builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
+    tmp___2 = ldv__builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
     if (tmp___2 != 0L) {
-      tmp___3 = __builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
+      tmp___3 = ldv__builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
       if (tmp___3 != 0L) {
-        tmp___1 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+        tmp___1 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
         if (tmp___1 != 0L) {
           __ret = 1;
         } else {
@@ -3882,11 +3882,11 @@ static void keyspan_check_data(struct usb_keyspan *remote )
   descriptor.lineno = 388U;
   descriptor.flags = 0U;
   __ret___2 = 0;
-  tmp___3 = __builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
+  tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
   if (tmp___3 != 0L) {
-    tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
     if (tmp___4 != 0L) {
-      tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___2 != 0L) {
         __ret___2 = 1;
       } else {
@@ -3970,11 +3970,11 @@ static int keyspan_setup(struct usb_device *dev )
     descriptor.lineno = 412U;
     descriptor.flags = 0U;
     __ret = 0;
-    tmp___3 = __builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
+    tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
     if (tmp___3 != 0L) {
-      tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
+      tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
       if (tmp___4 != 0L) {
-        tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+        tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
         if (tmp___2 != 0L) {
           __ret = 1;
         } else {
@@ -4010,11 +4010,11 @@ static int keyspan_setup(struct usb_device *dev )
     descriptor___0.lineno = 420U;
     descriptor___0.flags = 0U;
     __ret___0 = 0;
-    tmp___9 = __builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
+    tmp___9 = ldv__builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
     if (tmp___9 != 0L) {
-      tmp___10 = __builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
+      tmp___10 = ldv__builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
       if (tmp___10 != 0L) {
-        tmp___8 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
+        tmp___8 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
         if (tmp___8 != 0L) {
           __ret___0 = 1;
         } else {
@@ -4050,11 +4050,11 @@ static int keyspan_setup(struct usb_device *dev )
     descriptor___1.lineno = 428U;
     descriptor___1.flags = 0U;
     __ret___1 = 0;
-    tmp___15 = __builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
+    tmp___15 = ldv__builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
     if (tmp___15 != 0L) {
-      tmp___16 = __builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
+      tmp___16 = ldv__builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
       if (tmp___16 != 0L) {
-        tmp___14 = __builtin_expect((unsigned int )descriptor___1.flags != 0U, 0L);
+        tmp___14 = ldv__builtin_expect((unsigned int )descriptor___1.flags != 0U, 0L);
         if (tmp___14 != 0L) {
           __ret___1 = 1;
         } else {
@@ -4087,11 +4087,11 @@ static int keyspan_setup(struct usb_device *dev )
   descriptor___2.lineno = 432U;
   descriptor___2.flags = 0U;
   __ret___2 = 0;
-  tmp___20 = __builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
+  tmp___20 = ldv__builtin_expect((dynamic_debug_enabled & 16LL) != 0LL, 0L);
   if (tmp___20 != 0L) {
-    tmp___21 = __builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
+    tmp___21 = ldv__builtin_expect((dynamic_debug_enabled2 & 1048576LL) != 0LL, 0L);
     if (tmp___21 != 0L) {
-      tmp___19 = __builtin_expect((unsigned int )descriptor___2.flags != 0U, 0L);
+      tmp___19 = ldv__builtin_expect((unsigned int )descriptor___2.flags != 0U, 0L);
       if (tmp___19 != 0L) {
         __ret___2 = 1;
       } else {
@@ -4502,7 +4502,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

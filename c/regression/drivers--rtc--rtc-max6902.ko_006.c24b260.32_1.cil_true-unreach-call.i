@@ -2299,7 +2299,7 @@ struct max6902 {
    u8 tx_buf[2] ;
    u8 rx_buf[2] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern void *memset(void *s , int c , size_t n ) ;
 __inline static void ( __attribute__((__always_inline__)) INIT_LIST_HEAD)(struct list_head *list ) 
@@ -2380,7 +2380,7 @@ __inline static long ( __attribute__((__always_inline__)) IS_ERR)(void const   *
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
+  tmp = ldv__builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
   return (tmp);
 }
 }
@@ -2845,7 +2845,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_error)(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

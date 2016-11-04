@@ -3155,7 +3155,7 @@ struct usb_keyspan {
 };
 typedef int ldv_func_ret_type___0;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void __set_bit(int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -3432,7 +3432,7 @@ static int keyspan_load_tester(struct usb_keyspan *dev , int bits_needed )
     descriptor.lineno = 178U;
     descriptor.flags = 0U;
     descriptor.enabled = 0;
-    tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (dev->udev)->dev),
                         "%s - Error ran out of data. pos: %d, len: %d\n", "keyspan_load_tester",
@@ -3665,7 +3665,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
   descriptor.lineno = 336U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (remote->udev)->dev),
                       "%s found valid message: system: %d, button: %d, toggle: %d\n",
@@ -3715,7 +3715,7 @@ static int keyspan_setup(struct usb_device *dev )
     descriptor.lineno = 360U;
     descriptor.flags = 0U;
     descriptor.enabled = 0;
-    tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& dev->dev), "%s - failed to set bit rate due to error: %d\n",
                         "keyspan_setup", retval);
@@ -3736,7 +3736,7 @@ static int keyspan_setup(struct usb_device *dev )
     descriptor___0.lineno = 368U;
     descriptor___0.flags = 0U;
     descriptor___0.enabled = 0;
-    tmp___2 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
+    tmp___2 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
                                0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& dev->dev), "%s - failed to set resume sensitivity due to error: %d\n",
@@ -3758,7 +3758,7 @@ static int keyspan_setup(struct usb_device *dev )
     descriptor___1.lineno = 376U;
     descriptor___1.flags = 0U;
     descriptor___1.enabled = 0;
-    tmp___4 = __builtin_expect((int )((signed char )descriptor___1.enabled) != 0,
+    tmp___4 = ldv__builtin_expect((int )((signed char )descriptor___1.enabled) != 0,
                                0L);
     if (tmp___4 != 0L) {
       __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& dev->dev), "%s - failed to turn receive on due to error: %d\n",
@@ -3777,7 +3777,7 @@ static int keyspan_setup(struct usb_device *dev )
   descriptor___2.lineno = 380U;
   descriptor___2.flags = 0U;
   descriptor___2.enabled = 0;
-  tmp___5 = __builtin_expect((int )((signed char )descriptor___2.enabled) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((int )((signed char )descriptor___2.enabled) != 0, 0L);
   if (tmp___5 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& dev->dev), "%s - Setup complete.\n",
                       "keyspan_setup");
@@ -4151,7 +4151,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

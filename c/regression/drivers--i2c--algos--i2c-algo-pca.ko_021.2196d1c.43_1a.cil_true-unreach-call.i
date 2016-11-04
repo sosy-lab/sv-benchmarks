@@ -2918,7 +2918,7 @@ void *ldv_kmem_cache_alloc_7(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_a
   return ((void *)0);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ldv_error(void) 
 { 
 
@@ -2928,7 +2928,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -2943,7 +2943,7 @@ struct pcc_acpi {
 };
 typedef int ldv_func_ret_type___1;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -3086,7 +3086,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -3226,7 +3226,7 @@ static int acpi_pcc_retrieve_biosdata(struct pcc_acpi *pcc , u32 *sinf )
   goto ldv_20585;
   ldv_20584: 
   element = hkey->package.elements + (unsigned long )i;
-  tmp = __builtin_expect(element->type == 1U, 1L);
+  tmp = ldv__builtin_expect(element->type == 1U, 1L);
   if (tmp != 0L) {
     *(sinf + (unsigned long )i) = (u32 )element->integer.value;
   } else {
@@ -4057,7 +4057,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
