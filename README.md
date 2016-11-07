@@ -133,6 +133,7 @@ checklist as comment to the pull request:
 
 - [ ] expected answer in file names according to convention
 - [ ] build system adjusted for enabling checks of this directory
+- [ ] build system can build the new benchmarks without warnings (both with gcc and clang)
 
 ## Specification Properties
 
