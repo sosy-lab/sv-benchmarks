@@ -1353,6 +1353,35 @@ void __VERIFIER_atomic_free_ThreadInfo(ThreadInfo* ti) {
     __VERIFIER_assume(&threads[i] == ti);
     allocated[i] = 0;
 }
+void FinishCollision(ThreadInfo * p) {
+    if (p->op == 0) {
+        int mypid = p->id;
+        p->cell = location[mypid]->cell;
+        location[mypid] = ((void *)0);
+    }
+}
+int TryCollision(ThreadInfo * p, ThreadInfo * q, int him) {
+    int mypid = p->id;
+    if (p->op == 1) {
+        if (__VERIFIER_atomic_ti_cas(&location[him],q,p)) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+    if (p->op == 0) {
+        if (__VERIFIER_atomic_ti_cas(&location[him],q,((void *)0))) {
+            p->cell = q->cell;
+            location[mypid] = ((void *)0);
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+    return 0;
+}
 void LesOP(ThreadInfo *p) {
     int mypid = p->id;
     location[mypid] = p;
@@ -1417,35 +1446,6 @@ int TryPerformStackOp(ThreadInfo * p) {
             return 0;
         }
     }
-}
-void FinishCollision(ThreadInfo * p) {
-    if (p->op == 0) {
-        int mypid = p->id;
-        p->cell = location[mypid]->cell;
-        location[mypid] = ((void *)0);
-    }
-}
-int TryCollision(ThreadInfo * p, ThreadInfo * q, int him) {
-    int mypid = p->id;
-    if (p->op == 1) {
-        if (__VERIFIER_atomic_ti_cas(&location[him],q,p)) {
-            return 1;
-        }
-        else {
-            return 0;
-        }
-    }
-    if (p->op == 0) {
-        if (__VERIFIER_atomic_ti_cas(&location[him],q,((void *)0))) {
-            p->cell = q->cell;
-            location[mypid] = ((void *)0);
-            return 1;
-        }
-        else {
-            return 0;
-        }
-    }
-    return 0;
 }
 void Init() {
     S.ptop = ((void *)0);

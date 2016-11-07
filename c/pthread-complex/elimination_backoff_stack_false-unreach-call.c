@@ -96,6 +96,38 @@ void __VERIFIER_atomic_free_ThreadInfo(ThreadInfo* ti) {
 }
 
 
+void FinishCollision(ThreadInfo * p) {
+    if (p->op == POP) {
+        int mypid = p->id;
+        // p->cell.pdata = location[mypid]->cell.pdata;
+        p->cell = location[mypid]->cell;
+        location[mypid] = NULL;
+    }
+}
+
+int TryCollision(ThreadInfo * p, ThreadInfo * q, int him) {
+    int mypid = p->id;
+    if (p->op == PUSH) {
+        if (CAS(ti, &location[him], q, p)) {
+            return TRUE;
+        }
+        else {
+            return FALSE;
+        }
+    }
+    if (p->op == POP) {
+        if (CAS(ti, &location[him], q, NULL)) {
+            // p->cell.pdata = q->cell.pdata;
+            p->cell = q->cell;
+            location[mypid] = NULL;
+            return TRUE;
+        }
+        else {
+            return FALSE;
+        }
+    }
+    return FALSE;
+}
 
 
 /**
@@ -158,7 +190,7 @@ int TryPerformStackOp(ThreadInfo * p) {
         }
         pnext = phead->pnext;
         if (CAS(c, &S.ptop, phead, pnext)) {
-            // p->cell.pdata = phead->pdata;  
+            // p->cell.pdata = phead->pdata;
             p->cell = *phead;
             // Injected code
             __VERIFIER_atomic_begin();
@@ -175,40 +207,6 @@ int TryPerformStackOp(ThreadInfo * p) {
             return FALSE;
         }
     }
-}
-
-
-void FinishCollision(ThreadInfo * p) {
-    if (p->op == POP) {
-        int mypid = p->id;
-        // p->cell.pdata = location[mypid]->cell.pdata;  
-        p->cell = location[mypid]->cell;
-        location[mypid] = NULL;
-    }
-}
-
-int TryCollision(ThreadInfo * p, ThreadInfo * q, int him) {
-    int mypid = p->id;
-    if (p->op == PUSH) {
-        if (CAS(ti, &location[him], q, p)) {
-            return TRUE;
-        }
-        else {
-            return FALSE;
-        }
-    }
-    if (p->op == POP) {
-        if (CAS(ti, &location[him], q, NULL)) {
-            // p->cell.pdata = q->cell.pdata;   
-            p->cell = q->cell;
-            location[mypid] = NULL;
-            return TRUE;
-        }
-        else {
-            return FALSE;
-        }
-    }
-    return FALSE;
 }
 
 
