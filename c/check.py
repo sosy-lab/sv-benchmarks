@@ -342,6 +342,15 @@ class DirectoryChecks(Checks):
                         "%s has line directives from preprocessor, "
                         "please use 'cpp -P' for preprocessing", entry)
 
+    def check_file_has_no_windows_line_ending(self):
+        for entry in self.content:
+            if not BENCHMARK_PATTERN.match(entry):
+                continue
+
+            with open(os.path.join(self.path, entry), 'rb') as f:
+                if any('\r' in line for line in f):
+                    self.error("%s has Windows line endings", entry)
+
 
 class SetFileChecks(Checks):
 
