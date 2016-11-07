@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import collections
 import fnmatch
 import glob
 import logging
@@ -216,6 +217,9 @@ KNOWN_SET_PROBLEMS = [
     ("BusyBox.set", "busybox-1.22.0/dirname_true-unreach-call.i has property unreach-call, but does not call __VERIFIER_error"),
     ("Termination.set", "64 bit category contains 32 bit benchmarks in product-lines"),
     ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
+    ]
+
+KNOWN_GLOBAL_PROBLEMS = [
     ]
 
 
@@ -435,6 +439,24 @@ def read_set_file(path):
             if line and not line[0] == '#':
                 yield line
 
+class GlobalChecks(Checks):
+
+    def __init__(self, all_matched_files, base_path, *args, **kwargs):
+        super(GlobalChecks, self).__init__(
+            name=None, known_problems=KNOWN_GLOBAL_PROBLEMS, *args, **kwargs)
+        self.all_matched_files = all_matched_files
+        self.base_path = base_path
+
+    def check_no_duplicate_filenames(self):
+        all_filenames = collections.defaultdict(list)
+        for file in self.all_matched_files:
+            all_filenames[os.path.basename(file).lower()].append(file)
+        for filename, files in all_filenames.items():
+            if len(files) > 1:
+                self.error(
+                    "files %s have names that are easy to confuse",
+                    ", ".join(os.path.relpath(file, self.base_path) for file in files))
+
 
 def main():
     logging.basicConfig(format="%(levelname)-7s %(message)s", level='INFO')
@@ -446,6 +468,7 @@ def main():
         for entry in entries if entry.endswith(".set")
         for pattern in read_set_file(os.path.join(main_directory, entry)))
     all_patterns = re.compile("^(" + "|".join(all_patterns_re) + ")$")
+    all_matched_files = set()
 
     ok = True
     for entry in entries:
@@ -454,11 +477,16 @@ def main():
             if os.path.isdir(path):
                 ok &= DirectoryChecks(path, all_patterns, entry).run()
             elif entry.endswith(".set"):
-                ok &= SetFileChecks(path, entry).run()
+                check = SetFileChecks(path, entry)
+                all_matched_files.update(check.matched_files)
+                ok &= check.run()
             else:
                 logging.debug("%s: skipped", entry)
         else:
             logging.debug("%s: skipped", entry)
+
+    ok &= GlobalChecks(all_matched_files, main_directory).run()
+
     if not ok:
         sys.exit(1)
     sys.exit(0)
