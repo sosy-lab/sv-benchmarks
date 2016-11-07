@@ -346,6 +346,8 @@ class SetFileChecks(Checks):
         if self.category.endswith("-validate"):
             self.category = self.category[:-9]
         self.patterns = list(read_set_file(path))
+        self.matched_files = [file for pattern in self.patterns
+                              for file in glob.iglob(os.path.join(self.base_path, pattern))]
         self.cfg_file = os.path.join(self.base_path, self.category + ".cfg")
 
     def check_has_property_file(self):
@@ -364,10 +366,7 @@ class SetFileChecks(Checks):
     def check_declared_architecture_of_benchmarks(self):
         cfg = self._load_config()
         expected_arch = int(cfg["Architecture"].split(" ")[0]) if cfg else None
-        directories = set(
-            os.path.dirname(file)
-                for pattern in self.patterns
-                for file in glob.iglob(os.path.join(self.base_path, pattern)))
+        directories = set(os.path.dirname(file) for file in self.matched_files)
         for directory in directories:
             makefile_path = os.path.join(directory, "Makefile")
             if os.path.exists(makefile_path):
@@ -413,8 +412,7 @@ class SetFileChecks(Checks):
             self.error("invalid memory model <%s>", cfg.get("Memory Model"))
 
     def check_unreach_call_tasks_have_verifier_error(self):
-        for file in (file for pattern in self.patterns
-                     for file in glob.iglob(os.path.join(self.base_path, pattern))):
+        for file in self.matched_files:
             if not "unreach-call" in file:
                 continue
 
@@ -447,7 +445,7 @@ def main():
     ok = True
     for entry in entries:
         path = os.path.join(main_directory, entry)
-        if not entry[0] == '.':
+        if not (entry[0] == '.' or entry == "bin"):
             if os.path.isdir(path):
                 ok &= DirectoryChecks(path, all_patterns, entry).run()
             elif entry.endswith(".set"):
