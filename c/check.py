@@ -235,19 +235,24 @@ class Checks(object):
         tests = [a for a in attrs if callable(a) and a.__name__.startswith('check')]
         for test in tests:
             test()
-        if not (self._errors or self._warnings):
+        if not (self._errors or self._warnings) and self.name:
             logging.info("%s: OK", self.name)
         return not self._errors
 
     def error(self, msg, *args):
         """Mark the current check as failed."""
         msg = msg % args
-        if (self.name, msg) in self._known_problems:
+        error_id = (self.name, msg) if self.name else msg
+        if error_id in self._known_problems:
             self._warnings = True
-            logging.warning("%s: %s", self.name, msg)
+            log = logging.warning
         else:
             self._errors = True
-            logging.error("%s: %s", self.name, msg)
+            log = logging.error
+        if self.name:
+            log("%s: %s", self.name, msg)
+        else:
+            log("%s", msg)
 
 
 class DirectoryChecks(Checks):
