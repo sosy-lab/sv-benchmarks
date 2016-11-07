@@ -990,9 +990,11 @@ extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
+double __VERIFIER_nondet_double();
+
 int main(void)
 {
-  double d;
+  double d = __VERIFIER_nondet_double();
   __VERIFIER_assume(!(sizeof (d) == sizeof (float) ? __isinff (d) : sizeof (d) == sizeof (double) ? __isinf (d) : __isinfl (d)));
   __VERIFIER_assume(!(sizeof (d) == sizeof (float) ? __isnanf (d) : sizeof (d) == sizeof (double) ? __isnan (d) : __isnanl (d)));
 
@@ -1003,11 +1005,11 @@ int main(void)
 
   __VERIFIER_assert(ceil(d) == result);
 
-  double d1;
+  double d1 = __VERIFIER_nondet_double();
   __VERIFIER_assume((sizeof (d1) == sizeof (float) ? __isinff (d1) : sizeof (d1) == sizeof (double) ? __isinf (d1) : __isinfl (d1)));
   __VERIFIER_assert((sizeof (ceil(d1)) == sizeof (float) ? __isinff (ceil(d1)) : sizeof (ceil(d1)) == sizeof (double) ? __isinf (ceil(d1)) : __isinfl (ceil(d1))));
 
-  double d2;
+  double d2 = __VERIFIER_nondet_double();
   __VERIFIER_assume((sizeof (d2) == sizeof (float) ? __isinff (d2) : sizeof (d2) == sizeof (double) ? __isinf (d2) : __isinfl (d2)));
   __VERIFIER_assert((sizeof (ceil(d2)) == sizeof (float) ? __isinff (ceil(d2)) : sizeof (ceil(d2)) == sizeof (double) ? __isinf (ceil(d2)) : __isinfl (ceil(d2))));
 
