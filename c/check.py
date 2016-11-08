@@ -212,9 +212,12 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ldv-validator-v0.6", "missing readme"),
     ]
 
+KNOWN_BENCHMARK_FILE_PROBLEMS = [
+    ("busybox-1.22.0/dirname_true-unreach-call.i", "has property unreach-call, but does not call __VERIFIER_error"),
+    ]
+
 KNOWN_SET_PROBLEMS = [
     # TODO Please fix
-    ("BusyBox.set", "busybox-1.22.0/dirname_true-unreach-call.i has property unreach-call, but does not call __VERIFIER_error"),
     ("Termination.set", "64 bit category contains 32 bit benchmarks in product-lines"),
     ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
     ]
@@ -226,10 +229,11 @@ KNOWN_GLOBAL_PROBLEMS = [
 class Checks(object):
     """Collections of checks that should be implemented in methods named "check*" in subclasses."""
 
-    def __init__(self, name, known_problems):
+    def __init__(self, name, known_problems, quiet=False):
         super(Checks, self).__init__()
         self.name = name
         self._known_problems = known_problems
+        self._quiet = quiet
         self._errors = False
         self._warnings = False
 
@@ -239,7 +243,7 @@ class Checks(object):
         tests = [a for a in attrs if callable(a) and a.__name__.startswith('check')]
         for test in tests:
             test()
-        if not (self._errors or self._warnings) and self.name:
+        if not self._quiet and not (self._errors or self._warnings) and self.name:
             logging.info("%s: OK", self.name)
         return not self._errors
 
@@ -260,12 +264,27 @@ class Checks(object):
 
 
 class DirectoryChecks(Checks):
+    """Checks for a directory in the repository, e.g. about what files are in it.
+    Also executes specific checks for each benchmark file in the directory."""
 
     def __init__(self, path, all_patterns, *args, **kwargs):
         super(DirectoryChecks, self).__init__(known_problems=KNOWN_DIRECTORY_PROBLEMS, *args, **kwargs)
         self.path = path
         self.content = os.listdir(path)
         self.all_patterns = all_patterns
+
+    def run(self):
+        ok = super(DirectoryChecks, self).run()
+
+        for entry in self.content:
+            if BENCHMARK_PATTERN.match(entry):
+                dir_and_name = os.path.join(self.name, entry)
+                ok &= BenchmarkFileChecks(
+                    path=os.path.join(self.path, entry),
+                    name=dir_and_name,
+                    contained_in_category=self.all_patterns.match(dir_and_name)
+                    ).run()
+        return ok
 
     def check_has_benchmarks(self):
         for entry in self.content:
@@ -331,28 +350,40 @@ class DirectoryChecks(Checks):
                 continue
             self.error("%s is not contained in any category", entry)
 
-    def check_file_has_no_line_directive(self):
-        for entry in self.content:
-            if not BENCHMARK_PATTERN.match(entry):
-                continue
 
-            with open(os.path.join(self.path, entry)) as f:
-                if any(LINE_DIRECTIVE.match(line) for line in f):
-                    self.error(
-                        "%s has line directives from preprocessor, "
-                        "please use 'cpp -P' for preprocessing", entry)
+class BenchmarkFileChecks(Checks):
+    """Checks about the contents of a single benchmark file."""
+
+    def __init__(self, path, contained_in_category, *args, **kwargs):
+        super(BenchmarkFileChecks, self).__init__(known_problems=KNOWN_BENCHMARK_FILE_PROBLEMS, quiet=True, *args, **kwargs)
+        self.path = path
+        self.contained_in_category = contained_in_category
+        with open(self.path, 'rb') as f:
+            self.lines = f.readlines()
+
+    def check_file_has_no_line_directive(self):
+        if any(LINE_DIRECTIVE.match(line) for line in self.lines):
+            self.error(
+                "line directives from preprocessor present, "
+                "please use 'cpp -P' for preprocessing")
 
     def check_file_has_no_windows_line_ending(self):
-        for entry in self.content:
-            if not BENCHMARK_PATTERN.match(entry):
-                continue
+        if any('\r' in line for line in self.lines):
+            self.error("Windows line endings")
 
-            with open(os.path.join(self.path, entry), 'rb') as f:
-                if any('\r' in line for line in f):
-                    self.error("%s has Windows line endings", entry)
+    def check_unreach_call_tasks_have_verifier_error(self):
+        if not "unreach-call" in self.name:
+            return
+        if not self.contained_in_category:
+            # Some such files have calls to __VERIFIER_error inside #include
+            return
+
+        if not any("__VERIFIER_error();" in line for line in self.lines if not "extern" in line):
+            self.error("has property unreach-call, but does not call __VERIFIER_error")
 
 
 class SetFileChecks(Checks):
+    """Checks about the .set files that define categories."""
 
     def __init__(self, path, *args, **kwargs):
         super(SetFileChecks, self).__init__(known_problems=KNOWN_SET_PROBLEMS, *args, **kwargs)
@@ -380,6 +411,12 @@ class SetFileChecks(Checks):
             first_match = next(glob.iglob(os.path.join(self.base_path, pattern)), None)
             if not first_match:
                 self.error("Pattern <%s> does not match anything.", pattern)
+
+    def check_patterns_match_only_expected_files(self):
+        unexpected_files = [
+            file for file in self.matched_files if not BENCHMARK_PATTERN.match(os.path.basename(file))]
+        if unexpected_files:
+            self.error("includes files %s that do have unexpected file names", unexpected_files)
 
     def check_declared_architecture_of_benchmarks(self):
         cfg = self._load_config()
@@ -428,17 +465,6 @@ class SetFileChecks(Checks):
             self.error("invalid memory model <%s>", cfg.get("Memory Model"))
         if cfg.get("Memory Model", "Precise") not in ["Precise", "Simple"]:
             self.error("invalid memory model <%s>", cfg.get("Memory Model"))
-
-    def check_unreach_call_tasks_have_verifier_error(self):
-        for file in self.matched_files:
-            if not "unreach-call" in file:
-                continue
-
-            with open(file) as f:
-                if not any("__VERIFIER_error();" in line for line in f if not "extern" in line):
-                    self.error(
-                        "%s has property unreach-call, but does not call __VERIFIER_error",
-                        os.path.relpath(file, self.base_path))
 
 
 def read_set_file(path):
