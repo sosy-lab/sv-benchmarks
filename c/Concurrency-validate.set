@@ -5,4 +5,3 @@ pthread-wmm/*_false-unreach-call*.i
 pthread-lit/*_false-unreach-call*.i
 ldv-races/*_false-unreach-call*.i
 pthread-complex/*_false-unreach-call*.i
-pthread-complex/*_true-unreach-call*.i
