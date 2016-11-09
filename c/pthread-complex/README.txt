@@ -8,8 +8,6 @@ In particular,
 
 - and from [3]
  + safestack_relacy_false-unreach-call.c
- + workstealqueue_interlocked_false-unreach-call.c
- + workstealqueue_interlocked_true-unreach-call.c
  + workstealqueue_mutex_false-unreach-call.c
  + workstealqueue_mutex_true-unreach-call.c
 
