@@ -4,7 +4,8 @@ struct S {
  unsigned short p;
  unsigned short q;
 } a[100000];
-unsigned char __VERIFIER_nondet_short();
+short __VERIFIER_nondet_short();
+unsigned char __VERIFIER_nondet_uchar();
 int main()
 {
  unsigned char k;
@@ -18,7 +19,7 @@ int main()
  {
   if ( __VERIFIER_nondet_short())
   {
-   k = __VERIFIER_nondet_short();
+   k = __VERIFIER_nondet_uchar();
    a[i].p = k;
    a[i].q = k * k ;
   }
