@@ -184,8 +184,6 @@ signed int __main(signed int argc, char **argv)
     else
       /* assertion !(p == ((char **)((void*)0))) */
       __VERIFIER_error();
-    if(*p == ((char *)NULL))
-      break;
 
     if(!(*p == ((char *)NULL)))
       (void)0;

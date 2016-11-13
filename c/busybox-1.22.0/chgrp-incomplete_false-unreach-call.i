@@ -2150,8 +2150,6 @@ signed int __main(signed int argc, char **argv)
       (void)0;
     else
       __VERIFIER_error();
-    if(*p == ((char *)((void *)0)))
-      break;
     if(!(*p == ((char *)((void *)0))))
       (void)0;
     else
