@@ -1,6 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-extern void *malloc(unsigned long sz);
+extern void *malloc(unsigned int sz);
 
 
 
