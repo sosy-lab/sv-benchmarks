@@ -1,8 +1,5 @@
 language: c
 env:
-  global:
-    # Warnings produce too much output that Travis can't handle.
-    - SUPPRESS_WARNINGS=1
   matrix:
     # Note: Can't use CC variable as TravisCI will override it
     - C_COMPILER=gcc-5

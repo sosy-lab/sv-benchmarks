@@ -32,8 +32,6 @@ that are worth knowing about
                     the compiler will create real object files. This
                     option is ignored if ``EMIT_LLVM`` is enabled.
 * ``VERBOSE`` - If ``1`` be more verbose, if ``0`` do not.
-* ``WARNINGS_AS_ERRORS`` - If ``1`` treat compiler warnings as errors.
-                           If ``0`` do not.
 e.g.
 
 ```
@@ -184,6 +182,36 @@ Every ``Makefile`` must end with the line
 ```
 include $(LEVEL)/Makefile.config
 ```
+
+# Disable warnings for some directory
+
+By default all compiler warnings trigger an error.
+To disable this behavior for some warning, add one of the following lines
+to the `Makefile` in the respective directory,
+depending on which compiler issues the warning:
+
+```
+COMMON_WARNINGS := -Wno-error=<warning>
+GCC_WARNINGS := -Wno-error=<warning>
+CLANG_WARNINGS := -Wno-error=<warning>
+```
+
+To silence the warning completely such that it is not shown,
+use `-Wno-<warning>` instead of `-Wno-error=<warning>`.
+This may be necessary to reduce the amount of output to a reasonable level.
+
+To disable and silence all warnings completely in a directory,
+add the following line to its `Makefile`:
+
+```
+SUPPRESS_WARNINGS := 1
+```
+
+Please do so only as a last resort if disabling individual warnings is not possible.
+
+To disable a specific warning for the whole repository,
+add an appropriate line to the definition of `DEFAULT_(COMMON|GCC|CLANG)_WARNINGS` in `Makefile.config`.
+
 
 # ``Makefile.config``
 
