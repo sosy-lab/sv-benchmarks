@@ -1,0 +1,10 @@
+  + concurrency_pheonix: 
+	Examples collected from the Phoenix sample applications:
+
+	https://github.com/kozyraki/phoenix/tree/master/sample_apps
+
+  Note that the header file 'stddefines.h' is shared by all c files in this dir
+  
+  *This directory is considered as the demo class, due to most examples using 
+	a few non-standard libraries like:
+		<sys/mman.h>, <sys/stat.h>, <fcntl.h>, <ctype.h>, etc.
