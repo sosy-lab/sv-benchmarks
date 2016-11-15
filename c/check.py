@@ -196,17 +196,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ntdrivers-simplified", "missing readme"),
     ("ssh", "missing readme"),
     ("ssh-simplified", "missing readme"),
-
-    # listed in ldv-README.txt
-    ("ldv-linux-3.0", "missing readme"),
-    ("ldv-linux-3.4-simple", "missing readme"),
-    ("ldv-linux-3.7.3", "missing readme"),
-    ("ldv-consumption", "missing readme"),
-    ("ldv-commit-tester", "missing readme"),
-    ("ldv-challenges", "missing readme"),
-    ("ldv-linux-3.12-rc1", "missing readme"),
-    ("ldv-linux-3.16-rc1", "missing readme"),
-    ("ldv-validator-v0.6", "missing readme"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
