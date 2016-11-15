@@ -126,15 +126,7 @@ In these instructions replace ``<DIR>`` with the directory name you wish to add
    ```
    $ mkdir <DIR>
    ```
-2. Add the directory to the list of directories to traverse by adding a line
-   to the ``Makefile`` in the parent directory. Make sure this line is added
-   **BEFORE** the ``include $(LEVEL)/Makefile.config`` line, i.e.
-   ```
-   DIRS += <DIR>
-   ...
-   include $(LEVEL)/Makefile.config
-   ```
-3. Add a ``Makefile`` in ``<DIR>``. The most basic ``Makefile`` is
+2. Add a ``Makefile`` in ``<DIR>``. The most basic ``Makefile`` is
    ```
    LEVEL := <REL_PATH>
    include $(LEVEL)/Makefile.config
@@ -160,6 +152,17 @@ If for some reason some sources need to be ignored you should add them to the
 ```
 IGNORE_SRCS := file1.c file2.c file3.c file4.i
 ```
+
+A `Makefile` will also implicitly traverse sub directories relative to
+the `Makefile` when processing the `all` target (the default target).
+If for some reason some directories need be ignored you should add them
+to the `IGNORE_DIRS` variable.
+
+```
+# Ignores directories `foo/` and `bar/`
+IGNORE_DIRS := ./foo/ ./bar/
+```
+
 If you need to modify the flags passed to the compiler you can do so here.
 For example
 
@@ -170,9 +173,6 @@ CC.Flags := -g
 Will add the ``-g`` flag to the compilations flags. **Note: Sub directories
 will inherit the values of ``CC.Flags`` when makefile recursion happens so you
 need to be very careful when setting this variable.**
-
-If the ``DIRS`` variable is defined it should be a list of directories to
-traverse and run ``make`` inside.
 
 Every ``Makefile`` must declare ``LEVEL`` which is a relative path prefix
 to access the top-level directory.
@@ -228,14 +228,13 @@ place to do it.
 # Set files mode
 
 The build system normally builds every source that it finds in a directory
-where the explored directories are those in the ``DIRS`` list in the ``Makefile``s.
+where the explored directories are those implicitly found.
 
 The build system has an alternative mode called "Set files mode" mode where the build
 system will
 
 * Only build benchmarks listed in a particular set of ``*.set`` files (i.e. the
   behaviour of building every source file in a directory is overriden).
-* Ignore ``DIRS`` directives in ``Makefile``s
 
 This mode is useful if you only need to build a particular set of benchmarks. There
 are three ways to use this mode, all of which basically set the ``SET_FILES``

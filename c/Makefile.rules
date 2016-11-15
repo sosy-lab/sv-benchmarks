@@ -52,7 +52,7 @@ else
 endif
 
 ifdef SET_FILES
-  $(warning Using Set files ($(SET_FILES)). DIR directives will be ignored)
+  $(warning Using Set files ($(SET_FILES)).)
   DIRS :=
   # Open all the set files we were asked to use, strip any comment lines and return
   # a list of wildcard patterns
@@ -72,6 +72,18 @@ ifdef SET_FILES
   DIRS := $(call at_depth_or_deeper,$(DIRS))
   # Only need sources at the current level
   RELEVANT_SRCS := $(call only_at_depth,$(RELEVANT_PATHS))
+else
+  # Find all directories in the current directory.
+  # Note sort is to remove duplicates.
+  DIRS := $(sort $(dir $(wildcard ./*/)))
+  # Filter out current directory
+  DIRS := $(filter-out ./,$(DIRS))
+  # Filter out the build directory
+  DIRS := $(filter-out ./$(BUILD_DIR)/,$(DIRS))
+  # Remove directories we are told not to traverse.
+  ifdef IGNORE_DIRS
+    DIRS := $(filter-out $(IGNORE_DIRS), $(DIRS))
+  endif
 endif
 
 # all Directory Recursion target
