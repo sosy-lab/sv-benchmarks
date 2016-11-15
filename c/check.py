@@ -359,11 +359,6 @@ class DirectoryChecks(Checks):
         if not 'Makefile' in self.content:
             self.error("missing Makefile")
 
-    def check_is_listed_in_global_Makefile(self):
-        with open(os.path.join(self.path, '..', 'Makefile')) as makefile:
-            if not ('DIRS += ' + self.name + '\n') in makefile:
-                self.error('not listed in global Makefile, please add "DIRS += %s"', self.name)
-
     def check_files_contained_in_category(self):
         if self.name in UNUSED_DIRECTORIES:
             return
