@@ -1,10 +1,7 @@
-/*
- * Date: 17.12.2013
- * Author: Thomas Ströder
- */
 typedef long unsigned int size_t;
 
 void * __attribute__((__cdecl__)) malloc (size_t __size) ;
+void __attribute__((__cdecl__)) free (void *) ;
 
 extern int __VERIFIER_nondet_int(void);
 
@@ -20,22 +17,15 @@ char* __VERIFIER_nondet_String(void) {
 }
 
 
-
-
-
-char *(cstrchr)(const char *s, int c)
+int (rec_cstrlen)(const char *s)
  {
-     /* Scan s for the character.  When this loop is finished,
-        s will either point to the end of the string or the
-        character we were looking for.  */
-     while (*s != '\0' && *s != (char)c)
-         s++;
-     return ( (*s == c) ? (char *) s : 0 );
+	if(*s == '\0')
+		return 0;
+	else 
+		return 1 + rec_cstrlen(s+1);
+
  }
 
 int main() {
-    cstrchr(__VERIFIER_nondet_String(),__VERIFIER_nondet_int());
-    return 0;
+    return rec_cstrlen(__VERIFIER_nondet_String());
 }
-
-

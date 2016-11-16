@@ -5,8 +5,6 @@
  * 2-lex ranking function: f(k, a[k], a[0], a[1048]) = (1048 - k, a[k])
  *
  */
-#include <stdlib.h>
-
 extern int __VERIFIER_nondet_int(void);
 
 int main() {

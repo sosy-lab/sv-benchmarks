@@ -2,13 +2,12 @@
  * Date: 2014-06-22
  * Author: heizmann@informatik.uni-freiburg.de
  */
-#include <alloca.h>
-
+ 
 int main() {
-	int* x0 = alloca(sizeof(int));
-	int* x1 = alloca(sizeof(int));
-	int* x2 = alloca(sizeof(int));
-	int* x3 = alloca(sizeof(int));
+	int* x0 = __builtin_alloca(sizeof(int));
+	int* x1 = __builtin_alloca(sizeof(int));
+	int* x2 = __builtin_alloca(sizeof(int));
+	int* x3 = __builtin_alloca(sizeof(int));
 	*x0 = 0;
 	*x1 = 0;
 	*x2 = 0;

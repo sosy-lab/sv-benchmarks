@@ -5,8 +5,6 @@
  * 2-lex ranking function: f(p, q, *q) = (p + 1048 - q, *q)
  *
  */
-#include <stdlib.h>
-
 extern int __VERIFIER_nondet_int(void);
 
 int main() {
