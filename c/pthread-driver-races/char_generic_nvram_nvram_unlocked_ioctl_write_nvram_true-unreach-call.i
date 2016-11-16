@@ -201,7 +201,7 @@ typedef unsigned long uintptr_t;
 
 
 typedef long long loff_t;
-typedef __kernel_size_t size_t;
+typedef unsigned int size_t;
 
 
 
@@ -4298,40 +4298,30 @@ extern void downgrade_write(struct rw_semaphore *sem);
 
 
 
-struct pt_regs {
- unsigned long r15;
- unsigned long r14;
- unsigned long r13;
- unsigned long r12;
- unsigned long bp;
- unsigned long bx;
 
- unsigned long r11;
- unsigned long r10;
- unsigned long r9;
- unsigned long r8;
- unsigned long ax;
+
+
+
+
+struct pt_regs {
+ unsigned long bx;
  unsigned long cx;
  unsigned long dx;
  unsigned long si;
  unsigned long di;
+ unsigned long bp;
+ unsigned long ax;
+ unsigned long ds;
+ unsigned long es;
+ unsigned long fs;
+ unsigned long gs;
  unsigned long orig_ax;
-
-
  unsigned long ip;
  unsigned long cs;
  unsigned long flags;
  unsigned long sp;
  unsigned long ss;
-
 };
-
-
-
-
-
-
-
 struct cpuinfo_x86;
 struct task_struct;
 

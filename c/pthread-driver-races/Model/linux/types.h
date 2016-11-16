@@ -93,7 +93,7 @@ typedef long long loff_t;
  */
 #ifndef _SIZE_T
 #define _SIZE_T
-typedef __kernel_size_t		size_t;
+typedef unsigned int		size_t;
 #endif
 
 #ifndef _SSIZE_T
