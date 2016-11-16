@@ -9,6 +9,9 @@ The environment required for these drivers is closed, and all dependencies can
 be found in the Model folder.  When preprocessing is done, the '-I' switch
 should be used, and should point to the Model folder (i.e., '-I ./Model/').
 
+Contributed by:
+The SMACK+CORRAL team.
+
 Source:
 Linux 4.0 kernel, via the Whoop project by Pantazis Deligiannis 
 (https://github.com/smackers/whoop).  
