@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int(void);
 extern char __VERIFIER_nondet_char(void);
 extern void __VERIFIER_assume(int);
 /*
@@ -68,8 +69,8 @@ signed int __main(signed int argc, char **argv)
 
 int main()
 {
-  int argc;
-  __VERIFIER_assume(argc>=0);
+  int argc = __VERIFIER_nondet_int();
+  __VERIFIER_assume(argc>=1);
 
   char **argv=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;
@@ -78,7 +79,8 @@ int main()
   {
     // let's limit the size of arguments to 10, which is an
     // underapproximation obviously
-    argv[i]=malloc(10);
+    argv[i]=malloc(11);
+    argv[i][10] = 0;
     for(int j=0; j<10; ++j)
       argv[i][j]=__VERIFIER_nondet_char();
   }

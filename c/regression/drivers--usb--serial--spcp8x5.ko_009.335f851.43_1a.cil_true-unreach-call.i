@@ -3186,7 +3186,7 @@ enum __anonenum_101 {
     LDV_SPIN_LOCKED = 1
 } ;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
@@ -3300,7 +3300,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   ______f___1.line = 29U;
   ______f___1.ldv_815.ldv_809.correct = 0UL;
   ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 1L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 1L);
   ______r___1 = (int )tmp;
   ftrace_likely_update(& ______f___1, ______r___1, 0);
   ______r___0 = ______r___1 != 0;
@@ -3847,7 +3847,7 @@ __inline static int signal_pending(struct task_struct *p )
   ______f.ldv_815.ldv_809.correct = 0UL;
   ______f.ldv_815.ldv_809.incorrect = 0UL;
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   ______r = (int )tmp___0;
   ftrace_likely_update(& ______f, ______r, 0);
   return (______r);
@@ -4408,9 +4408,9 @@ static int spcp8x5_startup(struct usb_serial *serial )
   ______f___8.line = 341U;
   ______f___8.ldv_815.ldv_809.correct = 0UL;
   ______f___8.ldv_815.ldv_809.incorrect = 0UL;
-  tmp___2 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+  tmp___2 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
   if (tmp___2 != 0L) {
-    tmp___3 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___3 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                1L);
     if (tmp___3 != 0L) {
       tmp___4 = 1;
@@ -4435,7 +4435,7 @@ static int spcp8x5_startup(struct usb_serial *serial )
     ______f___6.line = 341U;
     ______f___6.ldv_815.ldv_809.correct = 0UL;
     ______f___6.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___1 = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+    tmp___1 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
     ______r___6 = (int )tmp___1;
     ftrace_likely_update(& ______f___6, ______r___6, 0);
     ______r___5 = ______r___6 != 0;
@@ -4638,9 +4638,9 @@ static int spcp8x5_set_ctrlLine(struct usb_device *dev , u8 value , enum spcp8x5
     ______f___4.line = 405U;
     ______f___4.ldv_815.ldv_809.correct = 0UL;
     ______f___4.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___3 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+    tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
     if (tmp___3 != 0L) {
-      tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                  1L);
       if (tmp___4 != 0L) {
         tmp___5 = 1;
@@ -4665,7 +4665,7 @@ static int spcp8x5_set_ctrlLine(struct usb_device *dev , u8 value , enum spcp8x5
       ______f___2.line = 405U;
       ______f___2.ldv_815.ldv_809.correct = 0UL;
       ______f___2.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+      tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
       ______r___2 = (int )tmp___2;
       ftrace_likely_update(& ______f___2, ______r___2, 0);
       ______r___1 = ______r___2 != 0;
@@ -4820,9 +4820,9 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
     ______f___6.line = 434U;
     ______f___6.ldv_815.ldv_809.correct = 0UL;
     ______f___6.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___4 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
     if (tmp___4 != 0L) {
-      tmp___5 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___5 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                  1L);
       if (tmp___5 != 0L) {
         tmp___6 = 1;
@@ -4847,7 +4847,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
       ______f___4.line = 434U;
       ______f___4.ldv_815.ldv_809.correct = 0UL;
       ______f___4.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___3 = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+      tmp___3 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
       ______r___4 = (int )tmp___3;
       ftrace_likely_update(& ______f___4, ______r___4, 0);
       ______r___3 = ______r___4 != 0;
@@ -4897,9 +4897,9 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
   ______f___12.line = 436U;
   ______f___12.ldv_815.ldv_809.correct = 0UL;
   ______f___12.ldv_815.ldv_809.incorrect = 0UL;
-  tmp___10 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+  tmp___10 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
   if (tmp___10 != 0L) {
-    tmp___11 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___11 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                 1L);
     if (tmp___11 != 0L) {
       tmp___12 = 1;
@@ -4924,7 +4924,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
     ______f___10.line = 436U;
     ______f___10.ldv_815.ldv_809.correct = 0UL;
     ______f___10.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___9 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
+    tmp___9 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
     ______r___10 = (int )tmp___9;
     ftrace_likely_update(& ______f___10, ______r___10, 0);
     ______r___9 = ______r___10 != 0;
@@ -5038,9 +5038,9 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
   ______f___4.line = 458U;
   ______f___4.ldv_815.ldv_809.correct = 0UL;
   ______f___4.ldv_815.ldv_809.incorrect = 0UL;
-  tmp___3 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+  tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
   if (tmp___3 != 0L) {
-    tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                1L);
     if (tmp___4 != 0L) {
       tmp___5 = 1;
@@ -5065,7 +5065,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
     ______f___2.line = 458U;
     ______f___2.ldv_815.ldv_809.correct = 0UL;
     ______f___2.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
     ______r___2 = (int )tmp___2;
     ftrace_likely_update(& ______f___2, ______r___2, 0);
     ______r___1 = ______r___2 != 0;
@@ -5120,9 +5120,9 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
     ______f___9.line = 461U;
     ______f___9.ldv_815.ldv_809.correct = 0UL;
     ______f___9.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___9 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+    tmp___9 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
     if (tmp___9 != 0L) {
-      tmp___10 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___10 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                   1L);
       if (tmp___10 != 0L) {
         tmp___11 = 1;
@@ -5147,7 +5147,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
       ______f___7.line = 461U;
       ______f___7.ldv_815.ldv_809.correct = 0UL;
       ______f___7.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___8 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
+      tmp___8 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
       ______r___7 = (int )tmp___8;
       ftrace_likely_update(& ______f___7, ______r___7, 0);
       ______r___6 = ______r___7 != 0;
@@ -5341,9 +5341,9 @@ static void spcp8x5_close(struct usb_serial_port *port )
       ______f___4.line = 510U;
       ______f___4.ldv_815.ldv_809.correct = 0UL;
       ______f___4.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___3 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+      tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
       if (tmp___3 != 0L) {
-        tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+        tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                    1L);
         if (tmp___4 != 0L) {
           tmp___5 = 1;
@@ -5368,7 +5368,7 @@ static void spcp8x5_close(struct usb_serial_port *port )
         ______f___2.line = 510U;
         ______f___2.ldv_815.ldv_809.correct = 0UL;
         ______f___2.ldv_815.ldv_809.incorrect = 0UL;
-        tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+        tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
         ______r___2 = (int )tmp___2;
         ftrace_likely_update(& ______f___2, ______r___2, 0);
         ______r___1 = ______r___2 != 0;
@@ -5430,9 +5430,9 @@ static void spcp8x5_close(struct usb_serial_port *port )
     ______f___11.line = 514U;
     ______f___11.ldv_815.ldv_809.correct = 0UL;
     ______f___11.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___9 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+    tmp___9 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
     if (tmp___9 != 0L) {
-      tmp___10 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___10 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                   1L);
       if (tmp___10 != 0L) {
         tmp___11 = 1;
@@ -5457,7 +5457,7 @@ static void spcp8x5_close(struct usb_serial_port *port )
       ______f___9.line = 514U;
       ______f___9.ldv_815.ldv_809.correct = 0UL;
       ______f___9.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___8 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
+      tmp___8 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
       ______r___9 = (int )tmp___8;
       ftrace_likely_update(& ______f___9, ______r___9, 0);
       ______r___8 = ______r___9 != 0;
@@ -6006,9 +6006,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
   ______f___3.line = 707U;
   ______f___3.ldv_815.ldv_809.correct = 0UL;
   ______f___3.ldv_815.ldv_809.incorrect = 0UL;
-  tmp___3 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+  tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
   if (tmp___3 != 0L) {
-    tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                1L);
     if (tmp___4 != 0L) {
       tmp___5 = 1;
@@ -6033,7 +6033,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
     ______f___1.line = 707U;
     ______f___1.ldv_815.ldv_809.correct = 0UL;
     ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
     ______r___1 = (int )tmp___2;
     ftrace_likely_update(& ______f___1, ______r___1, 0);
     ______r___0 = ______r___1 != 0;
@@ -6118,9 +6118,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
         ______f___9.line = 721U;
         ______f___9.ldv_815.ldv_809.correct = 0UL;
         ______f___9.ldv_815.ldv_809.incorrect = 0UL;
-        tmp___9 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+        tmp___9 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
         if (tmp___9 != 0L) {
-          tmp___10 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+          tmp___10 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                       1L);
           if (tmp___10 != 0L) {
             tmp___11 = 1;
@@ -6145,7 +6145,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
           ______f___7.line = 721U;
           ______f___7.ldv_815.ldv_809.correct = 0UL;
           ______f___7.ldv_815.ldv_809.incorrect = 0UL;
-          tmp___8 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
+          tmp___8 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
           ______r___7 = (int )tmp___8;
           ftrace_likely_update(& ______f___7, ______r___7, 0);
           ______r___6 = ______r___7 != 0;
@@ -6199,9 +6199,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
     ______f___16.line = 724U;
     ______f___16.ldv_815.ldv_809.correct = 0UL;
     ______f___16.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___15 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+    tmp___15 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
     if (tmp___15 != 0L) {
-      tmp___16 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___16 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                   1L);
       if (tmp___16 != 0L) {
         tmp___17 = 1;
@@ -6226,7 +6226,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
       ______f___14.line = 724U;
       ______f___14.ldv_815.ldv_809.correct = 0UL;
       ______f___14.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___14 = __builtin_expect((unsigned int )descriptor___1.flags != 0U, 1L);
+      tmp___14 = ldv__builtin_expect((unsigned int )descriptor___1.flags != 0U, 1L);
       ______r___14 = (int )tmp___14;
       ftrace_likely_update(& ______f___14, ______r___14, 0);
       ______r___13 = ______r___14 != 0;
@@ -6317,9 +6317,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
   ______f___25.line = 746U;
   ______f___25.ldv_815.ldv_809.correct = 0UL;
   ______f___25.ldv_815.ldv_809.incorrect = 0UL;
-  tmp___21 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+  tmp___21 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
   if (tmp___21 != 0L) {
-    tmp___22 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___22 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                 1L);
     if (tmp___22 != 0L) {
       tmp___23 = 1;
@@ -6344,7 +6344,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
     ______f___23.line = 746U;
     ______f___23.ldv_815.ldv_809.correct = 0UL;
     ______f___23.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___20 = __builtin_expect((unsigned int )descriptor___2.flags != 0U, 1L);
+    tmp___20 = ldv__builtin_expect((unsigned int )descriptor___2.flags != 0U, 1L);
     ______r___23 = (int )tmp___20;
     ftrace_likely_update(& ______f___23, ______r___23, 0);
     ______r___22 = ______r___23 != 0;
@@ -6446,9 +6446,9 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
       ______f___32.line = 766U;
       ______f___32.ldv_815.ldv_809.correct = 0UL;
       ______f___32.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___27 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+      tmp___27 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
       if (tmp___27 != 0L) {
-        tmp___28 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+        tmp___28 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                     1L);
         if (tmp___28 != 0L) {
           tmp___29 = 1;
@@ -6473,7 +6473,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
         ______f___30.line = 766U;
         ______f___30.ldv_815.ldv_809.correct = 0UL;
         ______f___30.ldv_815.ldv_809.incorrect = 0UL;
-        tmp___26 = __builtin_expect((unsigned int )descriptor___3.flags != 0U, 1L);
+        tmp___26 = ldv__builtin_expect((unsigned int )descriptor___3.flags != 0U, 1L);
         ______r___30 = (int )tmp___26;
         ftrace_likely_update(& ______f___30, ______r___30, 0);
         ______r___29 = ______r___30 != 0;
@@ -6591,9 +6591,9 @@ static void spcp8x5_send(struct usb_serial_port *port )
     ______f___3.line = 782U;
     ______f___3.ldv_815.ldv_809.correct = 0UL;
     ______f___3.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___3 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+    tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
     if (tmp___3 != 0L) {
-      tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                  1L);
       if (tmp___4 != 0L) {
         tmp___5 = 1;
@@ -6618,7 +6618,7 @@ static void spcp8x5_send(struct usb_serial_port *port )
       ______f___1.line = 782U;
       ______f___1.ldv_815.ldv_809.correct = 0UL;
       ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+      tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
       ______r___1 = (int )tmp___2;
       ftrace_likely_update(& ______f___1, ______r___1, 0);
       ______r___0 = ______r___1 != 0;
@@ -6698,9 +6698,9 @@ static void spcp8x5_send(struct usb_serial_port *port )
     ______f___10.line = 808U;
     ______f___10.ldv_815.ldv_809.correct = 0UL;
     ______f___10.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___10 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+    tmp___10 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
     if (tmp___10 != 0L) {
-      tmp___11 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___11 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                   1L);
       if (tmp___11 != 0L) {
         tmp___12 = 1;
@@ -6725,7 +6725,7 @@ static void spcp8x5_send(struct usb_serial_port *port )
       ______f___8.line = 808U;
       ______f___8.ldv_815.ldv_809.correct = 0UL;
       ______f___8.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___9 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
+      tmp___9 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
       ______r___8 = (int )tmp___9;
       ftrace_likely_update(& ______f___8, ______r___8, 0);
       ______r___7 = ______r___8 != 0;
@@ -6841,9 +6841,9 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
   ______f___3.line = 836U;
   ______f___3.ldv_815.ldv_809.correct = 0UL;
   ______f___3.ldv_815.ldv_809.incorrect = 0UL;
-  tmp___3 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+  tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
   if (tmp___3 != 0L) {
-    tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                1L);
     if (tmp___4 != 0L) {
       tmp___5 = 1;
@@ -6868,7 +6868,7 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
     ______f___1.line = 836U;
     ______f___1.ldv_815.ldv_809.correct = 0UL;
     ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
     ______r___1 = (int )tmp___2;
     ftrace_likely_update(& ______f___1, ______r___1, 0);
     ______r___0 = ______r___1 != 0;
@@ -6955,9 +6955,9 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
     ______f___10.line = 849U;
     ______f___10.ldv_815.ldv_809.correct = 0UL;
     ______f___10.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___9 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+    tmp___9 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
     if (tmp___9 != 0L) {
-      tmp___10 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___10 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                   1L);
       if (tmp___10 != 0L) {
         tmp___11 = 1;
@@ -6982,7 +6982,7 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
       ______f___8.line = 849U;
       ______f___8.ldv_815.ldv_809.correct = 0UL;
       ______f___8.ldv_815.ldv_809.incorrect = 0UL;
-      tmp___8 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
+      tmp___8 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 1L);
       ______r___8 = (int )tmp___8;
       ftrace_likely_update(& ______f___8, ______r___8, 0);
       ______r___7 = ______r___8 != 0;
@@ -7069,9 +7069,9 @@ static int spcp8x5_write(struct tty_struct *tty , struct usb_serial_port *port ,
   ______f___3.line = 867U;
   ______f___3.ldv_815.ldv_809.correct = 0UL;
   ______f___3.ldv_815.ldv_809.incorrect = 0UL;
-  tmp___3 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
+  tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 1L);
   if (tmp___3 != 0L) {
-    tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                1L);
     if (tmp___4 != 0L) {
       tmp___5 = 1;
@@ -7096,7 +7096,7 @@ static int spcp8x5_write(struct tty_struct *tty , struct usb_serial_port *port ,
     ______f___1.line = 867U;
     ______f___1.ldv_815.ldv_809.correct = 0UL;
     ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 1L);
     ______r___1 = (int )tmp___2;
     ftrace_likely_update(& ______f___1, ______r___1, 0);
     ______r___0 = ______r___1 != 0;
@@ -7740,7 +7740,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

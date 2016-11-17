@@ -1,7 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void printf(char *format);
-void assert_fail(void);
 
 int main() {
     int a, b;
@@ -9,8 +7,6 @@ int main() {
     int *p2 = &b;
 
     if (p1 == p2) {
-        printf("ERROR\n");
-        assert_fail();
         goto ERROR;
     }
 

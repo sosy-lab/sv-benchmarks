@@ -2988,7 +2988,7 @@ struct pcc_acpi {
    struct input_dev *input_dev ;
    struct backlight_device *backlight ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern int sscanf(char const   * , char const   *  , ...) ;
 __inline static int get_order(unsigned long size ) 
@@ -3025,7 +3025,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -3094,7 +3094,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp___1 ;
 
   {
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp___1 != 0L) {
     rcu_read_lock_sched_notrace();
     tmp = debug_lockdep_rcu_enabled();
@@ -3461,7 +3461,7 @@ static int acpi_pcc_retrieve_biosdata(struct pcc_acpi *pcc , u32 *sinf )
   goto ldv_23924;
   ldv_23923: 
   element = hkey->package.elements + (unsigned long )i;
-  tmp = __builtin_expect(element->type == 1U, 1L);
+  tmp = ldv__builtin_expect(element->type == 1U, 1L);
   if (tmp != 0L) {
     *(sinf + (unsigned long )i) = (u32 )element->integer.value;
   } else {
@@ -4046,7 +4046,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

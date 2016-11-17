@@ -890,7 +890,7 @@ struct it87_data {
    u8 fan_ctl ;
    u8 manual_pwm_ctl[3U] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern long simple_strtol(char const   * , char ** , unsigned int  ) ;
 extern int sprintf(char * , char const   *  , ...) ;
@@ -1006,7 +1006,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -3089,7 +3089,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

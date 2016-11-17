@@ -3009,7 +3009,7 @@ enum __anonenum_104 {
     LDV_SPIN_LOCKED = 1
 } ;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -3063,7 +3063,7 @@ __inline static long IS_ERR(void const   *ptr )
   ______f.line = 34U;
   ______f.ldv_815.ldv_809.correct = 0UL;
   ______f.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 1L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 1L);
   ______r = (int )tmp;
   ftrace_likely_update(& ______f, ______r, 0);
   return ((long )______r);
@@ -3300,7 +3300,7 @@ static int acpi_pcc_retrieve_biosdata(struct pcc_acpi *pcc , u32 *sinf )
   ______f___3.line = 314U;
   ______f___3.ldv_815.ldv_809.correct = 0UL;
   ______f___3.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect(element->type == 1U, 1L);
+  tmp = ldv__builtin_expect(element->type == 1U, 1L);
   ______r___3 = (int )tmp;
   ftrace_likely_update(& ______f___3, ______r___3, 1);
   ______r___2 = ______r___3 != 0;
@@ -4305,7 +4305,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

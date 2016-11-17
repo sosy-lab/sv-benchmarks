@@ -1,9 +1,11 @@
 extern void __VERIFIER_assume(int);
 #include <math.h>
 extern void __VERIFIER_error(void);
+extern double __VERIFIER_nondet_double(void);
 int main()
 {
   double f, f2;
+  f2 = __VERIFIER_nondet_double();
   // the following rely on f not being a NaN or Infinity
   __VERIFIER_assume(!isnan(f2));
   __VERIFIER_assume(!isinf(f2));

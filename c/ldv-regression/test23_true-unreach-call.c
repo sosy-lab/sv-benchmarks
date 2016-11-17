@@ -1,9 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void printf(char *format);
-void assert_fail(void);
 
 extern void *__VERIFIER_nondet_pointer();
+extern int __VERIFIER_nondet_int();
 
 struct dummy {
   int a, b;
@@ -24,6 +23,7 @@ int main()
 {
   struct dummy *pd1 = get_dummy(), *pd2 = get_dummy();
   int i, *pa;
+  i = __VERIFIER_nondet_int();
   if (pd1 != 0 && pd1 == pd2 && i >= 0 && i < 10) {
     pd2->array[i] = i;
     pa = &pd1->array[i];
@@ -32,8 +32,6 @@ int main()
       ++i;
     }
     if (!check(pd2, i)) {
-      printf("ERROR!\n");
-      assert_fail();
       goto ERROR;
     }
   }

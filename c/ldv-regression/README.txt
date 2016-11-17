@@ -1,4 +1,4 @@
-Benchmarks in this directory are from the LDV Project.
+Benchmarks in this directory are from the [LDV](http://linuxtesting.org/project/ldv) project.
 
 The set contains tasks that are used in the LDV project as regression tests.  
 It consists of small programs that check for features rather than impose a high payload; 

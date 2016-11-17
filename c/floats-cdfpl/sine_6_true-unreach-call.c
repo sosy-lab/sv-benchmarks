@@ -1,5 +1,6 @@
 extern void __VERIFIER_error(void);
 extern void __VERIFIER_assume(int);
+extern float __VERIFIER_nondet_float(void);
 #define HALFPI 1.57079632679f
 
 #define NR 6
@@ -25,7 +26,7 @@ extern void __VERIFIER_assume(int);
 
 int main()
 {
-  float IN;
+  float IN = __VERIFIER_nondet_float();
   __VERIFIER_assume(IN > -HALFPI && IN < HALFPI);
 
   float x = IN;

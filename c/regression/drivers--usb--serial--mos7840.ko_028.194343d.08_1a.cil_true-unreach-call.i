@@ -3123,7 +3123,7 @@ struct moschip_port {
    char busy[16U] ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
   int oldbit ;
@@ -3228,7 +3228,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -6935,7 +6935,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

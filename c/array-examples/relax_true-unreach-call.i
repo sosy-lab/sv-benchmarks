@@ -1,4 +1,5 @@
 extern unsigned long __VERIFIER_nondet_ulong();
+extern int __VERIFIER_nondet_int();
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
@@ -1119,6 +1120,12 @@ int main()
 
 
 
+  for (int j = 0; j < pat_len; j++) {
+    pat[j] = __VERIFIER_nondet_int();
+  }
+  for (int j = 0; j < a_len; j++) {
+    a[j] = __VERIFIER_nondet_int();
+  }
 
 
   if(is_relaxed_prefix(pat, pat_len, a, a_len))

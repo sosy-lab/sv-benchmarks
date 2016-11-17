@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int();
 
 int sep (int x[20])
 {
@@ -21,6 +22,10 @@ int main ()
   int ret;
   int ret2;
   int ret5;
+
+  for (int i = 0; i < 20; i++) {
+    x[i] = __VERIFIER_nondet_int();
+  }
 
   ret = sep(x);
 

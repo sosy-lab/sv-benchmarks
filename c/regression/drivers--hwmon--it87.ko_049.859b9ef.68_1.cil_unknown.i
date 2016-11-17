@@ -2842,7 +2842,7 @@ struct urb {
    void (*complete)(struct urb * ) ;
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern long simple_strtol(char const   * , char ** , unsigned int  ) ;
 extern int ( /* format attribute */  sprintf)(char *buf , char const   *fmt  , ...) ;
@@ -2968,7 +2968,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
+  tmp = ldv__builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
   return (tmp);
 }
 }
@@ -5239,7 +5239,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

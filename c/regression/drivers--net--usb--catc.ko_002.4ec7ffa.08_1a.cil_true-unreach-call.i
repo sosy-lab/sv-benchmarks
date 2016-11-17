@@ -3216,7 +3216,7 @@ struct catc {
    atomic_t recq_sz ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(int nr , void volatile   *addr ) 
 { 
 
@@ -3766,7 +3766,7 @@ static void catc_tx_done(struct urb *urb )
   flags = _spin_lock_irqsave(& catc->tx_lock);
   if (catc->tx_ptr != 0U) {
     r = catc_tx_run(catc);
-    tmp = __builtin_expect(r < 0, 0L);
+    tmp = ldv__builtin_expect(r < 0, 0L);
     if (tmp != 0L) {
       clear_bit(2, (void volatile   *)(& catc->flags));
     } else {
@@ -4568,7 +4568,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -1,6 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-extern int __VERIFIER_nondet_int(void);
+extern unsigned char __VERIFIER_nondet_uchar(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -15,6 +15,7 @@ int main()
     unsigned char y;
     unsigned char c;
 
+    x = __VERIFIER_nondet_uchar();
     y = 0;
     c = 0;
     while (c < (unsigned char)8) {

@@ -1,4 +1,6 @@
 extern void __VERIFIER_assume(int);
+extern unsigned long __VERIFIER_nondet_ulong(void);
+extern int __VERIFIER_nondet_int(void);
 // Copyright (c) 2015 Michael Tautschnig <michael.tautschnig@qmul.ac.uk>
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -128,6 +130,13 @@ int main()
   //int pat[]={1,2,3};
   //int pat[]={1,2,4};
   //int a[]={1,3,2,3};
+
+  for (int j = 0; j < pat_len; j++) {
+    pat[j] = __VERIFIER_nondet_int();
+  }
+  for (int j = 0; j < a_len; j++) {
+    a[j] = __VERIFIER_nondet_int();
+  }
 
   if(is_relaxed_prefix(pat, pat_len, a, a_len))
   {

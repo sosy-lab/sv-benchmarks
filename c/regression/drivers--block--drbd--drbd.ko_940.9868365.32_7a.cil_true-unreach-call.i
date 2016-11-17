@@ -7230,7 +7230,7 @@ struct after_conn_state_chg_work {
 typedef int ldv_func_ret_type___4;
 enum hrtimer_restart;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -7765,13 +7765,13 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp != 0L) {
     warn_slowpath_null("include/linux/kref.h", 67);
   } else {
 
   }
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   if (tmp___0 != 0) {
     (*release)(kref);
@@ -8250,7 +8250,7 @@ static void bm_store_page_idx(struct page *page , unsigned long idx )
   long tmp ;
 
   {
-  tmp = __builtin_expect((idx & 0xffffffffff000000UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect((idx & 0xffffffffff000000UL) != 0UL, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_bitmap.c.prepared"),
                          "i" (289), "i" (12UL));
@@ -8412,7 +8412,7 @@ static unsigned int bm_word_to_page_idx(struct drbd_bitmap *b , unsigned long lo
 
   {
   page_nr = (unsigned int )(long_nr >> 9);
-  tmp = __builtin_expect((size_t )page_nr >= b->bm_number_of_pages, 0L);
+  tmp = ldv__builtin_expect((size_t )page_nr >= b->bm_number_of_pages, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_bitmap.c.prepared"),
                          "i" (382), "i" (12UL));
@@ -8431,7 +8431,7 @@ static unsigned int bm_bit_to_page_idx(struct drbd_bitmap *b , u64 bitnr )
 
   {
   page_nr = (unsigned int )(bitnr >> 15);
-  tmp = __builtin_expect((size_t )page_nr >= b->bm_number_of_pages, 0L);
+  tmp = ldv__builtin_expect((size_t )page_nr >= b->bm_number_of_pages, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_bitmap.c.prepared"),
                          "i" (390), "i" (12UL));
@@ -8548,9 +8548,9 @@ static struct page **bm_realloc_pages(struct drbd_bitmap *b , unsigned long want
   old_pages = b->bm_pages;
   vmalloced = 0U;
   have = b->bm_number_of_pages;
-  tmp = __builtin_expect(have == 0UL, 0L);
+  tmp = ldv__builtin_expect(have == 0UL, 0L);
   if (tmp != 0L) {
-    tmp___0 = __builtin_expect((unsigned long )old_pages != (unsigned long )((struct page **)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )old_pages != (unsigned long )((struct page **)0),
                                0L);
     if (tmp___0 != 0L) {
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_bitmap.c.prepared"),
@@ -8563,9 +8563,9 @@ static struct page **bm_realloc_pages(struct drbd_bitmap *b , unsigned long want
   } else {
 
   }
-  tmp___1 = __builtin_expect(have != 0UL, 0L);
+  tmp___1 = ldv__builtin_expect(have != 0UL, 0L);
   if (tmp___1 != 0L) {
-    tmp___2 = __builtin_expect((unsigned long )old_pages == (unsigned long )((struct page **)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )old_pages == (unsigned long )((struct page **)0),
                                0L);
     if (tmp___2 != 0L) {
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_bitmap.c.prepared"),
@@ -8667,14 +8667,14 @@ int drbd_bm_init(struct drbd_conf *mdev )
   {
   b = mdev->bitmap;
   __ret_warn_on = (unsigned long )b != (unsigned long )((struct drbd_bitmap *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp != 0L) {
     warn_slowpath_null("/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_bitmap.c.prepared",
                        531);
   } else {
 
   }
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = kzalloc(400UL, 208U);
   b = (struct drbd_bitmap *)tmp___0;
   if ((unsigned long )b == (unsigned long )((struct drbd_bitmap *)0)) {
@@ -9289,23 +9289,23 @@ void drbd_bm_merge_lel(struct drbd_conf *mdev , size_t offset , size_t number , 
 
   }
   __ret_warn_on = b->bm_words <= offset;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp___1 != 0L) {
     warn_slowpath_null("/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_bitmap.c.prepared",
                        907);
   } else {
 
   }
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = b->bm_words < end;
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   if (tmp___2 != 0L) {
     warn_slowpath_null("/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_bitmap.c.prepared",
                        908);
   } else {
 
   }
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   spin_lock_irq(& b->bm_lock);
   goto ldv_51380;
   ldv_51379: 
@@ -9622,7 +9622,7 @@ static void bm_async_io_complete(struct bio *bio , int error )
     descriptor.format = "bitmap page idx %u completed\n";
     descriptor.lineno = 1059U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (mdev->vdisk)->part0.__dev),
                         "bitmap page idx %u completed\n", idx);
@@ -9767,14 +9767,14 @@ static int bm_rw(struct drbd_conf *mdev , int rw , unsigned int flags , unsigned
   }
   if (ctx->flags == 0U) {
     __ret_warn_on = ((unsigned int )b->bm_flags & 15U) == 0U;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     if (tmp___1 != 0L) {
       warn_slowpath_null("/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_bitmap.c.prepared",
                          1172);
     } else {
 
     }
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -9808,7 +9808,7 @@ static int bm_rw(struct drbd_conf *mdev , int rw , unsigned int flags , unsigned
         descriptor.format = "skipped bm write for idx %u\n";
         descriptor.lineno = 1191U;
         descriptor.flags = 0U;
-        tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         if (tmp___3 != 0L) {
           __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (mdev->vdisk)->part0.__dev),
                             "skipped bm write for idx %u\n", i);
@@ -9831,7 +9831,7 @@ static int bm_rw(struct drbd_conf *mdev , int rw , unsigned int flags , unsigned
         descriptor___0.format = "skipped bm lazy write for idx %u\n";
         descriptor___0.lineno = 1198U;
         descriptor___0.flags = 0U;
-        tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         if (tmp___5 != 0L) {
           __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& (mdev->vdisk)->part0.__dev),
                             "skipped bm lazy write for idx %u\n", i);
@@ -9983,7 +9983,7 @@ int drbd_bm_write_page(struct drbd_conf *mdev , unsigned int idx )
     descriptor.format = "skipped bm page write for idx %u\n";
     descriptor.lineno = 1338U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (mdev->vdisk)->part0.__dev),
                         "skipped bm page write for idx %u\n", idx);
@@ -11101,13 +11101,13 @@ void seq_printf_with_thousands_grouping(struct seq_file *seq , long v )
   long tmp___0 ;
 
   {
-  tmp___0 = __builtin_expect(v > 999999L, 0L);
+  tmp___0 = ldv__builtin_expect(v > 999999L, 0L);
   if (tmp___0 != 0L) {
     seq_printf(seq, "%ld,", v / 1000000L);
     v = v % 1000000L;
     seq_printf(seq, "%03ld,%03ld", v / 1000L, v % 1000L);
   } else {
-    tmp = __builtin_expect(v > 999L, 1L);
+    tmp = ldv__builtin_expect(v > 999L, 1L);
     if (tmp != 0L) {
       seq_printf(seq, "%ld,%03ld", v / 1000L, v % 1000L);
     } else {
@@ -11941,13 +11941,13 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_read((atomic_t const   *)(& kref->refcount));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp___0 != 0L) {
     warn_slowpath_null("include/linux/kref.h", 42);
   } else {
 
   }
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   atomic_inc(& kref->refcount);
   return;
 }
@@ -11969,7 +11969,7 @@ __inline static struct page *compound_head(struct page *page )
 
   {
   tmp = PageTail((struct page  const  *)page);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   if (tmp___0 != 0L) {
     return (page->ldv_14746.first_page);
   } else {
@@ -11998,7 +11998,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   {
   page_link = sg->page_link & 3UL;
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (65), "i" (12UL));
@@ -12007,7 +12007,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
   } else {
 
   }
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (67), "i" (12UL));
@@ -12016,7 +12016,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
   } else {
 
   }
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   if (tmp___1 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (68), "i" (12UL));
@@ -12069,7 +12069,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -12760,7 +12760,7 @@ void drbd_request_endio(struct bio *bio , int error )
   } else {
 
   }
-  tmp___0 = __builtin_expect(((unsigned long )req->rq_state & 8UL) != 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned long )req->rq_state & 8UL) != 0UL, 0L);
   if (tmp___0 != 0L) {
     tmp = ___ratelimit(& drbd_ratelimit_state, "drbd_request_endio");
     if (tmp != 0) {
@@ -12776,7 +12776,7 @@ void drbd_request_endio(struct bio *bio , int error )
   } else {
 
   }
-  tmp___1 = __builtin_expect(error != 0, 0L);
+  tmp___1 = ldv__builtin_expect(error != 0, 0L);
   if (tmp___1 != 0L) {
     what = (int )bio->bi_rw & 1 ? WRITE_COMPLETED_WITH_ERROR : ((bio->bi_rw & 8193UL) == 0UL ? READ_COMPLETED_WITH_ERROR : READ_AHEAD_COMPLETED_WITH_ERROR);
   } else {
@@ -12883,13 +12883,13 @@ static int w_e_send_csum(struct drbd_work *w , int cancel )
   peer_req = (struct drbd_peer_request *)__mptr;
   mdev = w->ldv_49807.mdev;
   err = 0;
-  tmp = __builtin_expect(cancel != 0, 0L);
+  tmp = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp != 0L) {
     goto out;
   } else {
 
   }
-  tmp___0 = __builtin_expect((peer_req->flags & 8UL) != 0UL, 0L);
+  tmp___0 = ldv__builtin_expect((peer_req->flags & 8UL) != 0UL, 0L);
   if (tmp___0 != 0L) {
     goto out;
   } else {
@@ -12917,7 +12917,7 @@ static int w_e_send_csum(struct drbd_work *w , int cancel )
   } else {
 
   }
-  tmp___2 = __builtin_expect(err != 0, 0L);
+  tmp___2 = ldv__builtin_expect(err != 0, 0L);
   if (tmp___2 != 0L) {
     dev_err((struct device  const  *)(& (mdev->vdisk)->part0.__dev), "drbd_send_drequest(..., csum) failed\n");
   } else {
@@ -13254,7 +13254,7 @@ int w_make_resync_request(struct drbd_work *w , int cancel )
   tmp = drbd_get_capacity(mdev->this_bdev);
   capacity = tmp;
   i = 0;
-  tmp___0 = __builtin_expect(cancel != 0, 0L);
+  tmp___0 = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp___0 != 0L) {
     return (0);
   } else {
@@ -13324,7 +13324,7 @@ int w_make_resync_request(struct drbd_work *w , int cancel )
   }
   mdev->bm_resync_fo = bit + 1UL;
   tmp___5 = drbd_bm_test_bit(mdev, bit);
-  tmp___6 = __builtin_expect(tmp___5 == 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 == 0, 0L);
   if (tmp___6 != 0L) {
     drbd_rs_complete_io(mdev, sector);
     goto next_sector;
@@ -13450,7 +13450,7 @@ static int w_make_ov_request(struct drbd_work *w , int cancel )
   tmp = drbd_get_capacity(mdev->this_bdev);
   capacity = tmp;
   stop_sector_reached = 0;
-  tmp___0 = __builtin_expect(cancel != 0, 0L);
+  tmp___0 = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp___0 != 0L) {
     return (1);
   } else {
@@ -13818,7 +13818,7 @@ int w_e_end_data_req(struct drbd_work *w , int cancel )
   __mptr = (struct drbd_work  const  *)w;
   peer_req = (struct drbd_peer_request *)__mptr;
   mdev = w->ldv_49807.mdev;
-  tmp = __builtin_expect(cancel != 0, 0L);
+  tmp = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp != 0L) {
     __drbd_free_peer_req(mdev, peer_req, 0);
     _dec_unacked(mdev, "w_e_end_data_req", 1080);
@@ -13826,7 +13826,7 @@ int w_e_end_data_req(struct drbd_work *w , int cancel )
   } else {
 
   }
-  tmp___1 = __builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
   if (tmp___1 != 0L) {
     err = drbd_send_block(mdev, P_DATA_REPLY, peer_req);
   } else {
@@ -13841,7 +13841,7 @@ int w_e_end_data_req(struct drbd_work *w , int cancel )
   }
   _dec_unacked(mdev, "w_e_end_data_req", 1094);
   move_to_net_ee_or_free(mdev, peer_req);
-  tmp___2 = __builtin_expect(err != 0, 0L);
+  tmp___2 = ldv__builtin_expect(err != 0, 0L);
   if (tmp___2 != 0L) {
     dev_err((struct device  const  *)(& (mdev->vdisk)->part0.__dev), "drbd_send_block() failed\n");
   } else {
@@ -13868,7 +13868,7 @@ int w_e_end_rsdata_req(struct drbd_work *w , int cancel )
   __mptr = (struct drbd_work  const  *)w;
   peer_req = (struct drbd_peer_request *)__mptr;
   mdev = w->ldv_49807.mdev;
-  tmp = __builtin_expect(cancel != 0, 0L);
+  tmp = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp != 0L) {
     __drbd_free_peer_req(mdev, peer_req, 0);
     _dec_unacked(mdev, "w_e_end_rsdata_req", 1117);
@@ -13886,9 +13886,9 @@ int w_e_end_rsdata_req(struct drbd_work *w , int cancel )
   if ((unsigned int )*((unsigned short *)mdev + 374UL) == 352U) {
     err = drbd_send_ack(mdev, P_RS_CANCEL, peer_req);
   } else {
-    tmp___4 = __builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
+    tmp___4 = ldv__builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
     if (tmp___4 != 0L) {
-      tmp___2 = __builtin_expect((int )mdev->state.ldv_49522.pdsk > 3, 1L);
+      tmp___2 = ldv__builtin_expect((int )mdev->state.ldv_49522.pdsk > 3, 1L);
       if (tmp___2 != 0L) {
         inc_rs_pending(mdev);
         err = drbd_send_block(mdev, P_RS_DATA_REPLY, peer_req);
@@ -13915,7 +13915,7 @@ int w_e_end_rsdata_req(struct drbd_work *w , int cancel )
   }
   _dec_unacked(mdev, "w_e_end_rsdata_req", 1149);
   move_to_net_ee_or_free(mdev, peer_req);
-  tmp___5 = __builtin_expect(err != 0, 0L);
+  tmp___5 = ldv__builtin_expect(err != 0, 0L);
   if (tmp___5 != 0L) {
     dev_err((struct device  const  *)(& (mdev->vdisk)->part0.__dev), "drbd_send_block() failed\n");
   } else {
@@ -13948,7 +13948,7 @@ int w_e_end_csum_rs_req(struct drbd_work *w , int cancel )
   mdev = w->ldv_49807.mdev;
   digest = 0;
   eq = 0;
-  tmp = __builtin_expect(cancel != 0, 0L);
+  tmp = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp != 0L) {
     __drbd_free_peer_req(mdev, peer_req, 0);
     _dec_unacked(mdev, "w_e_end_csum_rs_req", 1169);
@@ -13964,7 +13964,7 @@ int w_e_end_csum_rs_req(struct drbd_work *w , int cancel )
 
   }
   di = peer_req->ldv_50726.digest;
-  tmp___4 = __builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
+  tmp___4 = ldv__builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
   if (tmp___4 != 0L) {
     if ((unsigned long )(mdev->tconn)->csums_tfm != (unsigned long )((struct crypto_hash *)0)) {
       tmp___1 = crypto_hash_digestsize((mdev->tconn)->csums_tfm);
@@ -14011,7 +14011,7 @@ int w_e_end_csum_rs_req(struct drbd_work *w , int cancel )
   }
   _dec_unacked(mdev, "w_e_end_csum_rs_req", 1213);
   move_to_net_ee_or_free(mdev, peer_req);
-  tmp___5 = __builtin_expect(err != 0, 0L);
+  tmp___5 = ldv__builtin_expect(err != 0, 0L);
   if (tmp___5 != 0L) {
     dev_err((struct device  const  *)(& (mdev->vdisk)->part0.__dev), "drbd_send_block/ack() failed\n");
   } else {
@@ -14041,7 +14041,7 @@ int w_e_end_ov_req(struct drbd_work *w , int cancel )
   sector = peer_req->i.sector;
   size = peer_req->i.size;
   err = 0;
-  tmp = __builtin_expect(cancel != 0, 0L);
+  tmp = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp != 0L) {
     goto out;
   } else {
@@ -14056,7 +14056,7 @@ int w_e_end_ov_req(struct drbd_work *w , int cancel )
   } else {
 
   }
-  tmp___1 = __builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
   if (tmp___1 != 0L) {
     drbd_csum_ee(mdev, (mdev->tconn)->verify_tfm, peer_req, digest);
   } else {
@@ -14126,7 +14126,7 @@ int w_e_end_ov_reply(struct drbd_work *w , int cancel )
   size = peer_req->i.size;
   eq = 0;
   stop_sector_reached = 0;
-  tmp = __builtin_expect(cancel != 0, 0L);
+  tmp = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp != 0L) {
     __drbd_free_peer_req(mdev, peer_req, 0);
     _dec_unacked(mdev, "w_e_end_ov_reply", 1291);
@@ -14142,7 +14142,7 @@ int w_e_end_ov_reply(struct drbd_work *w , int cancel )
 
   }
   di = peer_req->ldv_50726.digest;
-  tmp___3 = __builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
+  tmp___3 = ldv__builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
   if (tmp___3 != 0L) {
     tmp___1 = crypto_hash_digestsize((mdev->tconn)->verify_tfm);
     digest_size = (int )tmp___1;
@@ -14302,7 +14302,7 @@ int w_send_out_of_sync(struct drbd_work *w , int cancel )
   req = (struct drbd_request *)__mptr;
   mdev = w->ldv_49807.mdev;
   tconn = mdev->tconn;
-  tmp = __builtin_expect(cancel != 0, 0L);
+  tmp = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp != 0L) {
     req_mod(req, SEND_CANCELED);
     return (0);
@@ -14329,7 +14329,7 @@ int w_send_dblock(struct drbd_work *w , int cancel )
   req = (struct drbd_request *)__mptr;
   mdev = w->ldv_49807.mdev;
   tconn = mdev->tconn;
-  tmp = __builtin_expect(cancel != 0, 0L);
+  tmp = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp != 0L) {
     req_mod(req, SEND_CANCELED);
     return (0);
@@ -14358,7 +14358,7 @@ int w_send_read_req(struct drbd_work *w , int cancel )
   req = (struct drbd_request *)__mptr;
   mdev = w->ldv_49807.mdev;
   tconn = mdev->tconn;
-  tmp = __builtin_expect(cancel != 0, 0L);
+  tmp = ldv__builtin_expect(cancel != 0, 0L);
   if (tmp != 0L) {
     req_mod(req, SEND_CANCELED);
     return (0);
@@ -15555,16 +15555,16 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   {
   __ret_warn_once = (unsigned int )nr_cpu_ids <= cpu;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   if (tmp___1 != 0L) {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     if (tmp != 0L) {
       warn_slowpath_null("include/linux/cpumask.h", 108);
     } else {
 
     }
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     if (tmp___0 != 0L) {
       __warned = 1;
     } else {
@@ -15573,7 +15573,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
   } else {
 
   }
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   return (cpu);
 }
 }
@@ -15605,7 +15605,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -15783,7 +15783,7 @@ __inline static void sg_assign_page___0(struct scatterlist *sg , struct page *pa
 
   {
   page_link = sg->page_link & 3UL;
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (65), "i" (12UL));
@@ -15792,7 +15792,7 @@ __inline static void sg_assign_page___0(struct scatterlist *sg , struct page *pa
   } else {
 
   }
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (67), "i" (12UL));
@@ -15801,7 +15801,7 @@ __inline static void sg_assign_page___0(struct scatterlist *sg , struct page *pa
   } else {
 
   }
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   if (tmp___1 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (68), "i" (12UL));
@@ -16489,7 +16489,7 @@ static struct page *page_chain_del(struct page **head , int n )
   long tmp___1 ;
 
   {
-  tmp___0 = __builtin_expect(n == 0, 0L);
+  tmp___0 = ldv__builtin_expect(n == 0, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_receiver.c.prepared"),
                          "i" (176), "i" (12UL));
@@ -16498,7 +16498,7 @@ static struct page *page_chain_del(struct page **head , int n )
   } else {
 
   }
-  tmp___1 = __builtin_expect((unsigned long )head == (unsigned long )((struct page **)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )head == (unsigned long )((struct page **)0),
                              0L);
   if (tmp___1 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_receiver.c.prepared"),
@@ -16603,7 +16603,7 @@ static void page_chain_add(struct page **head , struct page *chain_first , struc
 
   {
   tmp = page_chain_tail(chain_first, 0);
-  tmp___0 = __builtin_expect((unsigned long )tmp != (unsigned long )chain_last, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )tmp != (unsigned long )chain_last, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_receiver.c.prepared"),
                          "i" (233), "i" (12UL));
@@ -18949,7 +18949,7 @@ static int e_end_resync_block(struct drbd_work *w , int unused )
   } else {
 
   }
-  tmp___1 = __builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
   if (tmp___1 != 0L) {
     __drbd_set_in_sync(mdev, sector, (int )peer_req->i.size, "/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_receiver.c.prepared",
                        1733U);
@@ -19044,7 +19044,7 @@ static int receive_DataReply(struct drbd_tconn *tconn , struct packet_info *pi )
   spin_lock_irq(& (mdev->tconn)->req_lock);
   req = find_request(mdev, & mdev->read_requests, p->block_id, sector, 0, "receive_DataReply");
   spin_unlock_irq(& (mdev->tconn)->req_lock);
-  tmp___0 = __builtin_expect((unsigned long )req == (unsigned long )((struct drbd_request *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )req == (unsigned long )((struct drbd_request *)0),
                              0L);
   if (tmp___0 != 0L) {
     return (-5);
@@ -19160,7 +19160,7 @@ static int e_end_block(struct drbd_work *w , int cancel )
   sector = peer_req->i.sector;
   err = 0;
   if ((peer_req->flags & 64UL) != 0UL) {
-    tmp = __builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
+    tmp = ldv__builtin_expect((peer_req->flags & 8UL) == 0UL, 1L);
     if (tmp != 0L) {
       pcmd = ((int )mdev->state.ldv_49522.conn > 15 && (int )mdev->state.ldv_49522.conn <= 21) && (peer_req->flags & 2UL) != 0UL ? 23 : 22;
       err = drbd_send_ack(mdev, (enum drbd_packet )pcmd, peer_req);
@@ -22897,7 +22897,7 @@ static void drbdd(struct drbd_tconn *tconn )
 
   }
   cmd = (struct data_cmd *)(& drbd_cmd_handler) + (unsigned long )pi.cmd;
-  tmp___1 = __builtin_expect((unsigned int )pi.cmd > (unsigned int )P_PROTOCOL_UPDATE,
+  tmp___1 = ldv__builtin_expect((unsigned int )pi.cmd > (unsigned int )P_PROTOCOL_UPDATE,
                              0L);
   if (tmp___1 != 0L) {
     tmp___0 = cmdname(pi.cmd);
@@ -22905,7 +22905,7 @@ static void drbdd(struct drbd_tconn *tconn )
            (unsigned int )pi.cmd);
     goto err_out;
   } else {
-    tmp___2 = __builtin_expect((unsigned long )cmd->fn == (unsigned long )((int (*)(struct drbd_tconn * ,
+    tmp___2 = ldv__builtin_expect((unsigned long )cmd->fn == (unsigned long )((int (*)(struct drbd_tconn * ,
                                                                                     struct packet_info * ))0),
                                0L);
     if (tmp___2 != 0L) {
@@ -23714,7 +23714,7 @@ static int validate_req_change_req_state(struct drbd_conf *mdev , u64 id , secto
   {
   spin_lock_irq(& (mdev->tconn)->req_lock);
   req = find_request(mdev, root, id, sector, (int )missing_ok, func);
-  tmp = __builtin_expect((unsigned long )req == (unsigned long )((struct drbd_request *)0),
+  tmp = ldv__builtin_expect((unsigned long )req == (unsigned long )((struct drbd_request *)0),
                          0L);
   if (tmp != 0L) {
     spin_unlock_irq(& (mdev->tconn)->req_lock);
@@ -24292,7 +24292,7 @@ int drbd_asender(struct drbd_thread *thi )
   clear_bit(3, (unsigned long volatile   *)(& tconn->flags));
   tmp___9 = get_current();
   flush_signals(tmp___9);
-  tmp___14 = __builtin_expect(rv > 0, 1L);
+  tmp___14 = ldv__builtin_expect(rv > 0, 1L);
   if (tmp___14 != 0L) {
     received = received + rv;
     buf = buf + (unsigned long )rv;
@@ -24823,7 +24823,7 @@ __inline static struct gendisk *part_to_disk(struct hd_struct *part )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )part != (unsigned long )((struct hd_struct *)0),
+  tmp = ldv__builtin_expect((unsigned long )part != (unsigned long )((struct hd_struct *)0),
                          1L);
   if (tmp != 0L) {
     if (part->partno != 0) {
@@ -26666,7 +26666,7 @@ static int drbd_process_write_request(struct drbd_request *req )
   tmp___1 = drbd_should_send_out_of_sync(mdev->state);
   send_oos = (int )tmp___1;
   rcu_read_unlock___0();
-  tmp___2 = __builtin_expect(req->i.size == 0U, 0L);
+  tmp___2 = ldv__builtin_expect(req->i.size == 0U, 0L);
   if (tmp___2 != 0L) {
     if (((req->master_bio)->bi_rw & 4096UL) == 0UL) {
       dev_err((struct device  const  *)(& (mdev->vdisk)->part0.__dev), "ASSERT( req->master_bio->bi_rw & REQ_FLUSH ) in %s:%d\n",
@@ -26827,7 +26827,7 @@ void __drbd_make_request(struct drbd_conf *mdev , struct bio *bio , unsigned lon
   }
   tmp___4 = atomic_read((atomic_t const   *)(& (mdev->tconn)->current_tle_nr));
   req->epoch = (unsigned int )tmp___4;
-  tmp___5 = __builtin_expect(req->i.size != 0U, 1L);
+  tmp___5 = ldv__builtin_expect(req->i.size != 0U, 1L);
   if (tmp___5 != 0L) {
     if (rw == 1) {
       (mdev->tconn)->current_tle_writes = (mdev->tconn)->current_tle_writes + 1U;
@@ -27808,7 +27808,7 @@ int drbd_md_sync_page_io(struct drbd_conf *mdev , struct drbd_backing_dev *bdev 
   } else {
 
   }
-  tmp___0 = __builtin_expect((unsigned long )bdev->md_bdev == (unsigned long )((struct block_device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )bdev->md_bdev == (unsigned long )((struct block_device *)0),
                              0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_actlog.c.prepared"),
@@ -27824,7 +27824,7 @@ int drbd_md_sync_page_io(struct drbd_conf *mdev , struct drbd_backing_dev *bdev 
   descriptor.format = "meta_data io: %s [%d]:%s(,%llus,%s)\n";
   descriptor.lineno = 292U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     tmp___1 = get_current();
     tmp___2 = get_current();
@@ -27879,7 +27879,7 @@ static struct lc_element *_al_get(struct drbd_conf *mdev , unsigned int enr )
   {
   spin_lock_irq(& mdev->al_lock);
   tmp = lc_find(mdev->resync, enr / 4U);
-  tmp___2 = __builtin_expect((unsigned long )tmp != (unsigned long )((struct lc_element *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )tmp != (unsigned long )((struct lc_element *)0),
                              0L);
   if (tmp___2 != 0L) {
     __mptr = (struct lc_element  const  *)tmp;
@@ -28218,7 +28218,7 @@ static int _al_write_transaction(struct drbd_conf *mdev )
   }
   ldv_51241: 
   spin_unlock_irq(& mdev->al_lock);
-  tmp___7 = __builtin_expect(i > 64, 0L);
+  tmp___7 = ldv__builtin_expect(i > 64, 0L);
   if (tmp___7 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_actlog.c.prepared"),
                          "i" (498), "i" (12UL));
@@ -28348,7 +28348,7 @@ static int _try_lc_del(struct drbd_conf *mdev , struct lc_element *al_ext )
   {
   spin_lock_irq(& mdev->al_lock);
   rv = al_ext->refcnt == 0U;
-  tmp = __builtin_expect(rv != 0, 1L);
+  tmp = ldv__builtin_expect(rv != 0, 1L);
   if (tmp != 0L) {
     lc_del(mdev->act_log, al_ext);
   } else {
@@ -28662,13 +28662,13 @@ void __drbd_set_in_sync(struct drbd_conf *mdev , sector_t sector , int size , ch
 
   }
   lbnr = (nr_sectors - 1UL) >> 3;
-  tmp___2 = __builtin_expect(esector <= 6UL, 0L);
+  tmp___2 = ldv__builtin_expect(esector <= 6UL, 0L);
   if (tmp___2 != 0L) {
     goto out;
   } else {
 
   }
-  tmp___3 = __builtin_expect(nr_sectors - 1UL == esector, 0L);
+  tmp___3 = ldv__builtin_expect(nr_sectors - 1UL == esector, 0L);
   if (tmp___3 != 0L) {
     ebnr = lbnr;
   } else {
@@ -28857,7 +28857,7 @@ static struct bm_extent *_bme_get(struct drbd_conf *mdev , unsigned int enr )
     } else {
 
     }
-    tmp = __builtin_expect((rs_flags & 4UL) != 0UL, 0L);
+    tmp = ldv__builtin_expect((rs_flags & 4UL) != 0UL, 0L);
     if (tmp != 0L) {
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_actlog.c.prepared"),
                            "i" (929), "i" (12UL));
@@ -29174,7 +29174,7 @@ int drbd_try_rs_begin_io(struct drbd_conf *mdev , sector_t sector )
       } else {
 
       }
-      tmp___4 = __builtin_expect((rs_flags & 4UL) != 0UL, 0L);
+      tmp___4 = ldv__builtin_expect((rs_flags & 4UL) != 0UL, 0L);
       if (tmp___4 != 0L) {
         __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_actlog.c.prepared"),
                              "i" (1072), "i" (12UL));
@@ -29487,13 +29487,13 @@ void drbd_rs_failed_io(struct drbd_conf *mdev , sector_t sector , int size )
 
   }
   lbnr = (nr_sectors - 1UL) >> 3;
-  tmp___1 = __builtin_expect(esector <= 6UL, 0L);
+  tmp___1 = ldv__builtin_expect(esector <= 6UL, 0L);
   if (tmp___1 != 0L) {
     return;
   } else {
 
   }
-  tmp___2 = __builtin_expect(nr_sectors - 1UL == esector, 0L);
+  tmp___2 = ldv__builtin_expect(nr_sectors - 1UL == esector, 0L);
   if (tmp___2 != 0L) {
     ebnr = lbnr;
   } else {
@@ -32143,7 +32143,7 @@ static void dcbp_set_code(struct p_compressed_bm *p , enum drbd_bitmap_code code
   long tmp ;
 
   {
-  tmp = __builtin_expect(((unsigned int )code & 4294967280U) != 0U, 0L);
+  tmp = ldv__builtin_expect(((unsigned int )code & 4294967280U) != 0U, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_main.c.prepared"),
                          "i" (1143), "i" (12UL));
@@ -32170,7 +32170,7 @@ static void dcbp_set_pad_bits(struct p_compressed_bm *p , int n )
   long tmp ;
 
   {
-  tmp = __builtin_expect((n & -8) != 0, 0L);
+  tmp = ldv__builtin_expect((n & -8) != 0, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_main.c.prepared"),
                          "i" (1154), "i" (12UL));
@@ -40412,7 +40412,7 @@ enum determine_dev_size drbd_determine_dev_size(struct drbd_conf *mdev , enum dd
     if (tmp___8 != size) {
       _L: /* CIL Label */ 
       err = drbd_bm_resize(mdev, size, ((unsigned int )flags & 2U) == 0U);
-      tmp___5 = __builtin_expect(err != 0, 0L);
+      tmp___5 = ldv__builtin_expect(err != 0, 0L);
       if (tmp___5 != 0L) {
         tmp___4 = drbd_bm_capacity(mdev);
         size = tmp___4 >> 1;
@@ -45105,7 +45105,7 @@ bool drbd_insert_interval(struct rb_root *root , struct drbd_interval *this )
   {
   new = & root->rb_node;
   parent = 0;
-  tmp = __builtin_expect((this->size & 511U) != 0U, 0L);
+  tmp = ldv__builtin_expect((this->size & 511U) != 0U, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_interval.c.prepared"),
                          "i" (170), "i" (12UL));
@@ -45203,7 +45203,7 @@ struct drbd_interval *drbd_find_overlap(struct rb_root *root , sector_t sector ,
   node = root->rb_node;
   overlap = 0;
   end = (sector_t )(size >> 9) + sector;
-  tmp = __builtin_expect((size & 511U) != 0U, 0L);
+  tmp = ldv__builtin_expect((size & 511U) != 0U, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/block/drbd/drbd_interval.c.prepared"),
                          "i" (255), "i" (12UL));
@@ -48572,7 +48572,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

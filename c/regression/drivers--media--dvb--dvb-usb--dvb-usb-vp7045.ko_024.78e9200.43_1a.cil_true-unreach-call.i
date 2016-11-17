@@ -5103,7 +5103,7 @@ int ldv_pskb_expand_head_41(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
   return (tmp);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ( __attribute__((__always_inline__)) ldv_error)(void) 
 { 
 
@@ -5113,7 +5113,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_error)(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

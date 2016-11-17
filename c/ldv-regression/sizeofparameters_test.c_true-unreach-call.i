@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern long __VERIFIER_nondet_long(void);
 
 
 
@@ -756,7 +757,7 @@ int globalSize;
 
 int
 main(int argc, char* argv[]) {
- long int a;
+ long int a = __VERIFIER_nondet_long();
  globalSize=sizeof(a);
  foo(a);
  return 0;

@@ -58,7 +58,8 @@ int insert_list(mlist *l, int k){
 int main(void){
 
 	int i;
-	mlist *mylist, *temp;
+	mlist *mylist = 0;
+  mlist *temp;
 
 	insert_list(mylist,2);
 	insert_list(mylist,5);

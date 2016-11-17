@@ -1998,7 +1998,7 @@ struct ads7871_data {
    struct device *hwmon_dev ;
    struct mutex update_lock ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
 
@@ -2036,7 +2036,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -2301,7 +2301,7 @@ static int ads7871_probe(struct spi_device *spi )
   descriptor.format = "probe\n";
   descriptor.lineno = 190U;
   descriptor.flags = 1U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& spi->dev), "probe\n");
   } else {
@@ -2321,7 +2321,7 @@ static int ads7871_probe(struct spi_device *spi )
   descriptor___0.format = "REG_OSC_CONTROL write:%x, read:%x\n";
   descriptor___0.lineno = 204U;
   descriptor___0.flags = 1U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& spi->dev), "REG_OSC_CONTROL write:%x, read:%x\n",
                       (int )val, ret);
@@ -2448,7 +2448,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

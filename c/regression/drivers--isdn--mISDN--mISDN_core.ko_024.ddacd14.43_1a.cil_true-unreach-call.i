@@ -5737,7 +5737,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 }
 }
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
 __inline static void __set_bit(int nr , unsigned long volatile   *addr ) 
 { 
@@ -6036,7 +6036,7 @@ __inline static int sk_del_node_init(struct sock *sk )
     ______f___0.line = 394U;
     ______f___0.ldv_815.ldv_809.correct = 0UL;
     ______f___0.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 1L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 1L);
     ______r___0 = (int )tmp___0;
     ftrace_likely_update(& ______f___0, ______r___0, 0);
     ______r = ______r___0 != 0;
@@ -6051,7 +6051,7 @@ __inline static int sk_del_node_init(struct sock *sk )
     ______f___1.line = 394U;
     ______f___1.ldv_815.ldv_809.correct = 0UL;
     ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 1L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 1L);
     ______r___1 = (int )tmp___1;
     ftrace_likely_update(& ______f___1, ______r___1, 0);
     __sock_put(sk);
@@ -6208,7 +6208,7 @@ __inline static struct sk_buff *_l2_alloc_skb(unsigned int len , gfp_t gfp_mask 
   ______f___0.line = 62U;
   ______f___0.ldv_815.ldv_809.correct = 0UL;
   ______f___0.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                          1L);
   ______r___0 = (int )tmp;
   ftrace_likely_update(& ______f___0, ______r___0, 1);
@@ -9238,7 +9238,7 @@ __inline static struct sk_buff *mI_alloc_skb(unsigned int len , gfp_t gfp_mask )
   ______f___0.line = 516U;
   ______f___0.ldv_815.ldv_809.correct = 0UL;
   ______f___0.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                          1L);
   ______r___0 = (int )tmp;
   ftrace_likely_update(& ______f___0, ______r___0, 1);
@@ -9416,7 +9416,7 @@ static void dchannel_bh(struct work_struct *ws )
     ______f___1.line = 44U;
     ______f___1.ldv_815.ldv_809.correct = 0UL;
     ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-    tmp = __builtin_expect((unsigned long )dch->dev.D.peer != (unsigned long )((struct mISDNchannel *)0),
+    tmp = ldv__builtin_expect((unsigned long )dch->dev.D.peer != (unsigned long )((struct mISDNchannel *)0),
                            1L);
     ______r___1 = (int )tmp;
     ftrace_likely_update(& ______f___1, ______r___1, 1);
@@ -9519,7 +9519,7 @@ static void bchannel_bh(struct work_struct *ws )
     ______f___1.line = 68U;
     ______f___1.ldv_815.ldv_809.correct = 0UL;
     ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-    tmp = __builtin_expect((unsigned long )bch->ch.peer != (unsigned long )((struct mISDNchannel *)0),
+    tmp = ldv__builtin_expect((unsigned long )bch->ch.peer != (unsigned long )((struct mISDNchannel *)0),
                            1L);
     ______r___1 = (int )tmp;
     ftrace_likely_update(& ______f___1, ______r___1, 1);
@@ -10301,7 +10301,7 @@ __inline static long IS_ERR(void const   *ptr )
   ______f.line = 34U;
   ______f.ldv_815.ldv_809.correct = 0UL;
   ______f.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 1L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 1L);
   ______r = (int )tmp;
   ftrace_likely_update(& ______f, ______r, 0);
   return ((long )______r);
@@ -10424,7 +10424,7 @@ __inline static int signal_pending(struct task_struct *p )
   ______f.ldv_815.ldv_809.correct = 0UL;
   ______f.ldv_815.ldv_809.incorrect = 0UL;
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   ______r = (int )tmp___0;
   ftrace_likely_update(& ______f, ______r, 0);
   return (______r);
@@ -10478,7 +10478,7 @@ __inline static void _queue_message(struct mISDNstack *st , struct sk_buff *skb 
   ______f___1.ldv_815.ldv_809.correct = 0UL;
   ______f___1.ldv_815.ldv_809.incorrect = 0UL;
   tmp = constant_test_bit(16U, (unsigned long const volatile   *)(& st->status));
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
   ______r___1 = (int )tmp___0;
   ftrace_likely_update(& ______f___1, ______r___1, 1);
   ______r___0 = ______r___1 != 0;
@@ -11006,7 +11006,7 @@ __inline static int send_msg_to_layer(struct mISDNstack *st , struct sk_buff *sk
           ______f___4.line = 192U;
           ______f___4.ldv_815.ldv_809.correct = 0UL;
           ______f___4.ldv_815.ldv_809.incorrect = 0UL;
-          tmp___4 = __builtin_expect(__ret_warn_on != 0, 1L);
+          tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 1L);
           ______r___4 = (int )tmp___4;
           ftrace_likely_update(& ______f___4, ______r___4, 0);
           ______r___3 = ______r___4 != 0;
@@ -11022,7 +11022,7 @@ __inline static int send_msg_to_layer(struct mISDNstack *st , struct sk_buff *sk
           ______f___5.line = 192U;
           ______f___5.ldv_815.ldv_809.correct = 0UL;
           ______f___5.ldv_815.ldv_809.incorrect = 0UL;
-          tmp___5 = __builtin_expect(__ret_warn_on != 0, 1L);
+          tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 1L);
           ______r___5 = (int )tmp___5;
           ftrace_likely_update(& ______f___5, ______r___5, 0);
           ch = get_channel4id(st, hh->id);
@@ -11175,7 +11175,7 @@ static int mISDNStackd(void *data )
   ______f___2.ldv_815.ldv_809.correct = 0UL;
   ______f___2.ldv_815.ldv_809.incorrect = 0UL;
   tmp___1 = constant_test_bit(16U, (unsigned long const volatile   *)(& st->status));
-  tmp___2 = __builtin_expect(tmp___1 != 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 1L);
   ______r___2 = (int )tmp___2;
   ftrace_likely_update(& ______f___2, ______r___2, 0);
   ______r___1 = ______r___2 != 0;
@@ -11226,7 +11226,7 @@ static int mISDNStackd(void *data )
   ______f___7.line = 260U;
   ______f___7.ldv_815.ldv_809.correct = 0UL;
   ______f___7.ldv_815.ldv_809.incorrect = 0UL;
-  tmp___4 = __builtin_expect(err != 0, 1L);
+  tmp___4 = ldv__builtin_expect(err != 0, 1L);
   ______r___7 = (int )tmp___4;
   ftrace_likely_update(& ______f___7, ______r___7, 0);
   ______r___6 = ______r___7 != 0;
@@ -11263,7 +11263,7 @@ static int mISDNStackd(void *data )
   ______f___9.ldv_815.ldv_809.correct = 0UL;
   ______f___9.ldv_815.ldv_809.incorrect = 0UL;
   tmp___5 = constant_test_bit(16U, (unsigned long const volatile   *)(& st->status));
-  tmp___6 = __builtin_expect(tmp___5 != 0, 1L);
+  tmp___6 = ldv__builtin_expect(tmp___5 != 0, 1L);
   ______r___9 = (int )tmp___6;
   ftrace_likely_update(& ______f___9, ______r___9, 0);
   ______r___8 = ______r___9 != 0;
@@ -12301,8 +12301,8 @@ struct sk_buff *ldv_skb_copy_127(struct sk_buff  const  *ldv_func_arg1 , gfp_t l
   return (tmp);
 }
 }
-void __builtin_va_end(__builtin_va_list  ) ;
-void __builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list  ) ;
 extern int vprintk(char const   * , __va_list_tag * ) ;
 extern unsigned long __per_cpu_offset[4096U] ;
 extern int per_cpu__cpu_number ;
@@ -12392,12 +12392,12 @@ static void l1m_debug(struct FsmInst *fi , char *fmt  , ...)
 
   {
   l1 = (struct layer1 *)fi->userdata;
-  __builtin_va_start((__va_list_tag *)(& va));
+  ldv__builtin_va_start((__va_list_tag *)(& va));
   tmp = dev_name((struct device  const  *)(& (l1->dch)->dev.dev));
   printk("<7>%s: ", tmp);
   vprintk((char const   *)fmt, (__va_list_tag *)(& va));
   printk("\n");
-  __builtin_va_end((__va_list_tag *)(& va));
+  ldv__builtin_va_end((__va_list_tag *)(& va));
   return;
 }
 }
@@ -13059,7 +13059,7 @@ __inline static struct sk_buff *mI_alloc_skb___0(unsigned int len , gfp_t gfp_ma
   ______f___0.line = 516U;
   ______f___0.ldv_815.ldv_809.correct = 0UL;
   ______f___0.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                          1L);
   ______r___0 = (int )tmp;
   ftrace_likely_update(& ______f___0, ______r___0, 1);
@@ -13113,11 +13113,11 @@ static void l2m_debug(struct FsmInst *fi , char *fmt  , ...)
   } else {
 
   }
-  __builtin_va_start((__va_list_tag *)(& va));
+  ldv__builtin_va_start((__va_list_tag *)(& va));
   printk("<7>l2 (sapi %d tei %d): ", (int )l2->sapi, (int )l2->tei);
   vprintk((char const   *)fmt, (__va_list_tag *)(& va));
   printk("\n");
-  __builtin_va_end((__va_list_tag *)(& va));
+  ldv__builtin_va_end((__va_list_tag *)(& va));
   return;
 }
 }
@@ -18529,7 +18529,7 @@ __inline static struct sk_buff *mI_alloc_skb___1(unsigned int len , gfp_t gfp_ma
   ______f___0.line = 516U;
   ______f___0.ldv_815.ldv_809.correct = 0UL;
   ______f___0.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                          1L);
   ______r___0 = (int )tmp;
   ftrace_likely_update(& ______f___0, ______r___0, 1);
@@ -18674,11 +18674,11 @@ static void da_debug(struct FsmInst *fi , char *fmt  , ...)
   } else {
 
   }
-  __builtin_va_start((__va_list_tag *)(& va));
+  ldv__builtin_va_start((__va_list_tag *)(& va));
   printk("<7>mgr(%d): ", ((mgr->ch.st)->dev)->id);
   vprintk((char const   *)fmt, (__va_list_tag *)(& va));
   printk("\n");
-  __builtin_va_end((__va_list_tag *)(& va));
+  ldv__builtin_va_end((__va_list_tag *)(& va));
   return;
 }
 }
@@ -18879,11 +18879,11 @@ static void tei_debug(struct FsmInst *fi , char *fmt  , ...)
   } else {
 
   }
-  __builtin_va_start((__va_list_tag *)(& va));
+  ldv__builtin_va_start((__va_list_tag *)(& va));
   printk("<7>sapi(%d) tei(%d): ", (int )(tm->l2)->sapi, (int )(tm->l2)->tei);
   vprintk((char const   *)fmt, (__va_list_tag *)(& va));
   printk("\n");
-  __builtin_va_end((__va_list_tag *)(& va));
+  ldv__builtin_va_end((__va_list_tag *)(& va));
   return;
 }
 }
@@ -22106,7 +22106,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   ______f___1.line = 29U;
   ______f___1.ldv_815.ldv_809.correct = 0UL;
   ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 1L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 1L);
   ______r___1 = (int )tmp;
   ftrace_likely_update(& ______f___1, ______r___1, 0);
   ______r___0 = ______r___1 != 0;
@@ -23852,7 +23852,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

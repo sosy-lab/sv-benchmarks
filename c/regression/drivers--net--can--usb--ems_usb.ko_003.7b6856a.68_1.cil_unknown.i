@@ -4392,7 +4392,7 @@ struct ems_usb {
 };
 enum hrtimer_restart;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr ) 
 { 
@@ -4588,7 +4588,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! __tracepoint_kmalloc.state), 0);
+  tmp = ldv__builtin_expect(! (! __tracepoint_kmalloc.state), 0);
   if (tmp) {
     while (1) {
       rcu_read_lock_sched_notrace();
@@ -5812,7 +5812,7 @@ static void ems_usb_write_bulk_callback(struct urb *urb )
   {
   context = urb->context;
   while (1) {
-    tmp = __builtin_expect(! (! (! context)), 0);
+    tmp = ldv__builtin_expect(! (! (! context)), 0);
     if (tmp) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -6227,7 +6227,7 @@ static netdev_tx_t ems_usb_start_xmit(struct sk_buff *skb , struct net_device *n
   can_put_echo_skb(skb, netdev, context->echo_index);
   atomic_inc(& dev->active_tx_urbs);
   err = usb_submit_urb(urb, 32U);
-  tmp___11 = __builtin_expect(! (! err), 0);
+  tmp___11 = ldv__builtin_expect(! (! err), 0);
   if (tmp___11) {
     can_free_echo_skb(netdev, context->echo_index);
     usb_unanchor_urb(urb);
@@ -6714,7 +6714,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

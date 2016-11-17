@@ -6289,7 +6289,7 @@ struct tcm_loop_hba {
    struct se_wwn tl_hba_wwn ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -6358,7 +6358,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -6464,7 +6464,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
   long tmp___0 ;
 
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (96), "i" (12UL));
@@ -6473,7 +6473,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
   } else {
 
   }
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (97), "i" (12UL));
@@ -6908,7 +6908,7 @@ static int tcm_loop_queuecommand(struct Scsi_Host *sh , struct scsi_cmnd *sc )
   descriptor.lineno = 396U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___0 != 0L) {
     tmp = scsi_bufflen(sc);
     __dynamic_pr_debug(& descriptor, "tcm_loop_queuecommand() %d:%d:%d:%d got CDB: 0x%02x scsi_buf_len: %u\n",
@@ -7190,7 +7190,7 @@ static int tcm_loop_alloc_core_bus(void)
   descriptor.lineno = 651U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___1 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___1 != 0L) {
     __dynamic_pr_debug(& descriptor, "Initialized TCM Loop Core Bus\n");
   } else {
@@ -7220,7 +7220,7 @@ static void tcm_loop_release_core_bus(void)
   descriptor.lineno = 667U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "Releasing TCM Loop Core BUS\n");
   } else {
@@ -7579,7 +7579,7 @@ static int tcm_loop_queue_data_in(struct se_cmd *se_cmd )
   descriptor.lineno = 975U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "tcm_loop_queue_data_in() called for scsi_cmnd: %p cdb: 0x%02x\n",
                        sc, (int )*(sc->cmnd));
@@ -7613,7 +7613,7 @@ static int tcm_loop_queue_status(struct se_cmd *se_cmd )
   descriptor.lineno = 990U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "tcm_loop_queue_status() called for scsi_cmnd: %p cdb: 0x%02x\n",
                        sc, (int )*(sc->cmnd));
@@ -7709,7 +7709,7 @@ static int tcm_loop_port_link(struct se_portal_group *se_tpg , struct se_lun *lu
   descriptor.lineno = 1064U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "TCM_Loop_ConfigFS: Port Link Successful\n");
   } else {
@@ -7750,7 +7750,7 @@ static void tcm_loop_port_unlink(struct se_portal_group *se_tpg , struct se_lun 
   descriptor.lineno = 1095U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "TCM_Loop_ConfigFS: Port Unlink Successful\n");
   } else {
@@ -7785,7 +7785,7 @@ static int tcm_loop_make_nexus(struct tcm_loop_tpg *tl_tpg , char const   *name 
     descriptor.lineno = 1112U;
     descriptor.flags = 0U;
     descriptor.enabled = 0;
-    tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
     if (tmp != 0L) {
       __dynamic_pr_debug(& descriptor, "tl_tpg->tl_hba->tl_nexus already exists\n");
     } else {
@@ -7830,7 +7830,7 @@ static int tcm_loop_make_nexus(struct tcm_loop_tpg *tl_tpg , char const   *name 
   descriptor___0.lineno = 1150U;
   descriptor___0.flags = 0U;
   descriptor___0.enabled = 0;
-  tmp___4 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
   if (tmp___4 != 0L) {
     tmp___3 = tcm_loop_dump_proto_id(tl_hba);
     __dynamic_pr_debug(& descriptor___0, "TCM_Loop_ConfigFS: Established I_T Nexus to emulated %s Initiator Port: %s\n",
@@ -7885,7 +7885,7 @@ static int tcm_loop_drop_nexus(struct tcm_loop_tpg *tpg )
   descriptor.lineno = 1182U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___2 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___2 != 0L) {
     tmp___1 = tcm_loop_dump_proto_id(tl_hba);
     __dynamic_pr_debug(& descriptor, "TCM_Loop_ConfigFS: Removing I_T Nexus to emulated %s Initiator Port: %s\n",
@@ -8088,7 +8088,7 @@ struct se_portal_group *tcm_loop_make_naa_tpg(struct se_wwn *wwn , struct config
   descriptor.lineno = 1341U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___5 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___5 != 0L) {
     tmp___3 = config_item_name(& wwn->wwn_group.cg_item);
     tmp___4 = tcm_loop_dump_proto_id(tl_hba);
@@ -8129,7 +8129,7 @@ void tcm_loop_drop_naa_tpg(struct se_portal_group *se_tpg )
   descriptor.lineno = 1371U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___1 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___1 != 0L) {
     tmp = config_item_name(& wwn->wwn_group.cg_item);
     tmp___0 = tcm_loop_dump_proto_id(tl_hba);
@@ -8219,7 +8219,7 @@ struct se_wwn *tcm_loop_make_scsi_hba(struct target_fabric_configfs *tf , struct
   descriptor.lineno = 1440U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___4 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___4 != 0L) {
     tmp___3 = tcm_loop_dump_proto_id(tl_hba);
     __dynamic_pr_debug(& descriptor, "TCM_Loop_ConfigFS: Allocated emulated Target %s Address: %s at Linux/SCSI Host ID: %d\n",
@@ -8251,7 +8251,7 @@ void tcm_loop_drop_scsi_hba(struct se_wwn *wwn )
   descriptor.lineno = 1456U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "TCM_Loop_ConfigFS: Deallocating emulated Target SAS Address: %s at Linux/SCSI Host ID: %d\n",
                        (unsigned char *)(& tl_hba->tl_wwn_address), (tl_hba->sh)->host_no);
@@ -8361,7 +8361,7 @@ static int tcm_loop_register_configfs(void)
   descriptor.lineno = 1597U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp___1 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp___1 != 0L) {
     __dynamic_pr_debug(& descriptor, "TCM_LOOP[0] - Set fabric -> tcm_loop_fabric_configfs\n");
   } else {
@@ -8390,7 +8390,7 @@ static void tcm_loop_deregister_configfs(void)
   descriptor.lineno = 1609U;
   descriptor.flags = 0U;
   descriptor.enabled = 0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "TCM_LOOP[0] - Cleared tcm_loop_fabric_configfs\n");
   } else {
@@ -8416,7 +8416,7 @@ static int tcm_loop_fabric_init(void)
     descriptor.lineno = 1622U;
     descriptor.flags = 0U;
     descriptor.enabled = 0;
-    tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
     if (tmp != 0L) {
       __dynamic_pr_debug(& descriptor, "kmem_cache_create() for tcm_loop_cmd_cache failed\n");
     } else {
@@ -8597,7 +8597,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

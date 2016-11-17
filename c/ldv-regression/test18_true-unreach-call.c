@@ -1,7 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void printf(char *format);
-void assert_fail(void);
 
 void g(int **ppa, int **ppb) {
         *ppa = *ppb;
@@ -16,8 +14,6 @@ int main() {
         int a, b;
         f(&a, &b);
         if (b != 0) {
-                printf("ERROR\n");
-                assert_fail();
                 goto ERROR;
         }
 

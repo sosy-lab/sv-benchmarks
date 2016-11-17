@@ -617,7 +617,6 @@ int ssl3_accept(int initial_state )
 
 void ERR(){
    ERROR: __VERIFIER_error();
-   printf("error");
    return;
 }
 int main(void) 

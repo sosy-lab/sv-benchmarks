@@ -3077,7 +3077,7 @@ void ldv_mutex_unlock_3(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ( __attribute__((__always_inline__)) ldv_error)(void) 
 { 
 
@@ -3087,7 +3087,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_error)(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

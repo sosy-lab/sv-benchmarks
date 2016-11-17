@@ -16,7 +16,7 @@ void __blast_assert(void)
 ssize_t getService(void) ;
 int globalSize  ;
 int main(int argc , char **argv ) 
-{ int retVal ;
+{ long int retVal ;
   ssize_t tmp ;
   unsigned int __cil_tmp5 ;
   char const   * __restrict  __cil_tmp6 ;
@@ -24,7 +24,8 @@ int main(int argc , char **argv )
   {
   {
   tmp = getService();
-  retVal = (int )tmp;
+  // According to the GNU C standard, ssize_t is of type int or long int.
+  retVal = (long int) tmp;
   }
   {
   __cil_tmp5 = (unsigned int )globalSize;
@@ -37,7 +38,7 @@ int main(int argc , char **argv )
   }
   }
   {
-  __cil_tmp6 = (char const   * __restrict  )"returned value: %d\n";
+  __cil_tmp6 = (char const   * __restrict  )"returned value: %ld\n";
   printf(__cil_tmp6, retVal);
   }
   return (0);
@@ -51,7 +52,7 @@ ssize_t getService(void)
   {
   localVar = (ssize_t )999999999999LL;
   globalSize = (int )4U;
-  __cil_tmp2 = (char const   * __restrict  )"localVar: %d\n";
+  __cil_tmp2 = (char const   * __restrict  )"localVar: %zd\n";
   printf(__cil_tmp2, localVar);
   }
   return (localVar);

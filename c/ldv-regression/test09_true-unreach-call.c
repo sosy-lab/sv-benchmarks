@@ -1,7 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void printf(char *format);
-void assert_fail(void);
 
 int a, b;
 int *p1, *p2;
@@ -31,8 +29,6 @@ int main() {
     *p1 = 1000;
 
     if (*p2 != 1000) {
-        printf("ERROR\n");
-        assert_fail();
         goto ERROR;
     }
 
