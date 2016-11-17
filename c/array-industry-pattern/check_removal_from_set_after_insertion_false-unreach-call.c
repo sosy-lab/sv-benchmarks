@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+#define SIZE 100000
 /* 
    Implements a set. Inserts elements from an array of values into the set. Then removes an element from the set and then checks that the removed item is not present in the set.
 */
@@ -20,7 +21,6 @@ int elem_exists( int set [ ] , int size , int value ) {
 
 int main( ) {
   int i, pos, n = 0, found = 0;
-  int SIZE;              // size of the array
   int set[ SIZE ];       // set for storing values
   int values[ SIZE ];    // array of values to be inserted in the array
   int element;           // element to be removed
