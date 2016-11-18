@@ -59,7 +59,7 @@ DM-0000575
 /* print_CIL_Input is true */
 
 char __VERIFIER_nondet_char(void) ;
-_Bool __VERIFIER_nondet__Bool(void) ;
+_Bool __VERIFIER_nondet_bool(void) ;
 void assert(_Bool arg ) ;
 void __VERIFIER_assume(int arg ) ;
 typedef char msg_t;
@@ -524,33 +524,33 @@ int main(void)
 
   {
   c1 = 0;
-  ep12 = __VERIFIER_nondet__Bool();
-  ep13 = __VERIFIER_nondet__Bool();
-  ep21 = __VERIFIER_nondet__Bool();
-  ep23 = __VERIFIER_nondet__Bool();
-  ep31 = __VERIFIER_nondet__Bool();
-  ep32 = __VERIFIER_nondet__Bool();
+  ep12 = __VERIFIER_nondet_bool();
+  ep13 = __VERIFIER_nondet_bool();
+  ep21 = __VERIFIER_nondet_bool();
+  ep23 = __VERIFIER_nondet_bool();
+  ep31 = __VERIFIER_nondet_bool();
+  ep32 = __VERIFIER_nondet_bool();
   id1 = __VERIFIER_nondet_char();
   r1 = __VERIFIER_nondet_char();
   st1 = __VERIFIER_nondet_char();
   nl1 = __VERIFIER_nondet_char();
   m1 = __VERIFIER_nondet_char();
   max1 = __VERIFIER_nondet_char();
-  mode1 = __VERIFIER_nondet__Bool();
+  mode1 = __VERIFIER_nondet_bool();
   id2 = __VERIFIER_nondet_char();
   r2 = __VERIFIER_nondet_char();
   st2 = __VERIFIER_nondet_char();
   nl2 = __VERIFIER_nondet_char();
   m2 = __VERIFIER_nondet_char();
   max2 = __VERIFIER_nondet_char();
-  mode2 = __VERIFIER_nondet__Bool();
+  mode2 = __VERIFIER_nondet_bool();
   id3 = __VERIFIER_nondet_char();
   r3 = __VERIFIER_nondet_char();
   st3 = __VERIFIER_nondet_char();
   nl3 = __VERIFIER_nondet_char();
   m3 = __VERIFIER_nondet_char();
   max3 = __VERIFIER_nondet_char();
-  mode3 = __VERIFIER_nondet__Bool();
+  mode3 = __VERIFIER_nondet_bool();
   i2 = init();
   __VERIFIER_assume(i2);
   p12_old = nomsg;
