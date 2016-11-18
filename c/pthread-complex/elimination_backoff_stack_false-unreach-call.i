@@ -1340,18 +1340,22 @@ int __VERIFIER_atomic_ti_cas(ThreadInfo* *p, ThreadInfo* cmp, ThreadInfo* new) {
 int __VERIFIER_atomic_c_cas(Cell* *p, Cell* cmp, Cell* new) { if (*p == cmp) { *p = new; return 1; } else return 0; }
 ThreadInfo threads[4];
 int allocated[4];
-ThreadInfo* __VERIFIER_atomic_malloc_ThreadInfo() {
+ThreadInfo* malloc_ThreadInfo() {
+    __VERIFIER_atomic_begin();
     int i = __VERIFIER_nondet_int();
     __VERIFIER_assume(0 <= i && i < 4);
     __VERIFIER_assume(!allocated[i]);
     allocated[i] = 1;
+    __VERIFIER_atomic_end();
     return &threads[i];
 }
-void __VERIFIER_atomic_free_ThreadInfo(ThreadInfo* ti) {
+void free_ThreadInfo(ThreadInfo* ti) {
+    __VERIFIER_atomic_begin();
     int i = __VERIFIER_nondet_int();
     __VERIFIER_assume(0 <= i && i < 4);
     __VERIFIER_assume(&threads[i] == ti);
     allocated[i] = 0;
+    __VERIFIER_atomic_end();
 }
 void LesOP(ThreadInfo *p) {
     int mypid = p->id;
@@ -1451,7 +1455,7 @@ void Init() {
     S.ptop = ((void *)0);
 }
 void Push(int x) {
-    ThreadInfo *ti = __VERIFIER_atomic_malloc_ThreadInfo();
+    ThreadInfo *ti = malloc_ThreadInfo();
     ti->id = ++unique_id;
     ti->op = 1;
     ti->cell.pdata = x;
@@ -1460,14 +1464,14 @@ void Push(int x) {
     }
 }
 int Pop() {
-    ThreadInfo *ti = __VERIFIER_atomic_malloc_ThreadInfo();
+    ThreadInfo *ti = malloc_ThreadInfo();
     ti->id = ++unique_id;
     ti->op = 0;
     if (TryPerformStackOp(ti) == 0) {
         LesOP(ti);
     }
     int v = ti->cell.pdata;
-    __VERIFIER_atomic_free_ThreadInfo(ti);
+    free_ThreadInfo(ti);
     return v;
 }
 int PushOpen[2];
@@ -1478,53 +1482,61 @@ void checkInvariant()
 {
     if(!(PopDone[0] <= PushDone[0] + PushOpen[0] && PopDone[1] <= PushDone[1] + PushOpen[1])) __VERIFIER_error();
 }
-void __VERIFIER_atomic_Incr_Push(int localPush1) {
+void Incr_Push(int localPush1) {
+    __VERIFIER_atomic_begin();
     PushOpen[localPush1]++;
+    __VERIFIER_atomic_end();
 }
-void __VERIFIER_atomic_DecrIncr_Push(int localPush1) {
+void DecrIncr_Push(int localPush1) {
+    __VERIFIER_atomic_begin();
     PushOpen[localPush1]--;
     PushDone[localPush1]++;
     checkInvariant();
+    __VERIFIER_atomic_end();
 }
-void __VERIFIER_atomic_Incr_Pop() {
+void Incr_Pop() {
+    __VERIFIER_atomic_begin();
     PopOpen++;
+    __VERIFIER_atomic_end();
 }
-void __VERIFIER_atomic_DecrIncr_Pop(int localPop_ret) {
+void DecrIncr_Pop(int localPop_ret) {
+    __VERIFIER_atomic_begin();
     PopOpen--;
     PopDone[localPop_ret]++;
     checkInvariant();
+    __VERIFIER_atomic_end();
 }
 void* instrPush0(void* unused) {
-    __VERIFIER_atomic_Incr_Push(1);
+    Incr_Push(1);
     Push(1);
-    __VERIFIER_atomic_DecrIncr_Push(1);
-    __VERIFIER_atomic_Incr_Push(1);
+    DecrIncr_Push(1);
+    Incr_Push(1);
     Push(1);
-    __VERIFIER_atomic_DecrIncr_Push(1);
+    DecrIncr_Push(1);
     return ((void *)0);
 }
 void* instrPush1(void* unused) {
-    __VERIFIER_atomic_Incr_Push(1);
+    Incr_Push(1);
     Push(1);
-    __VERIFIER_atomic_DecrIncr_Push(1);
+    DecrIncr_Push(1);
     return ((void *)0);
 }
 void* instrPop2(void* unused) {
-    __VERIFIER_atomic_Incr_Pop();
+    Incr_Pop();
     int localPop_ret = Pop();
-    __VERIFIER_atomic_DecrIncr_Pop(localPop_ret);
-    __VERIFIER_atomic_Incr_Pop();
+    DecrIncr_Pop(localPop_ret);
+    Incr_Pop();
     localPop_ret = Pop();
-    __VERIFIER_atomic_DecrIncr_Pop(localPop_ret);
+    DecrIncr_Pop(localPop_ret);
     return ((void *)0);
 }
 void* instrPop3(void* unused) {
-    __VERIFIER_atomic_Incr_Pop();
+    Incr_Pop();
     int localPop_ret = Pop();
-    __VERIFIER_atomic_DecrIncr_Pop(localPop_ret);
-    __VERIFIER_atomic_Incr_Pop();
+    DecrIncr_Pop(localPop_ret);
+    Incr_Pop();
     localPop_ret = Pop();
-    __VERIFIER_atomic_DecrIncr_Pop(localPop_ret);
+    DecrIncr_Pop(localPop_ret);
     return ((void *)0);
 }
 int main(void) {

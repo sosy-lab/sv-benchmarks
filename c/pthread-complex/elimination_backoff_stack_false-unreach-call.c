@@ -77,22 +77,26 @@ CASDEF(c, Cell*)
 ThreadInfo threads[NUM_THREADS];
 int allocated[NUM_THREADS];
 
-ThreadInfo* __VERIFIER_atomic_malloc_ThreadInfo() {
+ThreadInfo* malloc_ThreadInfo() {
+    __VERIFIER_atomic_begin();
     int i = __VERIFIER_nondet_int();
     __VERIFIER_assume(0 <= i && i < NUM_THREADS);
     __VERIFIER_assume(!allocated[i]);
     allocated[i] = 1;
+    __VERIFIER_atomic_end();
     return &threads[i];
 }
 
 
 
 
-void __VERIFIER_atomic_free_ThreadInfo(ThreadInfo* ti) {
+void free_ThreadInfo(ThreadInfo* ti) {
+    __VERIFIER_atomic_begin();
     int i = __VERIFIER_nondet_int();
     __VERIFIER_assume(0 <= i && i < NUM_THREADS);
     __VERIFIER_assume(&threads[i] == ti);
     allocated[i] = 0; // BUG Free the memory to witness the ABA bug
+    __VERIFIER_atomic_end();
 }
 
 
@@ -228,7 +232,7 @@ void Init() {
 // }
 
 void Push(int x) {
-    ThreadInfo *ti = __VERIFIER_atomic_malloc_ThreadInfo();
+    ThreadInfo *ti = malloc_ThreadInfo();
     // Initialize threads
     ti->id = ++unique_id;
     ti->op = PUSH;
@@ -240,7 +244,7 @@ void Push(int x) {
 }
 
 int Pop() {
-    ThreadInfo *ti = __VERIFIER_atomic_malloc_ThreadInfo();
+    ThreadInfo *ti = malloc_ThreadInfo();
     ti->id = ++unique_id;
     ti->op = POP;
 
@@ -248,7 +252,7 @@ int Pop() {
         LesOP(ti);
     }
     int v = ti->cell.pdata;
-    __VERIFIER_atomic_free_ThreadInfo(ti);
+    free_ThreadInfo(ti);
     return v;
 }
 
@@ -269,42 +273,50 @@ void checkInvariant()
     );
 }
 
-void __VERIFIER_atomic_Incr_Push(int localPush1) {
+void Incr_Push(int localPush1) {
+    __VERIFIER_atomic_begin();
     PushOpen[localPush1]++;
+    __VERIFIER_atomic_end();
 }
 
-void __VERIFIER_atomic_DecrIncr_Push(int localPush1) {
+void DecrIncr_Push(int localPush1) {
+    __VERIFIER_atomic_begin();
     PushOpen[localPush1]--;
     PushDone[localPush1]++;
     checkInvariant();
+    __VERIFIER_atomic_end();
 }
 
-void __VERIFIER_atomic_Incr_Pop() {
+void Incr_Pop() {
+    __VERIFIER_atomic_begin();
     PopOpen++;
+    __VERIFIER_atomic_end();
 }
 
-void __VERIFIER_atomic_DecrIncr_Pop(int localPop_ret) {
+void DecrIncr_Pop(int localPop_ret) {
+    __VERIFIER_atomic_begin();
     PopOpen--;
     PopDone[localPop_ret]++;
     checkInvariant();
+    __VERIFIER_atomic_end();
 }
 
 
 void* instrPush0(void* unused) {
-    __VERIFIER_atomic_Incr_Push(1);
+    Incr_Push(1);
     Push(1);
-    __VERIFIER_atomic_DecrIncr_Push(1);
+    DecrIncr_Push(1);
 
-    __VERIFIER_atomic_Incr_Push(1);
+    Incr_Push(1);
     Push(1);
-    __VERIFIER_atomic_DecrIncr_Push(1);
+    DecrIncr_Push(1);
     return NULL;
 }
 
 void* instrPush1(void* unused) {
-    __VERIFIER_atomic_Incr_Push(1);
+    Incr_Push(1);
     Push(1);
-    __VERIFIER_atomic_DecrIncr_Push(1);
+    DecrIncr_Push(1);
     return NULL;
 }
 
@@ -312,23 +324,23 @@ void* instrPush1(void* unused) {
 
 
 void* instrPop2(void* unused) {
-    __VERIFIER_atomic_Incr_Pop();
+    Incr_Pop();
     int localPop_ret = Pop();
-    __VERIFIER_atomic_DecrIncr_Pop(localPop_ret);
+    DecrIncr_Pop(localPop_ret);
 
-    __VERIFIER_atomic_Incr_Pop();
+    Incr_Pop();
     localPop_ret = Pop();
-    __VERIFIER_atomic_DecrIncr_Pop(localPop_ret);
+    DecrIncr_Pop(localPop_ret);
     return NULL;
 }
 
 void* instrPop3(void* unused) {
-    __VERIFIER_atomic_Incr_Pop();
+    Incr_Pop();
     int localPop_ret = Pop();
-    __VERIFIER_atomic_DecrIncr_Pop(localPop_ret);
-    __VERIFIER_atomic_Incr_Pop();
+    DecrIncr_Pop(localPop_ret);
+    Incr_Pop();
     localPop_ret = Pop();
-    __VERIFIER_atomic_DecrIncr_Pop(localPop_ret);
+    DecrIncr_Pop(localPop_ret);
     return NULL;
 }
 
