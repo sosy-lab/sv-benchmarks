@@ -655,8 +655,8 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __global_lock;
-void __VERIFIER_atomic_begin() { __VERIFIER_assume(__global_lock==0); __global_lock=1; return; }
-void __VERIFIER_atomic_end() { __VERIFIER_assume(__global_lock==1); __global_lock=0; return; }
+extern void __VERIFIER_atomic_begin();
+extern void __VERIFIER_atomic_end();
 int __VERIFIER_nondet_int();
 volatile int x;
 volatile int n;

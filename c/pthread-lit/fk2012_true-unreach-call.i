@@ -2,8 +2,8 @@ extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 extern void __VERIFIER_assume(int);
 int __global_lock;
-void __VERIFIER_atomic_begin() { __VERIFIER_assume(__global_lock==0); __global_lock=1; return; }
-void __VERIFIER_atomic_end() { __VERIFIER_assume(__global_lock==1); __global_lock=0; return; }
+extern void __VERIFIER_atomic_begin();
+extern void __VERIFIER_atomic_end();
 extern int __VERIFIER_nondet_int(void);
 typedef long unsigned int size_t;
 typedef int wchar_t;
