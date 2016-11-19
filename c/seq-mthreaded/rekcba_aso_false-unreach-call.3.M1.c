@@ -192,7 +192,7 @@ void balance_control(unsigned int args_cmd_forward , unsigned int args_cmd_turn 
 }
 extern unsigned int __VERIFIER_nondet_U32() ;
 extern char __VERIFIER_nondet_S8() ;
-extern unsigned char __VERIFIER_nondet_U8() ;
+extern unsigned char __VERIFIER_nondet_uchar() ;
 __inline static unsigned char __startrek_read_nxtway_gs_mode(void) ;
 __inline static void __startrek_write_nxtway_gs_mode(unsigned char arg ) ;
 unsigned char _nxtway_gs_mode_[27]  ;
@@ -255,8 +255,8 @@ void ecrobot_read_bt_packet(unsigned char *bt_receive_buf , unsigned char sz )
 
 
   {
-  *(bt_receive_buf + 0) = __VERIFIER_nondet_U8();
-  *(bt_receive_buf + 1) = __VERIFIER_nondet_U8();
+  *(bt_receive_buf + 0) = __VERIFIER_nondet_uchar();
+  *(bt_receive_buf + 1) = __VERIFIER_nondet_uchar();
   return;
 }
 }
@@ -361,7 +361,7 @@ unsigned char ecrobot_get_sonar_sensor(unsigned char port )
   unsigned char tmp ;
 
   {
-  tmp = __VERIFIER_nondet_U8();
+  tmp = __VERIFIER_nondet_uchar();
   return (tmp);
 }
 }

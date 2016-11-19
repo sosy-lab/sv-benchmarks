@@ -106,7 +106,7 @@ __inline static void __startrek_write___startrek_current_priority(char arg ) ;
 char ___startrek_current_priority_[56]  ;
 char _i___startrek_current_priority_[56]  ;
 char __startrek_hidden___startrek_current_priority  =    0;
-extern unsigned char __VERIFIER_nondet_U8() ;
+extern unsigned char __VERIFIER_nondet_uchar() ;
 extern _Bool __VERIFIER_nondet_bool() ;
 __inline static int __startrek_read_R_count(void) ;
 __inline static void __startrek_write_R_count(int arg ) ;
@@ -143,7 +143,7 @@ int calibrate(void)
   unsigned char tmp ;
 
   {
-  tmp = __VERIFIER_nondet_U8();
+  tmp = __VERIFIER_nondet_uchar();
   return (tmp);
 }
 }
@@ -216,7 +216,7 @@ void nxt_motor_set_speed(unsigned int n , int speed , _Bool b )
   case 0: 
   prev_speed = __startrek_read_R_speed();
   if (prev_speed != 0) {
-    diff = __VERIFIER_nondet_U8();
+    diff = __VERIFIER_nondet_uchar();
     tmp = __startrek_read_R_count();
     if (prev_speed > 0) {
       tmp___0 = diff;
@@ -230,7 +230,7 @@ void nxt_motor_set_speed(unsigned int n , int speed , _Bool b )
   case 1: 
   prev_speed = __startrek_read_W_speed();
   if (prev_speed != 0) {
-    diff = __VERIFIER_nondet_U8();
+    diff = __VERIFIER_nondet_uchar();
     tmp___1 = __startrek_read_W_count();
     if (prev_speed > 0) {
       tmp___2 = diff;
@@ -244,7 +244,7 @@ void nxt_motor_set_speed(unsigned int n , int speed , _Bool b )
   case 2: 
   prev_speed = __startrek_read_T_speed();
   if (prev_speed != 0) {
-    diff = __VERIFIER_nondet_U8();
+    diff = __VERIFIER_nondet_uchar();
     tmp___3 = __startrek_read_T_count();
     if (prev_speed > 0) {
       tmp___4 = diff;
@@ -280,7 +280,7 @@ int nxt_motor_get_count(unsigned int n )
   if ((int )speed == 0) {
     return (count);
   } else {
-    delta = __VERIFIER_nondet_U8();
+    delta = __VERIFIER_nondet_uchar();
     if (count + (int )speed > 0) {
       new_count = delta;
     } else {
@@ -296,7 +296,7 @@ int nxt_motor_get_count(unsigned int n )
   if ((int )speed == 0) {
     return (count);
   } else {
-    delta = __VERIFIER_nondet_U8();
+    delta = __VERIFIER_nondet_uchar();
     if (count + (int )speed > 0) {
       new_count = delta;
     } else {
@@ -312,7 +312,7 @@ int nxt_motor_get_count(unsigned int n )
   if ((int )speed == 0) {
     return (count);
   } else {
-    delta = __VERIFIER_nondet_U8();
+    delta = __VERIFIER_nondet_uchar();
     if (count + (int )speed > 0) {
       new_count = delta;
     } else {
@@ -350,7 +350,7 @@ unsigned char ecrobot_get_nxtcolorsensor_light(unsigned char port )
   unsigned char tmp ;
 
   {
-  tmp = __VERIFIER_nondet_U8();
+  tmp = __VERIFIER_nondet_uchar();
   return (tmp);
 }
 }
