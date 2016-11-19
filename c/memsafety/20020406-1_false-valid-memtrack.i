@@ -1,7 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
-typedef long unsigned int size_t;
+typedef unsigned int size_t;
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
