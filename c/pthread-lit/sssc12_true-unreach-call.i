@@ -656,7 +656,6 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-int __global_lock;
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
 int __VERIFIER_nondet_int();

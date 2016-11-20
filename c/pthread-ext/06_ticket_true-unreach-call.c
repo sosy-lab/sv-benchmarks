@@ -1,6 +1,5 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-int __global_lock;
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
 
