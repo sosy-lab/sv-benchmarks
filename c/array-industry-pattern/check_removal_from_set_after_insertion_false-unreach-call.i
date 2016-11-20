@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+const int SIZE = 100000;
 int insert( int set [] , int size , int value ) {
   set[ size ] = value;
   return size + 1;
@@ -13,7 +14,6 @@ int elem_exists( int set [ ] , int size , int value ) {
 }
 int main( ) {
   int i, pos, n = 0, found = 0;
-  int SIZE;
   int set[ SIZE ];
   int values[ SIZE ];
   int element;
