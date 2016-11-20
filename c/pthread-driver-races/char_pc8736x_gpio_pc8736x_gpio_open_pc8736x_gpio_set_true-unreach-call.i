@@ -1835,7 +1835,7 @@ struct vfsmount;
 struct qstr {
  union {
   struct {
-   u32 hash; u32 len;;
+   u32 hash; u32 len;
   };
   u64 hash_len;
  };
@@ -9552,8 +9552,8 @@ void pc8736x_gpio_cleanup(void)
  platform_device_unregister(pdev);
 }
 
-int (* _whoop_init)(void) = pc8736x_gpio_init;;
-void (* _whoop_exit)(void) = pc8736x_gpio_cleanup;;
+int (* _whoop_init)(void) = pc8736x_gpio_init;
+void (* _whoop_exit)(void) = pc8736x_gpio_cleanup;
 
 
 struct inode *whoop_inode_0;

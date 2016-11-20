@@ -3301,7 +3301,7 @@ struct vfsmount;
 struct qstr {
  union {
   struct {
-   u32 hash; u32 len;;
+   u32 hash; u32 len;
   };
   u64 hash_len;
  };
@@ -9284,8 +9284,8 @@ void nvram_cleanup(void)
         misc_deregister( &nvram_dev );
 }
 
-int (* _whoop_init)(void) = nvram_init;;
-void (* _whoop_exit)(void) = nvram_cleanup;;
+int (* _whoop_init)(void) = nvram_init;
+void (* _whoop_exit)(void) = nvram_cleanup;
 void;
 
 

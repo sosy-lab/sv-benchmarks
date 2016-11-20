@@ -18,9 +18,9 @@
 int (* _whoop_init)(void);
 void (* _whoop_exit)(void);
 
-#define module_init(_function) int (* _whoop_init)(void) = _function;
-#define module_exit(_function) void (* _whoop_exit)(void) = _function;
+#define module_init(_function) int (* _whoop_init)(void) = _function
+#define module_exit(_function) void (* _whoop_exit)(void) = _function
 
-#define late_initcall(_function) int (* _whoop_init)(void) = _function;
+#define late_initcall(_function) int (* _whoop_init)(void) = _function
 
 #endif /* _LINUX_INIT_H */

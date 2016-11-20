@@ -42,7 +42,7 @@ struct vfsmount;
 struct qstr {
 	union {
 		struct {
-			HASH_LEN_DECLARE;
+			HASH_LEN_DECLARE
 		};
 		u64 hash_len;
 	};
