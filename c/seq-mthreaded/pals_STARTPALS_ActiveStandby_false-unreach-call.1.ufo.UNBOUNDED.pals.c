@@ -60,7 +60,7 @@ DM-0000575
 
 char __VERIFIER_nondet_char(void) ;
 char __VERIFIER_nondet_char(void) ;
-_Bool __VERIFIER_nondet__Bool(void) ;
+_Bool __VERIFIER_nondet_bool(void) ;
 typedef char int8_t;
 typedef int8_t msg_t;
 typedef int port_t;
@@ -587,16 +587,16 @@ int main(void)
 
   {
   c1 = 0;
-  side1Failed = __VERIFIER_nondet__Bool();
-  side2Failed = __VERIFIER_nondet__Bool();
+  side1Failed = __VERIFIER_nondet_bool();
+  side2Failed = __VERIFIER_nondet_bool();
   side1_written = __VERIFIER_nondet_char();
   side2_written = __VERIFIER_nondet_char();
-  side1Failed_History_0 = __VERIFIER_nondet__Bool();
-  side1Failed_History_1 = __VERIFIER_nondet__Bool();
-  side1Failed_History_2 = __VERIFIER_nondet__Bool();
-  side2Failed_History_0 = __VERIFIER_nondet__Bool();
-  side2Failed_History_1 = __VERIFIER_nondet__Bool();
-  side2Failed_History_2 = __VERIFIER_nondet__Bool();
+  side1Failed_History_0 = __VERIFIER_nondet_bool();
+  side1Failed_History_1 = __VERIFIER_nondet_bool();
+  side1Failed_History_2 = __VERIFIER_nondet_bool();
+  side2Failed_History_0 = __VERIFIER_nondet_bool();
+  side2Failed_History_1 = __VERIFIER_nondet_bool();
+  side2Failed_History_2 = __VERIFIER_nondet_bool();
   active_side_History_0 = __VERIFIER_nondet_char();
   active_side_History_1 = __VERIFIER_nondet_char();
   active_side_History_2 = __VERIFIER_nondet_char();

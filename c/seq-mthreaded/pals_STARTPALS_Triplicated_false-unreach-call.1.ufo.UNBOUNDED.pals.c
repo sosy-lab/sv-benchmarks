@@ -59,7 +59,7 @@ DM-0000575
 /* print_CIL_Input is true */
 
 char __VERIFIER_nondet_char(void) ;
-_Bool __VERIFIER_nondet__Bool(void) ;
+_Bool __VERIFIER_nondet_bool(void) ;
 typedef char int8_t;
 typedef int8_t msg_t;
 typedef int port_t;
@@ -524,21 +524,21 @@ int main(void)
 
   {
   c1 = 0;
-  gate1Failed = __VERIFIER_nondet__Bool();
-  gate2Failed = __VERIFIER_nondet__Bool();
-  gate3Failed = __VERIFIER_nondet__Bool();
+  gate1Failed = __VERIFIER_nondet_bool();
+  gate2Failed = __VERIFIER_nondet_bool();
+  gate3Failed = __VERIFIER_nondet_bool();
   VALUE1 = __VERIFIER_nondet_char();
   VALUE2 = __VERIFIER_nondet_char();
   VALUE3 = __VERIFIER_nondet_char();
-  gate1Failed_History_0 = __VERIFIER_nondet__Bool();
-  gate1Failed_History_1 = __VERIFIER_nondet__Bool();
-  gate1Failed_History_2 = __VERIFIER_nondet__Bool();
-  gate2Failed_History_0 = __VERIFIER_nondet__Bool();
-  gate2Failed_History_1 = __VERIFIER_nondet__Bool();
-  gate2Failed_History_2 = __VERIFIER_nondet__Bool();
-  gate3Failed_History_0 = __VERIFIER_nondet__Bool();
-  gate3Failed_History_1 = __VERIFIER_nondet__Bool();
-  gate3Failed_History_2 = __VERIFIER_nondet__Bool();
+  gate1Failed_History_0 = __VERIFIER_nondet_bool();
+  gate1Failed_History_1 = __VERIFIER_nondet_bool();
+  gate1Failed_History_2 = __VERIFIER_nondet_bool();
+  gate2Failed_History_0 = __VERIFIER_nondet_bool();
+  gate2Failed_History_1 = __VERIFIER_nondet_bool();
+  gate2Failed_History_2 = __VERIFIER_nondet_bool();
+  gate3Failed_History_0 = __VERIFIER_nondet_bool();
+  gate3Failed_History_1 = __VERIFIER_nondet_bool();
+  gate3Failed_History_2 = __VERIFIER_nondet_bool();
   votedValue_History_0 = __VERIFIER_nondet_char();
   votedValue_History_1 = __VERIFIER_nondet_char();
   votedValue_History_2 = __VERIFIER_nondet_char();
