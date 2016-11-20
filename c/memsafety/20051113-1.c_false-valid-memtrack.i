@@ -616,7 +616,7 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
-extern void *malloc(long unsigned int);
+extern void *malloc(unsigned int);
 extern void *memset(void *, int, long unsigned int);
 typedef struct
 {
