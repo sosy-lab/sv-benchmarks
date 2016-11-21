@@ -9960,6 +9960,9 @@ __aligned__(1)))  =
         (char const   )'n',      (char const   )'s',      (char const   )'e',      (char const   )'=', 
         (char const   )'G',      (char const   )'P',      (char const   )'L',      (char const   )'\000'};
 void ldv_check_final_state(void) ;
+extern void *calloc(size_t  , size_t  ) ;
+extern void __VERIFIER_assume(int  ) ;
+void *ldv_init_zalloc(size_t size );
 extern void ldv_check_return_value(int res ) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
@@ -9985,6 +9988,7 @@ void main(void)
 
   {
   {
+  var_group4 = ldv_init_zalloc(sizeof(struct dvb_usb_adapter));
   LDV_IN_INTERRUPT = 1;
   ldv_initialize();
   tmp___7 = az6007_usb_module_init();
@@ -10138,6 +10142,18 @@ void ldv_blast_assert(void)
 }
 extern int __VERIFIER_nondet_int(void) ;
 int ldv_mutex  =    1;
+void *ldv_init_zalloc(size_t size ) 
+{ 
+  void *p ;
+  void *tmp ;
+
+  {
+  tmp = calloc(1UL, size);
+  p = tmp;
+  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+  return (p);
+}
+}
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) 
 { int nondetermined ;
 
