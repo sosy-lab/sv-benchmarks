@@ -13111,6 +13111,10 @@ static ssize_t pccard_store_cis(struct file *filp , struct kobject *kobj , struc
 struct bin_attribute pccard_cis_attr  =    {{"cis", 420U, (_Bool)0, 0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0}, {(char)0},
                                  {(char)0}, {(char)0}, {(char)0}}}}, 512UL, 0, & pccard_show_cis,
     & pccard_store_cis, 0};
+    
+extern void *calloc(size_t  , size_t  ) ;
+extern void __VERIFIER_assume(int  ) ;
+void *ldv_init_zalloc(size_t size );
 int main(void) 
 { 
   struct file *var_group1 ;
@@ -13127,6 +13131,8 @@ int main(void)
   int tmp___0 ;
 
   {
+  var_group1 = ldv_init_zalloc(sizeof(struct file));
+  var_group1 = ldv_init_zalloc(sizeof(struct kobject));
   LDV_IN_INTERRUPT = 1;
   ldv_initialize();
   goto ldv_25188;
@@ -13158,6 +13164,19 @@ int main(void)
 
   ldv_check_final_state();
   return 0;
+}
+}
+
+void *ldv_init_zalloc(size_t size ) 
+{ 
+  void *p ;
+  void *tmp ;
+
+  {
+  tmp = calloc(1UL, size);
+  p = tmp;
+  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+  return (p);
 }
 }
 void ldv_mutex_lock_199(struct mutex *ldv_func_arg1 ) 
