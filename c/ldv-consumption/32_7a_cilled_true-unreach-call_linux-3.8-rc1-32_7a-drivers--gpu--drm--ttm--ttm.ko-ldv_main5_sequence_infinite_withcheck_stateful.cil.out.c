@@ -10421,6 +10421,10 @@ struct ttm_bo_driver _var_group1_vm_private_data_driver = {
   &io_mem_free_dummy
 };
 
+extern void *calloc(size_t  , size_t  ) ;
+extern void __VERIFIER_assume(int  ) ;
+void *ldv_init_zalloc(size_t size );
+
 int main(void) 
 { 
   struct vm_area_struct *var_group1 ;
@@ -10433,8 +10437,7 @@ int main(void)
   int tmp ;
   int tmp___0 ;
 
-  var_group1 = __VERIFIER_nondet_pointer();
-  __VERIFIER_assume(var_group1 != ((void *)0));
+  var_group1 = ldv_init_zalloc(sizeof(struct dvb_usb_adapter));
   var_group1->vm_private_data = __VERIFIER_nondet_pointer();
   __VERIFIER_assume(var_group1->vm_private_data != ((void *)0));
   bo = (struct ttm_buffer_object *)var_group1->vm_private_data;
@@ -10448,6 +10451,7 @@ int main(void)
   man = (struct ttm_mem_type_manager *)(& bdev->man) + (unsigned long )mem->mem_type;
   man->io_reserve_fastpath = __VERIFIER_nondet_long();
 
+  var_group2 = ldv_init_zalloc(sizeof(struct vm_fault));
   {
   ldv_s_ttm_bo_vm_ops_vm_operations_struct = 0;
   LDV_IN_INTERRUPT = 1;
@@ -10493,6 +10497,19 @@ int main(void)
 
   ldv_check_final_state();
   return 0;
+}
+}
+
+void *ldv_init_zalloc(size_t size ) 
+{ 
+  void *p ;
+  void *tmp ;
+
+  {
+  tmp = calloc(1UL, size);
+  p = tmp;
+  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+  return (p);
 }
 }
 void ldv_mutex_lock_53(struct mutex *ldv_func_arg1 ) 
