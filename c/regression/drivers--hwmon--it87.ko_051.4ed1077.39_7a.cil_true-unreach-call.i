@@ -936,7 +936,7 @@ struct it87_data {
    u8 manual_pwm_ctl[3U] ;
 };
 typedef int ldv_func_ret_type___1;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern long long dynamic_printk_enabled ;
 extern long long dynamic_printk_enabled2 ;
 extern int __dynamic_dbg_enabled_helper(char * , int  , int  , int  ) ;
@@ -1066,7 +1066,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -2225,9 +2225,9 @@ static int it87_find(unsigned short *address , struct it87_sio_data *sio_data )
   descriptor.hash = 8;
   descriptor.hash2 = 36;
   __ret = 0;
-  tmp___0 = __builtin_expect((dynamic_printk_enabled & 256LL) != 0LL, 0L);
+  tmp___0 = ldv__builtin_expect((dynamic_printk_enabled & 256LL) != 0LL, 0L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_printk_enabled2 & 68719476736LL) != 0LL, 0L);
+    tmp___1 = ldv__builtin_expect((dynamic_printk_enabled2 & 68719476736LL) != 0LL, 0L);
     if (tmp___1 != 0L) {
       __ret = __dynamic_dbg_enabled_helper((char *)"it87", 1, 0, 8);
     } else {
@@ -2887,9 +2887,9 @@ static void it87_init_device(struct platform_device *pdev___0 )
       descriptor.hash = 8;
       descriptor.hash2 = 36;
       __ret = 0;
-      tmp___4 = __builtin_expect((dynamic_printk_enabled & 256LL) != 0LL, 0L);
+      tmp___4 = ldv__builtin_expect((dynamic_printk_enabled & 256LL) != 0LL, 0L);
       if (tmp___4 != 0L) {
-        tmp___5 = __builtin_expect((dynamic_printk_enabled2 & 68719476736LL) != 0LL,
+        tmp___5 = ldv__builtin_expect((dynamic_printk_enabled2 & 68719476736LL) != 0LL,
                                    0L);
         if (tmp___5 != 0L) {
           __ret = __dynamic_dbg_enabled_helper((char *)"it87", 1, 0, 8);
@@ -3301,7 +3301,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

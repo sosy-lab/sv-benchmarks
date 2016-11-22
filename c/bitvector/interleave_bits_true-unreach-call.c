@@ -1,6 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern int __VERIFIER_nondet_int(void);
+extern unsigned short __VERIFIER_nondet_ushort(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -14,8 +15,8 @@ int main()
 {
     /* Interleave bits of x and y, so that all of the */
     /* bits of x are in the even positions and y in the odd; */
-    unsigned short x;
-    unsigned short y;
+    unsigned short x = __VERIFIER_nondet_ushort();
+    unsigned short y = __VERIFIER_nondet_ushort();
 
     unsigned int xx;
     unsigned int yy;

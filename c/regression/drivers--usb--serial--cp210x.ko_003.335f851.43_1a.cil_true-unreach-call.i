@@ -3153,7 +3153,7 @@ enum __anonenum_101 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
 extern int printk(char const   *  , ...) ;
 __inline static int get_order(unsigned long size ) 
@@ -3213,7 +3213,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   ______f___1.line = 29U;
   ______f___1.ldv_815.ldv_809.correct = 0UL;
   ______f___1.ldv_815.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 1L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 1L);
   ______r___1 = (int )tmp;
   ftrace_likely_update(& ______f___1, ______r___1, 0);
   ______r___0 = ______r___1 != 0;
@@ -6248,7 +6248,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

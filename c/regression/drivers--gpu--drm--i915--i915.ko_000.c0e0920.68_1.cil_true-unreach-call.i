@@ -4568,7 +4568,7 @@ int main(void)
 }
 }
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern  __attribute__((__noreturn__)) void __bad_pda_field(void) ;
 extern struct x8664_pda _proxy_pda ;
@@ -4778,7 +4778,7 @@ __inline static int ( __attribute__((__warn_unused_result__, __always_inline__))
                        "\n"
                        " .previous\n": "=r" (ret), "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)((u64 *)src))),
                        "i" (16), "0" (ret));
-  tmp___0 = __builtin_expect(! (! ret), 0);
+  tmp___0 = ldv__builtin_expect(! (! ret), 0);
   if (tmp___0) {
     return (ret);
   } else {
@@ -4840,7 +4840,7 @@ __inline static int ( __attribute__((__warn_unused_result__, __always_inline__))
                        "\n"
                        " .previous\n": "=r" (ret), "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)((u64 *)src))),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(! (! ret), 0);
+  tmp___1 = ldv__builtin_expect(! (! ret), 0);
   if (tmp___1) {
     return (ret);
   } else {
@@ -6590,7 +6590,7 @@ __inline static int ( __attribute__((__always_inline__)) signal_pending)(struct 
   } else {
     tmp___0 = 0;
   }
-  tmp___1 = __builtin_expect(tmp___0, 0);
+  tmp___1 = ldv__builtin_expect(tmp___0, 0);
   return (tmp___1);
 }
 }
@@ -10413,7 +10413,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_stop)(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

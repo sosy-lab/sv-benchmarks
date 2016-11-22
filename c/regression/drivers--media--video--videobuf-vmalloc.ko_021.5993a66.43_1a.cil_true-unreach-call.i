@@ -2708,7 +2708,7 @@ enum __anonenum_103 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
 extern int printk(char const   *  , ...) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
@@ -2922,7 +2922,7 @@ static void videobuf_vm_close(struct vm_area_struct *vma )
       ______f___5.line = 110U;
       ______f___5.ldv_814.ldv_809.correct = 0UL;
       ______f___5.ldv_814.ldv_809.incorrect = 0UL;
-      tmp = __builtin_expect(mem->magic != 404886051U, 1L);
+      tmp = ldv__builtin_expect(mem->magic != 404886051U, 1L);
       ______r___5 = (int )tmp;
       ftrace_likely_update(& ______f___5, ______r___5, 0);
       ______r___4 = ______r___5 != 0;
@@ -3060,7 +3060,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
   ______f___0.line = 174U;
   ______f___0.ldv_814.ldv_809.correct = 0UL;
   ______f___0.ldv_814.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                          1L);
   ______r___0 = (int )tmp;
   ftrace_likely_update(& ______f___0, ______r___0, 0);
@@ -3088,7 +3088,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
   ______f___2.line = 176U;
   ______f___2.ldv_814.ldv_809.correct = 0UL;
   ______f___2.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___0 = __builtin_expect(mem->magic != 404886051U, 1L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 404886051U, 1L);
   ______r___2 = (int )tmp___0;
   ftrace_likely_update(& ______f___2, ______r___2, 0);
   ______r___1 = ______r___2 != 0;
@@ -3521,7 +3521,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
   ______f___8.line = 307U;
   ______f___8.ldv_814.ldv_809.correct = 0UL;
   ______f___8.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___0 = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                              1L);
   ______r___8 = (int )tmp___0;
   ftrace_likely_update(& ______f___8, ______r___8, 0);
@@ -3549,7 +3549,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
   ______f___10.line = 308U;
   ______f___10.ldv_814.ldv_809.correct = 0UL;
   ______f___10.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___1 = __builtin_expect(mem->magic != 404886051U, 1L);
+  tmp___1 = ldv__builtin_expect(mem->magic != 404886051U, 1L);
   ______r___10 = (int )tmp___1;
   ftrace_likely_update(& ______f___10, ______r___10, 0);
   ______r___9 = ______r___10 != 0;
@@ -3687,7 +3687,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
   ______f___0.line = 351U;
   ______f___0.ldv_814.ldv_809.correct = 0UL;
   ______f___0.ldv_814.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                          1L);
   ______r___0 = (int )tmp;
   ftrace_likely_update(& ______f___0, ______r___0, 0);
@@ -3715,7 +3715,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
   ______f___2.line = 352U;
   ______f___2.ldv_814.ldv_809.correct = 0UL;
   ______f___2.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___0 = __builtin_expect(mem->magic != 404886051U, 1L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 404886051U, 1L);
   ______r___2 = (int )tmp___0;
   ftrace_likely_update(& ______f___2, ______r___2, 0);
   ______r___1 = ______r___2 != 0;
@@ -3743,7 +3743,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
   ______f___4.line = 354U;
   ______f___4.ldv_814.ldv_809.correct = 0UL;
   ______f___4.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___1 = __builtin_expect((unsigned long )mem->vmalloc == (unsigned long )((void *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )mem->vmalloc == (unsigned long )((void *)0),
                              1L);
   ______r___4 = (int )tmp___1;
   ftrace_likely_update(& ______f___4, ______r___4, 0);
@@ -3833,7 +3833,7 @@ static int __videobuf_copy_stream(struct videobuf_queue *q , char *data , size_t
   ______f___0.line = 372U;
   ______f___0.ldv_814.ldv_809.correct = 0UL;
   ______f___0.ldv_814.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                          1L);
   ______r___0 = (int )tmp;
   ftrace_likely_update(& ______f___0, ______r___0, 0);
@@ -3861,7 +3861,7 @@ static int __videobuf_copy_stream(struct videobuf_queue *q , char *data , size_t
   ______f___2.line = 373U;
   ______f___2.ldv_814.ldv_809.correct = 0UL;
   ______f___2.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___0 = __builtin_expect(mem->magic != 404886051U, 1L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 404886051U, 1L);
   ______r___2 = (int )tmp___0;
   ftrace_likely_update(& ______f___2, ______r___2, 0);
   ______r___1 = ______r___2 != 0;
@@ -3976,7 +3976,7 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *buf )
   ______f___0.line = 426U;
   ______f___0.ldv_814.ldv_809.correct = 0UL;
   ______f___0.ldv_814.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                          1L);
   ______r___0 = (int )tmp;
   ftrace_likely_update(& ______f___0, ______r___0, 0);
@@ -4004,7 +4004,7 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *buf )
   ______f___2.line = 427U;
   ______f___2.ldv_814.ldv_809.correct = 0UL;
   ______f___2.ldv_814.ldv_809.incorrect = 0UL;
-  tmp___0 = __builtin_expect(mem->magic != 404886051U, 1L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 404886051U, 1L);
   ______r___2 = (int )tmp___0;
   ftrace_likely_update(& ______f___2, ______r___2, 0);
   ______r___1 = ______r___2 != 0;
@@ -4082,7 +4082,7 @@ void videobuf_vmalloc_free(struct videobuf_buffer *buf )
   ______f___2.line = 449U;
   ______f___2.ldv_814.ldv_809.correct = 0UL;
   ______f___2.ldv_814.ldv_809.incorrect = 0UL;
-  tmp = __builtin_expect(mem->magic != 404886051U, 1L);
+  tmp = ldv__builtin_expect(mem->magic != 404886051U, 1L);
   ______r___2 = (int )tmp;
   ftrace_likely_update(& ______f___2, ______r___2, 0);
   ______r___1 = ______r___2 != 0;
@@ -4313,7 +4313,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

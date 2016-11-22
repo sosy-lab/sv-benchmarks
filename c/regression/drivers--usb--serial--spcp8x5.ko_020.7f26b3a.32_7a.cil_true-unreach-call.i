@@ -3190,7 +3190,7 @@ struct spcp8x5_private {
    u8 line_status ;
 };
 typedef int ldv_func_ret_type___0;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
   int oldbit ;
@@ -3334,7 +3334,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp___1 ;
 
   {
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp___1 != 0L) {
     rcu_read_lock_sched_notrace();
     tmp = debug_lockdep_rcu_enabled();
@@ -3636,7 +3636,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -3751,12 +3751,12 @@ static int spcp8x5_startup(struct usb_serial *serial )
   descriptor.lineno = 208U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___0 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
+  tmp___0 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
   if (tmp___0 != 0L) {
-    tmp___1 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                0L);
     if (tmp___1 != 0L) {
-      tmp = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp != 0L) {
         __ret = 1;
       } else {
@@ -3870,12 +3870,12 @@ static int spcp8x5_set_ctrlLine(struct usb_device *dev , u8 value , enum spcp8x5
     descriptor.lineno = 256U;
     descriptor.flags = 0U;
     __ret = 0;
-    tmp___1 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
+    tmp___1 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
     if (tmp___1 != 0L) {
-      tmp___2 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___2 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___2 != 0L) {
-        tmp___0 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+        tmp___0 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
         if (tmp___0 != 0L) {
           __ret = 1;
         } else {
@@ -3948,12 +3948,12 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
     descriptor.lineno = 285U;
     descriptor.flags = 0U;
     __ret = 0;
-    tmp___2 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
+    tmp___2 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
     if (tmp___2 != 0L) {
-      tmp___3 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___3 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___3 != 0L) {
-        tmp___1 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+        tmp___1 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
         if (tmp___1 != 0L) {
           __ret = 1;
         } else {
@@ -3983,12 +3983,12 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
   descriptor___0.lineno = 287U;
   descriptor___0.flags = 0U;
   __ret___0 = 0;
-  tmp___5 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
+  tmp___5 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
   if (tmp___5 != 0L) {
-    tmp___6 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___6 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                0L);
     if (tmp___6 != 0L) {
-      tmp___4 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
+      tmp___4 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
       if (tmp___4 != 0L) {
         __ret___0 = 1;
       } else {
@@ -4045,12 +4045,12 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
   descriptor.lineno = 309U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___1 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
+  tmp___1 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
   if (tmp___1 != 0L) {
-    tmp___2 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+    tmp___2 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                0L);
     if (tmp___2 != 0L) {
-      tmp___0 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___0 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___0 != 0L) {
         __ret = 1;
       } else {
@@ -4078,12 +4078,12 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
     descriptor___0.lineno = 312U;
     descriptor___0.flags = 0U;
     __ret___0 = 0;
-    tmp___4 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
     if (tmp___4 != 0L) {
-      tmp___5 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___5 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___5 != 0L) {
-        tmp___3 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
+        tmp___3 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
         if (tmp___3 != 0L) {
           __ret___0 = 1;
         } else {
@@ -4425,12 +4425,12 @@ static void spcp8x5_process_read_urb(struct urb *urb )
     descriptor.lineno = 539U;
     descriptor.flags = 0U;
     __ret = 0;
-    tmp___2 = __builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
+    tmp___2 = ldv__builtin_expect((dynamic_debug_enabled & 128LL) != 0LL, 0L);
     if (tmp___2 != 0L) {
-      tmp___3 = __builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
+      tmp___3 = ldv__builtin_expect((dynamic_debug_enabled2 & 4611686018427387904LL) != 0LL,
                                  0L);
       if (tmp___3 != 0L) {
-        tmp___1 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+        tmp___1 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
         if (tmp___1 != 0L) {
           __ret = 1;
         } else {
@@ -4818,7 +4818,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

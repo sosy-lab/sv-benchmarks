@@ -3321,7 +3321,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags ) ;
 void usb_free_urb(struct urb *urb ) ;
 __inline static void ( __attribute__((__always_inline__)) ldv_error)(void) 
@@ -3342,7 +3342,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_stop)(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

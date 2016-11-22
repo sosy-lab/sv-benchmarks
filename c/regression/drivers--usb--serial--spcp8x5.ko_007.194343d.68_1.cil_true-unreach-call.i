@@ -3146,7 +3146,7 @@ struct spcp8x5_private {
 };
 enum hrtimer_restart;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
   int oldbit ;
@@ -3351,7 +3351,7 @@ __inline static int signal_pending(struct task_struct *p )
   } else {
     tmp___0 = 0;
   }
-  tmp___1 = __builtin_expect(tmp___0, 0);
+  tmp___1 = ldv__builtin_expect(tmp___0, 0);
   return (tmp___1);
 }
 }
@@ -3672,7 +3672,7 @@ static int spcp8x5_startup(struct usb_serial *serial )
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___1 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+      tmp___1 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                  0);
       if (tmp___1) {
         __ret = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -3799,7 +3799,7 @@ static int spcp8x5_set_ctrlLine(struct usb_device *dev , u8 value , enum spcp8x5
     while (1) {
       while (1) {
         __ret = 0;
-        tmp___2 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+        tmp___2 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                    0);
         if (tmp___2) {
           __ret = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -3876,7 +3876,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
     while (1) {
       while (1) {
         __ret = 0;
-        tmp___3 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+        tmp___3 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                    0);
         if (tmp___3) {
           __ret = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -3901,7 +3901,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
   while (1) {
     while (1) {
       __ret___0 = 0;
-      tmp___6 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+      tmp___6 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                  0);
       if (tmp___6) {
         __ret___0 = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -3963,7 +3963,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___2 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+      tmp___2 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                  0);
       if (tmp___2) {
         __ret = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -3986,7 +3986,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
     while (1) {
       while (1) {
         __ret___0 = 0;
-        tmp___5 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+        tmp___5 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                    0);
         if (tmp___5) {
           __ret___0 = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4155,7 +4155,7 @@ static void spcp8x5_close(struct tty_struct *tty , struct usb_serial_port *port 
       while (1) {
         while (1) {
           __ret = 0;
-          tmp___19 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+          tmp___19 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                       0);
           if (tmp___19) {
             __ret = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4185,7 +4185,7 @@ static void spcp8x5_close(struct tty_struct *tty , struct usb_serial_port *port 
     while (1) {
       while (1) {
         __ret___0 = 0;
-        tmp___22 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+        tmp___22 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                     0);
         if (tmp___22) {
           __ret___0 = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4551,7 +4551,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___2 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+      tmp___2 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                  0);
       if (tmp___2) {
         __ret = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4584,7 +4584,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
         while (1) {
           while (1) {
             __ret___0 = 0;
-            tmp___5 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+            tmp___5 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                        0);
             if (tmp___5) {
               __ret___0 = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4613,7 +4613,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
     while (1) {
       while (1) {
         __ret___1 = 0;
-        tmp___8 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+        tmp___8 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                    0);
         if (tmp___8) {
           __ret___1 = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4662,7 +4662,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
   while (1) {
     while (1) {
       __ret___2 = 0;
-      tmp___11 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+      tmp___11 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                   0);
       if (tmp___11) {
         __ret___2 = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4710,7 +4710,7 @@ static void spcp8x5_read_bulk_callback(struct urb *urb )
       while (1) {
         while (1) {
           __ret___3 = 0;
-          tmp___14 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+          tmp___14 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                       0);
           if (tmp___14) {
             __ret___3 = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4777,7 +4777,7 @@ static void spcp8x5_send(struct usb_serial_port *port )
     while (1) {
       while (1) {
         __ret = 0;
-        tmp___2 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+        tmp___2 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                    0);
         if (tmp___2) {
           __ret = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4827,7 +4827,7 @@ static void spcp8x5_send(struct usb_serial_port *port )
     while (1) {
       while (1) {
         __ret___0 = 0;
-        tmp___6 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+        tmp___6 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                    0);
         if (tmp___6) {
           __ret___0 = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4893,7 +4893,7 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___2 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+      tmp___2 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                  0);
       if (tmp___2) {
         __ret = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4940,7 +4940,7 @@ static void spcp8x5_write_bulk_callback(struct urb *urb )
     while (1) {
       while (1) {
         __ret___0 = 0;
-        tmp___5 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+        tmp___5 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                    0);
         if (tmp___5) {
           __ret___0 = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -4993,7 +4993,7 @@ static int spcp8x5_write(struct tty_struct *tty , struct usb_serial_port *port ,
   while (1) {
     while (1) {
       __ret = 0;
-      tmp___2 = __builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
+      tmp___2 = ldv__builtin_expect(! (! (dynamic_printk_enabled & (1LL << 7) && dynamic_printk_enabled2 & (1LL << 62))),
                                  0);
       if (tmp___2) {
         __ret = __dynamic_dbg_enabled_helper("spcp8x5", 1, 0, 7);
@@ -5511,7 +5511,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

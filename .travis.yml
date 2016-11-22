@@ -1,29 +1,33 @@
 language: c
 env:
-  # FIXME: If we want to check assembly too SYNTAX_ONLY needs to be 0
-  # FIXME: We'd like to build with WARNINGS_AS_ERRORS=1 but there are too
-  # many warnings firing right now
-  # Note: Can't use CC variable as TravisCI will override it
-  - C_COMPILER=gcc-4.8 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
-  # FIXME: Remove CLANG_BUILD_HACK once we can build all the benchmarks
-  - C_COMPILER=clang-3.7 CLANG_BUILD_HACK=1 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
+  matrix:
+    # Note: Can't use CC variable as TravisCI will override it
+    - C_COMPILER=gcc-5
+    - C_COMPILER=clang-3.8
 # Hint to TravisCI that we want to use their container infrastructure
 sudo: false
+git:
+  # a commit-rate of one commit per minute causes errors, because Travis is too slow
+  depth: 3
 addons:
   apt:
     sources:
-      # For gcc-4.8
+      # For newer gcc
       - ubuntu-toolchain-r-test
-      # For Clang 3.7
-      - llvm-toolchain-precise-3.7
+      # For Clang
+      - llvm-toolchain-precise-3.8
     packages:
       # These are needed for compiling with -m32
       # otherwise including system header files might result in
       # errors (e.g. ``fatal error: bits/predefs.h: No such file or directory``)
       - libc6-dev-i386
-      - gcc-4.8
-      - g++-4.8
-      - clang-3.7
+      - gcc-5
+      - clang-3.8
 script:
   - ${C_COMPILER} -v --version
   - cd c/ && make -j2 CC=${C_COMPILER}
+matrix:
+  include:
+    env: NAME="Sanity checks"
+    script:
+      - c/check.py

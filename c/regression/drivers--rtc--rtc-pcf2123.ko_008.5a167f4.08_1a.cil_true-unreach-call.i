@@ -2958,7 +2958,7 @@ struct pcf2123_plat_data {
    struct rtc_device *rtc ;
    struct pcf2123_sysfs_reg regs[16U] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
 
@@ -3006,7 +3006,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -3245,7 +3245,7 @@ static int pcf2123_rtc_read_time(struct device *dev , struct rtc_time *tm )
   descriptor.format = "%s: tm is secs=%d, mins=%d, hours=%d, mday=%d, mon=%d, year=%d, wday=%d\n";
   descriptor.lineno = 168U;
   descriptor.flags = 1U;
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___6 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "%s: tm is secs=%d, mins=%d, hours=%d, mday=%d, mon=%d, year=%d, wday=%d\n",
                       "pcf2123_rtc_read_time", tm->tm_sec, tm->tm_min, tm->tm_hour,
@@ -3286,7 +3286,7 @@ static int pcf2123_rtc_set_time(struct device *dev , struct rtc_time *tm )
   descriptor.format = "%s: tm is secs=%d, mins=%d, hours=%d, mday=%d, mon=%d, year=%d, wday=%d\n";
   descriptor.lineno = 189U;
   descriptor.flags = 1U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "%s: tm is secs=%d, mins=%d, hours=%d, mday=%d, mon=%d, year=%d, wday=%d\n",
                       "pcf2123_rtc_set_time", tm->tm_sec, tm->tm_min, tm->tm_hour,
@@ -3376,7 +3376,7 @@ static int pcf2123_probe(struct spi_device *spi )
   descriptor.format = "resetting RTC (0x%02X 0x%02X)\n";
   descriptor.lineno = 246U;
   descriptor.flags = 1U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& spi->dev), "resetting RTC (0x%02X 0x%02X)\n",
                       (int )txbuf[0], (int )txbuf[1]);
@@ -3398,7 +3398,7 @@ static int pcf2123_probe(struct spi_device *spi )
   descriptor___0.format = "stopping RTC (0x%02X 0x%02X)\n";
   descriptor___0.lineno = 256U;
   descriptor___0.flags = 1U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& spi->dev), "stopping RTC (0x%02X 0x%02X)\n",
                       (int )txbuf[0], (int )txbuf[1]);
@@ -3419,7 +3419,7 @@ static int pcf2123_probe(struct spi_device *spi )
   descriptor___1.format = "checking for presence of RTC (0x%02X)\n";
   descriptor___1.lineno = 265U;
   descriptor___1.flags = 1U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& spi->dev), "checking for presence of RTC (0x%02X)\n",
                       (int )txbuf[0]);
@@ -3434,7 +3434,7 @@ static int pcf2123_probe(struct spi_device *spi )
   descriptor___2.format = "received data from RTC (0x%02X 0x%02X)\n";
   descriptor___2.lineno = 269U;
   descriptor___2.flags = 1U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)(& spi->dev), "received data from RTC (0x%02X 0x%02X)\n",
                       (int )rxbuf[0], (int )rxbuf[1]);
@@ -3644,7 +3644,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

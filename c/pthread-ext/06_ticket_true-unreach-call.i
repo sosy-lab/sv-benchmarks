@@ -1,8 +1,7 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-int __global_lock;
-void __VERIFIER_atomic_begin() { __VERIFIER_assume(__global_lock==0); __global_lock=1; return; }
-void __VERIFIER_atomic_end() { __VERIFIER_assume(__global_lock==1); __global_lock=0; return; }
+extern void __VERIFIER_atomic_begin();
+extern void __VERIFIER_atomic_end();
 
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;

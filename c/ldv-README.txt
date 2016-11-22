@@ -1,5 +1,6 @@
 Verification tasks from Linux kernels.
-Contributed by the LDV project.
+
+Contributed by: [LDV](http://linuxtesting.org/project/ldv) project
 
     linux-3.0 - Various tests from Linux kernel 3.0, see linux-3.0/README
     linux-3.4-simple - Various simple tests from Linux kernel 3.4

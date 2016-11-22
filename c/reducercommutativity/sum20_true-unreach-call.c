@@ -14,6 +14,7 @@
 #define fun sum
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int();
 
 int sum (int x[N])
 {
@@ -33,6 +34,10 @@ int main ()
   int ret;
   int ret2;
   int ret5;
+
+  for (int i = 0; i < N; i++) {
+    x[i] = __VERIFIER_nondet_int();
+  }
 
   ret = fun(x);
 

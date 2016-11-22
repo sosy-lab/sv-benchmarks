@@ -2564,7 +2564,7 @@ struct urb {
    void (*complete)(struct urb * ) ;
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 static int verbose  =    0;
 static int major  =    96;
 static char *name  =    "pt";
@@ -2658,7 +2658,7 @@ __inline static long ( __attribute__((__always_inline__)) IS_ERR)(void const   *
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
+  tmp = ldv__builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
   return (tmp);
 }
 }
@@ -4370,7 +4370,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_stop)(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

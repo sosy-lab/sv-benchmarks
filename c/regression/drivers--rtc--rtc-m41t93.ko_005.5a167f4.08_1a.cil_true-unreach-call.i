@@ -2950,7 +2950,7 @@ struct spi_message {
    struct list_head queue ;
    void *state ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
 
@@ -2987,7 +2987,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -3141,7 +3141,7 @@ static int m41t93_set_time(struct device *dev , struct rtc_time *tm )
   descriptor.format = "%s secs=%d, mins=%d, hours=%d, mday=%d, mon=%d, year=%d, wday=%d\n";
   descriptor.lineno = 67U;
   descriptor.flags = 1U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "%s secs=%d, mins=%d, hours=%d, mday=%d, mon=%d, year=%d, wday=%d\n",
                       (char *)"write", tm->tm_sec, tm->tm_min, tm->tm_hour, tm->tm_mday,
@@ -3245,7 +3245,7 @@ static int m41t93_get_time(struct device *dev , struct rtc_time *tm )
     descriptor.format = "HT bit is set, reenable clock update.\n";
     descriptor.lineno = 132U;
     descriptor.flags = 1U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& spi->dev), "HT bit is set, reenable clock update.\n");
     } else {
@@ -3301,7 +3301,7 @@ static int m41t93_get_time(struct device *dev , struct rtc_time *tm )
   descriptor___0.format = "%s secs=%d, mins=%d, hours=%d, mday=%d, mon=%d, year=%d, wday=%d\n";
   descriptor___0.lineno = 168U;
   descriptor___0.flags = 1U;
-  tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___11 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)dev, "%s secs=%d, mins=%d, hours=%d, mday=%d, mon=%d, year=%d, wday=%d\n",
                       (char *)"read", tm->tm_sec, tm->tm_min, tm->tm_hour, tm->tm_mday,
@@ -3455,7 +3455,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

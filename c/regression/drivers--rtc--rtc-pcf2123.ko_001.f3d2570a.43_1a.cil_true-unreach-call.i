@@ -2741,7 +2741,7 @@ enum __anonenum_121 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern long long dynamic_debug_enabled ;
 extern long long dynamic_debug_enabled2 ;
 extern int strict_strtoul(char const   * , unsigned int  , unsigned long * ) ;
@@ -2761,7 +2761,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -3047,13 +3047,13 @@ static int pcf2123_rtc_read_time(struct device *dev , struct rtc_time *tm )
   descriptor.lineno = 172U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___9 = __builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
+  tmp___9 = ldv__builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
                              0L);
   if (tmp___9 != 0L) {
-    tmp___10 = __builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
+    tmp___10 = ldv__builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
                                 0L);
     if (tmp___10 != 0L) {
-      tmp___8 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___8 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___8 != 0L) {
         __ret = 1;
       } else {
@@ -3111,13 +3111,13 @@ static int pcf2123_rtc_set_time(struct device *dev , struct rtc_time *tm )
   descriptor.lineno = 193U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___3 = __builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
+  tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
                              0L);
   if (tmp___3 != 0L) {
-    tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
                                0L);
     if (tmp___4 != 0L) {
-      tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___2 != 0L) {
         __ret = 1;
       } else {
@@ -3247,13 +3247,13 @@ static int pcf2123_probe(struct spi_device *spi )
   descriptor.lineno = 250U;
   descriptor.flags = 0U;
   __ret = 0;
-  tmp___3 = __builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
+  tmp___3 = ldv__builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
                              0L);
   if (tmp___3 != 0L) {
-    tmp___4 = __builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
+    tmp___4 = ldv__builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
                                0L);
     if (tmp___4 != 0L) {
-      tmp___2 = __builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((unsigned int )descriptor.flags != 0U, 0L);
       if (tmp___2 != 0L) {
         __ret = 1;
       } else {
@@ -3291,13 +3291,13 @@ static int pcf2123_probe(struct spi_device *spi )
   descriptor___0.lineno = 260U;
   descriptor___0.flags = 0U;
   __ret___0 = 0;
-  tmp___8 = __builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
+  tmp___8 = ldv__builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
                              0L);
   if (tmp___8 != 0L) {
-    tmp___9 = __builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
+    tmp___9 = ldv__builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
                                0L);
     if (tmp___9 != 0L) {
-      tmp___7 = __builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
+      tmp___7 = ldv__builtin_expect((unsigned int )descriptor___0.flags != 0U, 0L);
       if (tmp___7 != 0L) {
         __ret___0 = 1;
       } else {
@@ -3334,13 +3334,13 @@ static int pcf2123_probe(struct spi_device *spi )
   descriptor___1.lineno = 269U;
   descriptor___1.flags = 0U;
   __ret___1 = 0;
-  tmp___13 = __builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
+  tmp___13 = ldv__builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
                               0L);
   if (tmp___13 != 0L) {
-    tmp___14 = __builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
+    tmp___14 = ldv__builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
                                 0L);
     if (tmp___14 != 0L) {
-      tmp___12 = __builtin_expect((unsigned int )descriptor___1.flags != 0U, 0L);
+      tmp___12 = ldv__builtin_expect((unsigned int )descriptor___1.flags != 0U, 0L);
       if (tmp___12 != 0L) {
         __ret___1 = 1;
       } else {
@@ -3370,13 +3370,13 @@ static int pcf2123_probe(struct spi_device *spi )
   descriptor___2.lineno = 273U;
   descriptor___2.flags = 0U;
   __ret___2 = 0;
-  tmp___18 = __builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
+  tmp___18 = ldv__builtin_expect((dynamic_debug_enabled & 2251799813685248LL) != 0LL,
                               0L);
   if (tmp___18 != 0L) {
-    tmp___19 = __builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
+    tmp___19 = ldv__builtin_expect((dynamic_debug_enabled2 & 35184372088832LL) != 0LL,
                                 0L);
     if (tmp___19 != 0L) {
-      tmp___17 = __builtin_expect((unsigned int )descriptor___2.flags != 0U, 0L);
+      tmp___17 = ldv__builtin_expect((unsigned int )descriptor___2.flags != 0U, 0L);
       if (tmp___17 != 0L) {
         __ret___2 = 1;
       } else {
@@ -3665,7 +3665,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

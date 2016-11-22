@@ -3975,7 +3975,7 @@ enum __anonenum_121 {
     LDV_SPIN_LOCKED = 1
 } ;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
@@ -4046,7 +4046,7 @@ __inline static unsigned long __raw_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/inst/current/envs/linux/linux/arch/x86/include/asm/paravirt.h"),
@@ -4132,7 +4132,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp ;
 
   {
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp != 0L) {
     rcu_read_lock_sched_notrace();
     _________p1 = *((void ** volatile  *)(& __tracepoint_kmalloc.funcs));
@@ -4389,7 +4389,7 @@ __inline static void trace_module_get(struct module *mod , unsigned long ip , in
   long tmp ;
 
   {
-  tmp = __builtin_expect(__tracepoint_module_get.state != 0, 0L);
+  tmp = ldv__builtin_expect(__tracepoint_module_get.state != 0, 0L);
   if (tmp != 0L) {
     rcu_read_lock_sched_notrace();
     _________p1 = *((void ** volatile  *)(& __tracepoint_module_get.funcs));
@@ -4464,7 +4464,7 @@ __inline static int try_module_get(struct module *module )
     ldv_11614: 
     cpu = (unsigned int )ret__;
     tmp___2 = module_is_live(module);
-    tmp___3 = __builtin_expect(tmp___2 != 0, 1L);
+    tmp___3 = ldv__builtin_expect(tmp___2 != 0, 1L);
     if (tmp___3 != 0L) {
       tmp = __module_ref_addr(module, (int )cpu);
       local_inc(tmp);
@@ -4658,7 +4658,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
     return (dma_ops);
@@ -4759,14 +4759,14 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
   _flags = __raw_local_save_flags();
   tmp___0 = raw_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp___1 != 0L) {
     warn_slowpath_null("/work/ldvuser/novikov/inst/current/envs/linux/linux/arch/x86/include/asm/dma-mapping.h",
                        154);
   } else {
 
   }
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   if ((unsigned long )ops->free_coherent != (unsigned long )((void (*)(struct device * ,
                                                                        size_t  , void * ,
@@ -7249,7 +7249,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

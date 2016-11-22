@@ -3104,7 +3104,7 @@ struct device_node {
    unsigned long _flags ;
    void *data ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 __inline static void rep_nop(void) 
@@ -3541,7 +3541,7 @@ static int ulite_request_port(struct uart_port *port )
   descriptor.format = "ulite console: port=%p; port->mapbase=%llx\n";
   descriptor.lineno = 293U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "ulite console: port=%p; port->mapbase=%llx\n",
                        port, port->mapbase);
@@ -3771,7 +3771,7 @@ int ulite_init(void)
   descriptor.format = "uartlite: calling uart_register_driver()\n";
   descriptor.lineno = 630U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_pr_debug(& descriptor, "uartlite: calling uart_register_driver()\n");
   } else {
@@ -3789,7 +3789,7 @@ int ulite_init(void)
   descriptor___0.format = "uartlite: calling platform_driver_register()\n";
   descriptor___0.lineno = 635U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_pr_debug(& descriptor___0, "uartlite: calling platform_driver_register()\n");
   } else {
@@ -3995,7 +3995,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

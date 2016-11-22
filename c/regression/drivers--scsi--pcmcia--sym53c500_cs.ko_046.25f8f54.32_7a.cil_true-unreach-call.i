@@ -3829,7 +3829,7 @@ struct sym53c500_data {
    int fast_pio ;
 };
 typedef int ldv_func_ret_type___0;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
@@ -3969,7 +3969,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
   long tmp___0 ;
 
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (96), "i" (12UL));
@@ -3978,7 +3978,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
   } else {
 
   }
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (97), "i" (12UL));
@@ -4457,7 +4457,7 @@ static void SYM53C500_release(struct pcmcia_device *link )
   descriptor.lineno = 530U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "SYM53C500_release\n");
   } else {
@@ -4663,7 +4663,7 @@ static int SYM53C500_config(struct pcmcia_device *link )
   descriptor.lineno = 726U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "SYM53C500_config\n");
   } else {
@@ -4778,7 +4778,7 @@ static void SYM53C500_detach(struct pcmcia_device *link )
   descriptor.lineno = 854U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "SYM53C500_detach\n");
   } else {
@@ -4806,7 +4806,7 @@ static int SYM53C500_probe(struct pcmcia_device *link )
   descriptor.lineno = 867U;
   descriptor.flags = 0U;
   descriptor.enabled = (char)0;
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
   if (tmp != 0L) {
     dev_printk("<7>", (struct device  const  *)(& link->dev), "SYM53C500_attach()\n");
   } else {
@@ -5051,7 +5051,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -3,6 +3,7 @@
 // Self-Reflection", SAS 2012
 
 #include <pthread.h>
+#include <stdlib.h>
 #include "assert.h"
 
 int *data;

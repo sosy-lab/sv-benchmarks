@@ -2650,7 +2650,7 @@ struct it87_data {
    u8 fan_ctl ;
    u8 manual_pwm_ctl[3U] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern long simple_strtol(char const   * , char ** , unsigned int  ) ;
@@ -2688,7 +2688,7 @@ __inline static long IS_ERR(void const   *ptr )
   ______f.line = 34U;
   ______f.ldv_806.ldv_801.correct = 0UL;
   ______f.ldv_806.ldv_801.incorrect = 0UL;
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 1L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 1L);
   ______r = (int )tmp;
   ftrace_likely_update(& ______f, ______r, 0);
   return ((long )______r);
@@ -6186,7 +6186,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -4747,7 +4747,7 @@ struct wl1271 {
    struct list_head list ;
    s8 noise ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -4782,7 +4782,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -4854,14 +4854,14 @@ __inline static int atomic_add_unless(atomic_t *v , int a , int u )
   {
   c = atomic_read((atomic_t const   *)v);
   ldv_5134: 
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   if (tmp != 0L) {
     goto ldv_5133;
   } else {
 
   }
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   if (tmp___0 != 0L) {
     goto ldv_5133;
   } else {
@@ -5060,7 +5060,7 @@ static void wl1271_sdio_raw_read(struct wl1271 *wl , int addr , void *buf , size
   tmp = wl_to_func(wl);
   func = tmp;
   sdio_claim_host(func);
-  tmp___0 = __builtin_expect(addr == 131068, 0L);
+  tmp___0 = ldv__builtin_expect(addr == 131068, 0L);
   if (tmp___0 != 0L) {
     *((u8 *)buf) = sdio_f0_readb(func, (unsigned int )addr, & ret);
   } else
@@ -5090,7 +5090,7 @@ static void wl1271_sdio_raw_write(struct wl1271 *wl , int addr , void *buf , siz
   tmp = wl_to_func(wl);
   func = tmp;
   sdio_claim_host(func);
-  tmp___0 = __builtin_expect(addr == 131068, 0L);
+  tmp___0 = ldv__builtin_expect(addr == 131068, 0L);
   if (tmp___0 != 0L) {
     sdio_f0_writeb(func, (int )*((u8 *)buf), (unsigned int )addr, & ret);
   } else
@@ -5486,7 +5486,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -3,7 +3,7 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 #define N 100000
 
-int strcmp( int src[N] , int dst[N] ) {
+int _strcmp( int src[N] , int dst[N] ) {
   int i = 0; 
   while ( i < N ) {
     if( dst[i] != src[i] ) return 1;
@@ -17,7 +17,7 @@ int main( ) {
   int a[N];
   int b[N];
   
-  int c = strcmp( a , b );
+  int c = _strcmp( a , b );
 
   if ( c == 0 ) {
     int x;
