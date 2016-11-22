@@ -6,7 +6,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-typedef int size_t;
+typedef unsigned int size_t;
 typedef int bool;
 char *strchr(const char *s, int c);
 char *strrchr(const char *s, int c);
