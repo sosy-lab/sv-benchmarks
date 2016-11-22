@@ -10437,7 +10437,7 @@ int main(void)
   int tmp ;
   int tmp___0 ;
 
-  var_group1 = ldv_init_zalloc(sizeof(struct dvb_usb_adapter));
+  var_group1 = ldv_init_zalloc(sizeof(struct vm_area_struct));
   var_group1->vm_private_data = __VERIFIER_nondet_pointer();
   __VERIFIER_assume(var_group1->vm_private_data != ((void *)0));
   bo = (struct ttm_buffer_object *)var_group1->vm_private_data;
