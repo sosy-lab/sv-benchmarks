@@ -2451,7 +2451,7 @@ void setup(void)
 }
 }
 int main(void) 
-{ int retValue_acc ;
+{ int retValue_acc = __VERIFIER_nondet_int();
   int tmp ;
 
   {

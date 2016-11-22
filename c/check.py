@@ -145,6 +145,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("list-ext-properties", "list-ext_flag_false-not-label.i is not contained in any category"),
     ("list-ext-properties", "list-ext_false-not-label.c is not contained in any category"),
     ("loop-lit", "ddlm2013_true-unreach-call.c is not contained in any category"),
+    ("loop-acceleration", "array_false-unreach-call3_true-termination_false-valid-deref.c is not contained in any category"),
     ("loop-lit", "ddlm2013_true-unreach-call.i is not contained in any category"),
     ("loop-lit", "gcnr2008_false-unreach-call.c_false-termination.i is not contained in any category"),
     ("loop-lit", "gcnr2008_false-unreach-call_false-termination.c is not contained in any category"),
