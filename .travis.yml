@@ -7,7 +7,8 @@ env:
 # Hint to TravisCI that we want to use their container infrastructure
 sudo: false
 git:
-  depth: 1
+  # a commit-rate of one commit per minute causes errors, because Travis is too slow
+  depth: 3
 addons:
   apt:
     sources:
