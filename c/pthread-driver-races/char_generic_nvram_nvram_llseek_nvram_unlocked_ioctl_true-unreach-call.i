@@ -313,7 +313,6 @@ struct callback_head {
  void (*func)(struct callback_head *head);
 };
 
-extern pthread_t __VERIFIER_nondet_pthread_t(void);
 extern bool __VERIFIER_nondet_bool(void);
 extern uint __VERIFIER_nondet_uint(void);
 extern int __VERIFIER_nondet_int(void);
@@ -727,8 +726,7 @@ void mutex_init(struct mutex *lock)
 
 void mutex_lock(struct mutex *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->locked == 0);
@@ -740,8 +738,7 @@ bool mutex_lock_interruptible(struct mutex *lock)
 {
   bool ret = __VERIFIER_nondet_bool();
   if(!ret) {
-    pthread_t tid = __VERIFIER_nondet_pthread_t();
-    tid = pthread_self();
+    pthread_t tid = pthread_self();
 
     __VERIFIER_atomic_begin();
     __VERIFIER_assume(lock->locked == 0);
@@ -753,8 +750,7 @@ bool mutex_lock_interruptible(struct mutex *lock)
 
 void mutex_unlock(struct mutex *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   lock->locked = 0;
@@ -908,8 +904,7 @@ void spin_lock_init(spinlock_t *lock)
 
 void spin_lock(spinlock_t *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->lock == 0);
@@ -919,8 +914,7 @@ void spin_lock(spinlock_t *lock)
 
 void spin_lock_irqsave(spinlock_t *lock, unsigned long value)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->lock == 0);
@@ -930,8 +924,7 @@ void spin_lock_irqsave(spinlock_t *lock, unsigned long value)
 
 void spin_lock_irq(spinlock_t *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->lock == 0);
@@ -941,8 +934,7 @@ void spin_lock_irq(spinlock_t *lock)
 
 void spin_lock_bh(spinlock_t *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->lock == 0);
@@ -952,8 +944,7 @@ void spin_lock_bh(spinlock_t *lock)
 
 void spin_unlock(spinlock_t *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   lock->lock = 0;
@@ -962,8 +953,7 @@ void spin_unlock(spinlock_t *lock)
 
 void spin_unlock_irqrestore(spinlock_t *lock, unsigned long value)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   lock->lock = 0;
@@ -972,8 +962,7 @@ void spin_unlock_irqrestore(spinlock_t *lock, unsigned long value)
 
 void spin_unlock_irq(spinlock_t *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   lock->lock = 0;
@@ -982,8 +971,7 @@ void spin_unlock_irq(spinlock_t *lock)
 
 void spin_unlock_bh(spinlock_t *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
 
   __VERIFIER_atomic_begin();
   lock->lock = 0;

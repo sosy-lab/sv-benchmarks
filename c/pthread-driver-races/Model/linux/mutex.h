@@ -34,8 +34,7 @@ void mutex_init(struct mutex *lock)
 
 void mutex_lock(struct mutex *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
   //__VERIFIER_assert(tid != lock->locked);
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->locked == MUTEX_UNLOCKED);
@@ -47,8 +46,7 @@ bool mutex_lock_interruptible(struct mutex *lock)
 {
   bool ret = __VERIFIER_nondet_bool();
   if(!ret) {
-    pthread_t tid = __VERIFIER_nondet_pthread_t();
-    tid = pthread_self();
+    pthread_t tid = pthread_self();
     //__VERIFIER_assert(tid != lock->locked);
     __VERIFIER_atomic_begin();
     __VERIFIER_assume(lock->locked == MUTEX_UNLOCKED);
@@ -60,8 +58,7 @@ bool mutex_lock_interruptible(struct mutex *lock)
 
 void mutex_unlock(struct mutex *lock)
 {
-  pthread_t tid = __VERIFIER_nondet_pthread_t();
-  tid = pthread_self();
+  pthread_t tid = pthread_self();
   //__VERIFIER_assert(tid == lock->locked);
   __VERIFIER_atomic_begin();
   lock->locked = MUTEX_UNLOCKED;
