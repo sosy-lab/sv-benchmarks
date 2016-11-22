@@ -4,7 +4,4 @@ LEVEL := ../
 GCC_WARNINGS := \
 	-Wno-error \
 
-CLANG_WARNINGS := \
-	-Wno-builtin-requires-header \
-
 include $(LEVEL)/Makefile.config
