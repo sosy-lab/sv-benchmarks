@@ -14,7 +14,7 @@ int check(struct dummy *ad1, int b)
 
 int main()
 {
-  struct dummy ad1[10], *ad2;
+  struct dummy ad1[20], *ad2;
   int i, *pa;
   if (i >= 0 && i < 10) {
     ad2 = ad1;
