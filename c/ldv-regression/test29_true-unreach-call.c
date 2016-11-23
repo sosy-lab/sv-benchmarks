@@ -18,7 +18,7 @@ int main()
   } else {
     pd->b = 0;
   }
-  if (pd == &d2 && d2.a != 0) {
+  if (pd == &d2 && d2.b != 0) {
     goto ERROR;
   }
 
