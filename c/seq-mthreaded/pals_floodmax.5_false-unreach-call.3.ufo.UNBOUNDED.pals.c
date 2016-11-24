@@ -59,6 +59,7 @@ DM-0000575
 /* print_CIL_Input is true */
 
 char __VERIFIER_nondet_char(void) ;
+unsigned char __VERIFIER_nondet_uchar(void) ;
 _Bool __VERIFIER_nondet_bool(void) ;
 void assert(_Bool arg ) ;
 void __VERIFIER_assume(int arg ) ;
@@ -148,35 +149,35 @@ char p54_old ;
 char p54_new ;
 _Bool ep54  ;
 char id1  ;
-char r1  ;
+unsigned char r1  ;
 char st1  ;
 char nl1  ;
 char m1  ;
 char max1  ;
 _Bool mode1  ;
 char id2  ;
-char r2  ;
+unsigned char r2  ;
 char st2  ;
 char nl2  ;
 char m2  ;
 char max2  ;
 _Bool mode2  ;
 char id3  ;
-char r3  ;
+unsigned char r3  ;
 char st3  ;
 char nl3  ;
 char m3  ;
 char max3  ;
 _Bool mode3  ;
 char id4  ;
-char r4  ;
+unsigned char r4  ;
 char st4  ;
 char nl4  ;
 char m4  ;
 char max4  ;
 _Bool mode4  ;
 char id5  ;
-char r5  ;
+unsigned char r5  ;
 char st5  ;
 char nl5  ;
 char m5  ;
@@ -188,7 +189,7 @@ void node1(void)
 
   {
   if (mode1) {
-    r1 = (char )((int )r1 + 1);
+    r1 = (unsigned char )((int )r1 + 1);
     if (ep21) {
       m1 = p21_old;
       p21_old = nomsg;
@@ -251,7 +252,7 @@ void node2(void)
 
   {
   if (mode2) {
-    r2 = (char )((int )r2 + 1);
+    r2 = (unsigned char )((int )r2 + 1);
     if (ep12) {
       m2 = p12_old;
       p12_old = nomsg;
@@ -314,7 +315,7 @@ void node3(void)
 
   {
   if (mode3) {
-    r3 = (char )((int )r3 + 1);
+    r3 = (unsigned char )((int )r3 + 1);
     if (ep13) {
       m3 = p13_old;
       p13_old = nomsg;
@@ -377,7 +378,7 @@ void node4(void)
 
   {
   if (mode4) {
-    r4 = (char )((int )r4 + 1);
+    r4 = (unsigned char )((int )r4 + 1);
     if (ep14) {
       m4 = p14_old;
       p14_old = nomsg;
@@ -440,7 +441,7 @@ void node5(void)
 
   {
   if (mode5) {
-    r5 = (char )((int )r5 + 1);
+    r5 = (unsigned char )((int )r5 + 1);
     if (ep15) {
       m5 = p15_old;
       p15_old = nomsg;
@@ -2740,35 +2741,35 @@ int main(void)
   ep53 = __VERIFIER_nondet_bool();
   ep54 = __VERIFIER_nondet_bool();
   id1 = __VERIFIER_nondet_char();
-  r1 = __VERIFIER_nondet_char();
+  r1 = __VERIFIER_nondet_uchar();
   st1 = __VERIFIER_nondet_char();
   nl1 = __VERIFIER_nondet_char();
   m1 = __VERIFIER_nondet_char();
   max1 = __VERIFIER_nondet_char();
   mode1 = __VERIFIER_nondet_bool();
   id2 = __VERIFIER_nondet_char();
-  r2 = __VERIFIER_nondet_char();
+  r2 = __VERIFIER_nondet_uchar();
   st2 = __VERIFIER_nondet_char();
   nl2 = __VERIFIER_nondet_char();
   m2 = __VERIFIER_nondet_char();
   max2 = __VERIFIER_nondet_char();
   mode2 = __VERIFIER_nondet_bool();
   id3 = __VERIFIER_nondet_char();
-  r3 = __VERIFIER_nondet_char();
+  r3 = __VERIFIER_nondet_uchar();
   st3 = __VERIFIER_nondet_char();
   nl3 = __VERIFIER_nondet_char();
   m3 = __VERIFIER_nondet_char();
   max3 = __VERIFIER_nondet_char();
   mode3 = __VERIFIER_nondet_bool();
   id4 = __VERIFIER_nondet_char();
-  r4 = __VERIFIER_nondet_char();
+  r4 = __VERIFIER_nondet_uchar();
   st4 = __VERIFIER_nondet_char();
   nl4 = __VERIFIER_nondet_char();
   m4 = __VERIFIER_nondet_char();
   max4 = __VERIFIER_nondet_char();
   mode4 = __VERIFIER_nondet_bool();
   id5 = __VERIFIER_nondet_char();
-  r5 = __VERIFIER_nondet_char();
+  r5 = __VERIFIER_nondet_uchar();
   st5 = __VERIFIER_nondet_char();
   nl5 = __VERIFIER_nondet_char();
   m5 = __VERIFIER_nondet_char();
