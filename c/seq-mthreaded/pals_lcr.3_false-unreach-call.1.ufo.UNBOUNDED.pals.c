@@ -97,7 +97,10 @@ void node1(void)
   {
   m1 = nomsg;
   if (mode1) {
-    r1 = (unsigned char )((int )r1 + 1);
+    if (r1 == 255) {
+      r1 = 2;
+    }
+    r1 = r1 + 1;
     m1 = p3_old;
     p3_old = nomsg;
     if ((int )m1 != (int )nomsg) {

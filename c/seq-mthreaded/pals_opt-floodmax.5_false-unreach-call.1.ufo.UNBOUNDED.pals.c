@@ -195,7 +195,10 @@ void node1(void)
   {
   newmax = (_Bool)0;
   if (mode1) {
-    r1 = (unsigned char )((int )r1 + 1);
+    if (r1 == 255) {
+      r1 = 4;
+    }
+    r1 = r1 + 1;
     if (ep21) {
       m1 = p21_old;
       p21_old = nomsg;
@@ -272,7 +275,10 @@ void node2(void)
   {
   newmax = (_Bool)0;
   if (mode2) {
-    r2 = (unsigned char )((int )r2 + 1);
+    if (r2 == 255) {
+      r2 = 4;
+    }
+    r2 = r2 + 1;
     if (ep12) {
       m2 = p12_old;
       p12_old = nomsg;
@@ -349,7 +355,10 @@ void node3(void)
   {
   newmax = (_Bool)0;
   if (mode3) {
-    r3 = (unsigned char )((int )r3 + 1);
+    if (r3 == 255) {
+      r3 = 4;
+    }
+    r3 = r3 + 1;
     if (ep13) {
       m3 = p13_old;
       p13_old = nomsg;
@@ -426,7 +435,10 @@ void node4(void)
   {
   newmax = (_Bool)0;
   if (mode4) {
-    r4 = (unsigned char )((int )r4 + 1);
+    if (r4 == 255) {
+      r4 = 4;
+    }
+    r4 = r4 + 1;
     if (ep14) {
       m4 = p14_old;
       p14_old = nomsg;
@@ -503,7 +515,10 @@ void node5(void)
   {
   newmax = (_Bool)0;
   if (mode5) {
-    r5 = (unsigned char )((int )r5 + 1);
+    if (r5 == 255) {
+      r5 = 4;
+    }
+    r5 = r5 + 1;
     if (ep15) {
       m5 = p15_old;
       p15_old = nomsg;

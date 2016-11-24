@@ -150,10 +150,7 @@ void node1(void)
 
   {
   if (mode1) {
-    if (r1 == 255) {
-      r1 = 3;
-    }
-    r1 = r1 + 1;
+    r1 = (unsigned char )((int )r1 + 1);
     if (ep21) {
       m1 = p21_old;
       p21_old = nomsg;
@@ -206,10 +203,7 @@ void node2(void)
 
   {
   if (mode2) {
-    if (r2 == 255) {
-      r2 = 3;
-    }
-    r2 = r2 + 1;
+    r2 = (unsigned char )((int )r2 + 1);
     if (ep12) {
       m2 = p12_old;
       p12_old = nomsg;
@@ -262,10 +256,7 @@ void node3(void)
 
   {
   if (mode3) {
-    if (r3 == 255) {
-      r3 = 3;
-    }
-    r3 = r3 + 1;
+    r3 = (unsigned char )((int )r3 + 1);
     if (ep13) {
       m3 = p13_old;
       p13_old = nomsg;
@@ -318,10 +309,7 @@ void node4(void)
 
   {
   if (mode4) {
-    if (r4 == 255) {
-      r4 = 3;
-    }
-    r4 = r4 + 1;
+    r4 = (unsigned char )((int )r4 + 1);
     if (ep14) {
       m4 = p14_old;
       p14_old = nomsg;
@@ -964,23 +952,71 @@ int init(void)
                         if ((int )r2 == 0) {
                           if ((int )r3 == 0) {
                             if ((int )r4 == 0) {
-                              if ((int )max1 == (int )id1) {
-                                if ((int )max2 == (int )id2) {
-                                  if ((int )max3 == (int )id3) {
-                                    if ((int )max4 == (int )id4) {
-                                      if ((int )st1 == 0) {
-                                        if ((int )st2 == 0) {
-                                          if ((int )st3 == 0) {
-                                            if ((int )st4 == 0) {
-                                              if ((int )nl1 == 0) {
-                                                if ((int )nl2 == 0) {
-                                                  if ((int )nl3 == 0) {
-                                                    if ((int )nl4 == 0) {
-                                                      if ((int )mode1 == 0) {
-                                                        if ((int )mode2 == 0) {
-                                                          if ((int )mode3 == 0) {
-                                                            if ((int )mode4 == 0) {
-                                                              tmp___23 = 1;
+                              if (r123) {
+                                if (r133) {
+                                  if (r143) {
+                                    if (r213) {
+                                      if (r233) {
+                                        if (r243) {
+                                          if (r313) {
+                                            if (r323) {
+                                              if (r343) {
+                                                if (r413) {
+                                                  if (r423) {
+                                                    if (r433) {
+                                                      if ((int )max1 == (int )id1) {
+                                                        if ((int )max2 == (int )id2) {
+                                                          if ((int )max3 == (int )id3) {
+                                                            if ((int )max4 == (int )id4) {
+                                                              if ((int )st1 == 0) {
+                                                                if ((int )st2 == 0) {
+                                                                  if ((int )st3 == 0) {
+                                                                    if ((int )st4 == 0) {
+                                                                      if ((int )nl1 == 0) {
+                                                                        if ((int )nl2 == 0) {
+                                                                          if ((int )nl3 == 0) {
+                                                                            if ((int )nl4 == 0) {
+                                                                              if ((int )mode1 == 0) {
+                                                                                if ((int )mode2 == 0) {
+                                                                                  if ((int )mode3 == 0) {
+                                                                                    if ((int )mode4 == 0) {
+                                                                                      tmp___23 = 1;
+                                                                                    } else {
+                                                                                      tmp___23 = 0;
+                                                                                    }
+                                                                                  } else {
+                                                                                    tmp___23 = 0;
+                                                                                  }
+                                                                                } else {
+                                                                                  tmp___23 = 0;
+                                                                                }
+                                                                              } else {
+                                                                                tmp___23 = 0;
+                                                                              }
+                                                                            } else {
+                                                                              tmp___23 = 0;
+                                                                            }
+                                                                          } else {
+                                                                            tmp___23 = 0;
+                                                                          }
+                                                                        } else {
+                                                                          tmp___23 = 0;
+                                                                        }
+                                                                      } else {
+                                                                        tmp___23 = 0;
+                                                                      }
+                                                                    } else {
+                                                                      tmp___23 = 0;
+                                                                    }
+                                                                  } else {
+                                                                    tmp___23 = 0;
+                                                                  }
+                                                                } else {
+                                                                  tmp___23 = 0;
+                                                                }
+                                                              } else {
+                                                                tmp___23 = 0;
+                                                              }
                                                             } else {
                                                               tmp___23 = 0;
                                                             }

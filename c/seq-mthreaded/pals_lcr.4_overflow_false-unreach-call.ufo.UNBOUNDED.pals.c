@@ -61,6 +61,8 @@ DM-0000575
 _Bool __VERIFIER_nondet_bool(void) ;
 char __VERIFIER_nondet_char(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
+char __VERIFIER_nondet_char(void) ;
+unsigned char __VERIFIER_nondet_uchar(void) ;
 void assert(_Bool arg ) ;
 void __VERIFIER_assume(int arg ) ;
 typedef char msg_t;
@@ -104,10 +106,7 @@ void node1(void)
   {
   m1 = nomsg;
   if (mode1) {
-    if (r1 == 255) {
-      r1 = 3;
-    }
-    r1 = r1 + 1;
+    r1 = (unsigned char )((int )r1 + 1);
     m1 = p4_old;
     p4_old = nomsg;
     if ((int )m1 != (int )nomsg) {
@@ -116,8 +115,6 @@ void node1(void)
       } else
       if ((int )m1 == (int )id1) {
         st1 = (char)1;
-      } else {
-        send1 = m1;
       }
     }
     mode1 = (_Bool)0;

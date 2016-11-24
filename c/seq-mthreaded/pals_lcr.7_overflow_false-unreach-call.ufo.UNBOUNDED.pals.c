@@ -61,6 +61,8 @@ DM-0000575
 _Bool __VERIFIER_nondet_bool(void) ;
 char __VERIFIER_nondet_char(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
+char __VERIFIER_nondet_char(void) ;
+unsigned char __VERIFIER_nondet_uchar(void) ;
 void assert(_Bool arg ) ;
 void __VERIFIER_assume(int arg ) ;
 typedef char msg_t;
@@ -118,13 +120,6 @@ char id7  ;
 char st7  ;
 msg_t send7  ;
 _Bool mode7  ;
-port_t p8  ;
-char p8_old ;
-char p8_new ;
-char id8  ;
-char st8  ;
-msg_t send8  ;
-_Bool mode8  ;
 void node1(void) 
 { 
   msg_t m1 ;
@@ -132,12 +127,9 @@ void node1(void)
   {
   m1 = nomsg;
   if (mode1) {
-    if (r1 == 255) {
-      r1 = 7;
-    }
-    r1 = r1 + 1;
-    m1 = p8_old;
-    p8_old = nomsg;
+    r1 = (unsigned char )((int )r1 + 1);
+    m1 = p7_old;
+    p7_old = nomsg;
     if ((int )m1 != (int )nomsg) {
       if ((int )m1 > (int )id1) {
         send1 = m1;
@@ -304,34 +296,8 @@ void node7(void)
   return;
 }
 }
-void node8(void) 
-{ 
-  msg_t m8 ;
-
-  {
-  m8 = nomsg;
-  if (mode8) {
-    m8 = p7_old;
-    p7_old = nomsg;
-    if ((int )m8 != (int )nomsg) {
-      if ((int )m8 > (int )id8) {
-        send8 = m8;
-      } else
-      if ((int )m8 == (int )id8) {
-        st8 = (char)1;
-      }
-    }
-    mode8 = (_Bool)0;
-  } else {
-    p8_new = send8 != nomsg && p8_new == nomsg ? send8 : p8_new;
-    mode8 = (_Bool)1;
-  }
-  return;
-}
-}
-void (*nodes[8])(void)  = 
-  {      & node1,      & node2,      & node3,      & node4, 
-        & node5,      & node6,      & node7,      & node8};
+void (*nodes[7])(void)  = {      & node1,      & node2,      & node3,      & node4, 
+        & node5,      & node6,      & node7};
 int init(void) 
 { 
   int tmp ;
@@ -366,72 +332,28 @@ int init(void)
                                                       if ((int )st7 == 0) {
                                                         if ((int )send7 == (int )id7) {
                                                           if ((int )mode7 == 0) {
-                                                            if ((int )id8 >= 0) {
-                                                              if ((int )st8 == 0) {
-                                                                if ((int )send8 == (int )id8) {
-                                                                  if ((int )mode8 == 0) {
-                                                                    if ((int )id1 != (int )id2) {
-                                                                      if ((int )id1 != (int )id3) {
-                                                                        if ((int )id1 != (int )id4) {
-                                                                          if ((int )id1 != (int )id5) {
-                                                                            if ((int )id1 != (int )id6) {
-                                                                              if ((int )id1 != (int )id7) {
-                                                                                if ((int )id1 != (int )id8) {
-                                                                                  if ((int )id2 != (int )id3) {
-                                                                                    if ((int )id2 != (int )id4) {
-                                                                                      if ((int )id2 != (int )id5) {
-                                                                                        if ((int )id2 != (int )id6) {
-                                                                                          if ((int )id2 != (int )id7) {
-                                                                                            if ((int )id2 != (int )id8) {
-                                                                                              if ((int )id3 != (int )id4) {
-                                                                                                if ((int )id3 != (int )id5) {
-                                                                                                  if ((int )id3 != (int )id6) {
-                                                                                                    if ((int )id3 != (int )id7) {
-                                                                                                      if ((int )id3 != (int )id8) {
-                                                                                                        if ((int )id4 != (int )id5) {
-                                                                                                          if ((int )id4 != (int )id6) {
-                                                                                                            if ((int )id4 != (int )id7) {
-                                                                                                              if ((int )id4 != (int )id8) {
-                                                                                                                if ((int )id5 != (int )id6) {
-                                                                                                                  if ((int )id5 != (int )id7) {
-                                                                                                                    if ((int )id5 != (int )id8) {
-                                                                                                                      if ((int )id6 != (int )id7) {
-                                                                                                                        if ((int )id6 != (int )id8) {
-                                                                                                                          if ((int )id7 != (int )id8) {
-                                                                                                                            tmp = 1;
-                                                                                                                          } else {
-                                                                                                                            tmp = 0;
-                                                                                                                          }
-                                                                                                                        } else {
-                                                                                                                          tmp = 0;
-                                                                                                                        }
-                                                                                                                      } else {
-                                                                                                                        tmp = 0;
-                                                                                                                      }
-                                                                                                                    } else {
-                                                                                                                      tmp = 0;
-                                                                                                                    }
-                                                                                                                  } else {
-                                                                                                                    tmp = 0;
-                                                                                                                  }
-                                                                                                                } else {
-                                                                                                                  tmp = 0;
-                                                                                                                }
-                                                                                                              } else {
-                                                                                                                tmp = 0;
-                                                                                                              }
-                                                                                                            } else {
-                                                                                                              tmp = 0;
-                                                                                                            }
-                                                                                                          } else {
-                                                                                                            tmp = 0;
-                                                                                                          }
-                                                                                                        } else {
-                                                                                                          tmp = 0;
-                                                                                                        }
-                                                                                                      } else {
-                                                                                                        tmp = 0;
-                                                                                                      }
+                                                            if ((int )id1 != (int )id2) {
+                                                              if ((int )id1 != (int )id3) {
+                                                                if ((int )id1 != (int )id4) {
+                                                                  if ((int )id1 != (int )id5) {
+                                                                    if ((int )id1 != (int )id6) {
+                                                                      if ((int )id1 != (int )id7) {
+                                                                        if ((int )id2 != (int )id3) {
+                                                                          if ((int )id2 != (int )id4) {
+                                                                            if ((int )id2 != (int )id5) {
+                                                                              if ((int )id2 != (int )id6) {
+                                                                                if ((int )id2 != (int )id7) {
+                                                                                  if ((int )id3 != (int )id4) {
+                                                                                    if ((int )id3 != (int )id5) {
+                                                                                      if ((int )id3 != (int )id6) {
+                                                                                        if ((int )id3 != (int )id7) {
+                                                                                          if ((int )id4 != (int )id5) {
+                                                                                            if ((int )id4 != (int )id6) {
+                                                                                              if ((int )id4 != (int )id7) {
+                                                                                                if ((int )id5 != (int )id6) {
+                                                                                                  if ((int )id5 != (int )id7) {
+                                                                                                    if ((int )id6 != (int )id7) {
+                                                                                                      tmp = 1;
                                                                                                     } else {
                                                                                                       tmp = 0;
                                                                                                     }
@@ -590,16 +512,16 @@ int check(void)
   int tmp ;
 
   {
-  if ((((((((int )st1 + (int )st2) + (int )st3) + (int )st4) + (int )st5) + (int )st6) + (int )st7) + (int )st8 <= 1) {
-    if ((int )r1 >= 8) {
+  if (((((((int )st1 + (int )st2) + (int )st3) + (int )st4) + (int )st5) + (int )st6) + (int )st7 <= 1) {
+    if ((int )r1 >= 7) {
       goto _L;
     } else
-    if ((((((((int )st1 + (int )st2) + (int )st3) + (int )st4) + (int )st5) + (int )st6) + (int )st7) + (int )st8 == 0) {
+    if (((((((int )st1 + (int )st2) + (int )st3) + (int )st4) + (int )st5) + (int )st6) + (int )st7 == 0) {
       _L: /* CIL Label */ 
-      if ((int )r1 < 8) {
+      if ((int )r1 < 7) {
         tmp = 1;
       } else
-      if ((((((((int )st1 + (int )st2) + (int )st3) + (int )st4) + (int )st5) + (int )st6) + (int )st7) + (int )st8 == 1) {
+      if (((((((int )st1 + (int )st2) + (int )st3) + (int )st4) + (int )st5) + (int )st6) + (int )st7 == 1) {
         tmp = 1;
       } else {
         tmp = 0;
@@ -649,10 +571,6 @@ int main(void)
   st7 = __VERIFIER_nondet_char();
   send7 = __VERIFIER_nondet_char();
   mode7 = __VERIFIER_nondet_bool();
-  id8 = __VERIFIER_nondet_char();
-  st8 = __VERIFIER_nondet_char();
-  send8 = __VERIFIER_nondet_char();
-  mode8 = __VERIFIER_nondet_bool();
   i2 = init();
   __VERIFIER_assume(i2);
   p1_old = nomsg;
@@ -669,8 +587,6 @@ int main(void)
   p6_new = nomsg;
   p7_old = nomsg;
   p7_new = nomsg;
-  p8_old = nomsg;
-  p8_new = nomsg;
   i2 = 0;
   while (1) {
     {
@@ -681,7 +597,6 @@ int main(void)
     node5();
     node6();
     node7();
-    node8();
     p1_old = p1_new;
     p1_new = nomsg;
     p2_old = p2_new;
@@ -696,8 +611,6 @@ int main(void)
     p6_new = nomsg;
     p7_old = p7_new;
     p7_new = nomsg;
-    p8_old = p8_new;
-    p8_new = nomsg;
     c1 = check();
     assert(c1);
     }

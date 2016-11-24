@@ -99,7 +99,6 @@ char nl1  ;
 char m1  ;
 char max1  ;
 _Bool mode1  ;
-_Bool newmax1  ;
 char id2  ;
 unsigned char r2  ;
 char st2  ;
@@ -107,7 +106,6 @@ char nl2  ;
 char m2  ;
 char max2  ;
 _Bool mode2  ;
-_Bool newmax2  ;
 char id3  ;
 unsigned char r3  ;
 char st3  ;
@@ -115,24 +113,18 @@ char nl3  ;
 char m3  ;
 char max3  ;
 _Bool mode3  ;
-_Bool newmax3  ;
 void node1(void) 
 { 
-  _Bool newmax ;
+
 
   {
-  newmax = (_Bool)0;
   if (mode1) {
-    if (r1 == 255) {
-      r1 = 2;
-    }
-    r1 = r1 + 1;
+    r1 = (unsigned char )((int )r1 + 1);
     if (ep21) {
       m1 = p21_old;
       p21_old = nomsg;
       if ((int )m1 > (int )max1) {
         max1 = m1;
-        newmax = (_Bool)1;
       }
     }
     if (ep31) {
@@ -140,29 +132,23 @@ void node1(void)
       p31_old = nomsg;
       if ((int )m1 > (int )max1) {
         max1 = m1;
-        newmax = (_Bool)1;
       }
     }
-    newmax1 = newmax;
     if ((int )r1 == 2) {
       if ((int )max1 == (int )id1) {
-        nl1 = (char)1;
-      } else {
         st1 = (char)1;
+      } else {
+        nl1 = (char)1;
       }
     }
     mode1 = (_Bool)0;
   } else {
     if ((int )r1 < 2) {
       if (ep12) {
-        if (newmax1) {
-          p12_new = max1 != nomsg && p12_new == nomsg ? max1 : p12_new;
-        }
+        p12_new = max1 != nomsg && p12_new == nomsg ? max1 : p12_new;
       }
       if (ep13) {
-        if (newmax1) {
-          p13_new = max1 != nomsg && p13_new == nomsg ? max1 : p13_new;
-        }
+        p13_new = max1 != nomsg && p13_new == nomsg ? max1 : p13_new;
       }
     }
     mode1 = (_Bool)1;
@@ -172,21 +158,16 @@ void node1(void)
 }
 void node2(void) 
 { 
-  _Bool newmax ;
+
 
   {
-  newmax = (_Bool)0;
   if (mode2) {
-    if (r2 == 255) {
-      r2 = 2;
-    }
-    r2 = r2 + 1;
+    r2 = (unsigned char )((int )r2 + 1);
     if (ep12) {
       m2 = p12_old;
       p12_old = nomsg;
       if ((int )m2 > (int )max2) {
         max2 = m2;
-        newmax = (_Bool)1;
       }
     }
     if (ep32) {
@@ -194,10 +175,8 @@ void node2(void)
       p32_old = nomsg;
       if ((int )m2 > (int )max2) {
         max2 = m2;
-        newmax = (_Bool)1;
       }
     }
-    newmax2 = newmax;
     if ((int )r2 == 2) {
       if ((int )max2 == (int )id2) {
         st2 = (char)1;
@@ -209,14 +188,10 @@ void node2(void)
   } else {
     if ((int )r2 < 2) {
       if (ep21) {
-        if (newmax2) {
-          p21_new = max2 != nomsg && p21_new == nomsg ? max2 : p21_new;
-        }
+        p21_new = max2 != nomsg && p21_new == nomsg ? max2 : p21_new;
       }
       if (ep23) {
-        if (newmax2) {
-          p23_new = max2 != nomsg && p23_new == nomsg ? max2 : p23_new;
-        }
+        p23_new = max2 != nomsg && p23_new == nomsg ? max2 : p23_new;
       }
     }
     mode2 = (_Bool)1;
@@ -226,21 +201,16 @@ void node2(void)
 }
 void node3(void) 
 { 
-  _Bool newmax ;
+
 
   {
-  newmax = (_Bool)0;
   if (mode3) {
-    if (r3 == 255) {
-      r3 = 2;
-    }
-    r3 = r3 + 1;
+    r3 = (unsigned char )((int )r3 + 1);
     if (ep13) {
       m3 = p13_old;
       p13_old = nomsg;
       if ((int )m3 > (int )max3) {
         max3 = m3;
-        newmax = (_Bool)1;
       }
     }
     if (ep23) {
@@ -248,10 +218,8 @@ void node3(void)
       p23_old = nomsg;
       if ((int )m3 > (int )max3) {
         max3 = m3;
-        newmax = (_Bool)1;
       }
     }
-    newmax3 = newmax;
     if ((int )r3 == 2) {
       if ((int )max3 == (int )id3) {
         st3 = (char)1;
@@ -263,14 +231,10 @@ void node3(void)
   } else {
     if ((int )r3 < 2) {
       if (ep31) {
-        if (newmax3) {
-          p31_new = max3 != nomsg && p31_new == nomsg ? max3 : p31_new;
-        }
+        p31_new = max3 != nomsg && p31_new == nomsg ? max3 : p31_new;
       }
       if (ep32) {
-        if (newmax3) {
-          p32_new = max3 != nomsg && p32_new == nomsg ? max3 : p32_new;
-        }
+        p32_new = max3 != nomsg && p32_new == nomsg ? max3 : p32_new;
       }
     }
     mode3 = (_Bool)1;
@@ -413,19 +377,7 @@ int init(void)
                                                   if ((int )mode1 == 0) {
                                                     if ((int )mode2 == 0) {
                                                       if ((int )mode3 == 0) {
-                                                        if (newmax1) {
-                                                          if (newmax2) {
-                                                            if (newmax3) {
-                                                              tmp___5 = 1;
-                                                            } else {
-                                                              tmp___5 = 0;
-                                                            }
-                                                          } else {
-                                                            tmp___5 = 0;
-                                                          }
-                                                        } else {
-                                                          tmp___5 = 0;
-                                                        }
+                                                        tmp___5 = 1;
                                                       } else {
                                                         tmp___5 = 0;
                                                       }
@@ -586,7 +538,6 @@ int main(void)
   m1 = __VERIFIER_nondet_char();
   max1 = __VERIFIER_nondet_char();
   mode1 = __VERIFIER_nondet_bool();
-  newmax1 = __VERIFIER_nondet_bool();
   id2 = __VERIFIER_nondet_char();
   r2 = __VERIFIER_nondet_uchar();
   st2 = __VERIFIER_nondet_char();
@@ -594,7 +545,6 @@ int main(void)
   m2 = __VERIFIER_nondet_char();
   max2 = __VERIFIER_nondet_char();
   mode2 = __VERIFIER_nondet_bool();
-  newmax2 = __VERIFIER_nondet_bool();
   id3 = __VERIFIER_nondet_char();
   r3 = __VERIFIER_nondet_uchar();
   st3 = __VERIFIER_nondet_char();
@@ -602,7 +552,6 @@ int main(void)
   m3 = __VERIFIER_nondet_char();
   max3 = __VERIFIER_nondet_char();
   mode3 = __VERIFIER_nondet_bool();
-  newmax3 = __VERIFIER_nondet_bool();
   i2 = init();
   __VERIFIER_assume(i2);
   p12_old = nomsg;

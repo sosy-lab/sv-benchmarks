@@ -119,7 +119,10 @@ void node1(void)
 
   {
   if (mode1) {
-    r1 = (unsigned char )((int )r1 + 1);
+    if (r1 == 255) {
+      r1 = 1;
+    }
+    r1 = r1 + 1;
     if (ep21) {
       m1 = p21_old;
       p21_old = nomsg;
@@ -162,7 +165,10 @@ void node2(void)
 
   {
   if (mode2) {
-    r2 = (unsigned char )((int )r2 + 1);
+    if (r2 == 255) {
+      r2 = 2;
+    }
+    r2 = r2 + 1;
     if (ep12) {
       m2 = p12_old;
       p12_old = nomsg;
@@ -205,7 +211,10 @@ void node3(void)
 
   {
   if (mode3) {
-    r3 = (unsigned char )((int )r3 + 1);
+    if (r3 == 255) {
+      r3 = 2;
+    }
+    r3 = r3 + 1;
     if (ep13) {
       m3 = p13_old;
       p13_old = nomsg;

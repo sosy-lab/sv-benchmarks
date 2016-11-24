@@ -61,6 +61,8 @@ DM-0000575
 _Bool __VERIFIER_nondet_bool(void) ;
 char __VERIFIER_nondet_char(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
+char __VERIFIER_nondet_char(void) ;
+unsigned char __VERIFIER_nondet_uchar(void) ;
 void assert(_Bool arg ) ;
 void __VERIFIER_assume(int arg ) ;
 typedef char msg_t;
@@ -101,6 +103,22 @@ char st4  ;
 msg_t send4  ;
 _Bool mode4  ;
 _Bool alive4  ;
+port_t p5  ;
+char p5_old ;
+char p5_new ;
+char id5  ;
+char st5  ;
+msg_t send5  ;
+_Bool mode5  ;
+_Bool alive5  ;
+port_t p6  ;
+char p6_old ;
+char p6_new ;
+char id6  ;
+char st6  ;
+msg_t send6  ;
+_Bool mode6  ;
+_Bool alive6  ;
 void node1(void) 
 { 
   msg_t m1 ;
@@ -108,12 +126,9 @@ void node1(void)
   {
   m1 = nomsg;
   if (mode1) {
-    if (r1 == 255) {
-      r1 = 3;
-    }
-    r1 = r1 + 1;
-    m1 = p4_old;
-    p4_old = nomsg;
+    r1 = (unsigned char )((int )r1 + 1);
+    m1 = p6_old;
+    p6_old = nomsg;
     if ((int )m1 != (int )nomsg) {
       if (alive1) {
         if ((int )m1 > (int )id1) {
@@ -121,8 +136,6 @@ void node1(void)
         } else
         if ((int )m1 == (int )id1) {
           st1 = (char)1;
-        } else {
-          send1 = m1;
         }
       } else {
         send1 = m1;
@@ -243,14 +256,83 @@ void node4(void)
   return;
 }
 }
-void (*nodes[4])(void)  = {      & node1,      & node2,      & node3,      & node4};
+void node5(void) 
+{ 
+  msg_t m5 ;
+
+  {
+  m5 = nomsg;
+  if (mode5) {
+    m5 = p4_old;
+    p4_old = nomsg;
+    if ((int )m5 != (int )nomsg) {
+      if (alive5) {
+        if ((int )m5 > (int )id5) {
+          send5 = m5;
+        } else
+        if ((int )m5 == (int )id5) {
+          st5 = (char)1;
+        }
+      } else {
+        send5 = m5;
+      }
+    }
+    mode5 = (_Bool)0;
+  } else {
+    if (alive5) {
+      p5_new = send5 != nomsg && p5_new == nomsg ? send5 : p5_new;
+    } else
+    if ((int )send5 != (int )id5) {
+      p5_new = send5 != nomsg && p5_new == nomsg ? send5 : p5_new;
+    }
+    mode5 = (_Bool)1;
+  }
+  return;
+}
+}
+void node6(void) 
+{ 
+  msg_t m6 ;
+
+  {
+  m6 = nomsg;
+  if (mode6) {
+    m6 = p5_old;
+    p5_old = nomsg;
+    if ((int )m6 != (int )nomsg) {
+      if (alive6) {
+        if ((int )m6 > (int )id6) {
+          send6 = m6;
+        } else
+        if ((int )m6 == (int )id6) {
+          st6 = (char)1;
+        }
+      } else {
+        send6 = m6;
+      }
+    }
+    mode6 = (_Bool)0;
+  } else {
+    if (alive6) {
+      p6_new = send6 != nomsg && p6_new == nomsg ? send6 : p6_new;
+    } else
+    if ((int )send6 != (int )id6) {
+      p6_new = send6 != nomsg && p6_new == nomsg ? send6 : p6_new;
+    }
+    mode6 = (_Bool)1;
+  }
+  return;
+}
+}
+void (*nodes[6])(void)  = {      & node1,      & node2,      & node3,      & node4, 
+        & node5,      & node6};
 int init(void) 
 { 
   int tmp ;
 
   {
   if ((int )r1 == 0) {
-    if ((((int )alive1 + (int )alive2) + (int )alive3) + (int )alive4 >= 1) {
+    if ((((((int )alive1 + (int )alive2) + (int )alive3) + (int )alive4) + (int )alive5) + (int )alive6 >= 1) {
       if ((int )id1 >= 0) {
         if ((int )st1 == 0) {
           if ((int )send1 == (int )id1) {
@@ -267,13 +349,81 @@ int init(void)
                                 if ((int )st4 == 0) {
                                   if ((int )send4 == (int )id4) {
                                     if ((int )mode4 == 0) {
-                                      if ((int )id1 != (int )id2) {
-                                        if ((int )id1 != (int )id3) {
-                                          if ((int )id1 != (int )id4) {
-                                            if ((int )id2 != (int )id3) {
-                                              if ((int )id2 != (int )id4) {
-                                                if ((int )id3 != (int )id4) {
-                                                  tmp = 1;
+                                      if ((int )id5 >= 0) {
+                                        if ((int )st5 == 0) {
+                                          if ((int )send5 == (int )id5) {
+                                            if ((int )mode5 == 0) {
+                                              if ((int )id6 >= 0) {
+                                                if ((int )st6 == 0) {
+                                                  if ((int )send6 == (int )id6) {
+                                                    if ((int )mode6 == 0) {
+                                                      if ((int )id1 != (int )id2) {
+                                                        if ((int )id1 != (int )id3) {
+                                                          if ((int )id1 != (int )id4) {
+                                                            if ((int )id1 != (int )id5) {
+                                                              if ((int )id1 != (int )id6) {
+                                                                if ((int )id2 != (int )id3) {
+                                                                  if ((int )id2 != (int )id4) {
+                                                                    if ((int )id2 != (int )id5) {
+                                                                      if ((int )id2 != (int )id6) {
+                                                                        if ((int )id3 != (int )id4) {
+                                                                          if ((int )id3 != (int )id5) {
+                                                                            if ((int )id3 != (int )id6) {
+                                                                              if ((int )id4 != (int )id5) {
+                                                                                if ((int )id4 != (int )id6) {
+                                                                                  if ((int )id5 != (int )id6) {
+                                                                                    tmp = 1;
+                                                                                  } else {
+                                                                                    tmp = 0;
+                                                                                  }
+                                                                                } else {
+                                                                                  tmp = 0;
+                                                                                }
+                                                                              } else {
+                                                                                tmp = 0;
+                                                                              }
+                                                                            } else {
+                                                                              tmp = 0;
+                                                                            }
+                                                                          } else {
+                                                                            tmp = 0;
+                                                                          }
+                                                                        } else {
+                                                                          tmp = 0;
+                                                                        }
+                                                                      } else {
+                                                                        tmp = 0;
+                                                                      }
+                                                                    } else {
+                                                                      tmp = 0;
+                                                                    }
+                                                                  } else {
+                                                                    tmp = 0;
+                                                                  }
+                                                                } else {
+                                                                  tmp = 0;
+                                                                }
+                                                              } else {
+                                                                tmp = 0;
+                                                              }
+                                                            } else {
+                                                              tmp = 0;
+                                                            }
+                                                          } else {
+                                                            tmp = 0;
+                                                          }
+                                                        } else {
+                                                          tmp = 0;
+                                                        }
+                                                      } else {
+                                                        tmp = 0;
+                                                      }
+                                                    } else {
+                                                      tmp = 0;
+                                                    }
+                                                  } else {
+                                                    tmp = 0;
+                                                  }
                                                 } else {
                                                   tmp = 0;
                                                 }
@@ -354,11 +504,11 @@ int check(void)
   int tmp ;
 
   {
-  if ((((int )st1 + (int )st2) + (int )st3) + (int )st4 <= 1) {
-    if ((int )r1 < 4) {
+  if ((((((int )st1 + (int )st2) + (int )st3) + (int )st4) + (int )st5) + (int )st6 <= 1) {
+    if ((int )r1 < 6) {
       tmp = 1;
     } else
-    if ((((int )st1 + (int )st2) + (int )st3) + (int )st4 == 1) {
+    if ((((((int )st1 + (int )st2) + (int )st3) + (int )st4) + (int )st5) + (int )st6 == 1) {
       tmp = 1;
     } else {
       tmp = 0;
@@ -397,6 +547,16 @@ int main(void)
   send4 = __VERIFIER_nondet_char();
   mode4 = __VERIFIER_nondet_bool();
   alive4 = __VERIFIER_nondet_bool();
+  id5 = __VERIFIER_nondet_char();
+  st5 = __VERIFIER_nondet_char();
+  send5 = __VERIFIER_nondet_char();
+  mode5 = __VERIFIER_nondet_bool();
+  alive5 = __VERIFIER_nondet_bool();
+  id6 = __VERIFIER_nondet_char();
+  st6 = __VERIFIER_nondet_char();
+  send6 = __VERIFIER_nondet_char();
+  mode6 = __VERIFIER_nondet_bool();
+  alive6 = __VERIFIER_nondet_bool();
   i2 = init();
   __VERIFIER_assume(i2);
   p1_old = nomsg;
@@ -407,6 +567,10 @@ int main(void)
   p3_new = nomsg;
   p4_old = nomsg;
   p4_new = nomsg;
+  p5_old = nomsg;
+  p5_new = nomsg;
+  p6_old = nomsg;
+  p6_new = nomsg;
   i2 = 0;
   while (1) {
     {
@@ -414,6 +578,8 @@ int main(void)
     node2();
     node3();
     node4();
+    node5();
+    node6();
     p1_old = p1_new;
     p1_new = nomsg;
     p2_old = p2_new;
@@ -422,6 +588,10 @@ int main(void)
     p3_new = nomsg;
     p4_old = p4_new;
     p4_new = nomsg;
+    p5_old = p5_new;
+    p5_new = nomsg;
+    p6_old = p6_new;
+    p6_new = nomsg;
     c1 = check();
     assert(c1);
     }
