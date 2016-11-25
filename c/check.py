@@ -326,8 +326,6 @@ class SetFileChecks(Checks):
         self.category = os.path.basename(path)
         if self.category.endswith(".set"):
             self.category = self.category[:-4]
-        if self.category.endswith("-validate"):
-            self.category = self.category[:-9]
         self.patterns = list(read_set_file(path))
         self.matched_files = [file for pattern in self.patterns
                               for file in glob.iglob(os.path.join(self.base_path, pattern))]
