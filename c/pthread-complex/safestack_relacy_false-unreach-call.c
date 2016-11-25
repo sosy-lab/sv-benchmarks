@@ -28,81 +28,95 @@ typedef struct SafeStack
 pthread_t threads[NUM_THREADS];
 SafeStack stack;
 
-void __VERIFIER_atomic_store(int *obj, int v)
+void atomic_store(int *obj, int v)
 {
+    __VERIFIER_atomic_begin();
     *obj = v;
+    __VERIFIER_atomic_end();
 }
 
-int __VERIFIER_atomic_load(int *obj)
+int atomic_load(int *obj)
 {
+    __VERIFIER_atomic_begin();
     return *obj;
+    __VERIFIER_atomic_end();
 }
 
-int __VERIFIER_atomic_exchange(int *obj, int v)
+int atomic_exchange(int *obj, int v)
 {
+    __VERIFIER_atomic_begin();
     int t = *obj;
     *obj = v;
+    __VERIFIER_atomic_end();
     return t;
 }
 
-_Bool __VERIFIER_atomic_compare_and_exchange(int *obj, int *expected, int desired)
+_Bool atomic_compare_and_exchange(int *obj, int *expected, int desired)
 {
+    _Bool ret = 0;
+    __VERIFIER_atomic_begin();
     if(*obj == *expected)
     {
         *obj = desired;
-        return 1;
+        ret = 1;
     }
     else
     {
         *expected = *obj;
-        return 0;
+        ret = 0;
     }
+    __VERIFIER_atomic_end();
+    return ret;
 }
 
-int __VERIFIER_atomic_fetch_add(int * obj, int v)
+int atomic_fetch_add(int * obj, int v)
 {
+    __VERIFIER_atomic_begin();
     int old = *obj;
     *obj = *obj + v;
+    __VERIFIER_atomic_end();
     return old;
 }
 
-int __VERIFIER_atomic_fetch_sub(int * obj, int v)
+int atomic_fetch_sub(int * obj, int v)
 {
+    __VERIFIER_atomic_begin();
     int old = *obj;
     *obj = *obj - v;
+    __VERIFIER_atomic_end();
     return old;
 }
 
 void Init(int pushCount)
 {
     int i;
-    __VERIFIER_atomic_store(&stack.count, pushCount);
-    __VERIFIER_atomic_store(&stack.head, 0);
+    atomic_store(&stack.count, pushCount);
+    atomic_store(&stack.head, 0);
     for (i = 0; i < pushCount - 1; i++)
     {
-        __VERIFIER_atomic_store(&stack.array[i].Next, i + 1);
+        atomic_store(&stack.array[i].Next, i + 1);
     }
-    __VERIFIER_atomic_store(&stack.array[pushCount - 1].Next, -1);
+    atomic_store(&stack.array[pushCount - 1].Next, -1);
 }
 
 int Pop(void)
 {
-    while (__VERIFIER_atomic_load(&stack.count) > 1)
+    while (atomic_load(&stack.count) > 1)
     {
-        int head1 = __VERIFIER_atomic_load(&stack.head);
-        int next1 = __VERIFIER_atomic_exchange(&stack.array[head1].Next, -1);
+        int head1 = atomic_load(&stack.head);
+        int next1 = atomic_exchange(&stack.array[head1].Next, -1);
 
         if (next1 >= 0)
         {
             int head2 = head1;
-            if (__VERIFIER_atomic_compare_and_exchange(&stack.head, &head2, next1))
+            if (atomic_compare_and_exchange(&stack.head, &head2, next1))
             {
-                __VERIFIER_atomic_fetch_sub(&stack.count, 1);
+                atomic_fetch_sub(&stack.count, 1);
                 return head1;
             }
             else
             {
-                __VERIFIER_atomic_exchange(&stack.array[head1].Next, next1);
+                atomic_exchange(&stack.array[head1].Next, next1);
             }
         }
     }
@@ -112,13 +126,13 @@ int Pop(void)
 
 void Push(int index)
 {
-    int head1 = __VERIFIER_atomic_load(&stack.head);
+    int head1 = atomic_load(&stack.head);
     do
     {
-        __VERIFIER_atomic_store(&stack.array[index].Next, head1);
+        atomic_store(&stack.array[index].Next, head1);
 
-    } while (!(__VERIFIER_atomic_compare_and_exchange(&stack.head, &head1, index)));
-    __VERIFIER_atomic_fetch_add(&stack.count, 1);
+    } while (!(atomic_compare_and_exchange(&stack.head, &head1, index)));
+    atomic_fetch_add(&stack.count, 1);
 }
 
 

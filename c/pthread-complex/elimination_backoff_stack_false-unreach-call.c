@@ -52,6 +52,16 @@ int atomic_ti_cas(ThreadInfo * *p, ThreadInfo* cmp, ThreadInfo* new) {
     __VERIFIER_atomic_end();
     return ret;
 }
+
+int ti_cas(ThreadInfo * *p, ThreadInfo* cmp, ThreadInfo* new) {
+    if (*p == cmp) {
+        *p = new;
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 int atomic_c_cas(Cell * *p, Cell* cmp, Cell* new) {
     int ret;
     __VERIFIER_atomic_begin();
@@ -162,26 +172,27 @@ void FinishCollision(ThreadInfo * p) {
 }
 
 int TryCollision(ThreadInfo * p, ThreadInfo * q, int him) {
+    int ret = 0;
     int mypid = p->id;
+    __VERIFIER_atomic_begin();
     if (p->op == 1) {
-        if (atomic_ti_cas(&location[him], q, p)) {
-            return 1;
+        if (ti_cas(&location[him], q, p)) {
+            ret = 1;
         } else {
-            return 0;
+            ret = 0;
         }
     }
     if (p->op == 0) {
-        if (atomic_ti_cas(&location[him], q, NULL)) {
-            __VERIFIER_atomic_begin();
+        if (ti_cas(&location[him], q, NULL)) {
             p->cell = q->cell;
             location[mypid] = NULL;
-            __VERIFIER_atomic_end();
-            return 1;
+            ret = 1;
         } else {
-            return 0;
+            ret = 0;
         }
     }
-    return 0;
+    __VERIFIER_atomic_end();
+    return ret;
 }
 
 void Init() {
