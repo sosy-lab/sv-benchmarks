@@ -554,7 +554,7 @@ int (cstrcspn)(const char *s1, const char *s2)
  }
 int main() {
     int length1 = __VERIFIER_nondet_int();
-    int length2 = __VERIFIER_nondet_int();
+    int length2 = length1;
     if (length1 < 1) {
         length1 = 1;
     }
