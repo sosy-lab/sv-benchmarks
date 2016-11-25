@@ -1,17 +1,5 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_assume(int);
-extern void __VERIFIER_atomic_begin(void);
-extern void __VERIFIER_atomic_end(void);
-typedef unsigned int size_t;
-typedef long int wchar_t;
 
-typedef enum
-{
-  P_ALL,
-  P_PID,
-  P_PGID
-} idtype_t;
+typedef unsigned int size_t;
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -64,6 +52,289 @@ typedef __quad_t *__qaddr_t;
 typedef char *__caddr_t;
 __extension__ typedef int __intptr_t;
 __extension__ typedef unsigned int __socklen_t;
+struct _IO_FILE;
+
+typedef struct _IO_FILE FILE;
+
+
+typedef struct _IO_FILE __FILE;
+typedef struct
+{
+  int __count;
+  union
+  {
+    unsigned int __wch;
+    char __wchb[4];
+  } __value;
+} __mbstate_t;
+typedef struct
+{
+  __off_t __pos;
+  __mbstate_t __state;
+} _G_fpos_t;
+typedef struct
+{
+  __off64_t __pos;
+  __mbstate_t __state;
+} _G_fpos64_t;
+typedef __builtin_va_list __gnuc_va_list;
+struct _IO_jump_t; struct _IO_FILE;
+typedef void _IO_lock_t;
+struct _IO_marker {
+  struct _IO_marker *_next;
+  struct _IO_FILE *_sbuf;
+  int _pos;
+};
+enum __codecvt_result
+{
+  __codecvt_ok,
+  __codecvt_partial,
+  __codecvt_error,
+  __codecvt_noconv
+};
+struct _IO_FILE {
+  int _flags;
+  char* _IO_read_ptr;
+  char* _IO_read_end;
+  char* _IO_read_base;
+  char* _IO_write_base;
+  char* _IO_write_ptr;
+  char* _IO_write_end;
+  char* _IO_buf_base;
+  char* _IO_buf_end;
+  char *_IO_save_base;
+  char *_IO_backup_base;
+  char *_IO_save_end;
+  struct _IO_marker *_markers;
+  struct _IO_FILE *_chain;
+  int _fileno;
+  int _flags2;
+  __off_t _old_offset;
+  unsigned short _cur_column;
+  signed char _vtable_offset;
+  char _shortbuf[1];
+  _IO_lock_t *_lock;
+  __off64_t _offset;
+  void *__pad1;
+  void *__pad2;
+  void *__pad3;
+  void *__pad4;
+  size_t __pad5;
+  int _mode;
+  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+};
+typedef struct _IO_FILE _IO_FILE;
+struct _IO_FILE_plus;
+extern struct _IO_FILE_plus _IO_2_1_stdin_;
+extern struct _IO_FILE_plus _IO_2_1_stdout_;
+extern struct _IO_FILE_plus _IO_2_1_stderr_;
+typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
+typedef __ssize_t __io_write_fn (void *__cookie, const char *__buf,
+     size_t __n);
+typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
+typedef int __io_close_fn (void *__cookie);
+extern int __underflow (_IO_FILE *);
+extern int __uflow (_IO_FILE *);
+extern int __overflow (_IO_FILE *, int);
+extern int _IO_getc (_IO_FILE *__fp);
+extern int _IO_putc (int __c, _IO_FILE *__fp);
+extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ferror (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_peekc_locked (_IO_FILE *__fp);
+extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
+   __gnuc_va_list, int *__restrict);
+extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
+    __gnuc_va_list);
+extern __ssize_t _IO_padn (_IO_FILE *, int, __ssize_t);
+extern size_t _IO_sgetn (_IO_FILE *, void *, size_t);
+extern __off64_t _IO_seekoff (_IO_FILE *, __off64_t, int, int);
+extern __off64_t _IO_seekpos (_IO_FILE *, __off64_t, int);
+extern void _IO_free_backup_area (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+typedef __gnuc_va_list va_list;
+typedef __off_t off_t;
+typedef __ssize_t ssize_t;
+
+typedef _G_fpos_t fpos_t;
+
+extern struct _IO_FILE *stdin;
+extern struct _IO_FILE *stdout;
+extern struct _IO_FILE *stderr;
+
+extern int remove (const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
+extern int rename (const char *__old, const char *__new) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int renameat (int __oldfd, const char *__old, int __newfd,
+       const char *__new) __attribute__ ((__nothrow__ , __leaf__));
+
+extern FILE *tmpfile (void) ;
+extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+extern char *tmpnam_r (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern char *tempnam (const char *__dir, const char *__pfx)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+
+extern int fclose (FILE *__stream);
+extern int fflush (FILE *__stream);
+
+extern int fflush_unlocked (FILE *__stream);
+
+extern FILE *fopen (const char *__restrict __filename,
+      const char *__restrict __modes) ;
+extern FILE *freopen (const char *__restrict __filename,
+        const char *__restrict __modes,
+        FILE *__restrict __stream) ;
+
+extern FILE *fdopen (int __fd, const char *__modes) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
+  __attribute__ ((__nothrow__ , __leaf__)) ;
+extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
+extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
+      int __modes, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+extern void setbuffer (FILE *__restrict __stream, char *__restrict __buf,
+         size_t __size) __attribute__ ((__nothrow__ , __leaf__));
+extern void setlinebuf (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int fprintf (FILE *__restrict __stream,
+      const char *__restrict __format, ...);
+extern int printf (const char *__restrict __format, ...);
+extern int sprintf (char *__restrict __s,
+      const char *__restrict __format, ...) __attribute__ ((__nothrow__));
+extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
+       __gnuc_va_list __arg);
+extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
+extern int vsprintf (char *__restrict __s, const char *__restrict __format,
+       __gnuc_va_list __arg) __attribute__ ((__nothrow__));
+
+
+extern int snprintf (char *__restrict __s, size_t __maxlen,
+       const char *__restrict __format, ...)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 4)));
+extern int vsnprintf (char *__restrict __s, size_t __maxlen,
+        const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+extern int vdprintf (int __fd, const char *__restrict __fmt,
+       __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__printf__, 2, 0)));
+extern int dprintf (int __fd, const char *__restrict __fmt, ...)
+     __attribute__ ((__format__ (__printf__, 2, 3)));
+
+extern int fscanf (FILE *__restrict __stream,
+     const char *__restrict __format, ...) ;
+extern int scanf (const char *__restrict __format, ...) ;
+extern int sscanf (const char *__restrict __s,
+     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
+extern int fscanf (FILE *__restrict __stream, const char *__restrict __format, ...) __asm__ ("" "__isoc99_fscanf") ;
+extern int scanf (const char *__restrict __format, ...) __asm__ ("" "__isoc99_scanf") ;
+extern int sscanf (const char *__restrict __s, const char *__restrict __format, ...) __asm__ ("" "__isoc99_sscanf") __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int vfscanf (FILE *__restrict __s, const char *__restrict __format,
+      __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
+extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
+extern int vsscanf (const char *__restrict __s,
+      const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__format__ (__scanf__, 2, 0)));
+extern int vfscanf (FILE *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vfscanf")
+     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
+extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vscanf")
+     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
+extern int vsscanf (const char *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vsscanf") __attribute__ ((__nothrow__ , __leaf__))
+     __attribute__ ((__format__ (__scanf__, 2, 0)));
+
+
+extern int fgetc (FILE *__stream);
+extern int getc (FILE *__stream);
+extern int getchar (void);
+
+extern int getc_unlocked (FILE *__stream);
+extern int getchar_unlocked (void);
+extern int fgetc_unlocked (FILE *__stream);
+
+extern int fputc (int __c, FILE *__stream);
+extern int putc (int __c, FILE *__stream);
+extern int putchar (int __c);
+
+extern int fputc_unlocked (int __c, FILE *__stream);
+extern int putc_unlocked (int __c, FILE *__stream);
+extern int putchar_unlocked (int __c);
+extern int getw (FILE *__stream);
+extern int putw (int __w, FILE *__stream);
+
+extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
+     ;
+
+extern __ssize_t __getdelim (char **__restrict __lineptr,
+          size_t *__restrict __n, int __delimiter,
+          FILE *__restrict __stream) ;
+extern __ssize_t getdelim (char **__restrict __lineptr,
+        size_t *__restrict __n, int __delimiter,
+        FILE *__restrict __stream) ;
+extern __ssize_t getline (char **__restrict __lineptr,
+       size_t *__restrict __n,
+       FILE *__restrict __stream) ;
+
+extern int fputs (const char *__restrict __s, FILE *__restrict __stream);
+extern int puts (const char *__s);
+extern int ungetc (int __c, FILE *__stream);
+extern size_t fread (void *__restrict __ptr, size_t __size,
+       size_t __n, FILE *__restrict __stream) ;
+extern size_t fwrite (const void *__restrict __ptr, size_t __size,
+        size_t __n, FILE *__restrict __s);
+
+extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
+         size_t __n, FILE *__restrict __stream) ;
+extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
+          size_t __n, FILE *__restrict __stream);
+
+extern int fseek (FILE *__stream, long int __off, int __whence);
+extern long int ftell (FILE *__stream) ;
+extern void rewind (FILE *__stream);
+
+extern int fseeko (FILE *__stream, __off_t __off, int __whence);
+extern __off_t ftello (FILE *__stream) ;
+
+extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
+extern int fsetpos (FILE *__stream, const fpos_t *__pos);
+
+
+extern void clearerr (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+extern int feof (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern int ferror (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+extern void clearerr_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+extern int feof_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern int ferror_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+extern void perror (const char *__s);
+
+extern int sys_nerr;
+extern const char *const sys_errlist[];
+extern int fileno (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern FILE *popen (const char *__command, const char *__modes) ;
+extern int pclose (FILE *__stream);
+extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__));
+extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+typedef long int wchar_t;
+
+typedef enum
+{
+  P_ALL,
+  P_PID,
+  P_PGID
+} idtype_t;
 static __inline unsigned int
 __bswap_32 (unsigned int __bsx)
 {
@@ -184,10 +455,8 @@ typedef __gid_t gid_t;
 typedef __mode_t mode_t;
 typedef __nlink_t nlink_t;
 typedef __uid_t uid_t;
-typedef __off_t off_t;
 typedef __pid_t pid_t;
 typedef __id_t id_t;
-typedef __ssize_t ssize_t;
 typedef __daddr_t daddr_t;
 typedef __caddr_t caddr_t;
 typedef __key_t key_t;
@@ -556,280 +825,6 @@ extern int getsubopt (char **__restrict __optionp,
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2, 3))) ;
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-
-
-struct _IO_FILE;
-
-typedef struct _IO_FILE FILE;
-
-
-typedef struct _IO_FILE __FILE;
-typedef struct
-{
-  int __count;
-  union
-  {
-    unsigned int __wch;
-    char __wchb[4];
-  } __value;
-} __mbstate_t;
-typedef struct
-{
-  __off_t __pos;
-  __mbstate_t __state;
-} _G_fpos_t;
-typedef struct
-{
-  __off64_t __pos;
-  __mbstate_t __state;
-} _G_fpos64_t;
-typedef __builtin_va_list __gnuc_va_list;
-struct _IO_jump_t; struct _IO_FILE;
-typedef void _IO_lock_t;
-struct _IO_marker {
-  struct _IO_marker *_next;
-  struct _IO_FILE *_sbuf;
-  int _pos;
-};
-enum __codecvt_result
-{
-  __codecvt_ok,
-  __codecvt_partial,
-  __codecvt_error,
-  __codecvt_noconv
-};
-struct _IO_FILE {
-  int _flags;
-  char* _IO_read_ptr;
-  char* _IO_read_end;
-  char* _IO_read_base;
-  char* _IO_write_base;
-  char* _IO_write_ptr;
-  char* _IO_write_end;
-  char* _IO_buf_base;
-  char* _IO_buf_end;
-  char *_IO_save_base;
-  char *_IO_backup_base;
-  char *_IO_save_end;
-  struct _IO_marker *_markers;
-  struct _IO_FILE *_chain;
-  int _fileno;
-  int _flags2;
-  __off_t _old_offset;
-  unsigned short _cur_column;
-  signed char _vtable_offset;
-  char _shortbuf[1];
-  _IO_lock_t *_lock;
-  __off64_t _offset;
-  void *__pad1;
-  void *__pad2;
-  void *__pad3;
-  void *__pad4;
-  size_t __pad5;
-  int _mode;
-  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
-};
-typedef struct _IO_FILE _IO_FILE;
-struct _IO_FILE_plus;
-extern struct _IO_FILE_plus _IO_2_1_stdin_;
-extern struct _IO_FILE_plus _IO_2_1_stdout_;
-extern struct _IO_FILE_plus _IO_2_1_stderr_;
-typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
-typedef __ssize_t __io_write_fn (void *__cookie, const char *__buf,
-     size_t __n);
-typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
-typedef int __io_close_fn (void *__cookie);
-extern int __underflow (_IO_FILE *);
-extern int __uflow (_IO_FILE *);
-extern int __overflow (_IO_FILE *, int);
-extern int _IO_getc (_IO_FILE *__fp);
-extern int _IO_putc (int __c, _IO_FILE *__fp);
-extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
-extern int _IO_ferror (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
-extern int _IO_peekc_locked (_IO_FILE *__fp);
-extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
-   __gnuc_va_list, int *__restrict);
-extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
-    __gnuc_va_list);
-extern __ssize_t _IO_padn (_IO_FILE *, int, __ssize_t);
-extern size_t _IO_sgetn (_IO_FILE *, void *, size_t);
-extern __off64_t _IO_seekoff (_IO_FILE *, __off64_t, int, int);
-extern __off64_t _IO_seekpos (_IO_FILE *, __off64_t, int);
-extern void _IO_free_backup_area (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-typedef __gnuc_va_list va_list;
-
-typedef _G_fpos_t fpos_t;
-
-extern struct _IO_FILE *stdin;
-extern struct _IO_FILE *stdout;
-extern struct _IO_FILE *stderr;
-
-extern int remove (const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
-extern int rename (const char *__old, const char *__new) __attribute__ ((__nothrow__ , __leaf__));
-
-extern int renameat (int __oldfd, const char *__old, int __newfd,
-       const char *__new) __attribute__ ((__nothrow__ , __leaf__));
-
-extern FILE *tmpfile (void) ;
-extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
-
-extern char *tmpnam_r (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
-extern char *tempnam (const char *__dir, const char *__pfx)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
-
-extern int fclose (FILE *__stream);
-extern int fflush (FILE *__stream);
-
-extern int fflush_unlocked (FILE *__stream);
-
-extern FILE *fopen (const char *__restrict __filename,
-      const char *__restrict __modes) ;
-extern FILE *freopen (const char *__restrict __filename,
-        const char *__restrict __modes,
-        FILE *__restrict __stream) ;
-
-extern FILE *fdopen (int __fd, const char *__modes) __attribute__ ((__nothrow__ , __leaf__)) ;
-extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
-  __attribute__ ((__nothrow__ , __leaf__)) ;
-extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __attribute__ ((__nothrow__ , __leaf__)) ;
-
-extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
-extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
-      int __modes, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
-
-extern void setbuffer (FILE *__restrict __stream, char *__restrict __buf,
-         size_t __size) __attribute__ ((__nothrow__ , __leaf__));
-extern void setlinebuf (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-
-extern int fprintf (FILE *__restrict __stream,
-      const char *__restrict __format, ...);
-extern int printf (const char *__restrict __format, ...);
-extern int sprintf (char *__restrict __s,
-      const char *__restrict __format, ...) __attribute__ ((__nothrow__));
-extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
-       __gnuc_va_list __arg);
-extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
-extern int vsprintf (char *__restrict __s, const char *__restrict __format,
-       __gnuc_va_list __arg) __attribute__ ((__nothrow__));
-
-
-extern int snprintf (char *__restrict __s, size_t __maxlen,
-       const char *__restrict __format, ...)
-     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 4)));
-extern int vsnprintf (char *__restrict __s, size_t __maxlen,
-        const char *__restrict __format, __gnuc_va_list __arg)
-     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
-
-extern int vdprintf (int __fd, const char *__restrict __fmt,
-       __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__printf__, 2, 0)));
-extern int dprintf (int __fd, const char *__restrict __fmt, ...)
-     __attribute__ ((__format__ (__printf__, 2, 3)));
-
-extern int fscanf (FILE *__restrict __stream,
-     const char *__restrict __format, ...) ;
-extern int scanf (const char *__restrict __format, ...) ;
-extern int sscanf (const char *__restrict __s,
-     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
-extern int fscanf (FILE *__restrict __stream, const char *__restrict __format, ...) __asm__ ("" "__isoc99_fscanf") ;
-extern int scanf (const char *__restrict __format, ...) __asm__ ("" "__isoc99_scanf") ;
-extern int sscanf (const char *__restrict __s, const char *__restrict __format, ...) __asm__ ("" "__isoc99_sscanf") __attribute__ ((__nothrow__ , __leaf__));
-
-
-extern int vfscanf (FILE *__restrict __s, const char *__restrict __format,
-      __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
-extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
-extern int vsscanf (const char *__restrict __s,
-      const char *__restrict __format, __gnuc_va_list __arg)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__format__ (__scanf__, 2, 0)));
-extern int vfscanf (FILE *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vfscanf")
-     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
-extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vscanf")
-     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
-extern int vsscanf (const char *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vsscanf") __attribute__ ((__nothrow__ , __leaf__))
-     __attribute__ ((__format__ (__scanf__, 2, 0)));
-
-
-extern int fgetc (FILE *__stream);
-extern int getc (FILE *__stream);
-extern int getchar (void);
-
-extern int getc_unlocked (FILE *__stream);
-extern int getchar_unlocked (void);
-extern int fgetc_unlocked (FILE *__stream);
-
-extern int fputc (int __c, FILE *__stream);
-extern int putc (int __c, FILE *__stream);
-extern int putchar (int __c);
-
-extern int fputc_unlocked (int __c, FILE *__stream);
-extern int putc_unlocked (int __c, FILE *__stream);
-extern int putchar_unlocked (int __c);
-extern int getw (FILE *__stream);
-extern int putw (int __w, FILE *__stream);
-
-extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
-     ;
-
-extern __ssize_t __getdelim (char **__restrict __lineptr,
-          size_t *__restrict __n, int __delimiter,
-          FILE *__restrict __stream) ;
-extern __ssize_t getdelim (char **__restrict __lineptr,
-        size_t *__restrict __n, int __delimiter,
-        FILE *__restrict __stream) ;
-extern __ssize_t getline (char **__restrict __lineptr,
-       size_t *__restrict __n,
-       FILE *__restrict __stream) ;
-
-extern int fputs (const char *__restrict __s, FILE *__restrict __stream);
-extern int puts (const char *__s);
-extern int ungetc (int __c, FILE *__stream);
-extern size_t fread (void *__restrict __ptr, size_t __size,
-       size_t __n, FILE *__restrict __stream) ;
-extern size_t fwrite (const void *__restrict __ptr, size_t __size,
-        size_t __n, FILE *__restrict __s);
-
-extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
-         size_t __n, FILE *__restrict __stream) ;
-extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
-          size_t __n, FILE *__restrict __stream);
-
-extern int fseek (FILE *__stream, long int __off, int __whence);
-extern long int ftell (FILE *__stream) ;
-extern void rewind (FILE *__stream);
-
-extern int fseeko (FILE *__stream, __off_t __off, int __whence);
-extern __off_t ftello (FILE *__stream) ;
-
-extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
-extern int fsetpos (FILE *__stream, const fpos_t *__pos);
-
-
-extern void clearerr (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-extern int feof (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-extern int ferror (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-
-extern void clearerr_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-extern int feof_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-extern int ferror_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-
-extern void perror (const char *__s);
-
-extern int sys_nerr;
-extern const char *const sys_errlist[];
-extern int fileno (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-extern FILE *popen (const char *__command, const char *__modes) ;
-extern int pclose (FILE *__stream);
-extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__));
-extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 
 struct sched_param
   {
@@ -1335,9 +1330,42 @@ void StackOp(ThreadInfo *p);
 int TryPerformStackOp(ThreadInfo *p);
 int TryCollision(ThreadInfo * p, ThreadInfo * q, int him);
 void FinishCollision(ThreadInfo * p);
-int __VERIFIER_atomic_int_cas(int *p, int cmp, int new) { if (*p == cmp) { *p = new; return 1; } else return 0; }
-int __VERIFIER_atomic_ti_cas(ThreadInfo* *p, ThreadInfo* cmp, ThreadInfo* new) { if (*p == cmp) { *p = new; return 1; } else return 0; }
-int __VERIFIER_atomic_c_cas(Cell* *p, Cell* cmp, Cell* new) { if (*p == cmp) { *p = new; return 1; } else return 0; }
+int atomic_int_cas(int *p, int cmp, int new) {
+    int ret;
+    __VERIFIER_atomic_begin();
+    if (*p == cmp) {
+        *p = new;
+        ret = 1;
+    } else {
+        ret = 0;
+    }
+    __VERIFIER_atomic_end();
+    return ret;
+}
+int atomic_ti_cas(ThreadInfo * *p, ThreadInfo* cmp, ThreadInfo* new) {
+    int ret;
+    __VERIFIER_atomic_begin();
+    if (*p == cmp) {
+        *p = new;
+        ret = 1;
+    } else {
+        ret = 0;
+    }
+    __VERIFIER_atomic_end();
+    return ret;
+}
+int atomic_c_cas(Cell * *p, Cell* cmp, Cell* new) {
+    int ret;
+    __VERIFIER_atomic_begin();
+    if (*p == cmp) {
+        *p = new;
+        ret = 1;
+    } else {
+        ret = 0;
+    }
+    __VERIFIER_atomic_end();
+    return ret;
+}
 ThreadInfo threads[4];
 int allocated[4];
 ThreadInfo* malloc_ThreadInfo() {
@@ -1361,24 +1389,23 @@ void LesOP(ThreadInfo *p) {
     int mypid = p->id;
     location[mypid] = p;
     int him = collision;
-    __VERIFIER_assume (__VERIFIER_atomic_int_cas(&collision,him,mypid));
+    __VERIFIER_assume (atomic_int_cas(&collision, him, mypid));
     if (him > 0) {
         ThreadInfo* q = location[him];
         if (q != ((void *)0) && q->id == him && q->op != p->op) {
-            if (__VERIFIER_atomic_ti_cas(&location[mypid],p,((void *)0))) {
+            if (atomic_ti_cas(&location[mypid], p, ((void *)0))) {
                 if (TryCollision(p, q, him) == 1) {
                     return;
                 } else {
                     goto stack;
                 }
-            }
-            else {
+            } else {
                 FinishCollision(p);
                 return;
             }
         }
     }
-    if (!__VERIFIER_atomic_ti_cas(&location[mypid],p,((void *)0))) {
+    if (!atomic_ti_cas(&location[mypid], p, ((void *)0))) {
         FinishCollision(p);
         return;
     }
@@ -1393,7 +1420,7 @@ int TryPerformStackOp(ThreadInfo * p) {
     if (p->op == 1) {
         phead = S.ptop;
         p->cell.pnext = phead;
-        if (__VERIFIER_atomic_c_cas(&S.ptop,phead,&p->cell)) {
+        if (atomic_c_cas(&S.ptop, phead, &p->cell)) {
             return 1;
         } else {
             return 0;
@@ -1406,7 +1433,7 @@ int TryPerformStackOp(ThreadInfo * p) {
             return 1;
         }
         pnext = phead->pnext;
-        if (__VERIFIER_atomic_c_cas(&S.ptop,phead,pnext)) {
+        if (atomic_c_cas(&S.ptop, phead, pnext)) {
             p->cell = *phead;
             __VERIFIER_atomic_begin();
             int i = __VERIFIER_nondet_int();
@@ -1415,37 +1442,38 @@ int TryPerformStackOp(ThreadInfo * p) {
             allocated[i] = 0;
             __VERIFIER_atomic_end();
             return 1;
-        }
-        else {
+        } else {
             p->cell.pnext = 0; p->cell.pdata = 2;
             return 0;
         }
     }
 }
 void FinishCollision(ThreadInfo * p) {
+    __VERIFIER_atomic_begin();
     if (p->op == 0) {
         int mypid = p->id;
         p->cell = location[mypid]->cell;
         location[mypid] = ((void *)0);
     }
+    __VERIFIER_atomic_end();
 }
 int TryCollision(ThreadInfo * p, ThreadInfo * q, int him) {
     int mypid = p->id;
     if (p->op == 1) {
-        if (__VERIFIER_atomic_ti_cas(&location[him],q,p)) {
+        if (atomic_ti_cas(&location[him], q, p)) {
             return 1;
-        }
-        else {
+        } else {
             return 0;
         }
     }
     if (p->op == 0) {
-        if (__VERIFIER_atomic_ti_cas(&location[him],q,((void *)0))) {
+        if (atomic_ti_cas(&location[him], q, ((void *)0))) {
+            __VERIFIER_atomic_begin();
             p->cell = q->cell;
             location[mypid] = ((void *)0);
+            __VERIFIER_atomic_end();
             return 1;
-        }
-        else {
+        } else {
             return 0;
         }
     }
@@ -1478,9 +1506,8 @@ int PushOpen[2];
 int PushDone[2];
 int PopOpen;
 int PopDone[3];
-void checkInvariant()
-{
-    if(!(PopDone[0] <= PushDone[0] + PushOpen[0] && PopDone[1] <= PushDone[1] + PushOpen[1])) __VERIFIER_error();
+void checkInvariant() {
+    if (!(PopDone[0] <= PushDone[0] + PushOpen[0] && PopDone[1] <= PushDone[1] + PushOpen[1])) __VERIFIER_error();
 }
 void Incr_Push(int localPush1) {
     __VERIFIER_atomic_begin();
@@ -1510,9 +1537,6 @@ void* instrPush0(void* unused) {
     Incr_Push(1);
     Push(1);
     DecrIncr_Push(1);
-    Incr_Push(1);
-    Push(1);
-    DecrIncr_Push(1);
     return ((void *)0);
 }
 void* instrPush1(void* unused) {
@@ -1521,29 +1545,45 @@ void* instrPush1(void* unused) {
     DecrIncr_Push(1);
     return ((void *)0);
 }
-void* instrPop2(void* unused) {
-    Incr_Pop();
-    int localPop_ret = Pop();
-    DecrIncr_Pop(localPop_ret);
-    Incr_Pop();
-    localPop_ret = Pop();
-    DecrIncr_Pop(localPop_ret);
+void* instrPush2(void* unused) {
+    Incr_Push(1);
+    Push(1);
+    DecrIncr_Push(1);
     return ((void *)0);
 }
 void* instrPop3(void* unused) {
     Incr_Pop();
     int localPop_ret = Pop();
     DecrIncr_Pop(localPop_ret);
+    return ((void *)0);
+}
+void* instrPop4(void* unused) {
     Incr_Pop();
-    localPop_ret = Pop();
+    int localPop_ret = Pop();
+    DecrIncr_Pop(localPop_ret);
+    return ((void *)0);
+}
+void* instrPop5(void* unused) {
+    Incr_Pop();
+    int localPop_ret = Pop();
+    DecrIncr_Pop(localPop_ret);
+    return ((void *)0);
+}
+void* instrPop6(void* unused) {
+    Incr_Pop();
+    int localPop_ret = Pop();
     DecrIncr_Pop(localPop_ret);
     return ((void *)0);
 }
 int main(void) {
     Init();
-    pthread_t tid0, tid1, tid2, tid3;
-    pthread_create(&tid0, ((void *)0), &instrPush0, ((void *)0));
-    pthread_create(&tid1, ((void *)0), &instrPush1, ((void *)0));
-    pthread_create(&tid2, ((void *)0), &instrPop2, ((void *)0));
-    pthread_create(&tid3, ((void *)0), &instrPop3, ((void *)0));
+    pthread_t tid1, tid2, tid3, tid4, tid5, tid6, tid7;
+    pthread_create(&tid1, ((void *)0), &instrPush0, ((void *)0));
+    pthread_create(&tid2, ((void *)0), &instrPush1, ((void *)0));
+    pthread_create(&tid3, ((void *)0), &instrPush2, ((void *)0));
+    pthread_create(&tid4, ((void *)0), &instrPop3, ((void *)0));
+    pthread_create(&tid5, ((void *)0), &instrPop4, ((void *)0));
+    pthread_create(&tid6, ((void *)0), &instrPop5, ((void *)0));
+    pthread_create(&tid7, ((void *)0), &instrPop6, ((void *)0));
+    return 0;
 }
