@@ -1,3 +1,0 @@
-systemc/*_false-unreach-call*.cil.c
-seq-mthreaded/*_false-unreach-call.*.c
-seq-pthread/*_false-unreach-call*.i

@@ -34,15 +34,12 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("eca-rers2012", "missing license"),
     ("floats-cbmc-regression", "missing license"),
     ("floats-cdfpl", "missing license"),
-    ("ldv-linux-3.12-rc1", "missing license"),
-    ("ldv-linux-3.16-rc1", "missing license"),
     ("ldv-linux-4.2-rc1", "missing readme"),
     ("ldv-memsafety", "missing license"),
     ("ldv-memsafety", "missing readme"),
     ("ldv-memsafety", "unexpected subdirectory memleaks-notpreprocessed"),
     ("ldv-races", "missing readme"),
     ("ldv-regression", "missing license"),
-    ("ldv-validator-v0.6", "missing license"),
     ("ldv-validator-v0.8", "missing readme"),
     ("list-properties", "missing license"),
     ("locks", "missing license"),
@@ -196,17 +193,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ntdrivers-simplified", "missing readme"),
     ("ssh", "missing readme"),
     ("ssh-simplified", "missing readme"),
-
-    # listed in ldv-README.txt
-    ("ldv-linux-3.0", "missing readme"),
-    ("ldv-linux-3.4-simple", "missing readme"),
-    ("ldv-linux-3.7.3", "missing readme"),
-    ("ldv-consumption", "missing readme"),
-    ("ldv-commit-tester", "missing readme"),
-    ("ldv-challenges", "missing readme"),
-    ("ldv-linux-3.12-rc1", "missing readme"),
-    ("ldv-linux-3.16-rc1", "missing readme"),
-    ("ldv-validator-v0.6", "missing readme"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [

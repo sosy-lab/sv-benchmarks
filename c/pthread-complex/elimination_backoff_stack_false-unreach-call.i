@@ -1335,9 +1335,39 @@ void StackOp(ThreadInfo *p);
 int TryPerformStackOp(ThreadInfo *p);
 int TryCollision(ThreadInfo * p, ThreadInfo * q, int him);
 void FinishCollision(ThreadInfo * p);
-int __VERIFIER_atomic_int_cas(int *p, int cmp, int new) { if (*p == cmp) { *p = new; return 1; } else return 0; }
-int __VERIFIER_atomic_ti_cas(ThreadInfo* *p, ThreadInfo* cmp, ThreadInfo* new) { if (*p == cmp) { *p = new; return 1; } else return 0; }
-int __VERIFIER_atomic_c_cas(Cell* *p, Cell* cmp, Cell* new) { if (*p == cmp) { *p = new; return 1; } else return 0; }
+int atomic_int_cas(int *p, int cmp, int new) {
+    __VERIFIER_atomic_begin();
+    if (*p == cmp) {
+        *p = new;
+        __VERIFIER_atomic_end();
+        return 1;
+    } else {
+        __VERIFIER_atomic_end();
+        return 0;
+    }
+}
+int atomic_ti_cas(ThreadInfo * *p, ThreadInfo* cmp, ThreadInfo* new) {
+    __VERIFIER_atomic_begin();
+    if (*p == cmp) {
+        *p = new;
+        __VERIFIER_atomic_end();
+        return 1;
+    } else {
+        __VERIFIER_atomic_end();
+        return 0;
+    }
+}
+int atomic_c_cas(Cell * *p, Cell* cmp, Cell* new) {
+    __VERIFIER_atomic_begin();
+    if (*p == cmp) {
+        *p = new;
+        __VERIFIER_atomic_end();
+        return 1;
+    } else {
+        __VERIFIER_atomic_end();
+        return 0;
+    }
+}
 ThreadInfo threads[4];
 int allocated[4];
 ThreadInfo* malloc_ThreadInfo() {
@@ -1361,24 +1391,23 @@ void LesOP(ThreadInfo *p) {
     int mypid = p->id;
     location[mypid] = p;
     int him = collision;
-    __VERIFIER_assume (__VERIFIER_atomic_int_cas(&collision,him,mypid));
+    __VERIFIER_assume (atomic_int_cas(&collision, him, mypid));
     if (him > 0) {
         ThreadInfo* q = location[him];
         if (q != ((void *)0) && q->id == him && q->op != p->op) {
-            if (__VERIFIER_atomic_ti_cas(&location[mypid],p,((void *)0))) {
+            if (atomic_ti_cas(&location[mypid], p, ((void *)0))) {
                 if (TryCollision(p, q, him) == 1) {
                     return;
                 } else {
                     goto stack;
                 }
-            }
-            else {
+            } else {
                 FinishCollision(p);
                 return;
             }
         }
     }
-    if (!__VERIFIER_atomic_ti_cas(&location[mypid],p,((void *)0))) {
+    if (!atomic_ti_cas(&location[mypid], p, ((void *)0))) {
         FinishCollision(p);
         return;
     }
@@ -1393,7 +1422,7 @@ int TryPerformStackOp(ThreadInfo * p) {
     if (p->op == 1) {
         phead = S.ptop;
         p->cell.pnext = phead;
-        if (__VERIFIER_atomic_c_cas(&S.ptop,phead,&p->cell)) {
+        if (atomic_c_cas(&S.ptop, phead, &p->cell)) {
             return 1;
         } else {
             return 0;
@@ -1406,7 +1435,7 @@ int TryPerformStackOp(ThreadInfo * p) {
             return 1;
         }
         pnext = phead->pnext;
-        if (__VERIFIER_atomic_c_cas(&S.ptop,phead,pnext)) {
+        if (atomic_c_cas(&S.ptop, phead, pnext)) {
             p->cell = *phead;
             __VERIFIER_atomic_begin();
             int i = __VERIFIER_nondet_int();
@@ -1415,8 +1444,7 @@ int TryPerformStackOp(ThreadInfo * p) {
             allocated[i] = 0;
             __VERIFIER_atomic_end();
             return 1;
-        }
-        else {
+        } else {
             p->cell.pnext = 0; p->cell.pdata = 2;
             return 0;
         }
@@ -1432,20 +1460,18 @@ void FinishCollision(ThreadInfo * p) {
 int TryCollision(ThreadInfo * p, ThreadInfo * q, int him) {
     int mypid = p->id;
     if (p->op == 1) {
-        if (__VERIFIER_atomic_ti_cas(&location[him],q,p)) {
+        if (atomic_ti_cas(&location[him], q, p)) {
             return 1;
-        }
-        else {
+        } else {
             return 0;
         }
     }
     if (p->op == 0) {
-        if (__VERIFIER_atomic_ti_cas(&location[him],q,((void *)0))) {
+        if (atomic_ti_cas(&location[him], q, ((void *)0))) {
             p->cell = q->cell;
             location[mypid] = ((void *)0);
             return 1;
-        }
-        else {
+        } else {
             return 0;
         }
     }
@@ -1478,9 +1504,8 @@ int PushOpen[2];
 int PushDone[2];
 int PopOpen;
 int PopDone[3];
-void checkInvariant()
-{
-    if(!(PopDone[0] <= PushDone[0] + PushOpen[0] && PopDone[1] <= PushDone[1] + PushOpen[1])) __VERIFIER_error();
+void checkInvariant() {
+    if (!(PopDone[0] <= PushDone[0] + PushOpen[0] && PopDone[1] <= PushDone[1] + PushOpen[1])) __VERIFIER_error();
 }
 void Incr_Push(int localPush1) {
     __VERIFIER_atomic_begin();
@@ -1546,4 +1571,5 @@ int main(void) {
     pthread_create(&tid1, ((void *)0), &instrPush1, ((void *)0));
     pthread_create(&tid2, ((void *)0), &instrPop2, ((void *)0));
     pthread_create(&tid3, ((void *)0), &instrPop3, ((void *)0));
+    return 0;
 }
