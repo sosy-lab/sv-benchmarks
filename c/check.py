@@ -102,8 +102,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("float-benchs", "sqrt_Newton_pseudoconstant.c has no known verdict"),
     ("float-benchs", "loop.c has no known verdict"),
     ("float-benchs", "exp_loop.c has no known verdict"),
-    ("memsafety", "test-memleak_nexttime-valid-memtrack.c has no known verdict"),
-    ("memsafety", "test-memleak_nexttime-valid-memtrack.i has no known verdict"),
     ("pthread", "singleton_with-uninit-problems-true.c has no known verdict"),
     ("pthread", "singleton_with-uninit-problems-true.i has no known verdict"),
     ("termination-crafted", "Collatz_unknown-termination.c has no known verdict"),

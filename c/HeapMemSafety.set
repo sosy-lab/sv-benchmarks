@@ -1,6 +1,7 @@
 memsafety/*_false-valid-deref*.i
 memsafety/*_false-valid-free*.i
 memsafety/*_false-valid-memtrack*.i
+memsafety/*_true-valid-memtrack*.i
 memsafety/*_true-valid-memsafety*.i
 memsafety-ext/*_true-valid-memsafety*.i
 list-ext-properties/*_false-valid-deref*.i
