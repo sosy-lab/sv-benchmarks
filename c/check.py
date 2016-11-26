@@ -122,8 +122,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("array-examples", "standard_sentinel_false-valid-deref.c is not contained in any category"),
     ("array-examples", "standard_strcpy_false-valid-deref_ground.c is not contained in any category"),
     ("array-examples", "standard_strcpy_original_false-valid-deref.c is not contained in any category"),
-    ("heap-manipulation", "tree_false-unreach-call.c is not contained in any category"),
-    ("heap-manipulation", "tree_true-unreach-call.c is not contained in any category"),
     ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-media-video-vivi.c.common.i is not contained in any category"),
     ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-mtd-chips-cfi_cmdset_0001.c.common.i is not contained in any category"),
     ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-net-wireless-mwl8k.c.common.i is not contained in any category"),
