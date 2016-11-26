@@ -4,7 +4,8 @@ loop-acceleration/*_false-unreach-call*.i
 loop-acceleration/*_true-unreach-call*.i
 loop-invgen/*_false-unreach-call*.i
 loop-invgen/*_true-unreach-call*.i
-loop-lit/*_true-unreach-call*.c.i
+loop-lit/*_true-unreach-call*.i
+loop-lit/*_false-unreach-call*.i
 loop-new/*_true-unreach-call*.i
 loop-industry-pattern/*_true-unreach-call*.c
 
