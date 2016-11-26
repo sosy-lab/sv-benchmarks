@@ -45,7 +45,7 @@ void* producer(void *arg) {
 	counter++;
 	release1();
 	release2();
-	return 1;
+	return NULL;
     } else {
 	release1();
 	counter = 0;
@@ -55,7 +55,7 @@ void* producer(void *arg) {
 	}
 	batch = counter;
 	release2();
-	return batch;
+	return NULL;
     }
 }
 
@@ -68,6 +68,7 @@ void* consumer(void *arg) {
     counter--;
     __VERIFIER_assert(counter >= 0);
     release1();
+    return NULL;
 }
 
 int main () {
