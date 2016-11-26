@@ -25,3 +25,4 @@ termination-crafted/LexIndexValue-Pointer_false-valid-deref.c
 termination-crafted/SyntaxSupportPointer01_false-valid-deref.c
 termination-crafted/Nyala-2lex_false-valid-deref.c
 
+array-examples/relax_false-valid-deref.i
