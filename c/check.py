@@ -54,7 +54,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("seq-pthread", "missing license"),
     ("systemc", "missing license"),
 
-    ("bitvector-regression", "recHanoi03_unsafe.c has no known verdict"),
     ("float-benchs", "zonotope_2.c has no known verdict"),
     ("float-benchs", "addsub_float_inexact.c has no known verdict"),
     ("float-benchs", "inv_sqrt_Quake.c has no known verdict"),
