@@ -114,12 +114,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
-    ("array-examples", "relax_false-valid-deref.c is not contained in any category"),
-    ("array-examples", "sanfoundry_24_false-valid-deref.c is not contained in any category"),
-    ("array-examples", "standard_find_false-valid-deref_ground.c is not contained in any category"),
-    ("array-examples", "standard_sentinel_false-valid-deref.c is not contained in any category"),
-    ("array-examples", "standard_strcpy_false-valid-deref_ground.c is not contained in any category"),
-    ("array-examples", "standard_strcpy_original_false-valid-deref.c is not contained in any category"),
 
     ("busybox-1.22.0", "missing license"), # included in .c files
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file

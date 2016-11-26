@@ -24,3 +24,5 @@ ldv-memsafety-bitfields/*_false-valid-free*.i
 
 termination-crafted/LexIndexValue-Pointer_false-valid-deref.c
 termination-crafted/SyntaxSupportPointer01_false-valid-deref.c
+
+array-examples/relax_false-valid-deref.i
