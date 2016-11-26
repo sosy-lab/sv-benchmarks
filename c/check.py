@@ -153,7 +153,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-crafted", "Arrays03-ValueRestictsIndex_false-valid-deref.c is not contained in any category"),
     ("termination-crafted", "LexIndexValue-Pointer_false-valid-deref.c is not contained in any category"),
     ("termination-crafted", "LexIndexValue-Array_false-valid-deref.c is not contained in any category"),
-    ("termination-crafted", "Nyala-2lex_false-valid-deref.c is not contained in any category"),
     ("termination-crafted", "SyntaxSupportPointer01_false-valid-deref.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg-alloca_false-termination.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg-alloca_true-termination.c is not contained in any category"),
