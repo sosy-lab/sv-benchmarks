@@ -4,3 +4,6 @@ array-memsafety/*_false-valid-deref*.i
 array-memsafety/*_true-valid-memsafety*.i
 
 reducercommutativity/*_false-valid-deref*.i
+
+termination-crafted/Arrays*_false-valid-deref*.c
+termination-crafted/LexIndexValue-Array_false-valid-deref.c
