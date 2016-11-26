@@ -63,6 +63,7 @@ static int parse_expression_list(char *str)
           return -1;
         }
         r_strncpy(str2, str+start, j-start+1);
+        __VERIFIER_assert(j - start + 1 < 2);
         str2[j-start+1] = 0;
       } else {
         return -1;
