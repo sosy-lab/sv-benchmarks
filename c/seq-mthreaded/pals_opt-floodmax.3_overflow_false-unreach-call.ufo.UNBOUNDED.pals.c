@@ -123,10 +123,7 @@ void node1(void)
   {
   newmax = (_Bool)0;
   if (mode1) {
-    if (r1 == 255) {
-      r1 = 2;
-    }
-    r1 = r1 + 1;
+    r1 = (unsigned char )((int )r1 + 1);
     if (ep21) {
       m1 = p21_old;
       p21_old = nomsg;
@@ -146,9 +143,9 @@ void node1(void)
     newmax1 = newmax;
     if ((int )r1 == 2) {
       if ((int )max1 == (int )id1) {
-        nl1 = (char)1;
-      } else {
         st1 = (char)1;
+      } else {
+        nl1 = (char)1;
       }
     }
     mode1 = (_Bool)0;
@@ -177,10 +174,7 @@ void node2(void)
   {
   newmax = (_Bool)0;
   if (mode2) {
-    if (r2 == 255) {
-      r2 = 2;
-    }
-    r2 = r2 + 1;
+    r2 = (unsigned char )((int )r2 + 1);
     if (ep12) {
       m2 = p12_old;
       p12_old = nomsg;
@@ -231,10 +225,7 @@ void node3(void)
   {
   newmax = (_Bool)0;
   if (mode3) {
-    if (r3 == 255) {
-      r3 = 2;
-    }
-    r3 = r3 + 1;
+    r3 = (unsigned char )((int )r3 + 1);
     if (ep13) {
       m3 = p13_old;
       p13_old = nomsg;

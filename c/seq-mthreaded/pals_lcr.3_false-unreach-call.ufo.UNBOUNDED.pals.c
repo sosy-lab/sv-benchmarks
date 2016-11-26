@@ -60,7 +60,7 @@ DM-0000575
 
 _Bool __VERIFIER_nondet_bool(void) ;
 char __VERIFIER_nondet_char(void) ;
-char __VERIFIER_nondet_char(void) ;
+unsigned char __VERIFIER_nondet_uchar(void) ;
 void assert(_Bool arg ) ;
 void __VERIFIER_assume(int arg ) ;
 typedef char msg_t;
@@ -68,7 +68,7 @@ typedef int port_t;
 extern void read(port_t p , msg_t m ) ;
 extern void write(port_t p , msg_t m ) ;
 msg_t nomsg  =    (msg_t )-1;
-char r1  ;
+unsigned char r1  ;
 port_t p1  ;
 char p1_old ;
 char p1_new ;
@@ -97,7 +97,10 @@ void node1(void)
   {
   m1 = nomsg;
   if (mode1) {
-    r1 = (char )((int )r1 + 1);
+    if (r1 == 255) {
+      r1 = 2;
+    }
+    r1 = r1 + 1;
     m1 = p3_old;
     p3_old = nomsg;
     if ((int )m1 != (int )nomsg) {
@@ -275,7 +278,7 @@ int main(void)
 
   {
   c1 = 0;
-  r1 = __VERIFIER_nondet_char();
+  r1 = __VERIFIER_nondet_uchar();
   id1 = __VERIFIER_nondet_char();
   st1 = __VERIFIER_nondet_char();
   send1 = __VERIFIER_nondet_char();

@@ -61,6 +61,8 @@ DM-0000575
 _Bool __VERIFIER_nondet_bool(void) ;
 char __VERIFIER_nondet_char(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
+char __VERIFIER_nondet_char(void) ;
+unsigned char __VERIFIER_nondet_uchar(void) ;
 void assert(_Bool arg ) ;
 void __VERIFIER_assume(int arg ) ;
 typedef char msg_t;
@@ -90,13 +92,6 @@ char id3  ;
 char st3  ;
 msg_t send3  ;
 _Bool mode3  ;
-port_t p4  ;
-char p4_old ;
-char p4_new ;
-char id4  ;
-char st4  ;
-msg_t send4  ;
-_Bool mode4  ;
 void node1(void) 
 { 
   msg_t m1 ;
@@ -104,20 +99,15 @@ void node1(void)
   {
   m1 = nomsg;
   if (mode1) {
-    if (r1 == 255) {
-      r1 = 3;
-    }
-    r1 = r1 + 1;
-    m1 = p4_old;
-    p4_old = nomsg;
+    r1 = (unsigned char )((int )r1 + 1);
+    m1 = p3_old;
+    p3_old = nomsg;
     if ((int )m1 != (int )nomsg) {
       if ((int )m1 > (int )id1) {
         send1 = m1;
       } else
       if ((int )m1 == (int )id1) {
         st1 = (char)1;
-      } else {
-        send1 = m1;
       }
     }
     mode1 = (_Bool)0;
@@ -178,32 +168,7 @@ void node3(void)
   return;
 }
 }
-void node4(void) 
-{ 
-  msg_t m4 ;
-
-  {
-  m4 = nomsg;
-  if (mode4) {
-    m4 = p3_old;
-    p3_old = nomsg;
-    if ((int )m4 != (int )nomsg) {
-      if ((int )m4 > (int )id4) {
-        send4 = m4;
-      } else
-      if ((int )m4 == (int )id4) {
-        st4 = (char)1;
-      }
-    }
-    mode4 = (_Bool)0;
-  } else {
-    p4_new = send4 != nomsg && p4_new == nomsg ? send4 : p4_new;
-    mode4 = (_Bool)1;
-  }
-  return;
-}
-}
-void (*nodes[4])(void)  = {      & node1,      & node2,      & node3,      & node4};
+void (*nodes[3])(void)  = {      & node1,      & node2,      & node3};
 int init(void) 
 { 
   int tmp ;
@@ -222,38 +187,10 @@ int init(void)
                       if ((int )st3 == 0) {
                         if ((int )send3 == (int )id3) {
                           if ((int )mode3 == 0) {
-                            if ((int )id4 >= 0) {
-                              if ((int )st4 == 0) {
-                                if ((int )send4 == (int )id4) {
-                                  if ((int )mode4 == 0) {
-                                    if ((int )id1 != (int )id2) {
-                                      if ((int )id1 != (int )id3) {
-                                        if ((int )id1 != (int )id4) {
-                                          if ((int )id2 != (int )id3) {
-                                            if ((int )id2 != (int )id4) {
-                                              if ((int )id3 != (int )id4) {
-                                                tmp = 1;
-                                              } else {
-                                                tmp = 0;
-                                              }
-                                            } else {
-                                              tmp = 0;
-                                            }
-                                          } else {
-                                            tmp = 0;
-                                          }
-                                        } else {
-                                          tmp = 0;
-                                        }
-                                      } else {
-                                        tmp = 0;
-                                      }
-                                    } else {
-                                      tmp = 0;
-                                    }
-                                  } else {
-                                    tmp = 0;
-                                  }
+                            if ((int )id1 != (int )id2) {
+                              if ((int )id1 != (int )id3) {
+                                if ((int )id2 != (int )id3) {
+                                  tmp = 1;
                                 } else {
                                   tmp = 0;
                                 }
@@ -310,16 +247,16 @@ int check(void)
   int tmp ;
 
   {
-  if ((((int )st1 + (int )st2) + (int )st3) + (int )st4 <= 1) {
-    if ((int )r1 >= 4) {
+  if (((int )st1 + (int )st2) + (int )st3 <= 1) {
+    if ((int )r1 >= 3) {
       goto _L;
     } else
-    if ((((int )st1 + (int )st2) + (int )st3) + (int )st4 == 0) {
+    if (((int )st1 + (int )st2) + (int )st3 == 0) {
       _L: /* CIL Label */ 
-      if ((int )r1 < 4) {
+      if ((int )r1 < 3) {
         tmp = 1;
       } else
-      if ((((int )st1 + (int )st2) + (int )st3) + (int )st4 == 1) {
+      if (((int )st1 + (int )st2) + (int )st3 == 1) {
         tmp = 1;
       } else {
         tmp = 0;
@@ -353,10 +290,6 @@ int main(void)
   st3 = __VERIFIER_nondet_char();
   send3 = __VERIFIER_nondet_char();
   mode3 = __VERIFIER_nondet_bool();
-  id4 = __VERIFIER_nondet_char();
-  st4 = __VERIFIER_nondet_char();
-  send4 = __VERIFIER_nondet_char();
-  mode4 = __VERIFIER_nondet_bool();
   i2 = init();
   __VERIFIER_assume(i2);
   p1_old = nomsg;
@@ -365,23 +298,18 @@ int main(void)
   p2_new = nomsg;
   p3_old = nomsg;
   p3_new = nomsg;
-  p4_old = nomsg;
-  p4_new = nomsg;
   i2 = 0;
   while (1) {
     {
     node1();
     node2();
     node3();
-    node4();
     p1_old = p1_new;
     p1_new = nomsg;
     p2_old = p2_new;
     p2_new = nomsg;
     p3_old = p3_new;
     p3_new = nomsg;
-    p4_old = p4_new;
-    p4_new = nomsg;
     c1 = check();
     assert(c1);
     }

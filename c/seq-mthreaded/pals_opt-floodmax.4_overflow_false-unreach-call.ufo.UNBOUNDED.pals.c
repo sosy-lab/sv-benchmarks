@@ -123,6 +123,7 @@ char nl1  ;
 char m1  ;
 char max1  ;
 _Bool mode1  ;
+_Bool newmax1  ;
 char id2  ;
 unsigned char r2  ;
 char st2  ;
@@ -130,6 +131,7 @@ char nl2  ;
 char m2  ;
 char max2  ;
 _Bool mode2  ;
+_Bool newmax2  ;
 char id3  ;
 unsigned char r3  ;
 char st3  ;
@@ -137,6 +139,7 @@ char nl3  ;
 char m3  ;
 char max3  ;
 _Bool mode3  ;
+_Bool newmax3  ;
 char id4  ;
 unsigned char r4  ;
 char st4  ;
@@ -144,21 +147,21 @@ char nl4  ;
 char m4  ;
 char max4  ;
 _Bool mode4  ;
+_Bool newmax4  ;
 void node1(void) 
 { 
-
+  _Bool newmax ;
 
   {
+  newmax = (_Bool)0;
   if (mode1) {
-    if (r1 == 255) {
-      r1 = 3;
-    }
-    r1 = r1 + 1;
+    r1 = (unsigned char )((int )r1 + 1);
     if (ep21) {
       m1 = p21_old;
       p21_old = nomsg;
       if ((int )m1 > (int )max1) {
         max1 = m1;
+        newmax = (_Bool)1;
       }
     }
     if (ep31) {
@@ -166,6 +169,7 @@ void node1(void)
       p31_old = nomsg;
       if ((int )m1 > (int )max1) {
         max1 = m1;
+        newmax = (_Bool)1;
       }
     }
     if (ep41) {
@@ -173,8 +177,10 @@ void node1(void)
       p41_old = nomsg;
       if ((int )m1 > (int )max1) {
         max1 = m1;
+        newmax = (_Bool)1;
       }
     }
+    newmax1 = newmax;
     if ((int )r1 == 3) {
       if ((int )max1 == (int )id1) {
         st1 = (char)1;
@@ -186,13 +192,19 @@ void node1(void)
   } else {
     if ((int )r1 < 3) {
       if (ep12) {
-        p12_new = max1 != nomsg && p12_new == nomsg ? max1 : p12_new;
+        if (newmax1) {
+          p12_new = max1 != nomsg && p12_new == nomsg ? max1 : p12_new;
+        }
       }
       if (ep13) {
-        p13_new = max1 != nomsg && p13_new == nomsg ? max1 : p13_new;
+        if (newmax1) {
+          p13_new = max1 != nomsg && p13_new == nomsg ? max1 : p13_new;
+        }
       }
       if (ep14) {
-        p14_new = max1 != nomsg && p14_new == nomsg ? max1 : p14_new;
+        if (newmax1) {
+          p14_new = max1 != nomsg && p14_new == nomsg ? max1 : p14_new;
+        }
       }
     }
     mode1 = (_Bool)1;
@@ -202,19 +214,18 @@ void node1(void)
 }
 void node2(void) 
 { 
-
+  _Bool newmax ;
 
   {
+  newmax = (_Bool)0;
   if (mode2) {
-    if (r2 == 255) {
-      r2 = 3;
-    }
-    r2 = r2 + 1;
+    r2 = (unsigned char )((int )r2 + 1);
     if (ep12) {
       m2 = p12_old;
       p12_old = nomsg;
       if ((int )m2 > (int )max2) {
         max2 = m2;
+        newmax = (_Bool)1;
       }
     }
     if (ep32) {
@@ -222,6 +233,7 @@ void node2(void)
       p32_old = nomsg;
       if ((int )m2 > (int )max2) {
         max2 = m2;
+        newmax = (_Bool)1;
       }
     }
     if (ep42) {
@@ -229,8 +241,10 @@ void node2(void)
       p42_old = nomsg;
       if ((int )m2 > (int )max2) {
         max2 = m2;
+        newmax = (_Bool)1;
       }
     }
+    newmax2 = newmax;
     if ((int )r2 == 3) {
       if ((int )max2 == (int )id2) {
         st2 = (char)1;
@@ -242,13 +256,19 @@ void node2(void)
   } else {
     if ((int )r2 < 3) {
       if (ep21) {
-        p21_new = max2 != nomsg && p21_new == nomsg ? max2 : p21_new;
+        if (newmax2) {
+          p21_new = max2 != nomsg && p21_new == nomsg ? max2 : p21_new;
+        }
       }
       if (ep23) {
-        p23_new = max2 != nomsg && p23_new == nomsg ? max2 : p23_new;
+        if (newmax2) {
+          p23_new = max2 != nomsg && p23_new == nomsg ? max2 : p23_new;
+        }
       }
       if (ep24) {
-        p24_new = max2 != nomsg && p24_new == nomsg ? max2 : p24_new;
+        if (newmax2) {
+          p24_new = max2 != nomsg && p24_new == nomsg ? max2 : p24_new;
+        }
       }
     }
     mode2 = (_Bool)1;
@@ -258,19 +278,18 @@ void node2(void)
 }
 void node3(void) 
 { 
-
+  _Bool newmax ;
 
   {
+  newmax = (_Bool)0;
   if (mode3) {
-    if (r3 == 255) {
-      r3 = 3;
-    }
-    r3 = r3 + 1;
+    r3 = (unsigned char )((int )r3 + 1);
     if (ep13) {
       m3 = p13_old;
       p13_old = nomsg;
       if ((int )m3 > (int )max3) {
         max3 = m3;
+        newmax = (_Bool)1;
       }
     }
     if (ep23) {
@@ -278,6 +297,7 @@ void node3(void)
       p23_old = nomsg;
       if ((int )m3 > (int )max3) {
         max3 = m3;
+        newmax = (_Bool)1;
       }
     }
     if (ep43) {
@@ -285,8 +305,10 @@ void node3(void)
       p43_old = nomsg;
       if ((int )m3 > (int )max3) {
         max3 = m3;
+        newmax = (_Bool)1;
       }
     }
+    newmax3 = newmax;
     if ((int )r3 == 3) {
       if ((int )max3 == (int )id3) {
         st3 = (char)1;
@@ -298,13 +320,19 @@ void node3(void)
   } else {
     if ((int )r3 < 3) {
       if (ep31) {
-        p31_new = max3 != nomsg && p31_new == nomsg ? max3 : p31_new;
+        if (newmax3) {
+          p31_new = max3 != nomsg && p31_new == nomsg ? max3 : p31_new;
+        }
       }
       if (ep32) {
-        p32_new = max3 != nomsg && p32_new == nomsg ? max3 : p32_new;
+        if (newmax3) {
+          p32_new = max3 != nomsg && p32_new == nomsg ? max3 : p32_new;
+        }
       }
       if (ep34) {
-        p34_new = max3 != nomsg && p34_new == nomsg ? max3 : p34_new;
+        if (newmax3) {
+          p34_new = max3 != nomsg && p34_new == nomsg ? max3 : p34_new;
+        }
       }
     }
     mode3 = (_Bool)1;
@@ -314,19 +342,18 @@ void node3(void)
 }
 void node4(void) 
 { 
-
+  _Bool newmax ;
 
   {
+  newmax = (_Bool)0;
   if (mode4) {
-    if (r4 == 255) {
-      r4 = 3;
-    }
-    r4 = r4 + 1;
+    r4 = (unsigned char )((int )r4 + 1);
     if (ep14) {
       m4 = p14_old;
       p14_old = nomsg;
       if ((int )m4 > (int )max4) {
         max4 = m4;
+        newmax = (_Bool)1;
       }
     }
     if (ep24) {
@@ -334,6 +361,7 @@ void node4(void)
       p24_old = nomsg;
       if ((int )m4 > (int )max4) {
         max4 = m4;
+        newmax = (_Bool)1;
       }
     }
     if (ep34) {
@@ -341,8 +369,10 @@ void node4(void)
       p34_old = nomsg;
       if ((int )m4 > (int )max4) {
         max4 = m4;
+        newmax = (_Bool)1;
       }
     }
+    newmax4 = newmax;
     if ((int )r4 == 3) {
       if ((int )max4 == (int )id4) {
         st4 = (char)1;
@@ -354,13 +384,19 @@ void node4(void)
   } else {
     if ((int )r4 < 3) {
       if (ep41) {
-        p41_new = max4 != nomsg && p41_new == nomsg ? max4 : p41_new;
+        if (newmax4) {
+          p41_new = max4 != nomsg && p41_new == nomsg ? max4 : p41_new;
+        }
       }
       if (ep42) {
-        p42_new = max4 != nomsg && p42_new == nomsg ? max4 : p42_new;
+        if (newmax4) {
+          p42_new = max4 != nomsg && p42_new == nomsg ? max4 : p42_new;
+        }
       }
       if (ep43) {
-        p43_new = max4 != nomsg && p43_new == nomsg ? max4 : p43_new;
+        if (newmax4) {
+          p43_new = max4 != nomsg && p43_new == nomsg ? max4 : p43_new;
+        }
       }
     }
     mode4 = (_Bool)1;
@@ -964,23 +1000,87 @@ int init(void)
                         if ((int )r2 == 0) {
                           if ((int )r3 == 0) {
                             if ((int )r4 == 0) {
-                              if ((int )max1 == (int )id1) {
-                                if ((int )max2 == (int )id2) {
-                                  if ((int )max3 == (int )id3) {
-                                    if ((int )max4 == (int )id4) {
-                                      if ((int )st1 == 0) {
-                                        if ((int )st2 == 0) {
-                                          if ((int )st3 == 0) {
-                                            if ((int )st4 == 0) {
-                                              if ((int )nl1 == 0) {
-                                                if ((int )nl2 == 0) {
-                                                  if ((int )nl3 == 0) {
-                                                    if ((int )nl4 == 0) {
-                                                      if ((int )mode1 == 0) {
-                                                        if ((int )mode2 == 0) {
-                                                          if ((int )mode3 == 0) {
-                                                            if ((int )mode4 == 0) {
-                                                              tmp___23 = 1;
+                              if (r123) {
+                                if (r133) {
+                                  if (r143) {
+                                    if (r213) {
+                                      if (r233) {
+                                        if (r243) {
+                                          if (r313) {
+                                            if (r323) {
+                                              if (r343) {
+                                                if (r413) {
+                                                  if (r423) {
+                                                    if (r433) {
+                                                      if ((int )max1 == (int )id1) {
+                                                        if ((int )max2 == (int )id2) {
+                                                          if ((int )max3 == (int )id3) {
+                                                            if ((int )max4 == (int )id4) {
+                                                              if ((int )st1 == 0) {
+                                                                if ((int )st2 == 0) {
+                                                                  if ((int )st3 == 0) {
+                                                                    if ((int )st4 == 0) {
+                                                                      if ((int )nl1 == 0) {
+                                                                        if ((int )nl2 == 0) {
+                                                                          if ((int )nl3 == 0) {
+                                                                            if ((int )nl4 == 0) {
+                                                                              if ((int )mode1 == 0) {
+                                                                                if ((int )mode2 == 0) {
+                                                                                  if ((int )mode3 == 0) {
+                                                                                    if ((int )mode4 == 0) {
+                                                                                      if (newmax1) {
+                                                                                        if (newmax2) {
+                                                                                          if (newmax3) {
+                                                                                            if (newmax4) {
+                                                                                              tmp___23 = 1;
+                                                                                            } else {
+                                                                                              tmp___23 = 0;
+                                                                                            }
+                                                                                          } else {
+                                                                                            tmp___23 = 0;
+                                                                                          }
+                                                                                        } else {
+                                                                                          tmp___23 = 0;
+                                                                                        }
+                                                                                      } else {
+                                                                                        tmp___23 = 0;
+                                                                                      }
+                                                                                    } else {
+                                                                                      tmp___23 = 0;
+                                                                                    }
+                                                                                  } else {
+                                                                                    tmp___23 = 0;
+                                                                                  }
+                                                                                } else {
+                                                                                  tmp___23 = 0;
+                                                                                }
+                                                                              } else {
+                                                                                tmp___23 = 0;
+                                                                              }
+                                                                            } else {
+                                                                              tmp___23 = 0;
+                                                                            }
+                                                                          } else {
+                                                                            tmp___23 = 0;
+                                                                          }
+                                                                        } else {
+                                                                          tmp___23 = 0;
+                                                                        }
+                                                                      } else {
+                                                                        tmp___23 = 0;
+                                                                      }
+                                                                    } else {
+                                                                      tmp___23 = 0;
+                                                                    }
+                                                                  } else {
+                                                                    tmp___23 = 0;
+                                                                  }
+                                                                } else {
+                                                                  tmp___23 = 0;
+                                                                }
+                                                              } else {
+                                                                tmp___23 = 0;
+                                                              }
                                                             } else {
                                                               tmp___23 = 0;
                                                             }
@@ -1160,6 +1260,7 @@ int main(void)
   m1 = __VERIFIER_nondet_char();
   max1 = __VERIFIER_nondet_char();
   mode1 = __VERIFIER_nondet_bool();
+  newmax1 = __VERIFIER_nondet_bool();
   id2 = __VERIFIER_nondet_char();
   r2 = __VERIFIER_nondet_uchar();
   st2 = __VERIFIER_nondet_char();
@@ -1167,6 +1268,7 @@ int main(void)
   m2 = __VERIFIER_nondet_char();
   max2 = __VERIFIER_nondet_char();
   mode2 = __VERIFIER_nondet_bool();
+  newmax2 = __VERIFIER_nondet_bool();
   id3 = __VERIFIER_nondet_char();
   r3 = __VERIFIER_nondet_uchar();
   st3 = __VERIFIER_nondet_char();
@@ -1174,6 +1276,7 @@ int main(void)
   m3 = __VERIFIER_nondet_char();
   max3 = __VERIFIER_nondet_char();
   mode3 = __VERIFIER_nondet_bool();
+  newmax3 = __VERIFIER_nondet_bool();
   id4 = __VERIFIER_nondet_char();
   r4 = __VERIFIER_nondet_uchar();
   st4 = __VERIFIER_nondet_char();
@@ -1181,6 +1284,7 @@ int main(void)
   m4 = __VERIFIER_nondet_char();
   max4 = __VERIFIER_nondet_char();
   mode4 = __VERIFIER_nondet_bool();
+  newmax4 = __VERIFIER_nondet_bool();
   i2 = init();
   __VERIFIER_assume(i2);
   p12_old = nomsg;
