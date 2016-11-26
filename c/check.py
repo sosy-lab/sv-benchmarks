@@ -147,7 +147,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("loops", "trex03_true-unreach-call_true-termination_true-termination.c is not contained in any category"),
     ("loops", "heavy_false-unreach-call.c is not contained in any category"),
     ("recursive", "Addition03_false-no-overflow.c is not contained in any category"),
-    ("reducercommutativity", "avg60_false-valid-deref.c is not contained in any category"),
     ("ssh-simplified", "s3_clnt_3.cil_true-unreach-call_true-termination.c is not contained in any category"),
     ("termination-crafted", "Arrays01-EquivalentConstantIndices_false-valid-deref.c is not contained in any category"),
     ("termination-crafted", "Arrays03-ValueRestictsIndex_false-valid-deref.c is not contained in any category"),
