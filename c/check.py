@@ -31,8 +31,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("bitvector", "missing license"),
     ("ddv-machzwd", "missing license"),
     ("eca-rers2012", "missing license"),
-    ("floats-cbmc-regression", "missing license"),
-    ("floats-cdfpl", "missing license"),
     ("ldv-linux-4.2-rc1", "missing readme"),
     ("ldv-memsafety", "missing license"),
     ("ldv-memsafety", "missing readme"),
@@ -47,7 +45,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("product-lines", "missing license"),
     ("pthread", "missing license"),
     ("pthread-ext", "missing license"),
-    ("pthread-wmm", "missing license"),
     ("recursive-simple", "missing license"),
     ("recursive-simple", "missing readme"),
     ("seq-pthread", "missing license"),
@@ -114,7 +111,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
 
-    ("busybox-1.22.0", "missing license"), # included in .c files
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
 
     # historical
