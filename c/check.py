@@ -131,7 +131,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("loop-lit", "gcnr2008_false-unreach-call.c_false-termination.i is not contained in any category"),
     ("loop-lit", "gcnr2008_false-unreach-call_false-termination.c is not contained in any category"),
     ("recursive", "Addition03_false-no-overflow.c is not contained in any category"),
-    ("reducercommutativity", "avg60_false-valid-deref.c is not contained in any category"),
     ("ssh-simplified", "s3_clnt_3.cil_true-unreach-call_true-termination.c is not contained in any category"),
     ("termination-crafted", "Arrays01-EquivalentConstantIndices_false-valid-deref.c is not contained in any category"),
     ("termination-crafted", "Arrays03-ValueRestictsIndex_false-valid-deref.c is not contained in any category"),
