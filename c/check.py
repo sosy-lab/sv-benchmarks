@@ -19,7 +19,7 @@ BENCHMARK_PATTERN = re.compile('^.*\.[ci]$')
 EXPECTED_FILE_PATTERN = re.compile(
     '^(.*\.(c|h|i|verdict)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
     re.I)
-CONFIG_KEYS = set(["Architecture", "Description", "Memory Model"])
+CONFIG_KEYS = set(["Architecture", "Description"])
 
 UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
 
@@ -451,9 +451,7 @@ class SetFileChecks(Checks):
         if not cfg.get("Description", "dummy"):
             self.error("missing description")
         if cfg.get("Architecture", "32 bit") not in ["32 bit", "64 bit"]:
-            self.error("invalid memory model <%s>", cfg.get("Memory Model"))
-        if cfg.get("Memory Model", "Precise") not in ["Precise", "Simple"]:
-            self.error("invalid memory model <%s>", cfg.get("Memory Model"))
+            self.error("invalid architecture <%s>", cfg.get("Architecture"))
 
 
 def read_set_file(path):
