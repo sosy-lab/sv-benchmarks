@@ -1,0 +1,9 @@
+loops/*_false-termination*.i
+loops/*_true-termination*.i
+loop-acceleration/*_true-termination*.i
+loop-invgen/*_false-termination*.i
+loop-invgen/*_true-termination*.i
+loop-lit/*_true-termination*.i
+loop-lit/*_false-termination*.i
+loop-new/*_true-termination*.i
+
