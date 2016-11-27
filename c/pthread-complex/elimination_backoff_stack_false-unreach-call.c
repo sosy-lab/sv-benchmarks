@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <pthread.h>
 
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_assume(int);
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
+
 typedef struct Cell Cell;
 struct Cell {
     Cell *pnext;
@@ -173,8 +179,8 @@ void FinishCollision(ThreadInfo * p) {
 
 int TryCollision(ThreadInfo * p, ThreadInfo * q, int him) {
     int ret = 0;
-    int mypid = p->id;
     __VERIFIER_atomic_begin();
+    int mypid = p->id;
     if (p->op == 1) {
         if (ti_cas(&location[him], q, p)) {
             ret = 1;

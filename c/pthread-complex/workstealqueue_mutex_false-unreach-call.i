@@ -1,4 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 
 typedef unsigned int size_t;
 typedef unsigned char __u_char;
@@ -1789,27 +1791,33 @@ typedef struct WorkStealQueue {
     long mask;
 } WorkStealQueue;
 WorkStealQueue q;
-long __VERIFIER_atomic_exchange(long *obj, long v) {
+long atomic_exchange(long *obj, long v) {
+    __VERIFIER_atomic_begin();
     long t = *obj;
     *obj = v;
+    __VERIFIER_atomic_end();
     return t;
 }
-_Bool __VERIFIER_atomic_compare_exchange_strong(long* obj, long* expected, long desired) {
+_Bool atomic_compare_exchange_strong(long* obj, long* expected, long desired) {
+    int ret = 0;
+    __VERIFIER_atomic_begin();
     if (*obj == *expected) {
         *obj = desired;
-        return 1;
+        ret = 1;
     } else {
         *expected = *obj;
-        return 0;
+        ret = 0;
     }
+    __VERIFIER_atomic_end();
+    return ret;
 }
 long readV(long *v) {
     long expected = 0;
-    __VERIFIER_atomic_compare_exchange_strong(v, &expected, 0);
+    atomic_compare_exchange_strong(v, &expected, 0);
     return expected;
 }
 void writeV(long *v, long w) {
-    __VERIFIER_atomic_exchange(v, w);
+    atomic_exchange(v, w);
 }
 void Init_WorkStealQueue(long size) {
     q.MaxSize = 1024 * 1024;

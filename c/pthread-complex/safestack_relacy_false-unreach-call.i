@@ -1,4 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 
 typedef unsigned int size_t;
 typedef unsigned char __u_char;
@@ -1788,9 +1790,7 @@ void atomic_store(int *obj, int v)
 }
 int atomic_load(int *obj)
 {
-    __VERIFIER_atomic_begin();
     return *obj;
-    __VERIFIER_atomic_end();
 }
 int atomic_exchange(int *obj, int v)
 {
