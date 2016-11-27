@@ -29,7 +29,6 @@ PREPROCESSOR_DIRECTIVE = re.compile('^ *#(define|include)')
 KNOWN_DIRECTORY_PROBLEMS = [
     # TODO Please fix
     ("bitvector", "missing license"),
-    ("bitvector", "unexpected file list.txt"),
     ("ddv-machzwd", "missing license"),
     ("eca-rers2012", "missing license"),
     ("ldv-linux-4.2-rc1", "missing readme"),
