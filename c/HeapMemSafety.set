@@ -23,3 +23,5 @@ ldv-memsafety-bitfields/*_false-valid-free*.i
 
 termination-crafted/LexIndexValue-Pointer_false-valid-deref.c
 termination-crafted/SyntaxSupportPointer01_false-valid-deref.c
+termination-crafted/Nyala-2lex_false-valid-deref.c
+
