@@ -118,7 +118,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("array-examples", "standard_strcpy_original_false-valid-deref.c is not contained in any category"),
     ("recursive", "Addition03_false-no-overflow.c is not contained in any category"),
     ("ssh-simplified", "s3_clnt_3.cil_true-unreach-call_true-termination.c is not contained in any category"),
-    ("termination-crafted", "Nyala-2lex_false-valid-deref.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg-alloca_false-termination.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg-alloca_true-termination.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg_traverse-alloca_false-termination.c is not contained in any category"),
