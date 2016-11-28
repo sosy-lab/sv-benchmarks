@@ -2,7 +2,6 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 #include <stdlib.h>
 
-extern void *malloc(__SIZE_TYPE__);
 extern void *memset(void *, int, __SIZE_TYPE__);
 typedef struct
 {
