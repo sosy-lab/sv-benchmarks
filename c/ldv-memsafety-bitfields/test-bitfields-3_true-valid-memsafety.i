@@ -1,6 +1,6 @@
 /* Contributed by Anton Vasilyev. */
 
-typedef long unsigned int size_t;
+typedef unsigned int size_t;
 
 extern void *memcpy (void *__restrict __dest,
        __const void *__restrict __src, size_t __n)
