@@ -9,6 +9,6 @@ GCC_WARNINGS := \
 	-Wno-discarded-array-qualifiers \
 
 CLANG_WARNINGS := \
-	-Wno-incompatible-library-redeclaration \
+        -Wno-incompatible-library-redeclaration \
 
 include $(LEVEL)/Makefile.config

@@ -1,7 +1,7 @@
 extern int __VERIFIER_nondet_int();
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-typedef long unsigned int size_t;
+typedef unsigned int size_t;
 typedef int wchar_t;
 
 union wait
