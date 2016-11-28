@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 			for (k = 0; k < sizeof(array); k++)
 				array[i] = array[j] + array[k];
 
-	if (a != 1)
+	if (a != 0)
 		goto ERROR;
 
 	return array[100];
