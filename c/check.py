@@ -332,7 +332,8 @@ class SetFileChecks(Checks):
         self.cfg_file = os.path.join(self.base_path, self.category + ".cfg")
 
     def check_has_property_file(self):
-        prp_file = os.path.join(self.base_path, self.category + ".prp")
+        name = self.category.split("-")[0] # remove name of sub-category as in "Termination-ProductLines"
+        prp_file = os.path.join(self.base_path, name + ".prp")
         if not os.path.isfile(prp_file):
             self.error("missing property file")
         elif not os.path.islink(prp_file):
