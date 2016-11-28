@@ -23,6 +23,8 @@ addons:
       - libc6-dev-i386
       - gcc-5
       - clang-3.8
+      # for check.py:
+      - python-yaml
 script:
   - ${C_COMPILER} -v --version
   - cd c/ && make -j2 CC=${C_COMPILER}

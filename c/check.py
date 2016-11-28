@@ -419,6 +419,8 @@ class GlobalChecks(Checks):
 
 def main():
     logging.basicConfig(format="%(levelname)-7s %(message)s", level='INFO')
+    if not yaml:
+        logging.warning("Missing python-yaml, not all checks can be executed")
 
     main_directory = os.path.relpath(os.path.dirname(__file__))
     entries = sorted(os.listdir(main_directory))
