@@ -151,8 +151,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
-    ("busybox-1.22.0/dirname_true-unreach-call.i", "has property unreach-call, but does not call __VERIFIER_error"),
-
     ("termination-crafted/4BitCounterPointer_true-termination.c", "#define or #include statement present, please add preprocessed version"),
     ("termination-crafted/LexIndexValue-Array_true-termination.c", "#define or #include statement present, please add preprocessed version"),
     ("termination-crafted/LexIndexValue-Pointer_true-termination.c", "#define or #include statement present, please add preprocessed version"),
