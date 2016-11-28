@@ -150,50 +150,9 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
-    ("termination-crafted/4BitCounterPointer_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted/LexIndexValue-Array_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted/LexIndexValue-Pointer_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted/SyntaxSupportPointer01_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrcmp_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrcspn_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrlen_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrncmp_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrpbrk_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrspn_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/strchr_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/chunk1_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/chunk2_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/chunk3_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/insertionSort_recursive_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/mergeSort_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/mutual_simple2_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/mutual_simple_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex10_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex11B_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex11C_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex11D_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex11_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex1_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex2_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex3_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex4_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex5B_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex5_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex6_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex7B_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex7_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex8_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex9_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_strcopy_malloc2_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_strcopy_malloc_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_strlen_malloc_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/selectionSort_recursive_true-termination.c", "#define or #include statement present, please add preprocessed version"),
     ]
 
 KNOWN_SET_PROBLEMS = [
-    # TODO Please fix
-    ("Termination.set", "64 bit category contains 32 bit benchmarks in product-lines"),
-    ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
