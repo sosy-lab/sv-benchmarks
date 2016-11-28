@@ -110,13 +110,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
-    ("array-examples", "relax_false-valid-deref.c is not contained in any category"),
-    ("array-examples", "sanfoundry_24_false-valid-deref.c is not contained in any category"),
-    ("array-examples", "standard_find_false-valid-deref_ground.c is not contained in any category"),
-    ("array-examples", "standard_sentinel_false-valid-deref.c is not contained in any category"),
-    ("array-examples", "standard_strcpy_false-valid-deref_ground.c is not contained in any category"),
-    ("array-examples", "standard_strcpy_original_false-valid-deref.c is not contained in any category"),
-    ("recursive", "Addition03_false-no-overflow.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg-alloca_false-termination.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg-alloca_true-termination.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg_traverse-alloca_false-termination.c is not contained in any category"),
