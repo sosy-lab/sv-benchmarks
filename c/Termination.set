@@ -13,3 +13,6 @@ termination-15/*_false-termination*.c.i
 termination-recursive-malloc/*_true-termination*.c.i
 product-lines/*_true-termination*.c
 product-lines/*_false-termination*.c
+
+ssh-simplified/*_true-termination*.c
+ssh-simplified/*_false-termination*.c
