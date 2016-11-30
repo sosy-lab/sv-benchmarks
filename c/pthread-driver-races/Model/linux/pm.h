@@ -6,6 +6,8 @@
 #include <linux/timer.h>
 #include <linux/list.h>
 
+struct device;
+
 typedef struct pm_message {
 	int event;
 } pm_message_t;

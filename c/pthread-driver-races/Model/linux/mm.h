@@ -3,6 +3,9 @@
 
 #include <linux/mm_types.h>
 
+#define nth_page(page,n) ((page) + (n))
+#define offset_in_page(p)       ((unsigned long)(p))
+
 static inline void *page_address(struct page *page)
 {
 	return page->data;

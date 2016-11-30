@@ -11,6 +11,11 @@
 #include <asm/page.h>
 #include <asm/pgtable.h>
 
+#define __pfn_to_page(pfn)      (pfn)
+#define __page_to_pfn(page)     (unsigned long)(page)
+#define virt_to_pfn(kaddr)      (kaddr)
+#define virt_to_page(addr)      pfn_to_page(virt_to_pfn(addr))
+
 // #include <xen/interface/xen.h>
 // #include <xen/grant_table.h>
 // #include <xen/features.h>

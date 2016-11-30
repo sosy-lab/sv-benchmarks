@@ -200,6 +200,7 @@ static inline void sg_unmark_end(struct scatterlist *sg)
  *   on the sg page.
  *
  **/
+static inline dma_addr_t page_to_phys(struct page*);
 static inline dma_addr_t sg_phys(struct scatterlist *sg)
 {
 	return page_to_phys(sg_page(sg)) + sg->offset;

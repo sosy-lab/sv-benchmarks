@@ -207,26 +207,31 @@ int whoop_int;
 void *whoop_wrapper_write_nvram(void* args)
 {
 	write_nvram(whoop_file_0, whoop_buf, whoop_int, whoop_loff_t);
+	return NULL;
 }
 
 void *whoop_wrapper_read_nvram(void* args)
 {
 	read_nvram(whoop_file_1, whoop_buf, whoop_int, whoop_loff_t);
+	return NULL;
 }
 
 void *whoop_wrapper_nvram_unlocked_ioctl(void* args)
 {
 	nvram_unlocked_ioctl(whoop_file_2, whoop_int, whoop_int);
+	return NULL;
 }
 
 void *whoop_wrapper_nvram_llseek(void* args)
 {
 	nvram_llseek(whoop_file_3, &whoop_loff_t, whoop_int);
+	return NULL;
 }
 
 void *whoop_wrapper_nvram_cleanup(void* args)
 {
 	nvram_cleanup();
+	return NULL;
 }
 
 void main()

@@ -6,6 +6,7 @@
  * structures etc.
  */
 
+#include <linux/kdev_t.h>
 #include <linux/list.h>
 #include <linux/stat.h>
 #include <linux/mutex.h>

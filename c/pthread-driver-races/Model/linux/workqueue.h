@@ -4,12 +4,12 @@
 #include <linux/timer.h>
 #include <linux/atomic.h>
 
-typedef void (*work_func_t)(struct work_struct *work);
-
 struct work_struct {
     void (*func)(void *);
     void *data;
 };
+
+typedef void (*work_func_t)(struct work_struct *work);
 
 struct delayed_work {
   struct work_struct work;

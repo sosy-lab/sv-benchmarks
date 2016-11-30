@@ -23,6 +23,7 @@
 struct usb_device;
 struct usb_driver;
 struct wusb_dev;
+struct notifier_block;
 
 /*-------------------------------------------------------------------------*/
 
