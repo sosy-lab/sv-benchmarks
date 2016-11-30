@@ -6,13 +6,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
  * checks whether the values are still correct.
  */
 
-//extern int __VERIFIER_nondet_int(void);
-
-int __VERIFIER_nondet_int(void) {
-    return rand() / 1000;
-}
-
-
+extern int __VERIFIER_nondet_int(void);
 
 static void fail(void) {
 ERROR: __VERIFIER_error();

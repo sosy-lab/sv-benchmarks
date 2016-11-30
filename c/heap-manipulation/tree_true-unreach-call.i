@@ -549,9 +549,7 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
-int __VERIFIER_nondet_int(void) {
-    return rand() / 1000;
-}
+extern int __VERIFIER_nondet_int(void);
 static void fail(void) {
 ERROR: __VERIFIER_error();
 }
