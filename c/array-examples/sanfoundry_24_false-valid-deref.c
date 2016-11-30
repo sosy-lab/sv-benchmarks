@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 /*
@@ -21,12 +22,12 @@ int main()
 {
     int array[SIZE];
     int i;
-    int num;
- 
+    int num = __VERIFIER_nondet_int();
+
     //printf("Even numbers in the array are - ");
-    for (i = 0; i < num; i++) // use of uninitialized num
+    for (i = 0; i < num; i++)
     {
-        if (array[i] % 2 == 0)
+        if (array[i] % 2 == 0) // out-of-bound access for i >= SIZE
         {
             printEven( array[i] );
         }
@@ -34,7 +35,7 @@ int main()
     //printf("\n Odd numbers in the array are -");
     for (i = 0; i < num; i++)
     {
-        if (array[i] % 2 != 0)
+        if (array[i] % 2 != 0) // out-of-bound access for i >= SIZE
         {
             printOdd( array[i] );
         }
