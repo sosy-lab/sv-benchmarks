@@ -34,7 +34,7 @@ static int fls(int x)
 
 static int fls64(unsigned long x)
 {
-	unsigned int h = x >> 32;
+	unsigned int h = x >> 16;
 	if (h)
 		return fls(h) + 32;
 	return fls(x);

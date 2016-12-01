@@ -133,6 +133,9 @@ MS_VERBOSE is deprecated. */
 #define MODULE_ALIAS_FS(NAME) MODULE_ALIAS("fs-" NAME)
 
 struct buffer_head;
+struct kiocb;
+struct writeback_control;
+struct kstatfs;
 typedef int (get_block_t)(struct inode *inode, sector_t iblock, struct buffer_head *bh_result, int create);
 typedef void (dio_iodone_t)(struct kiocb *iocb, loff_t offset, ssize_t bytes, void *private);
 
@@ -378,6 +381,9 @@ struct super_block {
 
 extern int fasync_helper(int, struct file *, int, struct fasync_struct **);
 
+struct swap_info_struct;
+enum migrate_mode;
+
 struct address_space_operations {
   int (*writepage)(struct page *page, struct writeback_control *wbc);
   int (*readpage)(struct file *, struct page *);
@@ -423,6 +429,9 @@ struct address_space_operations {
   sector_t *span);
   void (*swap_deactivate)(struct file *file);
 };
+
+
+struct fiemap_extent_info;
 
 struct inode_operations {
   struct dentry * (*lookup) (struct inode *,struct dentry *, unsigned int);

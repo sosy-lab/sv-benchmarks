@@ -115,6 +115,9 @@ static inline void hlist_bl_del_init(struct hlist_bl_node *n)
 	}
 }
 
+extern void bit_spin_lock(int, unsigned long*);
+extern bool bit_spin_is_locked(int, unsigned long*);
+extern void __bit_spin_unlock(int, unsigned long*);
 static inline void hlist_bl_lock(struct hlist_bl_head *b)
 {
 	bit_spin_lock(0, (unsigned long *)b);

@@ -16,6 +16,8 @@ static inline void atomic_set(atomic_t *v, int i)
 	v->counter = i;
 }
 
+extern int atomic_add_unless(atomic_t *v, int a, int u);
+
 static inline void atomic_add(int i, atomic_t *v)
 {
 	v->counter = v->counter + i;

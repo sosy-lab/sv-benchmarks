@@ -35,6 +35,8 @@ struct thread_info {
 	unsigned int		uaccess_err:1;	/* uaccess failed */
 };
 
+extern void* malloc(unsigned int);
+
 static inline struct thread_info *current_thread_info(void)
 {
 	struct thread_info *ti = (struct thread_info *) malloc(sizeof(struct thread_info));

@@ -11,6 +11,7 @@
 #include <asm/page.h>
 #include <asm/pgtable.h>
 
+#define pfn_to_page(pfn)      (pfn)
 #define __pfn_to_page(pfn)      (pfn)
 #define __page_to_pfn(page)     (unsigned long)(page)
 #define virt_to_pfn(kaddr)      (kaddr)

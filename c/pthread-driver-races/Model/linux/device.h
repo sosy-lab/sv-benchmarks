@@ -33,6 +33,7 @@ struct device {
 	struct device_node      *of_node;
 
 	void (*release)(struct device * dev);
+        char* init_name;
 };
 
 struct device_driver {
@@ -86,5 +87,15 @@ static void __exit __driver##_exit(void) \
 	__unregister(&(__driver) , ##__VA_ARGS__); \
 } \
 module_exit(__driver##_exit);
+
+
+static inline const char *dev_name(const struct device *dev)
+{
+	/* Use the init name until the kobject becomes available */
+	if (dev->init_name)
+		return dev->init_name;
+
+	return kobject_name(&dev->kobj);
+}
 
 #endif /* _DEVICE_H_ */

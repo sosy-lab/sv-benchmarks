@@ -88,6 +88,8 @@ int snprintf(char * buf, size_t size, const char * fmt, ...);
 #define ____cacheline_aligned __attribute__((__aligned__(SMP_CACHE_BYTES)))
 #endif
 
+#define clamp(val, lo, hi) min((typeof(val))max(val, lo), hi)
+
 #define VERIFY_OCTAL_PERMISSIONS(perms) (perms)
 
 #endif

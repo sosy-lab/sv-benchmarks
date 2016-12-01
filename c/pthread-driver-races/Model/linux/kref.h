@@ -112,6 +112,7 @@ static inline int kref_put(struct kref *kref, void (*release)(struct kref *kref)
  * drops to zero, the lock will be taken atomically wrt dropping the reference
  * count.  The release function has to call spin_unlock() without _irqrestore.
  */
+void local_irq_restore(unsigned long);
 static inline int kref_put_spinlock_irqsave(struct kref *kref,
 		void (*release)(struct kref *kref),
 		spinlock_t *lock)

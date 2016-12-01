@@ -24,6 +24,8 @@ struct completion {
 # define DECLARE_COMPLETION_ONSTACK(work) DECLARE_COMPLETION(work)
 #endif
 
+#define init_waitqueue_head(q) do {} while(0)
+
 static inline void init_completion(struct completion *x)
 {
 	x->done = 0;

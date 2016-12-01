@@ -272,7 +272,7 @@ void pr_cont_kernfs_name(struct kernfs_node *kn);
 void pr_cont_kernfs_path(struct kernfs_node *kn);
 struct kernfs_node *kernfs_get_parent(struct kernfs_node *kn);
 struct kernfs_node *kernfs_find_and_get_ns(struct kernfs_node *parent,
-					   const char *name, const void *ns);
+					   const unsigned char *name, const void *ns);
 void kernfs_get(struct kernfs_node *kn);
 void kernfs_put(struct kernfs_node *kn);
 
@@ -340,7 +340,7 @@ static inline struct kernfs_node *kernfs_get_parent(struct kernfs_node *kn)
 { return NULL; }
 
 static inline struct kernfs_node *
-kernfs_find_and_get_ns(struct kernfs_node *parent, const char *name,
+kernfs_find_and_get_ns(struct kernfs_node *parent, const unsigned char *name,
 		       const void *ns)
 { return NULL; }
 
@@ -414,7 +414,7 @@ static inline void kernfs_init(void) { }
 #endif	/* CONFIG_KERNFS */
 
 static inline struct kernfs_node *
-kernfs_find_and_get(struct kernfs_node *kn, const char *name)
+kernfs_find_and_get(struct kernfs_node *kn, const unsigned char *name)
 {
 	return kernfs_find_and_get_ns(kn, name, NULL);
 }

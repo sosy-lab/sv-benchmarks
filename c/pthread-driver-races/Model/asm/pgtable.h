@@ -6,6 +6,8 @@
 #include <asm/processor.h>
 #include <asm/pgtable_types.h>
 
+#define __va(p) p
+
 /*
  * Macro to mark a page protection value as UC-
  */
@@ -438,6 +440,8 @@ static inline int pte_present(pte_t a)
 {
 	return pte_flags(a) & (_PAGE_PRESENT | _PAGE_PROTNONE);
 }
+
+static inline bool mm_tlb_flush_pending(struct mm_struct *mm);
 
 #define pte_accessible pte_accessible
 static inline bool pte_accessible(struct mm_struct *mm, pte_t a)

@@ -16,6 +16,9 @@ typedef struct seqcount {
 #define SEQCNT_ZERO { 0 }
 #define seqcount_init(x)	do { *(x) = (seqcount_t) SEQCNT_ZERO; } while (0)
 
+extern void cpu_relax(void);
+extern void smp_rmb(void);
+
 /**
  * __read_seqcount_begin - begin a seq-read critical section (without barrier)
  * @s: pointer to seqcount_t

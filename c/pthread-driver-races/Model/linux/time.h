@@ -261,6 +261,8 @@ extern struct timespec ns_to_timespec(const s64 nsec);
  */
 extern struct timeval ns_to_timeval(const s64 nsec);
 
+extern u32 __iter_div_u64_rem(u64, u32, u64*);
+
 /**
  * timespec_add_ns - Adds nanoseconds to a timespec
  * @a:		pointer to timespec to be incremented
