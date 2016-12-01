@@ -32,7 +32,7 @@ int main()
   init();
   struct dummy *pd1 = get_dummy(), *pd2 = get_dummy(), *pd3 = get_dummy();
   int i = __VERIFIER_nondet_int();
-  if (pd1 != 0 && pd1 == pd2) {
+  if (pd1 != 0 && pd1 == pd2 && (*pd2).a > 0) {
     int *pa = &pd1->a;
     i = pd3->a - 10;
     while (i < *pa) {
