@@ -16,7 +16,7 @@
 
 
 int access_ok(int type, const void *addr, unsigned long size);
-int __get_user(int size, void *ptr);
+int __get_user(int size, const void *ptr);
 int get_user(int size, void *ptr);
 int __put_user(int size, void *ptr);
 int put_user(int size, void *ptr);

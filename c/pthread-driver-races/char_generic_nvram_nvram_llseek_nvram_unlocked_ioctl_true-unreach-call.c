@@ -140,7 +140,7 @@ long nvram_unlocked_ioctl(struct file *file, unsigned int cmd, unsigned long arg
 	return ret;
 }
 
-const struct file_operations nvram_fops = {
+struct file_operations nvram_fops = {
 	.owner		= THIS_MODULE,
 	.llseek		= nvram_llseek,
 	.read		= read_nvram,
@@ -179,7 +179,6 @@ void __exit nvram_cleanup(void)
 
 module_init(nvram_init);
 module_exit(nvram_cleanup);
-MODULE_LICENSE("GPL");
 
 // Declare values needed by entry point wrappers
 struct inode *whoop_inode_0;
@@ -193,7 +192,7 @@ struct file *whoop_file_3;
 struct inode *whoop_inode_4;
 struct file *whoop_file_4;
 struct pci_dev *whoop_pci_dev;
-const char *whoop_buf;
+char *whoop_buf;
 struct platform_device *whoop_platform_device;
 struct vm_area_struct *whoop_vm_area_struct;
 struct cx_dev *whoop_cx_dev;
@@ -224,7 +223,7 @@ void *whoop_wrapper_nvram_unlocked_ioctl(void* args)
 
 void *whoop_wrapper_nvram_llseek(void* args)
 {
-	nvram_llseek(whoop_file_3, &whoop_loff_t, whoop_int);
+	nvram_llseek(whoop_file_3, __VERIFIER_nondet_long(), whoop_int);
 	return NULL;
 }
 
@@ -234,7 +233,7 @@ void *whoop_wrapper_nvram_cleanup(void* args)
 	return NULL;
 }
 
-void main()
+int main(void)
 {
 	// Instantiate values required by entry points
 	whoop_inode_0 = (struct inode *) malloc(sizeof(struct inode));

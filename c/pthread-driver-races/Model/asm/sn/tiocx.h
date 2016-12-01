@@ -59,6 +59,7 @@ struct cx_drv {
 #define to_cx_dev(n) container_of(n, struct cx_dev, dev)
 #define to_cx_driver(drv) container_of(drv, struct cx_drv, driver)
 
+struct sn_irq_info;
 // extern struct sn_irq_info *tiocx_irq_alloc(nasid_t, int, int, nasid_t, int);
 extern void tiocx_irq_free(struct sn_irq_info *);
 extern int cx_device_unregister(struct cx_dev *);

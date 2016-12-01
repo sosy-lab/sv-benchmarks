@@ -54,7 +54,7 @@ struct sg_table {
  *   variant.
  *
  **/
-static inline void sg_assign_page(struct scatterlist *sg, struct page *page)
+static void sg_assign_page(struct scatterlist *sg, const struct page *page)
 {
 	unsigned long page_link = sg->page_link & 0x3;
 
@@ -84,7 +84,7 @@ static inline void sg_assign_page(struct scatterlist *sg, struct page *page)
  *   to an sg entry.
  *
  **/
-static inline void sg_set_page(struct scatterlist *sg, struct page *page,
+static void sg_set_page(struct scatterlist *sg, const struct page *page,
 			       unsigned int len, unsigned int offset)
 {
 	sg_assign_page(sg, page);
@@ -92,7 +92,7 @@ static inline void sg_set_page(struct scatterlist *sg, struct page *page,
 	sg->length = len;
 }
 
-static inline struct page *sg_page(struct scatterlist *sg)
+static struct page *sg_page(struct scatterlist *sg)
 {
 #ifdef CONFIG_DEBUG_SG
 	BUG_ON(sg->sg_magic != SG_MAGIC);
@@ -108,7 +108,7 @@ static inline struct page *sg_page(struct scatterlist *sg)
  * @buflen:	 Data length
  *
  **/
-static inline void sg_set_buf(struct scatterlist *sg, const void *buf,
+static void sg_set_buf(struct scatterlist *sg, const void *buf,
 			      unsigned int buflen)
 {
 #ifdef CONFIG_DEBUG_SG
@@ -133,7 +133,7 @@ static inline void sg_set_buf(struct scatterlist *sg, const void *buf,
  *   Links @prv@ and @sgl@ together, to form a longer scatterlist.
  *
  **/
-static inline void sg_chain(struct scatterlist *prv, unsigned int prv_nents,
+static void sg_chain(struct scatterlist *prv, unsigned int prv_nents,
 			    struct scatterlist *sgl)
 {
 #ifndef CONFIG_ARCH_HAS_SG_CHAIN
@@ -162,7 +162,7 @@ static inline void sg_chain(struct scatterlist *prv, unsigned int prv_nents,
  *   table. A call to sg_next() on this entry will return NULL.
  *
  **/
-static inline void sg_mark_end(struct scatterlist *sg)
+static void sg_mark_end(struct scatterlist *sg)
 {
 #ifdef CONFIG_DEBUG_SG
 	BUG_ON(sg->sg_magic != SG_MAGIC);
@@ -182,7 +182,7 @@ static inline void sg_mark_end(struct scatterlist *sg)
  *   Removes the termination marker from the given entry of the scatterlist.
  *
  **/
-static inline void sg_unmark_end(struct scatterlist *sg)
+static void sg_unmark_end(struct scatterlist *sg)
 {
 #ifdef CONFIG_DEBUG_SG
 	BUG_ON(sg->sg_magic != SG_MAGIC);
@@ -200,8 +200,8 @@ static inline void sg_unmark_end(struct scatterlist *sg)
  *   on the sg page.
  *
  **/
-static inline dma_addr_t page_to_phys(struct page*);
-static inline dma_addr_t sg_phys(struct scatterlist *sg)
+dma_addr_t page_to_phys(struct page*);
+static dma_addr_t sg_phys(struct scatterlist *sg)
 {
 	return page_to_phys(sg_page(sg)) + sg->offset;
 }
@@ -216,7 +216,7 @@ static inline dma_addr_t sg_phys(struct scatterlist *sg)
  *   mapping.
  *
  **/
-static inline void *sg_virt(struct scatterlist *sg)
+static void *sg_virt(struct scatterlist *sg)
 {
 	return page_address(sg_page(sg)) + sg->offset;
 }
@@ -284,7 +284,7 @@ void __sg_page_iter_start(struct sg_page_iter *piter,
  * sg_page_iter_page - get the current page held by the page iterator
  * @piter:	page iterator holding the page
  */
-static inline struct page *sg_page_iter_page(struct sg_page_iter *piter)
+static struct page *sg_page_iter_page(struct sg_page_iter *piter)
 {
 	return nth_page(sg_page(piter->sg), piter->sg_pgoffset);
 }
@@ -294,7 +294,7 @@ static inline struct page *sg_page_iter_page(struct sg_page_iter *piter)
  * the page iterator.
  * @piter:	page iterator holding the page
  */
-static inline dma_addr_t sg_page_iter_dma_address(struct sg_page_iter *piter)
+static dma_addr_t sg_page_iter_dma_address(struct sg_page_iter *piter)
 {
 	return sg_dma_address(piter->sg) + (piter->sg_pgoffset << PAGE_SHIFT);
 }

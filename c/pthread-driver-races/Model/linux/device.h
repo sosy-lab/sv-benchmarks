@@ -72,9 +72,9 @@ struct device_attribute {
 			.store  = _store,                                               \
 		}
 
-static inline void *dev_get_drvdata(struct device *dev);
-static inline void dev_set_drvdata(struct device *dev, void *data);
-static inline int dev_to_node(struct device *dev);
+void *dev_get_drvdata(struct device *dev);
+void dev_set_drvdata(struct device *dev, void *data);
+int dev_to_node(struct device *dev);
 
 #define module_driver(__driver, __register, __unregister, ...) \
 static int __init __driver##_init(void) \

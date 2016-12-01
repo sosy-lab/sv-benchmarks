@@ -12,6 +12,7 @@ extern bool __VERIFIER_nondet_bool(void);
 extern uint __VERIFIER_nondet_uint(void);
 extern int __VERIFIER_nondet_int(void);
 extern ulong __VERIFIER_nondet_ulong(void);
+extern long __VERIFIER_nondet_long(void);
 
 extern void __VERIFIER_atomic_begin(void);
 
