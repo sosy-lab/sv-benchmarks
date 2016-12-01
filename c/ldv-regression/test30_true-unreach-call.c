@@ -1,8 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-
-extern void *__VERIFIER_nondet_pointer();
-
 int a = 1, b;
 
 struct dummy {
