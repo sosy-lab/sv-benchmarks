@@ -1628,7 +1628,6 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath 
 #pragma alloc_text(PAGE,KbFilter_DispatchPassThrough)
 #pragma alloc_text(PAGE,KbFilter_PnP)
 #pragma alloc_text(PAGE,KbFilter_Power)
-extern void *malloc(size_t);
 void errorFn(void) 
 { 
 
@@ -2367,7 +2366,7 @@ int main(void)
   UNICODE_STRING u ;
   NTSTATUS status ;
   int we_should_unload = __VERIFIER_nondet_int() ;
-  IRP irp ;
+  PIRP irp ;
   int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
@@ -2544,7 +2543,18 @@ int main(void)
 }
 }
 char _SLAM_alloc_dummy  ;
-void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) ;
+char *malloc(int i ) 
+{ int __BLAST_NONDET = __VERIFIER_nondet_int() ;
+
+  {
+  if (__BLAST_NONDET) {
+    return ((char *)0);
+  } else {
+    return ((char *)1);
+  }
+}
+}
+  void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) ;
 void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) 
 { 
 
