@@ -6,8 +6,8 @@ Drivers from the Linux 4.0 kernel have pairs of entry points called concurrently
 as pthread threads.  Global and heap memory accesses are checked for data races.
 
 The environment required for these drivers is closed, and all dependencies can
-be found in the Model folder.  When preprocessing is done, the '-I' switch
-should be used, and should point to the Model folder (i.e., '-I ./Model/').
+be found in the model folder.  When preprocessing is done, the '-I' switch
+should be used, and should point to the model folder (i.e., '-I ./model/').
 
 Contributed by:
 The SMACK+CORRAL team.
