@@ -432,6 +432,7 @@ struct address_space_operations {
 
 
 struct fiemap_extent_info;
+struct iattr;
 
 struct inode_operations {
   struct dentry * (*lookup) (struct inode *,struct dentry *, unsigned int);

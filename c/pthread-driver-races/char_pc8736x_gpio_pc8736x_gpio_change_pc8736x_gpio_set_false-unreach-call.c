@@ -27,13 +27,7 @@
 
 #define DEVNAME "pc8736x_gpio"
 
-MODULE_AUTHOR("Jim Cromie <jim.cromie@gmail.com>");
-MODULE_DESCRIPTION("NatSemi/Winbond PC-8736x GPIO Pin Driver");
-MODULE_LICENSE("GPL");
-
 static int major;		/* default to dynamic major */
-module_param(major, int, 0);
-MODULE_PARM_DESC(major, "Major device number");
 
 static DEFINE_MUTEX(pc8736x_gpio_config_lock);
 static unsigned pc8736x_gpio_base;
@@ -237,7 +231,7 @@ int pc8736x_gpio_open(struct inode *inode, struct file *file)
 	return nonseekable_open(inode, file);
 }
 
-static const struct file_operations pc8736x_gpio_fileops = {
+static struct file_operations pc8736x_gpio_fileops = {
 	.owner	= THIS_MODULE,
 	.open	= pc8736x_gpio_open,
 	.write	= nsc_gpio_write,
@@ -390,39 +384,46 @@ int whoop_int;
 void *whoop_wrapper_pc8736x_gpio_set(void* args)
 {
 	pc8736x_gpio_set(whoop_int, whoop_int);
+	return NULL;
 }
 
 void *whoop_wrapper_pc8736x_gpio_open(void* args)
 {
 	pc8736x_gpio_open(whoop_inode_1, whoop_file_1);
+	return NULL;
 }
 
 void *whoop_wrapper_pc8736x_gpio_get(void* args)
 {
 	pc8736x_gpio_get(whoop_int);
+	return NULL;
 }
 
 void *whoop_wrapper_pc8736x_gpio_current(void* args)
 {
 	pc8736x_gpio_current(whoop_int);
+	return NULL;
 }
 
 void *whoop_wrapper_pc8736x_gpio_configure(void* args)
 {
 	pc8736x_gpio_configure(whoop_int, whoop_int, whoop_int);
+	return NULL;
 }
 
 void *whoop_wrapper_pc8736x_gpio_cleanup(void* args)
 {
 	pc8736x_gpio_cleanup();
+	return NULL;
 }
 
 void *whoop_wrapper_pc8736x_gpio_change(void* args)
 {
 	pc8736x_gpio_change(whoop_int);
+	return NULL;
 }
 
-void main()
+int main(void)
 {
 	// Instantiate values required by entry points
 	whoop_inode_0 = (struct inode *) malloc(sizeof(struct inode));

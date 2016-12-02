@@ -82,17 +82,17 @@ unsigned int ioread32(void *addr)
 	return readl(addr);
 }
 
-static inline void iowrite8(u8 value, volatile void *addr)
+static inline void iowrite8(u8 value, void *addr)
 {
 	writeb(value, addr);
 }
 
-static inline void iowrite16(u16 value, volatile void *addr)
+static inline void iowrite16(u16 value, void *addr)
 {
 	writew(value, addr);
 }
 
-static inline void iowrite32(u32 value, volatile void *addr)
+static inline void iowrite32(u32 value, void *addr)
 {
 	writel(value, addr);
 }

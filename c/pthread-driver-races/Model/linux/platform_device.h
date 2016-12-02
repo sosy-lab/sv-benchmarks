@@ -43,8 +43,8 @@ struct platform_device {
 //
 // #define to_platform_device(x) container_of((x), struct platform_device, dev)
 //
-// extern int platform_device_register(struct platform_device *);
-// extern void platform_device_unregister(struct platform_device *);
+extern int platform_device_register(struct platform_device *);
+extern void platform_device_unregister(struct platform_device *);
 //
 // extern struct bus_type platform_bus_type;
 // extern struct device platform_bus;
@@ -163,15 +163,15 @@ struct platform_device {
 // 			NULL, 0, data, size);
 // }
 //
-// extern struct platform_device *platform_device_alloc(const char *name, int id);
-// extern int platform_device_add_resources(struct platform_device *pdev,
-// 					 const struct resource *res,
-// 					 unsigned int num);
-// extern int platform_device_add_data(struct platform_device *pdev,
-// 				    const void *data, size_t size);
-// extern int platform_device_add(struct platform_device *pdev);
-// extern void platform_device_del(struct platform_device *pdev);
-// extern void platform_device_put(struct platform_device *pdev);
+extern struct platform_device *platform_device_alloc(const char *name, int id);
+extern int platform_device_add_resources(struct platform_device *pdev,
+ 					 const struct resource *res,
+ 					 unsigned int num);
+extern int platform_device_add_data(struct platform_device *pdev,
+ 				    const void *data, size_t size);
+extern int platform_device_add(struct platform_device *pdev);
+extern void platform_device_del(struct platform_device *pdev);
+extern void platform_device_put(struct platform_device *pdev);
 
 struct platform_driver {
 	int (*probe)(struct platform_device *);

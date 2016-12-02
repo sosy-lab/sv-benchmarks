@@ -92,4 +92,13 @@ struct resource {
 /* PCI control bits.  Shares IORESOURCE_BITS with above PCI ROM.  */
 #define IORESOURCE_PCI_FIXED		(1<<4)	/* Do not move resource */
 
+extern void __release_region(struct resource *, resource_size_t, resource_size_t);
+extern struct resource * __request_region(struct resource *,
+                                          resource_size_t start,
+                                          resource_size_t n,
+                                          const char *name, int flags);
+
+#define release_region(start,n) __release_region(NULL, (start), (n))
+#define request_region(start,n,name) __request_region(NULL, (start), (n), (name), 0)
+
 #endif	/* _LINUX_IOPORT_H */

@@ -11,6 +11,10 @@
 #include <linux/sysfs.h>
 #include <linux/kobject.h>
 
+#define dev_dbg(dev, format, ...) do {} while (0)
+#define dev_err(dev, format, ...) do {} while (0)
+#define dev_info(dev, format, ...) do {} while (0)
+
 struct acpi_device;
 struct acpi_dev_node {
 	struct acpi_device *companion;
