@@ -1139,14 +1139,14 @@ struct usb_class_driver {
  * use these in module_init()/module_exit()
  * and don't forget MODULE_DEVICE_TABLE(usb, ...)
  */
-extern int usb_register_driver(struct usb_driver *, struct module *,
-			       const char *);
-
-/* use a define to avoid include chaining to get THIS_MODULE & friends */
-int usb_register(driver)
+extern int usb_register_driver(struct usb_driver *driver, struct module *module,
+			       const char *modname)
 {
 	return __VERIFIER_nondet_int();
 }
+
+/* use a define to avoid include chaining to get THIS_MODULE & friends */
+#define usb_register(driver) usb_register_driver(driver, NULL, NULL)
 
 extern void usb_deregister(struct usb_driver *);
 

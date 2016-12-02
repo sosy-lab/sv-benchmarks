@@ -4759,9 +4759,8 @@ struct usb_class_driver {
  const struct file_operations *fops;
  int minor_base;
 };
-extern int usb_register_driver(struct usb_driver *, struct module *,
-          const char *);
-int usb_register(driver)
+extern int usb_register_driver(struct usb_driver *driver, struct module *module,
+          const char *modname)
 {
  return __VERIFIER_nondet_int();
 }
