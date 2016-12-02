@@ -1,7 +1,0 @@
-pthread/*_false-unreach-call*.i
-pthread-atomic/*_false-unreach-call*.i
-pthread-ext/*_false-unreach-call*.i
-pthread-wmm/*_false-unreach-call*.i
-pthread-lit/*_false-unreach-call*.i
-ldv-races/*_false-unreach-call*.i
-pthread-driver-races/*_false-unreach-call*.i

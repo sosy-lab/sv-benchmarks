@@ -19,7 +19,7 @@ BENCHMARK_PATTERN = re.compile('^.*\.[ci]$')
 EXPECTED_FILE_PATTERN = re.compile(
     '^(.*\.(c|h|i|verdict)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
     re.I)
-CONFIG_KEYS = set(["Architecture", "Description", "Memory Model"])
+CONFIG_KEYS = set(["Architecture", "Description"])
 
 UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
 
@@ -29,20 +29,14 @@ PREPROCESSOR_DIRECTIVE = re.compile('^ *#(define|include)')
 KNOWN_DIRECTORY_PROBLEMS = [
     # TODO Please fix
     ("bitvector", "missing license"),
-    ("bitvector", "unexpected file list.txt"),
     ("ddv-machzwd", "missing license"),
     ("eca-rers2012", "missing license"),
-    ("floats-cbmc-regression", "missing license"),
-    ("floats-cdfpl", "missing license"),
-    ("ldv-linux-3.12-rc1", "missing license"),
-    ("ldv-linux-3.16-rc1", "missing license"),
     ("ldv-linux-4.2-rc1", "missing readme"),
     ("ldv-memsafety", "missing license"),
     ("ldv-memsafety", "missing readme"),
     ("ldv-memsafety", "unexpected subdirectory memleaks-notpreprocessed"),
     ("ldv-races", "missing readme"),
     ("ldv-regression", "missing license"),
-    ("ldv-validator-v0.6", "missing license"),
     ("ldv-validator-v0.8", "missing readme"),
     ("list-properties", "missing license"),
     ("locks", "missing license"),
@@ -51,13 +45,11 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("product-lines", "missing license"),
     ("pthread", "missing license"),
     ("pthread-ext", "missing license"),
-    ("pthread-wmm", "missing license"),
     ("recursive-simple", "missing license"),
     ("recursive-simple", "missing readme"),
     ("seq-pthread", "missing license"),
     ("systemc", "missing license"),
 
-    ("bitvector-regression", "recHanoi03_unsafe.c has no known verdict"),
     ("float-benchs", "zonotope_2.c has no known verdict"),
     ("float-benchs", "addsub_float_inexact.c has no known verdict"),
     ("float-benchs", "inv_sqrt_Quake.c has no known verdict"),
@@ -106,10 +98,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("float-benchs", "sqrt_Newton_pseudoconstant.c has no known verdict"),
     ("float-benchs", "loop.c has no known verdict"),
     ("float-benchs", "exp_loop.c has no known verdict"),
-    ("memsafety", "test-memleak_nexttime-valid-memtrack.c has no known verdict"),
-    ("memsafety", "test-memleak_nexttime-valid-memtrack.i has no known verdict"),
-    ("pthread", "singleton_with-uninit-problems-true.c has no known verdict"),
-    ("pthread", "singleton_with-uninit-problems-true.i has no known verdict"),
     ("termination-crafted", "Collatz_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c.i has no known verdict"),
@@ -122,49 +110,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
-    ("array-examples", "relax_false-valid-deref.c is not contained in any category"),
-    ("array-examples", "sanfoundry_24_false-valid-deref.c is not contained in any category"),
-    ("array-examples", "standard_find_false-valid-deref_ground.c is not contained in any category"),
-    ("array-examples", "standard_sentinel_false-valid-deref.c is not contained in any category"),
-    ("array-examples", "standard_strcpy_false-valid-deref_ground.c is not contained in any category"),
-    ("array-examples", "standard_strcpy_original_false-valid-deref.c is not contained in any category"),
-    ("floats-cbmc-regression", "float-div1_true-unreach-call.c is not contained in any category"),
-    ("floats-cbmc-regression", "float_lib1_true-unreach-call.c is not contained in any category"),
-    ("floats-cbmc-regression", "float21_true-unreach-call.c is not contained in any category"),
-    ("floats-cbmc-regression", "float_lib2_true-unreach-call.c is not contained in any category"),
-    ("heap-manipulation", "tree_false-unreach-call.c is not contained in any category"),
-    ("heap-manipulation", "tree_true-unreach-call.c is not contained in any category"),
-    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-media-video-vivi.c.common.i is not contained in any category"),
-    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-mtd-chips-cfi_cmdset_0001.c.common.i is not contained in any category"),
-    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-net-wireless-mwl8k.c.common.i is not contained in any category"),
-    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-usb-image-microtek.c.common.i is not contained in any category"),
-    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-staging-media-dt3155v4l-dt3155v4l.c.common.i is not contained in any category"),
-    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-net-wireless-p54-p54usb.c.common.i is not contained in any category"),
-    ("ldv-linux-3.4-simple", "32_7_cpp_false-unreach-call_single_drivers-net-phy-dp83640.c.common.i is not contained in any category"),
-    ("list-ext-properties", "list-ext_flag_false-not-label.c is not contained in any category"),
-    ("list-ext-properties", "simple-ext_false-not-label.c is not contained in any category"),
-    ("list-ext-properties", "list-ext_false-not-label.i is not contained in any category"),
-    ("list-ext-properties", "simple-ext_false-not-label.i is not contained in any category"),
-    ("list-ext-properties", "list-ext_flag_false-not-label.i is not contained in any category"),
-    ("list-ext-properties", "list-ext_false-not-label.c is not contained in any category"),
-    ("loop-lit", "ddlm2013_true-unreach-call.c is not contained in any category"),
-    ("loop-lit", "ddlm2013_true-unreach-call.i is not contained in any category"),
-    ("loop-lit", "gcnr2008_false-unreach-call.c_false-termination.i is not contained in any category"),
-    ("loop-lit", "gcnr2008_false-unreach-call_false-termination.c is not contained in any category"),
-    ("loops", "heavy_true-unreach-call.c is not contained in any category"),
-    ("loops", "array_true-unreach-call_true-termination_true-termination.c is not contained in any category"),
-    ("loops", "compact_false-unreach-call.c is not contained in any category"),
-    ("loops", "trex03_true-unreach-call_true-termination_true-termination.c is not contained in any category"),
-    ("loops", "heavy_false-unreach-call.c is not contained in any category"),
-    ("recursive", "Addition03_false-no-overflow.c is not contained in any category"),
-    ("reducercommutativity", "avg60_false-valid-deref.c is not contained in any category"),
-    ("ssh-simplified", "s3_clnt_3.cil_true-unreach-call_true-termination.c is not contained in any category"),
-    ("termination-crafted", "Arrays01-EquivalentConstantIndices_false-valid-deref.c is not contained in any category"),
-    ("termination-crafted", "Arrays03-ValueRestictsIndex_false-valid-deref.c is not contained in any category"),
-    ("termination-crafted", "LexIndexValue-Pointer_false-valid-deref.c is not contained in any category"),
-    ("termination-crafted", "LexIndexValue-Array_false-valid-deref.c is not contained in any category"),
-    ("termination-crafted", "Nyala-2lex_false-valid-deref.c is not contained in any category"),
-    ("termination-crafted", "SyntaxSupportPointer01_false-valid-deref.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg-alloca_false-termination.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg-alloca_true-termination.c is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg_traverse-alloca_false-termination.c is not contained in any category"),
@@ -184,7 +129,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "nondet_ll_search-alloca_true-termination.c is not contained in any category"),
     ("termination-memory-alloca", "nondet_ll_traverse-alloca_false-termination.c is not contained in any category"),
 
-    ("busybox-1.22.0", "missing license"), # included in .c files
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
 
     # historical
@@ -196,66 +140,15 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ntdrivers-simplified", "missing readme"),
     ("ssh", "missing readme"),
     ("ssh-simplified", "missing readme"),
-
-    # listed in ldv-README.txt
-    ("ldv-linux-3.0", "missing readme"),
-    ("ldv-linux-3.4-simple", "missing readme"),
-    ("ldv-linux-3.7.3", "missing readme"),
-    ("ldv-consumption", "missing readme"),
-    ("ldv-commit-tester", "missing readme"),
-    ("ldv-challenges", "missing readme"),
-    ("ldv-linux-3.12-rc1", "missing readme"),
-    ("ldv-linux-3.16-rc1", "missing readme"),
-    ("ldv-validator-v0.6", "missing readme"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
-    ("busybox-1.22.0/dirname_true-unreach-call.i", "has property unreach-call, but does not call __VERIFIER_error"),
-
-    ("termination-crafted/4BitCounterPointer_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted/LexIndexValue-Array_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted/LexIndexValue-Pointer_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted/SyntaxSupportPointer01_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrcmp_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrcspn_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrlen_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrncmp_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrpbrk_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/cstrspn_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-crafted-lit/strchr_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/chunk1_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/chunk2_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/chunk3_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/insertionSort_recursive_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/mergeSort_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/mutual_simple2_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/mutual_simple_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex10_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex11B_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex11C_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex11D_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex11_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex1_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex2_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex3_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex4_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex5B_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex5_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex6_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex7B_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex7_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex8_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_malloc_ex9_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_strcopy_malloc2_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_strcopy_malloc_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/rec_strlen_malloc_true-termination.c", "#define or #include statement present, please add preprocessed version"),
-    ("termination-recursive-malloc/selectionSort_recursive_true-termination.c", "#define or #include statement present, please add preprocessed version"),
     ]
 
 KNOWN_SET_PROBLEMS = [
-    # TODO Please fix
-    ("Termination.set", "64 bit category contains 32 bit benchmarks in product-lines"),
-    ("HeapMemSafety.set", "Pattern <ldv-memsafety-bitfields/*_true-valid-memsafety*.i> does not match anything."),
+    ("ArraysMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
+    ("BitVectorsOverflows.set", "64 bit category contains 32 bit benchmarks in recursive"),
+    ("HeapMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
@@ -429,15 +322,14 @@ class SetFileChecks(Checks):
         self.category = os.path.basename(path)
         if self.category.endswith(".set"):
             self.category = self.category[:-4]
-        if self.category.endswith("-validate"):
-            self.category = self.category[:-9]
         self.patterns = list(read_set_file(path))
         self.matched_files = [file for pattern in self.patterns
                               for file in glob.iglob(os.path.join(self.base_path, pattern))]
         self.cfg_file = os.path.join(self.base_path, self.category + ".cfg")
 
     def check_has_property_file(self):
-        prp_file = os.path.join(self.base_path, self.category + ".prp")
+        name = self.category.split("-")[0] # remove name of sub-category as in "Termination-ProductLines"
+        prp_file = os.path.join(self.base_path, name + ".prp")
         if not os.path.isfile(prp_file):
             self.error("missing property file")
         elif not os.path.islink(prp_file):
@@ -499,9 +391,7 @@ class SetFileChecks(Checks):
         if not cfg.get("Description", "dummy"):
             self.error("missing description")
         if cfg.get("Architecture", "32 bit") not in ["32 bit", "64 bit"]:
-            self.error("invalid memory model <%s>", cfg.get("Memory Model"))
-        if cfg.get("Memory Model", "Precise") not in ["Precise", "Simple"]:
-            self.error("invalid memory model <%s>", cfg.get("Memory Model"))
+            self.error("invalid architecture <%s>", cfg.get("Architecture"))
 
 
 def read_set_file(path):
@@ -532,6 +422,8 @@ class GlobalChecks(Checks):
 
 def main():
     logging.basicConfig(format="%(levelname)-7s %(message)s", level='INFO')
+    if not yaml:
+        logging.warning("Missing python-yaml, not all checks can be executed")
 
     main_directory = os.path.relpath(os.path.dirname(__file__))
     entries = sorted(os.listdir(main_directory))

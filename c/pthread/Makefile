@@ -9,7 +9,6 @@ GCC_WARNINGS := \
 
 CLANG_WARNINGS := \
 	-Wno-incompatible-library-redeclaration \
-	-Wno-builtin-requires-header \
 	-Wno-return-type \
 	-Wno-tautological-constant-out-of-range-compare \
 	-Wno-gnu-variable-sized-type-not-at-end \

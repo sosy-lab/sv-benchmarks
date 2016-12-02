@@ -30,7 +30,7 @@ struct __UTAC__EXCEPTION {
    int pops ;
    struct __UTAC__CFLOW_FUNC *cflowfuncs ;
 };
-typedef unsigned long size_t;
+typedef unsigned int size_t;
 struct __ACC__ERR {
    void *v ;
    struct __ACC__ERR *next ;

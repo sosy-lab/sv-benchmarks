@@ -59,6 +59,7 @@ DM-0000575
 /* print_CIL_Input is true */
 
 char __VERIFIER_nondet_char(void) ;
+unsigned char __VERIFIER_nondet_uchar(void) ;
 _Bool __VERIFIER_nondet_bool(void) ;
 void assert(_Bool arg ) ;
 void __VERIFIER_assume(int arg ) ;
@@ -92,21 +93,21 @@ char p32_old ;
 char p32_new ;
 _Bool ep32  ;
 char id1  ;
-char r1  ;
+unsigned char r1  ;
 char st1  ;
 char nl1  ;
 char m1  ;
 char max1  ;
 _Bool mode1  ;
 char id2  ;
-char r2  ;
+unsigned char r2  ;
 char st2  ;
 char nl2  ;
 char m2  ;
 char max2  ;
 _Bool mode2  ;
 char id3  ;
-char r3  ;
+unsigned char r3  ;
 char st3  ;
 char nl3  ;
 char m3  ;
@@ -118,7 +119,10 @@ void node1(void)
 
   {
   if (mode1) {
-    r1 = (char )((int )r1 + 1);
+    if (r1 == 255) {
+      r1 = 2;
+    }
+    r1 = r1 + 1;
     if (ep21) {
       m1 = p21_old;
       p21_old = nomsg;
@@ -161,7 +165,10 @@ void node2(void)
 
   {
   if (mode2) {
-    r2 = (char )((int )r2 + 1);
+    if (r2 == 255) {
+      r2 = 2;
+    }
+    r2 = r2 + 1;
     if (ep12) {
       m2 = p12_old;
       p12_old = nomsg;
@@ -204,7 +211,10 @@ void node3(void)
 
   {
   if (mode3) {
-    r3 = (char )((int )r3 + 1);
+    if (r3 == 255) {
+      r3 = 2;
+    }
+    r3 = r3 + 1;
     if (ep13) {
       m3 = p13_old;
       p13_old = nomsg;
@@ -507,21 +517,21 @@ int main(void)
   ep31 = __VERIFIER_nondet_bool();
   ep32 = __VERIFIER_nondet_bool();
   id1 = __VERIFIER_nondet_char();
-  r1 = __VERIFIER_nondet_char();
+  r1 = __VERIFIER_nondet_uchar();
   st1 = __VERIFIER_nondet_char();
   nl1 = __VERIFIER_nondet_char();
   m1 = __VERIFIER_nondet_char();
   max1 = __VERIFIER_nondet_char();
   mode1 = __VERIFIER_nondet_bool();
   id2 = __VERIFIER_nondet_char();
-  r2 = __VERIFIER_nondet_char();
+  r2 = __VERIFIER_nondet_uchar();
   st2 = __VERIFIER_nondet_char();
   nl2 = __VERIFIER_nondet_char();
   m2 = __VERIFIER_nondet_char();
   max2 = __VERIFIER_nondet_char();
   mode2 = __VERIFIER_nondet_bool();
   id3 = __VERIFIER_nondet_char();
-  r3 = __VERIFIER_nondet_char();
+  r3 = __VERIFIER_nondet_uchar();
   st3 = __VERIFIER_nondet_char();
   nl3 = __VERIFIER_nondet_char();
   m3 = __VERIFIER_nondet_char();

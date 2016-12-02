@@ -6,7 +6,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-typedef int size_t;
+typedef unsigned int size_t;
 typedef int bool;
 char *strchr(const char *s, int c);
 char *strrchr(const char *s, int c);
@@ -63,6 +63,7 @@ static int parse_expression_list(char *str)
           return -1;
         }
         r_strncpy(str2, str+start, j-start+1);
+        __VERIFIER_assert(j - start + 1 < 2);
         str2[j-start+1] = 0;
       } else {
         return -1;

@@ -27,4 +27,4 @@ __VERIFIER_error_linux_kernel_locking_mutex:true
 __VERIFIER_error_linux_lib_find_bit:true
 __VERIFIER_error_linux_lib_idr:true
 __VERIFIER_error_linux_alloc_usb_lock:true
-__VERIFIER_error_linux_usb_coherent:unknown
+__VERIFIER_error_linux_usb_coherent:false

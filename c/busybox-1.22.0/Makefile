@@ -6,7 +6,6 @@ COMMON_WARNINGS := \
 	-Wno-return-type \
 
 CLANG_WARNINGS := \
-	-Wno-builtin-requires-header \
 	-Wno-sometimes-uninitialized \
 	-Wno-uninitialized \
 	-Wno-array-bounds \

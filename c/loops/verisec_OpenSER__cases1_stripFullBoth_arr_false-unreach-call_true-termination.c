@@ -31,7 +31,7 @@ void __VERIFIER_assert(int cond) {
 /* I had size_t being an unsigned long before, but that led to the
  * infamous "Equality without matching types" error when I used a
  * size_t to index into an array. */
-typedef int size_t;
+typedef unsigned int size_t;
 typedef int bool;
 #define true 1
 #define false 0

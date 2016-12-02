@@ -1056,7 +1056,7 @@ void* producer(void *arg) {
  counter++;
  release1();
  release2();
- return 1;
+ return ((void *)0);
     } else {
  release1();
  counter = 0;
@@ -1066,7 +1066,7 @@ void* producer(void *arg) {
  }
  batch = counter;
  release2();
- return batch;
+ return ((void *)0);
     }
 }
 void* consumer(void *arg) {
@@ -1078,6 +1078,7 @@ void* consumer(void *arg) {
     counter--;
     __VERIFIER_assert(counter >= 0);
     release1();
+    return ((void *)0);
 }
 int main () {
     pthread_t t;
