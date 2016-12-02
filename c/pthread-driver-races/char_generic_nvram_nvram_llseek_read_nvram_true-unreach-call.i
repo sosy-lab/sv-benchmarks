@@ -145,7 +145,8 @@ struct callback_head {
  struct callback_head *next;
  void (*func)(struct callback_head *head);
 };
-extern bool __VERIFIER_nondet_bool(void);
+extern _Bool __VERIFIER_nondet_bool(void);
+extern char __VERIFIER_nondet_char(void);
 extern uint __VERIFIER_nondet_uint(void);
 extern int __VERIFIER_nondet_int(void);
 extern ulong __VERIFIER_nondet_ulong(void);
@@ -1207,7 +1208,7 @@ static __attribute__((always_inline)) void write_sequnlock_irq(seqlock_t *sl)
 }
 static __attribute__((always_inline)) unsigned long __write_seqlock_irqsave(seqlock_t *sl)
 {
- unsigned long flags;
+ unsigned long flags = __VERIFIER_nondet_ulong();
  spin_lock_irqsave(&sl->lock, flags);
  write_seqcount_begin(&sl->seqcount);
  return flags;
@@ -1244,7 +1245,7 @@ static __attribute__((always_inline)) void read_sequnlock_excl_irq(seqlock_t *sl
 }
 static __attribute__((always_inline)) unsigned long __read_seqlock_excl_irqsave(seqlock_t *sl)
 {
- unsigned long flags;
+ unsigned long flags = __VERIFIER_nondet_ulong();
  spin_lock_irqsave(&sl->lock, flags);
  return flags;
 }
@@ -1758,7 +1759,7 @@ static __attribute__((always_inline)) int kref_put_spinlock_irqsave(struct kref 
   void (*release)(struct kref *kref),
   spinlock_t *lock)
 {
- unsigned long flags;
+ unsigned long flags = __VERIFIER_nondet_ulong();
  do { } while (0);
  if (atomic_add_unless(&kref->refcount, -1, 1))
   return 0;
@@ -6552,7 +6553,7 @@ ssize_t write_nvram(struct file *file, const char *buf,
 {
  unsigned int i;
  const char *p = buf;
- char c;
+ char c = __VERIFIER_nondet_char();
  if (!access_ok(0, buf, count))
   return -14;
  if (*ppos >= nvram_len)

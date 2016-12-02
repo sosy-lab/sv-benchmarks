@@ -2,6 +2,7 @@
 #define __LINUX_SEQLOCK_H
 
 #include <linux/spinlock.h>
+#include <svcomp.h>
 
 /*
  * Version using sequence counter only.
@@ -224,7 +225,7 @@ static inline void write_sequnlock_irq(seqlock_t *sl)
 
 static inline unsigned long __write_seqlock_irqsave(seqlock_t *sl)
 {
-	unsigned long flags;
+	unsigned long flags = __VERIFIER_nondet_ulong();
 
 	spin_lock_irqsave(&sl->lock, flags);
 	write_seqcount_begin(&sl->seqcount);
@@ -278,7 +279,7 @@ static inline void read_sequnlock_excl_irq(seqlock_t *sl)
 
 static inline unsigned long __read_seqlock_excl_irqsave(seqlock_t *sl)
 {
-	unsigned long flags;
+	unsigned long flags = __VERIFIER_nondet_ulong();
 
 	spin_lock_irqsave(&sl->lock, flags);
 	return flags;

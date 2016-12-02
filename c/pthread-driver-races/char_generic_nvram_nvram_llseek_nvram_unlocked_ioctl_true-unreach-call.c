@@ -81,7 +81,7 @@ ssize_t write_nvram(struct file *file, const char __user *buf,
 {
 	unsigned int i;
 	const char __user *p = buf;
-	char c;
+	char c = __VERIFIER_nondet_char();
 
 	if (!access_ok(VERIFY_READ, buf, count))
 		return -EFAULT;

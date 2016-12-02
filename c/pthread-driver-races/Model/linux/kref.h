@@ -117,7 +117,7 @@ static inline int kref_put_spinlock_irqsave(struct kref *kref,
 		void (*release)(struct kref *kref),
 		spinlock_t *lock)
 {
-	unsigned long flags;
+	unsigned long flags = __VERIFIER_nondet_ulong();
 
 	WARN_ON(release == NULL);
 	if (atomic_add_unless(&kref->refcount, -1, 1))

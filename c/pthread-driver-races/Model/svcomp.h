@@ -8,7 +8,8 @@
 #include <pthread.h>
 #include <linux/types.h>
 
-extern bool __VERIFIER_nondet_bool(void);
+extern _Bool __VERIFIER_nondet_bool(void);
+extern char __VERIFIER_nondet_char(void);
 extern uint __VERIFIER_nondet_uint(void);
 extern int __VERIFIER_nondet_int(void);
 extern ulong __VERIFIER_nondet_ulong(void);
