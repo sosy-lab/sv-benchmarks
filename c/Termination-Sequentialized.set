@@ -1,1 +1,5 @@
 systemc/*_false-termination*.cil.c
+seq-mthreaded/*_false-termination.*.c
+seq-mthreaded/*_true-termination.*.c
+seq-pthread/*_false-termination*.i
+seq-pthread/*_true-termination*.i
