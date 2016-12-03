@@ -1,2 +1,4 @@
 recursive/*_false-termination*.c
 recursive/*_true-termination*.c
+recursive-simple/*_false-termination*.c
+recursive-simple/*_true-termination*.c

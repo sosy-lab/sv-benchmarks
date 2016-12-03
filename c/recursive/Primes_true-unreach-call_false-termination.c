@@ -74,15 +74,21 @@ int is_prime_(int n, int m) {
 int main() {
     int n = __VERIFIER_nondet_int();
     if (n < 1 || n > 46340) {
+        // additional branch to avoid undefined behavior 
+        // (because of signed integer overflow)
         return 0;
     }
     int result = is_prime(n);
     int f1 = __VERIFIER_nondet_int();
     if (f1 < 1 || f1 > 46340) {
+        // additional branch to avoid undefined behavior 
+        // (because of signed integer overflow)
         return 0;
     }
     int f2 = __VERIFIER_nondet_int();
-    if (f1 < 1 || f1 > 46340) {
+    if (f2 < 1 || f2 > 46340) {
+        // additional branch to avoid undefined behavior 
+        // (because of signed integer overflow)
         return 0;
     }
 
