@@ -22,5 +22,6 @@ int main() {
 			(*q)--;
 		}
 	}
+	free(p);
 	return 0;
 }

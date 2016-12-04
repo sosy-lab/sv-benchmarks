@@ -159,6 +159,8 @@ int main()
     __VERIFIER_assert(differences>1);
   }
 
+  free(pat);
+  free(a);
   return 0;
 }
 
