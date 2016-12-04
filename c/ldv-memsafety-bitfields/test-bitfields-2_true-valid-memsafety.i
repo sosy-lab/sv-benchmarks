@@ -16,7 +16,7 @@ struct A {
 	unsigned char c:2;
 	unsigned int d:5;
 	unsigned char e;
-};
+} __attribute__((packed));
 
 struct A d;
 int main(void)
