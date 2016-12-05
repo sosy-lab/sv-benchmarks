@@ -130,6 +130,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "nondet_ll_traverse-alloca_false-termination.c is not contained in any category"),
 
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
+    ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
 
     # historical
     ("ntdrivers", "missing license"),
