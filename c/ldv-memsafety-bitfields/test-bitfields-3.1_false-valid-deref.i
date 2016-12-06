@@ -12,8 +12,9 @@ extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
 
 struct A {
 	unsigned char a;
-	unsigned char b:2;
-	unsigned char c:2;
+	unsigned char pad1[3];
+	unsigned int b:2;
+	unsigned int c:2;
 	unsigned int d:17;
 	unsigned char e:4;
 	unsigned int f;
@@ -21,6 +22,7 @@ struct A {
 
 struct B {
 	unsigned char a;
+	unsigned char pad1[3];
 	unsigned int b:2;
 	unsigned int c:2;
 	unsigned int d:4;
@@ -32,7 +34,7 @@ struct B {
 	unsigned char f4;
 } __attribute__((packed));
 
-struct B d = {.c = 3, 4, 5, .b = 2};
+struct B d = {.c = 3, .b = 2};
 int main(void)
 {
 	struct A *p;
@@ -47,10 +49,10 @@ int main(void)
 	if (p->c != 3) {
 		free(p);
 	}
-	if (p->d != 4) {
+	if (p->d != 0) {
 		free(p);
 	}
-	if (p->e != 5) {
+	if (p->e != 0) {
 		free(p);
 	}
 	if (p->f != 0) {

@@ -5,10 +5,11 @@
 
 struct A {
 	unsigned char a;
-	unsigned int b:2;
+	unsigned char b:2;
 	unsigned char c:2;
 	unsigned char d:4;
 	unsigned char e:4;
+	unsigned char pad;
 	unsigned int f;
 } __attribute__((packed));
 
