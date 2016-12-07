@@ -35,7 +35,7 @@ DUPFF DUPFFnew(const int maxdeg)
 {
   DUPFF ans = (DUPFF)malloc(sizeof(struct DUPFFstruct));
   ans->coeffs = 0;
-  if (maxdeg >= 0) ans->coeffs = (FFelem*)calloc(maxdeg+1,sizeof(FFelem));
+  if (maxdeg >= 0) ans->coeffs = (FFelem*)malloc((maxdeg+1)*sizeof(FFelem));
   ans->maxdeg = maxdeg;
   ans->deg = -1;
   return ans;
