@@ -6,6 +6,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef unsigned int FFelem;
 
@@ -35,7 +36,10 @@ DUPFF DUPFFnew(const int maxdeg)
 {
   DUPFF ans = (DUPFF)malloc(sizeof(struct DUPFFstruct));
   ans->coeffs = 0;
-  if (maxdeg >= 0) ans->coeffs = (FFelem*)malloc((maxdeg+1)*sizeof(FFelem));
+  if (maxdeg >= 0) {
+    ans->coeffs = (FFelem*)malloc((maxdeg+1)*sizeof(FFelem));
+    memset(ans->coeffs, 0, (maxdeg+1)*sizeof(FFelem));
+  }
   ans->maxdeg = maxdeg;
   ans->deg = -1;
   return ans;
