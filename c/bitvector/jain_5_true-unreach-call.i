@@ -9,19 +9,19 @@ void __VERIFIER_assert(int cond) {
 }
 int main()
 {
-  int x,y;
+  unsigned int x,y;
 
-  x=0;
-  y=4;
+  x=0U;
+  y=4U;
 
 
   while(1)
     {
       x = x + y;
-      y = y +4;
+      y = y +4U;
 
 
-      __VERIFIER_assert(x!=30);
+      __VERIFIER_assert(x!=30U);
     }
     return 0;
 }
