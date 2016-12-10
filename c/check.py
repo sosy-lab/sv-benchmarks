@@ -141,6 +141,20 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ntdrivers-simplified", "missing readme"),
     ("ssh", "missing readme"),
     ("ssh-simplified", "missing readme"),
+
+    # pull request #310
+    ("bitvector", "jain_1_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_1_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_2_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_2_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_4_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_4_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_5_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_5_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_6_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_6_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_7_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_7_false-no-overflow.i is not contained in any category"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
