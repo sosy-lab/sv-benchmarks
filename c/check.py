@@ -129,6 +129,9 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "nondet_ll_search-alloca_true-termination.c is not contained in any category"),
     ("termination-memory-alloca", "nondet_ll_traverse-alloca_false-termination.c is not contained in any category"),
 
+    ("ntdrivers", "kbfiltr_false-valid-deref.i.cil.c is not contained in any category"),
+    ("ntdrivers", "floppy_false-valid-deref.i.cil.c is not contained in any category"),
+
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
     ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
 
