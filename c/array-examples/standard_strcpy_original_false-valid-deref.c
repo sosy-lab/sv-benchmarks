@@ -1,17 +1,23 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 #define N 100000
 int main( ) {
   int src[N];
   int dst[N];
+  int j;
+  for (j = 0; j < N; ++j)
+	src[j] = __VERIFIER_nondet_int();
   int i = 0; 
+  // possible out-of-bound access
   while ( src[i] != 0 ) {
     dst[i] = src[i];
     i = i + 1;
   }
   
   i = 0;
+  // possible out-of-bound access
   while ( src[i] != 0 ) {
     __VERIFIER_assert(  dst[i] == src[i]  );
     i = i + 1;

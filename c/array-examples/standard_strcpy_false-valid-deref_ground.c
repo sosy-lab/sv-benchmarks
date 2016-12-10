@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
 #define N 100000
@@ -6,7 +7,13 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int main( ) {
   int src[N];
   int dst[N];
+  int j;
+  for (j = 0; j < N; ++j)
+	src[j] = __VERIFIER_nondet_int();
+
   int i = 0; 
+  // if src[i] != 0 for all 0 <= i < N, then
+  // i gets >= N and we'll perform an out-of-bound access to src
   while ( src[i] != 0 ) {
     dst[i] = src[i];
     i = i + 1;
