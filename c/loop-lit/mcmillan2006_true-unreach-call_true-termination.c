@@ -1,4 +1,7 @@
 // Source: Ken McMillan: "Lazy Abstraction With Interpolants", CAV 2006
+extern void *malloc (unsigned int __size) __attribute__ ((__nothrow__, __leaf__)) __attribute__ ((__malloc__)) ;
+extern int __VERIFIER_nondet_int();
+extern void __VERIFIER_assume(int);
 
 #include "assert.h"
 

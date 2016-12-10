@@ -9,13 +9,11 @@ void __VERIFIER_assert(int cond) {
 int main(void) {
   int A[1024];
   int i;
-
   for (i = 0; i < 1024; i++) {
     A[i] = __VERIFIER_nondet_int();
   }
-
   for (i = 0; A[i] != 0; i++) {
-    if (i >= 1024-1) {
+    if (i >= 1024) {
       break;
     }
   }
