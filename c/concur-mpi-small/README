@@ -5,3 +5,12 @@ any_src_true-termination.c : uses MPI_ANY_SOUCE right, np>=2
 assertion_false-unreach-call.c : assertion violated for np>=3; np>=3
 assertion_true-unreach-call.c : assertion always holds
 
+
+These benchmarks are contributed by :
+Stephen F. Siegel
+Ziqing Luo
+
+You may use and redistribute them according to the GPL(v3) license
+that is shipped with these examples.
+
+
