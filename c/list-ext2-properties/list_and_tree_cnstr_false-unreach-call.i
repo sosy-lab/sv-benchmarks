@@ -1271,7 +1271,7 @@ int main() {
         pred->right = ((void *)0);
     } else
       root = ((void *)0);
-      free(n);
+    free(n);
     }
 
 

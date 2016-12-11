@@ -77,7 +77,7 @@ int main() {
         pred->right = NULL;
     } else
       root = NULL;
-      free(n);
+    free(n);
     }
 
   /* Build a list of the form 1->...->1->2->....->2->3 */
