@@ -18,6 +18,7 @@ BLACKLIST="\
   floats-cbmc-regression/float-flags-simp1_true-unreach-call.i \
   floats-cbmc-regression/float-no-simp4_true-unreach-call.i \
   floats-esbmc-regression/trunc_nondet_2_true-unreach-call.i \
+  pthread-atomic/gcd_true-unreach-call_true-termination.i \
   seq-pthread/cs_dekker_true-unreach-call.i \
   seq-pthread/cs_fib_longer_true-unreach-call.i \
   seq-pthread/cs_fib_true-unreach-call.i \
@@ -68,7 +69,7 @@ for f in $SETS ; do
   setf=$(basename $f .set)
 
   # pthread headers are very platform dependent
-  if [ $setf = ConcurrencySafety-Main ] || [ $setf = Termination-Concurrency ] ; then
+  if [ $setf = ConcurrencySafety-Main ] ; then
     echo "Skipping category $setf (platform-dependent types)"
     continue
   fi
