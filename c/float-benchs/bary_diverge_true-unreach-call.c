@@ -55,7 +55,7 @@ int main ()
 
   for (i = 0; i < 3600000; i++) {
     bary();
-    INIT = RANDOM_INPUT(); 
+    INIT = (BOOLEAN)RANDOM_INPUT(); 
     C1 = RANDOM_INPUT(); 
     I = RANDOM_INPUT();
     wait_for_clock();
