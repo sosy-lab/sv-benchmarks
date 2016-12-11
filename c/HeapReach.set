@@ -14,3 +14,4 @@ forester-heap/*_false-unreach-call.i
 forester-heap/*_true-unreach-call.i
 
 list-ext-properties/*_false-unreach-call*.i
+list-ext2-properties/*-unreach-call*.i
