@@ -2698,7 +2698,7 @@ struct spi_message {
    struct list_head queue ;
    void *state ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static long PTR_ERR(void const   *ptr ) 
 { 
 
@@ -2712,7 +2712,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -3026,7 +3026,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

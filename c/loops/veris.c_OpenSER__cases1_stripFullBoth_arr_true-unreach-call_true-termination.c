@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern char __VERIFIER_nondet_char();
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -6,6 +7,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
+
 #ifndef _BASE_H
 #define _BASE_H
 
@@ -31,7 +33,7 @@ void __VERIFIER_assert(int cond) {
 /* I had size_t being an unsigned long before, but that led to the
  * infamous "Equality without matching types" error when I used a
  * size_t to index into an array. */
-typedef int size_t;
+typedef unsigned int size_t;
 typedef int bool;
 #define true 1
 #define false 0
@@ -170,6 +172,7 @@ static int parse_expression_list(char *str)
         }
         /* OK */
         r_strncpy(str2, str+start, j-start+1);
+        __VERIFIER_assert(j - start + 1 < EXPRESSION_LENGTH);
         str2[j-start+1] = EOS;
       } else {
         /* parsing error */
@@ -187,6 +190,11 @@ static int parse_expression_list(char *str)
 int main ()
 {
   char A [LINE_LENGTH+1];
+
+  for (int i = 0; i < LINE_LENGTH; i++) {
+    A[i] = __VERIFIER_nondet_char();
+  }
+
   A[LINE_LENGTH] = EOS;
 
   parse_expression_list (A);

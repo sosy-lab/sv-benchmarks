@@ -3631,7 +3631,7 @@ struct sym53c500_data {
    struct scsi_cmnd *current_SC ;
    int fast_pio ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern int sprintf(char * , char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
@@ -3718,7 +3718,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
   long tmp___0 ;
 
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (96), "i" (24UL));
@@ -3727,7 +3727,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
   } else {
 
   }
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   if (tmp___0 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"include/linux/scatterlist.h"),
                          "i" (97), "i" (24UL));
@@ -4664,7 +4664,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

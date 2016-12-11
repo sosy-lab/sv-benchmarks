@@ -4184,7 +4184,7 @@ struct catc {
 };
 enum hrtimer_restart;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data *f , int val , int expect ) ;
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr ) ;
@@ -5269,7 +5269,7 @@ static void catc_tx_done(struct urb *urb )
   }
   if (______r___5) {
     r = catc_tx_run(catc);
-    tmp___2 = __builtin_expect(! (! (r < 0)), 1);
+    tmp___2 = ldv__builtin_expect(! (! (r < 0)), 1);
     ______r___4 = tmp___2;
     ftrace_likely_update(& ______f___1164, ______r___4, 0);
     if (______r___4) {
@@ -6673,7 +6673,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -1,10 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void printf(char *format);
-void assert_fail(void);
-
-extern void *__VERIFIER_nondet_pointer();
-
 struct dummy {
   int a, b;
 };
@@ -20,8 +15,6 @@ int main()
     pd->b = 0;
   }
   if (pd == &d2 && d2.b != 0) {
-    printf("ERROR!\n");
-    assert_fail();
     goto ERROR;
   }
 

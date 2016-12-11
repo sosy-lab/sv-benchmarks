@@ -1,7 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void printf(char *format);
-void assert_fail(void);
 
 void g(int **p1, int **p2) {
     int *pq = *p2;
@@ -34,14 +32,10 @@ int main() {
     a = f(a, &p1, &p2);
 
     if (a != 1) {
-        printf("ERROR\n");
-        assert_fail();
         goto ERROR;
     }
 
     if (*p1) {
-        printf("ERROR\n");
-        assert_fail();
         goto ERROR;
     }
 

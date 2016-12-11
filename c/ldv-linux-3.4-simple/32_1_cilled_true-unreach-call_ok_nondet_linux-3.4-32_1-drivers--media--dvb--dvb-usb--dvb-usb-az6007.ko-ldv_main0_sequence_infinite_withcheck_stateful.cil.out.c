@@ -8292,7 +8292,7 @@ static int az6007_tuner_attach(struct dvb_usb_adapter *adap )
     __cil_tmp30 = (unsigned long )adap;
     __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
     __cil_tmp32 = *((struct dvb_frontend **)__cil_tmp31);
-    (*__cil_tmp27)(__cil_tmp32, 1);
+    //(*__cil_tmp27)(__cil_tmp32, 1);
     }
   } else {
 
@@ -8327,7 +8327,7 @@ static int az6007_tuner_attach(struct dvb_usb_adapter *adap )
     __cil_tmp40 = (unsigned long )__cil_tmp39;
     __cil_tmp41 = __cil_tmp40 + 3720;
     __cil_tmp42 = (struct i2c_adapter *)__cil_tmp41;
-    tmp___11 = (*__a)(__cil_tmp38, & az6007_mt2063_config, __cil_tmp42);
+    //tmp___11 = (*__a)(__cil_tmp38, & az6007_mt2063_config, __cil_tmp42);
     __r = (void *)tmp___11;
     }
     {
@@ -8377,7 +8377,7 @@ static int az6007_tuner_attach(struct dvb_usb_adapter *adap )
     __cil_tmp65 = (unsigned long )adap;
     __cil_tmp66 = __cil_tmp65 + __cil_tmp64;
     __cil_tmp67 = *((struct dvb_frontend **)__cil_tmp66);
-    (*__cil_tmp62)(__cil_tmp67, 0);
+    //(*__cil_tmp62)(__cil_tmp67, 0);
     }
   } else {
 
@@ -9960,6 +9960,9 @@ __aligned__(1)))  =
         (char const   )'n',      (char const   )'s',      (char const   )'e',      (char const   )'=', 
         (char const   )'G',      (char const   )'P',      (char const   )'L',      (char const   )'\000'};
 void ldv_check_final_state(void) ;
+extern void *calloc(size_t  , size_t  ) ;
+extern void __VERIFIER_assume(int  ) ;
+void *ldv_init_zalloc(size_t size );
 extern void ldv_check_return_value(int res ) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
@@ -9985,6 +9988,7 @@ void main(void)
 
   {
   {
+  var_group4 = ldv_init_zalloc(sizeof(struct dvb_usb_adapter));
   LDV_IN_INTERRUPT = 1;
   ldv_initialize();
   tmp___7 = az6007_usb_module_init();
@@ -10138,6 +10142,18 @@ void ldv_blast_assert(void)
 }
 extern int __VERIFIER_nondet_int(void) ;
 int ldv_mutex  =    1;
+void *ldv_init_zalloc(size_t size ) 
+{ 
+  void *p ;
+  void *tmp ;
+
+  {
+  tmp = calloc(1UL, size);
+  p = tmp;
+  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+  return (p);
+}
+}
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) 
 { int nondetermined ;
 

@@ -3033,7 +3033,7 @@ struct urb {
    void (*complete)(struct urb * ) ;
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data *f , int val , int expect ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern void mutex_lock_nested(struct mutex *lock , unsigned int subclass ) ;
@@ -3287,7 +3287,7 @@ static void videobuf_vm_close(struct vm_area_struct *vma )
         ______f___1053.__annonCompField3.__annonCompField2.miss = ______f___1053.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___9) {
-        tmp___2 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
+        tmp___2 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
         ______r___7 = tmp___2;
         ftrace_likely_update(& ______f___1051, ______r___7, 0);
         if (______r___7) {
@@ -3445,7 +3445,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
   {
   mem = vb->priv;
   while (1) {
-    tmp___2 = __builtin_expect(! (! (! mem)), 1);
+    tmp___2 = ldv__builtin_expect(! (! (! mem)), 1);
     ______r___2 = tmp___2;
     ftrace_likely_update(& ______f___1059, ______r___2, 0);
     if (______r___2) {
@@ -3478,7 +3478,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
     }
     break;
   }
-  tmp___7 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
+  tmp___7 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
   ______r___6 = tmp___7;
   ftrace_likely_update(& ______f___1063, ______r___6, 0);
   if (______r___6) {
@@ -3862,7 +3862,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
   (q->bufs[first])->baddr = vma->vm_start;
   mem = (q->bufs[first])->priv;
   while (1) {
-    tmp___3 = __builtin_expect(! (! (! mem)), 1);
+    tmp___3 = ldv__builtin_expect(! (! (! mem)), 1);
     ______r___10 = tmp___3;
     ftrace_likely_update(& ______f___1085, ______r___10, 0);
     if (______r___10) {
@@ -3895,7 +3895,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
     }
     break;
   }
-  tmp___8 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
+  tmp___8 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
   ______r___14 = tmp___8;
   ftrace_likely_update(& ______f___1089, ______r___14, 0);
   if (______r___14) {
@@ -4040,7 +4040,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
   {
   mem = (q->read_buf)->priv;
   while (1) {
-    tmp___2 = __builtin_expect(! (! (! mem)), 1);
+    tmp___2 = ldv__builtin_expect(! (! (! mem)), 1);
     ______r___2 = tmp___2;
     ftrace_likely_update(& ______f___1097, ______r___2, 0);
     if (______r___2) {
@@ -4073,7 +4073,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
     }
     break;
   }
-  tmp___7 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
+  tmp___7 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
   ______r___6 = tmp___7;
   ftrace_likely_update(& ______f___1101, ______r___6, 0);
   if (______r___6) {
@@ -4106,7 +4106,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
 
   }
   while (1) {
-    tmp___12 = __builtin_expect(! (! (! mem->vmalloc)), 1);
+    tmp___12 = ldv__builtin_expect(! (! (! mem->vmalloc)), 1);
     ______r___10 = tmp___12;
     ftrace_likely_update(& ______f___1105, ______r___10, 0);
     if (______r___10) {
@@ -4214,7 +4214,7 @@ static int __videobuf_copy_stream(struct videobuf_queue *q , char *data , size_t
   {
   mem = (q->read_buf)->priv;
   while (1) {
-    tmp___2 = __builtin_expect(! (! (! mem)), 1);
+    tmp___2 = ldv__builtin_expect(! (! (! mem)), 1);
     ______r___2 = tmp___2;
     ftrace_likely_update(& ______f___1111, ______r___2, 0);
     if (______r___2) {
@@ -4247,7 +4247,7 @@ static int __videobuf_copy_stream(struct videobuf_queue *q , char *data , size_t
     }
     break;
   }
-  tmp___7 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
+  tmp___7 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
   ______r___6 = tmp___7;
   ftrace_likely_update(& ______f___1115, ______r___6, 0);
   if (______r___6) {
@@ -4375,7 +4375,7 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *buf )
   {
   mem = buf->priv;
   while (1) {
-    tmp___2 = __builtin_expect(! (! (! mem)), 1);
+    tmp___2 = ldv__builtin_expect(! (! (! mem)), 1);
     ______r___2 = tmp___2;
     ftrace_likely_update(& ______f___1122, ______r___2, 0);
     if (______r___2) {
@@ -4408,7 +4408,7 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *buf )
     }
     break;
   }
-  tmp___7 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
+  tmp___7 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
   ______r___6 = tmp___7;
   ftrace_likely_update(& ______f___1126, ______r___6, 0);
   if (______r___6) {
@@ -4501,7 +4501,7 @@ void videobuf_vmalloc_free(struct videobuf_buffer *buf )
   } else {
 
   }
-  tmp___2 = __builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
+  tmp___2 = ldv__builtin_expect(! (! (mem->magic != (u32 )404886051)), 1);
   ______r___4 = tmp___2;
   ftrace_likely_update(& ______f___1132, ______r___4, 0);
   if (______r___4) {
@@ -4691,7 +4691,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

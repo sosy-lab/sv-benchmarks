@@ -1,10 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void printf(char *format);
-void assert_fail(void);
-
-extern void *__VERIFIER_nondet_pointer();
-
 struct dummy {
   int a, b;
 } global = {0, 1};
@@ -21,8 +16,6 @@ int main()
   assign(&pd->a, &pd->b);
 
   if (pd->a != global.b) {
-    printf("ERROR!\n");
-    assert_fail();
     goto ERROR;
   }
 

@@ -1,17 +1,25 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-
-void printf(char *format);
-void assert_fail(void);
-
-extern void *__VERIFIER_nondet_pointer();
+extern int __VERIFIER_nondet_int(void);
+extern _Bool __VERIFIER_nondet_bool(void);
 
 struct dummy {
   int a, b;
 };
 
+struct dummy d1, d2;
+
+void init()
+{
+  d1.a = __VERIFIER_nondet_int();
+  d1.b = __VERIFIER_nondet_int();
+
+  d2.a = __VERIFIER_nondet_int();
+  d2.b = __VERIFIER_nondet_int();
+}
+
 struct dummy *get_dummy()
 {
-  return (struct dummy *) __VERIFIER_nondet_pointer();
+  return (__VERIFIER_nondet_bool() ? &d1 : &d2);
 }
 
 int check(struct dummy *s1, struct dummy *s2)
@@ -21,11 +29,10 @@ int check(struct dummy *s1, struct dummy *s2)
 
 int main()
 {
+  init();
   struct dummy *pd1 = get_dummy(), *pd2 = get_dummy();
   if (pd1 != 0 && pd1 == pd2) {
     if (!check(pd1, pd2)) {
-      printf("ERROR!\n");
-      assert_fail();
       goto ERROR;
     }
   }

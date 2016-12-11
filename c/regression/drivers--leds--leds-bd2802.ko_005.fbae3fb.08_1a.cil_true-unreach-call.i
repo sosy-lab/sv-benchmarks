@@ -1953,7 +1953,7 @@ struct bd2802_led {
    int wave_pattern ;
    int rgb_current ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int strict_strtoul(char const   * , unsigned int  , unsigned long * ) ;
 extern int sprintf(char * , char const   *  , ...) ;
 extern int printk(char const   *  , ...) ;
@@ -2104,7 +2104,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
   long tmp___1 ;
 
   {
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
   if (tmp___1 != 0L) {
     rcu_read_lock_sched_notrace();
     tmp = debug_lockdep_rcu_enabled();
@@ -4367,7 +4367,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

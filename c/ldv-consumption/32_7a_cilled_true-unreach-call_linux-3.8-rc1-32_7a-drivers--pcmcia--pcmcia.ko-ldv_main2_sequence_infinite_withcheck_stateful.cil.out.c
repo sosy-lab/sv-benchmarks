@@ -7936,6 +7936,7 @@ extern void ldv_check_return_value_probe(int  ) ;
 void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 extern int __VERIFIER_nondet_int(void) ;
+extern void* __VERIFIER_nondet_pointer(void);
 int LDV_IN_INTERRUPT  ;
 void ldv_main0_sequence_infinite_withcheck_stateful(void) 
 { 
@@ -8806,7 +8807,8 @@ struct resource *pcmcia_find_mem_region(u_long base , u_long num , u_long align 
                                                                                             unsigned long  ,
                                                                                             int  ,
                                                                                             struct pcmcia_socket * ))0)) {
-    tmp = (*((s->resource_ops)->find_mem))(base, num, align, low, s);
+    //tmp = (*((s->resource_ops)->find_mem))(base, num, align, low, s);
+    tmp = __VERIFIER_nondet_pointer();
     return (tmp);
   } else {
 
@@ -10693,7 +10695,8 @@ static void *set_cis_map(struct pcmcia_socket *s , unsigned int card_offset , un
   }
   mem->card_start = card_offset;
   mem->flags = (u_char )flags;
-  ret = (*((s->ops)->set_mem_map))(s, mem);
+  //ret = (*((s->ops)->set_mem_map))(s, mem);
+  ret = __VERIFIER_nondet_int();
   if (ret != 0) {
     iounmap((void volatile   *)s->cis_virt);
     s->cis_virt = 0;
@@ -13111,6 +13114,10 @@ static ssize_t pccard_store_cis(struct file *filp , struct kobject *kobj , struc
 struct bin_attribute pccard_cis_attr  =    {{"cis", 420U, (_Bool)0, 0, {{{(char)0}, {(char)0}, {(char)0}, {(char)0}, {(char)0},
                                  {(char)0}, {(char)0}, {(char)0}}}}, 512UL, 0, & pccard_show_cis,
     & pccard_store_cis, 0};
+    
+extern void *calloc(size_t  , size_t  ) ;
+extern void __VERIFIER_assume(int  ) ;
+void *ldv_init_zalloc(size_t size );
 int main(void) 
 { 
   struct file *var_group1 ;
@@ -13127,6 +13134,8 @@ int main(void)
   int tmp___0 ;
 
   {
+  var_group1 = ldv_init_zalloc(sizeof(struct file));
+  var_group1 = ldv_init_zalloc(sizeof(struct kobject));
   LDV_IN_INTERRUPT = 1;
   ldv_initialize();
   goto ldv_25188;
@@ -13158,6 +13167,19 @@ int main(void)
 
   ldv_check_final_state();
   return 0;
+}
+}
+
+void *ldv_init_zalloc(size_t size ) 
+{ 
+  void *p ;
+  void *tmp ;
+
+  {
+  tmp = calloc(1UL, size);
+  p = tmp;
+  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+  return (p);
 }
 }
 void ldv_mutex_lock_199(struct mutex *ldv_func_arg1 ) 

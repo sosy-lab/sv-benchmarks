@@ -59,6 +59,13 @@ int ssl3_connect(int initial_state )
 
   {
   s__state = initial_state;
+  s__info_callback = __VERIFIER_nondet_int();
+  s__ctx__info_callback = __VERIFIER_nondet_int();
+  s__ctx__stats__sess_connect_renegotiate = __VERIFIER_nondet_int();
+  s__in_handshake = __VERIFIER_nondet_int();
+  s__version = __VERIFIER_nondet_int();
+  tmp___1 = __VERIFIER_nondet_int();
+  tmp___2 = __VERIFIER_nondet_int();
   blastFlag = 0;
   cb = 0;
   ret = -1;

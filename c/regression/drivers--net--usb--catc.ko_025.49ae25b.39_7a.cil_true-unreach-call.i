@@ -4779,7 +4779,7 @@ struct catc {
    atomic_t recq_sz ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -5077,13 +5077,13 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp != 0L) {
     warn_slowpath_null("include/linux/netdevice.h", 1870);
   } else {
 
   }
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp___0 != 0L) {
     printk("\016netif_stop_queue() cannot be called before register_netdev()\n");
     return;
@@ -5263,7 +5263,7 @@ static void catc_rx_done(struct urb *urb )
     descriptor.format = "rx_done, status %d, length %d\n";
     descriptor.lineno = 340U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (urb->dev)->dev),
                         "rx_done, status %d, length %d\n", status, urb->actual_length);
@@ -5323,7 +5323,7 @@ static void catc_rx_done(struct urb *urb )
       descriptor___0.format = "getting extra packet\n";
       descriptor___0.lineno = 379U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       if (tmp___1 != 0L) {
         __dynamic_netdev_dbg(& descriptor___0, (struct net_device  const  *)catc->netdev,
                              "getting extra packet\n");
@@ -5339,7 +5339,7 @@ static void catc_rx_done(struct urb *urb )
         descriptor___1.format = "submit(rx_urb) status %d\n";
         descriptor___1.lineno = 383U;
         descriptor___1.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         if (tmp___2 != 0L) {
           __dynamic_netdev_dbg(& descriptor___1, (struct net_device  const  *)catc->netdev,
                                "submit(rx_urb) status %d\n", state);
@@ -5417,7 +5417,7 @@ static void catc_irq_done(struct urb *urb )
   descriptor.format = "irq_done, status %d, data %02x %02x.\n";
   descriptor.lineno = 424U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (urb->dev)->dev),
                       "irq_done, status %d, data %02x %02x.\n", status, (int )*data,
@@ -5436,7 +5436,7 @@ static void catc_irq_done(struct urb *urb )
     descriptor___0.format = "link ok\n";
     descriptor___0.lineno = 430U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___1 != 0L) {
       __dynamic_netdev_dbg(& descriptor___0, (struct net_device  const  *)catc->netdev,
                            "link ok\n");
@@ -5454,7 +5454,7 @@ static void catc_irq_done(struct urb *urb )
     descriptor___1.format = "link bad\n";
     descriptor___1.lineno = 435U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_netdev_dbg(& descriptor___1, (struct net_device  const  *)catc->netdev,
                            "link bad\n");
@@ -5545,7 +5545,7 @@ static void catc_tx_done(struct urb *urb )
     descriptor.format = "Tx Reset.\n";
     descriptor.lineno = 492U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (urb->dev)->dev),
                         "Tx Reset.\n");
@@ -5568,7 +5568,7 @@ static void catc_tx_done(struct urb *urb )
     descriptor___0.format = "tx_done, status %d, length %d\n";
     descriptor___0.lineno = 503U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___0 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& (urb->dev)->dev),
                         "tx_done, status %d, length %d\n", status, urb->actual_length);
@@ -5582,7 +5582,7 @@ static void catc_tx_done(struct urb *urb )
   ldv___ldv_spin_lock_31(& catc->tx_lock);
   if (catc->tx_ptr != 0U) {
     r = catc_tx_run(catc);
-    tmp___1 = __builtin_expect(r < 0, 0L);
+    tmp___1 = ldv__builtin_expect(r < 0, 0L);
     if (tmp___1 != 0L) {
       clear_bit(2, (unsigned long volatile   *)(& catc->flags));
     } else {
@@ -5754,7 +5754,7 @@ static void catc_ctrl_done(struct urb *urb )
     descriptor.format = "ctrl_done, status %d, len %d.\n";
     descriptor.lineno = 620U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (urb->dev)->dev),
                         "ctrl_done, status %d, len %d.\n", status, urb->actual_length);
@@ -5962,7 +5962,7 @@ static void catc_set_multicast_list(struct net_device *netdev )
       descriptor.format = "Setting RX mode to %2.2X %2.2X\n";
       descriptor.lineno = 778U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       if (tmp___1 != 0L) {
         __dynamic_netdev_dbg(& descriptor, (struct net_device  const  *)catc->netdev,
                              "Setting RX mode to %2.2X %2.2X\n", (int )catc->rxmode[0],
@@ -6176,7 +6176,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor.format = "Testing for f5u011\n";
     descriptor.lineno = 929U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     if (tmp___2 != 0L) {
       __dynamic_dev_dbg(& descriptor, (struct device  const  *)dev, "Testing for f5u011\n");
     } else {
@@ -6207,7 +6207,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___0.format = "Checking memory size\n";
     descriptor___0.lineno = 950U;
     descriptor___0.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     if (tmp___7 != 0L) {
       __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)dev, "Checking memory size\n");
     } else {
@@ -6228,7 +6228,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___1.format = "64k Memory\n";
     descriptor___1.lineno = 962U;
     descriptor___1.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     if (tmp___8 != 0L) {
       __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)dev, "64k Memory\n");
     } else {
@@ -6246,7 +6246,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___2.format = "32k Memory\n";
     descriptor___2.lineno = 970U;
     descriptor___2.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     if (tmp___9 != 0L) {
       __dynamic_dev_dbg(& descriptor___2, (struct device  const  *)dev, "32k Memory\n");
     } else {
@@ -6261,7 +6261,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___3.format = "Getting MAC from SEEROM.\n";
     descriptor___3.lineno = 974U;
     descriptor___3.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     if (tmp___10 != 0L) {
       __dynamic_dev_dbg(& descriptor___3, (struct device  const  *)dev, "Getting MAC from SEEROM.\n");
     } else {
@@ -6274,7 +6274,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___4.format = "Setting MAC into registers.\n";
     descriptor___4.lineno = 978U;
     descriptor___4.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     if (tmp___11 != 0L) {
       __dynamic_dev_dbg(& descriptor___4, (struct device  const  *)dev, "Setting MAC into registers.\n");
     } else {
@@ -6298,7 +6298,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___5.format = "Filling the multicast list.\n";
     descriptor___5.lineno = 983U;
     descriptor___5.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     if (tmp___12 != 0L) {
       __dynamic_dev_dbg(& descriptor___5, (struct device  const  *)dev, "Filling the multicast list.\n");
     } else {
@@ -6314,7 +6314,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___6.format = "Clearing error counters.\n";
     descriptor___6.lineno = 990U;
     descriptor___6.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     if (tmp___13 != 0L) {
       __dynamic_dev_dbg(& descriptor___6, (struct device  const  *)dev, "Clearing error counters.\n");
     } else {
@@ -6338,7 +6338,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___7.format = "Enabling.\n";
     descriptor___7.lineno = 996U;
     descriptor___7.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     if (tmp___14 != 0L) {
       __dynamic_dev_dbg(& descriptor___7, (struct device  const  *)dev, "Enabling.\n");
     } else {
@@ -6355,7 +6355,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___8.format = "Performing reset\n";
     descriptor___8.lineno = 1003U;
     descriptor___8.flags = 0U;
-    tmp___15 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     if (tmp___15 != 0L) {
       __dynamic_dev_dbg(& descriptor___8, (struct device  const  *)dev, "Performing reset\n");
     } else {
@@ -6369,7 +6369,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
     descriptor___9.format = "Setting RX Mode\n";
     descriptor___9.lineno = 1007U;
     descriptor___9.flags = 0U;
-    tmp___16 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     if (tmp___16 != 0L) {
       __dynamic_dev_dbg(& descriptor___9, (struct device  const  *)dev, "Setting RX Mode\n");
     } else {
@@ -6385,7 +6385,7 @@ static int catc_probe(struct usb_interface *intf , struct usb_device_id  const  
   descriptor___10.format = "Init done.\n";
   descriptor___10.lineno = 1012U;
   descriptor___10.flags = 0U;
-  tmp___17 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
   if (tmp___17 != 0L) {
     __dynamic_dev_dbg(& descriptor___10, (struct device  const  *)dev, "Init done.\n");
   } else {
@@ -6662,7 +6662,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

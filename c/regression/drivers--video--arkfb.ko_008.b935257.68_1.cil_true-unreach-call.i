@@ -3817,7 +3817,7 @@ struct urb {
    void (*complete)(struct urb * ) ;
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data *f , int val , int expect ) ;
 extern long long dynamic_debug_enabled ;
 extern long long dynamic_debug_enabled2 ;
@@ -5692,7 +5692,7 @@ static int arkfb_set_par(struct fb_info *info )
   while (1) {
     while (1) {
       __ret___1 = 0;
-      tmp___28 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___28 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                   1);
       ______r___24 = tmp___28;
       ftrace_likely_update(& ______f___1010, ______r___24, 0);
@@ -5708,7 +5708,7 @@ static int arkfb_set_par(struct fb_info *info )
         ______f___1009.__annonCompField3.__annonCompField2.miss = ______f___1009.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___23) {
-        tmp___23 = __builtin_expect(! (! descriptor.flags), 1);
+        tmp___23 = ldv__builtin_expect(! (! descriptor.flags), 1);
         ______r___20 = tmp___23;
         ftrace_likely_update(& ______f___1006, ______r___20, 0);
         if (______r___20) {
@@ -5783,7 +5783,7 @@ static int arkfb_set_par(struct fb_info *info )
   while (1) {
     while (1) {
       __ret___4 = 0;
-      tmp___61 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___61 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                   1);
       ______r___51 = tmp___61;
       ftrace_likely_update(& ______f___1037, ______r___51, 0);
@@ -5799,7 +5799,7 @@ static int arkfb_set_par(struct fb_info *info )
         ______f___1036.__annonCompField3.__annonCompField2.miss = ______f___1036.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___50) {
-        tmp___56 = __builtin_expect(! (! descriptor___0.flags), 1);
+        tmp___56 = ldv__builtin_expect(! (! descriptor___0.flags), 1);
         ______r___47 = tmp___56;
         ftrace_likely_update(& ______f___1033, ______r___47, 0);
         if (______r___47) {
@@ -5850,7 +5850,7 @@ static int arkfb_set_par(struct fb_info *info )
   while (1) {
     while (1) {
       __ret___7 = 0;
-      tmp___93 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___93 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                   1);
       ______r___76 = tmp___93;
       ftrace_likely_update(& ______f___1062, ______r___76, 0);
@@ -5866,7 +5866,7 @@ static int arkfb_set_par(struct fb_info *info )
         ______f___1061.__annonCompField3.__annonCompField2.miss = ______f___1061.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___75) {
-        tmp___88 = __builtin_expect(! (! descriptor___1.flags), 1);
+        tmp___88 = ldv__builtin_expect(! (! descriptor___1.flags), 1);
         ______r___72 = tmp___88;
         ftrace_likely_update(& ______f___1058, ______r___72, 0);
         if (______r___72) {
@@ -5917,7 +5917,7 @@ static int arkfb_set_par(struct fb_info *info )
   while (1) {
     while (1) {
       __ret___10 = 0;
-      tmp___125 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___125 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                    1);
       ______r___101 = tmp___125;
       ftrace_likely_update(& ______f___1087, ______r___101, 0);
@@ -5933,7 +5933,7 @@ static int arkfb_set_par(struct fb_info *info )
         ______f___1086.__annonCompField3.__annonCompField2.miss = ______f___1086.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___100) {
-        tmp___120 = __builtin_expect(! (! descriptor___2.flags), 1);
+        tmp___120 = ldv__builtin_expect(! (! descriptor___2.flags), 1);
         ______r___97 = tmp___120;
         ftrace_likely_update(& ______f___1083, ______r___97, 0);
         if (______r___97) {
@@ -5983,7 +5983,7 @@ static int arkfb_set_par(struct fb_info *info )
   while (1) {
     while (1) {
       __ret___13 = 0;
-      tmp___157 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___157 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                    1);
       ______r___126 = tmp___157;
       ftrace_likely_update(& ______f___1112, ______r___126, 0);
@@ -5999,7 +5999,7 @@ static int arkfb_set_par(struct fb_info *info )
         ______f___1111.__annonCompField3.__annonCompField2.miss = ______f___1111.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___125) {
-        tmp___152 = __builtin_expect(! (! descriptor___3.flags), 1);
+        tmp___152 = ldv__builtin_expect(! (! descriptor___3.flags), 1);
         ______r___122 = tmp___152;
         ftrace_likely_update(& ______f___1108, ______r___122, 0);
         if (______r___122) {
@@ -6052,7 +6052,7 @@ static int arkfb_set_par(struct fb_info *info )
     while (1) {
       while (1) {
         __ret___16 = 0;
-        tmp___189 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+        tmp___189 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                      1);
         ______r___151 = tmp___189;
         ftrace_likely_update(& ______f___1137, ______r___151, 0);
@@ -6068,7 +6068,7 @@ static int arkfb_set_par(struct fb_info *info )
           ______f___1136.__annonCompField3.__annonCompField2.miss = ______f___1136.__annonCompField3.__annonCompField2.miss + 1UL;
         }
         if (______r___150) {
-          tmp___184 = __builtin_expect(! (! descriptor___4.flags), 1);
+          tmp___184 = ldv__builtin_expect(! (! descriptor___4.flags), 1);
           ______r___147 = tmp___184;
           ftrace_likely_update(& ______f___1133, ______r___147, 0);
           if (______r___147) {
@@ -6116,7 +6116,7 @@ static int arkfb_set_par(struct fb_info *info )
     while (1) {
       while (1) {
         __ret___19 = 0;
-        tmp___221 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+        tmp___221 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                      1);
         ______r___176 = tmp___221;
         ftrace_likely_update(& ______f___1162, ______r___176, 0);
@@ -6132,7 +6132,7 @@ static int arkfb_set_par(struct fb_info *info )
           ______f___1161.__annonCompField3.__annonCompField2.miss = ______f___1161.__annonCompField3.__annonCompField2.miss + 1UL;
         }
         if (______r___175) {
-          tmp___216 = __builtin_expect(! (! descriptor___5.flags), 1);
+          tmp___216 = ldv__builtin_expect(! (! descriptor___5.flags), 1);
           ______r___172 = tmp___216;
           ftrace_likely_update(& ______f___1158, ______r___172, 0);
           if (______r___172) {
@@ -6183,7 +6183,7 @@ static int arkfb_set_par(struct fb_info *info )
   while (1) {
     while (1) {
       __ret___22 = 0;
-      tmp___253 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___253 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                    1);
       ______r___202 = tmp___253;
       ftrace_likely_update(& ______f___1188, ______r___202, 0);
@@ -6199,7 +6199,7 @@ static int arkfb_set_par(struct fb_info *info )
         ______f___1187.__annonCompField3.__annonCompField2.miss = ______f___1187.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___201) {
-        tmp___248 = __builtin_expect(! (! descriptor___6.flags), 1);
+        tmp___248 = ldv__builtin_expect(! (! descriptor___6.flags), 1);
         ______r___198 = tmp___248;
         ftrace_likely_update(& ______f___1184, ______r___198, 0);
         if (______r___198) {
@@ -6249,7 +6249,7 @@ static int arkfb_set_par(struct fb_info *info )
   while (1) {
     while (1) {
       __ret___25 = 0;
-      tmp___285 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___285 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                    1);
       ______r___227 = tmp___285;
       ftrace_likely_update(& ______f___1213, ______r___227, 0);
@@ -6265,7 +6265,7 @@ static int arkfb_set_par(struct fb_info *info )
         ______f___1212.__annonCompField3.__annonCompField2.miss = ______f___1212.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___226) {
-        tmp___280 = __builtin_expect(! (! descriptor___7.flags), 1);
+        tmp___280 = ldv__builtin_expect(! (! descriptor___7.flags), 1);
         ______r___223 = tmp___280;
         ftrace_likely_update(& ______f___1209, ______r___223, 0);
         if (______r___223) {
@@ -6315,7 +6315,7 @@ static int arkfb_set_par(struct fb_info *info )
   while (1) {
     while (1) {
       __ret___28 = 0;
-      tmp___317 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___317 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                    1);
       ______r___252 = tmp___317;
       ftrace_likely_update(& ______f___1238, ______r___252, 0);
@@ -6331,7 +6331,7 @@ static int arkfb_set_par(struct fb_info *info )
         ______f___1237.__annonCompField3.__annonCompField2.miss = ______f___1237.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___251) {
-        tmp___312 = __builtin_expect(! (! descriptor___8.flags), 1);
+        tmp___312 = ldv__builtin_expect(! (! descriptor___8.flags), 1);
         ______r___248 = tmp___312;
         ftrace_likely_update(& ______f___1234, ______r___248, 0);
         if (______r___248) {
@@ -6383,7 +6383,7 @@ static int arkfb_set_par(struct fb_info *info )
   while (1) {
     while (1) {
       __ret___31 = 0;
-      tmp___349 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___349 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                    1);
       ______r___277 = tmp___349;
       ftrace_likely_update(& ______f___1263, ______r___277, 0);
@@ -6399,7 +6399,7 @@ static int arkfb_set_par(struct fb_info *info )
         ______f___1262.__annonCompField3.__annonCompField2.miss = ______f___1262.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___276) {
-        tmp___344 = __builtin_expect(! (! descriptor___9.flags), 1);
+        tmp___344 = ldv__builtin_expect(! (! descriptor___9.flags), 1);
         ______r___273 = tmp___344;
         ftrace_likely_update(& ______f___1259, ______r___273, 0);
         if (______r___273) {
@@ -6701,7 +6701,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   while (1) {
     while (1) {
       __ret___1 = 0;
-      tmp___28 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___28 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                   1);
       ______r___23 = tmp___28;
       ftrace_likely_update(& ______f___1295, ______r___23, 0);
@@ -6717,7 +6717,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
         ______f___1294.__annonCompField3.__annonCompField2.miss = ______f___1294.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___22) {
-        tmp___23 = __builtin_expect(! (! descriptor___10.flags), 1);
+        tmp___23 = ldv__builtin_expect(! (! descriptor___10.flags), 1);
         ______r___19 = tmp___23;
         ftrace_likely_update(& ______f___1291, ______r___19, 0);
         if (______r___19) {
@@ -6766,7 +6766,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   while (1) {
     while (1) {
       __ret___4 = 0;
-      tmp___60 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___60 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                   1);
       ______r___48 = tmp___60;
       ftrace_likely_update(& ______f___1320, ______r___48, 0);
@@ -6782,7 +6782,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
         ______f___1319.__annonCompField3.__annonCompField2.miss = ______f___1319.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___47) {
-        tmp___55 = __builtin_expect(! (! descriptor___11.flags), 1);
+        tmp___55 = ldv__builtin_expect(! (! descriptor___11.flags), 1);
         ______r___44 = tmp___55;
         ftrace_likely_update(& ______f___1316, ______r___44, 0);
         if (______r___44) {
@@ -6833,7 +6833,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
   while (1) {
     while (1) {
       __ret___7 = 0;
-      tmp___92 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___92 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                   1);
       ______r___73 = tmp___92;
       ftrace_likely_update(& ______f___1345, ______r___73, 0);
@@ -6849,7 +6849,7 @@ static int arkfb_blank(int blank_mode , struct fb_info *info )
         ______f___1344.__annonCompField3.__annonCompField2.miss = ______f___1344.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___72) {
-        tmp___87 = __builtin_expect(! (! descriptor___12.flags), 1);
+        tmp___87 = ldv__builtin_expect(! (! descriptor___12.flags), 1);
         ______r___69 = tmp___87;
         ftrace_likely_update(& ______f___1341, ______r___69, 0);
         if (______r___69) {
@@ -7413,7 +7413,7 @@ static void arkfb_cleanup(void)
   while (1) {
     while (1) {
       __ret___1 = 0;
-      tmp___28 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___28 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                   1);
       ______r___23 = tmp___28;
       ftrace_likely_update(& ______f___1386, ______r___23, 0);
@@ -7429,7 +7429,7 @@ static void arkfb_cleanup(void)
         ______f___1385.__annonCompField3.__annonCompField2.miss = ______f___1385.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___22) {
-        tmp___23 = __builtin_expect(! (! descriptor___13.flags), 1);
+        tmp___23 = ldv__builtin_expect(! (! descriptor___13.flags), 1);
         ______r___19 = tmp___23;
         ftrace_likely_update(& ______f___1382, ______r___19, 0);
         if (______r___19) {
@@ -7515,7 +7515,7 @@ static int arkfb_init(void)
   while (1) {
     while (1) {
       __ret___1 = 0;
-      tmp___28 = __builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
+      tmp___28 = ldv__builtin_expect(! (! (dynamic_debug_enabled & (1LL << 16) && dynamic_debug_enabled2 & (1LL << 32))),
                                   1);
       ______r___23 = tmp___28;
       ftrace_likely_update(& ______f___1411, ______r___23, 0);
@@ -7531,7 +7531,7 @@ static int arkfb_init(void)
         ______f___1410.__annonCompField3.__annonCompField2.miss = ______f___1410.__annonCompField3.__annonCompField2.miss + 1UL;
       }
       if (______r___22) {
-        tmp___23 = __builtin_expect(! (! descriptor___14.flags), 1);
+        tmp___23 = ldv__builtin_expect(! (! descriptor___14.flags), 1);
         ______r___19 = tmp___23;
         ftrace_likely_update(& ______f___1407, ______r___19, 0);
         if (______r___19) {
@@ -7816,7 +7816,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

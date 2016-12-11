@@ -2328,7 +2328,7 @@ struct fst_card_info {
    int dma_rxpos ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(int nr , void volatile   *addr ) 
 { 
 
@@ -2465,7 +2465,7 @@ __inline static int try_module_get(struct module *module )
     ldv_8648: 
     cpu = ret__;
     tmp = module_is_live(module);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     if (tmp___0 != 0L) {
       local_inc(& module->ref[cpu].count);
     } else {
@@ -4940,7 +4940,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -331,6 +331,6 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 int main() {
  short a = 32767;
  unsigned short b = a + a + a;
- printf("value %u",b);
+ printf("value %hu",b);
  return 0;
 }

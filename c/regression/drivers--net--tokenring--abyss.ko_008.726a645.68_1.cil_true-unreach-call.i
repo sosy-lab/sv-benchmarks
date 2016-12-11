@@ -3410,7 +3410,7 @@ struct urb {
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern void *__memcpy(void *to , void const   *from , size_t len ) ;
 int init_module(void) ;
@@ -4078,7 +4078,7 @@ static void abyss_detach(struct pci_dev *pdev )
   tmp = pci_get_drvdata(pdev);
   dev = tmp;
   while (1) {
-    tmp___0 = __builtin_expect(! (! (! dev)), 0);
+    tmp___0 = ldv__builtin_expect(! (! (! dev)), 0);
     if (tmp___0) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -4242,7 +4242,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_stop)(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

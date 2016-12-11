@@ -26,10 +26,15 @@ int ackermann(int m, int n) {
 int main() {
     int m = __VERIFIER_nondet_int();
     if (m < 0 || m > 3) {
+        // additional branch to avoid undefined behavior 
+        // (because of signed integer overflow)
         return 0;
     }
     int n = __VERIFIER_nondet_int();
     if (n < 0 || n > 23) {
+        // additional branch to avoid undefined behavior 
+        // (because of signed integer overflow)
+        // 
         return 0;
     }
     int result = ackermann(m,n);

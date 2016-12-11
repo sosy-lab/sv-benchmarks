@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern char __VERIFIER_nondet_char();
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -6,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-typedef int size_t;
+typedef unsigned int size_t;
 typedef int bool;
 char *strchr(const char *s, int c);
 char *strrchr(const char *s, int c);
@@ -63,6 +64,7 @@ static int parse_expression_list(char *str)
           return -1;
         }
         r_strncpy(str2, str+start, j-start+1);
+        __VERIFIER_assert(j - start + 1 < 2);
         str2[j-start+1] = 0;
       } else {
         return -1;
@@ -75,6 +77,11 @@ static int parse_expression_list(char *str)
 int main ()
 {
   char A [2 + 2 + 4 +1];
+
+  for (int i = 0; i < 2 + 2 + 4; i++) {
+    A[i] = __VERIFIER_nondet_char();
+  }
+
   A[2 + 2 + 4] = 0;
   parse_expression_list (A);
   return 0;

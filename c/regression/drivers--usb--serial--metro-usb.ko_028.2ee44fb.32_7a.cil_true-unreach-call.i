@@ -3462,7 +3462,7 @@ struct metrousb_private {
    unsigned long control_state ;
 };
 typedef int ldv_func_ret_type___6;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
 extern int mutex_trylock(struct mutex * ) ;
@@ -3691,7 +3691,7 @@ static void metrousb_read_int_callback(struct urb *urb )
   descriptor.format = "%s\n";
   descriptor.lineno = 154U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s\n",
                       "metrousb_read_int_callback");
@@ -3710,7 +3710,7 @@ static void metrousb_read_int_callback(struct urb *urb )
   descriptor___0.format = "%s - urb shutting down, error code=%d\n";
   descriptor___0.lineno = 166U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___1 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev), "%s - urb shutting down, error code=%d\n",
                       "metrousb_read_int_callback", urb->status);
@@ -3725,7 +3725,7 @@ static void metrousb_read_int_callback(struct urb *urb )
   descriptor___1.format = "%s - non-zero urb received, error code=%d\n";
   descriptor___1.lineno = 171U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   if (tmp___2 != 0L) {
     __dynamic_dev_dbg(& descriptor___1, (struct device  const  *)(& port->dev), "%s - non-zero urb received, error code=%d\n",
                       "metrousb_read_int_callback", urb->status);
@@ -3796,7 +3796,7 @@ static void metrousb_cleanup(struct usb_serial_port *port )
   descriptor.format = "%s\n";
   descriptor.lineno = 228U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s\n",
                       "metrousb_cleanup");
@@ -3841,7 +3841,7 @@ static int metrousb_open(struct tty_struct *tty , struct usb_serial_port *port )
   descriptor.format = "%s\n";
   descriptor.lineno = 246U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& port->dev), "%s\n",
                       "metrousb_open");
@@ -3887,7 +3887,7 @@ static int metrousb_open(struct tty_struct *tty , struct usb_serial_port *port )
   descriptor___0.format = "%s - port open\n";
   descriptor___0.lineno = 288U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   if (tmp___3 != 0L) {
     __dynamic_dev_dbg(& descriptor___0, (struct device  const  *)(& port->dev), "%s - port open\n",
                       "metrousb_open");
@@ -3915,7 +3915,7 @@ static int metrousb_set_modem_ctrl(struct usb_serial *serial , unsigned int cont
   descriptor.format = "%s - control state = %d\n";
   descriptor.lineno = 299U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)(& (serial->dev)->dev),
                       "%s - control state = %d\n", "metrousb_set_modem_ctrl", control_state);
@@ -3998,7 +3998,7 @@ static void metrousb_throttle(struct tty_struct *tty )
   descriptor.format = "%s\n";
   descriptor.lineno = 350U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)tty->dev, "%s\n", "metrousb_throttle");
   } else {
@@ -4034,7 +4034,7 @@ static int metrousb_tiocmget(struct tty_struct *tty )
   descriptor.format = "%s\n";
   descriptor.lineno = 365U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)tty->dev, "%s\n", "metrousb_tiocmget");
   } else {
@@ -4073,7 +4073,7 @@ static int metrousb_tiocmset(struct tty_struct *tty , unsigned int set , unsigne
   descriptor.format = "%s - set=%d, clear=%d\n";
   descriptor.lineno = 383U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)tty->dev, "%s - set=%d, clear=%d\n",
                       "metrousb_tiocmset", set, clear);
@@ -4132,7 +4132,7 @@ static void metrousb_unthrottle(struct tty_struct *tty )
   descriptor.format = "%s\n";
   descriptor.lineno = 410U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   if (tmp___0 != 0L) {
     __dynamic_dev_dbg(& descriptor, (struct device  const  *)tty->dev, "%s\n", "metrousb_unthrottle");
   } else {
@@ -4396,7 +4396,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -3972,7 +3972,7 @@ void ldv___ldv_spin_unlock_18(spinlock_t *ldv_func_arg1 )
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __bad_pda_field(void) ;
 extern struct x8664_pda _proxy_pda ;
@@ -4090,7 +4090,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
   __asm__  volatile   ("1:\tmovq %2,%1\n2:\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .section __ex_table,\"a\"\n .balign 8 \n .quad 1b,3b\n .previous\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   if (tmp___0 != 0L) {
     return (ret);
   } else {
@@ -4104,7 +4104,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
   __asm__  volatile   ("1:\tmovq %2,%1\n2:\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .section __ex_table,\"a\"\n .balign 8 \n .quad 1b,3b\n .previous\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   if (tmp___1 != 0L) {
     return (ret);
   } else {
@@ -5123,7 +5123,7 @@ static int i915_batchbuffer(struct drm_device *dev , void *data , struct drm_fil
     tmp = current_thread_info();
     __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (batch->cliprects),
               "g" ((long )((unsigned long )batch->num_cliprects * 8UL)), "rm" (tmp->addr_limit.seg));
-    tmp___0 = __builtin_expect(flag == 0UL, 1L);
+    tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
     if (tmp___0 == 0L) {
       return (-14);
     } else {
@@ -5172,7 +5172,7 @@ static int i915_cmdbuffer(struct drm_device *dev , void *data , struct drm_file 
     tmp = current_thread_info();
     __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (cmdbuf->cliprects),
               "g" ((long )((unsigned long )cmdbuf->num_cliprects * 8UL)), "rm" (tmp->addr_limit.seg));
-    tmp___0 = __builtin_expect(flag == 0UL, 1L);
+    tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
     if (tmp___0 == 0L) {
       printk("<3>[drm:%s] *ERROR* Fault accessing cliprects\n", "i915_cmdbuffer");
       return (-14);
@@ -5808,7 +5808,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -6515,9 +6515,9 @@ void i915_user_irq_put(struct drm_device *dev )
   {
   dev_priv = (drm_i915_private_t *)dev->dev_private;
   ldv___ldv_spin_lock_104(& dev_priv->user_irq_lock);
-  tmp = __builtin_expect(dev->irq_enabled != 0, 0L);
+  tmp = ldv__builtin_expect(dev->irq_enabled != 0, 0L);
   if (tmp != 0L) {
-    tmp___0 = __builtin_expect(dev_priv->user_irq_refcount <= 0, 0L);
+    tmp___0 = ldv__builtin_expect(dev_priv->user_irq_refcount <= 0, 0L);
     if (tmp___0 != 0L) {
       __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/17/dscv_tempdir/dscv/ri/39_7a/drivers/gpu/drm/i915/i915_irq.c.prepared"),
                            "i" (550), "i" (24UL));
@@ -9589,7 +9589,7 @@ static int compat_i915_batchbuffer(struct file *file , unsigned int cmd , unsign
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (batchbuffer),
             "g" (32L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -9809,7 +9809,7 @@ static int compat_i915_cmdbuffer(struct file *file , unsigned int cmd , unsigned
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (cmdbuffer),
             "g" (32L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -10024,7 +10024,7 @@ static int compat_i915_irq_emit(struct file *file , unsigned int cmd , unsigned 
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (request),
             "g" (8L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -10090,7 +10090,7 @@ static int compat_i915_getparam(struct file *file , unsigned int cmd , unsigned 
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (request),
             "g" (16L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -10188,7 +10188,7 @@ static int compat_i915_alloc(struct file *file , unsigned int cmd , unsigned lon
   tmp___1 = current_thread_info();
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (request),
             "g" (24L), "rm" (tmp___1->addr_limit.seg));
-  tmp___2 = __builtin_expect(flag == 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(flag == 0UL, 1L);
   if (tmp___2 == 0L) {
     return (-14);
   } else {
@@ -10546,7 +10546,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

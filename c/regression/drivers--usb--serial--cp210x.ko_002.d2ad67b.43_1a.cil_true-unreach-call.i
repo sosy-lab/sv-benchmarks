@@ -6188,7 +6188,7 @@ int ldv_usb_submit_urb_11(struct urb *ldv_func_arg1 , gfp_t ldv_func_arg2 )
   return (tmp);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ldv_error(void) 
 { 
 
@@ -6198,7 +6198,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

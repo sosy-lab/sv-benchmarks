@@ -6157,7 +6157,7 @@ int main(void)
   return 0;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void kfree(void const   * ) ;
 extern unsigned long volatile   jiffies  __attribute__((__section__(".data"))) ;
 extern void init_timer(struct timer_list *timer ) ;
@@ -6185,7 +6185,7 @@ __inline static void add_timer(struct timer_list *timer )
     } else {
       tmp___0 = 0;
     }
-    tmp___1 = __builtin_expect(tmp___0, 0);
+    tmp___1 = ldv__builtin_expect(tmp___0, 0);
     if (tmp___1) {
       while (1) {
         __asm__  volatile   ("1:\tud2\n"
@@ -6771,13 +6771,13 @@ __inline static int sk_del_node_init(struct sock *sk )
   rc = tmp;
   if (rc) {
     __ret_warn_on = ! (! (sk->__sk_common.skc_refcnt.counter == 1));
-    tmp___0 = __builtin_expect(! (! __ret_warn_on), 0);
+    tmp___0 = ldv__builtin_expect(! (! __ret_warn_on), 0);
     if (tmp___0) {
       warn_on_slowpath("include/net/sock.h", 358);
     } else {
 
     }
-    __builtin_expect(! (! __ret_warn_on), 0);
+    ldv__builtin_expect(! (! __ret_warn_on), 0);
     __sock_put(sk);
   } else {
 
@@ -6909,7 +6909,7 @@ __inline static struct sk_buff *_l2_alloc_skb(unsigned int len , gfp_t gfp_mask 
 
   {
   skb = alloc_skb(len + 4U, gfp_mask);
-  tmp = __builtin_expect(! (! skb), 1);
+  tmp = ldv__builtin_expect(! (! skb), 1);
   if (tmp) {
     skb_reserve(skb, 4);
   } else {
@@ -8204,7 +8204,7 @@ __inline static struct sk_buff *mI_alloc_skb(unsigned int len , gfp_t gfp_mask )
 
   {
   skb = alloc_skb((unsigned long )len + sizeof(struct mISDNhead ), gfp_mask);
-  tmp = __builtin_expect(! (! skb), 1);
+  tmp = ldv__builtin_expect(! (! skb), 1);
   if (tmp) {
     skb_reserve(skb, sizeof(struct mISDNhead ));
   } else {
@@ -8307,7 +8307,7 @@ static void dchannel_bh(struct work_struct *ws )
       } else {
         break;
       }
-      tmp = __builtin_expect(! (! dch->dev.D.peer), 1);
+      tmp = ldv__builtin_expect(! (! dch->dev.D.peer), 1);
       if (tmp) {
         err = (*(dch->dev.D.recv))(dch->dev.D.peer, skb);
         if (err) {
@@ -8362,7 +8362,7 @@ static void bchannel_bh(struct work_struct *ws )
 
       }
       bch->rcount = bch->rcount - 1;
-      tmp = __builtin_expect(! (! bch->ch.peer), 1);
+      tmp = ldv__builtin_expect(! (! bch->ch.peer), 1);
       if (tmp) {
         err = (*(bch->ch.recv))(bch->ch.peer, skb);
         if (err) {
@@ -9030,7 +9030,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
+  tmp = ldv__builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
   return (tmp);
 }
 }
@@ -9111,7 +9111,7 @@ __inline static int signal_pending(struct task_struct *p )
   } else {
     tmp___0 = 0;
   }
-  tmp___1 = __builtin_expect(tmp___0, 0);
+  tmp___1 = ldv__builtin_expect(tmp___0, 0);
   return (tmp___1);
 }
 }
@@ -9148,7 +9148,7 @@ __inline static void _queue_message(struct mISDNstack *st , struct sk_buff *skb 
   } else {
     tmp___1 = 1;
   }
-  tmp___2 = __builtin_expect(tmp___1, 1);
+  tmp___2 = ldv__builtin_expect(tmp___1, 1);
   if (tmp___2) {
     test_and_set_bit(0, & st->status);
     __wake_up(& st->workq, 1, 1, (void *)0);
@@ -9408,14 +9408,14 @@ __inline static int send_msg_to_layer(struct mISDNstack *st , struct sk_buff *sk
   } else
   if (lm == 8) {
     __ret_warn_on = ! (! (lm == 8));
-    tmp___3 = __builtin_expect(! (! __ret_warn_on), 0);
+    tmp___3 = ldv__builtin_expect(! (! __ret_warn_on), 0);
     if (tmp___3) {
       warn_on_slowpath("/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/29/dscv_tempdir/dscv/ri/68_1/drivers/isdn/mISDN/stack.c",
                        177);
     } else {
 
     }
-    __builtin_expect(! (! __ret_warn_on), 0);
+    ldv__builtin_expect(! (! __ret_warn_on), 0);
     ch = get_channel4id(st, hh->id);
     if (ch) {
       tmp___4 = (*(ch->send))(ch, skb);
@@ -9489,7 +9489,7 @@ static int mISDNStackd(void *data )
     } else {
       tmp___2 = 0;
     }
-    tmp___3 = __builtin_expect(tmp___2, 0);
+    tmp___3 = ldv__builtin_expect(tmp___2, 0);
     if (tmp___3) {
       test_and_clear_bit(0, & st->status);
       test_and_clear_bit(30, & st->status);
@@ -9517,7 +9517,7 @@ static int mISDNStackd(void *data )
 
       }
       err = send_msg_to_layer(st, skb);
-      tmp___4 = __builtin_expect(! (! err), 0);
+      tmp___4 = ldv__builtin_expect(! (! err), 0);
       if (tmp___4) {
         if (*debug___1 & 16U) {
           printk("<7>%s: %s prim(%x) id(%x) send call(%d)\n", "mISDNStackd", (st->dev)->name,
@@ -9537,7 +9537,7 @@ static int mISDNStackd(void *data )
       } else {
         tmp___7 = 0;
       }
-      tmp___8 = __builtin_expect(tmp___7, 0);
+      tmp___8 = ldv__builtin_expect(tmp___7, 0);
       if (tmp___8) {
         test_and_clear_bit(0, & st->status);
         test_and_clear_bit(30, & st->status);
@@ -10098,8 +10098,8 @@ void mISDN_initstack(u_int *dp )
   return;
 }
 }
-void __builtin_va_end(__builtin_va_list  ) ;
-void __builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list  ) ;
 extern int ( /* format attribute */  vprintk)(char const   *fmt , va_list args ) ;
 __inline static void local_inc(local_t *l ) 
 { 
@@ -10130,7 +10130,7 @@ __inline static void __module_get(struct module *module )
       } else {
         tmp___0 = 0;
       }
-      tmp___1 = __builtin_expect(tmp___0, 0);
+      tmp___1 = ldv__builtin_expect(tmp___0, 0);
       if (tmp___1) {
         while (1) {
           __asm__  volatile   ("1:\tud2\n"
@@ -10200,11 +10200,11 @@ static void l1m_debug(struct FsmInst *fi , char *fmt  , ...)
 
   {
   l1 = fi->userdata;
-  __builtin_va_start(va);
+  ldv__builtin_va_start(va);
   printk("<7>%s: ", (l1->dch)->dev.name);
   vprintk(fmt, va);
   printk("\n");
-  __builtin_va_end(va);
+  ldv__builtin_va_end(va);
   return;
 }
 }
@@ -10688,11 +10688,11 @@ static void l2m_debug(struct FsmInst *fi , char *fmt  , ...)
   } else {
 
   }
-  __builtin_va_start(va);
+  ldv__builtin_va_start(va);
   printk("<7>l2 (tei %d): ", l2->tei);
   vprintk(fmt, va);
   printk("\n");
-  __builtin_va_end(va);
+  ldv__builtin_va_end(va);
   return;
 }
 }
@@ -13982,11 +13982,11 @@ static void da_debug(struct FsmInst *fi , char *fmt  , ...)
   } else {
 
   }
-  __builtin_va_start(va);
+  ldv__builtin_va_start(va);
   printk("<7>mgr(%d): ", ((mgr->ch.st)->dev)->id);
   vprintk(fmt, va);
   printk("\n");
-  __builtin_va_end(va);
+  ldv__builtin_va_end(va);
   return;
 }
 }
@@ -14137,11 +14137,11 @@ static void tei_debug(struct FsmInst *fi , char *fmt  , ...)
   } else {
 
   }
-  __builtin_va_start(va);
+  ldv__builtin_va_start(va);
   printk("<7>tei(%d): ", (tm->l2)->tei);
   vprintk(fmt, va);
   printk("\n");
-  __builtin_va_end(va);
+  ldv__builtin_va_end(va);
   return;
 }
 }
@@ -16655,7 +16655,7 @@ __inline static void ldv_stop(void)
 }
 }
 extern void *ldv_undef_ptr(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

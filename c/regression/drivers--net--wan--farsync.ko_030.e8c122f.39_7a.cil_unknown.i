@@ -4194,8 +4194,7 @@ struct fst_card_info {
    int dma_rxpos ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-unsigned long __builtin_object_size(void * , int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -4266,7 +4265,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.long 1b - 2b, %c0 - 2b\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/inst/current/envs/linux/linux/arch/x86/include/asm/paravirt.h"),
@@ -4304,7 +4303,7 @@ __inline static long IS_ERR(void const   *ptr )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   return (tmp);
 }
 }
@@ -4528,7 +4527,7 @@ __inline static bool static_branch(struct jump_label_key *key )
 
   {
   tmp = atomic_read((atomic_t const   *)(& key->enabled));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   if (tmp___0 != 0L) {
     return (1);
   } else {
@@ -4614,7 +4613,7 @@ __inline static int try_module_get(struct module *module )
   ret = 1;
   if ((unsigned long )module != (unsigned long )((struct module *)0)) {
     tmp = module_is_live(module);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     if (tmp___0 != 0L) {
       __vpp_verify = 0;
       switch (4UL) {
@@ -4891,7 +4890,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
   long tmp ;
 
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
     return (dma_ops);
@@ -4990,14 +4989,14 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp___1 != 0L) {
     warn_slowpath_null("/work/ldvuser/novikov/inst/current/envs/linux/linux/arch/x86/include/asm/dma-mapping.h",
                        147);
   } else {
 
   }
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   if ((unsigned long )ops->free_coherent != (unsigned long )((void (*)(struct device * ,
                                                                        size_t  , void * ,
@@ -5065,23 +5064,23 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   tmp = __builtin_object_size((void const   *)to, 0);
   sz = (int )tmp;
   might_fault();
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
   if (tmp___1 != 0L) {
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     if (tmp___2 != 0L) {
       n = _copy_from_user(to, from, (unsigned int )n);
     } else {
       __ret_warn_on = 1;
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       if (tmp___0 != 0L) {
         warn_slowpath_fmt("/work/ldvuser/novikov/inst/current/envs/linux/linux/arch/x86/include/asm/uaccess_64.h",
                           57, "Buffer overflow detected!\n");
       } else {
 
       }
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
   return (n);
@@ -5207,13 +5206,13 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp != 0L) {
     warn_slowpath_null("include/linux/netdevice.h", 1864);
   } else {
 
   }
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp___0 != 0L) {
     printk("<6>farsync: netif_stop_queue() cannot be called before register_netdev()\n");
     return;
@@ -7617,7 +7616,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -2383,7 +2383,7 @@ enum __anonenum_96 {
     LDV_SPIN_LOCKED = 1
 } ;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
@@ -2518,7 +2518,7 @@ __inline static int try_module_get(struct module *module )
     ldv_9080: 
     cpu = ret__;
     tmp = module_is_live(module);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     if (tmp___0 != 0L) {
       local_inc(& module->ref[cpu].count);
     } else {
@@ -5130,7 +5130,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_error)(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

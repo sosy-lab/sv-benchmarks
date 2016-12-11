@@ -3869,7 +3869,7 @@ struct catc {
    atomic_t recq_sz ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -4859,7 +4859,7 @@ static void catc_tx_done(struct urb *urb )
     ______f___2.line = 411U;
     ______f___2.ldv_806.ldv_801.correct = 0UL;
     ______f___2.ldv_806.ldv_801.incorrect = 0UL;
-    tmp = __builtin_expect(r < 0, 1L);
+    tmp = ldv__builtin_expect(r < 0, 1L);
     ______r___2 = (int )tmp;
     ftrace_likely_update(& ______f___2, ______r___2, 0);
     ______r___1 = ______r___2 != 0;
@@ -6239,7 +6239,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

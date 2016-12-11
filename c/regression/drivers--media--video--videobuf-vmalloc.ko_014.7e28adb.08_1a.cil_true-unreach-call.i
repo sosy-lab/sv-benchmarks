@@ -2529,7 +2529,7 @@ struct videobuf_vmalloc_memory {
    struct vm_area_struct *vma ;
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
@@ -2674,7 +2674,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
 
   {
   mem = (struct videobuf_vmalloc_memory *)vb->priv;
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -2684,7 +2684,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
   } else {
 
   }
-  tmp___0 = __builtin_expect(mem->magic != 404886051U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 404886051U, 0L);
   if (tmp___0 != 0L) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -2848,7 +2848,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
   vma->vm_flags = vma->vm_flags | 786432UL;
   vma->vm_private_data = (void *)map;
   mem = (struct videobuf_vmalloc_memory *)(q->bufs[first])->priv;
-  tmp___1 = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                              0L);
   if (tmp___1 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -2858,7 +2858,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
   } else {
 
   }
-  tmp___2 = __builtin_expect(mem->magic != 404886051U, 0L);
+  tmp___2 = ldv__builtin_expect(mem->magic != 404886051U, 0L);
   if (tmp___2 != 0L) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -2915,7 +2915,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
 
   {
   mem = (struct videobuf_vmalloc_memory *)(q->read_buf)->priv;
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -2925,7 +2925,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
   } else {
 
   }
-  tmp___0 = __builtin_expect(mem->magic != 404886051U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 404886051U, 0L);
   if (tmp___0 != 0L) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -2935,7 +2935,7 @@ static int __videobuf_copy_to_user(struct videobuf_queue *q , char *data , size_
   } else {
 
   }
-  tmp___1 = __builtin_expect((unsigned long )mem->vmalloc == (unsigned long )((void *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )mem->vmalloc == (unsigned long )((void *)0),
                              0L);
   if (tmp___1 != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -2971,7 +2971,7 @@ static int __videobuf_copy_stream(struct videobuf_queue *q , char *data , size_t
 
   {
   mem = (struct videobuf_vmalloc_memory *)(q->read_buf)->priv;
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -2981,7 +2981,7 @@ static int __videobuf_copy_stream(struct videobuf_queue *q , char *data , size_t
   } else {
 
   }
-  tmp___0 = __builtin_expect(mem->magic != 404886051U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 404886051U, 0L);
   if (tmp___0 != 0L) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -3036,7 +3036,7 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *buf )
 
   {
   mem = (struct videobuf_vmalloc_memory *)buf->priv;
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -3046,7 +3046,7 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *buf )
   } else {
 
   }
-  tmp___0 = __builtin_expect(mem->magic != 404886051U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 404886051U, 0L);
   if (tmp___0 != 0L) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -3067,7 +3067,7 @@ void videobuf_vmalloc_free(struct videobuf_buffer *buf )
 
   {
   mem = (struct videobuf_vmalloc_memory *)buf->priv;
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_vmalloc_memory *)0),
                          0L);
   if (tmp != 0L) {
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -3077,7 +3077,7 @@ void videobuf_vmalloc_free(struct videobuf_buffer *buf )
   } else {
 
   }
-  tmp___0 = __builtin_expect(mem->magic != 404886051U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 404886051U, 0L);
   if (tmp___0 != 0L) {
     printk("<3>magic mismatch: %x (expected %x)\n", mem->magic, 404886051);
     __asm__  volatile   ("1:\tud2\n.pushsection __bug_table,\"a\"\n2:\t.quad 1b, %c0\n\t.word %c1, 0\n\t.org 2b+%c2\n.popsection": : "i" ((char *)"/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"),
@@ -3200,7 +3200,7 @@ __inline static void ldv_error(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

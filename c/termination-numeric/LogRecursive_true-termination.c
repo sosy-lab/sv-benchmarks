@@ -13,7 +13,7 @@
 // }
 
 extern int __VERIFIER_nondet_int(void);
-int log(int x, int y);
+int _log(int x, int y);
 int random(void);
 
 int main() {
@@ -24,7 +24,7 @@ int main() {
 	if(y < 0) 
 		return 0;
 	int z = __VERIFIER_nondet_int();
-	log(x,y);
+	_log(x,y);
 
 }
 
@@ -36,9 +36,9 @@ int random() {
 		return x;
 }
 
-int log(int x, int y) {
+int _log(int x, int y) {
     if (x >= y && y > 1) {
-      return 1 + log(x/y, y);
+      return 1 + _log(x/y, y);
     }
     return 0;
   }

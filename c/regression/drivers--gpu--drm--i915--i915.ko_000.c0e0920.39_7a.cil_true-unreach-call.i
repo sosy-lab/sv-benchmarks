@@ -4418,7 +4418,7 @@ void ldv___ldv_spin_unlock_18(spinlock_t *ldv_func_arg1 )
 }
 }
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __bad_pda_field(void) ;
 extern struct x8664_pda _proxy_pda ;
@@ -4514,7 +4514,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
   __asm__  volatile   ("1:\tmovq %2,%1\n2:\n.section .fixup, \"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .section __ex_table,\"a\"\n .balign 8 \n .quad 1b,3b\n .previous\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   if (tmp___0 != 0L) {
     return (ret);
   } else {
@@ -4528,7 +4528,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
   __asm__  volatile   ("1:\tmovq %2,%1\n2:\n.section .fixup, \"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .section __ex_table,\"a\"\n .balign 8 \n .quad 1b,3b\n .previous\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   if (tmp___1 != 0L) {
     return (ret);
   } else {
@@ -6246,7 +6246,7 @@ __inline static int signal_pending(struct task_struct *p )
 
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   return ((int )tmp___0);
 }
 }
@@ -9294,7 +9294,7 @@ __inline static void ( __attribute__((__always_inline__)) ldv_error)(void)
 }
 }
 extern int ldv_undef_int(void) ;
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

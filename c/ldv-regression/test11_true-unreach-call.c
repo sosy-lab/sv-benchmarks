@@ -1,22 +1,27 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
+extern _Bool __VERIFIER_nondet_bool();
 
-void printf(char *format);
-void assert_fail(void);
+int a, b;
+
+int *get_dummy()
+{
+  return (__VERIFIER_nondet_bool() ? &a : &b);
+}
 
 int main() {
-        int a, b, c;
-        int *pa, *pb, *pc = &c;
+        int c = __VERIFIER_nondet_int();
+        int *pa, *pb; int *pc = &c;
+        a = __VERIFIER_nondet_int();
+        b = __VERIFIER_nondet_int();
+        pa = pb = get_dummy();
         if (pc == 0 ||
             pa == pb && *pa != *pb) {
-                printf("ERROR\n");
-                assert_fail();
                 goto ERROR;
         }
 
         *pc = 60;
         if (c != 60) {
-                printf("ERROR\n");
-                assert_fail();
                 goto ERROR;
         }
 

@@ -11,15 +11,15 @@ volatile int stoppingEvent;
 volatile int stopped;
 
 int BCSP_IoIncrement() {
+    int ret = 0;
     __VERIFIER_atomic_begin();
     if (stoppingFlag) {
-        __VERIFIER_atomic_end();
-	return -1;
+      ret = -1;
     } else {
 	pendingIo = pendingIo + 1;
     }
     __VERIFIER_atomic_end();
-    return 0;
+    return ret;
 }
 
 int dec() {
