@@ -45,8 +45,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("product-lines", "missing license"),
     ("pthread", "missing license"),
     ("pthread-ext", "missing license"),
-    ("recursive-simple", "missing license"),
-    ("recursive-simple", "missing readme"),
     ("seq-pthread", "missing license"),
     ("systemc", "missing license"),
 
