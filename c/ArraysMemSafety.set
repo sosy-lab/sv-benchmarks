@@ -3,10 +3,8 @@ array-memsafety/*_false-valid-deref*.i
 # array-memsafety/*_false-valid-memtrack*.i
 array-memsafety/*_true-valid-memsafety*.i
 
-reducercommutativity/*_false-valid-deref*.i
-
-termination-crafted/Arrays*_false-valid-deref*.c
-termination-crafted/LexIndexValue-Array_false-valid-deref.c
-
+reducercommutativity/*_true-valid-deref*.i
+termination-crafted/*_true-valid-deref*.c
+array-examples/*_true-valid-deref*.i
 array-examples/*_false-valid-deref*.i
 
