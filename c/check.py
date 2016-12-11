@@ -178,9 +178,10 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("bitvector", "jain_7_false-no-overflow.c is not contained in any category"),
     ("bitvector", "jain_7_false-no-overflow.i is not contained in any category"),
 
-    # has undefined behaviour that needs to be fixed somehow (depends on #261)
+    # has undefined behaviour that needs to be fixed somehow (can be fixed after we solve #261)
     ("array-examples", "standard_find_true-valid-deref_ground_true-termination_false-undef-behaviour.[ci] use uninitialized values"),
-    ("array-examples", "standard_sentinel_true-valid-deref_true-termination_false-undef-behaviour.[ci] use uninitialized values")
+    ("array-examples", "standard_sentinel_true-valid-deref_true-termination_false-undef-behaviour.[ci] use uninitialized values"),
+    ("reducercommutativity", "avg60_false-valid-deref.[ci] use uninitialized values")
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
