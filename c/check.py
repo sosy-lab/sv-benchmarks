@@ -143,9 +143,9 @@ KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ]
 
 KNOWN_SET_PROBLEMS = [
-    ("ArraysMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
-    ("BitVectorsOverflows.set", "64 bit category contains 32 bit benchmarks in recursive"),
-    ("HeapMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
+    ("MemSafety-Arrays.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
+    ("Overflows-BitVectors.set", "64 bit category contains 32 bit benchmarks in recursive"),
+    ("MemSafety-Heap.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
