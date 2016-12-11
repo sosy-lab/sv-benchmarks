@@ -110,6 +110,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
+    # See discussion in pull request #257
     ("loop-acceleration", "array3_false-valid-deref.c is not contained in any category"),
     ("loop-acceleration", "array3_false-valid-deref.i is not contained in any category"),
     ("termination-memory-alloca", "cll_by_lseg-alloca_false-termination.c is not contained in any category"),
