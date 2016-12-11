@@ -68,7 +68,7 @@ for f in $SETS ; do
   setf=$(basename $f .set)
 
   # pthread headers are very platform dependent
-  if [ $setf = Concurrency ] || [ $setf = Termination-Concurrency ] ; then
+  if [ $setf = ConcurrencySafety-Main ] || [ $setf = Termination-Concurrency ] ; then
     echo "Skipping category $setf (platform-dependent types)"
     continue
   fi
