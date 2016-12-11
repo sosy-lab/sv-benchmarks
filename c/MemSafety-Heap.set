@@ -3,6 +3,9 @@ memsafety/*_false-valid-free*.i
 memsafety/*_false-valid-memtrack*.i
 memsafety/*_true-valid-memsafety*.i
 memsafety-ext/*_true-valid-memsafety*.i
+memsafety-ext2/*_false-valid-deref*.i
+memsafety-ext2/*_false-valid-memtrack*.i
+memsafety-ext2/*_true-valid-memsafety*.i
 list-ext-properties/*_false-valid-deref*.i
 list-ext-properties/*_false-valid-free*.i
 list-ext-properties/*_false-valid-memtrack*.i
@@ -23,4 +26,4 @@ ldv-memsafety-bitfields/*_false-valid-free*.i
 
 termination-crafted/*true-valid-deref*.c
 
-array-examples/relax_false-valid-deref.i
+array-examples/relax_false-valid-deref*.i

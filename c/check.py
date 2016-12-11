@@ -45,8 +45,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("product-lines", "missing license"),
     ("pthread", "missing license"),
     ("pthread-ext", "missing license"),
-    ("recursive-simple", "missing license"),
-    ("recursive-simple", "missing readme"),
     ("seq-pthread", "missing license"),
     ("systemc", "missing license"),
 
@@ -110,12 +108,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
-    ("loop-acceleration", "array3_false-valid-deref.c is not contained in any category"),
-    ("loop-acceleration", "array3_false-valid-deref.i is not contained in any category"),
-
-    ("ntdrivers", "kbfiltr_false-valid-deref.i.cil.c is not contained in any category"),
-    ("ntdrivers", "floppy_false-valid-deref.i.cil.c is not contained in any category"),
-
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
     ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
 
@@ -143,9 +135,9 @@ KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ]
 
 KNOWN_SET_PROBLEMS = [
-    ("ArraysMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
-    ("BitVectorsOverflows.set", "64 bit category contains 32 bit benchmarks in recursive"),
-    ("HeapMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
+    ("MemSafety-Arrays.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
+    ("Overflows-BitVectors.set", "64 bit category contains 32 bit benchmarks in recursive"),
+    ("MemSafety-Heap.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
