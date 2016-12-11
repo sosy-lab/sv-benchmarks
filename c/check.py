@@ -110,12 +110,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
-    ("loop-acceleration", "array3_false-valid-deref.c is not contained in any category"),
-    ("loop-acceleration", "array3_false-valid-deref.i is not contained in any category"),
-
-    ("ntdrivers", "kbfiltr_false-valid-deref.i.cil.c is not contained in any category"),
-    ("ntdrivers", "floppy_false-valid-deref.i.cil.c is not contained in any category"),
-
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
     ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
 
