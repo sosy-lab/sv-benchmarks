@@ -1,6 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-extern int __VERIFIER_nondet_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -9,19 +9,19 @@ void __VERIFIER_assert(int cond) {
 }
 int main()
 {
-  int x,y,z;
+  unsigned int x,y,z;
 
-  x=0;
-  y=0;
-  z=0;
+  x=0U;
+  y=0U;
+  z=0U;
 
   while(1)
     {
-      x = x +2*__VERIFIER_nondet_int();
-      y = y +4*__VERIFIER_nondet_int();
-      z = z +8*__VERIFIER_nondet_int();
+      x = x +2U*__VERIFIER_nondet_uint();
+      y = y +4U*__VERIFIER_nondet_uint();
+      z = z +8U*__VERIFIER_nondet_uint();
 
-      __VERIFIER_assert(4*x+2*y+z!=4);
+      __VERIFIER_assert(4U*x+2U*y+z!=4U);
     }
     return 0;
 }

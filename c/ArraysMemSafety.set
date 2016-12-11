@@ -8,8 +8,5 @@ reducercommutativity/*_false-valid-deref*.i
 termination-crafted/Arrays*_false-valid-deref*.c
 termination-crafted/LexIndexValue-Array_false-valid-deref.c
 
-array-examples/sanfoundry_24_false-valid-deref.i
-array-examples/standard_find_false-valid-deref_ground.i
-array-examples/standard_sentinel_false-valid-deref.i
-array-examples/standard_strcpy_false-valid-deref_ground.i
-array-examples/standard_strcpy_original_false-valid-deref.i
+array-examples/*_false-valid-deref*.i
+

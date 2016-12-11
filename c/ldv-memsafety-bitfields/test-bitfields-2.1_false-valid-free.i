@@ -14,9 +14,11 @@ struct A {
 	unsigned char a;
 	unsigned char b:2;
 	unsigned char c:2;
+	unsigned char pad1[2];
 	unsigned int d;
 	unsigned char e;
-};
+	unsigned char pad2[3];
+} __attribute__((packed));
 
 struct A d;
 int main(void)

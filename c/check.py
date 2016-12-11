@@ -110,8 +110,33 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
+    # See discussion in pull request #257
+    ("loop-acceleration", "array3_false-valid-deref.c is not contained in any category"),
+    ("loop-acceleration", "array3_false-valid-deref.i is not contained in any category"),
+    ("termination-memory-alloca", "cll_by_lseg-alloca_false-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "cll_by_lseg-alloca_true-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "cll_by_lseg_traverse-alloca_false-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "cll_search-alloca_false-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "cll_search-alloca_true-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "cll_traverse-alloca_false-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "ll_append-alloca_false-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "ll_append-alloca_true-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "ll_append_rec-alloca_false-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "ll_append_rec-alloca_true-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "ll_create_rec-alloca_false-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "ll_create_rec-alloca_true-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "ll_search-alloca_true-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "ll_search_not_found-alloca_true-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "ll_traverse-alloca_true-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "nondet_ll_search-alloca_false-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "nondet_ll_search-alloca_true-termination.c is not contained in any category"),
+    ("termination-memory-alloca", "nondet_ll_traverse-alloca_false-termination.c is not contained in any category"),
+
+    ("ntdrivers", "kbfiltr_false-valid-deref.i.cil.c is not contained in any category"),
+    ("ntdrivers", "floppy_false-valid-deref.i.cil.c is not contained in any category"),
 
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
+    ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
 
     # historical
     ("ntdrivers", "missing license"),
@@ -122,6 +147,20 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ntdrivers-simplified", "missing readme"),
     ("ssh", "missing readme"),
     ("ssh-simplified", "missing readme"),
+
+    # pull request #310
+    ("bitvector", "jain_1_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_1_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_2_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_2_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_4_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_4_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_5_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_5_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_6_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_6_false-no-overflow.i is not contained in any category"),
+    ("bitvector", "jain_7_false-no-overflow.c is not contained in any category"),
+    ("bitvector", "jain_7_false-no-overflow.i is not contained in any category"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [

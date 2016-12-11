@@ -8292,7 +8292,7 @@ static int az6007_tuner_attach(struct dvb_usb_adapter *adap )
     __cil_tmp30 = (unsigned long )adap;
     __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
     __cil_tmp32 = *((struct dvb_frontend **)__cil_tmp31);
-    (*__cil_tmp27)(__cil_tmp32, 1);
+    //(*__cil_tmp27)(__cil_tmp32, 1);
     }
   } else {
 
@@ -8327,7 +8327,7 @@ static int az6007_tuner_attach(struct dvb_usb_adapter *adap )
     __cil_tmp40 = (unsigned long )__cil_tmp39;
     __cil_tmp41 = __cil_tmp40 + 3720;
     __cil_tmp42 = (struct i2c_adapter *)__cil_tmp41;
-    tmp___11 = (*__a)(__cil_tmp38, & az6007_mt2063_config, __cil_tmp42);
+    //tmp___11 = (*__a)(__cil_tmp38, & az6007_mt2063_config, __cil_tmp42);
     __r = (void *)tmp___11;
     }
     {
@@ -8377,7 +8377,7 @@ static int az6007_tuner_attach(struct dvb_usb_adapter *adap )
     __cil_tmp65 = (unsigned long )adap;
     __cil_tmp66 = __cil_tmp65 + __cil_tmp64;
     __cil_tmp67 = *((struct dvb_frontend **)__cil_tmp66);
-    (*__cil_tmp62)(__cil_tmp67, 0);
+    //(*__cil_tmp62)(__cil_tmp67, 0);
     }
   } else {
 

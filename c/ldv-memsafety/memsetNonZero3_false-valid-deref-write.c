@@ -1,4 +1,4 @@
-typedef unsigned long __kernel_size_t;
+typedef unsigned int __kernel_size_t;
 typedef __kernel_size_t size_t;
 
 extern void *memset(void * , int , size_t ) ;
