@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern char __VERIFIER_nondet_char();
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -6,6 +7,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
+
 #ifndef _BASE_H
 #define _BASE_H
 
@@ -188,6 +190,11 @@ static int parse_expression_list(char *str)
 int main ()
 {
   char A [LINE_LENGTH+1];
+
+  for (int i = 0; i < LINE_LENGTH; i++) {
+    A[i] = __VERIFIER_nondet_char();
+  }
+
   A[LINE_LENGTH] = EOS;
 
   parse_expression_list (A);

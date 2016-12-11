@@ -1,0 +1,32 @@
+# from Concurrency
+pthread-atomic/*_true-termination*.i
+
+# from ControlFlow
+ntdrivers-simplified/*_true-termination*.cil.c
+ssh-simplified/*_false-termination*.cil.c
+ssh-simplified/*_true-termination*.cil.c
+locks/*_false-termination*.c
+ssh-simplified/s3_clnt_3.cil_true-unreach-call_true-termination.c
+
+# from Loops
+loops/*_false-termination*.i
+loops/*_true-termination*.i
+loop-acceleration/*_true-termination*.i
+loop-invgen/*_false-termination*.i
+loop-invgen/*_true-termination*.i
+loop-lit/*_true-termination*.i
+loop-lit/*_false-termination*.i
+loop-new/*_true-termination*.i
+
+# from ProductLines
+product-lines/*_true-termination*.c
+product-lines/*_false-termination*.c
+
+# from Recursive
+recursive/*_false-termination*.c
+recursive/*_true-termination*.c
+recursive-simple/*_true-termination*.c
+
+# from Sequentialized
+systemc/*_false-termination*.cil.c
+seq-mthreaded/*_true-termination*.c

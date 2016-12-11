@@ -110,25 +110,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
-    ("termination-memory-alloca", "cll_by_lseg-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "cll_by_lseg-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "cll_by_lseg_traverse-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "cll_search-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "cll_search-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "cll_traverse-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "ll_append-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "ll_append-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "ll_append_rec-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "ll_append_rec-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "ll_create_rec-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "ll_create_rec-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "ll_search-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "ll_search_not_found-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "ll_traverse-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "nondet_ll_search-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "nondet_ll_search-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca", "nondet_ll_traverse-alloca_false-termination.c is not contained in any category"),
-
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
     ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
 
@@ -141,15 +122,24 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ntdrivers-simplified", "missing readme"),
     ("ssh", "missing readme"),
     ("ssh-simplified", "missing readme"),
+
+    # has undefined behaviour that needs to be fixed somehow (can be fixed after we solve #261)
+    ("array-examples", "standard_find_true-valid-deref_ground_true-termination_false-undef-behaviour.[ci] use uninitialized values"),
+    ("array-examples", "standard_sentinel_true-valid-deref_true-termination_false-undef-behaviour.[ci] use uninitialized values"),
+    ("reducercommutativity", "avg60_false-valid-deref.[ci] use uninitialized values"),
+    ("termination-crafted", "Arrays01-EquivalentConstantIndices_true-valid-deref_false-undef-behaviour.c use uninitialized values"),
+    ("termination-crafted", "Arrays03-ValueRestictsIndex_true-valid-deref_false-undef-behaviour.c use uninitialized values"),
+    ("termination-crafted", "LexIndexValue-Array_true-valid-deref_false-undef-behaviour.c use uninitialized values"),
+    ("termination-crafted", "Nyala-2lex_true-valid-deref_false-undef-behaviour.c use uninitialized values"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ]
 
 KNOWN_SET_PROBLEMS = [
-    ("ArraysMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
-    ("BitVectorsOverflows.set", "64 bit category contains 32 bit benchmarks in recursive"),
-    ("HeapMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
+    ("MemSafety-Arrays.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
+    ("Overflows-BitVectors.set", "64 bit category contains 32 bit benchmarks in recursive"),
+    ("MemSafety-Heap.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [

@@ -1,0 +1,8 @@
+termination-crafted/*_false-termination*.c
+termination-crafted/*_true-termination*.c
+termination-crafted-lit/*_false-termination*.c
+termination-crafted-lit/*_true-termination*.c
+termination-numeric/*_true-termination*.c
+termination-restricted-15/*_true-termination*.c
+termination-restricted-15/*_false-termination*.c
+

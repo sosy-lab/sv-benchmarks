@@ -12,12 +12,13 @@ extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
 
 struct A {
 	unsigned char a;
-	unsigned int b:2;
+	unsigned char b:2;
 	unsigned char c:2;
 	unsigned char d:4;
 	unsigned char e:4;
+	unsigned char pad;
 	unsigned int f;
-};
+} __attribute__((packed));
 
 struct B {
 	unsigned char a;
@@ -30,7 +31,7 @@ struct B {
 	unsigned char f2;
 	unsigned char f3;
 	unsigned char f4;
-};
+} __attribute__((packed));
 
 struct A d = {.b = 3};
 int main(void)
