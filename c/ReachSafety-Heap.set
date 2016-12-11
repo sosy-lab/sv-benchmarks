@@ -10,7 +10,7 @@ ldv-regression/test[0-9][0-9]_true-unreach-call*.c
 ddv-machzwd/*_false-unreach-call*.i
 ddv-machzwd/*_true-unreach-call*.i
 
-forester-heap/*_false-unreach-call.i
-forester-heap/*_true-unreach-call.i
+forester-heap/*_false-unreach-call*.i
+forester-heap/*_true-unreach-call*.i
 
 list-ext-properties/*_false-unreach-call*.i
