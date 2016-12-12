@@ -1,11 +1,10 @@
-# 1 "not_single_path_bad.c"
-# 1 "/home/ziqing/SVCOMP/sv-comp/mpi-small//"
+# 1 "tags_false-termination.c"
+# 1 "/home/ziqing/sv-benchmarks/c/concur-mpi-small//"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
 # 1 "<command-line>" 2
-# 1 "not_single_path_bad.c"
-
+# 1 "tags_false-termination.c"
 
 
 
@@ -1789,7 +1788,7 @@ int PMPIX_Mutex_create(int count, MPI_Comm comm, MPIX_Mutex *hdl);
 int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
-# 6 "not_single_path_bad.c" 2
+# 5 "tags_false-termination.c" 2
 # 1 "/usr/include/stdlib.h" 1 3 4
 # 24 "/usr/include/stdlib.h" 3 4
 # 1 "/usr/include/features.h" 1 3 4
@@ -3197,22 +3196,27 @@ __attribute__ ((__nothrow__ , __leaf__)) wcstombs (char *__restrict __dst, const
 # 960 "/usr/include/stdlib.h" 2 3 4
 # 968 "/usr/include/stdlib.h" 3 4
 
-# 7 "not_single_path_bad.c" 2
+# 6 "tags_false-termination.c" 2
+# 1 "sv-comp.h" 1
+void __VERIFIER_error(void);
+void __VERIFIER_assume(int expression);
+int __VERIFIER_nondet_int(void);
+float __VERIFIER_nondet_float(void);
+double __VERIFIER_nondet_double(void);
+# 7 "tags_false-termination.c" 2
 
 
 int main(int argc, char * argv[]) {
-  int data = 0, rank;
-  MPI_Status status;
+  int rank, nprocs;
 
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(((MPI_Comm)0x44000000), &rank);
+  MPI_Comm_size(((MPI_Comm)0x44000000), &nprocs);
+  __VERIFIER_assume(nprocs==2);
   if (rank == 0) {
-    MPI_Recv(((void *)0), 0, ((MPI_Datatype)0x4c000405), (-2), 0, ((MPI_Comm)0x44000000), &status);
-    MPI_Recv(((void *)0), 0, ((MPI_Datatype)0x4c000405), (-2), 0, ((MPI_Comm)0x44000000), (MPI_Status *)1);
-    if (status.MPI_SOURCE == 2)
-      MPI_Recv(((void *)0), 0, ((MPI_Datatype)0x4c000405), (-2), 0, ((MPI_Comm)0x44000000), (MPI_Status *)1);
-  } else if (rank == 1 || rank == 2) {
-    MPI_Send(((void *)0), 0, ((MPI_Datatype)0x4c000405), 0, 0, ((MPI_Comm)0x44000000));
+    MPI_Send(((void *)0), 0, ((MPI_Datatype)0x4c000405), 1, 0, ((MPI_Comm)0x44000000));
+  } else if (rank == 1) {
+    MPI_Recv(((void *)0), 0, ((MPI_Datatype)0x4c000405), 0, 1, ((MPI_Comm)0x44000000), (MPI_Status *)1);
   }
   MPI_Finalize();
 }

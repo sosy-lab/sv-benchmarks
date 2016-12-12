@@ -2,14 +2,17 @@
  * declared in the receive call.  Run with nprocs=2. */
 #include <mpi.h>
 #include <stdlib.h>
+#include "sv-comp.h"
 #define comm MPI_COMM_WORLD
 
 int main(int argc, char * argv[]) {
-  int rank;
+  int rank, nprocs;
   int int_datum[2] = {0, 1};
 
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(comm, &rank);
+  MPI_Comm_nprocs(comm, &nprocs);
+  __VERIFIER_assume(nprocs==2);
   if (rank == 0)
     MPI_Send(&int_datum, 2, MPI_INT, 1, 0, comm);
   else if (rank == 1)

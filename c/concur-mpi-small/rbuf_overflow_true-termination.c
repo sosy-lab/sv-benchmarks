@@ -2,13 +2,16 @@
  * an incoming message.  Run with nprocs=2. */
 #include <mpi.h>
 #include <stdlib.h>
+#include "sv-comp.h"
 #define comm MPI_COMM_WORLD
 
 int main(int argc, char * argv[]) {
-  int rank;
+  int rank, nprocs;
 
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(comm, &rank);
+  MPI_Comm_size(comm, &nprocs);
+  __VERIFIER_assume(nprocs==2);
   if (rank == 0) {
     int data[2];
     
