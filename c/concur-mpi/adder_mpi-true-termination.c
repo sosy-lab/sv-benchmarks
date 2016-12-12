@@ -23,6 +23,9 @@
 #include <mpi.h>
 #include <assert.h>
 
+extern void __VERIFIER_error();
+#define __VERIFIER_assert(expr) if(!(expr)) __VERIFIER_error()
+
 /* MPI message passing tags */
 #define MSG_DATA 100
 #define MSG_RESULT 101

@@ -36,7 +36,10 @@
 /* Message tags */
 #define DATAPASS   1
 #define comm MPI_COMM_WORLD
-
+extern void __VERIFIER_error();
+extern int __VERIFIER_nondet_int();
+extern double __VERIFIER_nondet_double();
+#define __VERIFIER_assert(expr) if(!(expr)) __VERIFIER_error()
 /* Global variables */
 long nx, ny;
 int nsteps, wstep;

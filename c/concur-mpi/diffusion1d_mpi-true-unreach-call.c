@@ -30,6 +30,11 @@
 #include <mpi.h>
 #define OWNER(index) ((nprocs*(index+1)-1)/nx)
 
+extern void __VERIFIER_error();
+extern int __VERIFIER_nondet_int();
+extern double __VERIFIER_nondet_double();
+#define __VERIFIER_assert(expr) if(!(expr)) __VERIFIER_error()
+
 /* Global parameters */
 int nx;        /* number of discrete points including endpoints */
 double k;      /* D*dt/(dx*dx) */

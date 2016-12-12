@@ -2098,6 +2098,7 @@ extern void __assert_perror_fail (int __errnum, const char *__file,
 extern void __assert (const char *__assertion, const char *__file, int __line)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
+extern void __VERIFIER_error();
 void master (void);
 void slave (void);
 int main (int argc, char **argv) {
@@ -2129,7 +2130,7 @@ void master (void) {
   for (i = 1; i < size; mysum += tmpsum, i++)
     MPI_Recv (&tmpsum, 1, ((MPI_Datatype)0x4c00080b), (-2), 101, ((MPI_Comm)0x44000000), &status);
   printf ("%8.4lf\n", mysum);
-  __VERIFIER_assert(mysum == (((double)100000) + ((double)100000) * ((double)100000)) / 2);
+  if(!(mysum == (((double)100000) + ((double)100000) * ((double)100000)) / 2)) __VERIFIER_error();
 }
 void slave (void) {
   float array[100000];
