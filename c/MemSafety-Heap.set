@@ -24,5 +24,3 @@ ldv-memsafety-bitfields/*_true-valid-memsafety*.i
 ldv-memsafety-bitfields/*_false-valid-deref*.i
 ldv-memsafety-bitfields/*_false-valid-free*.i
 
-termination-crafted/*true-valid-memsafety*.c
-
