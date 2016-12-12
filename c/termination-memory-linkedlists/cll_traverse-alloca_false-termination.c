@@ -13,7 +13,8 @@ typedef struct node {
   struct node* next;
 } node_t;
 
-//Initialize a circular linked list with length n
+// Initialize a circular linked list with length n when n > 0
+// or length 1 when n <= 0
 node_t* init_cll (int n)
 {
   node_t* head;

@@ -15,9 +15,10 @@ typedef struct node {
   struct node* next;
 } node_t;
 
+// The method does not terminate when n < 0
 node_t* new_lseg(node_t* p, int n)
 {
-  if (n==0)
+  if (n == 0)
     return p;
   node_t* x = malloc(sizeof(node_t));
   x->val = n;

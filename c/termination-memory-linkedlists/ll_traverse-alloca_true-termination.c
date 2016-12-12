@@ -13,7 +13,8 @@ typedef struct node {
     struct node* next;
 } node_t;
 
-//Initialize a null-terminating linked list with length n
+// Initialize a null-terminating linked list with length n
+// when n > 0 or length 0, otherwise
 node_t* init_ll (int n)
 {
   node_t* head = NULL;
