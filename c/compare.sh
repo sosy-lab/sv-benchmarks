@@ -6,15 +6,15 @@ BLACKLIST="\
   array-memsafety/cstrlen_unsafe_false-valid-deref.i \
   array-examples/standard_copyInitSum_true-unreach-call_ground.i \
   array-examples/standard_seq_init_true-unreach-call_ground.i \
-  bitvector/byte_add_1_true-unreach-call.i \
-  bitvector/byte_add_false-unreach-call.i \
-  bitvector/gcd_1_true-unreach-call.i \
-  bitvector/gcd_2_true-unreach-call.i \
-  bitvector/gcd_3_true-unreach-call.i \
-  bitvector/interleave_bits_true-unreach-call.i \
+  bitvector/byte_add_1_true-unreach-call_true-no-overflow.i \
+  bitvector/byte_add_false-unreach-call_true-no-overflow.i \
+  bitvector/gcd_1_true-unreach-call_true-no-overflow.i \
+  bitvector/gcd_2_true-unreach-call_true-no-overflow.i \
+  bitvector/gcd_3_true-unreach-call_true-no-overflow.i \
+  bitvector/interleave_bits_true-unreach-call_true-no-overflow.i \
+  bitvector/modulus_true-unreach-call_true-no-overflow.i \
+  bitvector/num_conversion_2_true-unreach-call_true-no-overflow.i \
   bitvector-loops/verisec_sendmail__tTflag_arr_one_loop_false-unreach-call.i \
-  bitvector/modulus_true-unreach-call.i \
-  bitvector/num_conversion_2_true-unreach-call.i \
   floats-cbmc-regression/float-flags-simp1_true-unreach-call.i \
   floats-cbmc-regression/float-no-simp4_true-unreach-call.i \
   floats-esbmc-regression/trunc_nondet_2_true-unreach-call.i \
