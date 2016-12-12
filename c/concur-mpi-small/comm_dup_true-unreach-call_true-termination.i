@@ -2234,18 +2234,13 @@ __attribute__ ((__nothrow__ , __leaf__)) wcstombs (char *__restrict __dst, const
   return __wcstombs_alias (__dst, __src, __len);
 }
 
-void __VERIFIER_error(void);
-void __VERIFIER_assume(int expression);
-int __VERIFIER_nondet_int(void);
-float __VERIFIER_nondet_float(void);
-double __VERIFIER_nondet_double(void);
 int main(int argc, char * argv[]) {
   int rank, nprocs;
   MPI_Comm newcomm;
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(((MPI_Comm)0x44000000), &rank);
   MPI_Comm_size(((MPI_Comm)0x44000000), &nprocs);
-  if (!(nprocs>=3)) __VERIFIER_error();
+  __VERIFIER_assert(nprocs>=3);
   MPI_Comm_dup(((MPI_Comm)0x44000000), &newcomm);
   if (rank == 0) {
     MPI_Recv(((void *)0), 0, ((MPI_Datatype)0x4c000405), (-2), 0, ((MPI_Comm)0x44000000), (MPI_Status *)1);

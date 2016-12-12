@@ -2234,11 +2234,6 @@ int PMPIX_Mutex_create(int count, MPI_Comm comm, MPIX_Mutex *hdl);
 int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
-void __VERIFIER_error(void);
-void __VERIFIER_assume(int expression);
-int __VERIFIER_nondet_int(void);
-float __VERIFIER_nondet_float(void);
-double __VERIFIER_nondet_double(void);
 int main() {
   int rank, nprocs, x;
   MPI_Init(((void *)0), ((void *)0));
@@ -2251,7 +2246,7 @@ int main() {
   } else if (rank == 1) {
     MPI_Recv(&x, 1, ((MPI_Datatype)0x4c000405), 0, 999, ((MPI_Comm)0x44000000),
       (MPI_Status *)1);
-    if (!(x==1000000)) __VERIFIER_error();
+    __VERIFIER_assert(x==1000000);
   }
   MPI_Finalize();
 }

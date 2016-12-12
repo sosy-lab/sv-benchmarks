@@ -3092,11 +3092,6 @@ int PMPIX_Mutex_create(int count, MPI_Comm comm, MPIX_Mutex *hdl);
 int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
-void __VERIFIER_error(void);
-void __VERIFIER_assume(int expression);
-int __VERIFIER_nondet_int(void);
-float __VERIFIER_nondet_float(void);
-double __VERIFIER_nondet_double(void);
 int nx;
 double k;
 int nsteps;
@@ -3131,9 +3126,9 @@ void init_globals() {
   left = first==0 || nxl==0 ? (-1) : ((nprocs*(first-1 +1)-1)/nx);
   right = first+nxl >= nx || nxl == 0 ? (-1) : ((nprocs*(first+nxl+1)-1)/nx);
   u = (double*)malloc((nxl+2)*sizeof(double));
-  ((u) ? (void) (0) : __assert_fail ("u", "diffusion1d_mpi-true-unreach-call.c", 82, __PRETTY_FUNCTION__));
+  ((u) ? (void) (0) : __assert_fail ("u", "diffusion1d_mpi-true-unreach-call.c", 81, __PRETTY_FUNCTION__));
   u_new = (double*)malloc((nxl+2)*sizeof(double));
-  ((u_new) ? (void) (0) : __assert_fail ("u_new", "diffusion1d_mpi-true-unreach-call.c", 84, __PRETTY_FUNCTION__));
+  ((u_new) ? (void) (0) : __assert_fail ("u_new", "diffusion1d_mpi-true-unreach-call.c", 83, __PRETTY_FUNCTION__));
   if (rank == ((nprocs*(0 +1)-1)/nx))
     buf = (double*)malloc((1+nx/nprocs)*sizeof(double));
 }
@@ -3156,7 +3151,7 @@ void initialize() {
     double buf[nx];
     double * bufptr = buf;
     oracle = (double *)malloc(sizeof(double) * (nx+2) * nsteps);
-    ((oracle) ? (void) (0) : __assert_fail ("oracle", "diffusion1d_mpi-true-unreach-call.c", 109, __PRETTY_FUNCTION__));
+    ((oracle) ? (void) (0) : __assert_fail ("oracle", "diffusion1d_mpi-true-unreach-call.c", 108, __PRETTY_FUNCTION__));
     for (int i=0; i<nx; i++) {
       buf[i]=__VERIFIER_nondet_double();
       oracle[i+1] = buf[i];
@@ -3221,7 +3216,7 @@ void write_plain() {
       }
       double *oracle_curr = oracle + time * (nx + 2);
       for (int i = 0; i < count; i++) {
- if (!(buf[i] == oracle_curr[print_pos])) __VERIFIER_error();
+ __VERIFIER_assert(buf[i] == oracle_curr[print_pos]);
         print_cell(buf[i]);
       }
     }

@@ -28,7 +28,6 @@
 #include <stdio.h>
 #include <assert.h>
 #include <mpi.h>
-#include "sv-comp.h"
 #define OWNER(index) ((nprocs*(index+1)-1)/nx)
 
 /* Global parameters */

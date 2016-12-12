@@ -22,7 +22,7 @@
 #include <stdio.h>
 #include <mpi.h>
 #include <assert.h>
-#include "sv-comp.h"
+
 /* MPI message passing tags */
 #define MSG_DATA 100
 #define MSG_RESULT 101

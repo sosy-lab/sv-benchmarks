@@ -2244,11 +2244,6 @@ __attribute__ ((__nothrow__ , __leaf__)) wcstombs (char *__restrict __dst, const
   return __wcstombs_alias (__dst, __src, __len);
 }
 
-void __VERIFIER_error(void);
-void __VERIFIER_assume(int expression);
-int __VERIFIER_nondet_int(void);
-float __VERIFIER_nondet_float(void);
-double __VERIFIER_nondet_double(void);
 int nprocs, rank, tag=0;
 MPI_Comm comm = ((MPI_Comm)0x44000000);
 MPI_Status *stat = (MPI_Status *)1;
@@ -2283,7 +2278,7 @@ int main(int argc, char * argv[]) {
   MPI_Comm_size(comm, &nprocs);
   __VERIFIER_assume(nprocs>=3);
   MPI_Comm_rank(comm, &rank);
-  ((nprocs >= 3) ? (void) (0) : __assert_fail ("nprocs >= 3", "dy_buf_true-termination.c", 64, __PRETTY_FUNCTION__));
+  ((nprocs >= 3) ? (void) (0) : __assert_fail ("nprocs >= 3", "dy_buf_true-termination.c", 63, __PRETTY_FUNCTION__));
   int x = f();
   MPI_Barrier(comm);
   MPI_Bcast(&x, 1, ((MPI_Datatype)0x4c000405), 0, comm);

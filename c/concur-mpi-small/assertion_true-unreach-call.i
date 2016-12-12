@@ -2234,11 +2234,6 @@ int PMPIX_Mutex_create(int count, MPI_Comm comm, MPIX_Mutex *hdl);
 int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
-void __VERIFIER_error(void);
-void __VERIFIER_assume(int expression);
-int __VERIFIER_nondet_int(void);
-float __VERIFIER_nondet_float(void);
-double __VERIFIER_nondet_double(void);
 int main(int argc, char **argv) {
   int rank, nprocs;
   MPI_Init(&argc, &argv);
@@ -2249,7 +2244,7 @@ int main(int argc, char **argv) {
     for (int i = 1; i < nprocs; i++)
       MPI_Recv(((void *)0), 0, ((MPI_Datatype)0x4c000405), (-2), 0, ((MPI_Comm)0x44000000),
         &status);
-    if (!(status.MPI_SOURCE >= 0)) __VERIFIER_error();
+    __VERIFIER_assert(status.MPI_SOURCE >= 0);
   }
   else
     MPI_Send(((void *)0), 0, ((MPI_Datatype)0x4c000405), 0, 0, ((MPI_Comm)0x44000000));

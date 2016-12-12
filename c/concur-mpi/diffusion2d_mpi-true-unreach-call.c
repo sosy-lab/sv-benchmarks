@@ -32,7 +32,6 @@
 #include<assert.h>
 #include<string.h>
 #include<mpi.h>
-#include"sv-comp.h"
 
 /* Message tags */
 #define DATAPASS   1

@@ -1539,11 +1539,6 @@ int PMPIX_Mutex_create(int count, MPI_Comm comm, MPIX_Mutex *hdl);
 int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
-void __VERIFIER_error(void);
-void __VERIFIER_assume(int expression);
-int __VERIFIER_nondet_int(void);
-float __VERIFIER_nondet_float(void);
-double __VERIFIER_nondet_double(void);
 int main(int argc, char** argv){
   int rank, nprocs;
   int x = 0;

@@ -1,6 +1,5 @@
 #include <mpi.h>
 #include <stdlib.h>
-#include "sv-comp.h"
 #define comm MPI_COMM_WORLD
 
 int main(int argc, char * argv[]) {

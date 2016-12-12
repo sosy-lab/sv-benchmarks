@@ -18,7 +18,6 @@
 #include <mpi.h>
 #include <assert.h>
 #include <stdlib.h>
-#include "sv-comp.h"
 
 int nprocs, rank, tag=0;
 MPI_Comm comm = MPI_COMM_WORLD;

@@ -3,7 +3,6 @@
  */
 #include <stdlib.h>
 #include <mpi.h>
-#include "sv-comp.h"
 
 int main(int argc, char **argv) {
   int rank, nprocs;

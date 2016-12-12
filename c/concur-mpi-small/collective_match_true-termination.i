@@ -2234,11 +2234,6 @@ __attribute__ ((__nothrow__ , __leaf__)) wcstombs (char *__restrict __dst, const
   return __wcstombs_alias (__dst, __src, __len);
 }
 
-void __VERIFIER_error(void);
-void __VERIFIER_assume(int expression);
-int __VERIFIER_nondet_int(void);
-float __VERIFIER_nondet_float(void);
-double __VERIFIER_nondet_double(void);
 int main(int argc, char * argv[]) {
   int rank, x = 1, y;
   MPI_Init(&argc, &argv);

@@ -3092,11 +3092,6 @@ int PMPIX_Mutex_create(int count, MPI_Comm comm, MPIX_Mutex *hdl);
 int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
-void __VERIFIER_error(void);
-void __VERIFIER_assume(int expression);
-int __VERIFIER_nondet_int(void);
-float __VERIFIER_nondet_float(void);
-double __VERIFIER_nondet_double(void);
 long nx, ny;
 int nsteps, wstep;
 int NPROCSX, NPROCSY;
@@ -3164,7 +3159,7 @@ void initialization(int argc, char * argv[]) {
   }
   NPROCSX = atoi(argv[1]);
   NPROCSY = atoi(argv[2]);
-  ((NPROCSX * NPROCSY == nprocs) ? (void) (0) : __assert_fail ("NPROCSX * NPROCSY == nprocs", "diffusion2d_mpi-true-unreach-call.c", 155, __PRETTY_FUNCTION__));
+  ((NPROCSX * NPROCSY == nprocs) ? (void) (0) : __assert_fail ("NPROCSX * NPROCSY == nprocs", "diffusion2d_mpi-true-unreach-call.c", 154, __PRETTY_FUNCTION__));
   if (rank == 0) {
     nx = __VERIFIER_nondet_int();
     ny = __VERIFIER_nondet_int();
@@ -3175,8 +3170,8 @@ void initialization(int argc, char * argv[]) {
   MPI_Bcast(&ny, 1, ((MPI_Datatype)0x4c000405), 0, ((MPI_Comm)0x44000000));
   MPI_Bcast(&nsteps, 1, ((MPI_Datatype)0x4c000405), 0, ((MPI_Comm)0x44000000));
   MPI_Bcast(&initTemp, 1, ((MPI_Datatype)0x4c00080b), 0, ((MPI_Comm)0x44000000));
-  ((nx > 0 && ny > 0) ? (void) (0) : __assert_fail ("nx > 0 && ny > 0", "diffusion2d_mpi-true-unreach-call.c", 166, __PRETTY_FUNCTION__));
-  ((nsteps >= wstep) ? (void) (0) : __assert_fail ("nsteps >= wstep", "diffusion2d_mpi-true-unreach-call.c", 167, __PRETTY_FUNCTION__));
+  ((nx > 0 && ny > 0) ? (void) (0) : __assert_fail ("nx > 0 && ny > 0", "diffusion2d_mpi-true-unreach-call.c", 165, __PRETTY_FUNCTION__));
+  ((nsteps >= wstep) ? (void) (0) : __assert_fail ("nsteps >= wstep", "diffusion2d_mpi-true-unreach-call.c", 166, __PRETTY_FUNCTION__));
   wstep = 10;
   constTemp = 0.0;
   k = 0.13;
@@ -3188,9 +3183,9 @@ void initialization(int argc, char * argv[]) {
   if (rank == OWNER(0, 0))
     recvbuf = (double *)malloc((nxl + 1) * sizeof(double));
   u_curr = (double (*)[nx+2])malloc((nyl + 2) * sizeof(double [nx + 2]));
-  ((u_curr) ? (void) (0) : __assert_fail ("u_curr", "diffusion2d_mpi-true-unreach-call.c", 179, __PRETTY_FUNCTION__));
+  ((u_curr) ? (void) (0) : __assert_fail ("u_curr", "diffusion2d_mpi-true-unreach-call.c", 178, __PRETTY_FUNCTION__));
   u_next = (double (*)[nx+2])malloc((nyl + 2) * sizeof(double [nx + 2]));
-  ((u_next) ? (void) (0) : __assert_fail ("u_next", "diffusion2d_mpi-true-unreach-call.c", 181, __PRETTY_FUNCTION__));
+  ((u_next) ? (void) (0) : __assert_fail ("u_next", "diffusion2d_mpi-true-unreach-call.c", 180, __PRETTY_FUNCTION__));
   firstCol = firstColForProc(rank);
   firstRow = firstRowForProc(rank);
   if (firstCol != 0)
@@ -3211,7 +3206,7 @@ void initialization(int argc, char * argv[]) {
     bottom = (-1);
   if (rank == OWNER(0, 0)) {
     oracle = (double (*)[nx + 2])malloc(sizeof(double [nx + 2]) * nsteps * (ny + 2));
-    ((oracle) ? (void) (0) : __assert_fail ("oracle", "diffusion2d_mpi-true-unreach-call.c", 204, __PRETTY_FUNCTION__));
+    ((oracle) ? (void) (0) : __assert_fail ("oracle", "diffusion2d_mpi-true-unreach-call.c", 203, __PRETTY_FUNCTION__));
     double (*oracle_curr)[nx + 2] = oracle;
     double (*oracle_next)[nx + 2] = oracle_curr + ny + 2;
     for (int i=0; i < ny+2; i++)
@@ -3274,7 +3269,7 @@ void printData(int time, int firstCol, int nxl, int currRow, double * buf) {
   oracle_time += (time) * (ny + 2);
   for (int i=0; i<nxl; i++) {
     printf("%6.2f ", *(buf + i));
-    if (!(*(buf + i) == oracle_time[currRow + 1][firstCol + 1 + i])) __VERIFIER_error();
+    __VERIFIER_assert(*(buf + i) == oracle_time[currRow + 1][firstCol + 1 + i]);
   }
 }
 void write_frame(int time, double (*u_curr)[nx+2]) {
