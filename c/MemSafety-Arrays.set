@@ -4,6 +4,7 @@ array-memsafety/*_false-valid-deref*.i
 array-memsafety/*_true-valid-memsafety*.i
 
 reducercommutativity/*_true-valid-memsafety*.i
+termination-crafted/*_false-valid-deref*.c
 termination-crafted/*_true-valid-memsafety*.c
 array-examples/*_true-valid-memsafety*.i
 array-examples/*_false-valid-deref*.i
