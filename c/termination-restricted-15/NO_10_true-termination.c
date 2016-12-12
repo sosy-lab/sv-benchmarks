@@ -1,10 +1,10 @@
 typedef enum {false,true} bool;
 
-extern int __VERIFIER_nondet_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 
 int main() {
-    int i;
-    int j;
+    unsigned int i;
+    unsigned int j;
     j = 100;
     i = 0;
     
