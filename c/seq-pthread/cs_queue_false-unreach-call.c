@@ -82,11 +82,12 @@ unsigned int __CS_SwitchDone;
 */
 
 //cseq: function declarations
-int __VERIFIER_nondet_int();
+extern int __VERIFIER_nondet_int();
+extern unsigned char __VERIFIER_nondet_uchar();
 
 void __CS_cs(void)
 {
-	__CS_type k;
+	__CS_type k = __VERIFIER_nondet_uchar();
 
 	__VERIFIER_assume(__CS_round+k < __CS_ROUNDS);   // k==0 --> no switch
 	__CS_round += k;
