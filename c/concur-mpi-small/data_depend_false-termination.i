@@ -1540,6 +1540,7 @@ int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
 extern void __VERIFIER_assume(int expr);
+extern void __VERIFIER_error();
 int main(int argc, char** argv){
   int rank, nprocs;
   int x = 0;

@@ -2234,6 +2234,7 @@ __attribute__ ((__nothrow__ , __leaf__)) wcstombs (char *__restrict __dst, const
   return __wcstombs_alias (__dst, __src, __len);
 }
 
+extern void __VERIFIER_error();
 extern void __VERIFIER_assume(int expr);
 int main(int argc, char * argv[]) {
   int data = 0, rank, nprocs;

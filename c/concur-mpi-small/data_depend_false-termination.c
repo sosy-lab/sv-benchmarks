@@ -1,5 +1,6 @@
 #include <mpi.h>
 extern void __VERIFIER_assume(int expr);
+extern void __VERIFIER_error();
 #define __VERIFIER_assert(expr) if(!(expr)) __VERIFIER_error()
 int main(int argc, char** argv){
   int rank, nprocs;

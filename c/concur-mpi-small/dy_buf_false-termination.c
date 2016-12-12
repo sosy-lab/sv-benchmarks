@@ -18,6 +18,7 @@
 #include <mpi.h>
 #include <assert.h>
 #include <stdlib.h>
+extern void __VERIFIER_error();
 extern void __VERIFIER_assume(int expr);
 #define __VERIFIER_assert(expr) if(!(expr)) __VERIFIER_error()
 int nprocs, rank, tag=0;
