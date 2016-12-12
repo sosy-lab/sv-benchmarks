@@ -25,10 +25,14 @@
  */
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 #include <assert.h>
 #include <mpi.h>
 #define OWNER(index) ((nprocs*(index+1)-1)/nx)
+
+extern void __VERIFIER_error();
+extern int __VERIFIER_nondet_int();
+extern double __VERIFIER_nondet_double();
+#define __VERIFIER_assert(expr) if(!(expr)) __VERIFIER_error()
 
 /* Global parameters */
 int nx;        /* number of discrete points including endpoints */
@@ -97,9 +101,6 @@ void initialize() {
   MPI_Bcast(&nx, 1, MPI_INT, 0, MPI_COMM_WORLD);
   MPI_Bcast(&nsteps, 1, MPI_INT, 0, MPI_COMM_WORLD);
   init_globals();
-  if (rank == 0)
-    printf("nx=%d, k=%lf, nsteps=%d, wstep=%d\n",
-	   nx, k, nsteps, wstep);
   if (rank == OWNER(0)) {
     double buf[nx];
     double * bufptr = buf;
@@ -136,9 +137,6 @@ void initialize() {
 	else
 	  oracle_next[i] = oracle_curr[i] + 
 	    k*(oracle_curr[i+1] + oracle_curr[i-1] - 2*oracle_curr[i]);
-      for (int i = 0; i < nx + 2; i++)
-	printf("%6.2f", oracle_next[i]);	     
-      printf("\n");
       oracle_curr += nx + 2;
       oracle_next = t <= nsteps ? oracle_curr + nx + 2 : NULL;
     }
@@ -147,13 +145,11 @@ void initialize() {
 
 /* Prints header for time step.  Called by proc 0 only */
 void print_time_header() {
-  printf("======= Time %d =======\n", time);
   print_pos = 0;
 }
 
 /* Prints one cell.  Called by proc 0 only. */
 void print_cell(double value) {  
-  printf("%8.2f", value);
   print_pos++;
 }
 
@@ -188,7 +184,6 @@ void write_plain() {
       }
     }
     print_cell(rbound); // right boundary
-    printf("\n");
   }
 }
 

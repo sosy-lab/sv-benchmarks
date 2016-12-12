@@ -1,7 +1,7 @@
 #include <mpi.h>
 #include <stdlib.h>
 #define comm MPI_COMM_WORLD
-
+extern void __VERIFIER_assume(int expr);
 int main(int argc, char * argv[]) {
   int rank, nprocs;
   

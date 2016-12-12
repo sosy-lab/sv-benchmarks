@@ -4,7 +4,10 @@
  */
 #include <stdlib.h>
 #include <mpi.h>
-
+extern void __VERIFIER_error();
+extern void __VERIFIER_assume(int expr);
+extern int __VERIFIER_nondet_int();
+#define __VERIFIER_assert(expr) if(!(expr)) __VERIFIER_error()
 int main() { 
   int rank, nprocs, x;
 
