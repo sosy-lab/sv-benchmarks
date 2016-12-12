@@ -3211,7 +3211,7 @@ int main(int argc, char * argv[]) {
 
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(((MPI_Comm)0x44000000), &rank);
-  MPI_Comm_nprocs(((MPI_Comm)0x44000000), &nprocs);
+  MPI_Comm_size(((MPI_Comm)0x44000000), &nprocs);
   __VERIFIER_assume(nprocs==2);
   if (rank == 0)
     MPI_Send(&int_datum, 2, ((MPI_Datatype)0x4c000405), 1, 0, ((MPI_Comm)0x44000000));

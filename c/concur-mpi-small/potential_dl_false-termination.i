@@ -3206,10 +3206,11 @@ double __VERIFIER_nondet_double(void);
 
 
 int main(int argc, char * argv[]) {
-  int rank;
+  int rank, nprocs;
 
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(((MPI_Comm)0x44000000), &rank);
+  MPI_Comm_size(((MPI_Comm)0x44000000), &nprocs);
   __VERIFIER_assume(nprocs>=2);
   if (rank <= 1) {
     MPI_Send(((void *)0), 0, ((MPI_Datatype)0x4c000405), 1-rank, 0, ((MPI_Comm)0x44000000));
