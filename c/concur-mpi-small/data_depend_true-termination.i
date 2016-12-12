@@ -1539,6 +1539,7 @@ int PMPIX_Mutex_create(int count, MPI_Comm comm, MPIX_Mutex *hdl);
 int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
+extern void __VERIFIER_assume(int expr);
 int main(int argc, char** argv){
   int rank, nprocs;
   MPI_Init(&argc, &argv);
