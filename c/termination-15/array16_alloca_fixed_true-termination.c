@@ -14,7 +14,7 @@ int main() {
   if (!arr) return 0;
   for (i=0; i<length; i++) {
     arr[i] = __VERIFIER_nondet_int();
-    if (arr[i] % 2 == 1) {
+    if (arr[i] % 2 != 0) {
       arr[i] = 0;
     }
   }
