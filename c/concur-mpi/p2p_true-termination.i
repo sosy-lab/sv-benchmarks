@@ -2235,6 +2235,7 @@ int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
 extern void __VERIFIER_error();
+extern void __VERIFIER_assume(int expr);
 extern int __VERIFIER_nondet_int();
 int main() {
   int rank, nprocs, x;
