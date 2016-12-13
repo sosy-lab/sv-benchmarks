@@ -1,1111 +1,1573 @@
+
+typedef long unsigned int size_t;
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
 typedef signed char __int8_t;
 typedef unsigned char __uint8_t;
-typedef short __int16_t;
-typedef unsigned short __uint16_t;
-typedef int __int32_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
 typedef unsigned int __uint32_t;
-typedef long long __int64_t;
-typedef unsigned long long __uint64_t;
-typedef long __darwin_intptr_t;
-typedef unsigned int __darwin_natural_t;
-typedef int __darwin_ct_rune_t;
-typedef union {
- char __mbstate8[128];
- long long _mbstateL;
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+typedef int __daddr_t;
+typedef int __key_t;
+typedef int __clockid_t;
+typedef void * __timer_t;
+typedef long int __blksize_t;
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+typedef long int __fsword_t;
+typedef long int __ssize_t;
+typedef long int __syscall_slong_t;
+typedef unsigned long int __syscall_ulong_t;
+typedef __off64_t __loff_t;
+typedef __quad_t *__qaddr_t;
+typedef char *__caddr_t;
+typedef long int __intptr_t;
+typedef unsigned int __socklen_t;
+struct _IO_FILE;
+
+typedef struct _IO_FILE FILE;
+
+
+typedef struct _IO_FILE __FILE;
+typedef struct
+{
+  int __count;
+  union
+  {
+    unsigned int __wch;
+    char __wchb[4];
+  } __value;
 } __mbstate_t;
-typedef __mbstate_t __darwin_mbstate_t;
-typedef long int __darwin_ptrdiff_t;
-typedef long unsigned int __darwin_size_t;
-typedef __builtin_va_list __darwin_va_list;
-typedef int __darwin_wchar_t;
-typedef __darwin_wchar_t __darwin_rune_t;
-typedef int __darwin_wint_t;
-typedef unsigned long __darwin_clock_t;
-typedef __uint32_t __darwin_socklen_t;
-typedef long __darwin_ssize_t;
-typedef long __darwin_time_t;
-typedef __int64_t __darwin_blkcnt_t;
-typedef __int32_t __darwin_blksize_t;
-typedef __int32_t __darwin_dev_t;
-typedef unsigned int __darwin_fsblkcnt_t;
-typedef unsigned int __darwin_fsfilcnt_t;
-typedef __uint32_t __darwin_gid_t;
-typedef __uint32_t __darwin_id_t;
-typedef __uint64_t __darwin_ino64_t;
-typedef __darwin_ino64_t __darwin_ino_t;
-typedef __darwin_natural_t __darwin_mach_port_name_t;
-typedef __darwin_mach_port_name_t __darwin_mach_port_t;
-typedef __uint16_t __darwin_mode_t;
-typedef __int64_t __darwin_off_t;
-typedef __int32_t __darwin_pid_t;
-typedef __uint32_t __darwin_sigset_t;
-typedef __int32_t __darwin_suseconds_t;
-typedef __uint32_t __darwin_uid_t;
-typedef __uint32_t __darwin_useconds_t;
-typedef unsigned char __darwin_uuid_t[16];
-typedef char __darwin_uuid_string_t[37];
-struct __darwin_pthread_handler_rec {
- void (*__routine)(void *);
- void *__arg;
- struct __darwin_pthread_handler_rec *__next;
+typedef struct
+{
+  __off_t __pos;
+  __mbstate_t __state;
+} _G_fpos_t;
+typedef struct
+{
+  __off64_t __pos;
+  __mbstate_t __state;
+} _G_fpos64_t;
+typedef __builtin_va_list __gnuc_va_list;
+struct _IO_jump_t; struct _IO_FILE;
+typedef void _IO_lock_t;
+struct _IO_marker {
+  struct _IO_marker *_next;
+  struct _IO_FILE *_sbuf;
+  int _pos;
 };
-struct _opaque_pthread_attr_t {
- long __sig;
- char __opaque[56];
+enum __codecvt_result
+{
+  __codecvt_ok,
+  __codecvt_partial,
+  __codecvt_error,
+  __codecvt_noconv
 };
-struct _opaque_pthread_cond_t {
- long __sig;
- char __opaque[40];
+struct _IO_FILE {
+  int _flags;
+  char* _IO_read_ptr;
+  char* _IO_read_end;
+  char* _IO_read_base;
+  char* _IO_write_base;
+  char* _IO_write_ptr;
+  char* _IO_write_end;
+  char* _IO_buf_base;
+  char* _IO_buf_end;
+  char *_IO_save_base;
+  char *_IO_backup_base;
+  char *_IO_save_end;
+  struct _IO_marker *_markers;
+  struct _IO_FILE *_chain;
+  int _fileno;
+  int _flags2;
+  __off_t _old_offset;
+  unsigned short _cur_column;
+  signed char _vtable_offset;
+  char _shortbuf[1];
+  _IO_lock_t *_lock;
+  __off64_t _offset;
+  void *__pad1;
+  void *__pad2;
+  void *__pad3;
+  void *__pad4;
+  size_t __pad5;
+  int _mode;
+  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
 };
-struct _opaque_pthread_condattr_t {
- long __sig;
- char __opaque[8];
-};
-struct _opaque_pthread_mutex_t {
- long __sig;
- char __opaque[56];
-};
-struct _opaque_pthread_mutexattr_t {
- long __sig;
- char __opaque[8];
-};
-struct _opaque_pthread_once_t {
- long __sig;
- char __opaque[8];
-};
-struct _opaque_pthread_rwlock_t {
- long __sig;
- char __opaque[192];
-};
-struct _opaque_pthread_rwlockattr_t {
- long __sig;
- char __opaque[16];
-};
-struct _opaque_pthread_t {
- long __sig;
- struct __darwin_pthread_handler_rec *__cleanup_stack;
- char __opaque[8176];
-};
-typedef struct _opaque_pthread_attr_t __darwin_pthread_attr_t;
-typedef struct _opaque_pthread_cond_t __darwin_pthread_cond_t;
-typedef struct _opaque_pthread_condattr_t __darwin_pthread_condattr_t;
-typedef unsigned long __darwin_pthread_key_t;
-typedef struct _opaque_pthread_mutex_t __darwin_pthread_mutex_t;
-typedef struct _opaque_pthread_mutexattr_t __darwin_pthread_mutexattr_t;
-typedef struct _opaque_pthread_once_t __darwin_pthread_once_t;
-typedef struct _opaque_pthread_rwlock_t __darwin_pthread_rwlock_t;
-typedef struct _opaque_pthread_rwlockattr_t __darwin_pthread_rwlockattr_t;
-typedef struct _opaque_pthread_t *__darwin_pthread_t;
-typedef int __darwin_nl_item;
-typedef int __darwin_wctrans_t;
-typedef __uint32_t __darwin_wctype_t;
-typedef __darwin_va_list va_list;
-typedef __darwin_size_t size_t;
+typedef struct _IO_FILE _IO_FILE;
+struct _IO_FILE_plus;
+extern struct _IO_FILE_plus _IO_2_1_stdin_;
+extern struct _IO_FILE_plus _IO_2_1_stdout_;
+extern struct _IO_FILE_plus _IO_2_1_stderr_;
+typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
+typedef __ssize_t __io_write_fn (void *__cookie, const char *__buf,
+     size_t __n);
+typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
+typedef int __io_close_fn (void *__cookie);
+extern int __underflow (_IO_FILE *);
+extern int __uflow (_IO_FILE *);
+extern int __overflow (_IO_FILE *, int);
+extern int _IO_getc (_IO_FILE *__fp);
+extern int _IO_putc (int __c, _IO_FILE *__fp);
+extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ferror (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_peekc_locked (_IO_FILE *__fp);
+extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
+   __gnuc_va_list, int *__restrict);
+extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
+    __gnuc_va_list);
+extern __ssize_t _IO_padn (_IO_FILE *, int, __ssize_t);
+extern size_t _IO_sgetn (_IO_FILE *, void *, size_t);
+extern __off64_t _IO_seekoff (_IO_FILE *, __off64_t, int, int);
+extern __off64_t _IO_seekpos (_IO_FILE *, __off64_t, int);
+extern void _IO_free_backup_area (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+typedef __gnuc_va_list va_list;
+typedef __off_t off_t;
+typedef __ssize_t ssize_t;
 
-int renameat(int, const char *, int, const char *) ;
+typedef _G_fpos_t fpos_t;
 
-typedef __darwin_off_t fpos_t;
-struct __sbuf {
- unsigned char *_base;
- int _size;
-};
-struct __sFILEX;
-typedef struct __sFILE {
- unsigned char *_p;
- int _r;
- int _w;
- short _flags;
- short _file;
- struct __sbuf _bf;
- int _lbfsize;
- void *_cookie;
- int (*_close)(void *);
- int (*_read) (void *, char *, int);
- fpos_t (*_seek) (void *, fpos_t, int);
- int (*_write)(void *, const char *, int);
- struct __sbuf _ub;
- struct __sFILEX *_extra;
- int _ur;
- unsigned char _ubuf[3];
- unsigned char _nbuf[1];
- struct __sbuf _lb;
- int _blksize;
- fpos_t _offset;
-} FILE;
+extern struct _IO_FILE *stdin;
+extern struct _IO_FILE *stdout;
+extern struct _IO_FILE *stderr;
 
-extern FILE *__stdinp;
-extern FILE *__stdoutp;
-extern FILE *__stderrp;
+extern int remove (const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
+extern int rename (const char *__old, const char *__new) __attribute__ ((__nothrow__ , __leaf__));
 
+extern int renameat (int __oldfd, const char *__old, int __newfd,
+       const char *__new) __attribute__ ((__nothrow__ , __leaf__));
 
-void clearerr(FILE *);
-int fclose(FILE *);
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-int fgetc(FILE *);
-int fgetpos(FILE * restrict, fpos_t *);
-char *fgets(char * restrict, int, FILE *);
-FILE *fopen(const char * restrict, const char * restrict) __asm("_" "fopen" );
-int fprintf(FILE * restrict, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3)));
-int fputc(int, FILE *);
-int fputs(const char * restrict, FILE * restrict) __asm("_" "fputs" );
-size_t fread(void * restrict, size_t, size_t, FILE * restrict);
-FILE *freopen(const char * restrict, const char * restrict,
-                 FILE * restrict) __asm("_" "freopen" );
-int fscanf(FILE * restrict, const char * restrict, ...) __attribute__((__format__ (__scanf__, 2, 3)));
-int fseek(FILE *, long, int);
-int fsetpos(FILE *, const fpos_t *);
-long ftell(FILE *);
-size_t fwrite(const void * restrict, size_t, size_t, FILE * restrict) __asm("_" "fwrite" );
-int getc(FILE *);
-int getchar(void);
-char *gets(char *);
-void perror(const char *);
-int printf(const char * restrict, ...) __attribute__((__format__ (__printf__, 1, 2)));
-int putc(int, FILE *);
-int putchar(int);
-int puts(const char *);
-int remove(const char *);
-int rename (const char *, const char *);
-void rewind(FILE *);
-int scanf(const char * restrict, ...) __attribute__((__format__ (__scanf__, 1, 2)));
-void setbuf(FILE * restrict, char * restrict);
-int setvbuf(FILE * restrict, char * restrict, int, size_t);
-int sprintf(char * restrict, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3)));
-int sscanf(const char * restrict, const char * restrict, ...) __attribute__((__format__ (__scanf__, 2, 3)));
-FILE *tmpfile(void);
-__attribute__((deprecated("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of tmpnam(3), it is highly recommended that you use mkstemp(3) instead.")))
-char *tmpnam(char *);
-int ungetc(int, FILE *);
-int vfprintf(FILE * restrict, const char * restrict, va_list) __attribute__((__format__ (__printf__, 2, 0)));
-int vprintf(const char * restrict, va_list) __attribute__((__format__ (__printf__, 1, 0)));
-int vsprintf(char * restrict, const char * restrict, va_list) __attribute__((__format__ (__printf__, 2, 0)));
+extern FILE *tmpfile (void) __attribute__ ((__warn_unused_result__));
+extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+
+extern char *tmpnam_r (char *__s) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern char *tempnam (const char *__dir, const char *__pfx)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__warn_unused_result__));
+
+extern int fclose (FILE *__stream);
+extern int fflush (FILE *__stream);
+
+extern int fflush_unlocked (FILE *__stream);
+
+extern FILE *fopen (const char *__restrict __filename,
+      const char *__restrict __modes) __attribute__ ((__warn_unused_result__));
+extern FILE *freopen (const char *__restrict __filename,
+        const char *__restrict __modes,
+        FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+
+extern FILE *fdopen (int __fd, const char *__modes) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
+  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+
+extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
+extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
+      int __modes, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+extern void setbuffer (FILE *__restrict __stream, char *__restrict __buf,
+         size_t __size) __attribute__ ((__nothrow__ , __leaf__));
+extern void setlinebuf (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int fprintf (FILE *__restrict __stream,
+      const char *__restrict __format, ...);
+extern int printf (const char *__restrict __format, ...);
+extern int sprintf (char *__restrict __s,
+      const char *__restrict __format, ...) __attribute__ ((__nothrow__));
+extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
+       __gnuc_va_list __arg);
+extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
+extern int vsprintf (char *__restrict __s, const char *__restrict __format,
+       __gnuc_va_list __arg) __attribute__ ((__nothrow__));
 
 
-char *ctermid(char *);
-FILE *fdopen(int, const char *) __asm("_" "fdopen" );
-int fileno(FILE *);
+extern int snprintf (char *__restrict __s, size_t __maxlen,
+       const char *__restrict __format, ...)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 4)));
+extern int vsnprintf (char *__restrict __s, size_t __maxlen,
+        const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+extern int vdprintf (int __fd, const char *__restrict __fmt,
+       __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__printf__, 2, 0)));
+extern int dprintf (int __fd, const char *__restrict __fmt, ...)
+     __attribute__ ((__format__ (__printf__, 2, 3)));
+
+extern int fscanf (FILE *__restrict __stream,
+     const char *__restrict __format, ...) __attribute__ ((__warn_unused_result__));
+extern int scanf (const char *__restrict __format, ...) __attribute__ ((__warn_unused_result__));
+extern int sscanf (const char *__restrict __s,
+     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
+extern int fscanf (FILE *__restrict __stream, const char *__restrict __format, ...) __asm__ ("" "__isoc99_fscanf") __attribute__ ((__warn_unused_result__));
+extern int scanf (const char *__restrict __format, ...) __asm__ ("" "__isoc99_scanf") __attribute__ ((__warn_unused_result__));
+extern int sscanf (const char *__restrict __s, const char *__restrict __format, ...) __asm__ ("" "__isoc99_sscanf") __attribute__ ((__nothrow__ , __leaf__));
 
 
-int pclose(FILE *);
-FILE *popen(const char *, const char *) __asm("_" "popen" );
+extern int vfscanf (FILE *__restrict __s, const char *__restrict __format,
+      __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 2, 0))) __attribute__ ((__warn_unused_result__));
+extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 1, 0))) __attribute__ ((__warn_unused_result__));
+extern int vsscanf (const char *__restrict __s,
+      const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__format__ (__scanf__, 2, 0)));
+extern int vfscanf (FILE *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vfscanf")
+     __attribute__ ((__format__ (__scanf__, 2, 0))) __attribute__ ((__warn_unused_result__));
+extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vscanf")
+     __attribute__ ((__format__ (__scanf__, 1, 0))) __attribute__ ((__warn_unused_result__));
+extern int vsscanf (const char *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vsscanf") __attribute__ ((__nothrow__ , __leaf__))
+     __attribute__ ((__format__ (__scanf__, 2, 0)));
 
 
-int __srget(FILE *);
-int __svfscanf(FILE *, const char *, va_list) __attribute__((__format__ (__scanf__, 2, 0)));
-int __swbuf(int, FILE *);
+extern int fgetc (FILE *__stream);
+extern int getc (FILE *__stream);
+extern int getchar (void);
 
-extern __inline __attribute__((__gnu_inline__)) __attribute__ ((__always_inline__)) int __sputc(int _c, FILE *_p) {
- if (--_p->_w >= 0 || (_p->_w >= _p->_lbfsize && (char)_c != '\n'))
-  return (*_p->_p++ = _c);
- else
-  return (__swbuf(_c, _p));
-}
+extern int getc_unlocked (FILE *__stream);
+extern int getchar_unlocked (void);
+extern int fgetc_unlocked (FILE *__stream);
 
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-int getw(FILE *);
-int putw(int, FILE *);
-__attribute__((deprecated("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of tempnam(3), it is highly recommended that you use mkstemp(3) instead.")))
-char *tempnam(const char *, const char *) __asm("_" "tempnam" );
+extern int fputc (int __c, FILE *__stream);
+extern int putc (int __c, FILE *__stream);
+extern int putchar (int __c);
 
-typedef __darwin_off_t off_t;
+extern int fputc_unlocked (int __c, FILE *__stream);
+extern int putc_unlocked (int __c, FILE *__stream);
+extern int putchar_unlocked (int __c);
+extern int getw (FILE *__stream);
+extern int putw (int __w, FILE *__stream);
 
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
+extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
+     __attribute__ ((__warn_unused_result__));
+
+extern __ssize_t __getdelim (char **__restrict __lineptr,
+          size_t *__restrict __n, int __delimiter,
+          FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+extern __ssize_t getdelim (char **__restrict __lineptr,
+        size_t *__restrict __n, int __delimiter,
+        FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+extern __ssize_t getline (char **__restrict __lineptr,
+       size_t *__restrict __n,
+       FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+
+extern int fputs (const char *__restrict __s, FILE *__restrict __stream);
+extern int puts (const char *__s);
+extern int ungetc (int __c, FILE *__stream);
+extern size_t fread (void *__restrict __ptr, size_t __size,
+       size_t __n, FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+extern size_t fwrite (const void *__restrict __ptr, size_t __size,
+        size_t __n, FILE *__restrict __s);
+
+extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
+         size_t __n, FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
+          size_t __n, FILE *__restrict __stream);
+
+extern int fseek (FILE *__stream, long int __off, int __whence);
+extern long int ftell (FILE *__stream) __attribute__ ((__warn_unused_result__));
+extern void rewind (FILE *__stream);
+
+extern int fseeko (FILE *__stream, __off_t __off, int __whence);
+extern __off_t ftello (FILE *__stream) __attribute__ ((__warn_unused_result__));
+
+extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
+extern int fsetpos (FILE *__stream, const fpos_t *__pos);
 
 
-int snprintf(char * restrict, size_t, const char * restrict, ...) __attribute__((__format__ (__printf__, 3, 4)));
-int vfscanf(FILE * restrict, const char * restrict, va_list) __attribute__((__format__ (__scanf__, 2, 0)));
-int vscanf(const char * restrict, va_list) __attribute__((__format__ (__scanf__, 1, 0)));
-int vsnprintf(char * restrict, size_t, const char * restrict, va_list) __attribute__((__format__ (__printf__, 3, 0)));
-int vsscanf(const char * restrict, const char * restrict, va_list) __attribute__((__format__ (__scanf__, 2, 0)));
+extern void clearerr (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+extern int feof (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern int ferror (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 
-typedef __darwin_ssize_t ssize_t;
+extern void clearerr_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+extern int feof_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern int ferror_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 
-int dprintf(int, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3))) ;
-int vdprintf(int, const char * restrict, va_list) __attribute__((__format__ (__printf__, 2, 0))) ;
-ssize_t getdelim(char ** restrict, size_t * restrict, int, FILE * restrict) ;
-ssize_t getline(char ** restrict, size_t * restrict, FILE * restrict) ;
+extern void perror (const char *__s);
 
-
-extern const int sys_nerr;
+extern int sys_nerr;
 extern const char *const sys_errlist[];
-int asprintf(char ** restrict, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3)));
-char *ctermid_r(char *);
-char *fgetln(FILE *, size_t *);
-const char *fmtcheck(const char *, const char *);
-int fpurge(FILE *);
-void setbuffer(FILE *, char *, int);
-int setlinebuf(FILE *);
-int vasprintf(char ** restrict, const char * restrict, va_list) __attribute__((__format__ (__printf__, 2, 0)));
-FILE *zopen(const char *, const char *, int);
-FILE *funopen(const void *,
-                 int (*)(void *, char *, int),
-                 int (*)(void *, const char *, int),
-                 fpos_t (*)(void *, fpos_t, int),
-                 int (*)(void *));
+extern int fileno (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern FILE *popen (const char *__command, const char *__modes) __attribute__ ((__warn_unused_result__));
+extern int pclose (FILE *__stream);
+extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__));
+extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+extern __inline __attribute__ ((__gnu_inline__)) int
+getchar (void)
+{
+  return _IO_getc (stdin);
+}
+extern __inline __attribute__ ((__gnu_inline__)) int
+fgetc_unlocked (FILE *__fp)
+{
+  return (__builtin_expect (((__fp)->_IO_read_ptr >= (__fp)->_IO_read_end), 0) ? __uflow (__fp) : *(unsigned char *) (__fp)->_IO_read_ptr++);
+}
+extern __inline __attribute__ ((__gnu_inline__)) int
+getc_unlocked (FILE *__fp)
+{
+  return (__builtin_expect (((__fp)->_IO_read_ptr >= (__fp)->_IO_read_end), 0) ? __uflow (__fp) : *(unsigned char *) (__fp)->_IO_read_ptr++);
+}
+extern __inline __attribute__ ((__gnu_inline__)) int
+getchar_unlocked (void)
+{
+  return (__builtin_expect (((stdin)->_IO_read_ptr >= (stdin)->_IO_read_end), 0) ? __uflow (stdin) : *(unsigned char *) (stdin)->_IO_read_ptr++);
+}
+extern __inline __attribute__ ((__gnu_inline__)) int
+putchar (int __c)
+{
+  return _IO_putc (__c, stdout);
+}
+extern __inline __attribute__ ((__gnu_inline__)) int
+fputc_unlocked (int __c, FILE *__stream)
+{
+  return (__builtin_expect (((__stream)->_IO_write_ptr >= (__stream)->_IO_write_end), 0) ? __overflow (__stream, (unsigned char) (__c)) : (unsigned char) (*(__stream)->_IO_write_ptr++ = (__c)));
+}
+extern __inline __attribute__ ((__gnu_inline__)) int
+putc_unlocked (int __c, FILE *__stream)
+{
+  return (__builtin_expect (((__stream)->_IO_write_ptr >= (__stream)->_IO_write_end), 0) ? __overflow (__stream, (unsigned char) (__c)) : (unsigned char) (*(__stream)->_IO_write_ptr++ = (__c)));
+}
+extern __inline __attribute__ ((__gnu_inline__)) int
+putchar_unlocked (int __c)
+{
+  return (__builtin_expect (((stdout)->_IO_write_ptr >= (stdout)->_IO_write_end), 0) ? __overflow (stdout, (unsigned char) (__c)) : (unsigned char) (*(stdout)->_IO_write_ptr++ = (__c)));
+}
+extern __inline __attribute__ ((__gnu_inline__)) int
+__attribute__ ((__nothrow__ , __leaf__)) feof_unlocked (FILE *__stream)
+{
+  return (((__stream)->_flags & 0x10) != 0);
+}
+extern __inline __attribute__ ((__gnu_inline__)) int
+__attribute__ ((__nothrow__ , __leaf__)) ferror_unlocked (FILE *__stream)
+{
+  return (((__stream)->_flags & 0x20) != 0);
+}
+extern int __sprintf_chk (char *__restrict __s, int __flag, size_t __slen,
+     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
+extern int __vsprintf_chk (char *__restrict __s, int __flag, size_t __slen,
+      const char *__restrict __format,
+      __gnuc_va_list __ap) __attribute__ ((__nothrow__ , __leaf__));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+__attribute__ ((__nothrow__ , __leaf__)) sprintf (char *__restrict __s, const char *__restrict __fmt, ...)
+{
+  return __builtin___sprintf_chk (__s, 2 - 1,
+      __builtin_object_size (__s, 2 > 1), __fmt, __builtin_va_arg_pack ());
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+__attribute__ ((__nothrow__ , __leaf__)) vsprintf (char *__restrict __s, const char *__restrict __fmt, __gnuc_va_list __ap)
+{
+  return __builtin___vsprintf_chk (__s, 2 - 1,
+       __builtin_object_size (__s, 2 > 1), __fmt, __ap);
+}
+extern int __snprintf_chk (char *__restrict __s, size_t __n, int __flag,
+      size_t __slen, const char *__restrict __format,
+      ...) __attribute__ ((__nothrow__ , __leaf__));
+extern int __vsnprintf_chk (char *__restrict __s, size_t __n, int __flag,
+       size_t __slen, const char *__restrict __format,
+       __gnuc_va_list __ap) __attribute__ ((__nothrow__ , __leaf__));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+__attribute__ ((__nothrow__ , __leaf__)) snprintf (char *__restrict __s, size_t __n, const char *__restrict __fmt, ...)
+{
+  return __builtin___snprintf_chk (__s, __n, 2 - 1,
+       __builtin_object_size (__s, 2 > 1), __fmt, __builtin_va_arg_pack ());
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+__attribute__ ((__nothrow__ , __leaf__)) vsnprintf (char *__restrict __s, size_t __n, const char *__restrict __fmt, __gnuc_va_list __ap)
+{
+  return __builtin___vsnprintf_chk (__s, __n, 2 - 1,
+        __builtin_object_size (__s, 2 > 1), __fmt, __ap);
+}
+extern int __fprintf_chk (FILE *__restrict __stream, int __flag,
+     const char *__restrict __format, ...);
+extern int __printf_chk (int __flag, const char *__restrict __format, ...);
+extern int __vfprintf_chk (FILE *__restrict __stream, int __flag,
+      const char *__restrict __format, __gnuc_va_list __ap);
+extern int __vprintf_chk (int __flag, const char *__restrict __format,
+     __gnuc_va_list __ap);
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+fprintf (FILE *__restrict __stream, const char *__restrict __fmt, ...)
+{
+  return __fprintf_chk (__stream, 2 - 1, __fmt,
+   __builtin_va_arg_pack ());
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+printf (const char *__restrict __fmt, ...)
+{
+  return __printf_chk (2 - 1, __fmt, __builtin_va_arg_pack ());
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+vprintf (const char *__restrict __fmt, __gnuc_va_list __ap)
+{
+  return __vfprintf_chk (stdout, 2 - 1, __fmt, __ap);
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+vfprintf (FILE *__restrict __stream,
+   const char *__restrict __fmt, __gnuc_va_list __ap)
+{
+  return __vfprintf_chk (__stream, 2 - 1, __fmt, __ap);
+}
+extern int __dprintf_chk (int __fd, int __flag, const char *__restrict __fmt,
+     ...) __attribute__ ((__format__ (__printf__, 3, 4)));
+extern int __vdprintf_chk (int __fd, int __flag,
+      const char *__restrict __fmt, __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__printf__, 3, 0)));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+dprintf (int __fd, const char *__restrict __fmt, ...)
+{
+  return __dprintf_chk (__fd, 2 - 1, __fmt,
+   __builtin_va_arg_pack ());
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+vdprintf (int __fd, const char *__restrict __fmt, __gnuc_va_list __ap)
+{
+  return __vdprintf_chk (__fd, 2 - 1, __fmt, __ap);
+}
+extern char *__fgets_chk (char *__restrict __s, size_t __size, int __n,
+     FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+extern char *__fgets_alias (char *__restrict __s, int __n, FILE *__restrict __stream) __asm__ ("" "fgets") __attribute__ ((__warn_unused_result__));
+extern char *__fgets_chk_warn (char *__restrict __s, size_t __size, int __n, FILE *__restrict __stream) __asm__ ("" "__fgets_chk")
+     __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("fgets called with bigger size than length " "of destination buffer")));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) char *
+fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
+{
+  if (__builtin_object_size (__s, 2 > 1) != (size_t) -1)
+    {
+      if (!__builtin_constant_p (__n) || __n <= 0)
+ return __fgets_chk (__s, __builtin_object_size (__s, 2 > 1), __n, __stream);
+      if ((size_t) __n > __builtin_object_size (__s, 2 > 1))
+ return __fgets_chk_warn (__s, __builtin_object_size (__s, 2 > 1), __n, __stream);
+    }
+  return __fgets_alias (__s, __n, __stream);
+}
+extern size_t __fread_chk (void *__restrict __ptr, size_t __ptrlen,
+      size_t __size, size_t __n,
+      FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+extern size_t __fread_alias (void *__restrict __ptr, size_t __size, size_t __n, FILE *__restrict __stream) __asm__ ("" "fread") __attribute__ ((__warn_unused_result__));
+extern size_t __fread_chk_warn (void *__restrict __ptr, size_t __ptrlen, size_t __size, size_t __n, FILE *__restrict __stream) __asm__ ("" "__fread_chk")
+     __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("fread called with bigger size * nmemb than length " "of destination buffer")));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) size_t
+fread (void *__restrict __ptr, size_t __size, size_t __n,
+       FILE *__restrict __stream)
+{
+  if (__builtin_object_size (__ptr, 0) != (size_t) -1)
+    {
+      if (!__builtin_constant_p (__size)
+   || !__builtin_constant_p (__n)
+   || (__size | __n) >= (((size_t) 1) << (8 * sizeof (size_t) / 2)))
+ return __fread_chk (__ptr, __builtin_object_size (__ptr, 0), __size, __n, __stream);
+      if (__size * __n > __builtin_object_size (__ptr, 0))
+ return __fread_chk_warn (__ptr, __builtin_object_size (__ptr, 0), __size, __n, __stream);
+    }
+  return __fread_alias (__ptr, __size, __n, __stream);
+}
+extern size_t __fread_unlocked_chk (void *__restrict __ptr, size_t __ptrlen,
+        size_t __size, size_t __n,
+        FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+extern size_t __fread_unlocked_alias (void *__restrict __ptr, size_t __size, size_t __n, FILE *__restrict __stream) __asm__ ("" "fread_unlocked") __attribute__ ((__warn_unused_result__));
+extern size_t __fread_unlocked_chk_warn (void *__restrict __ptr, size_t __ptrlen, size_t __size, size_t __n, FILE *__restrict __stream) __asm__ ("" "__fread_unlocked_chk")
+     __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("fread_unlocked called with bigger size * nmemb than " "length of destination buffer")));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) size_t
+fread_unlocked (void *__restrict __ptr, size_t __size, size_t __n,
+  FILE *__restrict __stream)
+{
+  if (__builtin_object_size (__ptr, 0) != (size_t) -1)
+    {
+      if (!__builtin_constant_p (__size)
+   || !__builtin_constant_p (__n)
+   || (__size | __n) >= (((size_t) 1) << (8 * sizeof (size_t) / 2)))
+ return __fread_unlocked_chk (__ptr, __builtin_object_size (__ptr, 0), __size, __n,
+         __stream);
+      if (__size * __n > __builtin_object_size (__ptr, 0))
+ return __fread_unlocked_chk_warn (__ptr, __builtin_object_size (__ptr, 0), __size, __n,
+       __stream);
+    }
+  if (__builtin_constant_p (__size)
+      && __builtin_constant_p (__n)
+      && (__size | __n) < (((size_t) 1) << (8 * sizeof (size_t) / 2))
+      && __size * __n <= 8)
+    {
+      size_t __cnt = __size * __n;
+      char *__cptr = (char *) __ptr;
+      if (__cnt == 0)
+ return 0;
+      for (; __cnt > 0; --__cnt)
+ {
+   int __c = (__builtin_expect (((__stream)->_IO_read_ptr >= (__stream)->_IO_read_end), 0) ? __uflow (__stream) : *(unsigned char *) (__stream)->_IO_read_ptr++);
+   if (__c == (-1))
+     break;
+   *__cptr++ = __c;
+ }
+      return (__cptr - (char *) __ptr) / __size;
+    }
+  return __fread_unlocked_alias (__ptr, __size, __n, __stream);
+}
 
-extern int __sprintf_chk (char * restrict, int, size_t,
-     const char * restrict, ...);
-extern int __snprintf_chk (char * restrict, size_t, int, size_t,
-      const char * restrict, ...);
-extern int __vsprintf_chk (char * restrict, int, size_t,
-      const char * restrict, va_list);
-extern int __vsnprintf_chk (char * restrict, size_t, int, size_t,
-       const char * restrict, va_list);
-typedef enum {
- P_ALL,
- P_PID,
- P_PGID
+typedef int wchar_t;
+
+typedef enum
+{
+  P_ALL,
+  P_PID,
+  P_PGID
 } idtype_t;
-typedef __darwin_pid_t pid_t;
-typedef __darwin_id_t id_t;
-typedef int sig_atomic_t;
-struct __darwin_i386_thread_state
+static __inline unsigned int
+__bswap_32 (unsigned int __bsx)
 {
-    unsigned int __eax;
-    unsigned int __ebx;
-    unsigned int __ecx;
-    unsigned int __edx;
-    unsigned int __edi;
-    unsigned int __esi;
-    unsigned int __ebp;
-    unsigned int __esp;
-    unsigned int __ss;
-    unsigned int __eflags;
-    unsigned int __eip;
-    unsigned int __cs;
-    unsigned int __ds;
-    unsigned int __es;
-    unsigned int __fs;
-    unsigned int __gs;
-};
-struct __darwin_fp_control
+  return __builtin_bswap32 (__bsx);
+}
+static __inline __uint64_t
+__bswap_64 (__uint64_t __bsx)
 {
-    unsigned short __invalid :1,
-        __denorm :1,
-    __zdiv :1,
-    __ovrfl :1,
-    __undfl :1,
-    __precis :1,
-      :2,
-    __pc :2,
-    __rc :2,
-             :1,
-      :3;
-};
-typedef struct __darwin_fp_control __darwin_fp_control_t;
-struct __darwin_fp_status
-{
-    unsigned short __invalid :1,
-        __denorm :1,
-    __zdiv :1,
-    __ovrfl :1,
-    __undfl :1,
-    __precis :1,
-    __stkflt :1,
-    __errsumm :1,
-    __c0 :1,
-    __c1 :1,
-    __c2 :1,
-    __tos :3,
-    __c3 :1,
-    __busy :1;
-};
-typedef struct __darwin_fp_status __darwin_fp_status_t;
-struct __darwin_mmst_reg
-{
- char __mmst_reg[10];
- char __mmst_rsrv[6];
-};
-struct __darwin_xmm_reg
-{
- char __xmm_reg[16];
-};
-struct __darwin_i386_float_state
-{
- int __fpu_reserved[2];
- struct __darwin_fp_control __fpu_fcw;
- struct __darwin_fp_status __fpu_fsw;
- __uint8_t __fpu_ftw;
- __uint8_t __fpu_rsrv1;
- __uint16_t __fpu_fop;
- __uint32_t __fpu_ip;
- __uint16_t __fpu_cs;
- __uint16_t __fpu_rsrv2;
- __uint32_t __fpu_dp;
- __uint16_t __fpu_ds;
- __uint16_t __fpu_rsrv3;
- __uint32_t __fpu_mxcsr;
- __uint32_t __fpu_mxcsrmask;
- struct __darwin_mmst_reg __fpu_stmm0;
- struct __darwin_mmst_reg __fpu_stmm1;
- struct __darwin_mmst_reg __fpu_stmm2;
- struct __darwin_mmst_reg __fpu_stmm3;
- struct __darwin_mmst_reg __fpu_stmm4;
- struct __darwin_mmst_reg __fpu_stmm5;
- struct __darwin_mmst_reg __fpu_stmm6;
- struct __darwin_mmst_reg __fpu_stmm7;
- struct __darwin_xmm_reg __fpu_xmm0;
- struct __darwin_xmm_reg __fpu_xmm1;
- struct __darwin_xmm_reg __fpu_xmm2;
- struct __darwin_xmm_reg __fpu_xmm3;
- struct __darwin_xmm_reg __fpu_xmm4;
- struct __darwin_xmm_reg __fpu_xmm5;
- struct __darwin_xmm_reg __fpu_xmm6;
- struct __darwin_xmm_reg __fpu_xmm7;
- char __fpu_rsrv4[14*16];
- int __fpu_reserved1;
-};
-struct __darwin_i386_avx_state
-{
- int __fpu_reserved[2];
- struct __darwin_fp_control __fpu_fcw;
- struct __darwin_fp_status __fpu_fsw;
- __uint8_t __fpu_ftw;
- __uint8_t __fpu_rsrv1;
- __uint16_t __fpu_fop;
- __uint32_t __fpu_ip;
- __uint16_t __fpu_cs;
- __uint16_t __fpu_rsrv2;
- __uint32_t __fpu_dp;
- __uint16_t __fpu_ds;
- __uint16_t __fpu_rsrv3;
- __uint32_t __fpu_mxcsr;
- __uint32_t __fpu_mxcsrmask;
- struct __darwin_mmst_reg __fpu_stmm0;
- struct __darwin_mmst_reg __fpu_stmm1;
- struct __darwin_mmst_reg __fpu_stmm2;
- struct __darwin_mmst_reg __fpu_stmm3;
- struct __darwin_mmst_reg __fpu_stmm4;
- struct __darwin_mmst_reg __fpu_stmm5;
- struct __darwin_mmst_reg __fpu_stmm6;
- struct __darwin_mmst_reg __fpu_stmm7;
- struct __darwin_xmm_reg __fpu_xmm0;
- struct __darwin_xmm_reg __fpu_xmm1;
- struct __darwin_xmm_reg __fpu_xmm2;
- struct __darwin_xmm_reg __fpu_xmm3;
- struct __darwin_xmm_reg __fpu_xmm4;
- struct __darwin_xmm_reg __fpu_xmm5;
- struct __darwin_xmm_reg __fpu_xmm6;
- struct __darwin_xmm_reg __fpu_xmm7;
- char __fpu_rsrv4[14*16];
- int __fpu_reserved1;
- char __avx_reserved1[64];
- struct __darwin_xmm_reg __fpu_ymmh0;
- struct __darwin_xmm_reg __fpu_ymmh1;
- struct __darwin_xmm_reg __fpu_ymmh2;
- struct __darwin_xmm_reg __fpu_ymmh3;
- struct __darwin_xmm_reg __fpu_ymmh4;
- struct __darwin_xmm_reg __fpu_ymmh5;
- struct __darwin_xmm_reg __fpu_ymmh6;
- struct __darwin_xmm_reg __fpu_ymmh7;
-};
-struct __darwin_i386_exception_state
-{
- __uint16_t __trapno;
- __uint16_t __cpu;
- __uint32_t __err;
- __uint32_t __faultvaddr;
-};
-struct __darwin_x86_debug_state32
-{
- unsigned int __dr0;
- unsigned int __dr1;
- unsigned int __dr2;
- unsigned int __dr3;
- unsigned int __dr4;
- unsigned int __dr5;
- unsigned int __dr6;
- unsigned int __dr7;
-};
-struct __darwin_x86_thread_state64
-{
- __uint64_t __rax;
- __uint64_t __rbx;
- __uint64_t __rcx;
- __uint64_t __rdx;
- __uint64_t __rdi;
- __uint64_t __rsi;
- __uint64_t __rbp;
- __uint64_t __rsp;
- __uint64_t __r8;
- __uint64_t __r9;
- __uint64_t __r10;
- __uint64_t __r11;
- __uint64_t __r12;
- __uint64_t __r13;
- __uint64_t __r14;
- __uint64_t __r15;
- __uint64_t __rip;
- __uint64_t __rflags;
- __uint64_t __cs;
- __uint64_t __fs;
- __uint64_t __gs;
-};
-struct __darwin_x86_float_state64
-{
- int __fpu_reserved[2];
- struct __darwin_fp_control __fpu_fcw;
- struct __darwin_fp_status __fpu_fsw;
- __uint8_t __fpu_ftw;
- __uint8_t __fpu_rsrv1;
- __uint16_t __fpu_fop;
- __uint32_t __fpu_ip;
- __uint16_t __fpu_cs;
- __uint16_t __fpu_rsrv2;
- __uint32_t __fpu_dp;
- __uint16_t __fpu_ds;
- __uint16_t __fpu_rsrv3;
- __uint32_t __fpu_mxcsr;
- __uint32_t __fpu_mxcsrmask;
- struct __darwin_mmst_reg __fpu_stmm0;
- struct __darwin_mmst_reg __fpu_stmm1;
- struct __darwin_mmst_reg __fpu_stmm2;
- struct __darwin_mmst_reg __fpu_stmm3;
- struct __darwin_mmst_reg __fpu_stmm4;
- struct __darwin_mmst_reg __fpu_stmm5;
- struct __darwin_mmst_reg __fpu_stmm6;
- struct __darwin_mmst_reg __fpu_stmm7;
- struct __darwin_xmm_reg __fpu_xmm0;
- struct __darwin_xmm_reg __fpu_xmm1;
- struct __darwin_xmm_reg __fpu_xmm2;
- struct __darwin_xmm_reg __fpu_xmm3;
- struct __darwin_xmm_reg __fpu_xmm4;
- struct __darwin_xmm_reg __fpu_xmm5;
- struct __darwin_xmm_reg __fpu_xmm6;
- struct __darwin_xmm_reg __fpu_xmm7;
- struct __darwin_xmm_reg __fpu_xmm8;
- struct __darwin_xmm_reg __fpu_xmm9;
- struct __darwin_xmm_reg __fpu_xmm10;
- struct __darwin_xmm_reg __fpu_xmm11;
- struct __darwin_xmm_reg __fpu_xmm12;
- struct __darwin_xmm_reg __fpu_xmm13;
- struct __darwin_xmm_reg __fpu_xmm14;
- struct __darwin_xmm_reg __fpu_xmm15;
- char __fpu_rsrv4[6*16];
- int __fpu_reserved1;
-};
-struct __darwin_x86_avx_state64
-{
- int __fpu_reserved[2];
- struct __darwin_fp_control __fpu_fcw;
- struct __darwin_fp_status __fpu_fsw;
- __uint8_t __fpu_ftw;
- __uint8_t __fpu_rsrv1;
- __uint16_t __fpu_fop;
- __uint32_t __fpu_ip;
- __uint16_t __fpu_cs;
- __uint16_t __fpu_rsrv2;
- __uint32_t __fpu_dp;
- __uint16_t __fpu_ds;
- __uint16_t __fpu_rsrv3;
- __uint32_t __fpu_mxcsr;
- __uint32_t __fpu_mxcsrmask;
- struct __darwin_mmst_reg __fpu_stmm0;
- struct __darwin_mmst_reg __fpu_stmm1;
- struct __darwin_mmst_reg __fpu_stmm2;
- struct __darwin_mmst_reg __fpu_stmm3;
- struct __darwin_mmst_reg __fpu_stmm4;
- struct __darwin_mmst_reg __fpu_stmm5;
- struct __darwin_mmst_reg __fpu_stmm6;
- struct __darwin_mmst_reg __fpu_stmm7;
- struct __darwin_xmm_reg __fpu_xmm0;
- struct __darwin_xmm_reg __fpu_xmm1;
- struct __darwin_xmm_reg __fpu_xmm2;
- struct __darwin_xmm_reg __fpu_xmm3;
- struct __darwin_xmm_reg __fpu_xmm4;
- struct __darwin_xmm_reg __fpu_xmm5;
- struct __darwin_xmm_reg __fpu_xmm6;
- struct __darwin_xmm_reg __fpu_xmm7;
- struct __darwin_xmm_reg __fpu_xmm8;
- struct __darwin_xmm_reg __fpu_xmm9;
- struct __darwin_xmm_reg __fpu_xmm10;
- struct __darwin_xmm_reg __fpu_xmm11;
- struct __darwin_xmm_reg __fpu_xmm12;
- struct __darwin_xmm_reg __fpu_xmm13;
- struct __darwin_xmm_reg __fpu_xmm14;
- struct __darwin_xmm_reg __fpu_xmm15;
- char __fpu_rsrv4[6*16];
- int __fpu_reserved1;
- char __avx_reserved1[64];
- struct __darwin_xmm_reg __fpu_ymmh0;
- struct __darwin_xmm_reg __fpu_ymmh1;
- struct __darwin_xmm_reg __fpu_ymmh2;
- struct __darwin_xmm_reg __fpu_ymmh3;
- struct __darwin_xmm_reg __fpu_ymmh4;
- struct __darwin_xmm_reg __fpu_ymmh5;
- struct __darwin_xmm_reg __fpu_ymmh6;
- struct __darwin_xmm_reg __fpu_ymmh7;
- struct __darwin_xmm_reg __fpu_ymmh8;
- struct __darwin_xmm_reg __fpu_ymmh9;
- struct __darwin_xmm_reg __fpu_ymmh10;
- struct __darwin_xmm_reg __fpu_ymmh11;
- struct __darwin_xmm_reg __fpu_ymmh12;
- struct __darwin_xmm_reg __fpu_ymmh13;
- struct __darwin_xmm_reg __fpu_ymmh14;
- struct __darwin_xmm_reg __fpu_ymmh15;
-};
-struct __darwin_x86_exception_state64
-{
-    __uint16_t __trapno;
-    __uint16_t __cpu;
-    __uint32_t __err;
-    __uint64_t __faultvaddr;
-};
-struct __darwin_x86_debug_state64
-{
- __uint64_t __dr0;
- __uint64_t __dr1;
- __uint64_t __dr2;
- __uint64_t __dr3;
- __uint64_t __dr4;
- __uint64_t __dr5;
- __uint64_t __dr6;
- __uint64_t __dr7;
-};
-struct __darwin_mcontext32
-{
- struct __darwin_i386_exception_state __es;
- struct __darwin_i386_thread_state __ss;
- struct __darwin_i386_float_state __fs;
-};
-struct __darwin_mcontext_avx32
-{
- struct __darwin_i386_exception_state __es;
- struct __darwin_i386_thread_state __ss;
- struct __darwin_i386_avx_state __fs;
-};
-struct __darwin_mcontext64
-{
- struct __darwin_x86_exception_state64 __es;
- struct __darwin_x86_thread_state64 __ss;
- struct __darwin_x86_float_state64 __fs;
-};
-struct __darwin_mcontext_avx64
-{
- struct __darwin_x86_exception_state64 __es;
- struct __darwin_x86_thread_state64 __ss;
- struct __darwin_x86_avx_state64 __fs;
-};
-typedef struct __darwin_mcontext64 *mcontext_t;
-typedef __darwin_pthread_attr_t pthread_attr_t;
-struct __darwin_sigaltstack
-{
- void *ss_sp;
- __darwin_size_t ss_size;
- int ss_flags;
-};
-typedef struct __darwin_sigaltstack stack_t;
-struct __darwin_ucontext
-{
- int uc_onstack;
- __darwin_sigset_t uc_sigmask;
- struct __darwin_sigaltstack uc_stack;
- struct __darwin_ucontext *uc_link;
- __darwin_size_t uc_mcsize;
- struct __darwin_mcontext64 *uc_mcontext;
-};
-typedef struct __darwin_ucontext ucontext_t;
-typedef __darwin_sigset_t sigset_t;
-typedef __darwin_uid_t uid_t;
-union sigval {
- int sival_int;
- void *sival_ptr;
-};
-struct sigevent {
- int sigev_notify;
- int sigev_signo;
- union sigval sigev_value;
- void (*sigev_notify_function)(union sigval);
- pthread_attr_t *sigev_notify_attributes;
-};
-typedef struct __siginfo {
- int si_signo;
- int si_errno;
- int si_code;
- pid_t si_pid;
- uid_t si_uid;
- int si_status;
- void *si_addr;
- union sigval si_value;
- long si_band;
- unsigned long __pad[7];
-} siginfo_t;
-union __sigaction_u {
- void (*__sa_handler)(int);
- void (*__sa_sigaction)(int, struct __siginfo *,
-         void *);
-};
-struct __sigaction {
- union __sigaction_u __sigaction_u;
- void (*sa_tramp)(void *, int, int, siginfo_t *, void *);
- sigset_t sa_mask;
- int sa_flags;
-};
-struct sigaction {
- union __sigaction_u __sigaction_u;
- sigset_t sa_mask;
- int sa_flags;
-};
-typedef void (*sig_t)(int);
-struct sigvec {
- void (*sv_handler)(int);
- int sv_mask;
- int sv_flags;
-};
-struct sigstack {
- char *ss_sp;
- int ss_onstack;
-};
+  return __builtin_bswap64 (__bsx);
+}
+union wait
+  {
+    int w_status;
+    struct
+      {
+ unsigned int __w_termsig:7;
+ unsigned int __w_coredump:1;
+ unsigned int __w_retcode:8;
+ unsigned int:16;
+      } __wait_terminated;
+    struct
+      {
+ unsigned int __w_stopval:8;
+ unsigned int __w_stopsig:8;
+ unsigned int:16;
+      } __wait_stopped;
+  };
+typedef union
+  {
+    union wait *__uptr;
+    int *__iptr;
+  } __WAIT_STATUS __attribute__ ((__transparent_union__));
 
-void (*signal(int, void (*)(int)))(int);
+typedef struct
+  {
+    int quot;
+    int rem;
+  } div_t;
+typedef struct
+  {
+    long int quot;
+    long int rem;
+  } ldiv_t;
 
-typedef signed char int8_t;
-typedef short int16_t;
-typedef int int32_t;
-typedef long long int64_t;
-typedef unsigned char uint8_t;
-typedef unsigned short uint16_t;
-typedef unsigned int uint32_t;
-typedef unsigned long long uint64_t;
-typedef int8_t int_least8_t;
-typedef int16_t int_least16_t;
-typedef int32_t int_least32_t;
-typedef int64_t int_least64_t;
-typedef uint8_t uint_least8_t;
-typedef uint16_t uint_least16_t;
-typedef uint32_t uint_least32_t;
-typedef uint64_t uint_least64_t;
-typedef int8_t int_fast8_t;
-typedef int16_t int_fast16_t;
-typedef int32_t int_fast32_t;
-typedef int64_t int_fast64_t;
-typedef uint8_t uint_fast8_t;
-typedef uint16_t uint_fast16_t;
-typedef uint32_t uint_fast32_t;
-typedef uint64_t uint_fast64_t;
-typedef __darwin_intptr_t intptr_t;
-typedef unsigned long uintptr_t;
-typedef long int intmax_t;
-typedef long unsigned int uintmax_t;
+
+__extension__ typedef struct
+  {
+    long long int quot;
+    long long int rem;
+  } lldiv_t;
+
+extern size_t __ctype_get_mb_cur_max (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+
+extern double atof (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+extern int atoi (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+extern long int atol (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+
+
+__extension__ extern long long int atoll (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+
+
+extern double strtod (const char *__restrict __nptr,
+        char **__restrict __endptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern float strtof (const char *__restrict __nptr,
+       char **__restrict __endptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern long double strtold (const char *__restrict __nptr,
+       char **__restrict __endptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern long int strtol (const char *__restrict __nptr,
+   char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern unsigned long int strtoul (const char *__restrict __nptr,
+      char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+__extension__
+extern long long int strtoq (const char *__restrict __nptr,
+        char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+__extension__
+extern unsigned long long int strtouq (const char *__restrict __nptr,
+           char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+__extension__
+extern long long int strtoll (const char *__restrict __nptr,
+         char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+__extension__
+extern unsigned long long int strtoull (const char *__restrict __nptr,
+     char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__gnu_inline__)) int
+__attribute__ ((__nothrow__ , __leaf__)) atoi (const char *__nptr)
+{
+  return (int) strtol (__nptr, (char **) ((void *)0), 10);
+}
+extern __inline __attribute__ ((__gnu_inline__)) long int
+__attribute__ ((__nothrow__ , __leaf__)) atol (const char *__nptr)
+{
+  return strtol (__nptr, (char **) ((void *)0), 10);
+}
+
+
+__extension__ extern __inline __attribute__ ((__gnu_inline__)) long long int
+__attribute__ ((__nothrow__ , __leaf__)) atoll (const char *__nptr)
+{
+  return strtoll (__nptr, (char **) ((void *)0), 10);
+}
+
+extern char *l64a (long int __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern long int a64l (const char *__s)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+
+typedef __u_char u_char;
+typedef __u_short u_short;
+typedef __u_int u_int;
+typedef __u_long u_long;
+typedef __quad_t quad_t;
+typedef __u_quad_t u_quad_t;
+typedef __fsid_t fsid_t;
+typedef __loff_t loff_t;
+typedef __ino_t ino_t;
+typedef __dev_t dev_t;
+typedef __gid_t gid_t;
+typedef __mode_t mode_t;
+typedef __nlink_t nlink_t;
+typedef __uid_t uid_t;
+typedef __pid_t pid_t;
+typedef __id_t id_t;
+typedef __daddr_t daddr_t;
+typedef __caddr_t caddr_t;
+typedef __key_t key_t;
+
+typedef __clock_t clock_t;
+
+
+
+typedef __time_t time_t;
+
+
+typedef __clockid_t clockid_t;
+typedef __timer_t timer_t;
+typedef unsigned long int ulong;
+typedef unsigned short int ushort;
+typedef unsigned int uint;
+typedef int int8_t __attribute__ ((__mode__ (__QI__)));
+typedef int int16_t __attribute__ ((__mode__ (__HI__)));
+typedef int int32_t __attribute__ ((__mode__ (__SI__)));
+typedef int int64_t __attribute__ ((__mode__ (__DI__)));
+typedef unsigned int u_int8_t __attribute__ ((__mode__ (__QI__)));
+typedef unsigned int u_int16_t __attribute__ ((__mode__ (__HI__)));
+typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
+typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
+typedef int register_t __attribute__ ((__mode__ (__word__)));
+typedef int __sig_atomic_t;
+typedef struct
+  {
+    unsigned long int __val[(1024 / (8 * sizeof (unsigned long int)))];
+  } __sigset_t;
+typedef __sigset_t sigset_t;
+struct timespec
+  {
+    __time_t tv_sec;
+    __syscall_slong_t tv_nsec;
+  };
 struct timeval
-{
- __darwin_time_t tv_sec;
- __darwin_suseconds_t tv_usec;
-};
-typedef __uint64_t rlim_t;
-struct rusage {
- struct timeval ru_utime;
- struct timeval ru_stime;
- long ru_maxrss;
- long ru_ixrss;
- long ru_idrss;
- long ru_isrss;
- long ru_minflt;
- long ru_majflt;
- long ru_nswap;
- long ru_inblock;
- long ru_oublock;
- long ru_msgsnd;
- long ru_msgrcv;
- long ru_nsignals;
- long ru_nvcsw;
- long ru_nivcsw;
-};
-typedef void *rusage_info_t;
-struct rusage_info_v0 {
- uint8_t ri_uuid[16];
- uint64_t ri_user_time;
- uint64_t ri_system_time;
- uint64_t ri_pkg_idle_wkups;
- uint64_t ri_interrupt_wkups;
- uint64_t ri_pageins;
- uint64_t ri_wired_size;
- uint64_t ri_resident_size;
- uint64_t ri_phys_footprint;
- uint64_t ri_proc_start_abstime;
- uint64_t ri_proc_exit_abstime;
-};
-struct rusage_info_v1 {
- uint8_t ri_uuid[16];
- uint64_t ri_user_time;
- uint64_t ri_system_time;
- uint64_t ri_pkg_idle_wkups;
- uint64_t ri_interrupt_wkups;
- uint64_t ri_pageins;
- uint64_t ri_wired_size;
- uint64_t ri_resident_size;
- uint64_t ri_phys_footprint;
- uint64_t ri_proc_start_abstime;
- uint64_t ri_proc_exit_abstime;
- uint64_t ri_child_user_time;
- uint64_t ri_child_system_time;
- uint64_t ri_child_pkg_idle_wkups;
- uint64_t ri_child_interrupt_wkups;
- uint64_t ri_child_pageins;
- uint64_t ri_child_elapsed_abstime;
-};
-struct rusage_info_v2 {
- uint8_t ri_uuid[16];
- uint64_t ri_user_time;
- uint64_t ri_system_time;
- uint64_t ri_pkg_idle_wkups;
- uint64_t ri_interrupt_wkups;
- uint64_t ri_pageins;
- uint64_t ri_wired_size;
- uint64_t ri_resident_size;
- uint64_t ri_phys_footprint;
- uint64_t ri_proc_start_abstime;
- uint64_t ri_proc_exit_abstime;
- uint64_t ri_child_user_time;
- uint64_t ri_child_system_time;
- uint64_t ri_child_pkg_idle_wkups;
- uint64_t ri_child_interrupt_wkups;
- uint64_t ri_child_pageins;
- uint64_t ri_child_elapsed_abstime;
- uint64_t ri_diskio_bytesread;
- uint64_t ri_diskio_byteswritten;
-};
-struct rusage_info_v3 {
- uint8_t ri_uuid[16];
- uint64_t ri_user_time;
- uint64_t ri_system_time;
- uint64_t ri_pkg_idle_wkups;
- uint64_t ri_interrupt_wkups;
- uint64_t ri_pageins;
- uint64_t ri_wired_size;
- uint64_t ri_resident_size;
- uint64_t ri_phys_footprint;
- uint64_t ri_proc_start_abstime;
- uint64_t ri_proc_exit_abstime;
- uint64_t ri_child_user_time;
- uint64_t ri_child_system_time;
- uint64_t ri_child_pkg_idle_wkups;
- uint64_t ri_child_interrupt_wkups;
- uint64_t ri_child_pageins;
- uint64_t ri_child_elapsed_abstime;
- uint64_t ri_diskio_bytesread;
- uint64_t ri_diskio_byteswritten;
- uint64_t ri_cpu_time_qos_default;
- uint64_t ri_cpu_time_qos_maintenance;
- uint64_t ri_cpu_time_qos_background;
- uint64_t ri_cpu_time_qos_utility;
- uint64_t ri_cpu_time_qos_legacy;
- uint64_t ri_cpu_time_qos_user_initiated;
- uint64_t ri_cpu_time_qos_user_interactive;
- uint64_t ri_billed_system_time;
- uint64_t ri_serviced_system_time;
-};
-typedef struct rusage_info_v3 rusage_info_current;
-struct rlimit {
- rlim_t rlim_cur;
- rlim_t rlim_max;
-};
-struct proc_rlimit_control_wakeupmon {
- uint32_t wm_flags;
- int32_t wm_rate;
-};
+  {
+    __time_t tv_sec;
+    __suseconds_t tv_usec;
+  };
+typedef __suseconds_t suseconds_t;
+typedef long int __fd_mask;
+typedef struct
+  {
+    __fd_mask __fds_bits[1024 / (8 * (int) sizeof (__fd_mask))];
+  } fd_set;
+typedef __fd_mask fd_mask;
 
-int getpriority(int, id_t);
-int getiopolicy_np(int, int) ;
-int getrlimit(int, struct rlimit *) __asm("_" "getrlimit" );
-int getrusage(int, struct rusage *);
-int setpriority(int, id_t, int);
-int setiopolicy_np(int, int, int) ;
-int setrlimit(int, const struct rlimit *) __asm("_" "setrlimit" );
+extern int select (int __nfds, fd_set *__restrict __readfds,
+     fd_set *__restrict __writefds,
+     fd_set *__restrict __exceptfds,
+     struct timeval *__restrict __timeout);
+extern int pselect (int __nfds, fd_set *__restrict __readfds,
+      fd_set *__restrict __writefds,
+      fd_set *__restrict __exceptfds,
+      const struct timespec *__restrict __timeout,
+      const __sigset_t *__restrict __sigmask);
+extern long int __fdelt_chk (long int __d);
+extern long int __fdelt_warn (long int __d)
+  __attribute__((__warning__ ("bit outside of fd_set selected")));
 
-static inline
-__uint16_t
-_OSSwapInt16(
-    __uint16_t _data
-)
+
+__extension__
+extern unsigned int gnu_dev_major (unsigned long long int __dev)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+__extension__
+extern unsigned int gnu_dev_minor (unsigned long long int __dev)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+__extension__
+extern unsigned long long int gnu_dev_makedev (unsigned int __major,
+            unsigned int __minor)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+__extension__ extern __inline __attribute__ ((__gnu_inline__)) __attribute__ ((__const__)) unsigned int
+__attribute__ ((__nothrow__ , __leaf__)) gnu_dev_major (unsigned long long int __dev)
 {
-    return ((__uint16_t)((_data << 8) | (_data >> 8)));
+  return ((__dev >> 8) & 0xfff) | ((unsigned int) (__dev >> 32) & ~0xfff);
 }
-static inline
-__uint32_t
-_OSSwapInt32(
-    __uint32_t _data
-)
+__extension__ extern __inline __attribute__ ((__gnu_inline__)) __attribute__ ((__const__)) unsigned int
+__attribute__ ((__nothrow__ , __leaf__)) gnu_dev_minor (unsigned long long int __dev)
 {
-    __asm__ ("bswap   %0" : "+r" (_data));
-    return _data;
+  return (__dev & 0xff) | ((unsigned int) (__dev >> 12) & ~0xff);
 }
-static inline
-__uint64_t
-_OSSwapInt64(
-    __uint64_t _data
-)
+__extension__ extern __inline __attribute__ ((__gnu_inline__)) __attribute__ ((__const__)) unsigned long long int
+__attribute__ ((__nothrow__ , __leaf__)) gnu_dev_makedev (unsigned int __major, unsigned int __minor)
 {
-    __asm__ ("bswap   %0" : "+r" (_data));
-    return _data;
+  return ((__minor & 0xff) | ((__major & 0xfff) << 8)
+   | (((unsigned long long int) (__minor & ~0xff)) << 12)
+   | (((unsigned long long int) (__major & ~0xfff)) << 32));
 }
-union wait {
- int w_status;
- struct {
-  unsigned int w_Termsig:7,
-    w_Coredump:1,
-    w_Retcode:8,
-    w_Filler:16;
- } w_T;
- struct {
-  unsigned int w_Stopval:8,
-    w_Stopsig:8,
-    w_Filler:16;
- } w_S;
+
+typedef __blksize_t blksize_t;
+typedef __blkcnt_t blkcnt_t;
+typedef __fsblkcnt_t fsblkcnt_t;
+typedef __fsfilcnt_t fsfilcnt_t;
+typedef unsigned long int pthread_t;
+union pthread_attr_t
+{
+  char __size[56];
+  long int __align;
 };
+typedef union pthread_attr_t pthread_attr_t;
+typedef struct __pthread_internal_list
+{
+  struct __pthread_internal_list *__prev;
+  struct __pthread_internal_list *__next;
+} __pthread_list_t;
+typedef union
+{
+  struct __pthread_mutex_s
+  {
+    int __lock;
+    unsigned int __count;
+    int __owner;
+    unsigned int __nusers;
+    int __kind;
+    short __spins;
+    short __elision;
+    __pthread_list_t __list;
+  } __data;
+  char __size[40];
+  long int __align;
+} pthread_mutex_t;
+typedef union
+{
+  char __size[4];
+  int __align;
+} pthread_mutexattr_t;
+typedef union
+{
+  struct
+  {
+    int __lock;
+    unsigned int __futex;
+    __extension__ unsigned long long int __total_seq;
+    __extension__ unsigned long long int __wakeup_seq;
+    __extension__ unsigned long long int __woken_seq;
+    void *__mutex;
+    unsigned int __nwaiters;
+    unsigned int __broadcast_seq;
+  } __data;
+  char __size[48];
+  __extension__ long long int __align;
+} pthread_cond_t;
+typedef union
+{
+  char __size[4];
+  int __align;
+} pthread_condattr_t;
+typedef unsigned int pthread_key_t;
+typedef int pthread_once_t;
+typedef union
+{
+  struct
+  {
+    int __lock;
+    unsigned int __nr_readers;
+    unsigned int __readers_wakeup;
+    unsigned int __writer_wakeup;
+    unsigned int __nr_readers_queued;
+    unsigned int __nr_writers_queued;
+    int __writer;
+    int __shared;
+    unsigned long int __pad1;
+    unsigned long int __pad2;
+    unsigned int __flags;
+  } __data;
+  char __size[56];
+  long int __align;
+} pthread_rwlock_t;
+typedef union
+{
+  char __size[8];
+  long int __align;
+} pthread_rwlockattr_t;
+typedef volatile int pthread_spinlock_t;
+typedef union
+{
+  char __size[32];
+  long int __align;
+} pthread_barrier_t;
+typedef union
+{
+  char __size[4];
+  int __align;
+} pthread_barrierattr_t;
 
-pid_t wait(int *) __asm("_" "wait" );
-pid_t waitpid(pid_t, int *, int) __asm("_" "waitpid" );
-int waitid(idtype_t, id_t, siginfo_t *, int) __asm("_" "waitid" );
-pid_t wait3(int *, int, struct rusage *);
-pid_t wait4(pid_t, int *, int, struct rusage *);
+extern long int random (void) __attribute__ ((__nothrow__ , __leaf__));
+extern void srandom (unsigned int __seed) __attribute__ ((__nothrow__ , __leaf__));
+extern char *initstate (unsigned int __seed, char *__statebuf,
+   size_t __statelen) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+extern char *setstate (char *__statebuf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+struct random_data
+  {
+    int32_t *fptr;
+    int32_t *rptr;
+    int32_t *state;
+    int rand_type;
+    int rand_deg;
+    int rand_sep;
+    int32_t *end_ptr;
+  };
+extern int random_r (struct random_data *__restrict __buf,
+       int32_t *__restrict __result) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int srandom_r (unsigned int __seed, struct random_data *__buf)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+extern int initstate_r (unsigned int __seed, char *__restrict __statebuf,
+   size_t __statelen,
+   struct random_data *__restrict __buf)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)));
+extern int setstate_r (char *__restrict __statebuf,
+         struct random_data *__restrict __buf)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
+extern int rand (void) __attribute__ ((__nothrow__ , __leaf__));
+extern void srand (unsigned int __seed) __attribute__ ((__nothrow__ , __leaf__));
 
-void *alloca(size_t);
+extern int rand_r (unsigned int *__seed) __attribute__ ((__nothrow__ , __leaf__));
+extern double drand48 (void) __attribute__ ((__nothrow__ , __leaf__));
+extern double erand48 (unsigned short int __xsubi[3]) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern long int lrand48 (void) __attribute__ ((__nothrow__ , __leaf__));
+extern long int nrand48 (unsigned short int __xsubi[3])
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern long int mrand48 (void) __attribute__ ((__nothrow__ , __leaf__));
+extern long int jrand48 (unsigned short int __xsubi[3])
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern void srand48 (long int __seedval) __attribute__ ((__nothrow__ , __leaf__));
+extern unsigned short int *seed48 (unsigned short int __seed16v[3])
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern void lcong48 (unsigned short int __param[7]) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+struct drand48_data
+  {
+    unsigned short int __x[3];
+    unsigned short int __old_x[3];
+    unsigned short int __c;
+    unsigned short int __init;
+    __extension__ unsigned long long int __a;
+  };
+extern int drand48_r (struct drand48_data *__restrict __buffer,
+        double *__restrict __result) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int erand48_r (unsigned short int __xsubi[3],
+        struct drand48_data *__restrict __buffer,
+        double *__restrict __result) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int lrand48_r (struct drand48_data *__restrict __buffer,
+        long int *__restrict __result)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int nrand48_r (unsigned short int __xsubi[3],
+        struct drand48_data *__restrict __buffer,
+        long int *__restrict __result)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int mrand48_r (struct drand48_data *__restrict __buffer,
+        long int *__restrict __result)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int jrand48_r (unsigned short int __xsubi[3],
+        struct drand48_data *__restrict __buffer,
+        long int *__restrict __result)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int srand48_r (long int __seedval, struct drand48_data *__buffer)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+extern int seed48_r (unsigned short int __seed16v[3],
+       struct drand48_data *__buffer) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int lcong48_r (unsigned short int __param[7],
+        struct drand48_data *__buffer)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-typedef __darwin_ct_rune_t ct_rune_t;
-typedef __darwin_rune_t rune_t;
-typedef __darwin_wchar_t wchar_t;
-typedef struct {
- int quot;
- int rem;
-} div_t;
-typedef struct {
- long quot;
- long rem;
-} ldiv_t;
-typedef struct {
- long long quot;
- long long rem;
-} lldiv_t;
-extern int __mb_cur_max;
-
-void abort(void) __attribute__((noreturn));
-int abs(int) __attribute__((const));
-int atexit(void (*)(void));
-double atof(const char *);
-int atoi(const char *);
-long atol(const char *);
-long long
-  atoll(const char *);
-void *bsearch(const void *, const void *, size_t,
-     size_t, int (*)(const void *, const void *));
-void *calloc(size_t, size_t);
-div_t div(int, int) __attribute__((const));
-void exit(int) __attribute__((noreturn));
-void free(void *);
-char *getenv(const char *);
-long labs(long) __attribute__((const));
-ldiv_t ldiv(long, long) __attribute__((const));
-long long
-  llabs(long long);
-lldiv_t lldiv(long long, long long);
-void *malloc(size_t);
-int mblen(const char *, size_t);
-size_t mbstowcs(wchar_t * restrict , const char * restrict, size_t);
-int mbtowc(wchar_t * restrict, const char * restrict, size_t);
-int posix_memalign(void **, size_t, size_t) ;
-void qsort(void *, size_t, size_t,
-     int (*)(const void *, const void *));
-int rand(void);
-void *realloc(void *, size_t);
-void srand(unsigned);
-double strtod(const char *, char **) __asm("_" "strtod" );
-float strtof(const char *, char **) __asm("_" "strtof" );
-long strtol(const char *, char **, int);
-long double
-  strtold(const char *, char **);
-long long
-  strtoll(const char *, char **, int);
-unsigned long
-  strtoul(const char *, char **, int);
-unsigned long long
-  strtoull(const char *, char **, int);
-int system(const char *) __asm("_" "system" ) ;
-size_t wcstombs(char * restrict, const wchar_t * restrict, size_t);
-int wctomb(char *, wchar_t);
-void _Exit(int) __attribute__((noreturn));
-long a64l(const char *);
-double drand48(void);
-char *ecvt(double, int, int *restrict, int *restrict);
-double erand48(unsigned short[3]);
-char *fcvt(double, int, int *restrict, int *restrict);
-char *gcvt(double, int, char *);
-int getsubopt(char **, char * const *, char **);
-int grantpt(int);
-char *initstate(unsigned, char *, size_t);
-long jrand48(unsigned short[3]);
-char *l64a(long);
-void lcong48(unsigned short[7]);
-long lrand48(void);
-char *mktemp(char *);
-int mkstemp(char *);
-long mrand48(void);
-long nrand48(unsigned short[3]);
-int posix_openpt(int);
-char *ptsname(int);
-int putenv(char *) __asm("_" "putenv" );
-long random(void);
-int rand_r(unsigned *);
-char *realpath(const char * restrict, char * restrict) __asm("_" "realpath" "$DARWIN_EXTSN");
-unsigned short
- *seed48(unsigned short[3]);
-int setenv(const char *, const char *, int) __asm("_" "setenv" );
-void setkey(const char *) __asm("_" "setkey" );
-char *setstate(const char *);
-void srand48(long);
-void srandom(unsigned);
-int unlockpt(int);
-int unsetenv(const char *) __asm("_" "unsetenv" );
-typedef unsigned char u_int8_t;
-typedef unsigned short u_int16_t;
-typedef unsigned int u_int32_t;
-typedef unsigned long long u_int64_t;
-typedef int64_t register_t;
-typedef u_int64_t user_addr_t;
-typedef u_int64_t user_size_t;
-typedef int64_t user_ssize_t;
-typedef int64_t user_long_t;
-typedef u_int64_t user_ulong_t;
-typedef int64_t user_time_t;
-typedef int64_t user_off_t;
-typedef u_int64_t syscall_arg_t;
-typedef __darwin_dev_t dev_t;
-typedef __darwin_mode_t mode_t;
-u_int32_t arc4random(void);
-void arc4random_addrandom(unsigned char * , int );
-void arc4random_buf(void * , size_t ) ;
-void arc4random_stir(void);
-u_int32_t
-  arc4random_uniform(u_int32_t ) ;
-char *cgetcap(char *, const char *, int);
-int cgetclose(void);
-int cgetent(char **, char **, const char *);
-int cgetfirst(char **, char **);
-int cgetmatch(const char *, const char *);
-int cgetnext(char **, char **);
-int cgetnum(char *, const char *, long *);
-int cgetset(const char *);
-int cgetstr(char *, const char *, char **);
-int cgetustr(char *, const char *, char **);
-int daemon(int, int) __asm("_" "daemon" "$1050") __attribute__((deprecated));
-char *devname(dev_t, mode_t);
-char *devname_r(dev_t, mode_t, char *buf, int len);
-char *getbsize(int *, long *);
-int getloadavg(double [], int);
-const char
- *getprogname(void);
-int heapsort(void *, size_t, size_t,
-     int (*)(const void *, const void *));
-int mergesort(void *, size_t, size_t,
-     int (*)(const void *, const void *));
-void psort(void *, size_t, size_t,
-     int (*)(const void *, const void *)) ;
-void psort_r(void *, size_t, size_t, void *,
-     int (*)(void *, const void *, const void *)) ;
-void qsort_r(void *, size_t, size_t, void *,
-     int (*)(void *, const void *, const void *));
-int radixsort(const unsigned char **, int, const unsigned char *,
-     unsigned);
-void setprogname(const char *);
-int sradixsort(const unsigned char **, int, const unsigned char *,
-     unsigned);
-void sranddev(void);
-void srandomdev(void);
-void *reallocf(void *, size_t);
-long long
-  strtoq(const char *, char **, int);
-unsigned long long
-  strtouq(const char *, char **, int);
-extern char *suboptarg;
-void *valloc(size_t);
-
-
-void __assert_rtn(const char *, const char *, int, const char *) __attribute__((noreturn));
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__warn_unused_result__));
+extern void *calloc (size_t __nmemb, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__warn_unused_result__));
 
 
-void *memchr(const void *, int, size_t);
-int memcmp(const void *, const void *, size_t);
-void *memcpy(void *, const void *, size_t);
-void *memmove(void *, const void *, size_t);
-void *memset(void *, int, size_t);
-char *strcat(char *, const char *);
-char *strchr(const char *, int);
-int strcmp(const char *, const char *);
-int strcoll(const char *, const char *);
-char *strcpy(char *, const char *);
-size_t strcspn(const char *, const char *);
-char *strerror(int) __asm("_" "strerror" );
-size_t strlen(const char *);
-char *strncat(char *, const char *, size_t);
-int strncmp(const char *, const char *, size_t);
-char *strncpy(char *, const char *, size_t);
-char *strpbrk(const char *, const char *);
-char *strrchr(const char *, int);
-size_t strspn(const char *, const char *);
-char *strstr(const char *, const char *);
-char *strtok(char *, const char *);
-size_t strxfrm(char *, const char *, size_t);
+extern void *realloc (void *__ptr, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+
+extern void cfree (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+
+extern void *alloca (size_t __size) __attribute__ ((__nothrow__ , __leaf__));
+
+extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__warn_unused_result__));
+extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+extern void *aligned_alloc (size_t __alignment, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_size__ (2))) __attribute__ ((__warn_unused_result__));
+
+extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern int atexit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int at_quick_exit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+extern int on_exit (void (*__func) (int __status, void *__arg), void *__arg)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+extern void exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void quick_exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
-char *strtok_r(char *, const char *, char **);
+extern void _Exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
-int strerror_r(int, char *, size_t);
-char *strdup(const char *);
-void *memccpy(void *, const void *, int, size_t);
+extern char *getenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+
+extern int putenv (char *__string) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int setenv (const char *__name, const char *__value, int __replace)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+extern int unsetenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int clearenv (void) __attribute__ ((__nothrow__ , __leaf__));
+extern char *mktemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int mkstemp (char *__template) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+extern int mkstemps (char *__template, int __suffixlen) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+
+extern int system (const char *__command) __attribute__ ((__warn_unused_result__));
+
+extern char *realpath (const char *__restrict __name,
+         char *__restrict __resolved) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+typedef int (*__compar_fn_t) (const void *, const void *);
+
+extern void *bsearch (const void *__key, const void *__base,
+        size_t __nmemb, size_t __size, __compar_fn_t __compar)
+     __attribute__ ((__nonnull__ (1, 2, 5))) __attribute__ ((__warn_unused_result__));
+extern __inline __attribute__ ((__gnu_inline__)) void *
+bsearch (const void *__key, const void *__base, size_t __nmemb, size_t __size,
+  __compar_fn_t __compar)
+{
+  size_t __l, __u, __idx;
+  const void *__p;
+  int __comparison;
+  __l = 0;
+  __u = __nmemb;
+  while (__l < __u)
+    {
+      __idx = (__l + __u) / 2;
+      __p = (void *) (((const char *) __base) + (__idx * __size));
+      __comparison = (*__compar) (__key, __p);
+      if (__comparison < 0)
+ __u = __idx;
+      else if (__comparison > 0)
+ __l = __idx + 1;
+      else
+ return (void *) __p;
+    }
+  return ((void *)0);
+}
+extern void qsort (void *__base, size_t __nmemb, size_t __size,
+     __compar_fn_t __compar) __attribute__ ((__nonnull__ (1, 4)));
+extern int abs (int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) __attribute__ ((__warn_unused_result__));
+extern long int labs (long int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) __attribute__ ((__warn_unused_result__));
+
+__extension__ extern long long int llabs (long long int __x)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) __attribute__ ((__warn_unused_result__));
+
+extern div_t div (int __numer, int __denom)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) __attribute__ ((__warn_unused_result__));
+extern ldiv_t ldiv (long int __numer, long int __denom)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) __attribute__ ((__warn_unused_result__));
 
 
-char *stpcpy(char *, const char *);
-char *stpncpy(char *, const char *, size_t) ;
-char *strndup(const char *, size_t) ;
-size_t strnlen(const char *, size_t) ;
-char *strsignal(int sig);
+__extension__ extern lldiv_t lldiv (long long int __numer,
+        long long int __denom)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) __attribute__ ((__warn_unused_result__));
 
-typedef __darwin_size_t rsize_t;
-typedef int errno_t;
+extern char *ecvt (double __value, int __ndigit, int *__restrict __decpt,
+     int *__restrict __sign) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4))) __attribute__ ((__warn_unused_result__));
+extern char *fcvt (double __value, int __ndigit, int *__restrict __decpt,
+     int *__restrict __sign) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4))) __attribute__ ((__warn_unused_result__));
+extern char *gcvt (double __value, int __ndigit, char *__buf)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3))) __attribute__ ((__warn_unused_result__));
+extern char *qecvt (long double __value, int __ndigit,
+      int *__restrict __decpt, int *__restrict __sign)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4))) __attribute__ ((__warn_unused_result__));
+extern char *qfcvt (long double __value, int __ndigit,
+      int *__restrict __decpt, int *__restrict __sign)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4))) __attribute__ ((__warn_unused_result__));
+extern char *qgcvt (long double __value, int __ndigit, char *__buf)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3))) __attribute__ ((__warn_unused_result__));
+extern int ecvt_r (double __value, int __ndigit, int *__restrict __decpt,
+     int *__restrict __sign, char *__restrict __buf,
+     size_t __len) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4, 5)));
+extern int fcvt_r (double __value, int __ndigit, int *__restrict __decpt,
+     int *__restrict __sign, char *__restrict __buf,
+     size_t __len) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4, 5)));
+extern int qecvt_r (long double __value, int __ndigit,
+      int *__restrict __decpt, int *__restrict __sign,
+      char *__restrict __buf, size_t __len)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4, 5)));
+extern int qfcvt_r (long double __value, int __ndigit,
+      int *__restrict __decpt, int *__restrict __sign,
+      char *__restrict __buf, size_t __len)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4, 5)));
 
-errno_t memset_s(void *, rsize_t, int, rsize_t) ;
+extern int mblen (const char *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+extern int mbtowc (wchar_t *__restrict __pwc,
+     const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+extern int wctomb (char *__s, wchar_t __wchar) __attribute__ ((__nothrow__ , __leaf__));
+extern size_t mbstowcs (wchar_t *__restrict __pwcs,
+   const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+extern size_t wcstombs (char *__restrict __s,
+   const wchar_t *__restrict __pwcs, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__));
+
+extern int rpmatch (const char *__response) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+extern int getsubopt (char **__restrict __optionp,
+        char *const *__restrict __tokens,
+        char **__restrict __valuep)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2, 3))) __attribute__ ((__warn_unused_result__));
+extern int getloadavg (double __loadavg[], int __nelem)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+extern __inline __attribute__ ((__gnu_inline__)) double
+__attribute__ ((__nothrow__ , __leaf__)) atof (const char *__nptr)
+{
+  return strtod (__nptr, (char **) ((void *)0));
+}
+
+extern char *__realpath_chk (const char *__restrict __name,
+        char *__restrict __resolved,
+        size_t __resolvedlen) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern char *__realpath_alias (const char *__restrict __name, char *__restrict __resolved) __asm__ ("" "realpath") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern char *__realpath_chk_warn (const char *__restrict __name, char *__restrict __resolved, size_t __resolvedlen) __asm__ ("" "__realpath_chk") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__))
+     __attribute__((__warning__ ("second argument of realpath must be either NULL or at " "least PATH_MAX bytes long buffer")));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) char *
+__attribute__ ((__nothrow__ , __leaf__)) realpath (const char *__restrict __name, char *__restrict __resolved)
+{
+  if (__builtin_object_size (__resolved, 2 > 1) != (size_t) -1)
+    {
+      return __realpath_chk (__name, __resolved, __builtin_object_size (__resolved, 2 > 1));
+    }
+  return __realpath_alias (__name, __resolved);
+}
+extern int __ptsname_r_chk (int __fd, char *__buf, size_t __buflen,
+       size_t __nreal) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+extern int __ptsname_r_alias (int __fd, char *__buf, size_t __buflen) __asm__ ("" "ptsname_r") __attribute__ ((__nothrow__ , __leaf__))
+     __attribute__ ((__nonnull__ (2)));
+extern int __ptsname_r_chk_warn (int __fd, char *__buf, size_t __buflen, size_t __nreal) __asm__ ("" "__ptsname_r_chk") __attribute__ ((__nothrow__ , __leaf__))
+     __attribute__ ((__nonnull__ (2))) __attribute__((__warning__ ("ptsname_r called with buflen bigger than " "size of buf")));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
+__attribute__ ((__nothrow__ , __leaf__)) ptsname_r (int __fd, char *__buf, size_t __buflen)
+{
+  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
+    {
+      if (!__builtin_constant_p (__buflen))
+ return __ptsname_r_chk (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1));
+      if (__buflen > __builtin_object_size (__buf, 2 > 1))
+ return __ptsname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1));
+    }
+  return __ptsname_r_alias (__fd, __buf, __buflen);
+}
+extern int __wctomb_chk (char *__s, wchar_t __wchar, size_t __buflen)
+  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern int __wctomb_alias (char *__s, wchar_t __wchar) __asm__ ("" "wctomb") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) int
+__attribute__ ((__nothrow__ , __leaf__)) wctomb (char *__s, wchar_t __wchar)
+{
+  if (__builtin_object_size (__s, 2 > 1) != (size_t) -1 && 16 > __builtin_object_size (__s, 2 > 1))
+    return __wctomb_chk (__s, __wchar, __builtin_object_size (__s, 2 > 1));
+  return __wctomb_alias (__s, __wchar);
+}
+extern size_t __mbstowcs_chk (wchar_t *__restrict __dst,
+         const char *__restrict __src,
+         size_t __len, size_t __dstlen) __attribute__ ((__nothrow__ , __leaf__));
+extern size_t __mbstowcs_alias (wchar_t *__restrict __dst, const char *__restrict __src, size_t __len) __asm__ ("" "mbstowcs") __attribute__ ((__nothrow__ , __leaf__));
+extern size_t __mbstowcs_chk_warn (wchar_t *__restrict __dst, const char *__restrict __src, size_t __len, size_t __dstlen) __asm__ ("" "__mbstowcs_chk") __attribute__ ((__nothrow__ , __leaf__))
+     __attribute__((__warning__ ("mbstowcs called with dst buffer smaller than len " "* sizeof (wchar_t)")));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) size_t
+__attribute__ ((__nothrow__ , __leaf__)) mbstowcs (wchar_t *__restrict __dst, const char *__restrict __src, size_t __len)
+{
+  if (__builtin_object_size (__dst, 2 > 1) != (size_t) -1)
+    {
+      if (!__builtin_constant_p (__len))
+ return __mbstowcs_chk (__dst, __src, __len,
+          __builtin_object_size (__dst, 2 > 1) / sizeof (wchar_t));
+      if (__len > __builtin_object_size (__dst, 2 > 1) / sizeof (wchar_t))
+ return __mbstowcs_chk_warn (__dst, __src, __len,
+         __builtin_object_size (__dst, 2 > 1) / sizeof (wchar_t));
+    }
+  return __mbstowcs_alias (__dst, __src, __len);
+}
+extern size_t __wcstombs_chk (char *__restrict __dst,
+         const wchar_t *__restrict __src,
+         size_t __len, size_t __dstlen) __attribute__ ((__nothrow__ , __leaf__));
+extern size_t __wcstombs_alias (char *__restrict __dst, const wchar_t *__restrict __src, size_t __len) __asm__ ("" "wcstombs") __attribute__ ((__nothrow__ , __leaf__));
+extern size_t __wcstombs_chk_warn (char *__restrict __dst, const wchar_t *__restrict __src, size_t __len, size_t __dstlen) __asm__ ("" "__wcstombs_chk") __attribute__ ((__nothrow__ , __leaf__))
+     __attribute__((__warning__ ("wcstombs called with dst buffer smaller than len")));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) size_t
+__attribute__ ((__nothrow__ , __leaf__)) wcstombs (char *__restrict __dst, const wchar_t *__restrict __src, size_t __len)
+{
+  if (__builtin_object_size (__dst, 2 > 1) != (size_t) -1)
+    {
+      if (!__builtin_constant_p (__len))
+ return __wcstombs_chk (__dst, __src, __len, __builtin_object_size (__dst, 2 > 1));
+      if (__len > __builtin_object_size (__dst, 2 > 1))
+ return __wcstombs_chk_warn (__dst, __src, __len, __builtin_object_size (__dst, 2 > 1));
+    }
+  return __wcstombs_alias (__dst, __src, __len);
+}
 
 
-void *memmem(const void *, size_t, const void *, size_t) ;
-void memset_pattern4(void *, const void *, size_t) ;
-void memset_pattern8(void *, const void *, size_t) ;
-void memset_pattern16(void *, const void *, size_t) ;
-char *strcasestr(const char *, const char *);
-char *strnstr(const char *, const char *, size_t);
-size_t strlcat(char *, const char *, size_t);
-size_t strlcpy(char *, const char *, size_t);
-void strmode(int, char *);
-char *strsep(char **, const char *);
-void swab(const void * restrict, void * restrict, ssize_t);
+extern void __assert_fail (const char *__assertion, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert_perror_fail (int __errnum, const char *__file,
+      unsigned int __line, const char *__function)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void __assert (const char *__assertion, const char *__file, int __line)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
-int bcmp(const void *, const void *, size_t) ;
-void bcopy(const void *, void *, size_t) ;
-void bzero(void *, size_t) ;
-char *index(const char *, int) ;
-char *rindex(const char *, int) ;
-int ffs(int);
-int strcasecmp(const char *, const char *);
-int strncasecmp(const char *, const char *, size_t);
+
+extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+       size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern void *memmove (void *__dest, const void *__src, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
+        int __c, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern void *memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int memcmp (const void *__s1, const void *__s2, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern void *memchr (const void *__s, int __c, size_t __n)
+      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 
 
-int ffsl(long) ;
-int ffsll(long long) ;
-int fls(int) ;
-int flsl(long) ;
-int flsll(long long) ;
+extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *strncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *strcat (char *__restrict __dest, const char *__restrict __src)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *strncat (char *__restrict __dest, const char *__restrict __src,
+        size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int strcmp (const char *__s1, const char *__s2)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int strcoll (const char *__s1, const char *__s2)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern size_t strxfrm (char *__restrict __dest,
+         const char *__restrict __src, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
 
+typedef struct __locale_struct
+{
+  struct __locale_data *__locales[13];
+  const unsigned short int *__ctype_b;
+  const int *__ctype_tolower;
+  const int *__ctype_toupper;
+  const char *__names[13];
+} *__locale_t;
+typedef __locale_t locale_t;
+extern int strcoll_l (const char *__s1, const char *__s2, __locale_t __l)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
+extern size_t strxfrm_l (char *__dest, const char *__src, size_t __n,
+    __locale_t __l) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)));
+extern char *strdup (const char *__s)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+extern char *strndup (const char *__string, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+
+extern char *strchr (const char *__s, int __c)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern char *strrchr (const char *__s, int __c)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern size_t strcspn (const char *__s, const char *__reject)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern size_t strspn (const char *__s, const char *__accept)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *strpbrk (const char *__s, const char *__accept)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *strstr (const char *__haystack, const char *__needle)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *strtok (char *__restrict __s, const char *__restrict __delim)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+
+extern char *__strtok_r (char *__restrict __s,
+    const char *__restrict __delim,
+    char **__restrict __save_ptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
+extern char *strtok_r (char *__restrict __s, const char *__restrict __delim,
+         char **__restrict __save_ptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
+
+extern size_t strlen (const char *__s)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+extern size_t strnlen (const char *__string, size_t __maxlen)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+extern char *strerror (int __errnum) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int strerror_r (int __errnum, char *__buf, size_t __buflen) __asm__ ("" "__xpg_strerror_r") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+extern char *strerror_l (int __errnum, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
+extern void __bzero (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern void bcopy (const void *__src, void *__dest, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern void bzero (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int bcmp (const void *__s1, const void *__s2, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *index (const char *__s, int __c)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern char *rindex (const char *__s, int __c)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern int ffs (int __i) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int strcasecmp (const char *__s1, const char *__s2)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int strncasecmp (const char *__s1, const char *__s2, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *strsep (char **__restrict __stringp,
+       const char *__restrict __delim)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *strsignal (int __sig) __attribute__ ((__nothrow__ , __leaf__));
+extern char *__stpcpy (char *__restrict __dest, const char *__restrict __src)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpcpy (char *__restrict __dest, const char *__restrict __src)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *__stpncpy (char *__restrict __dest,
+   const char *__restrict __src, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern void *__rawmemchr (const void *__s, int __c);
+extern __inline __attribute__ ((__gnu_inline__)) size_t __strcspn_c1 (const char *__s, int __reject);
+extern __inline __attribute__ ((__gnu_inline__)) size_t
+__strcspn_c1 (const char *__s, int __reject)
+{
+  size_t __result = 0;
+  while (__s[__result] != '\0' && __s[__result] != __reject)
+    ++__result;
+  return __result;
+}
+extern __inline __attribute__ ((__gnu_inline__)) size_t __strcspn_c2 (const char *__s, int __reject1,
+         int __reject2);
+extern __inline __attribute__ ((__gnu_inline__)) size_t
+__strcspn_c2 (const char *__s, int __reject1, int __reject2)
+{
+  size_t __result = 0;
+  while (__s[__result] != '\0' && __s[__result] != __reject1
+  && __s[__result] != __reject2)
+    ++__result;
+  return __result;
+}
+extern __inline __attribute__ ((__gnu_inline__)) size_t __strcspn_c3 (const char *__s, int __reject1,
+         int __reject2, int __reject3);
+extern __inline __attribute__ ((__gnu_inline__)) size_t
+__strcspn_c3 (const char *__s, int __reject1, int __reject2,
+       int __reject3)
+{
+  size_t __result = 0;
+  while (__s[__result] != '\0' && __s[__result] != __reject1
+  && __s[__result] != __reject2 && __s[__result] != __reject3)
+    ++__result;
+  return __result;
+}
+extern __inline __attribute__ ((__gnu_inline__)) size_t __strspn_c1 (const char *__s, int __accept);
+extern __inline __attribute__ ((__gnu_inline__)) size_t
+__strspn_c1 (const char *__s, int __accept)
+{
+  size_t __result = 0;
+  while (__s[__result] == __accept)
+    ++__result;
+  return __result;
+}
+extern __inline __attribute__ ((__gnu_inline__)) size_t __strspn_c2 (const char *__s, int __accept1,
+        int __accept2);
+extern __inline __attribute__ ((__gnu_inline__)) size_t
+__strspn_c2 (const char *__s, int __accept1, int __accept2)
+{
+  size_t __result = 0;
+  while (__s[__result] == __accept1 || __s[__result] == __accept2)
+    ++__result;
+  return __result;
+}
+extern __inline __attribute__ ((__gnu_inline__)) size_t __strspn_c3 (const char *__s, int __accept1,
+        int __accept2, int __accept3);
+extern __inline __attribute__ ((__gnu_inline__)) size_t
+__strspn_c3 (const char *__s, int __accept1, int __accept2, int __accept3)
+{
+  size_t __result = 0;
+  while (__s[__result] == __accept1 || __s[__result] == __accept2
+  || __s[__result] == __accept3)
+    ++__result;
+  return __result;
+}
+extern __inline __attribute__ ((__gnu_inline__)) char *__strpbrk_c2 (const char *__s, int __accept1,
+        int __accept2);
+extern __inline __attribute__ ((__gnu_inline__)) char *
+__strpbrk_c2 (const char *__s, int __accept1, int __accept2)
+{
+  while (*__s != '\0' && *__s != __accept1 && *__s != __accept2)
+    ++__s;
+  return *__s == '\0' ? ((void *)0) : (char *) (size_t) __s;
+}
+extern __inline __attribute__ ((__gnu_inline__)) char *__strpbrk_c3 (const char *__s, int __accept1,
+        int __accept2, int __accept3);
+extern __inline __attribute__ ((__gnu_inline__)) char *
+__strpbrk_c3 (const char *__s, int __accept1, int __accept2, int __accept3)
+{
+  while (*__s != '\0' && *__s != __accept1 && *__s != __accept2
+  && *__s != __accept3)
+    ++__s;
+  return *__s == '\0' ? ((void *)0) : (char *) (size_t) __s;
+}
+extern __inline __attribute__ ((__gnu_inline__)) char *__strtok_r_1c (char *__s, char __sep, char **__nextp);
+extern __inline __attribute__ ((__gnu_inline__)) char *
+__strtok_r_1c (char *__s, char __sep, char **__nextp)
+{
+  char *__result;
+  if (__s == ((void *)0))
+    __s = *__nextp;
+  while (*__s == __sep)
+    ++__s;
+  __result = ((void *)0);
+  if (*__s != '\0')
+    {
+      __result = __s++;
+      while (*__s != '\0')
+ if (*__s++ == __sep)
+   {
+     __s[-1] = '\0';
+     break;
+   }
+    }
+  *__nextp = __s;
+  return __result;
+}
+extern char *__strsep_g (char **__stringp, const char *__delim);
+extern __inline __attribute__ ((__gnu_inline__)) char *__strsep_1c (char **__s, char __reject);
+extern __inline __attribute__ ((__gnu_inline__)) char *
+__strsep_1c (char **__s, char __reject)
+{
+  char *__retval = *__s;
+  if (__retval != ((void *)0) && (*__s = (__extension__ (__builtin_constant_p (__reject) && !__builtin_constant_p (__retval) && (__reject) == '\0' ? (char *) __rawmemchr (__retval, __reject) : __builtin_strchr (__retval, __reject)))) != ((void *)0))
+    *(*__s)++ = '\0';
+  return __retval;
+}
+extern __inline __attribute__ ((__gnu_inline__)) char *__strsep_2c (char **__s, char __reject1, char __reject2);
+extern __inline __attribute__ ((__gnu_inline__)) char *
+__strsep_2c (char **__s, char __reject1, char __reject2)
+{
+  char *__retval = *__s;
+  if (__retval != ((void *)0))
+    {
+      char *__cp = __retval;
+      while (1)
+ {
+   if (*__cp == '\0')
+     {
+       __cp = ((void *)0);
+   break;
+     }
+   if (*__cp == __reject1 || *__cp == __reject2)
+     {
+       *__cp++ = '\0';
+       break;
+     }
+   ++__cp;
+ }
+      *__s = __cp;
+    }
+  return __retval;
+}
+extern __inline __attribute__ ((__gnu_inline__)) char *__strsep_3c (char **__s, char __reject1, char __reject2,
+       char __reject3);
+extern __inline __attribute__ ((__gnu_inline__)) char *
+__strsep_3c (char **__s, char __reject1, char __reject2, char __reject3)
+{
+  char *__retval = *__s;
+  if (__retval != ((void *)0))
+    {
+      char *__cp = __retval;
+      while (1)
+ {
+   if (*__cp == '\0')
+     {
+       __cp = ((void *)0);
+   break;
+     }
+   if (*__cp == __reject1 || *__cp == __reject2 || *__cp == __reject3)
+     {
+       *__cp++ = '\0';
+       break;
+     }
+   ++__cp;
+ }
+      *__s = __cp;
+    }
+  return __retval;
+}
+extern char *__strdup (const char *__string) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__));
+extern char *__strndup (const char *__string, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__));
+extern void __warn_memset_zero_len (void) __attribute__((__warning__ ("memset used with constant zero length parameter; this could be due to transposed parameters")));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
+__attribute__ ((__nothrow__ , __leaf__)) memcpy (void *__restrict __dest, const void *__restrict __src, size_t __len)
+{
+  return __builtin___memcpy_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
+__attribute__ ((__nothrow__ , __leaf__)) memmove (void *__dest, const void *__src, size_t __len)
+{
+  return __builtin___memmove_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
+__attribute__ ((__nothrow__ , __leaf__)) memset (void *__dest, int __ch, size_t __len)
+{
+  if (__builtin_constant_p (__len) && __len == 0
+      && (!__builtin_constant_p (__ch) || __ch != 0))
+    {
+      __warn_memset_zero_len ();
+      return __dest;
+    }
+  return __builtin___memset_chk (__dest, __ch, __len, __builtin_object_size (__dest, 0));
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void
+__attribute__ ((__nothrow__ , __leaf__)) bcopy (const void *__src, void *__dest, size_t __len)
+{
+  (void) __builtin___memmove_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void
+__attribute__ ((__nothrow__ , __leaf__)) bzero (void *__dest, size_t __len)
+{
+  (void) __builtin___memset_chk (__dest, '\0', __len, __builtin_object_size (__dest, 0));
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__nothrow__ , __leaf__)) strcpy (char *__restrict __dest, const char *__restrict __src)
+{
+  return __builtin___strcpy_chk (__dest, __src, __builtin_object_size (__dest, 2 > 1));
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__nothrow__ , __leaf__)) strncpy (char *__restrict __dest, const char *__restrict __src, size_t __len)
+{
+  return __builtin___strncpy_chk (__dest, __src, __len, __builtin_object_size (__dest, 2 > 1));
+}
+extern char *__stpncpy_chk (char *__dest, const char *__src, size_t __n,
+       size_t __destlen) __attribute__ ((__nothrow__ , __leaf__));
+extern char *__stpncpy_alias (char *__dest, const char *__src, size_t __n) __asm__ ("" "stpncpy") __attribute__ ((__nothrow__ , __leaf__));
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__nothrow__ , __leaf__)) stpncpy (char *__dest, const char *__src, size_t __n)
+{
+  if (__builtin_object_size (__dest, 2 > 1) != (size_t) -1
+      && (!__builtin_constant_p (__n) || __n <= __builtin_object_size (__dest, 2 > 1)))
+    return __stpncpy_chk (__dest, __src, __n, __builtin_object_size (__dest, 2 > 1));
+  return __stpncpy_alias (__dest, __src, __n);
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__nothrow__ , __leaf__)) strcat (char *__restrict __dest, const char *__restrict __src)
+{
+  return __builtin___strcat_chk (__dest, __src, __builtin_object_size (__dest, 2 > 1));
+}
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__nothrow__ , __leaf__)) strncat (char *__restrict __dest, const char *__restrict __src, size_t __len)
+{
+  return __builtin___strncat_chk (__dest, __src, __len, __builtin_object_size (__dest, 2 > 1));
+}
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+typedef unsigned int uint32_t;
+typedef unsigned long int uint64_t;
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+typedef long int int_least64_t;
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+typedef unsigned long int uint_least64_t;
+typedef signed char int_fast8_t;
+typedef long int int_fast16_t;
+typedef long int int_fast32_t;
+typedef long int int_fast64_t;
+typedef unsigned char uint_fast8_t;
+typedef unsigned long int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+typedef unsigned long int uint_fast64_t;
+typedef long int intptr_t;
+typedef unsigned long int uintptr_t;
+typedef long int intmax_t;
+typedef unsigned long int uintmax_t;
 typedef int MPI_Datatype;
 typedef int MPI_Comm;
 typedef int MPI_Group;
@@ -1158,15 +1620,15 @@ enum MPIR_Combiner_enum {
     MPI_COMBINER_HINDEXED_INTEGER = 8,
     MPI_COMBINER_HINDEXED = 9,
     MPI_COMBINER_INDEXED_BLOCK = 10,
-    MPI_COMBINER_STRUCT_INTEGER = 11,
-    MPI_COMBINER_STRUCT = 12,
-    MPI_COMBINER_SUBARRAY = 13,
-    MPI_COMBINER_DARRAY = 14,
-    MPI_COMBINER_F90_REAL = 15,
-    MPI_COMBINER_F90_COMPLEX = 16,
-    MPI_COMBINER_F90_INTEGER = 17,
-    MPI_COMBINER_RESIZED = 18,
-    MPI_COMBINER_HINDEXED_BLOCK = 19
+    MPI_COMBINER_HINDEXED_BLOCK = 11,
+    MPI_COMBINER_STRUCT_INTEGER = 12,
+    MPI_COMBINER_STRUCT = 13,
+    MPI_COMBINER_SUBARRAY = 14,
+    MPI_COMBINER_DARRAY = 15,
+    MPI_COMBINER_F90_REAL = 16,
+    MPI_COMBINER_F90_COMPLEX = 17,
+    MPI_COMBINER_F90_INTEGER = 18,
+    MPI_COMBINER_RESIZED = 19
 };
 typedef int MPI_Info;
 typedef long MPI_Aint;
@@ -1174,22 +1636,23 @@ typedef int MPI_Fint;
 typedef long long MPI_Count;
 typedef long long MPI_Offset;
 typedef struct MPI_Status {
-    int count_lo;
-    int count_hi_and_cancelled;
     int MPI_SOURCE;
     int MPI_TAG;
     int MPI_ERROR;
+    MPI_Count count;
+    int cancelled;
+    int abi_slush_fund[2];
 } MPI_Status;
-struct MPIR_T_enum_s;
-struct MPIR_T_cvar_handle_s;
-struct MPIR_T_pvar_handle_s;
-struct MPIR_T_pvar_session_s;
-typedef struct MPIR_T_enum_s * MPI_T_enum;
-typedef struct MPIR_T_cvar_handle_s * MPI_T_cvar_handle;
-typedef struct MPIR_T_pvar_handle_s * MPI_T_pvar_handle;
-typedef struct MPIR_T_pvar_session_s * MPI_T_pvar_session;
-extern struct MPIR_T_pvar_handle_s * const MPI_T_PVAR_ALL_HANDLES;
-typedef enum MPIR_T_verbosity_t {
+struct MPIR_T_enum;
+typedef struct MPIR_T_enum * MPI_T_enum;
+struct MPIR_T_cvar_handle;
+typedef struct MPIR_T_cvar_handle * MPI_T_cvar_handle;
+struct MPIR_T_pvar_handle;
+typedef struct MPIR_T_pvar_handle * MPI_T_pvar_handle;
+struct MPIR_T_pvar_session;
+typedef struct MPIR_T_pvar_session * MPI_T_pvar_session;
+extern struct MPIR_T_pvar_handle * const MPI_T_PVAR_ALL_HANDLES;
+enum MPIR_T_verbosity_t {
     MPIX_T_VERBOSITY_INVALID = 0,
     MPI_T_VERBOSITY_USER_BASIC = 221,
     MPI_T_VERBOSITY_USER_DETAIL,
@@ -1200,8 +1663,8 @@ typedef enum MPIR_T_verbosity_t {
     MPI_T_VERBOSITY_MPIDEV_BASIC,
     MPI_T_VERBOSITY_MPIDEV_DETAIL,
     MPI_T_VERBOSITY_MPIDEV_ALL
-} MPIR_T_verbosity_t;
-typedef enum MPIR_T_bind_t {
+};
+enum MPIR_T_bind_t {
     MPIX_T_BIND_INVALID = 0,
     MPI_T_BIND_NO_OBJECT = 9700,
     MPI_T_BIND_MPI_COMM,
@@ -1214,21 +1677,19 @@ typedef enum MPIR_T_bind_t {
     MPI_T_BIND_MPI_WIN,
     MPI_T_BIND_MPI_MESSAGE,
     MPI_T_BIND_MPI_INFO
-} MPIR_T_bind_t;
-typedef enum MPIR_T_scope_t {
+};
+enum MPIR_T_scope_t {
     MPIX_T_SCOPE_INVALID = 0,
-    MPI_T_SCOPE_CONSTANT = 60438,
-    MPI_T_SCOPE_READONLY,
+    MPI_T_SCOPE_READONLY = 60439,
     MPI_T_SCOPE_LOCAL,
     MPI_T_SCOPE_GROUP,
     MPI_T_SCOPE_GROUP_EQ,
     MPI_T_SCOPE_ALL,
     MPI_T_SCOPE_ALL_EQ
-} MPIR_T_scope_t;
-typedef enum MPIR_T_pvar_class_t {
+};
+enum MPIR_T_pvar_class_t {
     MPIX_T_PVAR_CLASS_INVALID = 0,
-    MPIR_T_PVAR_CLASS_FIRST = 240,
-    MPI_T_PVAR_CLASS_STATE = MPIR_T_PVAR_CLASS_FIRST,
+    MPI_T_PVAR_CLASS_STATE = 240,
     MPI_T_PVAR_CLASS_LEVEL,
     MPI_T_PVAR_CLASS_SIZE,
     MPI_T_PVAR_CLASS_PERCENTAGE,
@@ -1237,25 +1698,10 @@ typedef enum MPIR_T_pvar_class_t {
     MPI_T_PVAR_CLASS_COUNTER,
     MPI_T_PVAR_CLASS_AGGREGATE,
     MPI_T_PVAR_CLASS_TIMER,
-    MPI_T_PVAR_CLASS_GENERIC,
-    MPIR_T_PVAR_CLASS_LAST,
-    MPIR_T_PVAR_CLASS_NUMBER = MPIR_T_PVAR_CLASS_LAST - MPIR_T_PVAR_CLASS_FIRST
-} MPIR_T_pvar_class_t;
+    MPI_T_PVAR_CLASS_GENERIC
+};
 extern MPI_Fint * MPI_F_STATUS_IGNORE;
 extern MPI_Fint * MPI_F_STATUSES_IGNORE;
-typedef struct {
-    MPI_Fint count_lo;
-    MPI_Fint count_hi_and_cancelled;
-    MPI_Fint MPI_SOURCE;
-    MPI_Fint MPI_TAG;
-    MPI_Fint MPI_ERROR;
-} MPI_F08_Status;
-extern MPI_F08_Status MPIR_F08_MPI_STATUS_IGNORE_OBJ;
-extern MPI_F08_Status MPIR_F08_MPI_STATUSES_IGNORE_OBJ[1];
-extern int MPIR_F08_MPI_IN_PLACE;
-extern int MPIR_F08_MPI_BOTTOM;
-extern MPI_F08_Status *MPI_F08_STATUS_IGNORE;
-extern MPI_F08_Status *MPI_F08_STATUSES_IGNORE;
 typedef int (MPI_Grequest_cancel_function)(void *, int);
 typedef int (MPI_Grequest_free_function)(void *);
 typedef int (MPI_Grequest_query_function)(void *, MPI_Status *);
@@ -1264,7 +1710,7 @@ typedef int (MPIX_Grequest_wait_function)(int, void **, double, MPI_Status *);
 typedef int (MPI_Datarep_conversion_function)(void *, MPI_Datatype, int,
              void *, MPI_Offset, void *);
 typedef int (MPI_Datarep_extent_function)(MPI_Datatype datatype, MPI_Aint *,
-                      void *);
+       void *);
 int MPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
              MPI_Comm comm) ;
 int MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
@@ -1816,8 +2262,9 @@ int MPI_Type_get_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *exten
 int MPI_Type_get_true_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int MPI_Type_size_x(MPI_Datatype datatype, MPI_Count *size);
 int MPI_Comm_create_group(MPI_Comm comm, MPI_Group group, int tag, MPI_Comm *newcomm);
-MPI_Aint MPI_Aint_add(MPI_Aint base, MPI_Aint disp);
-MPI_Aint MPI_Aint_diff(MPI_Aint addr1, MPI_Aint addr2);
+int MPIX_Comm_group_failed(MPI_Comm comm, MPI_Group *failed_group);
+int MPIX_Comm_remote_group_failed(MPI_Comm comm, MPI_Group *failed_group);
+int MPIX_Comm_reenable_anysource(MPI_Comm comm, MPI_Group *failed_group);
 int MPI_T_init_thread(int required, int *provided);
 int MPI_T_finalize(void);
 int MPI_T_enum_get_info(MPI_T_enum enumtype, int *num, char *name, int *name_len);
@@ -1830,7 +2277,7 @@ int MPI_T_cvar_handle_alloc(int cvar_index, void *obj_handle, MPI_T_cvar_handle 
                             int *count);
 int MPI_T_cvar_handle_free(MPI_T_cvar_handle *handle);
 int MPI_T_cvar_read(MPI_T_cvar_handle handle, void *buf);
-int MPI_T_cvar_write(MPI_T_cvar_handle handle, const void *buf);
+int MPI_T_cvar_write(MPI_T_cvar_handle handle, void *buf);
 int MPI_T_pvar_get_num(int *num_pvar);
 int MPI_T_pvar_get_info(int pvar_index, char *name, int *name_len, int *verbosity, int *var_class,
                         MPI_Datatype *datatype, MPI_T_enum *enumtype, char *desc, int *desc_len,
@@ -1843,7 +2290,7 @@ int MPI_T_pvar_handle_free(MPI_T_pvar_session session, MPI_T_pvar_handle *handle
 int MPI_T_pvar_start(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int MPI_T_pvar_stop(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int MPI_T_pvar_read(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
-int MPI_T_pvar_write(MPI_T_pvar_session session, MPI_T_pvar_handle handle, const void *buf);
+int MPI_T_pvar_write(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
 int MPI_T_pvar_reset(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int MPI_T_pvar_readreset(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
 int MPI_T_category_get_num(int *num_cat);
@@ -1853,14 +2300,6 @@ int MPI_T_category_get_cvars(int cat_index, int len, int indices[]);
 int MPI_T_category_get_pvars(int cat_index, int len, int indices[]);
 int MPI_T_category_get_categories(int cat_index, int len, int indices[]);
 int MPI_T_category_changed(int *stamp);
-int MPI_T_cvar_get_index(const char *name, int *cvar_index);
-int MPI_T_pvar_get_index(const char *name, int var_class, int *pvar_index);
-int MPI_T_category_get_index(const char *name, int *cat_index);
-int MPIX_Comm_failure_ack(MPI_Comm comm);
-int MPIX_Comm_failure_get_acked(MPI_Comm comm, MPI_Group *failedgrp);
-int MPIX_Comm_revoke(MPI_Comm comm);
-int MPIX_Comm_shrink(MPI_Comm comm, MPI_Comm *newcomm);
-int MPIX_Comm_agree(MPI_Comm comm, int *flag);
 int PMPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
               MPI_Comm comm) ;
 int PMPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
@@ -2413,8 +2852,9 @@ int PMPI_Status_set_elements_x(MPI_Status *status, MPI_Datatype datatype, MPI_Co
 int PMPI_Type_get_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int PMPI_Type_get_true_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int PMPI_Type_size_x(MPI_Datatype datatype, MPI_Count *size);
-MPI_Aint PMPI_Aint_add(MPI_Aint base, MPI_Aint disp);
-MPI_Aint PMPI_Aint_diff(MPI_Aint addr1, MPI_Aint addr2);
+int PMPIX_Comm_group_failed(MPI_Comm comm, MPI_Group *failed_group);
+int PMPIX_Comm_remote_group_failed(MPI_Comm comm, MPI_Group *failed_group);
+int PMPIX_Comm_reenable_anysource(MPI_Comm comm, MPI_Group *failed_group);
 int PMPI_T_init_thread(int required, int *provided);
 int PMPI_T_finalize(void);
 int PMPI_T_enum_get_info(MPI_T_enum enumtype, int *num, char *name, int *name_len);
@@ -2427,7 +2867,7 @@ int PMPI_T_cvar_handle_alloc(int cvar_index, void *obj_handle, MPI_T_cvar_handle
                              int *count);
 int PMPI_T_cvar_handle_free(MPI_T_cvar_handle *handle);
 int PMPI_T_cvar_read(MPI_T_cvar_handle handle, void *buf);
-int PMPI_T_cvar_write(MPI_T_cvar_handle handle, const void *buf);
+int PMPI_T_cvar_write(MPI_T_cvar_handle handle, void *buf);
 int PMPI_T_pvar_get_num(int *num_pvar);
 int PMPI_T_pvar_get_info(int pvar_index, char *name, int *name_len, int *verbosity, int *var_class,
                          MPI_Datatype *datatype, MPI_T_enum *enumtype, char *desc, int *desc_len,
@@ -2440,7 +2880,7 @@ int PMPI_T_pvar_handle_free(MPI_T_pvar_session session, MPI_T_pvar_handle *handl
 int PMPI_T_pvar_start(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int PMPI_T_pvar_stop(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int PMPI_T_pvar_read(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
-int PMPI_T_pvar_write(MPI_T_pvar_session session, MPI_T_pvar_handle handle, const void *buf);
+int PMPI_T_pvar_write(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
 int PMPI_T_pvar_reset(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int PMPI_T_pvar_readreset(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
 int PMPI_T_category_get_num(int *num_cat);
@@ -2450,14 +2890,6 @@ int PMPI_T_category_get_cvars(int cat_index, int len, int indices[]);
 int PMPI_T_category_get_pvars(int cat_index, int len, int indices[]);
 int PMPI_T_category_get_categories(int cat_index, int len, int indices[]);
 int PMPI_T_category_changed(int *stamp);
-int PMPI_T_cvar_get_index(const char *name, int *cvar_index);
-int PMPI_T_pvar_get_index(const char *name, int var_class, int *pvar_index);
-int PMPI_T_category_get_index(const char *name, int *cat_index);
-int PMPIX_Comm_failure_ack(MPI_Comm comm);
-int PMPIX_Comm_failure_get_acked(MPI_Comm comm, MPI_Group *failedgrp);
-int PMPIX_Comm_revoke(MPI_Comm comm);
-int PMPIX_Comm_shrink(MPI_Comm comm, MPI_Comm *newcomm);
-int PMPIX_Comm_agree(MPI_Comm comm, int *flag);
 int MPI_File_open(MPI_Comm comm, const char *filename, int amode, MPI_Info info, MPI_File *fh);
 int MPI_File_close(MPI_File *fh);
 int MPI_File_delete(const char *filename, MPI_Info info);
@@ -2542,18 +2974,6 @@ int MPI_Register_datarep(const char *datarep, MPI_Datarep_conversion_function *r
 int MPI_File_set_atomicity(MPI_File fh, int flag);
 int MPI_File_get_atomicity(MPI_File fh, int *flag);
 int MPI_File_sync(MPI_File fh);
-int MPI_File_iread_at_all(MPI_File fh, MPI_Offset offset, void *buf, int count,
-                           MPI_Datatype datatype, MPI_Request *request)
-    ;
-int MPI_File_iwrite_at_all(MPI_File fh, MPI_Offset offset, const void *buf, int count,
-                            MPI_Datatype datatype, MPI_Request *request)
-    ;
-int MPI_File_iread_all(MPI_File fh, void *buf, int count, MPI_Datatype datatype,
-                        MPI_Request *request)
-    ;
-int MPI_File_iwrite_all(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
-                         MPI_Request *request)
-    ;
 MPI_File MPI_File_f2c(MPI_Fint file);
 MPI_Fint MPI_File_c2f(MPI_File file);
 int PMPI_File_open(MPI_Comm, const char *, int, MPI_Info, MPI_File *);
@@ -2648,18 +3068,6 @@ int PMPI_Register_datarep(const char *,
 int PMPI_File_set_atomicity(MPI_File, int);
 int PMPI_File_get_atomicity(MPI_File, int *);
 int PMPI_File_sync(MPI_File);
-int PMPI_File_iread_at_all(MPI_File fh, MPI_Offset offset, void *buf, int count,
-                            MPI_Datatype datatype, MPI_Request *request)
-    ;
-int PMPI_File_iwrite_at_all(MPI_File fh, MPI_Offset offset, const void *buf, int count,
-                             MPI_Datatype datatype, MPI_Request *request)
-    ;
-int PMPI_File_iread_all(MPI_File fh, void *buf, int count, MPI_Datatype datatype,
-                         MPI_Request *request)
-    ;
-int PMPI_File_iwrite_all(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
-                          MPI_Request *request)
-    ;
 MPI_File PMPI_File_f2c(MPI_Fint);
 MPI_Fint PMPI_File_c2f(MPI_File);
 typedef int MPIX_Grequest_class;
@@ -2771,7 +3179,7 @@ void initialization(int argc, char * argv[]) {
   }
   NPROCSX = atoi(argv[1]);
   NPROCSY = atoi(argv[2]);
-  (__builtin_expect(!(NPROCSX * NPROCSY == nprocs), 0) ? __assert_rtn(__func__, "diffusion2d_mpi_true-unreach-call.c", 157, "NPROCSX * NPROCSY == nprocs") : (void)0);
+  ((NPROCSX * NPROCSY == nprocs) ? (void) (0) : __assert_fail ("NPROCSX * NPROCSY == nprocs", "diffusion2d_mpi_true-unreach-call.c", 157, __PRETTY_FUNCTION__));
   if (rank == 0) {
     nx = __VERIFIER_nondet_int();
     ny = __VERIFIER_nondet_int();
@@ -2782,8 +3190,8 @@ void initialization(int argc, char * argv[]) {
   MPI_Bcast(&ny, 1, ((MPI_Datatype)0x4c000405), 0, ((MPI_Comm)0x44000000));
   MPI_Bcast(&nsteps, 1, ((MPI_Datatype)0x4c000405), 0, ((MPI_Comm)0x44000000));
   MPI_Bcast(&initTemp, 1, ((MPI_Datatype)0x4c00080b), 0, ((MPI_Comm)0x44000000));
-  (__builtin_expect(!(nx > 0 && ny > 0), 0) ? __assert_rtn(__func__, "diffusion2d_mpi_true-unreach-call.c", 168, "nx > 0 && ny > 0") : (void)0);
-  (__builtin_expect(!(nsteps >= wstep), 0) ? __assert_rtn(__func__, "diffusion2d_mpi_true-unreach-call.c", 169, "nsteps >= wstep") : (void)0);
+  ((nx > 0 && ny > 0) ? (void) (0) : __assert_fail ("nx > 0 && ny > 0", "diffusion2d_mpi_true-unreach-call.c", 168, __PRETTY_FUNCTION__));
+  ((nsteps >= wstep) ? (void) (0) : __assert_fail ("nsteps >= wstep", "diffusion2d_mpi_true-unreach-call.c", 169, __PRETTY_FUNCTION__));
   wstep = 10;
   constTemp = 0.0;
   k = 0.13;
@@ -2795,9 +3203,9 @@ void initialization(int argc, char * argv[]) {
   if (rank == OWNER(0, 0))
     recvbuf = (double *)malloc((nxl + 1) * sizeof(double));
   u_curr = (double (*)[nx+2])malloc((nyl + 2) * sizeof(double [nx + 2]));
-  (__builtin_expect(!(u_curr), 0) ? __assert_rtn(__func__, "diffusion2d_mpi_true-unreach-call.c", 181, "u_curr") : (void)0);
+  ((u_curr) ? (void) (0) : __assert_fail ("u_curr", "diffusion2d_mpi_true-unreach-call.c", 181, __PRETTY_FUNCTION__));
   u_next = (double (*)[nx+2])malloc((nyl + 2) * sizeof(double [nx + 2]));
-  (__builtin_expect(!(u_next), 0) ? __assert_rtn(__func__, "diffusion2d_mpi_true-unreach-call.c", 183, "u_next") : (void)0);
+  ((u_next) ? (void) (0) : __assert_fail ("u_next", "diffusion2d_mpi_true-unreach-call.c", 183, __PRETTY_FUNCTION__));
   firstCol = firstColForProc(rank);
   firstRow = firstRowForProc(rank);
   if (firstCol != 0)
@@ -2818,7 +3226,7 @@ void initialization(int argc, char * argv[]) {
     bottom = (-1);
   if (rank == OWNER(0, 0)) {
     oracle = (double (*)[nx + 2])malloc(sizeof(double [nx + 2]) * nsteps * (ny + 2));
-    (__builtin_expect(!(oracle), 0) ? __assert_rtn(__func__, "diffusion2d_mpi_true-unreach-call.c", 206, "oracle") : (void)0);
+    ((oracle) ? (void) (0) : __assert_fail ("oracle", "diffusion2d_mpi_true-unreach-call.c", 206, __PRETTY_FUNCTION__));
     double (*oracle_curr)[nx + 2] = oracle;
     double (*oracle_next)[nx + 2] = oracle_curr + ny + 2;
     for (int i=0; i < ny+2; i++)
