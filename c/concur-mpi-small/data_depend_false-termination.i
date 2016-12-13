@@ -1,48 +1,165 @@
+typedef long int ptrdiff_t;
+typedef long unsigned int size_t;
+typedef int wchar_t;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 typedef signed char int8_t;
 typedef short int int16_t;
 typedef int int32_t;
+
 typedef long int int64_t;
+
+
+
+
+
+
+
 typedef unsigned char uint8_t;
 typedef unsigned short int uint16_t;
+
 typedef unsigned int uint32_t;
+
+
+
 typedef unsigned long int uint64_t;
 typedef signed char int_least8_t;
 typedef short int int_least16_t;
 typedef int int_least32_t;
+
 typedef long int int_least64_t;
+
+
+
+
+
+
 typedef unsigned char uint_least8_t;
 typedef unsigned short int uint_least16_t;
 typedef unsigned int uint_least32_t;
+
 typedef unsigned long int uint_least64_t;
 typedef signed char int_fast8_t;
+
 typedef long int int_fast16_t;
 typedef long int int_fast32_t;
 typedef long int int_fast64_t;
 typedef unsigned char uint_fast8_t;
+
 typedef unsigned long int uint_fast16_t;
 typedef unsigned long int uint_fast32_t;
 typedef unsigned long int uint_fast64_t;
 typedef long int intptr_t;
+
+
 typedef unsigned long int uintptr_t;
 typedef long int intmax_t;
 typedef unsigned long int uintmax_t;
 typedef int MPI_Datatype;
+static const MPI_Datatype mpich_mpi_char __attribute__((type_tag_for_datatype(MPI,char))) = ((MPI_Datatype)0x4c000101);
+static const MPI_Datatype mpich_mpi_signed_char __attribute__((type_tag_for_datatype(MPI,signed char))) = ((MPI_Datatype)0x4c000118);
+static const MPI_Datatype mpich_mpi_unsigned_char __attribute__((type_tag_for_datatype(MPI,unsigned char))) = ((MPI_Datatype)0x4c000102);
+
+static const MPI_Datatype mpich_mpi_wchar __attribute__((type_tag_for_datatype(MPI,wchar_t))) = ((MPI_Datatype)0x4c00040e);
+static const MPI_Datatype mpich_mpi_short __attribute__((type_tag_for_datatype(MPI,short))) = ((MPI_Datatype)0x4c000203);
+static const MPI_Datatype mpich_mpi_unsigned_short __attribute__((type_tag_for_datatype(MPI,unsigned short))) = ((MPI_Datatype)0x4c000204);
+static const MPI_Datatype mpich_mpi_int __attribute__((type_tag_for_datatype(MPI,int))) = ((MPI_Datatype)0x4c000405);
+static const MPI_Datatype mpich_mpi_unsigned __attribute__((type_tag_for_datatype(MPI,unsigned))) = ((MPI_Datatype)0x4c000406);
+static const MPI_Datatype mpich_mpi_long __attribute__((type_tag_for_datatype(MPI,long))) = ((MPI_Datatype)0x4c000807);
+static const MPI_Datatype mpich_mpi_unsigned_long __attribute__((type_tag_for_datatype(MPI,unsigned long))) = ((MPI_Datatype)0x4c000808);
+static const MPI_Datatype mpich_mpi_float __attribute__((type_tag_for_datatype(MPI,float))) = ((MPI_Datatype)0x4c00040a);
+static const MPI_Datatype mpich_mpi_double __attribute__((type_tag_for_datatype(MPI,double))) = ((MPI_Datatype)0x4c00080b);
+
+static const MPI_Datatype mpich_mpi_long_double __attribute__((type_tag_for_datatype(MPI,long double))) = ((MPI_Datatype)0x4c00100c);
+
+static const MPI_Datatype mpich_mpi_long_long_int __attribute__((type_tag_for_datatype(MPI,long long int))) = ((MPI_Datatype)0x4c000809);
+static const MPI_Datatype mpich_mpi_unsigned_long_long __attribute__((type_tag_for_datatype(MPI,unsigned long long))) = ((MPI_Datatype)0x4c000819);
+struct mpich_struct_mpi_float_int { float f; int i; };
+struct mpich_struct_mpi_double_int { double d; int i; };
+struct mpich_struct_mpi_long_int { long l; int i; };
+struct mpich_struct_mpi_short_int { short s; int i; };
+struct mpich_struct_mpi_2int { int i1; int i2; };
+
+struct mpich_struct_mpi_long_double_int { long double ld; int i; };
+
+
+static const MPI_Datatype mpich_mpi_float_int __attribute__((type_tag_for_datatype(MPI,struct mpich_struct_mpi_float_int,layout_compatible))) = ((MPI_Datatype)0x8c000000);
+static const MPI_Datatype mpich_mpi_double_int __attribute__((type_tag_for_datatype(MPI,struct mpich_struct_mpi_double_int,layout_compatible))) = ((MPI_Datatype)0x8c000001);
+static const MPI_Datatype mpich_mpi_long_int __attribute__((type_tag_for_datatype(MPI,struct mpich_struct_mpi_long_int,layout_compatible))) = ((MPI_Datatype)0x8c000002);
+static const MPI_Datatype mpich_mpi_short_int __attribute__((type_tag_for_datatype(MPI,struct mpich_struct_mpi_short_int,layout_compatible))) = ((MPI_Datatype)0x8c000003);
+static const MPI_Datatype mpich_mpi_2int __attribute__((type_tag_for_datatype(MPI,struct mpich_struct_mpi_2int,layout_compatible))) = ((MPI_Datatype)0x4c000816);
+
+static const MPI_Datatype mpich_mpi_long_double_int __attribute__((type_tag_for_datatype(MPI,struct mpich_struct_mpi_long_double_int,layout_compatible))) = ((MPI_Datatype)0x8c000004);
+static const MPI_Datatype mpich_mpi_int8_t __attribute__((type_tag_for_datatype(MPI,int8_t))) = ((MPI_Datatype)0x4c000137);
+static const MPI_Datatype mpich_mpi_int16_t __attribute__((type_tag_for_datatype(MPI,int16_t))) = ((MPI_Datatype)0x4c000238);
+static const MPI_Datatype mpich_mpi_int32_t __attribute__((type_tag_for_datatype(MPI,int32_t))) = ((MPI_Datatype)0x4c000439);
+static const MPI_Datatype mpich_mpi_int64_t __attribute__((type_tag_for_datatype(MPI,int64_t))) = ((MPI_Datatype)0x4c00083a);
+static const MPI_Datatype mpich_mpi_uint8_t __attribute__((type_tag_for_datatype(MPI,uint8_t))) = ((MPI_Datatype)0x4c00013b);
+static const MPI_Datatype mpich_mpi_uint16_t __attribute__((type_tag_for_datatype(MPI,uint16_t))) = ((MPI_Datatype)0x4c00023c);
+static const MPI_Datatype mpich_mpi_uint32_t __attribute__((type_tag_for_datatype(MPI,uint32_t))) = ((MPI_Datatype)0x4c00043d);
+static const MPI_Datatype mpich_mpi_uint64_t __attribute__((type_tag_for_datatype(MPI,uint64_t))) = ((MPI_Datatype)0x4c00083e);
+static const MPI_Datatype mpich_mpi_c_bool __attribute__((type_tag_for_datatype(MPI,_Bool))) = ((MPI_Datatype)0x4c00013f);
+static const MPI_Datatype mpich_mpi_c_float_complex __attribute__((type_tag_for_datatype(MPI,float _Complex))) = ((MPI_Datatype)0x4c000840);
+static const MPI_Datatype mpich_mpi_c_double_complex __attribute__((type_tag_for_datatype(MPI,double _Complex))) = ((MPI_Datatype)0x4c001041);
+
+static const MPI_Datatype mpich_mpi_c_long_double_complex __attribute__((type_tag_for_datatype(MPI,long double _Complex))) = ((MPI_Datatype)0x4c002042);
 typedef int MPI_Comm;
+
+
+
+
 typedef int MPI_Group;
+
+
+
 typedef int MPI_Win;
+
+
+
+
+
+
+
 typedef struct ADIOI_FileD *MPI_File;
+
+
+
 typedef int MPI_Op;
+static const MPI_Datatype mpich_mpi_datatype_null __attribute__((type_tag_for_datatype(MPI,void,must_be_null))) = ((MPI_Datatype)0x0c000000);
 typedef enum MPIR_Win_flavor {
     MPI_WIN_FLAVOR_CREATE = 1,
     MPI_WIN_FLAVOR_ALLOCATE = 2,
     MPI_WIN_FLAVOR_DYNAMIC = 3,
     MPI_WIN_FLAVOR_SHARED = 4
 } MPIR_Win_flavor_t;
+
+
 typedef enum MPIR_Win_model {
     MPI_WIN_SEPARATE = 1,
     MPI_WIN_UNIFIED = 2
 } MPIR_Win_model_t;
+
+
+
+
+
 typedef enum MPIR_Topo_type { MPI_GRAPH=1, MPI_CART=2, MPI_DIST_GRAPH=3 } MPIR_Topo_type;
+
+
 extern int * const MPI_UNWEIGHTED;
 extern int * const MPI_WEIGHTS_EMPTY;
 typedef void (MPI_Handler_function) ( MPI_Comm *, int *, ... );
@@ -55,16 +172,24 @@ typedef int (MPI_Type_delete_attr_function)(MPI_Datatype, int, void *, void *);
 typedef int (MPI_Win_copy_attr_function)(MPI_Win, int, void *, void *, void *,
       int *);
 typedef int (MPI_Win_delete_attr_function)(MPI_Win, int, void *, void *);
+
 typedef void (MPI_Comm_errhandler_function)(MPI_Comm *, int *, ...);
 typedef void (MPI_File_errhandler_function)(MPI_File *, int *, ...);
 typedef void (MPI_Win_errhandler_function)(MPI_Win *, int *, ...);
+
 typedef MPI_Comm_errhandler_function MPI_Comm_errhandler_fn;
 typedef MPI_File_errhandler_function MPI_File_errhandler_fn;
 typedef MPI_Win_errhandler_function MPI_Win_errhandler_fn;
 typedef int MPI_Errhandler;
 typedef int MPI_Request;
+
+
 typedef int MPI_Message;
+
+
 typedef void (MPI_User_function) ( void *, void *, int *, MPI_Datatype * );
+
+
 typedef int (MPI_Copy_function) ( MPI_Comm, int, void *, void *, void *, int * );
 typedef int (MPI_Delete_function) ( MPI_Comm, int, void *, void * );
 enum MPIR_Combiner_enum {
@@ -88,11 +213,22 @@ enum MPIR_Combiner_enum {
     MPI_COMBINER_F90_INTEGER = 18,
     MPI_COMBINER_RESIZED = 19
 };
+
+
 typedef int MPI_Info;
 typedef long MPI_Aint;
 typedef int MPI_Fint;
 typedef long long MPI_Count;
+
+
+static const MPI_Datatype mpich_mpi_aint __attribute__((type_tag_for_datatype(MPI,MPI_Aint))) = ((MPI_Datatype)0x4c000843);
 typedef long long MPI_Offset;
+
+
+static const MPI_Datatype mpich_mpi_offset __attribute__((type_tag_for_datatype(MPI,MPI_Offset))) = ((MPI_Datatype)0x4c000844);
+
+
+
 typedef struct MPI_Status {
     int MPI_SOURCE;
     int MPI_TAG;
@@ -100,7 +236,10 @@ typedef struct MPI_Status {
     MPI_Count count;
     int cancelled;
     int abi_slush_fund[2];
+
 } MPI_Status;
+
+
 struct MPIR_T_enum;
 typedef struct MPIR_T_enum * MPI_T_enum;
 struct MPIR_T_cvar_handle;
@@ -109,21 +248,34 @@ struct MPIR_T_pvar_handle;
 typedef struct MPIR_T_pvar_handle * MPI_T_pvar_handle;
 struct MPIR_T_pvar_session;
 typedef struct MPIR_T_pvar_session * MPI_T_pvar_session;
+
+
 extern struct MPIR_T_pvar_handle * const MPI_T_PVAR_ALL_HANDLES;
 enum MPIR_T_verbosity_t {
+
+
     MPIX_T_VERBOSITY_INVALID = 0,
+
+
     MPI_T_VERBOSITY_USER_BASIC = 221,
     MPI_T_VERBOSITY_USER_DETAIL,
     MPI_T_VERBOSITY_USER_ALL,
+
     MPI_T_VERBOSITY_TUNER_BASIC,
     MPI_T_VERBOSITY_TUNER_DETAIL,
     MPI_T_VERBOSITY_TUNER_ALL,
+
     MPI_T_VERBOSITY_MPIDEV_BASIC,
     MPI_T_VERBOSITY_MPIDEV_DETAIL,
     MPI_T_VERBOSITY_MPIDEV_ALL
 };
+
 enum MPIR_T_bind_t {
+
+
     MPIX_T_BIND_INVALID = 0,
+
+
     MPI_T_BIND_NO_OBJECT = 9700,
     MPI_T_BIND_MPI_COMM,
     MPI_T_BIND_MPI_DATATYPE,
@@ -136,8 +288,13 @@ enum MPIR_T_bind_t {
     MPI_T_BIND_MPI_MESSAGE,
     MPI_T_BIND_MPI_INFO
 };
+
 enum MPIR_T_scope_t {
+
+
     MPIX_T_SCOPE_INVALID = 0,
+
+
     MPI_T_SCOPE_READONLY = 60439,
     MPI_T_SCOPE_LOCAL,
     MPI_T_SCOPE_GROUP,
@@ -145,8 +302,13 @@ enum MPIR_T_scope_t {
     MPI_T_SCOPE_ALL,
     MPI_T_SCOPE_ALL_EQ
 };
+
 enum MPIR_T_pvar_class_t {
+
+
     MPIX_T_PVAR_CLASS_INVALID = 0,
+
+
     MPI_T_PVAR_CLASS_STATE = 240,
     MPI_T_PVAR_CLASS_LEVEL,
     MPI_T_PVAR_CLASS_SIZE,
@@ -170,28 +332,28 @@ typedef int (MPI_Datarep_conversion_function)(void *, MPI_Datatype, int,
 typedef int (MPI_Datarep_extent_function)(MPI_Datatype datatype, MPI_Aint *,
        void *);
 int MPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-             MPI_Comm comm) ;
+             MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
-             MPI_Comm comm, MPI_Status *status) ;
+             MPI_Comm comm, MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Get_count(const MPI_Status *status, MPI_Datatype datatype, int *count);
 int MPI_Bsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-              MPI_Comm comm) ;
+              MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Ssend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-              MPI_Comm comm) ;
+              MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Rsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-              MPI_Comm comm) ;
+              MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Buffer_attach(void *buffer, int size);
 int MPI_Buffer_detach(void *buffer_addr, int *size);
 int MPI_Isend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-              MPI_Comm comm, MPI_Request *request) ;
+              MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Ibsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-               MPI_Comm comm, MPI_Request *request) ;
+               MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Issend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-               MPI_Comm comm, MPI_Request *request) ;
+               MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Irsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-               MPI_Comm comm, MPI_Request *request) ;
+               MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Irecv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
-              MPI_Comm comm, MPI_Request *request) ;
+              MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Wait(MPI_Request *request, MPI_Status *status);
 int MPI_Test(MPI_Request *request, int *flag, MPI_Status *status);
 int MPI_Request_free(MPI_Request *request);
@@ -210,24 +372,24 @@ int MPI_Probe(int source, int tag, MPI_Comm comm, MPI_Status *status);
 int MPI_Cancel(MPI_Request *request);
 int MPI_Test_cancelled(const MPI_Status *status, int *flag);
 int MPI_Send_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                  MPI_Comm comm, MPI_Request *request) ;
+                  MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Bsend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                   MPI_Comm comm, MPI_Request *request) ;
+                   MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Ssend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                   MPI_Comm comm, MPI_Request *request) ;
+                   MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Rsend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                   MPI_Comm comm, MPI_Request *request) ;
+                   MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Recv_init(void *buf, int count, MPI_Datatype datatype, int source, int tag,
-                  MPI_Comm comm, MPI_Request *request) ;
+                  MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Start(MPI_Request *request);
 int MPI_Startall(int count, MPI_Request array_of_requests[]);
 int MPI_Sendrecv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, int dest,
                  int sendtag, void *recvbuf, int recvcount, MPI_Datatype recvtype,
                  int source, int recvtag, MPI_Comm comm, MPI_Status *status)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,6,8)));
 int MPI_Sendrecv_replace(void *buf, int count, MPI_Datatype datatype, int dest,
                          int sendtag, int source, int recvtag, MPI_Comm comm,
-                         MPI_Status *status) ;
+                         MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Type_contiguous(int count, MPI_Datatype oldtype, MPI_Datatype *newtype);
 int MPI_Type_vector(int count, int blocklength, int stride, MPI_Datatype oldtype,
                     MPI_Datatype *newtype);
@@ -251,60 +413,60 @@ int MPI_Type_commit(MPI_Datatype *datatype);
 int MPI_Type_free(MPI_Datatype *datatype);
 int MPI_Get_elements(const MPI_Status *status, MPI_Datatype datatype, int *count);
 int MPI_Pack(const void *inbuf, int incount, MPI_Datatype datatype, void *outbuf,
-             int outsize, int *position, MPI_Comm comm) ;
+             int outsize, int *position, MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Unpack(const void *inbuf, int insize, int *position, void *outbuf, int outcount,
-               MPI_Datatype datatype, MPI_Comm comm) ;
+               MPI_Datatype datatype, MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Pack_size(int incount, MPI_Datatype datatype, MPI_Comm comm, int *size);
 int MPI_Barrier(MPI_Comm comm);
 int MPI_Bcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm comm)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Gather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm)
-               ;
+               __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Gatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                 const int *recvcounts, const int *displs, MPI_Datatype recvtype, int root,
                 MPI_Comm comm)
-                ;
+                __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,7)));
 int MPI_Scatter(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                 int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm)
-                ;
+                __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Scatterv(const void *sendbuf, const int *sendcounts, const int *displs,
                  MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype,
                  int root, MPI_Comm comm)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,5,7)));
 int MPI_Allgather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                   int recvcount, MPI_Datatype recvtype, MPI_Comm comm)
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Allgatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                    const int *recvcounts, const int *displs, MPI_Datatype recvtype, MPI_Comm comm)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,7)));
 int MPI_Alltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                  int recvcount, MPI_Datatype recvtype, MPI_Comm comm)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Alltoallv(const void *sendbuf, const int *sendcounts, const int *sdispls,
                   MPI_Datatype sendtype, void *recvbuf, const int *recvcounts,
                   const int *rdispls, MPI_Datatype recvtype, MPI_Comm comm)
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,5,8)));
 int MPI_Alltoallw(const void *sendbuf, const int sendcounts[], const int sdispls[],
                   const MPI_Datatype sendtypes[], void *recvbuf, const int recvcounts[],
                   const int rdispls[], const MPI_Datatype recvtypes[], MPI_Comm comm);
 int MPI_Exscan(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                MPI_Op op, MPI_Comm comm)
-               ;
+               __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Reduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                MPI_Op op, int root, MPI_Comm comm)
-               ;
+               __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Op_create(MPI_User_function *user_fn, int commute, MPI_Op *op);
 int MPI_Op_free(MPI_Op *op);
 int MPI_Allreduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                   MPI_Op op, MPI_Comm comm)
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Reduce_scatter(const void *sendbuf, void *recvbuf, const int recvcounts[],
                        MPI_Datatype datatype, MPI_Op op, MPI_Comm comm)
-                       ;
+                       __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Scan(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype, MPI_Op op,
              MPI_Comm comm)
-             ;
+             __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Group_size(MPI_Group group, int *size);
 int MPI_Group_rank(MPI_Group group, int *rank);
 int MPI_Group_translate_ranks(MPI_Group group1, int n, const int ranks1[], MPI_Group group2,
@@ -372,9 +534,14 @@ int MPI_Init(int *argc, char ***argv);
 int MPI_Finalize(void);
 int MPI_Initialized(int *flag);
 int MPI_Abort(MPI_Comm comm, int errorcode);
+
+
+
 int MPI_Pcontrol(const int level, ...);
 int MPIR_Dup_fn(MPI_Comm oldcomm, int keyval, void *extra_state, void *attribute_val_in,
                void *attribute_val_out, int *flag);
+
+
 int MPI_Close_port(const char *port_name);
 int MPI_Comm_accept(const char *port_name, MPI_Info info, int root, MPI_Comm comm,
                     MPI_Comm *newcomm);
@@ -394,16 +561,18 @@ int MPI_Publish_name(const char *service_name, MPI_Info info, const char *port_n
 int MPI_Unpublish_name(const char *service_name, MPI_Info info, const char *port_name);
 int MPI_Comm_set_info(MPI_Comm comm, MPI_Info info);
 int MPI_Comm_get_info(MPI_Comm comm, MPI_Info *info);
+
+
 int MPI_Accumulate(const void *origin_addr, int origin_count, MPI_Datatype origin_datatype,
                    int target_rank, MPI_Aint target_disp, int target_count,
                    MPI_Datatype target_datatype, MPI_Op op, MPI_Win win)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Get(void *origin_addr, int origin_count, MPI_Datatype origin_datatype,
             int target_rank, MPI_Aint target_disp, int target_count,
-            MPI_Datatype target_datatype, MPI_Win win) ;
+            MPI_Datatype target_datatype, MPI_Win win) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Put(const void *origin_addr, int origin_count, MPI_Datatype origin_datatype,
             int target_rank, MPI_Aint target_disp, int target_count,
-            MPI_Datatype target_datatype, MPI_Win win) ;
+            MPI_Datatype target_datatype, MPI_Win win) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Win_complete(MPI_Win win);
 int MPI_Win_create(void *base, MPI_Aint size, int disp_unit, MPI_Info info, MPI_Comm comm,
                    MPI_Win *win);
@@ -416,6 +585,8 @@ int MPI_Win_start(MPI_Group group, int assert, MPI_Win win);
 int MPI_Win_test(MPI_Win win, int *flag);
 int MPI_Win_unlock(int rank, MPI_Win win);
 int MPI_Win_wait(MPI_Win win);
+
+
 int MPI_Win_allocate(MPI_Aint size, int disp_unit, MPI_Info info, MPI_Comm comm, void *baseptr,
                      MPI_Win *win);
 int MPI_Win_allocate_shared(MPI_Aint size, int disp_unit, MPI_Info info, MPI_Comm comm,
@@ -430,40 +601,40 @@ int MPI_Get_accumulate(const void *origin_addr, int origin_count,
                         MPI_Datatype origin_datatype, void *result_addr, int result_count,
                         MPI_Datatype result_datatype, int target_rank, MPI_Aint target_disp,
                         int target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win)
-                       
-                        ;
+                        __attribute__((pointer_with_type_tag(MPI,1,3)))
+                        __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Fetch_and_op(const void *origin_addr, void *result_addr,
                       MPI_Datatype datatype, int target_rank, MPI_Aint target_disp,
                       MPI_Op op, MPI_Win win)
-                      ;
+                      __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Compare_and_swap(const void *origin_addr, const void *compare_addr,
                           void *result_addr, MPI_Datatype datatype, int target_rank,
                           MPI_Aint target_disp, MPI_Win win)
-                         
-                         
-                          ;
+                          __attribute__((pointer_with_type_tag(MPI,1,4)))
+                          __attribute__((pointer_with_type_tag(MPI,2,4)))
+                          __attribute__((pointer_with_type_tag(MPI,3,4)));
 int MPI_Rput(const void *origin_addr, int origin_count,
               MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp,
               int target_count, MPI_Datatype target_datatype, MPI_Win win,
               MPI_Request *request)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Rget(void *origin_addr, int origin_count,
               MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp,
               int target_count, MPI_Datatype target_datatype, MPI_Win win,
               MPI_Request *request)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Raccumulate(const void *origin_addr, int origin_count,
                      MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp,
                      int target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win,
                      MPI_Request *request)
-                     ;
+                     __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Rget_accumulate(const void *origin_addr, int origin_count,
                          MPI_Datatype origin_datatype, void *result_addr, int result_count,
                          MPI_Datatype result_datatype, int target_rank, MPI_Aint target_disp,
                          int target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win,
                          MPI_Request *request)
-                        
-                         ;
+                         __attribute__((pointer_with_type_tag(MPI,1,3)))
+                         __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Win_lock_all(int assert, MPI_Win win);
 int MPI_Win_unlock_all(MPI_Win win);
 int MPI_Win_flush(int rank, MPI_Win win);
@@ -471,6 +642,8 @@ int MPI_Win_flush_all(MPI_Win win);
 int MPI_Win_flush_local(int rank, MPI_Win win);
 int MPI_Win_flush_local_all(MPI_Win win);
 int MPI_Win_sync(MPI_Win win);
+
+
 int MPI_Add_error_class(int *errorclass);
 int MPI_Add_error_code(int errorclass, int *errorcode);
 int MPI_Add_error_string(int errorcode, const char *string);
@@ -520,6 +693,7 @@ int MPI_Win_get_attr(MPI_Win win, int win_keyval, void *attribute_val, int *flag
 int MPI_Win_get_name(MPI_Win win, char *win_name, int *resultlen);
 int MPI_Win_set_attr(MPI_Win win, int win_keyval, void *attribute_val);
 int MPI_Win_set_name(MPI_Win win, const char *win_name);
+
 int MPI_Alloc_mem(MPI_Aint size, MPI_Info info, void *baseptr);
 int MPI_Comm_create_errhandler(MPI_Comm_errhandler_function *comm_errhandler_fn,
                                MPI_Errhandler *errhandler);
@@ -543,7 +717,7 @@ int MPI_Info_get_valuelen(MPI_Info info, const char *key, int *valuelen, int *fl
 int MPI_Info_set(MPI_Info info, const char *key, const char *value);
 int MPI_Pack_external(const char datarep[], const void *inbuf, int incount,
                       MPI_Datatype datatype, void *outbuf, MPI_Aint outsize, MPI_Aint *position)
-                      ;
+                      __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Pack_external_size(const char datarep[], int incount, MPI_Datatype datatype,
                            MPI_Aint *size);
 int MPI_Request_get_status(MPI_Request request, int *flag, MPI_Status *status);
@@ -575,22 +749,27 @@ int MPI_Type_get_extent(MPI_Datatype datatype, MPI_Aint *lb, MPI_Aint *extent);
 int MPI_Type_get_true_extent(MPI_Datatype datatype, MPI_Aint *true_lb, MPI_Aint *true_extent);
 int MPI_Unpack_external(const char datarep[], const void *inbuf, MPI_Aint insize,
                         MPI_Aint *position, void *outbuf, int outcount, MPI_Datatype datatype)
-                        ;
+                        __attribute__((pointer_with_type_tag(MPI,5,7)));
 int MPI_Win_create_errhandler(MPI_Win_errhandler_function *win_errhandler_fn,
                               MPI_Errhandler *errhandler);
 int MPI_Win_get_errhandler(MPI_Win win, MPI_Errhandler *errhandler);
 int MPI_Win_set_errhandler(MPI_Win win, MPI_Errhandler errhandler);
+
+
+
+
 int MPI_Type_create_f90_integer(int range, MPI_Datatype *newtype);
 int MPI_Type_create_f90_real(int precision, int range, MPI_Datatype *newtype);
 int MPI_Type_create_f90_complex(int precision, int range, MPI_Datatype *newtype);
+
 int MPI_Reduce_local(const void *inbuf, void *inoutbuf, int count, MPI_Datatype datatype,
                      MPI_Op op)
-                     ;
+                     __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Op_commutative(MPI_Op op, int *commute);
 int MPI_Reduce_scatter_block(const void *sendbuf, void *recvbuf, int recvcount,
                              MPI_Datatype datatype, MPI_Op op, MPI_Comm comm)
-                            
-                             ;
+                             __attribute__((pointer_with_type_tag(MPI,1,4)))
+                             __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Dist_graph_create_adjacent(MPI_Comm comm_old, int indegree, const int sources[],
                                    const int sourceweights[], int outdegree,
                                    const int destinations[], const int destweights[],
@@ -601,128 +780,150 @@ int MPI_Dist_graph_create(MPI_Comm comm_old, int n, const int sources[], const i
 int MPI_Dist_graph_neighbors_count(MPI_Comm comm, int *indegree, int *outdegree, int *weighted);
 int MPI_Dist_graph_neighbors(MPI_Comm comm, int maxindegree, int sources[], int sourceweights[],
                              int maxoutdegree, int destinations[], int destweights[]);
+
+
 int MPI_Improbe(int source, int tag, MPI_Comm comm, int *flag, MPI_Message *message,
                 MPI_Status *status);
 int MPI_Imrecv(void *buf, int count, MPI_Datatype datatype, MPI_Message *message,
-               MPI_Request *request) ;
+               MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Mprobe(int source, int tag, MPI_Comm comm, MPI_Message *message, MPI_Status *status);
 int MPI_Mrecv(void *buf, int count, MPI_Datatype datatype, MPI_Message *message,
-              MPI_Status *status) ;
+              MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,1,3)));
+
+
 int MPI_Comm_idup(MPI_Comm comm, MPI_Comm *newcomm, MPI_Request *request);
 int MPI_Ibarrier(MPI_Comm comm, MPI_Request *request);
 int MPI_Ibcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm comm,
-               MPI_Request *request) ;
+               MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int MPI_Igather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                 int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm,
                 MPI_Request *request)
-                ;
+                __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Igatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                  const int recvcounts[], const int displs[], MPI_Datatype recvtype, int root,
                  MPI_Comm comm, MPI_Request *request)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,7)));
 int MPI_Iscatter(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                  int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm,
                  MPI_Request *request)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Iscatterv(const void *sendbuf, const int sendcounts[], const int displs[],
                   MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype,
                   int root, MPI_Comm comm, MPI_Request *request)
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,5,7)));
 int MPI_Iallgather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                    int recvcount, MPI_Datatype recvtype, MPI_Comm comm, MPI_Request *request)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Iallgatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                     const int recvcounts[], const int displs[], MPI_Datatype recvtype,
                     MPI_Comm comm, MPI_Request *request)
-                    ;
+                    __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,7)));
 int MPI_Ialltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                   int recvcount, MPI_Datatype recvtype, MPI_Comm comm, MPI_Request *request)
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Ialltoallv(const void *sendbuf, const int sendcounts[], const int sdispls[],
                    MPI_Datatype sendtype, void *recvbuf, const int recvcounts[],
                    const int rdispls[], MPI_Datatype recvtype, MPI_Comm comm,
                    MPI_Request *request)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,5,8)));
 int MPI_Ialltoallw(const void *sendbuf, const int sendcounts[], const int sdispls[],
                    const MPI_Datatype sendtypes[], void *recvbuf, const int recvcounts[],
                    const int rdispls[], const MPI_Datatype recvtypes[], MPI_Comm comm,
                    MPI_Request *request);
 int MPI_Ireduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                 MPI_Op op, int root, MPI_Comm comm, MPI_Request *request)
-                ;
+                __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Iallreduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                    MPI_Op op, MPI_Comm comm, MPI_Request *request)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Ireduce_scatter(const void *sendbuf, void *recvbuf, const int recvcounts[],
                         MPI_Datatype datatype, MPI_Op op, MPI_Comm comm, MPI_Request *request)
-                        ;
+                        __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Ireduce_scatter_block(const void *sendbuf, void *recvbuf, int recvcount,
                               MPI_Datatype datatype, MPI_Op op, MPI_Comm comm,
                               MPI_Request *request)
-                             
-                              ;
+                              __attribute__((pointer_with_type_tag(MPI,1,4)))
+                              __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Iscan(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype, MPI_Op op,
               MPI_Comm comm, MPI_Request *request)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_Iexscan(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                 MPI_Op op, MPI_Comm comm, MPI_Request *request)
-                ;
+                __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
+
+
 int MPI_Ineighbor_allgather(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                             void *recvbuf, int recvcount, MPI_Datatype recvtype,
                             MPI_Comm comm, MPI_Request *request)
-                           
-                            ;
+                            __attribute__((pointer_with_type_tag(MPI,1,3)))
+                            __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Ineighbor_allgatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                              void *recvbuf, const int recvcounts[], const int displs[],
                              MPI_Datatype recvtype, MPI_Comm comm, MPI_Request *request)
-                            
-                             ;
+                             __attribute__((pointer_with_type_tag(MPI,1,3)))
+                             __attribute__((pointer_with_type_tag(MPI,4,7)));
 int MPI_Ineighbor_alltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                            void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm,
                            MPI_Request *request)
-                          
-                           ;
+                           __attribute__((pointer_with_type_tag(MPI,1,3)))
+                           __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Ineighbor_alltoallv(const void *sendbuf, const int sendcounts[], const int sdispls[],
                             MPI_Datatype sendtype, void *recvbuf, const int recvcounts[],
                             const int rdispls[], MPI_Datatype recvtype, MPI_Comm comm,
                             MPI_Request *request)
-                           
-                            ;
+                            __attribute__((pointer_with_type_tag(MPI,1,4)))
+                            __attribute__((pointer_with_type_tag(MPI,5,8)));
 int MPI_Ineighbor_alltoallw(const void *sendbuf, const int sendcounts[],
                             const MPI_Aint sdispls[], const MPI_Datatype sendtypes[],
                             void *recvbuf, const int recvcounts[], const MPI_Aint rdispls[],
                             const MPI_Datatype recvtypes[], MPI_Comm comm, MPI_Request *request);
 int MPI_Neighbor_allgather(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                            void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm)
-                          
-                           ;
+                           __attribute__((pointer_with_type_tag(MPI,1,3)))
+                           __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Neighbor_allgatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                             void *recvbuf, const int recvcounts[], const int displs[],
                             MPI_Datatype recvtype, MPI_Comm comm)
-                           
-                            ;
+                            __attribute__((pointer_with_type_tag(MPI,1,3)))
+                            __attribute__((pointer_with_type_tag(MPI,4,7)));
 int MPI_Neighbor_alltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                           void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm)
-                         
-                          ;
+                          __attribute__((pointer_with_type_tag(MPI,1,3)))
+                          __attribute__((pointer_with_type_tag(MPI,4,6)));
 int MPI_Neighbor_alltoallv(const void *sendbuf, const int sendcounts[], const int sdispls[],
                            MPI_Datatype sendtype, void *recvbuf, const int recvcounts[],
                            const int rdispls[], MPI_Datatype recvtype, MPI_Comm comm)
-                          
-                           ;
+                           __attribute__((pointer_with_type_tag(MPI,1,4)))
+                           __attribute__((pointer_with_type_tag(MPI,5,8)));
 int MPI_Neighbor_alltoallw(const void *sendbuf, const int sendcounts[], const MPI_Aint sdispls[],
                            const MPI_Datatype sendtypes[], void *recvbuf, const int recvcounts[],
                            const MPI_Aint rdispls[], const MPI_Datatype recvtypes[], MPI_Comm comm);
+
+
 int MPI_Comm_split_type(MPI_Comm comm, int split_type, int key, MPI_Info info, MPI_Comm *newcomm);
+
+
 int MPI_Get_elements_x(const MPI_Status *status, MPI_Datatype datatype, MPI_Count *count);
 int MPI_Status_set_elements_x(MPI_Status *status, MPI_Datatype datatype, MPI_Count count);
 int MPI_Type_get_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int MPI_Type_get_true_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int MPI_Type_size_x(MPI_Datatype datatype, MPI_Count *size);
+
+
 int MPI_Comm_create_group(MPI_Comm comm, MPI_Group group, int tag, MPI_Comm *newcomm);
+
+
+
+
 int MPIX_Comm_group_failed(MPI_Comm comm, MPI_Group *failed_group);
 int MPIX_Comm_remote_group_failed(MPI_Comm comm, MPI_Group *failed_group);
 int MPIX_Comm_reenable_anysource(MPI_Comm comm, MPI_Group *failed_group);
+
+
+
+
+
+
 int MPI_T_init_thread(int required, int *provided);
 int MPI_T_finalize(void);
 int MPI_T_enum_get_info(MPI_T_enum enumtype, int *num, char *name, int *name_len);
@@ -758,29 +959,36 @@ int MPI_T_category_get_cvars(int cat_index, int len, int indices[]);
 int MPI_T_category_get_pvars(int cat_index, int len, int indices[]);
 int MPI_T_category_get_categories(int cat_index, int len, int indices[]);
 int MPI_T_category_changed(int *stamp);
+
+
+
+
+
+
+
 int PMPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-              MPI_Comm comm) ;
+              MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
-              MPI_Comm comm, MPI_Status *status) ;
+              MPI_Comm comm, MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Get_count(const MPI_Status *status, MPI_Datatype datatype, int *count);
 int PMPI_Bsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-               MPI_Comm comm) ;
+               MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Ssend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-               MPI_Comm comm) ;
+               MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Rsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-               MPI_Comm comm) ;
+               MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Buffer_attach(void *buffer, int size);
 int PMPI_Buffer_detach(void *buffer_addr, int *size);
 int PMPI_Isend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-               MPI_Comm comm, MPI_Request *request) ;
+               MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Ibsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                MPI_Comm comm, MPI_Request *request) ;
+                MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Issend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                MPI_Comm comm, MPI_Request *request) ;
+                MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Irsend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                MPI_Comm comm, MPI_Request *request) ;
+                MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Irecv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
-               MPI_Comm comm, MPI_Request *request) ;
+               MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Wait(MPI_Request *request, MPI_Status *status);
 int PMPI_Test(MPI_Request *request, int *flag, MPI_Status *status);
 int PMPI_Request_free(MPI_Request *request);
@@ -799,25 +1007,25 @@ int PMPI_Probe(int source, int tag, MPI_Comm comm, MPI_Status *status);
 int PMPI_Cancel(MPI_Request *request);
 int PMPI_Test_cancelled(const MPI_Status *status, int *flag);
 int PMPI_Send_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                   MPI_Comm comm, MPI_Request *request) ;
+                   MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Bsend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                    MPI_Comm comm, MPI_Request *request) ;
+                    MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Ssend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                    MPI_Comm comm, MPI_Request *request) ;
+                    MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Rsend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
-                    MPI_Comm comm, MPI_Request *request) ;
+                    MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Recv_init(void *buf, int count, MPI_Datatype datatype, int source, int tag,
-                   MPI_Comm comm, MPI_Request *request) ;
+                   MPI_Comm comm, MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Start(MPI_Request *request);
 int PMPI_Startall(int count, MPI_Request array_of_requests[]);
 int PMPI_Sendrecv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, int dest,
                   int sendtag, void *recvbuf, int recvcount, MPI_Datatype recvtype,
                   int source, int recvtag, MPI_Comm comm, MPI_Status *status)
-                 
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,3)))
+                  __attribute__((pointer_with_type_tag(MPI,6,8)));
 int PMPI_Sendrecv_replace(void *buf, int count, MPI_Datatype datatype, int dest,
                           int sendtag, int source, int recvtag, MPI_Comm comm,
-                          MPI_Status *status) ;
+                          MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Type_contiguous(int count, MPI_Datatype oldtype, MPI_Datatype *newtype);
 int PMPI_Type_vector(int count, int blocklength, int stride, MPI_Datatype oldtype,
                      MPI_Datatype *newtype);
@@ -841,60 +1049,60 @@ int PMPI_Type_commit(MPI_Datatype *datatype);
 int PMPI_Type_free(MPI_Datatype *datatype);
 int PMPI_Get_elements(const MPI_Status *status, MPI_Datatype datatype, int *count);
 int PMPI_Pack(const void *inbuf, int incount, MPI_Datatype datatype, void *outbuf,
-              int outsize, int *position, MPI_Comm comm) ;
+              int outsize, int *position, MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Unpack(const void *inbuf, int insize, int *position, void *outbuf, int outcount,
-                MPI_Datatype datatype, MPI_Comm comm) ;
+                MPI_Datatype datatype, MPI_Comm comm) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Pack_size(int incount, MPI_Datatype datatype, MPI_Comm comm, int *size);
 int PMPI_Barrier(MPI_Comm comm);
 int PMPI_Bcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm comm)
-               ;
+               __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Gather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                 int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm)
-                ;
+                __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Gatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                  const int *recvcounts, const int *displs, MPI_Datatype recvtype, int root,
                  MPI_Comm comm)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,7)));
 int PMPI_Scatter(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                  int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Scatterv(const void *sendbuf, const int *sendcounts, const int *displs,
                   MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype,
                   int root, MPI_Comm comm)
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,5,7)));
 int PMPI_Allgather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                    int recvcount, MPI_Datatype recvtype, MPI_Comm comm)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Allgatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                     const int *recvcounts, const int *displs, MPI_Datatype recvtype, MPI_Comm comm)
-                    ;
+                    __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,7)));
 int PMPI_Alltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                   int recvcount, MPI_Datatype recvtype, MPI_Comm comm)
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Alltoallv(const void *sendbuf, const int *sendcounts, const int *sdispls,
                    MPI_Datatype sendtype, void *recvbuf, const int *recvcounts,
                    const int *rdispls, MPI_Datatype recvtype, MPI_Comm comm)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,5,8)));
 int PMPI_Alltoallw(const void *sendbuf, const int sendcounts[], const int sdispls[],
                    const MPI_Datatype sendtypes[], void *recvbuf, const int recvcounts[],
                    const int rdispls[], const MPI_Datatype recvtypes[], MPI_Comm comm);
 int PMPI_Exscan(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                 MPI_Op op, MPI_Comm comm)
-                ;
+                __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Reduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                 MPI_Op op, int root, MPI_Comm comm)
-                ;
+                __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Op_create(MPI_User_function *user_fn, int commute, MPI_Op *op);
 int PMPI_Op_free(MPI_Op *op);
 int PMPI_Allreduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                    MPI_Op op, MPI_Comm comm)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Reduce_scatter(const void *sendbuf, void *recvbuf, const int recvcounts[],
                         MPI_Datatype datatype, MPI_Op op, MPI_Comm comm)
-                        ;
+                        __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Scan(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype, MPI_Op op,
               MPI_Comm comm)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Group_size(MPI_Group group, int *size);
 int PMPI_Group_rank(MPI_Group group, int *rank);
 int PMPI_Group_translate_ranks(MPI_Group group1, int n, const int ranks1[], MPI_Group group2,
@@ -962,7 +1170,12 @@ int PMPI_Init(int *argc, char ***argv);
 int PMPI_Finalize(void);
 int PMPI_Initialized(int *flag);
 int PMPI_Abort(MPI_Comm comm, int errorcode);
+
+
+
 int PMPI_Pcontrol(const int level, ...);
+
+
 int PMPI_Close_port(const char *port_name);
 int PMPI_Comm_accept(const char *port_name, MPI_Info info, int root, MPI_Comm comm,
                      MPI_Comm *newcomm);
@@ -982,16 +1195,18 @@ int PMPI_Publish_name(const char *service_name, MPI_Info info, const char *port_
 int PMPI_Unpublish_name(const char *service_name, MPI_Info info, const char *port_name);
 int PMPI_Comm_set_info(MPI_Comm comm, MPI_Info info);
 int PMPI_Comm_get_info(MPI_Comm comm, MPI_Info *info);
+
+
 int PMPI_Accumulate(const void *origin_addr, int origin_count, MPI_Datatype origin_datatype,
                     int target_rank, MPI_Aint target_disp, int target_count,
                     MPI_Datatype target_datatype, MPI_Op op, MPI_Win win)
-                    ;
+                    __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Get(void *origin_addr, int origin_count, MPI_Datatype origin_datatype,
              int target_rank, MPI_Aint target_disp, int target_count,
-             MPI_Datatype target_datatype, MPI_Win win) ;
+             MPI_Datatype target_datatype, MPI_Win win) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Put(const void *origin_addr, int origin_count, MPI_Datatype origin_datatype,
              int target_rank, MPI_Aint target_disp, int target_count,
-             MPI_Datatype target_datatype, MPI_Win win) ;
+             MPI_Datatype target_datatype, MPI_Win win) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Win_complete(MPI_Win win);
 int PMPI_Win_create(void *base, MPI_Aint size, int disp_unit, MPI_Info info, MPI_Comm comm,
                     MPI_Win *win);
@@ -1004,6 +1219,8 @@ int PMPI_Win_start(MPI_Group group, int assert, MPI_Win win);
 int PMPI_Win_test(MPI_Win win, int *flag);
 int PMPI_Win_unlock(int rank, MPI_Win win);
 int PMPI_Win_wait(MPI_Win win);
+
+
 int PMPI_Win_allocate(MPI_Aint size, int disp_unit, MPI_Info info, MPI_Comm comm, void *baseptr,
                       MPI_Win *win);
 int PMPI_Win_allocate_shared(MPI_Aint size, int disp_unit, MPI_Info info, MPI_Comm comm,
@@ -1018,40 +1235,40 @@ int PMPI_Get_accumulate(const void *origin_addr, int origin_count,
                          MPI_Datatype origin_datatype, void *result_addr, int result_count,
                          MPI_Datatype result_datatype, int target_rank, MPI_Aint target_disp,
                          int target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win)
-                        
-                         ;
+                         __attribute__((pointer_with_type_tag(MPI,1,3)))
+                         __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Fetch_and_op(const void *origin_addr, void *result_addr,
                        MPI_Datatype datatype, int target_rank, MPI_Aint target_disp,
                        MPI_Op op, MPI_Win win)
-                       ;
+                       __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Compare_and_swap(const void *origin_addr, const void *compare_addr,
                            void *result_addr, MPI_Datatype datatype, int target_rank,
                            MPI_Aint target_disp, MPI_Win win)
-                          
-                          
-                           ;
+                           __attribute__((pointer_with_type_tag(MPI,1,4)))
+                           __attribute__((pointer_with_type_tag(MPI,2,4)))
+                           __attribute__((pointer_with_type_tag(MPI,3,4)));
 int PMPI_Rput(const void *origin_addr, int origin_count,
                MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp,
                int target_count, MPI_Datatype target_datatype, MPI_Win win,
                MPI_Request *request)
-               ;
+               __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Rget(void *origin_addr, int origin_count,
                MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp,
                int target_count, MPI_Datatype target_datatype, MPI_Win win,
                MPI_Request *request)
-               ;
+               __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Raccumulate(const void *origin_addr, int origin_count,
                       MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp,
                       int target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win,
                       MPI_Request *request)
-                      ;
+                      __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Rget_accumulate(const void *origin_addr, int origin_count,
                           MPI_Datatype origin_datatype, void *result_addr, int result_count,
                           MPI_Datatype result_datatype, int target_rank, MPI_Aint target_disp,
                           int target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win,
                           MPI_Request *request)
-                         
-                          ;
+                          __attribute__((pointer_with_type_tag(MPI,1,3)))
+                          __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Win_lock_all(int assert, MPI_Win win);
 int PMPI_Win_unlock_all(MPI_Win win);
 int PMPI_Win_flush(int rank, MPI_Win win);
@@ -1059,6 +1276,8 @@ int PMPI_Win_flush_all(MPI_Win win);
 int PMPI_Win_flush_local(int rank, MPI_Win win);
 int PMPI_Win_flush_local_all(MPI_Win win);
 int PMPI_Win_sync(MPI_Win win);
+
+
 int PMPI_Add_error_class(int *errorclass);
 int PMPI_Add_error_code(int errorclass, int *errorcode);
 int PMPI_Add_error_string(int errorcode, const char *string);
@@ -1108,6 +1327,7 @@ int PMPI_Win_get_attr(MPI_Win win, int win_keyval, void *attribute_val, int *fla
 int PMPI_Win_get_name(MPI_Win win, char *win_name, int *resultlen);
 int PMPI_Win_set_attr(MPI_Win win, int win_keyval, void *attribute_val);
 int PMPI_Win_set_name(MPI_Win win, const char *win_name);
+
 int PMPI_Alloc_mem(MPI_Aint size, MPI_Info info, void *baseptr);
 int PMPI_Comm_create_errhandler(MPI_Comm_errhandler_function *comm_errhandler_fn,
                                 MPI_Errhandler *errhandler);
@@ -1131,7 +1351,7 @@ int PMPI_Info_get_valuelen(MPI_Info info, const char *key, int *valuelen, int *f
 int PMPI_Info_set(MPI_Info info, const char *key, const char *value);
 int PMPI_Pack_external(const char datarep[], const void *inbuf, int incount,
                        MPI_Datatype datatype, void *outbuf, MPI_Aint outsize, MPI_Aint *position)
-                       ;
+                       __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Pack_external_size(const char datarep[], int incount, MPI_Datatype datatype,
                             MPI_Aint *size);
 int PMPI_Request_get_status(MPI_Request request, int *flag, MPI_Status *status);
@@ -1163,22 +1383,27 @@ int PMPI_Type_get_extent(MPI_Datatype datatype, MPI_Aint *lb, MPI_Aint *extent);
 int PMPI_Type_get_true_extent(MPI_Datatype datatype, MPI_Aint *true_lb, MPI_Aint *true_extent);
 int PMPI_Unpack_external(const char datarep[], const void *inbuf, MPI_Aint insize,
                          MPI_Aint *position, void *outbuf, int outcount, MPI_Datatype datatype)
-                         ;
+                         __attribute__((pointer_with_type_tag(MPI,5,7)));
 int PMPI_Win_create_errhandler(MPI_Win_errhandler_function *win_errhandler_fn,
                                MPI_Errhandler *errhandler);
 int PMPI_Win_get_errhandler(MPI_Win win, MPI_Errhandler *errhandler);
 int PMPI_Win_set_errhandler(MPI_Win win, MPI_Errhandler errhandler);
+
+
+
+
 int PMPI_Type_create_f90_integer(int r, MPI_Datatype *newtype);
 int PMPI_Type_create_f90_real(int p, int r, MPI_Datatype *newtype);
 int PMPI_Type_create_f90_complex(int p, int r, MPI_Datatype *newtype);
+
 int PMPI_Reduce_local(const void *inbuf, void *inoutbuf, int count, MPI_Datatype datatype,
                       MPI_Op op)
-                      ;
+                      __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Op_commutative(MPI_Op op, int *commute);
 int PMPI_Reduce_scatter_block(const void *sendbuf, void *recvbuf, int recvcount,
                               MPI_Datatype datatype, MPI_Op op, MPI_Comm comm)
-                             
-                              ;
+                              __attribute__((pointer_with_type_tag(MPI,1,4)))
+                              __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Dist_graph_create_adjacent(MPI_Comm comm_old, int indegree, const int sources[],
                                     const int sourceweights[], int outdegree,
                                     const int destinations[], const int destweights[],
@@ -1189,130 +1414,151 @@ int PMPI_Dist_graph_create(MPI_Comm comm_old, int n, const int sources[], const 
 int PMPI_Dist_graph_neighbors_count(MPI_Comm comm, int *indegree, int *outdegree, int *weighted);
 int PMPI_Dist_graph_neighbors(MPI_Comm comm, int maxindegree, int sources[], int sourceweights[],
                               int maxoutdegree, int destinations[], int destweights[]);
+
+
 int PMPI_Improbe(int source, int tag, MPI_Comm comm, int *flag, MPI_Message *message,
                  MPI_Status *status);
 int PMPI_Imrecv(void *buf, int count, MPI_Datatype datatype, MPI_Message *message,
-                MPI_Request *request) ;
+                MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Mprobe(int source, int tag, MPI_Comm comm, MPI_Message *message, MPI_Status *status);
 int PMPI_Mrecv(void *buf, int count, MPI_Datatype datatype, MPI_Message *message,
-               MPI_Status *status) ;
+               MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,1,3)));
+
+
 int PMPI_Comm_idup(MPI_Comm comm, MPI_Comm *newcomm, MPI_Request *request);
 int PMPI_Ibarrier(MPI_Comm comm, MPI_Request *request);
 int PMPI_Ibcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm comm,
-                MPI_Request *request) ;
+                MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,1,3)));
 int PMPI_Igather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                  int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm,
                  MPI_Request *request)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Igatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                   const int recvcounts[], const int displs[], MPI_Datatype recvtype, int root,
                   MPI_Comm comm, MPI_Request *request)
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,7)));
 int PMPI_Iscatter(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                   int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm,
                   MPI_Request *request)
-                  ;
+                  __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Iscatterv(const void *sendbuf, const int sendcounts[], const int displs[],
                    MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype,
                    int root, MPI_Comm comm, MPI_Request *request)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,5,7)));
 int PMPI_Iallgather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                     int recvcount, MPI_Datatype recvtype, MPI_Comm comm, MPI_Request *request)
-                    ;
+                    __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Iallgatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                      const int recvcounts[], const int displs[], MPI_Datatype recvtype,
                      MPI_Comm comm, MPI_Request *request)
-                     ;
+                     __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,7)));
 int PMPI_Ialltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf,
                    int recvcount, MPI_Datatype recvtype, MPI_Comm comm, MPI_Request *request)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,1,3))) __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Ialltoallv(const void *sendbuf, const int sendcounts[], const int sdispls[],
                     MPI_Datatype sendtype, void *recvbuf, const int recvcounts[],
                     const int rdispls[], MPI_Datatype recvtype, MPI_Comm comm,
                     MPI_Request *request)
-                    ;
+                    __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,5,8)));
 int PMPI_Ialltoallw(const void *sendbuf, const int sendcounts[], const int sdispls[],
                     const MPI_Datatype sendtypes[], void *recvbuf, const int recvcounts[],
                     const int rdispls[], const MPI_Datatype recvtypes[], MPI_Comm comm,
                     MPI_Request *request);
 int PMPI_Ireduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                  MPI_Op op, int root, MPI_Comm comm, MPI_Request *request)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Iallreduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                     MPI_Op op, MPI_Comm comm, MPI_Request *request)
-                    ;
+                    __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Ireduce_scatter(const void *sendbuf, void *recvbuf, const int recvcounts[],
                          MPI_Datatype datatype, MPI_Op op, MPI_Comm comm, MPI_Request *request)
-                        
-                         ;
+                         __attribute__((pointer_with_type_tag(MPI,1,4)))
+                         __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Ireduce_scatter_block(const void *sendbuf, void *recvbuf, int recvcount,
                                MPI_Datatype datatype, MPI_Op op, MPI_Comm comm,
                                MPI_Request *request)
-                              
-                               ;
+                               __attribute__((pointer_with_type_tag(MPI,1,4)))
+                               __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Iscan(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype, MPI_Op op,
                MPI_Comm comm, MPI_Request *request)
-               ;
+               __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_Iexscan(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
                  MPI_Op op, MPI_Comm comm, MPI_Request *request)
-                 ;
+                 __attribute__((pointer_with_type_tag(MPI,1,4))) __attribute__((pointer_with_type_tag(MPI,2,4)));
+
+
 int PMPI_Ineighbor_allgather(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                              void *recvbuf, int recvcount, MPI_Datatype recvtype,
                              MPI_Comm comm, MPI_Request *request)
-                            
-                             ;
+                             __attribute__((pointer_with_type_tag(MPI,1,3)))
+                             __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Ineighbor_allgatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                               void *recvbuf, const int recvcounts[], const int displs[],
                               MPI_Datatype recvtype, MPI_Comm comm, MPI_Request *request)
-                             
-                              ;
+                              __attribute__((pointer_with_type_tag(MPI,1,3)))
+                              __attribute__((pointer_with_type_tag(MPI,4,7)));
 int PMPI_Ineighbor_alltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                             void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm,
                             MPI_Request *request)
-                           
-                            ;
+                            __attribute__((pointer_with_type_tag(MPI,1,3)))
+                            __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Ineighbor_alltoallv(const void *sendbuf, const int sendcounts[], const int sdispls[],
                              MPI_Datatype sendtype, void *recvbuf, const int recvcounts[],
                              const int rdispls[], MPI_Datatype recvtype, MPI_Comm comm,
                              MPI_Request *request)
-                            
-                             ;
+                             __attribute__((pointer_with_type_tag(MPI,1,4)))
+                             __attribute__((pointer_with_type_tag(MPI,5,8)));
 int PMPI_Ineighbor_alltoallw(const void *sendbuf, const int sendcounts[],
                              const MPI_Aint sdispls[], const MPI_Datatype sendtypes[],
                              void *recvbuf, const int recvcounts[], const MPI_Aint rdispls[],
                              const MPI_Datatype recvtypes[], MPI_Comm comm, MPI_Request *request);
 int PMPI_Neighbor_allgather(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                             void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm)
-                           
-                            ;
+                            __attribute__((pointer_with_type_tag(MPI,1,3)))
+                            __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Neighbor_allgatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                              void *recvbuf, const int recvcounts[], const int displs[],
                              MPI_Datatype recvtype, MPI_Comm comm)
-                            
-                             ;
+                             __attribute__((pointer_with_type_tag(MPI,1,3)))
+                             __attribute__((pointer_with_type_tag(MPI,4,7)));
 int PMPI_Neighbor_alltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                            void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm)
-                          
-                           ;
+                           __attribute__((pointer_with_type_tag(MPI,1,3)))
+                           __attribute__((pointer_with_type_tag(MPI,4,6)));
 int PMPI_Neighbor_alltoallv(const void *sendbuf, const int sendcounts[], const int sdispls[],
                             MPI_Datatype sendtype, void *recvbuf, const int recvcounts[],
                             const int rdispls[], MPI_Datatype recvtype, MPI_Comm comm)
-                           
-                            ;
+                            __attribute__((pointer_with_type_tag(MPI,1,4)))
+                            __attribute__((pointer_with_type_tag(MPI,5,8)));
 int PMPI_Neighbor_alltoallw(const void *sendbuf, const int sendcounts[], const MPI_Aint sdispls[],
                             const MPI_Datatype sendtypes[], void *recvbuf, const int recvcounts[],
                             const MPI_Aint rdispls[], const MPI_Datatype recvtypes[],
                             MPI_Comm comm);
+
+
 int PMPI_Comm_split_type(MPI_Comm comm, int split_type, int key, MPI_Info info, MPI_Comm *newcomm);
+
+
 int PMPI_Comm_create_group(MPI_Comm comm, MPI_Group group, int tag, MPI_Comm *newcomm);
+
+
 int PMPI_Get_elements_x(const MPI_Status *status, MPI_Datatype datatype, MPI_Count *count);
 int PMPI_Status_set_elements_x(MPI_Status *status, MPI_Datatype datatype, MPI_Count count);
 int PMPI_Type_get_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int PMPI_Type_get_true_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int PMPI_Type_size_x(MPI_Datatype datatype, MPI_Count *size);
+
+
+
 int PMPIX_Comm_group_failed(MPI_Comm comm, MPI_Group *failed_group);
 int PMPIX_Comm_remote_group_failed(MPI_Comm comm, MPI_Group *failed_group);
 int PMPIX_Comm_reenable_anysource(MPI_Comm comm, MPI_Group *failed_group);
+
+
+
+
+
+
 int PMPI_T_init_thread(int required, int *provided);
 int PMPI_T_finalize(void);
 int PMPI_T_enum_get_info(MPI_T_enum enumtype, int *num, char *name, int *name_len);
@@ -1358,77 +1604,103 @@ int MPI_File_get_group(MPI_File fh, MPI_Group *group);
 int MPI_File_get_amode(MPI_File fh, int *amode);
 int MPI_File_set_info(MPI_File fh, MPI_Info info);
 int MPI_File_get_info(MPI_File fh, MPI_Info *info_used);
+
+
 int MPI_File_set_view(MPI_File fh, MPI_Offset disp, MPI_Datatype etype, MPI_Datatype filetype,
                       const char *datarep, MPI_Info info);
 int MPI_File_get_view(MPI_File fh, MPI_Offset *disp, MPI_Datatype *etype, MPI_Datatype *filetype,
                       char *datarep);
+
+
 int MPI_File_read_at(MPI_File fh, MPI_Offset offset, void *buf, int count, MPI_Datatype datatype,
-                     MPI_Status *status) ;
+                     MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,3,5)));
 int MPI_File_read_at_all(MPI_File fh, MPI_Offset offset, void * buf, int count,
                          MPI_Datatype datatype, MPI_Status *status)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,3,5)));
 int MPI_File_write_at(MPI_File fh, MPI_Offset offset, const void * buf, int count,
                       MPI_Datatype datatype, MPI_Status *status)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,3,5)));
 int MPI_File_write_at_all(MPI_File fh, MPI_Offset offset, const void *buf, int count,
                           MPI_Datatype datatype, MPI_Status *status)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,3,5)));
+
+
+
+
 int MPI_File_iread_at(MPI_File fh, MPI_Offset offset, void *buf, int count, MPI_Datatype datatype,
-                      MPI_Request *request) ;
+                      MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,3,5)));
 int MPI_File_iwrite_at(MPI_File fh, MPI_Offset offset, const void *buf, int count,
                        MPI_Datatype datatype, MPI_Request *request)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,3,5)));
+
+
 int MPI_File_read(MPI_File fh, void *buf, int count, MPI_Datatype datatype, MPI_Status *status)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_read_all(MPI_File fh, void *buf, int count, MPI_Datatype datatype, MPI_Status *status)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_write(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
-                   MPI_Status *status) ;
+                   MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_write_all(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
-                       MPI_Status *status) ;
+                       MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,2,4)));
+
+
+
+
+
 int MPI_File_iread(MPI_File fh, void *buf, int count, MPI_Datatype datatype, MPI_Request *request)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_iwrite(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
-                    MPI_Request *request) ;
+                    MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,2,4)));
+
 int MPI_File_seek(MPI_File fh, MPI_Offset offset, int whence);
 int MPI_File_get_position(MPI_File fh, MPI_Offset *offset);
 int MPI_File_get_byte_offset(MPI_File fh, MPI_Offset offset, MPI_Offset *disp);
+
+
 int MPI_File_read_shared(MPI_File fh, void *buf, int count, MPI_Datatype datatype,
-                         MPI_Status *status) ;
+                         MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_write_shared(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
-                          MPI_Status *status) ;
+                          MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_iread_shared(MPI_File fh, void *buf, int count, MPI_Datatype datatype,
-                          MPI_Request *request) ;
+                          MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_iwrite_shared(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
-                           MPI_Request *request) ;
+                           MPI_Request *request) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_read_ordered(MPI_File fh, void *buf, int count, MPI_Datatype datatype,
-                          MPI_Status *status) ;
+                          MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_write_ordered(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
-                           MPI_Status *status) ;
+                           MPI_Status *status) __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_seek_shared(MPI_File fh, MPI_Offset offset, int whence);
 int MPI_File_get_position_shared(MPI_File fh, MPI_Offset *offset);
+
+
 int MPI_File_read_at_all_begin(MPI_File fh, MPI_Offset offset, void *buf, int count,
-                               MPI_Datatype datatype) ;
+                               MPI_Datatype datatype) __attribute__((pointer_with_type_tag(MPI,3,5)));
 int MPI_File_read_at_all_end(MPI_File fh, void *buf, MPI_Status *status);
 int MPI_File_write_at_all_begin(MPI_File fh, MPI_Offset offset, const void *buf, int count,
-                                MPI_Datatype datatype) ;
+                                MPI_Datatype datatype) __attribute__((pointer_with_type_tag(MPI,3,5)));
 int MPI_File_write_at_all_end(MPI_File fh, const void *buf, MPI_Status *status);
 int MPI_File_read_all_begin(MPI_File fh, void *buf, int count, MPI_Datatype datatype)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_read_all_end(MPI_File fh, void *buf, MPI_Status *status);
 int MPI_File_write_all_begin(MPI_File fh, const void *buf, int count, MPI_Datatype datatype)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_write_all_end(MPI_File fh, const void *buf, MPI_Status *status);
 int MPI_File_read_ordered_begin(MPI_File fh, void *buf, int count, MPI_Datatype datatype)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_read_ordered_end(MPI_File fh, void *buf, MPI_Status *status);
 int MPI_File_write_ordered_begin(MPI_File fh, const void *buf, int count, MPI_Datatype datatype)
-    ;
+    __attribute__((pointer_with_type_tag(MPI,2,4)));
 int MPI_File_write_ordered_end(MPI_File fh, const void *buf, MPI_Status *status);
+
+
 int MPI_File_get_type_extent(MPI_File fh, MPI_Datatype datatype, MPI_Aint *extent);
+
+
 int MPI_Register_datarep(const char *datarep, MPI_Datarep_conversion_function *read_conversion_fn,
     MPI_Datarep_conversion_function *write_conversion_fn,
     MPI_Datarep_extent_function *dtype_file_extent_fn, void *extra_state);
+
+
 int MPI_File_set_atomicity(MPI_File fh, int flag);
 int MPI_File_get_atomicity(MPI_File fh, int *flag);
 int MPI_File_sync(MPI_File fh);
@@ -1444,85 +1716,112 @@ int PMPI_File_get_group(MPI_File, MPI_Group *);
 int PMPI_File_get_amode(MPI_File, int *);
 int PMPI_File_set_info(MPI_File, MPI_Info);
 int PMPI_File_get_info(MPI_File, MPI_Info *);
+
+
 int PMPI_File_set_view(MPI_File, MPI_Offset,
     MPI_Datatype, MPI_Datatype, const char *, MPI_Info);
 int PMPI_File_get_view(MPI_File, MPI_Offset *,
       MPI_Datatype *, MPI_Datatype *, char *);
+
+
 int PMPI_File_read_at(MPI_File, MPI_Offset, void *,
        int, MPI_Datatype, MPI_Status *)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,3,5)));
 int PMPI_File_read_at_all(MPI_File, MPI_Offset, void *,
        int, MPI_Datatype, MPI_Status *)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,3,5)));
 int PMPI_File_write_at(MPI_File, MPI_Offset, const void *,
        int, MPI_Datatype, MPI_Status *)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,3,5)));
 int PMPI_File_write_at_all(MPI_File, MPI_Offset, const void *,
        int, MPI_Datatype, MPI_Status *)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,3,5)));
+
+
+
+
+
 int PMPI_File_iread_at(MPI_File, MPI_Offset, void *,
        int, MPI_Datatype, MPI_Request *)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,3,5)));
 int PMPI_File_iwrite_at(MPI_File, MPI_Offset, const void *,
        int, MPI_Datatype, MPI_Request *)
-              ;
+              __attribute__((pointer_with_type_tag(MPI,3,5)));
+
+
 int PMPI_File_read(MPI_File, void *, int, MPI_Datatype, MPI_Status *)
-                   ;
+                   __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_read_all(MPI_File, void *, int, MPI_Datatype, MPI_Status *)
-                       ;
+                       __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_write(MPI_File, const void *, int, MPI_Datatype, MPI_Status *)
-                    ;
+                    __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_write_all(MPI_File, const void *, int, MPI_Datatype, MPI_Status *)
-                        ;
+                        __attribute__((pointer_with_type_tag(MPI,2,4)));
+
+
+
+
+
 int PMPI_File_iread(MPI_File, void *, int, MPI_Datatype, MPI_Request *)
-                    ;
+                    __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_iwrite(MPI_File, const void *, int, MPI_Datatype, MPI_Request *)
-                     ;
+                     __attribute__((pointer_with_type_tag(MPI,2,4)));
+
 int PMPI_File_seek(MPI_File, MPI_Offset, int);
 int PMPI_File_get_position(MPI_File, MPI_Offset *);
 int PMPI_File_get_byte_offset(MPI_File, MPI_Offset, MPI_Offset *);
+
+
 int PMPI_File_read_shared(MPI_File, void *, int, MPI_Datatype, MPI_Status *)
-                          ;
+                          __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_write_shared(MPI_File, const void *, int, MPI_Datatype, MPI_Status *)
-                           ;
+                           __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_iread_shared(MPI_File, void *, int,
       MPI_Datatype, MPI_Request *)
-                           ;
+                           __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_iwrite_shared(MPI_File, const void *, int,
        MPI_Datatype, MPI_Request *)
-                            ;
+                            __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_read_ordered(MPI_File, void *, int, MPI_Datatype, MPI_Status *)
-                           ;
+                           __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_write_ordered(MPI_File, const void *, int, MPI_Datatype, MPI_Status *)
-                            ;
+                            __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_seek_shared(MPI_File, MPI_Offset, int);
 int PMPI_File_get_position_shared(MPI_File, MPI_Offset *);
+
+
 int PMPI_File_read_at_all_begin(MPI_File, MPI_Offset, void *,
                                int, MPI_Datatype)
-                               ;
+                               __attribute__((pointer_with_type_tag(MPI,3,5)));
 int PMPI_File_read_at_all_end(MPI_File, void *, MPI_Status *);
 int PMPI_File_write_at_all_begin(MPI_File, MPI_Offset, const void *,
                                  int, MPI_Datatype)
-                                 ;
+                                 __attribute__((pointer_with_type_tag(MPI,3,5)));
 int PMPI_File_write_at_all_end(MPI_File, const void *, MPI_Status *);
 int PMPI_File_read_all_begin(MPI_File, void *, int, MPI_Datatype)
-                             ;
+                             __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_read_all_end(MPI_File, void *, MPI_Status *);
 int PMPI_File_write_all_begin(MPI_File, const void *, int, MPI_Datatype)
-                              ;
+                              __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_write_all_end(MPI_File, const void *, MPI_Status *);
 int PMPI_File_read_ordered_begin(MPI_File, void *, int, MPI_Datatype)
-                                 ;
+                                 __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_read_ordered_end(MPI_File, void *, MPI_Status *);
 int PMPI_File_write_ordered_begin(MPI_File, const void *, int, MPI_Datatype)
-                                  ;
+                                  __attribute__((pointer_with_type_tag(MPI,2,4)));
 int PMPI_File_write_ordered_end(MPI_File, const void *, MPI_Status *);
+
+
 int PMPI_File_get_type_extent(MPI_File, MPI_Datatype, MPI_Aint *);
+
+
 int PMPI_Register_datarep(const char *,
     MPI_Datarep_conversion_function *,
     MPI_Datarep_conversion_function *,
     MPI_Datarep_extent_function *,
     void *);
+
+
 int PMPI_File_set_atomicity(MPI_File, int);
 int PMPI_File_get_atomicity(MPI_File, int *);
 int PMPI_File_sync(MPI_File);
@@ -1543,12 +1842,18 @@ int MPIX_Grequest_start(MPI_Grequest_query_function *query_fn,
                         MPIX_Grequest_poll_function *poll_fn,
                         MPIX_Grequest_wait_function *wait_fn, void *extra_state,
                         MPI_Request *request);
+
+
 struct mpixi_mutex_s;
 typedef struct mpixi_mutex_s * MPIX_Mutex;
 int MPIX_Mutex_create(int count, MPI_Comm comm, MPIX_Mutex *hdl);
 int MPIX_Mutex_free(MPIX_Mutex *hdl);
 int MPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int MPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
+
+
+
+
 int PMPIX_Grequest_class_create(MPI_Grequest_query_function *query_fn,
                                 MPI_Grequest_free_function *free_fn,
                                 MPI_Grequest_cancel_function *cancel_fn,
@@ -1563,15 +1868,19 @@ int PMPIX_Grequest_start(MPI_Grequest_query_function *query_fn,
                          MPIX_Grequest_poll_function *poll_fn,
                          MPIX_Grequest_wait_function *wait_fn, void *extra_state,
                          MPI_Request *request);
+
+
 int PMPIX_Mutex_create(int count, MPI_Comm comm, MPIX_Mutex *hdl);
 int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
 extern void __VERIFIER_assume(int expr);
 extern void __VERIFIER_error();
+
 int main(int argc, char** argv){
   int rank, nprocs;
   int x = 0;
+
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(((MPI_Comm)0x44000000), &rank);
   MPI_Comm_size(((MPI_Comm)0x44000000), &nprocs);
