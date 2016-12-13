@@ -14,7 +14,7 @@ typedef union {
  long long _mbstateL;
 } __mbstate_t;
 typedef __mbstate_t __darwin_mbstate_t;
-typedef long int __darwin_ptrdiff_t;
+typedef int __darwin_ptrdiff_t;
 typedef long unsigned int __darwin_size_t;
 typedef __builtin_va_list __darwin_va_list;
 typedef int __darwin_wchar_t;
@@ -51,19 +51,19 @@ struct __darwin_pthread_handler_rec {
 };
 struct _opaque_pthread_attr_t {
  long __sig;
- char __opaque[56];
+ char __opaque[36];
 };
 struct _opaque_pthread_cond_t {
  long __sig;
- char __opaque[40];
+ char __opaque[24];
 };
 struct _opaque_pthread_condattr_t {
  long __sig;
- char __opaque[8];
+ char __opaque[4];
 };
 struct _opaque_pthread_mutex_t {
  long __sig;
- char __opaque[56];
+ char __opaque[40];
 };
 struct _opaque_pthread_mutexattr_t {
  long __sig;
@@ -71,20 +71,20 @@ struct _opaque_pthread_mutexattr_t {
 };
 struct _opaque_pthread_once_t {
  long __sig;
- char __opaque[8];
+ char __opaque[4];
 };
 struct _opaque_pthread_rwlock_t {
  long __sig;
- char __opaque[192];
+ char __opaque[124];
 };
 struct _opaque_pthread_rwlockattr_t {
  long __sig;
- char __opaque[16];
+ char __opaque[12];
 };
 struct _opaque_pthread_t {
  long __sig;
  struct __darwin_pthread_handler_rec *__cleanup_stack;
- char __opaque[8176];
+ char __opaque[4088];
 };
 typedef struct _opaque_pthread_attr_t __darwin_pthread_attr_t;
 typedef struct _opaque_pthread_cond_t __darwin_pthread_cond_t;
@@ -98,7 +98,7 @@ typedef struct _opaque_pthread_rwlockattr_t __darwin_pthread_rwlockattr_t;
 typedef struct _opaque_pthread_t *__darwin_pthread_t;
 typedef int __darwin_nl_item;
 typedef int __darwin_wctrans_t;
-typedef __uint32_t __darwin_wctype_t;
+typedef unsigned long __darwin_wctype_t;
 typedef __darwin_va_list va_list;
 typedef __darwin_size_t size_t;
 
@@ -146,18 +146,18 @@ int fflush(FILE *);
 int fgetc(FILE *);
 int fgetpos(FILE * restrict, fpos_t *);
 char *fgets(char * restrict, int, FILE *);
-FILE *fopen(const char * restrict, const char * restrict) __asm("_" "fopen" );
+FILE *fopen(const char * restrict, const char * restrict) __asm("_" "fopen" "$UNIX2003");
 int fprintf(FILE * restrict, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3)));
 int fputc(int, FILE *);
-int fputs(const char * restrict, FILE * restrict) __asm("_" "fputs" );
+int fputs(const char * restrict, FILE * restrict) __asm("_" "fputs" "$UNIX2003");
 size_t fread(void * restrict, size_t, size_t, FILE * restrict);
 FILE *freopen(const char * restrict, const char * restrict,
-                 FILE * restrict) __asm("_" "freopen" );
+                 FILE * restrict) __asm("_" "freopen" "$UNIX2003");
 int fscanf(FILE * restrict, const char * restrict, ...) __attribute__((__format__ (__scanf__, 2, 3)));
 int fseek(FILE *, long, int);
 int fsetpos(FILE *, const fpos_t *);
 long ftell(FILE *);
-size_t fwrite(const void * restrict, size_t, size_t, FILE * restrict) __asm("_" "fwrite" );
+size_t fwrite(const void * restrict, size_t, size_t, FILE * restrict) __asm("_" "fwrite" "$UNIX2003");
 int getc(FILE *);
 int getchar(void);
 char *gets(char *);
@@ -184,12 +184,12 @@ int vsprintf(char * restrict, const char * restrict, va_list) __attribute__((__f
 
 
 char *ctermid(char *);
-FILE *fdopen(int, const char *) __asm("_" "fdopen" );
+FILE *fdopen(int, const char *) __asm("_" "fdopen" "$UNIX2003");
 int fileno(FILE *);
 
 
 int pclose(FILE *);
-FILE *popen(const char *, const char *) __asm("_" "popen" );
+FILE *popen(const char *, const char *) __asm("_" "popen" "$UNIX2003");
 
 
 int __srget(FILE *);
@@ -213,7 +213,7 @@ int putchar_unlocked(int);
 int getw(FILE *);
 int putw(int, FILE *);
 __attribute__((deprecated("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of tempnam(3), it is highly recommended that you use mkstemp(3) instead.")))
-char *tempnam(const char *, const char *) __asm("_" "tempnam" );
+char *tempnam(const char *, const char *) __asm("_" "tempnam" "$UNIX2003");
 
 typedef __darwin_off_t off_t;
 
@@ -595,7 +595,7 @@ struct __darwin_mcontext_avx64
  struct __darwin_x86_thread_state64 __ss;
  struct __darwin_x86_avx_state64 __fs;
 };
-typedef struct __darwin_mcontext64 *mcontext_t;
+typedef struct __darwin_mcontext32 *mcontext_t;
 typedef __darwin_pthread_attr_t pthread_attr_t;
 struct __darwin_sigaltstack
 {
@@ -611,7 +611,7 @@ struct __darwin_ucontext
  struct __darwin_sigaltstack uc_stack;
  struct __darwin_ucontext *uc_link;
  __darwin_size_t uc_mcsize;
- struct __darwin_mcontext64 *uc_mcontext;
+ struct __darwin_mcontext32 *uc_mcontext;
 };
 typedef struct __darwin_ucontext ucontext_t;
 typedef __darwin_sigset_t sigset_t;
@@ -694,8 +694,8 @@ typedef uint32_t uint_fast32_t;
 typedef uint64_t uint_fast64_t;
 typedef __darwin_intptr_t intptr_t;
 typedef unsigned long uintptr_t;
-typedef long int intmax_t;
-typedef long unsigned int uintmax_t;
+typedef long long int intmax_t;
+typedef long long unsigned int uintmax_t;
 struct timeval
 {
  __darwin_time_t tv_sec;
@@ -816,11 +816,11 @@ struct proc_rlimit_control_wakeupmon {
 
 int getpriority(int, id_t);
 int getiopolicy_np(int, int) ;
-int getrlimit(int, struct rlimit *) __asm("_" "getrlimit" );
+int getrlimit(int, struct rlimit *) __asm("_" "getrlimit" "$UNIX2003");
 int getrusage(int, struct rusage *);
 int setpriority(int, id_t, int);
 int setiopolicy_np(int, int, int) ;
-int setrlimit(int, const struct rlimit *) __asm("_" "setrlimit" );
+int setrlimit(int, const struct rlimit *) __asm("_" "setrlimit" "$UNIX2003");
 
 static inline
 __uint16_t
@@ -845,7 +845,10 @@ _OSSwapInt64(
     __uint64_t _data
 )
 {
-    __asm__ ("bswap   %0" : "+r" (_data));
+    __asm__ ("bswap   %%eax\n\t"
+             "bswap   %%edx\n\t"
+             "xchgl   %%eax, %%edx"
+             : "+A" (_data));
     return _data;
 }
 union wait {
@@ -863,9 +866,9 @@ union wait {
  } w_S;
 };
 
-pid_t wait(int *) __asm("_" "wait" );
-pid_t waitpid(pid_t, int *, int) __asm("_" "waitpid" );
-int waitid(idtype_t, id_t, siginfo_t *, int) __asm("_" "waitid" );
+pid_t wait(int *) __asm("_" "wait" "$UNIX2003");
+pid_t waitpid(pid_t, int *, int) __asm("_" "waitpid" "$UNIX2003");
+int waitid(idtype_t, id_t, siginfo_t *, int) __asm("_" "waitid" "$UNIX2003");
 pid_t wait3(int *, int, struct rusage *);
 pid_t wait4(pid_t, int *, int, struct rusage *);
 
@@ -919,8 +922,8 @@ void qsort(void *, size_t, size_t,
 int rand(void);
 void *realloc(void *, size_t);
 void srand(unsigned);
-double strtod(const char *, char **) __asm("_" "strtod" );
-float strtof(const char *, char **) __asm("_" "strtof" );
+double strtod(const char *, char **) __asm("_" "strtod" "$UNIX2003");
+float strtof(const char *, char **) __asm("_" "strtof" "$UNIX2003");
 long strtol(const char *, char **, int);
 long double
   strtold(const char *, char **);
@@ -930,7 +933,7 @@ unsigned long
   strtoul(const char *, char **, int);
 unsigned long long
   strtoull(const char *, char **, int);
-int system(const char *) __asm("_" "system" ) ;
+int system(const char *) __asm("_" "system" "$UNIX2003") ;
 size_t wcstombs(char * restrict, const wchar_t * restrict, size_t);
 int wctomb(char *, wchar_t);
 void _Exit(int) __attribute__((noreturn));
@@ -953,24 +956,24 @@ long mrand48(void);
 long nrand48(unsigned short[3]);
 int posix_openpt(int);
 char *ptsname(int);
-int putenv(char *) __asm("_" "putenv" );
+int putenv(char *) __asm("_" "putenv" "$UNIX2003");
 long random(void);
 int rand_r(unsigned *);
 char *realpath(const char * restrict, char * restrict) __asm("_" "realpath" "$DARWIN_EXTSN");
 unsigned short
  *seed48(unsigned short[3]);
-int setenv(const char *, const char *, int) __asm("_" "setenv" );
-void setkey(const char *) __asm("_" "setkey" );
+int setenv(const char *, const char *, int) __asm("_" "setenv" "$UNIX2003");
+void setkey(const char *) __asm("_" "setkey" "$UNIX2003");
 char *setstate(const char *);
 void srand48(long);
 void srandom(unsigned);
 int unlockpt(int);
-int unsetenv(const char *) __asm("_" "unsetenv" );
+int unsetenv(const char *) __asm("_" "unsetenv" "$UNIX2003");
 typedef unsigned char u_int8_t;
 typedef unsigned short u_int16_t;
 typedef unsigned int u_int32_t;
 typedef unsigned long long u_int64_t;
-typedef int64_t register_t;
+typedef int32_t register_t;
 typedef u_int64_t user_addr_t;
 typedef u_int64_t user_size_t;
 typedef int64_t user_ssize_t;
@@ -1044,7 +1047,7 @@ int strcmp(const char *, const char *);
 int strcoll(const char *, const char *);
 char *strcpy(char *, const char *);
 size_t strcspn(const char *, const char *);
-char *strerror(int) __asm("_" "strerror" );
+char *strerror(int) __asm("_" "strerror" "$UNIX2003");
 size_t strlen(const char *);
 char *strncat(char *, const char *, size_t);
 int strncmp(const char *, const char *, size_t);

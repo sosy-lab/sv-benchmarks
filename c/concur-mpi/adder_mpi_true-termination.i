@@ -14,7 +14,7 @@ typedef union {
  long long _mbstateL;
 } __mbstate_t;
 typedef __mbstate_t __darwin_mbstate_t;
-typedef long int __darwin_ptrdiff_t;
+typedef int __darwin_ptrdiff_t;
 typedef long unsigned int __darwin_size_t;
 typedef __builtin_va_list __darwin_va_list;
 typedef int __darwin_wchar_t;
@@ -51,19 +51,19 @@ struct __darwin_pthread_handler_rec {
 };
 struct _opaque_pthread_attr_t {
  long __sig;
- char __opaque[56];
+ char __opaque[36];
 };
 struct _opaque_pthread_cond_t {
  long __sig;
- char __opaque[40];
+ char __opaque[24];
 };
 struct _opaque_pthread_condattr_t {
  long __sig;
- char __opaque[8];
+ char __opaque[4];
 };
 struct _opaque_pthread_mutex_t {
  long __sig;
- char __opaque[56];
+ char __opaque[40];
 };
 struct _opaque_pthread_mutexattr_t {
  long __sig;
@@ -71,20 +71,20 @@ struct _opaque_pthread_mutexattr_t {
 };
 struct _opaque_pthread_once_t {
  long __sig;
- char __opaque[8];
+ char __opaque[4];
 };
 struct _opaque_pthread_rwlock_t {
  long __sig;
- char __opaque[192];
+ char __opaque[124];
 };
 struct _opaque_pthread_rwlockattr_t {
  long __sig;
- char __opaque[16];
+ char __opaque[12];
 };
 struct _opaque_pthread_t {
  long __sig;
  struct __darwin_pthread_handler_rec *__cleanup_stack;
- char __opaque[8176];
+ char __opaque[4088];
 };
 typedef struct _opaque_pthread_attr_t __darwin_pthread_attr_t;
 typedef struct _opaque_pthread_cond_t __darwin_pthread_cond_t;
@@ -98,7 +98,7 @@ typedef struct _opaque_pthread_rwlockattr_t __darwin_pthread_rwlockattr_t;
 typedef struct _opaque_pthread_t *__darwin_pthread_t;
 typedef int __darwin_nl_item;
 typedef int __darwin_wctrans_t;
-typedef __uint32_t __darwin_wctype_t;
+typedef unsigned long __darwin_wctype_t;
 typedef __darwin_va_list va_list;
 typedef __darwin_size_t size_t;
 
@@ -146,18 +146,18 @@ int fflush(FILE *);
 int fgetc(FILE *);
 int fgetpos(FILE * restrict, fpos_t *);
 char *fgets(char * restrict, int, FILE *);
-FILE *fopen(const char * restrict, const char * restrict) __asm("_" "fopen" );
+FILE *fopen(const char * restrict, const char * restrict) __asm("_" "fopen" "$UNIX2003");
 int fprintf(FILE * restrict, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3)));
 int fputc(int, FILE *);
-int fputs(const char * restrict, FILE * restrict) __asm("_" "fputs" );
+int fputs(const char * restrict, FILE * restrict) __asm("_" "fputs" "$UNIX2003");
 size_t fread(void * restrict, size_t, size_t, FILE * restrict);
 FILE *freopen(const char * restrict, const char * restrict,
-                 FILE * restrict) __asm("_" "freopen" );
+                 FILE * restrict) __asm("_" "freopen" "$UNIX2003");
 int fscanf(FILE * restrict, const char * restrict, ...) __attribute__((__format__ (__scanf__, 2, 3)));
 int fseek(FILE *, long, int);
 int fsetpos(FILE *, const fpos_t *);
 long ftell(FILE *);
-size_t fwrite(const void * restrict, size_t, size_t, FILE * restrict) __asm("_" "fwrite" );
+size_t fwrite(const void * restrict, size_t, size_t, FILE * restrict) __asm("_" "fwrite" "$UNIX2003");
 int getc(FILE *);
 int getchar(void);
 char *gets(char *);
@@ -184,12 +184,12 @@ int vsprintf(char * restrict, const char * restrict, va_list) __attribute__((__f
 
 
 char *ctermid(char *);
-FILE *fdopen(int, const char *) __asm("_" "fdopen" );
+FILE *fdopen(int, const char *) __asm("_" "fdopen" "$UNIX2003");
 int fileno(FILE *);
 
 
 int pclose(FILE *);
-FILE *popen(const char *, const char *) __asm("_" "popen" );
+FILE *popen(const char *, const char *) __asm("_" "popen" "$UNIX2003");
 
 
 int __srget(FILE *);
@@ -213,7 +213,7 @@ int putchar_unlocked(int);
 int getw(FILE *);
 int putw(int, FILE *);
 __attribute__((deprecated("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of tempnam(3), it is highly recommended that you use mkstemp(3) instead.")))
-char *tempnam(const char *, const char *) __asm("_" "tempnam" );
+char *tempnam(const char *, const char *) __asm("_" "tempnam" "$UNIX2003");
 
 typedef __darwin_off_t off_t;
 
@@ -286,8 +286,8 @@ typedef uint32_t uint_fast32_t;
 typedef uint64_t uint_fast64_t;
 typedef __darwin_intptr_t intptr_t;
 typedef unsigned long uintptr_t;
-typedef long int intmax_t;
-typedef long unsigned int uintmax_t;
+typedef long long int intmax_t;
+typedef long long unsigned int uintmax_t;
 typedef int MPI_Datatype;
 typedef int MPI_Comm;
 typedef int MPI_Group;
