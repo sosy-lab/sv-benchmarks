@@ -1,569 +1,293 @@
-
-typedef long unsigned int size_t;
-typedef unsigned char __u_char;
-typedef unsigned short int __u_short;
-typedef unsigned int __u_int;
-typedef unsigned long int __u_long;
 typedef signed char __int8_t;
 typedef unsigned char __uint8_t;
-typedef signed short int __int16_t;
-typedef unsigned short int __uint16_t;
-typedef signed int __int32_t;
+typedef short __int16_t;
+typedef unsigned short __uint16_t;
+typedef int __int32_t;
 typedef unsigned int __uint32_t;
-typedef signed long int __int64_t;
-typedef unsigned long int __uint64_t;
-typedef long int __quad_t;
-typedef unsigned long int __u_quad_t;
-typedef unsigned long int __dev_t;
-typedef unsigned int __uid_t;
-typedef unsigned int __gid_t;
-typedef unsigned long int __ino_t;
-typedef unsigned long int __ino64_t;
-typedef unsigned int __mode_t;
-typedef unsigned long int __nlink_t;
-typedef long int __off_t;
-typedef long int __off64_t;
-typedef int __pid_t;
-typedef struct { int __val[2]; } __fsid_t;
-typedef long int __clock_t;
-typedef unsigned long int __rlim_t;
-typedef unsigned long int __rlim64_t;
-typedef unsigned int __id_t;
-typedef long int __time_t;
-typedef unsigned int __useconds_t;
-typedef long int __suseconds_t;
-typedef int __daddr_t;
-typedef int __key_t;
-typedef int __clockid_t;
-typedef void * __timer_t;
-typedef long int __blksize_t;
-typedef long int __blkcnt_t;
-typedef long int __blkcnt64_t;
-typedef unsigned long int __fsblkcnt_t;
-typedef unsigned long int __fsblkcnt64_t;
-typedef unsigned long int __fsfilcnt_t;
-typedef unsigned long int __fsfilcnt64_t;
-typedef long int __fsword_t;
-typedef long int __ssize_t;
-typedef long int __syscall_slong_t;
-typedef unsigned long int __syscall_ulong_t;
-typedef __off64_t __loff_t;
-typedef __quad_t *__qaddr_t;
-typedef char *__caddr_t;
-typedef long int __intptr_t;
-typedef unsigned int __socklen_t;
-struct _IO_FILE;
-
-typedef struct _IO_FILE FILE;
-
-
-typedef struct _IO_FILE __FILE;
-typedef struct
-{
-  int __count;
-  union
-  {
-    unsigned int __wch;
-    char __wchb[4];
-  } __value;
+typedef long long __int64_t;
+typedef unsigned long long __uint64_t;
+typedef long __darwin_intptr_t;
+typedef unsigned int __darwin_natural_t;
+typedef int __darwin_ct_rune_t;
+typedef union {
+ char __mbstate8[128];
+ long long _mbstateL;
 } __mbstate_t;
-typedef struct
-{
-  __off_t __pos;
-  __mbstate_t __state;
-} _G_fpos_t;
-typedef struct
-{
-  __off64_t __pos;
-  __mbstate_t __state;
-} _G_fpos64_t;
-typedef __builtin_va_list __gnuc_va_list;
-struct _IO_jump_t; struct _IO_FILE;
-typedef void _IO_lock_t;
-struct _IO_marker {
-  struct _IO_marker *_next;
-  struct _IO_FILE *_sbuf;
-  int _pos;
+typedef __mbstate_t __darwin_mbstate_t;
+typedef long int __darwin_ptrdiff_t;
+typedef long unsigned int __darwin_size_t;
+typedef __builtin_va_list __darwin_va_list;
+typedef int __darwin_wchar_t;
+typedef __darwin_wchar_t __darwin_rune_t;
+typedef int __darwin_wint_t;
+typedef unsigned long __darwin_clock_t;
+typedef __uint32_t __darwin_socklen_t;
+typedef long __darwin_ssize_t;
+typedef long __darwin_time_t;
+typedef __int64_t __darwin_blkcnt_t;
+typedef __int32_t __darwin_blksize_t;
+typedef __int32_t __darwin_dev_t;
+typedef unsigned int __darwin_fsblkcnt_t;
+typedef unsigned int __darwin_fsfilcnt_t;
+typedef __uint32_t __darwin_gid_t;
+typedef __uint32_t __darwin_id_t;
+typedef __uint64_t __darwin_ino64_t;
+typedef __darwin_ino64_t __darwin_ino_t;
+typedef __darwin_natural_t __darwin_mach_port_name_t;
+typedef __darwin_mach_port_name_t __darwin_mach_port_t;
+typedef __uint16_t __darwin_mode_t;
+typedef __int64_t __darwin_off_t;
+typedef __int32_t __darwin_pid_t;
+typedef __uint32_t __darwin_sigset_t;
+typedef __int32_t __darwin_suseconds_t;
+typedef __uint32_t __darwin_uid_t;
+typedef __uint32_t __darwin_useconds_t;
+typedef unsigned char __darwin_uuid_t[16];
+typedef char __darwin_uuid_string_t[37];
+struct __darwin_pthread_handler_rec {
+ void (*__routine)(void *);
+ void *__arg;
+ struct __darwin_pthread_handler_rec *__next;
 };
-enum __codecvt_result
-{
-  __codecvt_ok,
-  __codecvt_partial,
-  __codecvt_error,
-  __codecvt_noconv
+struct _opaque_pthread_attr_t {
+ long __sig;
+ char __opaque[56];
 };
-struct _IO_FILE {
-  int _flags;
-  char* _IO_read_ptr;
-  char* _IO_read_end;
-  char* _IO_read_base;
-  char* _IO_write_base;
-  char* _IO_write_ptr;
-  char* _IO_write_end;
-  char* _IO_buf_base;
-  char* _IO_buf_end;
-  char *_IO_save_base;
-  char *_IO_backup_base;
-  char *_IO_save_end;
-  struct _IO_marker *_markers;
-  struct _IO_FILE *_chain;
-  int _fileno;
-  int _flags2;
-  __off_t _old_offset;
-  unsigned short _cur_column;
-  signed char _vtable_offset;
-  char _shortbuf[1];
-  _IO_lock_t *_lock;
-  __off64_t _offset;
-  void *__pad1;
-  void *__pad2;
-  void *__pad3;
-  void *__pad4;
-  size_t __pad5;
-  int _mode;
-  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+struct _opaque_pthread_cond_t {
+ long __sig;
+ char __opaque[40];
 };
-typedef struct _IO_FILE _IO_FILE;
-struct _IO_FILE_plus;
-extern struct _IO_FILE_plus _IO_2_1_stdin_;
-extern struct _IO_FILE_plus _IO_2_1_stdout_;
-extern struct _IO_FILE_plus _IO_2_1_stderr_;
-typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
-typedef __ssize_t __io_write_fn (void *__cookie, const char *__buf,
-     size_t __n);
-typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
-typedef int __io_close_fn (void *__cookie);
-extern int __underflow (_IO_FILE *);
-extern int __uflow (_IO_FILE *);
-extern int __overflow (_IO_FILE *, int);
-extern int _IO_getc (_IO_FILE *__fp);
-extern int _IO_putc (int __c, _IO_FILE *__fp);
-extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
-extern int _IO_ferror (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
-extern int _IO_peekc_locked (_IO_FILE *__fp);
-extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
-   __gnuc_va_list, int *__restrict);
-extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
-    __gnuc_va_list);
-extern __ssize_t _IO_padn (_IO_FILE *, int, __ssize_t);
-extern size_t _IO_sgetn (_IO_FILE *, void *, size_t);
-extern __off64_t _IO_seekoff (_IO_FILE *, __off64_t, int, int);
-extern __off64_t _IO_seekpos (_IO_FILE *, __off64_t, int);
-extern void _IO_free_backup_area (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
-typedef __gnuc_va_list va_list;
-typedef __off_t off_t;
-typedef __ssize_t ssize_t;
+struct _opaque_pthread_condattr_t {
+ long __sig;
+ char __opaque[8];
+};
+struct _opaque_pthread_mutex_t {
+ long __sig;
+ char __opaque[56];
+};
+struct _opaque_pthread_mutexattr_t {
+ long __sig;
+ char __opaque[8];
+};
+struct _opaque_pthread_once_t {
+ long __sig;
+ char __opaque[8];
+};
+struct _opaque_pthread_rwlock_t {
+ long __sig;
+ char __opaque[192];
+};
+struct _opaque_pthread_rwlockattr_t {
+ long __sig;
+ char __opaque[16];
+};
+struct _opaque_pthread_t {
+ long __sig;
+ struct __darwin_pthread_handler_rec *__cleanup_stack;
+ char __opaque[8176];
+};
+typedef struct _opaque_pthread_attr_t __darwin_pthread_attr_t;
+typedef struct _opaque_pthread_cond_t __darwin_pthread_cond_t;
+typedef struct _opaque_pthread_condattr_t __darwin_pthread_condattr_t;
+typedef unsigned long __darwin_pthread_key_t;
+typedef struct _opaque_pthread_mutex_t __darwin_pthread_mutex_t;
+typedef struct _opaque_pthread_mutexattr_t __darwin_pthread_mutexattr_t;
+typedef struct _opaque_pthread_once_t __darwin_pthread_once_t;
+typedef struct _opaque_pthread_rwlock_t __darwin_pthread_rwlock_t;
+typedef struct _opaque_pthread_rwlockattr_t __darwin_pthread_rwlockattr_t;
+typedef struct _opaque_pthread_t *__darwin_pthread_t;
+typedef int __darwin_nl_item;
+typedef int __darwin_wctrans_t;
+typedef __uint32_t __darwin_wctype_t;
+typedef __darwin_va_list va_list;
+typedef __darwin_size_t size_t;
 
-typedef _G_fpos_t fpos_t;
+int renameat(int, const char *, int, const char *) ;
 
-extern struct _IO_FILE *stdin;
-extern struct _IO_FILE *stdout;
-extern struct _IO_FILE *stderr;
+typedef __darwin_off_t fpos_t;
+struct __sbuf {
+ unsigned char *_base;
+ int _size;
+};
+struct __sFILEX;
+typedef struct __sFILE {
+ unsigned char *_p;
+ int _r;
+ int _w;
+ short _flags;
+ short _file;
+ struct __sbuf _bf;
+ int _lbfsize;
+ void *_cookie;
+ int (*_close)(void *);
+ int (*_read) (void *, char *, int);
+ fpos_t (*_seek) (void *, fpos_t, int);
+ int (*_write)(void *, const char *, int);
+ struct __sbuf _ub;
+ struct __sFILEX *_extra;
+ int _ur;
+ unsigned char _ubuf[3];
+ unsigned char _nbuf[1];
+ struct __sbuf _lb;
+ int _blksize;
+ fpos_t _offset;
+} FILE;
 
-extern int remove (const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
-extern int rename (const char *__old, const char *__new) __attribute__ ((__nothrow__ , __leaf__));
-
-extern int renameat (int __oldfd, const char *__old, int __newfd,
-       const char *__new) __attribute__ ((__nothrow__ , __leaf__));
-
-extern FILE *tmpfile (void) __attribute__ ((__warn_unused_result__));
-extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-
-extern char *tmpnam_r (char *__s) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern char *tempnam (const char *__dir, const char *__pfx)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__warn_unused_result__));
-
-extern int fclose (FILE *__stream);
-extern int fflush (FILE *__stream);
-
-extern int fflush_unlocked (FILE *__stream);
-
-extern FILE *fopen (const char *__restrict __filename,
-      const char *__restrict __modes) __attribute__ ((__warn_unused_result__));
-extern FILE *freopen (const char *__restrict __filename,
-        const char *__restrict __modes,
-        FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-
-extern FILE *fdopen (int __fd, const char *__modes) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
-  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-
-extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
-extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
-      int __modes, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
-
-extern void setbuffer (FILE *__restrict __stream, char *__restrict __buf,
-         size_t __size) __attribute__ ((__nothrow__ , __leaf__));
-extern void setlinebuf (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-
-extern int fprintf (FILE *__restrict __stream,
-      const char *__restrict __format, ...);
-extern int printf (const char *__restrict __format, ...);
-extern int sprintf (char *__restrict __s,
-      const char *__restrict __format, ...) __attribute__ ((__nothrow__));
-extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
-       __gnuc_va_list __arg);
-extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
-extern int vsprintf (char *__restrict __s, const char *__restrict __format,
-       __gnuc_va_list __arg) __attribute__ ((__nothrow__));
+extern FILE *__stdinp;
+extern FILE *__stdoutp;
+extern FILE *__stderrp;
 
 
-extern int snprintf (char *__restrict __s, size_t __maxlen,
-       const char *__restrict __format, ...)
-     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 4)));
-extern int vsnprintf (char *__restrict __s, size_t __maxlen,
-        const char *__restrict __format, __gnuc_va_list __arg)
-     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
-
-extern int vdprintf (int __fd, const char *__restrict __fmt,
-       __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__printf__, 2, 0)));
-extern int dprintf (int __fd, const char *__restrict __fmt, ...)
-     __attribute__ ((__format__ (__printf__, 2, 3)));
-
-extern int fscanf (FILE *__restrict __stream,
-     const char *__restrict __format, ...) __attribute__ ((__warn_unused_result__));
-extern int scanf (const char *__restrict __format, ...) __attribute__ ((__warn_unused_result__));
-extern int sscanf (const char *__restrict __s,
-     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
-extern int fscanf (FILE *__restrict __stream, const char *__restrict __format, ...) __asm__ ("" "__isoc99_fscanf") __attribute__ ((__warn_unused_result__));
-extern int scanf (const char *__restrict __format, ...) __asm__ ("" "__isoc99_scanf") __attribute__ ((__warn_unused_result__));
-extern int sscanf (const char *__restrict __s, const char *__restrict __format, ...) __asm__ ("" "__isoc99_sscanf") __attribute__ ((__nothrow__ , __leaf__));
-
-
-extern int vfscanf (FILE *__restrict __s, const char *__restrict __format,
-      __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__scanf__, 2, 0))) __attribute__ ((__warn_unused_result__));
-extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__scanf__, 1, 0))) __attribute__ ((__warn_unused_result__));
-extern int vsscanf (const char *__restrict __s,
-      const char *__restrict __format, __gnuc_va_list __arg)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__format__ (__scanf__, 2, 0)));
-extern int vfscanf (FILE *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vfscanf")
-     __attribute__ ((__format__ (__scanf__, 2, 0))) __attribute__ ((__warn_unused_result__));
-extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vscanf")
-     __attribute__ ((__format__ (__scanf__, 1, 0))) __attribute__ ((__warn_unused_result__));
-extern int vsscanf (const char *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vsscanf") __attribute__ ((__nothrow__ , __leaf__))
-     __attribute__ ((__format__ (__scanf__, 2, 0)));
-
-
-extern int fgetc (FILE *__stream);
-extern int getc (FILE *__stream);
-extern int getchar (void);
-
-extern int getc_unlocked (FILE *__stream);
-extern int getchar_unlocked (void);
-extern int fgetc_unlocked (FILE *__stream);
-
-extern int fputc (int __c, FILE *__stream);
-extern int putc (int __c, FILE *__stream);
-extern int putchar (int __c);
-
-extern int fputc_unlocked (int __c, FILE *__stream);
-extern int putc_unlocked (int __c, FILE *__stream);
-extern int putchar_unlocked (int __c);
-extern int getw (FILE *__stream);
-extern int putw (int __w, FILE *__stream);
-
-extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
-     __attribute__ ((__warn_unused_result__));
-
-extern __ssize_t __getdelim (char **__restrict __lineptr,
-          size_t *__restrict __n, int __delimiter,
-          FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern __ssize_t getdelim (char **__restrict __lineptr,
-        size_t *__restrict __n, int __delimiter,
-        FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern __ssize_t getline (char **__restrict __lineptr,
-       size_t *__restrict __n,
-       FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-
-extern int fputs (const char *__restrict __s, FILE *__restrict __stream);
-extern int puts (const char *__s);
-extern int ungetc (int __c, FILE *__stream);
-extern size_t fread (void *__restrict __ptr, size_t __size,
-       size_t __n, FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern size_t fwrite (const void *__restrict __ptr, size_t __size,
-        size_t __n, FILE *__restrict __s);
-
-extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
-         size_t __n, FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
-          size_t __n, FILE *__restrict __stream);
-
-extern int fseek (FILE *__stream, long int __off, int __whence);
-extern long int ftell (FILE *__stream) __attribute__ ((__warn_unused_result__));
-extern void rewind (FILE *__stream);
-
-extern int fseeko (FILE *__stream, __off_t __off, int __whence);
-extern __off_t ftello (FILE *__stream) __attribute__ ((__warn_unused_result__));
-
-extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
-extern int fsetpos (FILE *__stream, const fpos_t *__pos);
+void clearerr(FILE *);
+int fclose(FILE *);
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+int fgetc(FILE *);
+int fgetpos(FILE * restrict, fpos_t *);
+char *fgets(char * restrict, int, FILE *);
+FILE *fopen(const char * restrict, const char * restrict) __asm("_" "fopen" );
+int fprintf(FILE * restrict, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3)));
+int fputc(int, FILE *);
+int fputs(const char * restrict, FILE * restrict) __asm("_" "fputs" );
+size_t fread(void * restrict, size_t, size_t, FILE * restrict);
+FILE *freopen(const char * restrict, const char * restrict,
+                 FILE * restrict) __asm("_" "freopen" );
+int fscanf(FILE * restrict, const char * restrict, ...) __attribute__((__format__ (__scanf__, 2, 3)));
+int fseek(FILE *, long, int);
+int fsetpos(FILE *, const fpos_t *);
+long ftell(FILE *);
+size_t fwrite(const void * restrict, size_t, size_t, FILE * restrict) __asm("_" "fwrite" );
+int getc(FILE *);
+int getchar(void);
+char *gets(char *);
+void perror(const char *);
+int printf(const char * restrict, ...) __attribute__((__format__ (__printf__, 1, 2)));
+int putc(int, FILE *);
+int putchar(int);
+int puts(const char *);
+int remove(const char *);
+int rename (const char *, const char *);
+void rewind(FILE *);
+int scanf(const char * restrict, ...) __attribute__((__format__ (__scanf__, 1, 2)));
+void setbuf(FILE * restrict, char * restrict);
+int setvbuf(FILE * restrict, char * restrict, int, size_t);
+int sprintf(char * restrict, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3)));
+int sscanf(const char * restrict, const char * restrict, ...) __attribute__((__format__ (__scanf__, 2, 3)));
+FILE *tmpfile(void);
+__attribute__((deprecated("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of tmpnam(3), it is highly recommended that you use mkstemp(3) instead.")))
+char *tmpnam(char *);
+int ungetc(int, FILE *);
+int vfprintf(FILE * restrict, const char * restrict, va_list) __attribute__((__format__ (__printf__, 2, 0)));
+int vprintf(const char * restrict, va_list) __attribute__((__format__ (__printf__, 1, 0)));
+int vsprintf(char * restrict, const char * restrict, va_list) __attribute__((__format__ (__printf__, 2, 0)));
 
 
-extern void clearerr (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-extern int feof (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern int ferror (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+char *ctermid(char *);
+FILE *fdopen(int, const char *) __asm("_" "fdopen" );
+int fileno(FILE *);
 
-extern void clearerr_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-extern int feof_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern int ferror_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 
-extern void perror (const char *__s);
+int pclose(FILE *);
+FILE *popen(const char *, const char *) __asm("_" "popen" );
 
-extern int sys_nerr;
+
+int __srget(FILE *);
+int __svfscanf(FILE *, const char *, va_list) __attribute__((__format__ (__scanf__, 2, 0)));
+int __swbuf(int, FILE *);
+
+extern __inline __attribute__((__gnu_inline__)) __attribute__ ((__always_inline__)) int __sputc(int _c, FILE *_p) {
+ if (--_p->_w >= 0 || (_p->_w >= _p->_lbfsize && (char)_c != '\n'))
+  return (*_p->_p++ = _c);
+ else
+  return (__swbuf(_c, _p));
+}
+
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+int getw(FILE *);
+int putw(int, FILE *);
+__attribute__((deprecated("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of tempnam(3), it is highly recommended that you use mkstemp(3) instead.")))
+char *tempnam(const char *, const char *) __asm("_" "tempnam" );
+
+typedef __darwin_off_t off_t;
+
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+
+
+int snprintf(char * restrict, size_t, const char * restrict, ...) __attribute__((__format__ (__printf__, 3, 4)));
+int vfscanf(FILE * restrict, const char * restrict, va_list) __attribute__((__format__ (__scanf__, 2, 0)));
+int vscanf(const char * restrict, va_list) __attribute__((__format__ (__scanf__, 1, 0)));
+int vsnprintf(char * restrict, size_t, const char * restrict, va_list) __attribute__((__format__ (__printf__, 3, 0)));
+int vsscanf(const char * restrict, const char * restrict, va_list) __attribute__((__format__ (__scanf__, 2, 0)));
+
+typedef __darwin_ssize_t ssize_t;
+
+int dprintf(int, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3))) ;
+int vdprintf(int, const char * restrict, va_list) __attribute__((__format__ (__printf__, 2, 0))) ;
+ssize_t getdelim(char ** restrict, size_t * restrict, int, FILE * restrict) ;
+ssize_t getline(char ** restrict, size_t * restrict, FILE * restrict) ;
+
+
+extern const int sys_nerr;
 extern const char *const sys_errlist[];
-extern int fileno (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern FILE *popen (const char *__command, const char *__modes) __attribute__ ((__warn_unused_result__));
-extern int pclose (FILE *__stream);
-extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__));
-extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-extern __inline __attribute__ ((__gnu_inline__)) int
-getchar (void)
-{
-  return _IO_getc (stdin);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-fgetc_unlocked (FILE *__fp)
-{
-  return (__builtin_expect (((__fp)->_IO_read_ptr >= (__fp)->_IO_read_end), 0) ? __uflow (__fp) : *(unsigned char *) (__fp)->_IO_read_ptr++);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-getc_unlocked (FILE *__fp)
-{
-  return (__builtin_expect (((__fp)->_IO_read_ptr >= (__fp)->_IO_read_end), 0) ? __uflow (__fp) : *(unsigned char *) (__fp)->_IO_read_ptr++);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-getchar_unlocked (void)
-{
-  return (__builtin_expect (((stdin)->_IO_read_ptr >= (stdin)->_IO_read_end), 0) ? __uflow (stdin) : *(unsigned char *) (stdin)->_IO_read_ptr++);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-putchar (int __c)
-{
-  return _IO_putc (__c, stdout);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-fputc_unlocked (int __c, FILE *__stream)
-{
-  return (__builtin_expect (((__stream)->_IO_write_ptr >= (__stream)->_IO_write_end), 0) ? __overflow (__stream, (unsigned char) (__c)) : (unsigned char) (*(__stream)->_IO_write_ptr++ = (__c)));
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-putc_unlocked (int __c, FILE *__stream)
-{
-  return (__builtin_expect (((__stream)->_IO_write_ptr >= (__stream)->_IO_write_end), 0) ? __overflow (__stream, (unsigned char) (__c)) : (unsigned char) (*(__stream)->_IO_write_ptr++ = (__c)));
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-putchar_unlocked (int __c)
-{
-  return (__builtin_expect (((stdout)->_IO_write_ptr >= (stdout)->_IO_write_end), 0) ? __overflow (stdout, (unsigned char) (__c)) : (unsigned char) (*(stdout)->_IO_write_ptr++ = (__c)));
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) feof_unlocked (FILE *__stream)
-{
-  return (((__stream)->_flags & 0x10) != 0);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) ferror_unlocked (FILE *__stream)
-{
-  return (((__stream)->_flags & 0x20) != 0);
-}
-extern int __sprintf_chk (char *__restrict __s, int __flag, size_t __slen,
-     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
-extern int __vsprintf_chk (char *__restrict __s, int __flag, size_t __slen,
-      const char *__restrict __format,
-      __gnuc_va_list __ap) __attribute__ ((__nothrow__ , __leaf__));
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-__attribute__ ((__nothrow__ , __leaf__)) sprintf (char *__restrict __s, const char *__restrict __fmt, ...)
-{
-  return __builtin___sprintf_chk (__s, 2 - 1,
-      __builtin_object_size (__s, 2 > 1), __fmt, __builtin_va_arg_pack ());
-}
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-__attribute__ ((__nothrow__ , __leaf__)) vsprintf (char *__restrict __s, const char *__restrict __fmt, __gnuc_va_list __ap)
-{
-  return __builtin___vsprintf_chk (__s, 2 - 1,
-       __builtin_object_size (__s, 2 > 1), __fmt, __ap);
-}
-extern int __snprintf_chk (char *__restrict __s, size_t __n, int __flag,
-      size_t __slen, const char *__restrict __format,
-      ...) __attribute__ ((__nothrow__ , __leaf__));
-extern int __vsnprintf_chk (char *__restrict __s, size_t __n, int __flag,
-       size_t __slen, const char *__restrict __format,
-       __gnuc_va_list __ap) __attribute__ ((__nothrow__ , __leaf__));
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-__attribute__ ((__nothrow__ , __leaf__)) snprintf (char *__restrict __s, size_t __n, const char *__restrict __fmt, ...)
-{
-  return __builtin___snprintf_chk (__s, __n, 2 - 1,
-       __builtin_object_size (__s, 2 > 1), __fmt, __builtin_va_arg_pack ());
-}
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-__attribute__ ((__nothrow__ , __leaf__)) vsnprintf (char *__restrict __s, size_t __n, const char *__restrict __fmt, __gnuc_va_list __ap)
-{
-  return __builtin___vsnprintf_chk (__s, __n, 2 - 1,
-        __builtin_object_size (__s, 2 > 1), __fmt, __ap);
-}
-extern int __fprintf_chk (FILE *__restrict __stream, int __flag,
-     const char *__restrict __format, ...);
-extern int __printf_chk (int __flag, const char *__restrict __format, ...);
-extern int __vfprintf_chk (FILE *__restrict __stream, int __flag,
-      const char *__restrict __format, __gnuc_va_list __ap);
-extern int __vprintf_chk (int __flag, const char *__restrict __format,
-     __gnuc_va_list __ap);
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-fprintf (FILE *__restrict __stream, const char *__restrict __fmt, ...)
-{
-  return __fprintf_chk (__stream, 2 - 1, __fmt,
-   __builtin_va_arg_pack ());
-}
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-printf (const char *__restrict __fmt, ...)
-{
-  return __printf_chk (2 - 1, __fmt, __builtin_va_arg_pack ());
-}
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-vprintf (const char *__restrict __fmt, __gnuc_va_list __ap)
-{
-  return __vfprintf_chk (stdout, 2 - 1, __fmt, __ap);
-}
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-vfprintf (FILE *__restrict __stream,
-   const char *__restrict __fmt, __gnuc_va_list __ap)
-{
-  return __vfprintf_chk (__stream, 2 - 1, __fmt, __ap);
-}
-extern int __dprintf_chk (int __fd, int __flag, const char *__restrict __fmt,
-     ...) __attribute__ ((__format__ (__printf__, 3, 4)));
-extern int __vdprintf_chk (int __fd, int __flag,
-      const char *__restrict __fmt, __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__printf__, 3, 0)));
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-dprintf (int __fd, const char *__restrict __fmt, ...)
-{
-  return __dprintf_chk (__fd, 2 - 1, __fmt,
-   __builtin_va_arg_pack ());
-}
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
-vdprintf (int __fd, const char *__restrict __fmt, __gnuc_va_list __ap)
-{
-  return __vdprintf_chk (__fd, 2 - 1, __fmt, __ap);
-}
-extern char *__fgets_chk (char *__restrict __s, size_t __size, int __n,
-     FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern char *__fgets_alias (char *__restrict __s, int __n, FILE *__restrict __stream) __asm__ ("" "fgets") __attribute__ ((__warn_unused_result__));
-extern char *__fgets_chk_warn (char *__restrict __s, size_t __size, int __n, FILE *__restrict __stream) __asm__ ("" "__fgets_chk")
-     __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("fgets called with bigger size than length " "of destination buffer")));
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) char *
-fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
-{
-  if (__builtin_object_size (__s, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__n) || __n <= 0)
- return __fgets_chk (__s, __builtin_object_size (__s, 2 > 1), __n, __stream);
-      if ((size_t) __n > __builtin_object_size (__s, 2 > 1))
- return __fgets_chk_warn (__s, __builtin_object_size (__s, 2 > 1), __n, __stream);
-    }
-  return __fgets_alias (__s, __n, __stream);
-}
-extern size_t __fread_chk (void *__restrict __ptr, size_t __ptrlen,
-      size_t __size, size_t __n,
-      FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern size_t __fread_alias (void *__restrict __ptr, size_t __size, size_t __n, FILE *__restrict __stream) __asm__ ("" "fread") __attribute__ ((__warn_unused_result__));
-extern size_t __fread_chk_warn (void *__restrict __ptr, size_t __ptrlen, size_t __size, size_t __n, FILE *__restrict __stream) __asm__ ("" "__fread_chk")
-     __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("fread called with bigger size * nmemb than length " "of destination buffer")));
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) size_t
-fread (void *__restrict __ptr, size_t __size, size_t __n,
-       FILE *__restrict __stream)
-{
-  if (__builtin_object_size (__ptr, 0) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__size)
-   || !__builtin_constant_p (__n)
-   || (__size | __n) >= (((size_t) 1) << (8 * sizeof (size_t) / 2)))
- return __fread_chk (__ptr, __builtin_object_size (__ptr, 0), __size, __n, __stream);
-      if (__size * __n > __builtin_object_size (__ptr, 0))
- return __fread_chk_warn (__ptr, __builtin_object_size (__ptr, 0), __size, __n, __stream);
-    }
-  return __fread_alias (__ptr, __size, __n, __stream);
-}
-extern size_t __fread_unlocked_chk (void *__restrict __ptr, size_t __ptrlen,
-        size_t __size, size_t __n,
-        FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern size_t __fread_unlocked_alias (void *__restrict __ptr, size_t __size, size_t __n, FILE *__restrict __stream) __asm__ ("" "fread_unlocked") __attribute__ ((__warn_unused_result__));
-extern size_t __fread_unlocked_chk_warn (void *__restrict __ptr, size_t __ptrlen, size_t __size, size_t __n, FILE *__restrict __stream) __asm__ ("" "__fread_unlocked_chk")
-     __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("fread_unlocked called with bigger size * nmemb than " "length of destination buffer")));
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) size_t
-fread_unlocked (void *__restrict __ptr, size_t __size, size_t __n,
-  FILE *__restrict __stream)
-{
-  if (__builtin_object_size (__ptr, 0) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__size)
-   || !__builtin_constant_p (__n)
-   || (__size | __n) >= (((size_t) 1) << (8 * sizeof (size_t) / 2)))
- return __fread_unlocked_chk (__ptr, __builtin_object_size (__ptr, 0), __size, __n,
-         __stream);
-      if (__size * __n > __builtin_object_size (__ptr, 0))
- return __fread_unlocked_chk_warn (__ptr, __builtin_object_size (__ptr, 0), __size, __n,
-       __stream);
-    }
-  if (__builtin_constant_p (__size)
-      && __builtin_constant_p (__n)
-      && (__size | __n) < (((size_t) 1) << (8 * sizeof (size_t) / 2))
-      && __size * __n <= 8)
-    {
-      size_t __cnt = __size * __n;
-      char *__cptr = (char *) __ptr;
-      if (__cnt == 0)
- return 0;
-      for (; __cnt > 0; --__cnt)
- {
-   int __c = (__builtin_expect (((__stream)->_IO_read_ptr >= (__stream)->_IO_read_end), 0) ? __uflow (__stream) : *(unsigned char *) (__stream)->_IO_read_ptr++);
-   if (__c == (-1))
-     break;
-   *__cptr++ = __c;
- }
-      return (__cptr - (char *) __ptr) / __size;
-    }
-  return __fread_unlocked_alias (__ptr, __size, __n, __stream);
-}
+int asprintf(char ** restrict, const char * restrict, ...) __attribute__((__format__ (__printf__, 2, 3)));
+char *ctermid_r(char *);
+char *fgetln(FILE *, size_t *);
+const char *fmtcheck(const char *, const char *);
+int fpurge(FILE *);
+void setbuffer(FILE *, char *, int);
+int setlinebuf(FILE *);
+int vasprintf(char ** restrict, const char * restrict, va_list) __attribute__((__format__ (__printf__, 2, 0)));
+FILE *zopen(const char *, const char *, int);
+FILE *funopen(const void *,
+                 int (*)(void *, char *, int),
+                 int (*)(void *, const char *, int),
+                 fpos_t (*)(void *, fpos_t, int),
+                 int (*)(void *));
 
+extern int __sprintf_chk (char * restrict, int, size_t,
+     const char * restrict, ...);
+extern int __snprintf_chk (char * restrict, size_t, int, size_t,
+      const char * restrict, ...);
+extern int __vsprintf_chk (char * restrict, int, size_t,
+      const char * restrict, va_list);
+extern int __vsnprintf_chk (char * restrict, size_t, int, size_t,
+       const char * restrict, va_list);
 typedef signed char int8_t;
-typedef short int int16_t;
+typedef short int16_t;
 typedef int int32_t;
-typedef long int int64_t;
+typedef long long int64_t;
 typedef unsigned char uint8_t;
-typedef unsigned short int uint16_t;
+typedef unsigned short uint16_t;
 typedef unsigned int uint32_t;
-typedef unsigned long int uint64_t;
-typedef signed char int_least8_t;
-typedef short int int_least16_t;
-typedef int int_least32_t;
-typedef long int int_least64_t;
-typedef unsigned char uint_least8_t;
-typedef unsigned short int uint_least16_t;
-typedef unsigned int uint_least32_t;
-typedef unsigned long int uint_least64_t;
-typedef signed char int_fast8_t;
-typedef long int int_fast16_t;
-typedef long int int_fast32_t;
-typedef long int int_fast64_t;
-typedef unsigned char uint_fast8_t;
-typedef unsigned long int uint_fast16_t;
-typedef unsigned long int uint_fast32_t;
-typedef unsigned long int uint_fast64_t;
-typedef long int intptr_t;
-typedef unsigned long int uintptr_t;
+typedef unsigned long long uint64_t;
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+typedef int32_t int_least32_t;
+typedef int64_t int_least64_t;
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+typedef uint32_t uint_least32_t;
+typedef uint64_t uint_least64_t;
+typedef int8_t int_fast8_t;
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef int64_t int_fast64_t;
+typedef uint8_t uint_fast8_t;
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+typedef uint64_t uint_fast64_t;
+typedef __darwin_intptr_t intptr_t;
+typedef unsigned long uintptr_t;
 typedef long int intmax_t;
-typedef unsigned long int uintmax_t;
+typedef long unsigned int uintmax_t;
 typedef int MPI_Datatype;
 typedef int MPI_Comm;
 typedef int MPI_Group;
@@ -616,15 +340,15 @@ enum MPIR_Combiner_enum {
     MPI_COMBINER_HINDEXED_INTEGER = 8,
     MPI_COMBINER_HINDEXED = 9,
     MPI_COMBINER_INDEXED_BLOCK = 10,
-    MPI_COMBINER_HINDEXED_BLOCK = 11,
-    MPI_COMBINER_STRUCT_INTEGER = 12,
-    MPI_COMBINER_STRUCT = 13,
-    MPI_COMBINER_SUBARRAY = 14,
-    MPI_COMBINER_DARRAY = 15,
-    MPI_COMBINER_F90_REAL = 16,
-    MPI_COMBINER_F90_COMPLEX = 17,
-    MPI_COMBINER_F90_INTEGER = 18,
-    MPI_COMBINER_RESIZED = 19
+    MPI_COMBINER_STRUCT_INTEGER = 11,
+    MPI_COMBINER_STRUCT = 12,
+    MPI_COMBINER_SUBARRAY = 13,
+    MPI_COMBINER_DARRAY = 14,
+    MPI_COMBINER_F90_REAL = 15,
+    MPI_COMBINER_F90_COMPLEX = 16,
+    MPI_COMBINER_F90_INTEGER = 17,
+    MPI_COMBINER_RESIZED = 18,
+    MPI_COMBINER_HINDEXED_BLOCK = 19
 };
 typedef int MPI_Info;
 typedef long MPI_Aint;
@@ -632,23 +356,22 @@ typedef int MPI_Fint;
 typedef long long MPI_Count;
 typedef long long MPI_Offset;
 typedef struct MPI_Status {
+    int count_lo;
+    int count_hi_and_cancelled;
     int MPI_SOURCE;
     int MPI_TAG;
     int MPI_ERROR;
-    MPI_Count count;
-    int cancelled;
-    int abi_slush_fund[2];
 } MPI_Status;
-struct MPIR_T_enum;
-typedef struct MPIR_T_enum * MPI_T_enum;
-struct MPIR_T_cvar_handle;
-typedef struct MPIR_T_cvar_handle * MPI_T_cvar_handle;
-struct MPIR_T_pvar_handle;
-typedef struct MPIR_T_pvar_handle * MPI_T_pvar_handle;
-struct MPIR_T_pvar_session;
-typedef struct MPIR_T_pvar_session * MPI_T_pvar_session;
-extern struct MPIR_T_pvar_handle * const MPI_T_PVAR_ALL_HANDLES;
-enum MPIR_T_verbosity_t {
+struct MPIR_T_enum_s;
+struct MPIR_T_cvar_handle_s;
+struct MPIR_T_pvar_handle_s;
+struct MPIR_T_pvar_session_s;
+typedef struct MPIR_T_enum_s * MPI_T_enum;
+typedef struct MPIR_T_cvar_handle_s * MPI_T_cvar_handle;
+typedef struct MPIR_T_pvar_handle_s * MPI_T_pvar_handle;
+typedef struct MPIR_T_pvar_session_s * MPI_T_pvar_session;
+extern struct MPIR_T_pvar_handle_s * const MPI_T_PVAR_ALL_HANDLES;
+typedef enum MPIR_T_verbosity_t {
     MPIX_T_VERBOSITY_INVALID = 0,
     MPI_T_VERBOSITY_USER_BASIC = 221,
     MPI_T_VERBOSITY_USER_DETAIL,
@@ -659,8 +382,8 @@ enum MPIR_T_verbosity_t {
     MPI_T_VERBOSITY_MPIDEV_BASIC,
     MPI_T_VERBOSITY_MPIDEV_DETAIL,
     MPI_T_VERBOSITY_MPIDEV_ALL
-};
-enum MPIR_T_bind_t {
+} MPIR_T_verbosity_t;
+typedef enum MPIR_T_bind_t {
     MPIX_T_BIND_INVALID = 0,
     MPI_T_BIND_NO_OBJECT = 9700,
     MPI_T_BIND_MPI_COMM,
@@ -673,19 +396,21 @@ enum MPIR_T_bind_t {
     MPI_T_BIND_MPI_WIN,
     MPI_T_BIND_MPI_MESSAGE,
     MPI_T_BIND_MPI_INFO
-};
-enum MPIR_T_scope_t {
+} MPIR_T_bind_t;
+typedef enum MPIR_T_scope_t {
     MPIX_T_SCOPE_INVALID = 0,
-    MPI_T_SCOPE_READONLY = 60439,
+    MPI_T_SCOPE_CONSTANT = 60438,
+    MPI_T_SCOPE_READONLY,
     MPI_T_SCOPE_LOCAL,
     MPI_T_SCOPE_GROUP,
     MPI_T_SCOPE_GROUP_EQ,
     MPI_T_SCOPE_ALL,
     MPI_T_SCOPE_ALL_EQ
-};
-enum MPIR_T_pvar_class_t {
+} MPIR_T_scope_t;
+typedef enum MPIR_T_pvar_class_t {
     MPIX_T_PVAR_CLASS_INVALID = 0,
-    MPI_T_PVAR_CLASS_STATE = 240,
+    MPIR_T_PVAR_CLASS_FIRST = 240,
+    MPI_T_PVAR_CLASS_STATE = MPIR_T_PVAR_CLASS_FIRST,
     MPI_T_PVAR_CLASS_LEVEL,
     MPI_T_PVAR_CLASS_SIZE,
     MPI_T_PVAR_CLASS_PERCENTAGE,
@@ -694,10 +419,25 @@ enum MPIR_T_pvar_class_t {
     MPI_T_PVAR_CLASS_COUNTER,
     MPI_T_PVAR_CLASS_AGGREGATE,
     MPI_T_PVAR_CLASS_TIMER,
-    MPI_T_PVAR_CLASS_GENERIC
-};
+    MPI_T_PVAR_CLASS_GENERIC,
+    MPIR_T_PVAR_CLASS_LAST,
+    MPIR_T_PVAR_CLASS_NUMBER = MPIR_T_PVAR_CLASS_LAST - MPIR_T_PVAR_CLASS_FIRST
+} MPIR_T_pvar_class_t;
 extern MPI_Fint * MPI_F_STATUS_IGNORE;
 extern MPI_Fint * MPI_F_STATUSES_IGNORE;
+typedef struct {
+    MPI_Fint count_lo;
+    MPI_Fint count_hi_and_cancelled;
+    MPI_Fint MPI_SOURCE;
+    MPI_Fint MPI_TAG;
+    MPI_Fint MPI_ERROR;
+} MPI_F08_Status;
+extern MPI_F08_Status MPIR_F08_MPI_STATUS_IGNORE_OBJ;
+extern MPI_F08_Status MPIR_F08_MPI_STATUSES_IGNORE_OBJ[1];
+extern int MPIR_F08_MPI_IN_PLACE;
+extern int MPIR_F08_MPI_BOTTOM;
+extern MPI_F08_Status *MPI_F08_STATUS_IGNORE;
+extern MPI_F08_Status *MPI_F08_STATUSES_IGNORE;
 typedef int (MPI_Grequest_cancel_function)(void *, int);
 typedef int (MPI_Grequest_free_function)(void *);
 typedef int (MPI_Grequest_query_function)(void *, MPI_Status *);
@@ -706,7 +446,7 @@ typedef int (MPIX_Grequest_wait_function)(int, void **, double, MPI_Status *);
 typedef int (MPI_Datarep_conversion_function)(void *, MPI_Datatype, int,
              void *, MPI_Offset, void *);
 typedef int (MPI_Datarep_extent_function)(MPI_Datatype datatype, MPI_Aint *,
-       void *);
+                      void *);
 int MPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
              MPI_Comm comm) ;
 int MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
@@ -1258,9 +998,8 @@ int MPI_Type_get_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *exten
 int MPI_Type_get_true_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int MPI_Type_size_x(MPI_Datatype datatype, MPI_Count *size);
 int MPI_Comm_create_group(MPI_Comm comm, MPI_Group group, int tag, MPI_Comm *newcomm);
-int MPIX_Comm_group_failed(MPI_Comm comm, MPI_Group *failed_group);
-int MPIX_Comm_remote_group_failed(MPI_Comm comm, MPI_Group *failed_group);
-int MPIX_Comm_reenable_anysource(MPI_Comm comm, MPI_Group *failed_group);
+MPI_Aint MPI_Aint_add(MPI_Aint base, MPI_Aint disp);
+MPI_Aint MPI_Aint_diff(MPI_Aint addr1, MPI_Aint addr2);
 int MPI_T_init_thread(int required, int *provided);
 int MPI_T_finalize(void);
 int MPI_T_enum_get_info(MPI_T_enum enumtype, int *num, char *name, int *name_len);
@@ -1273,7 +1012,7 @@ int MPI_T_cvar_handle_alloc(int cvar_index, void *obj_handle, MPI_T_cvar_handle 
                             int *count);
 int MPI_T_cvar_handle_free(MPI_T_cvar_handle *handle);
 int MPI_T_cvar_read(MPI_T_cvar_handle handle, void *buf);
-int MPI_T_cvar_write(MPI_T_cvar_handle handle, void *buf);
+int MPI_T_cvar_write(MPI_T_cvar_handle handle, const void *buf);
 int MPI_T_pvar_get_num(int *num_pvar);
 int MPI_T_pvar_get_info(int pvar_index, char *name, int *name_len, int *verbosity, int *var_class,
                         MPI_Datatype *datatype, MPI_T_enum *enumtype, char *desc, int *desc_len,
@@ -1286,7 +1025,7 @@ int MPI_T_pvar_handle_free(MPI_T_pvar_session session, MPI_T_pvar_handle *handle
 int MPI_T_pvar_start(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int MPI_T_pvar_stop(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int MPI_T_pvar_read(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
-int MPI_T_pvar_write(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
+int MPI_T_pvar_write(MPI_T_pvar_session session, MPI_T_pvar_handle handle, const void *buf);
 int MPI_T_pvar_reset(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int MPI_T_pvar_readreset(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
 int MPI_T_category_get_num(int *num_cat);
@@ -1296,6 +1035,14 @@ int MPI_T_category_get_cvars(int cat_index, int len, int indices[]);
 int MPI_T_category_get_pvars(int cat_index, int len, int indices[]);
 int MPI_T_category_get_categories(int cat_index, int len, int indices[]);
 int MPI_T_category_changed(int *stamp);
+int MPI_T_cvar_get_index(const char *name, int *cvar_index);
+int MPI_T_pvar_get_index(const char *name, int var_class, int *pvar_index);
+int MPI_T_category_get_index(const char *name, int *cat_index);
+int MPIX_Comm_failure_ack(MPI_Comm comm);
+int MPIX_Comm_failure_get_acked(MPI_Comm comm, MPI_Group *failedgrp);
+int MPIX_Comm_revoke(MPI_Comm comm);
+int MPIX_Comm_shrink(MPI_Comm comm, MPI_Comm *newcomm);
+int MPIX_Comm_agree(MPI_Comm comm, int *flag);
 int PMPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag,
               MPI_Comm comm) ;
 int PMPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
@@ -1848,9 +1595,8 @@ int PMPI_Status_set_elements_x(MPI_Status *status, MPI_Datatype datatype, MPI_Co
 int PMPI_Type_get_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int PMPI_Type_get_true_extent_x(MPI_Datatype datatype, MPI_Count *lb, MPI_Count *extent);
 int PMPI_Type_size_x(MPI_Datatype datatype, MPI_Count *size);
-int PMPIX_Comm_group_failed(MPI_Comm comm, MPI_Group *failed_group);
-int PMPIX_Comm_remote_group_failed(MPI_Comm comm, MPI_Group *failed_group);
-int PMPIX_Comm_reenable_anysource(MPI_Comm comm, MPI_Group *failed_group);
+MPI_Aint PMPI_Aint_add(MPI_Aint base, MPI_Aint disp);
+MPI_Aint PMPI_Aint_diff(MPI_Aint addr1, MPI_Aint addr2);
 int PMPI_T_init_thread(int required, int *provided);
 int PMPI_T_finalize(void);
 int PMPI_T_enum_get_info(MPI_T_enum enumtype, int *num, char *name, int *name_len);
@@ -1863,7 +1609,7 @@ int PMPI_T_cvar_handle_alloc(int cvar_index, void *obj_handle, MPI_T_cvar_handle
                              int *count);
 int PMPI_T_cvar_handle_free(MPI_T_cvar_handle *handle);
 int PMPI_T_cvar_read(MPI_T_cvar_handle handle, void *buf);
-int PMPI_T_cvar_write(MPI_T_cvar_handle handle, void *buf);
+int PMPI_T_cvar_write(MPI_T_cvar_handle handle, const void *buf);
 int PMPI_T_pvar_get_num(int *num_pvar);
 int PMPI_T_pvar_get_info(int pvar_index, char *name, int *name_len, int *verbosity, int *var_class,
                          MPI_Datatype *datatype, MPI_T_enum *enumtype, char *desc, int *desc_len,
@@ -1876,7 +1622,7 @@ int PMPI_T_pvar_handle_free(MPI_T_pvar_session session, MPI_T_pvar_handle *handl
 int PMPI_T_pvar_start(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int PMPI_T_pvar_stop(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int PMPI_T_pvar_read(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
-int PMPI_T_pvar_write(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
+int PMPI_T_pvar_write(MPI_T_pvar_session session, MPI_T_pvar_handle handle, const void *buf);
 int PMPI_T_pvar_reset(MPI_T_pvar_session session, MPI_T_pvar_handle handle);
 int PMPI_T_pvar_readreset(MPI_T_pvar_session session, MPI_T_pvar_handle handle, void *buf);
 int PMPI_T_category_get_num(int *num_cat);
@@ -1886,6 +1632,14 @@ int PMPI_T_category_get_cvars(int cat_index, int len, int indices[]);
 int PMPI_T_category_get_pvars(int cat_index, int len, int indices[]);
 int PMPI_T_category_get_categories(int cat_index, int len, int indices[]);
 int PMPI_T_category_changed(int *stamp);
+int PMPI_T_cvar_get_index(const char *name, int *cvar_index);
+int PMPI_T_pvar_get_index(const char *name, int var_class, int *pvar_index);
+int PMPI_T_category_get_index(const char *name, int *cat_index);
+int PMPIX_Comm_failure_ack(MPI_Comm comm);
+int PMPIX_Comm_failure_get_acked(MPI_Comm comm, MPI_Group *failedgrp);
+int PMPIX_Comm_revoke(MPI_Comm comm);
+int PMPIX_Comm_shrink(MPI_Comm comm, MPI_Comm *newcomm);
+int PMPIX_Comm_agree(MPI_Comm comm, int *flag);
 int MPI_File_open(MPI_Comm comm, const char *filename, int amode, MPI_Info info, MPI_File *fh);
 int MPI_File_close(MPI_File *fh);
 int MPI_File_delete(const char *filename, MPI_Info info);
@@ -1970,6 +1724,18 @@ int MPI_Register_datarep(const char *datarep, MPI_Datarep_conversion_function *r
 int MPI_File_set_atomicity(MPI_File fh, int flag);
 int MPI_File_get_atomicity(MPI_File fh, int *flag);
 int MPI_File_sync(MPI_File fh);
+int MPI_File_iread_at_all(MPI_File fh, MPI_Offset offset, void *buf, int count,
+                           MPI_Datatype datatype, MPI_Request *request)
+    ;
+int MPI_File_iwrite_at_all(MPI_File fh, MPI_Offset offset, const void *buf, int count,
+                            MPI_Datatype datatype, MPI_Request *request)
+    ;
+int MPI_File_iread_all(MPI_File fh, void *buf, int count, MPI_Datatype datatype,
+                        MPI_Request *request)
+    ;
+int MPI_File_iwrite_all(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
+                         MPI_Request *request)
+    ;
 MPI_File MPI_File_f2c(MPI_Fint file);
 MPI_Fint MPI_File_c2f(MPI_File file);
 int PMPI_File_open(MPI_Comm, const char *, int, MPI_Info, MPI_File *);
@@ -2064,6 +1830,18 @@ int PMPI_Register_datarep(const char *,
 int PMPI_File_set_atomicity(MPI_File, int);
 int PMPI_File_get_atomicity(MPI_File, int *);
 int PMPI_File_sync(MPI_File);
+int PMPI_File_iread_at_all(MPI_File fh, MPI_Offset offset, void *buf, int count,
+                            MPI_Datatype datatype, MPI_Request *request)
+    ;
+int PMPI_File_iwrite_at_all(MPI_File fh, MPI_Offset offset, const void *buf, int count,
+                             MPI_Datatype datatype, MPI_Request *request)
+    ;
+int PMPI_File_iread_all(MPI_File fh, void *buf, int count, MPI_Datatype datatype,
+                         MPI_Request *request)
+    ;
+int PMPI_File_iwrite_all(MPI_File fh, const void *buf, int count, MPI_Datatype datatype,
+                          MPI_Request *request)
+    ;
 MPI_File PMPI_File_f2c(MPI_Fint);
 MPI_Fint PMPI_File_c2f(MPI_File);
 typedef int MPIX_Grequest_class;
@@ -2106,14 +1884,7 @@ int PMPIX_Mutex_free(MPIX_Mutex *hdl);
 int PMPIX_Mutex_lock(MPIX_Mutex hdl, int mutex, int proc);
 int PMPIX_Mutex_unlock(MPIX_Mutex hdl, int mutex, int proc);
 
-extern void __assert_fail (const char *__assertion, const char *__file,
-      unsigned int __line, const char *__function)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-extern void __assert_perror_fail (int __errnum, const char *__file,
-      unsigned int __line, const char *__function)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-extern void __assert (const char *__assertion, const char *__file, int __line)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+void __assert_rtn(const char *, const char *, int, const char *) __attribute__((noreturn));
 
 extern void __VERIFIER_error();
 void master (void);
