@@ -56,15 +56,6 @@ int main() {
     p = p->n;
   }
 
-  /* Destroy the list */
-  p = a;
-  while (p->h != 3) {
-    List tmp = p;
-    p = p->n;
-    free(tmp);
-  }
-  free(p);
-
   return 0;
 
   ERROR: __VERIFIER_error();

@@ -5,6 +5,7 @@ extern int __VERIFIER_nondet_int();
  * Alternating list example: 
  * creats a list with 1s at odd positions and 2s at even ones. 
  * Then, it goes through and checks if the alternation holds.
+ * But it does not - the pattern and the check are inverted (1-2-1-2 vs. 2-1-2-1).
  */
 #include <stdlib.h>
 
@@ -27,10 +28,10 @@ int main() {
   List p = a;
   while (__VERIFIER_nondet_int()) {
     if (flag) {
-      p->h = 1;
+      p->h = 2;
       flag = 0;
     } else {
-      p->h = 2;
+      p->h = 1;
       flag = 1;
     }
     t = (List) malloc(sizeof(struct node));
@@ -55,15 +56,6 @@ int main() {
     }
     p = p->n;
   }
-
-  /* Destroy the list */
-  p = a;
-  while (p->h != 3) {
-    List tmp = p;
-    p = p->n;
-    free(tmp);
-  }
-  free(p);
 
   return 0;
 

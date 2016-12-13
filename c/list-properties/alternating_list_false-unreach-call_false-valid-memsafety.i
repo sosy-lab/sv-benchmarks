@@ -631,10 +631,10 @@ int main() {
   List p = a;
   while (__VERIFIER_nondet_int()) {
     if (flag) {
-      p->h = 1;
+      p->h = 2;
       flag = 0;
     } else {
-      p->h = 2;
+      p->h = 1;
       flag = 1;
     }
     t = (List) malloc(sizeof(struct node));
@@ -657,13 +657,6 @@ int main() {
     }
     p = p->n;
   }
-  p = a;
-  while (p->h != 3) {
-    List tmp = p;
-    p = p->n;
-    free(tmp);
-  }
-  free(p);
   return 0;
   ERROR: __VERIFIER_error();
     return 1;
