@@ -27,7 +27,6 @@
  * To execute: mpicc diffusion2d.c ; mpiexec -n 4 ./a.out 2 2
  * To verify: civl verify diffusion2d.c
  */
-#include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
 #include<string.h>
@@ -36,6 +35,7 @@
 /* Message tags */
 #define DATAPASS   1
 #define comm MPI_COMM_WORLD
+extern void __VERIFIER_assume(int expr);
 extern void __VERIFIER_error();
 extern int __VERIFIER_nondet_int();
 extern double __VERIFIER_nondet_double();
@@ -143,15 +143,7 @@ void initData(double (*u_curr)[nx+2], double (*u_next)[nx+2]) {
  * pointers and proc 0 will do a sequential run. The results of the
  * sequential run will be used to compare with parallel run later. */
 void initialization(int argc, char * argv[]) {
-  if (argc != 3) {
-    if(rank == 0) {
-      printf("Usage: mpiexec -n NPROCS diffusion2d NPROCSX NPROCSY NX NY NSTEPS\n"
-	     "  NPROCSX: number of processes in x direction\n"
-	     "  NPROCSY: number of processes in y direction\n"
-	     "  NPROCS: the product of NPROCSX and NPROCSY\n");
-    }
-    exit(1);
-  }
+  __VERIFIER_assume(argc == 3);
   NPROCSX = atoi(argv[1]); 
   NPROCSY = atoi(argv[2]);
   assert(NPROCSX * NPROCSY == nprocs);
@@ -170,9 +162,6 @@ void initialization(int argc, char * argv[]) {
   wstep = 10;
   constTemp = 0.0;
   k = 0.13;
-  if(!rank)
-    printf("Diffusion2d with k=%f, nx=%ld, ny=%ld, nsteps=%d, wstep=%d, initTemp=%6.2f\n",
-	   k, nx, ny, nsteps, wstep, initTemp);
   nxl = countColForProc(rank);
   nyl = countRowForProc(rank);
   if (rank == OWNER(0, 0))
@@ -226,12 +215,6 @@ void initialization(int argc, char * argv[]) {
               k*(oracle_curr[i+1][j] + oracle_curr[i-1][j] + 
                  oracle_curr[i][j+1] + oracle_curr[i][j-1] - 
                  4*oracle_curr[i][j]);
-      for (long i = 0; i < ny + 2; i++) {
-        for (long j = 0; j < nx + 2; j++) 
-	  printf("%6.2f", oracle_curr[i][j]);
-	printf("\n");
-      }
-      printf("\n");
       oracle_curr = t < nsteps ? oracle_curr + ny + 2 : NULL;
       oracle_next = t < nsteps ? oracle_curr + ny + 2 : NULL;
     }
@@ -281,7 +264,6 @@ void printData(int time, int firstCol, int nxl, int currRow, double * buf) {
 
   oracle_time += (time) * (ny + 2);
   for (int i=0; i<nxl; i++) {
-    printf("%6.2f ", *(buf + i));
     // check if results is same as oracle:
     __VERIFIER_assert(*(buf + i) == oracle_time[currRow + 1][firstCol + 1 + i]);
   }
@@ -296,7 +278,6 @@ void write_frame(int time, double (*u_curr)[nx+2]) {
     for (int i=0; i<nyl; i++)
       MPI_Send(&u_curr[i+1][1], nxl, MPI_DOUBLE, 0, DATAPASS, comm);
   } else {
-    printf("\n-------------------- time step:%d --------------------\n", time);
     for (int i=0; i < NPROCSY; i++) {
       int numRows = countRowForProc(i*NPROCSX);
 
@@ -315,7 +296,6 @@ void write_frame(int time, double (*u_curr)[nx+2]) {
           } else 
             printData(time, firstCol, nxl, firstRow+j, &u_curr[j+1][1]);
         }
-        printf("\n");
       }
     }
   } 

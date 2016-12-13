@@ -19,7 +19,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301 USA.
  */
-#include <stdio.h>
 #include <mpi.h>
 #include <assert.h>
 
@@ -70,7 +69,6 @@ void master (void) {
   //The master receives the results in any order
   for (i = 1; i < size; mysum += tmpsum, i++)
     MPI_Recv (&tmpsum, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MSG_RESULT, MPI_COMM_WORLD, &status);
-  printf ("%8.4lf\n", mysum);
   __VERIFIER_assert(mysum == (DN + DN * DN) / 2);
 }
 
