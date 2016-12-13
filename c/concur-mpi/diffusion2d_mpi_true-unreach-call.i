@@ -271,7 +271,6 @@ extern int putw (int __w, FILE *__stream);
 
 extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
      __attribute__ ((__warn_unused_result__));
-extern char *gets (char *__s) __attribute__ ((__warn_unused_result__)) __attribute__ ((__deprecated__));
 
 extern __ssize_t __getdelim (char **__restrict __lineptr,
           size_t *__restrict __n, int __delimiter,
@@ -456,16 +455,6 @@ extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline
 vdprintf (int __fd, const char *__restrict __fmt, __gnuc_va_list __ap)
 {
   return __vdprintf_chk (__fd, 2 - 1, __fmt, __ap);
-}
-extern char *__gets_chk (char *__str, size_t) __attribute__ ((__warn_unused_result__));
-extern char *__gets_warn (char *__str) __asm__ ("" "gets")
-     __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("please use fgets or getline instead, gets can't " "specify buffer size")));
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) char *
-gets (char *__str)
-{
-  if (__builtin_object_size (__str, 2 > 1) != (size_t) -1)
-    return __gets_chk (__str, __builtin_object_size (__str, 2 > 1));
-  return __gets_warn (__str);
 }
 extern char *__fgets_chk (char *__restrict __s, size_t __size, int __n,
      FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
@@ -977,14 +966,18 @@ extern void *alloca (size_t __size) __attribute__ ((__nothrow__ , __leaf__));
 extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__warn_unused_result__));
 extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+extern void *aligned_alloc (size_t __alignment, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_size__ (2))) __attribute__ ((__warn_unused_result__));
 
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 extern int atexit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int at_quick_exit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern int on_exit (void (*__func) (int __status, void *__arg), void *__arg)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern void exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+extern void quick_exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
 extern void _Exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
@@ -1551,6 +1544,30 @@ __attribute__ ((__nothrow__ , __leaf__)) strncat (char *__restrict __dest, const
   return __builtin___strncat_chk (__dest, __src, __len, __builtin_object_size (__dest, 2 > 1));
 }
 
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+typedef unsigned int uint32_t;
+typedef unsigned long int uint64_t;
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+typedef long int int_least64_t;
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+typedef unsigned long int uint_least64_t;
+typedef signed char int_fast8_t;
+typedef long int int_fast16_t;
+typedef long int int_fast32_t;
+typedef long int int_fast64_t;
+typedef unsigned char uint_fast8_t;
+typedef unsigned long int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+typedef unsigned long int uint_fast64_t;
+typedef long int intptr_t;
+typedef unsigned long int uintptr_t;
+typedef long int intmax_t;
+typedef unsigned long int uintmax_t;
 typedef int MPI_Datatype;
 typedef int MPI_Comm;
 typedef int MPI_Group;
