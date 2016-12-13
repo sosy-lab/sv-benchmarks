@@ -18,7 +18,7 @@ int main()
     unsigned int s = __VERIFIER_nondet_uint();                /* s > 0 */
     unsigned int d;
     unsigned int m;                      /* n % d goes here. */
-    __VERIFIER_assume(s < 31);
+    __VERIFIER_assume(s < 32);
     d = (1 << s) - 1; /* so d is either 1, 3, 7, 15, 31, ...) */
 
     if (d > 0) {
