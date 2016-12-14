@@ -1,4 +1,5 @@
 heap-manipulation/*_true-valid-memsafety*.i
+heap-manipulation/*_false-valid-deref*.i
 list-properties/*_true-valid-memsafety*.i
 list-properties/*_false-valid-memtrack*.i
 ddv-machzwd/*_true-valid-memsafety*.i
