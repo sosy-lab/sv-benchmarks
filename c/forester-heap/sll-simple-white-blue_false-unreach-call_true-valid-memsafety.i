@@ -1021,8 +1021,8 @@ int main()
 
   SLL* y = x->next;
   x->next = malloc(sizeof(SLL));
-  x->data = 1;
-  x->next = y;
+  x->next->data = 1;
+  x->next->next = y;
  }
 
 

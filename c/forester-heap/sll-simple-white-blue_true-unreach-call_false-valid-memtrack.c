@@ -19,7 +19,6 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef struct TSLL
 {
 	struct TSLL* next;
-	struct TSLL* prev;
 	int data;
 } SLL;
 
@@ -28,7 +27,6 @@ int main()
 	// create the head
 	SLL* head = malloc(sizeof(SLL));
 	head->next = NULL;
-	head->prev = NULL;
 	head->data = WHITE;
 
 	SLL* x = head;
@@ -38,7 +36,6 @@ int main()
 	{
 		// create a node
 		x->next = malloc(sizeof(SLL));
-		x->next->prev = x;
 		x = x->next;
 		x->data = WHITE;
 		x->next = NULL;
@@ -49,14 +46,13 @@ int main()
 		x = malloc(sizeof(SLL));
 		x->data = BLUE;
 		x->next = head;
-		x->prev = NULL;
-		head = x;
+			head = x;
 	}
 	else 
 	{
 		// choose a predecessor of the blue guy
 		x = head;
-		while (x->next != NULL)
+		while (x->next)
 		{
 			if (__VERIFIER_nondet_int()) break;
 			x = x->next;
@@ -65,14 +61,8 @@ int main()
 		// insert the blue guy
 		SLL* y = x->next;
 		x->next = malloc(sizeof(SLL));
-		x = x->next;
 		x->data = BLUE;
 		x->next = y;
-		if (y != NULL)
-		{
-			x->prev = y->prev;
-			y->prev = x;
-		}
 	}
 
 	// check the invariant

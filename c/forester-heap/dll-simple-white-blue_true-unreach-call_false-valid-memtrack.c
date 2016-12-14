@@ -65,7 +65,6 @@ int main()
 		// insert the blue guy
 		SLL* y = x->next;
 		x->next = malloc(sizeof(SLL));
-		x = x->next;
 		x->data = BLUE;
 		x->next = y;
 		if (y != NULL)
