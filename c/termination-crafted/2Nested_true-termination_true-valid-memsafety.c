@@ -16,6 +16,12 @@ int main()
     int x, y;
 	x = __VERIFIER_nondet_int();
 	y = __VERIFIER_nondet_int();
+
+  // prevent overflow: x + y*(y+1)/2 <= 2^31-1
+  __VERIFIER_assume(x<=65534);
+  __VERIFIER_assume(y<=65534);
+  // prevent underflow
+  __VERIFIER_assume(y>=-65534);
 	while (x >= 0) {
 		x = x + y;
 		y = y - 1;
