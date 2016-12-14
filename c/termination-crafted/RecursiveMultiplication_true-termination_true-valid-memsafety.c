@@ -22,6 +22,9 @@ int mult(int n, int m) {
 int main() {
     int m = __VERIFIER_nondet_int();
     int n = __VERIFIER_nondet_int();
+    //prevent overflows
+    __VERIFIER_assume(-65535<=m && m<=65535);
+    __VERIFIER_assume(-65535<=n && n<=65535);
     int res = mult(m, n);
     return 0;
 }
