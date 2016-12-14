@@ -587,7 +587,8 @@ struct node *create_tree()
         node->value = value;
         nodelast = node;
     }
-    node->parent = ((void *)0);
+    if (node != ((void *)0))
+      node->parent = ((void *)0);
     while (node != ((void *)0)) {
         node->left = malloc(sizeof *node);
         if (!node)
