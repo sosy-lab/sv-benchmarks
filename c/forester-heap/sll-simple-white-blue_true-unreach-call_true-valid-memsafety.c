@@ -61,8 +61,8 @@ int main()
 		// insert the blue guy
 		SLL* y = x->next;
 		x->next = malloc(sizeof(SLL));
-		x->data = BLUE;
-		x->next = y;
+		x->next->data = BLUE;
+		x->next->next = y;
 	}
 
 	// check the invariant

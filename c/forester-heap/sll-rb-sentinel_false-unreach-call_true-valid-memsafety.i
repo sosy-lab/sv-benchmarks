@@ -1037,7 +1037,6 @@ int main()
    end = end->next;
    do { if (!(null != end)) __VERIFIER_error();} while (0);
    do { if (!(BLACK != end->colour)) __VERIFIER_error();} while (0);
-   do { if (!(0)) __VERIFIER_error();} while (0);
   }
 
   end = end->next;
