@@ -16,10 +16,15 @@ int main()
     int y, z;
 	y = __VERIFIER_nondet_int();
 	z = __VERIFIER_nondet_int();
+  //prevent overflow
+  __VERIFIER_assume(-1073741823<=y && y<=1073741823);
+  __VERIFIER_assume(z<=1073741823);
 	while (z >= 0) {
 		y = y - 1;
 		if (y >= 0) {
 			z = __VERIFIER_nondet_int();
+      //prevent overflow
+      __VERIFIER_assume(z<=1073741823);
 		} else {
 			z = z - 1;
 		}
