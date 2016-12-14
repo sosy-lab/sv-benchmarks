@@ -20,6 +20,10 @@ int main()
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
     z = __VERIFIER_nondet_int();
+    // prevent overflows
+    __VERIFIER_assume(x<=65535);
+    __VERIFIER_assume(-65535<=y && y<=65535);
+    __VERIFIER_assume(-65535<=z && z<=65535);
 	while (x >= 0) {
 		if (__VERIFIER_nondet_int() != 0) {
 			x = x + y;
