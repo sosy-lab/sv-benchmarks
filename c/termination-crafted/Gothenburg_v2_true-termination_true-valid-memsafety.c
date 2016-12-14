@@ -15,6 +15,11 @@ int main()
     b = __VERIFIER_nondet_int();
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
+  //prevent overflows
+  __VERIFIER_assume(-268435455<=a && a<=268435455);
+  __VERIFIER_assume(-268435455<=b && b<=268435455);
+  __VERIFIER_assume(-268435455<=x && x<=268435455);
+  __VERIFIER_assume(-268435455<=y && y<=268435455);
 	if (a == b + 1 && x < 0) {
 	    while (x >= 0 || y >= 0) {
 		    x = x + a - b - 1;
