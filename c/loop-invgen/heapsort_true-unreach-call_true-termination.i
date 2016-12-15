@@ -10,7 +10,7 @@ int __VERIFIER_nondet_int();
 int main( int argc, char *argv[]){
   int n,l,r,i,j;
   n = __VERIFIER_nondet_int();
-  __VERIFIER_assume(1 <= n && n <= 1000000);
+  if (!(1 <= n && n <= 1000000)) return 0;
   l = n/2 + 1;
   r = n;
   if(l>1) {

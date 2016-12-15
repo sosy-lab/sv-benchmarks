@@ -13,7 +13,7 @@ int main() {
   nlen = __VERIFIER_nondet_int();
   idBitLength = __VERIFIER_nondet_int();
   material_length = __VERIFIER_nondet_int();
-    __VERIFIER_assume( nlen == idBitLength / 32 );
+    if (!( nlen == idBitLength / 32 )) return 0;
   for (j = 0; (j < idBitLength / 8) && (j < material_length); j++) {
     __VERIFIER_assert( 0 <= j);
     __VERIFIER_assert( j < material_length );

@@ -11,7 +11,7 @@ int main() {
     int i,j,k,n;
     k = __VERIFIER_nondet_int();
     n = __VERIFIER_nondet_int();
-    __VERIFIER_assume(n < 1000000);
+    if (!(n < 1000000)) return 0;
     if( k == n) {
     } else {
         goto END;

@@ -5,7 +5,7 @@
 int main() {
     int i, n, a, b;
     i = 0; a = 0; b = 0; n = __VERIFIER_nondet_int();
-    __VERIFIER_assume(n >= 0 && n <= LARGE_INT);
+    if (!(n >= 0 && n <= LARGE_INT)) return 0;
     while (i < n) {
         if (__VERIFIER_nondet_int()) {
             a = a + 1;

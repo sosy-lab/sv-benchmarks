@@ -18,9 +18,9 @@ int main()
   leader_len = __VERIFIER_nondet_int();
   bufsize = __VERIFIER_nondet_int();
   ielen = __VERIFIER_nondet_int();
-  __VERIFIER_assume(leader_len < 1000000);
-  __VERIFIER_assume(bufsize < 1000000);
-  __VERIFIER_assume(ielen < 1000000);
+  if (!(leader_len < 1000000)) return 0;
+  if (!(bufsize < 1000000)) return 0;
+  if (!(ielen < 1000000)) return 0;
   if(leader_len >0); else goto END;
   if(bufsize >0); else goto END;
   if(ielen >0); else goto END;

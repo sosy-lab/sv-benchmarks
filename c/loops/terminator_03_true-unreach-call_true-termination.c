@@ -15,7 +15,7 @@ _Bool __VERIFIER_nondet_bool();
 int main() {
     int x=__VERIFIER_nondet_int();
     int y=__VERIFIER_nondet_int();
-    __VERIFIER_assume(y <= LIMIT);
+    if (!(y <= LIMIT)) return 0;
 
     if (y>0) {
         while(x<100) {

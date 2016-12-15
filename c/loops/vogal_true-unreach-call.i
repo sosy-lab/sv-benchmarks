@@ -18,7 +18,7 @@ int main(void)
 
   for(i=0;i<5;i++)
     input_string[i] = __VERIFIER_nondet_char();
-  __VERIFIER_assume(input_string[5 -1]=='\0');
+  if (!(input_string[5 -1]=='\0')) return 0;
 
   n_caracter = 0;
   while(input_string[n_caracter]!='\0')

@@ -4,9 +4,9 @@ int main() {
 
   n = __VERIFIER_nondet_int();
   l = __VERIFIER_nondet_int();
-  __VERIFIER_assume(l>0);
-  __VERIFIER_assume(l < LARGE_INT);
-  __VERIFIER_assume(n < LARGE_INT);
+  if (!(l>0)) return 0;
+  if (!(l < LARGE_INT)) return 0;
+  if (!(n < LARGE_INT)) return 0;
   for (k=1;k<n;k++){
     for (i=l;i<n;i++){  
       __VERIFIER_assert(1<=i);

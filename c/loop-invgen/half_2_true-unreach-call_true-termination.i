@@ -10,7 +10,7 @@ int __VERIFIER_nondet_int();
 int main() {
   int n,i,k;
   n = __VERIFIER_nondet_int();
-  __VERIFIER_assume(n <= 1000000);
+  if (!(n <= 1000000)) return 0;
   k = n;
   i = 0;
   while( i < n ) {

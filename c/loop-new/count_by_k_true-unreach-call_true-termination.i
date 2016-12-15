@@ -11,7 +11,7 @@ int main() {
     int i;
     int k;
     k = __VERIFIER_nondet_int();
-    __VERIFIER_assume(0 <= k && k <= 10);
+    if (!(0 <= k && k <= 10)) return 0;
     for (i = 0; i < 1000000*k; i += k) ;
     __VERIFIER_assert(i == 1000000*k);
     return 0;

@@ -14,13 +14,13 @@ int main(int argc, char* argv[]) {
   int n, v;
   int i, k, j;
   n = __VERIFIER_nondet_int();
-  __VERIFIER_assume(0 <= n && n < 10);
+  if (!(0 <= n && n < 10)) return 0;
   k = 0;
   i = 0;
   while( i < n ) {
     i++;
     v = __VERIFIER_nondet_int();
-    __VERIFIER_assume(0 <= v && n < 2);
+    if (!(0 <= v && n < 2)) return 0;
     if( v == 0 )
       k += c1;
     else if( v == 1 )
