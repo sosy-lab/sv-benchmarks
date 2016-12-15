@@ -25,6 +25,9 @@ int main()
 	int y;
 	x = __VERIFIER_nondet_int();
 	y = __VERIFIER_nondet_int();
+  // prevent overflows
+  __VERIFIER_assume(-65535<=x && x<=65535);
+  __VERIFIER_assume(-65535<=y && y<=65535);
 	while (x >= 0) {
 		x = x + y;
 		y = (-2)*y - 1;
