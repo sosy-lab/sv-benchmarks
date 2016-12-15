@@ -15,6 +15,7 @@ int main ()
     int x, b;
 	x = __VERIFIER_nondet_int();
 	b = __VERIFIER_nondet_int();
+  if(!(x>=-2147483647)) return 0;
 	while (b != 0) {
 		b = __VERIFIER_nondet_int();
 		x = x - 1;
