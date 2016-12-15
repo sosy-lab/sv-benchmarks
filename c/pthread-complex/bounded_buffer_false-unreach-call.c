@@ -82,7 +82,8 @@ int bounded_buf_init(bounded_buf_t * bbuf, size_t sz)
     // memset(bbuf->buf, 0, sizeof(void*) * sz );
     bbuf->head = 0;
     bbuf->rear = 0;
-
+    bbuf->p_wait = 0;
+    bbuf->c_wait = 0;
     return 0;
 }
 
