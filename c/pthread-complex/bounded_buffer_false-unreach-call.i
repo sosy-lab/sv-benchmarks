@@ -1470,6 +1470,8 @@ int bounded_buf_init(bounded_buf_t * bbuf, size_t sz)
     }
     bbuf->head = 0;
     bbuf->rear = 0;
+    bbuf->p_wait = 0;
+    bbuf->c_wait = 0;
     return 0;
 }
 int bounded_buf_destroy(bounded_buf_t * bbuf)
