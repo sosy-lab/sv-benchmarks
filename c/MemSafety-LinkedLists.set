@@ -4,4 +4,5 @@ list-properties/*_true-valid-memsafety*.i
 list-properties/*_false-valid-memtrack*.i
 ddv-machzwd/*_true-valid-memsafety*.i
 forester-heap/*_true-valid-memsafety*.i
+forester-heap/*_false-valid-deref*.i
 
