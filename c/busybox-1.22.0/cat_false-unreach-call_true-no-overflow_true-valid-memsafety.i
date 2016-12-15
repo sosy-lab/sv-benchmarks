@@ -3112,7 +3112,7 @@ static void * xzalloc(unsigned long int size)
 int main()
 {
   int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=1);
+  __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;
   for(int i=0; i<argc; ++i)
