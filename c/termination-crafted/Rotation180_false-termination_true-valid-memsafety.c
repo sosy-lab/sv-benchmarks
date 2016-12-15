@@ -17,6 +17,9 @@ int main ()
 	int y;
 	x = __VERIFIER_nondet_int();
 	y = __VERIFIER_nondet_int();
+  // prevent underflow
+  __VERIFIER_assume(x>=-2147483647);
+  __VERIFIER_assume(y>=-2147483647);
 	while (true) {
         oldx = x;
 		x = -y;
