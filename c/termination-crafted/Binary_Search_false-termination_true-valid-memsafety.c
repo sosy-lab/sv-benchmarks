@@ -19,7 +19,7 @@ int main() {
   int x = __VERIFIER_nondet_int();
   int y = __VERIFIER_nondet_int();
   //prevent overflows
-  __VERIFIER_assume(-1073741823<=x && x<=1073741823);
-  __VERIFIER_assume(-1073741823<=y && y<=1073741823);
+  if(!(-1073741823<=x && x<=1073741823)) return 0;
+  if(!(-1073741823<=y && y<=1073741823)) return 0;
   bsearch(x, y);
 }

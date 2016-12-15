@@ -20,9 +20,9 @@ int main()
 	a = __VERIFIER_nondet_int();
 	b = __VERIFIER_nondet_int();
   //prevent overflows and underflows
-  __VERIFIER_assume(-524287<=q && q<=524287);
-  __VERIFIER_assume(-524287<=a && a<=524287);
-  __VERIFIER_assume(-524287<=b && b<=524287);
+  if(!(-524287<=q && q<=524287)) return 0;
+  if(!(-524287<=a && a<=524287)) return 0;
+  if(!(-524287<=b && b<=524287)) return 0;
 	while (q > 0) {
 		q = q + a - 1;
 		olda = a;

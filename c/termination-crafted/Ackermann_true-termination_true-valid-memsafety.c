@@ -16,8 +16,8 @@ int main() {
     int x = __VERIFIER_nondet_int();
     int y = __VERIFIER_nondet_int();
     //prevent overflows 2^(x+3)-3 <= 2^31-1
-    __VERIFIER_assume(x<=28);
-    __VERIFIER_assume(y<=3);
+    if(!(x<=28)) return 0;
+    if(!(y<=3)) return 0;
     if (x < 0 || y < 0) {
         return 0;
     }
