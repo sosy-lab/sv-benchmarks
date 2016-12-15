@@ -69,6 +69,15 @@ int main() {
   if (p->h != 3 || i > 20)
     goto ERROR;
 
+  /* free memory */
+  p = a;
+  while (p->n != 0) {
+    t = p->n;
+    free(p);
+    p = t;
+  }
+  free(p);
+
   return 0;
 
   ERROR: __VERIFIER_error();
