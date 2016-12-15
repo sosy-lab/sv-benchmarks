@@ -869,10 +869,10 @@ void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } r
 int main(void)
 {
 
-  __VERIFIER_assert(remainder(5.1f, 3) == -0x1.ccccdp-1);
-  __VERIFIER_assert(remainder(5.1f, -3) == -0x1.ccccdp-1);
-  __VERIFIER_assert(remainder(-5.1f, -3) == 0x1.ccccdp-1);
-  __VERIFIER_assert(remainder(-5.1f, 3) == 0x1.ccccdp-1);
+  __VERIFIER_assert(remainderf(5.1f, 3) == -0x1.ccccdp-1);
+  __VERIFIER_assert(remainderf(5.1f, -3) == -0x1.ccccdp-1);
+  __VERIFIER_assert(remainderf(-5.1f, -3) == 0x1.ccccdp-1);
+  __VERIFIER_assert(remainderf(-5.1f, 3) == 0x1.ccccdp-1);
 
   double rem = remainder(0.0, 1);
   __VERIFIER_assert((rem == 0.0) && (!(sizeof (rem) == sizeof (float) ? __signbitf (rem) : sizeof (rem) == sizeof (double) ? __signbit (rem) : __signbitl (rem))));
