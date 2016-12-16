@@ -1,3 +1,4 @@
 signedintegeroverflow-regression/*_false-no-overflow.c.i
 signedintegeroverflow-regression/*_true-no-overflow.c.i
-
+termination-crafted-lit/*_false-no-overflow*.c
+termination-crafted-lit/*_true-no-overflow*.c
