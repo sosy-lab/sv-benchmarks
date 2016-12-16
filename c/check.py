@@ -375,7 +375,7 @@ def main():
     ok = True
     for entry in entries:
         path = os.path.join(main_directory, entry)
-        if not (entry[0] == '.' or entry == "bin"):
+        if not (entry[0] == '.' or entry == "bin" or entry.endswith("-todo")):
             if os.path.isdir(path):
                 ok &= DirectoryChecks(path, all_patterns, entry).run()
             elif entry.endswith(".set"):
