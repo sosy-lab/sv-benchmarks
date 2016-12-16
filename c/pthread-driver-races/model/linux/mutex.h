@@ -2,7 +2,7 @@
 #define __LINUX_MUTEX_H
 
 
-#include <pthread.h>
+//#include <pthread.h>
 #include <linux/types.h>
 #include <svcomp.h>
 
@@ -18,11 +18,16 @@
 #define MUTEX_UNLOCKED 0
 #endif
 
+#ifndef MUTEX_LOCKED
+#define MUTEX_LOCKED 1
+#endif
+
 struct mutex
 {
   int init;
   int locked;
 };
+
 
 #define DEFINE_MUTEX(x) struct mutex x = { MUTEX_INITIALIZED, MUTEX_UNLOCKED }
 
@@ -34,11 +39,11 @@ void mutex_init(struct mutex *lock)
 
 void mutex_lock(struct mutex *lock)
 {
-  pthread_t tid = pthread_self();
+  //pthread_t tid = pthread_self();
   //__VERIFIER_assert(tid != lock->locked);
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->locked == MUTEX_UNLOCKED);
-  lock->locked = tid;
+  lock->locked = MUTEX_LOCKED;
   __VERIFIER_atomic_end();
 }
 
@@ -46,11 +51,11 @@ bool mutex_lock_interruptible(struct mutex *lock)
 {
   bool ret = __VERIFIER_nondet_bool();
   if(!ret) {
-    pthread_t tid = pthread_self();
+    //pthread_t tid = pthread_self();
     //__VERIFIER_assert(tid != lock->locked);
     __VERIFIER_atomic_begin();
     __VERIFIER_assume(lock->locked == MUTEX_UNLOCKED);
-    lock->locked = tid;
+    lock->locked = MUTEX_LOCKED;
     __VERIFIER_atomic_end();
   }
   return ret;
@@ -58,7 +63,7 @@ bool mutex_lock_interruptible(struct mutex *lock)
 
 void mutex_unlock(struct mutex *lock)
 {
-  pthread_t tid = pthread_self();
+  //pthread_t tid = pthread_self();
   //__VERIFIER_assert(tid == lock->locked);
   __VERIFIER_atomic_begin();
   lock->locked = MUTEX_UNLOCKED;
