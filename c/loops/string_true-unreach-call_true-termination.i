@@ -18,11 +18,11 @@ int main()
 
   for(i=0; i<5; i++)
     string_A[i]=__VERIFIER_nondet_char();
-  __VERIFIER_assume(string_A[5 -1]=='\0');
+  if (!(string_A[5 -1]=='\0')) return 0;
 
   for(i=0; i<5; i++)
     string_B[i]=__VERIFIER_nondet_char();
-  __VERIFIER_assume(string_B[5 -1]=='\0');
+  if (!(string_B[5 -1]=='\0')) return 0;
 
   nc_A = 0;
   while(string_A[nc_A]!='\0')
@@ -32,7 +32,7 @@ int main()
   while(string_B[nc_B]!='\0')
     nc_B++;
 
-  __VERIFIER_assume(nc_B >= nc_A);
+  if (!(nc_B >= nc_A)) return 0;
 
 
   i=j=0;

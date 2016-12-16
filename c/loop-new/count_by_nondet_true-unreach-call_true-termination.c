@@ -4,7 +4,7 @@ int main() {
     int k = 0;
     while(i < LARGE_INT) {
         int j = __VERIFIER_nondet_int();
-        __VERIFIER_assume(1 <= j && j < LARGE_INT);
+        if (!(1 <= j && j < LARGE_INT)) return 0;
         i = i + j;
         k ++;
     }

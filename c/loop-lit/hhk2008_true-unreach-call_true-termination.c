@@ -7,8 +7,8 @@ int main() {
     int a = __VERIFIER_nondet_int();
     int b = __VERIFIER_nondet_int();
     int res, cnt;
-    __VERIFIER_assume(a <= 1000000);
-    __VERIFIER_assume(0 <= b && b <= 1000000);
+    if (!(a <= 1000000)) return 0;
+    if (!(0 <= b && b <= 1000000)) return 0;
     res = a;
     cnt = b;
     while (cnt > 0) {

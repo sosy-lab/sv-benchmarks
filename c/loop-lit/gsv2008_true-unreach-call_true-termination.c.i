@@ -11,7 +11,7 @@ int main() {
     int x,y;
     x = -50;
     y = __VERIFIER_nondet_int();
-    __VERIFIER_assume(-1000 < y && y < 1000000);
+    if (!(-1000 < y && y < 1000000)) return 0;
     while (x < 0) {
  x = x + y;
  y++;

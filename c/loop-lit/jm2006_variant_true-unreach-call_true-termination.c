@@ -9,8 +9,8 @@ int main() {
     i = __VERIFIER_nondet_int();
     j = __VERIFIER_nondet_int();
 
-    __VERIFIER_assume(i >= 0 && i <= LARGE_INT);
-    __VERIFIER_assume(j >= 0);
+    if (!(i >= 0 && i <= LARGE_INT)) return 0;
+    if (!(j >= 0)) return 0;
     int x = i;
     int y = j;
     int z = 0;

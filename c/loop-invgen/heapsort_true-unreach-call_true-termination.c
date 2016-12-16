@@ -4,7 +4,7 @@ int main( int argc, char *argv[]){
   int n,l,r,i,j;
 
   n = __VERIFIER_nondet_int();
-  __VERIFIER_assume(1 <= n && n <= LARGE_INT);
+  if (!(1 <= n && n <= LARGE_INT)) return 0;
 
 
   l = n/2 + 1;

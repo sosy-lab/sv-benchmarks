@@ -15,11 +15,11 @@ int main()
   unsigned int i;
   for(i=0;i<M;i++) {
     A[i] = __VERIFIER_nondet_int();
-    __VERIFIER_assume(A[i] <= 1000000);
+    if (!(A[i] <= 1000000)) return 0;
   }
   for(i=0;i<M;i++) {
     B[i] = __VERIFIER_nondet_int();
-    __VERIFIER_assume(B[i] <= 1000000);
+    if(!(B[i] <= 1000000)) return 0;
   }
   for(i=0;i<M;i++)
      C[i]=A[i]+B[i];

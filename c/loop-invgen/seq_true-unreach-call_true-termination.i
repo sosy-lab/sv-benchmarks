@@ -13,8 +13,8 @@ int main() {
   int k = 0;
   n0 = __VERIFIER_nondet_int();
   n1 = __VERIFIER_nondet_int();
-  __VERIFIER_assume(-1000000 <= n0 && n0 < 1000000);
-  __VERIFIER_assume(-1000000 <= n1 && n1 < 1000000);
+  if (!(-1000000 <= n0 && n0 < 1000000)) return 0;
+  if (!(-1000000 <= n1 && n1 < 1000000)) return 0;
   while( i0 < n0 ) {
     i0++;
     k++;
