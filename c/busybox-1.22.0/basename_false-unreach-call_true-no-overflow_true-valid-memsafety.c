@@ -375,5 +375,12 @@ int main()
       argv[i][j]=__VERIFIER_nondet_char();
   }
 
-  return __main(argc, argv);
+  int res = __main(argc, argv);
+
+  // Free argv
+  for(int i=0; i<argc; ++i)
+    free(argv[i]);
+  free(argv);
+
+  return res;
 }
