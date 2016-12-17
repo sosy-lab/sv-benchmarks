@@ -14,3 +14,5 @@ pthread-complex/*_false-unreach-call*.i
 pthread-complex/*_true-unreach-call*.i
 pthread-driver-races/*_true-unreach-call*.i
 pthread-driver-races/*_false-unreach-call*.i
+pthread-C-DAC/*_true-unreach-call*.i
+pthread-C-DAC/*_false-unreach-call*.i
