@@ -52,6 +52,8 @@ struct node *create_tree()
         node->value = value;
         nodelast = node;
     }
+    if (node != NULL)
+      node->parent = NULL;
     while (node != NULL) {
         node->left = malloc(sizeof *node);
         if (!node)
@@ -66,6 +68,7 @@ struct node *create_tree()
 }
 
 void free_tree(struct node *node) {
+    struct node *last = NULL;
     while (1) {
         if (node->right == NULL)
             break;
@@ -76,8 +79,10 @@ void free_tree(struct node *node) {
             free(node->left);
         if (node->right)
             free(node->right);
+        last = node;
         node = node->parent;
     }
+    free(last);
 }
 
 int main()
