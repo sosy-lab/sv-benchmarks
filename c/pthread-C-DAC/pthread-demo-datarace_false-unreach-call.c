@@ -51,7 +51,7 @@ int main(void)
 
     if ( pthread_create( &mythread, NULL, thread_function_datarace, NULL) )   // calling thread_function_datarace
     {
-        __VERIFIER_error();
+      exit(-1);
     }
 
     printf("\n\t\t---------------------------------------------------------------------------");
@@ -69,7 +69,7 @@ int main(void)
 
     if ( pthread_join ( mythread, NULL ) )
     {
-        __VERIFIER_error();
+      exit(-1);
     }
     __VERIFIER_assert(myglobal != 40);
     printf("\nValue of myglobal in thread_function_datarace is :  %d\n",myglobal);

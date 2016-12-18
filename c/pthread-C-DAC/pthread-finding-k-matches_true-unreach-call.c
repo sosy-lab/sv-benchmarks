@@ -111,17 +111,17 @@ int main(int argc, char *argv[]) {
     ret_count = pthread_mutex_init(&count_mutex, NULL);
     if(ret_count)
     {
-	  __VERIFIER_error();
+      exit(-1);
     }
     ret_count=pthread_attr_init(&attr);
     if(ret_count)
     {
-         __VERIFIER_error();
+      exit(-1);
     }
     ret_count = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
     if(ret_count)
     {
-         __VERIFIER_error();
+      exit(-1);
     }
   
     for (i=0; i<num_threads; i++) {
@@ -129,7 +129,7 @@ int main(int argc, char *argv[]) {
         ret_count = pthread_create(&threads[i], &attr,find_entries, (void *) &tids[i]);
         if(ret_count)
         {
-            __VERIFIER_error();
+	  exit(-1);
         }
     }
  
@@ -138,7 +138,7 @@ int main(int argc, char *argv[]) {
         ret_count = pthread_join(threads[i], NULL);
         if(ret_count)
         {
-	   __VERIFIER_error();
+	  exit(-1);
         }
     }
     
@@ -154,12 +154,12 @@ int main(int argc, char *argv[]) {
     ret_count = pthread_attr_destroy(&attr);
     if(ret_count)
     {
-        __VERIFIER_error();
+      exit(-1);
     }
     ret_count = pthread_mutex_destroy(&count_mutex);
     if(ret_count)
     {
-         __VERIFIER_error();
+      exit(-1);
     }
     free(threads);
     free(tids);

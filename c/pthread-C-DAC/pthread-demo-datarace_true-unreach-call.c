@@ -59,7 +59,7 @@ int main(void)
 
     if ( pthread_create( &mythread, NULL, thread_function_mutex, NULL) ) // calling thread_function_mutex
     {
-        __VERIFIER_error();
+      exit(-1);
     }
     for ( i=0; i<20; i++)
     {
@@ -70,7 +70,7 @@ int main(void)
     //      fflush(stdout);
     if ( pthread_join ( mythread, NULL ) )
     {
-        __VERIFIER_error();
+      exit(-1);
     }
 
     __VERIFIER_assert(myglobal == 40);

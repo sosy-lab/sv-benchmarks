@@ -1324,7 +1324,7 @@ int main(void)
     int i;
     if ( pthread_create( &mythread, ((void *)0), thread_function_datarace, ((void *)0)) )
     {
-        __VERIFIER_error();
+      exit(-1);
     }
     printf("\n\t\t---------------------------------------------------------------------------");
     printf("\n\t\t Centre for Development of Advanced Computing (C-DAC)");
@@ -1338,7 +1338,7 @@ int main(void)
     }
     if ( pthread_join ( mythread, ((void *)0) ) )
     {
-        __VERIFIER_error();
+      exit(-1);
     }
     __VERIFIER_assert(myglobal != 40);
     printf("\nValue of myglobal in thread_function_datarace is :  %d\n",myglobal);
