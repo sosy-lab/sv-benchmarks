@@ -1331,7 +1331,7 @@ int main(void)
     myglobal = 0;
     if ( pthread_create( &mythread, ((void *)0), thread_function_mutex, ((void *)0)) )
     {
-        __VERIFIER_error();
+      exit(-1);
     }
     for ( i=0; i<20; i++)
     {
@@ -1341,7 +1341,7 @@ int main(void)
     }
     if ( pthread_join ( mythread, ((void *)0) ) )
     {
-        __VERIFIER_error();
+      exit(-1);
     }
     __VERIFIER_assert(myglobal == 40);
     exit(0);

@@ -1339,7 +1339,7 @@ int main(int argc, char *argv[])
     ret_count=pthread_mutex_init(&area_mutex,((void *)0));
     if (ret_count)
     {
-         __VERIFIER_error();
+      exit(-1);
      }
     printf("\n\t\t---------------------------------------------------------------------------");
     printf("\n\t\t Centre for Development of Advanced Computing (C-DAC)");
@@ -1359,7 +1359,7 @@ int main(int argc, char *argv[])
     ret_count=pthread_attr_init(&pta);
     if(ret_count)
     {
-        __VERIFIER_error();
+      exit(-1);
     }
     if (numberOfIntervals == 0)
     {
@@ -1373,7 +1373,7 @@ int main(int argc, char *argv[])
         ret_count=pthread_create(&threads[iCount], &pta, (void *(*) (void *)) myPartOfCalc, (void *) iCount);
         if (ret_count)
         {
-            __VERIFIER_error();
+   exit(-1);
         }
      }
     for (iCount = 0; iCount < numberOfIntervals; iCount++)
@@ -1381,13 +1381,13 @@ int main(int argc, char *argv[])
         ret_count=pthread_join(threads[iCount], ((void *)0));
         if (ret_count)
         {
-            __VERIFIER_error();
+   exit(-1);
         }
     }
     ret_count=pthread_attr_destroy(&pta);
     if (ret_count)
     {
-        __VERIFIER_error();
+      exit(-1);
     }
     printf("\n\t\t Computation Of PI value Using Numerical Integration Method ......Done\n");
     printf("\n\t\t Computed Value Of PI        :  %lf", area);
