@@ -382,7 +382,7 @@ struct super_block {
 extern int fasync_helper(int, struct file *, int, struct fasync_struct **);
 
 struct swap_info_struct;
-enum migrate_mode;
+enum migrate_mode {X};
 
 struct address_space_operations {
   int (*writepage)(struct page *page, struct writeback_control *wbc);
