@@ -1134,7 +1134,8 @@ static void bb_show_usage(void);
 static signed long int full_write(signed int fd, const void *buf, unsigned long int len);
 static char * last_char_is(const char *s, signed int c);
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count);
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 signed int __main(signed int argc, char **argv)
 {
   unsigned long int m;
@@ -1332,6 +1333,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));

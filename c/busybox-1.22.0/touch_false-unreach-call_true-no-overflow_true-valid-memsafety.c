@@ -151,7 +151,8 @@ static const char *applet_long_options;
 // file include/libbb.h line 1708
 static const char *applet_name;
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 // file libbb/messages.c line 26
 static const char bb_msg_invalid_date[18l] = { (const char)105, (const char)110, (const char)118, (const char)97, (const char)108, (const char)105, (const char)100, (const char)32, (const char)100, (const char)97, (const char)116, (const char)101, (const char)32, (const char)39, (const char)37, (const char)115, (const char)39, (const char)0 };
 // file libbb/messages.c line 25
@@ -1508,6 +1509,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
 

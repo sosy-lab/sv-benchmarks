@@ -76,7 +76,8 @@ static const char bb_busybox_exec_path[15l] = { (const char)47, (const char)112,
 // file libbb/messages.c line 39
 static const char bb_default_login_shell[9l] = { (const char)45, (const char)47, (const char)98, (const char)105, (const char)110, (const char)47, (const char)115, (const char)104, (const char)0 };
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 // file libbb/xfunc_die.c line 17
 static struct __jmp_buf_tag die_jmp[1l];
 // file libbb/xfunc_die.c line 15
@@ -373,6 +374,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
 

@@ -2186,7 +2186,8 @@ struct libbb_anonymous$7
   unsigned long int __val[16l];
 };
 static const char *applet_name;
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 static const char bb_msg_memory_exhausted[14l] = { (const char)111, (const char)117, (const char)116, (const char)32, (const char)111, (const char)102, (const char)32, (const char)109, (const char)101, (const char)109, (const char)111, (const char)114, (const char)121, (const char)0 };
 static struct __jmp_buf_tag die_jmp[1l];
 static signed int die_sleep;
@@ -3138,6 +3139,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));

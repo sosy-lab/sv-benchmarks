@@ -2092,7 +2092,8 @@ struct libbb_anonymous$7
 static const char *applet_name;
 static const char bb_busybox_exec_path[15l] = { (const char)47, (const char)112, (const char)114, (const char)111, (const char)99, (const char)47, (const char)115, (const char)101, (const char)108, (const char)102, (const char)47, (const char)101, (const char)120, (const char)101, (const char)0 };
 static const char bb_default_login_shell[9l] = { (const char)45, (const char)47, (const char)98, (const char)105, (const char)110, (const char)47, (const char)115, (const char)104, (const char)0 };
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 static struct __jmp_buf_tag die_jmp[1l];
 static signed int die_sleep;
 static signed char logmode = (signed char)1;
@@ -2325,6 +2326,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));

@@ -2389,7 +2389,8 @@ static char address_fmt[7l] = { (char)37, (char)48, (char)110, (char)108, (char)
 static const char *applet_long_options;
 static const char *applet_name;
 static const char * const bb_argv_dash[2l] = { "-", (const char *)((void *)0) };
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 static const char bb_msg_memory_exhausted[14l] = { (const char)111, (const char)117, (const char)116, (const char)32, (const char)111, (const char)102, (const char)32, (const char)109, (const char)101, (const char)109, (const char)111, (const char)114, (const char)121, (const char)0 };
 static const char bb_msg_standard_input[15l] = { (const char)115, (const char)116, (const char)97, (const char)110, (const char)100, (const char)97, (const char)114, (const char)100, (const char)32, (const char)105, (const char)110, (const char)112, (const char)117, (const char)116, (const char)0 };
 static struct option bb_null_long_options[1l] = { { .name=(const char *)((void *)0), .has_arg=0, .flag=(signed int *)((void *)0), .val=0 } };
@@ -4835,6 +4836,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));
