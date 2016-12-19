@@ -52,8 +52,6 @@ struct node *create_tree()
         node->value = value;
         nodelast = node;
     }
-    if (node != NULL)
-      node->parent = NULL;
     while (node != NULL) {
         node->left = malloc(sizeof *node);
         if (!node)
