@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int expr);
 extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 typedef unsigned char __u_char;
@@ -1361,11 +1362,13 @@ int main(int argc, char *argv[])
     {
       exit(-1);
     }
-    if (numberOfIntervals == 0)
+    __VERIFIER_assume(numberOfIntervals>0);
+    /*if (numberOfIntervals == 0)
     {
         printf("\nNumber of Intervals are assumed to be 8");
         numberOfIntervals = 8;
-    }
+	num_threads = numberOfIntervals ;
+    }*/
     threads = (pthread_t *) malloc(sizeof(pthread_t) * numberOfIntervals);
     intervalWidth = 1.0 / (double) numberOfIntervals;
     for (iCount = 0; iCount < num_threads; iCount++)
