@@ -4211,7 +4211,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 18446744073709547521UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -8425,7 +8425,7 @@ long ldv_is_err(void const   *ptr )
 
 
   {
-  return ((unsigned long )ptr > 4294967295UL);
+  return ((unsigned long )ptr > 18446744073709547521UL);
 }
 }
 void *ldv_err_ptr(long error ) 
@@ -8433,7 +8433,7 @@ void *ldv_err_ptr(long error )
 
 
   {
-  return ((void *)(4294967295L - error));
+  return ((void *)(18446744073709547521UL - error));
 }
 }
 long ldv_ptr_err(void const   *ptr ) 
@@ -8441,7 +8441,7 @@ long ldv_ptr_err(void const   *ptr )
 
 
   {
-  return ((long )(4294967295UL - (unsigned long )ptr));
+  return ((long )(18446744073709547521UL - (unsigned long )ptr));
 }
 }
 long ldv_is_err_or_null(void const   *ptr ) 
