@@ -16,6 +16,9 @@ int main() {
 	int z;
 	y = __VERIFIER_nondet_int();
 	z = __VERIFIER_nondet_int();
+  //prevent overflows
+  if(!(-268435455<=y)) return 0;
+  if(!(-268435455<=z)) return 0;
     if (__VERIFIER_nondet_int() != 0) {
         x = 1;
     } else {

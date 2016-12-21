@@ -15,6 +15,7 @@ void rec(int x, int y) {
 
 int main() {
     int n = __VERIFIER_nondet_int();
+    if(!(n<=2147483646)) return 0;
     rec(n, n + 1);
     return 0;
 }

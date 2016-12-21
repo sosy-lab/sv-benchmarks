@@ -18,5 +18,8 @@ int bsearch(int i, int j)
 int main() {
   int x = __VERIFIER_nondet_int();
   int y = __VERIFIER_nondet_int();
+  //prevent overflows
+  if(!(-1073741823<=x && x<=1073741823)) return 0;
+  if(!(-1073741823<=y && y<=1073741823)) return 0;
   bsearch(x, y);
 }

@@ -17,6 +17,10 @@ int main() {
 	tx = __VERIFIER_nondet_int();
 	x = __VERIFIER_nondet_int();
 	y = __VERIFIER_nondet_int();
+  //prevent overflows
+  if(!(tx<=1073741823)) return 0;
+  if(!(x<=1073741823)) return 0;
+  if(!(y>=-1073741823)) return 0;
 	while (x >= y && tx >= 0) {
 		if (__VERIFIER_nondet_int() != 0) {
 			x = x - 1 - tx;

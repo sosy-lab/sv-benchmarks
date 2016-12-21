@@ -22,5 +22,7 @@ int rec2(int j) {
 
 int main() {
   int x = __VERIFIER_nondet_int();
+  //prevent overflows
+  if(!(x<=2147483646)) return 0;
   rec2(x);
 }

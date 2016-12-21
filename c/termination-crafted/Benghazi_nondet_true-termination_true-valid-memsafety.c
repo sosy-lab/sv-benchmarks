@@ -14,6 +14,10 @@ int main()
     x = __VERIFIER_nondet_int();
     d1 = __VERIFIER_nondet_int();
     d2 = __VERIFIER_nondet_int();
+    //prevent underflows and overflows
+    if(!(-1048575<=x && x<=1048575)) return 0;
+    if(!(-1048575<=d1 && d1<=1048575)) return 0;
+    if(!(-1048575<=d2 && d2<=1048575)) return 0;
 	while (x >= 0) {
 		x = x - d1;
 		d1old = d1;

@@ -14,6 +14,9 @@ int main()
 	int c;
     x = __VERIFIER_nondet_int();
     c = __VERIFIER_nondet_int();
+  //prevent overflows
+    if(!(-65535<=x && x<=65535)) return 0;
+    if(!(-65535<=c && c<=65535)) return 0;
 	if (c < 0) {
     	while (x + c >= 0) {
 	    	x = x - c;
