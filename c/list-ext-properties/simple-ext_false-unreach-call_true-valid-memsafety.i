@@ -649,5 +649,13 @@ int main() {
     p = p->n;
     i++;
   }
+
+  p = a;
+  while (p!=0) {
+    struct node *tmp = p->n;
+    free(p);
+    p = tmp;
+  }
+
   return 0;
 }

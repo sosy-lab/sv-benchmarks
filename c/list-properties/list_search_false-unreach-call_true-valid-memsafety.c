@@ -44,5 +44,11 @@ int main(void){
   insert_list(mylist,3);
   temp = search_list(head,2);
   __VERIFIER_assert(temp->key==1);
+
+  while(head!=0) {
+    mlist *tmp = head->next;
+    free(head);
+    head = tmp;
+  }
 }
 
