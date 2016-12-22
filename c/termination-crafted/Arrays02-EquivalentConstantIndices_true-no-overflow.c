@@ -8,9 +8,7 @@ extern int __VERIFIER_nondet_int(void);
 int main() {
 	int a[1048];
 
-  for (int i = 0; i < 1048; i++) {
-    a[i] = __VERIFIER_nondet_int();
-  }
+	a[2] = __VERIFIER_nondet_int();
 
 	while (a[2] >= 0) {
 		a[2] = a[2] - 1;
