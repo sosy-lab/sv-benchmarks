@@ -2650,18 +2650,10 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 static void display_recoverable(struct termios *mode, signed int dummy)
 {
   signed int i;
-  if(!(mode == ((struct termios *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   printf("%lx:%lx:%lx:%lx", (unsigned long int)mode->c_iflag, (unsigned long int)mode->c_oflag, (unsigned long int)mode->c_cflag, (unsigned long int)mode->c_lflag);
   i = 0;
   for( ; i < 32; i = i + 1)
   {
-    if(!(mode == ((struct termios *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     printf(":%x", (unsigned int)mode->c_cc[(signed long int)i]);
   }
   bb_putchar(10);
@@ -2707,10 +2699,6 @@ static void display_window_size(signed int fancy)
   _Bool tmp_if_expr$1;
   if(!(return_value_get_terminal_width_height$2 == 0))
   {
-    if(!(bb_errno == ((signed int *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!(*bb_errno == 22))
       tmp_if_expr$1 = 1 != 0;
     else
@@ -2733,19 +2721,11 @@ static void do_display(struct termios *mode, signed int all)
   display_speed(mode, 1);
   if(!(all == 0))
     display_window_size(1);
-  if(!(mode == ((struct termios *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   wrapf("line = %u;\n", mode->c_line);
   i = 0;
   for( ; !(i == 15); i = i + 1)
   {
     char ch;
-    if(!(mode == ((struct termios *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(2l * (signed long int)i >= 0l)
       (void)0;
     else
@@ -2763,10 +2743,6 @@ static void do_display(struct termios *mode, signed int all)
     return_value_nth_string$1=nth_string(control_name, i);
     wrapf("%s = %s;", return_value_nth_string$1, (const void *)((struct globals *)&bb_common_bufsiz1)->buf);
   }
-  if(!(mode == ((struct termios *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   wrapf("min = %u; time = %u;", mode->c_cc[(signed long int)6], mode->c_cc[(signed long int)5]);
   newline();
   i = 0;
@@ -2833,10 +2809,6 @@ static void do_display(struct termios *mode, signed int all)
         tmp_if_expr$2 = mode_info[(signed long int)i].bits;
       }
       mask = (unsigned long int)tmp_if_expr$2;
-      if(!(bitsp == ((unsigned int *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if(8l * (signed long int)i >= 0l)
         (void)0;
       else
@@ -3077,25 +3049,9 @@ static signed int recover_mode(const char *arg, struct termios *mode)
   return_value_sscanf$1=sscanf(arg, "%lx:%lx:%lx:%lx%n", &iflag, &oflag, &cflag, &lflag, &n);
   if(!(return_value_sscanf$1 == 4))
     return 0;
-  if(!(mode == ((struct termios *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   mode->c_iflag = (unsigned int)iflag;
-  if(!(mode == ((struct termios *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   mode->c_oflag = (unsigned int)oflag;
-  if(!(mode == ((struct termios *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   mode->c_cflag = (unsigned int)cflag;
-  if(!(mode == ((struct termios *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   mode->c_lflag = (unsigned int)lflag;
   arg = arg + (signed long int)n;
   i = 0;
@@ -3105,17 +3061,9 @@ static signed int recover_mode(const char *arg, struct termios *mode)
     return_value_sscanf$2=sscanf(arg, ":%x%n", &chr, &n);
     if(!(return_value_sscanf$2 == 1))
       return 0;
-    if(!(mode == ((struct termios *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     mode->c_cc[(signed long int)i] = (unsigned char)chr;
     arg = arg + (signed long int)n;
   }
-  if(!(arg == ((const char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!((signed int)*arg == 0))
     return 0;
   return 1;
@@ -3140,10 +3088,6 @@ static void sane_mode(struct termios *mode)
   signed int i = 0;
   for( ; i < 17; i = i + 1)
   {
-    if(!(mode == ((struct termios *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(2l * (signed long int)i >= 0l)
       (void)0;
     else
@@ -3170,10 +3114,6 @@ static void sane_mode(struct termios *mode)
     bitsp=get_ptr_to_tcflag((unsigned int)mode_info[(signed long int)i].type, mode);
     if(!(bitsp == ((unsigned int *)((void *)0))))
     {
-      if(!(bitsp == ((unsigned int *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if(8l * (signed long int)i >= 0l)
         (void)0;
       else
@@ -3197,10 +3137,6 @@ static void sane_mode(struct termios *mode)
           __VERIFIER_error();
         if(!((2 & (signed int)mode_info[(signed long int)i].flags) == 0))
         {
-          if(!(bitsp == ((unsigned int *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           *bitsp = val & ~mode_info[(signed long int)i].bits;
         }
       }
@@ -3236,26 +3172,14 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
   }
   else
   {
-    if(!(arg == ((const char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*arg == 0)
       tmp_if_expr$14 = 1 != 0;
     else
     {
-      if(!(arg == ((const char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$14 = ((signed int)arg[(signed long int)1] == 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$14 == (_Bool)0))
     {
-      if(!(arg == ((const char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       value = arg[(signed long int)0];
     }
     else
@@ -3279,50 +3203,22 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
       {
         const unsigned char *__s2 = (const char *)arg;
         signed int __result;
-        if(!(__s2 == ((const unsigned char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         __result = (signed int)((const char *)"^-")[(signed long int)0] - (signed int)__s2[(signed long int)0];
         if(set_control_char_or_die$$1$$1$$__s2_len > 0ul)
         {
           if(__result == 0)
           {
-            if(!("^-" == ((const char *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
-            if(!(__s2 == ((const unsigned char *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
             __result = (signed int)((const char *)"^-")[(signed long int)1] - (signed int)__s2[(signed long int)1];
             if(set_control_char_or_die$$1$$1$$__s2_len > 1ul)
             {
               if(__result == 0)
               {
-                if(!("^-" == ((const char *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
-                if(!(__s2 == ((const unsigned char *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
                 __result = (signed int)((const char *)"^-")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                 if(set_control_char_or_die$$1$$1$$__s2_len > 2ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("^-" == ((const char *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     __VERIFIER_error();
-                    if(!(__s2 == ((const unsigned char *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     __result = (signed int)((const char *)"^-")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
                 }
@@ -3362,49 +3258,21 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
         {
           const unsigned char *set_control_char_or_die$$1$$2$$2$$__s2 = (const char *)arg;
           signed int set_control_char_or_die$$1$$2$$2$$__result;
-          if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           set_control_char_or_die$$1$$2$$2$$__result = (signed int)((const char *)"undef")[(signed long int)0] - (signed int)set_control_char_or_die$$1$$2$$2$$__s2[(signed long int)0];
           if(__s2_len > 0ul)
           {
             if(set_control_char_or_die$$1$$2$$2$$__result == 0)
             {
-              if(!("undef" == ((const char *)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
-              if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
               set_control_char_or_die$$1$$2$$2$$__result = (signed int)((const char *)"undef")[(signed long int)1] - (signed int)set_control_char_or_die$$1$$2$$2$$__s2[(signed long int)1];
               if(__s2_len > 1ul)
               {
                 if(set_control_char_or_die$$1$$2$$2$$__result == 0)
                 {
-                  if(!("undef" == ((const char *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
-                  if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
                   set_control_char_or_die$$1$$2$$2$$__result = (signed int)((const char *)"undef")[(signed long int)2] - (signed int)set_control_char_or_die$$1$$2$$2$$__s2[(signed long int)2];
                   if(__s2_len > 2ul)
                   {
                     if(set_control_char_or_die$$1$$2$$2$$__result == 0)
                     {
-                      if(!("undef" == ((const char *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
-                      if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       set_control_char_or_die$$1$$2$$2$$__result = (signed int)((const char *)"undef")[(signed long int)3] - (signed int)set_control_char_or_die$$1$$2$$2$$__s2[(signed long int)3];
                     }
                   }
@@ -3427,16 +3295,8 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
         value = (unsigned char)0;
       else
       {
-        if(!(arg == ((const char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if((signed int)*arg == 94)
         {
-          if(!(arg == ((const char *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           value = (unsigned char)((signed int)arg[(signed long int)1] & 31);
           if((signed int)*(1l + arg) == 63)
             value = (unsigned char)127;
@@ -3449,48 +3309,20 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
       }
     }
   }
-  if(!(mode == ((struct termios *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
-  if(!(info == ((struct control_info *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   mode->c_cc[(signed long int)info->offset] = value;
 }
 static void set_mode(struct mode_info *info, signed int reversed, struct termios *mode)
 {
   unsigned int *bitsp;
-  if(!(info == ((struct mode_info *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   bitsp=get_ptr_to_tcflag((unsigned int)info->type, mode);
   if(!(bitsp == ((unsigned int *)((void *)0))))
   {
     unsigned int val;
-    if(!(bitsp == ((unsigned int *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(info == ((struct mode_info *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     val = *bitsp & (unsigned int)~((signed int)info->mask);
     if(!(reversed == 0))
       *bitsp = val & ~info->bits;
     else
     {
-      if(!(bitsp == ((unsigned int *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(info == ((struct mode_info *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       *bitsp = val | info->bits;
     }
     return;
@@ -3507,18 +3339,10 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
   {
     if(!(reversed == 0))
     {
-      if(!(mode == ((struct termios *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       mode->c_cflag = mode->c_cflag & (unsigned int)~256 & (unsigned int)~48 | (unsigned int)48;
     }
     else
     {
-      if(!(mode == ((struct termios *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       mode->c_cflag = mode->c_cflag & (unsigned int)~512 & (unsigned int)~48 | (unsigned int)256 | (unsigned int)32;
     }
   }
@@ -3527,18 +3351,10 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
     {
       if(!(reversed == 0))
       {
-        if(!(mode == ((struct termios *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         mode->c_cflag = mode->c_cflag & (unsigned int)~256 & (unsigned int)~48 | (unsigned int)48;
       }
       else
       {
-        if(!(mode == ((struct termios *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         mode->c_cflag = mode->c_cflag & (unsigned int)~48 | (unsigned int)32 | (unsigned int)512 | (unsigned int)256;
       }
     }
@@ -3547,43 +3363,19 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
       {
         if(!(reversed == 0))
         {
-          if(!(mode == ((struct termios *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           mode->c_iflag = (mode->c_iflag | (unsigned int)256) & (unsigned int)~64 & (unsigned int)~128;
-          if(!(mode == ((struct termios *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           mode->c_oflag = (mode->c_oflag | (unsigned int)4) & (unsigned int)~8 & (unsigned int)~32;
         }
         else
         {
-          if(!(mode == ((struct termios *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           mode->c_iflag = mode->c_iflag & (unsigned int)~256;
-          if(!(mode == ((struct termios *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           mode->c_oflag = mode->c_oflag & (unsigned int)~4;
         }
       }
       else
         if(info == mode_info + 4l)
         {
-          if(!(mode == ((struct termios *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           mode->c_cc[(signed long int)2] = (unsigned char)127;
-          if(!(mode == ((struct termios *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           mode->c_cc[(signed long int)3] = (unsigned char)(117 & 31);
         }
         else
@@ -3594,18 +3386,10 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
             {
               if(!(reversed == 0))
               {
-                if(!(mode == ((struct termios *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
                 mode->c_lflag = mode->c_lflag | (unsigned int)2;
               }
               else
               {
-                if(!(mode == ((struct termios *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
                 mode->c_lflag = mode->c_lflag & (unsigned int)~2;
               }
             }
@@ -3614,28 +3398,12 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
               {
                 if(!(reversed == 0))
                 {
-                  if(!(mode == ((struct termios *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
                   mode->c_cflag = mode->c_cflag & (unsigned int)~48 | (unsigned int)32 | (unsigned int)256;
-                  if(!(mode == ((struct termios *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
                   mode->c_iflag = mode->c_iflag | (unsigned int)32;
                 }
                 else
                 {
-                  if(!(mode == ((struct termios *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
                   mode->c_cflag = mode->c_cflag & (unsigned int)~256 & (unsigned int)~48 | (unsigned int)48;
-                  if(!(mode == ((struct termios *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
                   mode->c_iflag = mode->c_iflag & (unsigned int)~32;
                 }
               }
@@ -3644,38 +3412,14 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
                 {
                   if(!(reversed == 0))
                   {
-                    if(!(mode == ((struct termios *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     mode->c_cflag = mode->c_cflag & (unsigned int)~48 | (unsigned int)32 | (unsigned int)256;
-                    if(!(mode == ((struct termios *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     mode->c_iflag = mode->c_iflag | (unsigned int)32;
-                    if(!(mode == ((struct termios *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     mode->c_oflag = mode->c_oflag | (unsigned int)1;
                   }
                   else
                   {
-                    if(!(mode == ((struct termios *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     mode->c_cflag = mode->c_cflag & (unsigned int)~256 & (unsigned int)~48 | (unsigned int)48;
-                    if(!(mode == ((struct termios *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     mode->c_iflag = mode->c_iflag & (unsigned int)~32;
-                    if(!(mode == ((struct termios *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     mode->c_oflag = mode->c_oflag & (unsigned int)~1;
                   }
                 }
@@ -3693,48 +3437,16 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
                       tmp_if_expr$1 = ((info == &mode_info[(signed long int)6] ? (!(reversed != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) : (signed int)(0 != 0)) != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
                     if(!(tmp_if_expr$1 == (_Bool)0))
                     {
-                      if(!(mode == ((struct termios *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       mode->c_iflag = mode->c_iflag | (unsigned int)(2 | 4 | 32 | 256 | 1024);
-                      if(!(mode == ((struct termios *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       mode->c_oflag = mode->c_oflag | (unsigned int)1;
-                      if(!(mode == ((struct termios *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       mode->c_lflag = mode->c_lflag | (unsigned int)(1 | 2);
                     }
                     else
                     {
-                      if(!(mode == ((struct termios *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       mode->c_iflag = (unsigned int)0;
-                      if(!(mode == ((struct termios *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       mode->c_oflag = mode->c_oflag & (unsigned int)~1;
-                      if(!(mode == ((struct termios *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       mode->c_lflag = mode->c_lflag & (unsigned int)~(1 | 2 | 4);
-                      if(!(mode == ((struct termios *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       mode->c_cc[(signed long int)6] = (unsigned char)1;
-                      if(!(mode == ((struct termios *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       mode->c_cc[(signed long int)5] = (unsigned char)0;
                     }
                   }
@@ -3743,18 +3455,10 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
                     {
                       if(!(reversed == 0))
                       {
-                        if(!(mode == ((struct termios *)((void *)0))))
-                          (void)0;
-                        else
-                          __VERIFIER_error();
                         mode->c_iflag = mode->c_iflag | (unsigned int)2048;
                       }
                       else
                       {
-                        if(!(mode == ((struct termios *)((void *)0))))
-                          (void)0;
-                        else
-                          __VERIFIER_error();
                         mode->c_iflag = mode->c_iflag & (unsigned int)~2048;
                       }
                     }
@@ -3763,18 +3467,10 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
                       {
                         if(!(reversed == 0))
                         {
-                          if(!(mode == ((struct termios *)((void *)0))))
-                            (void)0;
-                          else
-                            __VERIFIER_error();
                           mode->c_oflag = mode->c_oflag & (unsigned int)~6144 | (unsigned int)6144;
                         }
                         else
                         {
-                          if(!(mode == ((struct termios *)((void *)0))))
-                            (void)0;
-                          else
-                            __VERIFIER_error();
                           mode->c_oflag = mode->c_oflag & (unsigned int)~6144 | (unsigned int)0;
                         }
                       }
@@ -3788,77 +3484,29 @@ static void set_mode(struct mode_info *info, signed int reversed, struct termios
                         {
                           if(!(reversed == 0))
                           {
-                            if(!(mode == ((struct termios *)((void *)0))))
-                              (void)0;
-                            else
-                              __VERIFIER_error();
                             mode->c_lflag = mode->c_lflag & (unsigned int)~4;
-                            if(!(mode == ((struct termios *)((void *)0))))
-                              (void)0;
-                            else
-                              __VERIFIER_error();
                             mode->c_iflag = mode->c_iflag & (unsigned int)~512;
-                            if(!(mode == ((struct termios *)((void *)0))))
-                              (void)0;
-                            else
-                              __VERIFIER_error();
                             mode->c_oflag = mode->c_oflag & (unsigned int)~2;
                           }
                           else
                           {
-                            if(!(mode == ((struct termios *)((void *)0))))
-                              (void)0;
-                            else
-                              __VERIFIER_error();
                             mode->c_lflag = mode->c_lflag | (unsigned int)4;
-                            if(!(mode == ((struct termios *)((void *)0))))
-                              (void)0;
-                            else
-                              __VERIFIER_error();
                             mode->c_iflag = mode->c_iflag | (unsigned int)512;
-                            if(!(mode == ((struct termios *)((void *)0))))
-                              (void)0;
-                            else
-                              __VERIFIER_error();
                             mode->c_oflag = mode->c_oflag | (unsigned int)2;
                           }
                         }
                         else
                           if(info == mode_info + 11l)
                           {
-                            if(!(mode == ((struct termios *)((void *)0))))
-                              (void)0;
-                            else
-                              __VERIFIER_error();
                             mode->c_lflag = mode->c_lflag | (unsigned int)(16 | 512 | 2048);
                           }
                           else
                             if(info == mode_info + 12l)
                             {
-                              if(!(mode == ((struct termios *)((void *)0))))
-                                (void)0;
-                              else
-                                __VERIFIER_error();
                               mode->c_cc[(signed long int)0] = (unsigned char)3;
-                              if(!(mode == ((struct termios *)((void *)0))))
-                                (void)0;
-                              else
-                                __VERIFIER_error();
                               mode->c_cc[(signed long int)2] = (unsigned char)127;
-                              if(!(mode == ((struct termios *)((void *)0))))
-                                (void)0;
-                              else
-                                __VERIFIER_error();
                               mode->c_cc[(signed long int)3] = (unsigned char)21;
-                              if(!(mode == ((struct termios *)((void *)0))))
-                                (void)0;
-                              else
-                                __VERIFIER_error();
                               mode->c_lflag = mode->c_lflag | (unsigned int)(16 | 512 | 2048);
-                              if(!(mode == ((struct termios *)((void *)0))))
-                                (void)0;
-                              else
-                                __VERIFIER_error();
                               mode->c_iflag = mode->c_iflag & (unsigned int)~2048;
                             }
                       }
@@ -3883,10 +3531,6 @@ static void set_window_size(signed int rows, signed int cols)
   return_value_ioctl$1=ioctl(0, (unsigned long int)21523, &win);
   if(!(return_value_ioctl$1 == 0))
   {
-    if(!(bb_errno == ((signed int *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*bb_errno != 22)
       goto bail;
     memset((void *)&win, 0, sizeof(struct winsize) );
@@ -3924,36 +3568,20 @@ signed int __main(signed int argc, char **argv)
   do
   {
     k = k + 1;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(argv[(signed long int)k] == ((char *)((void *)0)))
       break;
     struct mode_info *mp;
     struct control_info *stty_main$$1$$2$$cp;
     const char *stty_main$$1$$2$$arg = argv[(signed long int)k];
     const char *stty_main$$1$$2$$argnext;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     stty_main$$1$$2$$argnext = argv[(signed long int)(k + 1)];
     signed int stty_main$$1$$2$$param;
-    if(!(stty_main$$1$$2$$arg == ((const char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*stty_main$$1$$2$$arg == 45)
     {
       signed int i;
       mp=find_mode(stty_main$$1$$2$$arg + (signed long int)1);
       if(!(mp == ((struct mode_info *)((void *)0))))
       {
-        if(!(mp == ((struct mode_info *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if((4 & (signed int)mp->flags) == 0)
           goto invalid_argument;
         stty_state = stty_state & ~(1 << 4);
@@ -3963,10 +3591,6 @@ signed int __main(signed int argc, char **argv)
       do
       {
         i = i + 1;
-        if(!(stty_main$$1$$2$$arg == ((const char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if((signed int)stty_main$$1$$2$$arg[(signed long int)i] == 0)
           break;
         if(!((signed int)stty_main$$1$$2$$arg[(signed long int)i] == 97))
@@ -3992,10 +3616,6 @@ signed int __main(signed int argc, char **argv)
           if(!(file_name == ((const char *)((void *)0))))
             bb_error_msg_and_die("only one device may be specified");
           file_name = &stty_main$$1$$2$$arg[(signed long int)(i + 1)];
-          if(!(file_name == ((const char *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           if((signed int)*file_name == 0)
           {
             signed int p = k + 1;
@@ -4004,16 +3624,8 @@ signed int __main(signed int argc, char **argv)
               bb_error_msg_and_die(bb_msg_requires_arg, (const void *)"-F");
             while((_Bool)1)
             {
-              if(!(argv == ((char **)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
               if(argv[(signed long int)p] == ((char *)((void *)0)))
                 break;
-              if(!(argv == ((char **)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
               argv[(signed long int)p] = argv[(signed long int)(p + 1)];
               p = p + 1;
             }
@@ -4138,26 +3750,14 @@ signed int __main(signed int argc, char **argv)
   do
   {
     k = k + 1;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(argv[(signed long int)k] == ((char *)((void *)0)))
       break;
     struct mode_info *stty_main$$1$$7$$mp;
     struct control_info *cp;
     const char *arg = argv[(signed long int)k];
     const char *argnext;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     argnext = argv[(signed long int)(k + 1)];
     signed int param;
-    if(!(arg == ((const char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*arg == 45)
     {
       stty_main$$1$$7$$mp=find_mode(arg + (signed long int)1);

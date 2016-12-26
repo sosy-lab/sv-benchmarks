@@ -2807,24 +2807,12 @@ signed int __main(signed int argc, char **argv)
   if(print_type == 0u)
     print_type = (unsigned int)(1 << 0 | 1 << 1 | 1 << 3);
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *argv = (char *)bb_msg_standard_input;
     fname_fmt = "\n";
   }
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*(1l + argv) == ((char *)((void *)0)))
   {
     if((4294967295u + print_type & print_type) == 0u)
@@ -2838,10 +2826,6 @@ signed int __main(signed int argc, char **argv)
   {
     tmp_post$1 = argv;
     argv = argv + 1l;
-    if(!(tmp_post$1 == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     arg = *tmp_post$1;
     if(arg == ((const char *)((void *)0)))
       break;

@@ -47,12 +47,7 @@ signed int __main(signed int argc, char **argv)
   unsigned long int m;
   unsigned long int n;
   char *s;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   signed int tmp_statement_expression$1;
   _Bool tmp_if_expr$2;
   signed int tmp_if_expr$5;
@@ -81,73 +76,33 @@ signed int __main(signed int argc, char **argv)
     if(!(tmp_if_expr$2 == (_Bool)0))
     {
       const unsigned char *__s2;
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       __s2 = (const char *)argv[(signed long int)1];
       signed int __result;
-      if(!(__s2 == ((const unsigned char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-        __VERIFIER_error();
       __result = (signed int)((const char *)"--")[(signed long int)0] - (signed int)__s2[(signed long int)0];
       if(__s2_len > 0ul)
       {
         if(__result == 0)
         {
-          if(!("--" == ((const char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !("--" == ((const unsigned char *)((void*)0))) */
-            __VERIFIER_error();
-          if(!(__s2 == ((const unsigned char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-            __VERIFIER_error();
           __result = (signed int)((const char *)"--")[(signed long int)1] - (signed int)__s2[(signed long int)1];
           if(__s2_len > 1ul)
           {
             if(__result == 0)
             {
-              if(!("--" == ((const char *)NULL)))
-                (void)0;
 
-              else
-                /* assertion !("--" == ((const unsigned char *)((void*)0))) */
-                __VERIFIER_error();
-              if(!(__s2 == ((const unsigned char *)NULL)))
-                (void)0;
 
-              else
-                /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                __VERIFIER_error();
               __result = (signed int)((const char *)"--")[(signed long int)2] - (signed int)__s2[(signed long int)2];
               if(__s2_len > 2ul)
               {
                 if(__result == 0)
                 {
-                  if(!("--" == ((const char *)NULL)))
-                    (void)0;
 
-                  else
-                    /* assertion !("--" == ((const unsigned char *)((void*)0))) */
-                    __VERIFIER_error();
                   /* assertion (_Bool)0 */
                   __VERIFIER_error();
-                  if(!(__s2 == ((const unsigned char *)NULL)))
-                    (void)0;
 
-                  else
-                    /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                    __VERIFIER_error();
                   __result = (signed int)((const char *)"--")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                 }
 
@@ -167,12 +122,7 @@ signed int __main(signed int argc, char **argv)
 
     else
     {
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       return_value___builtin_strcmp$4=__builtin_strcmp(argv[(signed long int)1], "--");
       tmp_if_expr$5 = return_value___builtin_strcmp$4;
     }
@@ -189,21 +139,11 @@ signed int __main(signed int argc, char **argv)
     bb_show_usage();
 
   argv = argv + 1l;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   s=bb_get_last_path_component_strip(*argv);
   m=strlen(s);
   argv = argv + 1l;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   signed int tmp_statement_expression$6;
   if(!(*argv == ((char *)NULL)))
   {
@@ -213,12 +153,7 @@ signed int __main(signed int argc, char **argv)
       unsigned long int __s1_len;
       unsigned long int basename_main$$1$$4$$1$$__s2_len;
       signed int return_value___builtin_strcmp$7;
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       return_value___builtin_strcmp$7=__builtin_strcmp((s + (signed long int)m) - (signed long int)n, *argv);
       tmp_statement_expression$6 = return_value___builtin_strcmp$7;
       if(tmp_statement_expression$6 == 0)
@@ -230,12 +165,7 @@ signed int __main(signed int argc, char **argv)
 
   unsigned long int tmp_post$8 = m;
   m = m + 1ul;
-  if(!(s == ((char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(s == ((char *)((void*)0))) */
-    __VERIFIER_error();
   s[(signed long int)tmp_post$8] = (char)10;
   signed long int return_value_full_write$9;
   return_value_full_write$9=full_write(1, (const void *)s, m);

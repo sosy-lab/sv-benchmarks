@@ -447,40 +447,20 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
     if(!((3u & option_mask32) == 0u))
       for( ; !(cl_pos >= nlists); cl_pos = cl_pos + 1u)
       {
-        if(!(cut_lists == ((struct cut_list *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-          __VERIFIER_error();
         spos = (cut_lists + (signed long int)cl_pos)->startpos;
         while(!(spos >= linelen))
         {
-          if(!(printed == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(printed == ((char *)((void*)0))) */
-            __VERIFIER_error();
           if((signed int)printed[(signed long int)spos] == 0)
           {
             printed[(signed long int)spos] = (char)88;
-            if(!(line == ((char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(line == ((char *)((void*)0))) */
-              __VERIFIER_error();
             putchar((signed int)line[(signed long int)spos]);
           }
 
           spos = spos + 1;
-          if(!(cut_lists == ((struct cut_list *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-            __VERIFIER_error();
           if(!((cut_lists + (signed long int)cl_pos)->endpos >= spos))
             break;
 
@@ -490,12 +470,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
     else
       if((signed int)delim == 10)
       {
-        if(!(cut_lists == ((struct cut_list *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-          __VERIFIER_error();
         spos = (cut_lists + (signed long int)cl_pos)->startpos;
         if(cl_pos >= nlists || !((signed int)linenum >= spos))
           goto next_line;
@@ -503,23 +478,13 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
         while(!(spos >= (signed int)linenum))
         {
           spos = spos + 1;
-          if(!(cut_lists == ((struct cut_list *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-            __VERIFIER_error();
           if(!((cut_lists + (signed long int)cl_pos)->endpos >= spos))
             tmp_if_expr$3 = 1 != 0;
 
           else
           {
-            if(!(cut_lists == ((struct cut_list *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-              __VERIFIER_error();
             tmp_if_expr$3 = ((cut_lists + (signed long int)cl_pos)->endpos == -1 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
           if(!(tmp_if_expr$3 == (_Bool)0))
@@ -528,12 +493,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
             if(cl_pos >= nlists)
               goto next_line;
 
-            if(!(cut_lists == ((struct cut_list *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-              __VERIFIER_error();
             spos = (cut_lists + (signed long int)cl_pos)->startpos;
             if(!((signed int)linenum >= spos))
               goto next_line;
@@ -565,12 +525,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
 
         for( ; !(line == ((char *)NULL)) && !(cl_pos >= nlists); cl_pos = cl_pos + 1u)
         {
-          if(!(cut_lists == ((struct cut_list *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-            __VERIFIER_error();
           spos = (cut_lists + (signed long int)cl_pos)->startpos;
           do
           {
@@ -593,24 +548,14 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           {
             if(ndelim == spos)
             {
-              if(!(printed == ((char *)NULL)))
-                (void)0;
 
-              else
-                /* assertion !(printed == ((char *)((void*)0))) */
-                __VERIFIER_error();
               if((signed int)printed[(signed long int)ndelim] == 0)
               {
                 if(nfields_printed > 0)
                   putchar((signed int)delim);
 
                 fputs(field, stdout);
-                if(!(printed == ((char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !(printed == ((char *)((void*)0))) */
-                  __VERIFIER_error();
                 printed[(signed long int)ndelim] = (char)88;
                 nfields_printed = nfields_printed + 1;
               }
@@ -620,12 +565,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           }
 
           spos = spos + 1;
-          if(!(cut_lists == ((struct cut_list *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-            __VERIFIER_error();
           if((cut_lists + (signed long int)cl_pos)->endpos >= spos && !(line == ((char *)NULL)))
             tmp_if_expr$5 = ((cut_lists + (signed long int)cl_pos)->endpos != -1 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
 
@@ -666,31 +606,16 @@ signed int __main(signed int argc, char **argv)
 
   if(!((8u & opt) == 0u))
   {
-    if(!(ltok == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(ltok == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if(!((signed int)*ltok == 0))
     {
-      if(!(ltok == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(ltok == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if(!((signed int)*(1l + ltok) == 0))
         bb_error_msg_and_die("the delimiter must be a single character");
 
     }
 
-    if(!(ltok == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(ltok == ((char *)((void*)0))) */
-      __VERIFIER_error();
     delim = ltok[(signed long int)0];
   }
 
@@ -724,21 +649,11 @@ signed int __main(signed int argc, char **argv)
     if(ltok == ((char *)NULL))
       break;
 
-    if(!(ltok == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(ltok == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if(!((signed int)*ltok == 0))
     {
       ntok = strsep(&ltok, "-");
-      if(!(ntok == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(ntok == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)*ntok == 0)
         s = 0;
 
@@ -754,12 +669,7 @@ signed int __main(signed int argc, char **argv)
 
       else
       {
-        if(!(ltok == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(ltok == ((char *)((void*)0))) */
-          __VERIFIER_error();
         if((signed int)*ltok == 0)
           e = 2147483647;
 
@@ -778,19 +688,9 @@ signed int __main(signed int argc, char **argv)
       void *return_value_xrealloc_vector_helper$11;
       return_value_xrealloc_vector_helper$11=xrealloc_vector_helper((void *)cut_lists, (unsigned int)((sizeof(struct cut_list) /*8ul*/  << 8) + (unsigned long int)4), (signed int)nlists);
       cut_lists = (struct cut_list *)return_value_xrealloc_vector_helper$11;
-      if(!(cut_lists == ((struct cut_list *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-        __VERIFIER_error();
       (cut_lists + (signed long int)nlists)->startpos = s;
-      if(!(cut_lists == ((struct cut_list *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-        __VERIFIER_error();
       (cut_lists + (signed long int)nlists)->endpos = e;
       nlists = nlists + 1u;
     }
@@ -802,33 +702,18 @@ signed int __main(signed int argc, char **argv)
 
   qsort((void *)cut_lists, (unsigned long int)nlists, sizeof(struct cut_list) /*8ul*/ , cmpfunc);
   signed int retval = 0;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     *argv = (char *)"-";
   }
 
   do
   {
     struct _IO_FILE *file;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     file=fopen_or_warn_stdin(*argv);
     if(file == ((struct _IO_FILE *)NULL))
       retval = 1;
@@ -839,12 +724,7 @@ signed int __main(signed int argc, char **argv)
       fclose_if_not_stdin(file);
     }
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)NULL)));
   fflush_stdout_and_exit(retval);

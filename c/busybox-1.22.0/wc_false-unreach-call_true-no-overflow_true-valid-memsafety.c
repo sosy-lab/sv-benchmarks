@@ -997,31 +997,16 @@ signed int __main(signed int argc, char **argv)
     print_type = (unsigned int)(1 << 0 | 1 << 1 | 1 << 3);
 
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     *argv = (char *)bb_msg_standard_input;
     fname_fmt = "\n";
   }
 
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*(1l + argv) == ((char *)NULL))
   {
     if((4294967295u + print_type & print_type) == 0u)
@@ -1037,12 +1022,7 @@ signed int __main(signed int argc, char **argv)
   {
     tmp_post$1 = argv;
     argv = argv + 1l;
-    if(!(tmp_post$1 == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(tmp_post$1 == ((char **)((void*)0))) */
-      __VERIFIER_error();
     arg = *tmp_post$1;
     if(arg == ((const char *)NULL))
       break;

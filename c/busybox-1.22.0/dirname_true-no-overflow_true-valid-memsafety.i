@@ -1,7 +1,6 @@
 extern int __VERIFIER_nondet_int(void);
 extern char __VERIFIER_nondet_char(void);
 extern void __VERIFIER_assume(int);
-extern void __VERIFIER_error(void);
 
 extern char *dirname (char *__path) __attribute__ ((__nothrow__ , __leaf__));
 extern char *__xpg_basename (char *__path) __attribute__ ((__nothrow__ , __leaf__));

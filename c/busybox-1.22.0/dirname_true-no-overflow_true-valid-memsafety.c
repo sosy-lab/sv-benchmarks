@@ -16,7 +16,6 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
 #include <libgen.h>
 #include <libio.h>
 #include <stdio.h>

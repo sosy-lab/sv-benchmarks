@@ -1223,12 +1223,7 @@ signed int __main(signed int argc, char **argv)
   return_value_getopt32$1=getopt32(argv, "cr:d:t:hfma", &reference_file, &date_str, &date_str);
   opts = (signed int)return_value_getopt32$1;
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
     bb_show_usage();
 
@@ -1282,32 +1277,17 @@ signed int __main(signed int argc, char **argv)
     else
       /* assertion !(((16 & opts) != 0 ? lutimes : utimes) == ((signed int (*)(const char *, struct timeval *))((void*)0))) */
       __VERIFIER_error();
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     result=((opts & 16) != 0 ? lutimes : utimes)(*argv, tmp_if_expr$2);
     if(!(result == 0))
     {
-      if(!(bb_errno == ((signed int *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-        __VERIFIER_error();
       if(*bb_errno == 2)
       {
         if(!((1 & opts) == 0))
           goto __CPROVER_DUMP_L25;
 
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
         fd=open(*argv, 2 | 64, 438);
         if(!(fd >= 0))
           goto __CPROVER_DUMP_L22;
@@ -1325,12 +1305,7 @@ signed int __main(signed int argc, char **argv)
 
         __CPROVER_DUMP_L18:
           ;
-          if(!(argv == ((char **)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(argv == ((char **)((void*)0))) */
-            __VERIFIER_error();
           utimes(*argv, timebuf);
         }
       }
@@ -1341,12 +1316,7 @@ signed int __main(signed int argc, char **argv)
       __CPROVER_DUMP_L22:
         ;
         status = 1;
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
         bb_simple_perror_msg(*argv);
       }
     }
@@ -1354,12 +1324,7 @@ signed int __main(signed int argc, char **argv)
   __CPROVER_DUMP_L25:
     ;
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)NULL)));
   return status;

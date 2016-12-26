@@ -2203,15 +2203,7 @@ static signed long int arithmetic_common(struct valinfo *l, struct valinfo *r, s
   }
   if(!(tmp_if_expr$3 == (_Bool)0))
     bb_error_msg_and_die("non-numeric argument");
-  if(!(l == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   li = l->u.i;
-  if(!(r == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   ri = r->u.i;
   if(op == 43)
     return li + ri;
@@ -2349,25 +2341,13 @@ static signed int cmp_common(struct valinfo *l, struct valinfo *r, signed int op
 {
   signed long int ll;
   signed long int rr;
-  if(!(l == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   ll = l->u.i;
-  if(!(r == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   rr = r->u.i;
   _Bool tmp_if_expr$3;
   if((signed int)l->type == 1)
     tmp_if_expr$3 = 1 != 0;
   else
   {
-    if(!(r == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     tmp_if_expr$3 = ((signed int)r->type == 1 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }
   signed long int tmp_statement_expression$1;
@@ -2378,14 +2358,6 @@ static signed int cmp_common(struct valinfo *l, struct valinfo *r, signed int op
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    if(!(l == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(r == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value___builtin_strcmp$2=__builtin_strcmp(l->u.s, r->u.s);
     tmp_statement_expression$1 = (signed long int)return_value___builtin_strcmp$2;
     ll = tmp_statement_expression$1;
@@ -2419,28 +2391,12 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
   regmatch_t re_regs[2l];
   tostring(sv);
   tostring(pv);
-  if(!(pv == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
-  if(!(pv->u.s == ((char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)*pv->u.s == 94)
     bb_error_msg("warning: '%s': using '^' as the first character\nof a basic regular expression is not portable; it is ignored", pv->u.s);
   memset((void *)&re_buffer, 0, sizeof(struct re_pattern_buffer) );
   memset((void *)re_regs, 0, sizeof(regmatch_t [2l]) );
-  if(!(pv == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   xregcomp(&re_buffer, pv->u.s, 0);
   signed int return_value_regexec$2;
-  if(!(sv == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return_value_regexec$2=regexec(&re_buffer, sv->u.s, (unsigned long int)2, re_regs, 0);
   _Bool tmp_if_expr$3;
   if(!(return_value_regexec$2 == 1))
@@ -2456,19 +2412,7 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
       tmp_if_expr$1 = 0 != 0;
     if(!(tmp_if_expr$1 == (_Bool)0))
     {
-      if(!(sv == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(sv->u.s == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       sv->u.s[(signed long int)re_regs[(signed long int)1].rm_eo] = (char)0;
-      if(!(sv == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       v=str_value(sv->u.s + (signed long int)re_regs[(signed long int)1].rm_so);
     }
     else
@@ -2675,10 +2619,6 @@ static struct valinfo * eval6(void)
   struct valinfo *v = v;
   signed int key;
   signed int tmp_if_expr$2;
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   signed int return_value_index_in_strings$1;
   if(!(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0))))
   {
@@ -2699,19 +2639,11 @@ static struct valinfo * eval6(void)
   char **tmp_post$4;
   if(key == 1)
   {
-    if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0)))
       bb_error_msg_and_die("syntax error");
     tmp_post$4 = ((struct globals *)&bb_common_bufsiz1)->args;
     ((struct globals *)&bb_common_bufsiz1)->args = ((struct globals *)&bb_common_bufsiz1)->args + 1l;
     struct valinfo *return_value_str_value$5;
-    if(!(tmp_post$4 == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_str_value$5=str_value(*tmp_post$4);
     return return_value_str_value$5;
   }
@@ -2720,10 +2652,6 @@ static struct valinfo * eval6(void)
     r=eval6();
     tostring(r);
     unsigned long int return_value_strlen$6;
-    if(!(r == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_strlen$6=strlen(r->u.s);
     v=int_value((signed long int)return_value_strlen$6);
     freev(r);
@@ -2747,27 +2675,11 @@ static struct valinfo * eval6(void)
     char __r1;
     char __r2;
     unsigned long int return_value___builtin_strcspn$8;
-    if(!(l == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(r == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value___builtin_strcspn$8=__builtin_strcspn(l->u.s, r->u.s);
     tmp_statement_expression$7 = return_value___builtin_strcspn$8;
     v=int_value((signed long int)(tmp_statement_expression$7 + (unsigned long int)1));
     unsigned long int return_value_strlen$9;
-    if(!(l == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_strlen$9=strlen(l->u.s);
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(v->u.i == 1l + (signed long int)return_value_strlen$9)
       v->u.i = (signed long int)0;
     freev(l);
@@ -2797,35 +2709,19 @@ static struct valinfo * eval6(void)
       tmp_if_expr$15 = 1 != 0;
     else
     {
-      if(!(l == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       return_value_strlen$14=strlen(l->u.s);
-      if(!(i1 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$15 = (i1->u.i > (signed long int)return_value_strlen$14 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$15 == (_Bool)0))
       tmp_if_expr$16 = 1 != 0;
     else
     {
-      if(!(i1 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$16 = (i1->u.i <= (signed long int)0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$16 == (_Bool)0))
       tmp_if_expr$17 = 1 != 0;
     else
     {
-      if(!(i2 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$17 = (i2->u.i <= (signed long int)0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$17 == (_Bool)0))
@@ -2835,27 +2731,7 @@ static struct valinfo * eval6(void)
       void *return_value_xmalloc$10;
       return_value_xmalloc$10=xmalloc(sizeof(struct valinfo) );
       v = (struct valinfo *)return_value_xmalloc$10;
-      if(!(v == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       v->type = (signed char)1;
-      if(!(v == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(l == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(i1 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(i2 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       v->u.s=xstrndup((l->u.s + i1->u.i) - (signed long int)1, (signed int)i2->u.i);
     }
     freev(l);
@@ -2867,10 +2743,6 @@ static struct valinfo * eval6(void)
 static struct valinfo * eval7(void)
 {
   struct valinfo *v;
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0)))
     bb_error_msg_and_die("syntax error");
   signed int return_value_nextarg$2;
@@ -2893,10 +2765,6 @@ static struct valinfo * eval7(void)
   char **tmp_post$4 = ((struct globals *)&bb_common_bufsiz1)->args;
   ((struct globals *)&bb_common_bufsiz1)->args = ((struct globals *)&bb_common_bufsiz1)->args + 1l;
   struct valinfo *return_value_str_value$5;
-  if(!(tmp_post$4 == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return_value_str_value$5=str_value(*tmp_post$4);
   return return_value_str_value$5;
 }
@@ -2905,31 +2773,15 @@ signed int __main(signed int argc, char **argv)
   struct valinfo *v;
   xfunc_error_retval = (unsigned char)2;
   ((struct globals *)&bb_common_bufsiz1)->args = argv + (signed long int)1;
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0)))
     bb_error_msg_and_die("too few arguments");
   v=eval();
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0))))
     bb_error_msg_and_die("syntax error");
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)v->type == 0)
     printf("%lld\n", (signed long long int)v->u.i);
   else
   {
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     puts(v->u.s);
   }
   signed int return_value_null$1;
@@ -2957,10 +2809,6 @@ static void fflush_stdout_and_exit(signed int retval)
 }
 static void freev(struct valinfo *v)
 {
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)v->type == 1)
     free((void *)v->u.s);
   free((void *)v);
@@ -3009,20 +2857,12 @@ static struct valinfo * int_value(signed long int i)
   void *return_value_xzalloc$1;
   return_value_xzalloc$1=xzalloc(sizeof(struct valinfo) );
   v = (struct valinfo *)return_value_xzalloc$1;
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   v->u.i = i;
   return v;
 }
 static signed int nextarg(const char *str)
 {
   _Bool tmp_if_expr$3;
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   signed int tmp_statement_expression$1;
   if(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0)))
     tmp_if_expr$3 = 1 != 0;
@@ -3031,62 +2871,26 @@ static signed int nextarg(const char *str)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value___builtin_strcmp$2=__builtin_strcmp(*((struct globals *)&bb_common_bufsiz1)->args, str);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     tmp_if_expr$3 = (tmp_statement_expression$1 != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }
   if(!(tmp_if_expr$3 == (_Bool)0))
     return 0;
-  if(!(str == ((const char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
-  if(!(str == ((const char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return (signed int)(unsigned char)str[(signed long int)0] + (signed int)(unsigned char)str[(signed long int)1];
 }
 static signed int null(struct valinfo *v)
 {
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)v->type == 0)
     return (signed int)(v->u.i == (signed long int)0);
   _Bool tmp_if_expr$2;
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
-  if(!(v->u.s == ((char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   _Bool tmp_if_expr$1;
   if((signed int)*v->u.s == 0)
     tmp_if_expr$2 = 1 != 0;
   else
   {
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(v->u.s == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*v->u.s == 48)
     {
-      if(!(v->u.s == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$1 = (!((signed int)v->u.s[(signed long int)1] != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     else
@@ -3135,77 +2939,37 @@ static struct valinfo * str_value(const char *s)
   void *return_value_xzalloc$1;
   return_value_xzalloc$1=xzalloc(sizeof(struct valinfo) );
   v = (struct valinfo *)return_value_xzalloc$1;
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   v->type = (signed char)1;
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   v->u.s=xstrdup(s);
   return v;
 }
 static _Bool toarith(struct valinfo *v)
 {
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   _Bool tmp_if_expr$1;
   if((signed int)v->type == 1)
   {
     signed long int i;
     char *e;
     i=strtoll(v->u.s, &e, 10);
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(v->u.s == e)
       tmp_if_expr$1 = 1 != 0;
     else
     {
-      if(!(e == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$1 = ((signed int)*e != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$1 == (_Bool)0))
       return 0 != 0;
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     free((void *)v->u.s);
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     v->u.i = i;
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     v->type = (signed char)0;
   }
   return 1 != 0;
 }
 static void tostring(struct valinfo *v)
 {
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)v->type == 0)
   {
     v->u.s=xasprintf("%lld", (signed long long int)v->u.i);
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     v->type = (signed char)1;
   }
 }

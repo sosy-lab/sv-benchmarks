@@ -376,22 +376,12 @@ signed int __main(signed int argc, char **argv)
   if(!((32 & opt) == 0))
     flags = flags | 2;
 
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   parse_chown_usergroup_or_die(&param.ugid, argv[(signed long int)0]);
   do
   {
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(*argv == ((char *)NULL))
       break;
 
@@ -474,12 +464,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     __VERIFIER_error();
   if(((struct param_t *)vparam)->ugid.uid == 4294967295u)
   {
-    if(!(statbuf == ((struct stat *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(statbuf == ((struct stat *)((void*)0))) */
-      __VERIFIER_error();
     tmp_if_expr$1 = statbuf->st_uid;
   }
 
@@ -504,12 +489,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     __VERIFIER_error();
   if(((struct param_t *)vparam)->ugid.gid == 4294967295u)
   {
-    if(!(statbuf == ((struct stat *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(statbuf == ((struct stat *)((void*)0))) */
-      __VERIFIER_error();
     tmp_if_expr$2 = statbuf->st_gid;
   }
 
@@ -550,23 +530,13 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     {
       if(!((8u & option_mask32) == 0u))
       {
-        if(!(statbuf == ((struct stat *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(statbuf == ((struct stat *)((void*)0))) */
-          __VERIFIER_error();
         if(!(statbuf->st_uid == u))
           tmp_if_expr$3 = 1 != 0;
 
         else
         {
-          if(!(statbuf == ((struct stat *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(statbuf == ((struct stat *)((void*)0))) */
-            __VERIFIER_error();
           tmp_if_expr$3 = (statbuf->st_gid != g ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
         tmp_if_expr$4 = (tmp_if_expr$3 != (_Bool)0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
