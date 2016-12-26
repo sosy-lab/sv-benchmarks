@@ -209,12 +209,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 // file coreutils/sync.c line 22
 signed int __main(signed int argc, char **argv)
 {
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   bb_warn_ignoring_args(argv[(signed long int)1]);
   sync();
   return 0;

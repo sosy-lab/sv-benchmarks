@@ -2670,19 +2670,11 @@ signed int __main(signed int argc, char **argv)
   return_value_getopt32$1=getopt32(argv, "pv");
   flags = (signed int)return_value_getopt32$1;
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
     bb_show_usage();
   _Bool tmp_if_expr$2;
   while((_Bool)1)
   {
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     path = *argv;
     while((_Bool)1)
     {
@@ -2692,10 +2684,6 @@ signed int __main(signed int argc, char **argv)
       {
         if(!((4 & flags) == 0))
         {
-          if(!(bb_errno == ((signed int *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           if(*bb_errno == 39)
             break;
         }
@@ -2706,18 +2694,10 @@ signed int __main(signed int argc, char **argv)
         if(!((1 & flags) == 0))
         {
           path=dirname(path);
-          if(!(path == ((char *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           if(!((signed int)*path == 46))
             tmp_if_expr$2 = 1 != 0;
           else
           {
-            if(!(path == ((char *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
             tmp_if_expr$2 = ((signed int)path[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
           if(!(tmp_if_expr$2 == (_Bool)0))
@@ -2726,10 +2706,6 @@ signed int __main(signed int argc, char **argv)
       break;
     }
     argv = argv + 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*argv == ((char *)((void *)0)))
       break;
   }

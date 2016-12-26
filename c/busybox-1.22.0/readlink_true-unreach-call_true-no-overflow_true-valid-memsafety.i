@@ -2691,10 +2691,6 @@ signed int __main(signed int argc, char **argv)
   unsigned int opt;
   opt_complementary = "=1";
   opt=getopt32(argv, "fnvsq");
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   fname = argv[(signed long int)optind];
   if((4u & opt) == 0u)
     logmode = (signed char)0;

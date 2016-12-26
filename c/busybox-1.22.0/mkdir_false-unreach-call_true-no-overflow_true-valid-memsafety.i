@@ -3186,27 +3186,15 @@ signed int __main(signed int argc, char **argv)
   if(!((2u & opt) == 0u))
     flags = flags | 4;
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
     bb_show_usage();
   do
   {
     signed int return_value_bb_make_directory$2;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_bb_make_directory$2=bb_make_directory(*argv, mode, flags);
     if(!(return_value_bb_make_directory$2 == 0))
       status = 1;
     argv = argv + 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)((void *)0))));
   return status;

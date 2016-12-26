@@ -251,12 +251,7 @@ signed int __main(signed int argc, char **argv)
   double duration;
   struct timespec ts;
   argv = argv + 1l;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
     bb_show_usage();
 
@@ -275,12 +270,7 @@ signed int __main(signed int argc, char **argv)
   do
   {
     char *arg;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     arg = *argv;
     char *return_value___builtin_strchr$14;
     return_value___builtin_strchr$14=__builtin_strchr(arg, 46);
@@ -291,39 +281,19 @@ signed int __main(signed int argc, char **argv)
       signed int len;
       len = strspn(arg, "0123456789.");
       char sv;
-      if(!(arg == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(arg == ((char *)((void*)0))) */
-        __VERIFIER_error();
       sv = arg[(signed long int)len];
       arg[(signed long int)len] = (char)0;
-      if(!(bb_errno == ((signed int *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-        __VERIFIER_error();
       *bb_errno = 0;
       d=strtod(arg, &pp);
-      if(!(bb_errno == ((signed int *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-        __VERIFIER_error();
       if(!(*bb_errno == 0))
         tmp_if_expr$10 = 1 != 0;
 
       else
       {
-        if(!(pp == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(pp == ((char *)((void*)0))) */
-          __VERIFIER_error();
         tmp_if_expr$10 = ((signed int)*pp != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       if(!(tmp_if_expr$10 == (_Bool)0))
@@ -332,30 +302,15 @@ signed int __main(signed int argc, char **argv)
       arg = arg + (signed long int)len;
       tmp_post$11 = arg;
       arg = arg - 1l;
-      if(!(tmp_post$11 == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(tmp_post$11 == ((char *)((void*)0))) */
-        __VERIFIER_error();
       *tmp_post$11 = sv;
-      if(!(arg == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(arg == ((char *)((void*)0))) */
-        __VERIFIER_error();
       sv = *arg;
       *arg = (char)49;
       unsigned long int return_value_xatoul_sfx$12;
       return_value_xatoul_sfx$12=xatoul_sfx(arg, sfx);
       duration = duration + d * (double)return_value_xatoul_sfx$12;
-      if(!(arg == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(arg == ((char *)((void*)0))) */
-        __VERIFIER_error();
       *arg = sv;
     }
 
@@ -366,12 +321,7 @@ signed int __main(signed int argc, char **argv)
       duration = duration + (double)return_value_xatoul_sfx$13;
     }
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)NULL)));
   ts.tv_sec = (signed long int)((signed long int)-1 > (signed long int)0 ? (signed long int)-1 : (signed long int)~((signed long int)1 << sizeof(signed long int) /*8ul*/  * (unsigned long int)8 - (unsigned long int)1));
@@ -388,20 +338,10 @@ signed int __main(signed int argc, char **argv)
 
   while((_Bool)1)
   {
-    if(!(bb_errno == ((signed int *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-      __VERIFIER_error();
     *bb_errno = 0;
     nanosleep(&ts, &ts);
-    if(!(bb_errno == ((signed int *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-      __VERIFIER_error();
     if(!(*bb_errno == 4))
       break;
 

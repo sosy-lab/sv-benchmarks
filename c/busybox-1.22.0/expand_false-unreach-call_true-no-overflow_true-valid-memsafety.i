@@ -2348,10 +2348,6 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
     ptr = ptr_strbeg;
     while((_Bool)1)
     {
-      if(!(ptr == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       c = *ptr;
       if((signed int)c == 0)
         break;
@@ -2365,10 +2361,6 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
       if((signed int)c == 9)
       {
         unsigned int len;
-        if(!(ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         *ptr = (char)0;
         unsigned long int return_value_unicode_strwidth$2;
         return_value_unicode_strwidth$2=unicode_strwidth(ptr_strbeg);
@@ -2396,10 +2388,6 @@ signed int __main(signed int argc, char **argv)
   unsigned int opt;
   signed int exit_status = 0;
   init_unicode();
-  if(!(applet_name == ((const char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)*applet_name == 101)
   {
     static const char expand_longopts[18l] = { (const char)105, (const char)110, (const char)105, (const char)116, (const char)105, (const char)97, (const char)108, (const char)0, (const char)0, (const char)105, (const char)116, (const char)97, (const char)98, (const char)115, (const char)0, (const char)1, (const char)116, (const char)0 };
@@ -2417,34 +2405,18 @@ signed int __main(signed int argc, char **argv)
   }
   tab_size=xatou_range(opt_t, (unsigned int)1, (unsigned int)2147483647 * 2u + 1u);
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *argv = (char *)bb_msg_standard_input;
   }
   while((_Bool)1)
   {
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     file=fopen_or_warn_stdin(*argv);
     if(file == ((struct _IO_FILE *)((void *)0)))
       exit_status = 1;
     else
     {
-      if(!(applet_name == ((const char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if((signed int)*applet_name == 101)
         expand(file, tab_size, opt);
       else
@@ -2453,10 +2425,6 @@ signed int __main(signed int argc, char **argv)
       return_value_fclose_if_not_stdin$1=fclose_if_not_stdin(file);
       if(!(return_value_fclose_if_not_stdin$1 == 0))
       {
-        if(!(argv == ((char **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         bb_simple_perror_msg(*argv);
         exit_status = 1;
       }
@@ -2464,10 +2432,6 @@ signed int __main(signed int argc, char **argv)
         clearerr(file);
     }
     argv = argv + 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*argv == ((char *)((void *)0)))
       break;
   }
@@ -3118,30 +3082,18 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
     unsigned int column = (unsigned int)0;
     while((_Bool)1)
     {
-      if(!(ptr == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if((signed int)*ptr == 0)
         break;
       unsigned int n;
       unsigned int len = (unsigned int)0;
       while((_Bool)1)
       {
-        if(!(ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if(!((signed int)*ptr == 32))
           break;
         ptr = ptr + 1l;
         len = len + 1u;
       }
       column = column + len;
-      if(!(ptr == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if((signed int)*ptr == 9)
       {
         if(!(tab_size == 0u))
@@ -3183,19 +3135,11 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         n = strcspn(ptr, "\t ");
         printf("%*s%.*s", len, "", n, ptr);
         char c;
-        if(!(ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         c = ptr[(signed long int)n];
         ptr[(signed long int)n] = (char)0;
         unsigned long int return_value_unicode_strwidth$14;
         return_value_unicode_strwidth$14=unicode_strwidth(ptr);
         len = (unsigned int)return_value_unicode_strwidth$14;
-        if(!(ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         ptr[(signed long int)n] = c;
         ptr = ptr + (signed long int)n;
         if(!(tab_size == 0u))

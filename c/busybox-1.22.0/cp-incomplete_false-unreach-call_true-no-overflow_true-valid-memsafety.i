@@ -3429,18 +3429,10 @@ signed int __main(signed int argc, char **argv)
   if(!((128 & flags) == 0))
     flags = flags | 2;
   status = 0;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   last = argv[(signed long int)(argc - 1)];
   char *return_value_bb_get_last_path_component_strip$3;
   if(argc == 2)
   {
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     s_flags=cp_mv_stat2(*argv, &source_stat, (flags & 2) != 0 ? stat : lstat);
     if(s_flags < 0)
       return 1;
@@ -3478,10 +3470,6 @@ signed int __main(signed int argc, char **argv)
     {
       char *dest_dup;
       char *dest_dir;
-      if(!(argv == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       dest=concat_path_file(last, *argv);
       dest_dup=xstrdup(dest);
       dest_dir=dirname(dest_dup);
@@ -3492,28 +3480,16 @@ signed int __main(signed int argc, char **argv)
       free((void *)dest_dup);
       goto DO_COPY;
     }
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_bb_get_last_path_component_strip$3=bb_get_last_path_component_strip(*argv);
     dest=concat_path_file(last, return_value_bb_get_last_path_component_strip$3);
   }
 DO_COPY:
   ;
   signed int return_value_copy_file$4;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return_value_copy_file$4=copy_file(*argv, dest, flags);
   if(return_value_copy_file$4 < 0)
     status = 1;
   argv = argv + 1l;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*argv == last))
   {
     free((void *)dest);

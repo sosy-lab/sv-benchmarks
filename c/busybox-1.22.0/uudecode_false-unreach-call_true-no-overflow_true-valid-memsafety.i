@@ -3128,49 +3128,21 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
     {
       const unsigned char *__s2 = (const char *)line;
       signed int __result;
-      if(!(__s2 == ((const unsigned char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       __result = (signed int)((const char *)"end")[(signed long int)0] - (signed int)__s2[(signed long int)0];
       if(__s2_len > 0ul)
       {
         if(__result == 0)
         {
-          if(!("end" == ((const char *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
-          if(!(__s2 == ((const unsigned char *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           __result = (signed int)((const char *)"end")[(signed long int)1] - (signed int)__s2[(signed long int)1];
           if(__s2_len > 1ul)
           {
             if(__result == 0)
             {
-              if(!("end" == ((const char *)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
-              if(!(__s2 == ((const unsigned char *)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
               __result = (signed int)((const char *)"end")[(signed long int)2] - (signed int)__s2[(signed long int)2];
               if(__s2_len > 2ul)
               {
                 if(__result == 0)
                 {
-                  if(!("end" == ((const char *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
-                  if(!(__s2 == ((const unsigned char *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
                   __result = (signed int)((const char *)"end")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                 }
               }
@@ -3192,20 +3164,12 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
     line_ptr = line;
     while((_Bool)1)
     {
-      if(!(line_ptr == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if((signed int)*line_ptr == 0)
         break;
       *line_ptr = (char)((signed int)*line_ptr - 32 & 63);
       line_ptr = line_ptr + 1l;
     }
     str_len = (signed int)(line_ptr - line);
-    if(!(line == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     encoded_len = ((signed int)line[(signed long int)0] * 4) / 3;
     if(encoded_len >= str_len)
       break;
@@ -3221,54 +3185,18 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
       {
         tmp_post$6 = dst;
         dst = dst + 1l;
-        if(!(tmp_post$6 == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
-        if(!(line_ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
-        if(!(line_ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         *tmp_post$6 = (char)((signed int)line_ptr[(signed long int)0] << 2 | (signed int)line_ptr[(signed long int)1] >> 4);
         encoded_len = encoded_len - 1;
         if(encoded_len == 0)
           break;
         tmp_post$7 = dst;
         dst = dst + 1l;
-        if(!(tmp_post$7 == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
-        if(!(line_ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
-        if(!(line_ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         *tmp_post$7 = (char)((signed int)line_ptr[(signed long int)1] << 4 | (signed int)line_ptr[(signed long int)2] >> 2);
         encoded_len = encoded_len - 1;
         if(encoded_len == 0)
           break;
         tmp_post$8 = dst;
         dst = dst + 1l;
-        if(!(tmp_post$8 == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
-        if(!(line_ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
-        if(!(line_ptr == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         *tmp_post$8 = (char)((signed int)line_ptr[(signed long int)2] << 6 | (signed int)line_ptr[(signed long int)3]);
         line_ptr = line_ptr + (signed long int)4;
         encoded_len = encoded_len - 2;
@@ -3309,23 +3237,11 @@ signed int __main(signed int argc, char **argv)
   opt_complementary = "?1";
   getopt32(argv, "o:", &outname);
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *argv = (char *)"-";
   }
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   src_stream=xfopen_stdin(argv[(signed long int)0]);
   signed int tmp_if_expr$16;
   signed int tmp_statement_expression$10;
@@ -3375,49 +3291,21 @@ signed int __main(signed int argc, char **argv)
       {
         const unsigned char *__s2 = (const char *)line;
         signed int __result;
-        if(!(__s2 == ((const unsigned char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         __result = (signed int)((const char *)"begin-base64 ")[(signed long int)0] - (signed int)__s2[(signed long int)0];
         if(__s2_len > 0ul)
         {
           if(__result == 0)
           {
-            if(!("begin-base64 " == ((const char *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
-            if(!(__s2 == ((const unsigned char *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
             __result = (signed int)((const char *)"begin-base64 ")[(signed long int)1] - (signed int)__s2[(signed long int)1];
             if(__s2_len > 1ul)
             {
               if(__result == 0)
               {
-                if(!("begin-base64 " == ((const char *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
-                if(!(__s2 == ((const unsigned char *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
                 __result = (signed int)((const char *)"begin-base64 ")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                 if(__s2_len > 2ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("begin-base64 " == ((const char *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
-                    if(!(__s2 == ((const unsigned char *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     __result = (signed int)((const char *)"begin-base64 ")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
                 }
@@ -3470,49 +3358,21 @@ signed int __main(signed int argc, char **argv)
         {
           const unsigned char *uudecode_main$$1$$1$$3$$2$$__s2 = (const char *)line;
           signed int uudecode_main$$1$$1$$3$$2$$__result;
-          if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)0] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)0];
           if(uudecode_main$$1$$1$$3$$__s2_len > 0ul)
           {
             if(uudecode_main$$1$$1$$3$$2$$__result == 0)
             {
-              if(!("begin " == ((const char *)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
-              if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
               uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)1] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)1];
               if(uudecode_main$$1$$1$$3$$__s2_len > 1ul)
               {
                 if(uudecode_main$$1$$1$$3$$2$$__result == 0)
                 {
-                  if(!("begin " == ((const char *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
-                  if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
-                    (void)0;
-                  else
-                    __VERIFIER_error();
                   uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)2] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)2];
                   if(uudecode_main$$1$$1$$3$$__s2_len > 2ul)
                   {
                     if(uudecode_main$$1$$1$$3$$2$$__result == 0)
                     {
-                      if(!("begin " == ((const char *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
-                      if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
-                        (void)0;
-                      else
-                        __VERIFIER_error();
                       uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)3] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)3];
                     }
                   }
@@ -3558,26 +3418,14 @@ signed int __main(signed int argc, char **argv)
       if(outname == ((char *)((void *)0)))
         break;
       outname = outname + 1l;
-      if(!(outname == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if((signed int)*outname == 0)
         break;
     }
     dst_stream = stdout;
-    if(!(outname == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!((signed int)*outname == 45))
       tmp_if_expr$20 = 1 != 0;
     else
     {
-      if(!(outname == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$20 = ((signed int)outname[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$20 == (_Bool)0))

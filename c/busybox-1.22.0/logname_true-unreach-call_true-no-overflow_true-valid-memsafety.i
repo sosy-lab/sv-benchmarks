@@ -2178,10 +2178,6 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
 signed int __main(signed int argc, char **argv)
 {
   char buf[64l];
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)((void *)0))))
     bb_show_usage();
   signed int return_value_getlogin_r$2;

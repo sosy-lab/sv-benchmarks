@@ -217,12 +217,7 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
 signed int __main(signed int argc, char **argv)
 {
   char buf[64l];
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)NULL)))
     bb_show_usage();
 

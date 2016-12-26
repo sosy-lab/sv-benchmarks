@@ -964,35 +964,20 @@ signed int __main(signed int argc, char **argv)
   opt_complementary = "f+:s+:w+";
   opt=getopt32(argv, "cduf:s:w:", &skip_fields, &skip_chars, &max_chars);
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   input_filename = argv[(signed long int)0];
   _Bool tmp_if_expr$1;
   _Bool tmp_if_expr$3;
   if(!(input_filename == ((const char *)NULL)))
   {
     const char *output;
-    if(!(input_filename == ((const char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(input_filename == ((const char *)((void*)0))) */
-      __VERIFIER_error();
     if(!((signed int)*input_filename == 45))
       tmp_if_expr$1 = 1 != 0;
 
     else
     {
-      if(!(input_filename == ((const char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(input_filename == ((const char *)((void*)0))) */
-        __VERIFIER_error();
       tmp_if_expr$1 = ((signed int)input_filename[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$1 == (_Bool)0))
@@ -1001,41 +986,21 @@ signed int __main(signed int argc, char **argv)
       xopen(input_filename, 0);
     }
 
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     output = argv[(signed long int)1];
     if(!(output == ((const char *)NULL)))
     {
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       if(!(*(2l + argv) == ((char *)NULL)))
         bb_show_usage();
 
-      if(!(output == ((const char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(output == ((const char *)((void*)0))) */
-        __VERIFIER_error();
       if(!((signed int)*output == 45))
         tmp_if_expr$3 = 1 != 0;
 
       else
       {
-        if(!(output == ((const char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(output == ((const char *)((void*)0))) */
-          __VERIFIER_error();
         tmp_if_expr$3 = ((signed int)output[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       if(!(tmp_if_expr$3 == (_Bool)0))
@@ -1078,12 +1043,7 @@ signed int __main(signed int argc, char **argv)
       i = skip_chars;
       while((_Bool)1)
       {
-        if(!(cur_compare == ((const char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(cur_compare == ((const char *)((void*)0))) */
-          __VERIFIER_error();
         if(i == 0u || (signed int)*cur_compare == 0)
           break;
 

@@ -49,12 +49,7 @@ static signed int fflush_all(void)
 // file coreutils/hostid.c line 33
 signed int __main(signed int argc, char **argv)
 {
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)NULL)))
     bb_show_usage();
 

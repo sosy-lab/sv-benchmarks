@@ -2769,58 +2769,22 @@ signed int __main(signed int argc, char **argv)
   fp = files;
   names = argv - (signed long int)1;
   np = names;
-  if(!(files == ((struct _IO_FILE **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   files[(signed long int)0] = stdout;
   goto GOT_NEW_FILE;
 __CPROVER_DUMP_L4:
   ;
-  if(!(fp == ((struct _IO_FILE **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   *fp = stdout;
   _Bool tmp_if_expr$3;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
-  if(!(*argv == ((char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!((signed int)*(*argv) == 45))
     tmp_if_expr$3 = 1 != 0;
   else
   {
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(*argv == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     tmp_if_expr$3 = ((signed int)(*argv)[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }
   char **tmp_post$4;
   if(!(tmp_if_expr$3 == (_Bool)0))
   {
-    if(!(fp == ((struct _IO_FILE **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *fp=fopen_or_warn(*argv, mode);
-    if(!(fp == ((struct _IO_FILE **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!(*fp == ((struct _IO_FILE *)((void *)0))))
       goto __CPROVER_DUMP_L23;
     retval = (char)1;
@@ -2832,29 +2796,13 @@ __CPROVER_DUMP_L4:
     ;
     tmp_post$4 = argv;
     argv = argv + 1l;
-    if(!(np == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(tmp_post$4 == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *np = *tmp_post$4;
   GOT_NEW_FILE:
     ;
-    if(!(fp == ((struct _IO_FILE **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     setbuf(*fp, (char *)((void *)0));
     fp = fp + 1l;
     np = np + 1l;
   }
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*argv == ((char *)((void *)0))))
     goto __CPROVER_DUMP_L4;
   do
@@ -2865,16 +2813,8 @@ __CPROVER_DUMP_L4:
     fp = files;
     while((_Bool)1)
     {
-      if(!(fp == ((struct _IO_FILE **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       fwrite((const void *)bb_common_bufsiz1, (unsigned long int)1, (unsigned long int)c, *fp);
       fp = fp + 1l;
-      if(!(fp == ((struct _IO_FILE **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if(*fp == ((struct _IO_FILE *)((void *)0)))
         break;
     }
@@ -2884,15 +2824,7 @@ __CPROVER_DUMP_L4:
     retval = (char)1;
   np = names;
   fp = files;
-  if(!(names == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   names[(signed long int)0] = (char *)bb_msg_standard_input;
-  if(!(files == ((struct _IO_FILE **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   files[(signed long int)0] = stdin;
   struct _IO_FILE **tmp_post$5;
   char **tmp_post$6;
@@ -2902,19 +2834,7 @@ __CPROVER_DUMP_L4:
     fp = fp + 1l;
     tmp_post$6 = np;
     np = np + 1l;
-    if(!(tmp_post$5 == ((struct _IO_FILE **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(tmp_post$6 == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     die_if_ferror(*tmp_post$5, *tmp_post$6);
-    if(!(fp == ((struct _IO_FILE **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
   }
   while(!(*fp == ((struct _IO_FILE *)((void *)0))));
   fflush_stdout_and_exit((signed int)retval);

@@ -2903,10 +2903,6 @@ static signed int logical_getcwd(void)
     tmp_if_expr$1 = 1 != 0;
   else
   {
-    if(!(wd == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     tmp_if_expr$1 = ((signed int)wd[(signed long int)0] != 47 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }
   if(!(tmp_if_expr$1 == (_Bool)0))
@@ -2916,45 +2912,21 @@ static signed int logical_getcwd(void)
   _Bool tmp_if_expr$3;
   while((_Bool)1)
   {
-    if(!(p == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*p == 0)
       break;
     tmp_post$2 = p;
     p = p + 1l;
-    if(!(tmp_post$2 == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*tmp_post$2 == 47)
     {
-      if(!(p == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if((signed int)*p == 46)
       {
         p = p + 1l;
-        if(!(p == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if((signed int)*p == 46)
           p = p + 1l;
-        if(!(p == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if((signed int)*p == 0)
           tmp_if_expr$3 = 1 != 0;
         else
         {
-          if(!(p == ((char *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           tmp_if_expr$3 = ((signed int)*p == 47 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
         if(!(tmp_if_expr$3 == (_Bool)0))

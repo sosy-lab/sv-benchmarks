@@ -276,24 +276,14 @@ signed int __main(signed int argc, char **argv)
   do
   {
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     arg = *argv;
     if(arg == ((const char *)NULL))
       break;
 
     char n;
     char e;
-    if(!(arg == ((const char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(arg == ((const char *)((void*)0))) */
-      __VERIFIER_error();
     if(!((signed int)*arg == 45))
       break;
 
@@ -302,46 +292,26 @@ signed int __main(signed int argc, char **argv)
     e = eflag;
     while((_Bool)1)
     {
-      if(!(arg == ((const char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(arg == ((const char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)*arg == 110)
         n = (char)0;
 
       else
       {
-        if(!(arg == ((const char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(arg == ((const char *)((void*)0))) */
-          __VERIFIER_error();
         if((signed int)*arg == 101)
           e = (char)92;
 
         else
         {
-          if(!(arg == ((const char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(arg == ((const char *)((void*)0))) */
-            __VERIFIER_error();
           if((signed int)*arg != 69)
             goto just_echo;
 
         }
       }
       arg = arg + 1l;
-      if(!(arg == ((const char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(arg == ((const char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)*arg == 0)
         break;
 
@@ -357,12 +327,7 @@ just_echo:
   pp = argv;
   while((_Bool)1)
   {
-    if(!(pp == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(pp == ((char **)((void*)0))) */
-      __VERIFIER_error();
     arg = *pp;
     if(arg == ((const char *)NULL))
       break;
@@ -381,12 +346,7 @@ just_echo:
   char *tmp_post$6;
   while((_Bool)1)
   {
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     arg = *argv;
     if(arg == ((const char *)NULL))
       break;
@@ -400,35 +360,20 @@ just_echo:
       {
         tmp_post$3 = arg;
         arg = arg + 1l;
-        if(!(tmp_post$3 == ((const char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(tmp_post$3 == ((const char *)((void*)0))) */
-          __VERIFIER_error();
         c = (signed int)*tmp_post$3;
         if(c == 0)
           break;
 
         if(c == (signed int)eflag)
         {
-          if(!(arg == ((const char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(arg == ((const char *)((void*)0))) */
-            __VERIFIER_error();
           if((signed int)*arg == 99)
             goto do_write;
 
           if((signed int)*arg == 48)
           {
-            if(!(arg == ((const char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(arg == ((const char *)((void*)0))) */
-              __VERIFIER_error();
             if(208 + (signed int)(unsigned char)(signed int)*(1l + arg) < 8)
               arg = arg + 1l;
 
@@ -443,33 +388,18 @@ just_echo:
 
         tmp_post$5 = out;
         out = out + 1l;
-        if(!(tmp_post$5 == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(tmp_post$5 == ((char *)((void*)0))) */
-          __VERIFIER_error();
         *tmp_post$5 = (char)c;
       }
       while((_Bool)1);
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(*argv == ((char *)NULL))
       break;
 
     tmp_post$6 = out;
     out = out + 1l;
-    if(!(tmp_post$6 == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(tmp_post$6 == ((char *)((void*)0))) */
-      __VERIFIER_error();
     *tmp_post$6 = (char)32;
   }
   char *tmp_post$7;
@@ -477,32 +407,17 @@ just_echo:
   {
     tmp_post$7 = out;
     out = out + 1l;
-    if(!(tmp_post$7 == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(tmp_post$7 == ((char *)((void*)0))) */
-      __VERIFIER_error();
     *tmp_post$7 = (char)10;
   }
 
 do_write:
   ;
-  if(!(bb_errno == ((signed int *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-    __VERIFIER_error();
   *bb_errno = 0;
   full_write(1, (const void *)buffer, (unsigned long int)(out - buffer));
   free((void *)buffer);
-  if(!(bb_errno == ((signed int *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-    __VERIFIER_error();
   if(!(*bb_errno == 0))
   {
     bb_perror_msg("write error");

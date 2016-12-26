@@ -2222,10 +2222,6 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 signed int __main(signed int argc, char **argv)
 {
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)((void *)0))))
     bb_show_usage();
   unsigned int return_value_geteuid$1;

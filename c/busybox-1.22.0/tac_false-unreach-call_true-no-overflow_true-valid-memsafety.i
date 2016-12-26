@@ -2730,26 +2730,14 @@ signed int __main(signed int argc, char **argv)
   signed int retval = 0;
   getopt32(argv, "");
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *argv = (char *)"-";
   }
   name = argv;
   while((_Bool)1)
   {
-    if(!(name == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*name == ((char *)((void *)0)))
       break;
     name = name + 1l;
@@ -2761,20 +2749,12 @@ signed int __main(signed int argc, char **argv)
     signed int ch;
     signed int i;
     name = name - 1l;
-    if(!(name == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     f=fopen_or_warn_stdin(*name);
     if(f == ((struct _IO_FILE *)((void *)0)))
       retval = 1;
     else
     {
       i = 0;
-      if(!(bb_errno == ((signed int *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       *bb_errno = i;
       do
       {
@@ -2788,10 +2768,6 @@ signed int __main(signed int argc, char **argv)
           }
           tmp_post$2 = i;
           i = i + 1;
-          if(!(line == ((struct lstring *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           line->buf[(signed long int)tmp_post$2] = (char)ch;
         }
         if(!(ch == 10))
@@ -2809,10 +2785,6 @@ signed int __main(signed int argc, char **argv)
           void *return_value_xrealloc$3;
           return_value_xrealloc$3=xrealloc((void *)line, (unsigned long int)i + sizeof(signed int) );
           line = (struct lstring *)return_value_xrealloc$3;
-          if(!(line == ((struct lstring *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           line->size = i;
           llist_add_to(&list, (void *)line);
           line = (struct lstring *)((void *)0);
@@ -2820,18 +2792,10 @@ signed int __main(signed int argc, char **argv)
         }
       }
       while(ch != -1);
-      if(!(bb_errno == ((signed int *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if(!(*bb_errno == 0))
       {
         if(!(*bb_errno == 2))
         {
-          if(!(name == ((char **)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           bb_simple_perror_msg(*name);
           retval = 1;
         }
@@ -2841,20 +2805,8 @@ signed int __main(signed int argc, char **argv)
   while(!(name == argv));
   for( ; !(list == ((struct llist_t *)((void *)0))); list = list->link)
   {
-    if(!(list == ((struct llist_t *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     line = (struct lstring *)list->data;
-    if(!(line == ((struct lstring *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     xwrite(1, (const void *)line->buf, (unsigned long int)line->size);
-    if(!(list == ((struct llist_t *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
   }
   return retval;
 }

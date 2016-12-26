@@ -2764,35 +2764,19 @@ signed int __main(signed int argc, char **argv)
   do
   {
     argp = argp + 1l;
-    if(!(argp == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     arg = *argp;
     if(arg == ((char *)((void *)0)))
       break;
-    if(!(arg == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!((signed int)*arg == 45))
     {
       arg = (char *)((void *)0);
       break;
     }
-    if(!(arg == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!((signed int)*(1l + arg) == 0))
     {
       return_value___builtin_strchr$1=__builtin_strchr("-Rvcf", (signed int)arg[(signed long int)1]);
       if(return_value___builtin_strchr$1 == ((char *)((void *)0)))
       {
-        if(!(arg == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         arg[(signed long int)0] = (char)97;
         break;
       }
@@ -2804,34 +2788,18 @@ signed int __main(signed int argc, char **argv)
   argv = argv + (signed long int)optind;
   if(!(arg == ((char *)((void *)0))))
   {
-    if(!(arg == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     arg[(signed long int)0] = (char)45;
   }
   char **tmp_post$2 = argv;
   argv = argv + 1l;
-  if(!(tmp_post$2 == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   smode = *tmp_post$2;
   do
   {
     signed int return_value_recursive_action$3;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_recursive_action$3=recursive_action(*argv, option_mask32 & (unsigned int)1, fileAction, fileAction, (void *)smode, (unsigned int)0);
     if(return_value_recursive_action$3 == 0)
       retval = 1;
     argv = argv + 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)((void *)0))));
   return retval;
@@ -2892,17 +2860,9 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *p
   }
   else
   {
-    if(!(statbuf == ((struct stat *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((61440u & statbuf->st_mode) == 40960u)
       return (signed int)1;
   }
-  if(!(statbuf == ((struct stat *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   newmode = statbuf->st_mode;
   signed int return_value_bb_parse_mode$2;
   return_value_bb_parse_mode$2=bb_parse_mode((char *)param, &newmode);
@@ -2920,10 +2880,6 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *p
     {
       if(!((4u & option_mask32) == 0u))
       {
-        if(!(statbuf == ((struct stat *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         tmp_if_expr$4 = (statbuf->st_mode != newmode ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       else

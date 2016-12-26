@@ -1849,34 +1849,18 @@ signed int __main(signed int argc, char **argv)
   signed int retval = 0;
   mode=getopt_mk_fifo_nod(argv);
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
     bb_show_usage();
   do
   {
     signed int return_value_mkfifo$1;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_mkfifo$1=mkfifo(*argv, mode);
     if(return_value_mkfifo$1 < 0)
     {
-      if(!(argv == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       bb_simple_perror_msg(*argv);
       retval = 1;
     }
     argv = argv + 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)((void *)0))));
   return retval;

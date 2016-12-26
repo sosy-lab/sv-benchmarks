@@ -498,23 +498,13 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 // file coreutils/tail.c line 82
 static unsigned int eat_num(const char *p)
 {
-  if(!(p == ((const char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(p == ((const char *)((void*)0))) */
-    __VERIFIER_error();
   if((signed int)*p == 45)
     p = p + 1l;
 
   else
   {
-    if(!(p == ((const char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(p == ((const char *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)*p == 43)
     {
       p = p + 1l;
@@ -1161,54 +1151,24 @@ signed int __main(signed int argc, char **argv)
   signed int *fds;
   const char *fmt;
   signed int prev_fd;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   _Bool tmp_if_expr$1;
   if(!(*(1l + argv) == ((char *)NULL)))
   {
-    if(!(*(1l + argv) == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(*(1l + argv) == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)*(*(1l + argv)) == 43)
       tmp_if_expr$1 = 1 != 0;
 
     else
     {
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
-      if(!(*(1l + argv) == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(*(1l + argv) == ((char *)((void*)0))) */
-        __VERIFIER_error();
       tmp_if_expr$1 = ((signed int)argv[(signed long int)1][(signed long int)0] == 45 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$1 == (_Bool)0))
     {
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
-      if(!(*(1l + argv) == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(*(1l + argv) == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if(208 + (signed int)(unsigned char)(signed int)*(1l + *(1l + argv)) <= 9)
       {
         count=eat_num(argv[(signed long int)1]);
@@ -1241,12 +1201,7 @@ signed int __main(signed int argc, char **argv)
   void *return_value_xmalloc$3;
   return_value_xmalloc$3=xmalloc(sizeof(signed int) /*4ul*/  * (unsigned long int)(argc + 1));
   fds = (signed int *)return_value_xmalloc$3;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
   {
     struct stat statbuf;
@@ -1259,12 +1214,7 @@ signed int __main(signed int argc, char **argv)
 
     }
 
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     argv[(signed long int)0] = (char *)bb_msg_standard_input;
   }
 
@@ -1274,12 +1224,7 @@ signed int __main(signed int argc, char **argv)
   do
   {
     signed int tail_main$$1$$4$$fd;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     tail_main$$1$$4$$fd=open_or_warn_stdin(argv[(signed long int)i]);
     if(tail_main$$1$$4$$fd < 0)
     {
@@ -1294,27 +1239,12 @@ signed int __main(signed int argc, char **argv)
 
     __CPROVER_DUMP_L29:
       ;
-      if(!(fds == ((signed int *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(fds == ((signed int *)((void*)0))) */
-        __VERIFIER_error();
       fds[(signed long int)nfiles] = tail_main$$1$$4$$fd;
       tmp_post$5 = nfiles;
       nfiles = nfiles + 1u;
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       argv[(signed long int)tmp_post$5] = argv[(signed long int)i];
     }
     i = i + 1;
@@ -1349,12 +1279,7 @@ signed int __main(signed int argc, char **argv)
     unsigned int seen;
     signed int nread;
     signed int fd;
-    if(!(fds == ((signed int *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(fds == ((signed int *)((void*)0))) */
-      __VERIFIER_error();
     fd = fds[(signed long int)i];
     if((_Bool)1)
     {
@@ -1370,12 +1295,7 @@ signed int __main(signed int argc, char **argv)
       ;
       if(!(header_threshhold >= nfiles))
       {
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
         tail_xprint_header(fmt, argv[(signed long int)i]);
         fmt = "\n==> %s <==\n";
       }
@@ -1450,12 +1370,7 @@ signed int __main(signed int argc, char **argv)
                 nwrite = nwrite - 1;
                 tmp_post$8 = tail_main$$1$$6$$3$$1$$1$$2$$s;
                 tail_main$$1$$6$$3$$1$$1$$2$$s = tail_main$$1$$6$$3$$1$$1$$2$$s + 1l;
-                if(!(tmp_post$8 == ((char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !(tmp_post$8 == ((char *)((void*)0))) */
-                  __VERIFIER_error();
                 if((signed int)*tmp_post$8 == 10)
                 {
                   seen = seen + 1u;
@@ -1495,12 +1410,7 @@ signed int __main(signed int argc, char **argv)
               do
               {
                 k = k - 1;
-                if(!(buf == ((char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !(buf == ((char *)((void*)0))) */
-                  __VERIFIER_error();
                 if((signed int)buf[(signed long int)k] == 10)
                   newlines_in_buf = newlines_in_buf + 1;
 
@@ -1515,24 +1425,14 @@ signed int __main(signed int argc, char **argv)
               else
               {
                 signed int extra;
-                if(!(buf == ((char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !(buf == ((char *)((void*)0))) */
-                  __VERIFIER_error();
                 extra = (signed int)((signed int)buf[(signed long int)(nread - 1)] != 10);
                 char *s;
                 k = (signed int)((unsigned int)(newlines_seen + newlines_in_buf + extra) - count);
                 s = tailbuf;
                 for( ; !(k == 0); s = s + 1l)
                 {
-                  if(!(s == ((char *)NULL)))
-                    (void)0;
 
-                  else
-                    /* assertion !(s == ((char *)((void*)0))) */
-                    __VERIFIER_error();
                   if((signed int)*s == 10)
                     k = k - 1;
 
@@ -1565,12 +1465,7 @@ signed int __main(signed int argc, char **argv)
     i = i + 1;
   }
   while(!((unsigned int)i >= nfiles));
-  if(!(fds == ((signed int *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(fds == ((signed int *)((void*)0))) */
-    __VERIFIER_error();
   prev_fd = fds[(signed long int)(i - 1)];
   void *return_value_xrealloc$10;
   return_value_xrealloc$10=xrealloc((void *)tailbuf, (unsigned long int)8192);
@@ -1589,20 +1484,10 @@ signed int __main(signed int argc, char **argv)
       {
         signed int tail_main$$1$$7$$1$$nread;
         const char *filename;
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
         filename = argv[(signed long int)i];
         signed int tail_main$$1$$7$$1$$fd;
-        if(!(fds == ((signed int *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(fds == ((signed int *)((void*)0))) */
-          __VERIFIER_error();
         tail_main$$1$$7$$1$$fd = fds[(signed long int)i];
         if(!((64 & opt) == 0))
         {
@@ -1652,12 +1537,7 @@ signed int __main(signed int argc, char **argv)
                 bb_perror_msg("%s has become inaccessible", filename);
 
             tail_main$$1$$7$$1$$fd = new_fd;
-            if(!(fds == ((signed int *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(fds == ((signed int *)((void*)0))) */
-              __VERIFIER_error();
             fds[(signed long int)i] = tail_main$$1$$7$$1$$fd;
           }
         }

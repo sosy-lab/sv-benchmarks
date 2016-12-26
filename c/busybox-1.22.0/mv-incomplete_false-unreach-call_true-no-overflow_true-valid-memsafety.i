@@ -3763,10 +3763,6 @@ signed int __main(signed int argc, char **argv)
   flags=getopt32(argv, "finv");
   argc = argc - optind;
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   last = argv[(signed long int)(argc - 1)];
   char *return_value_bb_get_last_path_component_strip$1;
   if(argc == 2)
@@ -3782,10 +3778,6 @@ signed int __main(signed int argc, char **argv)
   {
   __CPROVER_DUMP_L4:
     ;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_bb_get_last_path_component_strip$1=bb_get_last_path_component_strip(*argv);
     dest=concat_path_file(last, return_value_bb_get_last_path_component_strip$1);
     dest_exists=cp_mv_stat(dest, &dest_stat);
@@ -3832,10 +3824,6 @@ DO_MOVE:
     }
   }
   signed int return_value_rename$11;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return_value_rename$11=rename(*argv, dest);
   _Bool tmp_if_expr$10;
   signed int return_value_remove_file$8;
@@ -3843,27 +3831,15 @@ DO_MOVE:
   {
     struct stat source_stat;
     signed int source_exists;
-    if(!(bb_errno == ((signed int *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!(*bb_errno == 18))
       tmp_if_expr$10 = 1 != 0;
     else
     {
-      if(!(argv == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       source_exists=cp_mv_stat2(*argv, &source_stat, lstat);
       tmp_if_expr$10 = (source_exists < 1 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$10 == (_Bool)0))
     {
-      if(!(argv == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       bb_perror_msg("can't rename '%s'", *argv);
     }
     else
@@ -3895,17 +3871,9 @@ DO_MOVE:
       }
       copy_flag = 4 | 1;
       signed int return_value_copy_file$9;
-      if(!(argv == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       return_value_copy_file$9=copy_file(*argv, dest, copy_flag);
       if(return_value_copy_file$9 >= 0)
       {
-        if(!(argv == ((char **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         return_value_remove_file$8=remove_file(*argv, 4 | 8);
         if(return_value_remove_file$8 >= 0)
           goto RET_0;
@@ -3920,10 +3888,6 @@ RET_0:
   if(!(dest == last))
     free((void *)dest);
   argv = argv + 1l;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*argv == last))
     goto __CPROVER_DUMP_L4;
   return status;

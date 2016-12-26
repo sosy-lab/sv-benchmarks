@@ -2587,10 +2587,6 @@ signed int __main(signed int argc, char **argv)
 {
   signed int o;
   signed int conv_type = 1;
-  if(!(applet_name == ((const char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)*applet_name == 100)
     conv_type = 2;
   opt_complementary = "u--d:d--u";
@@ -2603,22 +2599,10 @@ signed int __main(signed int argc, char **argv)
   _Bool tmp_if_expr$2;
   while((_Bool)1)
   {
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     convert(*argv, conv_type);
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!(*argv == ((char *)((void *)0))))
     {
       argv = argv + 1l;
-      if(!(argv == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$2 = (*argv != (char *)((void *)0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     else

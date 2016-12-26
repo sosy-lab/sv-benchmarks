@@ -2992,10 +2992,6 @@ signed int __main(signed int argc, char **argv)
   unsigned int return_value_getopt32$1;
   return_value_getopt32$1=getopt32(argv, "sfnbS:vT", &suffix);
   opts = (signed int)return_value_getopt32$1;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   last = argv[(signed long int)(argc - 1)];
   argv = argv + (signed long int)optind;
   argc = argc - optind;
@@ -3004,17 +3000,9 @@ signed int __main(signed int argc, char **argv)
     if(argc > 2)
       bb_error_msg_and_die("-T accepts 2 args max");
   }
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*(1l + argv) == ((char *)((void *)0)))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *argv = last;
     char *return_value_xstrdup$2;
     return_value_xstrdup$2=xstrdup(last);
@@ -3031,10 +3019,6 @@ signed int __main(signed int argc, char **argv)
     {
       if(!((64 & opts) == 0))
         bb_error_msg_and_die("'%s' is a directory", src);
-      if(!(argv == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       src_name=xstrdup(*argv);
       char *return_value_bb_get_last_path_component_strip$3;
       return_value_bb_get_last_path_component_strip$3=bb_get_last_path_component_strip(src_name);
@@ -3044,18 +3028,10 @@ signed int __main(signed int argc, char **argv)
     }
     if((1 & opts) == 0)
     {
-      if(!(argv == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       return_value_stat$6=stat(*argv, &statbuf);
       if(!(return_value_stat$6 == 0))
       {
         signed int return_value_lstat$5;
-        if(!(argv == ((char **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         return_value_lstat$5=lstat(*argv, &statbuf);
         if((61440u & statbuf.st_mode) == 40960u)
         {
@@ -3066,10 +3042,6 @@ signed int __main(signed int argc, char **argv)
         {
         __CPROVER_DUMP_L18:
           ;
-          if(!(argv == ((char **)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           bb_simple_perror_msg(*argv);
           status = 1;
           free((void *)src_name);
@@ -3085,10 +3057,6 @@ signed int __main(signed int argc, char **argv)
       return_value_rename$7=rename(src, backup);
       if(return_value_rename$7 < 0)
       {
-        if(!(bb_errno == ((signed int *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if(!(*bb_errno == 2))
         {
           bb_simple_perror_msg(src);
@@ -3108,17 +3076,9 @@ signed int __main(signed int argc, char **argv)
       link_func = symlink;
     if(!((32 & opts) == 0))
     {
-      if(!(argv == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       printf("'%s' -> '%s'\n", src, *argv);
     }
     signed int return_value;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value=link_func(*argv, src);
     if(!(return_value == 0))
     {
@@ -3129,10 +3089,6 @@ signed int __main(signed int argc, char **argv)
   __CPROVER_DUMP_L35:
     ;
     argv = argv + 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
   }
   while(!(*(1l + argv) == ((char *)((void *)0))));
   return status;

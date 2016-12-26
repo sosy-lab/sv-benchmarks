@@ -418,20 +418,10 @@ signed int __main(signed int argc, char **argv)
   }
 
   fmt_dt2str = (char *)NULL;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(!(*argv == ((char *)NULL)))
   {
-    if(!(*argv == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(*argv == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)*(*argv) == 43)
     {
       fmt_dt2str = &argv[(signed long int)0][(signed long int)1];
@@ -456,42 +446,22 @@ signed int __main(signed int argc, char **argv)
   if((10u & opt) == 0u)
   {
     opt = opt | (unsigned int)2;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     date_str = argv[(signed long int)0];
     if(!(date_str == ((char *)NULL)))
     {
       signed int len;
       len = strspn(date_str, "0123456789");
-      if(!(date_str == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(date_str == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)date_str[(signed long int)len] == 0)
         tmp_if_expr$13 = 1 != 0;
 
       else
       {
-        if(!(date_str == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(date_str == ((char *)((void*)0))) */
-          __VERIFIER_error();
         if((signed int)date_str[(signed long int)len] == 46)
         {
-          if(!(date_str == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(date_str == ((char *)((void*)0))) */
-            __VERIFIER_error();
           tmp_if_expr$10 = ((signed int)(unsigned char)((signed int)date_str[(signed long int)(len + 1)] - 48) <= 9 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
 
@@ -499,12 +469,7 @@ signed int __main(signed int argc, char **argv)
           tmp_if_expr$10 = 0 != 0;
         if(!(tmp_if_expr$10 == (_Bool)0))
         {
-          if(!(date_str == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(date_str == ((char *)((void*)0))) */
-            __VERIFIER_error();
           tmp_if_expr$11 = ((signed int)(unsigned char)((signed int)date_str[(signed long int)(len + 2)] - 48) <= 9 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
 
@@ -512,12 +477,7 @@ signed int __main(signed int argc, char **argv)
           tmp_if_expr$11 = 0 != 0;
         if(!(tmp_if_expr$11 == (_Bool)0))
         {
-          if(!(date_str == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(date_str == ((char *)((void*)0))) */
-            __VERIFIER_error();
           tmp_if_expr$12 = ((signed int)date_str[(signed long int)(len + 3)] == 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
 
@@ -560,12 +520,7 @@ signed int __main(signed int argc, char **argv)
 
   }
 
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(!(*argv == ((char *)NULL)))
     bb_show_usage();
 
@@ -604,12 +559,7 @@ signed int __main(signed int argc, char **argv)
       ;
       parse_datestr(date_str, &tm_time);
     }
-    if(!(date_str == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(date_str == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if(!((signed int)*date_str == 64))
       tm_time.tm_isdst = -1;
 
@@ -671,12 +621,7 @@ signed int __main(signed int argc, char **argv)
     }
   }
 
-  if(!(fmt_dt2str == ((char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(fmt_dt2str == ((char *)((void*)0))) */
-    __VERIFIER_error();
   signed int tmp_if_expr$25;
   signed int tmp_statement_expression$19;
   _Bool tmp_if_expr$20;
@@ -715,65 +660,30 @@ signed int __main(signed int argc, char **argv)
       {
         const unsigned char *__s2 = (const char *)fmt_dt2str;
         signed int __result;
-        if(!(__s2 == ((const unsigned char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-          __VERIFIER_error();
         __result = (signed int)((const char *)"%f")[(signed long int)0] - (signed int)__s2[(signed long int)0];
         if(__s2_len > 0ul)
         {
           if(__result == 0)
           {
-            if(!("%f" == ((const char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !("%f" == ((const unsigned char *)((void*)0))) */
-              __VERIFIER_error();
-            if(!(__s2 == ((const unsigned char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-              __VERIFIER_error();
             __result = (signed int)((const char *)"%f")[(signed long int)1] - (signed int)__s2[(signed long int)1];
             if(__s2_len > 1ul)
             {
               if(__result == 0)
               {
-                if(!("%f" == ((const char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !("%f" == ((const unsigned char *)((void*)0))) */
-                  __VERIFIER_error();
-                if(!(__s2 == ((const unsigned char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                  __VERIFIER_error();
                 __result = (signed int)((const char *)"%f")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                 if(__s2_len > 2ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("%f" == ((const char *)NULL)))
-                      (void)0;
 
-                    else
-                      /* assertion !("%f" == ((const unsigned char *)((void*)0))) */
-                      __VERIFIER_error();
                     /* assertion (_Bool)0 */
                     __VERIFIER_error();
-                    if(!(__s2 == ((const unsigned char *)NULL)))
-                      (void)0;
 
-                    else
-                      /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                      __VERIFIER_error();
                     __result = (signed int)((const char *)"%f")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
 

@@ -3104,25 +3104,13 @@ signed int __main(signed int argc, char **argv)
   if(!(return_value_getopt32$2 == 0u))
     tbl = bb_uuenc_tbl_base64;
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)((void *)0))))
   {
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     src_fd=xopen(argv[(signed long int)0], 0);
     fstat(src_fd, &stat_buf);
     mode = stat_buf.st_mode & (unsigned int)(256 | 128 | 64 | (256 | 128 | 64) >> 3 | ((256 | 128 | 64) >> 3) >> 3);
     argv = argv + 1l;
   }
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   printf("begin%s %o %s", tbl == bb_uuenc_tbl_std ? "" : "-base64", mode, *argv);
   while((_Bool)1)
   {

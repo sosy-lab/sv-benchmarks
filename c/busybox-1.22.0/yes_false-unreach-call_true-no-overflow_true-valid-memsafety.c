@@ -249,19 +249,9 @@ static void xfunc_die(void)
 signed int __main(signed int argc, char **argv)
 {
   char **pp;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   argv[(signed long int)0] = (char *)"y";
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)NULL)))
     argv = argv + 1l;
 
@@ -271,20 +261,10 @@ signed int __main(signed int argc, char **argv)
     pp = argv;
     while((_Bool)1)
     {
-      if(!(pp == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(pp == ((char **)((void*)0))) */
-        __VERIFIER_error();
       fputs(*pp, stdout);
       pp = pp + 1l;
-      if(!(pp == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(pp == ((char **)((void*)0))) */
-        __VERIFIER_error();
       if(*pp == ((char *)NULL))
         break;
 

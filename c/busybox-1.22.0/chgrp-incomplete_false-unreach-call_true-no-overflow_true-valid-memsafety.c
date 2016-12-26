@@ -178,21 +178,11 @@ signed int __main(signed int argc, char **argv)
   do
   {
     p = p + 1l;
-    if(!(p == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(p == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(*p == ((char *)NULL))
       break;
 
-    if(!(*p == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(*p == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if(!((signed int)*(*p) == 45))
     {
       p[(signed long int)0]=xasprintf(":%s", p[(signed long int)0]);

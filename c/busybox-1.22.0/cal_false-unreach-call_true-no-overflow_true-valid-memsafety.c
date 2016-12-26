@@ -378,12 +378,7 @@ static signed int bb_wcwidth(unsigned int ucs)
 static void blank_string(char *buf, unsigned long int buflen)
 {
   memset((void *)buf, 32, buflen);
-  if(!(buf == ((char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(buf == ((char *)((void*)0))) */
-    __VERIFIER_error();
   buf[(signed long int)(buflen - (unsigned long int)1)] = (char)0;
 }
 
@@ -400,12 +395,7 @@ static char * build_row(char *p, unsigned int *dp)
   {
     tmp_post$1 = dp;
     dp = dp + 1l;
-    if(!(tmp_post$1 == ((unsigned int *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(tmp_post$1 == ((unsigned int *)((void*)0))) */
-      __VERIFIER_error();
     day = *tmp_post$1;
     if(!(day == 4294967295u))
     {
@@ -414,19 +404,9 @@ static char * build_row(char *p, unsigned int *dp)
         p = p + 1l;
         if(day >= 100u)
         {
-          if(!(p == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(p == ((char *)((void*)0))) */
-            __VERIFIER_error();
           *p = (char)48;
-          if(!(p == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(p == ((char *)((void*)0))) */
-            __VERIFIER_error();
           p[(signed long int)-1] = (char)(day / (unsigned int)100 + (unsigned int)48);
           day = day % (unsigned int)100;
         }
@@ -436,22 +416,12 @@ static char * build_row(char *p, unsigned int *dp)
       val = day / (unsigned int)10;
       if(val > 0u)
       {
-        if(!(p == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(p == ((char *)((void*)0))) */
-          __VERIFIER_error();
         *p = (char)(val + (unsigned int)48);
       }
 
       p = p + 1l;
-      if(!(p == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(p == ((char *)((void*)0))) */
-        __VERIFIER_error();
       *p = (char)(day % (unsigned int)10 + (unsigned int)48);
       p = p + (signed long int)2;
     }
@@ -482,23 +452,13 @@ signed int __main(signed int argc, char **argv)
   option_mask32 = option_mask32 & (unsigned int)1;
   month = (unsigned int)0;
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
   {
     struct tm *ptm;
     time(&now);
     ptm=localtime(&now);
-    if(!(ptm == ((struct tm *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(ptm == ((struct tm *)((void*)0))) */
-      __VERIFIER_error();
     year = (unsigned int)(ptm->tm_year + 1900);
     if((2u & flags) == 0u)
       month = (unsigned int)(ptm->tm_mon + 1);
@@ -507,43 +467,23 @@ signed int __main(signed int argc, char **argv)
 
   else
   {
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(!(*(1l + argv) == ((char *)NULL)))
     {
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       if(!(*(2l + argv) == ((char *)NULL)))
         bb_show_usage();
 
       if((2u & flags) == 0u)
       {
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
         month=xatou_range(*argv, (unsigned int)1, (unsigned int)12);
       }
 
       argv = argv + 1l;
     }
 
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     year=xatou_range(*argv, (unsigned int)1, (unsigned int)9999);
   }
   blank_string(day_headings, (sizeof(char [168l]) /*168ul*/  - (unsigned long int)7) + (unsigned long int)((unsigned int)7 * (unsigned int)option_mask32));
@@ -611,12 +551,7 @@ signed int __main(signed int argc, char **argv)
     {
       char *return_value_build_row$5;
       return_value_build_row$5=build_row(cal_main$$1$$4$$lineout, cal_main$$1$$4$$dp);
-      if(!(return_value_build_row$5 == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(return_value_build_row$5 == ((char *)((void*)0))) */
-        __VERIFIER_error();
       return_value_build_row$5[(signed long int)0] = (char)0;
       cal_main$$1$$4$$dp = cal_main$$1$$4$$dp + (signed long int)7;
       trim_trailing_spaces_and_print(cal_main$$1$$4$$lineout);
@@ -716,12 +651,7 @@ static void day_array(unsigned int month, unsigned int year, unsigned int *days)
       unsigned long int oday = (unsigned long int)0;
       while((_Bool)1)
       {
-        if(!(days == ((unsigned int *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(days == ((unsigned int *)((void*)0))) */
-          __VERIFIER_error();
         if((signed long int)oday < 19l)
           (void)0;
 
@@ -793,12 +723,7 @@ static void day_array(unsigned int month, unsigned int year, unsigned int *days)
     dw = dw + 1u;
     tmp_post$4 = day;
     day = day + 1u;
-    if(!(days == ((unsigned int *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(days == ((unsigned int *)((void*)0))) */
-      __VERIFIER_error();
     days[(signed long int)tmp_post$3] = tmp_post$4;
     dm = dm - 1u;
   }
@@ -1476,12 +1401,7 @@ static void trim_trailing_spaces_and_print(char *s)
   char *p = s;
   while((_Bool)1)
   {
-    if(!(p == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(p == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)*p == 0)
       break;
 
@@ -1492,22 +1412,12 @@ static void trim_trailing_spaces_and_print(char *s)
   {
     p = p - 1l;
     unsigned char bb__isspace;
-    if(!(p == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(p == ((char *)((void*)0))) */
-      __VERIFIER_error();
     bb__isspace = (unsigned char)((signed int)*p - 9);
     tmp_statement_expression$1 = (signed int)bb__isspace == 32 - 9 || (signed int)bb__isspace <= 13 - 9;
     if(tmp_statement_expression$1 == (_Bool)0)
     {
-      if(!(p == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(p == ((char *)((void*)0))) */
-        __VERIFIER_error();
       p[(signed long int)1] = (char)0;
       break;
     }

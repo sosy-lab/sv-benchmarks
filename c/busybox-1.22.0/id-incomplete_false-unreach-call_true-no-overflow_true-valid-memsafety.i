@@ -2366,41 +2366,17 @@ static signed int get_groups(const char *username, unsigned int rgid, unsigned i
   if(!(username == ((const char *)((void *)0))))
   {
     m=bb_internal_getgrouplist(username, rgid, groups, n);
-    if(!(n == ((signed int *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*n < 0)
       return 0;
     return m;
   }
-  if(!(n == ((signed int *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   *n=getgroups(*n, groups);
-  if(!(n == ((signed int *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*n >= 0)
     return *n;
-  if(!(bb_errno == ((signed int *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*bb_errno == 22)
   {
-    if(!(n == ((signed int *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *n=getgroups(0, groups);
   }
-  if(!(n == ((signed int *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return -((signed int)(*n >= 0));
 }
 static unsigned int getopt32(char **argv, const char *applet_opts, ...)
@@ -2826,10 +2802,6 @@ signed int __main(signed int argc, char **argv)
   signed int status = 0;
   const char *prefix;
   const char *username;
-  if(!(applet_name == ((const char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)*applet_name == 103)
   {
     unsigned int return_value_getopt32$1;
@@ -2842,19 +2814,11 @@ signed int __main(signed int argc, char **argv)
     opt_complementary = "?1:u--g:g--u:G--u:u--G:g--G:G--g:r?ugG:n?ugG";
     opt=getopt32(argv, "rnugG");
   }
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   username = argv[(signed long int)optind];
   if(!(username == ((const char *)((void *)0))))
   {
     struct passwd *p;
     p=xgetpwnam(username);
-    if(!(p == ((struct passwd *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     ruid = p->pw_uid;
     euid = ruid;
     rgid = p->pw_gid;
@@ -2933,28 +2897,16 @@ signed int __main(signed int argc, char **argv)
       {
         if(!(opt == 0u))
         {
-          if(!(groups == ((unsigned int *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           if(groups[(signed long int)i] == rgid)
             tmp_if_expr$11 = 1 != 0;
           else
           {
-            if(!(groups == ((unsigned int *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
             tmp_if_expr$11 = (groups[(signed long int)i] == egid ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
           if(tmp_if_expr$11 != (_Bool)0)
             goto __CPROVER_DUMP_L28;
         }
         signed int return_value_print_group$12;
-        if(!(groups == ((unsigned int *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         return_value_print_group$12=print_group(groups[(signed long int)i], opt != 0u ? " " : prefix);
         status = status | return_value_print_group$12;
         prefix = ",";

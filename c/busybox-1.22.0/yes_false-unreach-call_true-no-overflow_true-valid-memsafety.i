@@ -2203,15 +2203,7 @@ static void xfunc_die(void)
 signed int __main(signed int argc, char **argv)
 {
   char **pp;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   argv[(signed long int)0] = (char *)"y";
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)((void *)0))))
     argv = argv + 1l;
   signed int return_value_putchar_unlocked$1;
@@ -2220,16 +2212,8 @@ signed int __main(signed int argc, char **argv)
     pp = argv;
     while((_Bool)1)
     {
-      if(!(pp == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       fputs(*pp, stdout);
       pp = pp + 1l;
-      if(!(pp == ((char **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if(*pp == ((char *)((void *)0)))
         break;
       putchar(32);

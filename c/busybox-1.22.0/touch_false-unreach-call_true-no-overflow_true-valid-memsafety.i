@@ -3351,10 +3351,6 @@ signed int __main(signed int argc, char **argv)
   return_value_getopt32$1=getopt32(argv, "cr:d:t:hfma", &reference_file, &date_str, &date_str);
   opts = (signed int)return_value_getopt32$1;
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
     bb_show_usage();
   if(!(reference_file == ((char *)((void *)0))))
@@ -3399,25 +3395,13 @@ signed int __main(signed int argc, char **argv)
       (void)0;
     else
       __VERIFIER_error();
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     result=((opts & 16) != 0 ? lutimes : utimes)(*argv, tmp_if_expr$2);
     if(!(result == 0))
     {
-      if(!(bb_errno == ((signed int *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if(*bb_errno == 2)
       {
         if(!((1 & opts) == 0))
           goto __CPROVER_DUMP_L25;
-        if(!(argv == ((char **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         fd=open(*argv, 2 | 64, 438);
         if(!(fd >= 0))
           goto __CPROVER_DUMP_L22;
@@ -3431,10 +3415,6 @@ signed int __main(signed int argc, char **argv)
         {
         __CPROVER_DUMP_L18:
           ;
-          if(!(argv == ((char **)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           utimes(*argv, timebuf);
         }
       }
@@ -3443,20 +3423,12 @@ signed int __main(signed int argc, char **argv)
       __CPROVER_DUMP_L22:
         ;
         status = 1;
-        if(!(argv == ((char **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         bb_simple_perror_msg(*argv);
       }
     }
   __CPROVER_DUMP_L25:
     ;
     argv = argv + 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)((void *)0))));
   return status;

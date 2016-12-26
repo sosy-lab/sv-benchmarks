@@ -597,21 +597,11 @@ signed int __main(signed int argc, char **argv)
   if(!((16u & opt) == 0u))
     ((struct globals *)&bb_common_bufsiz1)->max_print_depth = 0;
 
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     *argv = (char *)".";
     if(((struct globals *)&bb_common_bufsiz1)->slink_depth == 1)
       ((struct globals *)&bb_common_bufsiz1)->slink_depth = 0;
@@ -623,23 +613,13 @@ signed int __main(signed int argc, char **argv)
   do
   {
     unsigned long long int return_value_du$2;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     return_value_du$2=du(*argv);
     total = total + return_value_du$2;
     reset_ino_dev_hashtable();
     ((struct globals *)&bb_common_bufsiz1)->slink_depth = slink_depth_save;
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)NULL)));
   if(!((256u & opt) == 0u))

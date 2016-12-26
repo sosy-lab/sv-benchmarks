@@ -1447,10 +1447,6 @@ static signed int fflush_all(void)
 }
 signed int __main(signed int argc, char **argv)
 {
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)((void *)0))))
     bb_show_usage();
   signed long int return_value_gethostid$1;

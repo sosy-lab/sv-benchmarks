@@ -1726,10 +1726,6 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 signed int __main(signed int argc, char **argv)
 {
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   bb_warn_ignoring_args(argv[(signed long int)1]);
   sync();
   return 0;

@@ -2880,20 +2880,12 @@ static unsigned int calc_name_len(const char *name)
   _Bool tmp_if_expr$1;
   while((_Bool)1)
   {
-    if(!(name == ((const char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*name == 0)
       break;
     if((signed int)*name == 34)
       tmp_if_expr$1 = 1 != 0;
     else
     {
-      if(!(name == ((const char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$1 = ((signed int)*name == 92 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$1 == (_Bool)0))
@@ -2908,16 +2900,8 @@ static signed long int calculate_blocks(struct dnode **dn)
   if(!(dn == ((struct dnode **)((void *)0))))
     while((_Bool)1)
     {
-      if(!(dn == ((struct dnode **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if(*dn == ((struct dnode *)((void *)0)))
         break;
-      if(!(*dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       blocks = blocks + (unsigned long int)(*dn)->dn_blocks;
       dn = dn + 1l;
     }
@@ -2949,57 +2933,29 @@ static unsigned int count_dirs(struct dnode **dn, signed int which)
   _Bool tmp_if_expr$2;
   while((_Bool)1)
   {
-    if(!(dn == ((struct dnode **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*dn == ((struct dnode *)((void *)0)))
       break;
     const char *name;
     all = all + 1u;
-    if(!(*dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((61440u & (*dn)->dn_mode) == 16384u)
     {
-      if(!(dn == ((struct dnode **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(*dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       name = (*dn)->name;
       if(!(which == 2))
         tmp_if_expr$1 = 1 != 0;
       else
       {
-        if(!(name == ((const char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         tmp_if_expr$1 = ((signed int)name[(signed long int)0] != 46 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       if(!(tmp_if_expr$1 == (_Bool)0))
         tmp_if_expr$4 = 1 != 0;
       else
       {
-        if(!(name == ((const char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if(!((signed int)*(1l + name) == 0))
         {
           if(!((signed int)*(1l + name) == 46))
             tmp_if_expr$2 = 1 != 0;
           else
           {
-            if(!(name == ((const char *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
             tmp_if_expr$2 = ((signed int)name[(signed long int)2] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
           tmp_if_expr$3 = (tmp_if_expr$2 != (_Bool)0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
@@ -3023,17 +2979,9 @@ static void dfree(struct dnode **dnp)
   i = (unsigned int)0;
   while((_Bool)1)
   {
-    if(!(dnp == ((struct dnode **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(dnp[(signed long int)i] == ((struct dnode *)((void *)0)))
       break;
     struct dnode *cur = dnp[(signed long int)i];
-    if(!(cur == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!((signed int)cur->fname_allocated == 0))
       free((void *)(char *)cur->fullname);
     free((void *)cur);
@@ -3058,18 +3006,10 @@ static void display_files(struct dnode **dn, unsigned int nfiles)
     i = (unsigned int)0;
     while((_Bool)1)
     {
-      if(!(dn == ((struct dnode **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       if(dn[(signed long int)i] == ((struct dnode *)((void *)0)))
         break;
       signed int len;
       unsigned int return_value_calc_name_len$1;
-      if(!(dn[(signed long int)i] == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       return_value_calc_name_len$1=calc_name_len(dn[(signed long int)i]->name);
       len = (signed int)return_value_calc_name_len$1;
       if(!(column_width >= (unsigned int)len))
@@ -3120,10 +3060,6 @@ static void display_files(struct dnode **dn, unsigned int nfiles)
         }
         nexttab = column + column_width;
         unsigned int return_value_display_single$2;
-        if(!(dn == ((struct dnode **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         return_value_display_single$2=display_single(dn[(signed long int)i]);
         column = column + return_value_display_single$2;
       }
@@ -3138,38 +3074,22 @@ static unsigned int display_single(struct dnode *dn)
   char *lpath;
   struct stat statbuf;
   char append;
-  if(!(dn == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   append=append_char(dn->dn_mode);
   lpath = (char *)((void *)0);
   if(!((1024u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 0u))
   {
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((61440u & dn->dn_mode) == 40960u)
       lpath=xmalloc_readlink_or_warn(dn->fullname);
   }
   signed int return_value_printf$1;
   if(!((1u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 0u))
   {
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_printf$1 = printf("%7llu ", (signed long long int)dn->dn_ino);
     column = column + (unsigned int)return_value_printf$1;
   }
   signed int return_value_printf$2;
   if(!((2u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 0u))
   {
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_printf$2 = printf("%6lu ", (signed long int)(dn->dn_blocks >> 1));
     column = column + (unsigned int)return_value_printf$2;
   }
@@ -3177,10 +3097,6 @@ static unsigned int display_single(struct dnode *dn)
   signed int return_value_printf$4;
   if(!((4u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 0u))
   {
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_bb_mode_string$3=bb_mode_string(dn->dn_mode);
     return_value_printf$4 = printf("%-10s ", (char *)return_value_bb_mode_string$3);
     column = column + (unsigned int)return_value_printf$4;
@@ -3188,10 +3104,6 @@ static unsigned int display_single(struct dnode *dn)
   signed int return_value_printf$5;
   if(!((8u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 0u))
   {
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_printf$5 = printf("%4lu ", (signed long int)dn->dn_nlink);
     column = column + (unsigned int)return_value_printf$5;
   }
@@ -3201,19 +3113,11 @@ static unsigned int display_single(struct dnode *dn)
   {
     if(!((64u & option_mask32) == 0u))
     {
-      if(!(dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       return_value_printf$6 = printf("%-8u ", (signed int)dn->dn_gid);
       column = column + (unsigned int)return_value_printf$6;
     }
     else
     {
-      if(!(dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       return_value_printf$7 = printf("%-8u %-8u ", (signed int)dn->dn_uid, (signed int)dn->dn_gid);
       column = column + (unsigned int)return_value_printf$7;
     }
@@ -3224,10 +3128,6 @@ static unsigned int display_single(struct dnode *dn)
       if(!((64u & option_mask32) == 0u))
       {
         const char *return_value_get_cached_groupname$8;
-        if(!(dn == ((struct dnode *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         return_value_get_cached_groupname$8=get_cached_groupname(dn->dn_gid);
         signed int return_value_printf$9 = printf("%-8.8s ", return_value_get_cached_groupname$8);
         column = column + (unsigned int)return_value_printf$9;
@@ -3235,16 +3135,8 @@ static unsigned int display_single(struct dnode *dn)
       else
       {
         const char *return_value_get_cached_username$10;
-        if(!(dn == ((struct dnode *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         return_value_get_cached_username$10=get_cached_username(dn->dn_uid);
         const char *return_value_get_cached_groupname$11;
-        if(!(dn == ((struct dnode *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         return_value_get_cached_groupname$11=get_cached_groupname(dn->dn_gid);
         signed int return_value_printf$12 = printf("%-8.8s %-8.8s ", return_value_get_cached_username$10, return_value_get_cached_groupname$11);
         column = column + (unsigned int)return_value_printf$12;
@@ -3253,27 +3145,15 @@ static unsigned int display_single(struct dnode *dn)
   _Bool tmp_if_expr$17;
   if(!((128u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 0u))
   {
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((61440u & dn->dn_mode) == 24576u)
       tmp_if_expr$17 = 1 != 0;
     else
     {
-      if(!(dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$17 = ((dn->dn_mode & (unsigned int)61440) == (unsigned int)8192 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$17 == (_Bool)0))
     {
       signed int return_value_printf$13;
-      if(!(dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       return_value_printf$13 = printf("%4u, %3u ", dn->dn_rdev_maj, dn->dn_rdev_min);
       column = column + (unsigned int)return_value_printf$13;
     }
@@ -3281,10 +3161,6 @@ static unsigned int display_single(struct dnode *dn)
       if(!((67108864u & option_mask32) == 0u))
       {
         const char *return_value_make_human_readable_str$14;
-        if(!(dn == ((struct dnode *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         return_value_make_human_readable_str$14=make_human_readable_str((unsigned long long int)dn->dn_size, (unsigned long int)1, (unsigned long int)0);
         signed int return_value_printf$15 = printf("%7s ", return_value_make_human_readable_str$14);
         column = column + (unsigned int)return_value_printf$15;
@@ -3292,10 +3168,6 @@ static unsigned int display_single(struct dnode *dn)
       else
       {
         signed int return_value_printf$16;
-        if(!(dn == ((struct dnode *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         return_value_printf$16 = printf("%9lu ", dn->dn_size);
         column = column + (unsigned int)return_value_printf$16;
       }
@@ -3304,19 +3176,11 @@ static unsigned int display_single(struct dnode *dn)
   {
     char *filetime;
     signed long int ttime;
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     ttime = dn->dn_mtime;
     if(!((4194304u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 0u))
       ttime = dn->dn_atime;
     if(!((2097152u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 0u))
     {
-      if(!(dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       ttime = dn->dn_ctime;
     }
     filetime=ctime(&ttime);
@@ -3348,10 +3212,6 @@ static unsigned int display_single(struct dnode *dn)
   if(!((signed int)((struct globals *)&bb_common_bufsiz1)->show_color == 0))
   {
     unsigned int mode;
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     mode = dn->dn_mode_lstat;
     if(mode == 0u)
     {
@@ -3366,10 +3226,6 @@ static unsigned int display_single(struct dnode *dn)
     printf("\033[%u;%um", return_value_bold$20, return_value_fgcolor$21);
   }
   unsigned int return_value_print_name$22;
-  if(!(dn == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return_value_print_name$22=print_name(dn->name);
   column = column + return_value_print_name$22;
   if(!((signed int)((struct globals *)&bb_common_bufsiz1)->show_color == 0))
@@ -3386,10 +3242,6 @@ static unsigned int display_single(struct dnode *dn)
     if(!(tmp_if_expr$26 == (_Bool)0))
     {
       unsigned int display_single$$1$$7$$1$$mode;
-      if(!(dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       display_single$$1$$7$$1$$mode = dn->dn_mode_stat;
       if(display_single$$1$$7$$1$$mode == 0u)
       {
@@ -4093,10 +3945,6 @@ signed int __main(signed int argc, char **argv)
         tmp_if_expr$7 = 1 != 0;
       else
       {
-        if(!(p == ((char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if(!((signed int)*p == 0))
         {
           unsigned long int __s1_len;
@@ -4118,49 +3966,21 @@ signed int __main(signed int argc, char **argv)
           {
             const unsigned char *__s2 = (const char *)p;
             signed int __result;
-            if(!(__s2 == ((const unsigned char *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
             __result = (signed int)((const char *)"none")[(signed long int)0] - (signed int)__s2[(signed long int)0];
             if(__s2_len > 0ul)
             {
               if(__result == 0)
               {
-                if(!("none" == ((const char *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
-                if(!(__s2 == ((const unsigned char *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
                 __result = (signed int)((const char *)"none")[(signed long int)1] - (signed int)__s2[(signed long int)1];
                 if(__s2_len > 1ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("none" == ((const char *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
-                    if(!(__s2 == ((const unsigned char *)((void *)0))))
-                      (void)0;
-                    else
-                      __VERIFIER_error();
                     __result = (signed int)((const char *)"none")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                     if(__s2_len > 2ul)
                     {
                       if(__result == 0)
                       {
-                        if(!("none" == ((const char *)((void *)0))))
-                          (void)0;
-                        else
-                          __VERIFIER_error();
-                        if(!(__s2 == ((const unsigned char *)((void *)0))))
-                          (void)0;
-                        else
-                          __VERIFIER_error();
                         __result = (signed int)((const char *)"none")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                       }
                     }
@@ -4191,10 +4011,6 @@ signed int __main(signed int argc, char **argv)
   signed int return_value_isatty$10;
   if(!((536870912u & opt) == 0u))
   {
-    if(!(color_opt == ((const char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*color_opt == 110)
       ((struct globals *)&bb_common_bufsiz1)->show_color = (signed char)0;
     else
@@ -4236,23 +4052,11 @@ __CPROVER_DUMP_L42:
     ((struct globals *)&bb_common_bufsiz1)->all_fmt = ((struct globals *)&bb_common_bufsiz1)->all_fmt | (unsigned int)(return_value_isatty$11 != 0 ? 524288 : 1572864);
   }
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *argv = (char *)".";
   }
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)((void *)0))))
     ((struct globals *)&bb_common_bufsiz1)->all_fmt = ((struct globals *)&bb_common_bufsiz1)->all_fmt | (unsigned int)8192;
   dn = (struct dnode *)((void *)0);
@@ -4264,26 +4068,14 @@ __CPROVER_DUMP_L42:
       tmp_if_expr$12 = 1 != 0;
     else
       tmp_if_expr$12 = ((((struct globals *)&bb_common_bufsiz1)->all_fmt & (unsigned int)2) != 0u ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     cur=my_stat(*argv, *argv, (signed int)(!((tmp_if_expr$12 != (_Bool)0 ? (signed int)(1 != 0) : ((option_mask32 & (unsigned int)2097152) != 0u ? (signed int)(1 != 0) : (signed int)(0 != 0))) != 0) ? (signed int)(1 != 0) : ((option_mask32 & (unsigned int)33554432) != 0u ? (signed int)(1 != 0) : (signed int)(0 != 0))));
     argv = argv + 1l;
     if(!(cur == ((struct dnode *)((void *)0))))
     {
-      if(!(cur == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       cur->dn_next = dn;
       dn = cur;
       nfiles = nfiles + 1u;
     }
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*argv == ((char *)((void *)0)))
       break;
   }
@@ -4293,15 +4085,7 @@ __CPROVER_DUMP_L42:
   i = (unsigned int)0;
   while((_Bool)1)
   {
-    if(!(dnp == ((struct dnode **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     dnp[(signed long int)i] = dn;
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     dn = dn->dn_next;
     if(dn == ((struct dnode *)((void *)0)))
       break;
@@ -4429,15 +4213,7 @@ static struct dnode * my_stat(const char *fullname, const char *name, signed int
   void *return_value_xzalloc$1;
   return_value_xzalloc$1=xzalloc(sizeof(struct dnode) );
   cur = (struct dnode *)return_value_xzalloc$1;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->fullname = fullname;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->name = name;
   if((16777216u & option_mask32) == 0u)
   {
@@ -4457,10 +4233,6 @@ static struct dnode * my_stat(const char *fullname, const char *name, signed int
       free((void *)cur);
       return (struct dnode *)((void *)0);
     }
-    if(!(cur == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     cur->dn_mode_stat = statbuf.st_mode;
     goto __CPROVER_DUMP_L13;
   }
@@ -4473,76 +4245,24 @@ static struct dnode * my_stat(const char *fullname, const char *name, signed int
     free((void *)cur);
     return (struct dnode *)((void *)0);
   }
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_mode_lstat = statbuf.st_mode;
 __CPROVER_DUMP_L13:
   ;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_mode = statbuf.st_mode;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_size = statbuf.st_size;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_atime = statbuf.st_atim.tv_sec;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_mtime = statbuf.st_mtim.tv_sec;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_ctime = statbuf.st_ctim.tv_sec;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_ino = statbuf.st_ino;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_blocks = statbuf.st_blocks;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_nlink = statbuf.st_nlink;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_uid = statbuf.st_uid;
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_gid = statbuf.st_gid;
   unsigned int return_value_gnu_dev_major$4;
   return_value_gnu_dev_major$4=gnu_dev_major(statbuf.st_rdev);
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_rdev_maj = (signed int)return_value_gnu_dev_major$4;
   unsigned int return_value_gnu_dev_minor$5;
   return_value_gnu_dev_minor$5=gnu_dev_minor(statbuf.st_rdev);
-  if(!(cur == ((struct dnode *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   cur->dn_rdev_min = (signed int)return_value_gnu_dev_minor$5;
   return cur;
 }
@@ -4561,20 +4281,12 @@ static unsigned int print_name(const char *name)
   _Bool tmp_if_expr$1;
   while((_Bool)1)
   {
-    if(!(name == ((const char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*name == 0)
       break;
     if((signed int)*name == 34)
       tmp_if_expr$1 = 1 != 0;
     else
     {
-      if(!(name == ((const char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$1 = ((signed int)*name == 92 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$1 == (_Bool)0))
@@ -4582,10 +4294,6 @@ static unsigned int print_name(const char *name)
       putchar(92);
       len = len + 1u;
     }
-    if(!(name == ((const char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     putchar((signed int)*name);
     name = name + 1l;
   }
@@ -4680,10 +4388,6 @@ static void scan_and_display_dirs_recur(struct dnode **dn, signed int first)
   signed long int return_value_calculate_blocks$1;
   while((_Bool)1)
   {
-    if(!(dn == ((struct dnode **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*dn == ((struct dnode *)((void *)0)))
       break;
     if(!((139264u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 0u))
@@ -4691,24 +4395,8 @@ static void scan_and_display_dirs_recur(struct dnode **dn, signed int first)
       if(first == 0)
         bb_putchar(10);
       first = 0;
-      if(!(dn == ((struct dnode **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(*dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       printf("%s:\n", (*dn)->fullname);
     }
-    if(!(dn == ((struct dnode **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(*dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     subdnp=scan_one_dir((*dn)->fullname, &nfiles);
     if((1572864u & ((struct globals *)&bb_common_bufsiz1)->all_fmt) == 1048576u)
     {
@@ -4745,10 +4433,6 @@ static struct dnode ** scan_one_dir(const char *path, unsigned int *nfiles_p)
   struct __dirstream *dir;
   unsigned int i;
   unsigned int nfiles;
-  if(!(nfiles_p == ((unsigned int *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   *nfiles_p = (unsigned int)0;
   dir=warn_opendir(path);
   if(dir == ((struct __dirstream *)((void *)0)))
@@ -4766,20 +4450,12 @@ static struct dnode ** scan_one_dir(const char *path, unsigned int *nfiles_p)
     if(entry == ((struct dirent *)((void *)0)))
       break;
     char *fullname;
-    if(!(entry == ((struct dirent *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)entry->d_name[0l] == 46)
     {
       if((signed int)entry->d_name[1l] == 0)
         tmp_if_expr$2 = 1 != 0;
       else
       {
-        if(!(entry == ((struct dirent *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if((signed int)entry->d_name[1l] == 46)
           tmp_if_expr$1 = (!((signed int)entry->d_name[(signed long int)2] != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         else
@@ -4806,15 +4482,7 @@ static struct dnode ** scan_one_dir(const char *path, unsigned int *nfiles_p)
         free((void *)fullname);
       else
       {
-        if(!(cur == ((struct dnode *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         cur->fname_allocated = (signed char)1;
-        if(!(cur == ((struct dnode *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         cur->dn_next = dn;
         dn = cur;
         nfiles = nfiles + 1u;
@@ -4825,24 +4493,12 @@ static struct dnode ** scan_one_dir(const char *path, unsigned int *nfiles_p)
   closedir(dir);
   if(dn == ((struct dnode *)((void *)0)))
     return (struct dnode **)((void *)0);
-  if(!(nfiles_p == ((unsigned int *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   *nfiles_p = nfiles;
   dnp=dnalloc(nfiles);
   i = (unsigned int)0;
   while((_Bool)1)
   {
-    if(!(dnp == ((struct dnode **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     dnp[(signed long int)i] = dn;
-    if(!(dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     dn = dn->dn_next;
     if(dn == ((struct dnode *)((void *)0)))
       break;
@@ -4874,80 +4530,32 @@ static signed int sortcmp(const void *a, const void *b)
   signed long int tmp_statement_expression$2;
   if(sort_opts == 16777216u)
   {
-    if(!(d2 == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(d1 == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     dif = d2->dn_size - d1->dn_size;
   }
   else
     if(sort_opts == 33554432u)
     {
-      if(!(d2 == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(d1 == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       dif = d2->dn_atime - d1->dn_atime;
     }
     else
       if(sort_opts == 50331648u)
       {
-        if(!(d2 == ((struct dnode *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
-        if(!(d1 == ((struct dnode *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         dif = d2->dn_ctime - d1->dn_ctime;
       }
       else
         if(sort_opts == 67108864u)
         {
-          if(!(d2 == ((struct dnode *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
-          if(!(d1 == ((struct dnode *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           dif = d2->dn_mtime - d1->dn_mtime;
         }
         else
           if(sort_opts == 117440512u)
           {
-            if(!(d2 == ((struct dnode *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
-            if(!(d1 == ((struct dnode *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
             dif = (signed long int)((signed int)((d2->dn_mode & (unsigned int)61440) == (unsigned int)16384) - (signed int)((d1->dn_mode & (unsigned int)61440) == (unsigned int)16384));
           }
           else
             if(sort_opts == 83886080u)
             {
               signed int return_value_strverscmp$1;
-              if(!(d1 == ((struct dnode *)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
-              if(!(d2 == ((struct dnode *)((void *)0))))
-                (void)0;
-              else
-                __VERIFIER_error();
               return_value_strverscmp$1=strverscmp(d1->name, d2->name);
               dif = (signed long int)return_value_strverscmp$1;
             }
@@ -4957,16 +4565,8 @@ static signed int sortcmp(const void *a, const void *b)
                 unsigned long int __s1_len;
                 unsigned long int __s2_len;
                 char *return_value_strchrnul$3;
-                if(!(d1 == ((struct dnode *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
                 return_value_strchrnul$3=strchrnul(d1->name, 46);
                 char *return_value_strchrnul$4;
-                if(!(d2 == ((struct dnode *)((void *)0))))
-                  (void)0;
-                else
-                  __VERIFIER_error();
                 return_value_strchrnul$4=strchrnul(d2->name, 46);
                 signed int return_value___builtin_strcmp$5;
                 return_value___builtin_strcmp$5=__builtin_strcmp(return_value_strchrnul$3, return_value_strchrnul$4);
@@ -4981,14 +4581,6 @@ static signed int sortcmp(const void *a, const void *b)
       unsigned long int sortcmp$$1$$8$$1$$__s1_len;
       unsigned long int sortcmp$$1$$8$$1$$__s2_len;
       signed int return_value___builtin_strcmp$8;
-      if(!(d1 == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(d2 == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       return_value___builtin_strcmp$8=__builtin_strcmp(d1->name, d2->name);
       tmp_statement_expression$7 = (signed long int)return_value___builtin_strcmp$8;
       dif = tmp_statement_expression$7;
@@ -5016,58 +4608,30 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
   unsigned int tmp_post$6;
   while((_Bool)1)
   {
-    if(!(dn == ((struct dnode **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*dn == ((struct dnode *)((void *)0)))
       break;
-    if(!(*dn == ((struct dnode *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((61440u & (*dn)->dn_mode) == 16384u)
     {
       const char *name;
       if(which == 0)
         goto __CPROVER_DUMP_L35;
-      if(!(dn == ((struct dnode **)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(*dn == ((struct dnode *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       name = (*dn)->name;
       if(!((1 & which) == 0))
         tmp_if_expr$2 = 1 != 0;
       else
       {
-        if(!(name == ((const char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         tmp_if_expr$2 = ((signed int)name[(signed long int)0] != 46 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       if(!(tmp_if_expr$2 == (_Bool)0))
         tmp_if_expr$5 = 1 != 0;
       else
       {
-        if(!(name == ((const char *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         if(!((signed int)*(1l + name) == 0))
         {
           if(!((signed int)*(1l + name) == 46))
             tmp_if_expr$3 = 1 != 0;
           else
           {
-            if(!(name == ((const char *)((void *)0))))
-              (void)0;
-            else
-              __VERIFIER_error();
             tmp_if_expr$3 = ((signed int)name[(signed long int)2] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
           tmp_if_expr$4 = (tmp_if_expr$3 != (_Bool)0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
@@ -5080,14 +4644,6 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
       {
         tmp_post$1 = d;
         d = d + 1u;
-        if(!(dnp == ((struct dnode **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
-        if(!(dn == ((struct dnode **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         dnp[(signed long int)tmp_post$1] = *dn;
       }
     }
@@ -5096,14 +4652,6 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
       {
         tmp_post$6 = d;
         d = d + 1u;
-        if(!(dnp == ((struct dnode **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
-        if(!(dn == ((struct dnode **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         dnp[(signed long int)tmp_post$6] = *dn;
       }
   __CPROVER_DUMP_L35:

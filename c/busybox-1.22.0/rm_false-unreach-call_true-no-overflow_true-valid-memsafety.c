@@ -1154,12 +1154,7 @@ signed int __main(signed int argc, char **argv)
   if(!((12u & opt) == 0u))
     flags = flags | 4;
 
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   _Bool tmp_if_expr$4;
   _Bool tmp_if_expr$3;
   _Bool tmp_if_expr$2;
@@ -1168,46 +1163,21 @@ signed int __main(signed int argc, char **argv)
     do
     {
       const char *base;
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       base=bb_get_last_path_component_strip(*argv);
-      if(!(base == ((const char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(base == ((const char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)*base == 46)
       {
-        if(!(base == ((const char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(base == ((const char *)((void*)0))) */
-          __VERIFIER_error();
         if((signed int)*(1l + base) == 0)
           tmp_if_expr$3 = 1 != 0;
 
         else
         {
-          if(!(base == ((const char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(base == ((const char *)((void*)0))) */
-            __VERIFIER_error();
           if((signed int)*(1l + base) == 46)
           {
-            if(!(base == ((const char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(base == ((const char *)((void*)0))) */
-              __VERIFIER_error();
             tmp_if_expr$2 = (!((signed int)base[(signed long int)2] != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
 
@@ -1225,12 +1195,7 @@ signed int __main(signed int argc, char **argv)
 
       else
       {
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
         return_value_remove_file$1=remove_file(*argv, flags);
         if(return_value_remove_file$1 >= 0)
           goto __CPROVER_DUMP_L27;
@@ -1241,12 +1206,7 @@ signed int __main(signed int argc, char **argv)
     __CPROVER_DUMP_L27:
       ;
       argv = argv + 1l;
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
     }
     while(!(*argv == ((char *)NULL)));
 

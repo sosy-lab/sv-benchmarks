@@ -459,12 +459,7 @@ signed int __main(signed int argc, char **argv)
 {
   signed int o;
   signed int conv_type = 1;
-  if(!(applet_name == ((const char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(applet_name == ((const char *)((void*)0))) */
-    __VERIFIER_error();
   if((signed int)*applet_name == 100)
     conv_type = 2;
 
@@ -479,28 +474,13 @@ signed int __main(signed int argc, char **argv)
   _Bool tmp_if_expr$2;
   while((_Bool)1)
   {
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     convert(*argv, conv_type);
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(!(*argv == ((char *)NULL)))
     {
       argv = argv + 1l;
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       tmp_if_expr$2 = (*argv != (char *)NULL ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
 

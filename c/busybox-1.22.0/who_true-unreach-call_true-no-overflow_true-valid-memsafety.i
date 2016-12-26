@@ -3032,20 +3032,12 @@ signed int __main(signed int argc, char **argv)
     ut=getutent();
     if(ut == ((struct utmp *)((void *)0)))
       break;
-    if(!(ut == ((struct utmp *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!((signed int)ut->ut_user[0l] == 0))
     {
       if(!((1u & opt) == 0u))
         tmp_if_expr$4 = 1 != 0;
       else
       {
-        if(!(ut == ((struct utmp *)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         tmp_if_expr$4 = ((signed int)ut->ut_type == 7 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       if(!(tmp_if_expr$4 == (_Bool)0))
@@ -3059,10 +3051,6 @@ signed int __main(signed int argc, char **argv)
           str6[(signed long int)0] = (char)63;
           str6[(signed long int)1] = (char)0;
           strcpy(name, "/dev/");
-          if(!(ut == ((struct utmp *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           if((signed int)ut->ut_line[0l] == 47)
             tmp_if_expr$1 = name;
           else
@@ -3072,10 +3060,6 @@ signed int __main(signed int argc, char **argv)
           return_value_stat$2=stat(name, &st);
           if(return_value_stat$2 == 0)
             idle_string(str6, st.st_atim.tv_sec);
-          if(!(ut == ((struct utmp *)((void *)0))))
-            (void)0;
-          else
-            __VERIFIER_error();
           seconds = (signed long int)ut->ut_tv.tv_sec;
           char *return_value_ctime$3;
           return_value_ctime$3=ctime(&seconds);

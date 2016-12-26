@@ -824,12 +824,7 @@ signed int __main(signed int argc, char **argv)
   argv = argv + (signed long int)optind;
   increment = (double)1;
   first = increment;
-  if(!(bb_errno == ((signed int *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-    __VERIFIER_error();
   *bb_errno = 0;
   char *pp;
   if(!(argc == 3))
@@ -844,73 +839,28 @@ signed int __main(signed int argc, char **argv)
 
   else
   {
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     increment=strtod(argv[(signed long int)1], &pp);
-    if(!(bb_errno == ((signed int *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(pp == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(pp == ((char *)((void*)0))) */
-      __VERIFIER_error();
     *bb_errno = *bb_errno | (signed int)*pp;
 
   __CPROVER_DUMP_L10:
     ;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     first=strtod(argv[(signed long int)0], &pp);
-    if(!(bb_errno == ((signed int *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(pp == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(pp == ((char *)((void*)0))) */
-      __VERIFIER_error();
     *bb_errno = *bb_errno | (signed int)*pp;
 
   __CPROVER_DUMP_L17:
     ;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     last=strtod(argv[(signed long int)(argc - 1)], &pp);
-    if(!(bb_errno == ((signed int *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-      __VERIFIER_error();
     if(*bb_errno == 0)
     {
-      if(!(pp == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(pp == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)*pp == 0)
         goto __CPROVER_DUMP_L25;
 
@@ -926,20 +876,10 @@ __CPROVER_DUMP_L25:
   while((_Bool)1)
   {
     char *dot;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     dot=strchrnul(*argv, 46);
     signed int w;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     w = (signed int)(dot - *argv);
     signed int f;
     unsigned long int return_value_strlen$1;
@@ -949,12 +889,7 @@ __CPROVER_DUMP_L25:
       width = (unsigned int)w;
 
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(*argv == ((char *)NULL))
       break;
 

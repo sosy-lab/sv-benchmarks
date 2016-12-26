@@ -1162,35 +1162,20 @@ signed int __main(signed int argc, char **argv)
     flags = flags | 4;
 
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
     bb_show_usage();
 
   do
   {
     signed int return_value_bb_make_directory$2;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     return_value_bb_make_directory$2=bb_make_directory(*argv, mode, flags);
     if(!(return_value_bb_make_directory$2 == 0))
       status = 1;
 
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)NULL)));
   return status;

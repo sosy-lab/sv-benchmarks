@@ -168,23 +168,13 @@ signed int bb_cat(char **argv)
 {
   signed int fd;
   signed int retval = 0;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
     argv = (char **)&bb_argv_dash;
 
   while((_Bool)1)
   {
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     fd=open_or_warn_stdin(*argv);
     if(fd >= 0)
     {
@@ -203,12 +193,7 @@ signed int bb_cat(char **argv)
   __CPROVER_DUMP_L8:
     ;
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(*argv == ((char *)NULL))
       break;
 

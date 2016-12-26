@@ -270,24 +270,14 @@ signed int __main(signed int argc, char **argv)
 {
   signed int retval = 0;
   argv = argv + 1l;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
     bb_show_usage();
 
   do
   {
     char *resolved_path;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     resolved_path=xmalloc_realpath(*argv);
     if(!(resolved_path == ((char *)NULL)))
     {
@@ -298,21 +288,11 @@ signed int __main(signed int argc, char **argv)
     else
     {
       retval = 1;
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       bb_simple_perror_msg(*argv);
     }
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)NULL)));
   fflush_stdout_and_exit(retval);

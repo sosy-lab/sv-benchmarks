@@ -2215,36 +2215,16 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 signed int __main(signed int argc, char **argv)
 {
   argv = argv + 1l;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
     bb_show_usage();
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   xchroot(*argv);
   argv = argv + 1l;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
   {
     argv = argv - (signed long int)2;
     const char *return_value_get_shell_name$1;
     return_value_get_shell_name$1=get_shell_name();
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     argv[(signed long int)0] = (char *)return_value_get_shell_name$1;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     argv[(signed long int)1] = (char *)"-i";
   }
   BB_EXECVP_or_die(argv);

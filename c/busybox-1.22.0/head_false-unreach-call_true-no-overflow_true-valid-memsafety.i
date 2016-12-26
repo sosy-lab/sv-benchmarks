@@ -2290,16 +2290,8 @@ static void die_if_ferror_stdout(void)
 }
 static unsigned long int eat_num(_Bool *negative_N, const char *p)
 {
-  if(!(p == ((const char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)*p == 45)
   {
-    if(!(negative_N == ((_Bool *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *negative_N = 1 != 0;
     p = p + 1l;
   }
@@ -2392,30 +2384,14 @@ signed int __main(signed int argc, char **argv)
   char *p;
   signed int opt;
   signed int retval = 0;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)((void *)0))))
   {
-    if(!(*(1l + argv) == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!((signed int)*(*(1l + argv)) == 45))
       goto __CPROVER_DUMP_L9;
-    if(!(*(1l + argv) == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(!(208 + (signed int)(unsigned char)(signed int)*(1l + *(1l + argv)) <= 9))
       goto __CPROVER_DUMP_L9;
     argc = argc - 1;
     argv = argv + 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     p = argv[(signed long int)0] + (signed long int)1;
   }
   else
@@ -2462,17 +2438,9 @@ __CPROVER_DUMP_L17:
   ;
   argc = argc - optind;
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*argv == ((char *)((void *)0)))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     *argv = (char *)"-";
   }
   fmt = "\n==> %s <==\n" + (signed long int)1;
@@ -2485,27 +2453,15 @@ __CPROVER_DUMP_L17:
   }
   while((_Bool)1)
   {
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     fp=fopen_or_warn_stdin(*argv);
     if(!(fp == ((struct _IO_FILE *)((void *)0))))
     {
       if(fp == stdin)
       {
-        if(!(argv == ((char **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         *argv = (char *)bb_msg_standard_input;
       }
       if(!(header_threshhold == 0))
       {
-        if(!(argv == ((char **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         printf(fmt, *argv);
       }
       if(!((signed int)negative_N == 0))
@@ -2522,10 +2478,6 @@ __CPROVER_DUMP_L17:
       return_value_fclose_if_not_stdin$1=fclose_if_not_stdin(fp);
       if(!(return_value_fclose_if_not_stdin$1 == 0))
       {
-        if(!(argv == ((char **)((void *)0))))
-          (void)0;
-        else
-          __VERIFIER_error();
         bb_simple_perror_msg(*argv);
         retval = 1;
       }
@@ -2534,10 +2486,6 @@ __CPROVER_DUMP_L17:
       retval = 1;
     fmt = "\n==> %s <==\n";
     argv = argv + 1l;
-    if(!(argv == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*argv == ((char *)((void *)0)))
       break;
   }
@@ -2560,10 +2508,6 @@ static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count)
       goto ret;
     tmp_post$2 = head;
     head = head + 1u;
-    if(!(circle == ((unsigned char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     circle[(signed long int)tmp_post$2] = (unsigned char)c;
     if(head == count)
       break;
@@ -2574,18 +2518,10 @@ static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count)
     signed int print_except_N_last_bytes$$1$$2$$1$$c;
     if(head == count)
       head = (unsigned int)0;
-    if(!(circle == ((unsigned char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     putchar((signed int)circle[(signed long int)head]);
     print_except_N_last_bytes$$1$$2$$1$$c=_IO_getc (fp);
     if(print_except_N_last_bytes$$1$$2$$1$$c == -1)
       break;
-    if(!(circle == ((unsigned char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     circle[(signed long int)head] = (unsigned char)print_except_N_last_bytes$$1$$2$$1$$c;
     head = head + 1u;
   }
@@ -2611,10 +2547,6 @@ static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count)
       goto ret;
     tmp_post$2 = head;
     head = head + 1u;
-    if(!(circle == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     circle[(signed long int)tmp_post$2] = c;
     if(head == count)
       break;
@@ -2626,25 +2558,13 @@ static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count)
     char *print_except_N_last_lines$$1$$2$$1$$c;
     if(head == count)
       head = (unsigned int)0;
-    if(!(circle == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     fputs(circle[(signed long int)head], stdout);
     print_except_N_last_lines$$1$$2$$1$$c=xmalloc_fgets(fp);
     if(print_except_N_last_lines$$1$$2$$1$$c == ((char *)((void *)0)))
       break;
-    if(!(circle == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     free((void *)circle[(signed long int)head]);
     tmp_post$3 = head;
     head = head + 1u;
-    if(!(circle == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     circle[(signed long int)tmp_post$3] = print_except_N_last_lines$$1$$2$$1$$c;
   }
   while((_Bool)1);
@@ -2656,10 +2576,6 @@ ret:
   {
     tmp_post$4 = head;
     head = head + 1u;
-    if(!(circle == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     free((void *)circle[(signed long int)tmp_post$4]);
     if(head == count)
       break;

@@ -875,12 +875,7 @@ signed int __main(signed int argc, char **argv)
   return_value_getopt32$1=getopt32(argv, "s");
   silent = (signed int)return_value_getopt32$1;
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   bb_warn_ignoring_args(argv[(signed long int)0]);
   retval = 0;
   s=xmalloc_ttyname(0);

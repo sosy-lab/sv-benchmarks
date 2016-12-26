@@ -2204,17 +2204,9 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 signed int __main(signed int argc, char **argv)
 {
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*(1l + argv) == ((char *)((void *)0)))
     bb_show_usage();
   unsigned int return_value_xatou$1;
-  if(!(argv == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return_value_xatou$1=xatou(argv[(signed long int)1]);
   usleep(return_value_xatou$1);
   return 0;
