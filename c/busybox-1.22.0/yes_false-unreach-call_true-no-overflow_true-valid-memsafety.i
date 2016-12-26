@@ -1,3 +1,5 @@
+extern long __VERIFIER_nondet_long(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
 extern char __VERIFIER_nondet_char(void);
 extern void __VERIFIER_assume(int);
@@ -2238,6 +2240,12 @@ signed int __main(signed int argc, char **argv)
   }
   while(return_value_putchar_unlocked$1 != -1);
   bb_perror_nomsg_and_die();
+}
+ssize_t write(int fildes, const void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  return ret;
 }
 int main()
 {

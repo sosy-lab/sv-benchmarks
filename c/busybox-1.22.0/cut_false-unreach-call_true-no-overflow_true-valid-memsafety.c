@@ -1,3 +1,5 @@
+extern long __VERIFIER_nondet_long(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
 extern char __VERIFIER_nondet_char(void);
 extern void __VERIFIER_assume(int);
@@ -1632,6 +1634,13 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+ssize_t write(int fildes, const void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  return ret;
+}
 
 int main()
 {
