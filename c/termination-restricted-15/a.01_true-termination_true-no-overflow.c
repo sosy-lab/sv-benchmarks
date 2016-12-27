@@ -8,12 +8,12 @@ int main() {
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
     c = 0;
-    while (!(x == y)) {
-        if (x > y) {
+    while (x > 0) {
+        y = 0;
+        while (y < x) {
             y = y + 1;
-        } else {
-            x = x + 1;
         }
+        x = x - 1;
     }
     return 0;
 }

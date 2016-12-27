@@ -1,5 +1,6 @@
 signedintegeroverflow-regression/*_false-no-overflow.c.i
 signedintegeroverflow-regression/*_true-no-overflow.c.i
+
 termination-crafted/*_false-no-overflow*.c
 termination-crafted/*_true-no-overflow*.c
 
@@ -8,3 +9,10 @@ termination-crafted-lit/*_true-no-overflow*.c
 
 termination-numeric/*_false-no-overflow*.c
 termination-numeric/*_true-no-overflow*.c
+
+termination-restricted-15/*_false-no-overflow*.c
+termination-restricted-15/*_true-no-overflow*.c
+
+termination-memory-alloca/*_false-no-overflow*.c.i
+termination-memory-alloca/*_true-no-overflow*.c.i
+

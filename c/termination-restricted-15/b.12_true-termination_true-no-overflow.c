@@ -8,11 +8,15 @@ int main() {
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
     c = 0;
-    while (!(x == y)) {
-        if (x > y) {
-            y = y + 1;
+    while ((x > 0) || (y > 0)) {
+        if (x > 0) {
+            x = x - 1;
         } else {
-            x = x + 1;
+            if (y > 0) {
+                y = y - 1;
+            } else {
+                
+            }
         }
     }
     return 0;
