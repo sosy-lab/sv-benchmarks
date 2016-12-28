@@ -3,17 +3,17 @@ typedef enum {false, true} bool;
 extern int __VERIFIER_nondet_int(void);
 
 int main() {
-    int c;
-    int x, y;
+    int c, x, y;
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
     c = 0;
-    while (!(x == y)) {
-        if (x > y) {
+    while (x >= 0 && x < 2147483647) {
+        x = x + 1;
+        y = 1;
+        while (x > y) {
             y = y + 1;
-        } else {
-            x = x + 1;
         }
+        x = x - 2;
     }
     return 0;
 }
