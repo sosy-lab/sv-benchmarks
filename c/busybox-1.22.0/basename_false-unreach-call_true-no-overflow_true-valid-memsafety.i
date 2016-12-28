@@ -1,3 +1,5 @@
+extern long __VERIFIER_nondet_long(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
 extern char __VERIFIER_nondet_char(void);
 extern void __VERIFIER_assume(int);
@@ -1321,6 +1323,12 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   }
   while(tmp_if_expr$1 != (_Bool)0);
   return n;
+}
+ssize_t write(int fildes, const void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  return ret;
 }
 int main()
 {
