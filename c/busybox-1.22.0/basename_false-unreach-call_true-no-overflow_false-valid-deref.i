@@ -1204,7 +1204,7 @@ signed int __main(signed int argc, char **argv)
     }
   }
   if(4294967294u + (unsigned int)argc >= 2u)
-    return 1;
+    bb_show_usage();
   argv = argv + 1l;
   s=bb_get_last_path_component_strip(*argv);
   m=strlen(s);

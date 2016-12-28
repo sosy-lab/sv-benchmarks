@@ -136,7 +136,7 @@ signed int __main(signed int argc, char **argv)
   }
 
   if(4294967294u + (unsigned int)argc >= 2u)
-    return 1; /* was: bb_show_usage(); which should exit(1), but this would leak argv */
+    bb_show_usage();
 
   argv = argv + 1l;
 
