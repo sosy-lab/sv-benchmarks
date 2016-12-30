@@ -1,4 +1,4 @@
-__VERIFIER_error_linux_usb_urb:false
+__VERIFIER_error_linux_usb_urb:true
 __VERIFIER_error_linux_net_register:true
 __VERIFIER_error_linux_kernel_rcu_update_lock_bh:true
 __VERIFIER_error_linux_alloc_spinlock:true
