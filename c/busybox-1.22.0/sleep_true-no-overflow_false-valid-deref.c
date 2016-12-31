@@ -75,7 +75,8 @@ struct suffix_mult
 // file include/libbb.h line 1708
 static const char *applet_name;
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 // file libbb/xfunc_die.c line 17
 static struct __jmp_buf_tag die_jmp[1l];
 // file libbb/xfunc_die.c line 15
@@ -254,7 +255,7 @@ signed int __main(signed int argc, char **argv)
   argv = argv + 1l;
 
   if(*argv == ((char *)NULL))
-    return 1; /* was: bb_show_usage(); which should exit(1), but this would leak argv */
+    bb_show_usage();
 
   duration = (double)0;
   signed int tmp_statement_expression$1;
@@ -471,6 +472,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
 
