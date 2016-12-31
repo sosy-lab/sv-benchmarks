@@ -1,4 +1,4 @@
-#busybox-1.22.0/*_false-valid-deref*.i
+busybox-1.22.0/*_false-valid-deref*.i
 #busybox-1.22.0/*_false-valid-free*.i
 #busybox-1.22.0/*_false-valid-memtrack*.i
 busybox-1.22.0/*_true-valid-memsafety*.i
