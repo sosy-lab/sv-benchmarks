@@ -2289,7 +2289,8 @@ struct suffix_mult
 };
 static const char *applet_name;
 static char bb_common_bufsiz1[8193l];
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 static const char bb_msg_requires_arg[24l] = { (const char)37, (const char)115, (const char)32, (const char)114, (const char)101, (const char)113, (const char)117, (const char)105, (const char)114, (const char)101, (const char)115, (const char)32, (const char)97, (const char)110, (const char)32, (const char)97, (const char)114, (const char)103, (const char)117, (const char)109, (const char)101, (const char)110, (const char)116, (const char)0 };
 static const char bb_msg_standard_input[15l] = { (const char)115, (const char)116, (const char)97, (const char)110, (const char)100, (const char)97, (const char)114, (const char)100, (const char)32, (const char)105, (const char)110, (const char)112, (const char)117, (const char)116, (const char)0 };
 static struct control_info control_info[17l] = { { .saneval=(const unsigned char)(99 & 31), .offset=(const unsigned char)0 },
@@ -4257,6 +4258,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));

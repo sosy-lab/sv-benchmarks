@@ -1,6 +1,7 @@
 extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
+extern short int __VERIFIER_nondet_short(void);
 extern char __VERIFIER_nondet_char(void);
 extern void __VERIFIER_assume(int);
 /*
@@ -139,7 +140,8 @@ static const char *applet_long_options;
 // file include/libbb.h line 1708
 static const char *applet_name;
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 // file libbb/messages.c line 25
 static const char bb_msg_memory_exhausted[14l] = { (const char)111, (const char)117, (const char)116, (const char)32, (const char)111, (const char)102, (const char)32, (const char)109, (const char)101, (const char)109, (const char)111, (const char)114, (const char)121, (const char)0 };
 // file libbb/getopt32.c line 320
@@ -854,6 +856,21 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   return n;
 }
 
+static struct utmp dummy_utmp;
+struct utmp *getutent(void) {
+  if (__VERIFIER_nondet_int())
+    return (struct utmp *)NULL;
+  dummy_utmp.ut_tv.tv_sec = __VERIFIER_nondet_int();
+  dummy_utmp.ut_type = __VERIFIER_nondet_short();
+  // these are 32-byte strings
+  for (int i = 0; i < sizeof(dummy_utmp.ut_line); ++i)
+    dummy_utmp.ut_line[i] = __VERIFIER_nondet_char();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_user); ++i)
+    dummy_utmp.ut_user[i] = __VERIFIER_nondet_char();
+
+  return &dummy_utmp;
+}
+
 // file coreutils/who.c line 74
 signed int __main(signed int argc, char **argv)
 {
@@ -1078,6 +1095,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
 

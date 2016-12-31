@@ -1593,7 +1593,8 @@ static signed int fflush_all(void);
 static signed long int full_write(signed int fd, const void *buf, unsigned long int len);
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count);
 static const char *applet_name;
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 static signed char logmode = (signed char)1;
 static const char *msg_eol = "\n";
 static void bb_error_msg(const char *s, ...)
@@ -1739,6 +1740,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));

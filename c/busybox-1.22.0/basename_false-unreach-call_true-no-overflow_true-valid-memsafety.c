@@ -41,7 +41,8 @@ static char * last_char_is(const char *s, signed int c);
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count);
 
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 
 // file coreutils/basename.c line 49
 signed int __main(signed int argc, char **argv)
@@ -298,6 +299,7 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
 
