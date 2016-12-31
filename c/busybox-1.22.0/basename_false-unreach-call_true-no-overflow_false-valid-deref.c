@@ -103,7 +103,6 @@ signed int __main(signed int argc, char **argv)
                   /* assertion (_Bool)0 */
                   __VERIFIER_error();
 
-                  __result = (signed int)((const char *)"--")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                 }
 
               }

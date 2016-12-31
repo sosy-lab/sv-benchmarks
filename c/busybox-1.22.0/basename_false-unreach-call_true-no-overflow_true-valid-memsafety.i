@@ -1183,7 +1183,6 @@ signed int __main(signed int argc, char **argv)
                 if(__result == 0)
                 {
                   __VERIFIER_error();
-                  __result = (signed int)((const char *)"--")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                 }
               }
             }
