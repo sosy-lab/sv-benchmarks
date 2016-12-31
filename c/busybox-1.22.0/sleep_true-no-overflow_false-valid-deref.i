@@ -2330,7 +2330,7 @@ signed int __main(signed int argc, char **argv)
   struct timespec ts;
   argv = argv + 1l;
   if(*argv == ((char *)((void *)0)))
-    return 1;
+    bb_show_usage();
   duration = (double)0;
   signed int tmp_statement_expression$1;
   unsigned long int tmp_if_expr$9;

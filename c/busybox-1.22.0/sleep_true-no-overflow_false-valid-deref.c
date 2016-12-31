@@ -255,7 +255,7 @@ signed int __main(signed int argc, char **argv)
   argv = argv + 1l;
 
   if(*argv == ((char *)NULL))
-    return 1; /* was: bb_show_usage(); which should exit(1), but this would leak argv */
+    bb_show_usage();
 
   duration = (double)0;
   signed int tmp_statement_expression$1;
