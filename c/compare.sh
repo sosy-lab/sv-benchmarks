@@ -9,18 +9,6 @@ BLACKLIST="\
   bitvector/modulus_true-unreach-call_true-no-overflow.i \
   floats-esbmc-regression/trunc_nondet_2_true-unreach-call.i \
   pthread-atomic/gcd_true-unreach-call_true-termination.i \
-  seq-pthread/cs_dekker_true-unreach-call.i \
-  seq-pthread/cs_fib_longer_true-unreach-call.i \
-  seq-pthread/cs_fib_true-unreach-call.i \
-  seq-pthread/cs_lamport_true-unreach-call.i \
-  seq-pthread/cs_peterson_true-unreach-call.i \
-  seq-pthread/cs_queue_true-unreach-call.i \
-  seq-pthread/cs_read_write_lock_true-unreach-call.i \
-  seq-pthread/cs_stack_true-unreach-call.i \
-  seq-pthread/cs_stateful_true-unreach-call.i \
-  seq-pthread/cs_sync_true-unreach-call.i \
-  seq-pthread/cs_szymanski_true-unreach-call.i \
-  seq-pthread/cs_time_var_mutex_true-unreach-call.i \
   "
 
 KEEP_GOING=0
