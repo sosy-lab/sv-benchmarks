@@ -11,11 +11,10 @@ void __VERIFIER_assert(int cond) {
 
 int main()
 {
-    unsigned char x;
+    unsigned char x = __VERIFIER_nondet_uchar();
     unsigned char y;
     unsigned char c;
 
-    x = __VERIFIER_nondet_uchar();
     y = 0;
     c = 0;
     while (c < (unsigned char)8) {
