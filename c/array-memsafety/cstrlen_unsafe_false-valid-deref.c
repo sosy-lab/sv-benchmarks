@@ -31,7 +31,10 @@ int (cstrlen)(const char *s)
  }
 
 int main() {
-    return cstrlen(__VERIFIER_nondet_String());
+  char* p = __VERIFIER_nondet_String();
+  int res = cstrlen(p);
+  free(p);
+  return res;
 }
 
 
