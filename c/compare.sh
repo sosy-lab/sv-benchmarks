@@ -7,8 +7,6 @@ BLACKLIST="\
   bitvector/gcd_2_true-unreach-call_true-no-overflow.i \
   bitvector/gcd_3_true-unreach-call_true-no-overflow.i \
   bitvector/modulus_true-unreach-call_true-no-overflow.i \
-  floats-cbmc-regression/float-flags-simp1_true-unreach-call.i \
-  floats-cbmc-regression/float-no-simp4_true-unreach-call.i \
   floats-esbmc-regression/trunc_nondet_2_true-unreach-call.i \
   pthread-atomic/gcd_true-unreach-call_true-termination.i \
   seq-pthread/cs_dekker_true-unreach-call.i \
