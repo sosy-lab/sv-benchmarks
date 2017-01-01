@@ -3,7 +3,6 @@
 set -e
 
 BLACKLIST="\
-  array-examples/standard_seq_init_true-unreach-call_ground.i \
   bitvector/byte_add_1_true-unreach-call_true-no-overflow.i \
   bitvector/byte_add_false-unreach-call_true-no-overflow.i \
   bitvector/gcd_1_true-unreach-call_true-no-overflow.i \
