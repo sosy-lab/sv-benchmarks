@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
@@ -6,7 +7,7 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int main ( ) {
   int a [N];
   int b [N];
-  int incr;
+  int incr = __VERIFIER_nondet_int();
   int i = 0;
   while ( i < N ) {
     a[i] = 42;

@@ -4,7 +4,6 @@ set -e
 
 BLACKLIST="\
   array-memsafety/cstrlen_unsafe_false-valid-deref.i \
-  array-examples/standard_copyInitSum_true-unreach-call_ground.i \
   array-examples/standard_seq_init_true-unreach-call_ground.i \
   bitvector/byte_add_1_true-unreach-call_true-no-overflow.i \
   bitvector/byte_add_false-unreach-call_true-no-overflow.i \
