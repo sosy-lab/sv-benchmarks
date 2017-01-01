@@ -7,7 +7,6 @@ BLACKLIST="\
   bitvector/gcd_1_true-unreach-call_true-no-overflow.i \
   bitvector/gcd_2_true-unreach-call_true-no-overflow.i \
   bitvector/gcd_3_true-unreach-call_true-no-overflow.i \
-  bitvector/interleave_bits_true-unreach-call_true-no-overflow.i \
   bitvector/modulus_true-unreach-call_true-no-overflow.i \
   bitvector-loops/verisec_sendmail__tTflag_arr_one_loop_false-unreach-call.i \
   floats-cbmc-regression/float-flags-simp1_true-unreach-call.i \
