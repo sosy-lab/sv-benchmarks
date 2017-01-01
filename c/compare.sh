@@ -3,7 +3,6 @@
 set -e
 
 BLACKLIST="\
-  bitvector/byte_add_false-unreach-call_true-no-overflow.i \
   bitvector/gcd_1_true-unreach-call_true-no-overflow.i \
   bitvector/gcd_2_true-unreach-call_true-no-overflow.i \
   bitvector/gcd_3_true-unreach-call_true-no-overflow.i \
