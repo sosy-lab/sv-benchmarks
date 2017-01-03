@@ -22,6 +22,7 @@ extern void __VERIFIER_assume(int);
 #include <libio.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -78,7 +79,7 @@ static char * single_argv(char **argv)
       if(!((unsigned long int)("--" + 1l) + -((unsigned long int)"--") == 1ul))
         goto __CPROVER_DUMP_L1;
 
-      __s2_len=__builtin_strlen("--");
+      __s2_len=strlen("--");
       tmp_if_expr$2 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
 
@@ -124,7 +125,7 @@ static char * single_argv(char **argv)
 
     else
     {
-      return_value___builtin_strcmp$4=__builtin_strcmp(argv[(signed long int)1], "--");
+      return_value___builtin_strcmp$4=strcmp(argv[(signed long int)1], "--");
       tmp_if_expr$5 = return_value___builtin_strcmp$4;
     }
     tmp_statement_expression$1 = tmp_if_expr$5;

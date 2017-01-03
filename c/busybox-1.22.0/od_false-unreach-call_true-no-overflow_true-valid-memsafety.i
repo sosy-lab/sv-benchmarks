@@ -2727,7 +2727,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
     c = (unsigned int)*tmp_post$1;
     char *return_value___builtin_strchr$2;
     static const char CSIL[5l] = { (const char)67, (const char)83, (const char)73, (const char)76, (const char)0 };
-    return_value___builtin_strchr$2=__builtin_strchr(CSIL, (signed int)*s);
+    return_value___builtin_strchr$2=strchr(CSIL, (signed int)*s);
     p = return_value___builtin_strchr$2;
     if(p == ((const char *)((void *)0)))
       decode_one_format$$1$$tmp_if_expr$4 = 1 != 0;
@@ -2780,7 +2780,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
     size_spec = (signed int)integral_type_size[(signed long int)size];
     char *return_value___builtin_strchr$5;
     static const char doux[5l] = { (const char)100, (const char)111, (const char)117, (const char)120, (const char)0 };
-    return_value___builtin_strchr$5=__builtin_strchr(doux, (signed int)c);
+    return_value___builtin_strchr$5=strchr(doux, (signed int)c);
     pos = (signed int)(return_value___builtin_strchr$5 - doux);
     if(4l * (signed long int)pos >= 0l)
       (void)0;
@@ -2848,7 +2848,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
     s = s + 1l;
     char *return_value___builtin_strchr$6;
     static const char FDL[4l] = { (const char)70, (const char)68, (const char)76, (const char)0 };
-    return_value___builtin_strchr$6=__builtin_strchr(FDL, (signed int)*s);
+    return_value___builtin_strchr$6=strchr(FDL, (signed int)*s);
     p = return_value___builtin_strchr$6;
     if(p == ((const char *)((void *)0)))
     {
@@ -3836,7 +3836,7 @@ signed int __main(signed int argc, char **argv)
     signed int pos;
     char *return_value___builtin_strchr$1;
     static const char doxn[5l] = { (const char)100, (const char)111, (const char)120, (const char)110, (const char)0 };
-    return_value___builtin_strchr$1=__builtin_strchr(doxn, (signed int)str_A[(signed long int)0]);
+    return_value___builtin_strchr$1=strchr(doxn, (signed int)str_A[(signed long int)0]);
     p = return_value___builtin_strchr$1;
     if(p == ((char *)((void *)0)))
     {
@@ -4077,7 +4077,7 @@ static signed int parse_old_offset(const char *s, signed long int *offset)
   if(!(208 + (signed int)(unsigned char)(signed int)*s <= 9))
     return 0;
   char *return_value___builtin_strchr$1;
-  return_value___builtin_strchr$1=__builtin_strchr(s, 46);
+  return_value___builtin_strchr$1=strchr(s, 46);
   p = return_value___builtin_strchr$1;
   radix = 8;
   _Bool tmp_if_expr$2;
@@ -4712,7 +4712,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -4785,7 +4785,7 @@ static unsigned long long int xstrtoull_range_sfx(const char *numstr, signed int
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {

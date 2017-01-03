@@ -400,7 +400,7 @@ static signed int binop(void)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(opnd1, opnd2);
+    return_value___builtin_strcmp$2=strcmp(opnd1, opnd2);
     tmp_statement_expression$1 = (signed long int)return_value___builtin_strcmp$2;
     val1 = tmp_statement_expression$1;
 
@@ -647,7 +647,7 @@ static signed int index_in_strings(const char *strings, const char *key)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(strings, key);
+    return_value___builtin_strcmp$2=strcmp(strings, key);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     if(tmp_statement_expression$1 == 0)
       return idx;
@@ -1041,7 +1041,7 @@ signed int __main(signed int argc, char **argv)
         if(!((unsigned long int)("]]" + 1l) + -((unsigned long int)"]]") == 1ul))
           goto __CPROVER_DUMP_L19;
 
-        __s2_len=__builtin_strlen("]]");
+        __s2_len=strlen("]]");
         tmp_if_expr$3 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
 
@@ -1102,7 +1102,7 @@ signed int __main(signed int argc, char **argv)
       else
       {
 
-        return_value___builtin_strcmp$5=__builtin_strcmp(argv[(signed long int)argc], "]]");
+        return_value___builtin_strcmp$5=strcmp(argv[(signed long int)argc], "]]");
         tmp_if_expr$6 = return_value___builtin_strcmp$5;
       }
       tmp_statement_expression$2 = tmp_if_expr$6;

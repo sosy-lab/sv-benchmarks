@@ -2361,7 +2361,7 @@ static signed int cmp_common(struct valinfo *l, struct valinfo *r, signed int op
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(l->u.s, r->u.s);
+    return_value___builtin_strcmp$2=strcmp(l->u.s, r->u.s);
     tmp_statement_expression$1 = (signed long int)return_value___builtin_strcmp$2;
     ll = tmp_statement_expression$1;
     rr = (signed long int)0;
@@ -2678,7 +2678,7 @@ static struct valinfo * eval6(void)
     char __r1;
     char __r2;
     unsigned long int return_value___builtin_strcspn$8;
-    return_value___builtin_strcspn$8=__builtin_strcspn(l->u.s, r->u.s);
+    return_value___builtin_strcspn$8=strcspn(l->u.s, r->u.s);
     tmp_statement_expression$7 = return_value___builtin_strcspn$8;
     v=int_value((signed long int)(tmp_statement_expression$7 + (unsigned long int)1));
     unsigned long int return_value_strlen$9;
@@ -2843,7 +2843,7 @@ static signed int index_in_strings(const char *strings, const char *key)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(strings, key);
+    return_value___builtin_strcmp$2=strcmp(strings, key);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     if(tmp_statement_expression$1 == 0)
       return idx;
@@ -2874,7 +2874,7 @@ static signed int nextarg(const char *str)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(*((struct globals *)&bb_common_bufsiz1)->args, str);
+    return_value___builtin_strcmp$2=strcmp(*((struct globals *)&bb_common_bufsiz1)->args, str);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     tmp_if_expr$3 = (tmp_statement_expression$1 != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }

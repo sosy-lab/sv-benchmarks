@@ -3027,7 +3027,6 @@ struct utmp *getutent(void) {
     dummy_utmp.ut_line[i] = __VERIFIER_nondet_char();
   for (int i = 0; i < sizeof(dummy_utmp.ut_user); ++i)
     dummy_utmp.ut_user[i] = __VERIFIER_nondet_char();
-
   return &dummy_utmp;
 }
 signed int __main(signed int argc, char **argv)
@@ -3164,7 +3163,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {

@@ -2996,7 +2996,7 @@ static signed int index_in_strings(const char *strings, const char *key)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(strings, key);
+    return_value___builtin_strcmp$2=strcmp(strings, key);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     if(tmp_statement_expression$1 == 0)
       return idx;
@@ -3193,7 +3193,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
       {
         if(!((unsigned long int)("^-" + 1l) + -((unsigned long int)"^-") == 1ul))
           goto __CPROVER_DUMP_L13;
-        set_control_char_or_die$$1$$1$$__s2_len=__builtin_strlen("^-");
+        set_control_char_or_die$$1$$1$$__s2_len=strlen("^-");
         tmp_if_expr$4 = (set_control_char_or_die$$1$$1$$__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       else
@@ -3234,7 +3234,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
       }
       else
       {
-        return_value___builtin_strcmp$6=__builtin_strcmp(arg, "^-");
+        return_value___builtin_strcmp$6=strcmp(arg, "^-");
         tmp_if_expr$7 = return_value___builtin_strcmp$6;
       }
       tmp_statement_expression$3 = tmp_if_expr$7;
@@ -3248,7 +3248,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
         {
           if(!((unsigned long int)("undef" + 1l) + -((unsigned long int)"undef") == 1ul))
             goto __CPROVER_DUMP_L35;
-          __s2_len=__builtin_strlen("undef");
+          __s2_len=strlen("undef");
           tmp_if_expr$9 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
         else
@@ -3288,7 +3288,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
         }
         else
         {
-          return_value___builtin_strcmp$11=__builtin_strcmp(arg, "undef");
+          return_value___builtin_strcmp$11=strcmp(arg, "undef");
           tmp_if_expr$12 = return_value___builtin_strcmp$11;
         }
         tmp_statement_expression$8 = tmp_if_expr$12;
@@ -4153,7 +4153,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -4220,7 +4220,7 @@ static unsigned long long int xstrtoull_range_sfx(const char *numstr, signed int
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {

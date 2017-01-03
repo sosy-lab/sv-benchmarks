@@ -2010,7 +2010,7 @@ signed int __main(signed int argc, char **argv)
             if(!((unsigned long int)("none" + 1l) + -((unsigned long int)"none") == 1ul))
               goto __CPROVER_DUMP_L13;
 
-            __s2_len=__builtin_strlen("none");
+            __s2_len=strlen("none");
             tmp_if_expr$2 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
 
@@ -2066,7 +2066,7 @@ signed int __main(signed int argc, char **argv)
 
           else
           {
-            return_value___builtin_strcmp$4=__builtin_strcmp(p, "none");
+            return_value___builtin_strcmp$4=strcmp(p, "none");
             tmp_if_expr$5 = return_value___builtin_strcmp$4;
           }
           tmp_statement_expression$1 = tmp_if_expr$5;
@@ -2808,7 +2808,7 @@ static signed int sortcmp(const void *a, const void *b)
 
                 return_value_strchrnul$4=strchrnul(d2->name, 46);
                 signed int return_value___builtin_strcmp$5;
-                return_value___builtin_strcmp$5=__builtin_strcmp(return_value_strchrnul$3, return_value_strchrnul$4);
+                return_value___builtin_strcmp$5=strcmp(return_value_strchrnul$3, return_value_strchrnul$4);
                 tmp_statement_expression$2 = (signed long int)return_value___builtin_strcmp$5;
                 dif = tmp_statement_expression$2;
               }
@@ -2823,7 +2823,7 @@ static signed int sortcmp(const void *a, const void *b)
       signed int return_value___builtin_strcmp$8;
 
 
-      return_value___builtin_strcmp$8=__builtin_strcmp(d1->name, d2->name);
+      return_value___builtin_strcmp$8=strcmp(d1->name, d2->name);
       tmp_statement_expression$7 = (signed long int)return_value___builtin_strcmp$8;
       dif = tmp_statement_expression$7;
     }
@@ -3460,7 +3460,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {

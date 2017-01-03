@@ -2399,7 +2399,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
         delimiter[(signed long int)0] = delim;
         delimiter[(signed long int)1] = (char)0;
         char *return_value___builtin_strchr$4;
-        return_value___builtin_strchr$4=__builtin_strchr(line, (signed int)delim);
+        return_value___builtin_strchr$4=strchr(line, (signed int)delim);
         if(return_value___builtin_strchr$4 == ((char *)((void *)0)))
         {
           if((16u & option_mask32) == 0u)
@@ -3169,7 +3169,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {

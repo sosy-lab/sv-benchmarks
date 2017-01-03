@@ -2776,7 +2776,7 @@ signed int __main(signed int argc, char **argv)
     }
     if(!((signed int)*(1l + arg) == 0))
     {
-      return_value___builtin_strchr$1=__builtin_strchr("-Rvcf", (signed int)arg[(signed long int)1]);
+      return_value___builtin_strchr$1=strchr("-Rvcf", (signed int)arg[(signed long int)1]);
       if(return_value___builtin_strchr$1 == ((char *)((void *)0)))
       {
         arg[(signed long int)0] = (char)97;
@@ -3541,7 +3541,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {

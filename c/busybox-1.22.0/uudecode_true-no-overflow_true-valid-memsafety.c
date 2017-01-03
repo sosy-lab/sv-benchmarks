@@ -471,7 +471,7 @@ static const char * decode_base64(char **pp_dst, const char *src)
 
         src = src + 1l;
         char *return_value___builtin_strchr$1;
-        return_value___builtin_strchr$1=__builtin_strchr(bb_uuenc_tbl_base64, ch);
+        return_value___builtin_strchr$1=strchr(bb_uuenc_tbl_base64, ch);
         table_ptr = return_value___builtin_strchr$1;
       }
       while(table_ptr == ((char *)NULL));
@@ -1140,7 +1140,7 @@ static void read_base64(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream
         if(!((unsigned long int)("====" + 1l) + -((unsigned long int)"====") == 1ul))
           goto __CPROVER_DUMP_L8;
 
-        __s2_len=__builtin_strlen("====");
+        __s2_len=strlen("====");
         tmp_if_expr$3 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
 
@@ -1186,7 +1186,7 @@ static void read_base64(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream
 
       else
       {
-        return_value___builtin_strcmp$5=__builtin_strcmp(in_buf, "====");
+        return_value___builtin_strcmp$5=strcmp(in_buf, "====");
         tmp_if_expr$6 = return_value___builtin_strcmp$5;
       }
       tmp_statement_expression$2 = tmp_if_expr$6;
@@ -1242,7 +1242,7 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
       if(!((unsigned long int)("end" + 1l) + -((unsigned long int)"end") == 1ul))
         goto __CPROVER_DUMP_L2;
 
-      __s2_len=__builtin_strlen("end");
+      __s2_len=strlen("end");
       tmp_if_expr$2 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
 
@@ -1298,7 +1298,7 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
 
     else
     {
-      return_value___builtin_strcmp$4=__builtin_strcmp(line, "end");
+      return_value___builtin_strcmp$4=strcmp(line, "end");
       tmp_if_expr$5 = return_value___builtin_strcmp$4;
     }
     tmp_statement_expression$1 = tmp_if_expr$5;
@@ -1452,7 +1452,7 @@ signed int __main(signed int argc, char **argv)
         if(!((unsigned long int)("begin-base64 " + 1l) + -((unsigned long int)"begin-base64 ") == 1ul))
           goto __CPROVER_DUMP_L9;
 
-        __s2_len=__builtin_strlen("begin-base64 ");
+        __s2_len=strlen("begin-base64 ");
         tmp_if_expr$11 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
 
@@ -1508,7 +1508,7 @@ signed int __main(signed int argc, char **argv)
 
       else
       {
-        return_value___builtin_strcmp$13=__builtin_strcmp(line, "begin-base64 ");
+        return_value___builtin_strcmp$13=strcmp(line, "begin-base64 ");
         tmp_if_expr$14 = return_value___builtin_strcmp$13;
       }
       tmp_statement_expression$10 = tmp_if_expr$14;
@@ -1538,7 +1538,7 @@ signed int __main(signed int argc, char **argv)
           if(!((unsigned long int)("begin " + 1l) + -((unsigned long int)"begin ") == 1ul))
             goto __CPROVER_DUMP_L31;
 
-          uudecode_main$$1$$1$$3$$__s2_len=__builtin_strlen("begin ");
+          uudecode_main$$1$$1$$3$$__s2_len=strlen("begin ");
           tmp_if_expr$3 = (uudecode_main$$1$$1$$3$$__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
 
@@ -1594,7 +1594,7 @@ signed int __main(signed int argc, char **argv)
 
         else
         {
-          return_value___builtin_strcmp$5=__builtin_strcmp(line, "begin ");
+          return_value___builtin_strcmp$5=strcmp(line, "begin ");
           tmp_if_expr$6 = return_value___builtin_strcmp$5;
         }
         tmp_statement_expression$2 = tmp_if_expr$6;
@@ -1624,7 +1624,7 @@ signed int __main(signed int argc, char **argv)
     if(outname == ((char *)NULL))
     {
       char *return_value___builtin_strchr$18;
-      return_value___builtin_strchr$18=__builtin_strchr(line_ptr, 32);
+      return_value___builtin_strchr$18=strchr(line_ptr, 32);
       outname = return_value___builtin_strchr$18;
       if(outname == ((char *)NULL))
         break;
@@ -1808,7 +1808,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {

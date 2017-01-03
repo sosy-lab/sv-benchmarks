@@ -1023,7 +1023,7 @@ static void parse_datestr(const char *date_str, struct tm *ptm)
 
   else
   {
-    return_value___builtin_strchr$23=__builtin_strchr(date_str, 45);
+    return_value___builtin_strchr$23=strchr(date_str, 45);
     if(!(return_value___builtin_strchr$23 == ((char *)NULL)))
     {
       return_value_sscanf$24=sscanf(date_str, "%u-%u-%u %u%c", &ptm->tm_year, &ptm->tm_mon, &ptm->tm_mday, &ptm->tm_hour, &end);
@@ -1169,7 +1169,7 @@ static void parse_datestr(const char *date_str, struct tm *ptm)
         if((signed int)end == 46)
         {
           char *return_value___builtin_strchr$21;
-          return_value___builtin_strchr$21=__builtin_strchr(date_str, 46);
+          return_value___builtin_strchr$21=strchr(date_str, 46);
           signed int return_value_sscanf$22;
           return_value_sscanf$22=sscanf(return_value___builtin_strchr$21 + (signed long int)1, "%u%c", &ptm->tm_sec, &end);
           if(return_value_sscanf$22 == 1)
@@ -1449,7 +1449,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {

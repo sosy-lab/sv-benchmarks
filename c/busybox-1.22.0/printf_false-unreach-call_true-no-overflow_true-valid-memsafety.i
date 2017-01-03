@@ -2632,7 +2632,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
   format[(signed long int)fmt_length] = (char)0;
   have_prec=strstr(format, ".*");
   char *return_value___builtin_strchr$1;
-  return_value___builtin_strchr$1=__builtin_strchr(format, 42);
+  return_value___builtin_strchr$1=strchr(format, 42);
   have_width = return_value___builtin_strchr$1;
   if(-1l + have_width == have_prec)
     have_width = (char *)((void *)0);
@@ -2885,7 +2885,7 @@ static char ** print_formatted(char *f, char **argv, signed int *conv_err)
         }
         goto __CPROVER_DUMP_L75;
       }
-      return_value___builtin_strchr$2=__builtin_strchr("-+ #", (signed int)*f);
+      return_value___builtin_strchr$2=strchr("-+ #", (signed int)*f);
       if(!(return_value___builtin_strchr$2 == ((char *)((void *)0))))
       {
         f = f + 1l;
@@ -2949,7 +2949,7 @@ static char ** print_formatted(char *f, char **argv, signed int *conv_err)
       char *p;
       char *return_value___builtin_strchr$5;
       static const char format_chars[14l] = { (const char)100, (const char)105, (const char)111, (const char)117, (const char)120, (const char)88, (const char)102, (const char)101, (const char)69, (const char)103, (const char)71, (const char)99, (const char)115, (const char)0 };
-      return_value___builtin_strchr$5=__builtin_strchr(format_chars, (signed int)*f);
+      return_value___builtin_strchr$5=strchr(format_chars, (signed int)*f);
       p = return_value___builtin_strchr$5;
       if(p == ((char *)((void *)0)))
       {

@@ -648,7 +648,7 @@ signed int __main(signed int argc, char **argv)
         if(!((unsigned long int)("%f" + 1l) + -((unsigned long int)"%f") == 1ul))
           goto __CPROVER_DUMP_L64;
 
-        __s2_len=__builtin_strlen("%f");
+        __s2_len=strlen("%f");
         tmp_if_expr$20 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
 
@@ -706,7 +706,7 @@ signed int __main(signed int argc, char **argv)
 
       else
       {
-        return_value___builtin_strcmp$22=__builtin_strcmp(fmt_dt2str, "%f");
+        return_value___builtin_strcmp$22=strcmp(fmt_dt2str, "%f");
         tmp_if_expr$23 = return_value___builtin_strcmp$22;
       }
       tmp_statement_expression$19 = tmp_if_expr$23;
@@ -1402,7 +1402,7 @@ static void parse_datestr(const char *date_str, struct tm *ptm)
 
   else
   {
-    return_value___builtin_strchr$23=__builtin_strchr(date_str, 45);
+    return_value___builtin_strchr$23=strchr(date_str, 45);
     if(!(return_value___builtin_strchr$23 == ((char *)NULL)))
     {
       return_value_sscanf$24=sscanf(date_str, "%u-%u-%u %u%c", &ptm->tm_year, &ptm->tm_mon, &ptm->tm_mday, &ptm->tm_hour, &end);
@@ -1548,7 +1548,7 @@ static void parse_datestr(const char *date_str, struct tm *ptm)
         if((signed int)end == 46)
         {
           char *return_value___builtin_strchr$21;
-          return_value___builtin_strchr$21=__builtin_strchr(date_str, 46);
+          return_value___builtin_strchr$21=strchr(date_str, 46);
           signed int return_value_sscanf$22;
           return_value_sscanf$22=sscanf(return_value___builtin_strchr$21 + (signed long int)1, "%u%c", &ptm->tm_sec, &end);
           if(return_value_sscanf$22 == 1)
@@ -1694,7 +1694,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {

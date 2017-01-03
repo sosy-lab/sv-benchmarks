@@ -62,7 +62,7 @@ signed int __main(signed int argc, char **argv)
       if(!((unsigned long int)("--" + 1l) + -((unsigned long int)"--") == 1ul))
         goto __CPROVER_DUMP_L3;
 
-      __s2_len=__builtin_strlen("--");
+      __s2_len=strlen("--");
       tmp_if_expr$2 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
 
@@ -122,7 +122,7 @@ signed int __main(signed int argc, char **argv)
     else
     {
 
-      return_value___builtin_strcmp$4=__builtin_strcmp(argv[(signed long int)1], "--");
+      return_value___builtin_strcmp$4=strcmp(argv[(signed long int)1], "--");
       tmp_if_expr$5 = return_value___builtin_strcmp$4;
     }
     tmp_statement_expression$1 = tmp_if_expr$5;
@@ -153,7 +153,7 @@ signed int __main(signed int argc, char **argv)
       unsigned long int basename_main$$1$$4$$1$$__s2_len;
       signed int return_value___builtin_strcmp$7;
 
-      return_value___builtin_strcmp$7=__builtin_strcmp((s + (signed long int)m) - (signed long int)n, *argv);
+      return_value___builtin_strcmp$7=strcmp((s + (signed long int)m) - (signed long int)n, *argv);
       tmp_statement_expression$6 = return_value___builtin_strcmp$7;
       if(tmp_statement_expression$6 == 0)
         m = m - n;
