@@ -104,8 +104,9 @@ int main()
 {
     unsigned int a, b, r;
 
-    a = 234770789;
     b = __VERIFIER_nondet_uint();
+
+    a = 234770789;
 
     r = mp_add(a, b);
 

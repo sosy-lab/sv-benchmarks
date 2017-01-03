@@ -1,6 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-extern int __VERIFIER_nondet_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -103,6 +103,9 @@ unsigned int mp_add(unsigned int a, unsigned int b)
 int main()
 {
     unsigned int a, b, r;
+
+    a = __VERIFIER_nondet_uint();
+    b = __VERIFIER_nondet_uint();
 
     r = mp_add(a, b);
 

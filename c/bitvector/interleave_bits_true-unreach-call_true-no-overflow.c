@@ -1,6 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-extern int __VERIFIER_nondet_int(void);
 extern unsigned short __VERIFIER_nondet_ushort(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -25,7 +24,7 @@ int main()
     unsigned int z = 0; /* z gets the resulting Morton Number. */
     unsigned int i = 0;
 
-    while (i < 32U) {
+    while (i < sizeof(x) * 8) {
         z |= ((x & (1U << i)) << i) | ((y & (1U << i)) << (i + 1));
         i += 1U;
     }

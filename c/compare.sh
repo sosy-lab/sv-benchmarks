@@ -3,34 +3,8 @@
 set -e
 
 BLACKLIST="\
-  array-memsafety/cstrlen_unsafe_false-valid-deref.i \
-  array-examples/standard_copyInitSum_true-unreach-call_ground.i \
-  array-examples/standard_seq_init_true-unreach-call_ground.i \
-  bitvector/byte_add_1_true-unreach-call_true-no-overflow.i \
-  bitvector/byte_add_false-unreach-call_true-no-overflow.i \
-  bitvector/gcd_1_true-unreach-call_true-no-overflow.i \
-  bitvector/gcd_2_true-unreach-call_true-no-overflow.i \
-  bitvector/gcd_3_true-unreach-call_true-no-overflow.i \
-  bitvector/interleave_bits_true-unreach-call_true-no-overflow.i \
-  bitvector/modulus_true-unreach-call_true-no-overflow.i \
-  bitvector/num_conversion_2_true-unreach-call_true-no-overflow.i \
-  bitvector-loops/verisec_sendmail__tTflag_arr_one_loop_false-unreach-call.i \
-  floats-cbmc-regression/float-flags-simp1_true-unreach-call.i \
-  floats-cbmc-regression/float-no-simp4_true-unreach-call.i \
   floats-esbmc-regression/trunc_nondet_2_true-unreach-call.i \
   pthread-atomic/gcd_true-unreach-call_true-termination.i \
-  seq-pthread/cs_dekker_true-unreach-call.i \
-  seq-pthread/cs_fib_longer_true-unreach-call.i \
-  seq-pthread/cs_fib_true-unreach-call.i \
-  seq-pthread/cs_lamport_true-unreach-call.i \
-  seq-pthread/cs_peterson_true-unreach-call.i \
-  seq-pthread/cs_queue_true-unreach-call.i \
-  seq-pthread/cs_read_write_lock_true-unreach-call.i \
-  seq-pthread/cs_stack_true-unreach-call.i \
-  seq-pthread/cs_stateful_true-unreach-call.i \
-  seq-pthread/cs_sync_true-unreach-call.i \
-  seq-pthread/cs_szymanski_true-unreach-call.i \
-  seq-pthread/cs_time_var_mutex_true-unreach-call.i \
   "
 
 KEEP_GOING=0
