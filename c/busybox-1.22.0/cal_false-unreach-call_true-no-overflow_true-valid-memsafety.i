@@ -2360,7 +2360,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   __builtin_va_start(p,s);
   bb_verror_msg(s, p, (const char *)((void *)0));
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static void bb_perror_msg_and_die(const char *s, ...)
 {
@@ -2377,7 +2377,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)((void *)0);
   bb_verror_msg(s, p, tmp_if_expr$2);
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static signed int bb_putchar(signed int ch)
 {
@@ -2701,7 +2701,8 @@ signed int __main(signed int argc, char **argv)
       }
     }
   }
-  fflush_stdout_and_exit(0);
+  fflush(stdout);
+  return 0;
 }
 static void center(char *str, unsigned int len, unsigned int separate)
 {
@@ -2804,7 +2805,7 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort();
   }
   exit(retval);
 }

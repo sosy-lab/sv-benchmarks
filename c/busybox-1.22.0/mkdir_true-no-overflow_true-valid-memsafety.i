@@ -2439,7 +2439,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   __builtin_va_start(p,s);
   bb_verror_msg(s, p, (const char *)((void *)0));
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static signed int bb_make_directory(char *path, signed long int mode, signed int flags)
 {

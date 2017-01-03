@@ -176,7 +176,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file libbb/get_line_from_file.c line 14
@@ -245,7 +245,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file ./libbb-dump.i line 1
@@ -386,7 +386,7 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort(); // xfunc_die() invokes exit() and would thus leak memory
   }
 
   exit(retval);
@@ -1082,7 +1082,9 @@ signed int __main(signed int argc, char **argv)
   }
   while(!(cur_line == ((char *)NULL)));
   die_if_ferror(stdin, input_filename);
-  fflush_stdout_and_exit(0);
+  // fflush_stdout_and_exit(0); -- invokes exit() and would thus leak memory
+  fflush(stdout);
+  return 0;
 }
 
 // file include/libbb.h line 858

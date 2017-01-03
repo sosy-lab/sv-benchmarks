@@ -2209,7 +2209,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   __builtin_va_start(p,s);
   bb_verror_msg(s, p, (const char *)((void *)0));
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static char * bb_get_chunk_from_file(struct _IO_FILE *file, signed int *end)
 {
@@ -2282,7 +2282,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)((void *)0);
   bb_verror_msg(s, p, tmp_if_expr$2);
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static void bb_show_usage(void)
 {
@@ -2421,7 +2421,7 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort();
   }
   exit(retval);
 }
@@ -2582,7 +2582,8 @@ __CPROVER_DUMP_L17:
     if(*argv == ((char *)((void *)0)))
       break;
   }
-  fflush_stdout_and_exit(retval);
+  fflush(stdout);
+  return retval;
 }
 static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count)
 {

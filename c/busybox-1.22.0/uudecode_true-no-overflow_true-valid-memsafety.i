@@ -2337,7 +2337,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   __builtin_va_start(p,s);
   bb_verror_msg(s, p, (const char *)((void *)0));
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static char * bb_get_chunk_from_file(struct _IO_FILE *file, signed int *end)
 {
@@ -2410,7 +2410,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)((void *)0);
   bb_verror_msg(s, p, tmp_if_expr$2);
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static void bb_show_usage(void)
 {
@@ -3567,7 +3567,7 @@ static struct _IO_FILE * xfopen_stdin(const char *filename)
   fp=fopen_or_warn_stdin(filename);
   if(!(fp == ((struct _IO_FILE *)((void *)0))))
     return fp;
-  xfunc_die();
+  abort();
 }
 static void xfunc_die(void)
 {

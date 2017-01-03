@@ -2213,7 +2213,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   __builtin_va_start(p,s);
   bb_verror_msg(s, p, (const char *)((void *)0));
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static void bb_perror_msg(const char *s, ...)
 {
@@ -2246,7 +2246,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)((void *)0);
   bb_verror_msg(s, p, tmp_if_expr$2);
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static void bb_show_usage(void)
 {
@@ -2367,7 +2367,7 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort();
   }
   exit(retval);
 }
@@ -2930,7 +2930,8 @@ __CPROVER_DUMP_L4:
     die_if_ferror(*tmp_post$5, *tmp_post$6);
   }
   while(!(*fp == ((struct _IO_FILE *)((void *)0))));
-  fflush_stdout_and_exit((signed int)retval);
+  fflush(stdout);
+  return (signed int)retval;
 }
 static signed int xatoi_positive(const char *numstr)
 {
