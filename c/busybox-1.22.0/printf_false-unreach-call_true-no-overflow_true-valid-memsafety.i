@@ -3193,7 +3193,7 @@ signed int __main(signed int argc, char **argv)
       bb_error_msg("usage: printf FORMAT [ARGUMENT...]");
       return 2;
     }
-    bb_show_usage();
+    return 1;
   }
   format = argv[(signed long int)1];
   argv2 = argv + (signed long int)2;

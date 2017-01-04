@@ -1196,7 +1196,7 @@ signed int __main(signed int argc, char **argv)
       return 2;
     }
 
-    bb_show_usage();
+    return 1;
   }
 
 
