@@ -2386,7 +2386,7 @@ signed int __main(signed int argc, char **argv)
 {
   argv = argv + 1l;
   if(*argv == ((char *)((void *)0)))
-    bb_show_usage();
+    return 1;
   xchroot(*argv);
   argv = argv + 1l;
   if(*argv == ((char *)((void *)0)))
