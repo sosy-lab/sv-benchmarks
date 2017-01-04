@@ -2,7 +2,9 @@ extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
 extern char __VERIFIER_nondet_char(void);
+extern short __VERIFIER_nondet_short(void);
 extern void __VERIFIER_assume(int);
+extern void __VERIFIER_error(void);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -1434,6 +1436,96 @@ extern int getpt (void);
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
+
+
+struct timezone
+  {
+    int tz_minuteswest;
+    int tz_dsttime;
+  };
+typedef struct timezone *__restrict __timezone_ptr_t;
+extern int gettimeofday (struct timeval *__restrict __tv,
+    __timezone_ptr_t __tz) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int settimeofday (const struct timeval *__tv,
+    const struct timezone *__tz)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern int adjtime (const struct timeval *__delta,
+      struct timeval *__olddelta) __attribute__ ((__nothrow__ , __leaf__));
+enum __itimer_which
+  {
+    ITIMER_REAL = 0,
+    ITIMER_VIRTUAL = 1,
+    ITIMER_PROF = 2
+  };
+struct itimerval
+  {
+    struct timeval it_interval;
+    struct timeval it_value;
+  };
+typedef enum __itimer_which __itimer_which_t;
+extern int getitimer (__itimer_which_t __which,
+        struct itimerval *__value) __attribute__ ((__nothrow__ , __leaf__));
+extern int setitimer (__itimer_which_t __which,
+        const struct itimerval *__restrict __new,
+        struct itimerval *__restrict __old) __attribute__ ((__nothrow__ , __leaf__));
+extern int utimes (const char *__file, const struct timeval __tvp[2])
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int lutimes (const char *__file, const struct timeval __tvp[2])
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int futimes (int __fd, const struct timeval __tvp[2]) __attribute__ ((__nothrow__ , __leaf__));
+extern int futimesat (int __fd, const char *__file,
+        const struct timeval __tvp[2]) __attribute__ ((__nothrow__ , __leaf__));
+
+struct lastlog
+  {
+    int32_t ll_time;
+    char ll_line[32];
+    char ll_host[256];
+  };
+struct exit_status
+  {
+    short int e_termination;
+    short int e_exit;
+  };
+struct utmp
+{
+  short int ut_type;
+  pid_t ut_pid;
+  char ut_line[32];
+  char ut_id[4];
+  char ut_user[32];
+  char ut_host[256];
+  struct exit_status ut_exit;
+  int32_t ut_session;
+  struct
+  {
+    int32_t tv_sec;
+    int32_t tv_usec;
+  } ut_tv;
+  int32_t ut_addr_v6[4];
+  char __glibc_reserved[20];
+};
+extern int login_tty (int __fd) __attribute__ ((__nothrow__ , __leaf__));
+extern void login (const struct utmp *__entry) __attribute__ ((__nothrow__ , __leaf__));
+extern int logout (const char *__ut_line) __attribute__ ((__nothrow__ , __leaf__));
+extern void logwtmp (const char *__ut_line, const char *__ut_name,
+       const char *__ut_host) __attribute__ ((__nothrow__ , __leaf__));
+extern void updwtmp (const char *__wtmp_file, const struct utmp *__utmp)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern int utmpname (const char *__file) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *getutent (void) __attribute__ ((__nothrow__ , __leaf__));
+extern void setutent (void) __attribute__ ((__nothrow__ , __leaf__));
+extern void endutent (void) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *getutid (const struct utmp *__id) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *getutline (const struct utmp *__line) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *pututline (const struct utmp *__utmp_ptr) __attribute__ ((__nothrow__ , __leaf__));
+extern int getutent_r (struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+extern int getutid_r (const struct utmp *__id, struct utmp *__buffer,
+        struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+extern int getutline_r (const struct utmp *__line,
+   struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+
+static signed int bb_errno_location;
 static void bb_show_usage(void);
 static signed int fflush_all(void);
 static void bb_show_usage(void)
@@ -1457,8 +1549,36 @@ signed int __main(signed int argc, char **argv)
   return_value_fflush_all$2=fflush_all();
   return return_value_fflush_all$2;
 }
+static struct utmp dummy_utmp;
+struct utmp *getutent(void) {
+  if (__VERIFIER_nondet_int())
+    return (struct utmp *)((void *)0);
+  dummy_utmp.ut_tv.tv_sec = __VERIFIER_nondet_int();
+  dummy_utmp.ut_type = __VERIFIER_nondet_short();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_line); ++i)
+    dummy_utmp.ut_line[i] = __VERIFIER_nondet_char();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_user); ++i)
+    dummy_utmp.ut_user[i] = __VERIFIER_nondet_char();
+  return &dummy_utmp;
+}
+ssize_t read(int fildes, void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  __VERIFIER_assume(offset<nbyte);
+  *((char*)buf+offset)=__VERIFIER_nondet_char();
+  return ret;
+}
+ssize_t write(int fildes, const void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  return ret;
+}
 int main()
 {
+  bb_errno_location = __VERIFIER_nondet_int();
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));

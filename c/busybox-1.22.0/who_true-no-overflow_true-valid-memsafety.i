@@ -1,9 +1,10 @@
 extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
-extern short int __VERIFIER_nondet_short(void);
 extern char __VERIFIER_nondet_char(void);
+extern short __VERIFIER_nondet_short(void);
 extern void __VERIFIER_assume(int);
+extern void __VERIFIER_error(void);
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -3017,18 +3018,6 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   while(tmp_if_expr$1 != (_Bool)0);
   return n;
 }
-static struct utmp dummy_utmp;
-struct utmp *getutent(void) {
-  if (__VERIFIER_nondet_int())
-    return (struct utmp *)((void *)0);
-  dummy_utmp.ut_tv.tv_sec = __VERIFIER_nondet_int();
-  dummy_utmp.ut_type = __VERIFIER_nondet_short();
-  for (int i = 0; i < sizeof(dummy_utmp.ut_line); ++i)
-    dummy_utmp.ut_line[i] = __VERIFIER_nondet_char();
-  for (int i = 0; i < sizeof(dummy_utmp.ut_user); ++i)
-    dummy_utmp.ut_user[i] = __VERIFIER_nondet_char();
-  return &dummy_utmp;
-}
 signed int __main(signed int argc, char **argv)
 {
   struct utmp *ut;
@@ -3199,6 +3188,27 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+static struct utmp dummy_utmp;
+struct utmp *getutent(void) {
+  if (__VERIFIER_nondet_int())
+    return (struct utmp *)((void *)0);
+  dummy_utmp.ut_tv.tv_sec = __VERIFIER_nondet_int();
+  dummy_utmp.ut_type = __VERIFIER_nondet_short();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_line); ++i)
+    dummy_utmp.ut_line[i] = __VERIFIER_nondet_char();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_user); ++i)
+    dummy_utmp.ut_user[i] = __VERIFIER_nondet_char();
+  return &dummy_utmp;
+}
+ssize_t read(int fildes, void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  __VERIFIER_assume(offset<nbyte);
+  *((char*)buf+offset)=__VERIFIER_nondet_char();
+  return ret;
 }
 ssize_t write(int fildes, const void *buf, size_t nbyte)
 {
