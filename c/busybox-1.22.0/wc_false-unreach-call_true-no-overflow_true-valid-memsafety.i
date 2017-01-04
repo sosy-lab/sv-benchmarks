@@ -3197,6 +3197,25 @@ ssize_t read(int fildes, void *buf, size_t nbyte)
   *((char*)buf+offset)=__VERIFIER_nondet_char();
   return ret;
 }
+int vasprintf(char **ptr, const char *fmt, va_list ap)
+{
+  (void)*fmt;
+  (void)ap;
+  int result_buffer_size = __VERIFIER_nondet_int();
+  if(result_buffer_size <= 0)
+    return -1;
+  *ptr = malloc(result_buffer_size);
+  int i = 0;
+  while(i<result_buffer_size)
+  {
+    (*ptr)[i] = __VERIFIER_nondet_char();
+    if((*ptr)[i] == 0)
+      break;
+    ++i;
+  }
+  __VERIFIER_assume(i<result_buffer_size);
+  return i;
+}
 ssize_t write(int fildes, const void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();

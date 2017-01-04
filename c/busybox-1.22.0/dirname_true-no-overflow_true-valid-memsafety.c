@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <utmp.h>
+#include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)

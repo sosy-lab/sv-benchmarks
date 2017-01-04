@@ -1292,6 +1292,8 @@ extern int getutid_r (const struct utmp *__id, struct utmp *__buffer,
 extern int getutline_r (const struct utmp *__line,
    struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
 
+typedef __builtin_va_list __gnuc_va_list;
+typedef __gnuc_va_list va_list;
 static char * bb_get_last_path_component_nostrip(const char *path);
 static char * bb_get_last_path_component_strip(char *path);
 static void bb_show_usage(void);
@@ -1543,6 +1545,25 @@ ssize_t read(int fildes, void *buf, size_t nbyte)
   __VERIFIER_assume(offset<nbyte);
   *((char*)buf+offset)=__VERIFIER_nondet_char();
   return ret;
+}
+int vasprintf(char **ptr, const char *fmt, va_list ap)
+{
+  (void)*fmt;
+  (void)ap;
+  int result_buffer_size = __VERIFIER_nondet_int();
+  if(result_buffer_size <= 0)
+    return -1;
+  *ptr = malloc(result_buffer_size);
+  int i = 0;
+  while(i<result_buffer_size)
+  {
+    (*ptr)[i] = __VERIFIER_nondet_char();
+    if((*ptr)[i] == 0)
+      break;
+    ++i;
+  }
+  __VERIFIER_assume(i<result_buffer_size);
+  return i;
 }
 ssize_t write(int fildes, const void *buf, size_t nbyte)
 {

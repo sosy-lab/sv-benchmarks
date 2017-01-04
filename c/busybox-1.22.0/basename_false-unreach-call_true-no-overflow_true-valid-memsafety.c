@@ -21,6 +21,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <utmp.h>
+#include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
