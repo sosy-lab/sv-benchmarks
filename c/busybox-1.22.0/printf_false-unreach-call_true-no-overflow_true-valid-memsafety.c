@@ -1,8 +1,3 @@
-extern long __VERIFIER_nondet_long(void);
-extern unsigned long __VERIFIER_nondet_ulong(void);
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,8 +13,11 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
+#include <getopt.h>
 #include <syslog.h>
 #include <fcntl.h>
 #include <libio.h>
@@ -29,6 +27,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 #ifndef NULL
@@ -153,7 +152,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file include/libbb.h line 374
@@ -674,7 +673,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
   format[(signed long int)fmt_length] = (char)0;
   have_prec=strstr(format, ".*");
   char *return_value___builtin_strchr$1;
-  return_value___builtin_strchr$1=__builtin_strchr(format, 42);
+  return_value___builtin_strchr$1=strchr(format, 42);
   have_width = return_value___builtin_strchr$1;
   if(-1l + have_width == have_prec)
     have_width = (char *)NULL;
@@ -1004,7 +1003,7 @@ static char ** print_formatted(char *f, char **argv, signed int *conv_err)
       }
 
 
-      return_value___builtin_strchr$2=__builtin_strchr("-+ #", (signed int)*f);
+      return_value___builtin_strchr$2=strchr("-+ #", (signed int)*f);
       if(!(return_value___builtin_strchr$2 == ((char *)NULL)))
       {
         f = f + 1l;
@@ -1090,7 +1089,7 @@ static char ** print_formatted(char *f, char **argv, signed int *conv_err)
       char *return_value___builtin_strchr$5;
 
       static const char format_chars[14l] = { (const char)100, (const char)105, (const char)111, (const char)117, (const char)120, (const char)88, (const char)102, (const char)101, (const char)69, (const char)103, (const char)71, (const char)99, (const char)115, (const char)0 };
-      return_value___builtin_strchr$5=__builtin_strchr(format_chars, (signed int)*f);
+      return_value___builtin_strchr$5=strchr(format_chars, (signed int)*f);
       p = return_value___builtin_strchr$5;
       if(p == ((char *)NULL))
       {
@@ -1330,39 +1329,4 @@ static void * xmalloc(unsigned long int size)
   return ptr;
 }
 
-
-ssize_t write(int fildes, const void *buf, size_t nbyte)
-{
-  long ret=__VERIFIER_nondet_long();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
-  return ret;
-}
-
-int main()
-{
-  bb_errno_location = __VERIFIER_nondet_int();
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  int res = __main(argc, argv);
-
-  // Free argv
-  for(int i=0; i<argc; ++i)
-    free(argv[i]);
-  free(argv);
-
-  return res;
-}
+#include "busybox_sv_comp_impl.h"

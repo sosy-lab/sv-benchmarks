@@ -1,8 +1,3 @@
-extern long __VERIFIER_nondet_long(void);
-extern unsigned long __VERIFIER_nondet_ulong(void);
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,6 +13,9 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
 #include <syslog.h>
 #include <getopt.h>
@@ -29,6 +27,7 @@ extern void __VERIFIER_assume(int);
 #include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 // file libbb/getopt32.c line 307
@@ -203,7 +202,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file libbb/get_line_from_file.c line 14
@@ -291,7 +290,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file ./libbb-dump.i line 1
@@ -471,7 +470,7 @@ static const char * decode_base64(char **pp_dst, const char *src)
 
         src = src + 1l;
         char *return_value___builtin_strchr$1;
-        return_value___builtin_strchr$1=__builtin_strchr(bb_uuenc_tbl_base64, ch);
+        return_value___builtin_strchr$1=strchr(bb_uuenc_tbl_base64, ch);
         table_ptr = return_value___builtin_strchr$1;
       }
       while(table_ptr == ((char *)NULL));
@@ -1140,7 +1139,7 @@ static void read_base64(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream
         if(!((unsigned long int)("====" + 1l) + -((unsigned long int)"====") == 1ul))
           goto __CPROVER_DUMP_L8;
 
-        __s2_len=__builtin_strlen("====");
+        __s2_len=strlen("====");
         tmp_if_expr$3 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
 
@@ -1186,7 +1185,7 @@ static void read_base64(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream
 
       else
       {
-        return_value___builtin_strcmp$5=__builtin_strcmp(in_buf, "====");
+        return_value___builtin_strcmp$5=strcmp(in_buf, "====");
         tmp_if_expr$6 = return_value___builtin_strcmp$5;
       }
       tmp_statement_expression$2 = tmp_if_expr$6;
@@ -1242,7 +1241,7 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
       if(!((unsigned long int)("end" + 1l) + -((unsigned long int)"end") == 1ul))
         goto __CPROVER_DUMP_L2;
 
-      __s2_len=__builtin_strlen("end");
+      __s2_len=strlen("end");
       tmp_if_expr$2 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
 
@@ -1298,7 +1297,7 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
 
     else
     {
-      return_value___builtin_strcmp$4=__builtin_strcmp(line, "end");
+      return_value___builtin_strcmp$4=strcmp(line, "end");
       tmp_if_expr$5 = return_value___builtin_strcmp$4;
     }
     tmp_statement_expression$1 = tmp_if_expr$5;
@@ -1452,7 +1451,7 @@ signed int __main(signed int argc, char **argv)
         if(!((unsigned long int)("begin-base64 " + 1l) + -((unsigned long int)"begin-base64 ") == 1ul))
           goto __CPROVER_DUMP_L9;
 
-        __s2_len=__builtin_strlen("begin-base64 ");
+        __s2_len=strlen("begin-base64 ");
         tmp_if_expr$11 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
 
@@ -1508,7 +1507,7 @@ signed int __main(signed int argc, char **argv)
 
       else
       {
-        return_value___builtin_strcmp$13=__builtin_strcmp(line, "begin-base64 ");
+        return_value___builtin_strcmp$13=strcmp(line, "begin-base64 ");
         tmp_if_expr$14 = return_value___builtin_strcmp$13;
       }
       tmp_statement_expression$10 = tmp_if_expr$14;
@@ -1538,7 +1537,7 @@ signed int __main(signed int argc, char **argv)
           if(!((unsigned long int)("begin " + 1l) + -((unsigned long int)"begin ") == 1ul))
             goto __CPROVER_DUMP_L31;
 
-          uudecode_main$$1$$1$$3$$__s2_len=__builtin_strlen("begin ");
+          uudecode_main$$1$$1$$3$$__s2_len=strlen("begin ");
           tmp_if_expr$3 = (uudecode_main$$1$$1$$3$$__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
 
@@ -1594,7 +1593,7 @@ signed int __main(signed int argc, char **argv)
 
         else
         {
-          return_value___builtin_strcmp$5=__builtin_strcmp(line, "begin ");
+          return_value___builtin_strcmp$5=strcmp(line, "begin ");
           tmp_if_expr$6 = return_value___builtin_strcmp$5;
         }
         tmp_statement_expression$2 = tmp_if_expr$6;
@@ -1624,7 +1623,7 @@ signed int __main(signed int argc, char **argv)
     if(outname == ((char *)NULL))
     {
       char *return_value___builtin_strchr$18;
-      return_value___builtin_strchr$18=__builtin_strchr(line_ptr, 32);
+      return_value___builtin_strchr$18=strchr(line_ptr, 32);
       outname = return_value___builtin_strchr$18;
       if(outname == ((char *)NULL))
         break;
@@ -1705,7 +1704,7 @@ static struct _IO_FILE * xfopen_stdin(const char *filename)
   if(!(fp == ((struct _IO_FILE *)NULL)))
     return fp;
 
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file include/libbb.h line 1079
@@ -1808,7 +1807,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -1858,39 +1857,4 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
-
-ssize_t write(int fildes, const void *buf, size_t nbyte)
-{
-  long ret=__VERIFIER_nondet_long();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
-  return ret;
-}
-
-int main()
-{
-  bb_errno_location = __VERIFIER_nondet_int();
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  int res = __main(argc, argv);
-
-  // Free argv
-  for(int i=0; i<argc; ++i)
-    free(argv[i]);
-  free(argv);
-
-  return res;
-}
+#include "busybox_sv_comp_impl.h"

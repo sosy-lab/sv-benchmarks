@@ -1,8 +1,3 @@
-extern long __VERIFIER_nondet_long(void);
-extern unsigned long __VERIFIER_nondet_ulong(void);
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,7 +13,11 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
+#include <getopt.h>
 #include <syslog.h>
 #include <libio.h>
 #include <setjmp.h>
@@ -28,6 +27,7 @@ extern void __VERIFIER_assume(int);
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 // file include/libbb.h line 841
@@ -101,7 +101,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file ./libbb-dump.i line 1
@@ -275,7 +275,7 @@ signed int __main(signed int argc, char **argv)
 
     arg = *argv;
     char *return_value___builtin_strchr$14;
-    return_value___builtin_strchr$14=__builtin_strchr(arg, 46);
+    return_value___builtin_strchr$14=strchr(arg, 46);
     if(!(return_value___builtin_strchr$14 == ((char *)NULL)))
     {
       double d;
@@ -421,7 +421,7 @@ static unsigned long long int xstrtoull_range_sfx(const char *numstr, signed int
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -462,39 +462,4 @@ inval:
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
 
-
-ssize_t write(int fildes, const void *buf, size_t nbyte)
-{
-  long ret=__VERIFIER_nondet_long();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
-  return ret;
-}
-
-int main()
-{
-  bb_errno_location = __VERIFIER_nondet_int();
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  int res = __main(argc, argv);
-
-  // Free argv
-  for(int i=0; i<argc; ++i)
-    free(argv[i]);
-  free(argv);
-
-  return res;
-}
+#include "busybox_sv_comp_impl.h"

@@ -1,8 +1,3 @@
-extern long __VERIFIER_nondet_long(void);
-extern unsigned long __VERIFIER_nondet_ulong(void);
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,15 +13,26 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
+#include <getopt.h>
 #include <libio.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <utmp.h>
+#include <string.h>
+#include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
 #endif
+
+// file include/libbb.h line 1708
+static const char *applet_name;
+static signed int bb_errno_location;
 
 // file ./libbb-dump.i line 1
 static void bb_show_usage(void);
@@ -62,31 +68,4 @@ signed int __main(signed int argc, char **argv)
   return return_value_fflush_all$2;
 }
 
-
-int main()
-{
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  int res = __main(argc, argv);
-
-  // Free argv
-  for(int i=0; i<argc; ++i)
-    free(argv[i]);
-  free(argv);
-
-  return res;
-}
+#include "busybox_sv_comp_impl.h"

@@ -1,9 +1,10 @@
 extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
-extern short int __VERIFIER_nondet_short(void);
 extern char __VERIFIER_nondet_char(void);
+extern short __VERIFIER_nondet_short(void);
 extern void __VERIFIER_assume(int);
+extern void __VERIFIER_error(void);
 typedef __builtin_va_list __gnuc_va_list;
 
 extern void closelog (void);
@@ -2442,7 +2443,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   __builtin_va_start(p,s);
   bb_verror_msg(s, p, (const char *)((void *)0));
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static signed int bb_putchar(signed int ch)
 {
@@ -3017,19 +3018,6 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   while(tmp_if_expr$1 != (_Bool)0);
   return n;
 }
-static struct utmp dummy_utmp;
-struct utmp *getutent(void) {
-  if (__VERIFIER_nondet_int())
-    return (struct utmp *)((void *)0);
-  dummy_utmp.ut_tv.tv_sec = __VERIFIER_nondet_int();
-  dummy_utmp.ut_type = __VERIFIER_nondet_short();
-  for (int i = 0; i < sizeof(dummy_utmp.ut_line); ++i)
-    dummy_utmp.ut_line[i] = __VERIFIER_nondet_char();
-  for (int i = 0; i < sizeof(dummy_utmp.ut_user); ++i)
-    dummy_utmp.ut_user[i] = __VERIFIER_nondet_char();
-
-  return &dummy_utmp;
-}
 signed int __main(signed int argc, char **argv)
 {
   struct utmp *ut;
@@ -3164,7 +3152,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -3201,6 +3189,80 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+static struct utmp dummy_utmp;
+struct utmp *getutent(void) {
+  if (__VERIFIER_nondet_int())
+    return (struct utmp *)((void *)0);
+  dummy_utmp.ut_tv.tv_sec = __VERIFIER_nondet_int();
+  dummy_utmp.ut_type = __VERIFIER_nondet_short();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_line); ++i)
+    dummy_utmp.ut_line[i] = __VERIFIER_nondet_char();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_user); ++i)
+    dummy_utmp.ut_user[i] = __VERIFIER_nondet_char();
+  return &dummy_utmp;
+}
+int getopt(int argc, char * const argv[], const char *optstring)
+{
+  int result = -1;
+  if(optind == 0)
+    optind = 1;
+  if(optind >= argc || argv[optind][0] != '-')
+    return -1;
+  size_t opt_index = __VERIFIER_nondet_ulong();
+  __VERIFIER_assume(opt_index < strlen(optstring) && optstring[opt_index] != ':');
+  if(__VERIFIER_nondet_int())
+  {
+    result = optstring[opt_index];
+    if(__VERIFIER_nondet_int())
+      ++optind;
+  }
+  if(result != -1 && optind < argc && optstring[opt_index+1] == ':')
+  {
+    if(__VERIFIER_nondet_int())
+    {
+      optarg = argv[optind];
+      ++optind;
+    }
+    else
+      optarg = ((void *)0);
+  }
+  return result;
+}
+int getopt_long(int argc, char * const argv[], const char *optstring,
+                const struct option *longopts, int *longindex)
+{
+  (void)*longopts;
+  (void)longindex;
+  return getopt(argc, argv, optstring);
+}
+ssize_t read(int fildes, void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  __VERIFIER_assume(offset<nbyte);
+  *((char*)buf+offset)=__VERIFIER_nondet_char();
+  return ret;
+}
+int vasprintf(char **ptr, const char *fmt, va_list ap)
+{
+  (void)*fmt;
+  (void)ap;
+  int result_buffer_size = __VERIFIER_nondet_int();
+  if(result_buffer_size <= 0)
+    return -1;
+  *ptr = malloc(result_buffer_size);
+  int i = 0;
+  while(i<result_buffer_size)
+  {
+    (*ptr)[i] = __VERIFIER_nondet_char();
+    if((*ptr)[i] == 0)
+      break;
+    ++i;
+  }
+  __VERIFIER_assume(i<result_buffer_size);
+  return i;
+}
 ssize_t write(int fildes, const void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();
@@ -3209,7 +3271,13 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  char *a = malloc(11);
+  a[10] = 0;
+  for(int i=0; i<10; ++i)
+    a[i]=__VERIFIER_nondet_char();
+  applet_name = a;
   bb_errno_location = __VERIFIER_nondet_int();
+  optind = 1;
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));
@@ -3225,5 +3293,6 @@ int main()
   for(int i=0; i<argc; ++i)
     free(argv[i]);
   free(argv);
+  free(a);
   return res;
 }

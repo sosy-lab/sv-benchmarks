@@ -1,8 +1,3 @@
-extern long __VERIFIER_nondet_long(void);
-extern unsigned long __VERIFIER_nondet_ulong(void);
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,8 +13,11 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
+#include <getopt.h>
 #include <syslog.h>
 #include <fcntl.h>
 #include <libio.h>
@@ -31,6 +29,7 @@ extern void __VERIFIER_error(void);
 #include <sys/ioctl.h>
 #include <termios.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 // file coreutils/stty.c line 636
@@ -461,7 +460,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file include/libbb.h line 1083
@@ -500,7 +499,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file include/libbb.h line 655
@@ -1061,7 +1060,7 @@ static signed int index_in_strings(const char *strings, const char *key)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(strings, key);
+    return_value___builtin_strcmp$2=strcmp(strings, key);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     if(tmp_statement_expression$1 == 0)
       return idx;
@@ -1319,7 +1318,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
         if(!((unsigned long int)("^-" + 1l) + -((unsigned long int)"^-") == 1ul))
           goto __CPROVER_DUMP_L13;
 
-        set_control_char_or_die$$1$$1$$__s2_len=__builtin_strlen("^-");
+        set_control_char_or_die$$1$$1$$__s2_len=strlen("^-");
         tmp_if_expr$4 = (set_control_char_or_die$$1$$1$$__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
 
@@ -1377,7 +1376,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
 
       else
       {
-        return_value___builtin_strcmp$6=__builtin_strcmp(arg, "^-");
+        return_value___builtin_strcmp$6=strcmp(arg, "^-");
         tmp_if_expr$7 = return_value___builtin_strcmp$6;
       }
       tmp_statement_expression$3 = tmp_if_expr$7;
@@ -1393,7 +1392,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
           if(!((unsigned long int)("undef" + 1l) + -((unsigned long int)"undef") == 1ul))
             goto __CPROVER_DUMP_L35;
 
-          __s2_len=__builtin_strlen("undef");
+          __s2_len=strlen("undef");
           tmp_if_expr$9 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
 
@@ -1449,7 +1448,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
 
         else
         {
-          return_value___builtin_strcmp$11=__builtin_strcmp(arg, "undef");
+          return_value___builtin_strcmp$11=strcmp(arg, "undef");
           tmp_if_expr$12 = return_value___builtin_strcmp$11;
         }
         tmp_statement_expression$8 = tmp_if_expr$12;
@@ -2566,7 +2565,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -2647,7 +2646,7 @@ static unsigned long long int xstrtoull_range_sfx(const char *numstr, signed int
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -2688,39 +2687,4 @@ inval:
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
 
-
-ssize_t write(int fildes, const void *buf, size_t nbyte)
-{
-  long ret=__VERIFIER_nondet_long();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
-  return ret;
-}
-
-int main()
-{
-  bb_errno_location = __VERIFIER_nondet_int();
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  int res = __main(argc, argv);
-
-  // Free argv
-  for(int i=0; i<argc; ++i)
-    free(argv[i]);
-  free(argv);
-
-  return res;
-}
+#include "busybox_sv_comp_impl.h"

@@ -1,8 +1,3 @@
-extern long __VERIFIER_nondet_long(void);
-extern unsigned long __VERIFIER_nondet_ulong(void);
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,8 +13,11 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
+#include <getopt.h>
 #include <syslog.h>
 #include <libio.h>
 #include <regex.h>
@@ -29,6 +27,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 // file coreutils/expr.c line 91
@@ -237,7 +236,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file include/libbb.h line 1085
@@ -257,7 +256,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file include/libbb.h line 1092
@@ -377,7 +376,7 @@ static signed int cmp_common(struct valinfo *l, struct valinfo *r, signed int op
     signed int return_value___builtin_strcmp$2;
 
 
-    return_value___builtin_strcmp$2=__builtin_strcmp(l->u.s, r->u.s);
+    return_value___builtin_strcmp$2=strcmp(l->u.s, r->u.s);
     tmp_statement_expression$1 = (signed long int)return_value___builtin_strcmp$2;
     ll = tmp_statement_expression$1;
     rr = (signed long int)0;
@@ -761,7 +760,7 @@ static struct valinfo * eval6(void)
     unsigned long int return_value___builtin_strcspn$8;
 
 
-    return_value___builtin_strcspn$8=__builtin_strcspn(l->u.s, r->u.s);
+    return_value___builtin_strcspn$8=strcspn(l->u.s, r->u.s);
     tmp_statement_expression$7 = return_value___builtin_strcspn$8;
     v=int_value((signed long int)(tmp_statement_expression$7 + (unsigned long int)1));
     unsigned long int return_value_strlen$9;
@@ -908,7 +907,9 @@ signed int __main(signed int argc, char **argv)
   }
   signed int return_value_null$1;
   return_value_null$1=null(v);
-  fflush_stdout_and_exit(return_value_null$1);
+  // fflush_stdout_and_exit(return_value_null$1); -- invokes exit() and would thus leak memory
+  fflush(stdout);
+  return return_value_null$1;
 }
 
 // file include/libbb.h line 785
@@ -930,7 +931,7 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort(); // xfunc_die() invokes exit() and would thus leak memory
   }
 
   exit(retval);
@@ -978,7 +979,7 @@ static signed int index_in_strings(const char *strings, const char *key)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(strings, key);
+    return_value___builtin_strcmp$2=strcmp(strings, key);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     if(tmp_statement_expression$1 == 0)
       return idx;
@@ -1018,7 +1019,7 @@ static signed int nextarg(const char *str)
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
 
-    return_value___builtin_strcmp$2=__builtin_strcmp(*((struct globals *)&bb_common_bufsiz1)->args, str);
+    return_value___builtin_strcmp$2=strcmp(*((struct globals *)&bb_common_bufsiz1)->args, str);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     tmp_if_expr$3 = (tmp_statement_expression$1 != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }
@@ -1264,39 +1265,4 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
-
-ssize_t write(int fildes, const void *buf, size_t nbyte)
-{
-  long ret=__VERIFIER_nondet_long();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
-  return ret;
-}
-
-int main()
-{
-  bb_errno_location = __VERIFIER_nondet_int();
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  int res = __main(argc, argv);
-
-  // Free argv
-  for(int i=0; i<argc; ++i)
-    free(argv[i]);
-  free(argv);
-
-  return res;
-}
+#include "busybox_sv_comp_impl.h"

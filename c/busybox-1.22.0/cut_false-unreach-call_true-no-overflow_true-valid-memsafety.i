@@ -2,6 +2,7 @@ extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
 extern char __VERIFIER_nondet_char(void);
+extern short __VERIFIER_nondet_short(void);
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
 typedef __builtin_va_list __gnuc_va_list;
@@ -2051,6 +2052,95 @@ extern void encrypt (char *__glibc_block, int __edflag)
 extern void swab (const void *__restrict __from, void *__restrict __to,
     ssize_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
+
+
+struct timezone
+  {
+    int tz_minuteswest;
+    int tz_dsttime;
+  };
+typedef struct timezone *__restrict __timezone_ptr_t;
+extern int gettimeofday (struct timeval *__restrict __tv,
+    __timezone_ptr_t __tz) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int settimeofday (const struct timeval *__tv,
+    const struct timezone *__tz)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern int adjtime (const struct timeval *__delta,
+      struct timeval *__olddelta) __attribute__ ((__nothrow__ , __leaf__));
+enum __itimer_which
+  {
+    ITIMER_REAL = 0,
+    ITIMER_VIRTUAL = 1,
+    ITIMER_PROF = 2
+  };
+struct itimerval
+  {
+    struct timeval it_interval;
+    struct timeval it_value;
+  };
+typedef enum __itimer_which __itimer_which_t;
+extern int getitimer (__itimer_which_t __which,
+        struct itimerval *__value) __attribute__ ((__nothrow__ , __leaf__));
+extern int setitimer (__itimer_which_t __which,
+        const struct itimerval *__restrict __new,
+        struct itimerval *__restrict __old) __attribute__ ((__nothrow__ , __leaf__));
+extern int utimes (const char *__file, const struct timeval __tvp[2])
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int lutimes (const char *__file, const struct timeval __tvp[2])
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int futimes (int __fd, const struct timeval __tvp[2]) __attribute__ ((__nothrow__ , __leaf__));
+extern int futimesat (int __fd, const char *__file,
+        const struct timeval __tvp[2]) __attribute__ ((__nothrow__ , __leaf__));
+
+struct lastlog
+  {
+    int32_t ll_time;
+    char ll_line[32];
+    char ll_host[256];
+  };
+struct exit_status
+  {
+    short int e_termination;
+    short int e_exit;
+  };
+struct utmp
+{
+  short int ut_type;
+  pid_t ut_pid;
+  char ut_line[32];
+  char ut_id[4];
+  char ut_user[32];
+  char ut_host[256];
+  struct exit_status ut_exit;
+  int32_t ut_session;
+  struct
+  {
+    int32_t tv_sec;
+    int32_t tv_usec;
+  } ut_tv;
+  int32_t ut_addr_v6[4];
+  char __glibc_reserved[20];
+};
+extern int login_tty (int __fd) __attribute__ ((__nothrow__ , __leaf__));
+extern void login (const struct utmp *__entry) __attribute__ ((__nothrow__ , __leaf__));
+extern int logout (const char *__ut_line) __attribute__ ((__nothrow__ , __leaf__));
+extern void logwtmp (const char *__ut_line, const char *__ut_name,
+       const char *__ut_host) __attribute__ ((__nothrow__ , __leaf__));
+extern void updwtmp (const char *__wtmp_file, const struct utmp *__utmp)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern int utmpname (const char *__file) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *getutent (void) __attribute__ ((__nothrow__ , __leaf__));
+extern void setutent (void) __attribute__ ((__nothrow__ , __leaf__));
+extern void endutent (void) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *getutid (const struct utmp *__id) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *getutline (const struct utmp *__line) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *pututline (const struct utmp *__utmp_ptr) __attribute__ ((__nothrow__ , __leaf__));
+extern int getutent_r (struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+extern int getutid_r (const struct utmp *__id, struct utmp *__buffer,
+        struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+extern int getutline_r (const struct utmp *__line,
+   struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+
 struct cut_list;
 struct libbb_anonymous$0;
 struct llist_t;
@@ -2135,7 +2225,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   __builtin_va_start(p,s);
   bb_verror_msg(s, p, (const char *)((void *)0));
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static char * bb_get_chunk_from_file(struct _IO_FILE *file, signed int *end)
 {
@@ -2208,7 +2298,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)((void *)0);
   bb_verror_msg(s, p, tmp_if_expr$2);
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static void bb_show_usage(void)
 {
@@ -2399,7 +2489,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
         delimiter[(signed long int)0] = delim;
         delimiter[(signed long int)1] = (char)0;
         char *return_value___builtin_strchr$4;
-        return_value___builtin_strchr$4=__builtin_strchr(line, (signed int)delim);
+        return_value___builtin_strchr$4=strchr(line, (signed int)delim);
         if(return_value___builtin_strchr$4 == ((char *)((void *)0)))
         {
           if((16u & option_mask32) == 0u)
@@ -2564,7 +2654,8 @@ signed int __main(signed int argc, char **argv)
     argv = argv + 1l;
   }
   while(!(*argv == ((char *)((void *)0))));
-  fflush_stdout_and_exit(retval);
+  fflush(stdout);
+  return retval;
 }
 static signed int fclose_if_not_stdin(struct _IO_FILE *f)
 {
@@ -2595,7 +2686,7 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort();
   }
   exit(retval);
 }
@@ -3169,7 +3260,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -3206,6 +3297,80 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+static struct utmp dummy_utmp;
+struct utmp *getutent(void) {
+  if (__VERIFIER_nondet_int())
+    return (struct utmp *)((void *)0);
+  dummy_utmp.ut_tv.tv_sec = __VERIFIER_nondet_int();
+  dummy_utmp.ut_type = __VERIFIER_nondet_short();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_line); ++i)
+    dummy_utmp.ut_line[i] = __VERIFIER_nondet_char();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_user); ++i)
+    dummy_utmp.ut_user[i] = __VERIFIER_nondet_char();
+  return &dummy_utmp;
+}
+int getopt(int argc, char * const argv[], const char *optstring)
+{
+  int result = -1;
+  if(optind == 0)
+    optind = 1;
+  if(optind >= argc || argv[optind][0] != '-')
+    return -1;
+  size_t opt_index = __VERIFIER_nondet_ulong();
+  __VERIFIER_assume(opt_index < strlen(optstring) && optstring[opt_index] != ':');
+  if(__VERIFIER_nondet_int())
+  {
+    result = optstring[opt_index];
+    if(__VERIFIER_nondet_int())
+      ++optind;
+  }
+  if(result != -1 && optind < argc && optstring[opt_index+1] == ':')
+  {
+    if(__VERIFIER_nondet_int())
+    {
+      optarg = argv[optind];
+      ++optind;
+    }
+    else
+      optarg = ((void *)0);
+  }
+  return result;
+}
+int getopt_long(int argc, char * const argv[], const char *optstring,
+                const struct option *longopts, int *longindex)
+{
+  (void)*longopts;
+  (void)longindex;
+  return getopt(argc, argv, optstring);
+}
+ssize_t read(int fildes, void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  __VERIFIER_assume(offset<nbyte);
+  *((char*)buf+offset)=__VERIFIER_nondet_char();
+  return ret;
+}
+int vasprintf(char **ptr, const char *fmt, va_list ap)
+{
+  (void)*fmt;
+  (void)ap;
+  int result_buffer_size = __VERIFIER_nondet_int();
+  if(result_buffer_size <= 0)
+    return -1;
+  *ptr = malloc(result_buffer_size);
+  int i = 0;
+  while(i<result_buffer_size)
+  {
+    (*ptr)[i] = __VERIFIER_nondet_char();
+    if((*ptr)[i] == 0)
+      break;
+    ++i;
+  }
+  __VERIFIER_assume(i<result_buffer_size);
+  return i;
+}
 ssize_t write(int fildes, const void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();
@@ -3214,7 +3379,13 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  char *a = malloc(11);
+  a[10] = 0;
+  for(int i=0; i<10; ++i)
+    a[i]=__VERIFIER_nondet_char();
+  applet_name = a;
   bb_errno_location = __VERIFIER_nondet_int();
+  optind = 1;
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));
@@ -3230,5 +3401,6 @@ int main()
   for(int i=0; i<argc; ++i)
     free(argv[i]);
   free(argv);
+  free(a);
   return res;
 }

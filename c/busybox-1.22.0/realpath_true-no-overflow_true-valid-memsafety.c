@@ -1,8 +1,3 @@
-extern long __VERIFIER_nondet_long(void);
-extern unsigned long __VERIFIER_nondet_ulong(void);
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,7 +13,11 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
+#include <getopt.h>
 #include <syslog.h>
 #include <libio.h>
 #include <setjmp.h>
@@ -27,6 +26,7 @@ extern void __VERIFIER_assume(int);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 #ifndef NULL
@@ -116,7 +116,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file ./libbb-dump.i line 1
@@ -239,7 +239,7 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort(); // xfunc_die() invokes exit() and would thus leak memory
   }
 
   exit(retval);
@@ -297,7 +297,9 @@ signed int __main(signed int argc, char **argv)
 
   }
   while(!(*argv == ((char *)NULL)));
-  fflush_stdout_and_exit(retval);
+  // fflush_stdout_and_exit(retval); -- invokes exit() and would thus leak memory
+  fflush(stdout);
+  return retval;
 }
 
 // file include/libbb.h line 748
@@ -340,39 +342,4 @@ static char * xmalloc_realpath(const char *path)
   return return_value_realpath$1;
 }
 
-
-ssize_t write(int fildes, const void *buf, size_t nbyte)
-{
-  long ret=__VERIFIER_nondet_long();
-  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
-  return ret;
-}
-
-int main()
-{
-  bb_errno_location = __VERIFIER_nondet_int();
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc >= 1 && argc <= 10000);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  int res = __main(argc, argv);
-
-  // Free argv
-  for(int i=0; i<argc; ++i)
-    free(argv[i]);
-  free(argv);
-
-  return res;
-}
+#include "busybox_sv_comp_impl.h"
