@@ -261,7 +261,7 @@ signed int __main(signed int argc, char **argv)
 {
 
   if(*(1l + argv) == ((char *)NULL))
-    bb_show_usage();
+    return 1;
 
   unsigned int return_value_xatou$1;
 
