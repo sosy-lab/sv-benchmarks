@@ -17,6 +17,7 @@
 #include "busybox_sv_comp.h"
 
 #define _GNU_SOURCE
+#include <getopt.h>
 #include <syslog.h>
 #include <getopt.h>
 #include <libio.h>

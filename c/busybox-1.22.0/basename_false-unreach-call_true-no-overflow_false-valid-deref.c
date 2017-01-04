@@ -16,6 +16,7 @@
 
 #include "busybox_sv_comp.h"
 
+#include <getopt.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>

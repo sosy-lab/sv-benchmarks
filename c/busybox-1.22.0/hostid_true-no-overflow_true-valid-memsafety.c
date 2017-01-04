@@ -17,11 +17,13 @@
 #include "busybox_sv_comp.h"
 
 #define _GNU_SOURCE
+#include <getopt.h>
 #include <libio.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <utmp.h>
+#include <string.h>
 
 #ifndef NULL
 #define NULL ((void*)0)

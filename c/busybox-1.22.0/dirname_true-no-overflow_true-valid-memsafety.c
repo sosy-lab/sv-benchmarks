@@ -16,6 +16,7 @@
 
 #include "busybox_sv_comp.h"
 
+#include <getopt.h>
 #include <libgen.h>
 #include <libio.h>
 #include <stdio.h>

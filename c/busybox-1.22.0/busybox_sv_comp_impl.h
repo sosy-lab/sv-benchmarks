@@ -13,6 +13,49 @@ struct utmp *getutent(void) {
   return &dummy_utmp;
 }
 
+int getopt(int argc, char * const argv[], const char *optstring)
+{
+  int result = -1;
+
+  if(optind == 0)
+    optind = 1;
+
+  if(optind >= argc || argv[optind][0] != '-')
+    return -1;
+
+  size_t opt_index = __VERIFIER_nondet_ulong();
+  __VERIFIER_assume(opt_index < strlen(optstring) && optstring[opt_index] != ':');
+
+  if(__VERIFIER_nondet_int())
+  {
+    result = optstring[opt_index];
+    if(__VERIFIER_nondet_int())
+      ++optind;
+  }
+
+  if(result != -1 && optind < argc && optstring[opt_index+1] == ':')
+  {
+    if(__VERIFIER_nondet_int())
+    {
+      optarg = argv[optind];
+      ++optind;
+    }
+    else
+      optarg = NULL;
+  }
+
+  return result;
+}
+
+int getopt_long(int argc, char * const argv[], const char *optstring,
+                const struct option *longopts, int *longindex)
+{
+  (void)*longopts;
+  (void)longindex;
+
+  return getopt(argc, argv, optstring);
+}
+
 ssize_t read(int fildes, void *buf, size_t nbyte)
 {
   long ret=__VERIFIER_nondet_long();
@@ -34,6 +77,8 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 int main()
 {
   bb_errno_location = __VERIFIER_nondet_int();
+  optind = 1;
+
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
 
