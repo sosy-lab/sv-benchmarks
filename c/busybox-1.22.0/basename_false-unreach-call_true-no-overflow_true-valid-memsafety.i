@@ -1298,6 +1298,7 @@ static void bb_show_usage(void);
 static signed long int full_write(signed int fd, const void *buf, unsigned long int len);
 static char * last_char_is(const char *s, signed int c);
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count);
+static const char *applet_name;
 static signed int bb_errno_location;
 static signed int * const bb_errno = &bb_errno_location;
 signed int __main(signed int argc, char **argv)
@@ -1551,6 +1552,11 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  char *a = malloc(11);
+  a[10] = 0;
+  for(int i=0; i<10; ++i)
+    a[i]=__VERIFIER_nondet_char();
+  applet_name = a;
   bb_errno_location = __VERIFIER_nondet_int();
   optind = 1;
   int argc = __VERIFIER_nondet_int();
@@ -1568,5 +1574,6 @@ int main()
   for(int i=0; i<argc; ++i)
     free(argv[i]);
   free(argv);
+  free(a);
   return res;
 }

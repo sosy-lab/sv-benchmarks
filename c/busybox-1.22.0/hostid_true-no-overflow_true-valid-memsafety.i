@@ -1745,6 +1745,7 @@ extern char *strfry (char *__string) __attribute__ ((__nothrow__ , __leaf__)) __
 extern void *memfrob (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern char *basename (const char *__filename) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
+static const char *applet_name;
 static signed int bb_errno_location;
 static void bb_show_usage(void);
 static signed int fflush_all(void);
@@ -1832,6 +1833,11 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 }
 int main()
 {
+  char *a = malloc(11);
+  a[10] = 0;
+  for(int i=0; i<10; ++i)
+    a[i]=__VERIFIER_nondet_char();
+  applet_name = a;
   bb_errno_location = __VERIFIER_nondet_int();
   optind = 1;
   int argc = __VERIFIER_nondet_int();
@@ -1849,5 +1855,6 @@ int main()
   for(int i=0; i<argc; ++i)
     free(argv[i]);
   free(argv);
+  free(a);
   return res;
 }

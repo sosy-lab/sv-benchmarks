@@ -76,6 +76,12 @@ ssize_t write(int fildes, const void *buf, size_t nbyte)
 
 int main()
 {
+  char *a = malloc(11);
+  a[10] = 0;
+  for(int i=0; i<10; ++i)
+    a[i]=__VERIFIER_nondet_char();
+
+  applet_name = a;
   bb_errno_location = __VERIFIER_nondet_int();
   optind = 1;
 
@@ -101,6 +107,8 @@ int main()
   for(int i=0; i<argc; ++i)
     free(argv[i]);
   free(argv);
+
+  free(a);
 
   return res;
 }

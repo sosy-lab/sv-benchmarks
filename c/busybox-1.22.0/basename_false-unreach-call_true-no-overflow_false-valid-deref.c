@@ -39,6 +39,8 @@ static char * last_char_is(const char *s, signed int c);
 // file include/libbb.h line 748
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count);
 
+// file include/libbb.h line 1708
+static const char *applet_name;
 // file libbb/ptr_to_globals.c line 19
 static signed int bb_errno_location;
 static signed int * const bb_errno;

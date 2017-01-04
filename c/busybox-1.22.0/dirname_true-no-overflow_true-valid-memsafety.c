@@ -28,6 +28,8 @@
 #define NULL ((void*)0)
 #endif
 
+// file include/libbb.h line 1708
+static const char *applet_name;
 static signed int bb_errno_location;
 
 // file ./libbb-dump.i line 1
