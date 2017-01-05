@@ -292,7 +292,7 @@ signed int __main(signed int argc, char **argv)
   argv = argv + 1l;
 
   if(*argv == ((char *)NULL))
-    bb_show_usage();
+    return 1;
 
   do
   {
