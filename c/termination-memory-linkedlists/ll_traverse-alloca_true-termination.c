@@ -4,7 +4,7 @@
  */
 
 #include <stdlib.h>
-#include <alloca.h>
+
 
 extern int __VERIFIER_nondet_int();
 
@@ -20,7 +20,7 @@ node_t* init_ll (int n)
   node_t* curr;
   
   for (int i = 0; i < n; i++) {
-    curr = alloca(sizeof(node_t));
+    curr = malloc(sizeof(node_t));
     curr->val = i;
     curr->next = head;
     head = curr;
