@@ -13,7 +13,7 @@ int test_fun(int x, int y)
     *c = 0;
     if (*x_ref <= 0 || *y_ref <= 0) {
         // replace assume
-        return *x_ref + *y_ref;
+        return 0;
     }
     while (!(*x_ref == 0)) {
         if (*x_ref > *y_ref) {
