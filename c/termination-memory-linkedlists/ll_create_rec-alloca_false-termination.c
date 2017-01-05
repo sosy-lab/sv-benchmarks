@@ -17,7 +17,7 @@ typedef struct node {
 
 // Create a new linked list with length n when n >= 0
 // or non-terminating when n < 0 
-node_t* new_ll(int n)
+node_t* new_ll(unsigned int n)
 {
   if (n == 0)
     return NULL;
