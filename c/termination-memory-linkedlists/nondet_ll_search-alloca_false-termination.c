@@ -33,6 +33,7 @@ node_t* init_nondet_ll (int n)
     curr->next = head;
   else 
     curr->next = NULL;
+  return head;
 }
 
 void safe_search (node_t* head, int i)
