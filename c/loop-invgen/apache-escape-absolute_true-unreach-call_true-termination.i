@@ -15,9 +15,9 @@ int main()
     urilen = __VERIFIER_nondet_int();
     tokenlen = __VERIFIER_nondet_int();
     scheme = __VERIFIER_nondet_int();
-    __VERIFIER_assume(urilen <= 1000000 && urilen >= -1000000);
-    __VERIFIER_assume(tokenlen <= 1000000 && tokenlen >= -1000000);
-    __VERIFIER_assume(scheme <= 1000000 && scheme >= -1000000);
+    if (!(urilen <= 1000000 && urilen >= -1000000)) return 0;
+    if (!(tokenlen <= 1000000 && tokenlen >= -1000000)) return 0;
+    if (!(scheme <= 1000000 && scheme >= -1000000)) return 0;
     if(urilen>0); else goto END;
     if(tokenlen>0); else goto END;
     if(scheme >= 0 );else goto END;

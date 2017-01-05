@@ -1,0 +1,5 @@
+loop-acceleration/*_false-valid-deref*.i
+ntdrivers/*_false-valid-deref*.i.cil.c
+ntdrivers-simplified/*_true-valid-memsafety*.cil.c
+locks/*_true-valid-memsafety*.c
+

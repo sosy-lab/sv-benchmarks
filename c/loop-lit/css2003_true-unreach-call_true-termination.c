@@ -7,7 +7,7 @@ int main() {
     i = 1;
     j = 1;
     k = __VERIFIER_nondet_int();
-    __VERIFIER_assume(0 <= k && k <= 1);
+    if (!(0 <= k && k <= 1)) return 0;
     while (i < LARGE_INT) {
 	i = i + 1;
 	j = j + k;

@@ -1,6 +1,3 @@
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -16,15 +13,25 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
+#include <getopt.h>
 #include <libgen.h>
 #include <libio.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <utmp.h>
+#include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
 #endif
+
+// file include/libbb.h line 1708
+static const char *applet_name;
+static signed int bb_errno_location;
 
 // file ./libbb-dump.i line 1
 static void bb_show_usage(void);
@@ -77,7 +84,7 @@ static char * single_argv(char **argv)
       if(!((unsigned long int)("--" + 1l) + -((unsigned long int)"--") == 1ul))
         goto __CPROVER_DUMP_L1;
 
-      __s2_len=__builtin_strlen("--");
+      __s2_len=strlen("--");
       tmp_if_expr$2 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
 
@@ -123,7 +130,7 @@ static char * single_argv(char **argv)
 
     else
     {
-      return_value___builtin_strcmp$4=__builtin_strcmp(argv[(signed long int)1], "--");
+      return_value___builtin_strcmp$4=strcmp(argv[(signed long int)1], "--");
       tmp_if_expr$5 = return_value___builtin_strcmp$4;
     }
     tmp_statement_expression$1 = tmp_if_expr$5;
@@ -144,24 +151,4 @@ static char * single_argv(char **argv)
   return argv[(signed long int)1];
 }
 
-
-int main()
-{
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=1);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  return __main(argc, argv);
-}
+#include "busybox_sv_comp_impl.h"

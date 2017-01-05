@@ -1,6 +1,3 @@
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -16,8 +13,11 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
+#include <getopt.h>
 #include <syslog.h>
 #include <libio.h>
 #include <setjmp.h>
@@ -28,6 +28,7 @@ extern void __VERIFIER_error(void);
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 // file coreutils/test.c line 276
@@ -122,7 +123,8 @@ struct test_statics
 // file include/libbb.h line 1708
 static const char *applet_name;
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 // file libbb/messages.c line 25
 static const char bb_msg_memory_exhausted[14l] = { (const char)111, (const char)117, (const char)116, (const char)32, (const char)111, (const char)102, (const char)32, (const char)109, (const char)101, (const char)109, (const char)111, (const char)114, (const char)121, (const char)0 };
 // file libbb/xfunc_die.c line 17
@@ -188,50 +190,20 @@ static signed long int aexpr(signed int n)
   (void)0;
   res=nexpr(n);
   (void)0;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
   signed int return_value_check_operator$3;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
-  if(!(test_ptr_to_statics->args == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-    __VERIFIER_error();
   return_value_check_operator$3=check_operator(*test_ptr_to_statics->args);
   if(return_value_check_operator$3 == 35)
   {
     (void)0;
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
     signed int return_value_check_operator$1;
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(test_ptr_to_statics->args == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-      __VERIFIER_error();
     return_value_check_operator$1=check_operator(*test_ptr_to_statics->args);
     signed long int return_value_aexpr$2;
     return_value_aexpr$2=aexpr(return_value_check_operator$1);
@@ -240,12 +212,7 @@ static signed long int aexpr(signed int n)
     return res;
   }
 
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   test_ptr_to_statics->args = test_ptr_to_statics->args - 1l;
   (void)0;
   return res;
@@ -278,7 +245,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file include/libbb.h line 1092
@@ -378,162 +345,72 @@ static signed int binop(void)
   struct operator_t *op;
   signed long int val1;
   signed long int val2;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
-  if(!(test_ptr_to_statics->args == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-    __VERIFIER_error();
   opnd1 = *test_ptr_to_statics->args;
   test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
-  if(!(test_ptr_to_statics->args == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-    __VERIFIER_error();
   check_operator(*test_ptr_to_statics->args);
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   op = test_ptr_to_statics->last_operator;
   test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
-  if(!(test_ptr_to_statics->args == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-    __VERIFIER_error();
   opnd2 = *test_ptr_to_statics->args;
   if(opnd2 == ((const char *)NULL))
   {
-    if(!(test_ptr_to_statics->args == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-      __VERIFIER_error();
     syntax(test_ptr_to_statics->args[(signed long int)-1], "argument expected");
   }
 
-  if(!(op == ((struct operator_t *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(op == ((struct operator_t *)((void*)0))) */
-    __VERIFIER_error();
   if(228 + (signed int)(unsigned char)(signed int)op->op_num <= 5)
   {
     val1=getn(opnd1);
     val2=getn(opnd2);
-    if(!(op == ((struct operator_t *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(op == ((struct operator_t *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)op->op_num == 28)
       return (signed int)(val1 == val2);
 
-    if(!(op == ((struct operator_t *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(op == ((struct operator_t *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)op->op_num == 29)
       return (signed int)(val1 != val2);
 
-    if(!(op == ((struct operator_t *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(op == ((struct operator_t *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)op->op_num == 30)
       return (signed int)(val1 >= val2);
 
-    if(!(op == ((struct operator_t *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(op == ((struct operator_t *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)op->op_num == 31)
       return (signed int)(val1 > val2);
 
-    if(!(op == ((struct operator_t *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(op == ((struct operator_t *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)op->op_num == 32)
       return (signed int)(val1 <= val2);
 
     return (signed int)(val1 < val2);
   }
 
-  if(!(op == ((struct operator_t *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(op == ((struct operator_t *)((void*)0))) */
-    __VERIFIER_error();
   signed long int tmp_statement_expression$1;
   if(234 + (signed int)(unsigned char)(signed int)op->op_num <= 5)
   {
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(opnd1, opnd2);
+    return_value___builtin_strcmp$2=strcmp(opnd1, opnd2);
     tmp_statement_expression$1 = (signed long int)return_value___builtin_strcmp$2;
     val1 = tmp_statement_expression$1;
-    if(!(op == ((struct operator_t *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(op == ((struct operator_t *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)op->op_num == 24)
       return (signed int)(val1 == (signed long int)0);
 
-    if(!(op == ((struct operator_t *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(op == ((struct operator_t *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)op->op_num == 25)
       return (signed int)(val1 != (signed long int)0);
 
-    if(!(op == ((struct operator_t *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(op == ((struct operator_t *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)op->op_num == 26)
       return (signed int)(val1 < (signed long int)0);
 
@@ -557,21 +434,11 @@ static signed int binop(void)
   if(!(tmp_if_expr$5 == (_Bool)0))
     return 0;
 
-  if(!(op == ((struct operator_t *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(op == ((struct operator_t *)((void*)0))) */
-    __VERIFIER_error();
   if((signed int)op->op_num == 17)
     return (signed int)(b1.st_mtim.tv_sec > b2.st_mtim.tv_sec);
 
-  if(!(op == ((struct operator_t *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(op == ((struct operator_t *)((void*)0))) */
-    __VERIFIER_error();
   if((signed int)op->op_num == 18)
     return (signed int)(b1.st_mtim.tv_sec < b2.st_mtim.tv_sec);
 
@@ -582,12 +449,7 @@ static signed int binop(void)
 static signed int check_operator(const char *s)
 {
   signed int n;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   static struct operator_t no_op = { .op_num=(unsigned char)-1, .op_type=(unsigned char)-1 };
   test_ptr_to_statics->last_operator = &no_op;
   if(s == ((const char *)NULL))
@@ -597,12 +459,7 @@ static signed int check_operator(const char *s)
   if(n < 0)
     return (signed int)39;
 
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   test_ptr_to_statics->last_operator = &ops_table[(signed long int)n];
   if(2l * (signed long int)n >= 0l)
     (void)0;
@@ -755,20 +612,10 @@ static signed long int getn(const char *s)
 {
   char *p;
   signed long long int r;
-  if(!(bb_errno == ((signed int *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-    __VERIFIER_error();
   *bb_errno = 0;
   r=strtoll(s, &p, 10);
-  if(!(bb_errno == ((signed int *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(bb_errno == ((signed int *)((void*)0))) */
-    __VERIFIER_error();
   if(!(*bb_errno == 0))
     syntax(s, "out of range");
 
@@ -780,12 +627,7 @@ static signed long int getn(const char *s)
   else
   {
     return_value_skip_whitespace$1=skip_whitespace(p);
-    if(!(return_value_skip_whitespace$1 == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(return_value_skip_whitespace$1 == ((char *)((void*)0))) */
-      __VERIFIER_error();
     tmp_if_expr$2 = ((signed int)*return_value_skip_whitespace$1 != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }
   if(!(tmp_if_expr$2 == (_Bool)0))
@@ -804,7 +646,7 @@ static signed int index_in_strings(const char *strings, const char *key)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(strings, key);
+    return_value___builtin_strcmp$2=strcmp(strings, key);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     if(tmp_statement_expression$1 == 0)
       return idx;
@@ -821,44 +663,19 @@ static signed int index_in_strings(const char *strings, const char *key)
 static void initialize_group_array(void)
 {
   signed int n;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   test_ptr_to_statics->ngroups = 32;
   while((_Bool)1)
   {
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     n = test_ptr_to_statics->ngroups;
     void *return_value_xrealloc$1;
     return_value_xrealloc$1=xrealloc((void *)test_ptr_to_statics->group_array, (unsigned long int)n * sizeof(unsigned int) /*4ul*/ );
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     test_ptr_to_statics->group_array = (unsigned int *)return_value_xrealloc$1;
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     test_ptr_to_statics->ngroups=getgroups(n, test_ptr_to_statics->group_array);
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     if(n >= test_ptr_to_statics->ngroups)
       break;
 
@@ -884,33 +701,18 @@ static signed int is_a_group_member(unsigned int gid)
   if(!(tmp_if_expr$3 == (_Bool)0))
     return 1;
 
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   if(test_ptr_to_statics->ngroups == 0)
     initialize_group_array();
 
   i = 0;
   while((_Bool)1)
   {
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     if(i >= test_ptr_to_statics->ngroups)
       break;
 
-    if(!(test_ptr_to_statics->group_array == ((unsigned int *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->group_array == ((unsigned int *)((void*)0))) */
-      __VERIFIER_error();
     if(gid == test_ptr_to_statics->group_array[(signed long int)i])
       return 1;
 
@@ -926,34 +728,14 @@ static signed long int nexpr(signed int n)
   (void)0;
   if(n == 34)
   {
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(test_ptr_to_statics->args == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-      __VERIFIER_error();
     n=check_operator(*test_ptr_to_statics->args);
     if(n == 0)
     {
-      if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-        __VERIFIER_error();
       test_ptr_to_statics->args = test_ptr_to_statics->args - 1l;
       (void)0;
       return (signed long int)1;
@@ -978,50 +760,20 @@ static signed long int oexpr(signed int n)
   (void)0;
   res=aexpr(n);
   (void)0;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
   signed int return_value_check_operator$3;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
-  if(!(test_ptr_to_statics->args == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-    __VERIFIER_error();
   return_value_check_operator$3=check_operator(*test_ptr_to_statics->args);
   if(return_value_check_operator$3 == 36)
   {
     (void)0;
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
     signed int return_value_check_operator$1;
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(test_ptr_to_statics->args == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-      __VERIFIER_error();
     return_value_check_operator$1=check_operator(*test_ptr_to_statics->args);
     signed long int return_value_oexpr$2;
     return_value_oexpr$2=oexpr(return_value_check_operator$1);
@@ -1030,12 +782,7 @@ static signed long int oexpr(signed int n)
     return res;
   }
 
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   test_ptr_to_statics->args = test_ptr_to_statics->args - 1l;
   (void)0;
   return res;
@@ -1052,48 +799,18 @@ static signed long int primary(signed int n)
 
   if(n == 37)
   {
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
     signed int return_value_check_operator$1;
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(test_ptr_to_statics->args == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-      __VERIFIER_error();
     return_value_check_operator$1=check_operator(*test_ptr_to_statics->args);
     res=oexpr(return_value_check_operator$1);
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
     test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
     signed int return_value_check_operator$2;
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(test_ptr_to_statics->args == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-      __VERIFIER_error();
     return_value_check_operator$2=check_operator(*test_ptr_to_statics->args);
     if(!(return_value_check_operator$2 == 38))
       syntax((const char *)NULL, "closing paren expected");
@@ -1102,44 +819,19 @@ static signed long int primary(signed int n)
     return res;
   }
 
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
   args0_op = test_ptr_to_statics->last_operator;
   signed int return_value_check_operator$4;
-  if(!(test_ptr_to_statics->args == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-    __VERIFIER_error();
   return_value_check_operator$4=check_operator(test_ptr_to_statics->args[(signed long int)1]);
   signed int return_value_binop$3;
   if(!(return_value_check_operator$4 == 0))
   {
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(test_ptr_to_statics->args == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(!(*(2l + test_ptr_to_statics->args) == ((char *)NULL)))
     {
-      if(!(test_ptr_to_statics->last_operator == ((struct operator_t *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics->last_operator == ((struct operator_t *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)test_ptr_to_statics->last_operator->op_type == 1)
       {
         return_value_binop$3=binop();
@@ -1150,126 +842,51 @@ static signed long int primary(signed int n)
 
   }
 
-  if(!(args0_op == ((struct operator_t *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(args0_op == ((struct operator_t *)((void*)0))) */
-    __VERIFIER_error();
   signed long int return_value_getn$5;
   signed int return_value_isatty$6;
   if((signed int)args0_op->op_type == 0)
   {
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(test_ptr_to_statics->args == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(*(1l + test_ptr_to_statics->args) == ((char *)NULL))
       goto check_emptiness;
 
     test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
     if(n == 22)
     {
-      if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-        __VERIFIER_error();
-      if(!(test_ptr_to_statics->args == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-        __VERIFIER_error();
-      if(!(*test_ptr_to_statics->args == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(*test_ptr_to_statics->args == ((char *)((void*)0))) */
-        __VERIFIER_error();
       return (signed long int)((signed int)test_ptr_to_statics->args[(signed long int)0][(signed long int)0] == 0);
     }
 
     if(n == 23)
     {
-      if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-        __VERIFIER_error();
-      if(!(test_ptr_to_statics->args == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-        __VERIFIER_error();
-      if(!(*test_ptr_to_statics->args == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(*test_ptr_to_statics->args == ((char *)((void*)0))) */
-        __VERIFIER_error();
       return (signed long int)((signed int)test_ptr_to_statics->args[(signed long int)0][(signed long int)0] != 0);
     }
 
     if(n == 13)
     {
-      if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-        __VERIFIER_error();
-      if(!(test_ptr_to_statics->args == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-        __VERIFIER_error();
       return_value_getn$5=getn(*test_ptr_to_statics->args);
       return_value_isatty$6=isatty((signed int)return_value_getn$5);
       return (signed long int)return_value_isatty$6;
     }
 
     signed int return_value_filstat$7;
-    if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-      __VERIFIER_error();
-    if(!(test_ptr_to_statics->args == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-      __VERIFIER_error();
     return_value_filstat$7=filstat(*test_ptr_to_statics->args, n);
     return (signed long int)return_value_filstat$7;
   }
 
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
-  if(!(test_ptr_to_statics->last_operator == ((struct operator_t *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics->last_operator == ((struct operator_t *)((void*)0))) */
-    __VERIFIER_error();
   if((signed int)test_ptr_to_statics->last_operator->op_type == 1)
   {
     signed int return_value_binop$8;
@@ -1279,24 +896,9 @@ static signed long int primary(signed int n)
 
 check_emptiness:
   ;
-  if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-    __VERIFIER_error();
-  if(!(test_ptr_to_statics->args == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-    __VERIFIER_error();
-  if(!(*test_ptr_to_statics->args == ((char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(*test_ptr_to_statics->args == ((char *)((void*)0))) */
-    __VERIFIER_error();
   return (signed long int)((signed int)test_ptr_to_statics->args[(signed long int)0][(signed long int)0] != 0);
 }
 
@@ -1338,12 +940,7 @@ static void syntax(const char *op, const char *msg)
   _Bool tmp_if_expr$1;
   if(!(op == ((const char *)NULL)))
   {
-    if(!(op == ((const char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(op == ((const char *)((void*)0))) */
-      __VERIFIER_error();
     tmp_if_expr$1 = ((signed int)*op != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }
 
@@ -1400,19 +997,9 @@ signed int __main(signed int argc, char **argv)
 {
   signed int res;
   const char *arg0;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   arg0=bb_basename(argv[(signed long int)0]);
-  if(!(arg0 == ((const char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(arg0 == ((const char *)((void*)0))) */
-    __VERIFIER_error();
   _Bool tmp_if_expr$1;
   signed int tmp_statement_expression$2;
   _Bool tmp_if_expr$3;
@@ -1422,43 +1009,18 @@ signed int __main(signed int argc, char **argv)
   if((signed int)*arg0 == 91)
   {
     argc = argc - 1;
-    if(!(arg0 == ((const char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(arg0 == ((const char *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)*(1l + arg0) == 0)
     {
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
-      if(!(argv[(signed long int)argc] == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv[(signed long int)argc] == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if(!((signed int)*argv[(signed long int)argc] == 93))
         tmp_if_expr$1 = 1 != 0;
 
       else
       {
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
-        if(!(argv[(signed long int)argc] == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv[(signed long int)argc] == ((char *)((void*)0))) */
-          __VERIFIER_error();
         tmp_if_expr$1 = ((signed int)argv[(signed long int)argc][(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       if(!(tmp_if_expr$1 == (_Bool)0))
@@ -1478,7 +1040,7 @@ signed int __main(signed int argc, char **argv)
         if(!((unsigned long int)("]]" + 1l) + -((unsigned long int)"]]") == 1ul))
           goto __CPROVER_DUMP_L19;
 
-        __s2_len=__builtin_strlen("]]");
+        __s2_len=strlen("]]");
         tmp_if_expr$3 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
 
@@ -1492,73 +1054,33 @@ signed int __main(signed int argc, char **argv)
       if(!(tmp_if_expr$3 == (_Bool)0))
       {
         const unsigned char *__s2;
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
         __s2 = (const char *)argv[(signed long int)argc];
         signed int __result;
-        if(!(__s2 == ((const unsigned char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-          __VERIFIER_error();
         __result = (signed int)((const char *)"]]")[(signed long int)0] - (signed int)__s2[(signed long int)0];
         if(__s2_len > 0ul)
         {
           if(__result == 0)
           {
-            if(!("]]" == ((const char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !("]]" == ((const unsigned char *)((void*)0))) */
-              __VERIFIER_error();
-            if(!(__s2 == ((const unsigned char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-              __VERIFIER_error();
             __result = (signed int)((const char *)"]]")[(signed long int)1] - (signed int)__s2[(signed long int)1];
             if(__s2_len > 1ul)
             {
               if(__result == 0)
               {
-                if(!("]]" == ((const char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !("]]" == ((const unsigned char *)((void*)0))) */
-                  __VERIFIER_error();
-                if(!(__s2 == ((const unsigned char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                  __VERIFIER_error();
                 __result = (signed int)((const char *)"]]")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                 if(__s2_len > 2ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("]]" == ((const char *)NULL)))
-                      (void)0;
 
-                    else
-                      /* assertion !("]]" == ((const unsigned char *)((void*)0))) */
-                      __VERIFIER_error();
                     /* assertion (_Bool)0 */
                     __VERIFIER_error();
-                    if(!(__s2 == ((const unsigned char *)NULL)))
-                      (void)0;
 
-                    else
-                      /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                      __VERIFIER_error();
                     __result = (signed int)((const char *)"]]")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
 
@@ -1578,13 +1100,8 @@ signed int __main(signed int argc, char **argv)
 
       else
       {
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
-        return_value___builtin_strcmp$5=__builtin_strcmp(argv[(signed long int)argc], "]]");
+        return_value___builtin_strcmp$5=strcmp(argv[(signed long int)argc], "]]");
         tmp_if_expr$6 = return_value___builtin_strcmp$5;
       }
       tmp_statement_expression$2 = tmp_if_expr$6;
@@ -1595,12 +1112,7 @@ signed int __main(signed int argc, char **argv)
       }
 
     }
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     argv[(signed long int)argc] = (char *)NULL;
   }
 
@@ -1617,66 +1129,26 @@ signed int __main(signed int argc, char **argv)
   if(res == 0)
   {
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(*argv == ((char *)NULL))
       res = 1;
 
     else
     {
-      if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-        __VERIFIER_error();
       test_ptr_to_statics->args = argv;
-      if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-        __VERIFIER_error();
-      if(!(test_ptr_to_statics->args == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-        __VERIFIER_error();
       return_value_check_operator$8=check_operator(*test_ptr_to_statics->args);
       return_value_oexpr$9=oexpr(return_value_check_operator$8);
       res = (signed int)!(return_value_oexpr$9 != 0l);
-      if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-        __VERIFIER_error();
-      if(!(test_ptr_to_statics->args == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-        __VERIFIER_error();
       if(!(*test_ptr_to_statics->args == ((char *)NULL)))
       {
         test_ptr_to_statics->args = test_ptr_to_statics->args + 1l;
-        if(!(test_ptr_to_statics == ((struct test_statics *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
-          __VERIFIER_error();
-        if(!(test_ptr_to_statics->args == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
-          __VERIFIER_error();
         if(!(*test_ptr_to_statics->args == ((char *)NULL)))
         {
           bb_error_msg("%s: unknown operand", *test_ptr_to_statics->args);
@@ -1751,24 +1223,4 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
-
-int main()
-{
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=1);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  return __main(argc, argv);
-}
+#include "busybox_sv_comp_impl.h"

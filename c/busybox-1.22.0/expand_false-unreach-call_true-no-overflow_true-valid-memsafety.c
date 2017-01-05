@@ -1,6 +1,3 @@
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -16,7 +13,9 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
 #include <syslog.h>
 #include <getopt.h>
@@ -27,6 +26,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 // file libbb/getopt32.c line 307
@@ -178,7 +178,8 @@ static const char *applet_long_options;
 // file include/libbb.h line 1708
 static const char *applet_name;
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 // file libbb/messages.c line 25
 static const char bb_msg_memory_exhausted[14l] = { (const char)111, (const char)117, (const char)116, (const char)32, (const char)111, (const char)102, (const char)32, (const char)109, (const char)101, (const char)109, (const char)111, (const char)114, (const char)121, (const char)0 };
 // file libbb/messages.c line 33
@@ -211,7 +212,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file libbb/get_line_from_file.c line 14
@@ -299,7 +300,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file ./libbb-dump.i line 1
@@ -460,12 +461,7 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
     ptr = ptr_strbeg;
     while((_Bool)1)
     {
-      if(!(ptr == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(ptr == ((char *)((void*)0))) */
-        __VERIFIER_error();
       c = *ptr;
       if((signed int)c == 0)
         break;
@@ -482,12 +478,7 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
       if((signed int)c == 9)
       {
         unsigned int len;
-        if(!(ptr == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(ptr == ((char *)((void*)0))) */
-          __VERIFIER_error();
         *ptr = (char)0;
         unsigned long int return_value_unicode_strwidth$2;
         return_value_unicode_strwidth$2=unicode_strwidth(ptr_strbeg);
@@ -520,12 +511,7 @@ signed int __main(signed int argc, char **argv)
   unsigned int opt;
   signed int exit_status = 0;
   init_unicode();
-  if(!(applet_name == ((const char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(applet_name == ((const char *)((void*)0))) */
-    __VERIFIER_error();
   if((signed int)*applet_name == 101)
   {
     static const char expand_longopts[18l] = { (const char)105, (const char)110, (const char)105, (const char)116, (const char)105, (const char)97, (const char)108, (const char)0, (const char)0, (const char)105, (const char)116, (const char)97, (const char)98, (const char)115, (const char)0, (const char)1, (const char)116, (const char)0 };
@@ -545,44 +531,24 @@ signed int __main(signed int argc, char **argv)
   }
   tab_size=xatou_range(opt_t, (unsigned int)1, (unsigned int)2147483647 * 2u + 1u);
   argv = argv + (signed long int)optind;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     *argv = (char *)bb_msg_standard_input;
   }
 
   while((_Bool)1)
   {
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     file=fopen_or_warn_stdin(*argv);
     if(file == ((struct _IO_FILE *)NULL))
       exit_status = 1;
 
     else
     {
-      if(!(applet_name == ((const char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(applet_name == ((const char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)*applet_name == 101)
         expand(file, tab_size, opt);
 
@@ -592,12 +558,7 @@ signed int __main(signed int argc, char **argv)
       return_value_fclose_if_not_stdin$1=fclose_if_not_stdin(file);
       if(!(return_value_fclose_if_not_stdin$1 == 0))
       {
-        if(!(argv == ((char **)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(argv == ((char **)((void*)0))) */
-          __VERIFIER_error();
         bb_simple_perror_msg(*argv);
         exit_status = 1;
       }
@@ -607,12 +568,7 @@ signed int __main(signed int argc, char **argv)
 
     }
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(*argv == ((char *)NULL))
       break;
 
@@ -622,7 +578,9 @@ signed int __main(signed int argc, char **argv)
   if(!(return_value_fclose$2 == 0))
     bb_perror_msg_and_die(bb_msg_standard_input);
 
-  fflush_stdout_and_exit(exit_status);
+  // fflush_stdout_and_exit(exit_status); -- invokes exit() and would thus leak memory
+  fflush(stdout);
+  return exit_status;
 }
 
 // file libbb/fclose_nonstdin.c line 17
@@ -662,7 +620,7 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort(); // xfunc_die() invokes exit() and would thus leak memory
   }
 
   exit(retval);
@@ -1394,12 +1352,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
     unsigned int column = (unsigned int)0;
     while((_Bool)1)
     {
-      if(!(ptr == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(ptr == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)*ptr == 0)
         break;
 
@@ -1407,12 +1360,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
       unsigned int len = (unsigned int)0;
       while((_Bool)1)
       {
-        if(!(ptr == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(ptr == ((char *)((void*)0))) */
-          __VERIFIER_error();
         if(!((signed int)*ptr == 32))
           break;
 
@@ -1420,12 +1368,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         len = len + 1u;
       }
       column = column + len;
-      if(!(ptr == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(ptr == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)*ptr == 9)
       {
         if(!(tab_size == 0u))
@@ -1476,23 +1419,13 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         n = strcspn(ptr, "\t ");
         printf("%*s%.*s", len, "", n, ptr);
         char c;
-        if(!(ptr == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(ptr == ((char *)((void*)0))) */
-          __VERIFIER_error();
         c = ptr[(signed long int)n];
         ptr[(signed long int)n] = (char)0;
         unsigned long int return_value_unicode_strwidth$14;
         return_value_unicode_strwidth$14=unicode_strwidth(ptr);
         len = (unsigned int)return_value_unicode_strwidth$14;
-        if(!(ptr == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(ptr == ((char *)((void*)0))) */
-          __VERIFIER_error();
         ptr[(signed long int)n] = c;
         ptr = ptr + (signed long int)n;
         if(!(tab_size == 0u))
@@ -1855,7 +1788,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -1905,24 +1838,4 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
-
-int main()
-{
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=1);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  return __main(argc, argv);
-}
+#include "busybox_sv_comp_impl.h"

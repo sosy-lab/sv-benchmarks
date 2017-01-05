@@ -14,9 +14,9 @@ int main()
   leader_len = __VERIFIER_nondet_int();
   bufsize = __VERIFIER_nondet_int();
   ielen = __VERIFIER_nondet_int();
-  __VERIFIER_assume(leader_len < LARGE_INT);
-  __VERIFIER_assume(bufsize < LARGE_INT);
-  __VERIFIER_assume(ielen < LARGE_INT);
+  if (!(leader_len < LARGE_INT)) return 0;
+  if (!(bufsize < LARGE_INT)) return 0;
+  if (!(ielen < LARGE_INT)) return 0;
 
   // copy the contents of leader into buf
   if(leader_len >0); else goto END;

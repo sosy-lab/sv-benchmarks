@@ -14,7 +14,6 @@ int main() {
         } else {
             x = x + 1;
         }
-        c = c + 1;
     }
     return 0;
 }

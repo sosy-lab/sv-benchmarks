@@ -18,9 +18,9 @@ void f(int d) {
   while (z < k) { z = 2 * z; }
   __VERIFIER_assert(z>=1);
   L2:
-  __VERIFIER_assume(x <= LARGE_INT && x >= -LARGE_INT);
-  __VERIFIER_assume(y <= LARGE_INT && y >= -LARGE_INT);
-  __VERIFIER_assume(k <= LARGE_INT && k >= -LARGE_INT);
+  if (!(x <= LARGE_INT && x >= -LARGE_INT)) return;
+  if (!(y <= LARGE_INT && y >= -LARGE_INT)) return;
+  if (!(k <= LARGE_INT && k >= -LARGE_INT)) return;
   while (x > 0 && y > 0) {
     _Bool c = __VERIFIER_nondet_bool();
     if (c) {

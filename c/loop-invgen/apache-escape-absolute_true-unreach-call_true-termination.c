@@ -8,9 +8,9 @@ int main()
     urilen = __VERIFIER_nondet_int();
     tokenlen = __VERIFIER_nondet_int();
     scheme = __VERIFIER_nondet_int();
-    __VERIFIER_assume(urilen <= LARGE_INT && urilen >= -LARGE_INT);
-    __VERIFIER_assume(tokenlen <= LARGE_INT && tokenlen >= -LARGE_INT);
-    __VERIFIER_assume(scheme <= LARGE_INT && scheme >= -LARGE_INT);
+    if (!(urilen <= LARGE_INT && urilen >= -LARGE_INT)) return 0;
+    if (!(tokenlen <= LARGE_INT && tokenlen >= -LARGE_INT)) return 0;
+    if (!(scheme <= LARGE_INT && scheme >= -LARGE_INT)) return 0;
 
     if(urilen>0); else goto END;
     if(tokenlen>0); else goto END;

@@ -20,13 +20,13 @@ int main()
   
   for(i=0;i<M;i++) {
     A[i] = __VERIFIER_nondet_int();
-    __VERIFIER_assume(A[i] <= LIMIT);
+    if (!(A[i] <= LIMIT)) return 0;
 
   }
   
   for(i=0;i<M;i++) {
     B[i] = __VERIFIER_nondet_int();
-    __VERIFIER_assume(B[i] <= LIMIT);
+    if (!(B[i] <= LIMIT)) return 0;
   }
 
   for(i=0;i<M;i++)

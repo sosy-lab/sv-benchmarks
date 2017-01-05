@@ -12,7 +12,7 @@ int main() {
     int k = 0;
     while(i < 1000000) {
         int j = __VERIFIER_nondet_int();
-        __VERIFIER_assume(1 <= j && j < 1000000);
+        if (!(1 <= j && j < 1000000)) return 0;
         i = i + j;
         k ++;
     }

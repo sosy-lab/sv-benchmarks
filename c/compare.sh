@@ -3,33 +3,8 @@
 set -e
 
 BLACKLIST="\
-  array-memsafety/cstrlen_unsafe_false-valid-deref.i \
-  array-examples/standard_copyInitSum_true-unreach-call_ground.i \
-  array-examples/standard_seq_init_true-unreach-call_ground.i \
-  bitvector/byte_add_1_true-unreach-call.i \
-  bitvector/byte_add_false-unreach-call.i \
-  bitvector/gcd_1_true-unreach-call.i \
-  bitvector/gcd_2_true-unreach-call.i \
-  bitvector/gcd_3_true-unreach-call.i \
-  bitvector/interleave_bits_true-unreach-call.i \
-  bitvector-loops/verisec_sendmail__tTflag_arr_one_loop_false-unreach-call.i \
-  bitvector/modulus_true-unreach-call.i \
-  bitvector/num_conversion_2_true-unreach-call.i \
-  floats-cbmc-regression/float-flags-simp1_true-unreach-call.i \
-  floats-cbmc-regression/float-no-simp4_true-unreach-call.i \
   floats-esbmc-regression/trunc_nondet_2_true-unreach-call.i \
-  seq-pthread/cs_dekker_true-unreach-call.i \
-  seq-pthread/cs_fib_longer_true-unreach-call.i \
-  seq-pthread/cs_fib_true-unreach-call.i \
-  seq-pthread/cs_lamport_true-unreach-call.i \
-  seq-pthread/cs_peterson_true-unreach-call.i \
-  seq-pthread/cs_queue_true-unreach-call.i \
-  seq-pthread/cs_read_write_lock_true-unreach-call.i \
-  seq-pthread/cs_stack_true-unreach-call.i \
-  seq-pthread/cs_stateful_true-unreach-call.i \
-  seq-pthread/cs_sync_true-unreach-call.i \
-  seq-pthread/cs_szymanski_true-unreach-call.i \
-  seq-pthread/cs_time_var_mutex_true-unreach-call.i \
+  pthread-atomic/gcd_true-unreach-call_true-termination.i \
   "
 
 KEEP_GOING=0
@@ -68,7 +43,7 @@ for f in $SETS ; do
   setf=$(basename $f .set)
 
   # pthread headers are very platform dependent
-  if [ $setf = Concurrency ] || [ $setf = Termination-Concurrency ] ; then
+  if [ $setf = ConcurrencySafety-Main ] ; then
     echo "Skipping category $setf (platform-dependent types)"
     continue
   fi

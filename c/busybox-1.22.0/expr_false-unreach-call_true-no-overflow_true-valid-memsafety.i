@@ -1,17 +1,10 @@
+extern long __VERIFIER_nondet_long(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
 extern char __VERIFIER_nondet_char(void);
+extern short __VERIFIER_nondet_short(void);
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
-typedef __builtin_va_list __gnuc_va_list;
-
-extern void closelog (void);
-extern void openlog (const char *__ident, int __option, int __facility);
-extern int setlogmask (int __mask) __attribute__ ((__nothrow__ , __leaf__));
-extern void syslog (int __pri, const char *__fmt, ...)
-     __attribute__ ((__format__ (__printf__, 2, 3)));
-extern void vsyslog (int __pri, const char *__fmt, __gnuc_va_list __ap)
-     __attribute__ ((__format__ (__printf__, 2, 0)));
-
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -64,6 +57,118 @@ typedef __quad_t *__qaddr_t;
 typedef char *__caddr_t;
 typedef long int __intptr_t;
 typedef unsigned int __socklen_t;
+
+static __inline unsigned int
+__bswap_32 (unsigned int __bsx)
+{
+  return __builtin_bswap32 (__bsx);
+}
+static __inline __uint64_t
+__bswap_64 (__uint64_t __bsx)
+{
+  return __builtin_bswap64 (__bsx);
+}
+enum
+{
+  _ISupper = ((0) < 8 ? ((1 << (0)) << 8) : ((1 << (0)) >> 8)),
+  _ISlower = ((1) < 8 ? ((1 << (1)) << 8) : ((1 << (1)) >> 8)),
+  _ISalpha = ((2) < 8 ? ((1 << (2)) << 8) : ((1 << (2)) >> 8)),
+  _ISdigit = ((3) < 8 ? ((1 << (3)) << 8) : ((1 << (3)) >> 8)),
+  _ISxdigit = ((4) < 8 ? ((1 << (4)) << 8) : ((1 << (4)) >> 8)),
+  _ISspace = ((5) < 8 ? ((1 << (5)) << 8) : ((1 << (5)) >> 8)),
+  _ISprint = ((6) < 8 ? ((1 << (6)) << 8) : ((1 << (6)) >> 8)),
+  _ISgraph = ((7) < 8 ? ((1 << (7)) << 8) : ((1 << (7)) >> 8)),
+  _ISblank = ((8) < 8 ? ((1 << (8)) << 8) : ((1 << (8)) >> 8)),
+  _IScntrl = ((9) < 8 ? ((1 << (9)) << 8) : ((1 << (9)) >> 8)),
+  _ISpunct = ((10) < 8 ? ((1 << (10)) << 8) : ((1 << (10)) >> 8)),
+  _ISalnum = ((11) < 8 ? ((1 << (11)) << 8) : ((1 << (11)) >> 8))
+};
+extern const unsigned short int **__ctype_b_loc (void)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern const __int32_t **__ctype_tolower_loc (void)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern const __int32_t **__ctype_toupper_loc (void)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+
+extern int isalnum (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isalpha (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int iscntrl (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isdigit (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int islower (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isgraph (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isprint (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int ispunct (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isspace (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isupper (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isxdigit (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int tolower (int __c) __attribute__ ((__nothrow__ , __leaf__));
+extern int toupper (int __c) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int isblank (int) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int isctype (int __c, int __mask) __attribute__ ((__nothrow__ , __leaf__));
+extern int isascii (int __c) __attribute__ ((__nothrow__ , __leaf__));
+extern int toascii (int __c) __attribute__ ((__nothrow__ , __leaf__));
+extern int _toupper (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int _tolower (int) __attribute__ ((__nothrow__ , __leaf__));
+typedef struct __locale_struct
+{
+  struct __locale_data *__locales[13];
+  const unsigned short int *__ctype_b;
+  const int *__ctype_tolower;
+  const int *__ctype_toupper;
+  const char *__names[13];
+} *__locale_t;
+typedef __locale_t locale_t;
+extern int isalnum_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isalpha_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int iscntrl_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isdigit_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int islower_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isgraph_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isprint_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int ispunct_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isspace_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isupper_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isxdigit_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int isblank_l (int, __locale_t) __attribute__ ((__nothrow__ , __leaf__));
+extern int __tolower_l (int __c, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
+extern int tolower_l (int __c, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
+extern int __toupper_l (int __c, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
+extern int toupper_l (int __c, __locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
+
+extern char *optarg;
+extern int optind;
+extern int opterr;
+extern int optopt;
+struct option
+{
+  const char *name;
+  int has_arg;
+  int *flag;
+  int val;
+};
+extern int getopt (int ___argc, char *const *___argv, const char *__shortopts)
+       __attribute__ ((__nothrow__ , __leaf__));
+extern int getopt_long (int ___argc, char *const *___argv,
+   const char *__shortopts,
+          const struct option *__longopts, int *__longind)
+       __attribute__ ((__nothrow__ , __leaf__));
+extern int getopt_long_only (int ___argc, char *const *___argv,
+        const char *__shortopts,
+               const struct option *__longopts, int *__longind)
+       __attribute__ ((__nothrow__ , __leaf__));
+typedef __builtin_va_list __gnuc_va_list;
+
+extern void closelog (void);
+extern void openlog (const char *__ident, int __option, int __facility);
+extern int setlogmask (int __mask) __attribute__ ((__nothrow__ , __leaf__));
+extern void syslog (int __pri, const char *__fmt, ...)
+     __attribute__ ((__format__ (__printf__, 2, 3)));
+extern void vsyslog (int __pri, const char *__fmt, __gnuc_va_list __ap)
+     __attribute__ ((__format__ (__printf__, 2, 0)));
+
 typedef long unsigned int size_t;
 typedef struct
 {
@@ -222,16 +327,6 @@ typedef unsigned int u_int16_t __attribute__ ((__mode__ (__HI__)));
 typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
 typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
 typedef int register_t __attribute__ ((__mode__ (__word__)));
-static __inline unsigned int
-__bswap_32 (unsigned int __bsx)
-{
-  return __builtin_bswap32 (__bsx);
-}
-static __inline __uint64_t
-__bswap_64 (__uint64_t __bsx)
-{
-  return __builtin_bswap64 (__bsx);
-}
 typedef int __sig_atomic_t;
 typedef struct
   {
@@ -1220,15 +1315,6 @@ extern unsigned long long int strtoull (const char *__restrict __nptr,
      char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
-typedef struct __locale_struct
-{
-  struct __locale_data *__locales[13];
-  const unsigned short int *__ctype_b;
-  const int *__ctype_tolower;
-  const int *__ctype_toupper;
-  const char *__names[13];
-} *__locale_t;
-typedef __locale_t locale_t;
 extern long int strtol_l (const char *__restrict __nptr,
      char **__restrict __endptr, int __base,
      __locale_t __loc) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 4)));
@@ -2069,12 +2155,6 @@ extern int tcsetpgrp (int __fd, __pid_t __pgrp_id) __attribute__ ((__nothrow__ ,
 extern char *getlogin (void);
 extern int getlogin_r (char *__name, size_t __name_len) __attribute__ ((__nonnull__ (1)));
 extern int setlogin (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern char *optarg;
-extern int optind;
-extern int opterr;
-extern int optopt;
-extern int getopt (int ___argc, char *const *___argv, const char *__shortopts)
-       __attribute__ ((__nothrow__ , __leaf__));
 extern int gethostname (char *__name, size_t __len) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern int sethostname (const char *__name, size_t __len)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
@@ -2119,6 +2199,95 @@ extern void encrypt (char *__glibc_block, int __edflag)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern void swab (const void *__restrict __from, void *__restrict __to,
     ssize_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+struct timezone
+  {
+    int tz_minuteswest;
+    int tz_dsttime;
+  };
+typedef struct timezone *__restrict __timezone_ptr_t;
+extern int gettimeofday (struct timeval *__restrict __tv,
+    __timezone_ptr_t __tz) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int settimeofday (const struct timeval *__tv,
+    const struct timezone *__tz)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern int adjtime (const struct timeval *__delta,
+      struct timeval *__olddelta) __attribute__ ((__nothrow__ , __leaf__));
+enum __itimer_which
+  {
+    ITIMER_REAL = 0,
+    ITIMER_VIRTUAL = 1,
+    ITIMER_PROF = 2
+  };
+struct itimerval
+  {
+    struct timeval it_interval;
+    struct timeval it_value;
+  };
+typedef enum __itimer_which __itimer_which_t;
+extern int getitimer (__itimer_which_t __which,
+        struct itimerval *__value) __attribute__ ((__nothrow__ , __leaf__));
+extern int setitimer (__itimer_which_t __which,
+        const struct itimerval *__restrict __new,
+        struct itimerval *__restrict __old) __attribute__ ((__nothrow__ , __leaf__));
+extern int utimes (const char *__file, const struct timeval __tvp[2])
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int lutimes (const char *__file, const struct timeval __tvp[2])
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int futimes (int __fd, const struct timeval __tvp[2]) __attribute__ ((__nothrow__ , __leaf__));
+extern int futimesat (int __fd, const char *__file,
+        const struct timeval __tvp[2]) __attribute__ ((__nothrow__ , __leaf__));
+
+struct lastlog
+  {
+    int32_t ll_time;
+    char ll_line[32];
+    char ll_host[256];
+  };
+struct exit_status
+  {
+    short int e_termination;
+    short int e_exit;
+  };
+struct utmp
+{
+  short int ut_type;
+  pid_t ut_pid;
+  char ut_line[32];
+  char ut_id[4];
+  char ut_user[32];
+  char ut_host[256];
+  struct exit_status ut_exit;
+  int32_t ut_session;
+  struct
+  {
+    int32_t tv_sec;
+    int32_t tv_usec;
+  } ut_tv;
+  int32_t ut_addr_v6[4];
+  char __glibc_reserved[20];
+};
+extern int login_tty (int __fd) __attribute__ ((__nothrow__ , __leaf__));
+extern void login (const struct utmp *__entry) __attribute__ ((__nothrow__ , __leaf__));
+extern int logout (const char *__ut_line) __attribute__ ((__nothrow__ , __leaf__));
+extern void logwtmp (const char *__ut_line, const char *__ut_name,
+       const char *__ut_host) __attribute__ ((__nothrow__ , __leaf__));
+extern void updwtmp (const char *__wtmp_file, const struct utmp *__utmp)
+     __attribute__ ((__nothrow__ , __leaf__));
+extern int utmpname (const char *__file) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *getutent (void) __attribute__ ((__nothrow__ , __leaf__));
+extern void setutent (void) __attribute__ ((__nothrow__ , __leaf__));
+extern void endutent (void) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *getutid (const struct utmp *__id) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *getutline (const struct utmp *__line) __attribute__ ((__nothrow__ , __leaf__));
+extern struct utmp *pututline (const struct utmp *__utmp_ptr) __attribute__ ((__nothrow__ , __leaf__));
+extern int getutent_r (struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+extern int getutid_r (const struct utmp *__id, struct utmp *__buffer,
+        struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+extern int getutline_r (const struct utmp *__line,
+   struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
 
 union anonymous;
 struct globals;
@@ -2178,7 +2347,8 @@ struct valinfo
 };
 static const char *applet_name;
 static char bb_common_bufsiz1[8193l];
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 static const char bb_msg_memory_exhausted[14l] = { (const char)111, (const char)117, (const char)116, (const char)32, (const char)111, (const char)102, (const char)32, (const char)109, (const char)101, (const char)109, (const char)111, (const char)114, (const char)121, (const char)0 };
 static const char bb_msg_standard_output[16l] = { (const char)115, (const char)116, (const char)97, (const char)110, (const char)100, (const char)97, (const char)114, (const char)100, (const char)32, (const char)111, (const char)117, (const char)116, (const char)112, (const char)117, (const char)116, (const char)0 };
 static struct __jmp_buf_tag die_jmp[1l];
@@ -2203,15 +2373,7 @@ static signed long int arithmetic_common(struct valinfo *l, struct valinfo *r, s
   }
   if(!(tmp_if_expr$3 == (_Bool)0))
     bb_error_msg_and_die("non-numeric argument");
-  if(!(l == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   li = l->u.i;
-  if(!(r == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   ri = r->u.i;
   if(op == 43)
     return li + ri;
@@ -2248,7 +2410,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   __builtin_va_start(p,s);
   bb_verror_msg(s, p, (const char *)((void *)0));
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static void bb_perror_msg_and_die(const char *s, ...)
 {
@@ -2265,7 +2427,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)((void *)0);
   bb_verror_msg(s, p, tmp_if_expr$2);
   __builtin_va_end(p);
-  xfunc_die();
+  abort();
 }
 static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
@@ -2349,25 +2511,13 @@ static signed int cmp_common(struct valinfo *l, struct valinfo *r, signed int op
 {
   signed long int ll;
   signed long int rr;
-  if(!(l == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   ll = l->u.i;
-  if(!(r == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   rr = r->u.i;
   _Bool tmp_if_expr$3;
   if((signed int)l->type == 1)
     tmp_if_expr$3 = 1 != 0;
   else
   {
-    if(!(r == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     tmp_if_expr$3 = ((signed int)r->type == 1 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }
   signed long int tmp_statement_expression$1;
@@ -2378,15 +2528,7 @@ static signed int cmp_common(struct valinfo *l, struct valinfo *r, signed int op
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    if(!(l == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(r == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    return_value___builtin_strcmp$2=__builtin_strcmp(l->u.s, r->u.s);
+    return_value___builtin_strcmp$2=strcmp(l->u.s, r->u.s);
     tmp_statement_expression$1 = (signed long int)return_value___builtin_strcmp$2;
     ll = tmp_statement_expression$1;
     rr = (signed long int)0;
@@ -2419,28 +2561,12 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
   regmatch_t re_regs[2l];
   tostring(sv);
   tostring(pv);
-  if(!(pv == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
-  if(!(pv->u.s == ((char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)*pv->u.s == 94)
     bb_error_msg("warning: '%s': using '^' as the first character\nof a basic regular expression is not portable; it is ignored", pv->u.s);
   memset((void *)&re_buffer, 0, sizeof(struct re_pattern_buffer) );
   memset((void *)re_regs, 0, sizeof(regmatch_t [2l]) );
-  if(!(pv == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   xregcomp(&re_buffer, pv->u.s, 0);
   signed int return_value_regexec$2;
-  if(!(sv == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return_value_regexec$2=regexec(&re_buffer, sv->u.s, (unsigned long int)2, re_regs, 0);
   _Bool tmp_if_expr$3;
   if(!(return_value_regexec$2 == 1))
@@ -2456,19 +2582,7 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
       tmp_if_expr$1 = 0 != 0;
     if(!(tmp_if_expr$1 == (_Bool)0))
     {
-      if(!(sv == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(sv->u.s == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       sv->u.s[(signed long int)re_regs[(signed long int)1].rm_eo] = (char)0;
-      if(!(sv == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       v=str_value(sv->u.s + (signed long int)re_regs[(signed long int)1].rm_so);
     }
     else
@@ -2675,10 +2789,6 @@ static struct valinfo * eval6(void)
   struct valinfo *v = v;
   signed int key;
   signed int tmp_if_expr$2;
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   signed int return_value_index_in_strings$1;
   if(!(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0))))
   {
@@ -2699,19 +2809,11 @@ static struct valinfo * eval6(void)
   char **tmp_post$4;
   if(key == 1)
   {
-    if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0)))
       bb_error_msg_and_die("syntax error");
     tmp_post$4 = ((struct globals *)&bb_common_bufsiz1)->args;
     ((struct globals *)&bb_common_bufsiz1)->args = ((struct globals *)&bb_common_bufsiz1)->args + 1l;
     struct valinfo *return_value_str_value$5;
-    if(!(tmp_post$4 == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_str_value$5=str_value(*tmp_post$4);
     return return_value_str_value$5;
   }
@@ -2720,10 +2822,6 @@ static struct valinfo * eval6(void)
     r=eval6();
     tostring(r);
     unsigned long int return_value_strlen$6;
-    if(!(r == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_strlen$6=strlen(r->u.s);
     v=int_value((signed long int)return_value_strlen$6);
     freev(r);
@@ -2747,27 +2845,11 @@ static struct valinfo * eval6(void)
     char __r1;
     char __r2;
     unsigned long int return_value___builtin_strcspn$8;
-    if(!(l == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(r == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    return_value___builtin_strcspn$8=__builtin_strcspn(l->u.s, r->u.s);
+    return_value___builtin_strcspn$8=strcspn(l->u.s, r->u.s);
     tmp_statement_expression$7 = return_value___builtin_strcspn$8;
     v=int_value((signed long int)(tmp_statement_expression$7 + (unsigned long int)1));
     unsigned long int return_value_strlen$9;
-    if(!(l == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     return_value_strlen$9=strlen(l->u.s);
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(v->u.i == 1l + (signed long int)return_value_strlen$9)
       v->u.i = (signed long int)0;
     freev(l);
@@ -2797,35 +2879,19 @@ static struct valinfo * eval6(void)
       tmp_if_expr$15 = 1 != 0;
     else
     {
-      if(!(l == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       return_value_strlen$14=strlen(l->u.s);
-      if(!(i1 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$15 = (i1->u.i > (signed long int)return_value_strlen$14 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$15 == (_Bool)0))
       tmp_if_expr$16 = 1 != 0;
     else
     {
-      if(!(i1 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$16 = (i1->u.i <= (signed long int)0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$16 == (_Bool)0))
       tmp_if_expr$17 = 1 != 0;
     else
     {
-      if(!(i2 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$17 = (i2->u.i <= (signed long int)0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$17 == (_Bool)0))
@@ -2835,27 +2901,7 @@ static struct valinfo * eval6(void)
       void *return_value_xmalloc$10;
       return_value_xmalloc$10=xmalloc(sizeof(struct valinfo) );
       v = (struct valinfo *)return_value_xmalloc$10;
-      if(!(v == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       v->type = (signed char)1;
-      if(!(v == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(l == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(i1 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
-      if(!(i2 == ((struct valinfo *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       v->u.s=xstrndup((l->u.s + i1->u.i) - (signed long int)1, (signed int)i2->u.i);
     }
     freev(l);
@@ -2867,10 +2913,6 @@ static struct valinfo * eval6(void)
 static struct valinfo * eval7(void)
 {
   struct valinfo *v;
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0)))
     bb_error_msg_and_die("syntax error");
   signed int return_value_nextarg$2;
@@ -2893,10 +2935,6 @@ static struct valinfo * eval7(void)
   char **tmp_post$4 = ((struct globals *)&bb_common_bufsiz1)->args;
   ((struct globals *)&bb_common_bufsiz1)->args = ((struct globals *)&bb_common_bufsiz1)->args + 1l;
   struct valinfo *return_value_str_value$5;
-  if(!(tmp_post$4 == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return_value_str_value$5=str_value(*tmp_post$4);
   return return_value_str_value$5;
 }
@@ -2905,36 +2943,21 @@ signed int __main(signed int argc, char **argv)
   struct valinfo *v;
   xfunc_error_retval = (unsigned char)2;
   ((struct globals *)&bb_common_bufsiz1)->args = argv + (signed long int)1;
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0)))
     bb_error_msg_and_die("too few arguments");
   v=eval();
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if(!(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0))))
     bb_error_msg_and_die("syntax error");
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)v->type == 0)
     printf("%lld\n", (signed long long int)v->u.i);
   else
   {
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     puts(v->u.s);
   }
   signed int return_value_null$1;
   return_value_null$1=null(v);
-  fflush_stdout_and_exit(return_value_null$1);
+  fflush(stdout);
+  return return_value_null$1;
 }
 static signed int fflush_all(void)
 {
@@ -2951,16 +2974,12 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort();
   }
   exit(retval);
 }
 static void freev(struct valinfo *v)
 {
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)v->type == 1)
     free((void *)v->u.s);
   free((void *)v);
@@ -2992,7 +3011,7 @@ static signed int index_in_strings(const char *strings, const char *key)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    return_value___builtin_strcmp$2=__builtin_strcmp(strings, key);
+    return_value___builtin_strcmp$2=strcmp(strings, key);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     if(tmp_statement_expression$1 == 0)
       return idx;
@@ -3009,20 +3028,12 @@ static struct valinfo * int_value(signed long int i)
   void *return_value_xzalloc$1;
   return_value_xzalloc$1=xzalloc(sizeof(struct valinfo) );
   v = (struct valinfo *)return_value_xzalloc$1;
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   v->u.i = i;
   return v;
 }
 static signed int nextarg(const char *str)
 {
   _Bool tmp_if_expr$3;
-  if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   signed int tmp_statement_expression$1;
   if(*((struct globals *)&bb_common_bufsiz1)->args == ((char *)((void *)0)))
     tmp_if_expr$3 = 1 != 0;
@@ -3031,62 +3042,26 @@ static signed int nextarg(const char *str)
     unsigned long int __s1_len;
     unsigned long int __s2_len;
     signed int return_value___builtin_strcmp$2;
-    if(!(((struct globals *)&bb_common_bufsiz1)->args == ((char **)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    return_value___builtin_strcmp$2=__builtin_strcmp(*((struct globals *)&bb_common_bufsiz1)->args, str);
+    return_value___builtin_strcmp$2=strcmp(*((struct globals *)&bb_common_bufsiz1)->args, str);
     tmp_statement_expression$1 = return_value___builtin_strcmp$2;
     tmp_if_expr$3 = (tmp_statement_expression$1 != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }
   if(!(tmp_if_expr$3 == (_Bool)0))
     return 0;
-  if(!(str == ((const char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
-  if(!(str == ((const char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   return (signed int)(unsigned char)str[(signed long int)0] + (signed int)(unsigned char)str[(signed long int)1];
 }
 static signed int null(struct valinfo *v)
 {
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)v->type == 0)
     return (signed int)(v->u.i == (signed long int)0);
   _Bool tmp_if_expr$2;
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
-  if(!(v->u.s == ((char *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   _Bool tmp_if_expr$1;
   if((signed int)*v->u.s == 0)
     tmp_if_expr$2 = 1 != 0;
   else
   {
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
-    if(!(v->u.s == ((char *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if((signed int)*v->u.s == 48)
     {
-      if(!(v->u.s == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$1 = (!((signed int)v->u.s[(signed long int)1] != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     else
@@ -3135,77 +3110,37 @@ static struct valinfo * str_value(const char *s)
   void *return_value_xzalloc$1;
   return_value_xzalloc$1=xzalloc(sizeof(struct valinfo) );
   v = (struct valinfo *)return_value_xzalloc$1;
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   v->type = (signed char)1;
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   v->u.s=xstrdup(s);
   return v;
 }
 static _Bool toarith(struct valinfo *v)
 {
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   _Bool tmp_if_expr$1;
   if((signed int)v->type == 1)
   {
     signed long int i;
     char *e;
     i=strtoll(v->u.s, &e, 10);
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     if(v->u.s == e)
       tmp_if_expr$1 = 1 != 0;
     else
     {
-      if(!(e == ((char *)((void *)0))))
-        (void)0;
-      else
-        __VERIFIER_error();
       tmp_if_expr$1 = ((signed int)*e != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
     if(!(tmp_if_expr$1 == (_Bool)0))
       return 0 != 0;
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     free((void *)v->u.s);
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     v->u.i = i;
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     v->type = (signed char)0;
   }
   return 1 != 0;
 }
 static void tostring(struct valinfo *v)
 {
-  if(!(v == ((struct valinfo *)((void *)0))))
-    (void)0;
-  else
-    __VERIFIER_error();
   if((signed int)v->type == 0)
   {
     v->u.s=xasprintf("%lld", (signed long long int)v->u.i);
-    if(!(v == ((struct valinfo *)((void *)0))))
-      (void)0;
-    else
-      __VERIFIER_error();
     v->type = (signed char)1;
   }
 }
@@ -3289,10 +3224,97 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+static struct utmp dummy_utmp;
+struct utmp *getutent(void) {
+  if (__VERIFIER_nondet_int())
+    return (struct utmp *)((void *)0);
+  dummy_utmp.ut_tv.tv_sec = __VERIFIER_nondet_int();
+  dummy_utmp.ut_type = __VERIFIER_nondet_short();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_line); ++i)
+    dummy_utmp.ut_line[i] = __VERIFIER_nondet_char();
+  for (int i = 0; i < sizeof(dummy_utmp.ut_user); ++i)
+    dummy_utmp.ut_user[i] = __VERIFIER_nondet_char();
+  return &dummy_utmp;
+}
+int getopt(int argc, char * const argv[], const char *optstring)
+{
+  int result = -1;
+  if(optind == 0)
+    optind = 1;
+  if(optind >= argc || argv[optind][0] != '-')
+    return -1;
+  size_t opt_index = __VERIFIER_nondet_ulong();
+  __VERIFIER_assume(opt_index < strlen(optstring) && optstring[opt_index] != ':');
+  if(__VERIFIER_nondet_int())
+  {
+    result = optstring[opt_index];
+    if(__VERIFIER_nondet_int())
+      ++optind;
+  }
+  if(result != -1 && optind < argc && optstring[opt_index+1] == ':')
+  {
+    if(__VERIFIER_nondet_int())
+    {
+      optarg = argv[optind];
+      ++optind;
+    }
+    else
+      optarg = ((void *)0);
+  }
+  return result;
+}
+int getopt_long(int argc, char * const argv[], const char *optstring,
+                const struct option *longopts, int *longindex)
+{
+  (void)*longopts;
+  (void)longindex;
+  return getopt(argc, argv, optstring);
+}
+ssize_t read(int fildes, void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  __VERIFIER_assume(offset<nbyte);
+  *((char*)buf+offset)=__VERIFIER_nondet_char();
+  return ret;
+}
+int vasprintf(char **ptr, const char *fmt, va_list ap)
+{
+  (void)*fmt;
+  (void)ap;
+  int result_buffer_size = __VERIFIER_nondet_int();
+  if(result_buffer_size <= 0)
+    return -1;
+  *ptr = malloc(result_buffer_size);
+  int i = 0;
+  while(i<result_buffer_size)
+  {
+    (*ptr)[i] = __VERIFIER_nondet_char();
+    if((*ptr)[i] == 0)
+      break;
+    ++i;
+  }
+  __VERIFIER_assume(i<result_buffer_size);
+  return i;
+}
+ssize_t write(int fildes, const void *buf, size_t nbyte)
+{
+  long ret=__VERIFIER_nondet_long();
+  __VERIFIER_assume(ret>=-1 && ret<=nbyte);
+  return ret;
+}
 int main()
 {
+  char *a = malloc(11);
+  a[10] = 0;
+  for(int i=0; i<10; ++i)
+    a[i]=__VERIFIER_nondet_char();
+  applet_name = a;
+  bb_errno_location = __VERIFIER_nondet_int();
+  optind = 1;
   int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=1);
+  __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;
   for(int i=0; i<argc; ++i)
@@ -3302,5 +3324,10 @@ int main()
     for(int j=0; j<10; ++j)
       argv[i][j]=__VERIFIER_nondet_char();
   }
-  return __main(argc, argv);
+  int res = __main(argc, argv);
+  for(int i=0; i<argc; ++i)
+    free(argv[i]);
+  free(argv);
+  free(a);
+  return res;
 }

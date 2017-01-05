@@ -1,4 +1,5 @@
 extern void __VERIFIER_error(void);
+extern double __VERIFIER_nondet_double();
 
 
 
@@ -950,7 +951,7 @@ extern int matherr (struct exception *__exc);
 
 int main()
 {
-  double d;
+  double d = __VERIFIER_nondet_double();
 
 
 

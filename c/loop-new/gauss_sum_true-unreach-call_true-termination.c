@@ -3,7 +3,7 @@
 int main() {
     int n, sum, i;
     n = __VERIFIER_nondet_int();
-    __VERIFIER_assume(1 <= n && n <= 1000);
+    if (!(1 <= n && n <= 1000)) return 0;
     sum = 0;
     for(i = 1; i <= n; i++) {
         sum = sum + i;

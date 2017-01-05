@@ -15,10 +15,10 @@ int main()
     int x=__VERIFIER_nondet_int();
     int y=__VERIFIER_nondet_int();
     int z=__VERIFIER_nondet_int();
-    __VERIFIER_assume(x<100);
-    __VERIFIER_assume(x>-100);
-    __VERIFIER_assume(z<100);
-    __VERIFIER_assume(z>-100);
+    if (!(x<100)) return 0;
+    if (!(x>-100)) return 0;
+    if (!(z<100)) return 0;
+    if (!(z>-100)) return 0;
     while(x<100 && 100<z) 
     {
         _Bool tmp=__VERIFIER_nondet_bool();

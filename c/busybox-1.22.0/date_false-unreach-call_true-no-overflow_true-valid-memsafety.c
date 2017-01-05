@@ -1,6 +1,3 @@
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -16,7 +13,9 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
 #include <syslog.h>
 #include <getopt.h>
@@ -29,6 +28,7 @@ extern void __VERIFIER_error(void);
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 // file libbb/getopt32.c line 307
@@ -149,7 +149,8 @@ static const char *applet_name;
 // file libbb/messages.c line 66
 static char bb_common_bufsiz1[8193l];
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 // file libbb/messages.c line 26
 static const char bb_msg_invalid_date[18l] = { (const char)105, (const char)110, (const char)118, (const char)97, (const char)108, (const char)105, (const char)100, (const char)32, (const char)100, (const char)97, (const char)116, (const char)101, (const char)32, (const char)39, (const char)37, (const char)115, (const char)39, (const char)0 };
 // file libbb/messages.c line 25
@@ -191,7 +192,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file include/libbb.h line 1083
@@ -230,7 +231,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file ./libbb-dump.i line 1
@@ -418,20 +419,10 @@ signed int __main(signed int argc, char **argv)
   }
 
   fmt_dt2str = (char *)NULL;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(!(*argv == ((char *)NULL)))
   {
-    if(!(*argv == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(*argv == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if((signed int)*(*argv) == 43)
     {
       fmt_dt2str = &argv[(signed long int)0][(signed long int)1];
@@ -456,42 +447,22 @@ signed int __main(signed int argc, char **argv)
   if((10u & opt) == 0u)
   {
     opt = opt | (unsigned int)2;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     date_str = argv[(signed long int)0];
     if(!(date_str == ((char *)NULL)))
     {
       signed int len;
       len = strspn(date_str, "0123456789");
-      if(!(date_str == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(date_str == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)date_str[(signed long int)len] == 0)
         tmp_if_expr$13 = 1 != 0;
 
       else
       {
-        if(!(date_str == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(date_str == ((char *)((void*)0))) */
-          __VERIFIER_error();
         if((signed int)date_str[(signed long int)len] == 46)
         {
-          if(!(date_str == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(date_str == ((char *)((void*)0))) */
-            __VERIFIER_error();
           tmp_if_expr$10 = ((signed int)(unsigned char)((signed int)date_str[(signed long int)(len + 1)] - 48) <= 9 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
 
@@ -499,12 +470,7 @@ signed int __main(signed int argc, char **argv)
           tmp_if_expr$10 = 0 != 0;
         if(!(tmp_if_expr$10 == (_Bool)0))
         {
-          if(!(date_str == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(date_str == ((char *)((void*)0))) */
-            __VERIFIER_error();
           tmp_if_expr$11 = ((signed int)(unsigned char)((signed int)date_str[(signed long int)(len + 2)] - 48) <= 9 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
 
@@ -512,12 +478,7 @@ signed int __main(signed int argc, char **argv)
           tmp_if_expr$11 = 0 != 0;
         if(!(tmp_if_expr$11 == (_Bool)0))
         {
-          if(!(date_str == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(date_str == ((char *)((void*)0))) */
-            __VERIFIER_error();
           tmp_if_expr$12 = ((signed int)date_str[(signed long int)(len + 3)] == 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
 
@@ -560,12 +521,7 @@ signed int __main(signed int argc, char **argv)
 
   }
 
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(!(*argv == ((char *)NULL)))
     bb_show_usage();
 
@@ -604,12 +560,7 @@ signed int __main(signed int argc, char **argv)
       ;
       parse_datestr(date_str, &tm_time);
     }
-    if(!(date_str == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(date_str == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if(!((signed int)*date_str == 64))
       tm_time.tm_isdst = -1;
 
@@ -671,12 +622,7 @@ signed int __main(signed int argc, char **argv)
     }
   }
 
-  if(!(fmt_dt2str == ((char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(fmt_dt2str == ((char *)((void*)0))) */
-    __VERIFIER_error();
   signed int tmp_if_expr$25;
   signed int tmp_statement_expression$19;
   _Bool tmp_if_expr$20;
@@ -700,7 +646,7 @@ signed int __main(signed int argc, char **argv)
         if(!((unsigned long int)("%f" + 1l) + -((unsigned long int)"%f") == 1ul))
           goto __CPROVER_DUMP_L64;
 
-        __s2_len=__builtin_strlen("%f");
+        __s2_len=strlen("%f");
         tmp_if_expr$20 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
 
@@ -715,65 +661,30 @@ signed int __main(signed int argc, char **argv)
       {
         const unsigned char *__s2 = (const char *)fmt_dt2str;
         signed int __result;
-        if(!(__s2 == ((const unsigned char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-          __VERIFIER_error();
         __result = (signed int)((const char *)"%f")[(signed long int)0] - (signed int)__s2[(signed long int)0];
         if(__s2_len > 0ul)
         {
           if(__result == 0)
           {
-            if(!("%f" == ((const char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !("%f" == ((const unsigned char *)((void*)0))) */
-              __VERIFIER_error();
-            if(!(__s2 == ((const unsigned char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-              __VERIFIER_error();
             __result = (signed int)((const char *)"%f")[(signed long int)1] - (signed int)__s2[(signed long int)1];
             if(__s2_len > 1ul)
             {
               if(__result == 0)
               {
-                if(!("%f" == ((const char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !("%f" == ((const unsigned char *)((void*)0))) */
-                  __VERIFIER_error();
-                if(!(__s2 == ((const unsigned char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                  __VERIFIER_error();
                 __result = (signed int)((const char *)"%f")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                 if(__s2_len > 2ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("%f" == ((const char *)NULL)))
-                      (void)0;
 
-                    else
-                      /* assertion !("%f" == ((const unsigned char *)((void*)0))) */
-                      __VERIFIER_error();
                     /* assertion (_Bool)0 */
                     __VERIFIER_error();
-                    if(!(__s2 == ((const unsigned char *)NULL)))
-                      (void)0;
 
-                    else
-                      /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                      __VERIFIER_error();
                     __result = (signed int)((const char *)"%f")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
 
@@ -793,7 +704,7 @@ signed int __main(signed int argc, char **argv)
 
       else
       {
-        return_value___builtin_strcmp$22=__builtin_strcmp(fmt_dt2str, "%f");
+        return_value___builtin_strcmp$22=strcmp(fmt_dt2str, "%f");
         tmp_if_expr$23 = return_value___builtin_strcmp$22;
       }
       tmp_statement_expression$19 = tmp_if_expr$23;
@@ -1489,7 +1400,7 @@ static void parse_datestr(const char *date_str, struct tm *ptm)
 
   else
   {
-    return_value___builtin_strchr$23=__builtin_strchr(date_str, 45);
+    return_value___builtin_strchr$23=strchr(date_str, 45);
     if(!(return_value___builtin_strchr$23 == ((char *)NULL)))
     {
       return_value_sscanf$24=sscanf(date_str, "%u-%u-%u %u%c", &ptm->tm_year, &ptm->tm_mon, &ptm->tm_mday, &ptm->tm_hour, &end);
@@ -1635,7 +1546,7 @@ static void parse_datestr(const char *date_str, struct tm *ptm)
         if((signed int)end == 46)
         {
           char *return_value___builtin_strchr$21;
-          return_value___builtin_strchr$21=__builtin_strchr(date_str, 46);
+          return_value___builtin_strchr$21=strchr(date_str, 46);
           signed int return_value_sscanf$22;
           return_value_sscanf$22=sscanf(return_value___builtin_strchr$21 + (signed long int)1, "%u%c", &ptm->tm_sec, &end);
           if(return_value_sscanf$22 == 1)
@@ -1781,7 +1692,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -1831,24 +1742,4 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
-
-int main()
-{
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=1);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  return __main(argc, argv);
-}
+#include "busybox_sv_comp_impl.h"

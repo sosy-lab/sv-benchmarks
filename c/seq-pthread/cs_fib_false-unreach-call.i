@@ -1,6 +1,6 @@
+extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-extern void __VERIFIER_assume(int);
 typedef long unsigned int size_t;
 typedef int wchar_t;
 
@@ -660,10 +660,11 @@ const unsigned char __THREAD_UNUSED = 0x00;
 const unsigned char __THREAD_RUNNING = 0x01;
 const unsigned char __THREAD_FINISHED = 0x02;
 unsigned char *__CS_thread_lockedon[6][2 +1];
-int __VERIFIER_nondet_int();
+extern int __VERIFIER_nondet_int();
+extern unsigned char __VERIFIER_nondet_uchar();
 void __CS_cs(void)
 {
- unsigned char k;
+ unsigned char k = __VERIFIER_nondet_uchar();
  __VERIFIER_assume(__CS_round+k < 6);
  __CS_round += k;
  __CS_ret = (__VERIFIER_nondet_int() && __CS_round == 6 -1)?__CS_ret_PREEMPTED:__CS_ret;

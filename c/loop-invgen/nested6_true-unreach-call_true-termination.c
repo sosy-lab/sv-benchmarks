@@ -5,7 +5,7 @@ int main() {
 
     k = __VERIFIER_nondet_int();
     n = __VERIFIER_nondet_int();
-    __VERIFIER_assume(n < LARGE_INT);
+    if (!(n < LARGE_INT)) return 0;
     if( k == n) {
     } else {
         goto END;

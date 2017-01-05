@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int(void);
 
 /*
  * Adapted from http://www.sanfoundry.com/c-programming-examples-arrays/
@@ -21,7 +22,7 @@ int main()
 {
     int array[SIZE];
     int i;
-    int num;
+    int num = __VERIFIER_nondet_int();
  
     //printf("Even numbers in the array are - ");
     for (i = 0; i < num; i++) // use of uninitialized num

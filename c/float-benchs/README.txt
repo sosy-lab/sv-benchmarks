@@ -1,7 +1,7 @@
 This directory contains a set of small C benchmark programs for 
 floating-point computations.
 
-Contributed by: Astree project and [CBMC](http://svn.cprover.org/svn/cbmc/trunk/regression/cbmc/) project
+Contributed by: Antoine Mine (Astree project) project
 
 Examples can be categorized into:
 - artificial programs that illustrate a specific feature of floating-point

@@ -11,7 +11,7 @@ int main() {
     int lo, mid, hi;
     lo = 0;
     mid = __VERIFIER_nondet_int();
-    __VERIFIER_assume(mid > 0 && mid <= 1000000);
+    if (!(mid > 0 && mid <= 1000000)) return 0;
     hi = 2*mid;
     while (mid > 0) {
         lo = lo + 1;

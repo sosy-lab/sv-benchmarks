@@ -376,60 +376,52 @@ void spin_lock_init(spinlock_t *lock)
 }
 void spin_lock(spinlock_t *lock)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->lock == 0);
-  lock->lock = tid;
+  lock->lock = 1;
   __VERIFIER_atomic_end();
 }
 void spin_lock_irqsave(spinlock_t *lock, unsigned long value)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->lock == 0);
-  lock->lock = tid;
+  lock->lock = 1;
   __VERIFIER_atomic_end();
 }
 void spin_lock_irq(spinlock_t *lock)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->lock == 0);
-  lock->lock = tid;
+  lock->lock = 1;
   __VERIFIER_atomic_end();
 }
 void spin_lock_bh(spinlock_t *lock)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->lock == 0);
-  lock->lock = tid;
+  lock->lock = 1;
   __VERIFIER_atomic_end();
 }
 void spin_unlock(spinlock_t *lock)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   lock->lock = 0;
   __VERIFIER_atomic_end();
 }
 void spin_unlock_irqrestore(spinlock_t *lock, unsigned long value)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   lock->lock = 0;
   __VERIFIER_atomic_end();
 }
 void spin_unlock_irq(spinlock_t *lock)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   lock->lock = 0;
   __VERIFIER_atomic_end();
 }
 void spin_unlock_bh(spinlock_t *lock)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   lock->lock = 0;
   __VERIFIER_atomic_end();
@@ -852,27 +844,24 @@ void mutex_init(struct mutex *lock)
 }
 void mutex_lock(struct mutex *lock)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   __VERIFIER_assume(lock->locked == 0);
-  lock->locked = tid;
+  lock->locked = 1;
   __VERIFIER_atomic_end();
 }
 bool mutex_lock_interruptible(struct mutex *lock)
 {
   bool ret = __VERIFIER_nondet_bool();
   if(!ret) {
-    pthread_t tid = pthread_self();
     __VERIFIER_atomic_begin();
     __VERIFIER_assume(lock->locked == 0);
-    lock->locked = tid;
+    lock->locked = 1;
     __VERIFIER_atomic_end();
   }
   return ret;
 }
 void mutex_unlock(struct mutex *lock)
 {
-  pthread_t tid = pthread_self();
   __VERIFIER_atomic_begin();
   lock->locked = 0;
   __VERIFIER_atomic_end();
@@ -1582,7 +1571,7 @@ struct super_block {
 };
 extern int fasync_helper(int, struct file *, int, struct fasync_struct **);
 struct swap_info_struct;
-enum migrate_mode;
+enum migrate_mode {X};
 struct address_space_operations {
   int (*writepage)(struct page *page, struct writeback_control *wbc);
   int (*readpage)(struct file *, struct page *);

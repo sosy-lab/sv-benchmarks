@@ -1,6 +1,3 @@
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -16,10 +13,15 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
+#include <getopt.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <utmp.h>
+#include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -38,8 +40,11 @@ static char * last_char_is(const char *s, signed int c);
 // file include/libbb.h line 748
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count);
 
+// file include/libbb.h line 1708
+static const char *applet_name;
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 
 // file coreutils/basename.c line 49
 signed int __main(signed int argc, char **argv)
@@ -47,12 +52,7 @@ signed int __main(signed int argc, char **argv)
   unsigned long int m;
   unsigned long int n;
   char *s;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   signed int tmp_statement_expression$1;
   _Bool tmp_if_expr$2;
   signed int tmp_if_expr$5;
@@ -67,7 +67,7 @@ signed int __main(signed int argc, char **argv)
       if(!((unsigned long int)("--" + 1l) + -((unsigned long int)"--") == 1ul))
         goto __CPROVER_DUMP_L3;
 
-      __s2_len=__builtin_strlen("--");
+      __s2_len=strlen("--");
       tmp_if_expr$2 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
 
@@ -81,74 +81,33 @@ signed int __main(signed int argc, char **argv)
     if(!(tmp_if_expr$2 == (_Bool)0))
     {
       const unsigned char *__s2;
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
       __s2 = (const char *)argv[(signed long int)1];
       signed int __result;
-      if(!(__s2 == ((const unsigned char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-        __VERIFIER_error();
       __result = (signed int)((const char *)"--")[(signed long int)0] - (signed int)__s2[(signed long int)0];
       if(__s2_len > 0ul)
       {
         if(__result == 0)
         {
-          if(!("--" == ((const char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !("--" == ((const unsigned char *)((void*)0))) */
-            __VERIFIER_error();
-          if(!(__s2 == ((const unsigned char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-            __VERIFIER_error();
           __result = (signed int)((const char *)"--")[(signed long int)1] - (signed int)__s2[(signed long int)1];
           if(__s2_len > 1ul)
           {
             if(__result == 0)
             {
-              if(!("--" == ((const char *)NULL)))
-                (void)0;
 
-              else
-                /* assertion !("--" == ((const unsigned char *)((void*)0))) */
-                __VERIFIER_error();
-              if(!(__s2 == ((const unsigned char *)NULL)))
-                (void)0;
 
-              else
-                /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                __VERIFIER_error();
               __result = (signed int)((const char *)"--")[(signed long int)2] - (signed int)__s2[(signed long int)2];
               if(__s2_len > 2ul)
               {
                 if(__result == 0)
                 {
-                  if(!("--" == ((const char *)NULL)))
-                    (void)0;
 
-                  else
-                    /* assertion !("--" == ((const unsigned char *)((void*)0))) */
-                    __VERIFIER_error();
                   /* assertion (_Bool)0 */
                   __VERIFIER_error();
-                  if(!(__s2 == ((const unsigned char *)NULL)))
-                    (void)0;
 
-                  else
-                    /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
-                    __VERIFIER_error();
-                  __result = (signed int)((const char *)"--")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                 }
 
               }
@@ -167,13 +126,8 @@ signed int __main(signed int argc, char **argv)
 
     else
     {
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
-      return_value___builtin_strcmp$4=__builtin_strcmp(argv[(signed long int)1], "--");
+      return_value___builtin_strcmp$4=strcmp(argv[(signed long int)1], "--");
       tmp_if_expr$5 = return_value___builtin_strcmp$4;
     }
     tmp_statement_expression$1 = tmp_if_expr$5;
@@ -186,24 +140,14 @@ signed int __main(signed int argc, char **argv)
   }
 
   if(4294967294u + (unsigned int)argc >= 2u)
-    bb_show_usage();
+    return 1; /* was: bb_show_usage(); which should exit(1), but this would leak argv */
 
   argv = argv + 1l;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   s=bb_get_last_path_component_strip(*argv);
   m=strlen(s);
   argv = argv + 1l;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   signed int tmp_statement_expression$6;
   if(!(*argv == ((char *)NULL)))
   {
@@ -213,13 +157,8 @@ signed int __main(signed int argc, char **argv)
       unsigned long int __s1_len;
       unsigned long int basename_main$$1$$4$$1$$__s2_len;
       signed int return_value___builtin_strcmp$7;
-      if(!(argv == ((char **)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(argv == ((char **)((void*)0))) */
-        __VERIFIER_error();
-      return_value___builtin_strcmp$7=__builtin_strcmp((s + (signed long int)m) - (signed long int)n, *argv);
+      return_value___builtin_strcmp$7=strcmp((s + (signed long int)m) - (signed long int)n, *argv);
       tmp_statement_expression$6 = return_value___builtin_strcmp$7;
       if(tmp_statement_expression$6 == 0)
         m = m - n;
@@ -230,12 +169,7 @@ signed int __main(signed int argc, char **argv)
 
   unsigned long int tmp_post$8 = m;
   m = m + 1ul;
-  if(!(s == ((char *)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(s == ((char *)((void*)0))) */
-    __VERIFIER_error();
   s[(signed long int)tmp_post$8] = (char)10;
   signed long int return_value_full_write$9;
   return_value_full_write$9=full_write(1, (const void *)s, m);
@@ -356,24 +290,4 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   return n;
 }
 
-
-int main()
-{
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=1);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  return __main(argc, argv);
-}
+#include "busybox_sv_comp_impl.h"

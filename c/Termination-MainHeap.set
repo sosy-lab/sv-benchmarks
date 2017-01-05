@@ -1,0 +1,9 @@
+termination-libowfat/*_true-termination*.c.i
+termination-memory-alloca/*_false-termination*.c.i
+termination-memory-alloca/*_true-termination*.c.i
+termination-memory-linkedlists/*_false-termination*.c.i
+termination-memory-linkedlists/*_true-termination*.c.i
+termination-15/*_true-termination*.c.i
+termination-15/*_false-termination*.c.i
+termination-recursive-malloc/*_true-termination*.c.i
+

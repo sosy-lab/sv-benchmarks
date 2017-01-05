@@ -12,8 +12,8 @@ int INFINITY = 899;
 int main(){
   int nodecount = __VERIFIER_nondet_int();
   int edgecount = __VERIFIER_nondet_int();
-  __VERIFIER_assume(0 <= nodecount && nodecount <= 4);
-  __VERIFIER_assume(0 <= edgecount && edgecount <= 19);
+  if (!(0 <= nodecount && nodecount <= 4)) return 0;
+  if (!(0 <= edgecount && edgecount <= 19)) return 0;
   int source = 0;
   int Source[20] = {0,4,1,1,0,0,1,3,4,4,2,2,3,0,0,3,1,2,2,3};
   int Dest[20] = {1,3,4,1,1,4,3,4,3,0,0,0,0,2,3,0,2,1,0,4};

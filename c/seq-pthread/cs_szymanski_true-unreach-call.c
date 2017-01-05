@@ -1,3 +1,6 @@
+extern int __VERIFIER_nondet_int(void);
+extern void * __VERIFIER_nondet_pointer(void);
+extern unsigned char __VERIFIER_nondet_uchar(void);
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
@@ -85,7 +88,7 @@ int __VERIFIER_nondet_int();
 
 void __CS_cs(void)
 {
-	__CS_type k;
+	__CS_type k = __VERIFIER_nondet_uchar();
 
 	__VERIFIER_assume(__CS_round+k < __CS_ROUNDS);   // k==0 --> no switch
 	__CS_round += k;
@@ -436,8 +439,8 @@ void *thr2()
 
 void *main_thread(void *arg)
 {
-	__CS_pthread_t t1;
-	__CS_pthread_t t2;
+	__CS_pthread_t t1 = __VERIFIER_nondet_uchar();
+	__CS_pthread_t t2 = __VERIFIER_nondet_uchar();
 	__CS_cs(); if (__CS_ret != 0) return 0;
 	__CS_pthread_create(&t1, 0, thr1, 0);
 	__CS_cs(); if (__CS_ret != 0) return 0;
@@ -457,7 +460,17 @@ int main()
 	int __CS_cp_flag1[__CS_ROUNDS];
 	int __CS_cp_flag2[__CS_ROUNDS];
 	int __CS_cp_x[__CS_ROUNDS];
+  int i, j;
 
+  for(i = 0; i < 3; i++) {
+    __CS_cp_flag1[i] = __VERIFIER_nondet_int();
+    __CS_cp_flag2[i] = __VERIFIER_nondet_int();
+    __CS_cp_x[i] = __VERIFIER_nondet_int();
+    for(j = 0; j < 3; j++) {
+      __CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
+      __CS_cp___CS_thread_lockedon[i][j] = (unsigned char *) __VERIFIER_nondet_pointer();
+    }
+  }
 	//cseq: Copy statements for global variables:
 	//cseq: for each global variable x,
 	//cseq: copy into x[1...___CS_ROUNDS] <--- __CS_cp_x[1..___CS_ROUNDS].

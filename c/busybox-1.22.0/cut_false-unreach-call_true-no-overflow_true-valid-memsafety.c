@@ -1,6 +1,3 @@
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -16,7 +13,9 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
 #include <syslog.h>
 #include <getopt.h>
@@ -27,6 +26,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 // file coreutils/cut.c line 42
@@ -158,7 +158,8 @@ static const char *applet_long_options;
 // file include/libbb.h line 1708
 static const char *applet_name;
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 // file libbb/messages.c line 25
 static const char bb_msg_memory_exhausted[14l] = { (const char)111, (const char)117, (const char)116, (const char)32, (const char)111, (const char)102, (const char)32, (const char)109, (const char)101, (const char)109, (const char)111, (const char)114, (const char)121, (const char)0 };
 // file libbb/messages.c line 33
@@ -191,7 +192,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file libbb/get_line_from_file.c line 14
@@ -279,7 +280,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file ./libbb-dump.i line 1
@@ -447,40 +448,20 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
     if(!((3u & option_mask32) == 0u))
       for( ; !(cl_pos >= nlists); cl_pos = cl_pos + 1u)
       {
-        if(!(cut_lists == ((struct cut_list *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-          __VERIFIER_error();
         spos = (cut_lists + (signed long int)cl_pos)->startpos;
         while(!(spos >= linelen))
         {
-          if(!(printed == ((char *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(printed == ((char *)((void*)0))) */
-            __VERIFIER_error();
           if((signed int)printed[(signed long int)spos] == 0)
           {
             printed[(signed long int)spos] = (char)88;
-            if(!(line == ((char *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(line == ((char *)((void*)0))) */
-              __VERIFIER_error();
             putchar((signed int)line[(signed long int)spos]);
           }
 
           spos = spos + 1;
-          if(!(cut_lists == ((struct cut_list *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-            __VERIFIER_error();
           if(!((cut_lists + (signed long int)cl_pos)->endpos >= spos))
             break;
 
@@ -490,12 +471,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
     else
       if((signed int)delim == 10)
       {
-        if(!(cut_lists == ((struct cut_list *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-          __VERIFIER_error();
         spos = (cut_lists + (signed long int)cl_pos)->startpos;
         if(cl_pos >= nlists || !((signed int)linenum >= spos))
           goto next_line;
@@ -503,23 +479,13 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
         while(!(spos >= (signed int)linenum))
         {
           spos = spos + 1;
-          if(!(cut_lists == ((struct cut_list *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-            __VERIFIER_error();
           if(!((cut_lists + (signed long int)cl_pos)->endpos >= spos))
             tmp_if_expr$3 = 1 != 0;
 
           else
           {
-            if(!(cut_lists == ((struct cut_list *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-              __VERIFIER_error();
             tmp_if_expr$3 = ((cut_lists + (signed long int)cl_pos)->endpos == -1 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
           if(!(tmp_if_expr$3 == (_Bool)0))
@@ -528,12 +494,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
             if(cl_pos >= nlists)
               goto next_line;
 
-            if(!(cut_lists == ((struct cut_list *)NULL)))
-              (void)0;
 
-            else
-              /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-              __VERIFIER_error();
             spos = (cut_lists + (signed long int)cl_pos)->startpos;
             if(!((signed int)linenum >= spos))
               goto next_line;
@@ -554,7 +515,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
         delimiter[(signed long int)0] = delim;
         delimiter[(signed long int)1] = (char)0;
         char *return_value___builtin_strchr$4;
-        return_value___builtin_strchr$4=__builtin_strchr(line, (signed int)delim);
+        return_value___builtin_strchr$4=strchr(line, (signed int)delim);
         if(return_value___builtin_strchr$4 == ((char *)NULL))
         {
           if((16u & option_mask32) == 0u)
@@ -565,12 +526,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
 
         for( ; !(line == ((char *)NULL)) && !(cl_pos >= nlists); cl_pos = cl_pos + 1u)
         {
-          if(!(cut_lists == ((struct cut_list *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-            __VERIFIER_error();
           spos = (cut_lists + (signed long int)cl_pos)->startpos;
           do
           {
@@ -593,24 +549,14 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           {
             if(ndelim == spos)
             {
-              if(!(printed == ((char *)NULL)))
-                (void)0;
 
-              else
-                /* assertion !(printed == ((char *)((void*)0))) */
-                __VERIFIER_error();
               if((signed int)printed[(signed long int)ndelim] == 0)
               {
                 if(nfields_printed > 0)
                   putchar((signed int)delim);
 
                 fputs(field, stdout);
-                if(!(printed == ((char *)NULL)))
-                  (void)0;
 
-                else
-                  /* assertion !(printed == ((char *)((void*)0))) */
-                  __VERIFIER_error();
                 printed[(signed long int)ndelim] = (char)88;
                 nfields_printed = nfields_printed + 1;
               }
@@ -620,12 +566,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           }
 
           spos = spos + 1;
-          if(!(cut_lists == ((struct cut_list *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-            __VERIFIER_error();
           if((cut_lists + (signed long int)cl_pos)->endpos >= spos && !(line == ((char *)NULL)))
             tmp_if_expr$5 = ((cut_lists + (signed long int)cl_pos)->endpos != -1 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
 
@@ -666,31 +607,16 @@ signed int __main(signed int argc, char **argv)
 
   if(!((8u & opt) == 0u))
   {
-    if(!(ltok == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(ltok == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if(!((signed int)*ltok == 0))
     {
-      if(!(ltok == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(ltok == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if(!((signed int)*(1l + ltok) == 0))
         bb_error_msg_and_die("the delimiter must be a single character");
 
     }
 
-    if(!(ltok == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(ltok == ((char *)((void*)0))) */
-      __VERIFIER_error();
     delim = ltok[(signed long int)0];
   }
 
@@ -724,21 +650,11 @@ signed int __main(signed int argc, char **argv)
     if(ltok == ((char *)NULL))
       break;
 
-    if(!(ltok == ((char *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(ltok == ((char *)((void*)0))) */
-      __VERIFIER_error();
     if(!((signed int)*ltok == 0))
     {
       ntok = strsep(&ltok, "-");
-      if(!(ntok == ((char *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(ntok == ((char *)((void*)0))) */
-        __VERIFIER_error();
       if((signed int)*ntok == 0)
         s = 0;
 
@@ -754,12 +670,7 @@ signed int __main(signed int argc, char **argv)
 
       else
       {
-        if(!(ltok == ((char *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(ltok == ((char *)((void*)0))) */
-          __VERIFIER_error();
         if((signed int)*ltok == 0)
           e = 2147483647;
 
@@ -778,19 +689,9 @@ signed int __main(signed int argc, char **argv)
       void *return_value_xrealloc_vector_helper$11;
       return_value_xrealloc_vector_helper$11=xrealloc_vector_helper((void *)cut_lists, (unsigned int)((sizeof(struct cut_list) /*8ul*/  << 8) + (unsigned long int)4), (signed int)nlists);
       cut_lists = (struct cut_list *)return_value_xrealloc_vector_helper$11;
-      if(!(cut_lists == ((struct cut_list *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-        __VERIFIER_error();
       (cut_lists + (signed long int)nlists)->startpos = s;
-      if(!(cut_lists == ((struct cut_list *)NULL)))
-        (void)0;
 
-      else
-        /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
-        __VERIFIER_error();
       (cut_lists + (signed long int)nlists)->endpos = e;
       nlists = nlists + 1u;
     }
@@ -802,33 +703,18 @@ signed int __main(signed int argc, char **argv)
 
   qsort((void *)cut_lists, (unsigned long int)nlists, sizeof(struct cut_list) /*8ul*/ , cmpfunc);
   signed int retval = 0;
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   if(*argv == ((char *)NULL))
   {
     argv = argv - 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     *argv = (char *)"-";
   }
 
   do
   {
     struct _IO_FILE *file;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     file=fopen_or_warn_stdin(*argv);
     if(file == ((struct _IO_FILE *)NULL))
       retval = 1;
@@ -839,15 +725,12 @@ signed int __main(signed int argc, char **argv)
       fclose_if_not_stdin(file);
     }
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
   }
   while(!(*argv == ((char *)NULL)));
-  fflush_stdout_and_exit(retval);
+  // fflush_stdout_and_exit(retval); -- invokes exit() and would thus leak memory
+  fflush(stdout);
+  return retval;
 }
 
 // file libbb/fclose_nonstdin.c line 17
@@ -887,7 +770,7 @@ static void fflush_stdout_and_exit(signed int retval)
   if(die_sleep < 0)
   {
     xfunc_error_retval = (unsigned char)retval;
-    xfunc_die();
+    abort(); // xfunc_die() invokes exit() and would thus leak memory
   }
 
   exit(retval);
@@ -1582,7 +1465,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -1632,24 +1515,4 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
-
-int main()
-{
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=1);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  return __main(argc, argv);
-}
+#include "busybox_sv_comp_impl.h"

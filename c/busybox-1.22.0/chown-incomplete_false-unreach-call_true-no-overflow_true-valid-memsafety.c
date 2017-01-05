@@ -1,6 +1,3 @@
-extern int __VERIFIER_nondet_int(void);
-extern char __VERIFIER_nondet_char(void);
-extern void __VERIFIER_assume(int);
 /*
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -16,7 +13,9 @@ extern void __VERIFIER_assume(int);
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
    MA 02110-1301, USA.
 */
-extern void __VERIFIER_error(void);
+
+#include "busybox_sv_comp.h"
+
 #define _GNU_SOURCE
 #include <syslog.h>
 #include <dirent.h>
@@ -30,6 +29,7 @@ extern void __VERIFIER_error(void);
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <utmp.h>
 #include <stdarg.h>
 
 // file include/libbb.h line 872
@@ -170,7 +170,8 @@ static const char *applet_long_options;
 // file include/libbb.h line 1708
 static const char *applet_name;
 // file libbb/ptr_to_globals.c line 19
-static signed int * const bb_errno;
+static signed int bb_errno_location;
+static signed int * const bb_errno = &bb_errno_location;
 // file libbb/messages.c line 25
 static const char bb_msg_memory_exhausted[14l] = { (const char)111, (const char)117, (const char)116, (const char)32, (const char)111, (const char)102, (const char)32, (const char)109, (const char)101, (const char)109, (const char)111, (const char)114, (const char)121, (const char)0 };
 // file libbb/getopt32.c line 320
@@ -199,7 +200,7 @@ static void bb_error_msg_and_die(const char *s, ...)
   va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
   va_end(p);
-  xfunc_die();
+  abort(); // xfunc_die() invokes exit() and would thus leak memory
 }
 
 // file include/libbb.h line 1083
@@ -376,22 +377,12 @@ signed int __main(signed int argc, char **argv)
   if(!((32 & opt) == 0))
     flags = flags | 2;
 
-  if(!(argv == ((char **)NULL)))
-    (void)0;
 
-  else
-    /* assertion !(argv == ((char **)((void*)0))) */
-    __VERIFIER_error();
   parse_chown_usergroup_or_die(&param.ugid, argv[(signed long int)0]);
   do
   {
     argv = argv + 1l;
-    if(!(argv == ((char **)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(argv == ((char **)((void*)0))) */
-      __VERIFIER_error();
     if(*argv == ((char *)NULL))
       break;
 
@@ -474,12 +465,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     __VERIFIER_error();
   if(((struct param_t *)vparam)->ugid.uid == 4294967295u)
   {
-    if(!(statbuf == ((struct stat *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(statbuf == ((struct stat *)((void*)0))) */
-      __VERIFIER_error();
     tmp_if_expr$1 = statbuf->st_uid;
   }
 
@@ -504,12 +490,7 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     __VERIFIER_error();
   if(((struct param_t *)vparam)->ugid.gid == 4294967295u)
   {
-    if(!(statbuf == ((struct stat *)NULL)))
-      (void)0;
 
-    else
-      /* assertion !(statbuf == ((struct stat *)((void*)0))) */
-      __VERIFIER_error();
     tmp_if_expr$2 = statbuf->st_gid;
   }
 
@@ -550,23 +531,13 @@ static signed int fileAction(const char *fileName, struct stat *statbuf, void *v
     {
       if(!((8u & option_mask32) == 0u))
       {
-        if(!(statbuf == ((struct stat *)NULL)))
-          (void)0;
 
-        else
-          /* assertion !(statbuf == ((struct stat *)((void*)0))) */
-          __VERIFIER_error();
         if(!(statbuf->st_uid == u))
           tmp_if_expr$3 = 1 != 0;
 
         else
         {
-          if(!(statbuf == ((struct stat *)NULL)))
-            (void)0;
 
-          else
-            /* assertion !(statbuf == ((struct stat *)((void*)0))) */
-            __VERIFIER_error();
           tmp_if_expr$3 = (statbuf->st_gid != g ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
         tmp_if_expr$4 = (tmp_if_expr$3 != (_Bool)0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
@@ -1359,7 +1330,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             unsigned long int __s1_len;
             unsigned long int __s2_len;
             signed int return_value___builtin_strcmp$5;
-            return_value___builtin_strcmp$5=__builtin_strcmp(suffixes->suffix, e);
+            return_value___builtin_strcmp$5=strcmp(suffixes->suffix, e);
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
@@ -1409,24 +1380,4 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
-
-int main()
-{
-  int argc = __VERIFIER_nondet_int();
-  __VERIFIER_assume(argc>=1);
-
-  char **argv=malloc((argc+1)*sizeof(char*));
-  argv[argc]=0;
-
-  for(int i=0; i<argc; ++i)
-  {
-    // let's limit the size of arguments to 10, which is an
-    // underapproximation obviously
-    argv[i]=malloc(11);
-    argv[i][10] = 0;
-    for(int j=0; j<10; ++j)
-      argv[i][j]=__VERIFIER_nondet_char();
-  }
-
-  return __main(argc, argv);
-}
+#include "busybox_sv_comp_impl.h"

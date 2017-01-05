@@ -23,9 +23,9 @@ struct A {
 struct B {
 	unsigned char a;
 	unsigned char pad1[3];
-	unsigned int b:2;
-	unsigned int c:2;
-	unsigned int d:4;
+	unsigned char b:2;
+	unsigned char c:2;
+	unsigned char d:4;
 	unsigned char e;
 	unsigned char f;
 	unsigned char f1;
@@ -34,7 +34,7 @@ struct B {
 	unsigned char f4;
 } __attribute__((packed));
 
-struct B d = {.c = 3, .b = 2};
+struct B d;
 int main(void)
 {
 	struct A *p;
@@ -43,10 +43,10 @@ int main(void)
 	if (p->a != 0) {
 		free(p);
 	}
-	if (p->b != 2) {
+	if (p->b != 0) {
 		free(p);
 	}
-	if (p->c != 3) {
+	if (p->c != 0) {
 		free(p);
 	}
 	if (p->d != 0) {

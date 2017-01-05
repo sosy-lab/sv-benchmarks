@@ -45,59 +45,9 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("product-lines", "missing license"),
     ("pthread", "missing license"),
     ("pthread-ext", "missing license"),
-    ("recursive-simple", "missing license"),
-    ("recursive-simple", "missing readme"),
     ("seq-pthread", "missing license"),
     ("systemc", "missing license"),
 
-    ("float-benchs", "zonotope_2.c has no known verdict"),
-    ("float-benchs", "addsub_float_inexact.c has no known verdict"),
-    ("float-benchs", "inv_sqrt_Quake.c has no known verdict"),
-    ("float-benchs", "cast_union_tight.c has no known verdict"),
-    ("float-benchs", "interpolation2.c has no known verdict"),
-    ("float-benchs", "cast_union_loose.c has no known verdict"),
-    ("float-benchs", "divmul_buf_diverge.c has no known verdict"),
-    ("float-benchs", "sqrt_Householder_constant.c has no known verdict"),
-    ("float-benchs", "bary_diverge.c has no known verdict"),
-    ("float-benchs", "sqrt_Householder_pseudoconstant.c has no known verdict"),
-    ("float-benchs", "sqrt_poly.c has no known verdict"),
-    ("float-benchs", "Rump_float.c has no known verdict"),
-    ("float-benchs", "addsub_float_exact.c has no known verdict"),
-    ("float-benchs", "addsub_double_exact.c has no known verdict"),
-    ("float-benchs", "drift_tenth.c has no known verdict"),
-    ("float-benchs", "rlim_invariant.c has no known verdict"),
-    ("float-benchs", "filter2_iterated.c has no known verdict"),
-    ("float-benchs", "sin_interpolated_negation.c has no known verdict"),
-    ("float-benchs", "sqrt_Householder_interval.c has no known verdict"),
-    ("float-benchs", "cast_float_ptr.c has no known verdict"),
-    ("float-benchs", "zonotope_tight.c has no known verdict"),
-    ("float-benchs", "filter2_reinit.c has no known verdict"),
-    ("float-benchs", "float_double.c has no known verdict"),
-    ("float-benchs", "Muller_Kahan.c has no known verdict"),
-    ("float-benchs", "feedback_diverge.c has no known verdict"),
-    ("float-benchs", "Rump_double.c has no known verdict"),
-    ("float-benchs", "mea8000.c has no known verdict"),
-    ("float-benchs", "inv_Newton.c has no known verdict"),
-    ("float-benchs", "image_filter.c has no known verdict"),
-    ("float-benchs", "cast_float_union.c has no known verdict"),
-    ("float-benchs", "filter1.c has no known verdict"),
-    ("float-benchs", "zonotope_3.c has no known verdict"),
-    ("float-benchs", "filter2_set.c has no known verdict"),
-    ("float-benchs", "divmul_diverge.c has no known verdict"),
-    ("float-benchs", "filter2_alt.c has no known verdict"),
-    ("float-benchs", "filter2.c has no known verdict"),
-    ("float-benchs", "sqrt_biNewton_pseudoconstant.c has no known verdict"),
-    ("float-benchs", "arctan_Pade.c has no known verdict"),
-    ("float-benchs", "interpolation.c has no known verdict"),
-    ("float-benchs", "cos_polynomial.c has no known verdict"),
-    ("float-benchs", "rlim_exit.c has no known verdict"),
-    ("float-benchs", "zonotope_loose.c has no known verdict"),
-    ("float-benchs", "filter_iir.c has no known verdict"),
-    ("float-benchs", "sqrt_poly2.c has no known verdict"),
-    ("float-benchs", "water_pid.c has no known verdict"),
-    ("float-benchs", "sqrt_Newton_pseudoconstant.c has no known verdict"),
-    ("float-benchs", "loop.c has no known verdict"),
-    ("float-benchs", "exp_loop.c has no known verdict"),
     ("termination-crafted", "Collatz_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c.i has no known verdict"),
@@ -109,50 +59,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "HarrisLalNoriRajamani-2010SAS-Fig2-alloca_unknown-termination.c.i has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
-
-    ("loop-acceleration", "array3_false-valid-deref.c is not contained in any category"),
-    ("loop-acceleration", "array3_false-valid-deref.i is not contained in any category"),
-
-    # See discussion in pull request #257
-    ("termination-memory-alloca-review", "cll_by_lseg-alloca_false-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_by_lseg-alloca_true-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_by_lseg_traverse-alloca_false-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_search-alloca_false-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_search-alloca_true-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_traverse-alloca_false-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_append-alloca_false-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_append-alloca_true-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_append_rec-alloca_false-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_append_rec-alloca_true-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_create_rec-alloca_false-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_create_rec-alloca_true-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_search-alloca_true-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_search_not_found-alloca_true-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_traverse-alloca_true-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "nondet_ll_search-alloca_false-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "nondet_ll_search-alloca_true-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "nondet_ll_traverse-alloca_false-termination.c.i is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_by_lseg-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_by_lseg-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_by_lseg_traverse-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_search-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_search-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "cll_traverse-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_append-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_append-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_append_rec-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_append_rec-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_create_rec-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_create_rec-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_search-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_search_not_found-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "ll_traverse-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "nondet_ll_search-alloca_false-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "nondet_ll_search-alloca_true-termination.c is not contained in any category"),
-    ("termination-memory-alloca-review", "nondet_ll_traverse-alloca_false-termination.c is not contained in any category"),
-
-    ("ntdrivers", "kbfiltr_false-valid-deref.i.cil.c is not contained in any category"),
-    ("ntdrivers", "floppy_false-valid-deref.i.cil.c is not contained in any category"),
 
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
     ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
@@ -167,28 +73,20 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ssh", "missing readme"),
     ("ssh-simplified", "missing readme"),
 
-    # pull request #310
-    ("bitvector", "jain_1_false-no-overflow.c is not contained in any category"),
-    ("bitvector", "jain_1_false-no-overflow.i is not contained in any category"),
-    ("bitvector", "jain_2_false-no-overflow.c is not contained in any category"),
-    ("bitvector", "jain_2_false-no-overflow.i is not contained in any category"),
-    ("bitvector", "jain_4_false-no-overflow.c is not contained in any category"),
-    ("bitvector", "jain_4_false-no-overflow.i is not contained in any category"),
-    ("bitvector", "jain_5_false-no-overflow.c is not contained in any category"),
-    ("bitvector", "jain_5_false-no-overflow.i is not contained in any category"),
-    ("bitvector", "jain_6_false-no-overflow.c is not contained in any category"),
-    ("bitvector", "jain_6_false-no-overflow.i is not contained in any category"),
-    ("bitvector", "jain_7_false-no-overflow.c is not contained in any category"),
-    ("bitvector", "jain_7_false-no-overflow.i is not contained in any category"),
+    # has undefined behaviour that needs to be fixed somehow (can be fixed after we solve #261)
+    ("array-examples", "standard_find_true-valid-deref_ground_true-termination_false-undef-behaviour.[ci] use uninitialized values"),
+    ("array-examples", "standard_sentinel_true-valid-deref_true-termination_false-undef-behaviour.[ci] use uninitialized values"),
+    ("reducercommutativity", "avg60_false-valid-deref.[ci] use uninitialized values"),
+    ("termination-crafted", "Arrays01-EquivalentConstantIndices_true-valid-deref_false-undef-behaviour.c use uninitialized values"),
+    ("termination-crafted", "Arrays03-ValueRestictsIndex_true-valid-deref_false-undef-behaviour.c use uninitialized values"),
+    ("termination-crafted", "LexIndexValue-Array_true-valid-deref_false-undef-behaviour.c use uninitialized values"),
+    ("termination-crafted", "Nyala-2lex_true-valid-deref_false-undef-behaviour.c use uninitialized values"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ]
 
 KNOWN_SET_PROBLEMS = [
-    ("ArraysMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
-    ("BitVectorsOverflows.set", "64 bit category contains 32 bit benchmarks in recursive"),
-    ("HeapMemSafety.set", "32 bit category contains 64 bit benchmarks in termination-crafted"),
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
@@ -477,7 +375,7 @@ def main():
     ok = True
     for entry in entries:
         path = os.path.join(main_directory, entry)
-        if not (entry[0] == '.' or entry == "bin"):
+        if not (entry[0] == '.' or entry == "bin" or entry.endswith("-todo")):
             if os.path.isdir(path):
                 ok &= DirectoryChecks(path, all_patterns, entry).run()
             elif entry.endswith(".set"):

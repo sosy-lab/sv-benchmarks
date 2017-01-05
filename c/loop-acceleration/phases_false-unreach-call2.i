@@ -10,7 +10,7 @@ void __VERIFIER_assert(int cond) {
 int main(void) {
   unsigned int x = 1;
   unsigned int y = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(y > 0);
+  if (!(y > 0)) return 0;
   while (x < y) {
     if (x < y / x) {
       x *= x;
