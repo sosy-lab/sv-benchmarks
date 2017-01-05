@@ -883,6 +883,7 @@ signed int __main(signed int argc, char **argv)
   printf((opt & (unsigned int)2) != 0u ? "%s" : "%s\n", buf);
   // fflush_stdout_and_exit(0); -- invokes exit() and would thus leak memory
   fflush(stdout);
+  free(buf);
   return 0;
 }
 

@@ -2807,6 +2807,7 @@ signed int __main(signed int argc, char **argv)
     return 1;
   printf((opt & (unsigned int)2) != 0u ? "%s" : "%s\n", buf);
   fflush(stdout);
+  free(buf);
   return 0;
 }
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count)
