@@ -28,6 +28,7 @@
 #include <unistd.h>
 #include <utmp.h>
 #include <stdarg.h>
+#include <limits.h>
 
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
@@ -839,6 +840,23 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
   return_value_xzalloc$1=xzalloc(sizeof(struct llist_t) /*16ul*/ );
   *list_head = (struct llist_t *)return_value_xzalloc$1;
   (*list_head)->data = (char *)data;
+}
+
+char *realpath(const char *path, char *resolved_path)
+{
+  if(__VERIFIER_nondet_int())
+    return NULL;
+
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(offset<PATH_MAX);
+
+  if(resolved_path == NULL)
+    resolved_path = malloc(offset+1);
+
+  /* terminating zero */
+  *(resolved_path + offset) = '\0';
+
+  return resolved_path;
 }
 
 // file coreutils/readlink.c line 49

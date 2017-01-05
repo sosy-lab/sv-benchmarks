@@ -28,6 +28,7 @@
 #include <unistd.h>
 #include <utmp.h>
 #include <stdarg.h>
+#include <limits.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -265,6 +266,23 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
     buf = (const void *)((const char *)buf + cc);
   }
   return total;
+}
+
+char *realpath(const char *path, char *resolved_path)
+{
+  if(__VERIFIER_nondet_int())
+    return NULL;
+
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(offset<PATH_MAX);
+
+  if(resolved_path == NULL)
+    resolved_path = malloc(offset+1);
+
+  /* terminating zero */
+  *(resolved_path + offset) = '\0';
+
+  return resolved_path;
 }
 
 // file coreutils/realpath.c line 21

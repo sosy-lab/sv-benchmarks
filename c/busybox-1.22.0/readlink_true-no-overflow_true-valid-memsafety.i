@@ -2778,6 +2778,17 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
   *list_head = (struct llist_t *)return_value_xzalloc$1;
   (*list_head)->data = (char *)data;
 }
+char *realpath(const char *path, char *resolved_path)
+{
+  if(__VERIFIER_nondet_int())
+    return ((void *)0);
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(offset<4096);
+  if(resolved_path == ((void *)0))
+    resolved_path = malloc(offset+1);
+  *(resolved_path + offset) = '\0';
+  return resolved_path;
+}
 signed int __main(signed int argc, char **argv)
 {
   char *buf;
