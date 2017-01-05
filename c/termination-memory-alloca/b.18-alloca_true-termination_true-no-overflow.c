@@ -20,6 +20,11 @@ int test_fun(int x, int y)
             }
         }
     }
+
+    // do not underflow in INT_MIN + INT_MIN
+    if (*x_ref < 0 && *y_ref < 0)
+        return 0;
+
     return *x_ref + *y_ref;
 }
 
