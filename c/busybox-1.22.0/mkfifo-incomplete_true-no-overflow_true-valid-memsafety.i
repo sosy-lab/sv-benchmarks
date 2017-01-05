@@ -1998,14 +1998,17 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
   }
   return total;
 }
+extern unsigned int __VERIFIER_nondet_uint(void);
 signed int __main(signed int argc, char **argv)
 {
   unsigned int mode;
   signed int retval = 0;
-  mode=getopt_mk_fifo_nod(argv);
+  mode=__VERIFIER_nondet_uint();
+  optind = __VERIFIER_nondet_int();
+  __VERIFIER_assume(optind > 0 && optind < argc);
   argv = argv + (signed long int)optind;
   if(*argv == ((char *)((void *)0)))
-    bb_show_usage();
+    return 1;
   do
   {
     signed int return_value_mkfifo$1;
