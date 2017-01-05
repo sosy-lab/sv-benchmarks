@@ -45,7 +45,8 @@ void traverse (node_t* head)
 
 int main ()
 {
-  int n = abs(__VERIFIER_nondet_int());
+  int n = __VERIFIER_nondet_int();
+  __VERIFIER_assume(n>=0);
   node_t* x = new_cll(n + 1);
   traverse(x);
   return 0;

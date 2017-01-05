@@ -42,8 +42,11 @@ void search (node_t* head, int i)
 
 int main ()
 {
-  int n = abs(__VERIFIER_nondet_int()) + 1;
-  int m = abs(__VERIFIER_nondet_int()) % n;
+  int n = __VERIFIER_nondet_int();
+  __VERIFIER_assume(n >= 1);
+  int m = __VERIFIER_nondet_int();
+  __VERIFIER_assume(m >= 0);
+  m = m % n;
   node_t* head = init_cll(n);
   search(head, m);
   return 0;
