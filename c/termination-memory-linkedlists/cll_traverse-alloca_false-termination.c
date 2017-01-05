@@ -30,6 +30,7 @@ node_t* init_cll (int n)
   }
   
   curr->next = head;
+  return head;
 }
 
 void traverse (node_t* head)
