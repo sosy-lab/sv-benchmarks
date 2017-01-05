@@ -3019,6 +3019,14 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   while(tmp_if_expr$1 != (_Bool)0);
   return n;
 }
+int stat(const char *__file, struct stat *__buf)
+{
+  __buf->st_atim.tv_sec = __VERIFIER_nondet_long();
+  if (__VERIFIER_nondet_char())
+    return -1;
+  __VERIFIER_assume(__buf->st_atim.tv_sec >= 0);
+  return 0;
+}
 signed int __main(signed int argc, char **argv)
 {
   struct utmp *ut;
