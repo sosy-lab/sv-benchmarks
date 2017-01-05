@@ -210,8 +210,6 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
   return total;
 }
 
-extern unsigned int __VERIFIER_nondet_uint(void);
-
 // file coreutils/mkfifo.c line 28
 signed int __main(signed int argc, char **argv)
 {
