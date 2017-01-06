@@ -15,9 +15,10 @@ typedef struct node {
   struct node* next;
 } node_t;
 
+// The method does not terminate when n < 0
 node_t* new_lseg(node_t* p, int n)
 {
-  if (n==0)
+  if (n == 0)
     return p;
   node_t* x = malloc(sizeof(node_t));
   x->val = n;
@@ -44,7 +45,8 @@ void traverse (node_t* head)
 
 int main ()
 {
-  int n = abs(__VERIFIER_nondet_int());
+  int n = __VERIFIER_nondet_int();
+  __VERIFIER_assume(n>=0);
   node_t* x = new_cll(n + 1);
   traverse(x);
   return 0;

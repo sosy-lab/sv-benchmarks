@@ -13,7 +13,8 @@ typedef struct node {
     struct node* next;
 } node_t;
 
-//Initialize a circular / null-terminating linked list with length n
+// Initialize a circular / null-terminating linked list
+// with length n when n > 0 or length 1 when n <= 0
 node_t* init_nondet_ll (int n)
 {
   node_t* head;
@@ -46,8 +47,12 @@ void safe_search (node_t* head, int i)
 int main ()
 {
   int n = __VERIFIER_nondet_int();
+  __VERIFIER_assume(n >= 1);
+  int m = __VERIFIER_nondet_int();
+  __VERIFIER_assume(m >= 0);
+  m = m % n;
   node_t* head = init_nondet_ll(n);
-  safe_search(head, __VERIFIER_nondet_int() % n);
+  safe_search(head, m);
   return 0;
 }
 

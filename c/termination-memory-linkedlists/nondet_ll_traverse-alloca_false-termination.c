@@ -13,7 +13,8 @@ typedef struct node {
     struct node* next;
 } node_t;
 
-//Initialize a circular / null-terminating linked list with length n
+// Initialize a circular / null-terminating linked list
+// with length n when n > 0 or length 1 when n <= 0
 node_t* init_nondet_ll (int n)
 {
   node_t* head;
@@ -35,6 +36,8 @@ node_t* init_nondet_ll (int n)
     curr->next = NULL;
 }
 
+// The method does not terminate
+// when the input is a circular ll
 void traverse (node_t* head)
 {
   node_t* curr = head;
