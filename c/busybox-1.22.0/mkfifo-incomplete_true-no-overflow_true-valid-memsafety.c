@@ -215,11 +215,14 @@ signed int __main(signed int argc, char **argv)
 {
   unsigned int mode;
   signed int retval = 0;
-  mode=getopt_mk_fifo_nod(argv);
+  mode=__VERIFIER_nondet_uint();
+  optind = __VERIFIER_nondet_int();
+  __VERIFIER_assume(optind > 0 && optind < argc);
+
   argv = argv + (signed long int)optind;
 
   if(*argv == ((char *)NULL))
-    bb_show_usage();
+    return 1;
 
   do
   {

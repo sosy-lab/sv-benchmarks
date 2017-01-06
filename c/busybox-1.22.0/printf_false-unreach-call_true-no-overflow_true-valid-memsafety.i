@@ -1,6 +1,7 @@
 extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
 extern void __VERIFIER_assume(int);
@@ -3193,7 +3194,7 @@ signed int __main(signed int argc, char **argv)
       bb_error_msg("usage: printf FORMAT [ARGUMENT...]");
       return 2;
     }
-    bb_show_usage();
+    return 1;
   }
   format = argv[(signed long int)1];
   argv2 = argv + (signed long int)2;

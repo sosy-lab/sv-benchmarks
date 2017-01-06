@@ -1,6 +1,7 @@
 extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
 extern void __VERIFIER_assume(int);
@@ -2777,6 +2778,17 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
   *list_head = (struct llist_t *)return_value_xzalloc$1;
   (*list_head)->data = (char *)data;
 }
+char *realpath(const char *path, char *resolved_path)
+{
+  if(__VERIFIER_nondet_int())
+    return ((void *)0);
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(offset<4096);
+  if(resolved_path == ((void *)0))
+    resolved_path = malloc(offset+1);
+  *(resolved_path + offset) = '\0';
+  return resolved_path;
+}
 signed int __main(signed int argc, char **argv)
 {
   char *buf;
@@ -2795,6 +2807,7 @@ signed int __main(signed int argc, char **argv)
     return 1;
   printf((opt & (unsigned int)2) != 0u ? "%s" : "%s\n", buf);
   fflush(stdout);
+  free(buf);
   return 0;
 }
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count)

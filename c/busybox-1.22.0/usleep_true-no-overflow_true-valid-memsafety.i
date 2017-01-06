@@ -1,6 +1,7 @@
 extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 extern char __VERIFIER_nondet_char(void);
 extern short __VERIFIER_nondet_short(void);
 extern void __VERIFIER_assume(int);
@@ -2375,7 +2376,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 signed int __main(signed int argc, char **argv)
 {
   if(*(1l + argv) == ((char *)((void *)0)))
-    bb_show_usage();
+    return 1;
   unsigned int return_value_xatou$1;
   return_value_xatou$1=xatou(argv[(signed long int)1]);
   usleep(return_value_xatou$1);
