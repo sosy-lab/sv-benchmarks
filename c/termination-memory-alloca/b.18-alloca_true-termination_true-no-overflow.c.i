@@ -561,6 +561,8 @@ int test_fun(int x, int y)
             }
         }
     }
+    if (*x_ref < 0 && *y_ref < 0)
+        return 0;
     return *x_ref + *y_ref;
 }
 int main() {

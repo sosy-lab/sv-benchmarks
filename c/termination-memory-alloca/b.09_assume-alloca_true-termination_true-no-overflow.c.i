@@ -553,7 +553,7 @@ int test_fun(int x, int y)
     *y_ref = y;
     *c = 0;
     if (*x_ref <= 0 || *y_ref <= 0) {
-        return *x_ref + *y_ref;
+        return 0;
     }
     while (!(*x_ref == 0)) {
         if (*x_ref > *y_ref) {

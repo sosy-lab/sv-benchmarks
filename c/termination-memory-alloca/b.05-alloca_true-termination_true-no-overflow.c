@@ -10,7 +10,8 @@ int test_fun(int x, int tmp)
     *x_ref = x;
     *tmp_ref = tmp;
     *tmp_ref = __VERIFIER_nondet_int();
-    while ((*x_ref > 0) && (*tmp_ref < 1073741824) && (x == 2*(*tmp_ref))) {
+    while ((*x_ref > 0) && (*tmp_ref >= 0) &&
+           (*tmp_ref < 1073741824) && (x == 2*(*tmp_ref))) {
         *x_ref = *x_ref - 1;
         *tmp_ref = __VERIFIER_nondet_int();
     }
