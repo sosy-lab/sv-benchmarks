@@ -1112,7 +1112,7 @@ signed int __main(signed int argc, char **argv)
       }
 
     }
-
+    free(argv[(signed long int)argc]);
     argv[(signed long int)argc] = (char *)NULL;
   }
 

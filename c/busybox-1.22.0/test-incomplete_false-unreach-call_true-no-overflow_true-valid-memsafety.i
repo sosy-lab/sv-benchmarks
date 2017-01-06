@@ -3211,6 +3211,7 @@ signed int __main(signed int argc, char **argv)
         return 2;
       }
     }
+    free(argv[(signed long int)argc]);
     argv[(signed long int)argc] = (char *)((void *)0);
   }
   do
