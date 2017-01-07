@@ -30,7 +30,10 @@ node_t* new_ll(int n)
 int main ()
 {
   int n = __VERIFIER_nondet_int();
-  node_t* head = new_ll(abs(n));
+  if (n < 0) {
+      return 0;
+  }
+  node_t* head = new_ll(n);
   return 0;
 }
 
