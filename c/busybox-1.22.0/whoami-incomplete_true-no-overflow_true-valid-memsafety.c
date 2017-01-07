@@ -280,4 +280,5 @@ static char * xuid2uname(unsigned int uid)
   return pw->pw_name;
 }
 
+#include "busybox_sv_comp-getpwnam.h"
 #include "busybox_sv_comp_impl.h"

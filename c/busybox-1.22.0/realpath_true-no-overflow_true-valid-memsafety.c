@@ -268,23 +268,6 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
   return total;
 }
 
-char *realpath(const char *path, char *resolved_path)
-{
-  if(__VERIFIER_nondet_int())
-    return NULL;
-
-  unsigned long offset=__VERIFIER_nondet_ulong();
-  __VERIFIER_assume(offset<PATH_MAX);
-
-  if(resolved_path == NULL)
-    resolved_path = malloc(offset+1);
-
-  /* terminating zero */
-  *(resolved_path + offset) = '\0';
-
-  return resolved_path;
-}
-
 // file coreutils/realpath.c line 21
 signed int __main(signed int argc, char **argv)
 {
@@ -360,4 +343,5 @@ static char * xmalloc_realpath(const char *path)
   return return_value_realpath$1;
 }
 
+#include "busybox_sv_comp-realpath.h"
 #include "busybox_sv_comp_impl.h"

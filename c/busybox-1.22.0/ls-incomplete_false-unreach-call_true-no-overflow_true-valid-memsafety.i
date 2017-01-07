@@ -5235,6 +5235,45 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+struct group *bb_internal_getgrgid(gid_t gid)
+{
+  (void)gid;
+  static struct group g;
+  g.gr_name = "";
+  g.gr_passwd = "";
+  g.gr_gid = __VERIFIER_nondet_uint();
+  g.gr_mem = ((void *)0);
+  return &g;
+}
+struct passwd *bb_internal_getpwnam(const char *name)
+{
+  (void)name;
+  static struct passwd p;
+  p.pw_name = "";
+  p.pw_passwd = "";
+  p.pw_uid = __VERIFIER_nondet_uint();
+  p.pw_gid = __VERIFIER_nondet_uint();
+  p.pw_gecos = "";
+  p.pw_dir = "";
+  p.pw_shell = "";
+  return &p;
+}
+struct passwd *bb_internal_getpwuid(uid_t uid)
+{
+  (void)uid;
+  return bb_internal_getpwnam(0);
+}
+ssize_t readlink(const char *path, char *buf, size_t bufsiz)
+{
+  (void)*path;
+  if(__VERIFIER_nondet_int() || bufsiz < 1)
+    return -1;
+  unsigned long len = __VERIFIER_nondet_ulong();
+  __VERIFIER_assume(len <= bufsiz);
+  for(size_t i=0; i<len; ++i)
+    buf[i] = __VERIFIER_nondet_char();
+  return len;
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())

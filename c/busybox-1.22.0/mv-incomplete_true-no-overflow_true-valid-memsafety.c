@@ -2230,4 +2230,6 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+#include "busybox_sv_comp-mmap.h"
+#include "busybox_sv_comp-readlink.h"
 #include "busybox_sv_comp_impl.h"
