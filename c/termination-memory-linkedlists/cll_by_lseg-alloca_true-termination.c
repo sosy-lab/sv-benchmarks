@@ -6,7 +6,7 @@
  */
 
 #include <stdlib.h>
-#include <alloca.h>
+
 
 extern int __VERIFIER_nondet_int();
 
@@ -44,8 +44,11 @@ void traverse (node_t* head)
 
 int main ()
 {
-  int n = abs(__VERIFIER_nondet_int());
-  node_t* x = new_cll(n + 1);
+  int n = __VERIFIER_nondet_int();
+  if (n < 1) {
+      return 0;
+  }
+  node_t* x = new_cll(n);
   return 0;
 }
 

@@ -4,7 +4,7 @@
  */
 
 #include <stdlib.h>
-#include <alloca.h>
+
 
 extern int __VERIFIER_nondet_int();
 
@@ -17,13 +17,13 @@ typedef struct node {
 node_t* init_nondet_ll (int n)
 {
   node_t* head;
-  node_t* curr = alloca(sizeof(node_t));
+  node_t* curr = malloc(sizeof(node_t));
   
   curr->val = 0;
   head = curr;
   
   for (int i = 1; i < n; i++) {
-    node_t* next_node = alloca(sizeof(node_t));
+    node_t* next_node = malloc(sizeof(node_t));
     next_node->val = i;
     curr->next = next_node;
     curr = next_node;
@@ -33,6 +33,7 @@ node_t* init_nondet_ll (int n)
     curr->next = head;
   else 
     curr->next = NULL;
+  return head;
 }
 
 void traverse (node_t* head)

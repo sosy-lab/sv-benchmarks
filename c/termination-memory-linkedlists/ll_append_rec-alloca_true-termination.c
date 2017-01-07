@@ -6,7 +6,7 @@
  */
 
 #include <stdlib.h>
-#include <alloca.h>
+
 
 extern int __VERIFIER_nondet_int();
 
@@ -21,7 +21,7 @@ node_t* new_ll(int n)
 {
   if (n == 0)
     return NULL;
-  node_t* head = alloca(sizeof(node_t));
+  node_t* head = malloc(sizeof(node_t));
   head->val = n;
   head->next = new_ll(n-1);
   return head;
@@ -44,9 +44,12 @@ node_t* append(node_t* x, node_t* y)
 
 int main ()
 {
-  int n = abs(__VERIFIER_nondet_int());
-  node_t* x = new_ll(n);
-  node_t* y = new_ll(n + 1);
+  int n = __VERIFIER_nondet_int();
+  if (n < 1) {
+      return 0;
+  }
+  node_t* x = new_ll(n - 1);
+  node_t* y = new_ll(n);
   node_t* z = append(x, y);
   int z_length = length(z);
   return 0;

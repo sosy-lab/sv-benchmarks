@@ -6,7 +6,7 @@
  */
 
 #include <stdlib.h>
-#include <alloca.h>
+
 
 extern int __VERIFIER_nondet_int();
 
@@ -17,11 +17,11 @@ typedef struct node {
 
 // Create a new linked list with length n when n >= 0
 // or non-terminating when n < 0 
-node_t* new_ll(int n)
+node_t* new_ll(unsigned int n)
 {
   if (n == 0)
     return NULL;
-  node_t* head = alloca(sizeof(node_t));
+  node_t* head = malloc(sizeof(node_t));
   head->val = n;
   head->next = new_ll(n-1);
   return head;

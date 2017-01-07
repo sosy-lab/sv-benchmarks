@@ -1,12 +1,6 @@
 typedef long unsigned int size_t;
 typedef int wchar_t;
 
-typedef enum
-{
-  P_ALL,
-  P_PID,
-  P_PGID
-} idtype_t;
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -326,7 +320,8 @@ typedef union
     unsigned int __nr_writers_queued;
     int __writer;
     int __shared;
-    unsigned long int __pad1;
+    signed char __rwelision;
+    unsigned char __pad1[7];
     unsigned long int __pad2;
     unsigned int __flags;
   } __data;
@@ -553,7 +548,7 @@ node_t* init_ll (int n)
   node_t* head = ((void *)0);
   node_t* curr;
   for (int i = 0; i < n; i++) {
-    curr = __builtin_alloca (sizeof(node_t));
+    curr = malloc(sizeof(node_t));
     curr->val = i;
     curr->next = head;
     head = curr;
@@ -570,7 +565,14 @@ void safe_search (node_t* head, int i)
 int main ()
 {
   int n = __VERIFIER_nondet_int();
+  if (n < 1) {
+      return 0;
+  }
   node_t* head = init_ll(n);
-  safe_search(head, __VERIFIER_nondet_int() % n);
+  int m = __VERIFIER_nondet_int();
+  if (m < 0) {
+      return 0;
+  }
+  safe_search(head, m % n);
   return 0;
 }
