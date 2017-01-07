@@ -2143,4 +2143,5 @@ static void * xzalloc(unsigned long int size)
 
 #include "busybox_sv_comp-dirname.h"
 #include "busybox_sv_comp-mmap.h"
+#include "busybox_sv_comp-readlink.h"
 #include "busybox_sv_comp_impl.h"

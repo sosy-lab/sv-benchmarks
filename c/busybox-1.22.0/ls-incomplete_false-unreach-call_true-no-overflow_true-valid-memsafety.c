@@ -3510,4 +3510,5 @@ static void * xzalloc(unsigned long int size)
 
 #include "busybox_sv_comp-getgrgid.h"
 #include "busybox_sv_comp-getpwnam.h"
+#include "busybox_sv_comp-readlink.h"
 #include "busybox_sv_comp_impl.h"
