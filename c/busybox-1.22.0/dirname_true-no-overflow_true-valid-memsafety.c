@@ -151,4 +151,5 @@ static char * single_argv(char **argv)
   return argv[(signed long int)1];
 }
 
+#include "busybox_sv_comp-dirname.h"
 #include "busybox_sv_comp_impl.h"

@@ -4240,6 +4240,14 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+char *dirname(char *path)
+{
+  static char dir[42];
+  for(int i=0; i<42; ++i)
+    dir[i] = __VERIFIER_nondet_char();
+  dir[41] = '\0';
+  return dir;
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())
