@@ -1,12 +1,6 @@
 typedef long unsigned int size_t;
 typedef int wchar_t;
 
-typedef enum
-{
-  P_ALL,
-  P_PID,
-  P_PGID
-} idtype_t;
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -326,7 +320,8 @@ typedef union
     unsigned int __nr_writers_queued;
     int __writer;
     int __shared;
-    unsigned long int __pad1;
+    signed char __rwelision;
+    unsigned char __pad1[7];
     unsigned long int __pad2;
     unsigned int __flags;
   } __data;
@@ -548,11 +543,11 @@ typedef struct node {
   int val;
   struct node* next;
 } node_t;
-node_t* new_ll(int n)
+node_t* new_ll(unsigned int n)
 {
   if (n == 0)
     return ((void *)0);
-  node_t* head = __builtin_alloca (sizeof(node_t));
+  node_t* head = malloc(sizeof(node_t));
   head->val = n;
   head->next = new_ll(n-1);
   return head;
