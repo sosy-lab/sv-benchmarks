@@ -2487,6 +2487,24 @@ static void xfunc_die(void)
   }
   exit((signed int)xfunc_error_retval);
 }
+struct passwd *bb_internal_getpwnam(const char *name)
+{
+  (void)name;
+  static struct passwd p;
+  p.pw_name = "";
+  p.pw_passwd = "";
+  p.pw_uid = __VERIFIER_nondet_uint();
+  p.pw_gid = __VERIFIER_nondet_uint();
+  p.pw_gecos = "";
+  p.pw_dir = "";
+  p.pw_shell = "";
+  return &p;
+}
+struct passwd *bb_internal_getpwuid(uid_t uid)
+{
+  (void)uid;
+  return bb_internal_getpwnam(0);
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())
