@@ -2950,6 +2950,15 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+int ttyname_r(int fd, char *buf, size_t buflen)
+{
+  if(__VERIFIER_nondet_int() || buflen < 1)
+    return -1;
+  for(size_t i=0; i<buflen-1; ++i)
+    buf[i] = __VERIFIER_nondet_char();
+  buf[buflen-1] = '\0';
+  return 0;
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())
