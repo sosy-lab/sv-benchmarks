@@ -2384,17 +2384,6 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
   }
   return total;
 }
-char *realpath(const char *path, char *resolved_path)
-{
-  if(__VERIFIER_nondet_int())
-    return ((void *)0);
-  unsigned long offset=__VERIFIER_nondet_ulong();
-  __VERIFIER_assume(offset<4096);
-  if(resolved_path == ((void *)0))
-    resolved_path = malloc(offset+1);
-  *(resolved_path + offset) = '\0';
-  return resolved_path;
-}
 signed int __main(signed int argc, char **argv)
 {
   signed int retval = 0;
@@ -2451,6 +2440,17 @@ static char * xmalloc_realpath(const char *path)
   char *return_value_realpath$1;
   return_value_realpath$1=realpath(path, (char *)((void *)0));
   return return_value_realpath$1;
+}
+char *realpath(const char *path, char *resolved_path)
+{
+  if(__VERIFIER_nondet_int())
+    return ((void *)0);
+  unsigned long offset=__VERIFIER_nondet_ulong();
+  __VERIFIER_assume(offset<4096);
+  if(resolved_path == ((void *)0))
+    resolved_path = malloc(offset+1);
+  *(resolved_path + offset) = '\0';
+  return resolved_path;
 }
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {

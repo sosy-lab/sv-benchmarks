@@ -842,23 +842,6 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
   (*list_head)->data = (char *)data;
 }
 
-char *realpath(const char *path, char *resolved_path)
-{
-  if(__VERIFIER_nondet_int())
-    return NULL;
-
-  unsigned long offset=__VERIFIER_nondet_ulong();
-  __VERIFIER_assume(offset<PATH_MAX);
-
-  if(resolved_path == NULL)
-    resolved_path = malloc(offset+1);
-
-  /* terminating zero */
-  *(resolved_path + offset) = '\0';
-
-  return resolved_path;
-}
-
 // file coreutils/readlink.c line 49
 signed int __main(signed int argc, char **argv)
 {
@@ -1107,4 +1090,5 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+#include "busybox_sv_comp-realpath.h"
 #include "busybox_sv_comp_impl.h"
