@@ -47,8 +47,15 @@ void safe_search (node_t* head, int i)
 int main ()
 {
   int n = __VERIFIER_nondet_int();
+  if (n < 1) {
+    return 0;
+  }
   node_t* head = init_nondet_ll(n);
-  safe_search(head, __VERIFIER_nondet_int() % n);
+  int m = __VERIFIER_nondet_int();
+  if (m < 0) {
+    return 0;
+  }
+  safe_search(head, m % n);
   return 0;
 }
 
