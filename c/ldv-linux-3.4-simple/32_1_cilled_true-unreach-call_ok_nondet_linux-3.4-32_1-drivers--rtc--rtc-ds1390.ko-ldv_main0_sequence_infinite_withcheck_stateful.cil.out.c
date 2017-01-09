@@ -2961,6 +2961,8 @@ extern struct rtc_device *rtc_device_register(char const   *name , struct device
 extern void rtc_device_unregister(struct rtc_device *rtc ) ;
 extern void kfree(void const   * ) ;
 extern void *__kmalloc(size_t size , gfp_t flags ) ;
+extern void *malloc(size_t);
+extern void free(void *);
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
                                                                     gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
@@ -3752,9 +3754,9 @@ extern int __VERIFIER_nondet_int(void) ;
 int LDV_IN_INTERRUPT  ;
 static int res_ds1390_probe_3  ;
 void main(void) 
-{ struct device *var_group1 ;
-  struct rtc_time *var_group2 ;
-  struct spi_device *var_group3 ;
+{ struct device *var_group1 = malloc(sizeof(*var_group1));
+  struct rtc_time *var_group2 = malloc(sizeof(*var_group2));
+  struct spi_device *var_group3 = malloc(sizeof(*var_group3));
   int ldv_s_ds1390_driver_spi_driver ;
   int tmp___7 ;
   int tmp___8 ;
@@ -3839,6 +3841,9 @@ void main(void)
   {
   ldv_check_final_state();
   }
+  free(var_group1);
+  free(var_group2);
+  free(var_group3);
   return;
 }
 }
