@@ -49,6 +49,7 @@ typedef __kernel_uid32_t uid_t;
 typedef __kernel_gid32_t gid_t;
 typedef __kernel_loff_t loff_t;
 typedef __kernel_size_t size_t;
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
 typedef __kernel_ssize_t ssize_t;
 typedef __kernel_time_t time_t;
 typedef __s32 int32_t;
@@ -9539,6 +9540,15 @@ extern void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 int LDV_IN_INTERRUPT  ;
+
+void void_one_par_dummy(struct atm_vcc *p) {}
+
+void void_two_par_dummy(struct atm_vcc *p0, struct sk_buff *p1) {}
+
+int int_two_par_dummy(struct atm_vcc *p0, void *p1) {
+  return __VERIFIER_nondet_int();
+}
+
 int main(void) 
 { 
   struct atm_vcc *var_group1 ;
@@ -9562,6 +9572,13 @@ int main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
+
+  var_group1 = malloc(sizeof(struct atm_vcc));
+  var_group1->release_cb = &void_one_par_dummy;
+  var_group1->push = &void_two_par_dummy;
+  var_group1->pop = &void_two_par_dummy;
+  var_group1->push_oam = &int_two_par_dummy;
+  var_group1->send = &int_two_par_dummy;
 
   {
   ldv_s_he_ops_atmdev_ops = 0;
