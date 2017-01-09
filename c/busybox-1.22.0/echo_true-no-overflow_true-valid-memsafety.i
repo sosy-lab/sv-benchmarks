@@ -2578,7 +2578,7 @@ static void * xmalloc(unsigned long int size)
 char *stpcpy(char *dest, const char *src)
 {
   while(*dest++ = *src++);
-  return dest;
+  return dest - 1;
 }
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
