@@ -18,12 +18,12 @@ some programs got technically improved (CIL simplifications, compiler warnings, 
 These changes have improved the overall quality of the final set of programs for the competition, and
 have not changed the intended verification result; all changes are tracked in the public repository.
 
-Thanks to all contributors of programs, patches, and discussion commentes.
+Thanks to all contributors of programs, patches, and discussion comments.
 
 ### Structure
 
 The collection consists of three directories, which contain verification tasks written in different languages:
-- c/ (programing lagnuage C, follows the GNU C standard, many programs even adhere to ANSI C)
+- c/ (programming language C, follows the GNU C standard, many programs even adhere to ANSI C)
 - java/ (programming language Java)
 - causes/ (systems from the other directories translated to Horn clauses and stored in SMT format)
 
@@ -78,7 +78,7 @@ in order to check whether the following statement is correct:
 A *verification result* is a triple (ANSWER, WITNESS, TIME) with
 - ANSWER is an element from {TRUE, FALSE, UNKNOWN},
 - WITNESS is a violation witness or correctness witness that supports validation of the (untrusted) answer, and
-- TIME is the CPU time that the verification run has consumed (in pratice, also other resource measurement values are reported).
+- TIME is the CPU time that the verification run has consumed (in practice, also other resource measurement values are reported).
 
 ## Name Convention for Programs
 
