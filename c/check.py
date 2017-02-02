@@ -3,6 +3,7 @@
 import collections
 import fnmatch
 import glob
+import hashlib
 import logging
 import os
 import re
@@ -90,6 +91,84 @@ KNOWN_SET_PROBLEMS = [
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
+    "files ldv-challenges/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-intel-igbvf-igbvf__39_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-intel-igbvf-igbvf__4_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-intel-igbvf-igbvf_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-vmxnet3-vmxnet3__40_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-vmxnet3-vmxnet3_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-net-ethernet-intel-i40e-i40e__35_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-net-ethernet-intel-i40e-i40e_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-3com-3c59x__22_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-3com-3c59x_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-atheros-alx-alx__23_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-atheros-alx-alx_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-marvell-sky2__30_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-marvell-sky2_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-sun-niu__8_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-sun-niu_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wireless-libertas-libertas__12_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wireless-libertas-libertas_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-atheros-alx-alx__9_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-atheros-alx-alx_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__complex_emg__linux-usb-dev__drivers-net-vmxnet3-vmxnet3__21_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-usb-dev__drivers-net-vmxnet3-vmxnet3_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-intel-e1000-e1000__6_true-unreach-call.cil.c, ldv-challenges/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-intel-e1000-e1000_true-unreach-call.cil.c have the same content",
+    "files ldv-challenges/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-via-via-velocity__8_true-unreach-call.cil.c, ldv-challenges/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-via-via-velocity_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-media-pci-cx88-cx8800__42_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-media-pci-cx88-cx8800_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-3com-typhoon__43_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-3com-typhoon_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-fealnx__38_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-fealnx_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-hp-hp100__37_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-hp-hp100__3_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-hp-hp100__7_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-hp-hp100_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-media-pci-saa7134-saa7134__25_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-media-pci-saa7134-saa7134_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-net-wireless-prism54-prism54__36_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-net-wireless-prism54-prism54_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-pci-ngene-ngene__17_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-pci-ngene-ngene_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-radio-wl128x-fm_drv__19_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-radio-wl128x-fm_drv_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-rc-nuvoton-cir__20_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-rc-nuvoton-cir_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-broadcom-bnx2__24_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-broadcom-bnx2_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-hp-hp100__27_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-hp-hp100_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-icplus-ipg__26_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-icplus-ipg__2_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-icplus-ipg_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-intel-ixgbevf-ixgbevf__29_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-intel-ixgbevf-ixgbevf_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-jme__28_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-jme_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-marvell-skge__31_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-marvell-skge_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-packetengines-hamachi__32_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-packetengines-hamachi_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-qlogic-qla3xxx__33_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-qlogic-qla3xxx_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-realtek-8139cp__34_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-realtek-8139cp_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wan-farsync__10_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wan-farsync__5_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wan-farsync_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__fs-nfs-nfs_layout_nfsv41_files__15_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__fs-nfs-nfs_layout_nfsv41_files_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe__14_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe__1_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe__6_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-renesas-sh_eth__16_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-renesas-sh_eth_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-ti-tlan__18_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-ti-tlan_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-broadcom-bnx2__4_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-broadcom-bnx2_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-chelsio-cxgb3-cxgb3__5_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-chelsio-cxgb3-cxgb3_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-sun-sunhme__7_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-sun-sunhme_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-wireless-airo__9_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-wireless-airo_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__linux-kernel-locking-mutex__drivers-net-ethernet-chelsio-cxgb3-cxgb3__3_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-kernel-locking-mutex__drivers-net-ethernet-chelsio-cxgb3-cxgb3_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__linux-kernel-locking-spinlock__drivers-net-ethernet-sun-sunhme__1_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-kernel-locking-spinlock__drivers-net-ethernet-sun-sunhme_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.14/linux-3.14__linux-usb-dev__drivers-net-ethernet-via-via-velocity__2_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-usb-dev__drivers-net-ethernet-via-via-velocity_true-unreach-call.cil.c have the same content",
+    "files ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--hp4x.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c, ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--siemens_mpi.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c have the same content",
+    "files ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--moto_modem.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c, ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--qcaux.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c have the same content",
+    "files ldv-memsafety/memleaks_test1_true-valid-memsafety.i, ldv-memsafety/memleaks_test2_true-valid-memsafety.i have the same content",
+    "files termination-crafted/4BitCounterPointer_true-no-overflow.c, termination-crafted/4BitCounterPointer_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Arrays01-EquivalentConstantIndices_true-no-overflow.c, termination-crafted/Arrays01-EquivalentConstantIndices_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Arrays03-ValueRestictsIndex_true-no-overflow.c, termination-crafted/Arrays03-ValueRestictsIndex_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Bangalore_true-no-overflow.c, termination-crafted/Bangalore_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Bangalore_v2_false-termination_true-valid-memsafety.c, termination-crafted/Bangalore_v2_true-no-overflow.c have the same content",
+    "files termination-crafted/Bangalore_v4_true-no-overflow.c, termination-crafted/Bangalore_v4_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Benghazi_true-no-overflow.c, termination-crafted/Benghazi_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Cairo_step2_false-termination_true-valid-memsafety.c, termination-crafted/Cairo_step2_true-no-overflow.c have the same content",
+    "files termination-crafted/Cairo_true-no-overflow.c, termination-crafted/Cairo_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Copenhagen_true-no-overflow.c, termination-crafted/Copenhagen_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Division_false-termination_true-valid-memsafety.c, termination-crafted/Division_true-no-overflow.c have the same content",
+    "files termination-crafted/LexIndexValue-Array_true-no-overflow.c, termination-crafted/LexIndexValue-Array_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Madrid_false-termination_true-valid-memsafety.c, termination-crafted/Madrid_true-no-overflow.c have the same content",
+    "files termination-crafted/McCarthy91_Iteration_true-no-overflow.c, termination-crafted/McCarthy91_Iteration_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/McCarthy91_Recursion_true-no-overflow.c, termination-crafted/McCarthy91_Recursion_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/MenloPark_true-no-overflow.c, termination-crafted/MenloPark_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/MutualRecursion_1a_false-termination_true-valid-memsafety.c, termination-crafted/MutualRecursion_1a_true-no-overflow.c have the same content",
+    "files termination-crafted/MutualRecursion_1b_true-no-overflow.c, termination-crafted/MutualRecursion_1b_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/NestedRecursion_1b_true-no-overflow.c, termination-crafted/NestedRecursion_1b_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/NestedRecursion_1c_true-no-overflow.c, termination-crafted/NestedRecursion_1c_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/NestedRecursion_1d_true-no-overflow.c, termination-crafted/NestedRecursion_1d_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/NestedRecursion_2b_false-termination_true-valid-memsafety.c, termination-crafted/NestedRecursion_2b_true-no-overflow.c have the same content",
+    "files termination-crafted/NestedRecursion_2c_true-no-overflow.c, termination-crafted/NestedRecursion_2c_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/NonTerminationSimple7_false-termination_true-valid-memsafety.c, termination-crafted/NonTerminationSimple7_true-no-overflow.c have the same content",
+    "files termination-crafted/Nyala-2lex_true-no-overflow.c, termination-crafted/Nyala-2lex_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Parallel_true-no-overflow.c, termination-crafted/Parallel_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Piecewise_true-no-overflow.c, termination-crafted/Piecewise_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/TelAviv-Amir-Minimum_true-no-overflow.c, termination-crafted/TelAviv-Amir-Minimum_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/Waldkirch_true-no-overflow.c, termination-crafted/Waldkirch_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/WhileFalse_true-no-overflow.c, termination-crafted/WhileFalse_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/WhileTrue_false-termination_true-valid-memsafety.c, termination-crafted/WhileTrue_true-no-overflow.c have the same content",
+    "files termination-crafted/easy1_true-no-overflow.c, termination-crafted/easy1_true-termination_true-valid-memsafety.c have the same content",
+    "files termination-crafted/easy2_true-no-overflow.c, termination-crafted/easy2_true-termination_true-valid-memsafety.c have the same content",
     ]
 
 
@@ -357,6 +436,31 @@ class GlobalChecks(Checks):
                     "files %s have names that are easy to confuse",
                     ", ".join(os.path.relpath(file, self.base_path) for file in files))
 
+    def check_no_duplicate_files(self):
+        sizes = collections.defaultdict(list)
+        for filename in self.all_matched_files:
+            sizes[os.path.getsize(filename)].append(filename)
+        for file_candidates in sizes.values():
+            if len(file_candidates) > 1:
+                hashes = collections.defaultdict(list)
+                for filename in file_candidates:
+                    hashes[hash_file(filename)].append(filename)
+                for files in hashes.values():
+                    if len(files) > 1:
+                        self.error(
+                            "files %s have the same content",
+                            ", ".join(os.path.relpath(file, self.base_path) for file in sorted(files)))
+
+def hash_file(filename, hash_alg=hashlib.sha1, block_size_factor=100000):
+    with open(filename, 'rb') as f:
+        hasher = hash_alg()
+        block_size = hasher.block_size * block_size_factor
+        while True:
+            block = f.read(block_size)
+            if not block:
+                break
+            hasher.update(block)
+        return hasher.hexdigest()
 
 def main():
     logging.basicConfig(format="%(levelname)-7s %(message)s", level='INFO')
