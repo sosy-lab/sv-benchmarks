@@ -14,6 +14,14 @@
 #define fun rangesum
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int();
+
+void init_nondet(int x[N]) {
+  int i;
+  for (i = 0; i < N; i++) {
+    x[i] == __VERIFIER_nondet_int();
+  }
+}
 
 int rangesum (int x[N])
 {
@@ -36,6 +44,7 @@ int rangesum (int x[N])
 int main ()
 {
   int x[N];
+  init_nondet(x);
   int temp;
   int ret;
   int ret2;
