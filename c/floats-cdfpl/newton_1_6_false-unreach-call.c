@@ -1,5 +1,6 @@
 extern void __VERIFIER_error(void);
 extern void __VERIFIER_assume(int);
+extern float __VERIFIER_nondet_float(void);
 
 #define NR 6
 
@@ -39,7 +40,7 @@ float fp(float x)
 
 int main()
 {
-  float IN;
+  float IN = __VERIFIER_nondet_float();
   __VERIFIER_assume(IN > -VAL && IN < VAL);
 
   float x = IN - f(IN)/fp(IN);
