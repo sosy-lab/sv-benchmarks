@@ -1,4 +1,12 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int();
+
+void init_nondet(int x[20]) {
+  int i;
+  for (i = 0; i < 20; i++) {
+    x[i] == __VERIFIER_nondet_int();
+  }
+}
 
 int rangesum (int x[20])
 {
@@ -21,6 +29,7 @@ int rangesum (int x[20])
 int main ()
 {
   int x[20];
+  init_nondet(x);
   int temp;
   int ret;
   int ret2;

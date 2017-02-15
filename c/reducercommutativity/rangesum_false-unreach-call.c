@@ -17,6 +17,13 @@ extern int __VERIFIER_nondet_int(void);
 
 int N;
 
+void init_nondet(int x[N]) {
+  int i;
+  for (i = 0; i < N; i++) {
+    x[i] == __VERIFIER_nondet_int();
+  }
+}
+
 int rangesum (int x[N])
 {
   int i;
@@ -40,6 +47,7 @@ int main ()
   N = __VERIFIER_nondet_int();
   if (N > 1) {
     int x[N];
+    init_nondet(x);
     int temp;
     int ret;
     int ret2;
