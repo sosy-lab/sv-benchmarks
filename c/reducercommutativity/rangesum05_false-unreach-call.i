@@ -4,7 +4,7 @@ extern int __VERIFIER_nondet_int();
 void init_nondet(int x[5]) {
   int i;
   for (i = 0; i < 5; i++) {
-    x[i] == __VERIFIER_nondet_int();
+    x[i] = __VERIFIER_nondet_int();
   }
 }
 

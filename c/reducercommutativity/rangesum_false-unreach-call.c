@@ -20,7 +20,7 @@ int N;
 void init_nondet(int x[N]) {
   int i;
   for (i = 0; i < N; i++) {
-    x[i] == __VERIFIER_nondet_int();
+    x[i] = __VERIFIER_nondet_int();
   }
 }
 
