@@ -867,7 +867,7 @@ char const   *__utac__get_this_argtype(int i , struct JoinPoint *this )
 #pragma merger(0,"Specification2_spec.i","")
 void __automaton_fail(void) ;
 int methAndRunningLastTime  ;
-__inline void __utac_acc__Specification2_spec__1(void) 
+inline static void __utac_acc__Specification2_spec__1(void) 
 { 
 
   {

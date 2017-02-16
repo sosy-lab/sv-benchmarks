@@ -453,7 +453,7 @@ char const   *__utac__get_this_argtype(int i , struct JoinPoint *this )
 int isPumpRunning(void) ;
 int isMethaneLevelCritical(void) ;
 int methAndRunningLastTime  ;
-__inline void __utac_acc__Specification2_spec__1(void) 
+inline static void __utac_acc__Specification2_spec__1(void) 
 { 
 
   {
@@ -461,7 +461,7 @@ __inline void __utac_acc__Specification2_spec__1(void)
   return;
 }
 }
-__inline void __utac_acc__Specification2_spec__2(void) 
+inline static void __utac_acc__Specification2_spec__2(void) 
 { int tmp ;
   int tmp___0 ;
 

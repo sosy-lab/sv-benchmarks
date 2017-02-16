@@ -833,7 +833,7 @@ void __automaton_fail(void)
 }
 #pragma merger(0,"Specification5_spec.i","")
 int switchedOnBeforeTS  ;
-__inline void __utac_acc__Specification5_spec__1(void) 
+inline static void __utac_acc__Specification5_spec__1(void) 
 { 
 
   {

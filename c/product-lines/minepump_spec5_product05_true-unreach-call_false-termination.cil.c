@@ -41,7 +41,7 @@ void __automaton_fail(void) ;
 int isPumpRunning(void) ;
 int getWaterLevel(void) ;
 int switchedOnBeforeTS  ;
-__inline void __utac_acc__Specification5_spec__1(void) 
+inline static void __utac_acc__Specification5_spec__1(void) 
 { 
 
   {
@@ -49,7 +49,7 @@ __inline void __utac_acc__Specification5_spec__1(void)
   return;
 }
 }
-__inline void __utac_acc__Specification5_spec__2(void) 
+inline static void __utac_acc__Specification5_spec__2(void) 
 { 
 
   {
@@ -59,7 +59,7 @@ __inline void __utac_acc__Specification5_spec__2(void)
   return;
 }
 }
-__inline void __utac_acc__Specification5_spec__3(void) 
+inline static void __utac_acc__Specification5_spec__3(void) 
 { int tmp ;
   int tmp___0 ;
 

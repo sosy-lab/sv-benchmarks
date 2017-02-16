@@ -777,7 +777,7 @@ int valid_product(void)
 }
 #pragma merger(0,"Specification2_spec.i","")
 int methAndRunningLastTime  ;
-__inline void __utac_acc__Specification2_spec__1(void) 
+inline static void __utac_acc__Specification2_spec__1(void) 
 { 
 
   {

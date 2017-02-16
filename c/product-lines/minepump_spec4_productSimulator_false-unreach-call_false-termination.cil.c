@@ -152,7 +152,7 @@ int __SELECTED_FEATURE_startCommand  ;
 int __GUIDSL_ROOT_PRODUCTION  ;
 int isPumpRunning(void) ;
 int getWaterLevel(void) ;
-__inline void __utac_acc__Specification4_spec__1(void) 
+inline static void __utac_acc__Specification4_spec__1(void) 
 { int tmp ;
   int tmp___0 ;
 
