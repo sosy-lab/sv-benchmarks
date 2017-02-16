@@ -35,7 +35,7 @@ int __VERIFIER_nondet_int()  ;
 int local  ;
 void master(void) 
 { 
-int tmp_var ;
+  int tmp_var = __VERIFIER_nondet_int();
   {
   if (m_pc == 0) {
     goto M_ENTRY;
