@@ -1,5 +1,6 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
+extern float __VERIFIER_nondet_float(void);
 //APPROXIMATES sqroot(1+x)
 
 #define NR 3
@@ -25,7 +26,7 @@ extern void __VERIFIER_error(void);
 
 int main()
 {
-  float IN;
+  float IN = __VERIFIER_nondet_float();
   __VERIFIER_assume(IN >= 0.0f && IN < 1.0f);
 
   float x = IN;
