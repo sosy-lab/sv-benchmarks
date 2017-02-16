@@ -545,7 +545,7 @@ int main(void)
 void __automaton_fail(void) ;
 int isPumpRunning(void) ;
 int isMethaneLevelCritical(void) ;
-__inline void __utac_acc__Specification1_spec__1(void) 
+inline static void __utac_acc__Specification1_spec__1(void) 
 { int tmp ;
   int tmp___0 ;
 

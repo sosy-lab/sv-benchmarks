@@ -140,7 +140,7 @@ int isHighWaterSensorDry(void)
 #pragma merger(0,"Specification4_spec.i","")
 void __automaton_fail(void) ;
 int isPumpRunning(void) ;
-__inline void __utac_acc__Specification4_spec__1(void) 
+inline static void __utac_acc__Specification4_spec__1(void) 
 { int tmp ;
   int tmp___0 ;
 

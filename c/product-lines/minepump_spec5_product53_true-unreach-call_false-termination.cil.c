@@ -750,7 +750,7 @@ void test(void)
 void __automaton_fail(void) ;
 int getWaterLevel(void) ;
 int switchedOnBeforeTS  ;
-__inline void __utac_acc__Specification5_spec__1(void) 
+inline static void __utac_acc__Specification5_spec__1(void) 
 { 
 
   {
