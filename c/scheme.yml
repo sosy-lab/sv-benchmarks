@@ -1,0 +1,28 @@
+title: "SV-COMP benchmark description schema"
+__version__: 0
+type: object
+additionalProperties: false
+properties:
+  input_files:
+    type: array
+    minItems: 1
+    uniqueItems: true
+    items:
+      type: string
+  expected_results_for_property: &expected_results_for_property
+    type: object
+    properties:
+      correct:
+        type: boolean
+    required:
+      - correct
+  expected_results:
+    type: object
+    minProperties: 1
+    additionalProperties: false
+    patternProperties:
+      # Single-string identifier.
+      "^[a-zA-Z0-9_-]+$": *expected_results_for_property
+required:
+  - input_files
+  - expected_results
