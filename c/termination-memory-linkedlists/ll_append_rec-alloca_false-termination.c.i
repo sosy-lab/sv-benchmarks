@@ -543,7 +543,7 @@ typedef struct node {
   int val;
   struct node* next;
 } node_t;
-node_t* new_ll(int n)
+node_t* new_ll(unsigned int n)
 {
   if (n == 0)
     return ((void *)0);
