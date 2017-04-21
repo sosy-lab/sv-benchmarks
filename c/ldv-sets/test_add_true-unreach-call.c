@@ -1,19 +1,18 @@
 #include <stdlib.h>
-#include "setlogic.h"
 
-int __VERIFIER_error(void);
-int __VERIFIER_nondet_int(void);
-void *__VERIFIER_nondet_pointer(void);
-
+#include "ldv.h"
 /* Add variable, check for expression equal to it */
-Set s1;
+typedef int Element;
+
+#include "list-set-impl.c"
+
+LDV_SET(s1);
 
 void foo()
 {
 	int j = __VERIFIER_nondet_int();
-	s1 = SetEmpty();
-	s1 = SetAdd(s1,j);
-	if (!SetInTest(s1,j)) __VERIFIER_error();
+	ldv_set_add(j, &s1);
+	if (!ldv_is_in_set(j, &s1)) __VERIFIER_error();
 }
 
 int main()
