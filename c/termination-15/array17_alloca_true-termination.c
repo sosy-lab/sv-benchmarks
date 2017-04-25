@@ -10,9 +10,13 @@ int main() {
   int i, j;
   int length = __VERIFIER_nondet_int();
   if (length < 1) length = 1;
+  if (!(length <= 536870911))
+    return 0;
   int *arr = alloca(length*sizeof(int));
   if (!arr) return 0;
   int value = __VERIFIER_nondet_int();
+  if (!(value <= 1073741823))
+    return 0;
   for (i=0; i<length; i++) {
     arr[i] = value++;
   }
