@@ -7,8 +7,8 @@ struct S {
 	unsigned short q;		 		  
 } a[SIZE];
 
-short __VERIFIER_nondet_short();
-unsigned char __VERIFIER_nondet_uchar();
+extern short __VERIFIER_nondet_short();
+extern unsigned char __VERIFIER_nondet_uchar();
 int main()
 {
 	unsigned char k;

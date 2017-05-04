@@ -1,4 +1,4 @@
-int __VERIFIER_nondet_int();
+extern int __VERIFIER_nondet_int();
 extern void __VERIFIER_error() __attribute__((noreturn));
 
 // method ids

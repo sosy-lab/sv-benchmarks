@@ -1,5 +1,5 @@
 extern void __VERIFIER_error(void);
-int __VERIFIER_nondet_int();
+extern int __VERIFIER_nondet_int();
 
 double d = 0.0;
 

@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int();
 
 /*
  * Simple example: build a list with only 1s and finally a 0 (arbitrary length); 

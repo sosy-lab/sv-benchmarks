@@ -9,7 +9,7 @@ void __VERIFIER_assert(int cond) {
 }
 #define MAX 5
 
-char __VERIFIER_nondet_char();
+extern char __VERIFIER_nondet_char();
 
 int main(void)
 {

@@ -8,7 +8,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
-int __VERIFIER_nondet_int();
+extern int __VERIFIER_nondet_int();
 
 int main() {
   int i=0, x=0, y=0;

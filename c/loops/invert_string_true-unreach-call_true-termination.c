@@ -6,7 +6,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-char __VERIFIER_nondet_char();
+extern char __VERIFIER_nondet_char();
 
 int main() {
     unsigned int max = 5;

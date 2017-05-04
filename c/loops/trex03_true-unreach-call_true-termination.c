@@ -6,8 +6,8 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-unsigned int __VERIFIER_nondet_uint();
-_Bool __VERIFIER_nondet_bool();
+extern unsigned int __VERIFIER_nondet_uint();
+extern _Bool __VERIFIER_nondet_bool();
 
 int main()
 {

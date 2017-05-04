@@ -6,8 +6,8 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-char __VERIFIER_nondet_char();
-unsigned int __VERIFIER_nondet_uint();
+extern char __VERIFIER_nondet_char();
+extern unsigned int __VERIFIER_nondet_uint();
 
 int main() {
     int MAX = __VERIFIER_nondet_uint();
