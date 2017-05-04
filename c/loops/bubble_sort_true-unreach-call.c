@@ -48,7 +48,7 @@ void bubblesort1(int size, int item[])
   item[i+1] = pivot;
  }
 }
-int __VERIFIER_nondet_int();
+extern int __VERIFIER_nondet_int();
 void q1(int argc, char* argv[])
 {
  if(argc < 2)

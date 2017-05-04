@@ -91,7 +91,7 @@ int is_transmit11_triggered(void) ;
 int is_transmit12_triggered(void) ;
 void immediate_notify(void) ;
 int token  ;
-int __VERIFIER_nondet_int()  ;
+extern int __VERIFIER_nondet_int()  ;
 int local  ;
 void master(void) 
 { 

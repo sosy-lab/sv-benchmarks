@@ -7,8 +7,8 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-_Bool __VERIFIER_nondet_bool();
-int __VERIFIER_nondet_int();
+extern _Bool __VERIFIER_nondet_bool();
+extern int __VERIFIER_nondet_int();
 
 #define LARGE_INT 1000000
 

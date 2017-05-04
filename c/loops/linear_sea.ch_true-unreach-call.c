@@ -6,7 +6,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-unsigned int __VERIFIER_nondet_uint();
+extern unsigned int __VERIFIER_nondet_uint();
 unsigned int  SIZE;
 int linear_search(int *a, int n, int q) {
   unsigned int j=0;

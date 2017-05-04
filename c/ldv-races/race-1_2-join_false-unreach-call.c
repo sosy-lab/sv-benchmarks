@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-int __VERIFIER_nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error();}; return; }
 
 pthread_t t1;

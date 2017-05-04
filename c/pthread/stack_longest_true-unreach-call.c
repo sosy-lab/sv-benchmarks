@@ -8,7 +8,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #define OVERFLOW  (-1)
 #define UNDERFLOW (-2)
 
-unsigned int __VERIFIER_nondet_uint();
+extern unsigned int __VERIFIER_nondet_uint();
 static int top=0;
 static unsigned int arr[SIZE];
 pthread_mutex_t m;

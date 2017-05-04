@@ -4,7 +4,7 @@ extern void __VERIFIER_error(void);
 #include <math.h>
 #include <fenv.h>
 
-float __VERIFIER_nondet_float();
+extern float __VERIFIER_nondet_float();
 
 // Should work without this as it defaults to off.
 // It is explicitly ignored by GCC

@@ -26148,7 +26148,7 @@ void ldv_check_return_value(int res);
 void ldv_initialize(void);
 
 
-int __VERIFIER_nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 
 
 int LDV_IN_INTERRUPT;

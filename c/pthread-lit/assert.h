@@ -8,4 +8,4 @@ void __VERIFIER_assert(int cond) {
 }
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
-int __VERIFIER_nondet_int();
+extern int __VERIFIER_nondet_int();

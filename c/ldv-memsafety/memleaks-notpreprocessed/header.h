@@ -13,8 +13,8 @@
 
 void kfree(void*);
 
-int __VERIFIER_nondet_int(void);
-void *__VERIFIER_nondet_pointer(void);
+extern int __VERIFIER_nondet_int(void);
+extern void *__VERIFIER_nondet_pointer(void);
 
 int ldv_nonpositive(void) {
 	int r = __VERIFIER_nondet_int();

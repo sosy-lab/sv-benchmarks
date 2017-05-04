@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
-_Bool __VERIFIER_nondet_bool();
+extern _Bool __VERIFIER_nondet_bool();
 
 int main(){
    int a[5];

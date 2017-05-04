@@ -13,7 +13,7 @@ extern void __VERIFIER_error(void);
 
 #include <math.h>
 
-float __VERIFIER_nondet_float(void);
+extern float __VERIFIER_nondet_float(void);
 
 int main (void)
 {

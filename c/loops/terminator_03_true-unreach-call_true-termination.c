@@ -7,8 +7,8 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-int __VERIFIER_nondet_int();
-_Bool __VERIFIER_nondet_bool();
+extern int __VERIFIER_nondet_int();
+extern _Bool __VERIFIER_nondet_bool();
 
 #define LIMIT 1000000
 

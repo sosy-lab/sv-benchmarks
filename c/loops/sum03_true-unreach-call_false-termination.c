@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 #define a (2)
-unsigned int __VERIFIER_nondet_uint();
+extern unsigned int __VERIFIER_nondet_uint();
 
 int main() { 
   unsigned int sn=0;

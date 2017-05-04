@@ -1,7 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 #define SIZE 100000
-int __VERIFIER_nondet_int();
+extern int __VERIFIER_nondet_int();
 int main()
 {
 

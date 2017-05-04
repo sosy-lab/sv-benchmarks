@@ -6,7 +6,7 @@ extern void __VERIFIER_error(void);
 #define isnan _isnan
 #endif
 
-float __VERIFIER_nondet_float();
+extern float __VERIFIER_nondet_float();
 
 int main()
 {
