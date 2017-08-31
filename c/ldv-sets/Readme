@@ -1,0 +1,6 @@
+The directory contains several examples using sets. The operations on sets are defined in setlogic.h. The examples test_mutex.. demonstrate how sets can be used to model operations with mutexes to specify the following assertions:
+1. Mutex should not be locked twice.
+2. Mutex should not be unlocked twice.
+3. At the end all mutexes should be released.
+The examples follow the SV-COMP rules, they use __VERIFIER_error, __VERIFIER_assume, __VERIFIER_nondet_int functions.
+The suffix true-unreach-call means that the ideal verdict is SAFE, and false-unreach-call means UNSAFE.
