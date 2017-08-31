@@ -254,8 +254,6 @@ class DirectoryChecks(Checks):
             if (entry.endswith(".c") and
                     (alternative_exists(entry[:-2] + ".i") or alternative_exists(entry + ".i"))):
                 continue
-            if entry.endswith(".cil.c") and alternative_exists(entry[:-6] + ".i"):
-                continue
             self.error("%s is not contained in any category", entry)
 
 
