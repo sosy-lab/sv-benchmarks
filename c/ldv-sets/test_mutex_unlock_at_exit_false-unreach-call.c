@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
-#include "ldv.h"
-#include "mutex.c"
+#include "model/ldv.h"
+#include "model/mutex.c"
 
 void foo()
 {

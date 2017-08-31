@@ -1,10 +1,10 @@
 #include <stdlib.h>
 
-#include "ldv.h"
+#include "model/ldv.h"
 /* Add variable, check for expression equal to it */
 typedef int Element;
 
-#include "list-set-impl.c"
+#include "model/list-set-impl.c"
 
 LDV_SET(s1);
 
