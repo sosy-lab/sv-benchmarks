@@ -91,8 +91,6 @@ KNOWN_SET_PROBLEMS = [
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
-    "files ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--hp4x.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c, ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--siemens_mpi.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c have the same content",
-    "files ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--moto_modem.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c, ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--qcaux.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c have the same content",
     ]
 
 
