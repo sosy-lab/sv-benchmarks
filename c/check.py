@@ -21,6 +21,7 @@ EXPECTED_FILE_PATTERN = re.compile(
     '^(.*\.(c|h|i|verdict)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description"])
+PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memsafety", "valid-memtrack"])
 
 UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
 
@@ -85,6 +86,93 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
+    ("busybox-1.22.0/basename_false-unreach-call_true-no-overflow_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("busybox-1.22.0/basename_false-unreach-call_true-no-overflow_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("busybox-1.22.0/head_true-no-overflow_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("busybox-1.22.0/head_true-no-overflow_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("busybox-1.22.0/sleep_true-no-overflow_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("busybox-1.22.0/sleep_true-no-overflow_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/dll-rb-cnstr_1_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/dll-rb-cnstr_1_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-01_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-01_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-rb-cnstr_1_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-rb-cnstr_1_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("heap-manipulation/tree_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("heap-manipulation/tree_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext_flag_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext_flag_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-crafted-lit/AliasDarteFeautrierGonnord-SAS2010-loops_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-crafted-lit/PodelskiRybalchenko-LICS2004-Fig1_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-crafted/NonTermination3_false-termination_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-numeric/Binomial_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-numeric/TerminatorRec02_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
+
+    ("busybox-1.22.0/basename_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/basename_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/cut_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/cut_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/date_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/date_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/expand_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/expand_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/ls-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/ls-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/od_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/od_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/printf_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/printf_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/stty_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/stty_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/test-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/test-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/touch_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/touch_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/wc_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
+    ("busybox-1.22.0/wc_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("ddv-machzwd/ddv_machzwd_all_false-unreach-call_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("ddv-machzwd/ddv_machzwd_inw_false-unreach-call_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("ddv-machzwd/ddv_machzwd_outb_false-unreach-call_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
+    ("locks/test_locks_14_false-unreach-call_true-valid-memsafety_false-termination.c", "has reachable error location but claims to have no memory leaks"),
+    ("locks/test_locks_15_false-unreach-call_true-valid-memsafety_false-termination.c", "has reachable error location but claims to have no memory leaks"),
+    ("ntdrivers-simplified/cdaudio_simpl1_false-unreach-call_true-valid-memsafety_true-termination.cil.c", "has reachable error location but claims to have no memory leaks"),
+    ("ntdrivers-simplified/floppy_simpl3_false-unreach-call_true-valid-memsafety_true-termination.cil.c", "has reachable error location but claims to have no memory leaks"),
+    ("ntdrivers-simplified/floppy_simpl4_false-unreach-call_true-valid-memsafety_true-termination.cil.c", "has reachable error location but claims to have no memory leaks"),
+    ("ntdrivers-simplified/kbfiltr_simpl2_false-unreach-call_true-valid-memsafety_true-termination.cil.c", "has reachable error location but claims to have no memory leaks"),
+
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--char--ipmi--ipmi_msghandler.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--hwmon--applesmc.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--hwmon--nct6775.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--media--rc--lirc_dev.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--media--usb--dvb-usb-v2--dvb-usb-mxl111sf.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--mmc--card--mmc_test.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--mtd--devices--docg3.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--amd--amd8111e.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--atheros--atl1e--atl1e.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--dec--tulip--dmfe.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--ethoc.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--icplus--ipg.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--intel--igbvf--igbvf.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--wireless--rtl818x--rtl8180--rtl818x_pci.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--scsi--BusLogic.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--usb--host--u132-hcd.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--vme--bridges--vme_ca91cx42.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--xen--xen-pciback--xen-pciback.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---fs--nfs--nfsv2.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---fs--squashfs--squashfs.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---net--rose--rose.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---sound--drivers--vx--snd-vx-lib.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+
+    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c", "has unknown property alloca"),
+    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c", "has unknown property alloca"),
+    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c.i", "has unknown property alloca"),
+    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c.i", "has unknown property alloca"),
+    ("termination-memory-alloca/aviad_true-alloca_true-termination.c", "has unknown property alloca"),
+    ("termination-memory-alloca/aviad_true-alloca_true-termination.c", "has unknown property alloca"),
+    ("termination-memory-alloca/aviad_true-alloca_true-termination.c.i", "has unknown property alloca"),
+    ("termination-memory-alloca/aviad_true-alloca_true-termination.c.i", "has unknown property alloca"),
     ]
 
 KNOWN_SET_PROBLEMS = [
@@ -265,6 +353,7 @@ class BenchmarkFileChecks(Checks):
     def __init__(self, path, contained_in_category, *args, **kwargs):
         super(BenchmarkFileChecks, self).__init__(known_problems=KNOWN_BENCHMARK_FILE_PROBLEMS, quiet=True, *args, **kwargs)
         self.path = path
+        self.filename = os.path.basename(self.name)
         self.contained_in_category = contained_in_category
         with open(self.path, 'rb') as f:
             self.lines = f.readlines()
@@ -279,8 +368,40 @@ class BenchmarkFileChecks(Checks):
         if any('\r' in line for line in self.lines):
             self.error("Windows line endings")
 
+    def check_no_unknown_property(self):
+        # Check each file name part immediately after a _true- or _false- for a valid property
+        for part in (self.filename.split("_true-")[1:] + self.filename.split("_true-")[1:]):
+            if not any(part.startswith(prop) for prop in PROPERTIES):
+                self.error("has unknown property " + part)
+
+    def check_no_duplicate_verdicts(self):
+        for prop in PROPERTIES:
+            if self.filename.count(prop) > 1:
+                self.error("has duplicate verdict for property " + prop)
+
+    def check_no_multiple_memsafety_verdicts(self):
+        # SV-COMP rules say at most one of these may appear
+        if (self.filename.count("valid-deref") + self.filename.count("valid-free") +
+                self.filename.count("valid-memtrack") + self.filename.count("valid-memsafety")) > 1:
+            self.error("has verdicts for multiple memsafety properties")
+
+    def check_no_contradicting_verdicts(self):
+        def violates(prop):
+            return ("_false-" + prop) in self.filename
+
+        if (violates("valid-deref") or violates("valid-free") or violates("no-overflow") or
+                violates("def-behavior")):
+            if ("_true-" in self.filename) or self.filename.count("_false-") > 1:
+                self.error(
+                    "has expected undefined behavior but also a verdict for some other property")
+
+        if violates("unreach-call") and "_true-valid-memsafety" in self.filename:
+            # __VERIFIER_error() aborts the program, and it is not clear whether allocated memory
+            # at this point would count as memory leak, so we forbid this combination
+            self.error("has reachable error location but claims to have no memory leaks")
+
     def check_unreach_call_tasks_have_verifier_error(self):
-        if not "unreach-call" in self.name:
+        if not "unreach-call" in self.filename:
             return
         if not self.contained_in_category:
             # Some such files have calls to __VERIFIER_error inside #include
