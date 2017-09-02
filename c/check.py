@@ -21,7 +21,7 @@ EXPECTED_FILE_PATTERN = re.compile(
     '^(.*\.(c|h|i|verdict)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description"])
-PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memsafety", "valid-memtrack"])
+PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack"])
 
 UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
 
@@ -166,12 +166,8 @@ KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ("ldv-multiproperty/linux-4.0-rc1---sound--drivers--vx--snd-vx-lib.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
 
     ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c", "has unknown property alloca"),
-    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c", "has unknown property alloca"),
-    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c.i", "has unknown property alloca"),
     ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c.i", "has unknown property alloca"),
     ("termination-memory-alloca/aviad_true-alloca_true-termination.c", "has unknown property alloca"),
-    ("termination-memory-alloca/aviad_true-alloca_true-termination.c", "has unknown property alloca"),
-    ("termination-memory-alloca/aviad_true-alloca_true-termination.c.i", "has unknown property alloca"),
     ("termination-memory-alloca/aviad_true-alloca_true-termination.c.i", "has unknown property alloca"),
     ]
 
@@ -370,7 +366,7 @@ class BenchmarkFileChecks(Checks):
 
     def check_no_unknown_property(self):
         # Check each file name part immediately after a _true- or _false- for a valid property
-        for part in (self.filename.split("_true-")[1:] + self.filename.split("_true-")[1:]):
+        for part in (self.filename.split("_true-")[1:] + self.filename.split("_false-")[1:]):
             if not any(part.startswith(prop) for prop in PROPERTIES):
                 self.error("has unknown property " + part)
 
