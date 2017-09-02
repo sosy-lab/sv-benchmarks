@@ -4,3 +4,5 @@ The directory contains several examples using sets. The operations on sets are d
 3. At the end all mutexes should be released.
 The examples follow the SV-COMP rules, they use __VERIFIER_error, __VERIFIER_assume, __VERIFIER_nondet_int functions.
 The suffix true-unreach-call means that the ideal verdict is SAFE, and false-unreach-call means UNSAFE.
+
+Contributed by Vadim Mutilin, LDV Project (http://linuxtesting.org/project/ldv)
