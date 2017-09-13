@@ -5,6 +5,7 @@ public final class Verifier
   public static boolean enableAssume=true;
   public static boolean enableNondet=true;
 
+  // model nondeterministic Boolean values
   public static boolean __VERIFIER_nondet_bool()
   {
     if (enableNondet)
@@ -16,6 +17,7 @@ public final class Verifier
     return false;
   }
 
+  // model nondeterministic byte values
   public static byte __VERIFIER_nondet_byte()
   {
     if (enableNondet)
@@ -27,6 +29,7 @@ public final class Verifier
     return 0;
   }
 
+  // model nondeterministic char values
   public static char __VERIFIER_nondet_char()
   {
     if (enableNondet)
@@ -38,6 +41,7 @@ public final class Verifier
     return '\0';
   }
 
+  // model nondeterministic short values
   public static short __VERIFIER_nondet_short()
   {
     if (enableNondet)
@@ -49,6 +53,7 @@ public final class Verifier
     return 0;
   }
 
+  // model nondeterministic integer values
   public static int __VERIFIER_nondet_int()
   {
     if (enableNondet)
@@ -60,6 +65,7 @@ public final class Verifier
     return 0;
   }
 
+  // model nondeterministic long values
   public static long __VERIFIER_nondet_long()
   {
     if (enableNondet)
@@ -71,6 +77,7 @@ public final class Verifier
     return 0;
   }
 
+  // model nondeterministic float values
   public static float __VERIFIER_nondet_float()
   {
     if (enableNondet)
@@ -82,6 +89,7 @@ public final class Verifier
     return 0;
   }
 
+  // model nondeterministic double values
   public static double __VERIFIER_nondet_double()
   {
     if (enableNondet)
@@ -93,6 +101,7 @@ public final class Verifier
     return 0;
   }
 
+  // model any nondeterministic data-type in Java
   public static <T> T __VERIFIER_nondet_WithNull()
   {
     if (enableNondet)
@@ -104,6 +113,7 @@ public final class Verifier
     return null;
   }
 
+  // model any nondeterministic data-type in Java
   public static <T> T __VERIFIER_nondet_WithoutNull()
   {
     if (enableNondet)
