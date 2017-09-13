@@ -1,11 +1,11 @@
 import java.lang.String;
-import org.svcomp.SVComp;
+import org.svcomp.Verifier;
 
 public class Main {
     public static void main (String args[]) {
         String s = "foo"; 
-        boolean cond = SVComp.nondetBoolean();
-        if (cond) 
+        boolean cond = Verifier.__VERIFIER_nondet_bool();
+        if (cond)
             assert (s.replace("oo", "aa").equals("foo"));
     }
 }
