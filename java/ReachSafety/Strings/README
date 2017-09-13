@@ -1,0 +1,19 @@
+Verification tasks extracted from the CBMC string solver.
+All specifications are checked at the same time
+instead of separately.
+
+Verification tasks consist of the programs that match
+
+*_false-unreach-call*.java
+*_true-unreach-call*.java
+
+with the specification
+
+assert condition
+
+and the following parameter:
+
+Architecture: 32 bit
+
+Created by Diffblue Ltd,
+submitted by Lucas Cordeiro.
