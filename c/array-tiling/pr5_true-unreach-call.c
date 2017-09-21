@@ -1,0 +1,73 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+
+#define CELLCOUNT
+
+void main()
+{
+	int MINVAL;
+	int i;
+	int volArray[CELLCOUNT];
+	int CCCELVOL5 = 2;
+	int CCCELVOL4 = 5;
+	int CCCELVOL3 = 7;
+	int CCCELVOL2 = 3;
+	int CCCELVOL1 = 1;
+
+	if(CELLCOUNT % 5 != 0) { return; }
+
+	__VERIFIER_assume(CELLCOUNT % 5 == 0);
+	for(i = 1; i <= CELLCOUNT/5; i++)
+	{
+		if(CCCELVOL5 >= MINVAL)
+		{
+			volArray[i*5 - 5] = CCCELVOL5;
+		}
+		else
+		{
+			volArray[i*5 - 5] = 0;
+		}
+
+		if(CCCELVOL4 >= MINVAL)
+		{
+			volArray[i*5 - 4] = CCCELVOL4;
+		}
+		else
+		{
+			volArray[i*5 - 4] = 0;
+		}
+
+		if(CCCELVOL3 >= MINVAL)
+		{
+			volArray[i*5 - 3] = CCCELVOL3;
+		}
+		else
+		{
+			volArray[i*5 - 3] = 0;
+		}
+
+		if(CCCELVOL2 >= MINVAL)
+		{
+			volArray[i*5 - 2] = CCCELVOL2;
+		}
+		else
+		{
+			volArray[i*5 - 2] = 0;
+		}
+
+		if(CCCELVOL1 >= MINVAL)
+		{
+			volArray[i*5 - 1] = CCCELVOL1;
+		}
+		else
+		{
+			volArray[i*5 - 1] = 0;
+		}
+	}
+
+	for(i = 0; i < CELLCOUNT; i++)
+	{
+		__VERIFIER_assert(volArray[i] >= MINVAL || volArray[i] == 0 );
+	}
+}
