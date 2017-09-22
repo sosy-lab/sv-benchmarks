@@ -1,7 +1,5 @@
-# 1 "simple_array_index_value_true-unreach-call1_true-termination.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "simple_array_index_value_true-unreach-call1_true-termination.c"
+
+
 
 
 
