@@ -1,8 +1,12 @@
-/* Bechmark used to verify Chimdyalwar, Bharti, et al. "VeriAbs: Verification by abstraction (competition contribution)." 
-International Conference on Tools and Algorithms for the Construction and Analysis of Systems. Springer, Berlin, Heidelberg, 2017.*/
+# 1 "simple_array_index_value_true-unreach-call3_true-termination.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "simple_array_index_value_true-unreach-call3_true-termination.c"
 
-//This program is similar to loops/sum03_true-unreach-call_false-termination.i but uses array index and value
-#define SIZE 10000
+
+
+
+
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond)
@@ -15,17 +19,17 @@ void __VERIFIER_assert(int cond)
 
 int main()
 {
-  unsigned int array[SIZE];
+  unsigned int array[10000];
   unsigned int index = 0;
   unsigned int tmp = 0;
 
-  while (index < SIZE) {
+  while (index < 10000) {
     array[index] = tmp;
     index = index + 1;
     tmp = tmp + 2;
   }
-  
-  for (index = 0; index < SIZE; index++) {
+
+  for (index = 0; index < 10000; index++) {
      __VERIFIER_assert((array[index] == 2*index) || (array[index] == 0));
   }
 

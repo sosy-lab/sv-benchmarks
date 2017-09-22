@@ -1,7 +1,11 @@
-/* Bechmark used to verify Chimdyalwar, Bharti, et al. "VeriAbs: Verification by abstraction (competition contribution)." 
-International Conference on Tools and Algorithms for the Construction and Analysis of Systems. Springer, Berlin, Heidelberg, 2017.*/
+# 1 "simple_array_index_value_true-unreach-call1_true-termination.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "simple_array_index_value_true-unreach-call1_true-termination.c"
 
-#define SIZE 1000
+
+
+
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond)
 {
@@ -13,14 +17,14 @@ void __VERIFIER_assert(int cond)
 
 int main()
 {
-  unsigned int array[SIZE];
+  unsigned int array[1000];
   unsigned int index;
 
-  for (index = 0; index < SIZE; index++) {
+  for (index = 0; index < 1000; index++) {
     array[index] = (index % 2);
   }
 
-  for (index = 0; index < SIZE; index++) {
+  for (index = 0; index < 1000; index++) {
     if (index % 2 == 0) {
       __VERIFIER_assert(array[index] == 0);
     } else {
@@ -29,6 +33,3 @@ int main()
   }
 
 }
-
-
-

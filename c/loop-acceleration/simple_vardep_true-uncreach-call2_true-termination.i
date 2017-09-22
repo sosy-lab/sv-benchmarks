@@ -1,5 +1,9 @@
-/* Bechmark used to verify Chimdyalwar, Bharti, et al. "VeriAbs: Verification by abstraction (competition contribution)." 
-International Conference on Tools and Algorithms for the Construction and Analysis of Systems. Springer, Berlin, Heidelberg, 2017.*/
+# 1 "simple_vardep_true-uncreach-call2_true-termination.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "simple_vardep_true-uncreach-call2_true-termination.c"
+
+
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond)
