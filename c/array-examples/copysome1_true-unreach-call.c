@@ -1,3 +1,9 @@
+/*
+ * Benchmarks contributed by Shrawan Kumar, TCS Innovation labs, Pune
+ *
+ * It implements partial copy and 
+ * check property accordingly
+ */
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
