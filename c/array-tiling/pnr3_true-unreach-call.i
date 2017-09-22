@@ -4,12 +4,12 @@ extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int(void);
 
-int CELLCOUNT;
+int SIZE;
 
 int main()
 {
-	CELLCOUNT = __VERIFIER_nondet_int();
-	if(CELLCOUNT > 1)
+	SIZE = __VERIFIER_nondet_int();
+	if(SIZE > 1)
 	{
 		int i;
 		int value;
