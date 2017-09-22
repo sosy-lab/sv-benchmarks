@@ -1,4 +1,7 @@
-//similar to loops/sum03_true-unreach-call_false-termination.i but using array
+/* Bechmark used to verify Chimdyalwar, Bharti, et al. "VeriAbs: Verification by abstraction (competition contribution)." 
+International Conference on Tools and Algorithms for the Construction and Analysis of Systems. Springer, Berlin, Heidelberg, 2017.*/
+
+//This program is similar to loops/sum03_true-unreach-call_false-termination.i but uses array index and value
 #define SIZE 10000
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
