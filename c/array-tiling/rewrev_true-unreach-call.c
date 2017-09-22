@@ -1,28 +1,34 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int(void);
 
-#define SIZE
+int SIZE;
 
-void main()
+int main()
 {
-	int i;
-	int a[SIZE];
-	int val2 = 3;
-	int val1 = 7;
-	int low=2;
-
-	for(i=SIZE-2; i >= -1; i--)
+	SIZE = __VERIFIER_nondet_int();
+	if(SIZE > 1)
 	{
-		if(i >= 0)
+		int i;
+		int a[SIZE];
+		int val2 = 3;
+		int val1 = 7;
+		int low=2;
+
+		for(i=SIZE-2; i >= -1; i--)
 		{
-			a[i] = val1;
+			if(i >= 0)
+			{
+				a[i] = val1;
+			}
+			a[i+1] = val2;
 		}
-		a[i+1] = val2;
-	}
 
-	for(i = 0; i < SIZE; i++)
-	{
-		__VERIFIER_assert(a[i] >= low);
+		for(i = 0; i < SIZE; i++)
+		{
+			__VERIFIER_assert(a[i] >= low);
+		}
 	}
+	return 1;
 }

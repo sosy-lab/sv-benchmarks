@@ -12,21 +12,25 @@ int main()
 	{
 		int i;
 		int a[SIZE];
-		int acopy[SIZE];
 
 		if(SIZE % 2 != 0) { return; }
 
 		__VERIFIER_assume(SIZE % 2 == 0);
-		for(i=0; i<SIZE/2; i++)
+		for( i = 1; i <= SIZE/2; i++ )
 		{
-			acopy[SIZE-i-1] = a[SIZE-i-1];
-			acopy[i] = a[i];
+			if( a[2*i-2] > i )
+			{
+				a[2*i-2] = 2*i-2;
+			}
+			if( a[2*i-1] > i )
+			{
+				a[2*i-1] = 2*i-1;
+			}
 		}
 
-		//assert
-		for(i=0; i<SIZE; i++)
+		for(i = 0; i < SIZE; i++)
 		{
-			__VERIFIER_assert(acopy[i] == a[i]);
+			__VERIFIER_assert( a[i] <= i );
 		}
 	}
 	return 1;

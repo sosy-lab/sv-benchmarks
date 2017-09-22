@@ -1,37 +1,43 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int(void);
 
-#define CELLCOUNT
+int CELLCOUNT;
 
-void main()
+int main()
 {
-	int MINVAL=2;
-	int i;
-	int j;
-	int volArray[CELLCOUNT];
-
-	if(CELLCOUNT % 3 != 0) { return; }
-
-	__VERIFIER_assume(CELLCOUNT % 3 == 0);
-
-	for(i = 1; i <= CELLCOUNT/3; i++)
+	CELLCOUNT = __VERIFIER_nondet_int();
+	if(CELLCOUNT > 1)
 	{
-		for(j = 3; j >= 1; j--)
+		int MINVAL=2;
+		int i;
+		int j;
+		int volArray[CELLCOUNT];
+
+		if(CELLCOUNT % 3 != 0) { return; }
+
+		__VERIFIER_assume(CELLCOUNT % 3 == 0);
+
+		for(i = 1; i <= CELLCOUNT/3; i++)
 		{
-			if(j >= MINVAL)
+			for(j = 3; j >= 1; j--)
 			{
-				volArray[i*3 - j] = j;
-			}
-			else
-			{
-				volArray[i*3 - j] = 0;
+				if(j >= MINVAL)
+				{
+					volArray[i*3 - j] = j;
+				}
+				else
+				{
+					volArray[i*3 - j] = 0;
+				}
 			}
 		}
-	}
 
-	for(i = 0; i < CELLCOUNT; i++)
-	{
-		__VERIFIER_assert(volArray[i] >= MINVAL || volArray[i] == 0 );
+		for(i = 0; i < CELLCOUNT; i++)
+		{
+			__VERIFIER_assert(volArray[i] >= MINVAL || volArray[i] == 0 );
+		}
 	}
+	return 1;
 }
