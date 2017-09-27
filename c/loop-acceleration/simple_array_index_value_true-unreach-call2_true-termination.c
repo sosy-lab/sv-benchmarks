@@ -26,7 +26,7 @@ int main()
   }
 
   for (index = 0; index < SIZE; index++) {
-    assert(array[index] > index);
+    __VERIFIER_assert(array[index] > index);
   }
 
 }
