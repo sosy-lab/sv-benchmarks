@@ -13,7 +13,7 @@ int main()
 		int i;
 		int a[SIZE];
 
-		if(SIZE % 2 != 0) { return; }
+		if(SIZE % 2 != 0) { return 1; }
 
 		__VERIFIER_assume(SIZE % 2 == 0);
 		for(i = 1; i <= SIZE/2; i++ )

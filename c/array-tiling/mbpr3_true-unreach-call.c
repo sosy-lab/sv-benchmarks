@@ -17,7 +17,7 @@ int main()
 		int CCCELVOL2 = 3;
 		int CCCELVOL1 = 1;
 
-		if(CELLCOUNT %3 != 0) { return; }
+		if(CELLCOUNT %3 != 0) { return 1; }
 
 		__VERIFIER_assume(CELLCOUNT % 3 == 0);
 		for(i = 1; i <= CELLCOUNT/3; i++)

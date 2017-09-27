@@ -8,6 +8,7 @@ int SIZE;
 int main()
 {
 	SIZE = __VERIFIER_nondet_int();
+	int i;
 	if(SIZE > 1)
 	{
 		int a[SIZE];

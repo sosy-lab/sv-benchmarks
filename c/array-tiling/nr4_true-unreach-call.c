@@ -15,7 +15,7 @@ int main()
 		int j;
 		int volArray[CELLCOUNT];
 
-		if(CELLCOUNT % 4 != 0) { return; }
+		if(CELLCOUNT % 4 != 0) { return 1; }
 
 		__VERIFIER_assume(CELLCOUNT % 4 == 0);
 

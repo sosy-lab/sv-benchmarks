@@ -17,7 +17,7 @@ int main()
 		int DEFAULTVAL = 0; 
 		int FIXEDVAL = 10; 
 
-		if(SIZE % 3 != 0) { return; }
+		if(SIZE % 3 != 0) { return 1; }
 
 		__VERIFIER_assume(SIZE % 3 == 0);
 		for (i = 1 ; i <= SIZE/3 ; i++)

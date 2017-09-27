@@ -19,7 +19,7 @@ int main()
 		int CCCELVOL2 = 3;
 		int CCCELVOL1 = 1;
 
-		if(CELLCOUNT % 5 != 0) { return; }
+		if(CELLCOUNT % 5 != 0) { return 1; }
 
 		__VERIFIER_assume(CELLCOUNT % 5 == 0);
 		for(i = 1; i <= CELLCOUNT/5; i++)
