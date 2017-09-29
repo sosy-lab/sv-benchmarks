@@ -102,7 +102,7 @@ There are some old programs that have ending `.c` although they are preprocessed
 
 ### Specifications
 
-For SV-COMP, the [rules page](https://sv-comp.sosy-lab.org/2017/rules.php) explains all currently supported properties:
+There are several 'default' specifications that many people use:
   - [unreach-call](c/PropertyUnreachCall.prp):
     A certain function call must not be reachable in the program.
   - [valid-memsafety, valid-deref, valid-free, valid-memtrack](c/PropertyMemSafety.prp):
@@ -112,6 +112,9 @@ For SV-COMP, the [rules page](https://sv-comp.sosy-lab.org/2017/rules.php) expla
     A certain kind of undefined behavior (overflows of signed ints) must not be present in the program.
   - [termination](c/PropertyTermination.prp):
     The program must terminate on all execution paths.
+
+The above specifications are used, e.g., by SV-COMP, and the [rules page](http://sv-comp.sosy-lab.org/2017/rules.php)
+explains those specifications.
 
 ### Parameters
 
