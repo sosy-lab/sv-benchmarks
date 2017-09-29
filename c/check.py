@@ -16,14 +16,18 @@ except ImportError:
 
 README_PATTERN = re.compile('^readme(\.(txt|md))?$', re.I)
 LICENSE_PATTERN = re.compile('^license([-.].*)?(\.(txt|md))?$', re.I)
-BENCHMARK_PATTERN = re.compile('^.*\.[ci]$')
+BENCHMARK_PATTERN = re.compile('^.*\.(c|i|yml)$')
 EXPECTED_FILE_PATTERN = re.compile(
-    '^(.*\.(c|h|i|verdict)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
+    '^(.*\.(c|h|i|verdict|yml)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description"])
 PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack"])
 
+IGNORED_DIRECTORIES = set(["properties"])
+"""Directories which are completely ignored by this script"""
+
 UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
+"""Directories which expected to contain tasks that are not included in any category"""
 
 LINE_DIRECTIVE = re.compile('^#(line| [0-9]+) ')
 PREPROCESSOR_DIRECTIVE = re.compile('^ *#(define|include)')
@@ -172,6 +176,13 @@ KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ]
 
 KNOWN_SET_PROBLEMS = [
+    # Will be resolved when categories are properly switched to new format
+    ("ReachSafety-Arrays-new.set", "Pattern <array-examples/*_false-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "Pattern <array-examples/*_true-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "Pattern <array-industry-pattern/*_false-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "Pattern <array-industry-pattern/*_true-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "Pattern <reducercommutativity/*_true-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "missing configuration file"),
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
@@ -397,6 +408,8 @@ class BenchmarkFileChecks(Checks):
             self.error("has reachable error location but claims to have no memory leaks")
 
     def check_unreach_call_tasks_have_verifier_error(self):
+        if self.filename.endswith(".yml"):
+            return
         if not "unreach-call" in self.filename:
             return
         if not self.contained_in_category:
@@ -564,7 +577,7 @@ def main():
     for entry in entries:
         path = os.path.join(main_directory, entry)
         if not (entry[0] == '.' or entry == "bin" or entry.endswith("-todo")):
-            if os.path.isdir(path):
+            if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
                 ok &= DirectoryChecks(path, all_patterns, entry).run()
             elif entry.endswith(".set"):
                 check = SetFileChecks(path, entry)

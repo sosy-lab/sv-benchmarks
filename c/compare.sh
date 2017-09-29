@@ -48,6 +48,11 @@ for f in $SETS ; do
     continue
   fi
 
+  if [ ! -f $setf.cfg ]; then
+    echo "Skipping category $setf (no .cfg file present)"
+    continue
+  fi
+
   echo "Processing category $setf"
   bits=$(grep ^Architecture $setf.cfg | awk '{print $2}')
   if [ x$bits != x32 ] && [ x$bits != x64 ] ; then
