@@ -9,16 +9,18 @@
 This collection of verification tasks is constructed and maintained as a common benchmark
 for evaluating the effectiveness and efficiency of state-of-the-art verification technology.
 
-This repository is actively used by the competition on software verification [SV-COMP],
-which is the reason why some of the text below is specific to SV-COMP.
+This repository is used by many research groups to evaluate the effectiveness and efficiency
+of verification algorithms for software.
+The category structure was developed for the International Competition on Software Verification [SV-COMP].
 
 The verification tasks were contributed by several research and development groups. 
-After the submission deadline of verification tasks for [SV-COMP],
-a group of people (organizer and participants) are working on improving the quality of the verification tasks.
+After the submission of verification tasks,
+a group of people (mainly [SV-COMP] organizer and participants)
+are working on improving the quality of the verification tasks.
 This means that after the sets were made public, some programs were removed
-(not qualified, no property encoded, unknown architecture), and 
+(no property encoded, unknown architecture), and 
 some programs got technically improved (compiler warnings, memory model).
-These changes have improved the overall quality of the final set of programs for the competition, and
+These changes have improved the overall quality of the final set of programs for the competition [SV-COMP], and
 have not changed the intended verification result; all changes are tracked in the public repository.
 
 **This repository is open for submission of new verification tasks!**
