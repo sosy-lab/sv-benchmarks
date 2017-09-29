@@ -124,6 +124,15 @@ The most prominent parameter is the machine model;
 currently, there are verification tasks for the ILP32 (32-bit) and the LP64 (64-bit) architecture
 (cf. http://www.unix.org/whitepapers/64bit.html).
 
+### Templates for Verification Tasks
+
+In order to obtain a verification task from the programs and specifications in the repository,
+a simple template mechanism is used.
+For each program, the repository contains a .yml file that specifies 
+  - the subject files (the parts that a program consists of),
+  - the results (for each specification of the program, the expected outcome is indicated), and
+  - the parameters to be used for verification.
+
 
 [SV-COMP]: https://sv-comp.sosy-lab.org/
 [witness format]: https://github.com/sosy-lab/sv-witnesses
