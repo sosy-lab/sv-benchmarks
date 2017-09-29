@@ -9,16 +9,18 @@
 This collection of verification tasks is constructed and maintained as a common benchmark
 for evaluating the effectiveness and efficiency of state-of-the-art verification technology.
 
-This repository is actively used by the competition on software verification [SV-COMP],
-which is the reason why some of the text below is specific to SV-COMP.
+This repository is used by many research groups to evaluate the effectiveness and efficiency
+of verification algorithms for software.
+The category structure was developed for the International Competition on Software Verification [SV-COMP].
 
 The verification tasks were contributed by several research and development groups. 
-After the submission deadline of verification tasks for [SV-COMP],
-a group of people (organizer and participants) are working on improving the quality of the verification tasks.
+After the submission of verification tasks,
+a group of people (mainly [SV-COMP] organizer and participants)
+are working on improving the quality of the verification tasks.
 This means that after the sets were made public, some programs were removed
-(not qualified, no property encoded, unknown architecture), and 
+(no property encoded, unknown architecture), and 
 some programs got technically improved (compiler warnings, memory model).
-These changes have improved the overall quality of the final set of programs for the competition, and
+These changes have improved the overall quality of the final set of programs for the competition [SV-COMP], and
 have not changed the intended verification result; all changes are tracked in the public repository.
 
 **This repository is open for submission of new verification tasks!**
@@ -46,19 +48,6 @@ The subdirectories that contain the programs contain files `README.txt`, which g
 about the programs, in particular, this is the place to trace the origin and to attribute the programs to their contributors.
 For some programs, this information is given in the header of the program as comment.
 
-### Name Convention for Programs
-
-The program files in this repository are named as follows:
-- the original file name or short title of the program is given at the beginning,
-- for each property against which the program is to be verified,
-  the string `_false-<property>` or `_true-<property>` is included, according to the expected verification answer, and
-- the filename ends with ending `.c` for not preprocessed files and `.i` for preprocessed files (for C files).
-
-For example, the program `minepump_spec5_product61_true-unreach-call_false-termination.cil.c`
-is expected to satisfy property `unreach-call` and to violate property `termination`.
-
-There are some old programs that have ending `.c` although they are preprocessed.
-
 ### Categories
 
 The verification tasks for C programs are grouped into (sub-)categories
@@ -76,9 +65,9 @@ The following definitions are taken from the SV-COMP report
 [2016](https://www.sosy-lab.org/~dbeyer/Publications/2016-TACAS.Reliable_and_Reproducible_Competition_Results_with_BenchExec_and_Witnesses.pdf) (and previous years).
 
 A *verification task* consists of
-- a program,
-- a specification (set of properties), and
-- parameters.
+- a [program](#progams),
+- a [specification](#specifications) (set of properties), and
+- [parameters](#parameters).
 
 A *category* is a set of verification tasks.
 
@@ -100,9 +89,22 @@ A *verification result* is a triple (ANSWER, WITNESS, TIME) with
 - TIME is the CPU time that the verification run has consumed (in practice, also other resource measurement values are reported).
 
 
-## Specification Properties
+### Programs
 
-For SV-COMP, the [rules page](https://sv-comp.sosy-lab.org/2017/rules.php) explains all currently supported properties:
+The program files in this repository are named as follows:
+- the original file name or short title of the program is given at the beginning,
+- for each property against which the program is to be verified,
+  the string `_false-<property>` or `_true-<property>` is included, according to the expected verification answer, and
+- the filename ends with ending `.c` for not preprocessed files and `.i` for preprocessed files (for C files).
+
+For example, the program `minepump_spec5_product61_true-unreach-call_false-termination.cil.c`
+is expected to satisfy property `unreach-call` and to violate property `termination`.
+
+There are some old programs that have ending `.c` although they are preprocessed.
+
+### Specifications
+
+There are several 'default' specifications that many people use:
   - [unreach-call](c/PropertyUnreachCall.prp):
     A certain function call must not be reachable in the program.
   - [valid-memsafety, valid-deref, valid-free, valid-memtrack](c/PropertyMemSafety.prp):
@@ -112,6 +114,27 @@ For SV-COMP, the [rules page](https://sv-comp.sosy-lab.org/2017/rules.php) expla
     A certain kind of undefined behavior (overflows of signed ints) must not be present in the program.
   - [termination](c/PropertyTermination.prp):
     The program must terminate on all execution paths.
+
+The above specifications are used, e.g., by SV-COMP, and the [rules page](http://sv-comp.sosy-lab.org/2017/rules.php)
+explains those specifications.
+
+### Parameters
+
+The paramaters of a verification task are needed to make additional information 
+about the verification task available to the verification run.
+The most prominent parameter is the machine model;
+currently, there are verification tasks for the ILP32 (32-bit) and the LP64 (64-bit) architecture
+(cf. http://www.unix.org/whitepapers/64bit.html).
+
+### Templates for Verification Tasks
+
+In order to obtain a verification task from the programs and specifications in the repository,
+a simple template mechanism is used.
+For each program, the repository contains a .yml file that specifies 
+  - the subject files (the parts that a program consists of),
+  - the results (for each specification of the program, the expected outcome is indicated), and
+  - the parameters to be used for verification.
+
 
 [SV-COMP]: https://sv-comp.sosy-lab.org/
 [witness format]: https://github.com/sosy-lab/sv-witnesses
