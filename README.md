@@ -63,9 +63,9 @@ The following definitions are taken from the SV-COMP report
 [2016](https://www.sosy-lab.org/~dbeyer/Publications/2016-TACAS.Reliable_and_Reproducible_Competition_Results_with_BenchExec_and_Witnesses.pdf) (and previous years).
 
 A *verification task* consists of
-- a program,
-- a specification (set of properties), and
-- parameters.
+- a [program](#progams),
+- a [specification](#specifications) (set of properties), and
+- [parameters](#parameters).
 
 A *category* is a set of verification tasks.
 
