@@ -1,0 +1,22 @@
+<!--
+  Please describe your PR as usual.
+
+  For submission of new verification tasks,
+  keep the following checklist and make sure that all items are fullfilled.
+  For other PRs, just remove it.
+-->
+
+- [ ] programs added to new and [appropriately named](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#directory-structure-and-names) directory
+- [ ] license present and [acceptable](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#license) (either in separate file or as comment at beginning of program)
+- [ ] [contributed-by](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#origin-description-and-attribution) present (either in README file or as comment at beginning of program)
+
+- [ ] programs added to a `.set` file of an existing category, or new sub-category established (if justified)
+- [ ] intended property matches the corresponding `.prp` file
+- [ ] expected answer in file names according to [convention](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#properties)
+
+<!-- For C programs: -->
+- [ ] [architecture](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#architecture) (32 bit vs. 64 bit) matches the corresponding `.cfg` file
+- [ ] original sources present
+- [ ] [preprocessed](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#preprocessing) files present
+- [ ] preprocessed files generated with correct architecture
+- [ ] [Makefile](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#compile-checks) added with correct content and without overly broad suppression of warnings
