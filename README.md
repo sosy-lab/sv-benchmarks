@@ -46,19 +46,6 @@ The subdirectories that contain the programs contain files `README.txt`, which g
 about the programs, in particular, this is the place to trace the origin and to attribute the programs to their contributors.
 For some programs, this information is given in the header of the program as comment.
 
-### Name Convention for Programs
-
-The program files in this repository are named as follows:
-- the original file name or short title of the program is given at the beginning,
-- for each property against which the program is to be verified,
-  the string `_false-<property>` or `_true-<property>` is included, according to the expected verification answer, and
-- the filename ends with ending `.c` for not preprocessed files and `.i` for preprocessed files (for C files).
-
-For example, the program `minepump_spec5_product61_true-unreach-call_false-termination.cil.c`
-is expected to satisfy property `unreach-call` and to violate property `termination`.
-
-There are some old programs that have ending `.c` although they are preprocessed.
-
 ### Categories
 
 The verification tasks for C programs are grouped into (sub-)categories
@@ -100,7 +87,20 @@ A *verification result* is a triple (ANSWER, WITNESS, TIME) with
 - TIME is the CPU time that the verification run has consumed (in practice, also other resource measurement values are reported).
 
 
-## Specification Properties
+### Programs
+
+The program files in this repository are named as follows:
+- the original file name or short title of the program is given at the beginning,
+- for each property against which the program is to be verified,
+  the string `_false-<property>` or `_true-<property>` is included, according to the expected verification answer, and
+- the filename ends with ending `.c` for not preprocessed files and `.i` for preprocessed files (for C files).
+
+For example, the program `minepump_spec5_product61_true-unreach-call_false-termination.cil.c`
+is expected to satisfy property `unreach-call` and to violate property `termination`.
+
+There are some old programs that have ending `.c` although they are preprocessed.
+
+### Specifications
 
 For SV-COMP, the [rules page](https://sv-comp.sosy-lab.org/2017/rules.php) explains all currently supported properties:
   - [unreach-call](c/PropertyUnreachCall.prp):
@@ -112,6 +112,11 @@ For SV-COMP, the [rules page](https://sv-comp.sosy-lab.org/2017/rules.php) expla
     A certain kind of undefined behavior (overflows of signed ints) must not be present in the program.
   - [termination](c/PropertyTermination.prp):
     The program must terminate on all execution paths.
+
+### Parameters
+
+The paramaters of a verification task are needed to make additional information about the verification task available to the verification run.
+
 
 [SV-COMP]: https://sv-comp.sosy-lab.org/
 [witness format]: https://github.com/sosy-lab/sv-witnesses
