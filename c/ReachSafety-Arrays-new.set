@@ -1,0 +1,8 @@
+array-examples/*_false-unreach-call*.yml
+array-examples/*_true-unreach-call*.yml
+
+array-industry-pattern/*_false-unreach-call*.yml
+array-industry-pattern/*_true-unreach-call*.yml
+
+reducercommutativity/*_false-unreach-call*.yml
+reducercommutativity/*_true-unreach-call*.yml
