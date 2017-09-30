@@ -110,6 +110,8 @@ There are several 'default' specifications that many people use:
   - [valid-memsafety, valid-deref, valid-free, valid-memtrack](c/PropertyMemSafety.prp):
     A certain memory safety property must hold in the program.
     "memsafety" is the conjunction the other three properties.
+  - [valid-memcleanup](c/PropertyMemCleanup.prp):
+    All allocated memory must be deallocated before the program terminates (note that this is stronger then avoiding memory leaks).
   - [no-overflow](c/PropertyOverflow.prp):
     A certain kind of undefined behavior (overflows of signed ints) must not be present in the program.
   - [termination](c/PropertyTermination.prp):
