@@ -58,7 +58,7 @@ void dll_insert_slave(struct slave_item **dll)
     *dll = item;
 }
 
-void* dll_create_generic(void (*insert_fnc)())
+void* dll_create_generic(void (*insert_fnc)(void **dll))
 {
     void *dll = NULL;
     insert_fnc(&dll);
