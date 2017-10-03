@@ -1241,7 +1241,8 @@ struct master_item* alloc_or_die_master(void)
     return ptr;
 }
 
-void dll_insert_slave(struct slave_item **dll)
+
+void dll_insert_slave(void **dll)
 {
     struct slave_item *item = alloc_or_die_slave();
     struct slave_item *next = *dll;
@@ -1252,12 +1253,12 @@ void dll_insert_slave(struct slave_item **dll)
     *dll = item;
 }
 
-void* dll_create_generic(void (*insert_fnc)(void **dll))
+void* dll_create_generic(void (*insert_fnc)(void**))
 {
     void *dll = 
-# 63 "dll_of_dll_false-unreach-call_false-valid-memcleanup.c" 3 4
+# 64 "dll_of_dll_false-unreach-call_false-valid-memcleanup.c" 3 4
                ((void *)0)
-# 63 "dll_of_dll_false-unreach-call_false-valid-memcleanup.c"
+# 64 "dll_of_dll_false-unreach-call_false-valid-memcleanup.c"
                    ;
     insert_fnc(&dll);
     insert_fnc(&dll);
@@ -1294,9 +1295,9 @@ void dll_reinit_nested_lists(struct master_item *dll)
 {
     while (dll) {
         dll->slave = 
-# 98 "dll_of_dll_false-unreach-call_false-valid-memcleanup.c" 3 4
+# 99 "dll_of_dll_false-unreach-call_false-valid-memcleanup.c" 3 4
                     ((void *)0)
-# 98 "dll_of_dll_false-unreach-call_false-valid-memcleanup.c"
+# 99 "dll_of_dll_false-unreach-call_false-valid-memcleanup.c"
                         ;
         dll = dll->next;
     }
@@ -1311,7 +1312,8 @@ void dll_destroy_master(struct master_item *dll)
     }
 }
 
-void dll_insert_master(struct master_item **dll)
+
+void dll_insert_master(void **dll)
 {
     struct master_item *item = alloc_or_die_master();
     struct master_item *next = *dll;
