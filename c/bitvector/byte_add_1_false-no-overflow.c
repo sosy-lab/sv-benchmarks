@@ -94,7 +94,7 @@ unsigned int mp_add(unsigned int a, unsigned int b)
         i = i + (unsigned char)1;
     }
 
-    r = r0 | (r1 << 8U) | (r2 << 16U) | ((unsigned int)r3 << 24U);
+    r = r0 | (r1 << 8U) | (r2 << 16U) | (r3 << 24U);
 
     return r;
 }
