@@ -16,6 +16,7 @@ int main() {
 	if (max > 0) {
 		a = 0;
 		x = 1;
+		// if max=INT_MAX, x will overflow in the last loop iteration
 		while (x <= max) {
 			if (__VERIFIER_nondet_int() != 0) {
 				a = a + 1;

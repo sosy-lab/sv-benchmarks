@@ -30,6 +30,7 @@ int main() {
                 }
 				i = k;
 			}
+			// i will overflow e.g. for i=0,j=0,k=0,n=1,m=1,N=INT_MAX
 			i = i + 1;
 		}
 	}
