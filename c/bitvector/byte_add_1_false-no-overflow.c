@@ -94,6 +94,9 @@ unsigned int mp_add(unsigned int a, unsigned int b)
         i = i + (unsigned char)1;
     }
 
+    // (r3 << 24U) is undefined behavior if r3 > 127, because
+    // r3 gets promoted to int and r3<<24U will exceed INT_MAX
+    // (see ISO/IEC 9899:2011 6.5.7#4)
     r = r0 | (r1 << 8U) | (r2 << 16U) | (r3 << 24U);
 
     return r;
