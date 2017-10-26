@@ -10,10 +10,10 @@ extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-    unsigned int x;
-    x = __VERIFIER_nondet_uint();
+    int x;
+    x = __VERIFIER_nondet_int();
 	if (x > 0) {
-	    while (x != 0) {
+	    while (x != 0 && x!= -1) {
 	    	x = x - 2;
     	}
 	}
