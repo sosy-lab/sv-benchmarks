@@ -23,7 +23,7 @@ int main( ) {
   }
   for ( i = 0 ; i < N ; i++ ) {
       if (i != z)
-         a3[i] = a2[i];
+          a3[i] = a2[i];
       else
           a3[i] = a1[i];
   }
