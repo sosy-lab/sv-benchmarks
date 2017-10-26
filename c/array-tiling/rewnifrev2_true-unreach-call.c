@@ -13,7 +13,7 @@ int main()
 	{
 		int a[SIZE];
 
-		for( i=SIZE-2; i >= -1; i-- )
+		for( i=SIZE-2; i >= 0; i-- )
 		{
 			a[i] = i;
 			a[i+1] = i+1;

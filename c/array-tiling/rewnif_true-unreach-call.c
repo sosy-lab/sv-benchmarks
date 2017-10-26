@@ -13,9 +13,12 @@ int main()
 		int i;
 		int a[SIZE];
 
-		for( i = 0; i < SIZE; i++ )
+		for( i = 0; i < SIZE ; i++ )
 		{
-			a[i+1] = i;
+			if((i+1) < SIZE )
+			{
+				a[i+1] = i;
+			}
 			a[i] = i;
 		}
 
