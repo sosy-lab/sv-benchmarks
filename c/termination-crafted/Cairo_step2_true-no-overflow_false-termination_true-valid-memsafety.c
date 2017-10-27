@@ -6,7 +6,7 @@
 
 typedef enum {false, true} bool;
 
-extern int __VERIFIER_nondet_int(void);
+extern int __VERIFIER_nondet_uint(void);
 
 int main()
 {
