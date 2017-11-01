@@ -9,7 +9,7 @@ void * __attribute__((__cdecl__)) malloc (size_t __size) ;
 extern int __VERIFIER_nondet_int(void);
 
 /* Returns some null-terminated string. */
-char* __VERIFIER_nondet_String(void) {
+char* build_nondet_String(void) {
     int length = __VERIFIER_nondet_int();
     if (length < 1) {
         length = 1;
@@ -34,7 +34,7 @@ char *(cstrchr)(const char *s, int c)
  }
 
 int main() {
-    cstrchr(__VERIFIER_nondet_String(),__VERIFIER_nondet_int());
+    cstrchr(build_nondet_String(),__VERIFIER_nondet_int());
     return 0;
 }
 

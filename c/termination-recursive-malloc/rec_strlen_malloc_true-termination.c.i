@@ -6,7 +6,7 @@ void __attribute__((__cdecl__)) free (void *) ;
 extern int __VERIFIER_nondet_int(void);
 
 /* Returns some null-terminated string. */
-char* __VERIFIER_nondet_String(void) {
+char* build_nondet_String(void) {
     int length = __VERIFIER_nondet_int();
     if (length < 1) {
         length = 1;
@@ -27,5 +27,5 @@ int (rec_cstrlen)(const char *s)
  }
 
 int main() {
-    return rec_cstrlen(__VERIFIER_nondet_String());
+    return rec_cstrlen(build_nondet_String());
 }
