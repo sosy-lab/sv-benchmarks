@@ -1,6 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
-int __VERIFIER_nondet_int(){int val; return val;}
+int __VERIFIER_nondet_int();
 int main( ) {
   int a1[200000];
   int a2[200000];
