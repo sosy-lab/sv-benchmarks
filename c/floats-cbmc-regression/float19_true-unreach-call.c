@@ -1,4 +1,5 @@
 extern void __VERIFIER_error(void);
+extern float __VERIFIER_nondet_float(void);
 #include <math.h>
 
 #ifdef __GNUC__
@@ -15,7 +16,7 @@ void f00 (float f)
 int main (void)
 {
   #ifdef __GNUC__
-  float f;
+  float f=__VERIFIER_nondet_float();
 
   f00(f);
   #endif

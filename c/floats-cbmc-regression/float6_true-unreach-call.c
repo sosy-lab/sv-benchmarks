@@ -1,5 +1,6 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
+extern float __VERIFIER_nondet_float(void);
 int main()
 {
   // constants
@@ -23,7 +24,7 @@ int main()
   if(!(!(-2.0>=-1.0))) __VERIFIER_error();  
   
   // variables
-  float a, b, _a=a, _b=b;
+  float a=__VERIFIER_nondet_float(), b=__VERIFIER_nondet_float();
   __VERIFIER_assume(a==1 && b==2);
 
   if(!(a!=b)) __VERIFIER_error();

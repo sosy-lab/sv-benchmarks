@@ -1,4 +1,5 @@
 extern void __VERIFIER_error(void);
+extern float __VERIFIER_nondet_float(void);
 
 
 
@@ -962,7 +963,7 @@ void f00 (float f)
 int main (void)
 {
 
-  float f;
+  float f=__VERIFIER_nondet_float();
 
   f00(f);
 
