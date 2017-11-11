@@ -72,7 +72,7 @@ unsigned int mp_add(unsigned int a, unsigned int b)
             if (i == (unsigned char)2) { partial_sum = partial_sum + b2; }
             if (i == (unsigned char)3) { partial_sum = partial_sum + b3; }
         }
-        if (partial_sum > ((unsigned char)255)) {
+        if (partial_sum > ((unsigned char)254)) {
             partial_sum = partial_sum & ((unsigned char)255);
             carry = (unsigned short)1;
         }
@@ -94,7 +94,10 @@ unsigned int mp_add(unsigned int a, unsigned int b)
         i = i + (unsigned char)1;
     }
 
-    r = r0 | (r1 << 8U) | (r2 << 16U) | ((unsigned int)r3 << 24U);
+    // (r3 << 24U) is undefined behavior if r3 > 127, because
+    // r3 gets promoted to int and r3<<24U will exceed INT_MAX
+    // (see ISO/IEC 9899:2011 6.5.7#4)
+    r = r0 | (r1 << 8U) | (r2 << 16U) | (r3 << 24U);
 
     return r;
 }
@@ -104,9 +107,8 @@ int main()
 {
     unsigned int a, b, r;
 
+    a = __VERIFIER_nondet_uint();
     b = __VERIFIER_nondet_uint();
-
-    a = 234770789;
 
     r = mp_add(a, b);
 
