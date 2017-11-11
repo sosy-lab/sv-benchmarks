@@ -11,6 +11,8 @@ int __VERIFIER_nondet_int();
 void f(int d) {
   int x = __VERIFIER_nondet_int(), y = __VERIFIER_nondet_int(), k = __VERIFIER_nondet_int(), z = 1;
   L1:
+  if (!(k <= 1073741823))
+    return;
   while (z < k) { z = 2 * z; }
   __VERIFIER_assert(z>=1);
   L2:
