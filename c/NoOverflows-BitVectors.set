@@ -1,5 +1,5 @@
-signedintegeroverflow-regression/*_false-no-overflow.c.i
-signedintegeroverflow-regression/*_true-no-overflow.c.i
+signedintegeroverflow-regression/*_false-no-overflow*.c.i
+signedintegeroverflow-regression/*_true-no-overflow*.c.i
 
 termination-crafted/*_false-no-overflow*.c
 termination-crafted/*_true-no-overflow*.c

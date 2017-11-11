@@ -28,7 +28,7 @@ floats-cbmc-regression/*_true-termination*.i
 # from ReachSafety-Heap
 ldv-regression/*_true-termination*.i
 ldv-regression/*_false-termination*.i
-ldv-regression/test[0-9][0-9]_true-termination*.c
+ldv-regression/test[0-9][0-9]*_true-termination*.c
 list-ext-properties/*_true-termination*.i
 list-ext2-properties/*_false-termination*.i
 ldv-sets/*_true-termination*.i
@@ -75,5 +75,6 @@ ldv-memsafety-bitfields/*_true-termination*.i
 pthread-atomic/*_true-termination*.i
 
 # from NoOverflows-BitVectors
-signedintegeroverflow-regression/*true-termination*.c.i
+# is 64bit and needs own category 
+# signedintegeroverflow-regression/*true-termination*.c.i
 
