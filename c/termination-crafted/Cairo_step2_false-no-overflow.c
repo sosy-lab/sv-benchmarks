@@ -6,13 +6,14 @@
 
 typedef enum {false, true} bool;
 
-extern int __VERIFIER_nondet_uint(void);
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-    unsigned int x;
-    x = __VERIFIER_nondet_uint();
+    int x;
+    x = __VERIFIER_nondet_int();
 	if (x > 0) {
+	    // overflow because loop will not terminate for odd x
 	    while (x != 0) {
 	    	x = x - 2;
     	}

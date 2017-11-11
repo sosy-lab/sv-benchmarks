@@ -25,11 +25,12 @@ int main() {
 			while (j < m) {
 				j = j + 1;
 				k = i;
-				while (k < N - 1) {
+				while (k < N) {
 					k = k + 1;
                 }
 				i = k;
 			}
+			// i will overflow e.g. for i=0,j=0,k=0,n=1,m=1,N=INT_MAX
 			i = i + 1;
 		}
 	}
