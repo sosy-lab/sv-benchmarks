@@ -1,5 +1,7 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
+extern float __VERIFIER_nondet_float(void);
+extern double __VERIFIER_nondet_double(void);
 /*
 ** float-rounder-bug.c
 **
@@ -44,13 +46,13 @@ void bugCasting (double d) {
 }
 
 int main (void) {
-  float f;
+  float f=__VERIFIER_nondet_float();
   bug(f);
 
-  float g;
+  float g=__VERIFIER_nondet_float();
   bugBrokenOut(g);
 
-  double d;
+  double d=__VERIFIER_nondet_double();
   bugCasting(d);
 
   return 1;
