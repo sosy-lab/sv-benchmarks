@@ -7,7 +7,7 @@
 extern int __VERIFIER_nondet_int(void);
 
 /* Returns some null-terminated string. */
-char* __VERIFIER_nondet_String(void) {
+char* build_nondet_String(void) {
     int length = __VERIFIER_nondet_int();
     if (length < 1) {
         length = 1;
@@ -31,7 +31,7 @@ int (cstrlen)(const char *s)
  }
 
 int main() {
-  char* p = __VERIFIER_nondet_String();
+  char* p = build_nondet_String();
   int res = cstrlen(p);
   free(p);
   return res;
