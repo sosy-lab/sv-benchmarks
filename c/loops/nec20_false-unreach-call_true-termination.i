@@ -22,7 +22,7 @@ int main(){
 
    i=0;
    j=__VERIFIER_nondet_int();
-   if (j < 10000)
+   if (j > 10000)
      return 0;
 
    while ( i <= n){
