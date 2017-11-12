@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+int __VERIFIER_nondet_int();
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -20,6 +21,9 @@ int main(){
    }
 
    i=0;
+   j=__VERIFIER_nondet_int();
+   if (j < 10000)
+     return 0;
 
    while ( i <= n){
       i++;
