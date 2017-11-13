@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int();
 
 /*
  * Adapted from http://www.sanfoundry.com/c-programming-examples-arrays/
@@ -11,7 +12,7 @@ int main()
     int i;
     int n = 100000;
     int pos;
-    int element;
+    int element = __VERIFIER_nondet_int();
     int found = 0;
     int vectorx[n];
  
