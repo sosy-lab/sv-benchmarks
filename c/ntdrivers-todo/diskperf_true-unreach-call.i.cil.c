@@ -2543,8 +2543,10 @@ NTSTATUS DiskPerfDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 
   {
   deviceExtension = DeviceObject->DeviceExtension;
+  // @UNDEFINED_BEHAVIOUR: The pointer 'Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is still not initialised.
   currentIrpStack = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
-  if (currentIrpStack->Parameters.DeviceIoControl.IoControlCode == (ULONG )((7 << 16) | (8 << 2))) {
+  // @UNDEFINED_BEHAVIOUR: The pointer 'currentIrpStack' is now invalid (because RHS evaluates to the undefined address in 'Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation').
+  if (currentIrpStack->/* @UNDEFINED_BEHAVIOUR: Dereferenced the invalid pointer -> undefined behaviour -> calling __VERIFIER_error() -> the classification of the benchmark as 'true-unreach-call' is wrong. */Parameters.DeviceIoControl.IoControlCode == (ULONG )((7 << 16) | (8 << 2))) {
     if (currentIrpStack->Parameters.DeviceIoControl.OutputBufferLength < (ULONG )sizeof(DISK_PERFORMANCE )) {
       status = -1073741789L;
       Irp->IoStatus.Information = 0;
@@ -3159,9 +3161,12 @@ void stub_driver_init(void)
 int main(void) 
 { DRIVER_OBJECT d ;
   NTSTATUS status = __VERIFIER_nondet_long() ;
+  // @UNDEFINED_BEHAVIOUR: assume status == 1
   int we_should_unload = __VERIFIER_nondet_int() ;
   IRP irp ;
+  // @UNDEFINED_BEHAVIOUR: The pointer 'irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is not initialised.
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
+  // @UNDEFINED_BEHAVIOUR: assume __BLAST_NONDET___0 == 2
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
   KeNumberProcessors = __VERIFIER_nondet_pointer();
@@ -3170,7 +3175,9 @@ int main(void)
   {
   pirp = & irp;
   _BLAST_init();
+  // @UNDEFINED_BEHAVIOUR: The pointer 'irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is still not initialised.
   }
+  // @UNDEFINED_BEHAVIOUR: status == 1
   if (status >= 0L) {
     s = NP;
     customIrp = 0;
@@ -3189,15 +3196,19 @@ int main(void)
     }
     {
     stub_driver_init();
+    // @UNDEFINED_BEHAVIOUR: The pointer 'irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is still not initialised.
     }
+    // @UNDEFINED_BEHAVIOUR: status == 1 -> taking 'else' branch
     if (! (status >= 0L)) {
       return (-1);
     } else {
 
     }
+    // @UNDEFINED_BEHAVIOUR: __BLAST_NONDET___0 == 2 -> taking 'else' branch
     if (__BLAST_NONDET___0 == 0) {
       goto switch_4_0;
     } else {
+      // @UNDEFINED_BEHAVIOUR: __BLAST_NONDET___0 == 2 -> taking 'true' branch
       if (__BLAST_NONDET___0 == 2) {
         goto switch_4_2;
       } else {
@@ -3220,6 +3231,7 @@ int main(void)
                 goto switch_4_break;
                 switch_4_2: /* CIL Label */ 
                 {
+                // @UNDEFINED_BEHAVIOUR: The pointer 'irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is still not initialised.
                 status = DiskPerfDeviceControl(& devobj, pirp);
                 }
                 goto switch_4_break;
