@@ -562,5 +562,10 @@ char *(cstrpbrk)(const char *s1, const char *s2)
      return 0;
  }
 int main() {
-    return *cstrpbrk(build_nondet_String(),build_nondet_String());
+  char* s1 = build_nondet_String();
+  char* s2 = build_nondet_String();
+  int res = *cstrpbrk(s1,s2);
+  free(s1);
+  free(s2);
+  return res;
 }

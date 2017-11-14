@@ -553,5 +553,8 @@ char *(cstrchr)(const char *s, int c)
      return ( (*s == c) ? (char *) s : 0 );
  }
 int main() {
-    return *cstrchr(build_nondet_String(),__VERIFIER_nondet_int());
+  char* s = build_nondet_String();
+  int res = *cstrchr(s,__VERIFIER_nondet_int());
+  free(s);
+  return res;
 }
