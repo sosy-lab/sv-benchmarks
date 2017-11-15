@@ -1053,7 +1053,7 @@ signed int __main(signed int argc, char **argv)
       }
       if(!(tmp_if_expr$3 == (_Bool)0))
       {
-        const unsigned char *__s2;
+        const char *__s2;
 
         __s2 = (const char *)argv[(signed long int)argc];
         signed int __result;

@@ -4058,7 +4058,7 @@ signed int __main(signed int argc, char **argv)
           }
           if(!(tmp_if_expr$2 == (_Bool)0))
           {
-            const unsigned char *__s2 = (const char *)p;
+            const char *__s2 = (const char *)p;
             signed int __result;
             __result = (signed int)((const char *)"none")[(signed long int)0] - (signed int)__s2[(signed long int)0];
             if(__s2_len > 0ul)

@@ -3135,7 +3135,7 @@ static void read_base64(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream
       }
       if(!(tmp_if_expr$3 == (_Bool)0))
       {
-        const unsigned char *__s2 = (const char *)in_buf;
+        const char *__s2 = (const char *)in_buf;
         signed int __result = (signed int)((const char *)"====")[(signed long int)0] - (signed int)__s2[(signed long int)0];
         if(__s2_len > 0ul)
         {
@@ -3220,7 +3220,7 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
     }
     if(!(tmp_if_expr$2 == (_Bool)0))
     {
-      const unsigned char *__s2 = (const char *)line;
+      const char *__s2 = (const char *)line;
       signed int __result;
       __result = (signed int)((const char *)"end")[(signed long int)0] - (signed int)__s2[(signed long int)0];
       if(__s2_len > 0ul)
@@ -3383,7 +3383,7 @@ signed int __main(signed int argc, char **argv)
       }
       if(!(tmp_if_expr$11 == (_Bool)0))
       {
-        const unsigned char *__s2 = (const char *)line;
+        const char *__s2 = (const char *)line;
         signed int __result;
         __result = (signed int)((const char *)"begin-base64 ")[(signed long int)0] - (signed int)__s2[(signed long int)0];
         if(__s2_len > 0ul)
