@@ -1065,6 +1065,7 @@ int main(void)
   {
   s = malloc (sizeof (SSL));
   s->s3 = malloc(sizeof(struct ssl3_state_st));
+  s->ctx = malloc(sizeof(SSL_CTX));
   s->state = 12292;
   s->version = __VERIFIER_nondet_int();
   ssl3_connect(s);
