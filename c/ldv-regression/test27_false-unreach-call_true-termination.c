@@ -1,5 +1,9 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
+
+extern int __VERIFIER_nondet_int(void);
+extern void *__VERIFIER_nondet_pointer(void);
+
 struct dummy {
   int *array;
 };
@@ -20,6 +24,11 @@ int main()
   struct dummy *dummies[10];
   int a[10];
   int i, *pa;
+  i = __VERIFIER_nondet_int();
+  for (int j = 0; j < 10; j++) {
+      a[j] = __VERIFIER_nondet_int();
+      dummies[j] = __VERIFIER_nondet_pointer();
+  }
   if (i >= 0 && i < 9) {
     a[i] = i;
     dummy.array = &a[i];
