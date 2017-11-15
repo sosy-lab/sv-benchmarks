@@ -91,8 +91,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
-    ("busybox-1.22.0/basename_false-unreach-call_true-no-overflow_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
-    ("busybox-1.22.0/basename_false-unreach-call_true-no-overflow_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
     ("busybox-1.22.0/head_true-no-overflow_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
     ("busybox-1.22.0/head_true-no-overflow_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
     ("busybox-1.22.0/sleep_true-no-overflow_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
