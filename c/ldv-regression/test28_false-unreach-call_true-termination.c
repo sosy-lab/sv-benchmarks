@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
+
+extern int __VERIFIER_nondet_int(void);
+
 struct dummy {
   int a, b;
 };
@@ -7,7 +10,7 @@ struct dummy {
 int main()
 {
   struct dummy d1, d2;
-  int n;
+  int n = __VERIFIER_nondet_int();
   struct dummy *pd = n ? &d1 : &d2;
   if (pd == &d2) {
     pd->a = 0;

@@ -1,5 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern int __VERIFIER_nondet_int();
+
+
+extern int __VERIFIER_nondet_int(void);
 
 union dummy {
   int a;
@@ -9,7 +11,7 @@ union dummy {
 int main()
 {
   union dummy d1, d2;
-  int n;
+  int n = __VERIFIER_nondet_int();
   union dummy *pd = n ? &d1 : &d2;
   d1.a = __VERIFIER_nondet_int();
   if (pd == &d1) {
