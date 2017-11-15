@@ -10,15 +10,22 @@ extern double __VERIFIER_nondet_double();
 extern void __VERIFIER_assume(int expression);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
+union double_int
+{
+  double d;
+  int i;
+};
+
 double inv (double A)
 {
   double xi, xsi, temp;
-  signed int *PtrA, *Ptrxi, cond, exp;
-  PtrA = (signed int *) (&A); 
-  Ptrxi = (signed int *) (&xi);
-  exp = (signed int) ((PtrA[0] & 0x7FF00000) >> 20) - 1023;
-  xi = 1;
-  Ptrxi[0] = ((1023-exp) << 20);
+  signed int cond, exp;
+  union double_int A_u, xi_u;
+  A_u.d = A;
+  exp = (signed int) ((A_u.i & 0x7FF00000) >> 20) - 1023;
+  xi_u.d = 1;
+  xi_u.i = ((1023-exp) << 20);
+  xi = xi_u.d;
   cond = 1; 
   while (cond) {
     xsi = 2*xi-A*xi*xi; 
