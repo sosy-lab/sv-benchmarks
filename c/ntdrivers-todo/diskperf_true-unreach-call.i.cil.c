@@ -2541,12 +2541,16 @@ NTSTATUS DiskPerfDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   LARGE_INTEGER difference ;
   NTSTATUS tmp ;
 
+  // @UNDEFINED_BEHAVIOUR: The pointer 'DeviceObject->DeviceExtension' is not initialised.
+  // @UNDEFINED_BEHAVIOUR: Note that Irp->Parameters.DeviceIoControl.IoControlCode == 0.
+
   {
   deviceExtension = DeviceObject->DeviceExtension;
-  // @UNDEFINED_BEHAVIOUR: The pointer 'Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is still not initialised.
+  // @UNDEFINED_BEHAVIOUR: The pointer 'deviceExtension' is invalid.
   currentIrpStack = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
-  // @UNDEFINED_BEHAVIOUR: The pointer 'currentIrpStack' is now invalid (because RHS evaluates to the undefined address in 'Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation').
-  if (currentIrpStack->/* @UNDEFINED_BEHAVIOUR: Dereferenced the invalid pointer -> undefined behaviour -> calling __VERIFIER_error() -> the classification of the benchmark as 'true-unreach-call' is wrong. */Parameters.DeviceIoControl.IoControlCode == (ULONG )((7 << 16) | (8 << 2))) {
+  // @UNDEFINED_BEHAVIOUR: The pointer 'deviceExtension' is invalid.
+  // @UNDEFINED_BEHAVIOUR: 'Irp->Parameters.DeviceIoControl.IoControlCode == 0' -> taking false branch.
+  if (currentIrpStack->Parameters.DeviceIoControl.IoControlCode == (ULONG )((7 << 16) | (8 << 2))) {
     if (currentIrpStack->Parameters.DeviceIoControl.OutputBufferLength < (ULONG )sizeof(DISK_PERFORMANCE )) {
       status = -1073741789L;
       Irp->IoStatus.Information = 0;
@@ -2614,7 +2618,7 @@ NTSTATUS DiskPerfDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
     {
     Irp->CurrentLocation = (CHAR )((int )Irp->CurrentLocation + 1);
     Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 1;
-    tmp = IofCallDriver(deviceExtension->TargetDeviceObject, Irp);
+    tmp = IofCallDriver(deviceExtension->/* @UNDEFINED_BEHAVIOUR: Dereferenced the invalid pointer -> undefined behaviour -> calling __VERIFIER_error() -> the classification of the benchmark as 'true-unreach-call' is wrong. */TargetDeviceObject, Irp);
     }
     return (tmp);
   }
@@ -3164,18 +3168,22 @@ int main(void)
   // @UNDEFINED_BEHAVIOUR: assume status == 1
   int we_should_unload = __VERIFIER_nondet_int() ;
   IRP irp ;
-  // @UNDEFINED_BEHAVIOUR: The pointer 'irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is not initialised.
+  // Here follows the fix of the previously discovered undefined behaviour:
+  struct _IO_STACK_LOCATION io_stack_location; // HOWEVER, HOW TO INITIALISE FIELDS? THIS WOULD REQUIRE UNDERSTANDING INTENDED FUNCTIONALITY OF THIS BENCHMARK - NONTRIVIAL MANUAL TASK!!!!
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = &io_stack_location;
+  // @UNDEFINED_BEHAVIOUR: assume io_stack_location.Parameters.DeviceIoControl.IoControlCode = 0;
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   // @UNDEFINED_BEHAVIOUR: assume __BLAST_NONDET___0 == 2
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
+  // @UNDEFINED_BEHAVIOUR: The pointer 'devobj.DeviceExtension' is not initialised.
   KeNumberProcessors = __VERIFIER_nondet_pointer();
 
   {
   {
   pirp = & irp;
   _BLAST_init();
-  // @UNDEFINED_BEHAVIOUR: The pointer 'irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is still not initialised.
+  // @UNDEFINED_BEHAVIOUR: The pointer 'devobj.DeviceExtension' is still not initialised.
   }
   // @UNDEFINED_BEHAVIOUR: status == 1
   if (status >= 0L) {
@@ -3196,7 +3204,7 @@ int main(void)
     }
     {
     stub_driver_init();
-    // @UNDEFINED_BEHAVIOUR: The pointer 'irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is still not initialised.
+    // @UNDEFINED_BEHAVIOUR: The pointer 'devobj.DeviceExtension' is still not initialised.
     }
     // @UNDEFINED_BEHAVIOUR: status == 1 -> taking 'else' branch
     if (! (status >= 0L)) {
@@ -3231,7 +3239,7 @@ int main(void)
                 goto switch_4_break;
                 switch_4_2: /* CIL Label */ 
                 {
-                // @UNDEFINED_BEHAVIOUR: The pointer 'irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation' is still not initialised.
+                // @UNDEFINED_BEHAVIOUR: The pointer 'devobj.DeviceExtension' is not initialised.
                 status = DiskPerfDeviceControl(& devobj, pirp);
                 }
                 goto switch_4_break;
