@@ -1,16 +1,16 @@
-extern int __VERIFIER_nondet_int();
+extern unsigned int __VERIFIER_nondet_uint();
 extern void __VERIFIER_error();
 
-int id(int x) {
+unsigned int id(unsigned int x) {
   if (x==0) return 0;
-  int ret = id(x-1) + 1;
+  unsigned int ret = id(x-1) + 1;
   if (ret > 2) return 2;
   return ret;
 }
 
 int main(void) {
-  int input = __VERIFIER_nondet_int();
-  int result = id(input);
+  unsigned int input = __VERIFIER_nondet_uint();
+  unsigned int result = id(input);
   if (result == 3) {
     ERROR: __VERIFIER_error();
   }
