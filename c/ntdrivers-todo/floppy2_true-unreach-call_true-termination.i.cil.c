@@ -2878,9 +2878,6 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath 
   ALTERNATIVE_ARCHITECTURE_TYPE *mem_83 ;
   ALTERNATIVE_ARCHITECTURE_TYPE *mem_84 ;
 
-  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)DriverObject + 24' (i.e. 'DriverObject->DriverExtension') is still not initialised.
-  // @UNDEFINED_BEHAVIOUR: Note: '(char*)DriverObject + 56' points to the begin of the array 'DriverObject->MajorFunction' (of 28 pointers).
-
   {
   ntStatus = 0L;
   {
@@ -2897,64 +2894,54 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath 
   __cil_tmp8 = __cil_tmp7 + __cil_tmp6;
   mem_71 = (PDRIVER_DISPATCH *)__cil_tmp8;
   *mem_71 = & FloppyCreateClose;
-  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)DriverObject + 24' is still not initialised (this was write to the address '(char*)DriverObject + 56').
   __cil_tmp9 = 2 * 4U;
   __cil_tmp10 = 56 + __cil_tmp9;
   __cil_tmp11 = (unsigned int )DriverObject;
   __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
   mem_72 = (PDRIVER_DISPATCH *)__cil_tmp12;
   *mem_72 = & FloppyCreateClose;
-  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)DriverObject + 24' is still not initialised (this was write to the address '(char*)DriverObject + 56 + 2*4').
   __cil_tmp13 = 3 * 4U;
   __cil_tmp14 = 56 + __cil_tmp13;
   __cil_tmp15 = (unsigned int )DriverObject;
   __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
   mem_73 = (PDRIVER_DISPATCH *)__cil_tmp16;
   *mem_73 = & FloppyReadWrite;
-  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)DriverObject + 24' is still not initialised (this was write to the address '(char*)DriverObject + 56 + 3*4').
   __cil_tmp17 = 4 * 4U;
   __cil_tmp18 = 56 + __cil_tmp17;
   __cil_tmp19 = (unsigned int )DriverObject;
   __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
   mem_74 = (PDRIVER_DISPATCH *)__cil_tmp20;
   *mem_74 = & FloppyReadWrite;
-  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)DriverObject + 24' is still not initialised (this was write to the address '(char*)DriverObject + 56 + 4*4').
   __cil_tmp21 = 14 * 4U;
   __cil_tmp22 = 56 + __cil_tmp21;
   __cil_tmp23 = (unsigned int )DriverObject;
   __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
   mem_75 = (PDRIVER_DISPATCH *)__cil_tmp24;
   *mem_75 = & FloppyDeviceControl;
-  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)DriverObject + 24' is still not initialised (this was write to the address '(char*)DriverObject + 56 + 14*4').
   __cil_tmp25 = 27 * 4U;
   __cil_tmp26 = 56 + __cil_tmp25;
   __cil_tmp27 = (unsigned int )DriverObject;
   __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
   mem_76 = (PDRIVER_DISPATCH *)__cil_tmp28;
   *mem_76 = & FloppyPnp;
-  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)DriverObject + 24' is still not initialised (this was write to the address '(char*)DriverObject + 56 + 27*4').
   __cil_tmp29 = 22 * 4U;
   __cil_tmp30 = 56 + __cil_tmp29;
   __cil_tmp31 = (unsigned int )DriverObject;
   __cil_tmp32 = __cil_tmp31 + __cil_tmp30;
   mem_77 = (PDRIVER_DISPATCH *)__cil_tmp32;
   *mem_77 = & FloppyPower;
-  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)DriverObject + 24' is still not initialised (this was write to the address '(char*)DriverObject + 56 + 22*4').
   __cil_tmp33 = (unsigned int )DriverObject;
   __cil_tmp34 = __cil_tmp33 + 52;
   mem_78 = (void (**)(struct _DRIVER_OBJECT *DriverObject ))__cil_tmp34;
   *mem_78 = & FloppyUnload;
-  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)DriverObject + 24' is still not initialised (this was write to the address '(char*)DriverObject + 52'; i.e. to 'DriverObject->DriverUnload').
   __cil_tmp35 = (unsigned int )DriverObject;
   __cil_tmp36 = __cil_tmp35 + 24;
   mem_79 = (PDRIVER_EXTENSION *)__cil_tmp36;
   __cil_tmp37 = *mem_79;
-  // @UNDEFINED_BEHAVIOUR: The pointer '__cil_tmp37' is invalid (because it was set to the uninitialised memory (4 bytes) starting at the address '(char*)DriverObject + 24').
   __cil_tmp38 = (unsigned int )__cil_tmp37;
   __cil_tmp39 = __cil_tmp38 + 4;
   mem_80 = (NTSTATUS (**)(struct _DRIVER_OBJECT *DriverObject , struct _DEVICE_OBJECT *PhysicalDeviceObject ))__cil_tmp39;
-  // @UNDEFINED_BEHAVIOUR: The pointer 'mem_80' is invalid (because it was set to address '__cil_tmp37 + 4', where '__cil_tmp37' holds an invalid address).
-  *mem_80/* @UNDEFINED_BEHAVIOUR: Dereferenced the invalid pointer -> undefined behaviour -> calling __VERIFIER_error() or looping forever -> the classification of the benchmark as 'true-unreach-call' and 'true-termination' is wrong. */ = & FloppyAddDevice;
+  *mem_80 = & FloppyAddDevice;
   __cil_tmp40 = (enum _POOL_TYPE )0;
   __cil_tmp41 = (unsigned long )32U;
   tmp = ExAllocatePoolWithTag(__cil_tmp40, __cil_tmp41, 1886350406UL);
@@ -2990,7 +2977,7 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath 
   __cil_tmp53 = (unsigned int )__cil_tmp52;
   __cil_tmp54 = __cil_tmp53 + 732;
   mem_83 = (ALTERNATIVE_ARCHITECTURE_TYPE *)__cil_tmp54;
-  __cil_tmp55 = *mem_83;
+  __cil_tmp55 = *mem_83/* @UNDEFINED_BEHAVIOUR: Dereferencing invalid pointer '4292804608 + 732' */;
   __cil_tmp56 = (int )__cil_tmp55;
   if (__cil_tmp56 == 1) {
     __cil_tmp57 = 0 * 64U;
@@ -20948,6 +20935,9 @@ void stub_driver_init(void)
 }
 int main(void) 
 { DRIVER_OBJECT d ;
+  // Here follows the fix of the previously discovered undefined behaviour:
+  struct _DRIVER_EXTENSION driver_extension; // HOWEVER, HOW TO INITIALISE FIELDS? THIS WOULD REQUIRE UNDERSTANDING INTENDED FUNCTIONALITY OF THIS BENCHMARK - NONTRIVIAL MANUAL TASK!!!!
+  d.DriverExtension = &driver_extension;
   // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)&d + 24' (i.e. 'd.DriverExtension') is not initialised.
   UNICODE_STRING u ;
   NTSTATUS status ;
