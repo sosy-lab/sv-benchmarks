@@ -113,6 +113,7 @@ int main()
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
 
   char **argv=malloc((argc+1)*sizeof(char*));
+  char **mem_track=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;
 
   for(int i=0; i<argc; ++i)
@@ -120,6 +121,7 @@ int main()
     // let's limit the size of arguments to 10, which is an
     // underapproximation obviously
     argv[i]=malloc(11);
+    mem_track[i]=argv[i];
     argv[i][10] = 0;
     for(int j=0; j<10; ++j)
       argv[i][j]=__VERIFIER_nondet_char();
@@ -129,7 +131,8 @@ int main()
 
   // Free argv
   for(int i=0; i<argc; ++i)
-    free(argv[i]);
+    free(mem_track[i]);
+  free(mem_track);
   free(argv);
 
   free(a);
