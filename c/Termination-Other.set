@@ -52,7 +52,6 @@ product-lines/*_false-termination*.c
 recursive/*_false-termination*.c
 recursive/*_true-termination*.c
 recursive-simple/*_true-termination*.c
-recursive-simple/*_false-termination*.c
 
 # from ReachSafety-Sequentialized
 systemc/*_false-termination*.cil.c
