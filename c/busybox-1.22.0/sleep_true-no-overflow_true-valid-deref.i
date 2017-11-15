@@ -2374,7 +2374,7 @@ static void bb_error_msg_and_die(const char *s, ...)
 }
 static void bb_show_usage(void)
 {
-  ;
+  abort();
 }
 static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
@@ -2533,7 +2533,7 @@ signed int __main(signed int argc, char **argv)
         tmp_if_expr$10 = 1 != 0;
       else
       {
-        tmp_if_expr$10 = ((signed int)*pp != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
+        tmp_if_expr$10 = ((arg == pp || (signed int)*pp != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       if(!(tmp_if_expr$10 == (_Bool)0))
         bb_show_usage();

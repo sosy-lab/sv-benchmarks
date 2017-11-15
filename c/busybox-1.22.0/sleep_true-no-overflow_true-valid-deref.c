@@ -107,7 +107,7 @@ static void bb_error_msg_and_die(const char *s, ...)
 // file ./libbb-dump.i line 1
 static void bb_show_usage(void)
 {
-  ;
+  abort();
 }
 
 // file include/libbb.h line 1092
@@ -296,7 +296,7 @@ signed int __main(signed int argc, char **argv)
       else
       {
 
-        tmp_if_expr$10 = ((signed int)*pp != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
+        tmp_if_expr$10 = ((arg == pp || (signed int)*pp != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
       if(!(tmp_if_expr$10 == (_Bool)0))
         bb_show_usage();
