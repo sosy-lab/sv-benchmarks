@@ -69,6 +69,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
     ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
     ("ldv-sets", "unexpected subdirectory model"), # subdirectory containing models
+    ("ldv-linux-3.14-races", "unexpected subdirectory model"), # subdirectory containing models
 
     # historical
     ("ntdrivers", "missing license"),
