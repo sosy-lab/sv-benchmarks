@@ -115,38 +115,6 @@ KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ("termination-numeric/Binomial_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
     ("termination-numeric/TerminatorRec02_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
 
-    ("busybox-1.22.0/basename_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/basename_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/cut_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/cut_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/date_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/date_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/expand_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/expand_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/ls-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/ls-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/od_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/od_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/printf_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/printf_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/stty_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/stty_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/test-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/test-incomplete_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/touch_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/touch_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/wc_false-unreach-call_true-no-overflow_true-valid-memsafety.c", "has reachable error location but claims to have no memory leaks"),
-    ("busybox-1.22.0/wc_false-unreach-call_true-no-overflow_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("ddv-machzwd/ddv_machzwd_all_false-unreach-call_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("ddv-machzwd/ddv_machzwd_inw_false-unreach-call_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("ddv-machzwd/ddv_machzwd_outb_false-unreach-call_true-valid-memsafety.i", "has reachable error location but claims to have no memory leaks"),
-    ("locks/test_locks_14_false-unreach-call_true-valid-memsafety_false-termination.c", "has reachable error location but claims to have no memory leaks"),
-    ("locks/test_locks_15_false-unreach-call_true-valid-memsafety_false-termination.c", "has reachable error location but claims to have no memory leaks"),
-    ("ntdrivers-simplified/cdaudio_simpl1_false-unreach-call_true-valid-memsafety_true-termination.cil.c", "has reachable error location but claims to have no memory leaks"),
-    ("ntdrivers-simplified/floppy_simpl3_false-unreach-call_true-valid-memsafety_true-termination.cil.c", "has reachable error location but claims to have no memory leaks"),
-    ("ntdrivers-simplified/floppy_simpl4_false-unreach-call_true-valid-memsafety_true-termination.cil.c", "has reachable error location but claims to have no memory leaks"),
-    ("ntdrivers-simplified/kbfiltr_simpl2_false-unreach-call_true-valid-memsafety_true-termination.cil.c", "has reachable error location but claims to have no memory leaks"),
-
     ("ldv-multiproperty/linux-4.0-rc1---drivers--char--ipmi--ipmi_msghandler.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
     ("ldv-multiproperty/linux-4.0-rc1---drivers--hwmon--applesmc.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
     ("ldv-multiproperty/linux-4.0-rc1---drivers--hwmon--nct6775.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
@@ -356,10 +324,11 @@ class BenchmarkFileChecks(Checks):
                 self.error(
                     "has expected undefined behavior but also a verdict for some other property")
 
-        if violates("unreach-call") and "_true-valid-memsafety" in self.filename:
-            # __VERIFIER_error() aborts the program, and it is not clear whether allocated memory
-            # at this point would count as memory leak, so we forbid this combination
-            self.error("has reachable error location but claims to have no memory leaks")
+        if violates("unreach-call") and "_true-valid-memcleanup" in self.filename:
+            # __VERIFIER_error() aborts the program, and if there is still any
+            # allocated memory this would violate memcleanup.
+            # We think this is probable (though not guaranteed), so we issue a warning.
+            self.error("has reachable error location but claims to have no memory leaks (this is not necessarily wrong but should be checked)")
 
     def check_unreach_call_tasks_have_verifier_error(self):
         if self.filename.endswith(".yml"):
