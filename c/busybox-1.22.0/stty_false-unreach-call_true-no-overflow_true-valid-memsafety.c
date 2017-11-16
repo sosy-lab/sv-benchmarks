@@ -1331,7 +1331,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
       }
       if(!(tmp_if_expr$4 == (_Bool)0))
       {
-        const unsigned char *__s2 = (const char *)arg;
+        const char *__s2 = (const char *)arg;
         signed int __result;
 
         __result = (signed int)((const char *)"^-")[(signed long int)0] - (signed int)__s2[(signed long int)0];

@@ -1565,111 +1565,6 @@ extern void *memfrob (void *__s, size_t __n) __attribute__ ((__nothrow__ , __lea
 extern char *basename (const char *__filename) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 
-struct stat
-  {
-    __dev_t st_dev;
-    __ino_t st_ino;
-    __nlink_t st_nlink;
-    __mode_t st_mode;
-    __uid_t st_uid;
-    __gid_t st_gid;
-    int __pad0;
-    __dev_t st_rdev;
-    __off_t st_size;
-    __blksize_t st_blksize;
-    __blkcnt_t st_blocks;
-    struct timespec st_atim;
-    struct timespec st_mtim;
-    struct timespec st_ctim;
-    __syscall_slong_t __glibc_reserved[3];
-  };
-struct stat64
-  {
-    __dev_t st_dev;
-    __ino64_t st_ino;
-    __nlink_t st_nlink;
-    __mode_t st_mode;
-    __uid_t st_uid;
-    __gid_t st_gid;
-    int __pad0;
-    __dev_t st_rdev;
-    __off_t st_size;
-    __blksize_t st_blksize;
-    __blkcnt64_t st_blocks;
-    struct timespec st_atim;
-    struct timespec st_mtim;
-    struct timespec st_ctim;
-    __syscall_slong_t __glibc_reserved[3];
-  };
-extern int stat (const char *__restrict __file,
-   struct stat *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-extern int fstat (int __fd, struct stat *__buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int stat64 (const char *__restrict __file,
-     struct stat64 *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-extern int fstat64 (int __fd, struct stat64 *__buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int fstatat (int __fd, const char *__restrict __file,
-      struct stat *__restrict __buf, int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int fstatat64 (int __fd, const char *__restrict __file,
-        struct stat64 *__restrict __buf, int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int lstat (const char *__restrict __file,
-    struct stat *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-extern int lstat64 (const char *__restrict __file,
-      struct stat64 *__restrict __buf)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-extern int chmod (const char *__file, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int lchmod (const char *__file, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int fchmod (int __fd, __mode_t __mode) __attribute__ ((__nothrow__ , __leaf__));
-extern int fchmodat (int __fd, const char *__file, __mode_t __mode,
-       int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2))) ;
-extern __mode_t umask (__mode_t __mask) __attribute__ ((__nothrow__ , __leaf__));
-extern __mode_t getumask (void) __attribute__ ((__nothrow__ , __leaf__));
-extern int mkdir (const char *__path, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int mkdirat (int __fd, const char *__path, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int mknod (const char *__path, __mode_t __mode, __dev_t __dev)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int mknodat (int __fd, const char *__path, __mode_t __mode,
-      __dev_t __dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int mkfifo (const char *__path, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int mkfifoat (int __fd, const char *__path, __mode_t __mode)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int utimensat (int __fd, const char *__path,
-        const struct timespec __times[2],
-        int __flags)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int futimens (int __fd, const struct timespec __times[2]) __attribute__ ((__nothrow__ , __leaf__));
-extern int __fxstat (int __ver, int __fildes, struct stat *__stat_buf)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3)));
-extern int __xstat (int __ver, const char *__filename,
-      struct stat *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __lxstat (int __ver, const char *__filename,
-       struct stat *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __fxstatat (int __ver, int __fildes, const char *__filename,
-         struct stat *__stat_buf, int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4)));
-extern int __fxstat64 (int __ver, int __fildes, struct stat64 *__stat_buf)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3)));
-extern int __xstat64 (int __ver, const char *__filename,
-        struct stat64 *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __lxstat64 (int __ver, const char *__filename,
-         struct stat64 *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __fxstatat64 (int __ver, int __fildes, const char *__filename,
-    struct stat64 *__stat_buf, int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4)));
-extern int __xmknod (int __ver, const char *__path, __mode_t __mode,
-       __dev_t *__dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)));
-extern int __xmknodat (int __ver, int __fd, const char *__path,
-         __mode_t __mode, __dev_t *__dev)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 5)));
-
-
 typedef __intptr_t intptr_t;
 typedef __socklen_t socklen_t;
 extern int access (const char *__name, int __type) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
@@ -2247,90 +2142,67 @@ extern int getutid_r (const struct utmp *__id, struct utmp *__buffer,
 extern int getutline_r (const struct utmp *__line,
    struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
 
-struct libbb_anonymous$0;
-struct llist_t;
 struct suffix_mult;
-static inline signed int bb_ascii_isalnum(unsigned char a);
+static void bb_error_msg(const char *s, ...);
 static void bb_error_msg_and_die(const char *s, ...);
 static char * bb_get_chunk_from_file(struct _IO_FILE *file, signed int *end);
 static void bb_perror_msg(const char *s, ...);
 static void bb_perror_msg_and_die(const char *s, ...);
 static void bb_show_usage(void);
 static void bb_simple_perror_msg(const char *s);
-static unsigned int bb_strtou(const char *arg, char **endp, signed int base);
-static inline unsigned int bb_strtoui(const char *str, char **end, signed int b);
 static void bb_verror_msg(const char *s, va_list p, const char *strerr);
-static const char * decode_base64(char **pp_dst, const char *src);
+static void die_if_ferror(struct _IO_FILE *fp, const char *fn);
+static void die_if_ferror_stdout(void);
+static unsigned long int eat_num(_Bool *negative_N, const char *p);
+static signed int fclose_if_not_stdin(struct _IO_FILE *f);
 static signed int fflush_all(void);
+static void fflush_stdout_and_exit(signed int retval);
 static struct _IO_FILE * fopen_or_warn(const char *path, const char *mode);
 static struct _IO_FILE * fopen_or_warn_stdin(const char *filename);
 static signed long int full_write(signed int fd, const void *buf, unsigned long int len);
-static unsigned int getopt32(char **argv, const char *applet_opts, ...);
-static unsigned long long int handle_errors(unsigned long long int v, char **endp);
-static void llist_add_to_end(struct llist_t **list_head, void *data);
-static void read_base64(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream, signed int flags);
-static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream, signed int flags);
-static unsigned long long int ret_ERANGE(void);
+static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count);
+static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count);
+static void print_first_N(struct _IO_FILE *fp, unsigned long int count, _Bool count_bytes);
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count);
-void decode_fn_ptr$object(struct _IO_FILE *, struct _IO_FILE *, signed int);
-static signed int xatoi_positive(const char *numstr);
-static unsigned int xatou_range(const char *numstr, unsigned int lower, unsigned int upper);
-static struct _IO_FILE * xfopen(const char *path, const char *mode);
-static struct _IO_FILE * xfopen_for_write(const char *path);
-static struct _IO_FILE * xfopen_stdin(const char *filename);
+static inline unsigned long int xatoul_sfx(const char *str, struct suffix_mult *sfx);
+static unsigned long long int xatoull_sfx(const char *numstr, struct suffix_mult *suffixes);
 static void xfunc_die(void);
 static void * xmalloc(unsigned long int size);
-static char * xmalloc_fgetline(struct _IO_FILE *file);
+static char * xmalloc_fgets(struct _IO_FILE *file);
 static void * xrealloc(void *ptr, unsigned long int size);
-static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsigned int lower, unsigned int upper, struct suffix_mult *suffixes);
+static unsigned long long int xstrtoull_range_sfx(const char *numstr, signed int base, unsigned long long int lower, unsigned long long int upper, struct suffix_mult *suffixes);
 static void * xzalloc(unsigned long int size);
 struct libbb_anonymous$7
 {
   unsigned long int __val[16l];
-};
-struct libbb_anonymous$0
-{
-  unsigned char opt_char;
-  signed char param_type;
-  unsigned int switch_on;
-  unsigned int switch_off;
-  unsigned int incongruously;
-  unsigned int requires;
-  void **optarg;
-  signed int *counter;
-};
-struct llist_t
-{
-  struct llist_t *link;
-  char *data;
 };
 struct suffix_mult
 {
   char suffix[4l];
   unsigned int mult;
 };
-static const char *applet_long_options;
 static const char *applet_name;
 static signed int bb_errno_location;
 static signed int * const bb_errno = &bb_errno_location;
 static const char bb_msg_memory_exhausted[14l] = { (const char)111, (const char)117, (const char)116, (const char)32, (const char)111, (const char)102, (const char)32, (const char)109, (const char)101, (const char)109, (const char)111, (const char)114, (const char)121, (const char)0 };
 static const char bb_msg_standard_input[15l] = { (const char)115, (const char)116, (const char)97, (const char)110, (const char)100, (const char)97, (const char)114, (const char)100, (const char)32, (const char)105, (const char)110, (const char)112, (const char)117, (const char)116, (const char)0 };
-static struct option bb_null_long_options[1l] = { { .name=(const char *)((void *)0), .has_arg=0, .flag=(signed int *)((void *)0), .val=0 } };
-static const char bb_uuenc_tbl_base64[66l] = { (const char)65, (const char)66, (const char)67, (const char)68, (const char)69, (const char)70, (const char)71, (const char)72, (const char)73, (const char)74, (const char)75, (const char)76, (const char)77, (const char)78, (const char)79, (const char)80, (const char)81, (const char)82, (const char)83, (const char)84, (const char)85, (const char)86, (const char)87, (const char)88, (const char)89, (const char)90, (const char)97, (const char)98, (const char)99, (const char)100, (const char)101, (const char)102, (const char)103, (const char)104, (const char)105, (const char)106, (const char)107, (const char)108, (const char)109, (const char)110, (const char)111, (const char)112, (const char)113, (const char)114, (const char)115, (const char)116, (const char)117, (const char)118, (const char)119, (const char)120, (const char)121, (const char)122, (const char)48, (const char)49, (const char)50, (const char)51, (const char)52, (const char)53, (const char)54, (const char)55, (const char)56, (const char)57, (const char)43, (const char)47, (const char)61, (const char)0 };
+static const char bb_msg_standard_output[16l] = { (const char)115, (const char)116, (const char)97, (const char)110, (const char)100, (const char)97, (const char)114, (const char)100, (const char)32, (const char)111, (const char)117, (const char)116, (const char)112, (const char)117, (const char)116, (const char)0 };
+static struct suffix_mult bkm_suffixes[4l] = { { .suffix={ (char)98, (char)0, (char)0, (char)0 }, .mult=(unsigned int)512 },
+    { .suffix={ (char)107, (char)0, (char)0, (char)0 }, .mult=(unsigned int)1024 },
+    { .suffix={ (char)109, (char)0, (char)0, (char)0 }, .mult=(unsigned int)(1024 * 1024) },
+    { .suffix={ (char)0, (char)0, (char)0, (char)0 }, .mult=(unsigned int)0 } };
 static struct __jmp_buf_tag die_jmp[1l];
 static signed int die_sleep;
+static const char head_opts[7l] = { (const char)110, (const char)58, (const char)99, (const char)58, (const char)113, (const char)118, (const char)0 };
 static signed char logmode = (signed char)1;
 static const char *msg_eol = "\n";
-static const char *opt_complementary;
-static unsigned int option_mask32;
 static unsigned char xfunc_error_retval = (unsigned char)1;
-static inline signed int bb_ascii_isalnum(unsigned char a)
+static void bb_error_msg(const char *s, ...)
 {
-  unsigned char b = (unsigned char)((signed int)a - 48);
-  if((signed int)b <= 9)
-    return (signed int)((signed int)b <= 9);
-  b = (unsigned char)(((signed int)a | 32) - 97);
-  return (signed int)((signed int)b <= 122 - 97);
+  va_list p;
+  __builtin_va_start(p,s);
+  bb_verror_msg(s, p, (const char *)((void *)0));
+  __builtin_va_end(p);
 }
 static void bb_error_msg_and_die(const char *s, ...)
 {
@@ -2421,44 +2293,6 @@ static void bb_simple_perror_msg(const char *s)
 {
   bb_perror_msg("%s", s);
 }
-static unsigned int bb_strtou(const char *arg, char **endp, signed int base)
-{
-  unsigned long int v;
-  char *endptr;
-  if(endp == ((char **)((void *)0)))
-    endp = &endptr;
-  *endp = (char *)arg;
-  signed int return_value_bb_ascii_isalnum$2;
-  return_value_bb_ascii_isalnum$2=bb_ascii_isalnum(arg[(signed long int)0]);
-  unsigned long long int return_value_ret_ERANGE$1;
-  if(return_value_bb_ascii_isalnum$2 == 0)
-  {
-    return_value_ret_ERANGE$1=ret_ERANGE();
-    return (unsigned int)return_value_ret_ERANGE$1;
-  }
-  *bb_errno = 0;
-  v=strtoul(arg, endp, base);
-  unsigned long long int return_value_ret_ERANGE$3;
-  if(v > 4294967295ul)
-  {
-    return_value_ret_ERANGE$3=ret_ERANGE();
-    return (unsigned int)return_value_ret_ERANGE$3;
-  }
-  unsigned long long int return_value_handle_errors$4;
-  return_value_handle_errors$4=handle_errors(v, endp);
-  return (unsigned int)return_value_handle_errors$4;
-}
-static inline unsigned int bb_strtoui(const char *str, char **end, signed int b)
-{
-  unsigned long int v;
-  v=strtoul(str, end, b);
-  if(v > 4294967295ul)
-  {
-    *bb_errno = 34;
-    return (unsigned int)2147483647 * 2u + 1u;
-  }
-  return (unsigned int)v;
-}
 static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
@@ -2537,72 +2371,60 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
     syslog(3, "%s", msg + (signed long int)applet_len);
   free((void *)msg);
 }
-static const char * decode_base64(char **pp_dst, const char *src)
+static void die_if_ferror(struct _IO_FILE *fp, const char *fn)
 {
-  char *dst = *pp_dst;
-  const char *src_tail;
-  char *tmp_post$2;
-  char *tmp_post$3;
-  char *tmp_post$4;
-  while((_Bool)1)
+  signed int return_value_ferror$1;
+  return_value_ferror$1=ferror(fp);
+  if(!(return_value_ferror$1 == 0))
+    bb_error_msg_and_die("%s: I/O error", fn);
+}
+static void die_if_ferror_stdout(void)
+{
+  die_if_ferror(stdout, bb_msg_standard_output);
+}
+static unsigned long int eat_num(_Bool *negative_N, const char *p)
+{
+  if((signed int)*p == 45)
   {
-    unsigned char six_bit[4l];
-    signed int count = 0;
-    src_tail = src;
-    while(count < 4)
-    {
-      char *table_ptr;
-      signed int ch;
-      do
-      {
-        ch = (signed int)*src;
-        if(ch == 0)
-        {
-          if(count == 0)
-            src_tail = src;
-          goto ret;
-        }
-        src = src + 1l;
-        char *return_value___builtin_strchr$1;
-        return_value___builtin_strchr$1=strchr(bb_uuenc_tbl_base64, ch);
-        table_ptr = return_value___builtin_strchr$1;
-      }
-      while(table_ptr == ((char *)((void *)0)));
-      ch = (signed int)(table_ptr - bb_uuenc_tbl_base64);
-      if(ch == 64)
-        break;
-      six_bit[(signed long int)count] = (unsigned char)ch;
-      count = count + 1;
-    }
-    if(count > 1)
-    {
-      tmp_post$2 = dst;
-      dst = dst + 1l;
-      *tmp_post$2 = (char)((signed int)six_bit[(signed long int)0] << 2 | (signed int)six_bit[(signed long int)1] >> 4);
-    }
-    if(count > 2)
-    {
-      tmp_post$3 = dst;
-      dst = dst + 1l;
-      *tmp_post$3 = (char)((signed int)six_bit[(signed long int)1] << 4 | (signed int)six_bit[(signed long int)2] >> 2);
-    }
-    if(count > 3)
-    {
-      tmp_post$4 = dst;
-      dst = dst + 1l;
-      *tmp_post$4 = (char)((signed int)six_bit[(signed long int)2] << 6 | (signed int)six_bit[(signed long int)3]);
-    }
+    *negative_N = 1 != 0;
+    p = p + 1l;
   }
-ret:
-  ;
-  *pp_dst = dst;
-  return src_tail;
+  unsigned long int return_value_xatoul_sfx$1;
+  return_value_xatoul_sfx$1=xatoul_sfx(p, bkm_suffixes);
+  return return_value_xatoul_sfx$1;
+}
+static signed int fclose_if_not_stdin(struct _IO_FILE *f)
+{
+  signed int r;
+  r=ferror(f);
+  if(!(r == 0))
+    *bb_errno = 5;
+  signed int return_value_fclose$1;
+  if(!(f == stdin))
+  {
+    return_value_fclose$1=fclose(f);
+    return r | return_value_fclose$1;
+  }
+  return r;
 }
 static signed int fflush_all(void)
 {
   signed int return_value_fflush$1;
   return_value_fflush$1=fflush((struct _IO_FILE *)((void *)0));
   return return_value_fflush$1;
+}
+static void fflush_stdout_and_exit(signed int retval)
+{
+  signed int return_value_fflush$1;
+  return_value_fflush$1=fflush(stdout);
+  if(!(return_value_fflush$1 == 0))
+    bb_perror_msg_and_die(bb_msg_standard_output);
+  if(die_sleep < 0)
+  {
+    xfunc_error_retval = (unsigned char)retval;
+    abort();
+  }
+  exit(retval);
 }
 static struct _IO_FILE * fopen_or_warn(const char *path, const char *mode)
 {
@@ -2645,668 +2467,241 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
   }
   return total;
 }
-static unsigned int getopt32(char **argv, const char *applet_opts, ...)
+signed int __main(signed int argc, char **argv)
 {
-  signed int argc;
-  unsigned int flags = (unsigned int)0;
-  unsigned int requires = (unsigned int)0;
-  struct libbb_anonymous$0 complementary[33l];
-  char first_char;
-  signed int c;
-  const unsigned char *s;
-  struct libbb_anonymous$0 *on_off;
-  __builtin_va_list p;
-  struct option *l_o;
-  struct option *long_options = (struct option *)&bb_null_long_options;
-  unsigned int trigger;
-  char **pargv;
-  signed int min_arg = 0;
-  signed int max_arg = -1;
-  signed int spec_flgs = 0;
-  argc = 1;
-  for( ; !(argv[(signed long int)argc] == ((char *)((void *)0))); argc = argc + 1)
-    ;
-  __builtin_va_start(p,applet_opts);
-  c = 0;
-  on_off = complementary;
-  memset((void *)on_off, 0, sizeof(struct libbb_anonymous$0 [33l]) );
-  first_char = applet_opts[(signed long int)0];
-  if((signed int)first_char == 33)
-    applet_opts = applet_opts + 1l;
-  s = (const unsigned char *)applet_opts;
-  _Bool tmp_if_expr$1;
-  if((signed int)*s == 43)
-    tmp_if_expr$1 = 1 != 0;
+  unsigned long int count = (unsigned long int)10;
+  signed int header_threshhold = 1;
+  _Bool count_bytes = 0 != 0;
+  _Bool negative_N = 0 != 0;
+  struct _IO_FILE *fp;
+  const char *fmt;
+  char *p;
+  signed int opt;
+  signed int retval = 0;
+  if(!(*(1l + argv) == ((char *)((void *)0))))
+  {
+    if(!((signed int)*(*(1l + argv)) == 45))
+      goto __CPROVER_DUMP_L9;
+    if(!(208 + (signed int)(unsigned char)(signed int)*(1l + *(1l + argv)) <= 9))
+      goto __CPROVER_DUMP_L9;
+    argc = argc - 1;
+    argv = argv + 1l;
+    p = argv[(signed long int)0] + (signed long int)1;
+  }
   else
-    tmp_if_expr$1 = ((signed int)*s == 45 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-  if(!(tmp_if_expr$1 == (_Bool)0))
-    s = s + 1l;
-  for( ; !((signed int)*s == 0); c = c + 1)
   {
-    if(c >= 32)
-      break;
-    on_off->opt_char = *s;
-    on_off->switch_on = (unsigned int)(1 << c);
-    s = s + 1l;
-    if((signed int)*s == 58)
+  __CPROVER_DUMP_L9:
+    ;
+    opt=getopt(argc, argv, head_opts);
+    if(!(opt > 0))
+      goto __CPROVER_DUMP_L17;
+    if(!(opt == 113))
     {
-      on_off->optarg=__builtin_va_arg(p,__typeof__(on_off->optarg));
-      do
-      {
-        s = s + 1l;
-        if(!((signed int)*s == 58))
-          break;
-      }
-      while((_Bool)1);
+      if(opt == 118)
+        goto __CPROVER_DUMP_L11;
+      if(opt == 99)
+        goto __CPROVER_DUMP_L12;
+      if(opt == 110)
+        goto __CPROVER_DUMP_L13;
+      goto __CPROVER_DUMP_L15;
     }
-    on_off = on_off + 1l;
+    header_threshhold = 2147483647;
+    goto __CPROVER_DUMP_L16;
+  __CPROVER_DUMP_L11:
+    ;
+    header_threshhold = -1;
+    goto __CPROVER_DUMP_L16;
+  __CPROVER_DUMP_L12:
+    ;
+    count_bytes = 1 != 0;
+  __CPROVER_DUMP_L13:
+    ;
+    p = optarg;
   }
-  const char *tmp_post$5;
-  const char *tmp_post$6;
-  if(!(applet_long_options == ((const char *)((void *)0))))
+  if(p!=((void *)0))
   {
-    const char *optstr;
-    unsigned int i;
-    unsigned int count = (unsigned int)1;
-    optstr = applet_long_options;
-    while(!((signed int)*optstr == 0))
-    {
-      unsigned long int return_value_strlen$2;
-      return_value_strlen$2=strlen(optstr);
-      optstr = optstr + (signed long int)(return_value_strlen$2 + (unsigned long int)3);
-      count = count + 1u;
-    }
-    void *return_value___builtin_alloca$3;
-    return_value___builtin_alloca$3=__builtin_alloca((unsigned long int)count * sizeof(struct option) );
-    long_options = (struct option *)return_value___builtin_alloca$3;
-    memset((void *)long_options, 0, (unsigned long int)count * sizeof(struct option) );
-    i = (unsigned int)0;
-    optstr = applet_long_options;
-    do
-    {
-      count = count - 1u;
-      if(count == 0u)
-        break;
-      (long_options + (signed long int)i)->name = optstr;
-      unsigned long int return_value_strlen$4;
-      return_value_strlen$4=strlen(optstr);
-      optstr = optstr + (signed long int)(return_value_strlen$4 + (unsigned long int)1);
-      tmp_post$5 = optstr;
-      optstr = optstr + 1l;
-      (long_options + (signed long int)i)->has_arg = (signed int)(unsigned char)*tmp_post$5;
-      tmp_post$6 = optstr;
-      optstr = optstr + 1l;
-      (long_options + (signed long int)i)->val = (signed int)(unsigned char)*tmp_post$6;
-      i = i + 1u;
-    }
-    while((_Bool)1);
-    l_o = long_options;
-    for( ; !(l_o->name == ((const char *)((void *)0))); l_o = l_o + 1l)
-    {
-      if(l_o->flag == ((signed int *)((void *)0)))
-      {
-        on_off = complementary;
-        for( ; !((signed int)on_off->opt_char == 0); on_off = on_off + 1l)
-          if((signed int)on_off->opt_char == l_o->val)
-            goto next_long;
-        if(c >= 32)
-          break;
-        on_off->opt_char = (unsigned char)l_o->val;
-        on_off->switch_on = (unsigned int)(1 << c);
-        if(!(l_o->has_arg == 0))
-          on_off->optarg=__builtin_va_arg(p,__typeof__(on_off->optarg));
-        c = c + 1;
-      }
-    next_long:
-      ;
-    }
-    applet_long_options = (const char *)((void *)0);
+GET_COUNT:
+  ;
+  count=eat_num(&negative_N, p);
+  goto __CPROVER_DUMP_L16;
   }
-  s = (const unsigned char *)opt_complementary;
-  _Bool tmp_if_expr$7;
-  _Bool tmp_if_expr$8;
-  _Bool tmp_if_expr$9;
-  _Bool tmp_if_expr$10;
+__CPROVER_DUMP_L15:
+  ;
+  bb_show_usage();
+__CPROVER_DUMP_L16:
+  ;
+  goto __CPROVER_DUMP_L9;
+__CPROVER_DUMP_L17:
+  ;
+  argc = argc - optind;
+  argv = argv + (signed long int)optind;
+  if(*argv == ((char *)((void *)0)))
+  {
+    argv = argv - 1l;
+    *argv = (char *)"-";
+  }
+  fmt = "\n==> %s <==\n" + (signed long int)1;
+  if(header_threshhold >= argc)
+    header_threshhold = 0;
+  if(!((signed int)negative_N == 0))
+  {
+    if(count >= 268435455ul)
+      bb_error_msg("count is too big: %lu", count);
+  }
   while((_Bool)1)
   {
-    if(!(s == ((const unsigned char *)((void *)0))))
-      tmp_if_expr$7 = ((signed int)*s != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-    else
-      tmp_if_expr$7 = 0 != 0;
-    if(tmp_if_expr$7 == (_Bool)0)
-      break;
-    struct libbb_anonymous$0 *pair;
-    unsigned int *pair_switch;
-    if(!((signed int)*s == 58))
+    fp=fopen_or_warn_stdin(*argv);
+    if(!(fp == ((struct _IO_FILE *)((void *)0))))
     {
-      c = (signed int)s[(signed long int)1];
-      if((signed int)*s == 63)
+      if(fp == stdin)
       {
-        if(!(c < 48))
-        {
-          if(c > 57)
-            goto __CPROVER_DUMP_L24;
-        }
+        *argv = (char *)bb_msg_standard_input;
+      }
+      if(!(header_threshhold == 0))
+      {
+        printf(fmt, *argv);
+      }
+      if(!((signed int)negative_N == 0))
+      {
+        if(!((signed int)count_bytes == 0))
+          print_except_N_last_bytes(fp, (unsigned int)count);
         else
-        {
-        __CPROVER_DUMP_L24:
-          ;
-          spec_flgs = spec_flgs | 1;
-          goto __CPROVER_DUMP_L57;
-        }
-        max_arg = c - 48;
-        s = s + 1l;
+          print_except_N_last_lines(fp, (unsigned int)count);
       }
       else
-        if((signed int)*s == 45)
-        {
-          if(!(c < 48))
-          {
-            if(c > 57)
-              goto __CPROVER_DUMP_L27;
-          }
-          else
-          {
-          __CPROVER_DUMP_L27:
-            ;
-            if(c == 45)
-            {
-              spec_flgs = spec_flgs | 4;
-              s = s + 1l;
-            }
-            else
-              spec_flgs = spec_flgs | 2;
-            goto __CPROVER_DUMP_L58;
-          }
-          min_arg = c - 48;
-          s = s + 1l;
-        }
-        else
-          if((signed int)*s == 61)
-          {
-            max_arg = c - 48;
-            min_arg = max_arg;
-            s = s + 1l;
-          }
-          else
-          {
-            on_off = complementary;
-            for( ; !((signed int)on_off->opt_char == 0); on_off = on_off + 1l)
-              if(on_off->opt_char == *s)
-                goto found_opt;
-            bb_error_msg_and_die("NO OPT %c!", *s);
-          found_opt:
-            ;
-            if(c == 58)
-            {
-              if(!((signed int)*(2l + s) == 58))
-                goto __CPROVER_DUMP_L36;
-              on_off->param_type = (signed char)1;
-            }
-            else
-            {
-            __CPROVER_DUMP_L36:
-              ;
-              if(c == 43)
-              {
-                if((signed int)*(2l + s) == 58)
-                  tmp_if_expr$8 = 1 != 0;
-                else
-                  tmp_if_expr$8 = ((signed int)s[(signed long int)2] == 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-                if(tmp_if_expr$8 == (_Bool)0)
-                  goto __CPROVER_DUMP_L39;
-                on_off->param_type = (signed char)2;
-                s = s + 1l;
-              }
-              else
-              {
-              __CPROVER_DUMP_L39:
-                ;
-                if(!(c == 58))
-                {
-                  if(c == 0)
-                    goto __CPROVER_DUMP_L40;
-                }
-                else
-                {
-                __CPROVER_DUMP_L40:
-                  ;
-                  requires = requires | on_off->switch_on;
-                  goto __CPROVER_DUMP_L59;
-                }
-                if(c == 45)
-                {
-                  if((signed int)*(2l + s) == 58)
-                    tmp_if_expr$9 = 1 != 0;
-                  else
-                    tmp_if_expr$9 = ((signed int)s[(signed long int)2] == 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-                  if(tmp_if_expr$9 == (_Bool)0)
-                    goto __CPROVER_DUMP_L44;
-                  flags = flags | on_off->switch_on;
-                  on_off->incongruously = on_off->incongruously | on_off->switch_on;
-                  s = s + 1l;
-                }
-                else
-                {
-                __CPROVER_DUMP_L44:
-                  ;
-                  if(c == (signed int)*s)
-                  {
-                    on_off->counter=__builtin_va_arg(p,__typeof__(on_off->counter));
-                    s = s + 1l;
-                  }
-                  pair = on_off;
-                  pair_switch = &pair->switch_on;
-                  s = s + 1l;
-                  while((_Bool)1)
-                  {
-                    if(!((signed int)*s == 0))
-                      tmp_if_expr$10 = ((signed int)*s != 58 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-                    else
-                      tmp_if_expr$10 = 0 != 0;
-                    if(tmp_if_expr$10 == (_Bool)0)
-                      break;
-                    if((signed int)*s == 63)
-                      pair_switch = &pair->requires;
-                    else
-                      if((signed int)*s == 45)
-                      {
-                        if(pair_switch == &pair->switch_off)
-                          pair_switch = &pair->incongruously;
-                        else
-                          pair_switch = &pair->switch_off;
-                      }
-                      else
-                      {
-                        on_off = complementary;
-                        for( ; !((signed int)on_off->opt_char == 0); on_off = on_off + 1l)
-                          if(on_off->opt_char == *s)
-                          {
-                            *pair_switch = *pair_switch | on_off->switch_on;
-                            break;
-                          }
-                      }
-                    s = s + 1l;
-                  }
-                  s = s - 1l;
-                }
-              }
-            }
-          }
-    }
-  __CPROVER_DUMP_L57:
-    ;
-  __CPROVER_DUMP_L58:
-    ;
-  __CPROVER_DUMP_L59:
-    ;
-    s = s + 1l;
-  }
-  opt_complementary = (const char *)((void *)0);
-  __builtin_va_end(p);
-  if(!((6 & spec_flgs) == 0))
-  {
-    pargv = argv + (signed long int)1;
-    for( ; !(*pargv == ((char *)((void *)0))); pargv = pargv + 1l)
-    {
-      if(!((signed int)*(*pargv) == 45))
+        print_first_N(fp, count, count_bytes);
+      die_if_ferror_stdout();
+      signed int return_value_fclose_if_not_stdin$1;
+      return_value_fclose_if_not_stdin$1=fclose_if_not_stdin(fp);
+      if(!(return_value_fclose_if_not_stdin$1 == 0))
       {
-        if(!((signed int)*(*pargv) == 0))
-        {
-          char *pp;
-          unsigned long int return_value_strlen$11;
-          return_value_strlen$11=strlen(*pargv);
-          void *return_value_xmalloc$12;
-          return_value_xmalloc$12=xmalloc(return_value_strlen$11 + (unsigned long int)2);
-          pp = (char *)return_value_xmalloc$12;
-          *pp = (char)45;
-          strcpy(pp + (signed long int)1, *pargv);
-          *pargv = pp;
-        }
+        bb_simple_perror_msg(*argv);
+        retval = 1;
       }
-      if((2 & spec_flgs) == 0)
-        break;
     }
+    else
+      retval = 1;
+    fmt = "\n==> %s <==\n";
+    argv = argv + 1l;
+    if(*argv == ((char *)((void *)0)))
+      break;
   }
-  optind = 0;
+  fflush(stdout);
+  return retval;
+}
+static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count)
+{
+  unsigned char *circle;
+  count = count + 1u;
+  void *return_value_xmalloc$1;
+  return_value_xmalloc$1=xmalloc((unsigned long int)count);
+  circle = (unsigned char *)return_value_xmalloc$1;
+  unsigned int head = (unsigned int)0;
+  unsigned int tmp_post$2;
   do
   {
-    c=getopt_long(argc, argv, applet_opts, long_options, (signed int *)((void *)0));
+    signed int c;
+    c=_IO_getc (fp);
+    if(c == -1)
+      goto ret;
+    tmp_post$2 = head;
+    head = head + 1u;
+    circle[(signed long int)tmp_post$2] = (unsigned char)c;
+    if(head == count)
+      break;
+  }
+  while((_Bool)1);
+  do
+  {
+    signed int print_except_N_last_bytes$$1$$2$$1$$c;
+    if(head == count)
+      head = (unsigned int)0;
+    putchar((signed int)circle[(signed long int)head]);
+    print_except_N_last_bytes$$1$$2$$1$$c=_IO_getc (fp);
+    if(print_except_N_last_bytes$$1$$2$$1$$c == -1)
+      break;
+    circle[(signed long int)head] = (unsigned char)print_except_N_last_bytes$$1$$2$$1$$c;
+    head = head + 1u;
+  }
+  while((_Bool)1);
+ret:
+  ;
+  free((void *)circle);
+}
+static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count)
+{
+  char **circle;
+  count = count + 1u;
+  void *return_value_xzalloc$1;
+  return_value_xzalloc$1=xzalloc((unsigned long int)count * sizeof(char *) );
+  circle = (char **)return_value_xzalloc$1;
+  unsigned int head = (unsigned int)0;
+  unsigned int tmp_post$2;
+  do
+  {
+    char *c;
+    c=xmalloc_fgets(fp);
+    if(c == ((char *)((void *)0)))
+      goto ret;
+    tmp_post$2 = head;
+    head = head + 1u;
+    circle[(signed long int)tmp_post$2] = c;
+    if(head == count)
+      break;
+  }
+  while((_Bool)1);
+  unsigned int tmp_post$3;
+  do
+  {
+    char *print_except_N_last_lines$$1$$2$$1$$c;
+    if(head == count)
+      head = (unsigned int)0;
+    fputs(circle[(signed long int)head], stdout);
+    print_except_N_last_lines$$1$$2$$1$$c=xmalloc_fgets(fp);
+    if(print_except_N_last_lines$$1$$2$$1$$c == ((char *)((void *)0)))
+      break;
+    free((void *)circle[(signed long int)head]);
+    tmp_post$3 = head;
+    head = head + 1u;
+    circle[(signed long int)tmp_post$3] = print_except_N_last_lines$$1$$2$$1$$c;
+  }
+  while((_Bool)1);
+ret:
+  ;
+  head = (unsigned int)0;
+  unsigned int tmp_post$4;
+  do
+  {
+    tmp_post$4 = head;
+    head = head + 1u;
+    free((void *)circle[(signed long int)tmp_post$4]);
+    if(head == count)
+      break;
+  }
+  while((_Bool)1);
+  free((void *)circle);
+}
+static void print_first_N(struct _IO_FILE *fp, unsigned long int count, _Bool count_bytes)
+{
+  while(!(count == 0ul))
+  {
+    signed int c;
+    c=_IO_getc (fp);
     if(c == -1)
       break;
-    c = c & 255;
-    on_off = complementary;
-    for( ; !((signed int)on_off->opt_char == c); on_off = on_off + 1l)
-      if((signed int)on_off->opt_char == 0)
-        goto error;
-    if((on_off->incongruously & flags) != 0u)
-      goto error;
-    trigger = on_off->switch_on & on_off->switch_off;
-    flags = flags & ~(on_off->switch_off ^ trigger);
-    flags = flags | on_off->switch_on ^ trigger;
-    flags = flags ^ trigger;
-    if(!(on_off->counter == ((signed int *)((void *)0))))
-      *on_off->counter = *on_off->counter + 1;
-    if(!(optarg == ((char *)((void *)0))))
+    if((signed int)count_bytes == 0)
     {
-      if((signed int)on_off->param_type == 1)
-        llist_add_to_end((struct llist_t **)on_off->optarg, (void *)optarg);
-      else
-        if((signed int)on_off->param_type == 2)
-        {
-          signed int return_value_xatoi_positive$13;
-          return_value_xatoi_positive$13=xatoi_positive(optarg);
-          *((unsigned int *)on_off->optarg) = (unsigned int)return_value_xatoi_positive$13;
-        }
-        else
-          if(!(on_off->optarg == ((void **)((void *)0))))
-            *((char **)on_off->optarg) = optarg;
-    }
-  }
-  while((_Bool)1);
-  on_off = complementary;
-  for( ; !((signed int)on_off->opt_char == 0); on_off = on_off + 1l)
-    if(!(on_off->requires == 0u))
-    {
-      if(!((on_off->switch_on & flags) == 0u))
-      {
-        if((on_off->requires & flags) == 0u)
-          goto error;
-      }
-    }
-  if((flags & requires) == 0u)
-  {
-    if(requires == 0u)
-      goto __CPROVER_DUMP_L75;
-  }
-  else
-  {
-  __CPROVER_DUMP_L75:
-    ;
-    argc = argc - optind;
-    if(max_arg >= 0)
-    {
-      if(max_arg >= argc)
-        goto __CPROVER_DUMP_L76;
+      if(c == 10)
+        goto __CPROVER_DUMP_L3;
     }
     else
     {
-    __CPROVER_DUMP_L76:
+    __CPROVER_DUMP_L3:
       ;
-      if(argc >= min_arg)
-      {
-        option_mask32 = flags;
-        return flags;
-      }
+      count = count - 1ul;
     }
+    putchar(c);
   }
-error:
-  ;
-  if(!((signed int)first_char == 33))
-    bb_show_usage();
-  return (unsigned int)(signed int)-1;
-}
-static unsigned long long int handle_errors(unsigned long long int v, char **endp)
-{
-  char next_ch = *(*endp);
-  _Bool tmp_if_expr$3;
-  unsigned long long int return_value_ret_ERANGE$1;
-  if(!((signed int)next_ch == 0))
-  {
-    signed int return_value_bb_ascii_isalnum$2;
-    return_value_bb_ascii_isalnum$2=bb_ascii_isalnum(next_ch);
-    if(!(return_value_bb_ascii_isalnum$2 == 0))
-      tmp_if_expr$3 = 1 != 0;
-    else
-      tmp_if_expr$3 = (*bb_errno != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-    if(!(tmp_if_expr$3 == (_Bool)0))
-    {
-      return_value_ret_ERANGE$1=ret_ERANGE();
-      return return_value_ret_ERANGE$1;
-    }
-    *bb_errno = 22;
-  }
-  return v;
-}
-static void llist_add_to_end(struct llist_t **list_head, void *data)
-{
-  for( ; !(*list_head == ((struct llist_t *)((void *)0))); list_head = &(*list_head)->link)
-    ;
-  void *return_value_xzalloc$1;
-  return_value_xzalloc$1=xzalloc(sizeof(struct llist_t) );
-  *list_head = (struct llist_t *)return_value_xzalloc$1;
-  (*list_head)->data = (char *)data;
-}
-static void read_base64(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream, signed int flags)
-{
-  char in_buf[66l];
-  char out_buf[50l];
-  char *out_tail;
-  const char *in_tail;
-  signed int term_seen = 0;
-  signed int in_count = 0;
-  signed int tmp_post$1;
-  signed int tmp_statement_expression$2;
-  _Bool tmp_if_expr$3;
-  signed int tmp_if_expr$6;
-  signed int tmp_statement_expression$4;
-  signed int return_value___builtin_strcmp$5;
-  while((_Bool)1)
-  {
-    while(in_count < 64)
-    {
-      signed int ch;
-      ch=_IO_getc (src_stream);
-      if(ch == (signed int)(signed char)flags)
-      {
-        if(in_count == 0)
-          return;
-        term_seen = 1;
-        break;
-      }
-      if(ch == -1)
-      {
-        term_seen = 1;
-        break;
-      }
-      if(ch <= 32)
-        break;
-      tmp_post$1 = in_count;
-      in_count = in_count + 1;
-      in_buf[(signed long int)tmp_post$1] = (char)ch;
-    }
-    in_buf[(signed long int)in_count] = (char)0;
-    if(!((256 & flags) == 0))
-    {
-      unsigned long int __s1_len;
-      unsigned long int __s2_len;
-      if((_Bool)1)
-      {
-        if(!((unsigned long int)("====" + 1l) + -((unsigned long int)"====") == 1ul))
-          goto __CPROVER_DUMP_L8;
-        __s2_len=strlen("====");
-        tmp_if_expr$3 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-      }
-      else
-      {
-      __CPROVER_DUMP_L8:
-        ;
-        tmp_if_expr$3 = 0 != 0;
-      }
-      if(!(tmp_if_expr$3 == (_Bool)0))
-      {
-        const char *__s2 = (const char *)in_buf;
-        signed int __result = (signed int)((const char *)"====")[(signed long int)0] - (signed int)__s2[(signed long int)0];
-        if(__s2_len > 0ul)
-        {
-          if(__result == 0)
-          {
-            __result = (signed int)((const char *)"====")[(signed long int)1] - (signed int)__s2[(signed long int)1];
-            if(__s2_len > 1ul)
-            {
-              if(__result == 0)
-              {
-                __result = (signed int)((const char *)"====")[(signed long int)2] - (signed int)__s2[(signed long int)2];
-                if(__s2_len > 2ul)
-                {
-                  if(__result == 0)
-                    __result = (signed int)((const char *)"====")[(signed long int)3] - (signed int)__s2[(signed long int)3];
-                }
-              }
-            }
-          }
-        }
-        tmp_statement_expression$4 = __result;
-        tmp_if_expr$6 = -tmp_statement_expression$4;
-      }
-      else
-      {
-        return_value___builtin_strcmp$5=strcmp(in_buf, "====");
-        tmp_if_expr$6 = return_value___builtin_strcmp$5;
-      }
-      tmp_statement_expression$2 = tmp_if_expr$6;
-      if(tmp_statement_expression$2 == 0)
-        return;
-    }
-    out_tail = out_buf;
-    in_tail=decode_base64(&out_tail, in_buf);
-    fwrite((const void *)out_buf, (unsigned long int)(out_tail - out_buf), (unsigned long int)1, dst_stream);
-    if(!(term_seen == 0))
-    {
-      if((signed int)*in_tail == 0)
-        return;
-      bb_error_msg_and_die("truncated base64 input");
-    }
-    unsigned long int return_value_strlen$7;
-    return_value_strlen$7=strlen(in_tail);
-    in_count = (signed int)return_value_strlen$7;
-    memmove((void *)in_buf, (const void *)in_tail, (unsigned long int)in_count);
-  }
-}
-static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream, signed int flags)
-{
-  char *line;
-  signed int tmp_statement_expression$1;
-  _Bool tmp_if_expr$2;
-  signed int tmp_if_expr$5;
-  signed int tmp_statement_expression$3;
-  signed int return_value___builtin_strcmp$4;
-  char *tmp_post$6;
-  char *tmp_post$7;
-  char *tmp_post$8;
-  do
-  {
-    line=xmalloc_fgetline(src_stream);
-    if(line == ((char *)((void *)0)))
-      break;
-    signed int encoded_len;
-    signed int str_len;
-    char *line_ptr;
-    char *dst;
-    unsigned long int __s1_len;
-    unsigned long int __s2_len;
-    if((_Bool)1)
-    {
-      if(!((unsigned long int)("end" + 1l) + -((unsigned long int)"end") == 1ul))
-        goto __CPROVER_DUMP_L2;
-      __s2_len=strlen("end");
-      tmp_if_expr$2 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-    }
-    else
-    {
-    __CPROVER_DUMP_L2:
-      ;
-      tmp_if_expr$2 = 0 != 0;
-    }
-    if(!(tmp_if_expr$2 == (_Bool)0))
-    {
-      const char *__s2 = (const char *)line;
-      signed int __result;
-      __result = (signed int)((const char *)"end")[(signed long int)0] - (signed int)__s2[(signed long int)0];
-      if(__s2_len > 0ul)
-      {
-        if(__result == 0)
-        {
-          __result = (signed int)((const char *)"end")[(signed long int)1] - (signed int)__s2[(signed long int)1];
-          if(__s2_len > 1ul)
-          {
-            if(__result == 0)
-            {
-              __result = (signed int)((const char *)"end")[(signed long int)2] - (signed int)__s2[(signed long int)2];
-              if(__s2_len > 2ul)
-              {
-                if(__result == 0)
-                {
-                  __result = (signed int)((const char *)"end")[(signed long int)3] - (signed int)__s2[(signed long int)3];
-                }
-              }
-            }
-          }
-        }
-      }
-      tmp_statement_expression$3 = __result;
-      tmp_if_expr$5 = -tmp_statement_expression$3;
-    }
-    else
-    {
-      return_value___builtin_strcmp$4=strcmp(line, "end");
-      tmp_if_expr$5 = return_value___builtin_strcmp$4;
-    }
-    tmp_statement_expression$1 = tmp_if_expr$5;
-    if(tmp_statement_expression$1 == 0)
-      return;
-    line_ptr = line;
-    while((_Bool)1)
-    {
-      if((signed int)*line_ptr == 0)
-        break;
-      *line_ptr = (char)((signed int)*line_ptr - 32 & 63);
-      line_ptr = line_ptr + 1l;
-    }
-    str_len = (signed int)(line_ptr - line);
-    encoded_len = ((signed int)line[(signed long int)0] * 4) / 3;
-    if(encoded_len >= str_len)
-      break;
-    if(encoded_len <= 0)
-      free((void *)line);
-    else
-    {
-      if(encoded_len > 60)
-        bb_error_msg_and_die("line too long");
-      dst = line;
-      line_ptr = line + (signed long int)1;
-      do
-      {
-        tmp_post$6 = dst;
-        dst = dst + 1l;
-        *tmp_post$6 = (char)((signed int)line_ptr[(signed long int)0] << 2 | (signed int)line_ptr[(signed long int)1] >> 4);
-        encoded_len = encoded_len - 1;
-        if(encoded_len == 0)
-          break;
-        tmp_post$7 = dst;
-        dst = dst + 1l;
-        *tmp_post$7 = (char)((signed int)line_ptr[(signed long int)1] << 4 | (signed int)line_ptr[(signed long int)2] >> 2);
-        encoded_len = encoded_len - 1;
-        if(encoded_len == 0)
-          break;
-        tmp_post$8 = dst;
-        dst = dst + 1l;
-        *tmp_post$8 = (char)((signed int)line_ptr[(signed long int)2] << 6 | (signed int)line_ptr[(signed long int)3]);
-        line_ptr = line_ptr + (signed long int)4;
-        encoded_len = encoded_len - 2;
-      }
-      while(encoded_len > 0);
-      fwrite((const void *)line, (unsigned long int)1, (unsigned long int)(dst - line), dst_stream);
-      free((void *)line);
-    }
-  }
-  while((_Bool)1);
-  bb_error_msg_and_die("short file");
-}
-static unsigned long long int ret_ERANGE(void)
-{
-  *bb_errno = 34;
-  return (unsigned long int)9223372036854775807ll * 2ull + 1ull;
 }
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count)
 {
@@ -3323,252 +2718,17 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   while(tmp_if_expr$1 != (_Bool)0);
   return n;
 }
-signed int __main(signed int argc, char **argv)
+static inline unsigned long int xatoul_sfx(const char *str, struct suffix_mult *sfx)
 {
-  struct _IO_FILE *src_stream;
-  char *outname = (char *)((void *)0);
-  char *line;
-  opt_complementary = "?1";
-  getopt32(argv, "o:", &outname);
-  argv = argv + (signed long int)optind;
-  if(*argv == ((char *)((void *)0)))
-  {
-    argv = argv - 1l;
-    *argv = (char *)"-";
-  }
-  src_stream=xfopen_stdin(argv[(signed long int)0]);
-  signed int tmp_if_expr$16;
-  signed int tmp_statement_expression$10;
-  _Bool tmp_if_expr$11;
-  signed int tmp_if_expr$14;
-  signed int tmp_statement_expression$12;
-  signed int return_value___builtin_strcmp$13;
-  signed int return_value_strncmp$15;
-  unsigned long int return_value_strlen$1;
-  signed int tmp_if_expr$8;
-  signed int tmp_statement_expression$2;
-  _Bool tmp_if_expr$3;
-  signed int tmp_if_expr$6;
-  signed int tmp_statement_expression$4;
-  signed int return_value___builtin_strcmp$5;
-  signed int return_value_strncmp$7;
-  _Bool tmp_if_expr$20;
-  do
-  {
-    line=xmalloc_fgetline(src_stream);
-    if(line == ((char *)((void *)0)))
-      break;
-    void (*decode_fn_ptr)(struct _IO_FILE *, struct _IO_FILE *, signed int);
-    char *line_ptr;
-    struct _IO_FILE *dst_stream;
-    signed int mode;
-    unsigned long int return_value_strlen$9;
-    return_value_strlen$9=strlen("begin-base64 ");
-    if(return_value_strlen$9 < 13ul)
-    {
-      unsigned long int uudecode_main$$1$$1$$1$$__s1_len;
-      unsigned long int __s2_len;
-      if((_Bool)1)
-      {
-        if(!((unsigned long int)("begin-base64 " + 1l) + -((unsigned long int)"begin-base64 ") == 1ul))
-          goto __CPROVER_DUMP_L9;
-        __s2_len=strlen("begin-base64 ");
-        tmp_if_expr$11 = (__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-      }
-      else
-      {
-      __CPROVER_DUMP_L9:
-        ;
-        tmp_if_expr$11 = 0 != 0;
-      }
-      if(!(tmp_if_expr$11 == (_Bool)0))
-      {
-        const char *__s2 = (const char *)line;
-        signed int __result;
-        __result = (signed int)((const char *)"begin-base64 ")[(signed long int)0] - (signed int)__s2[(signed long int)0];
-        if(__s2_len > 0ul)
-        {
-          if(__result == 0)
-          {
-            __result = (signed int)((const char *)"begin-base64 ")[(signed long int)1] - (signed int)__s2[(signed long int)1];
-            if(__s2_len > 1ul)
-            {
-              if(__result == 0)
-              {
-                __result = (signed int)((const char *)"begin-base64 ")[(signed long int)2] - (signed int)__s2[(signed long int)2];
-                if(__s2_len > 2ul)
-                {
-                  if(__result == 0)
-                  {
-                    __result = (signed int)((const char *)"begin-base64 ")[(signed long int)3] - (signed int)__s2[(signed long int)3];
-                  }
-                }
-              }
-            }
-          }
-        }
-        tmp_statement_expression$12 = __result;
-        tmp_if_expr$14 = -tmp_statement_expression$12;
-      }
-      else
-      {
-        return_value___builtin_strcmp$13=strcmp(line, "begin-base64 ");
-        tmp_if_expr$14 = return_value___builtin_strcmp$13;
-      }
-      tmp_statement_expression$10 = tmp_if_expr$14;
-      tmp_if_expr$16 = tmp_statement_expression$10;
-    }
-    else
-    {
-      return_value_strncmp$15=strncmp(line, "begin-base64 ", (unsigned long int)13);
-      tmp_if_expr$16 = return_value_strncmp$15;
-    }
-    if(tmp_if_expr$16 == 0)
-    {
-      line_ptr = line + (signed long int)13;
-      decode_fn_ptr = read_base64;
-    }
-    else
-    {
-      return_value_strlen$1=strlen("begin ");
-      if(return_value_strlen$1 < 6ul)
-      {
-        unsigned long int __s1_len;
-        unsigned long int uudecode_main$$1$$1$$3$$__s2_len;
-        if((_Bool)1)
-        {
-          if(!((unsigned long int)("begin " + 1l) + -((unsigned long int)"begin ") == 1ul))
-            goto __CPROVER_DUMP_L31;
-          uudecode_main$$1$$1$$3$$__s2_len=strlen("begin ");
-          tmp_if_expr$3 = (uudecode_main$$1$$1$$3$$__s2_len < (unsigned long int)4 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-        }
-        else
-        {
-        __CPROVER_DUMP_L31:
-          ;
-          tmp_if_expr$3 = 0 != 0;
-        }
-        if(!(tmp_if_expr$3 == (_Bool)0))
-        {
-          const unsigned char *uudecode_main$$1$$1$$3$$2$$__s2 = (const char *)line;
-          signed int uudecode_main$$1$$1$$3$$2$$__result;
-          uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)0] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)0];
-          if(uudecode_main$$1$$1$$3$$__s2_len > 0ul)
-          {
-            if(uudecode_main$$1$$1$$3$$2$$__result == 0)
-            {
-              uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)1] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)1];
-              if(uudecode_main$$1$$1$$3$$__s2_len > 1ul)
-              {
-                if(uudecode_main$$1$$1$$3$$2$$__result == 0)
-                {
-                  uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)2] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)2];
-                  if(uudecode_main$$1$$1$$3$$__s2_len > 2ul)
-                  {
-                    if(uudecode_main$$1$$1$$3$$2$$__result == 0)
-                    {
-                      uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)3] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)3];
-                    }
-                  }
-                }
-              }
-            }
-          }
-          tmp_statement_expression$4 = uudecode_main$$1$$1$$3$$2$$__result;
-          tmp_if_expr$6 = -tmp_statement_expression$4;
-        }
-        else
-        {
-          return_value___builtin_strcmp$5=strcmp(line, "begin ");
-          tmp_if_expr$6 = return_value___builtin_strcmp$5;
-        }
-        tmp_statement_expression$2 = tmp_if_expr$6;
-        tmp_if_expr$8 = tmp_statement_expression$2;
-      }
-      else
-      {
-        return_value_strncmp$7=strncmp(line, "begin ", (unsigned long int)6);
-        tmp_if_expr$8 = return_value_strncmp$7;
-      }
-      if(tmp_if_expr$8 == 0)
-      {
-        line_ptr = line + (signed long int)6;
-        decode_fn_ptr = read_stduu;
-      }
-      else
-      {
-        free((void *)line);
-        continue;
-      }
-    }
-    unsigned int return_value_bb_strtou$17;
-    return_value_bb_strtou$17=bb_strtou(line_ptr, (char **)((void *)0), 8);
-    mode = (signed int)return_value_bb_strtou$17;
-    if(outname == ((char *)((void *)0)))
-    {
-      char *return_value___builtin_strchr$18;
-      return_value___builtin_strchr$18=strchr(line_ptr, 32);
-      outname = return_value___builtin_strchr$18;
-      if(outname == ((char *)((void *)0)))
-        break;
-      outname = outname + 1l;
-      if((signed int)*outname == 0)
-        break;
-    }
-    dst_stream = stdout;
-    if(!((signed int)*outname == 45))
-      tmp_if_expr$20 = 1 != 0;
-    else
-    {
-      tmp_if_expr$20 = ((signed int)outname[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-    }
-    if(!(tmp_if_expr$20 == (_Bool)0))
-    {
-      dst_stream=xfopen_for_write(outname);
-      signed int return_value_fileno$19;
-      return_value_fileno$19=fileno(dst_stream);
-      fchmod(return_value_fileno$19, (unsigned int)(mode & (256 | 128 | 64 | (256 | 128 | 64) >> 3 | ((256 | 128 | 64) >> 3) >> 3)));
-    }
-    free((void *)line);
-    decode_fn_ptr(src_stream, dst_stream, 256 + 128);
-    return 0;
-  }
-  while((_Bool)1);
-  bb_error_msg_and_die("no 'begin' line");
+  unsigned long long int return_value_xatoull_sfx$1;
+  return_value_xatoull_sfx$1=xatoull_sfx(str, sfx);
+  return return_value_xatoull_sfx$1;
 }
-static signed int xatoi_positive(const char *numstr)
+static unsigned long long int xatoull_sfx(const char *numstr, struct suffix_mult *suffixes)
 {
-  unsigned int return_value_xatou_range$1;
-  return_value_xatou_range$1=xatou_range(numstr, (unsigned int)0, (unsigned int)2147483647);
-  return (signed int)return_value_xatou_range$1;
-}
-static unsigned int xatou_range(const char *numstr, unsigned int lower, unsigned int upper)
-{
-  unsigned int return_value_xstrtou_range_sfx$1;
-  return_value_xstrtou_range_sfx$1=xstrtou_range_sfx(numstr, 10, lower, upper, (struct suffix_mult *)((void *)0));
-  return return_value_xstrtou_range_sfx$1;
-}
-static struct _IO_FILE * xfopen(const char *path, const char *mode)
-{
-  struct _IO_FILE *fp;
-  fp=fopen(path, mode);
-  if(fp == ((struct _IO_FILE *)((void *)0)))
-    bb_perror_msg_and_die("can't open '%s'", path);
-  return fp;
-}
-static struct _IO_FILE * xfopen_for_write(const char *path)
-{
-  struct _IO_FILE *return_value_xfopen$1;
-  return_value_xfopen$1=xfopen(path, "w");
-  return return_value_xfopen$1;
-}
-static struct _IO_FILE * xfopen_stdin(const char *filename)
-{
-  struct _IO_FILE *fp;
-  fp=fopen_or_warn_stdin(filename);
-  if(!(fp == ((struct _IO_FILE *)((void *)0))))
-    return fp;
-  abort();
+  unsigned long long int return_value_xstrtoull_range_sfx$1;
+  return_value_xstrtoull_range_sfx$1=xstrtoull_range_sfx(numstr, 10, (unsigned long long int)0, (unsigned long int)9223372036854775807ll * 2ull + 1ull, suffixes);
+  return return_value_xstrtoull_range_sfx$1;
 }
 static void xfunc_die(void)
 {
@@ -3591,18 +2751,12 @@ static void * xmalloc(unsigned long int size)
   }
   return ptr;
 }
-static char * xmalloc_fgetline(struct _IO_FILE *file)
+static char * xmalloc_fgets(struct _IO_FILE *file)
 {
   signed int i;
-  char *c;
-  c=bb_get_chunk_from_file(file, &i);
-  if(!(i == 0))
-  {
-    i = i - 1;
-    if((signed int)c[(signed long int)i] == 10)
-      c[(signed long int)i] = (char)0;
-  }
-  return c;
+  char *return_value_bb_get_chunk_from_file$1;
+  return_value_bb_get_chunk_from_file$1=bb_get_chunk_from_file(file, &i);
+  return return_value_bb_get_chunk_from_file$1;
 }
 static void * xrealloc(void *ptr, unsigned long int size)
 {
@@ -3614,9 +2768,9 @@ static void * xrealloc(void *ptr, unsigned long int size)
   }
   return ptr;
 }
-static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsigned int lower, unsigned int upper, struct suffix_mult *suffixes)
+static unsigned long long int xstrtoull_range_sfx(const char *numstr, signed int base, unsigned long long int lower, unsigned long long int upper, struct suffix_mult *suffixes)
 {
-  unsigned int r;
+  unsigned long long int r;
   signed int old_errno;
   char *e;
   _Bool tmp_if_expr$1;
@@ -3639,7 +2793,7 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
   {
     old_errno = *bb_errno;
     *bb_errno = 0;
-    r=bb_strtoui(numstr, &e, base);
+    r=strtoull(numstr, &e, base);
     if(!(numstr == e))
     {
       if(*bb_errno == 0)
@@ -3655,9 +2809,9 @@ static unsigned int xstrtou_range_sfx(const char *numstr, signed int base, unsig
             tmp_statement_expression$4 = return_value___builtin_strcmp$5;
             if(tmp_statement_expression$4 == 0)
             {
-              if(!(4294967295u / suffixes->mult >= r))
+              if(!(18446744073709551615ull / (unsigned long int)suffixes->mult >= r))
                 goto range;
-              r = r * suffixes->mult;
+              r = r * (unsigned long long int)suffixes->mult;
               goto chk_range;
             }
           }
