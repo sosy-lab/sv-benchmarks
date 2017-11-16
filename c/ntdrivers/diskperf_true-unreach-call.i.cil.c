@@ -4,11 +4,13 @@ extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
 extern void *__VERIFIER_nondet_pointer(void);
-extern void __VERIFIER_assume(int);
 
+extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void memcpy_guard(void* p1, void* p2, unsigned int n)
 {
-    __VERIFIER_assume((char*)p1 + n <= (char*)p2 || (char*)p2 + n <= (char*)p1);
+    if ((char*)p1 + n <= (char*)p2 || (char*)p2 + n <= (char*)p1)
+        return;
+    abort();
 }
 
 
