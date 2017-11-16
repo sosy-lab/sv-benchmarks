@@ -171,6 +171,7 @@ void balance_control(unsigned int args_cmd_forward , unsigned int args_cmd_turn 
   tmp_0 ++;
   tmp_pwm_r_limiter += (tmp[tmp_0] - tmp_theta_0[tmp_0]) * K_F[tmp_0];
   tmp_0 ++;
+  __VERIFIER_assume(((BATTERY_GAIN*args_battery) - BATTERY_OFFSET) != 0);
   tmp_pwm_r_limiter = (float )((K_I * ud_err_theta + tmp_pwm_r_limiter) / (unsigned int )(BATTERY_GAIN * (unsigned int const   )args_battery - BATTERY_OFFSET)) * 100.0F;
   tmp_pwm_turn = ((float )args_cmd_turn / 100.0F) * (float )K_PHIDOT;
   tmp_pwm_l_limiter = tmp_pwm_r_limiter + tmp_pwm_turn;
@@ -307,6 +308,7 @@ void OSEK_Task_ts1(void)
   avg_cnt ++;
   tmp___1 = ecrobot_get_systick_ms();
   if (tmp___1 - cal_start_time >= 1000U) {
+    __VERIFIER_assume(avg_cnt !=0 );
     gyro_offset /= avg_cnt;
     ecrobot_sound_tone(440U, 500U, 30);
     __startrek_write_nxtway_gs_mode(2);
