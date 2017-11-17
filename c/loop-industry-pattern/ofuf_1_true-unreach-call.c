@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
+extern void __VERIFIER_assume(int);
 struct Od_SubIndex;
 struct Od_Index;
 struct Od_IndexTable;
@@ -280,6 +281,7 @@ return Id_MCDC_108;
 }
 while(Id_MCDC_137 != 0)
 {
+__VERIFIER_assume(Id_MCDC_136 != 0);
 ("32_39888_4294972284" , __VERIFIER_assert(( long long  ) (Id_MCDC_135 / Id_MCDC_136) >= 0 && ( long long  ) (Id_MCDC_135 / Id_MCDC_136) <= 4294967295)) , Id_MCDC_138 = ( UINT32 ) (Id_MCDC_135 / Id_MCDC_136);
 Id_MCDC_137 = Id_MCDC_135 - (Id_MCDC_138 * Id_MCDC_136);
 Id_MCDC_135 = Id_MCDC_136;
@@ -304,6 +306,7 @@ else
 Id_MCDC_140 = Id_MCDC_112[1];
 }
 Id_MCDC_139 = Id_MCDC_110(Id_MCDC_112[0], Id_MCDC_140);
+__VERIFIER_assume(Id_MCDC_139 != 0);
 return ((Id_MCDC_112[0] * Id_MCDC_140) / Id_MCDC_139);
 }
 UINT32 Id_MCDC_114(UINT16 Id_MCDC_100, UINT8 Id_MCDC_101, UINT32* Id_MCDC_102, UINT32* Id_MCDC_103, INT32* Id_MCDC_104, void ** Id_MCDC_105)
