@@ -3178,7 +3178,13 @@ int main(void)
   d.DriverInit = __VERIFIER_nondet_pointer();
   d.DriverStartIo = __VERIFIER_nondet_pointer();
   d.DriverUnload = __VERIFIER_nondet_pointer();
-  d.MajorFunction = __VERIFIER_nondet_pointer();
+  int i_1 = 0;
+  while (1) {
+    d.MajorFunction[i_1] = __VERIFIER_nondet_pointer();
+    i_1 = i_1 + 1;
+    if (i_1 >= 28)
+      break;
+  }
 
   NTSTATUS status = __VERIFIER_nondet_long() ;
   int we_should_unload = __VERIFIER_nondet_int() ;
@@ -3215,10 +3221,81 @@ int main(void)
   irp.AllocationFlags = __VERIFIER_nondet_char();
   irp.UserIosb = (PIO_STATUS_BLOCK)__VERIFIER_nondet_pointer();
   irp.UserEvent = (PKEVENT)__VERIFIER_nondet_pointer();
-  irp.Overlay = __VERIFIER_nondet_pointer();
+  union __anonunion_Overlay_45 union_3;
+  struct __anonstruct_AsynchronousParameters_46 async_1;
+  async_1.UserApcRoutine = __VERIFIER_nondet_pointer();
+  async_1.UserApcContext = __VERIFIER_nondet_pointer();
+  union_3.AsynchronousParameters = async_1;
+  LARGE_INTEGER large_int_1;
+  struct __anonstruct____missing_field_name_1 struct_1;
+  struct_1.LowPart = __VERIFIER_nondet_long();
+  struct_1.HighPart = __VERIFIER_nondet_long();
+  large_int_1.__annonCompField1 = struct_1;
+  struct __anonstruct_u_2 struct_2;
+  struct_2.LowPart = __VERIFIER_nondet_long();
+  struct_2.HighPart = __VERIFIER_nondet_long();
+  large_int_1.u = struct_2;
+  large_int_1.QuadPart = __VERIFIER_nondet_long();
+  union_3.AllocationSize = large_int_1;
+  irp.Overlay = union_3;
   irp.CancelRoutine = __VERIFIER_nondet_pointer();
   irp.UserBuffer = __VERIFIER_nondet_pointer();
-  irp.Tail = __VERIFIER_nondet_pointer();
+  union __anonunion_Tail_47 union_4;
+  struct __anonstruct_Overlay_48 struct_3;
+  union __anonunion____missing_field_name_49 union_5;
+  KDEVICE_QUEUE_ENTRY struct_5;
+  LIST_ENTRY list_entry_7;
+  list_entry_7.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_7.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  struct_5.DeviceListEntry = list_entry_7;
+  struct_5.Inserted = __VERIFIER_nondet_char();
+  struct_5.SortKey = __VERIFIER_nondet_long();
+  union_5.DeviceQueueEntry = struct_5;
+  struct __anonstruct____missing_field_name_50 struct_6;
+  i_1 = 0;
+  while (1) {
+    struct_6.DriverContext[i_1] = __VERIFIER_nondet_pointer();
+    i_1 = i_1 + 1;
+    if (i_1 >= 4)
+      break;
+  }
+  union_5.__annonCompField14 = struct_6;
+  struct_3.__annonCompField15 = union_5;
+  struct __anonstruct____missing_field_name_51 struct_4;
+  LIST_ENTRY list_entry_8;
+  list_entry_8.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_8.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  struct_4.ListEntry = list_entry_8;
+  union __anonunion____missing_field_name_52 union_6;
+  union_6.PacketType = __VERIFIER_nondet_long();
+  union_6.CurrentStackLocation = (struct _IO_STACK_LOCATION *)__VERIFIER_nondet_pointer();
+  struct_4.__annonCompField16 = union_6;
+  struct_3.__annonCompField17 = struct_4;
+  struct_3.AuxiliaryBuffer = (PCHAR)__VERIFIER_nondet_pointer();
+  struct_3.OriginalFileObject = (PFILE_OBJECT)__VERIFIER_nondet_pointer();
+  struct_3.Thread = (PETHREAD)__VERIFIER_nondet_pointer();
+  union_4.Overlay = struct_3;
+  KAPC apc_1;
+  LIST_ENTRY list_entry_9;
+  list_entry_9.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_9.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  apc_1.ApcListEntry = list_entry_9;
+  apc_1.ApcMode = __VERIFIER_nondet_char();
+  apc_1.ApcStateIndex = __VERIFIER_nondet_char();
+  apc_1.Inserted = __VERIFIER_nondet_char();
+  apc_1.KernelRoutine = __VERIFIER_nondet_pointer();
+  apc_1.NormalContext = __VERIFIER_nondet_pointer();
+  apc_1.NormalRoutine = __VERIFIER_nondet_pointer();
+  apc_1.RundownRoutine = __VERIFIER_nondet_pointer();
+  apc_1.Size = __VERIFIER_nondet_int();
+  apc_1.Spare0 = __VERIFIER_nondet_long();
+  apc_1.SystemArgument1 = __VERIFIER_nondet_pointer();
+  apc_1.SystemArgument2 = __VERIFIER_nondet_pointer();
+  apc_1.Thread = (struct _KTHREAD *)__VERIFIER_nondet_pointer();
+  apc_1.Type = __VERIFIER_nondet_int();
+  union_4.Apc = apc_1;
+  union_4.CompletionKey = __VERIFIER_nondet_pointer();
+  irp.Tail = union_4;
 
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;
