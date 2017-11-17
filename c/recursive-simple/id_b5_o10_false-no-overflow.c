@@ -3,15 +3,15 @@ extern void __VERIFIER_error();
 
 int id(int x) {
   if (x==0) return 0;
-  int ret = id((unsigned int)x-1) + 1;
-  if (ret > 3) return 3;
+  int ret = id(x-1) + 1;
+  if (ret > 5) return 5;
   return ret;
 }
 
 int main(void) {
   int input = __VERIFIER_nondet_int();
   int result = id(input);
-  if (result == 5) {
+  if (result == 10) {
     ERROR: __VERIFIER_error();
   }
 }

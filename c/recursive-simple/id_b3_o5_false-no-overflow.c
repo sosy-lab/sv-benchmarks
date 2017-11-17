@@ -3,7 +3,7 @@ extern void __VERIFIER_error();
 
 int id(int x) {
   if (x==0) return 0;
-  int ret = id((unsigned int)x-1) + 1;
+  int ret = id(x-1) + 1;
   if (ret > 3) return 3;
   return ret;
 }
