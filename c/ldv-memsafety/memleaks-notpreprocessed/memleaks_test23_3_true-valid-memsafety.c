@@ -90,6 +90,9 @@ int hid_open_report(struct hid_device *device) {
 	}
 	parser->device = device;
 	parser->report_id = ldv_positive();
+        if (parser->report_id < 256) {
+          parser->report_id = 256;
+        }
 	
 	while(fetch_item(&item)!=-1) {
 		if (hid_parser_main(parser, &item)) {
