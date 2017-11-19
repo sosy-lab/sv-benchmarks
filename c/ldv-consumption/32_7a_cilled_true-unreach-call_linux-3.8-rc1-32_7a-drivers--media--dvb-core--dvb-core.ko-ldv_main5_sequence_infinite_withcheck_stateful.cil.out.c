@@ -6494,6 +6494,8 @@ extern void ldv_check_return_value(int  ) ;
 void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 extern int __VERIFIER_nondet_int(void) ;
+extern unsigned int __VERIFIER_nondet_uint(void) ;
+extern unsigned long __VERIFIER_nondet_ulong(void) ;
 int LDV_IN_INTERRUPT  ;
 void ldv_main0_sequence_infinite_withcheck_stateful(void) 
 { 
@@ -18252,14 +18254,81 @@ void dvb_frontend_detach(struct dvb_frontend *fe )
   return;
 }
 }
+
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+
+int* ts_bus_ctrl_dummy(struct dvb_frontend *p, int i) {};
+
 int main(void) 
 { 
-  struct file *var_group1 ;
-  struct poll_table_struct *var_group2 ;
-  struct inode *var_group3 ;
-  int res_dvb_frontend_open_35 ;
-  unsigned int var_dvb_frontend_ioctl_30_p1 ;
-  void *var_dvb_frontend_ioctl_30_p2 ;
+  struct file *var_group1 = malloc(sizeof(struct file));
+  var_group1->f_flags = __VERIFIER_nondet_uint();
+  struct file_operations const *file_operations_p = malloc(sizeof(struct file_operations));
+  var_group1->f_op = file_operations_p;
+  struct dvb_device *dvb_device_p = malloc(sizeof(struct dvb_device));
+  var_group1->private_data = dvb_device_p;
+  struct dvb_frontend *dvb_frontend_p = malloc(sizeof(struct dvb_frontend));
+  dvb_device_p->priv = dvb_frontend_p;
+  struct dvb_frontend_private *dvb_frontend_private_p = malloc(sizeof(struct dvb_frontend_private));
+  dvb_frontend_p->frontend_priv = dvb_frontend_private_p;
+  struct __wait_queue_head wait_queue;
+  dvb_frontend_private_p->wait_queue = wait_queue;
+  struct dvb_fe_events *dvb_fe_events_p = malloc(sizeof(struct dvb_fe_events));
+  dvb_frontend_private_p->events = *dvb_fe_events_p;
+  dvb_frontend_private_p->events.eventw = __VERIFIER_nondet_int();
+  dvb_frontend_private_p->events.eventr = __VERIFIER_nondet_int();
+  struct dvb_adapter *dvb_adapter_p = malloc(sizeof(struct dvb_adapter));
+  dvb_frontend_p->dvb = dvb_adapter_p;
+  struct device *device_p = malloc(sizeof(struct device));
+  dvb_adapter_p->device = device_p;
+  struct dvb_device *dvb_device_p2 = malloc(sizeof(struct dvb_device));
+  dvb_adapter_p->mfe_dvbdev = dvb_device_p2;
+  dvb_adapter_p->mfe_shared = __VERIFIER_nondet_int();
+  struct dvb_frontend *dvb_frontend_p2 = malloc(sizeof(struct dvb_frontend));
+  dvb_device_p2->priv    = dvb_frontend_p2;
+  dvb_device_p2->type    = __VERIFIER_nondet_int();
+  dvb_device_p2->minor   = __VERIFIER_nondet_int();
+  dvb_device_p2->id      = __VERIFIER_nondet_uint();
+  dvb_device_p2->readers = __VERIFIER_nondet_int();
+  dvb_device_p2->writers = __VERIFIER_nondet_int();
+  dvb_device_p2->users   = __VERIFIER_nondet_int();
+  struct dvb_frontend_private *dvb_frontend_private_p2 = malloc(sizeof(struct dvb_frontend_private));
+  dvb_frontend_p2->frontend_priv = dvb_frontend_private_p2;
+  struct task_struct *task_struct_p = malloc(sizeof(struct task_struct));
+  dvb_frontend_private_p2->thread = task_struct_p;
+  dvb_frontend_private_p2->voltage = __VERIFIER_nondet_int();
+  dvb_frontend_private_p2->tone = __VERIFIER_nondet_int();
+  dvb_frontend_private_p2->tune_mode_flags = __VERIFIER_nondet_ulong();
+  dvb_frontend_private_p2->release_jiffies = __VERIFIER_nondet_ulong();
+  dvb_frontend_private_p2->exit = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->wakeup = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->delay = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->reinitialise == __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->state = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->bending = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->lnb_drift = __VERIFIER_nondet_int();
+  dvb_frontend_private_p2->inversion = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->auto_step = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->auto_sub_step = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->started_auto_step = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->min_delay = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->max_drift = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->step_size = __VERIFIER_nondet_uint();
+  dvb_frontend_private_p2->quality = __VERIFIER_nondet_int();
+  dvb_frontend_private_p2->check_wrapped = __VERIFIER_nondet_uint();
+  dvb_frontend_p2->ops.ts_bus_ctrl = &ts_bus_ctrl_dummy;
+
+
+  struct poll_table_struct *var_group2 = malloc(sizeof(struct poll_table_struct)) ;
+
+
+  struct inode *var_group3 = malloc(sizeof(struct inode));
+
+
+  int res_dvb_frontend_open_35 = __VERIFIER_nondet_int();
+  unsigned int var_dvb_frontend_ioctl_30_p1 = __VERIFIER_nondet_int() ;
+  void *var_dvb_frontend_ioctl_30_p2 = __VERIFIER_nondet_int();
   int ldv_s_dvb_frontend_fops_file_operations ;
   int tmp ;
   int tmp___0 ;
@@ -18318,6 +18387,23 @@ int main(void)
 
   ldv_module_exit: ;
   ldv_check_final_state();
+
+  free(var_group3);
+
+  free(var_group2);
+
+  free(task_struct_p);
+  free(dvb_frontend_private_p2);
+  free(dvb_device_p2);
+  free(device_p);
+  free(dvb_adapter_p);
+  free(dvb_fe_events_p);
+  free(dvb_frontend_private_p);
+  free(dvb_frontend_p);
+  free(dvb_device_p);
+  free(file_operations_p);
+  free(var_group1);
+
   return 0;
 }
 }
