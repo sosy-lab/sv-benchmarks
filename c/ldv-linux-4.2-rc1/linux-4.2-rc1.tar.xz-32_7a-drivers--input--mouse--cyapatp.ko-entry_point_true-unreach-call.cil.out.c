@@ -3798,9 +3798,21 @@ void ldv_mutex_unlock_41(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_43(struct mutex *ldv_func_arg1 ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
+
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
+extern unsigned char __VERIFIER_nondet_uchar();
+unsigned int __VERIFIER_nondet_uint();
+
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+void *ldv_successful_malloc(size_t __size) {
+  void *p = malloc(__size);
+  __VERIFIER_assume(p != (void *)0);
+  return p;
+}
+extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -6296,6 +6308,113 @@ int main(void)
   int tmp___33 ;
   int tmp___34 ;
 
+  struct cyapa *cyapa_p1 = ldv_successful_malloc(sizeof(struct cyapa));
+  cyapa_gen5_ops_group1 = cyapa_p1;
+  struct device *device_p1 = ldv_successful_malloc(sizeof(struct device));
+  cyapa_pm_ops_group1 = device_p1;
+  cyapa_gen3_ops_group3 = device_p1;
+  struct device_attribute *device_attribute_p1 = ldv_successful_malloc(sizeof(struct device_attribute));
+  dev_attr_runtime_suspend_scanrate_ms_group0 = device_attribute_p1;
+  cyapa_gen3_ops_group2 = device_attribute_p1;
+  cyapa_gen3_ops_group1 = cyapa_p1;
+  cyapa_gen5_ops_group3 = device_p1;
+  dev_attr_suspend_scanrate_ms_group1 = device_p1;
+  cyapa_gen5_ops_group2 = device_attribute_p1;
+  const struct firmware *firmware_p1 = ldv_successful_malloc(sizeof(struct firmware));
+  cyapa_gen5_ops_group0 = firmware_p1;
+  dev_attr_suspend_scanrate_ms_group0 = device_attribute_p1;
+  dev_attr_runtime_suspend_scanrate_ms_group1 = device_p1;
+  cyapa_gen3_ops_group0 = firmware_p1;
+  ldvarg23 = __VERIFIER_nondet_ulong();
+  ldvarg25 = __VERIFIER_nondet_ulong();
+  ldvarg40 = __VERIFIER_nondet_ulong();
+  ldvarg42 = __VERIFIER_nondet_ulong();
+  char *char_p1 = ldv_successful_malloc(sizeof(char));
+  *(char_p1) = __VERIFIER_nondet_uchar();
+  ldvarg1 = char_p1;
+  ldvarg0 = device_p1;
+  ldvarg2 = device_attribute_p1;
+  char *char_p2 = ldv_successful_malloc(sizeof(char));
+  *(char_p2) = __VERIFIER_nondet_uchar();
+  ldvarg14 = char_p2;
+  ldvarg13 = device_p1;
+  ldvarg15 = device_attribute_p1;
+  ldvarg18 = device_attribute_p1;
+  char *char_p3 = ldv_successful_malloc(sizeof(char));
+  *(char_p3) = __VERIFIER_nondet_uchar();
+  ldvarg17 = char_p3;
+  ldvarg16 = device_p1;
+  ldvarg21 = device_attribute_p1;
+  char *char_p4 = ldv_successful_malloc(sizeof(char));
+  *(char_p4) = __VERIFIER_nondet_uchar();
+  ldvarg20 = char_p4;
+  ldvarg19 = device_p1;
+  char *char_p5 = ldv_successful_malloc(sizeof(char));
+  *(char_p5) = __VERIFIER_nondet_uchar();
+  ldvarg24 = char_p5;
+  char *char_p6 = ldv_successful_malloc(sizeof(char));
+  *(char_p6) = __VERIFIER_nondet_uchar();
+  ldvarg22 = char_p6;
+  char *char_p7 = ldv_successful_malloc(sizeof(char));
+  *(char_p7) = __VERIFIER_nondet_uchar();
+  ldvarg27 = char_p7;
+  ldvarg26 = device_p1;
+  ldvarg28 = device_attribute_p1;
+  char *char_p8 = ldv_successful_malloc(sizeof(char));
+  *(char_p8) = __VERIFIER_nondet_uchar();
+  ldvarg39 = char_p8;
+  char *char_p9 = ldv_successful_malloc(sizeof(char));
+  *(char_p9) = __VERIFIER_nondet_uchar();
+  ldvarg41 = char_p9;
+  ldvarg45 = device_attribute_p1;
+  ldvarg43 = device_p1;
+  char *char_p10 = ldv_successful_malloc(sizeof(char));
+  *(char_p10) = __VERIFIER_nondet_uchar();
+  ldvarg44 = char_p10;
+  struct i2c_device_id *i2c_device_id_p1 = ldv_successful_malloc(sizeof(struct i2c_device_id));
+  ldvarg47 = i2c_device_id_p1;
+  struct i2c_client *i2c_client_p1 = ldv_successful_malloc(sizeof(struct i2c_client));
+  ldvarg46 = i2c_client_p1;
+  enum cyapa_state *cyapa_state_p1 = ldv_successful_malloc(sizeof(enum cyapa_state));
+  cyapa_p1->state = *(cyapa_state_p1);
+  cyapa_p1->client = i2c_client_p1;
+  cyapa_p1->smbus = __VERIFIER_nondet_bool();
+  cyapa_p1->suspend_power_mode = __VERIFIER_nondet_uchar();
+  cyapa_p1->suspend_sleep_time = __VERIFIER_nondet_ushort();
+  cyapa_p1->dev_pwr_mode = __VERIFIER_nondet_uchar();
+  cyapa_p1->dev_sleep_time = __VERIFIER_nondet_ushort();
+  cyapa_p1->gen = __VERIFIER_nondet_uchar();
+  struct mutex *mutex_p1 = ldv_successful_malloc(sizeof(struct mutex));
+  cyapa_p1->state_sync_lock = *(mutex_p1);
+  union cyapa_cmd_states *cyapa_cmd_states_p1 = ldv_successful_malloc(sizeof(union cyapa_cmd_states));
+  cyapa_p1->cmd_states = *(cyapa_cmd_states_p1);
+  void *void_p1 = ldv_successful_malloc(sizeof(int));
+  *(void_p1) = __VERIFIER_nondet_int();
+  device_p1->driver_data = void_p1;
+  i2c_client_p1->addr = __VERIFIER_nondet_ushort();
+  struct i2c_adapter *i2c_adapter_p1 = ldv_successful_malloc(sizeof(struct i2c_adapter));
+  i2c_client_p1->adapter = i2c_adapter_p1;
+  i2c_client_p1->dev = *(device_p1);
+  struct cyapa_gen5_cmd_states *cyapa_gen5_cmd_states_p1 = ldv_successful_malloc(sizeof(struct cyapa_gen5_cmd_states));
+  cyapa_cmd_states_p1->gen5 = *(cyapa_gen5_cmd_states_p1);
+  cyapa_gen5_cmd_states_p1->cmd_lock = *(mutex_p1);
+  struct completion *completion_p1 = ldv_successful_malloc(sizeof(struct completion));
+  cyapa_gen5_cmd_states_p1->cmd_ready = *(completion_p1);
+  atomic_t *atomic_t_p1 = ldv_successful_malloc(sizeof(atomic_t));
+  cyapa_gen5_cmd_states_p1->cmd_issued = *(atomic_t_p1);
+  cyapa_gen5_cmd_states_p1->in_progress_cmd = __VERIFIER_nondet_uchar();
+  cyapa_gen5_cmd_states_p1->is_irq_mode = __VERIFIER_nondet_bool();
+  u8 *u8_p1 = ldv_successful_malloc(sizeof(u8));
+  *(u8_p1) = __VERIFIER_nondet_uchar();
+  cyapa_gen5_cmd_states_p1->resp_data = u8_p1;
+  int *int_p1 = ldv_successful_malloc(sizeof(int));
+  *(int_p1) = __VERIFIER_nondet_int();
+  cyapa_gen5_cmd_states_p1->resp_len = int_p1;
+  completion_p1->done = __VERIFIER_nondet_uint();
+  wait_queue_head_t *wait_queue_head_t_p1 = ldv_successful_malloc(sizeof(wait_queue_head_t));
+  completion_p1->wait = *(wait_queue_head_t_p1);
+  atomic_t_p1->counter = __VERIFIER_nondet_int();
+
   {
   tmp = ldv_init_zalloc(1UL);
   ldvarg1 = (char *)tmp;
@@ -6952,6 +7071,35 @@ int main(void)
   goto ldv_33456;
   ldv_final: 
   ldv_check_final_state();
+
+  free(cyapa_p1);
+  free(char_p4);
+  free(char_p3);
+  free(char_p6);
+  free(char_p5);
+  free(i2c_adapter_p1);
+  free(char_p2);
+  free(char_p1);
+  free(device_p1);
+  free(atomic_t_p1);
+  free(device_attribute_p1);
+  free(mutex_p1);
+  free(u8_p1);
+  free(i2c_device_id_p1);
+  free(firmware_p1);
+  free(char_p8);
+  free(char_p7);
+  free(char_p9);
+  free(cyapa_cmd_states_p1);
+  free(int_p1);
+  free(cyapa_state_p1);
+  free(cyapa_gen5_cmd_states_p1);
+  free(wait_queue_head_t_p1);
+  free(char_p10);
+  free(i2c_client_p1);
+  free(void_p1);
+  free(completion_p1);
+
   return 0;
 }
 }
