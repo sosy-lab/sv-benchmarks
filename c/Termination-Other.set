@@ -15,7 +15,7 @@ ssh-simplified/*_false-termination*.cil.c
 ssh-simplified/*_true-termination*.cil.c
 locks/*_false-termination*.c
 ssh-simplified/s3_clnt_3.cil_true-unreach-call_true-termination.c
-ntdrivers/*_true-termination*.i.cil.c
+# ntdrivers/*_true-termination*.i.cil.c
 
 # from ReachSafety-ECA
 eca-rers2012/*_false-termination*.c

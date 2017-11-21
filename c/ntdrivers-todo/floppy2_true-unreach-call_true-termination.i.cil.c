@@ -2977,7 +2977,7 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath 
   __cil_tmp53 = (unsigned int )__cil_tmp52;
   __cil_tmp54 = __cil_tmp53 + 732;
   mem_83 = (ALTERNATIVE_ARCHITECTURE_TYPE *)__cil_tmp54;
-  __cil_tmp55 = *mem_83;
+  __cil_tmp55 = *mem_83/* @UNDEFINED_BEHAVIOUR: Dereferencing invalid pointer '4292804608 + 732' */;
   __cil_tmp56 = (int )__cil_tmp55;
   if (__cil_tmp56 == 1) {
     __cil_tmp57 = 0 * 64U;
@@ -20935,11 +20935,17 @@ void stub_driver_init(void)
 }
 int main(void) 
 { DRIVER_OBJECT d ;
+  // Here follows the fix of the previously discovered undefined behaviour:
+  struct _DRIVER_EXTENSION driver_extension; // HOWEVER, HOW TO INITIALISE FIELDS? THIS WOULD REQUIRE UNDERSTANDING INTENDED FUNCTIONALITY OF THIS BENCHMARK - NONTRIVIAL MANUAL TASK!!!!
+  d.DriverExtension = &driver_extension;
+  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)&d + 24' (i.e. 'd.DriverExtension') is not initialised.
   UNICODE_STRING u ;
   NTSTATUS status ;
   int we_should_unload ;
   IRP irp ;
+  // @UNDEFINED_BEHAVIOUR: assume __BLAST_NONDET == 2
   int __BLAST_NONDET = __VERIFIER_nondet_int() ;
+  // @UNDEFINED_BEHAVIOUR: assume irp_choice == 1
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
   NTSTATUS (*__cil_tmp9)(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath ) ;
@@ -20965,6 +20971,7 @@ int main(void)
   status = 0L;
   pirp = & irp;
   __cil_tmp9 = & DriverEntry;
+  // @UNDEFINED_BEHAVIOUR: The pointer at '(char*)&d + 24' (i.e. 'd.DriverExtension') is still not initialised, before the call to 'DriverEntry'.
   status = (*__cil_tmp9)(& d, & u);
   }
   if (status >= 0L) {
