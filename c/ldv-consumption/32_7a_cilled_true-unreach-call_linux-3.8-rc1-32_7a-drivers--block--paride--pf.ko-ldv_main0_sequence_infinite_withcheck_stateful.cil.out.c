@@ -3664,6 +3664,7 @@ static char *pf_buf  ;
 static struct block_device_operations  const  pf_fops  = 
      {& pf_open, & pf_release, & pf_ioctl, 0, 0, & pf_check_events, 0, 0, 0, & pf_getgeo,
     0, & __this_module};
+extern void *malloc(size_t  );
 static void pf_init_units(void) 
 { 
   struct pf_unit *pf ;
@@ -3677,7 +3678,7 @@ static void pf_init_units(void)
   pf = (struct pf_unit *)(& units);
   goto ldv_30015;
   ldv_30014: 
-  tmp = alloc_disk(1);
+  tmp = malloc(sizeof(struct gendisk));
   disk = tmp;
   if ((unsigned long )disk == (unsigned long )((struct gendisk *)0)) {
     goto ldv_30013;
