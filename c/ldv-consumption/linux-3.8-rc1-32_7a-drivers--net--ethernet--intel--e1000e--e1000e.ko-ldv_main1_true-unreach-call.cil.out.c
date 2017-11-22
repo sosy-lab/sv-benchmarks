@@ -8617,6 +8617,141 @@ void *ldv_successful_malloc(size_t __size) {
 }
 extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
 
+s32 id_led_init_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 blink_led_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+bool check_mng_mode_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_bool();
+}
+s32 check_for_link_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 cleanup_led_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+void clear_hw_cntrs_dummy(struct e1000_hw *p1) {}
+void clear_vfta_dummy(struct e1000_hw *p1) {}
+s32 get_bus_info_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+void set_lan_id_dummy(struct e1000_hw *p1) {}
+s32 get_link_up_info_dummy(struct e1000_hw *p1, u16 *p2, u16 *p3) {
+  return __VERIFIER_nondet_int();
+}
+s32 led_on_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 led_off_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+void update_mc_addr_list_dummy(struct e1000_hw *p1, u8 *p2, u32 p3) {}
+s32 reset_hw_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 init_hw_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 setup_link_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 setup_physical_interface_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 setup_led_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+void write_vfta_dummy(struct e1000_hw *p1, u32 p2, u32 p3) {}
+void config_collision_dist_dummy(struct e1000_hw *p1) {}
+void rar_set_dummy(struct e1000_hw *p1, u8 *p2, u32 p3) {}
+s32 read_mac_addr_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+
+s32 acquire_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 cfg_on_link_up_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 check_polarity_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 check_reset_block_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 commit_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 force_speed_duplex_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 get_cfg_done_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 get_cable_length_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 get_info_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 set_page_dummy(struct e1000_hw *p1, u16 p2) {
+  return __VERIFIER_nondet_int();
+}
+s32 read_reg_dummy(struct e1000_hw *p1, u32 p2, u16 *p3) {
+  return __VERIFIER_nondet_int();
+}
+s32 read_reg_locked_dummy(struct e1000_hw *p1, u32 p2, u16 *p3) {
+  return __VERIFIER_nondet_int();
+}
+s32 read_reg_page_dummy(struct e1000_hw *p1, u32 p2, u16 *p3) {
+  return __VERIFIER_nondet_int();
+}
+void release_dummy(struct e1000_hw *p1) {}
+s32 reset_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 set_d0_lplu_state_dummy(struct e1000_hw *p1, bool p2) {
+  return __VERIFIER_nondet_int();
+}
+s32 set_d3_lplu_state_dummy(struct e1000_hw *p1, bool p2) {
+  return __VERIFIER_nondet_int();
+}
+s32 write_reg_dummy(struct e1000_hw *p1, u32 p2, u16 p3) {
+  return __VERIFIER_nondet_int();
+}
+s32 write_reg_locked_dummy(struct e1000_hw *p1, u32 p2, u16 p3) {
+  return __VERIFIER_nondet_int();
+}
+s32 write_reg_page_dummy(struct e1000_hw *p1, u32 p2, u16 p3) {
+  return __VERIFIER_nondet_int();
+}
+void power_up_dummy(struct e1000_hw *p1) {}
+void power_down_dummy(struct e1000_hw *p1) {}
+
+s32 acquire_dummy2(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 read_dummy(struct e1000_hw *p1, u16 p2, u16 p3, u16 *p4) {
+  return __VERIFIER_nondet_int();
+}
+void release_dummy2(struct e1000_hw *p1) {}
+void reload_dummy(struct e1000_hw *p1) {}
+s32 update_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 valid_led_default_dummy(struct e1000_hw *p1, u16 *p2) {
+  return __VERIFIER_nondet_int();
+}
+s32 validate_dummy(struct e1000_hw *p1) {
+  return __VERIFIER_nondet_int();
+}
+s32 write_dummy(struct e1000_hw *p1, u16 p2, u16 p3, u16 *p4) {
+  return __VERIFIER_nondet_int();
+}
+
 int LDV_IN_INTERRUPT  ;
 void ldv_main0_sequence_infinite_withcheck_stateful(void) 
 { 
@@ -14227,6 +14362,28 @@ int main(void)
   e1000_adapter_p1->hw = *(e1000_hw_p1);
   e1000_adapter_p1->flags2 = __VERIFIER_nondet_uint();
   struct e1000_mac_operations *e1000_mac_operations_p1 = ldv_successful_malloc(sizeof(struct e1000_mac_operations));
+  e1000_mac_operations_p1->id_led_init = &id_led_init_dummy;
+  e1000_mac_operations_p1->blink_led = &blink_led_dummy;
+  e1000_mac_operations_p1->check_mng_mode = &check_mng_mode_dummy;
+  e1000_mac_operations_p1->check_for_link = &check_for_link_dummy;
+  e1000_mac_operations_p1->cleanup_led = &cleanup_led_dummy;
+  e1000_mac_operations_p1->clear_hw_cntrs = &clear_hw_cntrs_dummy;
+  e1000_mac_operations_p1->clear_vfta = &clear_vfta_dummy;
+  e1000_mac_operations_p1->get_bus_info = &get_bus_info_dummy;
+  e1000_mac_operations_p1->set_lan_id = &set_lan_id_dummy;
+  e1000_mac_operations_p1->get_link_up_info = &get_link_up_info_dummy;
+  e1000_mac_operations_p1->led_on = &led_on_dummy;
+  e1000_mac_operations_p1->led_off = &led_off_dummy;
+  e1000_mac_operations_p1->update_mc_addr_list = &update_mc_addr_list_dummy;
+  e1000_mac_operations_p1->reset_hw = &reset_hw_dummy;
+  e1000_mac_operations_p1->init_hw = &init_hw_dummy;
+  e1000_mac_operations_p1->setup_link = &setup_link_dummy;
+  e1000_mac_operations_p1->setup_physical_interface = &setup_physical_interface_dummy;
+  e1000_mac_operations_p1->setup_led = &setup_led_dummy;
+  e1000_mac_operations_p1->write_vfta = &write_vfta_dummy;
+  e1000_mac_operations_p1->config_collision_dist = &config_collision_dist_dummy;
+  e1000_mac_operations_p1->rar_set = &rar_set_dummy;
+  e1000_mac_operations_p1->read_mac_addr = &read_mac_addr_dummy;
   e1000_mac_info_p1->ops = *(e1000_mac_operations_p1);
   enum e1000_mac_type *e1000_mac_type_p1 = ldv_successful_malloc(sizeof(enum e1000_mac_type));
   e1000_mac_info_p1->type = *(e1000_mac_type_p1);
@@ -14239,6 +14396,28 @@ int main(void)
   e1000_mac_info_p1->arc_subsystem_valid = __VERIFIER_nondet_bool();
   e1000_mac_info_p1->get_link_status = __VERIFIER_nondet_bool();
   struct e1000_phy_operations *e1000_phy_operations_p1 = ldv_successful_malloc(sizeof(struct e1000_phy_operations));
+  e1000_phy_operations_p1->acquire = &acquire_dummy;
+  e1000_phy_operations_p1->cfg_on_link_up = &cfg_on_link_up_dummy;
+  e1000_phy_operations_p1->check_polarity = &check_polarity_dummy;
+  e1000_phy_operations_p1->check_reset_block = &check_reset_block_dummy;
+  e1000_phy_operations_p1->commit = &commit_dummy;
+  e1000_phy_operations_p1->force_speed_duplex = &force_speed_duplex_dummy;
+  e1000_phy_operations_p1->get_cfg_done = &get_cfg_done_dummy;
+  e1000_phy_operations_p1->get_cable_length = &get_cable_length_dummy;
+  e1000_phy_operations_p1->get_info = &get_info_dummy;
+  e1000_phy_operations_p1->set_page = &set_page_dummy;
+  e1000_phy_operations_p1->read_reg = &read_reg_dummy;
+  e1000_phy_operations_p1->read_reg_locked = &read_reg_locked_dummy;
+  e1000_phy_operations_p1->read_reg_page = &read_reg_page_dummy;
+  e1000_phy_operations_p1->release = &release_dummy;
+  e1000_phy_operations_p1->reset = &reset_dummy;
+  e1000_phy_operations_p1->set_d0_lplu_state = &set_d0_lplu_state_dummy;
+  e1000_phy_operations_p1->set_d3_lplu_state = &set_d3_lplu_state_dummy;
+  e1000_phy_operations_p1->write_reg = &write_reg_dummy;
+  e1000_phy_operations_p1->write_reg_locked = &write_reg_locked_dummy;
+  e1000_phy_operations_p1->write_reg_page = &write_reg_page_dummy;
+  e1000_phy_operations_p1->power_up = &power_up_dummy;
+  e1000_phy_operations_p1->power_down = &power_down_dummy;
   e1000_phy_info_p1->ops = *(e1000_phy_operations_p1);
   enum e1000_phy_type *e1000_phy_type_p1 = ldv_successful_malloc(sizeof(enum e1000_phy_type));
   e1000_phy_info_p1->type = *(e1000_phy_type_p1);
@@ -14249,6 +14428,14 @@ int main(void)
   e1000_phy_info_p1->media_type = *(e1000_media_type_p1);
   e1000_phy_info_p1->polarity_correction = __VERIFIER_nondet_bool();
   struct e1000_nvm_operations *e1000_nvm_operations_p1 = ldv_successful_malloc(sizeof(struct e1000_nvm_operations));
+  e1000_nvm_operations_p1->acquire = &acquire_dummy2;
+  e1000_nvm_operations_p1->read = &read_dummy;
+  e1000_nvm_operations_p1->release = &release_dummy2;
+  e1000_nvm_operations_p1->reload = &reload_dummy;
+  e1000_nvm_operations_p1->update = &update_dummy;
+  e1000_nvm_operations_p1->valid_led_default = &valid_led_default_dummy;
+  e1000_nvm_operations_p1->validate = &validate_dummy;
+  e1000_nvm_operations_p1->write = &write_dummy;
   e1000_nvm_info_p1->ops = *(e1000_nvm_operations_p1);
   enum e1000_bus_width *e1000_bus_width_p1 = ldv_successful_malloc(sizeof(enum e1000_bus_width));
   e1000_bus_info_p1->width = *(e1000_bus_width_p1);
