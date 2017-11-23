@@ -8,6 +8,7 @@ bitvector/*_true-termination*.i
 bitvector/*_false-termination*.BV.c.cil.c
 bitvector/*_true-termination*.c.cil.c
 bitvector-regression/*_true-termination*.c
+bitvector-loops/*_true-termination*.i
 
 # from ReachSafety-ControlFlow
 ntdrivers-simplified/*_true-termination*.cil.c
@@ -58,6 +59,9 @@ systemc/*_false-termination*.cil.c
 seq-mthreaded/*_true-termination*.c
 seq-pthread/*_true-termination*.i
 
+# from ReachSafety-Arrays
+reducercommutativity/*_true-termination*.i
+
 # from MemSafety-Arrays
 array-memsafety/*_true-termination*.i
 
@@ -72,6 +76,7 @@ ldv-memsafety-bitfields/*_true-termination*.i
 
 # from Concurrency
 pthread-atomic/*_true-termination*.i
+
 
 # from NoOverflows-BitVectors
 # is 64bit and needs own category 
