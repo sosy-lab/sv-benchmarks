@@ -33,6 +33,8 @@
 #include <utmp.h>
 #include <stdarg.h>
 
+#include "busybox_sv_comp-localtime_r.h"
+
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
 

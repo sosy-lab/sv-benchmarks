@@ -2451,6 +2451,27 @@ extern int getutid_r (const struct utmp *__id, struct utmp *__buffer,
 extern int getutline_r (const struct utmp *__line,
    struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
 
+struct tm *localtime_r(const time_t *timep, struct tm* result)
+{
+   result->tm_sec   = __VERIFIER_nondet_int();
+   result->tm_min   = __VERIFIER_nondet_int();
+   result->tm_hour  = __VERIFIER_nondet_int();
+   result->tm_mday  = __VERIFIER_nondet_int();
+   result->tm_mon   = __VERIFIER_nondet_int();
+   result->tm_year  = __VERIFIER_nondet_int();
+   result->tm_wday  = __VERIFIER_nondet_int();
+   result->tm_yday  = __VERIFIER_nondet_int();
+   result->tm_isdst = __VERIFIER_nondet_int();
+   __VERIFIER_assume(result->tm_sec >= 0 && result->tm_sec <= 60);
+   __VERIFIER_assume(result->tm_min >= 0 && result->tm_min < 60);
+   __VERIFIER_assume(result->tm_hour >= 0 && result->tm_hour < 24);
+   __VERIFIER_assume(result->tm_mday > 0 && result->tm_mday < 32);
+   __VERIFIER_assume(result->tm_mon >= 0 && result->tm_mon < 12);
+   __VERIFIER_assume(result->tm_year >= 0 && result->tm_year < 1000);
+   __VERIFIER_assume(result->tm_wday >= 0 && result->tm_wday < 7);
+   __VERIFIER_assume(result->tm_yday >= 0 && result->tm_yday <= 365);
+   return result;
+}
 struct libbb_anonymous$0;
 struct llist_t;
 struct suffix_mult;
