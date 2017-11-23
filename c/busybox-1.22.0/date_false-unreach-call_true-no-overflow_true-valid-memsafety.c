@@ -1642,6 +1642,18 @@ static void * xmalloc(unsigned long int size)
   return ptr;
 }
 
+// model stat function, in this benchmark there is used
+// only the st_mtim.tv_sec variable
+int stat(const char *__file, struct stat *__buf)
+{
+  __buf->st_mtim.tv_sec = __VERIFIER_nondet_long();
+  if (__VERIFIER_nondet_char())
+    return -1;
+
+  __VERIFIER_assume(__buf->st_mtim.tv_sec >= 0);
+  return 0;
+}
+
 // file libbb/xfuncs_printf.c line 469
 static void xstat(const char *name, struct stat *stat_buf)
 {
