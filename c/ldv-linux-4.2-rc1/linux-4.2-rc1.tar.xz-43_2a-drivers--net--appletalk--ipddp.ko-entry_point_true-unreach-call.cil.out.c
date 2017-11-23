@@ -6361,7 +6361,7 @@ static struct net_device *ipddp_init(void)
   void *tmp___1 ;
 
   {
-  dev = alloc_etherdev_mqs(0, 1U, 1U);
+  dev = malloc(sizeof(struct net_device));
   if ((unsigned long )dev == (unsigned long )((struct net_device *)0)) {
     tmp = ERR_PTR(-12L);
     return ((struct net_device *)tmp);
