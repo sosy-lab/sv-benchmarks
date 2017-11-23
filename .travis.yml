@@ -2,7 +2,7 @@ language: c
 env:
   matrix:
     # Note: Can't use CC variable as TravisCI will override it
-    - C_COMPILER=gcc-5
+    - C_COMPILER="ccache gcc-5"
     - C_COMPILER=clang-3.8
 # Hint to TravisCI that we want to use their container infrastructure
 sudo: false
