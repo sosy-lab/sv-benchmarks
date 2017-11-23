@@ -40,5 +40,6 @@ matrix:
     - env: NAME="Preprocessing consistency checks"
       script: cd c/ && ./compare.sh -k
 cache:
+  cache: ccache # to speed up gcc
   directories:
     - cbmc.git
