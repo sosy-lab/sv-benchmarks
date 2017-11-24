@@ -2,7 +2,7 @@ language: c
 env:
   matrix:
     # Note: Can't use CC variable as TravisCI will override it
-    - C_COMPILER="ccache gcc-5"
+    - C_COMPILER=gcc-5
     - C_COMPILER=clang-3.8
 # Hint to TravisCI that we want to use their container infrastructure
 sudo: false
@@ -32,7 +32,7 @@ addons:
       - flex
 script:
   - ${C_COMPILER} -v --version
-  - cd c/ && make -j2 CC="${C_COMPILER}"
+  - cd c/ && make -j2 CC=${C_COMPILER}
 matrix:
   include:
     - env: NAME="Sanity checks"
@@ -40,6 +40,5 @@ matrix:
     - env: NAME="Preprocessing consistency checks"
       script: cd c/ && ./compare.sh -k
 cache:
-  cache: ccache # to speed up gcc
   directories:
     - cbmc.git
