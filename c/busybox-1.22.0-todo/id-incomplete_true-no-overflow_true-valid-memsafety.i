@@ -3272,6 +3272,8 @@ struct passwd *bb_internal_getpwnam(const char *name)
   p.pw_gecos = "";
   p.pw_dir = "";
   p.pw_shell = "";
+  if (__VERIFIER_nondet_uint())
+    return 0;
   return &p;
 }
 struct passwd *bb_internal_getpwuid(uid_t uid)
