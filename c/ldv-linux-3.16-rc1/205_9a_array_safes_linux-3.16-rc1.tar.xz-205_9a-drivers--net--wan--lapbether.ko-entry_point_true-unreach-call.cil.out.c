@@ -6061,6 +6061,11 @@ extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int expression ) ;
+void *ldv_successful_zalloc(size_t __size) {
+  void *p = calloc(1UL, __size);
+  __VERIFIER_assume(p != (void *)0);
+  return p;
+}
 void *ldv_malloc(size_t size ) 
 { 
   void *p ;
@@ -6213,6 +6218,8 @@ __inline static struct net_device *netdev_notifier_info_to_dev(struct netdev_not
 
 
   {
+  __VERIFIER_assume(((void*)(&info)) != ((void*) 0));
+  __VERIFIER_assume(((void*)((struct net_device *)info->dev)) != ((void*) 0));
   return ((struct net_device *)info->dev);
 }
 }
@@ -7308,7 +7315,7 @@ void ldv_net_device_ops_3(void)
   void *tmp ;
 
   {
-  tmp = ldv_zalloc(3264UL);
+  tmp = ldv_successful_zalloc(3264UL);
   lapbeth_netdev_ops_group1 = (struct net_device *)tmp;
   return;
 }
@@ -7319,9 +7326,9 @@ void ldv_initialize_lapb_register_struct_4(void)
   void *tmp___0 ;
 
   {
-  tmp = ldv_zalloc(3264UL);
+  tmp = ldv_successful_zalloc(3264UL);
   lapbeth_callbacks_group1 = (struct net_device *)tmp;
-  tmp___0 = ldv_zalloc(232UL);
+  tmp___0 = ldv_successful_zalloc(232UL);
   lapbeth_callbacks_group0 = (struct sk_buff *)tmp___0;
   return;
 }
@@ -7370,23 +7377,23 @@ int main(void)
   ldvarg0 = tmp___1;
   tmp___2 = __VERIFIER_nondet_int();
   ldvarg2 = tmp___2;
-  tmp___3 = ldv_zalloc(24UL);
+  tmp___3 = ldv_successful_zalloc(24UL);
   ldvarg4 = (struct notifier_block *)tmp___3;
-  tmp___4 = ldv_zalloc(1UL);
+  tmp___4 = ldv_successful_zalloc(1UL);
   ldvarg5 = tmp___4;
   tmp___5 = __VERIFIER_nondet_ulong();
   ldvarg6 = tmp___5;
-  tmp___6 = ldv_zalloc(232UL);
+  tmp___6 = ldv_successful_zalloc(232UL);
   ldvarg8 = (struct sk_buff *)tmp___6;
-  tmp___7 = ldv_zalloc(1UL);
+  tmp___7 = ldv_successful_zalloc(1UL);
   ldvarg7 = tmp___7;
-  tmp___8 = ldv_zalloc(56UL);
+  tmp___8 = ldv_successful_zalloc(56UL);
   ldvarg11 = (struct packet_type *)tmp___8;
-  tmp___9 = ldv_zalloc(232UL);
+  tmp___9 = ldv_successful_zalloc(232UL);
   ldvarg10 = (struct sk_buff *)tmp___9;
-  tmp___10 = ldv_zalloc(3264UL);
+  tmp___10 = ldv_successful_zalloc(3264UL);
   ldvarg12 = (struct net_device *)tmp___10;
-  tmp___11 = ldv_zalloc(3264UL);
+  tmp___11 = ldv_successful_zalloc(3264UL);
   ldvarg9 = (struct net_device *)tmp___11;
   ldv_initialize();
   ldv_state_variable_4 = 0;
@@ -7958,7 +7965,7 @@ struct sk_buff___0 *ldv_skb_alloc(void)
   void *tmp___7 ;
 
   {
-  tmp___7 = ldv_zalloc(sizeof(struct sk_buff___0 ));
+  tmp___7 = ldv_successful_zalloc(sizeof(struct sk_buff___0 ));
   skb = (struct sk_buff___0 *)tmp___7;
   if (! skb) {
     return ((void *)0);
