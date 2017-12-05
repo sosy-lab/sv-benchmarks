@@ -1845,7 +1845,10 @@ __inline static int request_irq(unsigned int irq , irqreturn_t (*handler)(int  ,
 extern void free_irq(unsigned int  , void * ) ;
 extern int dev_set_drvdata(struct device * , void * ) ;
 extern int dev_err(struct device  const  * , char const   *  , ...) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 extern int input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;

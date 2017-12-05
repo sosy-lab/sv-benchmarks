@@ -7038,7 +7038,10 @@ __inline static void pci_free_consistent(struct pci_dev *hwdev , size_t size , v
 extern int request_firmware(struct firmware  const  ** , char const   * , struct device * ) ;
 extern void release_firmware(struct firmware  const  * ) ;
 extern u32 crc32_le(u32  , unsigned char const   * , size_t  ) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 extern int input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;

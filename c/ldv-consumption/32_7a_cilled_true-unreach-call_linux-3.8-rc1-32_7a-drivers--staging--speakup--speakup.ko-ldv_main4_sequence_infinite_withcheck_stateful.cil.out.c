@@ -5386,7 +5386,10 @@ __inline static struct thread_info *current_thread_info(void)
 }
 }
 extern void __bad_size_call_parameter(void) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 extern int input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;

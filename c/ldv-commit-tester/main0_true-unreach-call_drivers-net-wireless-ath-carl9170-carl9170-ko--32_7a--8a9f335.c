@@ -6621,7 +6621,10 @@ extern void ieee80211_stop_tx_ba_cb_irqsafe(struct ieee80211_vif * , u8 const   
                                             u16  ) ;
 extern void ieee80211_sta_block_awake(struct ieee80211_hw * , struct ieee80211_sta * ,
                                       bool  ) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 extern int input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;

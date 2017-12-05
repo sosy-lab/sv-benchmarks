@@ -4517,7 +4517,10 @@ extern void dev_warn(struct device  const  * , char const   *  , ...) ;
 extern void _dev_info(struct device  const  * , char const   *  , ...) ;
 extern void kfree(void const   * ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 __inline static struct input_dev *input_get_device(struct input_dev *dev ) 
 { 
