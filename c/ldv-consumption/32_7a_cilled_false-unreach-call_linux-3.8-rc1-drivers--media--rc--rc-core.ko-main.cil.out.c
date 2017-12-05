@@ -3377,6 +3377,7 @@ extern void device_del(struct device * ) ;
 extern void *dev_get_drvdata(struct device  const  * ) ;
 extern int dev_set_drvdata(struct device * , void * ) ;
 extern void put_device(struct device * ) ;
+__inline static void *kzalloc(size_t size , gfp_t flags );
 struct input_dev *input_allocate_device(void) {
        return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
 }
