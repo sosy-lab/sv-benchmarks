@@ -17,8 +17,8 @@ int main() {
   int method_id;
 
   // variables
-    int this_expect = 0;
-    int this_buffer_empty = 0;
+  unsigned int this_expect = 0;
+  unsigned int this_buffer_empty = 0;
    
 
   while (1) {
