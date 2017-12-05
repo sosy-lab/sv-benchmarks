@@ -5289,6 +5289,11 @@ extern unsigned short __VERIFIER_nondet_ushort(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int expression ) ;
+void *ldv_successful_zalloc(size_t __size) {
+  void *p = calloc(1UL, __size);
+  __VERIFIER_assume(p != (void *)0);
+  return p;
+}
 void *ldv_malloc(size_t size ) 
 { 
   void *p ;
@@ -5675,9 +5680,9 @@ void ldv_initialize_ArcProto_1(void)
   void *tmp___0 ;
 
   {
-  tmp = ldv_zalloc(20UL);
+  tmp = ldv_successful_zalloc(20UL);
   capmode_proto_group0 = (struct archdr *)tmp;
-  tmp___0 = ldv_zalloc(3264UL);
+  tmp___0 = ldv_successful_zalloc(3264UL);
   capmode_proto_group1 = (struct net_device *)tmp___0;
   return;
 }
@@ -5706,7 +5711,7 @@ int main(void)
   {
   tmp = __VERIFIER_nondet_int();
   ldvarg7 = tmp;
-  tmp___0 = ldv_zalloc(232UL);
+  tmp___0 = ldv_successful_zalloc(232UL);
   ldvarg3 = (struct sk_buff *)tmp___0;
   tmp___1 = __VERIFIER_nondet_int();
   ldvarg0 = tmp___1;
@@ -6068,7 +6073,7 @@ struct sk_buff___0 *ldv_skb_alloc(void)
   void *tmp___7 ;
 
   {
-  tmp___7 = ldv_zalloc(sizeof(struct sk_buff___0 ));
+  tmp___7 = ldv_successful_zalloc(sizeof(struct sk_buff___0 ));
   skb = (struct sk_buff___0 *)tmp___7;
   if (! skb) {
     return ((void *)0);
