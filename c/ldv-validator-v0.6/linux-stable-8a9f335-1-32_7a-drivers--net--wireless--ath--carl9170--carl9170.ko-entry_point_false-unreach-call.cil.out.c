@@ -6757,7 +6757,10 @@ extern void ieee80211_sta_block_awake(struct ieee80211_hw * , struct ieee80211_s
 extern int usb_register_driver(struct usb_driver * , struct module * , char const   * ) ;
 int ldv_usb_register_driver_6(struct usb_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,
                               char const   *ldv_func_arg3 ) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 extern int input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;

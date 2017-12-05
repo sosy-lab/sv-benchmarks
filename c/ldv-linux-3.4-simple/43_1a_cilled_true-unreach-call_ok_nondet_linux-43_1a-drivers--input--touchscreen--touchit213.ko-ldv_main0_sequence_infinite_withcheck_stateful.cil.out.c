@@ -1800,7 +1800,10 @@ extern void *dev_get_drvdata(struct device  const  * ) ;
 extern int dev_set_drvdata(struct device * , void * ) ;
 extern struct device *get_device(struct device * ) ;
 extern void put_device(struct device * ) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 __inline static struct input_dev *input_get_device(struct input_dev *dev ) 
 { struct device  const  *__mptr ;
