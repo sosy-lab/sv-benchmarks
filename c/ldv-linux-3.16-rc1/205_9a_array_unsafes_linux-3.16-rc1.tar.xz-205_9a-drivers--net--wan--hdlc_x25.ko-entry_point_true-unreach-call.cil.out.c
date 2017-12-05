@@ -5520,6 +5520,8 @@ static netdev_tx_t x25_xmit(struct sk_buff *skb , struct net_device *dev )
   int result ;
 
   {
+  __VERIFIER_assume(((void*)(skb)) != ((void*) 0));
+  __VERIFIER_assume(((void*)((skb->data))) != ((void*) 0));
   switch ((int )*(skb->data)) {
   case 0: 
   skb_pull(skb, 1U);

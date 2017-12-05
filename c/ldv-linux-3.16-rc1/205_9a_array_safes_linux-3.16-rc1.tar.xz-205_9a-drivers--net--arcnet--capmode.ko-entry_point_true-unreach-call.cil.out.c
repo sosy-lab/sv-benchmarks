@@ -5510,6 +5510,7 @@ static int build_header(struct sk_buff *skb , struct net_device *dev , unsigned 
   } else {
 
   }
+  __VERIFIER_assume(((void*)(dev->dev_addr)) != ((void*) 0));
   pkt->hard.source = *(dev->dev_addr);
   if ((dev->flags & 136U) != 0U) {
     pkt->hard.dest = 0U;
@@ -5564,6 +5565,7 @@ static int prepare_tx(struct net_device *dev , struct archdr *pkt , int length ,
     ofs = 256 - length;
     hard->offset[0] = (__u8 )ofs;
   }
+  __VERIFIER_assume(((void*)((*(lp->hw.copy_to_card)))) != ((void*)0));
   (*(lp->hw.copy_to_card))(dev, bufnum, 0, (void *)hard, 4);
   (*(lp->hw.copy_to_card))(dev, bufnum, ofs, (void *)(& pkt->soft.cap.proto), 1);
   (*(lp->hw.copy_to_card))(dev, bufnum, ofs + 1, (void *)(& pkt->soft.cap.mes), length + -1);

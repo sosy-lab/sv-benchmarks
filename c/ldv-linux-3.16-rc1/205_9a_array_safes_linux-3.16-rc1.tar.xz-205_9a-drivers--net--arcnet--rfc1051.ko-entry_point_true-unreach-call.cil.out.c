@@ -5525,6 +5525,7 @@ static int build_header(struct sk_buff *skb , struct net_device *dev , unsigned 
   soft = & pkt->soft.rfc1051;
   switch ((int )type) {
   case 2048: 
+  __VERIFIER_assume(((void*)(soft)) != ((void*) 0));
   soft->proto = 240U;
   goto ldv_42969;
   case 2054: 
@@ -5589,6 +5590,7 @@ static int prepare_tx(struct net_device *dev , struct archdr *pkt , int length ,
     ofs = 256 - length;
     hard->offset[0] = (__u8 )ofs;
   }
+  __VERIFIER_assume(((void*)(*(lp->hw.copy_to_card))) != ((void*)0));
   (*(lp->hw.copy_to_card))(dev, bufnum, 0, (void *)hard, 4);
   (*(lp->hw.copy_to_card))(dev, bufnum, ofs, (void *)(& pkt->soft), length);
   lp->lastload_dest = (int )hard->dest;

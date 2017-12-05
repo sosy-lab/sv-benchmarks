@@ -6218,6 +6218,8 @@ __inline static struct net_device *netdev_notifier_info_to_dev(struct netdev_not
 
 
   {
+  __VERIFIER_assume(((void*)(&info)) != ((void*) 0));
+  __VERIFIER_assume(((void*)((struct net_device *)info->dev)) != ((void*) 0));
   return ((struct net_device *)info->dev);
 }
 }
