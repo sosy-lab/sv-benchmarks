@@ -1878,6 +1878,7 @@ extern void *dev_get_drvdata(struct device  const  *dev ) ;
 extern int dev_set_drvdata(struct device *dev , void *data ) ;
 extern int ( /* format attribute */  dev_err)(struct device  const  *dev , char const   *fmt 
                                               , ...) ;
+__inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 struct input_dev *input_allocate_device(void) {
        return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
 }
@@ -2003,7 +2004,6 @@ __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size 
   return (tmp___2);
 }
 }
-__inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp ;
   unsigned int __cil_tmp4 ;

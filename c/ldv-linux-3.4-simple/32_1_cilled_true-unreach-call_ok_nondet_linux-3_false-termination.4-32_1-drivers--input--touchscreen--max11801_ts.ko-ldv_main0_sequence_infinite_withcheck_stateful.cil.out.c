@@ -3111,6 +3111,7 @@ extern int __attribute__((__warn_unused_result__))  request_threaded_irq(unsigne
                                                                          char const   *name ,
                                                                          void *dev ) ;
 extern void free_irq(unsigned int  , void * ) ;
+__inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 struct input_dev *input_allocate_device(void) {
        return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
 }
@@ -3177,7 +3178,6 @@ __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size 
   return (tmp___10);
 }
 }
-__inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp___7 ;
   unsigned int __cil_tmp4 ;
