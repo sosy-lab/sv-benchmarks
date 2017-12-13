@@ -3557,6 +3557,7 @@ static void topstar_laptop_exit(void)
 }
 }
 extern void *malloc(size_t size);
+extern void free(void *);
 extern void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
