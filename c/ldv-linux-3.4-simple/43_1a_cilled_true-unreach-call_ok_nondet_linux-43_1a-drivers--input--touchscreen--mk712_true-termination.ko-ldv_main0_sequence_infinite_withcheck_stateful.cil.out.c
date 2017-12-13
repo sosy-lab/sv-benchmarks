@@ -1830,6 +1830,10 @@ __inline static int request_irq(unsigned int irq , irqreturn_t (*handler)(int  ,
 }
 }
 extern void free_irq(unsigned int  , void * ) ;
+extern void *calloc(size_t nmemb, size_t msize);
+static void *kzalloc(size_t size, gfp_t flags) {
+       return calloc(1UL, size);
+}
 struct input_dev *input_allocate_device(void) {
        return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
 }
