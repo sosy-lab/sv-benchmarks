@@ -3560,6 +3560,7 @@ extern void *malloc(size_t size);
 extern void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
+extern unsigned int __VERIFIER_nondet_uint(void) ;
 int LDV_IN_INTERRUPT  ;
 void main(void) 
 { struct acpi_device *var_group1 ;
