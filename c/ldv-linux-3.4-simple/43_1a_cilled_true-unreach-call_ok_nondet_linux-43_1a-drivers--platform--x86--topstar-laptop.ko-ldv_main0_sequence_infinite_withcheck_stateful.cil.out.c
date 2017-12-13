@@ -3556,6 +3556,7 @@ static void topstar_laptop_exit(void)
   return;
 }
 }
+extern void *malloc(size_t size);
 extern void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
@@ -3568,7 +3569,7 @@ void main(void)
   int tmp___0 ;
   int tmp___1 ;
 
-  struct acpi_device *acpi_device_p1 = ldv_successful_malloc(sizeof(struct acpi_device));
+  struct acpi_device *acpi_device_p1 = malloc(sizeof(struct acpi_device));
   var_group1 = acpi_device_p1;
   var_acpi_topstar_remove_4_p1 = __VERIFIER_nondet_int();
   var_acpi_topstar_notify_0_p1 = __VERIFIER_nondet_uint();
