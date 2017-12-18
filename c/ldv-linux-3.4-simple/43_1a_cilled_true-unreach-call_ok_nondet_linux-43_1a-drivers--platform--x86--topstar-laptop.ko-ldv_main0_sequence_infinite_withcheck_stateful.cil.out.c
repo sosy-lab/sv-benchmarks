@@ -3141,7 +3141,6 @@ extern char *strcpy(char * , char const   * ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
-__inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
@@ -3162,6 +3161,8 @@ __inline static void *acpi_driver_data(struct acpi_device *d )
 }
 extern int acpi_bus_register_driver(struct acpi_driver * ) ;
 extern void acpi_bus_unregister_driver(struct acpi_driver * ) ;
+extern void *calloc(size_t nmemb, size_t msize);
+static void *kzalloc(size_t size, gfp_t flags);
 struct input_dev *input_allocate_device(void) {
        return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
 }
@@ -3555,9 +3556,12 @@ static void topstar_laptop_exit(void)
   return;
 }
 }
+extern void *malloc(size_t size);
+extern void free(void *);
 extern void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
+extern unsigned int __VERIFIER_nondet_uint(void) ;
 int LDV_IN_INTERRUPT  ;
 void main(void) 
 { struct acpi_device *var_group1 ;
@@ -3567,7 +3571,7 @@ void main(void)
   int tmp___0 ;
   int tmp___1 ;
 
-  struct acpi_device *acpi_device_p1 = ldv_successful_malloc(sizeof(struct acpi_device));
+  struct acpi_device *acpi_device_p1 = malloc(sizeof(struct acpi_device));
   var_group1 = acpi_device_p1;
   var_acpi_topstar_remove_4_p1 = __VERIFIER_nondet_int();
   var_acpi_topstar_notify_0_p1 = __VERIFIER_nondet_uint();

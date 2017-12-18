@@ -2076,6 +2076,10 @@ void ldv_check_alloc_nonatomic(void) ;
 struct page *ldv_check_alloc_flags_and_return_some_page(gfp_t flags ) ;
 extern raw_spinlock_t i8253_lock ;
 extern int dev_set_drvdata(struct device * , void * ) ;
+extern void *calloc(size_t nmemb, size_t msize);
+static void *kzalloc(size_t size, gfp_t flags) {
+	return calloc(1UL, size);
+}
 struct input_dev *input_allocate_device(void) {
        return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
 }

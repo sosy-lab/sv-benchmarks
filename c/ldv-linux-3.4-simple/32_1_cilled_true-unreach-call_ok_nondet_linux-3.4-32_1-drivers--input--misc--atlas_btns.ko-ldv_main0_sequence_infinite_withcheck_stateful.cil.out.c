@@ -3122,6 +3122,10 @@ extern int acpi_disabled ;
 extern struct module __this_module ;
 int init_module(void) ;
 void cleanup_module(void) ;
+extern void *calloc(size_t nmemb, size_t msize);
+static void *kzalloc(size_t size, gfp_t flags) {
+       return calloc(1UL, size);
+}
 struct input_dev *input_allocate_device(void) {
        return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
 }
