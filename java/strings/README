@@ -1,0 +1,6 @@
+Verification tasks extracted from the CBMC string solver.
+All specifications are checked at the same time
+instead of separately.
+
+Created by Diffblue Ltd,
+Submitted by Lucas Cordeiro and Peter Schrammel.
