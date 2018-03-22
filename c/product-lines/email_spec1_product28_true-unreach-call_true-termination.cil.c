@@ -1553,7 +1553,7 @@ void __automaton_fail(void) ;
 extern int puts(char const   *__s ) ;
 int isEncrypted(int handle ) ;
 int mail_is_sensitive  =    -1;
-__inline void __utac_acc__AddressBookEncrypt_spec__1(int client , int msg ) 
+inline static void __utac_acc__AddressBookEncrypt_spec__1(int client , int msg ) 
 { int tmp ;
 
   {

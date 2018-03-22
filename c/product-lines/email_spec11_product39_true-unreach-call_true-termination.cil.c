@@ -405,7 +405,7 @@ int valid_product(void)
 #pragma merger(0,"DecryptAutoResponder_spec.i","")
 void __automaton_fail(void) ;
 int isReadable(int msg ) ;
-__inline void __utac_acc__DecryptAutoResponder_spec__1(int client , int msg ) 
+inline static void __utac_acc__DecryptAutoResponder_spec__1(int client , int msg ) 
 { int tmp ;
 
   {

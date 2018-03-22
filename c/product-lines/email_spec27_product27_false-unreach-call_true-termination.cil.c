@@ -2590,7 +2590,7 @@ void __automaton_fail(void)
 }
 }
 #pragma merger(0,"VerifyForward_spec.i","")
-__inline void __utac_acc__VerifyForward_spec__1(int client , int msg ) 
+inline static void __utac_acc__VerifyForward_spec__1(int client , int msg ) 
 { int pubkey ;
   int tmp ;
   int tmp___0 ;

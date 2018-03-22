@@ -517,7 +517,7 @@ int createEmail(int from , int to )
 }
 #pragma merger(0,"EncryptVerify_spec.i","")
 void __automaton_fail(void) ;
-__inline void __utac_acc__EncryptVerify_spec__1(int msg ) 
+inline static void __utac_acc__EncryptVerify_spec__1(int msg ) 
 { int tmp ;
 
   {

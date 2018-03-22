@@ -283,7 +283,7 @@ int __GUIDSL_ROOT_PRODUCTION  ;
 int __GUIDSL_NON_TERMINAL_main  ;
 int isReadable(int msg ) ;
 extern int puts(char const   *__s ) ;
-__inline void __utac_acc__DecryptForward_spec__1(int msg ) 
+inline static void __utac_acc__DecryptForward_spec__1(int msg ) 
 { int tmp ;
 
   {
