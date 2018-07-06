@@ -548,8 +548,8 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
-int __VERIFIER_error(void);
-int __VERIFIER_assume(int);
+void __VERIFIER_error(void);
+void __VERIFIER_assume(int);
 int __VERIFIER_nondet_int(void);
 void *__VERIFIER_nondet_pointer(void);
 void *ldv_malloc(size_t size) {
