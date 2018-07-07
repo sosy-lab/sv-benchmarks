@@ -69,7 +69,7 @@ int floorButtons_spc9_1  ;
 int floorButtons_spc9_2  ;
 int floorButtons_spc9_3  ;
 int floorButtons_spc9_4  ;
-__inline void __utac_acc__Specification9_spec__1(void) 
+inline static void __utac_acc__Specification9_spec__1(void) 
 { 
 
   {
@@ -81,7 +81,7 @@ __inline void __utac_acc__Specification9_spec__1(void)
   return;
 }
 }
-__inline void __utac_acc__Specification9_spec__2(int floor ) 
+inline static void __utac_acc__Specification9_spec__2(int floor ) 
 { 
 
   {
@@ -109,7 +109,7 @@ __inline void __utac_acc__Specification9_spec__2(int floor )
   return;
 }
 }
-__inline void __utac_acc__Specification9_spec__3(void) 
+inline static void __utac_acc__Specification9_spec__3(void) 
 { int floor ;
   int tmp ;
   int tmp___0 ;
@@ -184,7 +184,7 @@ __inline void __utac_acc__Specification9_spec__3(void)
   return;
 }
 }
-__inline void __utac_acc__Specification9_spec__4(void) 
+inline static void __utac_acc__Specification9_spec__4(void) 
 { 
 
   {

@@ -2268,7 +2268,7 @@ void __utac_acc__Specification1_spec__1(void)
   return;
 }
 }
-__inline void __utac_acc__Specification1_spec__2(int floor ) 
+inline static void __utac_acc__Specification1_spec__2(int floor ) 
 { 
 
   {

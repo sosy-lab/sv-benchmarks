@@ -50,7 +50,7 @@ int __SELECTED_FEATURE_Decrypt  ;
 int __GUIDSL_ROOT_PRODUCTION  ;
 int isEncrypted(int handle ) ;
 int mail_is_sensitive  =    -1;
-__inline void __utac_acc__AddressBookEncrypt_spec__1(int client , int msg ) 
+inline static void __utac_acc__AddressBookEncrypt_spec__1(int client , int msg ) 
 { int tmp ;
 
   {
