@@ -3562,6 +3562,9 @@ extern void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned int __VERIFIER_nondet_uint(void) ;
+void *ldv_successful_alloc(size_t size);
+void *ldv_zalloc(size_t size);
+long ldv_is_err(void const *ptr );
 int LDV_IN_INTERRUPT  ;
 void main(void) 
 { struct acpi_device *var_group1 ;
@@ -3571,7 +3574,7 @@ void main(void)
   int tmp___0 ;
   int tmp___1 ;
 
-  struct acpi_device *acpi_device_p1 = malloc(sizeof(struct acpi_device));
+  struct acpi_device *acpi_device_p1 = ldv_successful_alloc(sizeof(struct acpi_device));
   var_group1 = acpi_device_p1;
   var_acpi_topstar_remove_4_p1 = __VERIFIER_nondet_int();
   var_acpi_topstar_notify_0_p1 = __VERIFIER_nondet_uint();
@@ -3658,6 +3661,24 @@ void ldv_blast_assert(void)
   {
   ERROR: __VERIFIER_error();
 }
+}
+
+void* ldv_successful_alloc(size_t size)
+{
+  void *res ;
+  long tmp ;
+
+  res = malloc(size);
+  __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+  tmp = ldv_is_err((void const   *)res);
+  __VERIFIER_assume(tmp == 0L);
+
+  return res;
+}
+
+long ldv_is_err(void const *ptr )
+{
+  return ((unsigned long )ptr > 4294967295UL);
 }
 extern int __VERIFIER_nondet_int(void) ;
 int ldv_spin  =    0;
@@ -3763,8 +3784,31 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = ldv_zalloc(size);
   }
   return (tmp);
 }
+}
+void *ldv_calloc(size_t nmemb , size_t size )
+{
+  void *res ;
+  long tmp___0 ;
+  int tmp___1 ;
+
+  tmp___1 = __VERIFIER_nondet_int();
+  if (tmp___1 != 0) {
+    res = calloc(nmemb, size);
+    __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
+    tmp___0 = ldv_is_err((void const   *)res);
+    __VERIFIER_assume(tmp___0 == 0L);
+    return (res);
+  } else {
+    return ((void *)0);
+  }
+}
+void *ldv_zalloc(size_t size )
+{
+  void *tmp ;
+  tmp = ldv_calloc(1UL, size);
+  return (tmp);
 }
