@@ -5,14 +5,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
    Computing 1/x using Newton's method.
 */
 
-/*
- * This task results in "false" due to the types of
- * the members of the union "double_int".
- *
- * The algorithm in function inv(double) tries to
- * extract the parameter's exponent but instead gets
- * some arbitrary bits of its significant.
- */
+
 extern double __VERIFIER_nondet_double();
 extern void __VERIFIER_assume(int expression);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
@@ -20,7 +13,7 @@ void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } r
 union double_int
 {
   double d;
-  int i;
+  long long i;
 };
 
 double inv (double A)
@@ -29,9 +22,9 @@ double inv (double A)
   signed int cond, exp;
   union double_int A_u, xi_u;
   A_u.d = A;
-  exp = (signed int) ((A_u.i & 0x7FF00000) >> 20) - 1023;
+  exp = (signed int) ((A_u.i & 0x7FF0000000000000) >> 52) - 1023;
   xi_u.d = 1;
-  xi_u.i = ((1023-exp) << 20);
+  xi_u.i = (((long long)(1023-exp)) << 52);
   xi = xi_u.d;
   cond = 1; 
   while (cond) {
