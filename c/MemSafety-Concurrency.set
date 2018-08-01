@@ -1,2 +1,2 @@
 pthread-memsafety/*_false-valid-deref.i
-pthread-memsafety/*_true-memsafety.i
+pthread-memsafety/*_true-valid-memsafety.i
