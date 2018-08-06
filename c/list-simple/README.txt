@@ -10,25 +10,21 @@ Common in all programs:
 Varying:
 - number of links: sll / dll
 - circularity: circular(c) / NULL-terminated(n)
-- applied manipulation:
-append-equal(appeq) / append-unequal(appuneq) / prepend-equal(prepeq) / prepend-unequal(prepuneq) / insert-mid-equal(inseq) /
-insert-mid-unequal(insuneq) / remove-all(rmall) / remove-all-reverse(rmallr) / update-all(updall) / update-all-reverse(updallr)
+- applied manipulation with expected results:
+  - append_equal(1-1, 1') = 1-1-1'
+  - append_unequal(1-1, 5) = 1-1-5
+  - insert_equal(1-1, 1') = 1-1'-1
+  - insert_unequal(1-1, 5) = 1-5-1
+  - prepend_equal(1-1, 1') = 1'-1-1
+  - prepend_unequal(1-1, 5) = 5-1-1
+  - remove_all(1-1) -> 1 -> NULL (First node is removed first)
+  - remove_all_reverse(1-1) -> 1 -> NULL (Last node is removed first)
+  - update_all(1-1) -> 2-1 -> 2-3
+  - update_all_reverse(1-1) -> 1-2 -> 3-2
 
-Manipulations with expected results:
-- appeq(1-1, 1) = 1-1-1'
-- appuneq(1-1, 5) = 1-1-5
-- inseq(1-1, 1) = 1-1'-1
-- insuneq(1-1, 5) = 1-5-1
-- prepeq(1-1, 1) = 1'-1-1
-- prepuneq(1-1, 5) = 5-1-1
-- rmall(1-1) -> '-1 -> NULL
-- rmallr(1-1) -> 1-' -> NULL
-- updall(1-1) -> 2-1 -> 2-3
-- updallr(1-1) -> 1-2 -> 3-2
+Comments:
+- The character ' is added as a visual cue to distinguish inserted 1s from the others.
 
 File name examples:
-- dll2c_updallr_true-unreach-call_true-valid-memsafety.c
-Circular dll of size 2 is updated in a backward traversal.
-
-- sll2n_rmall_true-unreach-call_true-valid-memsafety.c
-NULL_terminated sll of size 2 is removed (node-by-node) in a forward traversal.
+- dll2c_update_all_reverse_*.c: Circular dll of size 2 is updated node-by-node in reverse order.
+- sll2n_remove_all_*.c: NULL-terminated sll of size 2 is removed node-by-node in forward order.
