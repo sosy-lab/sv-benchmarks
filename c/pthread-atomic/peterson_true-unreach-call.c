@@ -20,6 +20,7 @@ void *thr1() {
   assert(x<=0);
   // end: critical section
   flag1 = 0;
+  return 0;
 }
 
 void *thr2() {
@@ -31,6 +32,7 @@ void *thr2() {
   assert(x>=1);
   // end: critical section
   flag2 = 0;
+  return 0;
 }
   
 int main() {

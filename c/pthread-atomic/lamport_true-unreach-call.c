@@ -37,6 +37,7 @@ void *thr1() {
   // end: critical section
   y = 0;
   b1 = 0;
+  return 0;
 }
 
 void *thr2() {
@@ -65,6 +66,7 @@ void *thr2() {
   // end: critical section
   y = 0;
   b2 = 0;
+  return 0;
 }
 
 int main() {

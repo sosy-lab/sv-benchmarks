@@ -44,6 +44,7 @@ void *thr2() {
   // end: critical section
   turn = 1;
   flag2 = 0;
+  return 0;
 }
 
 int main() {

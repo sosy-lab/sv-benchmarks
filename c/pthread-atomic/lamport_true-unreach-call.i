@@ -659,6 +659,7 @@ void *thr1() {
   if (!(X <= 0)) ERROR: __VERIFIER_error();
   y = 0;
   b1 = 0;
+  return 0;
 }
 void *thr2() {
   while (1) {
@@ -684,6 +685,7 @@ void *thr2() {
   if (!(X >= 1)) ERROR: __VERIFIER_error();
   y = 0;
   b2 = 0;
+  return 0;
 }
 int main() {
   pthread_t t1, t2;

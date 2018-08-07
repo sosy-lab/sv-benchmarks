@@ -26,6 +26,7 @@ void *thr1() {
   // end critical section
   while (2 <= flag2 && flag2 <= 3);
   flag1 = 0;
+  return 0;
 }
 
 void *thr2() {
@@ -44,6 +45,7 @@ void *thr2() {
   // end critical section
   while (2 <= flag1 && flag1 <= 3);
   flag2 = 0;
+  return 0;
 }
 
 int main() {

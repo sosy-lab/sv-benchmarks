@@ -649,6 +649,7 @@ void *thr1() {
   if (!(x<=0)) ERROR: __VERIFIER_error();
   turn = 1;
   flag1 = 0;
+  return 0;
 }
 void *thr2() {
   flag2 = 1;
@@ -663,6 +664,7 @@ void *thr2() {
   if (!(x>=1)) ERROR: __VERIFIER_error();
   turn = 1;
   flag2 = 0;
+  return 0;
 }
 int main() {
   pthread_t t1, t2;
