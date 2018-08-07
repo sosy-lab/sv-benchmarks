@@ -1213,7 +1213,7 @@ void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_er
 char *v;
 void *thread1(void * arg)
 {
-  v = malloc(sizeof(char) * 8);
+  v = calloc(8, sizeof(char));
   return 0;
 }
 void *thread2(void *arg)

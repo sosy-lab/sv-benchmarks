@@ -10,7 +10,7 @@ char *v;
 
 void *thread1(void * arg)
 {
-  v = malloc(sizeof(char) * 8);
+  v = calloc(8, sizeof(char));
   return 0;
 }
 
