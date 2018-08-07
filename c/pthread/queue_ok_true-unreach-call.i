@@ -941,7 +941,7 @@ int __VERIFIER_nondet_int();
 int stored_elements[(20)];
 _Bool enqueue_flag, dequeue_flag;
 QType queue;
-int init(QType *q)
+void init(QType *q)
 {
   q->head=0;
   q->tail=0;
