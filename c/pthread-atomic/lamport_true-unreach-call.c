@@ -11,7 +11,7 @@ int x, y;
 int b1, b2; // boolean flags
 int X; // boolean variable to test mutual exclusion
 
-void *thr1() {
+void *thr1(void *_) {
   while (1) {
     b1 = 1;
     x = 1;
@@ -40,7 +40,7 @@ void *thr1() {
   return 0;
 }
 
-void *thr2() {
+void *thr2(void *_) {
   while (1) {
     b2 = 1;
     x = 2;

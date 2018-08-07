@@ -11,7 +11,7 @@ int flag1 = 0, flag2 = 0; // boolean flags
 int turn; // integer variable to hold the ID of the thread whose turn is it
 int x; // boolean variable to test mutual exclusion
 
-void *thr1() {
+void *thr1(void *_) {
   flag1 = 1;
   turn = 1;
   while (flag2==1 && turn==1) {};
@@ -23,7 +23,7 @@ void *thr1() {
   return 0;
 }
 
-void *thr2() {
+void *thr2(void *_) {
   flag2 = 1;
   turn = 0;
   while (flag1==1 && turn==0) {};
