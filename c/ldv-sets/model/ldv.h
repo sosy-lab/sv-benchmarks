@@ -1,5 +1,5 @@
-int __VERIFIER_error(void);
-int __VERIFIER_assume(int);
+void __VERIFIER_error(void);
+void __VERIFIER_assume(int);
 int __VERIFIER_nondet_int(void);
 void *__VERIFIER_nondet_pointer(void);
 
