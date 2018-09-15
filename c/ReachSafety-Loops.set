@@ -15,3 +15,5 @@ loop-industry-pattern/*_true-unreach-call*.c
 loops/heavy_true-unreach-call.c
 loops/compact_false-unreach-call.c
 loops/heavy_false-unreach-call.c
+
+loop-patterns/*true-unreach-call*.i
