@@ -1,4 +1,4 @@
-Benchmarks used for numerical analysis and scientific computing :-
+Benchmarks used for numerical analysis and scientific computing. Contributed by CS1424, Digital Signal Processing Group , ETCE, ISI Kolkata :
 
 1) Loop1 : The benchmark computes e^x using taylor series. At any iteration of the loop, the computed value by taylor series expansion should be lesser than 1/1-x, such that |x|<1 (Geometric progression).
 
