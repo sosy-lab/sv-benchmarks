@@ -1,16 +1,9 @@
 /* Program :- 
 *  Find the sum of the series : 1/(2*5) , 1/(5*8) , 1/(8*11) ....
 */
-extern void __VERIFIER_error() ;
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
-
-void __VERIFIER_assert(int arg)
-{
-	if(!arg)
-		ERROR : __VERIFIER_error() ;
-}
-
-
 
 int main()
 {

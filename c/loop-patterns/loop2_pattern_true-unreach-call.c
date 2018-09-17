@@ -1,14 +1,11 @@
 /* Program :- 
 *  Find the sum of the series : - 1^3 + 2^3 - 3^3 + 4^3 - 5^3 ....
 */
-extern void __VERIFIER_error() ;
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 
-void __VERIFIER_assert(int arg)
-{
-	if(!arg)
-		ERROR : __VERIFIER_error() ;
-}
+
 
 int cube(int x)
 {

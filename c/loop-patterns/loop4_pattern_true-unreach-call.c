@@ -1,14 +1,9 @@
 /* Program :- 
 *  Find the sum of the series : 1^4 + 2^4 + 3^4 +4^4 ...
 */
-extern void __VERIFIER_error() ;
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
-
-void __VERIFIER_assert(int arg)
-{
-	if(!arg)
-		ERROR : __VERIFIER_error() ;
-}
 
 int quad(int x)
 {

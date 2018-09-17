@@ -1,14 +1,11 @@
 /* Program :- 
 *  Sum of HM Series : 1/(1^3) + 1/(2^3) + 1/(3^3) + 1/(4^3) + 1/(5^3) + 1/(6^3) + 1/(7^3) .... 
 */
-extern void __VERIFIER_error() ;
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 
-void __VERIFIER_assert(int arg)
-{
-	if(!arg)
-		ERROR : __VERIFIER_error() ;
-}
+
 
 float inverseCube(int x)
 {

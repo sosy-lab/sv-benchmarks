@@ -1,14 +1,10 @@
 /* Program :- 
 *  Sum of HM Series : 1 - 1/3 + 1/5 - 1/7 + 1/11 .... 
 */
-extern void __VERIFIER_error() ;
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int() ;
 
-void __VERIFIER_assert(int arg)
-{
-	if(!arg)
-		ERROR : __VERIFIER_error() ;
-}
 
 float inverse(int x)
 {
