@@ -3,16 +3,13 @@
  * 1/1-x = 1+x+x^2+x^3 .....
  * e^x   = 1+x+x^2/2!+x^3/3! ....
  */
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+
 extern float __VERIFIER_nondet_float() ;
-extern void __VERIFIER_error() ;
-extern void __VERIFIER_assume(int) ;
 extern int __VERIFIER_nondet_int() ;
 
-void __VERIFIER_assert(int arg)
-{
-	if(!arg)
-		ERROR : __VERIFIER_error() ;
-}
 int main()
 {
 	float x = __VERIFIER_nondet_float() ;
