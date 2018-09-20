@@ -586,6 +586,9 @@ int __signbit_double(double x) {
   return (msw & 0x80000000) != 0;
 }
 
+// nan check for doubles
+int isnan_double(double x) { return x != x; }
+
 int main() {
 
   /*
@@ -597,7 +600,7 @@ int main() {
   double x = __VERIFIER_nondet_double();
   double y = -1.0 / 0.0; // -INF
 
-  if (fabs_double(x) > 1.0) {
+  if (fabs_double(x) > 1.0 && !isnan_double(x)) {
 
     double res = __ieee754_pow(x, y);
 
