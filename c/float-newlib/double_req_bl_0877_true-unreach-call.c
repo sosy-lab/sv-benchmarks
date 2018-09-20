@@ -574,6 +574,9 @@ int isinf_double(double x) {
   return 1 - (int)((__uint32_t)(hx | (-hx)) >> 31);
 }
 
+// nan check for doubles
+int isnan_double(double x) { return x != x; }
+
 int main() {
 
   /*
@@ -585,7 +588,7 @@ int main() {
   double x = __VERIFIER_nondet_double();
   double y = 1.0 / 0.0; // INF
 
-  if (fabs_double(x) > 1.0) {
+  if (fabs_double(x) > 1.0 && !isnan_double(x)) {
 
     double res = __ieee754_pow(x, y);
 
