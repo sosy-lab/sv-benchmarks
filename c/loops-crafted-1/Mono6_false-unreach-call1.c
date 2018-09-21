@@ -1,7 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
-void main(void) {
+int main(void) {
 unsigned int x = 0;
 unsigned int y = 10000000;
 unsigned int z=5000000;
@@ -11,4 +11,5 @@ unsigned int z=5000000;
 		x++;
 	}
   __VERIFIER_assert(z!=x);
+  return 0;
 }
