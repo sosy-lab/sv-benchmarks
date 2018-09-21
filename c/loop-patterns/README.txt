@@ -1,5 +1,5 @@
 Benchmarks used for computing Arithmetic progression, Geometric progression , Harmonic progression and related proerties. 
-Contributed by : Shivayu Satija, Tata Consultancy Services, INDIA.
+Contributed by : Shivayu Satija , INDIA.
 
 Benchmark Description :
 
