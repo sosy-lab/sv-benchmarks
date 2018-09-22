@@ -1,1 +1,2 @@
   + loop_lit: Examples collected from the literature
+Programs ending on-reducer.c are transformations of literature examples that were generated during reducer-based conditional model checking.
