@@ -1,5 +1,6 @@
 array-examples/*_false-unreach-call*.i
 array-examples/*_true-unreach-call*.i
+array-examples/*_true-unreach-call*-reducer.c
 
 array-industry-pattern/*_false-unreach-call*.i
 array-industry-pattern/*_true-unreach-call*.i
