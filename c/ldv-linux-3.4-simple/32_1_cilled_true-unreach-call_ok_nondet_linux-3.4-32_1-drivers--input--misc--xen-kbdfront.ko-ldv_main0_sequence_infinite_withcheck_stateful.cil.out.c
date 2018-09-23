@@ -2127,7 +2127,11 @@ int init_module(void) ;
 void cleanup_module(void) ;
 extern void *dev_get_drvdata(struct device  const  *dev ) ;
 extern int dev_set_drvdata(struct device *dev , void *data ) ;
-extern struct input_dev *input_allocate_device(void) ;
+__inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev *dev ) ;
 extern int __attribute__((__warn_unused_result__))  input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;
@@ -2204,7 +2208,6 @@ __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size 
   return (tmp___2);
 }
 }
-__inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp ;
   unsigned int __cil_tmp4 ;

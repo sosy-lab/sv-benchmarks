@@ -419,7 +419,7 @@ int executiveFloor  =    4;
 int isExecutiveFloorCalling(void) ;
 int isExecutiveFloor(int floorID ) ;
 int blocked  =    0;
-__inline void __utac_acc__Specification14_spec__1(void) 
+inline static void __utac_acc__Specification14_spec__1(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;

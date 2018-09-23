@@ -1195,7 +1195,7 @@ void __automaton_fail(void)
 int isEncrypted(int handle ) ;
 extern int puts(char const   *__s ) ;
 int in_encrypted  =    0;
-__inline void __utac_acc__EncryptAutoResponder_spec__1(int msg ) 
+inline static void __utac_acc__EncryptAutoResponder_spec__1(int msg ) 
 { char const   * __restrict  __cil_tmp2 ;
 
   {
@@ -1208,7 +1208,7 @@ __inline void __utac_acc__EncryptAutoResponder_spec__1(int msg )
   return;
 }
 }
-__inline void __utac_acc__EncryptAutoResponder_spec__2(int msg ) 
+inline static void __utac_acc__EncryptAutoResponder_spec__2(int msg ) 
 { int tmp ;
   char const   * __restrict  __cil_tmp3 ;
 

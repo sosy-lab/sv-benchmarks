@@ -31,6 +31,8 @@
 #include <utmp.h>
 #include <stdarg.h>
 
+#include "busybox_sv_comp-localtime_r.h"
+
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
 
@@ -303,7 +305,7 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
   char *msg;
   char *msg1;
   signed int applet_len;
-  signed int strerr_len;
+  unsigned int strerr_len;
   signed int msgeol_len;
   signed int used;
   if((signed int)logmode == 0)
@@ -659,7 +661,7 @@ signed int __main(signed int argc, char **argv)
       }
       if(!(tmp_if_expr$20 == (_Bool)0))
       {
-        const unsigned char *__s2 = (const char *)fmt_dt2str;
+        const char *__s2 = (const char *)fmt_dt2str;
         signed int __result;
 
         __result = (signed int)((const char *)"%f")[(signed long int)0] - (signed int)__s2[(signed long int)0];
@@ -1640,6 +1642,18 @@ static void * xmalloc(unsigned long int size)
   }
 
   return ptr;
+}
+
+// model stat function, in this benchmark there is used
+// only the st_mtim.tv_sec variable
+int stat(const char *__file, struct stat *__buf)
+{
+  __buf->st_mtim.tv_sec = __VERIFIER_nondet_long();
+  if (__VERIFIER_nondet_char())
+    return -1;
+
+  __VERIFIER_assume(__buf->st_mtim.tv_sec >= 0);
+  return 0;
 }
 
 // file libbb/xfuncs_printf.c line 469

@@ -2858,7 +2858,7 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
   char *msg;
   char *msg1;
   signed int applet_len;
-  signed int strerr_len;
+  unsigned int strerr_len;
   signed int msgeol_len;
   signed int used;
   if((signed int)logmode == 0)
@@ -4058,7 +4058,7 @@ signed int __main(signed int argc, char **argv)
           }
           if(!(tmp_if_expr$2 == (_Bool)0))
           {
-            const unsigned char *__s2 = (const char *)p;
+            const char *__s2 = (const char *)p;
             signed int __result;
             __result = (signed int)((const char *)"none")[(signed long int)0] - (signed int)__s2[(signed long int)0];
             if(__s2_len > 0ul)
@@ -5256,6 +5256,8 @@ struct passwd *bb_internal_getpwnam(const char *name)
   p.pw_gecos = "";
   p.pw_dir = "";
   p.pw_shell = "";
+  if (__VERIFIER_nondet_uint())
+    return 0;
   return &p;
 }
 struct passwd *bb_internal_getpwuid(uid_t uid)
@@ -5366,17 +5368,20 @@ int main()
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));
+  char **mem_track=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;
   for(int i=0; i<argc; ++i)
   {
     argv[i]=malloc(11);
+    mem_track[i]=argv[i];
     argv[i][10] = 0;
     for(int j=0; j<10; ++j)
       argv[i][j]=__VERIFIER_nondet_char();
   }
   int res = __main(argc, argv);
   for(int i=0; i<argc; ++i)
-    free(argv[i]);
+    free(mem_track[i]);
+  free(mem_track);
   free(argv);
   free(a);
   return res;

@@ -1070,6 +1070,7 @@ int main(void)
   s->ctx = malloc(sizeof(SSL_CTX));
   s->session = malloc(sizeof(SSL_SESSION));
   s->state = 12292;
+  s->version = __VERIFIER_nondet_int();
   ssl3_connect(s);
   }
   return (0);

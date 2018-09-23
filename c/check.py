@@ -16,13 +16,18 @@ except ImportError:
 
 README_PATTERN = re.compile('^readme(\.(txt|md))?$', re.I)
 LICENSE_PATTERN = re.compile('^license([-.].*)?(\.(txt|md))?$', re.I)
-BENCHMARK_PATTERN = re.compile('^.*\.[ci]$')
+BENCHMARK_PATTERN = re.compile('^.*\.(c|i|yml)$')
 EXPECTED_FILE_PATTERN = re.compile(
-    '^(.*\.(c|h|i|verdict)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
+    '^(.*\.(c|h|i|verdict|yml)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description"])
+PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack"])
+
+IGNORED_DIRECTORIES = set(["properties"])
+"""Directories which are completely ignored by this script"""
 
 UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
+"""Directories which expected to contain tasks that are not included in any category"""
 
 LINE_DIRECTIVE = re.compile('^#(line| [0-9]+) ')
 PREPROCESSOR_DIRECTIVE = re.compile('^ *#(define|include)')
@@ -63,6 +68,8 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
     ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
+    ("ldv-sets", "unexpected subdirectory model"), # subdirectory containing models
+    ("ldv-linux-3.14-races", "unexpected subdirectory model"), # subdirectory containing models
 
     # historical
     ("ntdrivers", "missing license"),
@@ -85,57 +92,64 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
+    ("forester-heap/dll-rb-cnstr_1_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/dll-rb-cnstr_1_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-01_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-01_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-rb-cnstr_1_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-rb-cnstr_1_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("heap-manipulation/tree_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("heap-manipulation/tree_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext_flag_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext_flag_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-crafted-lit/AliasDarteFeautrierGonnord-SAS2010-loops_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-crafted-lit/PodelskiRybalchenko-LICS2004-Fig1_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-crafted/NonTermination3_false-termination_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-numeric/Binomial_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-numeric/TerminatorRec02_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
+
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--char--ipmi--ipmi_msghandler.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--hwmon--applesmc.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--hwmon--nct6775.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--media--rc--lirc_dev.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--media--usb--dvb-usb-v2--dvb-usb-mxl111sf.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--mmc--card--mmc_test.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--mtd--devices--docg3.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--amd--amd8111e.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--atheros--atl1e--atl1e.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--dec--tulip--dmfe.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--ethoc.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--icplus--ipg.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--ethernet--intel--igbvf--igbvf.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--net--wireless--rtl818x--rtl8180--rtl818x_pci.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--scsi--BusLogic.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--usb--host--u132-hcd.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--vme--bridges--vme_ca91cx42.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---drivers--xen--xen-pciback--xen-pciback.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---fs--nfs--nfsv2.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---fs--squashfs--squashfs.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---net--rose--rose.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+    ("ldv-multiproperty/linux-4.0-rc1---sound--drivers--vx--snd-vx-lib.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
+
+    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c", "has unknown property alloca"),
+    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c.i", "has unknown property alloca"),
+    ("termination-memory-alloca/aviad_true-alloca_true-termination.c", "has unknown property alloca"),
+    ("termination-memory-alloca/aviad_true-alloca_true-termination.c.i", "has unknown property alloca"),
     ]
 
 KNOWN_SET_PROBLEMS = [
+    # Will be resolved when categories are properly switched to new format
+    ("ReachSafety-Arrays-new.set", "Pattern <array-examples/*_false-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "Pattern <array-examples/*_true-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "Pattern <array-industry-pattern/*_false-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "Pattern <array-industry-pattern/*_true-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "Pattern <reducercommutativity/*_true-unreach-call*.yml> does not match anything."),
+    ("ReachSafety-Arrays-new.set", "missing configuration file"),
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
-    "files ldv-challenges/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-intel-igbvf-igbvf__39_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-intel-igbvf-igbvf__4_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-intel-igbvf-igbvf_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-vmxnet3-vmxnet3__40_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-vmxnet3-vmxnet3_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-net-ethernet-intel-i40e-i40e__35_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-net-ethernet-intel-i40e-i40e_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-3com-3c59x__22_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-3com-3c59x_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-atheros-alx-alx__23_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-atheros-alx-alx_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-marvell-sky2__30_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-marvell-sky2_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-sun-niu__8_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-sun-niu_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wireless-libertas-libertas__12_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wireless-libertas-libertas_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-atheros-alx-alx__9_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-atheros-alx-alx_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__complex_emg__linux-usb-dev__drivers-net-vmxnet3-vmxnet3__21_true-unreach-call.cil.c, ldv-challenges/linux-3.14__complex_emg__linux-usb-dev__drivers-net-vmxnet3-vmxnet3_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-intel-e1000-e1000__6_true-unreach-call.cil.c, ldv-challenges/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-intel-e1000-e1000_true-unreach-call.cil.c have the same content",
-    "files ldv-challenges/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-via-via-velocity__8_true-unreach-call.cil.c, ldv-challenges/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-via-via-velocity_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-media-pci-cx88-cx8800__42_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-media-pci-cx88-cx8800_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-3com-typhoon__43_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-3com-typhoon_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-fealnx__38_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-fealnx_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-hp-hp100__37_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-hp-hp100__3_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-hp-hp100__7_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-hp-hp100_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-media-pci-saa7134-saa7134__25_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-media-pci-saa7134-saa7134_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-net-wireless-prism54-prism54__36_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-mutex__drivers-net-wireless-prism54-prism54_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-pci-ngene-ngene__17_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-pci-ngene-ngene_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-radio-wl128x-fm_drv__19_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-radio-wl128x-fm_drv_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-rc-nuvoton-cir__20_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-media-rc-nuvoton-cir_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-broadcom-bnx2__24_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-broadcom-bnx2_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-hp-hp100__27_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-hp-hp100_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-icplus-ipg__26_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-icplus-ipg__2_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-icplus-ipg_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-intel-ixgbevf-ixgbevf__29_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-intel-ixgbevf-ixgbevf_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-jme__28_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-jme_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-marvell-skge__31_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-marvell-skge_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-packetengines-hamachi__32_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-packetengines-hamachi_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-qlogic-qla3xxx__33_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-qlogic-qla3xxx_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-realtek-8139cp__34_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-ethernet-realtek-8139cp_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wan-farsync__10_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wan-farsync__5_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wan-farsync_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__fs-nfs-nfs_layout_nfsv41_files__15_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-kernel-locking-spinlock__fs-nfs-nfs_layout_nfsv41_files_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe__14_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe__1_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe__6_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-oki-semi-pch_gbe-pch_gbe_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-renesas-sh_eth__16_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-renesas-sh_eth_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-ti-tlan__18_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__complex_emg__linux-usb-dev__drivers-net-ethernet-ti-tlan_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-broadcom-bnx2__4_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-broadcom-bnx2_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-chelsio-cxgb3-cxgb3__5_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-chelsio-cxgb3-cxgb3_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-sun-sunhme__7_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-ethernet-sun-sunhme_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-wireless-airo__9_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-alloc-spinlock__drivers-net-wireless-airo_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__linux-kernel-locking-mutex__drivers-net-ethernet-chelsio-cxgb3-cxgb3__3_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-kernel-locking-mutex__drivers-net-ethernet-chelsio-cxgb3-cxgb3_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__linux-kernel-locking-spinlock__drivers-net-ethernet-sun-sunhme__1_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-kernel-locking-spinlock__drivers-net-ethernet-sun-sunhme_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.14/linux-3.14__linux-usb-dev__drivers-net-ethernet-via-via-velocity__2_true-unreach-call.cil.c, ldv-linux-3.14/linux-3.14__linux-usb-dev__drivers-net-ethernet-via-via-velocity_true-unreach-call.cil.c have the same content",
-    "files ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--hp4x.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c, ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--siemens_mpi.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c have the same content",
-    "files ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--moto_modem.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c, ldv-linux-3.4-simple/43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--usb--serial--qcaux.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c have the same content",
-    "files ldv-memsafety/memleaks_test1_true-valid-memsafety.i, ldv-memsafety/memleaks_test2_true-valid-memsafety.i have the same content",
     ]
 
 
@@ -254,8 +268,6 @@ class DirectoryChecks(Checks):
             if (entry.endswith(".c") and
                     (alternative_exists(entry[:-2] + ".i") or alternative_exists(entry + ".i"))):
                 continue
-            if entry.endswith(".cil.c") and alternative_exists(entry[:-6] + ".i"):
-                continue
             self.error("%s is not contained in any category", entry)
 
 
@@ -265,6 +277,7 @@ class BenchmarkFileChecks(Checks):
     def __init__(self, path, contained_in_category, *args, **kwargs):
         super(BenchmarkFileChecks, self).__init__(known_problems=KNOWN_BENCHMARK_FILE_PROBLEMS, quiet=True, *args, **kwargs)
         self.path = path
+        self.filename = os.path.basename(self.name)
         self.contained_in_category = contained_in_category
         with open(self.path, 'rb') as f:
             self.lines = f.readlines()
@@ -279,8 +292,43 @@ class BenchmarkFileChecks(Checks):
         if any('\r' in line for line in self.lines):
             self.error("Windows line endings")
 
+    def check_no_unknown_property(self):
+        # Check each file name part immediately after a _true- or _false- for a valid property
+        for part in (self.filename.split("_true-")[1:] + self.filename.split("_false-")[1:]):
+            if not any(part.startswith(prop) for prop in PROPERTIES):
+                self.error("has unknown property " + part)
+
+    def check_no_duplicate_verdicts(self):
+        for prop in PROPERTIES:
+            if self.filename.count(prop) > 1:
+                self.error("has duplicate verdict for property " + prop)
+
+    def check_no_multiple_memsafety_verdicts(self):
+        # SV-COMP rules say at most one of these may appear
+        if (self.filename.count("valid-deref") + self.filename.count("valid-free") +
+                self.filename.count("valid-memtrack") + self.filename.count("valid-memsafety")) > 1:
+            self.error("has verdicts for multiple memsafety properties")
+
+    def check_no_contradicting_verdicts(self):
+        def violates(prop):
+            return ("_false-" + prop) in self.filename
+
+        if (violates("valid-deref") or violates("valid-free") or violates("no-overflow") or
+                violates("def-behavior")):
+            if ("_true-" in self.filename) or self.filename.count("_false-") > 1:
+                self.error(
+                    "has expected undefined behavior but also a verdict for some other property")
+
+        if violates("unreach-call") and "_true-valid-memcleanup" in self.filename:
+            # __VERIFIER_error() aborts the program, and if there is still any
+            # allocated memory this would violate memcleanup.
+            # We think this is probable (though not guaranteed), so we issue a warning.
+            self.error("has reachable error location but claims to have no memory leaks (this is not necessarily wrong but should be checked)")
+
     def check_unreach_call_tasks_have_verifier_error(self):
-        if not "unreach-call" in self.name:
+        if self.filename.endswith(".yml"):
+            return
+        if not "unreach-call" in self.filename:
             return
         if not self.contained_in_category:
             # Some such files have calls to __VERIFIER_error inside #include
@@ -447,7 +495,7 @@ def main():
     for entry in entries:
         path = os.path.join(main_directory, entry)
         if not (entry[0] == '.' or entry == "bin" or entry.endswith("-todo")):
-            if os.path.isdir(path):
+            if os.path.isdir(path) and not entry in IGNORED_DIRECTORIES:
                 ok &= DirectoryChecks(path, all_patterns, entry).run()
             elif entry.endswith(".set"):
                 check = SetFileChecks(path, entry)

@@ -2616,7 +2616,7 @@ void setEmailIsSignatureVerified(int handle , int value )
 }
 }
 #pragma merger(0,"DecryptForward_spec.i","")
-__inline void __utac_acc__DecryptForward_spec__1(int msg ) 
+inline static void __utac_acc__DecryptForward_spec__1(int msg ) 
 { int tmp ;
 
   {

@@ -1351,7 +1351,7 @@ int buttonForFloorIsPressed(int floorID ) ;
 int getCurrentFloorID(void) ;
 int expectedDirection  =    0;
 int getCurrentHeading(void) ;
-__inline void __utac_acc__Specification3_spec__1(void) 
+inline static void __utac_acc__Specification3_spec__1(void) 
 { int currentFloorID___0 ;
   int tmp ;
   int tmp___0 ;
@@ -1499,7 +1499,7 @@ __inline void __utac_acc__Specification3_spec__1(void)
   return;
 }
 }
-__inline void __utac_acc__Specification3_spec__2(void) 
+inline static void __utac_acc__Specification3_spec__2(void) 
 { int tmp ;
   int tmp___0 ;
 

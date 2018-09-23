@@ -47,7 +47,8 @@ struct master_item* alloc_or_die_master(void)
     return ptr;
 }
 
-void dll_insert_slave(struct slave_item **dll)
+// the argument should be of type 'struct slave_item**'
+void dll_insert_slave(void **dll)
 {
     struct slave_item *item = alloc_or_die_slave();
     struct slave_item *next = *dll;
@@ -58,7 +59,7 @@ void dll_insert_slave(struct slave_item **dll)
     *dll = item;
 }
 
-void* dll_create_generic(void (*insert_fnc)())
+void* dll_create_generic(void (*insert_fnc)(void**))
 {
     void *dll = NULL;
     insert_fnc(&dll);
@@ -109,7 +110,8 @@ void dll_destroy_master(struct master_item *dll)
     }
 }
 
-void dll_insert_master(struct master_item **dll)
+// the argument should be of type 'struct master_item**'
+void dll_insert_master(void **dll)
 {
     struct master_item *item = alloc_or_die_master();
     struct master_item *next = *dll;

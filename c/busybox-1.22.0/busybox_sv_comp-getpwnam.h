@@ -14,6 +14,8 @@ struct passwd *getpwnam(const char *name)
   p.pw_dir = "";        /* home directory */
   p.pw_shell = "";      /* shell program */
 
+  if (__VERIFIER_nondet_uint())
+    return 0;
   return &p;
 }
 

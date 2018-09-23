@@ -537,7 +537,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern int __VERIFIER_nondet_int(void);
-char* __VERIFIER_nondet_String(void) {
+char* build_nondet_String(void) {
     int length = __VERIFIER_nondet_int();
     if (length < 1) {
         length = 1;
@@ -553,5 +553,8 @@ char *(cstrchr)(const char *s, int c)
      return ( (*s == c) ? (char *) s : 0 );
  }
 int main() {
-    return *cstrchr(__VERIFIER_nondet_String(),__VERIFIER_nondet_int());
+  char* s = build_nondet_String();
+  int res = *cstrchr(s,__VERIFIER_nondet_int());
+  free(s);
+  return res;
 }

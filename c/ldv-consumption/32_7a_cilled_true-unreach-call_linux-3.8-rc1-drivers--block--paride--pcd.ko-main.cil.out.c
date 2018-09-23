@@ -3779,6 +3779,7 @@ static struct cdrom_device_ops pcd_dops  =
      {& pcd_open, & pcd_release, & pcd_drive_status, & pcd_check_events, 0, & pcd_tray_move,
     & pcd_lock_door, 0, 0, 0, & pcd_get_mcn, & pcd_drive_reset, & pcd_audio_ioctl,
     29639, 0, & pcd_packet};
+extern void *malloc(size_t  );
 static void pcd_init_units(void) 
 { struct pcd_unit *cd ;
   int unit ;
@@ -3791,7 +3792,7 @@ static void pcd_init_units(void)
   cd = (struct pcd_unit *)(& pcd);
   goto ldv_29969;
   ldv_29968: 
-  tmp = alloc_disk(1);
+  tmp = malloc(sizeof(struct gendisk));
   disk = tmp;
   if ((unsigned long )disk == (unsigned long )((struct gendisk *)0)) {
     goto ldv_29967;

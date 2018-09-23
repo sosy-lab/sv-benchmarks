@@ -8,7 +8,7 @@
 extern int __VERIFIER_nondet_int(void);
 
 /* Returns some null-terminated string. */
-char* __VERIFIER_nondet_String(void) {
+char* build_nondet_String(void) {
     int length = __VERIFIER_nondet_int();
     if (length < 1) {
         length = 1;
@@ -39,7 +39,12 @@ char *(cstrpbrk)(const char *s1, const char *s2)
  }
 
 int main() {
-    return *cstrpbrk(__VERIFIER_nondet_String(),__VERIFIER_nondet_String());
+  char* s1 = build_nondet_String();
+  char* s2 = build_nondet_String();
+  int res = *cstrpbrk(s1,s2);
+  free(s1);
+  free(s2);
+  return res;
 }
 
 

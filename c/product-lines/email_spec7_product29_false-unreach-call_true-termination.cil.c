@@ -948,7 +948,7 @@ void test(void)
 }
 #pragma merger(0,"EncryptVerify_spec.i","")
 int isReadable(int msg ) ;
-__inline void __utac_acc__EncryptVerify_spec__1(int msg ) 
+inline static void __utac_acc__EncryptVerify_spec__1(int msg ) 
 { int tmp ;
 
   {

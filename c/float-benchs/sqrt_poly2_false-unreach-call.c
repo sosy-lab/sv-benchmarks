@@ -21,7 +21,7 @@ union u {
   double d;
 };
 
-double sqrt(double a)
+double sqrt_custom(double a)
 {
   union u x;
   double r;
@@ -55,7 +55,7 @@ int main()
   x = __VERIFIER_nondet_double();
   __VERIFIER_assume(x >= 1. && x <= 1e10);
 
-  y = sqrt(x);
+  y = sqrt_custom(x);
 
   __VERIFIER_assert(y >= 0. && y <= 1e6);
   return 0;

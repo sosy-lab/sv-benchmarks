@@ -2552,7 +2552,7 @@ int valid_product(void)
 }
 #pragma merger(0,"SignForward_spec.i","")
 void __automaton_fail(void) ;
-__inline void __utac_acc__SignForward_spec__1(int client , int msg ) 
+inline static void __utac_acc__SignForward_spec__1(int client , int msg ) 
 { int tmp ;
   int tmp___0 ;
 

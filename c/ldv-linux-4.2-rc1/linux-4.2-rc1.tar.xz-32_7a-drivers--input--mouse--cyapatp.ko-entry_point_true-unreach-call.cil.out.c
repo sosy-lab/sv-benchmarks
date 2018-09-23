@@ -3798,10 +3798,70 @@ void ldv_mutex_unlock_41(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_43(struct mutex *ldv_func_arg1 ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
+
 extern int __VERIFIER_nondet_int(void) ;
+extern long __VERIFIER_nondet_long(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
+extern unsigned char __VERIFIER_nondet_uchar();
+extern unsigned int __VERIFIER_nondet_uint();
+extern _Bool __VERIFIER_nondet_bool(void) ;
+
 extern void __VERIFIER_assume(int  ) ;
+
+void *ldv_successful_malloc(size_t __size) {
+  void *p = malloc(__size);
+  __VERIFIER_assume(p != (void *)0);
+  return p;
+}
+extern void free(void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+
+int check_fw_dummy(struct cyapa *p1, struct firmware  const  *p2) {
+  return __VERIFIER_nondet_int();
+};
+int bl_enter_dummy(struct cyapa *p1) {
+  return __VERIFIER_nondet_int();
+};
+int bl_activate_dummy(struct cyapa *p1) {
+  return __VERIFIER_nondet_int();
+};
+int bl_initiate_dummy(struct cyapa *p1, struct firmware  const  *p2) {
+  return __VERIFIER_nondet_int();
+};
+int update_fw_dummy(struct cyapa *p1, struct firmware  const  *p2) {
+  return __VERIFIER_nondet_int();
+};
+int bl_deactivate_dummy(struct cyapa *p1) {
+  return __VERIFIER_nondet_int();
+};
+ssize_t *show_baseline_dummy(struct device *p1, struct device_attribute *p2, char *p3) {
+  return __VERIFIER_nondet_long();
+};
+ssize_t *calibrate_store_dummy(struct device *p1, struct device_attribute *p2, char const   *p3, size_t p4) {
+  return __VERIFIER_nondet_long();
+};
+int initialize_dummy(struct cyapa *p1) {
+  return __VERIFIER_nondet_int();
+};
+int state_parse_dummy(struct cyapa *p1, u8 *p2, int p3) {
+  return __VERIFIER_nondet_int();
+};
+int operational_check_dummy(struct cyapa *p1) {
+  return __VERIFIER_nondet_int();
+};
+int irq_handler_dummy(struct cyapa *p1) {
+  return __VERIFIER_nondet_int();
+};
+bool irq_cmd_handler_dummy(struct cyapa *p1) {
+  return __VERIFIER_nondet_bool();
+};
+int sort_empty_output_data_dummy(struct cyapa *p1, u8 *p2, int *p3, bool (*p4)(struct cyapa * , u8 * , int  )) {
+  return __VERIFIER_nondet_int();
+};
+int set_power_mode_dummy(struct cyapa *p1, u8 p2, u16 p3) {
+  return __VERIFIER_nondet_int();
+};
+
 void *ldv_malloc(size_t size ) 
 { 
   void *p ;
@@ -6297,54 +6357,99 @@ int main(void)
   int tmp___34 ;
 
   {
-  tmp = ldv_init_zalloc(1UL);
-  ldvarg1 = (char *)tmp;
-  tmp___0 = ldv_init_zalloc(1416UL);
-  ldvarg0 = (struct device *)tmp___0;
-  tmp___1 = ldv_init_zalloc(48UL);
-  ldvarg2 = (struct device_attribute *)tmp___1;
-  tmp___2 = ldv_init_zalloc(1UL);
-  ldvarg14 = (char *)tmp___2;
-  tmp___3 = ldv_init_zalloc(1416UL);
-  ldvarg13 = (struct device *)tmp___3;
-  tmp___4 = ldv_init_zalloc(48UL);
-  ldvarg15 = (struct device_attribute *)tmp___4;
-  tmp___5 = ldv_init_zalloc(48UL);
-  ldvarg18 = (struct device_attribute *)tmp___5;
-  tmp___6 = ldv_init_zalloc(1UL);
-  ldvarg17 = (char *)tmp___6;
-  tmp___7 = ldv_init_zalloc(1416UL);
-  ldvarg16 = (struct device *)tmp___7;
-  tmp___8 = ldv_init_zalloc(48UL);
-  ldvarg21 = (struct device_attribute *)tmp___8;
-  tmp___9 = ldv_init_zalloc(1UL);
-  ldvarg20 = (char *)tmp___9;
-  tmp___10 = ldv_init_zalloc(1416UL);
-  ldvarg19 = (struct device *)tmp___10;
-  tmp___11 = ldv_init_zalloc(1UL);
-  ldvarg24 = (char *)tmp___11;
-  tmp___12 = ldv_init_zalloc(1UL);
-  ldvarg22 = (char *)tmp___12;
-  tmp___13 = ldv_init_zalloc(1UL);
-  ldvarg27 = (char *)tmp___13;
-  tmp___14 = ldv_init_zalloc(1416UL);
-  ldvarg26 = (struct device *)tmp___14;
-  tmp___15 = ldv_init_zalloc(48UL);
-  ldvarg28 = (struct device_attribute *)tmp___15;
-  tmp___16 = ldv_init_zalloc(1UL);
-  ldvarg39 = (char *)tmp___16;
-  tmp___17 = ldv_init_zalloc(1UL);
-  ldvarg41 = (char *)tmp___17;
-  tmp___18 = ldv_init_zalloc(48UL);
-  ldvarg45 = (struct device_attribute *)tmp___18;
-  tmp___19 = ldv_init_zalloc(1416UL);
-  ldvarg43 = (struct device *)tmp___19;
-  tmp___20 = ldv_init_zalloc(1UL);
-  ldvarg44 = (char *)tmp___20;
-  tmp___21 = ldv_init_zalloc(32UL);
-  ldvarg47 = (struct i2c_device_id *)tmp___21;
-  tmp___22 = ldv_init_zalloc(1480UL);
-  ldvarg46 = (struct i2c_client *)tmp___22;
+
+  struct cyapa *cyapa_p1 = ldv_successful_malloc(sizeof(struct cyapa));
+  cyapa_gen5_ops_group1 = cyapa_p1;
+  struct device *device_p1 = ldv_successful_malloc(sizeof(struct device));
+  cyapa_pm_ops_group1 = device_p1;
+  cyapa_gen3_ops_group3 = device_p1;
+  struct device_attribute *device_attribute_p1 = ldv_successful_malloc(sizeof(struct device_attribute));
+  dev_attr_runtime_suspend_scanrate_ms_group0 = device_attribute_p1;
+  cyapa_gen3_ops_group2 = device_attribute_p1;
+  cyapa_gen3_ops_group1 = cyapa_p1;
+  cyapa_gen5_ops_group3 = device_p1;
+  dev_attr_suspend_scanrate_ms_group1 = device_p1;
+  cyapa_gen5_ops_group2 = device_attribute_p1;
+  const struct firmware *firmware_p1 = ldv_successful_malloc(sizeof(struct firmware));
+  cyapa_gen5_ops_group0 = firmware_p1;
+  dev_attr_suspend_scanrate_ms_group0 = device_attribute_p1;
+  dev_attr_runtime_suspend_scanrate_ms_group1 = device_p1;
+  cyapa_gen3_ops_group0 = firmware_p1;
+  char *char_p1 = ldv_successful_malloc(sizeof(char));
+  *(char_p1) = __VERIFIER_nondet_uchar();
+  ldvarg0 = device_p1;
+  ldvarg1 = char_p1;
+  ldvarg2 = device_attribute_p1;
+  char *char_p2 = ldv_successful_malloc(sizeof(char));
+  *(char_p2) = __VERIFIER_nondet_uchar();
+  ldvarg13 = device_p1;
+  ldvarg14 = char_p2;
+  ldvarg15 = device_attribute_p1;
+  ldvarg18 = device_attribute_p1;
+  char *char_p3 = ldv_successful_malloc(sizeof(char));
+  *(char_p3) = __VERIFIER_nondet_uchar();
+  ldvarg16 = device_p1;
+  ldvarg17 = char_p3;
+  ldvarg21 = device_attribute_p1;
+  char *char_p4 = ldv_successful_malloc(sizeof(char));
+  *(char_p4) = __VERIFIER_nondet_uchar();
+  ldvarg19 = device_p1;
+  ldvarg20 = char_p4;
+  char *char_p5 = ldv_successful_malloc(sizeof(char));
+  *(char_p5) = __VERIFIER_nondet_uchar();
+  ldvarg23 = __VERIFIER_nondet_ulong();
+  ldvarg24 = char_p5;
+  char *char_p6 = ldv_successful_malloc(sizeof(char));
+  *(char_p6) = __VERIFIER_nondet_uchar();
+  ldvarg22 = char_p6;
+  char *char_p7 = ldv_successful_malloc(sizeof(char));
+  *(char_p7) = __VERIFIER_nondet_uchar();
+  ldvarg25 = __VERIFIER_nondet_ulong();
+  ldvarg26 = device_p1;
+  ldvarg27 = char_p7;
+  ldvarg28 = device_attribute_p1;
+  char *char_p8 = ldv_successful_malloc(sizeof(char));
+  *(char_p8) = __VERIFIER_nondet_uchar();
+  ldvarg39 = char_p8;
+  char *char_p9 = ldv_successful_malloc(sizeof(char));
+  *(char_p9) = __VERIFIER_nondet_uchar();
+  ldvarg40 = __VERIFIER_nondet_ulong();
+  ldvarg41 = char_p9;
+  ldvarg42 = __VERIFIER_nondet_ulong();
+  ldvarg43 = device_p1;
+  ldvarg45 = device_attribute_p1;
+  char *char_p10 = ldv_successful_malloc(sizeof(char));
+  *(char_p10) = __VERIFIER_nondet_uchar();
+  ldvarg44 = char_p10;
+  struct i2c_device_id *i2c_device_id_p1 = ldv_successful_malloc(sizeof(struct i2c_device_id));
+  ldvarg47 = i2c_device_id_p1;
+  struct i2c_client *i2c_client_p1 = ldv_successful_malloc(sizeof(struct i2c_client));
+  ldvarg46 = i2c_client_p1;
+  struct input_dev *input_dev_p1 = ldv_successful_malloc(sizeof(struct input_dev));
+  cyapa_p1->input = input_dev_p1;
+  cyapa_p1->suspend_power_mode = __VERIFIER_nondet_uchar();
+  struct mutex *mutex_p1 = ldv_successful_malloc(sizeof(struct mutex));
+  cyapa_p1->state_sync_lock = *(mutex_p1);
+  struct cyapa_dev_ops *cyapa_dev_ops_p1 = ldv_successful_malloc(sizeof(struct cyapa_dev_ops));
+  cyapa_p1->ops = (const struct cyapa_dev_ops *) cyapa_dev_ops_p1;
+  input_dev_p1->users = __VERIFIER_nondet_uint();
+  cyapa_dev_ops_p1->check_fw = &check_fw_dummy;
+  cyapa_dev_ops_p1->bl_enter = &bl_enter_dummy;
+  cyapa_dev_ops_p1->bl_activate = &bl_activate_dummy;
+  cyapa_dev_ops_p1->bl_initiate = &bl_initiate_dummy;
+  cyapa_dev_ops_p1->update_fw = &update_fw_dummy;
+  cyapa_dev_ops_p1->bl_deactivate = &bl_deactivate_dummy;
+  cyapa_dev_ops_p1->show_baseline = &show_baseline_dummy;
+  cyapa_dev_ops_p1->calibrate_store = &calibrate_store_dummy;
+  cyapa_dev_ops_p1->initialize = &initialize_dummy;
+  cyapa_dev_ops_p1->state_parse = &state_parse_dummy;
+  cyapa_dev_ops_p1->operational_check = &operational_check_dummy;
+  cyapa_dev_ops_p1->irq_handler = &irq_handler_dummy;
+  cyapa_dev_ops_p1->irq_cmd_handler = &irq_cmd_handler_dummy;
+  cyapa_dev_ops_p1->sort_empty_output_data = &sort_empty_output_data_dummy;
+  cyapa_dev_ops_p1->set_power_mode = &set_power_mode_dummy;
+  device_p1->driver_data = cyapa_p1;
+
   ldv_initialize();
   ldv_memset((void *)(& ldvarg23), 0, 8UL);
   ldv_memset((void *)(& ldvarg25), 0, 8UL);
@@ -6952,6 +7057,27 @@ int main(void)
   goto ldv_33456;
   ldv_final: 
   ldv_check_final_state();
+
+  free(cyapa_p1);
+  free(char_p4);
+  free(char_p3);
+  free(char_p6);
+  free(char_p5);
+  free(char_p2);
+  free(char_p1);
+  free(cyapa_dev_ops_p1);
+  free(device_p1);
+  free(input_dev_p1);
+  free(device_attribute_p1);
+  free(char_p10);
+  free(i2c_client_p1);
+  free(mutex_p1);
+  free(i2c_device_id_p1);
+  free(firmware_p1);
+  free(char_p8);
+  free(char_p7);
+  free(char_p9);
+
   return 0;
 }
 }

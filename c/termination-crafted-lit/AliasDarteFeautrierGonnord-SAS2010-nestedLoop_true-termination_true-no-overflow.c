@@ -25,7 +25,7 @@ int main() {
 			while (j < m) {
 				j = j + 1;
 				k = i;
-				while (k < N) {
+				while (k < N - 1) {
 					k = k + 1;
                 }
 				i = k;

@@ -1838,7 +1838,10 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 extern int proc_dointvec(struct ctl_table * , int  , void * , size_t * , loff_t * ) ;
 extern struct ctl_table_header *register_sysctl_table(struct ctl_table *table ) ;
 extern void unregister_sysctl_table(struct ctl_table_header *table ) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev *dev ) ;
 extern int __attribute__((__warn_unused_result__))  input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;

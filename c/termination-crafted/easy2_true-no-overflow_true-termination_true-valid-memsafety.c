@@ -14,7 +14,7 @@ extern int __VERIFIER_nondet_int(void);
 
 int main() {
     int x, y, z;
-	x = 12;
+	x = 0;
     y = 0;
     z = __VERIFIER_nondet_int();
 	while (z > 0) {

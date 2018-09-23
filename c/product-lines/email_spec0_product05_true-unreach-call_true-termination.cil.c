@@ -1170,7 +1170,7 @@ char const   *__utac__get_this_argtype(int i , struct JoinPoint *this )
 }
 #pragma merger(0,"DecryptForward_spec.i","")
 int isReadable(int msg ) ;
-__inline void __utac_acc__DecryptForward_spec__1(int msg ) 
+inline static void __utac_acc__DecryptForward_spec__1(int msg ) 
 { int tmp ;
 
   {

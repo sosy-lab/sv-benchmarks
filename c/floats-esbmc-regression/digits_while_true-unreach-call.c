@@ -3,7 +3,7 @@ void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } r
 
 int main()
 {
-  double x = 1.0/7.0;
+  long double x = 1.0/7.0;
   long long res = 0;
 
   int i = 1;
@@ -14,7 +14,7 @@ int main()
     i++;
   }
 
-  __VERIFIER_assert(res == 56430);
+  __VERIFIER_assert(res == 67050);
   return 0;
 }
 

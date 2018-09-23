@@ -6,12 +6,12 @@
 
 typedef enum {false, true} bool;
 
-extern int __VERIFIER_nondet_int(void);
+extern unsigned int __VERIFIER_nondet_uint(void);
 
 int main()
 {
-    int x;
-    x = __VERIFIER_nondet_int();
+    unsigned int x;
+    x = __VERIFIER_nondet_uint();
 	if (x > 0) {
 	    while (x != 0) {
 	    	x = x - 2;

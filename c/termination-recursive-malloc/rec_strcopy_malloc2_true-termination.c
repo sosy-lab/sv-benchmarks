@@ -3,7 +3,7 @@
 extern int __VERIFIER_nondet_int(void);
 
 /* Returns some null-terminated string. */
-char* __VERIFIER_nondet_String(int length) {
+char* build_nondet_String(int length) {
     char* nondetString = (char*) malloc(length * sizeof(char));
     nondetString[length-1] = '\0';
     return nondetString;
@@ -41,7 +41,7 @@ int main() {
         length = 1;
     }
 
-	char *original = __VERIFIER_nondet_String(length);
+	char *original = build_nondet_String(length);
 	
 	
     char *res = rec_strcopy(original);

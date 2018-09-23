@@ -254,7 +254,7 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
   char *msg;
   char *msg1;
   signed int applet_len;
-  signed int strerr_len;
+  unsigned int strerr_len;
   signed int msgeol_len;
   signed int used;
   if((signed int)logmode == 0)
@@ -1053,7 +1053,7 @@ signed int __main(signed int argc, char **argv)
       }
       if(!(tmp_if_expr$3 == (_Bool)0))
       {
-        const unsigned char *__s2;
+        const char *__s2;
 
         __s2 = (const char *)argv[(signed long int)argc];
         signed int __result;
