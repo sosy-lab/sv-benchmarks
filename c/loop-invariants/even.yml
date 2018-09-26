@@ -1,0 +1,12 @@
+format_version: "0.1"
+input_files:
+  - 'even.c'
+properties:
+  - property_file: ../PropertyUnreachCall.prp
+    expected_verdict: true
+  - property_file: ../MemSafety.prp
+    expected_verdict: true
+  - property_file: ../NoOverflow.prp
+    expected_verdict: true
+  - property_file: ../Termination.prp
+    expected_verdict: false
