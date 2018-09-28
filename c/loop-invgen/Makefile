@@ -1,7 +1,7 @@
 LEVEL := ../
 
 
-ifeq ($(CC_IS_CLANG),1)
+ifneq ($(CC),gcc)
     CC.Flags = -fbracket-depth=1200
 endif
 

@@ -4,7 +4,7 @@ CLANG_WARNINGS := \
 	-Wno-sometimes-uninitialized \
 	-Wno-tautological-compare \
 
-ifeq ($(CC_IS_CLANG),1)
+ifneq ($(CC),gcc)
     CC.Flags = -fbracket-depth=12000
 endif
 
