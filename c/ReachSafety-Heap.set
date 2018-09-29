@@ -20,3 +20,5 @@ ldv-sets/*_false-unreach-call*.i
 ldv-sets/*_true-unreach-call*.i
 
 list-simple/*_true-unreach-call*.i
+
+heap-data/*_true-unreach-call*.i
