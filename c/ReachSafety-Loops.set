@@ -16,4 +16,4 @@ loops/heavy_true-unreach-call.c
 loops/compact_false-unreach-call.c
 loops/heavy_false-unreach-call.c
 
-loop-invariants/*.yml
+loop-invariants/*_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c
