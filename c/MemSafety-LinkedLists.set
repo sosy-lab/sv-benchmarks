@@ -12,3 +12,4 @@ list-simple/*_true-valid-memsafety*.i
 list-ext3-properties/*_true-valid-memsafety*.i
 list-ext3-properties/*_false-valid-deref*.i
 list-ext3-properties/*_false-valid-memtrack*.i
+list-ext3-properties/*_false-valid-memcleanup*.i
