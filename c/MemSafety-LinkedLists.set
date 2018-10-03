@@ -8,4 +8,4 @@ ddv-machzwd/*_true-valid-memsafety*.i
 ddv-machzwd/*_false-valid-memtrack*.i
 forester-heap/*_true-valid-memsafety*.i
 forester-heap/*_false-valid-deref*.i
-
+list-simple/*_true-valid-memsafety*.i
