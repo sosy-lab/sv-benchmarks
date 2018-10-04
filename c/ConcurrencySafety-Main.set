@@ -16,3 +16,5 @@ pthread-driver-races/*_true-unreach-call*.i
 pthread-driver-races/*_false-unreach-call*.i
 pthread-C-DAC/*_true-unreach-call*.i
 pthread-C-DAC/*_false-unreach-call*.i
+pthread-divine/*_false-unreach-call*.i
+pthread-divine/*_true-unreach-call*.i
