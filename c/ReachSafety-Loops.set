@@ -16,4 +16,7 @@ loops/heavy_true-unreach-call.c
 loops/compact_false-unreach-call.c
 loops/heavy_false-unreach-call.c
 
+loops-crafted-1/*_false-unreach-call*.c
+loops-crafted-1/*_true-unreach-call*.c
+
 loop-invariants/*_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c
