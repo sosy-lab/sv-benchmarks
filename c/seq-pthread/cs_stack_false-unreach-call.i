@@ -1100,7 +1100,7 @@ void *t1(void *arg)
   __CS_pthread_mutex_lock(&m[__CS_round]);
   __CS_cs(); if (__CS_ret != 0) return 0;
   tmp = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(0 <= tmp && tmp < (5));
+  __VERIFIER_assume(tmp < (5));
   __CS_cs(); if (__CS_ret != 0) return 0;
   if (push(arr[__CS_round], tmp) == (-1))
   {
