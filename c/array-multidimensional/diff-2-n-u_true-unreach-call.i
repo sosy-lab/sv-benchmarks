@@ -12,7 +12,7 @@ int main()
 {
 
 	int i,j;
-	int m,n;
+	int m=1000,n=1500;
 	int A [m][n];
         int B [m][n];
         int C [m][n];
