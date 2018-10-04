@@ -79,7 +79,7 @@ void *t1(void *arg)
   {
     pthread_mutex_lock(&m);   
     tmp = __VERIFIER_nondet_uint();
-    __VERIFIER_assume(0 <= tmp && tmp < SIZE);
+    __VERIFIER_assume(tmp < SIZE);
     if ((push(arr,tmp)==OVERFLOW))
       error();
     pthread_mutex_unlock(&m);

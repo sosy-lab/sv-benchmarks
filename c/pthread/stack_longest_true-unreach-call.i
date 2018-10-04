@@ -971,7 +971,7 @@ void *t1(void *arg)
   {
     pthread_mutex_lock(&m);
     tmp = __VERIFIER_nondet_uint();
-    __VERIFIER_assume(0 <= tmp && tmp < (800));
+    __VERIFIER_assume(tmp < (800));
     if ((push(arr,tmp)==(-1)))
       error();
     pthread_mutex_unlock(&m);

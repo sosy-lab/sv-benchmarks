@@ -1920,7 +1920,7 @@ void *t1(void *arg)
   {
     pthread_mutex_lock(&m);
     tmp = __VERIFIER_nondet_uint();
-    __VERIFIER_assume(0 <= tmp && tmp < (5));
+    __VERIFIER_assume(tmp < (5));
     if (push(arr,tmp)==(-1))
       error();
     flag=(1);
