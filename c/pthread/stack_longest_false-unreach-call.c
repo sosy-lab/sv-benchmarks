@@ -36,7 +36,7 @@ int get_top(void)
 
 int stack_empty(void)
 {
-  (top==0) ? TRUE : FALSE; 
+  return (top==0) ? TRUE : FALSE;
 }
 
 int push(unsigned int *stack, int x)
@@ -83,6 +83,7 @@ void *t1(void *arg)
     flag=TRUE;
     pthread_mutex_unlock(&m);
   }
+  return 0;
 }
 
 void *t2(void *arg) 
@@ -99,6 +100,7 @@ void *t2(void *arg)
     }
     pthread_mutex_unlock(&m);
   }
+  return 0;
 }
 
 

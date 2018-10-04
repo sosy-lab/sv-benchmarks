@@ -7,3 +7,5 @@ floats-esbmc-regression/*_true-unreach-call*.i
 floats-esbmc-regression/*_false-unreach-call*.i
 floats-esbmc-regression/*_true-unreach-call*-reducer.c
 floats-esbmc-regression/*_false-unreach-call*-reducer.c
+float-newlib/*true-unreach-call*.c
+float-newlib/*false-unreach-call*.c

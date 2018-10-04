@@ -1,9 +1,9 @@
-program_files:
+input_files:
   - rangesum05_false-unreach-call.i
 
 properties:
-  unreach-call:
-    verdict: false
+  - property_file: ../unreach-call.prp
+    expected_verdict: false
     witnesses:
       - https://sv-comp.sosy-lab.org/2017/results/results-verified/cpa-seq.2017-01-11_1118.logfiles/sv-comp17.rangesum05_false-unreach-call.i.files/witness.graphml
 

@@ -850,6 +850,7 @@ inline int scull_init_module()
 void *loader(void *arg) {
   scull_init_module();
   scull_cleanup_module();
+  return 0;
 }
 void *thread1(void *arg) {
   int filp=__VERIFIER_nondet_int();
@@ -859,6 +860,7 @@ void *thread1(void *arg) {
   scull_open(1, i, filp);
   scull_read(1, filp, buf, count, off);
   0;
+  return 0;
 }
 void *thread2(void *arg) {
   int filp=__VERIFIER_nondet_int();
@@ -868,6 +870,7 @@ void *thread2(void *arg) {
   scull_open(2, i, filp);
   scull_write(2, filp, buf, count, off);
   0;
+  return 0;
 }
 int main() {
   pthread_t t1, t2, t3;

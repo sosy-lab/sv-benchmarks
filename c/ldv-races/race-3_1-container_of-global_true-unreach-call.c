@@ -44,6 +44,7 @@ void *my_callback(void *arg) {
 	data->shared.a = 1;
 	data->shared.b = data->shared.b + 1;
 	pthread_mutex_unlock (&data->lock);
+	return 0;
 }
 
 int my_drv_probe(struct my_data *data) {
