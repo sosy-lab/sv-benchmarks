@@ -1,0 +1,15 @@
+Hand-crafted examples from PDR study by Dirk Beyer and Matthias Dangl;
+contributed by the CPAchecker team.
+
+Unfortunately, the file names do not match those from the article
+because the CI checks of the repository require a very specific naming
+where properties are encoded into the file name.
+The following table relates the file names from the paper to those in this repository:
+
+bin-suffix-5.c | bin-suffix-5_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c
+const.c        | const_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c
+eq1.c          | eq1_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c
+eq2.c          | eq2_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c
+even.c         | even_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c
+mod4.c         | mod4_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c
+odd.c          | odd_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c
