@@ -21,12 +21,12 @@ int main()
 	i=0;
 	j=0;
 	k=0;
-	while(i < m){
+	while(i < n){
 		j=0;
 		k=0;
 		while(j < n){
 			k=0;
-			while(k < p){
+			while(k < n){
                                         B[i][j][k]= __VERIFIER_nondet_int();
 					k=k+1;
 			}
