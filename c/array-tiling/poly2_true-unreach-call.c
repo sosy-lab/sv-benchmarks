@@ -1,7 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
-extern short __VERIFIER_nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 
 int SIZE;
 
@@ -15,12 +15,7 @@ int main()
 
 		for(i=0; i<SIZE; i++)
 		{
-			a[i] = i*i + 2;
-		}
-
-		for(i=0; i<SIZE; i++)
-		{
-			a[i] = a[i] - 2;
+			a[i] = i*i;
 		}
 
 		//assert
