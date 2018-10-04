@@ -279,7 +279,7 @@ class BenchmarkFileChecks(Checks):
         self.path = path
         self.filename = os.path.basename(self.name)
         self.contained_in_category = contained_in_category
-        with open(self.path, 'rb') as f:
+        with open(self.path, 'r') as f:
             self.lines = f.readlines()
 
     def check_file_has_no_line_directive(self):
