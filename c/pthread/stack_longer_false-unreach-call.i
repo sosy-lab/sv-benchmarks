@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -968,7 +969,8 @@ void *t1(void *arg)
   for(i=0; i<(400); i++)
   {
     pthread_mutex_lock(&m);
-    tmp = __VERIFIER_nondet_uint()%(400);
+    tmp = __VERIFIER_nondet_uint();
+    __VERIFIER_assume(0 <= tmp && tmp < (400));
     if (push(arr,tmp)==(-1))
       error();
     flag=(1);

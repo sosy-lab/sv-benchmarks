@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
 #include <pthread.h>
 #include <stdio.h>
 
@@ -77,7 +78,8 @@ void *t1(void *arg)
   for(i=0; i<SIZE; i++)
   {
     pthread_mutex_lock(&m);   
-    tmp = __VERIFIER_nondet_uint()%SIZE;
+    tmp = __VERIFIER_nondet_uint();
+    __VERIFIER_assume(0 <= tmp && tmp < SIZE);
     if ((push(arr,tmp)==OVERFLOW))
       error();
     pthread_mutex_unlock(&m);
