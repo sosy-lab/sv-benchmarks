@@ -2611,7 +2611,7 @@ void PptLogError(PDRIVER_OBJECT DriverObject , PDEVICE_OBJECT DeviceObject , PHY
   if (DumpToAllocate) {
     {
     memcpy_guard(ErrorLogEntry->DumpData, & P1, sizeof(PHYSICAL_ADDRESS ));
-    memcpy(ErrorLogEntry->DumpData, & P1, sizeof(PHYSICAL_ADDRESS ));
+    memmove(ErrorLogEntry->DumpData, & P1, sizeof(PHYSICAL_ADDRESS ));
     }
     if ((unsigned int )DumpToAllocate > sizeof(PHYSICAL_ADDRESS )) {
       {
@@ -7586,7 +7586,7 @@ NTSTATUS PptPnpBounceAndCatchPnpIrp(PDEVICE_EXTENSION Extension , PIRP Irp )
   irpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
   nextIrpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
   memcpy_guard(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
-  memcpy(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
+  memmove(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
   nextIrpSp->Control = 0;
   }
   if (s != NP) {
@@ -7899,7 +7899,7 @@ NTSTATUS PptDispatchPower(PDEVICE_OBJECT pDeviceObject , PIRP pIrp )
   irpSp = pIrp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
   nextIrpSp = pIrp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
   memcpy_guard(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
-  memcpy(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
+  memmove(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
   nextIrpSp->Control = 0;
   }
   if (! (status >= 0L)) {

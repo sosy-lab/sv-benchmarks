@@ -24694,10 +24694,10 @@ static int xgbe_dcb_ieee_getets(struct net_device *netdev , struct ieee_ets *ets
   ets->ets_cap = (__u8 )pdata->hw_feat.tc_cnt;
   if ((unsigned long )pdata->ets != (unsigned long )((struct ieee_ets *)0)) {
     ets->cbs = (pdata->ets)->cbs;
-    memcpy((void *)(& ets->tc_tx_bw), (void const   *)(& (pdata->ets)->tc_tx_bw),
+    memmove((void *)(& ets->tc_tx_bw), (void const   *)(& (pdata->ets)->tc_tx_bw),
              8UL);
-    memcpy((void *)(& ets->tc_tsa), (void const   *)(& (pdata->ets)->tc_tsa), 8UL);
-    memcpy((void *)(& ets->prio_tc), (void const   *)(& (pdata->ets)->prio_tc),
+    memmove((void *)(& ets->tc_tsa), (void const   *)(& (pdata->ets)->tc_tsa), 8UL);
+    memmove((void *)(& ets->prio_tc), (void const   *)(& (pdata->ets)->prio_tc),
              8UL);
   } else {
 

@@ -12721,7 +12721,7 @@ static int mwifiex_set_mac_address(struct net_device *dev , void *addr )
   tmp = mwifiex_netdev_get_priv(dev);
   priv = tmp;
   hw_addr = (struct sockaddr *)addr;
-  memcpy((void *)(& priv->curr_addr), (void const   *)(& hw_addr->sa_data), 6UL);
+  memmove((void *)(& priv->curr_addr), (void const   *)(& hw_addr->sa_data), 6UL);
   ret = mwifiex_send_cmd(priv, 77, 1, 0U, (void *)0, 1);
   if (ret == 0) {
     memcpy((void *)(priv->netdev)->dev_addr, (void const   *)(& priv->curr_addr),
@@ -12737,7 +12737,7 @@ static int mwifiex_set_mac_address(struct net_device *dev , void *addr )
   } else {
 
   }
-  memcpy((void *)dev->dev_addr, (void const   *)(& priv->curr_addr), 6UL);
+  memmove((void *)dev->dev_addr, (void const   *)(& priv->curr_addr), 6UL);
   return (ret);
 }
 }

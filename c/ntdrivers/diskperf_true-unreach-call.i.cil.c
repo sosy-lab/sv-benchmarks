@@ -1492,6 +1492,7 @@ struct _SCSI_REQUEST_BLOCK;
 #pragma warning(disable:4035)
 #pragma warning(pop)
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 PCCHAR KeNumberProcessors ;
 #pragma warning(disable:4103)
@@ -2332,7 +2333,7 @@ NTSTATUS DiskPerfForwardIrpSynchronous(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   irpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
   nextIrpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
   memcpy_guard(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
-  memcpy(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
+  memmove(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
   nextIrpSp->Control = 0;
   }
   if (s != NP) {
@@ -2608,7 +2609,7 @@ NTSTATUS DiskPerfDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
       {
       totalCounters->StorageDeviceNumber = deviceExtension->DiskNumber;
       memcpy_guard(& totalCounters->StorageManagerName[0], & deviceExtension->StorageManagerName[0], 8U * sizeof(WCHAR ));
-      memcpy(& totalCounters->StorageManagerName[0], & deviceExtension->StorageManagerName[0],
+      memmove(& totalCounters->StorageManagerName[0], & deviceExtension->StorageManagerName[0],
              8U * sizeof(WCHAR ));
       status = 0L;
       Irp->IoStatus.Information = sizeof(DISK_PERFORMANCE );
@@ -2753,7 +2754,7 @@ NTSTATUS DiskPerfRegisterDevice(PDEVICE_OBJECT DeviceObject )
              number.DeviceNumber, number.PartitionNumber);
 /*     RtlInitUnicodeString(& deviceExtension->PhysicalDeviceName, & deviceExtension->PhysicalDeviceNameBuffer[0]); */ /* INLINED */
     memcpy_guard(& deviceExtension->StorageManagerName[0], "P\000h\000y\000s\000D\000i\000s\000k\000", 8U * sizeof(WCHAR ));
-    memcpy(& deviceExtension->StorageManagerName[0], "P\000h\000y\000s\000D\000i\000s\000k\000",
+    memmove(& deviceExtension->StorageManagerName[0], "P\000h\000y\000s\000D\000i\000s\000k\000",
            8U * sizeof(WCHAR ));
     }
   } else {
@@ -2854,7 +2855,7 @@ NTSTATUS DiskPerfRegisterDevice(PDEVICE_OBJECT DeviceObject )
     deviceExtension->PhysicalDeviceName.Length = output->NameLength;
     deviceExtension->PhysicalDeviceName.MaximumLength = (unsigned int )output->NameLength + sizeof(WCHAR );
     memcpy_guard(deviceExtension->PhysicalDeviceName.Buffer, output->Name, output->NameLength);
-    memcpy(deviceExtension->PhysicalDeviceName.Buffer, output->Name, output->NameLength);
+    memmove(deviceExtension->PhysicalDeviceName.Buffer, output->Name, output->NameLength);
     *(deviceExtension->PhysicalDeviceName.Buffer + (unsigned int )deviceExtension->PhysicalDeviceName.Length / sizeof(WCHAR )) = 0;
 /*     ExFreePool(output); */ /* INLINED */
     outputSize = sizeof(VOLUME_NUMBER );
@@ -2890,7 +2891,7 @@ NTSTATUS DiskPerfRegisterDevice(PDEVICE_OBJECT DeviceObject )
         _L: /* CIL Label */ 
         {
         memcpy_guard(& deviceExtension->StorageManagerName[0], "L\000o\000g\000i\000D\000i\000s\000k\000", 8U * sizeof(WCHAR ));
-        memcpy(& deviceExtension->StorageManagerName[0], "L\000o\000g\000i\000D\000i\000s\000k\000",
+        memmove(& deviceExtension->StorageManagerName[0], "L\000o\000g\000i\000D\000i\000s\000k\000",
                8U * sizeof(WCHAR ));
         }
         if (status >= 0L) {
@@ -2938,7 +2939,7 @@ void DiskPerfLogError(PDEVICE_OBJECT DeviceObject , ULONG UniqueId , NTSTATUS Er
     errorLogEntry->UniqueErrorValue = UniqueId;
     errorLogEntry->FinalStatus = Status;
     memcpy_guard(& errorLogEntry->DumpData[0], & DeviceObject, sizeof(DEVICE_OBJECT ));
-    memcpy(& errorLogEntry->DumpData[0], & DeviceObject, sizeof(DEVICE_OBJECT ));
+    memmove(& errorLogEntry->DumpData[0], & DeviceObject, sizeof(DEVICE_OBJECT ));
     errorLogEntry->DumpDataSize = sizeof(DEVICE_OBJECT );
     IoWriteErrorLogEntry(errorLogEntry);
     }

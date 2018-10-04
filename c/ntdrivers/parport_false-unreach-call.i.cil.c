@@ -7573,7 +7573,7 @@ NTSTATUS PptPnpBounceAndCatchPnpIrp(PDEVICE_EXTENSION Extension , PIRP Irp )
 /*   KeInitializeEvent(& event, 0, 0); */ /* INLINED */
   irpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
   nextIrpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
-  memcpy(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
+  memmove(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
   nextIrpSp->Control = 0;
   }
   if (s != NP) {
@@ -7885,7 +7885,7 @@ NTSTATUS PptDispatchPower(PDEVICE_OBJECT pDeviceObject , PIRP pIrp )
   {
   irpSp = pIrp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
   nextIrpSp = pIrp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
-  memcpy(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
+  memmove(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
   nextIrpSp->Control = 0;
   }
   if (! (status >= 0L)) {
