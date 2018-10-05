@@ -14410,7 +14410,11 @@ __inline static void atomic_dec(atomic_t *v )
 extern void __wake_up(wait_queue_head_t * , unsigned int  , int  , void * ) ;
 static int ldv_del_timer_17___0(struct timer_list *ldv_func_arg1 ) ;
 static int ldv_mod_timer_16___0(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags ) 
 { 
   void *tmp ;

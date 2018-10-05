@@ -8650,7 +8650,11 @@ void *ldv_vmalloc_77(unsigned long ldv_func_arg1 ) ;
 extern void *vmalloc_node(unsigned long  , int  ) ;
 void *ldv_vmalloc_node_76(unsigned long ldv_func_arg1 , int ldv_func_arg2 ) ;
 extern void vfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 void *ldv_kmem_cache_alloc_58(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_75(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void *__kmalloc_node(size_t  , gfp_t  , int  ) ;

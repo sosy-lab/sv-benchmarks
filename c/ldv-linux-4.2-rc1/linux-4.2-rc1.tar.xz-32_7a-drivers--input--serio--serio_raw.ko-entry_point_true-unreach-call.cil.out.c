@@ -3424,7 +3424,11 @@ extern long prepare_to_wait_event(wait_queue_head_t * , wait_queue_t * , int  ) 
 extern void finish_wait(wait_queue_head_t * , wait_queue_t * ) ;
 extern void schedule(void) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

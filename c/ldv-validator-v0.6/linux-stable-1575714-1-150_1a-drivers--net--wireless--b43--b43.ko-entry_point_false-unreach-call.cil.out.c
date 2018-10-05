@@ -6649,7 +6649,11 @@ __inline static struct kmem_cache *kmalloc_slab(size_t size )
   return ((struct kmem_cache *)(& kmalloc_caches) + (unsigned long )index);
 }
 }
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 extern void *kmem_cache_alloc_notrace(struct kmem_cache * , gfp_t  ) ;
 __inline static void *kmalloc_large(size_t size , gfp_t flags ) 
 { 

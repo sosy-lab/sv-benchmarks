@@ -7245,7 +7245,11 @@ void ldv_module_put_10(struct module *ldv_func_arg1 ) ;
 int ldv_try_module_get(struct module *module ) ;
 void ldv_module_put(struct module *module ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

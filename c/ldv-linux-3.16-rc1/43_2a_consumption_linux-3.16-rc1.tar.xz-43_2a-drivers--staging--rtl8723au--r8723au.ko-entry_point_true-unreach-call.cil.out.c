@@ -24082,7 +24082,11 @@ int ldv_del_timer_sync_548(struct timer_list *ldv_func_arg1 ) ;
 int ldv_del_timer_sync_549(struct timer_list *ldv_func_arg1 ) ;
 int ldv_del_timer_sync_550(struct timer_list *ldv_func_arg1 ) ;
 int ldv_del_timer_sync_551(struct timer_list *ldv_func_arg1 ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 void *ldv_kmem_cache_alloc_516(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_512(size_t size , gfp_t flags ) 
 { 

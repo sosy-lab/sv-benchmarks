@@ -6227,7 +6227,11 @@ int ldv_mod_timer_20(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_a
 extern int del_timer_sync(struct timer_list * ) ;
 int ldv_del_timer_sync_28(struct timer_list *ldv_func_arg1 ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static char const   *kobject_name(struct kobject  const  *kobj ) 
 { 
 
