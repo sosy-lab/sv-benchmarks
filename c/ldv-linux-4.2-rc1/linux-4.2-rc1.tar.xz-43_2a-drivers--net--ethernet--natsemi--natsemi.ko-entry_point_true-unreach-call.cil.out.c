@@ -9389,7 +9389,7 @@ static int get_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom , u
   res = netdev_get_eeprom(dev, eebuf);
   spin_unlock_irq(& np->lock);
   if (res == 0) {
-    memcpy((void *)data, (void const   *)eebuf + (unsigned long )eeprom->offset,
+    memmove((void *)data, (void const   *)eebuf + (unsigned long )eeprom->offset,
              (size_t )eeprom->len);
   } else {
 

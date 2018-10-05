@@ -1482,6 +1482,7 @@ struct _SCSI_REQUEST_BLOCK;
 #pragma warning(disable:4035)
 #pragma warning(pop)
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 PCCHAR KeNumberProcessors ;
 #pragma warning(disable:4103)
@@ -2321,7 +2322,7 @@ NTSTATUS DiskPerfForwardIrpSynchronous(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   deviceExtension = (struct _DEVICE_EXTENSION *)DeviceObject->DeviceExtension;
   irpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
   nextIrpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
-  memcpy(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
+  memmove(nextIrpSp, irpSp, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
   nextIrpSp->Control = 0;
   }
   if (s != NP) {

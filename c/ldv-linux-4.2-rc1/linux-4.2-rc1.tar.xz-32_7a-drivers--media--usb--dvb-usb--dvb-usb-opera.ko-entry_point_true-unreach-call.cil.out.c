@@ -7255,7 +7255,7 @@ static int opera1_xilinx_rw(struct usb_device *dev , u8 request , u16 value , u8
   }
   if (flags == 1) {
     memcpy_guard((void *)buf, (void const   *)data, (size_t )len);
-    memcpy((void *)buf, (void const   *)data, (size_t )len);
+    memmove((void *)buf, (void const   *)data, (size_t )len);
   } else {
 
   }
