@@ -12675,7 +12675,11 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
   return ((__u16 )tmp___1);
 }
 }
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

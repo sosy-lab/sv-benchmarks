@@ -9298,7 +9298,29 @@ extern int fw_iso_context_start(struct fw_iso_context * , int  , int  , int  ) ;
 extern int fw_iso_context_stop(struct fw_iso_context * ) ;
 extern void fw_iso_context_destroy(struct fw_iso_context * ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_assume(int);
+extern void *malloc(size_t size);
+long ldv_is_err(const void *ptr)
+{
+		return ((unsigned long)ptr > ((unsigned long)-4095));
+}
+
+void *ldv_malloc(size_t size)
+{
+	if (__VERIFIER_nondet_int()) {
+		void *res = malloc(size);
+		__VERIFIER_assume(!ldv_is_err(res));
+
+		return res;
+	} else {
+		return ((void *)0);
+	}
+}
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { void *tmp___2 ;
 

@@ -1625,7 +1625,26 @@ void ldv_sysfs(void) ;
 int ldv_device_create_file_dev_attr_of_sensor_device_attribute(struct device_attribute  const  *attr ) ;
 int ldv_device_create_file_dev_attr_of_sensor_device_attribute_2(struct device_attribute  const  *attr ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_assume(int);
+extern void *malloc(size_t size);
+extern long ldv_is_err(const void *);
+
+void *ldv_malloc(size_t size)
+{
+	if (__VERIFIER_nondet_int()) {
+		void *res = malloc(size);
+		__VERIFIER_assume(!ldv_is_err(res));
+
+		return res;
+	} else {
+		return ((void *)0);
+	}
+}
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

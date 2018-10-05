@@ -12043,7 +12043,29 @@ __inline static struct thread_info *current_thread_info(void)
 }
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
 extern int cpu_number ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_assume(int);
+extern void *malloc(size_t size);
+long ldv_is_err(const void *ptr)
+{
+		return ((unsigned long)ptr > ((unsigned long)-4095));
+}
+
+void *ldv_malloc(size_t size)
+{
+	if (__VERIFIER_nondet_int()) {
+		void *res = malloc(size);
+		__VERIFIER_assume(!ldv_is_err(res));
+
+		return res;
+	} else {
+		return ((void *)0);
+	}
+}
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *ldv_kmalloc_12(size_t size , gfp_t flags ) 
 { void *tmp___2 ;
 

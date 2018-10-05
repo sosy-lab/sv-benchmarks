@@ -5438,7 +5438,11 @@ extern void iowrite16(u16  , void * ) ;
 extern void pci_iounmap(struct pci_dev * , void * ) ;
 extern void *pci_iomap(struct pci_dev * , int  , unsigned long  ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
