@@ -5,3 +5,5 @@ float-benchs/*_false-unreach-call*.c
 float-benchs/*_true-unreach-call*.c
 floats-esbmc-regression/*_true-unreach-call*.i
 floats-esbmc-regression/*_false-unreach-call*.i
+loop-floats-scientific-comp/*_true-unreach-call*.i
+loop-floats-scientific-comp/*_false-unreach-call*.i

@@ -13,11 +13,9 @@ extern int __VERIFIER_nondet_int() ;
 int main()
 {
  float x = __VERIFIER_nondet_float() ;
- __VERIFIER_assume(x > -1.0) ;
- __VERIFIER_assume(x < 1.0) ;
  float exp = 1.0 ;
  float term = 1.0 ;
- int count = 1 ;
+ unsigned int count = 1 ;
  float result = 2*(1/(1-x)) ;
  int temp ;
 

@@ -20,7 +20,7 @@ int main()
 	float oddExp = x ;
 	float evenExp = 1.0 ;
 	float term = x ;
-	int count = 2 ;
+	unsigned int count = 2 ;
 	int multFactor = 0 ;
 	int temp ;
 
