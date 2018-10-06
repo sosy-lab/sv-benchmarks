@@ -437,6 +437,7 @@ inline int scull_init_module()
 void *loader(void *arg) {
   scull_init_module();
   scull_cleanup_module();
+  return 0;
 }
 
 void *thread1(void *arg) {
@@ -447,6 +448,7 @@ void *thread1(void *arg) {
   scull_open(tid1, i, filp);
   scull_read(tid1, filp, buf, count, off);
   scull_release(i, filp);
+  return 0;
 }
 
 void *thread2(void *arg) {
@@ -457,6 +459,7 @@ void *thread2(void *arg) {
   scull_open(tid2, i, filp);
   scull_write(tid2, filp, buf, count, off);
   scull_release(i, filp);
+  return 0;
 }
 
 int main() {

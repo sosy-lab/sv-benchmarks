@@ -10,7 +10,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 int flag1 = 0, flag2 = 0; // integer flags 
 int x; // boolean variable to test mutual exclusion
 
-void *thr1() {
+void *thr1(void *_) {
   flag1 = 1;
   while (flag2 >= 3); 
   flag1 = 3;
@@ -26,9 +26,10 @@ void *thr1() {
   // end critical section
   while (2 <= flag2 && flag2 <= 3);
   flag1 = 0;
+  return 0;
 }
 
-void *thr2() {
+void *thr2(void *_) {
   flag2 = 1;
   while (flag1 >= 3);
   flag2 = 3;
@@ -44,6 +45,7 @@ void *thr2() {
   // end critical section
   while (2 <= flag1 && flag1 <= 3);
   flag2 = 0;
+  return 0;
 }
 
 int main() {

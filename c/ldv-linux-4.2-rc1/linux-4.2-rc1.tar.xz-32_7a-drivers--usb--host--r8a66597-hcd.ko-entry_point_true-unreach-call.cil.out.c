@@ -3980,7 +3980,11 @@ extern void ioread32_rep(void * , void * , unsigned long  ) ;
 extern void iowrite16_rep(void * , void const   * , unsigned long  ) ;
 extern void iowrite32_rep(void * , void const   * , unsigned long  ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

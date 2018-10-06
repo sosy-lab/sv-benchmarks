@@ -7592,7 +7592,11 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
 }
 }
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_33(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;

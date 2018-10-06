@@ -6270,7 +6270,11 @@ extern void kobject_put(struct kobject * ) ;
 extern int kobject_uevent(struct kobject * , enum kobject_action  ) ;
 extern int add_uevent_var(struct kobj_uevent_env * , char const   *  , ...) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

@@ -6728,7 +6728,11 @@ extern bool cancel_delayed_work_sync(struct delayed_work * ) ;
 bool ldv_cancel_delayed_work_sync_19(struct delayed_work *ldv_func_arg1 ) ;
 extern unsigned int ioread32(void * ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

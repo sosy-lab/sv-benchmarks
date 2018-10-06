@@ -6443,7 +6443,11 @@ __inline static void rcu_read_unlock(void)
 }
 extern int net_ratelimit(void) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 extern void *idr_find_slowpath(struct idr * , int  ) ;
 extern int idr_alloc(struct idr * , void * , int  , int  , gfp_t  ) ;
 extern void idr_remove(struct idr * , int  ) ;

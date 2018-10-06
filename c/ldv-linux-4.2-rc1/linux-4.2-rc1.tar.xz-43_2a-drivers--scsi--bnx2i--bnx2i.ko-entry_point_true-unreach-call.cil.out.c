@@ -9034,7 +9034,7 @@ int bnx2i_get_stats(void *handle )
 
   }
   strlcpy((char *)(& stats->version), "2.7.10.1", 12UL);
-  memcpy((void *)(& stats->mac_add1) + 2U, (void const   *)(& (hba->cnic)->mac_addr),
+  memmove((void *)(& stats->mac_add1) + 2U, (void const   *)(& (hba->cnic)->mac_addr),
            6UL);
   stats->max_frame_size = (hba->netdev)->mtu;
   stats->txq_size = hba->max_sqes;

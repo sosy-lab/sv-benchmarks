@@ -20178,7 +20178,29 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 }
 
 void *kmem_cache_alloc(struct kmem_cache *, gfp_t);
-void *__kmalloc(size_t size, gfp_t flags);
+extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_assume(int);
+extern void *malloc(size_t size);
+long ldv_is_err(const void *ptr)
+{
+		return ((unsigned long)ptr > ((unsigned long)-4095));
+}
+
+void *ldv_malloc(size_t size)
+{
+	if (__VERIFIER_nondet_int()) {
+		void *res = malloc(size);
+		__VERIFIER_assume(!ldv_is_err(res));
+
+		return res;
+	} else {
+		return ((void *)0);
+	}
+}
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void *
 kmalloc_order(size_t size, gfp_t flags, unsigned int order)

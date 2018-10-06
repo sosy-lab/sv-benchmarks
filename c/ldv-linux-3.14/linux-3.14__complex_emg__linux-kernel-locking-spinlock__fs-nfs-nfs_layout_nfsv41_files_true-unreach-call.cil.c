@@ -7910,7 +7910,11 @@ extern void rpc_wake_up_queued_task(struct rpc_wait_queue * , struct rpc_task * 
 extern void rpc_wake_up(struct rpc_wait_queue * ) ;
 extern void rpc_delay(struct rpc_task * , unsigned long  ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void kref_get(struct kref *kref ) 
 { 
   bool __warned ;

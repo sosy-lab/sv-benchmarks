@@ -7587,7 +7587,7 @@ static int dfx_driver_init(struct net_device *dev , char const   *print_name , r
 
   }
   le32 = data;
-  memcpy((void *)(& bp->factory_mac_addr), (void const   *)(& le32), 4UL);
+  memmove((void *)(& bp->factory_mac_addr), (void const   *)(& le32), 4UL);
   tmp___1 = dfx_hw_port_ctrl_req(bp, 8U, 1U, 0U, & data);
   if (tmp___1 != 0) {
     printk("%s: Could not read adapter factory MAC address!\n", print_name);
@@ -7596,8 +7596,8 @@ static int dfx_driver_init(struct net_device *dev , char const   *print_name , r
 
   }
   le32 = data;
-  memcpy((void *)(& bp->factory_mac_addr) + 4U, (void const   *)(& le32), 2UL);
-  memcpy((void *)dev->dev_addr, (void const   *)(& bp->factory_mac_addr), 6UL);
+  memmove((void *)(& bp->factory_mac_addr) + 4U, (void const   *)(& le32), 2UL);
+  memmove((void *)dev->dev_addr, (void const   *)(& bp->factory_mac_addr), 6UL);
   if (dfx_bus_tc != 0) {
     board_name = (char *)"DEFTA";
   } else {

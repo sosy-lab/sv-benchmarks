@@ -635,7 +635,7 @@ extern int pthread_atfork (void (*__prepare) (void),
 int x, y;
 int b1, b2;
 int X;
-void *thr1() {
+void *thr1(void *_) {
   while (1) {
     b1 = 1;
     x = 1;
@@ -659,8 +659,9 @@ void *thr1() {
   if (!(X <= 0)) ERROR: __VERIFIER_error();
   y = 0;
   b1 = 0;
+  return 0;
 }
-void *thr2() {
+void *thr2(void *_) {
   while (1) {
     b2 = 1;
     x = 2;
@@ -684,6 +685,7 @@ void *thr2() {
   if (!(X >= 1)) ERROR: __VERIFIER_error();
   y = 0;
   b2 = 0;
+  return 0;
 }
 int main() {
   pthread_t t1, t2;

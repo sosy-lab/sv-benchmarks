@@ -5171,7 +5171,11 @@ struct usb_device *ldv_interface_to_usbdev(void) ;
 struct usb_device *ldv_get_dev(struct usb_device *data ) ;
 void ldv_put_dev(struct usb_device *data ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

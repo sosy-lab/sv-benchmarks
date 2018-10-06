@@ -8810,7 +8810,11 @@ extern void msleep(unsigned int  ) ;
 extern void usleep_range(unsigned long  , unsigned long  ) ;
 extern void get_random_bytes(void * , int  ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags ) 
 { 
   void *tmp ;

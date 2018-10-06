@@ -9523,7 +9523,11 @@ __inline static bool queue_work(struct workqueue_struct *wq , struct work_struct
 }
 }
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 extern void kmem_cache_free(struct kmem_cache * , void * ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 

@@ -13746,7 +13746,11 @@ __inline static bool IS_ERR(void const   *ptr )
   return (tmp != 0L);
 }
 }
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 void *ldv_kmem_cache_alloc_284(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_280(size_t size , gfp_t flags ) 
 { 

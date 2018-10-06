@@ -7178,7 +7178,11 @@ void ldv_module_put_6(struct module *ldv_func_arg1 ) ;
 int ldv_try_module_get(struct module *module ) ;
 void ldv_module_put(struct module *module ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -7727,7 +7731,7 @@ static int dw210x_op_rw(struct usb_device *dev , u8 request , u16 value , u16 in
 
   }
   if (flags == 1) {
-    memcpy((void *)u8buf, (void const   *)data, (size_t )len);
+    memmove((void *)u8buf, (void const   *)data, (size_t )len);
   } else {
 
   }
@@ -10537,7 +10541,7 @@ static int dw2102_load_firmware(struct usb_device *dev , struct firmware  const 
   dw210x_op_rw(dev, 160, 32658, 0, & reset, 1, 1);
   dw210x_op_rw(dev, 160, 58880, 0, & reset, 1, 1);
   if ((unsigned long )p != (unsigned long )((u8 *)0U)) {
-    memcpy((void *)p, (void const   *)fw->data, fw->size);
+    memmove((void *)p, (void const   *)fw->data, fw->size);
     i = 0;
     goto ldv_49014;
     ldv_49013: 

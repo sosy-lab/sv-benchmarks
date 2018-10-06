@@ -10444,7 +10444,11 @@ void *ldv_kmem_cache_alloc_96(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 void *ldv_kmem_cache_alloc_116(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags ) 
 { 

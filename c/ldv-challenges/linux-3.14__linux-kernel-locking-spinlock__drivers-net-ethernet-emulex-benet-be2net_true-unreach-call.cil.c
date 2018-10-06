@@ -8114,7 +8114,11 @@ __inline static void kmemcheck_mark_initialized(void *address , unsigned int n )
 }
 }
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags ) 
 { 
   void *tmp ;
