@@ -5799,7 +5799,7 @@ NTSTATUS FloppyDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
                             __cil_tmp121 = *mem_511;
                             __cil_tmp122 = (unsigned int )__cil_tmp121;
                             memcpy_guard(__cil_tmp115, __cil_tmp120, __cil_tmp122);
-                            memcpy(__cil_tmp115, __cil_tmp120, __cil_tmp122);
+                            memmove(__cil_tmp115, __cil_tmp120, __cil_tmp122);
                             ntStatus = 0L;
                             __cil_tmp123 = 24 + 4;
                             __cil_tmp124 = (unsigned int )Irp;
@@ -5894,7 +5894,7 @@ NTSTATUS FloppyDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
                             __cil_tmp163 = *mem_523;
                             __cil_tmp164 = (unsigned int )__cil_tmp163;
                             memcpy_guard(__cil_tmp157, __cil_tmp162, __cil_tmp164);
-                            memcpy(__cil_tmp157, __cil_tmp162, __cil_tmp164);
+                            memmove(__cil_tmp157, __cil_tmp162, __cil_tmp164);
                             ntStatus = 0L;
                             __cil_tmp165 = 24 + 4;
                             __cil_tmp166 = (unsigned int )Irp;
@@ -6353,7 +6353,7 @@ NTSTATUS FloppyDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
                               __cil_tmp357 = *mem_558;
                               __cil_tmp358 = (unsigned int )__cil_tmp357;
                               memcpy_guard(__cil_tmp349, __cil_tmp354, __cil_tmp358);
-                              memcpy(__cil_tmp349, __cil_tmp354, __cil_tmp358);
+                              memmove(__cil_tmp349, __cil_tmp354, __cil_tmp358);
                               __cil_tmp359 = (unsigned int )(& driveLetterName) + 4;
                               __cil_tmp360 = 0 * 2U;
                               __cil_tmp361 = (unsigned int )(driveLetterNameBuffer) + __cil_tmp360;
@@ -7545,7 +7545,7 @@ NTSTATUS FloppyPnp(PDEVICE_OBJECT DeviceObject , PIRP Irp )
                     __cil_tmp163 = (long )__cil_tmp162;
                     __cil_tmp164 = (unsigned int )__cil_tmp163;
                     memcpy_guard(__cil_tmp157, __cil_tmp158, __cil_tmp164);
-                    memcpy(__cil_tmp157, __cil_tmp158, __cil_tmp164);
+                    memmove(__cil_tmp157, __cil_tmp158, __cil_tmp164);
                     __cil_tmp165 = (unsigned int )nextIrpSp;
                     __cil_tmp166 = __cil_tmp165 + 3;
                     mem_384 = (UCHAR *)__cil_tmp166;
@@ -8253,7 +8253,7 @@ NTSTATUS FloppyStartDevice(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   __cil_tmp43 = (long )__cil_tmp42;
   __cil_tmp44 = (unsigned int )__cil_tmp43;
   memcpy_guard(__cil_tmp37, __cil_tmp38, __cil_tmp44);
-  memcpy(__cil_tmp37, __cil_tmp38, __cil_tmp44);
+  memmove(__cil_tmp37, __cil_tmp38, __cil_tmp44);
   __cil_tmp45 = (unsigned int )nextIrpSp;
   __cil_tmp46 = __cil_tmp45 + 3;
   mem_194 = (UCHAR *)__cil_tmp46;

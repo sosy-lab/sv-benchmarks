@@ -11977,7 +11977,11 @@ extern struct kmem_cache *kmem_cache_create(char const   * , size_t  , size_t  ,
                                             void (*)(void * ) ) ;
 extern void kmem_cache_destroy(struct kmem_cache * ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static char const   *kobject_name(struct kobject  const  *kobj ) 
 { 
 

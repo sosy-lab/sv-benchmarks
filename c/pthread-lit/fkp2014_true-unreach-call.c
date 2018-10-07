@@ -23,6 +23,7 @@ void* thr(void* arg) {
     inct();
     __VERIFIER_assert(s < t);
     incs();
+    return 0;
 }
 
 int main() {

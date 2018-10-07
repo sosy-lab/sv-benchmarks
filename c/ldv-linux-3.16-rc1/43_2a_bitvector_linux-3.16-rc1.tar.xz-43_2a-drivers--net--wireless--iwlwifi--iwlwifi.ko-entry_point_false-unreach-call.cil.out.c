@@ -7704,7 +7704,11 @@ __inline static void rcu_read_unlock_sched_notrace(void)
   return;
 }
 }
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_34(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;

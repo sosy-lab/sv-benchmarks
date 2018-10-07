@@ -690,6 +690,7 @@ void* thr(void* arg) {
  data[c] = 0;
  c = c + 1;
     }
+    return 0;
 }
 int main() {
     pthread_t t;

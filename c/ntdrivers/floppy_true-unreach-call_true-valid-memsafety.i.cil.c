@@ -2817,7 +2817,7 @@ NTSTATUS FloppyDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
                             {
                             memcpy_guard(mountName->Name, disketteExtension->DeviceName.Buffer,
                                          mountName->NameLength);
-                            memcpy(mountName->Name, disketteExtension->DeviceName.Buffer,
+                            memmove(mountName->Name, disketteExtension->DeviceName.Buffer,
                                    mountName->NameLength);
                             ntStatus = 0L;
                             Irp->IoStatus.Information = sizeof(USHORT ) + (unsigned int )mountName->NameLength;
@@ -2849,7 +2849,7 @@ NTSTATUS FloppyDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
                             {
                             memcpy_guard(uniqueId->UniqueId, disketteExtension->InterfaceString.Buffer,
                                          uniqueId->UniqueIdLength);
-                            memcpy(uniqueId->UniqueId, disketteExtension->InterfaceString.Buffer,
+                            memmove(uniqueId->UniqueId, disketteExtension->InterfaceString.Buffer,
                                    uniqueId->UniqueIdLength);
                             ntStatus = 0L;
                             Irp->IoStatus.Information = sizeof(USHORT ) + (unsigned int )uniqueId->UniqueIdLength;
@@ -2994,7 +2994,7 @@ NTSTATUS FloppyDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp )
                               memset(valueName, 0, sizeof(WCHAR ) * 64U);
                               memcpy_guard(valueName, disketteExtension->DeviceName.Buffer,
                                            disketteExtension->DeviceName.Length);
-                              memcpy(valueName, disketteExtension->DeviceName.Buffer,
+                              memmove(valueName, disketteExtension->DeviceName.Buffer,
                                      disketteExtension->DeviceName.Length);
                               driveLetterName.Buffer = driveLetterNameBuffer;
                               driveLetterName.MaximumLength = 20;
@@ -3351,7 +3351,7 @@ NTSTATUS FloppyPnp(PDEVICE_OBJECT DeviceObject , PIRP Irp )
                     irpSp___0 = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
                     nextIrpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
                     memcpy_guard(nextIrpSp, irpSp___0, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
-                    memcpy(nextIrpSp, irpSp___0, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
+                    memmove(nextIrpSp, irpSp___0, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
                     nextIrpSp->Control = 0;
 /*                     KeInitializeEvent(& doneEvent, 1, 0); */ /* INLINED */
                     }
@@ -3546,7 +3546,7 @@ NTSTATUS FloppyStartDevice(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   irpSp___0 = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation;
   nextIrpSp = Irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
   memcpy_guard(nextIrpSp, irpSp___0, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
-  memcpy(nextIrpSp, irpSp___0, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
+  memmove(nextIrpSp, irpSp___0, (long )(& ((IO_STACK_LOCATION *)0)->CompletionRoutine));
   nextIrpSp->Control = 0;
   }
   if (s != NP) {

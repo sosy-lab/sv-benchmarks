@@ -6992,7 +6992,11 @@ int ldv_mutex_lock_interruptible_semusb_of_ttusb(struct mutex *lock ) ;
 void ldv_mutex_unlock_semusb_of_ttusb(struct mutex *lock ) ;
 extern unsigned long volatile   jiffies ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

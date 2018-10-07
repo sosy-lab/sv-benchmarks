@@ -9547,7 +9547,11 @@ struct sk_buff *ldv_skb_clone_74(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 }
 }
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 void *ldv_kmem_cache_alloc_100(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags ) 
 { 

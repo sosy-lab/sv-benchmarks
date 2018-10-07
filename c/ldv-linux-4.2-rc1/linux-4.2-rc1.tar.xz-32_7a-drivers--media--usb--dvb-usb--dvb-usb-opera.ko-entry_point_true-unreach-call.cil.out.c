@@ -7117,7 +7117,11 @@ void ldv_mutex_unlock_mutex_of_device(struct mutex *lock ) ;
 int ldv_mutex_lock_interruptible_usb_mutex_of_dvb_usb_device(struct mutex *lock ) ;
 void ldv_mutex_unlock_usb_mutex_of_dvb_usb_device(struct mutex *lock ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -7255,7 +7259,7 @@ static int opera1_xilinx_rw(struct usb_device *dev , u8 request , u16 value , u8
   }
   if (flags == 1) {
     memcpy_guard((void *)buf, (void const   *)data, (size_t )len);
-    memcpy((void *)buf, (void const   *)data, (size_t )len);
+    memmove((void *)buf, (void const   *)data, (size_t )len);
   } else {
 
   }
