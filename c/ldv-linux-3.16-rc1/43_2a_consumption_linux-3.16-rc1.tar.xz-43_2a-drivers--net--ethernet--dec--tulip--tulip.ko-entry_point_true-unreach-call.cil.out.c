@@ -5427,7 +5427,11 @@ extern int printk(char const   *  , ...) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern unsigned int ioread32(void * ) ;
 extern void iowrite32(u32  , void * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *ldv_kmalloc_12(size_t size , gfp_t flags ) 

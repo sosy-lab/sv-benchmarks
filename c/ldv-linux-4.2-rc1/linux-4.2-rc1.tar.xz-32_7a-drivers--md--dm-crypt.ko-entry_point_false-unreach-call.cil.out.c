@@ -4988,7 +4988,11 @@ extern int wake_up_process(struct task_struct * ) ;
 extern int _cond_resched(void) ;
 extern void kfree(void const   * ) ;
 extern void kzfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

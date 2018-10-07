@@ -3773,6 +3773,7 @@ void *thread1(void *arg) {
    pthread_mutex_lock(&mutex);
    pdev = 6;
    pthread_mutex_unlock(&mutex);
+   return 0;
 }
 
 int module_init() {

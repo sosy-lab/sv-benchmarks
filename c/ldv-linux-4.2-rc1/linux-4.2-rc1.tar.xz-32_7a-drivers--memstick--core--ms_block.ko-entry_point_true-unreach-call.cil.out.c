@@ -4355,7 +4355,11 @@ extern int idr_alloc(struct idr * , void * , int  , int  , gfp_t  ) ;
 extern void idr_remove(struct idr * , int  ) ;
 extern void idr_destroy(struct idr * ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

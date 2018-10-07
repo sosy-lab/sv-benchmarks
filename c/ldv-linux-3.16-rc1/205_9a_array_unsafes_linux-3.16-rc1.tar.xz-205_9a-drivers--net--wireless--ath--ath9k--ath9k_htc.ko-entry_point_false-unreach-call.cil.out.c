@@ -8470,7 +8470,11 @@ __inline static void init_completion(struct completion *x )
 extern unsigned long wait_for_completion_timeout(struct completion * , unsigned long  ) ;
 extern void complete(struct completion * ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

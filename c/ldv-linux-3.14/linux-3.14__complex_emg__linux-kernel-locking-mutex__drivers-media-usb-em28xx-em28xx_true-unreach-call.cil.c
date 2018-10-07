@@ -10164,7 +10164,11 @@ static int ldv_usb_register_driver_31(struct usb_driver *ldv_func_arg1 , struct 
 extern void usb_deregister(struct usb_driver * ) ;
 static void ldv_usb_deregister_32(struct usb_driver *ldv_func_arg1 ) ;
 extern int __request_module(bool  , char const   *  , ...) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

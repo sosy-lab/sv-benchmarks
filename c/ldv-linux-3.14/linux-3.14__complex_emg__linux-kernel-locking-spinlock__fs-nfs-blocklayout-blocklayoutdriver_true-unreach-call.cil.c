@@ -8842,7 +8842,11 @@ extern struct dentry *rpc_mkpipe_dentry(struct dentry * , char const   * , void 
                                         struct rpc_pipe * ) ;
 extern int rpc_unlink(struct dentry * ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

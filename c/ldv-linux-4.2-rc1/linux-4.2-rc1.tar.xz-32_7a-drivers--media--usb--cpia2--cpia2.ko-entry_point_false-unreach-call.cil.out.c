@@ -7806,7 +7806,11 @@ __inline static int waitqueue_active(wait_queue_head_t *q )
 }
 }
 extern void __wake_up(wait_queue_head_t * , unsigned int  , int  , void * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

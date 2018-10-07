@@ -3013,7 +3013,11 @@ struct kernel_symbol  const  __ksymtab_usb_gadget_get_string ;
 struct kernel_symbol  const  __ksymtab_usb_gadget_get_string  =    {(unsigned long )(& usb_gadget_get_string), (char const   *)(& __kstrtab_usb_gadget_get_string)};
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -932,7 +933,7 @@ int get_top(void)
 }
 int stack_empty(void)
 {
-  (top==0) ? (1) : (0);
+  return (top==0) ? (1) : (0);
 }
 int push(unsigned int *stack, int x)
 {
@@ -969,12 +970,14 @@ void *t1(void *arg)
   for(i=0; i<(800); i++)
   {
     pthread_mutex_lock(&m);
-    tmp = __VERIFIER_nondet_uint()%(800);
+    tmp = __VERIFIER_nondet_uint();
+    __VERIFIER_assume(tmp < (800));
     if (push(arr,tmp)==(-1))
       error();
     flag=(1);
     pthread_mutex_unlock(&m);
   }
+  return 0;
 }
 void *t2(void *arg)
 {
@@ -989,6 +992,7 @@ void *t2(void *arg)
     }
     pthread_mutex_unlock(&m);
   }
+  return 0;
 }
 int main(void)
 {

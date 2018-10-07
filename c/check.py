@@ -279,7 +279,7 @@ class BenchmarkFileChecks(Checks):
         self.path = path
         self.filename = os.path.basename(self.name)
         self.contained_in_category = contained_in_category
-        with open(self.path, 'rb') as f:
+        with open(self.path, 'r') as f:
             self.lines = f.readlines()
 
     def check_file_has_no_line_directive(self):
@@ -334,7 +334,7 @@ class BenchmarkFileChecks(Checks):
             # Some such files have calls to __VERIFIER_error inside #include
             return
 
-        if not any("__VERIFIER_error();" in line for line in self.lines if not "extern" in line):
+        if not any("__VERIFIER_error()" in line for line in self.lines if not "extern" in line):
             self.error("has property unreach-call, but does not call __VERIFIER_error")
 
     def check_no_include_or_define(self):

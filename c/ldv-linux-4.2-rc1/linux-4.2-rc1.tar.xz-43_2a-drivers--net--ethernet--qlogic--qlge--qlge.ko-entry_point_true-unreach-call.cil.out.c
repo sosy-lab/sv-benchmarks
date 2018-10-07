@@ -7295,7 +7295,11 @@ extern int cpu_number ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order ) ;
 extern void __free_pages(struct page * , unsigned int  ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 void *ldv_kmem_cache_alloc_25(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_42(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;

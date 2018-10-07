@@ -5154,7 +5154,11 @@ int ldv_mod_timer_14(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_a
 int ldv_mod_timer_15(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
 extern void add_timer(struct timer_list * ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

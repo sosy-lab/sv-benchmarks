@@ -7189,7 +7189,11 @@ __inline static unsigned long msecs_to_jiffies(unsigned int const   m )
 }
 }
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -7522,13 +7526,13 @@ static int lme2510_usb_talk(struct dvb_usb_device *d , u8 *wbuf , int wlen , u8 
   } else {
 
   }
-  memcpy((void *)buff, (void const   *)wbuf, (size_t )(64 < wlen ? 64 : wlen));
+  memmove((void *)buff, (void const   *)wbuf, (size_t )(64 < wlen ? 64 : wlen));
   tmp = lme2510_bulk_write(d->udev, buff, wlen, 1);
   ret = tmp | ret;
   tmp___0 = lme2510_bulk_read(d->udev, buff, 64 < rlen ? 64 : rlen, 1);
   ret = tmp___0 | ret;
   if (rlen > 0) {
-    memcpy((void *)rbuf, (void const   *)buff, (size_t )rlen);
+    memmove((void *)rbuf, (void const   *)buff, (size_t )rlen);
   } else {
 
   }

@@ -3774,6 +3774,7 @@ void *thread1(void *arg) {
    pdev = 6;
    ldv_assert(pdev==6);
    pthread_mutex_unlock(&mutex);
+   return 0;
 }
 
 int module_init() {

@@ -4650,7 +4650,11 @@ extern void flush_workqueue(struct workqueue_struct * ) ;
 void ldv_flush_workqueue_8(struct workqueue_struct *ldv_func_arg1 ) ;
 extern int _cond_resched(void) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 extern void kmem_cache_free(struct kmem_cache * , void * ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 

@@ -8480,7 +8480,11 @@ __inline static void ClearPageReserved(struct page *page )
 extern int remap_pfn_range(struct vm_area_struct * , unsigned long  , unsigned long  ,
                            unsigned long  , pgprot_t  ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

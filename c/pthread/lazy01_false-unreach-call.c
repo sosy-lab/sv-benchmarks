@@ -11,6 +11,7 @@ void *thread1(void *arg)
   pthread_mutex_lock(&mutex);
   data++;
   pthread_mutex_unlock(&mutex);
+  return 0;
 }
 
 
@@ -19,6 +20,7 @@ void *thread2(void *arg)
   pthread_mutex_lock(&mutex);
   data+=2;
   pthread_mutex_unlock(&mutex);
+  return 0;
 }
 
 
@@ -30,6 +32,7 @@ void *thread3(void *arg)
     ;
   }
   pthread_mutex_unlock(&mutex);    
+  return 0;
 }
 
 
