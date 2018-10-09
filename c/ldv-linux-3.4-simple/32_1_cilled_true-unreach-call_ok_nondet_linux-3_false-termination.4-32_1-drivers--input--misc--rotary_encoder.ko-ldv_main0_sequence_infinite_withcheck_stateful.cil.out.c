@@ -1878,7 +1878,11 @@ extern void *dev_get_drvdata(struct device  const  *dev ) ;
 extern int dev_set_drvdata(struct device *dev , void *data ) ;
 extern int ( /* format attribute */  dev_err)(struct device  const  *dev , char const   *fmt 
                                               , ...) ;
-extern struct input_dev *input_allocate_device(void) ;
+__inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev *dev ) ;
 extern int __attribute__((__warn_unused_result__))  input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;
@@ -1986,7 +1990,29 @@ __inline static int gpio_to_irq(unsigned int gpio )
 }
 }
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t size , gfp_t flags ) ;
+extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_assume(int);
+extern void *malloc(size_t size);
+long ldv_is_err(const void *ptr)
+{
+		return ((unsigned long)ptr > ((unsigned long)-4095));
+}
+
+void *ldv_malloc(size_t size)
+{
+	if (__VERIFIER_nondet_int()) {
+		void *res = malloc(size);
+		__VERIFIER_assume(!ldv_is_err(res));
+
+		return res;
+	} else {
+		return ((void *)0);
+	}
+}
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
                                                                     gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
@@ -2000,7 +2026,6 @@ __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size 
   return (tmp___2);
 }
 }
-__inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp ;
   unsigned int __cil_tmp4 ;

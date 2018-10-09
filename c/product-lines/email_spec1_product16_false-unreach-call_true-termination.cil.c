@@ -2197,7 +2197,7 @@ void test(void)
 #pragma merger(0,"AddressBookEncrypt_spec.i","")
 extern int puts(char const   *__s ) ;
 int mail_is_sensitive  =    -1;
-__inline void __utac_acc__AddressBookEncrypt_spec__1(int client , int msg ) 
+inline static void __utac_acc__AddressBookEncrypt_spec__1(int client , int msg ) 
 { int tmp ;
 
   {

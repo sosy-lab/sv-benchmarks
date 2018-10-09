@@ -1848,7 +1848,7 @@ char const   *__utac__get_this_argtype(int i , struct JoinPoint *this )
 }
 #pragma merger(0,"DecryptAutoResponder_spec.i","")
 int isReadable(int msg ) ;
-__inline void __utac_acc__DecryptAutoResponder_spec__1(int client , int msg ) 
+inline static void __utac_acc__DecryptAutoResponder_spec__1(int client , int msg ) 
 { int tmp ;
 
   {

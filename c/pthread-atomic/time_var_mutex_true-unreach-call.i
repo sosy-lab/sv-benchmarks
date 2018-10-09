@@ -638,7 +638,7 @@ int busy;
 int inode;
 pthread_mutex_t m_inode;
 pthread_mutex_t m_busy;
-void *allocator(){
+void *allocator(void *_){
   pthread_mutex_lock(&m_inode);
   if(inode == 0){
     pthread_mutex_lock(&m_busy);
@@ -651,7 +651,7 @@ void *allocator(){
   pthread_mutex_unlock(&m_inode);
   return ((void *)0);
 }
-void *de_allocator(){
+void *de_allocator(void *_){
   pthread_mutex_lock(&m_busy);
   if(busy == 0){
     block = 0;

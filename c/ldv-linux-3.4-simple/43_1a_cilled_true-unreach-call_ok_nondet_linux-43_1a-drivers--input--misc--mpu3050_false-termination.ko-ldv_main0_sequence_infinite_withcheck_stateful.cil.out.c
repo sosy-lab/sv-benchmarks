@@ -3088,7 +3088,10 @@ extern int dev_err(struct device  const  * , char const   *  , ...) ;
 extern int i2c_transfer(struct i2c_adapter * , struct i2c_msg * , int  ) ;
 extern s32 i2c_smbus_read_byte_data(struct i2c_client  const  * , u8  ) ;
 extern s32 i2c_smbus_write_byte_data(struct i2c_client  const  * , u8  , u8  ) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 __inline static void *input_get_drvdata(struct input_dev *dev ) 
 { void *tmp ;

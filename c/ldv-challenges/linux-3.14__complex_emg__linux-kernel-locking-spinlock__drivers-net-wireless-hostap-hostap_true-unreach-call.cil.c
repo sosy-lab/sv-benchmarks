@@ -6152,7 +6152,11 @@ __inline static void ldv_spin_unlock_60(spinlock_t *lock ) ;
 extern unsigned long volatile   jiffies ;
 extern int net_ratelimit(void) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

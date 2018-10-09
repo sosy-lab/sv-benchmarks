@@ -3530,7 +3530,11 @@ extern void complete_all(struct completion * ) ;
 extern void kfree(void const   * ) ;
 extern int sysfs_create_group(struct kobject * , struct attribute_group  const  * ) ;
 extern void sysfs_remove_group(struct kobject * , struct attribute_group  const  * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -3625,7 +3629,10 @@ __inline static unsigned int iminor(struct inode  const  *inode )
 }
 }
 extern loff_t noop_llseek(struct file * , loff_t  , int  ) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 __inline static void input_set_drvdata(struct input_dev *dev , void *data ) 
 { 

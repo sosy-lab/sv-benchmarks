@@ -6,3 +6,12 @@ array-industry-pattern/*_true-unreach-call*.i
 
 reducercommutativity/*_false-unreach-call*.i
 reducercommutativity/*_true-unreach-call*.i
+
+array-tiling/*_false-unreach-call*.i
+array-tiling/*_true-unreach-call*.i
+
+array-programs/*_false-unreach-call*.i
+array-programs/*_true-unreach-call*.i
+
+array-crafted/*_true-unreach-call*.i
+array-crafted/zero_sum*_true-unreach-call*.c

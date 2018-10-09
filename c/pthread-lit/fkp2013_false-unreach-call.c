@@ -9,12 +9,14 @@ volatile int x;
 
 void* thr1(void* arg) {
     __VERIFIER_assert(x < N);
+    return 0;
 }
 
 void* thr2(void* arg) {
     int t;
     t = x;
     x = t + 1;
+    return 0;
 }
 
 int main(int argc, char* argv[]) {

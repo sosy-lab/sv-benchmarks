@@ -56,7 +56,7 @@ int getEmailSignKey(int handle ) ;
 int findPublicKey(int handle , int userid ) ;
 int isKeyPairValid(int publicKey , int privateKey ) ;
 int sent_signed  =    -1;
-__inline void __utac_acc__SignVerify_spec__1(int msg ) 
+inline static void __utac_acc__SignVerify_spec__1(int msg ) 
 { char const   * __restrict  __cil_tmp2 ;
 
   {
@@ -69,7 +69,7 @@ __inline void __utac_acc__SignVerify_spec__1(int msg )
   return;
 }
 }
-__inline void __utac_acc__SignVerify_spec__2(int client , int msg ) 
+inline static void __utac_acc__SignVerify_spec__2(int client , int msg ) 
 { int pubkey ;
   int tmp ;
   int tmp___0 ;

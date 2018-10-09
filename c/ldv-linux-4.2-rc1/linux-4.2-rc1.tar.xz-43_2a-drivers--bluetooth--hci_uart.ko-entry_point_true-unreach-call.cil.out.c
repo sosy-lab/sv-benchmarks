@@ -9050,7 +9050,7 @@ static int h4_enqueue(struct hci_uart *hu , struct sk_buff *skb )
 
   }
   tmp___0 = skb_push(skb, 1U);
-  memcpy((void *)tmp___0, (void const   *)(& ((struct bt_skb_cb *)(& skb->cb))->pkt_type),
+  memmove((void *)tmp___0, (void const   *)(& ((struct bt_skb_cb *)(& skb->cb))->pkt_type),
            1UL);
   skb_queue_tail(& h4->txq, skb);
   return (0);
@@ -12677,7 +12677,7 @@ static int ath_enqueue(struct hci_uart *hu , struct sk_buff *skb )
 
   }
   tmp___0 = skb_push(skb, 1U);
-  memcpy((void *)tmp___0, (void const   *)(& ((struct bt_skb_cb *)(& skb->cb))->pkt_type),
+  memmove((void *)tmp___0, (void const   *)(& ((struct bt_skb_cb *)(& skb->cb))->pkt_type),
            1UL);
   skb_queue_tail(& ath->txq, skb);
   set_bit(1L, (unsigned long volatile   *)(& hu->tx_state));
@@ -14239,7 +14239,7 @@ static void h5_slip_delim(struct sk_buff *skb )
   {
   delim = -64;
   tmp = skb_put(skb, 1U);
-  memcpy((void *)tmp, (void const   *)(& delim), 1UL);
+  memmove((void *)tmp, (void const   *)(& delim), 1UL);
   return;
 }
 }
@@ -14259,7 +14259,7 @@ static void h5_slip_one_byte(struct sk_buff *skb , u8 c )
   switch ((int )c) {
   case 192: 
   tmp = skb_put(skb, 2U);
-  memcpy((void *)tmp, (void const   *)(& esc_delim), 2UL);
+  memmove((void *)tmp, (void const   *)(& esc_delim), 2UL);
   goto ldv_50458;
   case 219: 
   tmp___0 = skb_put(skb, 2U);
@@ -14267,7 +14267,7 @@ static void h5_slip_one_byte(struct sk_buff *skb , u8 c )
   goto ldv_50458;
   default: 
   tmp___1 = skb_put(skb, 1U);
-  memcpy((void *)tmp___1, (void const   *)(& c), 1UL);
+  memmove((void *)tmp___1, (void const   *)(& c), 1UL);
   }
   ldv_50458: ;
   return;
@@ -15549,7 +15549,7 @@ static int bcm_enqueue(struct hci_uart *hu , struct sk_buff *skb )
 
   }
   tmp___0 = skb_push(skb, 1U);
-  memcpy((void *)tmp___0, (void const   *)(& ((struct bt_skb_cb *)(& skb->cb))->pkt_type),
+  memmove((void *)tmp___0, (void const   *)(& ((struct bt_skb_cb *)(& skb->cb))->pkt_type),
            1UL);
   skb_queue_tail(& bcm->txq, skb);
   return (0);

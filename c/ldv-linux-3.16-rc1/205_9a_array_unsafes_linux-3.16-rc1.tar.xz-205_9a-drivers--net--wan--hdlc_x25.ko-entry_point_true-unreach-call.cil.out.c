@@ -5268,6 +5268,11 @@ extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int expression ) ;
+void *ldv_successful_zalloc(size_t __size) {
+  void *p = calloc(1UL, __size);
+  __VERIFIER_assume(p != (void *)0);
+  return p;
+}
 void *ldv_malloc(size_t size ) 
 { 
   void *p ;
@@ -5515,6 +5520,8 @@ static netdev_tx_t x25_xmit(struct sk_buff *skb , struct net_device *dev )
   int result ;
 
   {
+  __VERIFIER_assume(((void*)(skb)) != ((void*) 0));
+  __VERIFIER_assume(((void*)((skb->data))) != ((void*) 0));
   switch ((int )*(skb->data)) {
   case 0: 
   skb_pull(skb, 1U);
@@ -5703,9 +5710,9 @@ void ldv_initialize_hdlc_proto_1(void)
   void *tmp___0 ;
 
   {
-  tmp = ldv_zalloc(3264UL);
+  tmp = ldv_successful_zalloc(3264UL);
   proto_group1 = (struct net_device *)tmp;
-  tmp___0 = ldv_zalloc(232UL);
+  tmp___0 = ldv_successful_zalloc(232UL);
   proto_group0 = (struct sk_buff *)tmp___0;
   return;
 }
@@ -5719,7 +5726,7 @@ int main(void)
   int tmp___2 ;
 
   {
-  tmp = ldv_zalloc(40UL);
+  tmp = ldv_successful_zalloc(40UL);
   ldvarg0 = (struct ifreq *)tmp;
   ldv_initialize();
   ldv_state_variable_1 = 0;
@@ -6092,7 +6099,7 @@ struct sk_buff___0 *ldv_skb_alloc(void)
   void *tmp___7 ;
 
   {
-  tmp___7 = ldv_zalloc(sizeof(struct sk_buff___0 ));
+  tmp___7 = ldv_successful_zalloc(sizeof(struct sk_buff___0 ));
   skb = (struct sk_buff___0 *)tmp___7;
   if (! skb) {
     return ((void *)0);

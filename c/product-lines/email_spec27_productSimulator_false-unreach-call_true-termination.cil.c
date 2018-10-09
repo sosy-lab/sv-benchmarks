@@ -1909,7 +1909,7 @@ void test(void)
 extern int puts(char const   *__s ) ;
 int getEmailFrom(int handle ) ;
 int isVerified(int handle ) ;
-__inline void __utac_acc__VerifyForward_spec__1(int client , int msg ) 
+inline static void __utac_acc__VerifyForward_spec__1(int client , int msg ) 
 { int pubkey ;
   int tmp ;
   int tmp___0 ;

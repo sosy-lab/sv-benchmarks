@@ -4185,7 +4185,10 @@ __inline static void dev_set_drvdata(struct device *dev , void *data )
 extern void dev_warn(struct device  const  * , char const   *  , ...) ;
 extern void dev_notice(struct device  const  * , char const   *  , ...) ;
 extern void _dev_info(struct device  const  * , char const   *  , ...) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 extern int input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;

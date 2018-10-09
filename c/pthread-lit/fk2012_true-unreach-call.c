@@ -2,6 +2,9 @@ extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 extern void __VERIFIER_assume(int);
 extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
+
 #include <stdlib.h>
 #include <pthread.h>
 

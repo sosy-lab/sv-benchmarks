@@ -54,7 +54,7 @@ int isKeyPairValid(int publicKey , int privateKey ) ;
 extern int printf(char const   * __restrict  __format  , ...) ;
 extern int puts(char const   *__s ) ;
 int sent_encrypted  =    -1;
-__inline void __utac_acc__EncryptDecrypt_spec__1(int msg ) 
+inline static void __utac_acc__EncryptDecrypt_spec__1(int msg ) 
 { char const   * __restrict  __cil_tmp2 ;
 
   {
@@ -67,7 +67,7 @@ __inline void __utac_acc__EncryptDecrypt_spec__1(int msg )
   return;
 }
 }
-__inline void __utac_acc__EncryptDecrypt_spec__2(int client , int msg ) 
+inline static void __utac_acc__EncryptDecrypt_spec__2(int client , int msg ) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;

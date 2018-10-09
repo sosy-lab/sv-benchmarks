@@ -5161,7 +5161,11 @@ extern void pci_unregister_driver(struct pci_driver * ) ;
 void ldv_pci_unregister_driver_10(struct pci_driver *ldv_func_arg1 ) ;
 extern int pci_enable_msi_block(struct pci_dev * , unsigned int  ) ;
 extern void pci_disable_msi(struct pci_dev * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

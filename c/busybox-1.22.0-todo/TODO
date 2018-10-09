@@ -1,0 +1,18 @@
+TODO:
+
+- Apply the fix for the overflow when outputing an error message where strlen of the strerror(*) string is saved in strerr_len and used in a signed addition.
+  But the error string could in theory be very large => overflow
+  The fix was applied to the regular busybox tasks with this command:
+
+    for file in $(grep -l bb_verror_msg c/busybox-1.22.0/*);
+    do
+    if [[ $file != *"false-valid-deref"* ]]; then
+      cp $file $(echo $file | perl -pe "s/(.*?_)(.*)(\..*)/\1false-no-overflow\3/g");
+    fi
+    perl -0777pi -e "s/(applet_len;\n  )(signed int strerr_len;\n)/\1un\2/g" $file;
+    done
+
+  It still needs to be applied to the tasks in this folder!
+
+
+Note: This list is not exhaustive. Finishing all to-dos in this file does not imply that the tasks can be moved out of the todo folder!

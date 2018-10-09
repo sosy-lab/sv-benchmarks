@@ -7560,7 +7560,11 @@ extern loff_t dcache_dir_lseek(struct file * , loff_t  , int  ) ;
 extern int dcache_readdir(struct file * , struct dir_context * ) ;
 extern int simple_empty(struct dentry * ) ;
 extern ssize_t generic_read_dir(struct file * , char * , size_t  , loff_t * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

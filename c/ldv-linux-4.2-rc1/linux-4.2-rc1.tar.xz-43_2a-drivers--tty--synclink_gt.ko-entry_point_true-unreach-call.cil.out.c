@@ -11735,7 +11735,7 @@ static struct slgt_info *alloc_dev(int adapter_num , int port_num , struct pci_d
     spinlock_check(& info->netlock);
     __raw_spin_lock_init(& info->netlock.__annonCompField18.rlock, "&(&info->netlock)->rlock",
                          & __key___2);
-    memcpy((void *)(& info->params), (void const   *)(& default_params), 48UL);
+    memmove((void *)(& info->params), (void const   *)(& default_params), 48UL);
     info->idle_mode = 0U;
     info->adapter_num = adapter_num;
     info->port_num = port_num;
@@ -11803,7 +11803,7 @@ static void device_init(int adapter_num , struct pci_dev *pdev )
   i = 0;
   goto ldv_48370;
   ldv_48369: 
-  memcpy((void *)(& (port_array[i])->port_array), (void const   *)(& port_array),
+  memmove((void *)(& (port_array[i])->port_array), (void const   *)(& port_array),
            32UL);
   add_device(port_array[i]);
   (port_array[i])->port_count = port_count;

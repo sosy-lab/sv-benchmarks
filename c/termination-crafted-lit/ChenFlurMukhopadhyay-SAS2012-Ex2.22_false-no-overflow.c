@@ -23,6 +23,7 @@ int main() {
     int x, y, oldy;
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
+    oldy = __VERIFIER_nondet_int();
     while (x > 0 && y <= -oldy) {
         x = y;
         oldy = y;

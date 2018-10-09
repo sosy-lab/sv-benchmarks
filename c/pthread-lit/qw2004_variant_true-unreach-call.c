@@ -41,6 +41,7 @@ void* BCSP_PnpAdd(void* arg) {
 	__VERIFIER_assert(!stopped);
 	BCSP_IoDecrement();
     }
+    return 0;
 }
 
 void* BCSP_PnpStop(void* arg) {
@@ -48,6 +49,7 @@ void* BCSP_PnpStop(void* arg) {
     BCSP_IoDecrement();
     __VERIFIER_assume(stoppingEvent);
     stopped = 1;
+    return 0;
 }
 
 int main() {

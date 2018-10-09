@@ -18461,7 +18461,11 @@ __inline static int spin_trylock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
 void *ldv_vzalloc_132(unsigned long ldv_func_arg1 ) ;
 void *ldv_vzalloc_133(unsigned long ldv_func_arg1 ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 void *ldv_kmem_cache_alloc_114(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 void *ldv_kmem_cache_alloc_131(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags ) 

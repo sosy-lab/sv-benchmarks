@@ -2843,7 +2843,7 @@ int floorButtons_spc9_1  ;
 int floorButtons_spc9_2  ;
 int floorButtons_spc9_3  ;
 int floorButtons_spc9_4  ;
-__inline void __utac_acc__Specification9_spec__1(void) 
+inline static void __utac_acc__Specification9_spec__1(void) 
 { 
 
   {
@@ -2958,7 +2958,7 @@ void __utac_acc__Specification9_spec__3(void)
   return;
 }
 }
-__inline void __utac_acc__Specification9_spec__4(void) 
+inline static void __utac_acc__Specification9_spec__4(void) 
 { 
 
   {

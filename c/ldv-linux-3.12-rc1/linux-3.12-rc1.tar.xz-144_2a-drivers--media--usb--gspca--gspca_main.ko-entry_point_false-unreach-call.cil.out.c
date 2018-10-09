@@ -5224,7 +5224,11 @@ struct usb_device *ldv_interface_to_usbdev(void) ;
 void *ldv_usb_get_intfdata(void) ;
 void ldv_usb_set_intfdata(void *data ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -5494,7 +5498,10 @@ void gspca_frame_add(struct gspca_dev *gspca_dev , enum gspca_packet_type packet
                      u8 const   *data , int len ) ;
 int gspca_suspend(struct usb_interface *intf , pm_message_t message ) ;
 int gspca_resume(struct usb_interface *intf ) ;
-extern struct input_dev *input_allocate_device(void) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 extern int input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;

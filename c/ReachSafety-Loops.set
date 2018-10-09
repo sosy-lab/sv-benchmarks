@@ -2,6 +2,9 @@ loops/*_false-unreach-call*.i
 loops/*_true-unreach-call*.i
 loop-acceleration/*_false-unreach-call*.i
 loop-acceleration/*_true-unreach-call*.i
+loop-crafted/*_false-unreach-call*.i
+loop-crafted/*_true-unreach-call*.i
+
 loop-invgen/*_false-unreach-call*.i
 loop-invgen/*_true-unreach-call*.i
 loop-lit/*_true-unreach-call*.i
@@ -12,3 +15,8 @@ loop-industry-pattern/*_true-unreach-call*.c
 loops/heavy_true-unreach-call.c
 loops/compact_false-unreach-call.c
 loops/heavy_false-unreach-call.c
+
+loops-crafted-1/*_false-unreach-call*.c
+loops-crafted-1/*_true-unreach-call*.c
+
+loop-invariants/*_true-unreach-call_true-valid-memsafety_true-no-overflow_false-termination.c

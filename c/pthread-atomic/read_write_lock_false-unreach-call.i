@@ -646,6 +646,7 @@ void *writer(void *arg) {
   __VERIFIER_atomic_take_write_lock();
   x = 3;
   w = 0;
+  return 0;
 }
 void *reader(void *arg) {
   int l;
@@ -655,6 +656,7 @@ void *reader(void *arg) {
   if (!(y == x)) ERROR: __VERIFIER_error();
   l = r-1;
   r = l;
+  return 0;
 }
 int main() {
   pthread_t t1, t2, t3, t4;

@@ -24,6 +24,7 @@ int main() {
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
     z = __VERIFIER_nondet_int();
+    oldx = __VERIFIER_nondet_int();
     while (x > 0 && x < y && x > 2*oldx) {
         oldx = x;
         x = __VERIFIER_nondet_int();

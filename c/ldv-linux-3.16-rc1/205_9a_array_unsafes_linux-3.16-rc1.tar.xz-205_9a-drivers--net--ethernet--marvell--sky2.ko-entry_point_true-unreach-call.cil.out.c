@@ -6553,7 +6553,11 @@ __inline static struct page *alloc_pages(gfp_t gfp_mask , unsigned int order )
 }
 }
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static char const   *kobject_name(struct kobject  const  *kobj ) 
 { 
 

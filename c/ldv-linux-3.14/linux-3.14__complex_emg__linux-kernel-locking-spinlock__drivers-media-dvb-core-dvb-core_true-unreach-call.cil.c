@@ -6202,7 +6202,11 @@ extern int register_chrdev_region(dev_t  , unsigned int  , char const   * ) ;
 extern void unregister_chrdev_region(dev_t  , unsigned int  ) ;
 extern loff_t noop_llseek(struct file * , loff_t  , int  ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

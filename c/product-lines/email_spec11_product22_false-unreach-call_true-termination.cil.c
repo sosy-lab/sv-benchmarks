@@ -68,7 +68,7 @@ int __SELECTED_FEATURE_Decrypt  ;
 int __GUIDSL_ROOT_PRODUCTION  ;
 int __GUIDSL_NON_TERMINAL_main  ;
 int isReadable(int msg ) ;
-__inline void __utac_acc__DecryptAutoResponder_spec__1(int client , int msg ) 
+inline static void __utac_acc__DecryptAutoResponder_spec__1(int client , int msg ) 
 { int tmp ;
 
   {

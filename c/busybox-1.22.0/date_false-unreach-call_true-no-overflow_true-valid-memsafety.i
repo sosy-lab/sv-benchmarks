@@ -2373,7 +2373,28 @@ extern int getutid_r (const struct utmp *__id, struct utmp *__buffer,
         struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
 extern int getutline_r (const struct utmp *__line,
    struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+struct tm *localtime_r(const time_t *timep, struct tm* result)
+{
+   result->tm_sec   = __VERIFIER_nondet_int();
+   result->tm_min   = __VERIFIER_nondet_int();
+   result->tm_hour  = __VERIFIER_nondet_int();
+   result->tm_mday  = __VERIFIER_nondet_int();
+   result->tm_mon   = __VERIFIER_nondet_int();
+   result->tm_year  = __VERIFIER_nondet_int();
+   result->tm_wday  = __VERIFIER_nondet_int();
+   result->tm_yday  = __VERIFIER_nondet_int();
+   result->tm_isdst = __VERIFIER_nondet_int();
 
+   __VERIFIER_assume(result->tm_sec >= 0 && result->tm_sec <= 60);
+   __VERIFIER_assume(result->tm_min >= 0 && result->tm_min < 60);
+   __VERIFIER_assume(result->tm_hour >= 0 && result->tm_hour < 24);
+   __VERIFIER_assume(result->tm_mday > 0 && result->tm_mday < 32);
+   __VERIFIER_assume(result->tm_mon >= 0 && result->tm_mon < 12);
+   __VERIFIER_assume(result->tm_year >= 0 && result->tm_year < 1000);
+   __VERIFIER_assume(result->tm_wday >= 0 && result->tm_wday < 7);
+   __VERIFIER_assume(result->tm_yday >= 0 && result->tm_yday <= 365);
+   return result;
+};
 struct libbb_anonymous$0;
 struct llist_t;
 struct suffix_mult;
@@ -2550,7 +2571,7 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
   char *msg;
   char *msg1;
   signed int applet_len;
-  signed int strerr_len;
+  unsigned int strerr_len;
   signed int msgeol_len;
   signed int used;
   if((signed int)logmode == 0)
@@ -3658,6 +3679,15 @@ static void * xmalloc(unsigned long int size)
   }
   return ptr;
 }
+int stat(const char *__file, struct stat *__buf)
+{
+  __buf->st_mtim.tv_sec = __VERIFIER_nondet_long();
+  if (__VERIFIER_nondet_char())
+    return -1;
+
+  __VERIFIER_assume(__buf->st_mtim.tv_sec >= 0);
+  return 0;
+}
 static void xstat(const char *name, struct stat *stat_buf)
 {
   signed int return_value_stat$1;
@@ -3831,17 +3861,20 @@ int main()
   int argc = __VERIFIER_nondet_int();
   __VERIFIER_assume(argc >= 1 && argc <= 10000);
   char **argv=malloc((argc+1)*sizeof(char*));
+  char **mem_track=malloc((argc+1)*sizeof(char*));
   argv[argc]=0;
   for(int i=0; i<argc; ++i)
   {
     argv[i]=malloc(11);
+    mem_track[i]=argv[i];
     argv[i][10] = 0;
     for(int j=0; j<10; ++j)
       argv[i][j]=__VERIFIER_nondet_char();
   }
   int res = __main(argc, argv);
   for(int i=0; i<argc; ++i)
-    free(argv[i]);
+    free(mem_track[i]);
+  free(mem_track);
   free(argv);
   free(a);
   return res;

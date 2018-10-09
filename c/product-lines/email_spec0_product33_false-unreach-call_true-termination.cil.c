@@ -1324,7 +1324,7 @@ void __automaton_fail(void)
 }
 #pragma merger(0,"DecryptForward_spec.i","")
 extern int puts(char const   *__s ) ;
-__inline void __utac_acc__DecryptForward_spec__1(int msg ) 
+inline static void __utac_acc__DecryptForward_spec__1(int msg ) 
 { int tmp ;
 
   {

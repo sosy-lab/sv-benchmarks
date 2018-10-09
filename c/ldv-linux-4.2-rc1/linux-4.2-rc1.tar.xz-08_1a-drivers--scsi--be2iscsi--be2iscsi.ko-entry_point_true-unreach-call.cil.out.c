@@ -10798,7 +10798,11 @@ extern void iounmap(void volatile   * ) ;
 extern unsigned int ioread32(void * ) ;
 extern void iowrite32(u32  , void * ) ;
 extern long schedule_timeout(long  ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

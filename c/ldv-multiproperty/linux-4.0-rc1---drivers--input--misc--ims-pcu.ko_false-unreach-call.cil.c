@@ -4890,7 +4890,11 @@ __inline static int request_ihex_firmware(struct firmware  const  **fw , char co
   return (0);
 }
 }
-extern struct input_dev *input_allocate_device(void) ;
+static void *kzalloc(size_t size , gfp_t flags ) ;
+struct input_dev *input_allocate_device(void) {
+       return kzalloc(sizeof(struct input_dev), 0x10u | 0x40u | 0x80u);
+}
+
 extern void input_free_device(struct input_dev * ) ;
 extern int input_register_device(struct input_dev * ) ;
 extern void input_unregister_device(struct input_dev * ) ;
@@ -4936,7 +4940,6 @@ extern int led_classdev_register(struct device * , struct led_classdev * ) ;
 extern void led_classdev_unregister(struct led_classdev * ) ;
 extern void kfree(void const   * ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
-__inline static void *kzalloc(size_t size , gfp_t flags ) ;
 __inline static void usb_to_input_id(struct usb_device  const  *dev , struct input_id *id ) 
 { 
 
@@ -8953,7 +8956,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (res);
 }
 }
-__inline static void *kzalloc(size_t size , gfp_t flags ) 
+static void *kzalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;
 

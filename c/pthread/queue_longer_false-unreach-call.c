@@ -23,7 +23,7 @@ int stored_elements[SIZE];
 _Bool enqueue_flag, dequeue_flag;
 QType queue;
 
-int init(QType *q) 
+void init(QType *q)
 {
   q->head=0;
   q->tail=0;

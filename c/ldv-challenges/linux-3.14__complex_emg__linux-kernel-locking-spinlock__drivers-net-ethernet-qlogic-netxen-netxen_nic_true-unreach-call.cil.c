@@ -23439,7 +23439,11 @@ __inline static void ldv_spin_unlock_80___0(spinlock_t *lock ) ;
 __inline static void ldv_spin_unlock_78___0(spinlock_t *lock ) ;
 extern unsigned long msleep_interruptible(unsigned int  ) ;
 extern int _cond_resched(void) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags ) 
 { 
   void *tmp ;

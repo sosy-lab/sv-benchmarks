@@ -33,6 +33,8 @@
 #include <utmp.h>
 #include <stdarg.h>
 
+#include "busybox_sv_comp-localtime_r.h"
+
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
 
@@ -307,7 +309,7 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
   char *msg;
   char *msg1;
   signed int applet_len;
-  signed int strerr_len;
+  unsigned int strerr_len;
   signed int msgeol_len;
   signed int used;
   if((signed int)logmode == 0)

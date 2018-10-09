@@ -2386,7 +2386,29 @@ extern struct regulator_dev *regulator_register(struct regulator_desc *regulator
 extern void regulator_unregister(struct regulator_dev *rdev ) ;
 extern void *rdev_get_drvdata(struct regulator_dev *rdev ) ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t size , gfp_t flags ) ;
+extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_assume(int);
+extern void *malloc(size_t size);
+long ldv_is_err(const void *ptr)
+{
+		return ((unsigned long)ptr > ((unsigned long)-4095));
+}
+
+void *ldv_malloc(size_t size)
+{
+	if (__VERIFIER_nondet_int()) {
+		void *res = malloc(size);
+		__VERIFIER_assume(!ldv_is_err(res));
+
+		return res;
+	} else {
+		return ((void *)0);
+	}
+}
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
                                                                     gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,

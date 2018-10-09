@@ -3417,7 +3417,11 @@ void ldv_kfree_4(void const   *ldv_func_arg1 ) ;
 void ldv_kfree_7(void const   *ldv_func_arg1 ) ;
 void ldv_kfree_9(void const   *ldv_func_arg1 ) ;
 void ldv_kfree_10(void const   *ldv_func_arg1 ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

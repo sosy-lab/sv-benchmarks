@@ -9979,7 +9979,11 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
 extern void iounmap(void volatile   * ) ;
 extern int cpu_number ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -49650,19 +49654,19 @@ static int i40e_dcbnl_ieee_getets(struct net_device *dev , struct ieee_ets *ets 
   ets->willing = dcbxcfg->etscfg.willing;
   ets->ets_cap = dcbxcfg->etscfg.maxtcs;
   ets->cbs = dcbxcfg->etscfg.cbs;
-  memcpy((void *)(& ets->tc_tx_bw), (void const   *)(& dcbxcfg->etscfg.tcbwtable),
+  memmove((void *)(& ets->tc_tx_bw), (void const   *)(& dcbxcfg->etscfg.tcbwtable),
            8UL);
-  memcpy((void *)(& ets->tc_rx_bw), (void const   *)(& dcbxcfg->etscfg.tcbwtable),
+  memmove((void *)(& ets->tc_rx_bw), (void const   *)(& dcbxcfg->etscfg.tcbwtable),
            8UL);
-  memcpy((void *)(& ets->tc_tsa), (void const   *)(& dcbxcfg->etscfg.tsatable),
+  memmove((void *)(& ets->tc_tsa), (void const   *)(& dcbxcfg->etscfg.tsatable),
            8UL);
-  memcpy((void *)(& ets->prio_tc), (void const   *)(& dcbxcfg->etscfg.prioritytable),
+  memmove((void *)(& ets->prio_tc), (void const   *)(& dcbxcfg->etscfg.prioritytable),
            8UL);
-  memcpy((void *)(& ets->tc_reco_bw), (void const   *)(& dcbxcfg->etsrec.tcbwtable),
+  memmove((void *)(& ets->tc_reco_bw), (void const   *)(& dcbxcfg->etsrec.tcbwtable),
            8UL);
-  memcpy((void *)(& ets->tc_reco_tsa), (void const   *)(& dcbxcfg->etsrec.tsatable),
+  memmove((void *)(& ets->tc_reco_tsa), (void const   *)(& dcbxcfg->etsrec.tsatable),
            8UL);
-  memcpy((void *)(& ets->reco_prio_tc), (void const   *)(& dcbxcfg->etscfg.prioritytable),
+  memmove((void *)(& ets->reco_prio_tc), (void const   *)(& dcbxcfg->etscfg.prioritytable),
            8UL);
   return (0);
 }

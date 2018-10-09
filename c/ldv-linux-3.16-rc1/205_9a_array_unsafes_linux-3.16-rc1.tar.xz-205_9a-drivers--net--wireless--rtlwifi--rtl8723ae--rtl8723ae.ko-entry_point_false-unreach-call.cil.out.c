@@ -11197,7 +11197,11 @@ __inline static struct sk_buff *ldv_dev_alloc_skb_25(unsigned int length )
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern unsigned long volatile   jiffies ;
 extern void kfree(void const   * ) ;
-extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *ldv_malloc(size_t);
+void *__kmalloc(size_t size, gfp_t t)
+{
+	return ldv_malloc(size);
+}
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

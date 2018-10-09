@@ -691,6 +691,7 @@ void* thr(void* arg) {
  __VERIFIER_assert(data[c] == 1);
  c = c + 1;
     }
+    return 0;
 }
 int main(int argc, char* argv[]) {
     pthread_t t;
