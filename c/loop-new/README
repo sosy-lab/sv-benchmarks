@@ -1,1 +1,2 @@
   + loop_new: Examples from Duet
+The *-reducer.c programs are transformations of similarly named programs in this folder and were used in reducer-based conditional model checking.

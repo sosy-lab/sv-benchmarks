@@ -2,6 +2,8 @@ This directory contains a set of small C benchmark programs for
 floating-point computations.
 
 Contributed by: Antoine Mine (Astree project) project
+Programs ending on -reducer.c are transformations of programs from the Antoine Mine project
+that were created in reducer-based conditional model checking.
 
 Examples can be categorized into:
 - artificial programs that illustrate a specific feature of floating-point

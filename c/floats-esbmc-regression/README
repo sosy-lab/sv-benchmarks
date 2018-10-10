@@ -1,3 +1,4 @@
-All examples are taken from ESBMC's regression test suite.
+All examples except for *-reducer.c are taken from ESBMC's regression test suite.
+The *-reducer.c programs are transformations from the examples of the ESBMC regression test suite that were used in reducer-based conditional model checking.
 
 

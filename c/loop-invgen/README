@@ -1,2 +1,4 @@
   + loop_invgen: Examples from Ashutosh Gupta and Andrey Rybalchenko's InvGen
     test suite (http://pub.ist.ac.at/~agupta/invgen/)
+The *-reducer.c programs are transformations from Ashutosh Gupta and Andrey Rybalchenko's InvGen
+test suite that were used in reducer-based conditional model checking.

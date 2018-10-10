@@ -4,12 +4,16 @@ loop-acceleration/*_false-unreach-call*.i
 loop-acceleration/*_true-unreach-call*.i
 loop-crafted/*_false-unreach-call*.i
 loop-crafted/*_true-unreach-call*.i
+loop-crafted/*_true-unreach-call*-reducer.c
 
 loop-invgen/*_false-unreach-call*.i
 loop-invgen/*_true-unreach-call*.i
+loop-invgen/*_true-unreach-call*-reducer.c
 loop-lit/*_true-unreach-call*.i
 loop-lit/*_false-unreach-call*.i
+loop-lit/*_true-unreach-call*-reducer.c
 loop-new/*_true-unreach-call*.i
+loop-new/*_true-unreach-call*-reducer.c
 loop-industry-pattern/*_true-unreach-call*.c
 
 loops/heavy_true-unreach-call.c
