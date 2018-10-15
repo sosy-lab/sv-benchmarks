@@ -1,0 +1,21 @@
+SUBDIRS := $(wildcard */.)
+
+all: compile prepare
+
+compile: $(SUBDIRS:%=%-compile)
+
+prepare: $(SUBDIRS:%/.=%.zip)
+
+clean: $(SUBDIRS:%=%-clean)
+	rm -f $(SUBDIRS:%/.=%.zip)
+
+$(SUBDIRS:%/.=%.zip): $(patsubst %.zip,%/.-clean,$@)
+	cd $(patsubst %.zip,%,$@); zip -r ../$@ .
+
+$(SUBDIRS:%=%-compile):
+	$(MAKE) -C $(patsubst %-compile,%,$@) compile
+
+$(SUBDIRS:%=%-clean):
+	$(MAKE) -C $(patsubst %-clean,%,$@) clean
+
+.PHONY: all compile prepare clean $(SUBDIRS:%=%-compile) $(SUBDIRS:%=%-clean)
