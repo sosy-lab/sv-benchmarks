@@ -9,44 +9,55 @@
 This collection of verification tasks is constructed and maintained as a common benchmark
 for evaluating the effectiveness and efficiency of state-of-the-art verification technology.
 
+This repository is used by many research groups to evaluate the effectiveness and efficiency
+of verification algorithms for software.
+The category structure was developed for the International Competition on Software Verification [SV-COMP].
+
 The verification tasks were contributed by several research and development groups. 
-After the submission deadline of verification tasks for [SV-COMP](http://sv-comp.sosy-lab.org/),
-a group of people (organizer and participants) are working on improving the quality of the verification tasks.
+After the submission of verification tasks,
+a group of people (mainly [SV-COMP] organizer and participants)
+are working on improving the quality of the verification tasks.
 This means that after the sets were made public, some programs were removed
-(not qualified, no property encoded, unknown architecture), and 
-some programs got technically improved (CIL simplifications, compiler warnings, memory model).
-These changes have improved the overall quality of the final set of programs for the competition, and
+(no property encoded, unknown architecture), and 
+some programs got technically improved (compiler warnings, memory model).
+These changes have improved the overall quality of the final set of programs for the competition [SV-COMP], and
 have not changed the intended verification result; all changes are tracked in the public repository.
+
+**This repository is open for submission of new verification tasks!**
+Please refer to our [contribution guidelines](CONTRIBUTING.md)
+to see how to submit verification tasks to this repository.
 
 Thanks to all contributors of programs, patches, and discussion comments.
 
 ### Structure
 
 The collection consists of three directories, which contain verification tasks written in different languages:
-- c/ (programming language C, follows the GNU C standard, many programs even adhere to ANSI C)
-- java/ (programming language Java)
-- causes/ (systems from the other directories translated to Horn clauses and stored in SMT format)
-
-This repository is actively used by the competition on software verification [SV-COMP](http://sv-comp.sosy-lab.org/),
-which is the reason why some of the text below is specific to SV-COMP.
+- `c/` (programming language C, follows the GNU C standard, many programs even adhere to ANSI C)
+- `java/` (programming language Java)
+- `causes/` (systems from the other directories translated to Horn clauses and stored in SMT format)
 
 ### License
 
-The programs are accompanied by a license, either via a file LICENSE.txt in the same directory,
+The programs are under different licenses, which are specified either via a file `LICENSE*.txt` in the same directory,
 or via a comment in the program header.
-The licenses must allow to:
-- view, understand, investigate, reverse engineer the algorithm or system,
-- change the program (in particular, pre-process and adopt the programs to be useful for a verification task),
-- distribute the (original and changed) program (in particular, in replication packages for research projects or as regression tests),
-- compile and execute the program (in particular, for the purpose of verifying that a specification violation exists), and
-- commercially take advantage of the program.
+Most of the programs are under an open-source license such as Apache 2.0 or GPL.
 
 ### Origin, Description, and Attribution
 
-The subdirectories that contain the programs contain files README.txt, which give further information
+The subdirectories that contain the programs contain files `README.txt`, which give further information
 about the programs, in particular, this is the place to trace the origin and to attribute the programs to their contributors.
-It is a good idea to link to project web sites and publications in those descriptions.
 For some programs, this information is given in the header of the program as comment.
+
+### Categories
+
+The verification tasks for C programs are grouped into (sub-)categories
+as defined by [SV-COMP](https://sv-comp.sosy-lab.org/2017/benchmarks.php).
+
+A (sub-)category `<category>` is defined by the following three files:
+- `<category>.set` contains patterns that specify the set of programs,
+- `<category>.prp` contains the specification, and
+- `<category>.cfg` contains the parameters (and a description of the (sub-)category).
+
 
 ## Definitions
 
@@ -54,18 +65,15 @@ The following definitions are taken from the SV-COMP report
 [2016](https://www.sosy-lab.org/~dbeyer/Publications/2016-TACAS.Reliable_and_Reproducible_Competition_Results_with_BenchExec_and_Witnesses.pdf) (and previous years).
 
 A *verification task* consists of
-- a program,
-- a specification (set of properties), and
-- parameters.
+- a [program](#progams),
+- a [specification](#specifications) (set of properties), and
+- [parameters](#parameters).
 
 A *category* is a set of verification tasks.
 
 A *sub-category* is a set of verification tasks that consist of the same
-specification and the same parameters.
-A sub-category <sub-category> is defined by the following three files:
-- <sub-category>.set contains patterns that specify the set of programs,
-- <sub-category>.prp contains the specification, and
-- <sub-category>.cfg contains the parameters (and a description of the sub-category).
+specification and the same parameters
+as specified in the corresponding `.cfg` and `.prp` files.
 
 A *verification run* is
 - a non-interactive execution
@@ -77,75 +85,58 @@ in order to check whether the following statement is correct:
 
 A *verification result* is a triple (ANSWER, WITNESS, TIME) with
 - ANSWER is an element from {TRUE, FALSE, UNKNOWN},
-- WITNESS is a violation witness or correctness witness that supports validation of the (untrusted) answer, and
+- WITNESS is a violation witness or correctness witness in the common [witness format] that supports validation of the (untrusted) answer, and
 - TIME is the CPU time that the verification run has consumed (in practice, also other resource measurement values are reported).
 
-## Name Convention for Programs
 
-A program file should be named as follows:
+### Programs
+
+The program files in this repository are named as follows:
 - the original file name or short title of the program is given at the beginning,
 - for each property against which the program is to be verified,
   the string `_false-<property>` or `_true-<property>` is included, according to the expected verification answer, and
-- the filename ends with ending .c for not pre-processed files and .i for pre-processed files.
+- the filename ends with ending `.c` for not preprocessed files and `.i` for preprocessed files (for C files).
 
 For example, the program `minepump_spec5_product61_true-unreach-call_false-termination.cil.c`
 is expected to satisfy property `unreach-call` and to violate property `termination`.
 
-There are some old programs that have ending .c although they are pre-processed.
+There are some old programs that have ending `.c` although they are preprocessed.
 
-## How to Submit Verification Tasks to this Repository
+### Specifications
 
-This collection relies on contributions from many people.
-In order to contribute verification tasks, please use the following steps:
-- fork the repository,
-- commit your additions or changes to this repository,
-- file a pull request, and
-- discuss with community members until your contribution is approved and merged into the repository.
-
-When pre-processing C files, please use the command `cpp -P` or something similar
-that does not add line directives to the output.
-Please make sure that you are pre-processing the files with the correct architecture
-(e.g., on a 64-bit system, you need to specify `-m32` for 32-bit programs)!
-
-#### Category
-
-In order to be effectively used by people (e.g., in SV-COMP), the verification tasks need to be part of some category.
-Thus, please make sure that your programs are 
-- matched by the .set file,
-- are made to be verified against the specification in the .prp file, and
-- are compatible to the parameters in the .cfg file
-of the category.
-
-#### Checklist for Assessing New Verification Tasks
-
-For approving a pull request, it is a good idea to copy&paste the following
-checklist as comment to the pull request:
-
-- [ ] license present and acceptable (either in LICENCE.txt or as comment at beginning of program)
-- [ ] contributed-by present (either in README.txt or as comment at beginning of program
-- [ ] programs added to a .set file of an existing category, or new sub-category established (if justified)
-
-- [ ] intended property matches the corresponding .prp file
-- [ ] architecture (32 bit vs. 64 bit) matches the corresponding .cfg file
-- [ ] original sources present
-- [ ] preprocessed files present
-- [ ] preprocessed files generated with correct architecture
-
-- [ ] expected answer in file names according to convention
-- [ ] build system adjusted for enabling checks of this directory
-- [ ] build system can build the new benchmarks without warnings (both with gcc and clang)
-
-## Specification Properties
-
-For SV-COMP, the [rules page](http://sv-comp.sosy-lab.org/2017/rules.php) explains all currently supported properties:
-  - [unreach-call](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyUnreachCall.prp):
+There are several 'default' specifications that many people use:
+  - [unreach-call](c/PropertyUnreachCall.prp):
     A certain function call must not be reachable in the program.
-  - [valid-memsafety, valid-deref, valid-free, valid-memtrack](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyMemSafety.prp):
+  - [valid-memsafety, valid-deref, valid-free, valid-memtrack](c/PropertyMemSafety.prp):
     A certain memory safety property must hold in the program.
     "memsafety" is the conjunction the other three properties.
-  - [no-overflow](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyOverflow.prp):
+  - [valid-memcleanup](c/PropertyMemCleanup.prp):
+    All allocated memory must be deallocated before the program terminates (note that this is stronger then avoiding memory leaks).
+  - [no-overflow](c/PropertyNoOverflow.prp):
     A certain kind of undefined behavior (overflows of signed ints) must not be present in the program.
-  - [termination](https://raw.githubusercontent.com/sosy-lab/sv-benchmarks/master/c/PropertyTermination.prp):
+  - [termination](c/PropertyTermination.prp):
     The program must terminate on all execution paths.
 
+The above specifications are used, e.g., by SV-COMP, and the [rules page](http://sv-comp.sosy-lab.org/2017/rules.php)
+explains those specifications.
 
+### Parameters
+
+The paramaters of a verification task are needed to make additional information 
+about the verification task available to the verification run.
+The most prominent parameter is the machine model;
+currently, there are verification tasks for the ILP32 (32-bit) and the LP64 (64-bit) architecture
+(cf. http://www.unix.org/whitepapers/64bit.html).
+
+### Templates for Verification Tasks
+
+In order to obtain a verification task from the programs and specifications in the repository,
+a simple template mechanism is used.
+For each program, the repository contains a .yml file that specifies 
+  - the subject files (the parts that a program consists of),
+  - the results (for each specification of the program, the expected outcome is indicated), and
+  - the parameters to be used for verification.
+
+
+[SV-COMP]: https://sv-comp.sosy-lab.org/
+[witness format]: https://github.com/sosy-lab/sv-witnesses
