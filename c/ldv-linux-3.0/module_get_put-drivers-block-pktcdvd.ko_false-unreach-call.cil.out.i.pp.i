@@ -3944,7 +3944,7 @@ __inline static struct task_struct *get_current(void)
 }
 }
 extern void __xchg_wrong_size(void) ;
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern char *strcpy(char * , char const * ) ;
 extern int strcmp(char const * , char const * ) ;
@@ -5805,7 +5805,7 @@ static int pkt_generic_packet(struct pktcdvd_device *pd , struct packet_command 
   __len = 12UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)rq->cmd, (void const *)(& cgc->cmd), __len);
+    __ret = memcpy((void *)rq->cmd, (void const *)(& cgc->cmd), __len);
     }
   } else {
     {
@@ -6232,7 +6232,7 @@ static void pkt_make_local_copy(struct packet_data *pkt , struct bio_vec *bvec )
     }
     if (__len > 63UL) {
       {
-      __ret = __memcpy(vto, (void const *)vfrom, __len);
+      __ret = memcpy(vto, (void const *)vfrom, __len);
       }
     } else {
       {

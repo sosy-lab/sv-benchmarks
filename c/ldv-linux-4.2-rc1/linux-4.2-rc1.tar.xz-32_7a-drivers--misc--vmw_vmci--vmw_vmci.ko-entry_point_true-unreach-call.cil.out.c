@@ -9504,7 +9504,7 @@ __inline static int test_and_set_bit(long nr , unsigned long volatile   *addr )
 }
 extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                               , ...) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_117(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_113(struct mutex *ldv_func_arg1 ) ;
@@ -9910,7 +9910,7 @@ static void vmci_dispatch_dgs(unsigned long data )
   if ((size_t )dg_in_size <= dg_in_buffer_size) {
     if ((size_t )dg_in_size > remaining_bytes) {
       if (remaining_bytes != current_dg_in_buffer_size) {
-        __memmove((void *)dg_in_buffer, (void const   *)(dg_in_buffer + (current_dg_in_buffer_size - remaining_bytes)),
+        memmove((void *)dg_in_buffer, (void const   *)(dg_in_buffer + (current_dg_in_buffer_size - remaining_bytes)),
                   remaining_bytes);
         dg = (struct vmci_datagram *)dg_in_buffer;
       } else {

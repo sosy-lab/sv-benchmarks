@@ -5469,7 +5469,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -7111,7 +7111,7 @@ static void ks8851_set_rx_mode(struct net_device *dev )
   if (tmp___1 != 0) {
     __len = 12UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ks->rxctrl), (void const   *)(& rxctrl), __len);
+      __ret = memcpy((void *)(& ks->rxctrl), (void const   *)(& rxctrl), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ks->rxctrl), (void const   *)(& rxctrl),
                                __len);
@@ -7155,7 +7155,7 @@ static int ks8851_set_mac_address(struct net_device *dev , void *addr )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data), __len);
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data), __len);
   } else {
     __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data),
                              __len);

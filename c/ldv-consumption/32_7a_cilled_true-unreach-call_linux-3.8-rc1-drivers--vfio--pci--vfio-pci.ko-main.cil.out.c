@@ -5128,7 +5128,7 @@ void ldv_mutex_unlock_29(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 int ldv_mutex_trylock_38(struct mutex *ldv_func_arg1 ) ;
@@ -5383,7 +5383,7 @@ static int vfio_direct_config_read(struct vfio_pci_device *vdev , int pos , int 
       if (offset == 1) {
         __len___1 = 1UL;
         if (__len___1 > 63UL) {
-          __ret___1 = __memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
+          __ret___1 = memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
                                __len___1);
         } else {
           __ret___1 = __builtin_memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,

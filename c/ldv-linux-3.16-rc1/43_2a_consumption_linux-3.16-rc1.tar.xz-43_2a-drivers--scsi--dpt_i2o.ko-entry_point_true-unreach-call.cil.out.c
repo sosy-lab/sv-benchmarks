@@ -4675,7 +4675,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -5779,7 +5779,7 @@ static void adpt_inquiry(adpt_hba *pHba )
   scb[5] = 0U;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mptr, (void const   *)(& scb), __len);
+    __ret = memcpy((void *)mptr, (void const   *)(& scb), __len);
   } else {
     __ret = __builtin_memcpy((void *)mptr, (void const   *)(& scb), __len);
   }
@@ -5826,7 +5826,7 @@ static void adpt_inquiry(adpt_hba *pHba )
     memset((void *)(& pHba->detail), 0, 55UL);
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& pHba->detail), (void const   *)"Vendor: Adaptec ",
+      __ret___0 = memcpy((void *)(& pHba->detail), (void const   *)"Vendor: Adaptec ",
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& pHba->detail), (void const   *)"Vendor: Adaptec ",
@@ -5834,7 +5834,7 @@ static void adpt_inquiry(adpt_hba *pHba )
     }
     __len___1 = 8UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& pHba->detail) + 16U, (void const   *)" Model: ",
+      __ret___1 = memcpy((void *)(& pHba->detail) + 16U, (void const   *)" Model: ",
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& pHba->detail) + 16U, (void const   *)" Model: ",
@@ -5842,7 +5842,7 @@ static void adpt_inquiry(adpt_hba *pHba )
     }
     __len___2 = 16UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& pHba->detail) + 24U, (void const   *)buf + 16U,
+      __ret___2 = memcpy((void *)(& pHba->detail) + 24U, (void const   *)buf + 16U,
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& pHba->detail) + 24U, (void const   *)buf + 16U,
@@ -5850,7 +5850,7 @@ static void adpt_inquiry(adpt_hba *pHba )
     }
     __len___3 = 4UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)(& pHba->detail) + 40U, (void const   *)" FW: ",
+      __ret___3 = memcpy((void *)(& pHba->detail) + 40U, (void const   *)" FW: ",
                            __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)(& pHba->detail) + 40U, (void const   *)" FW: ",
@@ -5858,7 +5858,7 @@ static void adpt_inquiry(adpt_hba *pHba )
     }
     __len___4 = 4UL;
     if (__len___4 > 63UL) {
-      __ret___4 = __memcpy((void *)(& pHba->detail) + 44U, (void const   *)buf + 32U,
+      __ret___4 = memcpy((void *)(& pHba->detail) + 44U, (void const   *)buf + 32U,
                            __len___4);
     } else {
       __ret___4 = __builtin_memcpy((void *)(& pHba->detail) + 44U, (void const   *)buf + 32U,
@@ -7289,7 +7289,7 @@ static int adpt_i2o_parse_lct(adpt_hba *pHba )
   d->next = (struct i2o_device *)0;
   __len = 36UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
+    __ret = memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
@@ -8641,7 +8641,7 @@ static s32 adpt_i2o_reparse_lct(adpt_hba *pHba )
       d->next = (struct i2o_device *)0;
       __len = 36UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
+        __ret = memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
@@ -8722,7 +8722,7 @@ static s32 adpt_i2o_reparse_lct(adpt_hba *pHba )
         pDev->tid = (u16 )tid;
         __len___0 = 36UL;
         if (__len___0 > 63UL) {
-          __ret___0 = __memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
+          __ret___0 = memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
                                __len___0);
         } else {
           __ret___0 = __builtin_memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
@@ -9484,7 +9484,7 @@ static int adpt_i2o_query_scalar(adpt_hba *pHba , int tid , int group , int fiel
   }
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)opblk_va, (void const   *)(& opblk), __len);
+    __ret = memcpy((void *)opblk_va, (void const   *)(& opblk), __len);
   } else {
     __ret = __builtin_memcpy((void *)opblk_va, (void const   *)(& opblk), __len);
   }

@@ -2459,7 +2459,7 @@ long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern struct resource ioport_resource ;
 extern struct resource *__request_region(struct resource * , resource_size_t  , resource_size_t  ,
@@ -3001,7 +3001,7 @@ static int store_instr(int instr_no , struct sbi_instrument *instr )
   }
   __len = 40UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& devc->i_map) + (unsigned long )instr_no, (void const   *)instr,
+    __ret = memcpy((void *)(& devc->i_map) + (unsigned long )instr_no, (void const   *)instr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& devc->i_map) + (unsigned long )instr_no, (void const   *)instr,

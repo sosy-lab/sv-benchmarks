@@ -3456,7 +3456,7 @@ struct acm {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 __inline static __u16 __le16_to_cpup(__le16 const   *p ) 
@@ -5399,7 +5399,7 @@ static void acm_tty_set_termios(struct tty_struct *tty , struct ktermios *termio
   if (tmp___1 != 0) {
     __len = 7UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& acm->line), (void const   *)(& newline), __len);
+      __ret = memcpy((void *)(& acm->line), (void const   *)(& newline), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& acm->line), (void const   *)(& newline),
                                __len);

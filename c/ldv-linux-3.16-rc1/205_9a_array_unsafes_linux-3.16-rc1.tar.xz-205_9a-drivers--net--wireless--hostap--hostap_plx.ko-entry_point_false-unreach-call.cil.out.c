@@ -6079,7 +6079,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
@@ -9807,7 +9807,7 @@ static void prism2_txexc(local_info_t *local )
   if (((unsigned long )status & 3UL) != 0UL) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& wrqu.addr.sa_data), (void const   *)(& txdesc.addr1),
+      __ret = memcpy((void *)(& wrqu.addr.sa_data), (void const   *)(& txdesc.addr1),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& wrqu.addr.sa_data), (void const   *)(& txdesc.addr1),
@@ -9824,7 +9824,7 @@ static void prism2_txexc(local_info_t *local )
       __len___0 = 60UL;
       if (__len___0 > 63UL) {
         tmp = skb_put(skb, 60U);
-        __ret___0 = __memcpy((void *)tmp, (void const   *)(& txdesc), __len___0);
+        __ret___0 = memcpy((void *)tmp, (void const   *)(& txdesc), __len___0);
       } else {
         tmp___0 = skb_put(skb, 60U);
         __ret___0 = __builtin_memcpy((void *)tmp___0, (void const   *)(& txdesc),
@@ -9948,7 +9948,7 @@ static void prism2_info(local_info_t *local )
   __len = 4UL;
   if (__len > 63UL) {
     tmp = skb_put(skb, 4U);
-    __ret = __memcpy((void *)tmp, (void const   *)(& info), __len);
+    __ret = memcpy((void *)tmp, (void const   *)(& info), __len);
   } else {
     tmp___0 = skb_put(skb, 4U);
     __ret = __builtin_memcpy((void *)tmp___0, (void const   *)(& info), __len);

@@ -3381,7 +3381,7 @@ __inline static void __clear_bit(int nr , unsigned long volatile   *addr )
 }
 extern int ( /* format attribute */  sprintf)(char *buf , char const   *fmt  , ...) ;
 extern int ( /* format attribute */  sscanf)(char const   * , char const   *  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern char *strcpy(char *dest , char const   *src ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___520  __attribute__((__section__("_ftrace_annotated_branch")))  =    {"IS_ERR",
@@ -4352,7 +4352,7 @@ static int acpi_pcc_init_input(struct pcc_acpi *pcc )
     ______f___836.__annonCompField3.__annonCompField2.miss = ______f___836.__annonCompField3.__annonCompField2.miss + 1UL;
   }
   if (______r___0) {
-    __ret = __memcpy(pcc->keymap, initial_keymap, __len);
+    __ret = memcpy(pcc->keymap, initial_keymap, __len);
   } else {
     __ret = __builtin_memcpy(pcc->keymap, initial_keymap, __len);
   }

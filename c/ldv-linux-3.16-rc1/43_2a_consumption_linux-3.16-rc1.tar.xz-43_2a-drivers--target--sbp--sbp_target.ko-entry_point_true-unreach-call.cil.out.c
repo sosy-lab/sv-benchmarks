@@ -7362,7 +7362,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *strstr(char const   * , char const   * ) ;
 __inline static void *ERR_PTR(long error ) 
 { 
@@ -10495,7 +10495,7 @@ static int sbp_update_unit_directory(struct sbp_tport *tport )
   }
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data + (unsigned long )idx, (void const   *)(& sbp_unit_directory_template),
+    __ret = memcpy((void *)data + (unsigned long )idx, (void const   *)(& sbp_unit_directory_template),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)data + (unsigned long )idx, (void const   *)(& sbp_unit_directory_template),

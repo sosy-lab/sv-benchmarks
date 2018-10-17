@@ -3455,7 +3455,7 @@ struct pcd_unit {
 typedef int ldv_func_ret_type___4;
 extern int printk(char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_6(struct mutex *ldv_func_arg1 ) ;
@@ -4490,7 +4490,7 @@ static int pcd_identify(struct pcd_unit *cd , char *id )
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)id, (void const   *)(& pcd_buffer) + 16U, __len);
+    __ret = memcpy((void *)id, (void const   *)(& pcd_buffer) + 16U, __len);
   } else {
     __ret = __builtin_memcpy((void *)id, (void const   *)(& pcd_buffer) + 16U, __len);
   }
@@ -4821,7 +4821,7 @@ static void pcd_transfer(void)
   o = (pcd_sector % 4) * 512;
   __len = 512UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)pcd_buf, (void const   *)(& pcd_buffer) + (unsigned long )o,
+    __ret = memcpy((void *)pcd_buf, (void const   *)(& pcd_buffer) + (unsigned long )o,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)pcd_buf, (void const   *)(& pcd_buffer) + (unsigned long )o,
@@ -5080,7 +5080,7 @@ static int pcd_get_mcn(struct cdrom_device_info *cdi , struct cdrom_mcn *mcn )
   }
   __len = 13UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mcn->medium_catalog_number), (void const   *)(& buffer) + 9U,
+    __ret = memcpy((void *)(& mcn->medium_catalog_number), (void const   *)(& buffer) + 9U,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mcn->medium_catalog_number), (void const   *)(& buffer) + 9U,

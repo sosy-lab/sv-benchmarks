@@ -4251,7 +4251,7 @@ __inline static struct task_struct *get_current(void)
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR_OR_NULL(void const   *ptr ) ;
@@ -5985,7 +5985,7 @@ static ssize_t loop_attr_backing_file_show(struct loop_device *lo , char *buf )
   } else {
     tmp = strlen((char const   *)p);
     ret = (ssize_t )tmp;
-    __memmove((void *)buf, (void const   *)p, (size_t )ret);
+    memmove((void *)buf, (void const   *)p, (size_t )ret);
     tmp___0 = ret;
     ret = ret + 1L;
     *(buf + (unsigned long )tmp___0) = 10;

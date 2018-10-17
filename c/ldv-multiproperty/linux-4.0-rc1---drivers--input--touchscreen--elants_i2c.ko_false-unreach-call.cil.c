@@ -4486,7 +4486,7 @@ __inline static __u16 __be16_to_cpup(__be16 const   *p )
 extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                               , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 int ldv_linux_fs_sysfs_sysfs_create_group(void) ;
 void ldv_linux_fs_sysfs_sysfs_remove_group(void) ;
@@ -6013,7 +6013,7 @@ static irqreturn_t elants_i2c_irq(int irq , void *_dev )
   case_2: /* CIL Label */ ;
   if ((unsigned int )ts->buf[0] == 102U) {
     {
-    __memcpy((void *)(& ts->cmd_resp), (void const   *)(& ts->buf), 4UL);
+    memcpy((void *)(& ts->cmd_resp), (void const   *)(& ts->buf), 4UL);
     complete(& ts->cmd_done);
     ts->state = 0;
     }

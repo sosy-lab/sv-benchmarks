@@ -6570,8 +6570,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -7309,7 +7309,7 @@ static int mvs_alloc(struct mvs_info *mvi , struct Scsi_Host *shost )
 
   }
   {
-  __memset((void *)mvi->tx, 0, (unsigned long )(1U << (int )(mvi->chip)->slot_width) * 4UL);
+  memset((void *)mvi->tx, 0, (unsigned long )(1U << (int )(mvi->chip)->slot_width) * 4UL);
   tmp___0 = dma_alloc_attrs(mvi->dev, (size_t )((unsigned int )(mvi->chip)->fis_offs + (unsigned int )(mvi->chip)->fis_count * 256U),
                             & mvi->rx_fis_dma, 208U, (struct dma_attrs *)0);
   mvi->rx_fis = (__le32 *)tmp___0;
@@ -7320,7 +7320,7 @@ static int mvs_alloc(struct mvs_info *mvi , struct Scsi_Host *shost )
 
   }
   {
-  __memset((void *)mvi->rx_fis, 0, (size_t )((unsigned int )(mvi->chip)->fis_offs + (unsigned int )(mvi->chip)->fis_count * 256U));
+  memset((void *)mvi->rx_fis, 0, (size_t )((unsigned int )(mvi->chip)->fis_offs + (unsigned int )(mvi->chip)->fis_count * 256U));
   tmp___1 = dma_alloc_attrs(mvi->dev, 4100UL, & mvi->rx_dma, 208U, (struct dma_attrs *)0);
   mvi->rx = (__le32 *)tmp___1;
   }
@@ -7330,7 +7330,7 @@ static int mvs_alloc(struct mvs_info *mvi , struct Scsi_Host *shost )
 
   }
   {
-  __memset((void *)mvi->rx, 0, 4100UL);
+  memset((void *)mvi->rx, 0, 4100UL);
   *(mvi->rx) = 4095U;
   mvi->rx_cons = 4095U;
   tmp___2 = dma_alloc_attrs(mvi->dev, (unsigned long )slot_nr * 64UL, & mvi->slot_dma,
@@ -7343,7 +7343,7 @@ static int mvs_alloc(struct mvs_info *mvi , struct Scsi_Host *shost )
 
   }
   {
-  __memset((void *)mvi->slot, 0, (unsigned long )slot_nr * 64UL);
+  memset((void *)mvi->slot, 0, (unsigned long )slot_nr * 64UL);
   mvi->bulk_buffer = dma_alloc_attrs(mvi->dev, 131072UL, & mvi->bulk_buffer_dma, 208U,
                                      (struct dma_attrs *)0);
   }
@@ -7608,7 +7608,7 @@ static int mvs_prep_sas_ha_init(struct Scsi_Host *shost , struct mvs_chip_info  
   core_nr = (unsigned short )chip_info->n_host;
   phy_nr = (int )((unsigned int )core_nr * (unsigned int )chip_info->n_phy);
   port_nr = phy_nr;
-  __memset((void *)sha, 0, 848UL);
+  memset((void *)sha, 0, 848UL);
   tmp = kcalloc((size_t )phy_nr, 8UL, 208U);
   arr_phy = (struct asd_sas_phy **)tmp;
   tmp___0 = kcalloc((size_t )port_nr, 8UL, 208U);
@@ -7726,7 +7726,7 @@ static void mvs_init_sas_add(struct mvs_info *mvi )
 
   }
   {
-  __memcpy((void *)(& mvi->sas_addr), (void const   *)(& mvi->phy[0].dev_sas_addr),
+  memcpy((void *)(& mvi->sas_addr), (void const   *)(& mvi->phy[0].dev_sas_addr),
            8UL);
   }
   return;
@@ -7835,7 +7835,7 @@ static int mvs_pci_init(struct pci_dev *pdev , struct pci_device_id  const  *ent
 
   }
   {
-  __memset((void *)(& mvi->hba_info_param), 255, 256UL);
+  memset((void *)(& mvi->hba_info_param), 255, 256UL);
   mvs_init_sas_add(mvi);
   mvi->instance = (unsigned long )nhost;
   tmp___4 = (*(((mvi->chip)->dispatch)->chip_init))(mvi);
@@ -13462,7 +13462,7 @@ static int mvs_task_prep_smp(struct mvs_info *mvi , struct mvs_task_exec_info *t
   _min2 = dev->linkrate;
   *(buf_oaf + 1UL) = (unsigned int )((u8 )((unsigned int )_min1 < (unsigned int )_min2 ? (unsigned int )_min1 : (unsigned int )_min2)) & 15U;
   *((u16 *)buf_oaf + 2U) = 65535U;
-  __memcpy((void *)buf_oaf + 4U, (void const   *)(& dev->sas_addr), 8UL);
+  memcpy((void *)buf_oaf + 4U, (void const   *)(& dev->sas_addr), 8UL);
   (*(((mvi->chip)->dispatch)->make_prd))(task->scatter, tei->n_elem, buf_prd);
   }
   return (0);
@@ -13644,12 +13644,12 @@ static int mvs_task_prep_ata(struct mvs_info *mvi , struct mvs_task_exec_info *t
 
   }
   {
-  __memcpy((void *)buf_cmd, (void const   *)(& task->__annonCompField95.ata_task.fis),
+  memcpy((void *)buf_cmd, (void const   *)(& task->__annonCompField95.ata_task.fis),
            20UL);
   }
   if (dev->__annonCompField94.sata_dev.class == 3U) {
     {
-    __memcpy((void *)buf_cmd + 64U, (void const   *)(& task->__annonCompField95.ata_task.atapi_packet),
+    memcpy((void *)buf_cmd + 64U, (void const   *)(& task->__annonCompField95.ata_task.atapi_packet),
              16UL);
     }
   } else {
@@ -13662,7 +13662,7 @@ static int mvs_task_prep_ata(struct mvs_info *mvi , struct mvs_task_exec_info *t
   *(buf_oaf + 1UL) = (unsigned int )((u8 )((unsigned int )_min1___0 < (unsigned int )_min2___0 ? (unsigned int )_min1___0 : (unsigned int )_min2___0)) & 15U;
   tmp___5 = __fswab16((int )((unsigned int )((__u16 )mvi_dev->device_id) + 1U));
   *((u16 *)buf_oaf + 2U) = tmp___5;
-  __memcpy((void *)buf_oaf + 4U, (void const   *)(& dev->sas_addr), 8UL);
+  memcpy((void *)buf_oaf + 4U, (void const   *)(& dev->sas_addr), 8UL);
   (*(((mvi->chip)->dispatch)->make_prd))(task->scatter, tei->n_elem, buf_prd);
   }
   if ((unsigned int )*((unsigned char *)task + 184UL) == 2U) {
@@ -13779,7 +13779,7 @@ static int mvs_task_prep_ssp(struct mvs_info *mvi , struct mvs_task_exec_info *t
   *(buf_oaf + 1UL) = (unsigned int )((u8 )((unsigned int )_min1___0 < (unsigned int )_min2___0 ? (unsigned int )_min1___0 : (unsigned int )_min2___0)) & 15U;
   tmp___0 = __fswab16((int )((unsigned int )((__u16 )mvi_dev->device_id) + 1U));
   *((u16 *)buf_oaf + 2U) = tmp___0;
-  __memcpy((void *)buf_oaf + 4U, (void const   *)(& dev->sas_addr), 8UL);
+  memcpy((void *)buf_oaf + 4U, (void const   *)(& dev->sas_addr), 8UL);
   ssp_hdr = (struct ssp_frame_hdr *)buf_cmd;
   }
   if (is_tmf != 0) {
@@ -13788,20 +13788,20 @@ static int mvs_task_prep_ssp(struct mvs_info *mvi , struct mvs_task_exec_info *t
     ssp_hdr->frame_type = 6U;
   }
   {
-  __memcpy((void *)(& ssp_hdr->hashed_dest_addr), (void const   *)(& dev->hashed_sas_addr),
+  memcpy((void *)(& ssp_hdr->hashed_dest_addr), (void const   *)(& dev->hashed_sas_addr),
            3UL);
-  __memcpy((void *)(& ssp_hdr->hashed_src_addr), (void const   *)(& dev->hashed_sas_addr),
+  memcpy((void *)(& ssp_hdr->hashed_src_addr), (void const   *)(& dev->hashed_sas_addr),
            3UL);
   tmp___1 = __fswab16((int )((__u16 )tag));
   ssp_hdr->tag = tmp___1;
   buf_cmd = buf_cmd + 24UL;
-  __memcpy((void *)buf_cmd, (void const   *)(& task->__annonCompField95.ssp_task.LUN),
+  memcpy((void *)buf_cmd, (void const   *)(& task->__annonCompField95.ssp_task.LUN),
            8UL);
   }
   if ((unsigned int )ssp_hdr->frame_type != 22U) {
     {
     *(buf_cmd + 9UL) = ((int )fburst | (int )((u8 )task->__annonCompField95.ssp_task.task_attr)) | ((int )task->__annonCompField95.ssp_task.task_prio << 3U);
-    __memcpy((void *)buf_cmd + 12U, (void const   *)(task->__annonCompField95.ssp_task.cmd)->cmnd,
+    memcpy((void *)buf_cmd + 12U, (void const   *)(task->__annonCompField95.ssp_task.cmd)->cmnd,
              (size_t )(task->__annonCompField95.ssp_task.cmd)->cmd_len);
     }
   } else {
@@ -13964,7 +13964,7 @@ static int mvs_task_prep(struct sas_task *task , struct mvs_info *mvi , int is_t
 
   }
   {
-  __memset(slot->buf, 0, 8192UL);
+  memset(slot->buf, 0, 8192UL);
   tei.task = task;
   tei.hdr = mvi->slot + (unsigned long )tag;
   tei.tag = tag;
@@ -14444,7 +14444,7 @@ void mvs_update_phyinfo(struct mvs_info *mvi , int i , int get_st )
 
     }
     {
-    __memcpy((void *)(& sas_phy->attached_sas_addr), (void const   *)(& phy->att_dev_sas_addr),
+    memcpy((void *)(& sas_phy->attached_sas_addr), (void const   *)(& phy->att_dev_sas_addr),
              8UL);
     }
     if ((unsigned long )((mvi->chip)->dispatch)->phy_work_around != (unsigned long )((void (*/* const  */)(struct mvs_info * ,
@@ -14668,7 +14668,7 @@ void mvs_free_dev(struct mvs_device *mvi_dev )
   {
   {
   id = mvi_dev->device_id;
-  __memset((void *)mvi_dev, 0, 184UL);
+  memset((void *)mvi_dev, 0, 184UL);
   mvi_dev->device_id = id;
   mvi_dev->dev_type = 0;
   mvi_dev->dev_status = 0U;
@@ -14882,7 +14882,7 @@ static int mvs_exec_internal_tmf_task(struct domain_device *dev , void *paramete
   {
   task->dev = dev;
   task->task_proto = dev->tproto;
-  __memcpy((void *)(& task->__annonCompField95.ssp_task), (void const   *)parameter,
+  memcpy((void *)(& task->__annonCompField95.ssp_task), (void const   *)parameter,
            (size_t )para_len);
   task->task_done = & mvs_task_done;
   (task->slow_task)->timer.data = (unsigned long )task;
@@ -14986,7 +14986,7 @@ static int mvs_debug_issue_ssp_tmf(struct domain_device *dev , u8 *lun , struct 
 
   }
   {
-  __memcpy((void *)(& ssp_task.LUN), (void const   *)lun, 8UL);
+  memcpy((void *)(& ssp_task.LUN), (void const   *)lun, 8UL);
   tmp = mvs_exec_internal_tmf_task(dev, (void *)(& ssp_task), 32U, tmf);
   }
   return (tmp);
@@ -15310,7 +15310,7 @@ static int mvs_sata_done(struct mvs_info *mvi , struct sas_task *task , u32 slot
   resp = (struct ata_task_resp *)(& tstat->buf);
   stat = 0;
   resp->frame_len = 20U;
-  __memcpy((void *)(& resp->ending_fis), (void const   *)mvi->rx_fis + (((unsigned long )(mvi->chip)->fis_offs + (unsigned long )((int )mvi_dev->taskfileset * 256)) + 64UL),
+  memcpy((void *)(& resp->ending_fis), (void const   *)mvi->rx_fis + (((unsigned long )(mvi->chip)->fis_offs + (unsigned long )((int )mvi_dev->taskfileset * 256)) + 64UL),
            20UL);
   tstat->buf_valid_size = 26;
   tmp___0 = ldv__builtin_expect(err != 0, 0L);
@@ -15336,7 +15336,7 @@ void mvs_set_sense(u8 *buffer , int len , int d_sense , int key , int asc , int 
 
   {
   {
-  __memset((void *)buffer, 0, (size_t )len);
+  memset((void *)buffer, 0, (size_t )len);
   }
   if (d_sense != 0) {
     if (len <= 3) {
@@ -15583,7 +15583,7 @@ int mvs_slot_complete(struct mvs_info *mvi , u32 rx_desc , u32 flags )
   task->task_state_flags = task->task_state_flags | 2U;
   aborted = task->task_state_flags & 4U;
   ldv_spin_unlock_101(& task->task_state_lock);
-  __memset((void *)tstat, 0, 116UL);
+  memset((void *)tstat, 0, 116UL);
   tstat->resp = 0;
   tmp___4 = ldv__builtin_expect(aborted != 0U, 0L);
   }
@@ -15711,7 +15711,7 @@ int mvs_slot_complete(struct mvs_info *mvi , u32 rx_desc , u32 flags )
   tstat->stat = 0;
   tmp___12 = sg_page(sg_resp);
   to = kmap_atomic(tmp___12);
-  __memcpy(to + (unsigned long )sg_resp->offset, (void const   *)slot->response + 8U,
+  memcpy(to + (unsigned long )sg_resp->offset, (void const   *)slot->response + 8U,
            (size_t )sg_resp->dma_length);
   __cond = 0;
   }
@@ -20191,7 +20191,7 @@ static void mvs_94xx_get_dev_identify_frame(struct mvs_info *mvi , int port_id ,
 
   }
   {
-  __memcpy((void *)id, (void const   *)(& id_frame), 28UL);
+  memcpy((void *)id, (void const   *)(& id_frame), 28UL);
   }
   return;
 }
@@ -20219,7 +20219,7 @@ static void mvs_94xx_get_att_identify_frame(struct mvs_info *mvi , int port_id ,
 
   }
   {
-  __memcpy((void *)id, (void const   *)(& id_frame), 28UL);
+  memcpy((void *)id, (void const   *)(& id_frame), 28UL);
   }
   return;
 }

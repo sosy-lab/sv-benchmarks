@@ -7218,7 +7218,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void *to , void    *from , size_t len ) ;
+extern void *memcpy(void *to , void    *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern void warn_slowpath_null(char    *file , int    line ) ;
 __inline static int test_ti_thread_flag(struct thread_info *ti , int flag )  __attribute__((__no_instrument_function__)) ;
@@ -9086,7 +9086,7 @@ static void last_sector_hacks(struct us_data *us , struct scsi_cmnd *srb )
       __cil_tmp84 = (unsigned long )(record_not_found) + __cil_tmp83;
       __cil_tmp85 = (unsigned char *)__cil_tmp84;
       __cil_tmp86 = (void    *)__cil_tmp85;
-      __ret = __memcpy(__cil_tmp82, __cil_tmp86, __len);
+      __ret = memcpy(__cil_tmp82, __cil_tmp86, __len);
       }
     } else {
       {
@@ -11512,7 +11512,7 @@ int usb_stor_Bulk_transport(struct scsi_cmnd *srb , struct us_data *us )
         __cil_tmp268 = (unsigned long )(usb_stor_sense_invalidCDB) + __cil_tmp267;
         __cil_tmp269 = (unsigned char *)__cil_tmp268;
         __cil_tmp270 = (void    *)__cil_tmp269;
-        __ret___0 = __memcpy(__cil_tmp266, __cil_tmp270, __len___0);
+        __ret___0 = memcpy(__cil_tmp266, __cil_tmp270, __len___0);
         }
       } else {
         {
@@ -17259,7 +17259,7 @@ int usb_stor_ucr61s2b_init(struct us_data *us )
     __cil_tmp39 = (unsigned long )(init_string) + __cil_tmp38;
     __cil_tmp40 = (char *)__cil_tmp39;
     __cil_tmp41 = (void    *)__cil_tmp40;
-    __ret = __memcpy(__cil_tmp37, __cil_tmp41, __len);
+    __ret = memcpy(__cil_tmp37, __cil_tmp41, __len);
     }
   } else {
     {
@@ -18118,7 +18118,7 @@ static int option_rezero(struct us_data *us )
     __cil_tmp76 = (unsigned long )(rezero_msg) + __cil_tmp75;
     __cil_tmp77 = (unsigned char *)__cil_tmp76;
     __cil_tmp78 = (void    *)__cil_tmp77;
-    __ret = __memcpy(__cil_tmp74, __cil_tmp78, __len);
+    __ret = memcpy(__cil_tmp74, __cil_tmp78, __len);
     }
   } else {
     {
@@ -18399,7 +18399,7 @@ static int option_inquiry(struct us_data *us )
     __cil_tmp76 = (unsigned long )(inquiry_msg) + __cil_tmp75;
     __cil_tmp77 = (unsigned char *)__cil_tmp76;
     __cil_tmp78 = (void    *)__cil_tmp77;
-    __ret = __memcpy(__cil_tmp74, __cil_tmp78, __len);
+    __ret = memcpy(__cil_tmp74, __cil_tmp78, __len);
     }
   } else {
     {

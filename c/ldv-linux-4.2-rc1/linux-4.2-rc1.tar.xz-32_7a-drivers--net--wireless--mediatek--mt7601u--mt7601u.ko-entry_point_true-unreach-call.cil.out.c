@@ -26862,7 +26862,7 @@ void ldv_mutex_lock_358(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_383(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_381(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_384(struct mutex *ldv_func_arg1 ) ;
@@ -26974,7 +26974,7 @@ void mt76_remove_hdr_pad(struct sk_buff *skb )
   {
   tmp = ieee80211_get_hdrlen_from_skb((struct sk_buff  const  *)skb);
   len = (int )tmp;
-  __memmove((void *)skb->data + 2U, (void const   *)skb->data, (size_t )len);
+  memmove((void *)skb->data + 2U, (void const   *)skb->data, (size_t )len);
   skb_pull(skb, 2U);
   return;
 }
@@ -27000,7 +27000,7 @@ int mt76_insert_hdr_pad(struct sk_buff *skb )
 
   }
   skb_push(skb, 2U);
-  __memmove((void *)skb->data, (void const   *)skb->data + 2U, (size_t )len);
+  memmove((void *)skb->data, (void const   *)skb->data + 2U, (size_t )len);
   *(skb->data + (unsigned long )len) = 0U;
   *(skb->data + ((unsigned long )len + 1UL)) = 0U;
   return (0);

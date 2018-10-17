@@ -12494,7 +12494,7 @@ __inline static __u64 __fswab64(__u64 val )
 }
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __preempt_count ;
 __inline static void __preempt_count_add(int val ) 
@@ -13133,7 +13133,7 @@ static void ath9k_htc_tx_mgmt(struct ath9k_htc_priv *priv , struct ath9k_htc_vif
   tx_fhdr = tmp___3;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)tx_fhdr, (void const   *)(& mgmt_hdr), __len);
+    __ret = memcpy((void *)tx_fhdr, (void const   *)(& mgmt_hdr), __len);
   } else {
     __ret = __builtin_memcpy((void *)tx_fhdr, (void const   *)(& mgmt_hdr), __len);
   }
@@ -13215,7 +13215,7 @@ static void ath9k_htc_tx_data(struct ath9k_htc_priv *priv , struct ieee80211_vif
   tx_fhdr = tmp___3;
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)tx_fhdr, (void const   *)(& tx_hdr), __len);
+    __ret = memcpy((void *)tx_fhdr, (void const   *)(& tx_hdr), __len);
   } else {
     __ret = __builtin_memcpy((void *)tx_fhdr, (void const   *)(& tx_hdr), __len);
   }
@@ -13678,7 +13678,7 @@ void ath9k_htc_txstatus(struct ath9k_htc_priv *priv , void *wmi_event )
     }
     __len = 3UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tx_pend->txs), (void const   *)__txs, __len);
+      __ret = memcpy((void *)(& tx_pend->txs), (void const   *)__txs, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tx_pend->txs), (void const   *)__txs, __len);
     }
@@ -14081,7 +14081,7 @@ static void rx_status_htc_to_ath(struct ath_rx_status *rx_stats , struct ath_htc
   rx_stats->rs_more = rxstatus->rs_more;
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rx_stats->rs_rssi_ctl), (void const   *)(& rxstatus->rs_rssi_ctl),
+    __ret = memcpy((void *)(& rx_stats->rs_rssi_ctl), (void const   *)(& rxstatus->rs_rssi_ctl),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rx_stats->rs_rssi_ctl), (void const   *)(& rxstatus->rs_rssi_ctl),
@@ -14089,7 +14089,7 @@ static void rx_status_htc_to_ath(struct ath_rx_status *rx_stats , struct ath_htc
   }
   __len___0 = 3UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& rx_stats->rs_rssi_ext), (void const   *)(& rxstatus->rs_rssi_ext),
+    __ret___0 = memcpy((void *)(& rx_stats->rs_rssi_ext), (void const   *)(& rxstatus->rs_rssi_ext),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& rx_stats->rs_rssi_ext), (void const   *)(& rxstatus->rs_rssi_ext),
@@ -14252,7 +14252,7 @@ void ath9k_rx_tasklet(unsigned long data )
   __len = 40UL;
   if (__len > 63UL) {
     tmp___2 = IEEE80211_SKB_RXCB(rxbuf->skb);
-    __ret = __memcpy((void *)tmp___2, (void const   *)(& rx_status), __len);
+    __ret = memcpy((void *)tmp___2, (void const   *)(& rx_status), __len);
   } else {
     tmp___3 = IEEE80211_SKB_RXCB(rxbuf->skb);
     __ret = __builtin_memcpy((void *)tmp___3, (void const   *)(& rx_status), __len);
@@ -14826,7 +14826,7 @@ static void ath9k_htc_set_mac_bssid_mask(struct ath9k_htc_priv *priv , struct ie
                                              (void *)(& iter_data));
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& common->bssidmask), (void const   *)(& iter_data.mask),
+    __ret = memcpy((void *)(& common->bssidmask), (void const   *)(& iter_data.mask),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& common->bssidmask), (void const   *)(& iter_data.mask),
@@ -14835,7 +14835,7 @@ static void ath9k_htc_set_mac_bssid_mask(struct ath9k_htc_priv *priv , struct ie
   if ((unsigned long )iter_data.hw_macaddr != (unsigned long )((u8 const   *)0U)) {
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& common->macaddr), (void const   *)iter_data.hw_macaddr,
+      __ret___0 = memcpy((void *)(& common->macaddr), (void const   *)iter_data.hw_macaddr,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& common->macaddr), (void const   *)iter_data.hw_macaddr,
@@ -15043,7 +15043,7 @@ static void __ath9k_htc_remove_monitor_interface(struct ath9k_htc_priv *priv )
   memset((void *)(& hvif), 0, 12UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
+    __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
@@ -15099,7 +15099,7 @@ static int ath9k_htc_add_monitor_interface(struct ath9k_htc_priv *priv )
   memset((void *)(& hvif), 0, 12UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
+    __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
@@ -15125,7 +15125,7 @@ static int ath9k_htc_add_monitor_interface(struct ath9k_htc_priv *priv )
   memset((void *)(& tsta), 0, 22UL);
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& tsta.macaddr), (void const   *)(& common->macaddr),
+    __ret___0 = memcpy((void *)(& tsta.macaddr), (void const   *)(& common->macaddr),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& tsta.macaddr), (void const   *)(& common->macaddr),
@@ -15239,14 +15239,14 @@ static int ath9k_htc_add_station(struct ath9k_htc_priv *priv , struct ieee80211_
     ista = (struct ath9k_htc_sta *)(& sta->drv_priv);
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tsta.macaddr), (void const   *)(& sta->addr), __len);
+      __ret = memcpy((void *)(& tsta.macaddr), (void const   *)(& sta->addr), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tsta.macaddr), (void const   *)(& sta->addr),
                                __len);
     }
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& tsta.bssid), (void const   *)(& common->curbssid),
+      __ret___0 = memcpy((void *)(& tsta.bssid), (void const   *)(& common->curbssid),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& tsta.bssid), (void const   *)(& common->curbssid),
@@ -15260,7 +15260,7 @@ static int ath9k_htc_add_station(struct ath9k_htc_priv *priv , struct ieee80211_
   } else {
     __len___1 = 6UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& tsta.macaddr), (void const   *)(& vif->addr),
+      __ret___1 = memcpy((void *)(& tsta.macaddr), (void const   *)(& vif->addr),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& tsta.macaddr), (void const   *)(& vif->addr),
@@ -15991,7 +15991,7 @@ static int ath9k_htc_add_interface(struct ieee80211_hw *hw , struct ieee80211_vi
   memset((void *)(& hvif), 0, 12UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr), __len);
+    __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr),
                              __len);
@@ -16105,7 +16105,7 @@ static void ath9k_htc_remove_interface(struct ieee80211_hw *hw , struct ieee8021
   memset((void *)(& hvif), 0, 12UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr), __len);
+    __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr),
                              __len);
@@ -16578,7 +16578,7 @@ static void ath9k_htc_bss_iter(void *data , u8 *mac , struct ieee80211_vif *vif 
     common->last_rssi = 127;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
+      __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
@@ -16662,7 +16662,7 @@ static void ath9k_htc_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
       common->curaid = bss_conf->aid;
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
+        __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
@@ -17989,7 +17989,7 @@ static void ath9k_htc_send_beacon(struct ath9k_htc_priv *priv , int slot )
   tx_fhdr = tmp___2;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)tx_fhdr, (void const   *)(& beacon_hdr), __len);
+    __ret = memcpy((void *)tx_fhdr, (void const   *)(& beacon_hdr), __len);
   } else {
     __ret = __builtin_memcpy((void *)tx_fhdr, (void const   *)(& beacon_hdr), __len);
   }
@@ -18502,7 +18502,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -19152,7 +19152,7 @@ static void ath9k_init_misc(struct ath9k_htc_priv *priv )
   common = tmp;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& common->bssidmask), (void const   *)(& ath_bcast_mac),
+    __ret = memcpy((void *)(& common->bssidmask), (void const   *)(& ath_bcast_mac),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& common->bssidmask), (void const   *)(& ath_bcast_mac),
@@ -21389,7 +21389,7 @@ void ath9k_htc_get_et_strings(struct ieee80211_hw *hw , struct ieee80211_vif *vi
   if (sset == 1U) {
     __len = 576UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)data, (void const   *)(& ath9k_htc_gstrings_stats),
+      __ret = memcpy((void *)data, (void const   *)(& ath9k_htc_gstrings_stats),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)data, (void const   *)(& ath9k_htc_gstrings_stats),

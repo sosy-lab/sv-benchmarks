@@ -271,7 +271,7 @@ __inline static void clear_bit(int nr , unsigned long volatile   *addr )
 }
 }
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
 extern void mutex_unlock(struct mutex * ) ;
@@ -1041,7 +1041,7 @@ static void cfag12864b_update(struct work_struct *work )
       __cil_tmp65 = & cfag12864b_buffer;
       __cil_tmp66 = *__cil_tmp65;
       __cil_tmp67 = (void const   *)__cil_tmp66;
-      __ret = __memcpy(__cil_tmp64, __cil_tmp67, __len);
+      __ret = memcpy(__cil_tmp64, __cil_tmp67, __len);
       }
     } else {
       {

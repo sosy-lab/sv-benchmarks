@@ -8444,7 +8444,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *kstrdup(char const   * , gfp_t  ) ;
 __inline static void *ERR_PTR(long error ) 
 { 
@@ -10133,7 +10133,7 @@ int nfs_init_server_rpcclient(struct nfs_server *server , struct rpc_timeout  co
   }
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (server->client)->cl_timeout_default), (void const   *)timeo,
+    __ret = memcpy((void *)(& (server->client)->cl_timeout_default), (void const   *)timeo,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (server->client)->cl_timeout_default), (void const   *)timeo,
@@ -10710,7 +10710,7 @@ struct nfs_server *nfs_create_server(struct nfs_mount_info *mount_info , struct 
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& server->fsid), (void const   *)(& fattr->fsid), __len);
+    __ret = memcpy((void *)(& server->fsid), (void const   *)(& fattr->fsid), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& server->fsid), (void const   *)(& fattr->fsid),
                              __len);
@@ -24346,7 +24346,7 @@ static unsigned long nfs_wcc_update_inode(struct inode *inode , struct nfs_fattr
     if (tmp___0 != 0) {
       __len = 16UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& inode->i_ctime), (void const   *)(& fattr->ctime),
+        __ret = memcpy((void *)(& inode->i_ctime), (void const   *)(& fattr->ctime),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& inode->i_ctime), (void const   *)(& fattr->ctime),
@@ -24364,7 +24364,7 @@ static unsigned long nfs_wcc_update_inode(struct inode *inode , struct nfs_fattr
     if (tmp___1 != 0) {
       __len___0 = 16UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& inode->i_mtime), (void const   *)(& fattr->mtime),
+        __ret___0 = memcpy((void *)(& inode->i_mtime), (void const   *)(& fattr->mtime),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& inode->i_mtime), (void const   *)(& fattr->mtime),
@@ -24832,7 +24832,7 @@ int nfs_post_op_update_inode_force_wcc(struct inode *inode , struct nfs_fattr *f
   if ((fattr->valid & 16384U) != 0U && (fattr->valid & 65536U) == 0U) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& fattr->pre_ctime), (void const   *)(& inode->i_ctime),
+      __ret = memcpy((void *)(& fattr->pre_ctime), (void const   *)(& inode->i_ctime),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& fattr->pre_ctime), (void const   *)(& inode->i_ctime),
@@ -24845,7 +24845,7 @@ int nfs_post_op_update_inode_force_wcc(struct inode *inode , struct nfs_fattr *f
   if ((fattr->valid & 8192U) != 0U && (fattr->valid & 32768U) == 0U) {
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& fattr->pre_mtime), (void const   *)(& inode->i_mtime),
+      __ret___0 = memcpy((void *)(& fattr->pre_mtime), (void const   *)(& inode->i_mtime),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& fattr->pre_mtime), (void const   *)(& inode->i_mtime),
@@ -24985,7 +24985,7 @@ static int nfs_update_inode(struct inode *inode , struct nfs_fattr *fattr )
   if ((fattr->valid & 8192U) != 0U) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& inode->i_mtime), (void const   *)(& fattr->mtime),
+      __ret = memcpy((void *)(& inode->i_mtime), (void const   *)(& fattr->mtime),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& inode->i_mtime), (void const   *)(& fattr->mtime),
@@ -25000,7 +25000,7 @@ static int nfs_update_inode(struct inode *inode , struct nfs_fattr *fattr )
   if ((fattr->valid & 16384U) != 0U) {
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& inode->i_ctime), (void const   *)(& fattr->ctime),
+      __ret___0 = memcpy((void *)(& inode->i_ctime), (void const   *)(& fattr->ctime),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& inode->i_ctime), (void const   *)(& fattr->ctime),
@@ -25048,7 +25048,7 @@ static int nfs_update_inode(struct inode *inode , struct nfs_fattr *fattr )
   if ((fattr->valid & 4096U) != 0U) {
     __len___1 = 16UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& inode->i_atime), (void const   *)(& fattr->atime),
+      __ret___1 = memcpy((void *)(& inode->i_atime), (void const   *)(& fattr->atime),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& inode->i_atime), (void const   *)(& fattr->atime),
@@ -29087,7 +29087,7 @@ static int nfs23_validate_mount_data(void *options , struct nfs_parsed_mount_dat
   data->root.size = 32U;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& data->root.data), (void const   *)(& data->old_root.data),
+    __ret = memcpy((void *)(& data->root.data), (void const   *)(& data->old_root.data),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& data->root.data), (void const   *)(& data->old_root.data),
@@ -29136,7 +29136,7 @@ static int nfs23_validate_mount_data(void *options , struct nfs_parsed_mount_dat
   args->need_mount = 0;
   __len___1 = 16UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)sap, (void const   *)(& data->addr), __len___1);
+    __ret___1 = memcpy((void *)sap, (void const   *)(& data->addr), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)sap, (void const   *)(& data->addr), __len___1);
   }
@@ -32693,7 +32693,7 @@ static void nfs_direct_write_completion(struct nfs_pgio_header *hdr )
         if (dreq->flags == 0) {
           __len = 12UL;
           if (__len > 63UL) {
-            __ret = __memcpy((void *)(& dreq->verf), (void const   *)hdr->verf, __len);
+            __ret = memcpy((void *)(& dreq->verf), (void const   *)hdr->verf, __len);
           } else {
             __ret = __builtin_memcpy((void *)(& dreq->verf), (void const   *)hdr->verf,
                                      __len);
@@ -39185,7 +39185,7 @@ static void nfs_write_completion(struct nfs_pgio_header *hdr )
   if (tmp___3 != 0) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& req->wb_verf), (void const   *)(& (hdr->verf)->verifier),
+      __ret = memcpy((void *)(& req->wb_verf), (void const   *)(& (hdr->verf)->verifier),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& req->wb_verf), (void const   *)(& (hdr->verf)->verifier),
@@ -40130,7 +40130,7 @@ static void nfs_writeback_release_common(void *calldata )
         if (tmp___0 == 0) {
           __len = 12UL;
           if (__len > 63UL) {
-            __ret = __memcpy((void *)hdr->verf, (void const   *)(& data->verf), __len);
+            __ret = memcpy((void *)hdr->verf, (void const   *)(& data->verf), __len);
           } else {
             __ret = __builtin_memcpy((void *)hdr->verf, (void const   *)(& data->verf),
                                      __len);
@@ -42167,7 +42167,7 @@ static int decode_fhandle(struct xdr_stream *xdr , struct mountres *res )
   fh->size = 32U;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& fh->data), (void const   *)p, __len);
+    __ret = memcpy((void *)(& fh->data), (void const   *)p, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& fh->data), (void const   *)p, __len);
   }
@@ -46605,7 +46605,7 @@ static uint16_t nfs_super_get_key(void const   *cookie_netfs_data , void *buffer
   } else {
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy(buffer, (void const   *)(& key->key), __len);
+      __ret = memcpy(buffer, (void const   *)(& key->key), __len);
     } else {
       __ret = __builtin_memcpy(buffer, (void const   *)(& key->key), __len);
     }

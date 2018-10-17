@@ -4596,7 +4596,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -8317,7 +8317,7 @@ static int cciss_scsi_add_entry(ctlr_info_t *h , int hostno , struct cciss_scsi_
   if ((unsigned int )device->scsi3addr[4] != 0U) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& addr1), (void const   *)(& device->scsi3addr), __len);
+      __ret = memcpy((void *)(& addr1), (void const   *)(& device->scsi3addr), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& addr1), (void const   *)(& device->scsi3addr),
                                __len);
@@ -8329,7 +8329,7 @@ static int cciss_scsi_add_entry(ctlr_info_t *h , int hostno , struct cciss_scsi_
     sd = (struct cciss_scsi_dev_t *)(& ccissscsi[h->ctlr].dev) + (unsigned long )i;
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& addr2), (void const   *)(& sd->scsi3addr), __len___0);
+      __ret___0 = memcpy((void *)(& addr2), (void const   *)(& sd->scsi3addr), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& addr2), (void const   *)(& sd->scsi3addr),
                                    __len___0);
@@ -8374,7 +8374,7 @@ static int cciss_scsi_add_entry(ctlr_info_t *h , int hostno , struct cciss_scsi_
   *nadded = *nadded + 1;
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& sd->scsi3addr), (void const   *)(& device->scsi3addr),
+    __ret___1 = memcpy((void *)(& sd->scsi3addr), (void const   *)(& device->scsi3addr),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& sd->scsi3addr), (void const   *)(& device->scsi3addr),
@@ -8382,7 +8382,7 @@ static int cciss_scsi_add_entry(ctlr_info_t *h , int hostno , struct cciss_scsi_
   }
   __len___2 = 8UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& sd->vendor), (void const   *)(& device->vendor),
+    __ret___2 = memcpy((void *)(& sd->vendor), (void const   *)(& device->vendor),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& sd->vendor), (void const   *)(& device->vendor),
@@ -8390,7 +8390,7 @@ static int cciss_scsi_add_entry(ctlr_info_t *h , int hostno , struct cciss_scsi_
   }
   __len___3 = 4UL;
   if (__len___3 > 63UL) {
-    __ret___3 = __memcpy((void *)(& sd->revision), (void const   *)(& device->revision),
+    __ret___3 = memcpy((void *)(& sd->revision), (void const   *)(& device->revision),
                          __len___3);
   } else {
     __ret___3 = __builtin_memcpy((void *)(& sd->revision), (void const   *)(& device->revision),
@@ -8398,7 +8398,7 @@ static int cciss_scsi_add_entry(ctlr_info_t *h , int hostno , struct cciss_scsi_
   }
   __len___4 = 16UL;
   if (__len___4 > 63UL) {
-    __ret___4 = __memcpy((void *)(& sd->device_id), (void const   *)(& device->device_id),
+    __ret___4 = memcpy((void *)(& sd->device_id), (void const   *)(& device->device_id),
                          __len___4);
   } else {
     __ret___4 = __builtin_memcpy((void *)(& sd->device_id), (void const   *)(& device->device_id),
@@ -8646,7 +8646,7 @@ static int adjust_cciss_scsi_table(ctlr_info_t *h , int hostno , struct cciss_sc
     csd->devtype = (sd + (unsigned long )j)->devtype;
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& csd->device_id), (void const   *)(& (sd + (unsigned long )j)->device_id),
+      __ret = memcpy((void *)(& csd->device_id), (void const   *)(& (sd + (unsigned long )j)->device_id),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& csd->device_id), (void const   *)(& (sd + (unsigned long )j)->device_id),
@@ -8654,7 +8654,7 @@ static int adjust_cciss_scsi_table(ctlr_info_t *h , int hostno , struct cciss_sc
     }
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& csd->vendor), (void const   *)(& (sd + (unsigned long )j)->vendor),
+      __ret___0 = memcpy((void *)(& csd->vendor), (void const   *)(& (sd + (unsigned long )j)->vendor),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& csd->vendor), (void const   *)(& (sd + (unsigned long )j)->vendor),
@@ -8662,7 +8662,7 @@ static int adjust_cciss_scsi_table(ctlr_info_t *h , int hostno , struct cciss_sc
     }
     __len___1 = 16UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& csd->model), (void const   *)(& (sd + (unsigned long )j)->model),
+      __ret___1 = memcpy((void *)(& csd->model), (void const   *)(& (sd + (unsigned long )j)->model),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& csd->model), (void const   *)(& (sd + (unsigned long )j)->model),
@@ -8670,7 +8670,7 @@ static int adjust_cciss_scsi_table(ctlr_info_t *h , int hostno , struct cciss_sc
     }
     __len___2 = 4UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& csd->revision), (void const   *)(& (sd + (unsigned long )j)->revision),
+      __ret___2 = memcpy((void *)(& csd->revision), (void const   *)(& (sd + (unsigned long )j)->revision),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& csd->revision), (void const   *)(& (sd + (unsigned long )j)->revision),
@@ -8811,7 +8811,7 @@ static int lookup_scsi3addr(ctlr_info_t *h , int bus , int target , int lun , ch
   if ((sd->bus == bus && sd->target == target) && sd->lun == lun) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)scsi3addr, (void const   *)(& sd->scsi3addr), __len);
+      __ret = memcpy((void *)scsi3addr, (void const   *)(& sd->scsi3addr), __len);
     } else {
       __ret = __builtin_memcpy((void *)scsi3addr, (void const   *)(& sd->scsi3addr),
                                __len);
@@ -9047,7 +9047,7 @@ static int cciss_scsi_do_simple_cmd(ctlr_info_t *h , CommandList_struct *c , uns
   c->Header.ReplyQueue = 0U;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& c->Header.LUN), (void const   *)scsi3addr, __len);
+    __ret = memcpy((void *)(& c->Header.LUN), (void const   *)scsi3addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& c->Header.LUN), (void const   *)scsi3addr,
                              __len);
@@ -9343,7 +9343,7 @@ static void cciss_update_non_disk_devices(ctlr_info_t *h , int hostno )
   memset((void *)inq_buff, 0, 49UL);
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& scsi3addr), (void const   *)(& ld_buff->LUN) + (unsigned long )i,
+    __ret = memcpy((void *)(& scsi3addr), (void const   *)(& ld_buff->LUN) + (unsigned long )i,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& scsi3addr), (void const   *)(& ld_buff->LUN) + (unsigned long )i,
@@ -9362,7 +9362,7 @@ static void cciss_update_non_disk_devices(ctlr_info_t *h , int hostno )
   this_device->lun = -1;
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& this_device->scsi3addr), (void const   *)(& scsi3addr),
+    __ret___0 = memcpy((void *)(& this_device->scsi3addr), (void const   *)(& scsi3addr),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& this_device->scsi3addr), (void const   *)(& scsi3addr),
@@ -9370,7 +9370,7 @@ static void cciss_update_non_disk_devices(ctlr_info_t *h , int hostno )
   }
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& this_device->vendor), (void const   *)inq_buff + 8U,
+    __ret___1 = memcpy((void *)(& this_device->vendor), (void const   *)inq_buff + 8U,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& this_device->vendor), (void const   *)inq_buff + 8U,
@@ -9378,7 +9378,7 @@ static void cciss_update_non_disk_devices(ctlr_info_t *h , int hostno )
   }
   __len___2 = 16UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& this_device->model), (void const   *)inq_buff + 16U,
+    __ret___2 = memcpy((void *)(& this_device->model), (void const   *)inq_buff + 16U,
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& this_device->model), (void const   *)inq_buff + 16U,
@@ -9386,7 +9386,7 @@ static void cciss_update_non_disk_devices(ctlr_info_t *h , int hostno )
   }
   __len___3 = 4UL;
   if (__len___3 > 63UL) {
-    __ret___3 = __memcpy((void *)(& this_device->revision), (void const   *)inq_buff + 32U,
+    __ret___3 = memcpy((void *)(& this_device->revision), (void const   *)inq_buff + 32U,
                          __len___3);
   } else {
     __ret___3 = __builtin_memcpy((void *)(& this_device->revision), (void const   *)inq_buff + 32U,
@@ -9645,7 +9645,7 @@ static int cciss_scsi_queue_command_lck(struct scsi_cmnd *cmd , void (*done)(str
   c->Header.ReplyQueue = 0U;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)(& scsi3addr),
+    __ret = memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)(& scsi3addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)(& scsi3addr),
@@ -9883,7 +9883,7 @@ static int cciss_eh_device_reset_handler(struct scsi_cmnd *scsicmd )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& lunaddr), (void const   *)(& cmd_in_trouble->Header.LUN.LunAddrBytes),
+    __ret = memcpy((void *)(& lunaddr), (void const   *)(& cmd_in_trouble->Header.LUN.LunAddrBytes),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& lunaddr), (void const   *)(& cmd_in_trouble->Header.LUN.LunAddrBytes),
@@ -9928,7 +9928,7 @@ static int cciss_eh_abort_handler(struct scsi_cmnd *scsicmd )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& lunaddr), (void const   *)(& cmd_to_abort->Header.LUN.LunAddrBytes),
+    __ret = memcpy((void *)(& lunaddr), (void const   *)(& cmd_to_abort->Header.LUN.LunAddrBytes),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& lunaddr), (void const   *)(& cmd_to_abort->Header.LUN.LunAddrBytes),
@@ -10310,7 +10310,7 @@ static ssize_t dev_show_unique_id(struct device *dev , struct device_attribute *
   } else {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& sn), (void const   *)(& drv->serial_no), __len);
+      __ret = memcpy((void *)(& sn), (void const   *)(& drv->serial_no), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& sn), (void const   *)(& drv->serial_no),
                                __len);
@@ -10359,7 +10359,7 @@ static ssize_t dev_show_vendor(struct device *dev , struct device_attribute *att
   } else {
     __len = 9UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& vendor), (void const   *)(& drv->vendor), __len);
+      __ret = memcpy((void *)(& vendor), (void const   *)(& drv->vendor), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& vendor), (void const   *)(& drv->vendor),
                                __len);
@@ -10404,7 +10404,7 @@ static ssize_t dev_show_model(struct device *dev , struct device_attribute *attr
   } else {
     __len = 17UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& model), (void const   *)(& drv->model), __len);
+      __ret = memcpy((void *)(& model), (void const   *)(& drv->model), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& model), (void const   *)(& drv->model),
                                __len);
@@ -10448,7 +10448,7 @@ static ssize_t dev_show_rev(struct device *dev , struct device_attribute *attr ,
   } else {
     __len = 5UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& rev), (void const   *)(& drv->rev), __len);
+      __ret = memcpy((void *)(& rev), (void const   *)(& drv->rev), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& rev), (void const   *)(& drv->rev), __len);
     }
@@ -10499,7 +10499,7 @@ static ssize_t cciss_show_lunid(struct device *dev , struct device_attribute *at
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& lunid), (void const   *)(& drv->LunID), __len);
+    __ret = memcpy((void *)(& lunid), (void const   *)(& drv->LunID), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& lunid), (void const   *)(& drv->LunID), __len);
   }
@@ -11487,7 +11487,7 @@ static int cciss_getfirmver(ctlr_info_t *h , void *argp )
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& firmware), (void const   *)(& h->firm_ver), __len);
+    __ret = memcpy((void *)(& firmware), (void const   *)(& h->firm_ver), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& firmware), (void const   *)(& h->firm_ver),
                              __len);
@@ -11539,7 +11539,7 @@ static int cciss_getluninfo(ctlr_info_t *h , struct gendisk *disk , void *argp )
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& luninfo.LunID), (void const   *)(& drv->LunID), __len);
+    __ret = memcpy((void *)(& luninfo.LunID), (void const   *)(& drv->LunID), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& luninfo.LunID), (void const   *)(& drv->LunID),
                              __len);
@@ -12175,7 +12175,7 @@ __inline static void log_unit_to_scsi3addr(ctlr_info_t *h , unsigned char *scsi3
   {
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)scsi3addr, (void const   *)(& (h->drv[log_unit])->LunID),
+    __ret = memcpy((void *)scsi3addr, (void const   *)(& (h->drv[log_unit])->LunID),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)scsi3addr, (void const   *)(& (h->drv[log_unit])->LunID),
@@ -12214,7 +12214,7 @@ static void cciss_get_device_descr(ctlr_info_t *h , int logvol , char *vendor , 
   if (rc == 0) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)vendor, (void const   *)(& inq_buf->data_byte) + 8U,
+      __ret = memcpy((void *)vendor, (void const   *)(& inq_buf->data_byte) + 8U,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)vendor, (void const   *)(& inq_buf->data_byte) + 8U,
@@ -12223,7 +12223,7 @@ static void cciss_get_device_descr(ctlr_info_t *h , int logvol , char *vendor , 
     *(vendor + 8UL) = 0;
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)model, (void const   *)(& inq_buf->data_byte) + 16U,
+      __ret___0 = memcpy((void *)model, (void const   *)(& inq_buf->data_byte) + 16U,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)model, (void const   *)(& inq_buf->data_byte) + 16U,
@@ -12232,7 +12232,7 @@ static void cciss_get_device_descr(ctlr_info_t *h , int logvol , char *vendor , 
     *(model + 16UL) = 0;
     __len___1 = 4UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)rev, (void const   *)(& inq_buf->data_byte) + 32U,
+      __ret___1 = memcpy((void *)rev, (void const   *)(& inq_buf->data_byte) + 32U,
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)rev, (void const   *)(& inq_buf->data_byte) + 32U,
@@ -12381,7 +12381,7 @@ static void cciss_update_drive_info(ctlr_info_t *h , int drv_index , int first_t
   cciss_get_serial_no(h, drv_index, (unsigned char *)(& drvinfo->serial_no), 16);
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& drvinfo->LunID), (void const   *)(& (h->drv[drv_index])->LunID),
+    __ret = memcpy((void *)(& drvinfo->LunID), (void const   *)(& (h->drv[drv_index])->LunID),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& drvinfo->LunID), (void const   *)(& (h->drv[drv_index])->LunID),
@@ -12427,7 +12427,7 @@ static void cciss_update_drive_info(ctlr_info_t *h , int drv_index , int first_t
     (h->drv[drv_index])->raid_level = drvinfo->raid_level;
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& (h->drv[drv_index])->serial_no), (void const   *)(& drvinfo->serial_no),
+      __ret___0 = memcpy((void *)(& (h->drv[drv_index])->serial_no), (void const   *)(& drvinfo->serial_no),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& (h->drv[drv_index])->serial_no), (void const   *)(& drvinfo->serial_no),
@@ -12435,7 +12435,7 @@ static void cciss_update_drive_info(ctlr_info_t *h , int drv_index , int first_t
     }
     __len___1 = 9UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& (h->drv[drv_index])->vendor), (void const   *)(& drvinfo->vendor),
+      __ret___1 = memcpy((void *)(& (h->drv[drv_index])->vendor), (void const   *)(& drvinfo->vendor),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& (h->drv[drv_index])->vendor), (void const   *)(& drvinfo->vendor),
@@ -12443,7 +12443,7 @@ static void cciss_update_drive_info(ctlr_info_t *h , int drv_index , int first_t
     }
     __len___2 = 17UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& (h->drv[drv_index])->model), (void const   *)(& drvinfo->model),
+      __ret___2 = memcpy((void *)(& (h->drv[drv_index])->model), (void const   *)(& drvinfo->model),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& (h->drv[drv_index])->model), (void const   *)(& drvinfo->model),
@@ -12451,7 +12451,7 @@ static void cciss_update_drive_info(ctlr_info_t *h , int drv_index , int first_t
     }
     __len___3 = 5UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)(& (h->drv[drv_index])->rev), (void const   *)(& drvinfo->rev),
+      __ret___3 = memcpy((void *)(& (h->drv[drv_index])->rev), (void const   *)(& drvinfo->rev),
                            __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)(& (h->drv[drv_index])->rev), (void const   *)(& drvinfo->rev),
@@ -12580,7 +12580,7 @@ static int cciss_add_gendisk(ctlr_info_t *h , unsigned char *lunid , int control
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (h->drv[drv_index])->LunID), (void const   *)lunid,
+    __ret = memcpy((void *)(& (h->drv[drv_index])->LunID), (void const   *)lunid,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (h->drv[drv_index])->LunID), (void const   *)lunid,
@@ -12741,7 +12741,7 @@ static int rebuild_lun_table(ctlr_info_t *h , int first_time , int via_ioctl )
   ldv_37247: 
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& lunid), (void const   *)(& ld_buff->LUN) + (unsigned long )j,
+    __ret = memcpy((void *)(& lunid), (void const   *)(& ld_buff->LUN) + (unsigned long )j,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& lunid), (void const   *)(& ld_buff->LUN) + (unsigned long )j,
@@ -12792,7 +12792,7 @@ static int rebuild_lun_table(ctlr_info_t *h , int first_time , int via_ioctl )
   drv_found = 0;
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& lunid), (void const   *)(& ld_buff->LUN) + (unsigned long )i,
+    __ret___0 = memcpy((void *)(& lunid), (void const   *)(& ld_buff->LUN) + (unsigned long )i,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& lunid), (void const   *)(& ld_buff->LUN) + (unsigned long )i,
@@ -12993,7 +12993,7 @@ static int fill_cmd(ctlr_info_t *h , CommandList_struct *c , __u8 cmd , void *bu
   c->Header.Tag.lower = c->busaddr;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)scsi3addr,
+    __ret = memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)scsi3addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)scsi3addr,
@@ -13083,7 +13083,7 @@ static int fill_cmd(ctlr_info_t *h , CommandList_struct *c , __u8 cmd , void *bu
     c->Request.CDB[1] = 0U;
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& c->Request.CDB) + 4U, (void const   *)buff,
+      __ret___0 = memcpy((void *)(& c->Request.CDB) + 4U, (void const   *)buff,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& c->Request.CDB) + 4U, (void const   *)buff,
@@ -13976,7 +13976,7 @@ static void do_cciss_request(struct request_queue *q )
   cciss_mark_tag_indexed(& c->Header.Tag.lower);
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& c->Header.LUN), (void const   *)(& drv->LunID), __len);
+    __ret = memcpy((void *)(& c->Header.LUN), (void const   *)(& drv->LunID), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& c->Header.LUN), (void const   *)(& drv->LunID),
                              __len);
@@ -14127,7 +14127,7 @@ static void do_cciss_request(struct request_queue *q )
     c->Request.CDBLen = (__u8 )creq->cmd_len;
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& c->Request.CDB), (void const   *)creq->cmd,
+      __ret___0 = memcpy((void *)(& c->Request.CDB), (void const   *)creq->cmd,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& c->Request.CDB), (void const   *)creq->cmd,

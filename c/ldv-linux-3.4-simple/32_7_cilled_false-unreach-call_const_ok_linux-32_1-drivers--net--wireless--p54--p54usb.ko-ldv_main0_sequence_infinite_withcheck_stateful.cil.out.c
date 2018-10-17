@@ -5340,7 +5340,7 @@ struct __anonstruct_p54u_fwlist_402 {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern void ___udelay(unsigned long xloops ) ;
-extern void *__memcpy(void *to , void    *from , size_t len ) ;
+extern void *memcpy(void *to , void    *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern int memcmp(void    *cs , void    *ct , unsigned long count ) ;
 extern unsigned long strlen(char    *s ) ;
@@ -7969,7 +7969,7 @@ static int p54u_upload_firmware_3887(struct ieee80211_hw *dev )
     __cil_tmp100 = (u8 *)__cil_tmp99;
     __cil_tmp101 = (void *)__cil_tmp100;
     __cil_tmp102 = (void    *)"x2  ";
-    __ret = __memcpy(__cil_tmp101, __cil_tmp102, __len);
+    __ret = memcpy(__cil_tmp101, __cil_tmp102, __len);
     }
   } else {
     {

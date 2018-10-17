@@ -5007,7 +5007,7 @@ struct ep_tb_s {
 };
 enum hrtimer_restart;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
@@ -7346,7 +7346,7 @@ static int vidioc_querybuf(struct file *file , void *priv , struct v4l2_buffer *
   frame = (struct gspca_frame *)(& gspca_dev->frame) + (unsigned long )v4l2_buf->index;
   __len = 88UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf), __len);
+    __ret = memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf), __len);
   } else {
     __ret = __builtin_memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf),
                              __len);
@@ -7817,7 +7817,7 @@ static int vidioc_dqbuf(struct file *file , void *priv , struct v4l2_buffer *v4l
   frame->v4l2_buf.flags = frame->v4l2_buf.flags & 4294967291U;
   __len = 88UL;
   if (__len > 63UL) {
-    __ret___0 = __memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf), __len);
+    __ret___0 = memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf), __len);
   } else {
     __ret___0 = __builtin_memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf),
                                  __len);

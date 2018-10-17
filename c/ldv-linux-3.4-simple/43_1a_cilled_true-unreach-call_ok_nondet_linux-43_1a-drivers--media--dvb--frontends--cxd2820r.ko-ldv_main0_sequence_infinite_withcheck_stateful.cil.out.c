@@ -3122,7 +3122,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 __inline static u64 div_u64_rem(u64 dividend , u32 divisor , u32 *remainder ) 
 { u64 __cil_tmp4 ;
@@ -4035,7 +4035,7 @@ int cxd2820r_gpio(struct dvb_frontend *fe )
     __cil_tmp101 = (u8 (*)[3U])__cil_tmp100;
     __cil_tmp102 = (void *)__cil_tmp101;
     __cil_tmp103 = (void const   *)gpio;
-    __ret = __memcpy(__cil_tmp102, __cil_tmp103, __len);
+    __ret = memcpy(__cil_tmp102, __cil_tmp103, __len);
     }
   } else {
     {
@@ -5340,7 +5340,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     __cil_tmp17 = (struct cxd2820r_config *)__cil_tmp16;
     __cil_tmp18 = (void *)__cil_tmp17;
     __cil_tmp19 = (void const   *)cfg;
-    __ret = __memcpy(__cil_tmp18, __cil_tmp19, __len);
+    __ret = memcpy(__cil_tmp18, __cil_tmp19, __len);
     }
   } else {
     {
@@ -5402,7 +5402,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     __cil_tmp43 = (struct dvb_frontend_ops *)__cil_tmp42;
     __cil_tmp44 = (void *)__cil_tmp43;
     __cil_tmp45 = (void const   *)(& cxd2820r_ops);
-    __ret___0 = __memcpy(__cil_tmp44, __cil_tmp45, __len___0);
+    __ret___0 = memcpy(__cil_tmp44, __cil_tmp45, __len___0);
     }
   } else {
     {

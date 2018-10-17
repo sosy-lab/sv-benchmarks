@@ -4020,7 +4020,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
@@ -6802,7 +6802,7 @@ static int super_90_validate(struct mddev *mddev , struct md_rdev *rdev )
     }
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& mddev->uuid), (void const   *)(& sb->set_uuid0),
+      __ret = memcpy((void *)(& mddev->uuid), (void const   *)(& sb->set_uuid0),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& mddev->uuid), (void const   *)(& sb->set_uuid0),
@@ -6810,7 +6810,7 @@ static int super_90_validate(struct mddev *mddev , struct md_rdev *rdev )
     }
     __len___0 = 4UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& mddev->uuid) + 4U, (void const   *)(& sb->set_uuid1),
+      __ret___0 = memcpy((void *)(& mddev->uuid) + 4U, (void const   *)(& sb->set_uuid1),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& mddev->uuid) + 4U, (void const   *)(& sb->set_uuid1),
@@ -6818,7 +6818,7 @@ static int super_90_validate(struct mddev *mddev , struct md_rdev *rdev )
     }
     __len___1 = 4UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& mddev->uuid) + 8U, (void const   *)(& sb->set_uuid2),
+      __ret___1 = memcpy((void *)(& mddev->uuid) + 8U, (void const   *)(& sb->set_uuid2),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& mddev->uuid) + 8U, (void const   *)(& sb->set_uuid2),
@@ -6826,7 +6826,7 @@ static int super_90_validate(struct mddev *mddev , struct md_rdev *rdev )
     }
     __len___2 = 4UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& mddev->uuid) + 12U, (void const   *)(& sb->set_uuid3),
+      __ret___2 = memcpy((void *)(& mddev->uuid) + 12U, (void const   *)(& sb->set_uuid3),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& mddev->uuid) + 12U, (void const   *)(& sb->set_uuid3),
@@ -6944,14 +6944,14 @@ static void super_90_sync(struct mddev *mddev , struct md_rdev *rdev )
   sb->gvalid_words = 0U;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sb->set_uuid0), (void const   *)(& mddev->uuid), __len);
+    __ret = memcpy((void *)(& sb->set_uuid0), (void const   *)(& mddev->uuid), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sb->set_uuid0), (void const   *)(& mddev->uuid),
                              __len);
   }
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& sb->set_uuid1), (void const   *)(& mddev->uuid) + 4U,
+    __ret___0 = memcpy((void *)(& sb->set_uuid1), (void const   *)(& mddev->uuid) + 4U,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& sb->set_uuid1), (void const   *)(& mddev->uuid) + 4U,
@@ -6959,7 +6959,7 @@ static void super_90_sync(struct mddev *mddev , struct md_rdev *rdev )
   }
   __len___1 = 4UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& sb->set_uuid2), (void const   *)(& mddev->uuid) + 8U,
+    __ret___1 = memcpy((void *)(& sb->set_uuid2), (void const   *)(& mddev->uuid) + 8U,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& sb->set_uuid2), (void const   *)(& mddev->uuid) + 8U,
@@ -6967,7 +6967,7 @@ static void super_90_sync(struct mddev *mddev , struct md_rdev *rdev )
   }
   __len___2 = 4UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& sb->set_uuid3), (void const   *)(& mddev->uuid) + 12U,
+    __ret___2 = memcpy((void *)(& sb->set_uuid3), (void const   *)(& mddev->uuid) + 12U,
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& sb->set_uuid3), (void const   *)(& mddev->uuid) + 12U,
@@ -7464,7 +7464,7 @@ static int super_1_validate(struct mddev *mddev , struct md_rdev *rdev )
     mddev->recovery_cp = (sector_t )sb->resync_offset;
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& mddev->uuid), (void const   *)(& sb->set_uuid),
+      __ret = memcpy((void *)(& mddev->uuid), (void const   *)(& sb->set_uuid),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& mddev->uuid), (void const   *)(& sb->set_uuid),
@@ -19407,7 +19407,7 @@ static int bitmap_new_disk_sb(struct bitmap *bitmap )
   sb->sync_size = (unsigned long long )(bitmap->mddev)->resync_max_sectors;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sb->uuid), (void const   *)(& (bitmap->mddev)->uuid),
+    __ret = memcpy((void *)(& sb->uuid), (void const   *)(& (bitmap->mddev)->uuid),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sb->uuid), (void const   *)(& (bitmap->mddev)->uuid),
@@ -21258,7 +21258,7 @@ int bitmap_resize(struct bitmap *bitmap , sector_t blocks , int chunksize , int 
     if (__len > 63UL) {
       tmp___1 = lowmem_page_address((struct page  const  *)bitmap->storage.sb_page);
       tmp___2 = lowmem_page_address((struct page  const  *)store.sb_page);
-      __ret = __memcpy(tmp___2, (void const   *)tmp___1, __len);
+      __ret = memcpy(tmp___2, (void const   *)tmp___1, __len);
     } else {
       tmp___3 = lowmem_page_address((struct page  const  *)bitmap->storage.sb_page);
       tmp___4 = lowmem_page_address((struct page  const  *)store.sb_page);

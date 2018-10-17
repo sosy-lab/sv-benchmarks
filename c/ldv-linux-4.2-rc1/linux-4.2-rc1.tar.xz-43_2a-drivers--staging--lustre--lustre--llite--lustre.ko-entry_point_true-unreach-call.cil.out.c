@@ -45028,7 +45028,7 @@ void *ldv_kmem_cache_alloc_376(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) ;
 __inline static void spin_lock(spinlock_t *lock ) ;
@@ -46292,7 +46292,7 @@ ssize_t ll_listxattr(struct dentry *dentry , char *buffer , size_t size )
     } else {
 
     }
-    __memmove((void *)xattr_name, (void const   *)xattr_name + (unsigned long )xlen,
+    memmove((void *)xattr_name, (void const   *)xattr_name + (unsigned long )xlen,
               (size_t )rem);
     rc = rc - xlen;
     ldv_68271: ;

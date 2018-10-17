@@ -6061,7 +6061,7 @@ __inline static int test_and_clear_bit(long nr , unsigned long volatile   *addr 
 extern int printk(char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -7468,7 +7468,7 @@ static int dfx_driver_init(struct net_device *dev , char const   *print_name , r
   le32 = data;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& bp->factory_mac_addr), (void const   *)(& le32), __len);
+    __ret = memcpy((void *)(& bp->factory_mac_addr), (void const   *)(& le32), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& bp->factory_mac_addr), (void const   *)(& le32),
                              __len);
@@ -7483,7 +7483,7 @@ static int dfx_driver_init(struct net_device *dev , char const   *print_name , r
   le32 = data;
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& bp->factory_mac_addr) + 4U, (void const   *)(& le32),
+    __ret___0 = memcpy((void *)(& bp->factory_mac_addr) + 4U, (void const   *)(& le32),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& bp->factory_mac_addr) + 4U, (void const   *)(& le32),
@@ -7491,7 +7491,7 @@ static int dfx_driver_init(struct net_device *dev , char const   *print_name , r
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)dev->dev_addr, (void const   *)(& bp->factory_mac_addr),
+    __ret___1 = memcpy((void *)dev->dev_addr, (void const   *)(& bp->factory_mac_addr),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& bp->factory_mac_addr),
@@ -7694,7 +7694,7 @@ static int dfx_open(struct net_device *dev )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& bp->factory_mac_addr),
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& bp->factory_mac_addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& bp->factory_mac_addr),
@@ -8017,7 +8017,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& bp->stats.smt_station_id), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.smt_station_id),
+    __ret = memcpy((void *)(& bp->stats.smt_station_id), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.smt_station_id),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& bp->stats.smt_station_id), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.smt_station_id),
@@ -8028,7 +8028,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   bp->stats.smt_lo_version_id = (bp->cmd_rsp_virt)->smt_mib_get.smt_lo_version_id;
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& bp->stats.smt_user_data), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.smt_user_data),
+    __ret___0 = memcpy((void *)(& bp->stats.smt_user_data), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.smt_user_data),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& bp->stats.smt_user_data), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.smt_user_data),
@@ -8060,7 +8060,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   bp->stats.mac_current_path = (bp->cmd_rsp_virt)->smt_mib_get.mac_current_path;
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& bp->stats.mac_upstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_upstream_nbr),
+    __ret___1 = memcpy((void *)(& bp->stats.mac_upstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_upstream_nbr),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& bp->stats.mac_upstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_upstream_nbr),
@@ -8068,7 +8068,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   }
   __len___2 = 6UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& bp->stats.mac_downstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_downstream_nbr),
+    __ret___2 = memcpy((void *)(& bp->stats.mac_downstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_downstream_nbr),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& bp->stats.mac_downstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_downstream_nbr),
@@ -8076,7 +8076,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   }
   __len___3 = 6UL;
   if (__len___3 > 63UL) {
-    __ret___3 = __memcpy((void *)(& bp->stats.mac_old_upstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_old_upstream_nbr),
+    __ret___3 = memcpy((void *)(& bp->stats.mac_old_upstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_old_upstream_nbr),
                          __len___3);
   } else {
     __ret___3 = __builtin_memcpy((void *)(& bp->stats.mac_old_upstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_old_upstream_nbr),
@@ -8084,7 +8084,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   }
   __len___4 = 6UL;
   if (__len___4 > 63UL) {
-    __ret___4 = __memcpy((void *)(& bp->stats.mac_old_downstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_old_downstream_nbr),
+    __ret___4 = memcpy((void *)(& bp->stats.mac_old_downstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_old_downstream_nbr),
                          __len___4);
   } else {
     __ret___4 = __builtin_memcpy((void *)(& bp->stats.mac_old_downstream_nbr), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_old_downstream_nbr),
@@ -8095,7 +8095,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   bp->stats.mac_downstream_port_type = (bp->cmd_rsp_virt)->smt_mib_get.mac_downstream_port_type;
   __len___5 = 6UL;
   if (__len___5 > 63UL) {
-    __ret___5 = __memcpy((void *)(& bp->stats.mac_smt_address), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_smt_address),
+    __ret___5 = memcpy((void *)(& bp->stats.mac_smt_address), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_smt_address),
                          __len___5);
   } else {
     __ret___5 = __builtin_memcpy((void *)(& bp->stats.mac_smt_address), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.mac_smt_address),
@@ -8119,7 +8119,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   bp->stats.path_max_t_req = (bp->cmd_rsp_virt)->smt_mib_get.path_max_t_req;
   __len___6 = 32UL;
   if (__len___6 > 63UL) {
-    __ret___6 = __memcpy((void *)(& bp->stats.path_configuration), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.path_configuration),
+    __ret___6 = memcpy((void *)(& bp->stats.path_configuration), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.path_configuration),
                          __len___6);
   } else {
     __ret___6 = __builtin_memcpy((void *)(& bp->stats.path_configuration), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.path_configuration),
@@ -8137,7 +8137,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   bp->stats.port_current_path[1] = (bp->cmd_rsp_virt)->smt_mib_get.port_current_path[1];
   __len___7 = 3UL;
   if (__len___7 > 63UL) {
-    __ret___7 = __memcpy((void *)(& bp->stats.port_requested_paths), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.port_requested_paths),
+    __ret___7 = memcpy((void *)(& bp->stats.port_requested_paths), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.port_requested_paths),
                          __len___7);
   } else {
     __ret___7 = __builtin_memcpy((void *)(& bp->stats.port_requested_paths), (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.port_requested_paths),
@@ -8145,7 +8145,7 @@ static struct net_device_stats *dfx_ctl_get_stats(struct net_device *dev )
   }
   __len___8 = 3UL;
   if (__len___8 > 63UL) {
-    __ret___8 = __memcpy((void *)(& bp->stats.port_requested_paths) + 3U, (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.port_requested_paths) + 1U,
+    __ret___8 = memcpy((void *)(& bp->stats.port_requested_paths) + 3U, (void const   *)(& (bp->cmd_rsp_virt)->smt_mib_get.port_requested_paths) + 1U,
                          __len___8);
   } else {
     __ret___8 = __builtin_memcpy((void *)(& bp->stats.port_requested_paths) + 3U,
@@ -8237,7 +8237,7 @@ static void dfx_ctl_set_multicast_list(struct net_device *dev )
     if (__len > 63UL) {
       tmp___0 = i;
       i = i + 1;
-      __ret = __memcpy((void *)(& bp->mc_table) + (unsigned long )(tmp___0 * 6), (void const   *)(& ha->addr),
+      __ret = memcpy((void *)(& bp->mc_table) + (unsigned long )(tmp___0 * 6), (void const   *)(& ha->addr),
                        __len);
     } else {
       tmp___1 = i;
@@ -8277,7 +8277,7 @@ static int dfx_ctl_set_mac_address(struct net_device *dev , void *addr )
   bp = (DFX_board_t *)tmp;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& p_sockaddr->sa_data),
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& p_sockaddr->sa_data),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& p_sockaddr->sa_data),
@@ -8285,7 +8285,7 @@ static int dfx_ctl_set_mac_address(struct net_device *dev , void *addr )
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& bp->uc_table), (void const   *)(& p_sockaddr->sa_data),
+    __ret___0 = memcpy((void *)(& bp->uc_table), (void const   *)(& p_sockaddr->sa_data),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& bp->uc_table), (void const   *)(& p_sockaddr->sa_data),
@@ -8323,7 +8323,7 @@ static int dfx_ctl_update_cam(DFX_board_t *bp )
   if (i <= 61) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)p_addr, (void const   *)(& bp->uc_table) + (unsigned long )(i * 6),
+      __ret = memcpy((void *)p_addr, (void const   *)(& bp->uc_table) + (unsigned long )(i * 6),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)p_addr, (void const   *)(& bp->uc_table) + (unsigned long )(i * 6),
@@ -8346,7 +8346,7 @@ static int dfx_ctl_update_cam(DFX_board_t *bp )
   if (bp->uc_count + (u32 )i <= 61U) {
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)p_addr, (void const   *)(& bp->mc_table) + (unsigned long )(i * 6),
+      __ret___0 = memcpy((void *)p_addr, (void const   *)(& bp->mc_table) + (unsigned long )(i * 6),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)p_addr, (void const   *)(& bp->mc_table) + (unsigned long )(i * 6),
@@ -8665,7 +8665,7 @@ static void dfx_rcv_queue_process(DFX_board_t *bp )
   p_buff = (char *)((struct sk_buff *)bp->p_rcv_buff_va[entry])->data;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& descr), (void const   *)p_buff, __len);
+    __ret = memcpy((void *)(& descr), (void const   *)p_buff, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& descr), (void const   *)p_buff, __len);
   }

@@ -5194,7 +5194,7 @@ struct vp3054_i2c_state {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -5705,7 +5705,7 @@ int vp3054_i2c_probe(struct cx8802_dev *dev )
     __cil_tmp18 = (struct i2c_algo_bit_data *)__cil_tmp17;
     __cil_tmp19 = (void *)__cil_tmp18;
     __cil_tmp20 = (void const   *)(& vp3054_i2c_algo_template);
-    __ret = __memcpy(__cil_tmp19, __cil_tmp20, __len);
+    __ret = memcpy(__cil_tmp19, __cil_tmp20, __len);
     }
   } else {
     {

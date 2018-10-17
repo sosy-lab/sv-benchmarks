@@ -4922,7 +4922,7 @@ enum v4l2_i2c_tuner_type {
     ADDRS_TV_WITH_DEMOD = 3
 } ;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static void set_bit(long nr , unsigned long volatile   *addr ) 
 { 
@@ -7523,7 +7523,7 @@ static int usbvision_init_webcam(struct usb_usbvision *usbvision )
   usbvision_write_reg(usbvision, 7, 0);
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& value), (void const   *)(& init_values) + (unsigned long )i,
+    __ret = memcpy((void *)(& value), (void const   *)(& init_values) + (unsigned long )i,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& value), (void const   *)(& init_values) + (unsigned long )i,

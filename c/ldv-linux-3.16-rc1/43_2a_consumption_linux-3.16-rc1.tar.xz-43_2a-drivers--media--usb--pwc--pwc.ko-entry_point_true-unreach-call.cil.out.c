@@ -10402,7 +10402,7 @@ void *ldv_kmem_cache_alloc_90(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return ((void *)0);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 void *ldv_kmem_cache_alloc_110(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern void *vb2_plane_vaddr(struct vb2_buffer * , unsigned int  ) ;
 __inline static void vb2_set_plane_payload(struct vb2_buffer *vb , unsigned int plane_no ,
@@ -10454,7 +10454,7 @@ int pwc_decompress(struct pwc_device *pdev , struct pwc_frame_buf *fbuf )
     raw_frame->vbandlength = (unsigned short )pdev->vbandlength;
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& raw_frame->cmd), (void const   *)(& pdev->cmd_buf),
+      __ret = memcpy((void *)(& raw_frame->cmd), (void const   *)(& pdev->cmd_buf),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& raw_frame->cmd), (void const   *)(& pdev->cmd_buf),
@@ -10602,7 +10602,7 @@ static void build_subblock_pattern(struct pwc_dec23_private *pdec )
   values_derivated[11] = 4294957692U;
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& temp_values), (void const   *)(& initial_values),
+    __ret = memcpy((void *)(& temp_values), (void const   *)(& initial_values),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& temp_values), (void const   *)(& initial_values),

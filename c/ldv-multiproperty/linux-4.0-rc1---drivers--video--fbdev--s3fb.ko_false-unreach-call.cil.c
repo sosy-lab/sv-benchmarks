@@ -4853,7 +4853,7 @@ extern struct module __this_module ;
 extern struct pv_cpu_ops pv_cpu_ops ;
 extern int printk(char const   *  , ...) ;
 extern void __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 __inline static void slow_down_io(void) 
@@ -4940,7 +4940,7 @@ __inline static void memset_io(void volatile   *addr , unsigned char val , size_
 
   {
   {
-  __memset((void *)addr, (int )val, count);
+  memset((void *)addr, (int )val, count);
   }
   return;
 }
@@ -5994,7 +5994,7 @@ static int s3fb_open(struct fb_info *info , int user )
   if (par->ref_count == 0U) {
     {
     vgabase = par->state.vgabase;
-    __memset((void *)(& par->state), 0, 56UL);
+    memset((void *)(& par->state), 0, 56UL);
     par->state.vgabase = vgabase;
     par->state.flags = 31U;
     par->state.num_crtc = 112U;

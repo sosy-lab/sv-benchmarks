@@ -3503,7 +3503,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern char *strchr(char const   * , int  ) ;
@@ -4099,7 +4099,7 @@ __inline static int ipmi_demangle_device_id(unsigned char const   *data , unsign
   if (data_len > 14U) {
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& id->aux_firmware_revision), (void const   *)data + 11U,
+      __ret = memcpy((void *)(& id->aux_firmware_revision), (void const   *)data + 11U,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& id->aux_firmware_revision), (void const   *)data + 11U,
@@ -6198,7 +6198,7 @@ static int decode_dmi(struct dmi_header  const  *dm , struct dmi_ipmi_data *dmi 
   dmi->type = *(data + 4UL);
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& base_addr), (void const   *)data + 8U, __len);
+    __ret = memcpy((void *)(& base_addr), (void const   *)data + 8U, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& base_addr), (void const   *)data + 8U, __len);
   }

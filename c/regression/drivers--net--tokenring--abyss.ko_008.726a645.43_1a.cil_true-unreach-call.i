@@ -2449,7 +2449,7 @@ enum __anonenum_93 {
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern unsigned long __get_free_pages(gfp_t  , unsigned int  ) ;
 unsigned long ldv___get_free_pages_3(gfp_t ldv_func_arg1 , unsigned int ldv_func_arg2 ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
@@ -2720,7 +2720,7 @@ static int abyss_attach(struct pci_dev *pdev , struct pci_device_id  const  *ent
   tp->sifwritew = & abyss_sifwritew;
   __len = 19UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
+    __ret = memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",

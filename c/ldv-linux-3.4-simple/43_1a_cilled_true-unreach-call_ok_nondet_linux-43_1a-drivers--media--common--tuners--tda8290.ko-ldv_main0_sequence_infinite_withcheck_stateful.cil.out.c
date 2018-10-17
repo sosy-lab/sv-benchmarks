@@ -3262,7 +3262,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int __request_module(bool  , char const   *  , ...) ;
 extern void *__symbol_get(char const   * ) ;
@@ -7696,7 +7696,7 @@ struct dvb_frontend *tda829x_attach(struct dvb_frontend *fe , struct i2c_adapter
       __cil_tmp40 = (struct analog_demod_ops *)__cil_tmp39;
       __cil_tmp41 = (void *)__cil_tmp40;
       __cil_tmp42 = (void const   *)(& tda8290_ops);
-      __ret = __memcpy(__cil_tmp41, __cil_tmp42, __len);
+      __ret = memcpy(__cil_tmp41, __cil_tmp42, __len);
       }
     } else {
       {
@@ -7729,7 +7729,7 @@ struct dvb_frontend *tda829x_attach(struct dvb_frontend *fe , struct i2c_adapter
       __cil_tmp55 = (struct analog_demod_ops *)__cil_tmp54;
       __cil_tmp56 = (void *)__cil_tmp55;
       __cil_tmp57 = (void const   *)(& tda8295_ops);
-      __ret___0 = __memcpy(__cil_tmp56, __cil_tmp57, __len___0);
+      __ret___0 = memcpy(__cil_tmp56, __cil_tmp57, __len___0);
       }
     } else {
       {

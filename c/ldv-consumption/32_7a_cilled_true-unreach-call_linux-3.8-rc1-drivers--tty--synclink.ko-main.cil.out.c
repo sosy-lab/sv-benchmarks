@@ -5271,7 +5271,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcat(char * , char const   * ) ;
@@ -7935,7 +7935,7 @@ static int mgsl_set_params(struct mgsl_struct *info , MGSL_PARAMS *new_params )
   flags = _raw_spin_lock_irqsave(tmp___1);
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& info->params), (void const   *)(& tmp_params), __len);
+    __ret = memcpy((void *)(& info->params), (void const   *)(& tmp_params), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& info->params), (void const   *)(& tmp_params),
                              __len);
@@ -10304,7 +10304,7 @@ static struct mgsl_struct *mgsl_allocate_device(void)
                          & __key___3);
     __len = 48UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& info->params), (void const   *)(& default_params),
+      __ret = memcpy((void *)(& info->params), (void const   *)(& default_params),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& info->params), (void const   *)(& default_params),
@@ -12304,14 +12304,14 @@ static bool mgsl_dma_test(struct mgsl_struct *info )
   status = 0U;
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tmp_params), (void const   *)(& info->params), __len);
+    __ret = memcpy((void *)(& tmp_params), (void const   *)(& info->params), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tmp_params), (void const   *)(& info->params),
                              __len);
   }
   __len___0 = 48UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& info->params), (void const   *)(& default_params),
+    __ret___0 = memcpy((void *)(& info->params), (void const   *)(& default_params),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& info->params), (void const   *)(& default_params),
@@ -12508,7 +12508,7 @@ static bool mgsl_dma_test(struct mgsl_struct *info )
   spin_unlock_irqrestore(& info->irq_spinlock, flags);
   __len___1 = 48UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& info->params), (void const   *)(& tmp_params),
+    __ret___1 = memcpy((void *)(& info->params), (void const   *)(& tmp_params),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& info->params), (void const   *)(& tmp_params),
@@ -12674,7 +12674,7 @@ static void mgsl_load_pci_memory(char *TargetPtr , char const   *SourcePtr , uns
   ldv_42861: 
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)TargetPtr, (void const   *)SourcePtr, __len);
+    __ret = memcpy((void *)TargetPtr, (void const   *)SourcePtr, __len);
   } else {
     __ret = __builtin_memcpy((void *)TargetPtr, (void const   *)SourcePtr, __len);
   }

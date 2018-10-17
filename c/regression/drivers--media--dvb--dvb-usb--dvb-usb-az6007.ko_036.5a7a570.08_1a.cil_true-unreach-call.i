@@ -5762,7 +5762,7 @@ struct az6007_device_state {
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
@@ -6496,7 +6496,7 @@ static int az6007_read_mac_addr(struct dvb_usb_device *d , u8 *mac )
   ret = az6007_read(d, 183, 6, 0, (u8 *)(& st->data), 6);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mac, (void const   *)(& st->data), __len);
+    __ret = memcpy((void *)mac, (void const   *)(& st->data), __len);
   } else {
     __ret = __builtin_memcpy((void *)mac, (void const   *)(& st->data), __len);
   }

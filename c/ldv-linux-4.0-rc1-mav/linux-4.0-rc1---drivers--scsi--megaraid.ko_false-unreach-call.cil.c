@@ -5620,8 +5620,8 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void __bad_percpu_size(void) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -6817,8 +6817,8 @@ static int mega_query_adapter(adapter_t *adapter )
   {
   {
   mbox = (mbox_t *)(& raw_mbox);
-  __memset((void *)adapter->mega_buffer, 0, 2048UL);
-  __memset((void *)(& mbox->m_out), 0, 15UL);
+  memset((void *)adapter->mega_buffer, 0, 2048UL);
+  memset((void *)(& mbox->m_out), 0, 15UL);
   mbox->m_out.xferaddr = (unsigned int )adapter->buf_dma_handle;
   inquiry3 = (mega_inquiry3 *)adapter->mega_buffer;
   raw_mbox[0] = 161U;
@@ -6890,10 +6890,10 @@ static int mega_query_adapter(adapter_t *adapter )
     }
   } else {
     {
-    __memcpy((void *)(& adapter->fw_version), (void const   *)(& adapter->product_info.fw_version),
+    memcpy((void *)(& adapter->fw_version), (void const   *)(& adapter->product_info.fw_version),
              4UL);
     adapter->fw_version[4] = 0U;
-    __memcpy((void *)(& adapter->bios_version), (void const   *)(& adapter->product_info.bios_version),
+    memcpy((void *)(& adapter->bios_version), (void const   *)(& adapter->product_info.bios_version),
              4UL);
     adapter->bios_version[4] = 0U;
     }
@@ -7255,7 +7255,7 @@ static scb_t *mega_build_cmd(adapter_t *adapter , Scsi_Cmnd *cmd , int *busy )
     tmp = sg_page(sg);
     tmp___0 = kmap_atomic(tmp);
     buf = (char *)tmp___0 + (unsigned long )sg->offset;
-    __memset((void *)buf, 0, (size_t )*(cmd->cmnd + 4UL));
+    memset((void *)buf, 0, (size_t )*(cmd->cmnd + 4UL));
     __cond = 0;
     }
     if ((int )__cond) {
@@ -7294,15 +7294,15 @@ static scb_t *mega_build_cmd(adapter_t *adapter , Scsi_Cmnd *cmd , int *busy )
     {
     pthru = scb->pthru;
     mbox = (mbox_t *)(& scb->raw_mbox);
-    __memset((void *)mbox, 0, 66UL);
-    __memset((void *)pthru, 0, 60UL);
+    memset((void *)mbox, 0, 66UL);
+    memset((void *)pthru, 0, 60UL);
     pthru->timeout = 0U;
     pthru->ars = 1U;
     pthru->reqsenselen = 14U;
     pthru->islogical = 1U;
     pthru->logdrv = (u8 )ldrv_num;
     pthru->cdblen = (u8 )cmd->cmd_len;
-    __memcpy((void *)(& pthru->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
+    memcpy((void *)(& pthru->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
     }
     if (adapter->has_64bit_addr != 0) {
       mbox->m_out.cmd = 195U;
@@ -7333,7 +7333,7 @@ static scb_t *mega_build_cmd(adapter_t *adapter , Scsi_Cmnd *cmd , int *busy )
     }
     {
     mbox = (mbox_t *)(& scb->raw_mbox);
-    __memset((void *)mbox, 0, 66UL);
+    memset((void *)mbox, 0, 66UL);
     mbox->m_out.logdrv = (u8 )ldrv_num;
     }
     if (adapter->has_64bit_addr != 0) {
@@ -7415,7 +7415,7 @@ static scb_t *mega_build_cmd(adapter_t *adapter , Scsi_Cmnd *cmd , int *busy )
     }
     {
     mbox = (mbox_t *)(& scb->raw_mbox);
-    __memset((void *)mbox, 0, 66UL);
+    memset((void *)mbox, 0, 66UL);
     }
     if (adapter->support_ext_cdb != 0) {
       {
@@ -7448,7 +7448,7 @@ static mega_passthru *mega_prepare_passthru(adapter_t *adapter , scb_t *scb , Sc
   {
   {
   pthru = scb->pthru;
-  __memset((void *)pthru, 0, 60UL);
+  memset((void *)pthru, 0, 60UL);
   pthru->timeout = 2U;
   pthru->ars = 1U;
   pthru->reqsenselen = 14U;
@@ -7457,7 +7457,7 @@ static mega_passthru *mega_prepare_passthru(adapter_t *adapter , scb_t *scb , Sc
   pthru->target = ((long )adapter->flag & 134217728L) != 0L ? (u8 )((int )((signed char )(channel << 4)) | (int )((signed char )target)) : (u8 )target;
   pthru->cdblen = (u8 )cmd->cmd_len;
   pthru->logdrv = (u8 )(cmd->device)->lun;
-  __memcpy((void *)(& pthru->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
+  memcpy((void *)(& pthru->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
   scb->dma_direction = 0U;
   }
   {
@@ -7506,7 +7506,7 @@ static mega_ext_passthru *mega_prepare_extpassthru(adapter_t *adapter , scb_t *s
   {
   {
   epthru = scb->epthru;
-  __memset((void *)epthru, 0, 68UL);
+  memset((void *)epthru, 0, 68UL);
   epthru->timeout = 2U;
   epthru->ars = 1U;
   epthru->reqsenselen = 14U;
@@ -7515,7 +7515,7 @@ static mega_ext_passthru *mega_prepare_extpassthru(adapter_t *adapter , scb_t *s
   epthru->target = ((long )adapter->flag & 134217728L) != 0L ? (u8 )((int )((signed char )(channel << 4)) | (int )((signed char )target)) : (u8 )target;
   epthru->cdblen = (u8 )cmd->cmd_len;
   epthru->logdrv = (u8 )(cmd->device)->lun;
-  __memcpy((void *)(& epthru->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
+  memcpy((void *)(& epthru->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
   scb->dma_direction = 0U;
   }
   {
@@ -7629,7 +7629,7 @@ static int issue_scb(adapter_t *adapter , scb_t *scb )
 
   }
   {
-  __memcpy((void *)(& mbox->m_out), (void const   *)(& scb->raw_mbox), 15UL);
+  memcpy((void *)(& mbox->m_out), (void const   *)(& scb->raw_mbox), 15UL);
   mbox->m_out.cmdid = (u8 volatile   )scb->idx;
   mbox->m_in.busy = 1U;
   atomic_inc(& adapter->pend_cmds);
@@ -7726,7 +7726,7 @@ static int issue_scb_block(adapter_t *adapter , u_char *raw_mbox )
 
   }
   {
-  __memcpy((void *)mbox, (void const   *)raw_mbox, 15UL);
+  memcpy((void *)mbox, (void const   *)raw_mbox, 15UL);
   mbox->m_out.cmdid = 254U;
   mbox->m_in.busy = 1U;
   }
@@ -7899,7 +7899,7 @@ static irqreturn_t megaraid_isr_iomapped(int irq , void *devp )
   (adapter->mbox)->m_in.numstatus = 255U;
   status = (adapter->mbox)->m_in.status;
   atomic_sub((int )nstatus, & adapter->pend_cmds);
-  __memcpy((void *)(& completed), (void const   *)(& (adapter->mbox)->m_in.completed),
+  memcpy((void *)(& completed), (void const   *)(& (adapter->mbox)->m_in.completed),
            (size_t )nstatus);
   outb_p(8, (int )adapter->base);
   mega_cmd_done(adapter, (u8 *)(& completed), (int )nstatus, (int )status);
@@ -7969,7 +7969,7 @@ static irqreturn_t megaraid_isr_memmapped(int irq , void *devp )
   (adapter->mbox)->m_in.numstatus = 255U;
   status = (adapter->mbox)->m_in.status;
   atomic_sub((int )nstatus, & adapter->pend_cmds);
-  __memcpy((void *)(& completed), (void const   *)(& (adapter->mbox)->m_in.completed),
+  memcpy((void *)(& completed), (void const   *)(& (adapter->mbox)->m_in.completed),
            (size_t )nstatus);
   writel(2U, (void volatile   *)adapter->mmio_base + 32U);
   handled = 1;
@@ -8127,13 +8127,13 @@ static void mega_cmd_done(adapter_t *adapter , u8 *completed , int nstatus , int
   case_2: /* CIL Label */ ;
   if ((unsigned int )mbox->m_out.cmd == 3U || (unsigned int )mbox->m_out.cmd == 195U) {
     {
-    __memcpy((void *)cmd->sense_buffer, (void const   *)(& pthru->reqsensearea), 14UL);
+    memcpy((void *)cmd->sense_buffer, (void const   *)(& pthru->reqsensearea), 14UL);
     cmd->result = 134217730;
     }
   } else
   if ((unsigned int )mbox->m_out.cmd == 227U) {
     {
-    __memcpy((void *)cmd->sense_buffer, (void const   *)(& epthru->reqsensearea),
+    memcpy((void *)cmd->sense_buffer, (void const   *)(& epthru->reqsensearea),
              14UL);
     cmd->result = 134217730;
     }
@@ -8582,7 +8582,7 @@ __inline static int make_local_pdev(adapter_t *adapter , struct pci_dev **pdev )
 
   }
   {
-  __memcpy((void *)*pdev, (void const   *)adapter->dev, 2968UL);
+  memcpy((void *)*pdev, (void const   *)adapter->dev, 2968UL);
   tmp = pci_set_dma_mask(*pdev, 4294967295ULL);
   }
   if (tmp != 0) {
@@ -9083,7 +9083,7 @@ static int proc_show_pdrv(struct seq_file *m , adapter_t *adapter , int channel 
   }
   ldv_39135: 
   {
-  __memset((void *)scsi_inq, 0, 256UL);
+  memset((void *)scsi_inq, 0, 256UL);
   tmp___3 = mega_internal_dev_inquiry(adapter, (int )((u8 )channel), (int )((u8 )tgt),
                                       scsi_inq_dma_handle);
   }
@@ -9216,7 +9216,7 @@ static int proc_show_rdrv(struct seq_file *m , adapter_t *adapter , int start , 
 
   }
   {
-  __memset((void *)(& mc), 0, 18UL);
+  memset((void *)(& mc), 0, 18UL);
   }
   if (((long )adapter->flag & 134217728L) != 0L) {
     array_sz = 23964U;
@@ -9819,7 +9819,7 @@ static int megadev_ioctl(struct file *filep , unsigned int cmd , unsigned long a
 
   }
   {
-  __memset((void *)(& uioc), 0, 48UL);
+  memset((void *)(& uioc), 0, 48UL);
   rval = mega_m_to_n((void *)arg, & uioc);
   }
   if (rval != 0) {
@@ -9996,7 +9996,7 @@ static int megadev_ioctl(struct file *filep , unsigned int cmd , unsigned long a
     }
     if (rval == 0) {
       {
-      __memset((void *)(& mc), 0, 18UL);
+      memset((void *)(& mc), 0, 18UL);
       mc.status = (u8 )rval;
       rval = mega_n_to_m((void *)arg, & mc);
       }
@@ -10082,7 +10082,7 @@ static int megadev_ioctl(struct file *filep , unsigned int cmd , unsigned long a
 
     }
     {
-    __memset((void *)(& mc), 0, 18UL);
+    memset((void *)(& mc), 0, 18UL);
     mc.cmd = 3U;
     mc.xferaddr = (unsigned int )pthru_dma_hndl;
     mega_internal_command(adapter, & mc, pthru);
@@ -10163,7 +10163,7 @@ static int megadev_ioctl(struct file *filep , unsigned int cmd , unsigned long a
 
     }
     {
-    __memcpy((void *)(& mc), (void const   *)(& uioc.__ua.__raw_mbox), 18UL);
+    memcpy((void *)(& mc), (void const   *)(& uioc.__ua.__raw_mbox), 18UL);
     mc.xferaddr = (unsigned int )data_dma_hndl;
     mega_internal_command(adapter, & mc, (mega_passthru *)0);
     rval = mega_n_to_m((void *)arg, & mc);
@@ -10340,7 +10340,7 @@ static int mega_m_to_n(void *arg , nitioctl_t *uioc )
   {
   uioc->opcode = 0U;
   uioc->adapno = (u32 )uioc_mimd.ui.fcs.adapno;
-  __memcpy((void *)(& uioc->__ua.__raw_mbox), (void const   *)(& uioc_mimd.mbox),
+  memcpy((void *)(& uioc->__ua.__raw_mbox), (void const   *)(& uioc_mimd.mbox),
            18UL);
   uioc->xferlen = uioc_mimd.ui.fcs.length;
   }
@@ -10359,7 +10359,7 @@ static int mega_m_to_n(void *arg , nitioctl_t *uioc )
   {
   uioc->opcode = 0U;
   uioc->adapno = (u32 )uioc_mimd.ui.fcs.adapno;
-  __memcpy((void *)(& uioc->__ua.__raw_mbox), (void const   *)(& uioc_mimd.mbox),
+  memcpy((void *)(& uioc->__ua.__raw_mbox), (void const   *)(& uioc_mimd.mbox),
            18UL);
   uioc->xferlen = uioc_mimd.outlen > uioc_mimd.inlen ? uioc_mimd.outlen : uioc_mimd.inlen;
   }
@@ -10692,8 +10692,8 @@ static int mega_is_bios_enabled(adapter_t *adapter )
   {
   {
   mbox = (mbox_t *)(& raw_mbox);
-  __memset((void *)(& mbox->m_out), 0, 15UL);
-  __memset((void *)adapter->mega_buffer, 0, 2048UL);
+  memset((void *)(& mbox->m_out), 0, 15UL);
+  memset((void *)adapter->mega_buffer, 0, 2048UL);
   mbox->m_out.xferaddr = (unsigned int )adapter->buf_dma_handle;
   raw_mbox[0] = 98U;
   raw_mbox[2] = 1U;
@@ -10712,10 +10712,10 @@ static void mega_enum_raid_scsi(adapter_t *adapter )
   {
   {
   mbox = (mbox_t *)(& raw_mbox);
-  __memset((void *)(& mbox->m_out), 0, 15UL);
+  memset((void *)(& mbox->m_out), 0, 15UL);
   raw_mbox[0] = 169U;
   raw_mbox[2] = 0U;
-  __memset((void *)adapter->mega_buffer, 0, 2048UL);
+  memset((void *)adapter->mega_buffer, 0, 2048UL);
   mbox->m_out.xferaddr = (unsigned int )adapter->buf_dma_handle;
   adapter->mega_ch_class = 255;
   tmp = issue_scb_block(adapter, (u_char *)(& raw_mbox));
@@ -10764,10 +10764,10 @@ static void mega_get_boot_drv(adapter_t *adapter )
   {
   cksum = 0U;
   mbox = (mbox_t *)(& raw_mbox);
-  __memset((void *)(& mbox->m_out), 0, 15UL);
+  memset((void *)(& mbox->m_out), 0, 15UL);
   raw_mbox[0] = 64U;
   raw_mbox[2] = 0U;
-  __memset((void *)adapter->mega_buffer, 0, 2048UL);
+  memset((void *)adapter->mega_buffer, 0, 2048UL);
   mbox->m_out.xferaddr = (unsigned int )adapter->buf_dma_handle;
   adapter->boot_ldrv_enabled = 0;
   adapter->boot_ldrv = 0;
@@ -10822,7 +10822,7 @@ static int mega_support_random_del(adapter_t *adapter )
   {
   {
   mbox = (mbox_t *)(& raw_mbox);
-  __memset((void *)(& mbox->m_out), 0, 15UL);
+  memset((void *)(& mbox->m_out), 0, 15UL);
   raw_mbox[0] = 164U;
   raw_mbox[2] = 42U;
   rval = issue_scb_block(adapter, (u_char *)(& raw_mbox));
@@ -10839,7 +10839,7 @@ static int mega_support_ext_cdb(adapter_t *adapter )
   {
   {
   mbox = (mbox_t *)(& raw_mbox);
-  __memset((void *)(& mbox->m_out), 0, 15UL);
+  memset((void *)(& mbox->m_out), 0, 15UL);
   raw_mbox[0] = 164U;
   raw_mbox[2] = 22U;
   rval = issue_scb_block(adapter, (u_char *)(& raw_mbox));
@@ -10924,7 +10924,7 @@ static int mega_do_del_logdrv(adapter_t *adapter , int logdrv )
 
   {
   {
-  __memset((void *)(& mc), 0, 18UL);
+  memset((void *)(& mc), 0, 18UL);
   mc.cmd = 164U;
   mc.opcode = 28U;
   mc.subopcode = (u8 )logdrv;
@@ -10951,8 +10951,8 @@ static void mega_get_max_sgl(adapter_t *adapter )
   {
   {
   mbox = (mbox_t *)(& raw_mbox);
-  __memset((void *)mbox, 0, 15UL);
-  __memset((void *)adapter->mega_buffer, 0, 2048UL);
+  memset((void *)mbox, 0, 15UL);
+  memset((void *)adapter->mega_buffer, 0, 2048UL);
   mbox->m_out.xferaddr = (unsigned int )adapter->buf_dma_handle;
   raw_mbox[0] = 164U;
   raw_mbox[2] = 1U;
@@ -10980,8 +10980,8 @@ static int mega_support_cluster(adapter_t *adapter )
   {
   {
   mbox = (mbox_t *)(& raw_mbox);
-  __memset((void *)mbox, 0, 15UL);
-  __memset((void *)adapter->mega_buffer, 0, 2048UL);
+  memset((void *)mbox, 0, 15UL);
+  memset((void *)adapter->mega_buffer, 0, 2048UL);
   mbox->m_out.xferaddr = (unsigned int )adapter->buf_dma_handle;
   raw_mbox[0] = 125U;
   tmp = issue_scb_block(adapter, (u_char *)(& raw_mbox));
@@ -11003,7 +11003,7 @@ static int mega_adapinq(adapter_t *adapter , dma_addr_t dma_handle )
 
   {
   {
-  __memset((void *)(& mc), 0, 18UL);
+  memset((void *)(& mc), 0, 18UL);
   }
   if (((long )adapter->flag & 134217728L) != 0L) {
     mc.cmd = 161U;
@@ -11071,7 +11071,7 @@ static int mega_internal_dev_inquiry(adapter_t *adapter , u8 ch , u8 tgt , dma_a
   pthru->cdb[5] = 0U;
   pthru->dataxferaddr = (unsigned int )buf_dma_handle;
   pthru->dataxferlen = 256U;
-  __memset((void *)(& mc), 0, 18UL);
+  memset((void *)(& mc), 0, 18UL);
   mc.cmd = 3U;
   mc.xferaddr = (unsigned int )pthru_dma_handle;
   rval = mega_internal_command(adapter, & mc, pthru);
@@ -11092,10 +11092,10 @@ static int mega_internal_command(adapter_t *adapter , megacmd_t *mc , mega_passt
   {
   ldv_mutex_lock_110(& adapter->int_mtx);
   scb = & adapter->int_scb;
-  __memset((void *)scb, 0, 184UL);
+  memset((void *)scb, 0, 184UL);
   scb->idx = 127;
   scb->state = scb->state | 3U;
-  __memcpy((void *)(& scb->raw_mbox), (void const   *)mc, 18UL);
+  memcpy((void *)(& scb->raw_mbox), (void const   *)mc, 18UL);
   }
   if ((unsigned int )mc->cmd == 3U) {
     scb->pthru = pthru;
@@ -11280,7 +11280,7 @@ static int megaraid_probe_one(struct pci_dev *pdev , struct pci_device_id  const
   }
   {
   adapter = (adapter_t *)(& host->hostdata);
-  __memset((void *)adapter, 0, 1912UL);
+  memset((void *)adapter, 0, 1912UL);
   printk("\rscsi%d:Found MegaRAID controller at 0x%lx, IRQ:%d\n", host->host_no, mega_baseport,
          irq);
   adapter->base = mega_baseport;
@@ -11608,11 +11608,11 @@ static void __megaraid_shutdown(adapter_t *adapter )
   {
   {
   mbox = (mbox_t *)(& raw_mbox);
-  __memset((void *)(& mbox->m_out), 0, 15UL);
+  memset((void *)(& mbox->m_out), 0, 15UL);
   raw_mbox[0] = 10U;
   ldv_free_irq_121((adapter->host)->irq, (void *)adapter);
   issue_scb_block(adapter, (u_char *)(& raw_mbox));
-  __memset((void *)(& mbox->m_out), 0, 15UL);
+  memset((void *)(& mbox->m_out), 0, 15UL);
   raw_mbox[0] = 254U;
   issue_scb_block(adapter, (u_char *)(& raw_mbox));
   tmp = atomic_read((atomic_t const   *)(& adapter->pend_cmds));

@@ -7144,7 +7144,7 @@ __inline static int __get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
@@ -9196,7 +9196,7 @@ __inline static void be_vf_eth_addr_generate(struct be_adapter *adapter , u8 *ma
   *(mac + 3UL) = (unsigned char )(addr >> 16);
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mac, (void const   *)(adapter->netdev)->dev_addr, __len);
+    __ret = memcpy((void *)mac, (void const   *)(adapter->netdev)->dev_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)mac, (void const   *)(adapter->netdev)->dev_addr,
                              __len);
@@ -10873,7 +10873,7 @@ static int be_set_vf_mac(struct net_device *netdev , int vf , u8 *mac )
   } else {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& vf_cfg->mac_addr), (void const   *)mac, __len);
+      __ret = memcpy((void *)(& vf_cfg->mac_addr), (void const   *)mac, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& vf_cfg->mac_addr), (void const   *)mac,
                                __len);
@@ -10910,7 +10910,7 @@ static int be_get_vf_config(struct net_device *netdev , int vf , struct ifla_vf_
   vi->qos = 0U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vi->mac), (void const   *)(& vf_cfg->mac_addr), __len);
+    __ret = memcpy((void *)(& vi->mac), (void const   *)(& vf_cfg->mac_addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vi->mac), (void const   *)(& vf_cfg->mac_addr),
                              __len);
@@ -13561,7 +13561,7 @@ static int be_vf_eth_addr_config(struct be_adapter *adapter )
   } else {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& vf_cfg->mac_addr), (void const   *)(& mac), __len);
+      __ret = memcpy((void *)(& vf_cfg->mac_addr), (void const   *)(& mac), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& vf_cfg->mac_addr), (void const   *)(& mac),
                                __len);
@@ -13606,7 +13606,7 @@ static int be_vfs_mac_query(struct be_adapter *adapter )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vf_cfg->mac_addr), (void const   *)(& mac), __len);
+    __ret = memcpy((void *)(& vf_cfg->mac_addr), (void const   *)(& mac), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vf_cfg->mac_addr), (void const   *)(& mac),
                              __len);
@@ -13952,7 +13952,7 @@ static int be_get_mac_addr(struct be_adapter *adapter , u8 *mac , u32 if_handle 
   if (tmp___0) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)mac, (void const   *)(adapter->netdev)->dev_addr, __len);
+      __ret = memcpy((void *)mac, (void const   *)(adapter->netdev)->dev_addr, __len);
     } else {
       __ret = __builtin_memcpy((void *)mac, (void const   *)(adapter->netdev)->dev_addr,
                                __len);
@@ -14228,7 +14228,7 @@ static int be_setup(struct be_adapter *adapter )
   if ((int )tmp___0) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(adapter->netdev)->dev_addr, (void const   *)(& mac),
+      __ret = memcpy((void *)(adapter->netdev)->dev_addr, (void const   *)(& mac),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(adapter->netdev)->dev_addr, (void const   *)(& mac),
@@ -14236,7 +14236,7 @@ static int be_setup(struct be_adapter *adapter )
     }
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& (adapter->netdev)->perm_addr), (void const   *)(& mac),
+      __ret___0 = memcpy((void *)(& (adapter->netdev)->perm_addr), (void const   *)(& mac),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& (adapter->netdev)->perm_addr), (void const   *)(& mac),
@@ -17710,7 +17710,7 @@ int be_cmd_mac_addr_query(struct be_adapter *adapter , u8 *mac_addr , bool perma
     resp = (struct be_cmd_resp_mac_query *)tmp___0;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)mac_addr, (void const   *)(& resp->mac.addr), __len);
+      __ret = memcpy((void *)mac_addr, (void const   *)(& resp->mac.addr), __len);
     } else {
       __ret = __builtin_memcpy((void *)mac_addr, (void const   *)(& resp->mac.addr),
                                __len);
@@ -17751,7 +17751,7 @@ int be_cmd_pmac_add(struct be_adapter *adapter , u8 *mac_addr , u32 if_id , u32 
   req->if_id = if_id;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& req->mac_address), (void const   *)mac_addr, __len);
+    __ret = memcpy((void *)(& req->mac_address), (void const   *)mac_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& req->mac_address), (void const   *)mac_addr,
                              __len);
@@ -18791,7 +18791,7 @@ int be_cmd_rx_filter(struct be_adapter *adapter , u32 flags , u32 value )
     if (__len > 63UL) {
       tmp___1 = i;
       i = i + 1;
-      __ret = __memcpy((void *)(& req->mcast_mac[tmp___1].byte), (void const   *)(& ha->addr),
+      __ret = memcpy((void *)(& req->mcast_mac[tmp___1].byte), (void const   *)(& ha->addr),
                        __len);
     } else {
       tmp___2 = i;
@@ -19030,7 +19030,7 @@ int be_cmd_rss_config(struct be_adapter *adapter , u8 *rsstable , u32 rss_hash_o
   __ret = __builtin_memcpy((void *)(& req->cpu_table), (void const   *)rsstable, __len);
   __len___0 = 40UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& req->hash), (void const   *)(& myhash), __len___0);
+    __ret___0 = memcpy((void *)(& req->hash), (void const   *)(& myhash), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& req->hash), (void const   *)(& myhash),
                                  __len___0);
@@ -19289,7 +19289,7 @@ int be_cmd_get_flash_crc(struct be_adapter *adapter , u8 *flashed_crc , int offs
   if (status == 0) {
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)flashed_crc, (void const   *)(& req->crc), __len);
+      __ret = memcpy((void *)flashed_crc, (void const   *)(& req->crc), __len);
     } else {
       __ret = __builtin_memcpy((void *)flashed_crc, (void const   *)(& req->crc),
                                __len);
@@ -19323,7 +19323,7 @@ int be_cmd_enable_magic_wol(struct be_adapter *adapter , u8 *mac , struct be_dma
   be_wrb_cmd_hdr_prepare(& req->hdr, 3, 12, 604, wrb, nonemb_cmd);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& req->magic_mac), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& req->magic_mac), (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& req->magic_mac), (void const   *)mac, __len);
   }
@@ -19783,7 +19783,7 @@ int be_cmd_get_mac_from_list(struct be_adapter *adapter , u8 *mac , bool *pmac_i
     *pmac_id_active = 0;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)mac, (void const   *)(& resp->macaddr_list[0].mac_addr_id.macaddr),
+      __ret = memcpy((void *)mac, (void const   *)(& resp->macaddr_list[0].mac_addr_id.macaddr),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)mac, (void const   *)(& resp->macaddr_list[0].mac_addr_id.macaddr),
@@ -20063,7 +20063,7 @@ int be_cmd_set_ext_fat_capabilites(struct be_adapter *adapter , struct be_dma_me
   req = (struct be_cmd_req_set_ext_fat_caps *)cmd->va;
   __len = 2828UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& req->set_params), (void const   *)configs, __len);
+    __ret = memcpy((void *)(& req->set_params), (void const   *)configs, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& req->set_params), (void const   *)configs,
                              __len);
@@ -21553,7 +21553,7 @@ static void be_get_stat_strings(struct net_device *netdev , uint32_t stringset ,
   ldv_50524: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& et_stats[i].desc), __len);
+    __ret = memcpy((void *)data, (void const   *)(& et_stats[i].desc), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& et_stats[i].desc), __len);
   }
@@ -21617,7 +21617,7 @@ static void be_get_stat_strings(struct net_device *netdev , uint32_t stringset ,
   ldv_50550: 
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)data, (void const   *)(& et_self_tests) + (unsigned long )i,
+    __ret___0 = memcpy((void *)data, (void const   *)(& et_self_tests) + (unsigned long )i,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)data, (void const   *)(& et_self_tests) + (unsigned long )i,
@@ -22888,7 +22888,7 @@ static void _be_roce_dev_add(struct be_adapter *adapter )
   dev_info.netdev = adapter->netdev;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dev_info.mac_addr), (void const   *)(adapter->netdev)->dev_addr,
+    __ret = memcpy((void *)(& dev_info.mac_addr), (void const   *)(adapter->netdev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dev_info.mac_addr), (void const   *)(adapter->netdev)->dev_addr,

@@ -8825,7 +8825,7 @@ __inline static void __clear_bit(long nr , unsigned long volatile   *addr )
 extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                               , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern unsigned int ioread32(void * ) ;
@@ -8836,7 +8836,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   {
-  __memcpy((void *)dst, src, count);
+  memcpy((void *)dst, src, count);
   }
   return;
 }
@@ -14093,7 +14093,7 @@ static void ldv_mutex_lock_107(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_109___0(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_113(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_118(struct mutex *ldv_func_arg1 ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 __inline static void bitmap_zero(unsigned long *dst , unsigned int nbits ) 
 { 
   unsigned int len ;
@@ -14101,7 +14101,7 @@ __inline static void bitmap_zero(unsigned long *dst , unsigned int nbits )
   {
   {
   len = (unsigned int )(((unsigned long )nbits + 63UL) / 64UL) * 8U;
-  __memset((void *)dst, 0, (size_t )len);
+  memset((void *)dst, 0, (size_t )len);
   }
   return;
 }
@@ -15090,7 +15090,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   {
-  __memcpy(dst, (void const   *)src, count);
+  memcpy(dst, (void const   *)src, count);
   }
   return;
 }
@@ -19889,7 +19889,7 @@ static int mic_copy_dp_entry(struct mic_vdev *mvdev , void *argp , __u8 *type , 
   *type = (__u8 )dd_config->type;
   dd_config->type = 0;
   tmp___13 = mic_desc_size((struct mic_device_desc  const  *)dd_config);
-  __memcpy((void *)devp, (void const   *)dd_config, (size_t )tmp___13);
+  memcpy((void *)devp, (void const   *)dd_config, (size_t )tmp___13);
   *devpage = devp;
   }
   exit: 

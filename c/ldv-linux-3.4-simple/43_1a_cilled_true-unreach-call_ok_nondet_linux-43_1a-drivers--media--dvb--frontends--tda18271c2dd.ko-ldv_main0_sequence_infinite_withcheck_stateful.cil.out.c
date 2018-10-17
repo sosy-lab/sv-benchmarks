@@ -3231,7 +3231,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -7613,7 +7613,7 @@ static int FixedContentsI2CUpdate(struct tda_state *state )
     __cil_tmp85 = (void *)__cil_tmp84;
     __cil_tmp86 = __cil_tmp85 + 1U;
     __cil_tmp87 = (void const   *)(& InitRegs);
-    __ret = __memcpy(__cil_tmp86, __cil_tmp87, __len);
+    __ret = memcpy(__cil_tmp86, __cil_tmp87, __len);
     }
   } else {
     {
@@ -9611,7 +9611,7 @@ struct dvb_frontend *tda18271c2dd_attach(struct dvb_frontend *fe , struct i2c_ad
     __cil_tmp18 = (struct dvb_tuner_ops *)__cil_tmp17;
     __cil_tmp19 = (void *)__cil_tmp18;
     __cil_tmp20 = (void const   *)(& tuner_ops);
-    __ret = __memcpy(__cil_tmp19, __cil_tmp20, __len);
+    __ret = memcpy(__cil_tmp19, __cil_tmp20, __len);
     }
   } else {
     {

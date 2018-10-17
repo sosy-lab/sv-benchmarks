@@ -9390,7 +9390,7 @@ __inline static void __swab16s(__u16 *p )
 }
 extern int sprintf(char * , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 int ldv_mutex_trylock_98(struct mutex *ldv_func_arg1 ) ;
@@ -11030,7 +11030,7 @@ static int vidioc_queryctrl(struct file *file , void *priv , struct v4l2_queryct
   if (qc->id != 0U && qc->id == tm6000_qctrl[i].id) {
     __len = 68UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)qc, (void const   *)(& tm6000_qctrl) + (unsigned long )i,
+      __ret = memcpy((void *)qc, (void const   *)(& tm6000_qctrl) + (unsigned long )i,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)qc, (void const   *)(& tm6000_qctrl) + (unsigned long )i,

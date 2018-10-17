@@ -3196,7 +3196,7 @@ struct tda826x_priv {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -3996,7 +3996,7 @@ struct dvb_frontend *tda826x_attach(struct dvb_frontend *fe , int addr , struct 
     __cil_tmp78 = (struct dvb_tuner_ops *)__cil_tmp77;
     __cil_tmp79 = (void *)__cil_tmp78;
     __cil_tmp80 = (void const   *)(& tda826x_tuner_ops);
-    __ret = __memcpy(__cil_tmp79, __cil_tmp80, __len);
+    __ret = memcpy(__cil_tmp79, __cil_tmp80, __len);
     }
   } else {
     {

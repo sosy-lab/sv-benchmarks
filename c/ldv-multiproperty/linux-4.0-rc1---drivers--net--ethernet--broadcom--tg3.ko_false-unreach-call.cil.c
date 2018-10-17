@@ -7858,8 +7858,8 @@ __inline static struct task_struct *get_current(void)
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -11958,7 +11958,7 @@ static int tg3_ape_scratchpad_read(struct tg3 *tp , u32 *data , u32 base_off , u
   {
   tmp___2 = tg3_ape_read32(tp, msgoff + i);
   val = tmp___2;
-  __memcpy((void *)data, (void const   *)(& val), 4UL);
+  memcpy((void *)data, (void const   *)(& val), 4UL);
   data = data + 1;
   i = i + 4U;
   length = length - 4U;
@@ -16166,7 +16166,7 @@ static int tg3_nvram_write_block_using_eeprom(struct tg3 *tp , u32 offset , u32 
   ldv_57405: 
   {
   addr = offset + (u32 )i;
-  __memcpy((void *)(& data), (void const   *)buf + (unsigned long )i, 4UL);
+  memcpy((void *)(& data), (void const   *)buf + (unsigned long )i, 4UL);
   tmp___4 = __fswab32(data);
   tmp___5 = __fswab32(tmp___4);
   (*(tp->write32))(tp, 26684U, tmp___5);
@@ -16282,7 +16282,7 @@ static int tg3_nvram_write_block_unbuffered(struct tg3 *tp , u32 offset , u32 le
   }
   {
   len = len - size;
-  __memcpy((void *)tmp + (unsigned long )page_off, (void const   *)buf, (size_t )size);
+  memcpy((void *)tmp + (unsigned long )page_off, (void const   *)buf, (size_t )size);
   offset = offset + (pagesize - page_off);
   tg3_enable_nvram_access(tp);
   nvram_cmd = 65560U;
@@ -16388,7 +16388,7 @@ static int tg3_nvram_write_block_buffered(struct tg3 *tp , u32 offset , u32 len 
   goto ldv_57447;
   ldv_57446: 
   {
-  __memcpy((void *)(& data), (void const   *)buf + (unsigned long )i, 4UL);
+  memcpy((void *)(& data), (void const   *)buf + (unsigned long )i, 4UL);
   tmp = __fswab32(data);
   (*(tp->write32))(tp, 28680U, tmp);
   page_off = offset % tp->nvram_pagesize;
@@ -19360,7 +19360,7 @@ static int fiber_autoneg(struct tg3 *tp , u32 *txflags , u32 *rxflags )
   __const_udelay(171800UL);
   _tw32_flush(tp, 1024U, tp->mac_mode | 131072U, 0U);
   __const_udelay(171800UL);
-  __memset((void *)(& aninfo), 0, 48UL);
+  memset((void *)(& aninfo), 0, 48UL);
   aninfo.flags = aninfo.flags | 1U;
   aninfo.state = 0;
   aninfo.cur_time = 0UL;
@@ -20588,7 +20588,7 @@ static void tg3_hwclock_to_timestamp(struct tg3 *tp , u64 hwclock , struct skb_s
 
   {
   {
-  __memset((void *)timestamp, 0, 8UL);
+  memset((void *)timestamp, 0, 8UL);
   timestamp->hwtstamp = ns_to_ktime((hwclock & 9223372036854775807ULL) + (unsigned long long )tp->ptp_adjust);
   }
   return;
@@ -21644,7 +21644,7 @@ static int tg3_rx(struct tg3_napi *tnapi , int budget )
     pci_dma_sync_single_for_cpu(tp->pdev, dma_addr, (size_t )len, 2);
     _max1___1 = 32;
     _max2___1 = 64;
-    __memcpy((void *)skb->data, (void const   *)data + (unsigned long )(_max1___1 > _max2___1 ? _max1___1 : _max2___1),
+    memcpy((void *)skb->data, (void const   *)data + (unsigned long )(_max1___1 > _max2___1 ? _max1___1 : _max2___1),
              (size_t )len);
     pci_dma_sync_single_for_device(tp->pdev, dma_addr, (size_t )len, 2);
     }
@@ -21874,7 +21874,7 @@ static int tg3_rx_prodring_xfer(struct tg3 *tp , struct tg3_rx_prodring_set *dpr
   }
   {
   __asm__  volatile   ("": : : "memory");
-  __memcpy((void *)dpr->rx_std_buffers + (unsigned long )di, (void const   *)spr->rx_std_buffers + (unsigned long )si,
+  memcpy((void *)dpr->rx_std_buffers + (unsigned long )di, (void const   *)spr->rx_std_buffers + (unsigned long )si,
            (unsigned long )cpycnt * 16UL);
   i = 0;
   }
@@ -21940,7 +21940,7 @@ static int tg3_rx_prodring_xfer(struct tg3 *tp , struct tg3_rx_prodring_set *dpr
   }
   {
   __asm__  volatile   ("": : : "memory");
-  __memcpy((void *)dpr->rx_jmb_buffers + (unsigned long )di, (void const   *)spr->rx_jmb_buffers + (unsigned long )si,
+  memcpy((void *)dpr->rx_jmb_buffers + (unsigned long )di, (void const   *)spr->rx_jmb_buffers + (unsigned long )si,
            (unsigned long )cpycnt * 16UL);
   i = 0;
   }
@@ -24086,12 +24086,12 @@ static int tg3_rx_prodring_alloc(struct tg3 *tp , struct tg3_rx_prodring_set *tp
   if ((unsigned long )tpr != (unsigned long )(& tp->napi[0].prodring)) {
     {
     tmp = _tg3_flag(54, (unsigned long *)(& tp->tg3_flags));
-    __memset((void *)tpr->rx_std_buffers, 0, tmp != 0 ? 32768UL : 8192UL);
+    memset((void *)tpr->rx_std_buffers, 0, tmp != 0 ? 32768UL : 8192UL);
     }
     if ((unsigned long )tpr->rx_jmb_buffers != (unsigned long )((struct ring_info *)0)) {
       {
       tmp___0 = _tg3_flag(54, (unsigned long *)(& tp->tg3_flags));
-      __memset((void *)tpr->rx_jmb_buffers, 0, tmp___0 != 0 ? 16384UL : 4096UL);
+      memset((void *)tpr->rx_jmb_buffers, 0, tmp___0 != 0 ? 16384UL : 4096UL);
       }
     } else {
 
@@ -24102,7 +24102,7 @@ static int tg3_rx_prodring_alloc(struct tg3 *tp , struct tg3_rx_prodring_set *tp
   }
   {
   tmp___1 = _tg3_flag(54, (unsigned long *)(& tp->tg3_flags));
-  __memset((void *)tpr->rx_std, 0, tmp___1 != 0 ? 65536UL : 16384UL);
+  memset((void *)tpr->rx_std, 0, tmp___1 != 0 ? 65536UL : 16384UL);
   rx_pkt_dma_sz = 1536U;
   tmp___2 = _tg3_flag(74, (unsigned long *)(& tp->tg3_flags));
   }
@@ -24172,7 +24172,7 @@ static int tg3_rx_prodring_alloc(struct tg3 *tp , struct tg3_rx_prodring_set *tp
   }
   {
   tmp___6 = _tg3_flag(54, (unsigned long *)(& tp->tg3_flags));
-  __memset((void *)tpr->rx_jmb, 0, tmp___6 != 0 ? 65536UL : 16384UL);
+  memset((void *)tpr->rx_jmb, 0, tmp___6 != 0 ? 65536UL : 16384UL);
   tmp___7 = _tg3_flag(25, (unsigned long *)(& tp->tg3_flags));
   }
   if (tmp___7 == 0) {
@@ -24424,13 +24424,13 @@ static int tg3_init_rings(struct tg3 *tp )
   tnapi->last_irq_tag = 0U;
   (tnapi->hw_status)->status = 0U;
   (tnapi->hw_status)->status_tag = 0U;
-  __memset((void *)tnapi->hw_status, 0, 80UL);
+  memset((void *)tnapi->hw_status, 0, 80UL);
   tnapi->tx_prod = 0U;
   tnapi->tx_cons = 0U;
   }
   if ((unsigned long )tnapi->tx_ring != (unsigned long )((struct tg3_tx_buffer_desc *)0)) {
     {
-    __memset((void *)tnapi->tx_ring, 0, 8192UL);
+    memset((void *)tnapi->tx_ring, 0, 8192UL);
     }
   } else {
 
@@ -24438,7 +24438,7 @@ static int tg3_init_rings(struct tg3 *tp )
   tnapi->rx_rcb_ptr = 0U;
   if ((unsigned long )tnapi->rx_rcb != (unsigned long )((struct tg3_rx_buffer_desc *)0)) {
     {
-    __memset((void *)tnapi->rx_rcb, 0, (unsigned long )(tp->rx_ret_ring_mask + 1U) * 32UL);
+    memset((void *)tnapi->rx_rcb, 0, (unsigned long )(tp->rx_ret_ring_mask + 1U) * 32UL);
     }
   } else {
 
@@ -25048,7 +25048,7 @@ static int tg3_abort_hw(struct tg3 *tp , bool silent )
   tnapi = (struct tg3_napi *)(& tp->napi) + (unsigned long )i;
   if ((unsigned long )tnapi->hw_status != (unsigned long )((struct tg3_hw_status *)0)) {
     {
-    __memset((void *)tnapi->hw_status, 0, 80UL);
+    memset((void *)tnapi->hw_status, 0, 80UL);
     }
   } else {
 
@@ -25652,7 +25652,7 @@ static int tg3_halt(struct tg3 *tp , int kind , bool silent )
     {
     tg3_get_nstats(tp, & tp->net_stats_prev);
     tg3_get_estats(tp, & tp->estats_prev);
-    __memset((void *)tp->hw_stats, 0, 2048UL);
+    memset((void *)tp->hw_stats, 0, 2048UL);
     }
   } else {
 
@@ -25697,7 +25697,7 @@ static int tg3_set_mac_addr(struct net_device *dev , void *p )
 
   }
   {
-  __memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), (size_t )dev->addr_len);
+  memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), (size_t )dev->addr_len);
   tmp___2 = netif_running((struct net_device  const  *)dev);
   }
   if (tmp___2) {
@@ -26191,7 +26191,7 @@ static void tg3_rings_reset(struct tg3 *tp )
 
   }
   {
-  __memset((void *)tnapi->hw_status, 0, 80UL);
+  memset((void *)tnapi->hw_status, 0, 80UL);
   (*(tp->write32))(tp, 15416U, (u32 )(tnapi->status_mapping >> 32));
   (*(tp->write32))(tp, 15420U, (u32 )tnapi->status_mapping);
   stblk = 15616U;
@@ -26205,7 +26205,7 @@ static void tg3_rings_reset(struct tg3 *tp )
   (*(tp->write32))(tp, stblk, (u32 )(mapping >> 32));
   (*(tp->write32))(tp, stblk + 4U, (u32 )mapping);
   stblk = stblk + 8U;
-  __memset((void *)tnapi->hw_status, 0, 80UL);
+  memset((void *)tnapi->hw_status, 0, 80UL);
   i = i + 1;
   tnapi = tnapi + 1;
   }
@@ -26550,7 +26550,7 @@ static void tg3_rss_check_indir_tbl(struct tg3 *tp )
   }
   if (tp->rxq_cnt == 1U) {
     {
-    __memset((void *)(& tp->rss_ind_tbl), 0, 128UL);
+    memset((void *)(& tp->rss_ind_tbl), 0, 128UL);
     }
     return;
   } else {
@@ -28168,7 +28168,7 @@ static void tg3_sd_scan_scratchpad(struct tg3 *tp , struct tg3_ocir *ocir )
   }
   if (ocir->signature != 1381188431U || ((int )ocir->version_flags & 1) == 0) {
     {
-    __memset((void *)ocir, 0, 64UL);
+    memset((void *)ocir, 0, 64UL);
     }
   } else {
 
@@ -30168,8 +30168,8 @@ static int tg3_close(struct net_device *dev )
   }
   {
   tg3_stop(tp);
-  __memset((void *)(& tp->net_stats_prev), 0, 184UL);
-  __memset((void *)(& tp->estats_prev), 0, 576UL);
+  memset((void *)(& tp->net_stats_prev), 0, 184UL);
+  memset((void *)(& tp->estats_prev), 0, 576UL);
   tmp___0 = pci_device_is_present(tp->pdev);
   }
   if ((int )tmp___0) {
@@ -30543,7 +30543,7 @@ static void tg3_get_regs(struct net_device *dev , struct ethtool_regs *regs , vo
   tmp = netdev_priv((struct net_device  const  *)dev);
   tp = (struct tg3 *)tmp;
   regs->version = 0U;
-  __memset(_p, 0, 32768UL);
+  memset(_p, 0, 32768UL);
   }
   if ((int )tp->phy_flags & 1) {
     return;
@@ -30647,7 +30647,7 @@ static int tg3_get_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom
 
     }
     {
-    __memcpy((void *)data, (void const   *)(& val) + (unsigned long )b_offset, (size_t )b_count);
+    memcpy((void *)data, (void const   *)(& val) + (unsigned long )b_offset, (size_t )b_count);
     len = len - b_count;
     offset = offset + b_count;
     eeprom->len = eeprom->len + b_count;
@@ -30674,7 +30674,7 @@ static int tg3_get_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom
 
   }
   {
-  __memcpy((void *)pd + (unsigned long )i, (void const   *)(& val), 4UL);
+  memcpy((void *)pd + (unsigned long )i, (void const   *)(& val), 4UL);
   tmp___4 = need_resched();
   }
   if ((int )tmp___4) {
@@ -30717,7 +30717,7 @@ static int tg3_get_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom
 
     }
     {
-    __memcpy((void *)pd, (void const   *)(& val), (size_t )b_count);
+    memcpy((void *)pd, (void const   *)(& val), (size_t )b_count);
     eeprom->len = eeprom->len + b_count;
     }
   } else {
@@ -30815,21 +30815,21 @@ static int tg3_set_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom
     }
     if (b_offset != 0U) {
       {
-      __memcpy((void *)buf, (void const   *)(& start), 4UL);
+      memcpy((void *)buf, (void const   *)(& start), 4UL);
       }
     } else {
 
     }
     if (odd_len != 0U) {
       {
-      __memcpy((void *)(buf + ((unsigned long )len + 0xfffffffffffffffcUL)), (void const   *)(& end),
+      memcpy((void *)(buf + ((unsigned long )len + 0xfffffffffffffffcUL)), (void const   *)(& end),
                4UL);
       }
     } else {
 
     }
     {
-    __memcpy((void *)buf + (unsigned long )b_offset, (void const   *)data, (size_t )eeprom->len);
+    memcpy((void *)buf + (unsigned long )b_offset, (void const   *)data, (size_t )eeprom->len);
     }
   } else {
 
@@ -31118,7 +31118,7 @@ static void tg3_get_wol(struct net_device *dev , struct ethtool_wolinfo *wol )
 
   }
   {
-  __memset((void *)(& wol->sopass), 0, 6UL);
+  memset((void *)(& wol->sopass), 0, 6UL);
   }
   return;
 }
@@ -31902,12 +31902,12 @@ static void tg3_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
   goto switch_default;
   case_1: /* CIL Label */ 
   {
-  __memcpy((void *)buf, (void const   *)(& ethtool_stats_keys), 2304UL);
+  memcpy((void *)buf, (void const   *)(& ethtool_stats_keys), 2304UL);
   }
   goto ldv_59486;
   case_0: /* CIL Label */ 
   {
-  __memcpy((void *)buf, (void const   *)(& ethtool_test_keys), 256UL);
+  memcpy((void *)buf, (void const   *)(& ethtool_test_keys), 256UL);
   }
   goto ldv_59486;
   switch_default: /* CIL Label */ 
@@ -32017,7 +32017,7 @@ static void tg3_get_ethtool_stats(struct net_device *dev , struct ethtool_stats 
     }
   } else {
     {
-    __memset((void *)tmp_stats, 0, 576UL);
+    memset((void *)tmp_stats, 0, 576UL);
     }
   }
   return;
@@ -33268,15 +33268,15 @@ static int tg3_run_loopback(struct tg3 *tp , u32 pktsz , bool tso_loopback )
   {
   tmp___1 = skb_put(skb, (unsigned int )tx_len);
   tx_data = tmp___1;
-  __memcpy((void *)tx_data, (void const   *)(tp->dev)->dev_addr, 6UL);
-  __memset((void *)tx_data + 6U, 0, 8UL);
+  memcpy((void *)tx_data, (void const   *)(tp->dev)->dev_addr, 6UL);
+  memset((void *)tx_data + 6U, 0, 8UL);
   (*(tp->write32))(tp, 1084U, (u32 )(tx_len + 4));
   }
   if ((int )tso_loopback) {
     {
     iph = (struct iphdr *)tx_data + 14U;
     hdr_len = 52U;
-    __memcpy((void *)tx_data + 12U, (void const   *)(& tg3_tso_header), 54UL);
+    memcpy((void *)tx_data + 12U, (void const   *)(& tg3_tso_header), 54UL);
     mss = 500U;
     val = (u32 )tx_len - 66U;
     num_pkts = (int )((val + 499U) / 500U);
@@ -33850,7 +33850,7 @@ static void tg3_self_test(struct net_device *dev , struct ethtool_test *etest , 
     if (tmp___0 != 0) {
       {
       etest->flags = etest->flags | 2U;
-      __memset((void *)data, 1, 64UL);
+      memset((void *)data, 1, 64UL);
       }
       return;
     } else {
@@ -33863,7 +33863,7 @@ static void tg3_self_test(struct net_device *dev , struct ethtool_test *etest , 
 
   }
   {
-  __memset((void *)data, 0, 64UL);
+  memset((void *)data, 0, 64UL);
   tmp___1 = tg3_test_nvram(tp);
   }
   if (tmp___1 != 0) {
@@ -34515,7 +34515,7 @@ static int tg3_get_coalesce(struct net_device *dev , struct ethtool_coalesce *ec
   {
   tmp = netdev_priv((struct net_device  const  *)dev);
   tp = (struct tg3 *)tmp;
-  __memcpy((void *)ec, (void const   *)(& tp->coal), 92UL);
+  memcpy((void *)ec, (void const   *)(& tp->coal), 92UL);
   }
   return (0);
 }
@@ -37666,7 +37666,7 @@ static void tg3_read_vpd(struct tg3 *tp )
 
     }
     {
-    __memset((void *)(& tp->fw_ver), 0, 32UL);
+    memset((void *)(& tp->fw_ver), 0, 32UL);
     snprintf((char *)(& tp->fw_ver), 32UL, "%.*s bc ", len, vpd_data + (unsigned long )j);
     }
   } else {
@@ -37693,7 +37693,7 @@ static void tg3_read_vpd(struct tg3 *tp )
 
   }
   {
-  __memcpy((void *)(& tp->board_part_number), (void const   *)vpd_data + (unsigned long )i,
+  memcpy((void *)(& tp->board_part_number), (void const   *)vpd_data + (unsigned long )i,
            (size_t )len);
   }
   out_not_found: 
@@ -37937,7 +37937,7 @@ static void tg3_read_bc_ver(struct tg3 *tp )
 
     }
     {
-    __memcpy((void *)(& tp->fw_ver) + ((unsigned long )dst_off + (unsigned long )i),
+    memcpy((void *)(& tp->fw_ver) + ((unsigned long )dst_off + (unsigned long )i),
              (void const   *)(& v), 4UL);
     i = i + 4;
     }
@@ -38216,7 +38216,7 @@ static void tg3_read_mgmtfw_ver(struct tg3 *tp )
   offset = offset + 4U;
   if ((unsigned int )vlen > 28U) {
     {
-    __memcpy((void *)(& tp->fw_ver) + (unsigned long )vlen, (void const   *)(& v),
+    memcpy((void *)(& tp->fw_ver) + (unsigned long )vlen, (void const   *)(& v),
              (size_t )(32 - vlen));
     }
     goto ldv_60269;
@@ -38224,7 +38224,7 @@ static void tg3_read_mgmtfw_ver(struct tg3 *tp )
 
   }
   {
-  __memcpy((void *)(& tp->fw_ver) + (unsigned long )vlen, (void const   *)(& v), 4UL);
+  memcpy((void *)(& tp->fw_ver) + (unsigned long )vlen, (void const   *)(& v), 4UL);
   vlen = (int )((unsigned int )vlen + 4U);
   i = i + 1;
   }
@@ -40024,8 +40024,8 @@ static int tg3_get_device_address(struct tg3 *tp )
         }
         if (tmp___8 == 0) {
           {
-          __memcpy((void *)dev->dev_addr, (void const   *)(& hi) + 2U, 2UL);
-          __memcpy((void *)dev->dev_addr + 2U, (void const   *)(& lo), 4UL);
+          memcpy((void *)dev->dev_addr, (void const   *)(& hi) + 2U, 2UL);
+          memcpy((void *)dev->dev_addr + 2U, (void const   *)(& lo), 4UL);
           }
         } else {
           goto _L___1;
@@ -40959,7 +40959,7 @@ static void tg3_init_coal(struct tg3 *tp )
   {
   {
   ec = & tp->coal;
-  __memset((void *)ec, 0, 92UL);
+  memset((void *)ec, 0, 92UL);
   ec->cmd = 14U;
   ec->rx_coalesce_usecs = 50U;
   ec->tx_coalesce_usecs = 150U;

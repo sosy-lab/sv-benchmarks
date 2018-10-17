@@ -5237,7 +5237,7 @@ typedef void *Element;
 typedef Element Set;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 void ldv_kfree_skb_6(struct sk_buff *ldv_func_arg1 ) ;
 void ldv_kfree_skb_7(struct sk_buff *ldv_func_arg1 ) ;
@@ -5471,13 +5471,13 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
   pkthdrbuf = (char *)pkthdr;
   __len = 5UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)pktbuf, (void const   *)pkthdrbuf, __len);
+    __ret = memcpy((void *)pktbuf, (void const   *)pkthdrbuf, __len);
   } else {
     __ret = __builtin_memcpy((void *)pktbuf, (void const   *)pkthdrbuf, __len);
   }
   __len___0 = 15UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)pktbuf + 9U, (void const   *)pkthdrbuf + 5U, __len___0);
+    __ret___0 = memcpy((void *)pktbuf + 9U, (void const   *)pkthdrbuf + 5U, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)pktbuf + 9U, (void const   *)pkthdrbuf + 5U,
                                  __len___0);

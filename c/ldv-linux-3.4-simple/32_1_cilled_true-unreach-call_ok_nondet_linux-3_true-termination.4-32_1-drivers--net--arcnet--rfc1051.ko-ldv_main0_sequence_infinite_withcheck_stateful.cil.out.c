@@ -4592,7 +4592,7 @@ struct arcnet_local {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -5084,7 +5084,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
     {
     __cil_tmp44 = (void *)pkt;
     __cil_tmp45 = (void const   *)pkthdr;
-    __ret = __memcpy(__cil_tmp44, __cil_tmp45, __len);
+    __ret = memcpy(__cil_tmp44, __cil_tmp45, __len);
     }
   } else {
     {

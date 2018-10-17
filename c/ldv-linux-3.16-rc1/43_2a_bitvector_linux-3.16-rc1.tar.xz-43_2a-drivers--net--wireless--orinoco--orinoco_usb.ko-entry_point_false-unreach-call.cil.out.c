@@ -6444,7 +6444,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static void atomic_set(atomic_t *v , int i ) 
 { 
@@ -7838,7 +7838,7 @@ static int ezusb_firmware_download(struct ezusb_priv *upriv , struct ez_usb_fw *
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)fw_buffer, (void const   *)fw->code + (unsigned long )addr,
+    __ret = memcpy((void *)fw_buffer, (void const   *)fw->code + (unsigned long )addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)fw_buffer, (void const   *)fw->code + (unsigned long )addr,
@@ -8449,7 +8449,7 @@ static netdev_tx_t ezusb_xmit(struct sk_buff *skb , struct net_device *dev )
     }
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)buf, (void const   *)m, __len___0);
+      __ret___0 = memcpy((void *)buf, (void const   *)m, __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)buf, (void const   *)m, __len___0);
     }

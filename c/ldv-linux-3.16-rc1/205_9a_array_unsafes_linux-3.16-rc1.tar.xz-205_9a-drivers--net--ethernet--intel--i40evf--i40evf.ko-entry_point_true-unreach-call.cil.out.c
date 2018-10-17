@@ -12162,7 +12162,7 @@ void ldv_free_netdev_30(struct net_device *dev )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 __inline static char const   *kobject_name(struct kobject  const  *kobj ) 
 { 
@@ -12327,7 +12327,7 @@ static void i40evf_get_strings(struct net_device *netdev , u32 sset , u8 *data )
     ldv_53292: 
     __len = 32UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)p, (void const   *)(& i40evf_gstrings_stats[i].stat_string),
+      __ret = memcpy((void *)p, (void const   *)(& i40evf_gstrings_stats[i].stat_string),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)p, (void const   *)(& i40evf_gstrings_stats[i].stat_string),
@@ -17612,7 +17612,7 @@ void i40e_vf_parse_hw_config(struct i40e_hw *hw , struct i40e_virtchnl_vf_resour
   if ((unsigned int )vsi_res->vsi_type == 6U) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& hw->mac.perm_addr), (void const   *)(& vsi_res->default_mac_addr),
+      __ret = memcpy((void *)(& hw->mac.perm_addr), (void const   *)(& vsi_res->default_mac_addr),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& hw->mac.perm_addr), (void const   *)(& vsi_res->default_mac_addr),
@@ -17620,7 +17620,7 @@ void i40e_vf_parse_hw_config(struct i40e_hw *hw , struct i40e_virtchnl_vf_resour
     }
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& hw->mac.addr), (void const   *)(& vsi_res->default_mac_addr),
+      __ret___0 = memcpy((void *)(& hw->mac.addr), (void const   *)(& vsi_res->default_mac_addr),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& hw->mac.addr), (void const   *)(& vsi_res->default_mac_addr),

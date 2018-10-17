@@ -11437,7 +11437,7 @@ long ldv__builtin_expect(long val , long res )
 }
 }
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void *to , void    *from , size_t len ) ;
+extern void *memcpy(void *to , void    *from , size_t len ) ;
 extern unsigned long kernel_stack  __attribute__((__section__(".data..percpu"))) ;
 __inline static struct thread_info *current_thread_info(void)  __attribute__((__no_instrument_function__)) ;
 __inline static struct thread_info *current_thread_info(void) 
@@ -11813,7 +11813,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
     {
     __cil_tmp41 = (void *)cmd;
     __cil_tmp42 = (void    *)(& define_cmd);
-    __ret = __memcpy(__cil_tmp41, __cil_tmp42, __len);
+    __ret = memcpy(__cil_tmp41, __cil_tmp42, __len);
     }
   } else {
     {
@@ -11832,7 +11832,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
     {
     __cil_tmp46 = (void *)cmd;
     __cil_tmp47 = (void    *)(& remap_cmd);
-    __ret___0 = __memcpy(__cil_tmp46, __cil_tmp47, __len___0);
+    __ret___0 = memcpy(__cil_tmp46, __cil_tmp47, __len___0);
     }
   } else {
     {
@@ -11945,7 +11945,7 @@ static void vmw_gmr2_unbind(struct vmw_private *dev_priv , int gmr_id )
     {
     __cil_tmp21 = (void *)cmd;
     __cil_tmp22 = (void    *)(& define_cmd);
-    __ret = __memcpy(__cil_tmp21, __cil_tmp22, __len);
+    __ret = memcpy(__cil_tmp21, __cil_tmp22, __len);
     }
   } else {
     {
@@ -14861,7 +14861,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
         __cil_tmp390 = *((uint32_t **)__cil_tmp389);
         __cil_tmp391 = (void *)__cil_tmp390;
         __cil_tmp392 = (void    *)virtual;
-        __ret = __memcpy(__cil_tmp391, __cil_tmp392, __len);
+        __ret = memcpy(__cil_tmp391, __cil_tmp392, __len);
         }
       } else {
         {
@@ -36172,7 +36172,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
     __cil_tmp120 = __cil_tmp119 + __cil_tmp118;
     __cil_tmp121 = (uint32_t *)__cil_tmp120;
     __cil_tmp122 = (void    *)__cil_tmp121;
-    __ret = __memcpy(__cil_tmp116, __cil_tmp122, __len);
+    __ret = memcpy(__cil_tmp116, __cil_tmp122, __len);
     }
   } else {
     {
@@ -36790,7 +36790,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
     __cil_tmp77 = __cil_tmp76 + __cil_tmp75;
     __cil_tmp78 = (uint32_t *)__cil_tmp77;
     __cil_tmp79 = (void    *)__cil_tmp78;
-    __ret = __memcpy(__cil_tmp73, __cil_tmp79, __len);
+    __ret = memcpy(__cil_tmp73, __cil_tmp79, __len);
     }
   } else {
     {

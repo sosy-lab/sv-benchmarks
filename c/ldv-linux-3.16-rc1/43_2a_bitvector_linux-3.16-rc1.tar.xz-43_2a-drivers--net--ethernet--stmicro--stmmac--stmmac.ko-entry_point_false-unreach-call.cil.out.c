@@ -13622,7 +13622,7 @@ void ldv_free_netdev_56(struct net_device *dev )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void _raw_spin_lock_irq(raw_spinlock_t * ) ;
 extern void _raw_spin_unlock_irq(raw_spinlock_t * ) ;
@@ -14489,7 +14489,7 @@ static void stmmac_get_strings(struct net_device *dev , u32 stringset , u8 *data
     ldv_46093: 
     __len = 32UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)p, (void const   *)(& stmmac_mmc[i].stat_string), __len);
+      __ret = memcpy((void *)p, (void const   *)(& stmmac_mmc[i].stat_string), __len);
     } else {
       __ret = __builtin_memcpy((void *)p, (void const   *)(& stmmac_mmc[i].stat_string),
                                __len);
@@ -14511,7 +14511,7 @@ static void stmmac_get_strings(struct net_device *dev , u32 stringset , u8 *data
   ldv_46101: 
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)p, (void const   *)(& stmmac_gstrings_stats[i].stat_string),
+    __ret___0 = memcpy((void *)p, (void const   *)(& stmmac_gstrings_stats[i].stat_string),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)p, (void const   *)(& stmmac_gstrings_stats[i].stat_string),
@@ -23092,7 +23092,7 @@ static int stmmac_pltfr_probe(struct platform_device *pdev )
   if ((unsigned long )mac != (unsigned long )((char const   *)0)) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(priv->dev)->dev_addr, (void const   *)mac, __len);
+      __ret = memcpy((void *)(priv->dev)->dev_addr, (void const   *)mac, __len);
     } else {
       __ret = __builtin_memcpy((void *)(priv->dev)->dev_addr, (void const   *)mac,
                                __len);

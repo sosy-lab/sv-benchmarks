@@ -3854,7 +3854,7 @@ struct freecom_status {
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern int ( /* format attribute */  sprintf)(char *buf , char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -4269,7 +4269,7 @@ static int freecom_transport(struct scsi_cmnd *srb , struct us_data *us )
     __cil_tmp35 = __cil_tmp34 + 80;
     __cil_tmp36 = *((unsigned char **)__cil_tmp35);
     __cil_tmp37 = (void const   *)__cil_tmp36;
-    __ret = __memcpy(__cil_tmp33, __cil_tmp37, __len);
+    __ret = memcpy(__cil_tmp33, __cil_tmp37, __len);
     }
   } else {
     {

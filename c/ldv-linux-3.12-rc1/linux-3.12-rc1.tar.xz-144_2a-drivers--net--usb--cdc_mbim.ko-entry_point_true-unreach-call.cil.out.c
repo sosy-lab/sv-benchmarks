@@ -5442,7 +5442,7 @@ struct cdc_mbim_state {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static __u16 __fswab16(__u16 val ) 
@@ -6246,7 +6246,7 @@ static struct sk_buff *cdc_mbim_process_dgram(struct usbnet *dev , u8 *buf , siz
   __len = 6UL;
   if (__len > 63UL) {
     tmp___1 = eth_hdr((struct sk_buff  const  *)skb);
-    __ret = __memcpy((void *)(& tmp___1->h_dest), (void const   *)(dev->net)->dev_addr,
+    __ret = memcpy((void *)(& tmp___1->h_dest), (void const   *)(dev->net)->dev_addr,
                      __len);
   } else {
     tmp___2 = eth_hdr((struct sk_buff  const  *)skb);

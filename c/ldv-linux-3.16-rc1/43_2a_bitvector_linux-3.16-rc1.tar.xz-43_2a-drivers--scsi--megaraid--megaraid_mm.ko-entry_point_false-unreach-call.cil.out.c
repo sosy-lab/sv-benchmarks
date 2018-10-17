@@ -3581,7 +3581,7 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
@@ -4286,7 +4286,7 @@ static int mimd_to_kioc(mimd_t *umimd , mraid_mmadp_t *adp , uioc_t *kioc )
   mbox = & mbox64->mbox32;
   __len = 14UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mbox, (void const   *)(& mimd.mbox), __len);
+    __ret = memcpy((void *)mbox, (void const   *)(& mimd.mbox), __len);
   } else {
     __ret = __builtin_memcpy((void *)mbox, (void const   *)(& mimd.mbox), __len);
   }

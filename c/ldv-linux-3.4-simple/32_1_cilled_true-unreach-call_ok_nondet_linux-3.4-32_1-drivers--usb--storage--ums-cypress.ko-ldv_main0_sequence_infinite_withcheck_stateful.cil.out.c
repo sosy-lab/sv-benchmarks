@@ -3848,7 +3848,7 @@ struct us_data {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern int memcmp(void const   *cs , void const   *ct , unsigned long count ) ;
 void mutex_lock(struct mutex *lock ) ;
@@ -4341,7 +4341,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
     __cil_tmp38 = __cil_tmp37 + 80;
     __cil_tmp39 = *((unsigned char **)__cil_tmp38);
     __cil_tmp40 = (void const   *)__cil_tmp39;
-    __ret = __memcpy(__cil_tmp36, __cil_tmp40, __len);
+    __ret = memcpy(__cil_tmp36, __cil_tmp40, __len);
     }
   } else {
     {
@@ -4743,7 +4743,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
           __cil_tmp273 = __cil_tmp272 + 136;
           __cil_tmp274 = *((unsigned char **)__cil_tmp273);
           __cil_tmp275 = (void const   *)__cil_tmp274;
-          __ret___0 = __memcpy(__cil_tmp271, __cil_tmp275, __len___0);
+          __ret___0 = memcpy(__cil_tmp271, __cil_tmp275, __len___0);
           }
         } else {
           {
@@ -4851,7 +4851,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
     __cil_tmp328 = (unsigned long )(usb_stor_sense_invalidCDB) + __cil_tmp327;
     __cil_tmp329 = (unsigned char *)__cil_tmp328;
     __cil_tmp330 = (void const   *)__cil_tmp329;
-    __ret___1 = __memcpy(__cil_tmp326, __cil_tmp330, __len___1);
+    __ret___1 = memcpy(__cil_tmp326, __cil_tmp330, __len___1);
     }
   } else {
     {
@@ -4878,7 +4878,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
     __cil_tmp344 = (unsigned long )(save_cmnd) + __cil_tmp343;
     __cil_tmp345 = (unsigned char *)__cil_tmp344;
     __cil_tmp346 = (void const   *)__cil_tmp345;
-    __ret___2 = __memcpy(__cil_tmp342, __cil_tmp346, __len___2);
+    __ret___2 = memcpy(__cil_tmp342, __cil_tmp346, __len___2);
     }
   } else {
     {

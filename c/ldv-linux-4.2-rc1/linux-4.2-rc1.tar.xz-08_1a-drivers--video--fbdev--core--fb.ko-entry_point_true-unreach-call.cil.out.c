@@ -8358,7 +8358,7 @@ int ldv_seq_release_16(struct inode *ldv_func_arg1 , struct file *ldv_func_arg2 
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern void __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern unsigned long int_sqrt(unsigned long  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 bool ldv_queue_work_on_30(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                           struct work_struct *ldv_func_arg3 ) ;
@@ -9300,7 +9300,7 @@ static struct fb_videomode *fb_create_modedb(unsigned char *edid , int *dbsize ,
   } else {
 
   }
-  __memmove((void *)m, (void const   *)mode, (unsigned long )num * 64UL);
+  memmove((void *)m, (void const   *)mode, (unsigned long )num * 64UL);
   kfree((void const   *)mode);
   return (m);
 }

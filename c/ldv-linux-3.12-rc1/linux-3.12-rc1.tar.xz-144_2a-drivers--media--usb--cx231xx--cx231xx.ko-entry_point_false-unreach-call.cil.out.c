@@ -7716,7 +7716,7 @@ struct _ddebug {
 };
 enum hrtimer_restart;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -8494,7 +8494,7 @@ __inline static int cx231xx_isoc_copy(struct cx231xx *dev , struct urb *urb )
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dma_q->partial_buf), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffcUL)),
+    __ret = memcpy((void *)(& dma_q->partial_buf), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffcUL)),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dma_q->partial_buf), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffcUL)),
@@ -8592,7 +8592,7 @@ __inline static int cx231xx_bulk_copy(struct cx231xx *dev , struct urb *urb )
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dma_q->partial_buf), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffcUL)),
+    __ret = memcpy((void *)(& dma_q->partial_buf), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffcUL)),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dma_q->partial_buf), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffcUL)),
@@ -8617,14 +8617,14 @@ u8 cx231xx_find_boundary_SAV_EAV(u8 *p_buffer , u8 *partial_buf , u32 *p_bytes_u
   *p_bytes_used = 0U;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& boundary_bytes), (void const   *)partial_buf, __len);
+    __ret = memcpy((void *)(& boundary_bytes), (void const   *)partial_buf, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& boundary_bytes), (void const   *)partial_buf,
                              __len);
   }
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& boundary_bytes) + 4U, (void const   *)p_buffer,
+    __ret___0 = memcpy((void *)(& boundary_bytes) + 4U, (void const   *)p_buffer,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& boundary_bytes) + 4U, (void const   *)p_buffer,
@@ -15684,7 +15684,7 @@ int cx231xx_ep5_bulkout(struct cx231xx *dev , u8 *firmware , u16 size )
   }
   __len = 4096UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buffer, (void const   *)firmware, __len);
+    __ret = memcpy((void *)buffer, (void const   *)firmware, __len);
   } else {
     __ret = __builtin_memcpy((void *)buffer, (void const   *)firmware, __len);
   }
@@ -23232,7 +23232,7 @@ static void buffer_copy(struct cx231xx *dev , char *data , int len , struct urb 
     if ((unsigned int )dma_q->add_ps_package_head == 0U) {
       __len = 3UL;
       if (__len > 63UL) {
-        __ret = __memcpy(vbuf + (unsigned long )dma_q->mpeg_buffer_completed, (void const   *)(& dma_q->ps_head),
+        __ret = memcpy(vbuf + (unsigned long )dma_q->mpeg_buffer_completed, (void const   *)(& dma_q->ps_head),
                          __len);
       } else {
         __ret = __builtin_memcpy(vbuf + (unsigned long )dma_q->mpeg_buffer_completed,
@@ -23364,7 +23364,7 @@ static int cx231xx_bulk_copy___0(struct cx231xx *dev , struct urb *urb )
   buffer = (unsigned char *)tmp;
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buffer, (void const   *)(& dma_q->ps_head), __len);
+    __ret = memcpy((void *)buffer, (void const   *)(& dma_q->ps_head), __len);
   } else {
     __ret = __builtin_memcpy((void *)buffer, (void const   *)(& dma_q->ps_head), __len);
   }
@@ -23372,7 +23372,7 @@ static int cx231xx_bulk_copy___0(struct cx231xx *dev , struct urb *urb )
   __ret___0 = __builtin_memcpy((void *)buffer + 3U, (void const   *)p_buffer, __len___0);
   __len___1 = 3UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& dma_q->ps_head), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffdUL)),
+    __ret___1 = memcpy((void *)(& dma_q->ps_head), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffdUL)),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& dma_q->ps_head), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffdUL)),
@@ -25262,7 +25262,7 @@ u32 initialize_cx231xx(struct cx231xx *dev )
   dev->current_scenario_idx = _current_scenario_idx;
   __len = 76UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dev->current_pcb_config), (void const   *)p_pcb_info,
+    __ret = memcpy((void *)(& dev->current_pcb_config), (void const   *)p_pcb_info,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dev->current_pcb_config), (void const   *)p_pcb_info,
@@ -25424,7 +25424,7 @@ __inline static int cx231xx_isoc_vbi_copy(struct cx231xx *dev , struct urb *urb 
     }
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& dma_q->partial_buf), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffcUL)),
+      __ret = memcpy((void *)(& dma_q->partial_buf), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffcUL)),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& dma_q->partial_buf), (void const   *)(p_buffer + ((unsigned long )buffer_size + 0xfffffffffffffffcUL)),

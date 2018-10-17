@@ -7064,7 +7064,7 @@ struct iw_range {
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern int mutex_trylock(struct mutex * ) ;
@@ -7684,7 +7684,7 @@ static void rtl8192_read_eeprom_info(struct net_device *dev )
   } else {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& bMac_Tmp_Addr), __len);
+      __ret = memcpy((void *)dev->dev_addr, (void const   *)(& bMac_Tmp_Addr), __len);
     } else {
       __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& bMac_Tmp_Addr),
                                __len);
@@ -12819,7 +12819,7 @@ static bool fw_download_code(struct net_device *dev , u8 *code_virtual_address ,
   skb = dev_alloc_skb((unsigned int )((int )frag_length + 4));
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
+    __ret = memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
   }
@@ -13472,7 +13472,7 @@ bool cmpk_message_handle_tx(struct net_device *dev , u8 *code_virtual_address , 
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
+    __ret = memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
   }
@@ -13558,7 +13558,7 @@ static void cmpk_handle_tx_feedback(struct net_device *dev , u8 *pmsg )
   priv->stats.txfeedback = priv->stats.txfeedback + 1UL;
   __len = 20UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rx_tx_fb), (void const   *)pmsg, __len);
+    __ret = memcpy((void *)(& rx_tx_fb), (void const   *)pmsg, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rx_tx_fb), (void const   *)pmsg, __len);
   }
@@ -13672,7 +13672,7 @@ static void cmpk_handle_tx_status(struct net_device *dev , u8 *pmsg )
   {
   __len = 40UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rx_tx_sts), (void const   *)pmsg, __len);
+    __ret = memcpy((void *)(& rx_tx_sts), (void const   *)pmsg, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rx_tx_sts), (void const   *)pmsg, __len);
   }
@@ -25845,7 +25845,7 @@ void set_swcam(struct net_device *dev , u8 EntryNo , u8 KeyIndex , u16 KeyType ,
     ieee->swcamtable[(int )EntryNo].key_type = KeyType;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ieee->swcamtable[(int )EntryNo].macaddr), (void const   *)MacAddr,
+      __ret = memcpy((void *)(& ieee->swcamtable[(int )EntryNo].macaddr), (void const   *)MacAddr,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ieee->swcamtable[(int )EntryNo].macaddr),
@@ -25854,7 +25854,7 @@ void set_swcam(struct net_device *dev , u8 EntryNo , u8 KeyIndex , u16 KeyType ,
     ieee->swcamtable[(int )EntryNo].useDK = DefaultKey;
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& ieee->swcamtable[(int )EntryNo].key_buf), (void const   *)KeyContent,
+      __ret___0 = memcpy((void *)(& ieee->swcamtable[(int )EntryNo].key_buf), (void const   *)KeyContent,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& ieee->swcamtable[(int )EntryNo].key_buf),
@@ -28161,7 +28161,7 @@ static int rtl8192_qos_association_resp(struct r8192_priv *priv , struct rtllib_
   if ((network->flags & 8U) != 0U) {
     __len = 32UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& (priv->rtllib)->current_network.qos_data.parameters),
+      __ret = memcpy((void *)(& (priv->rtllib)->current_network.qos_data.parameters),
                        (void const   *)(& network->qos_data.parameters), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& (priv->rtllib)->current_network.qos_data.parameters),
@@ -28387,7 +28387,7 @@ static void rtl8192_refresh_supportrate(struct r8192_priv *priv )
   if (ieee->mode == 16 || ieee->mode == 32) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ieee->Regdot11HTOperationalRateSet), (void const   *)(& ieee->RegHTSuppRateSet),
+      __ret = memcpy((void *)(& ieee->Regdot11HTOperationalRateSet), (void const   *)(& ieee->RegHTSuppRateSet),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ieee->Regdot11HTOperationalRateSet), (void const   *)(& ieee->RegHTSuppRateSet),
@@ -28395,7 +28395,7 @@ static void rtl8192_refresh_supportrate(struct r8192_priv *priv )
     }
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& ieee->Regdot11TxHTOperationalRateSet), (void const   *)(& ieee->RegHTSuppRateSet),
+      __ret___0 = memcpy((void *)(& ieee->Regdot11TxHTOperationalRateSet), (void const   *)(& ieee->RegHTSuppRateSet),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& ieee->Regdot11TxHTOperationalRateSet),
@@ -29980,7 +29980,7 @@ void rtl8192_hard_data_xmit(struct sk_buff *skb , struct net_device *dev , int r
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
+    __ret = memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
   }
@@ -30029,7 +30029,7 @@ int rtl8192_hard_start_xmit(struct sk_buff *skb , struct net_device *dev )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
+    __ret = memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& skb->cb), (void const   *)(& dev), __len);
   }
@@ -31058,7 +31058,7 @@ static int r8192_set_mac_adr(struct net_device *dev , void *mac )
   down(& priv->wx_sem);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), __len);
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), __len);
   } else {
     __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
                              __len);
@@ -31180,7 +31180,7 @@ static int rtl8192_ioctl(struct net_device *dev , struct ifreq *rq , int cmd )
         }
         __len = 16UL;
         if (__len > 63UL) {
-          __ret = __memcpy((void *)(& key), (void const   *)(& ipw->u.crypt.key),
+          __ret = memcpy((void *)(& key), (void const   *)(& ipw->u.crypt.key),
                            __len);
         } else {
           __ret = __builtin_memcpy((void *)(& key), (void const   *)(& ipw->u.crypt.key),
@@ -31210,7 +31210,7 @@ static int rtl8192_ioctl(struct net_device *dev , struct ifreq *rq , int cmd )
     } else {
       __len___0 = 16UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& key), (void const   *)(& ipw->u.crypt.key),
+        __ret___0 = memcpy((void *)(& key), (void const   *)(& ipw->u.crypt.key),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& key), (void const   *)(& ipw->u.crypt.key),
@@ -40735,7 +40735,7 @@ static int r8192_wx_set_enc_ext(struct net_device *dev , struct iw_request_info 
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& key), (void const   *)(& ext->key), __len);
+    __ret = memcpy((void *)(& key), (void const   *)(& ext->key), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& key), (void const   *)(& ext->key), __len);
   }

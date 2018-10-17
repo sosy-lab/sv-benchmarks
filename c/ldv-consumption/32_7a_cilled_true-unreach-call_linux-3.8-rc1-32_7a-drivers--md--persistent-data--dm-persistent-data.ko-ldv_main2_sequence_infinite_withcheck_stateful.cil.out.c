@@ -4840,7 +4840,7 @@ __inline static void __clear_bit_le(int nr , void *addr )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_20(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_16(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_18(struct mutex *ldv_func_arg1 ) ;
@@ -5530,7 +5530,7 @@ static int metadata_ll_load_ie(struct ll_disk *ll , dm_block_t index , struct di
   {
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)ie, (void const   *)(& ll->mi_le.index) + (unsigned long )index,
+    __ret = memcpy((void *)ie, (void const   *)(& ll->mi_le.index) + (unsigned long )index,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)ie, (void const   *)(& ll->mi_le.index) + (unsigned long )index,
@@ -5548,7 +5548,7 @@ static int metadata_ll_save_ie(struct ll_disk *ll , dm_block_t index , struct di
   ll->bitmap_index_changed = 1;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ll->mi_le.index) + (unsigned long )index, (void const   *)ie,
+    __ret = memcpy((void *)(& ll->mi_le.index) + (unsigned long )index, (void const   *)ie,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ll->mi_le.index) + (unsigned long )index,
@@ -5577,7 +5577,7 @@ static int metadata_ll_init_index(struct ll_disk *ll )
   __len = 4096UL;
   if (__len > 63UL) {
     tmp = dm_block_data(b);
-    __ret = __memcpy(tmp, (void const   *)(& ll->mi_le), __len);
+    __ret = memcpy(tmp, (void const   *)(& ll->mi_le), __len);
   } else {
     tmp___0 = dm_block_data(b);
     __ret = __builtin_memcpy(tmp___0, (void const   *)(& ll->mi_le), __len);
@@ -5607,7 +5607,7 @@ static int metadata_ll_open(struct ll_disk *ll )
   __len = 4096UL;
   if (__len > 63UL) {
     tmp = dm_block_data(block);
-    __ret = __memcpy((void *)(& ll->mi_le), (void const   *)tmp, __len);
+    __ret = memcpy((void *)(& ll->mi_le), (void const   *)tmp, __len);
   } else {
     tmp___0 = dm_block_data(block);
     __ret = __builtin_memcpy((void *)(& ll->mi_le), (void const   *)tmp___0, __len);
@@ -5645,7 +5645,7 @@ static int metadata_ll_commit(struct ll_disk *ll )
   __len = 4096UL;
   if (__len > 63UL) {
     tmp = dm_block_data(b);
-    __ret = __memcpy(tmp, (void const   *)(& ll->mi_le), __len);
+    __ret = memcpy(tmp, (void const   *)(& ll->mi_le), __len);
   } else {
     tmp___0 = dm_block_data(b);
     __ret = __builtin_memcpy(tmp___0, (void const   *)(& ll->mi_le), __len);
@@ -6213,7 +6213,7 @@ static int sm_disk_commit(struct dm_space_map *sm )
   }
   __len = 4312UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& smd->old_ll), (void const   *)(& smd->ll), __len);
+    __ret = memcpy((void *)(& smd->old_ll), (void const   *)(& smd->ll), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& smd->old_ll), (void const   *)(& smd->ll),
                              __len);
@@ -6260,7 +6260,7 @@ static int sm_disk_copy_root(struct dm_space_map *sm , void *where_le , size_t m
   }
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy(where_le, (void const   *)(& root_le), __len);
+    __ret = memcpy(where_le, (void const   *)(& root_le), __len);
   } else {
     __ret = __builtin_memcpy(where_le, (void const   *)(& root_le), __len);
   }
@@ -6295,7 +6295,7 @@ struct dm_space_map *dm_sm_disk_create(struct dm_transaction_manager *tm , dm_bl
   smd->nr_allocated_this_transaction = 0ULL;
   __len = 104UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
+    __ret = memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
   }
@@ -6348,7 +6348,7 @@ struct dm_space_map *dm_sm_disk_open(struct dm_transaction_manager *tm , void *r
   smd->nr_allocated_this_transaction = 0ULL;
   __len = 104UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
+    __ret = memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
   }
@@ -6961,7 +6961,7 @@ static int sm_metadata_commit(struct dm_space_map *sm )
   }
   __len = 4312UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll), __len);
+    __ret = memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll),
                              __len);
@@ -7002,7 +7002,7 @@ static int sm_metadata_copy_root(struct dm_space_map *sm , void *where_le , size
   }
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy(where_le, (void const   *)(& root_le), __len);
+    __ret = memcpy(where_le, (void const   *)(& root_le), __len);
   } else {
     __ret = __builtin_memcpy(where_le, (void const   *)(& root_le), __len);
   }
@@ -7180,7 +7180,7 @@ struct dm_space_map *dm_sm_metadata_init(void)
   }
   __len = 104UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& smm->sm), (void const   *)(& ops___0), __len);
+    __ret = memcpy((void *)(& smm->sm), (void const   *)(& ops___0), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& smm->sm), (void const   *)(& ops___0), __len);
   }
@@ -7210,7 +7210,7 @@ int dm_sm_metadata_create(struct dm_space_map *sm , struct dm_transaction_manage
   smm->nr_uncommitted = 0U;
   __len = 104UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& smm->sm), (void const   *)(& bootstrap_ops), __len);
+    __ret = memcpy((void *)(& smm->sm), (void const   *)(& bootstrap_ops), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& smm->sm), (void const   *)(& bootstrap_ops),
                              __len);
@@ -7229,7 +7229,7 @@ int dm_sm_metadata_create(struct dm_space_map *sm , struct dm_transaction_manage
   }
   __len___0 = 104UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& smm->sm), (void const   *)(& ops___0), __len___0);
+    __ret___0 = memcpy((void *)(& smm->sm), (void const   *)(& ops___0), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& smm->sm), (void const   *)(& ops___0),
                                  __len___0);
@@ -7279,7 +7279,7 @@ int dm_sm_metadata_open(struct dm_space_map *sm , struct dm_transaction_manager 
   smm->nr_uncommitted = 0U;
   __len = 4312UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll), __len);
+    __ret = memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll),
                              __len);
@@ -10087,7 +10087,7 @@ static int remove_raw(struct shadow_spine *s , struct dm_btree_info *info , stru
       tmp___1 = shadow_parent(s);
       tmp___2 = dm_block_data(tmp___1);
       tmp___3 = value_ptr((struct btree_node *)tmp___2, (uint32_t )i);
-      __ret = __memcpy(tmp___3, (void const   *)(& location), __len);
+      __ret = memcpy(tmp___3, (void const   *)(& location), __len);
     } else {
       tmp___4 = shadow_parent(s);
       tmp___5 = dm_block_data(tmp___4);

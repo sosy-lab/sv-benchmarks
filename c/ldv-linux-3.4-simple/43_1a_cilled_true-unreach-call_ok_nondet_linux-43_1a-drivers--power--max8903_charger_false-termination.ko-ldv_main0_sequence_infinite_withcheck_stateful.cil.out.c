@@ -984,7 +984,7 @@ void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -2001,7 +2001,7 @@ static int max8903_probe(struct platform_device *pdev )
     __cil_tmp45 = (struct max8903_pdata *)data;
     __cil_tmp46 = (void *)__cil_tmp45;
     __cil_tmp47 = (void const   *)pdata;
-    __ret = __memcpy(__cil_tmp46, __cil_tmp47, __len);
+    __ret = memcpy(__cil_tmp46, __cil_tmp47, __len);
     }
   } else {
     {

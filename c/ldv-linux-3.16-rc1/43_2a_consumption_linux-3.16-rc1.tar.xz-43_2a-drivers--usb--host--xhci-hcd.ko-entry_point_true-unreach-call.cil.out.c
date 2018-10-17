@@ -4999,7 +4999,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strstr(char const   * , char const   * ) ;
@@ -9299,7 +9299,7 @@ static int xhci_reserve_bandwidth(struct xhci_hcd *xhci , struct xhci_virt_devic
   }
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ep_bw_info) + (unsigned long )i, (void const   *)(& virt_dev->eps[i].bw_info),
+    __ret = memcpy((void *)(& ep_bw_info) + (unsigned long )i, (void const   *)(& virt_dev->eps[i].bw_info),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ep_bw_info) + (unsigned long )i, (void const   *)(& virt_dev->eps[i].bw_info),
@@ -9362,7 +9362,7 @@ static int xhci_reserve_bandwidth(struct xhci_hcd *xhci , struct xhci_virt_devic
   }
   __len___0 = 24UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& virt_dev->eps[i].bw_info), (void const   *)(& ep_bw_info) + (unsigned long )i,
+    __ret___0 = memcpy((void *)(& virt_dev->eps[i].bw_info), (void const   *)(& ep_bw_info) + (unsigned long )i,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& virt_dev->eps[i].bw_info), (void const   *)(& ep_bw_info) + (unsigned long )i,
@@ -23639,7 +23639,7 @@ int xhci_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   }
   __len = 15UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buf, (void const   *)(& usb_bos_descriptor), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& usb_bos_descriptor), __len);
   } else {
     __ret = __builtin_memcpy((void *)buf, (void const   *)(& usb_bos_descriptor),
                              __len);

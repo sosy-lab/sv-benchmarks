@@ -438,7 +438,7 @@ __inline static void clear_bit(int nr , unsigned long volatile   *addr )
 }
 }
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
 void ldv___ldv_spin_lock_1(spinlock_t *ldv_func_arg1 ) ;
@@ -881,7 +881,7 @@ static void cfag12864b_update(struct work_struct *work )
     }
     __len = 1024UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
+      __ret = memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,

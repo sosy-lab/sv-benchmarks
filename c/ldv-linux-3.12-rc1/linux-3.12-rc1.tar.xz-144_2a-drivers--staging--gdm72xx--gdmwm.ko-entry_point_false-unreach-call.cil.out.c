@@ -6063,7 +6063,7 @@ struct fw_info {
    char user_desc[128U] ;
 };
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static __u32 __arch_swab32(__u32 val ) 
 { 
@@ -6755,7 +6755,7 @@ __inline static int gdm_wimax_header(struct sk_buff **pskb )
   buf[1] = tmp___1;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)skb->data, (void const   *)(& buf), __len);
+    __ret = memcpy((void *)skb->data, (void const   *)(& buf), __len);
   } else {
     __ret = __builtin_memcpy((void *)skb->data, (void const   *)(& buf), __len);
   }
@@ -7439,7 +7439,7 @@ static void gdm_wimax_prepare_device(struct net_device *dev )
   val = tmp___4;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hci->data) + (unsigned long )len, (void const   *)(& val),
+    __ret = memcpy((void *)(& hci->data) + (unsigned long )len, (void const   *)(& val),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hci->data) + (unsigned long )len, (void const   *)(& val),
@@ -7715,7 +7715,7 @@ static void gdm_wimax_ind_fsm_update(struct net_device *dev , struct fsm_s *fsm 
   buf[1] = 3072U;
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)hci_pkt_buf + 4U, (void const   *)fsm, __len);
+    __ret = memcpy((void *)hci_pkt_buf + 4U, (void const   *)fsm, __len);
   } else {
     __ret = __builtin_memcpy((void *)hci_pkt_buf + 4U, (void const   *)fsm, __len);
   }
@@ -7812,7 +7812,7 @@ int register_wimax_device(struct phy_dev *phy_dev , struct device *pdev )
   dev->flags = dev->flags & 4294963199U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& gdm_wimax_macaddr),
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& gdm_wimax_macaddr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& gdm_wimax_macaddr),
@@ -8442,7 +8442,7 @@ static void netlink_rcv_cb(struct sk_buff *skb )
     __len = 4UL;
     if (__len > 63UL) {
       tmp = nlmsg_data((struct nlmsghdr  const  *)nlh);
-      __ret = __memcpy((void *)(& ifindex), (void const   *)tmp, __len);
+      __ret = memcpy((void *)(& ifindex), (void const   *)tmp, __len);
     } else {
       tmp___0 = nlmsg_data((struct nlmsghdr  const  *)nlh);
       __ret = __builtin_memcpy((void *)(& ifindex), (void const   *)tmp___0, __len);
@@ -11343,7 +11343,7 @@ int usb_boot(struct usb_device *usbdev , u16 pid )
   }
   __len = 140UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hdr), (void const   *)firm->data, __len);
+    __ret = memcpy((void *)(& hdr), (void const   *)firm->data, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hdr), (void const   *)firm->data, __len);
   }
@@ -11376,7 +11376,7 @@ int usb_boot(struct usb_device *usbdev , u16 pid )
   }
   __len___0 = 240UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& fw_info), (void const   *)firm->data + (unsigned long )pos,
+    __ret___0 = memcpy((void *)(& fw_info), (void const   *)firm->data + (unsigned long )pos,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& fw_info), (void const   *)firm->data + (unsigned long )pos,

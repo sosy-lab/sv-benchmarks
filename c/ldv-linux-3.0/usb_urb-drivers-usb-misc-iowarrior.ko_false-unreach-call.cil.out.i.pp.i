@@ -3390,7 +3390,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void *to , void const *from , size_t len ) ;
+extern void *memcpy(void *to , void const *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern int memcmp(void const *cs , void const *ct , unsigned long count ) ;
 extern unsigned long strlen(char const *s ) ;
@@ -4851,7 +4851,7 @@ static long iowarrior_ioctl(struct file *file , unsigned int cmd , unsigned long
       }
       if (__len >= 64UL) {
         {
-        __ret = __memcpy((void *)(info.serial), (void const *)(dev->chip_serial),
+        __ret = memcpy((void *)(info.serial), (void const *)(dev->chip_serial),
                          __len);
         }
       } else {

@@ -6695,7 +6695,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -10087,7 +10087,7 @@ static int enic_set_vf_mac(struct net_device *netdev , int vf , u8 *mac )
       if (vf == -1) {
         __len = 6UL;
         if (__len > 63UL) {
-          __ret = __memcpy((void *)(& pp->vf_mac), (void const   *)mac, __len);
+          __ret = memcpy((void *)(& pp->vf_mac), (void const   *)mac, __len);
         } else {
           __ret = __builtin_memcpy((void *)(& pp->vf_mac), (void const   *)mac, __len);
         }
@@ -10170,7 +10170,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
   }
   __len = 92UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& prev_pp), (void const   *)pp, __len);
+    __ret = memcpy((void *)(& prev_pp), (void const   *)pp, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& prev_pp), (void const   *)pp, __len);
   }
@@ -10182,7 +10182,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
     __len___0 = 40UL;
     if (__len___0 > 63UL) {
       tmp___1 = nla_data((struct nlattr  const  *)*(port + 2UL));
-      __ret___0 = __memcpy((void *)(& pp->name), (void const   *)tmp___1, __len___0);
+      __ret___0 = memcpy((void *)(& pp->name), (void const   *)tmp___1, __len___0);
     } else {
       tmp___2 = nla_data((struct nlattr  const  *)*(port + 2UL));
       __ret___0 = __builtin_memcpy((void *)(& pp->name), (void const   *)tmp___2,
@@ -10196,7 +10196,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
     __len___1 = 16UL;
     if (__len___1 > 63UL) {
       tmp___3 = nla_data((struct nlattr  const  *)*(port + 4UL));
-      __ret___1 = __memcpy((void *)(& pp->instance_uuid), (void const   *)tmp___3,
+      __ret___1 = memcpy((void *)(& pp->instance_uuid), (void const   *)tmp___3,
                            __len___1);
     } else {
       tmp___4 = nla_data((struct nlattr  const  *)*(port + 4UL));
@@ -10211,7 +10211,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
     __len___2 = 16UL;
     if (__len___2 > 63UL) {
       tmp___5 = nla_data((struct nlattr  const  *)*(port + 5UL));
-      __ret___2 = __memcpy((void *)(& pp->host_uuid), (void const   *)tmp___5, __len___2);
+      __ret___2 = memcpy((void *)(& pp->host_uuid), (void const   *)tmp___5, __len___2);
     } else {
       tmp___6 = nla_data((struct nlattr  const  *)*(port + 5UL));
       __ret___2 = __builtin_memcpy((void *)(& pp->host_uuid), (void const   *)tmp___6,
@@ -10230,7 +10230,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
     if (tmp___8) {
       __len___3 = 6UL;
       if (__len___3 > 63UL) {
-        __ret___3 = __memcpy((void *)(& pp->mac_addr), (void const   *)(& prev_pp.vf_mac),
+        __ret___3 = memcpy((void *)(& pp->mac_addr), (void const   *)(& prev_pp.vf_mac),
                              __len___3);
       } else {
         __ret___3 = __builtin_memcpy((void *)(& pp->mac_addr), (void const   *)(& prev_pp.vf_mac),
@@ -10261,7 +10261,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
                  vf);
       __len___4 = 92UL;
       if (__len___4 > 63UL) {
-        __ret___4 = __memcpy((void *)pp, (void const   *)(& prev_pp), __len___4);
+        __ret___4 = memcpy((void *)pp, (void const   *)(& prev_pp), __len___4);
       } else {
         __ret___4 = __builtin_memcpy((void *)pp, (void const   *)(& prev_pp), __len___4);
       }
@@ -10276,7 +10276,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
     if (restore_pp != 0) {
       __len___5 = 92UL;
       if (__len___5 > 63UL) {
-        __ret___5 = __memcpy((void *)pp, (void const   *)(& prev_pp), __len___5);
+        __ret___5 = memcpy((void *)pp, (void const   *)(& prev_pp), __len___5);
       } else {
         __ret___5 = __builtin_memcpy((void *)pp, (void const   *)(& prev_pp), __len___5);
       }
@@ -11647,7 +11647,7 @@ static int enic_set_rsskey(struct enic *enic )
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)rss_key_buf_va, (void const   *)(& rss_key), __len);
+    __ret = memcpy((void *)rss_key_buf_va, (void const   *)(& rss_key), __len);
   } else {
     __ret = __builtin_memcpy((void *)rss_key_buf_va, (void const   *)(& rss_key),
                              __len);
@@ -18177,7 +18177,7 @@ struct vic_provinfo *vic_provinfo_alloc(gfp_t flags , u8 const   *oui , u8 const
   }
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vp->oui), (void const   *)oui, __len);
+    __ret = memcpy((void *)(& vp->oui), (void const   *)oui, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vp->oui), (void const   *)oui, __len);
   }
@@ -18466,7 +18466,7 @@ static void enic_get_strings(struct net_device *netdev , u32 stringset , u8 *dat
   ldv_44604: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& enic_tx_stats[i].name), __len);
+    __ret = memcpy((void *)data, (void const   *)(& enic_tx_stats[i].name), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& enic_tx_stats[i].name),
                              __len);
@@ -18484,7 +18484,7 @@ static void enic_get_strings(struct net_device *netdev , u32 stringset , u8 *dat
   ldv_44610: 
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)data, (void const   *)(& enic_rx_stats[i].name),
+    __ret___0 = memcpy((void *)data, (void const   *)(& enic_rx_stats[i].name),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)data, (void const   *)(& enic_rx_stats[i].name),

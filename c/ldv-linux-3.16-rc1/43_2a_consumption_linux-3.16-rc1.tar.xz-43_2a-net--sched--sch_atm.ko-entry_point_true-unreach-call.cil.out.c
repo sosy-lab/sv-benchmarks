@@ -6006,7 +6006,7 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
@@ -7099,7 +7099,7 @@ static int atm_tc_change(struct Qdisc *sch , u32 classid , u32 parent , struct n
   } else {
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& flow->hdr), (void const   *)(& llc_oui_ip),
+      __ret___0 = memcpy((void *)(& flow->hdr), (void const   *)(& llc_oui_ip),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& flow->hdr), (void const   *)(& llc_oui_ip),

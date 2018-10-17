@@ -3374,7 +3374,7 @@ struct usb_idmouse {
 typedef int ldv_func_ret_type;
 struct urb;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static int usb_endpoint_dir_in(struct usb_endpoint_descriptor  const  *epd ) 
 { 
@@ -3741,7 +3741,7 @@ static int idmouse_create_image(struct usb_idmouse *dev )
   {
   __len = 15UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)dev->bulk_in_buffer, (void const   *)"P5 225 289 255 ",
+    __ret = memcpy((void *)dev->bulk_in_buffer, (void const   *)"P5 225 289 255 ",
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)dev->bulk_in_buffer, (void const   *)"P5 225 289 255 ",

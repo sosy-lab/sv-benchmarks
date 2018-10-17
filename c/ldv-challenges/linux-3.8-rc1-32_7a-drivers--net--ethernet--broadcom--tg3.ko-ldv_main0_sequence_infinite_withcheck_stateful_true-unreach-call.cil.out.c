@@ -6233,7 +6233,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 extern struct pv_irq_ops pv_irq_ops ;
 extern void __bad_percpu_size(void) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -9429,7 +9429,7 @@ static int tg3_ape_scratchpad_read(struct tg3 *tp , u32 *data , u32 base_off , u
   val = tmp___2;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& val), __len);
+    __ret = memcpy((void *)data, (void const   *)(& val), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& val), __len);
   }
@@ -12598,7 +12598,7 @@ static int tg3_nvram_write_block_using_eeprom(struct tg3 *tp , u32 offset , u32 
   addr = offset + (u32 )i;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& data), (void const   *)buf + (unsigned long )i, __len);
+    __ret = memcpy((void *)(& data), (void const   *)buf + (unsigned long )i, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& data), (void const   *)buf + (unsigned long )i,
                              __len);
@@ -12810,7 +12810,7 @@ static int tg3_nvram_write_block_buffered(struct tg3 *tp , u32 offset , u32 len 
   ldv_48731: 
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& data), (void const   *)buf + (unsigned long )i, __len);
+    __ret = memcpy((void *)(& data), (void const   *)buf + (unsigned long )i, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& data), (void const   *)buf + (unsigned long )i,
                              __len);
@@ -23918,7 +23918,7 @@ static int tg3_get_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom
   }
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)pd + (unsigned long )i, (void const   *)(& val),
+    __ret___0 = memcpy((void *)pd + (unsigned long )i, (void const   *)(& val),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)pd + (unsigned long )i, (void const   *)(& val),
@@ -24032,7 +24032,7 @@ static int tg3_set_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom
     if (b_offset != 0U) {
       __len = 4UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)buf, (void const   *)(& start), __len);
+        __ret = memcpy((void *)buf, (void const   *)(& start), __len);
       } else {
         __ret = __builtin_memcpy((void *)buf, (void const   *)(& start), __len);
       }
@@ -24042,7 +24042,7 @@ static int tg3_set_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom
     if (odd_len != 0U) {
       __len___0 = 4UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(buf + ((unsigned long )len + 0xfffffffffffffffcUL)),
+        __ret___0 = memcpy((void *)(buf + ((unsigned long )len + 0xfffffffffffffffcUL)),
                              (void const   *)(& end), __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(buf + ((unsigned long )len + 0xfffffffffffffffcUL)),
@@ -24921,7 +24921,7 @@ static void tg3_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
   case 1U: 
   __len = 2304UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buf, (void const   *)(& ethtool_stats_keys), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& ethtool_stats_keys), __len);
   } else {
     __ret = __builtin_memcpy((void *)buf, (void const   *)(& ethtool_stats_keys),
                              __len);
@@ -24930,7 +24930,7 @@ static void tg3_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
   case 0U: 
   __len___0 = 256UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)buf, (void const   *)(& ethtool_test_keys), __len___0);
+    __ret___0 = memcpy((void *)buf, (void const   *)(& ethtool_test_keys), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)buf, (void const   *)(& ethtool_test_keys),
                                  __len___0);
@@ -26143,7 +26143,7 @@ static int tg3_run_loopback(struct tg3 *tp , u32 pktsz , bool tso_loopback )
   tx_data = tmp___1;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)tx_data, (void const   *)(tp->dev)->dev_addr, __len);
+    __ret = memcpy((void *)tx_data, (void const   *)(tp->dev)->dev_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)tx_data, (void const   *)(tp->dev)->dev_addr,
                              __len);
@@ -26155,7 +26155,7 @@ static int tg3_run_loopback(struct tg3 *tp , u32 pktsz , bool tso_loopback )
     hdr_len = 52U;
     __len___0 = 54UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)tx_data + 12U, (void const   *)(& tg3_tso_header),
+      __ret___0 = memcpy((void *)tx_data + 12U, (void const   *)(& tg3_tso_header),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)tx_data + 12U, (void const   *)(& tg3_tso_header),
@@ -26969,7 +26969,7 @@ static int tg3_get_coalesce(struct net_device *dev , struct ethtool_coalesce *ec
   tp = (struct tg3 *)tmp;
   __len = 92UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)ec, (void const   *)(& tp->coal), __len);
+    __ret = memcpy((void *)ec, (void const   *)(& tp->coal), __len);
   } else {
     __ret = __builtin_memcpy((void *)ec, (void const   *)(& tp->coal), __len);
   }
@@ -28915,7 +28915,7 @@ static void tg3_read_bc_ver(struct tg3 *tp )
     }
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tp->fw_ver) + ((unsigned long )dst_off + (unsigned long )i),
+      __ret = memcpy((void *)(& tp->fw_ver) + ((unsigned long )dst_off + (unsigned long )i),
                        (void const   *)(& v), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tp->fw_ver) + ((unsigned long )dst_off + (unsigned long )i),
@@ -29145,7 +29145,7 @@ static void tg3_read_mgmtfw_ver(struct tg3 *tp )
   }
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& tp->fw_ver) + (unsigned long )vlen, (void const   *)(& v),
+    __ret___0 = memcpy((void *)(& tp->fw_ver) + (unsigned long )vlen, (void const   *)(& v),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& tp->fw_ver) + (unsigned long )vlen, (void const   *)(& v),
@@ -30538,14 +30538,14 @@ static int tg3_get_device_address(struct tg3 *tp )
         if (tmp___8 == 0) {
           __len = 2UL;
           if (__len > 63UL) {
-            __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& hi) + 2U, __len);
+            __ret = memcpy((void *)dev->dev_addr, (void const   *)(& hi) + 2U, __len);
           } else {
             __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& hi) + 2U,
                                      __len);
           }
           __len___0 = 4UL;
           if (__len___0 > 63UL) {
-            __ret___0 = __memcpy((void *)dev->dev_addr + 2U, (void const   *)(& lo),
+            __ret___0 = memcpy((void *)dev->dev_addr + 2U, (void const   *)(& lo),
                                  __len___0);
           } else {
             __ret___0 = __builtin_memcpy((void *)dev->dev_addr + 2U, (void const   *)(& lo),

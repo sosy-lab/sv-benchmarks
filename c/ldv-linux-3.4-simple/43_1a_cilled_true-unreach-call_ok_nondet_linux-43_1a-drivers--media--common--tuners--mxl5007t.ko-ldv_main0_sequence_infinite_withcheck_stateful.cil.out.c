@@ -3290,7 +3290,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
 extern void mutex_unlock(struct mutex * ) ;
@@ -4576,7 +4576,7 @@ static struct reg_pair_t *mxl5007t_calc_init_regs(struct mxl5007t_state *state ,
     __cil_tmp12 = (struct reg_pair_t (*)[17U])__cil_tmp11;
     __cil_tmp13 = (void *)__cil_tmp12;
     __cil_tmp14 = (void const   *)(& init_tab);
-    __ret = __memcpy(__cil_tmp13, __cil_tmp14, __len);
+    __ret = memcpy(__cil_tmp13, __cil_tmp14, __len);
     }
   } else {
     {
@@ -4596,7 +4596,7 @@ static struct reg_pair_t *mxl5007t_calc_init_regs(struct mxl5007t_state *state ,
     __cil_tmp22 = (struct reg_pair_t (*)[20U])__cil_tmp21;
     __cil_tmp23 = (void *)__cil_tmp22;
     __cil_tmp24 = (void const   *)(& init_tab_cable);
-    __ret___0 = __memcpy(__cil_tmp23, __cil_tmp24, __len___0);
+    __ret___0 = memcpy(__cil_tmp23, __cil_tmp24, __len___0);
     }
   } else {
     {
@@ -4816,7 +4816,7 @@ static struct reg_pair_t *mxl5007t_calc_rf_tune_regs(struct mxl5007t_state *stat
     __cil_tmp12 = (struct reg_pair_t (*)[11U])__cil_tmp11;
     __cil_tmp13 = (void *)__cil_tmp12;
     __cil_tmp14 = (void const   *)(& reg_pair_rftune);
-    __ret = __memcpy(__cil_tmp13, __cil_tmp14, __len);
+    __ret = memcpy(__cil_tmp13, __cil_tmp14, __len);
     }
   } else {
     {
@@ -6845,7 +6845,7 @@ struct dvb_frontend *mxl5007t_attach(struct dvb_frontend *fe , struct i2c_adapte
     __cil_tmp149 = (struct dvb_tuner_ops *)__cil_tmp148;
     __cil_tmp150 = (void *)__cil_tmp149;
     __cil_tmp151 = (void const   *)(& mxl5007t_tuner_ops);
-    __ret___1 = __memcpy(__cil_tmp150, __cil_tmp151, __len);
+    __ret___1 = memcpy(__cil_tmp150, __cil_tmp151, __len);
     }
   } else {
     {

@@ -7044,7 +7044,7 @@ __inline static int hlist_empty(struct hlist_head  const  *h )
   return ((unsigned long )h->first == (unsigned long )((struct hlist_node */* const  */)0));
 }
 }
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 __inline static void *ERR_PTR(long error ) ;
@@ -8383,7 +8383,7 @@ __inline static int __build_packet_message(struct nfnl_log_net *log , struct nfu
   nfmsg->version = 0U;
   tmp___0 = __fswab16((int )inst->group_num);
   nfmsg->res_id = tmp___0;
-  __memset((void *)(& pmsg), 0, 4UL);
+  memset((void *)(& pmsg), 0, 4UL);
   pmsg.hw_protocol = skb->protocol;
   pmsg.hook = (__u8 )hooknum;
   tmp___1 = nla_put(inst->skb, 1, 4, (void const   *)(& pmsg));
@@ -8514,7 +8514,7 @@ __inline static int __build_packet_message(struct nfnl_log_net *log , struct nfu
   }
   if (((unsigned long )indev != (unsigned long )((struct net_device  const  *)0) && (unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0)) && (int )((unsigned short )skb->mac_header) != (int )((unsigned short )skb->network_header)) {
     {
-    __memset((void *)(& phw), 0, 12UL);
+    memset((void *)(& phw), 0, 12UL);
     len = dev_parse_header(skb, (unsigned char *)(& phw.hw_addr));
     }
     if (len > 0) {

@@ -6916,7 +6916,7 @@ long ldv__builtin_expect(long val , long res )
 }
 
 
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern int mtd_erase(struct mtd_info *mtd , struct erase_info *instr ) ;
 extern int mtd_block_isbad(struct mtd_info *mtd , loff_t ofs ) ;
 extern int mtd_block_markbad(struct mtd_info *mtd , loff_t ofs ) ;
@@ -7411,7 +7411,7 @@ static int find_boot_record(struct NFTLrecord *nftl )
       __cil_tmp128 = (unsigned long )(buf) + __cil_tmp127;
       __cil_tmp129 = (u8 *)__cil_tmp128;
       __cil_tmp130 = (void const   *)__cil_tmp129;
-      __ret = __memcpy(__cil_tmp126, __cil_tmp130, __len);
+      __ret = memcpy(__cil_tmp126, __cil_tmp130, __len);
       }
     } else {
       {

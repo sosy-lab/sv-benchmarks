@@ -3734,7 +3734,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -4353,7 +4353,7 @@ static void __add_offloaded_reg_to_fifo(struct vub300_mmc_host *vub300 , struct 
   r = (int )((u8 )vub300->fn[(int )func].offload_point) + (int )vub300->fn[(int )func].offload_count;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vub300->fn[(int )func].reg) + ((unsigned long )r & 15UL),
+    __ret = memcpy((void *)(& vub300->fn[(int )func].reg) + ((unsigned long )r & 15UL),
                      (void const   *)register_access, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vub300->fn[(int )func].reg) + ((unsigned long )r & 15UL),

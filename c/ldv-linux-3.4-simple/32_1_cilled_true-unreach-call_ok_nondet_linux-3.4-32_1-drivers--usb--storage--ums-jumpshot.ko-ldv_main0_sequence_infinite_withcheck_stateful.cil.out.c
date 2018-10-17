@@ -3894,7 +3894,7 @@ __inline static __u32 __fswab32(__u32 val )
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -5134,7 +5134,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp58 = (unsigned long )(rw_err_page) + __cil_tmp57;
       __cil_tmp59 = (unsigned char *)__cil_tmp58;
       __cil_tmp60 = (void const   *)__cil_tmp59;
-      __ret = __memcpy(__cil_tmp56, __cil_tmp60, __len);
+      __ret = memcpy(__cil_tmp56, __cil_tmp60, __len);
       }
     } else {
       {
@@ -5161,7 +5161,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp72 = (unsigned long )(cache_page) + __cil_tmp71;
       __cil_tmp73 = (unsigned char *)__cil_tmp72;
       __cil_tmp74 = (void const   *)__cil_tmp73;
-      __ret___0 = __memcpy(__cil_tmp70, __cil_tmp74, __len___0);
+      __ret___0 = memcpy(__cil_tmp70, __cil_tmp74, __len___0);
       }
     } else {
       {
@@ -5188,7 +5188,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp86 = (unsigned long )(rbac_page) + __cil_tmp85;
       __cil_tmp87 = (unsigned char *)__cil_tmp86;
       __cil_tmp88 = (void const   *)__cil_tmp87;
-      __ret___1 = __memcpy(__cil_tmp84, __cil_tmp88, __len___1);
+      __ret___1 = memcpy(__cil_tmp84, __cil_tmp88, __len___1);
       }
     } else {
       {
@@ -5215,7 +5215,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp100 = (unsigned long )(timer_page) + __cil_tmp99;
       __cil_tmp101 = (unsigned char *)__cil_tmp100;
       __cil_tmp102 = (void const   *)__cil_tmp101;
-      __ret___2 = __memcpy(__cil_tmp98, __cil_tmp102, __len___2);
+      __ret___2 = memcpy(__cil_tmp98, __cil_tmp102, __len___2);
       }
     } else {
       {
@@ -5242,7 +5242,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp114 = (unsigned long )(timer_page) + __cil_tmp113;
       __cil_tmp115 = (unsigned char *)__cil_tmp114;
       __cil_tmp116 = (void const   *)__cil_tmp115;
-      __ret___3 = __memcpy(__cil_tmp112, __cil_tmp116, __len___3);
+      __ret___3 = memcpy(__cil_tmp112, __cil_tmp116, __len___3);
       }
     } else {
       {
@@ -5267,7 +5267,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp128 = (unsigned long )(rbac_page) + __cil_tmp127;
       __cil_tmp129 = (unsigned char *)__cil_tmp128;
       __cil_tmp130 = (void const   *)__cil_tmp129;
-      __ret___4 = __memcpy(__cil_tmp126, __cil_tmp130, __len___4);
+      __ret___4 = memcpy(__cil_tmp126, __cil_tmp130, __len___4);
       }
     } else {
       {
@@ -5292,7 +5292,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp142 = (unsigned long )(cache_page) + __cil_tmp141;
       __cil_tmp143 = (unsigned char *)__cil_tmp142;
       __cil_tmp144 = (void const   *)__cil_tmp143;
-      __ret___5 = __memcpy(__cil_tmp140, __cil_tmp144, __len___5);
+      __ret___5 = memcpy(__cil_tmp140, __cil_tmp144, __len___5);
       }
     } else {
       {
@@ -5317,7 +5317,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp156 = (unsigned long )(rw_err_page) + __cil_tmp155;
       __cil_tmp157 = (unsigned char *)__cil_tmp156;
       __cil_tmp158 = (void const   *)__cil_tmp157;
-      __ret___6 = __memcpy(__cil_tmp154, __cil_tmp158, __len___6);
+      __ret___6 = memcpy(__cil_tmp154, __cil_tmp158, __len___6);
       }
     } else {
       {
@@ -5821,7 +5821,7 @@ static int jumpshot_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp42 = (unsigned long )(inquiry_response) + __cil_tmp41;
       __cil_tmp43 = (unsigned char *)__cil_tmp42;
       __cil_tmp44 = (void const   *)__cil_tmp43;
-      __ret = __memcpy(__cil_tmp40, __cil_tmp44, __len);
+      __ret = memcpy(__cil_tmp40, __cil_tmp44, __len);
       }
     } else {
       {

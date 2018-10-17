@@ -4485,7 +4485,7 @@ __inline static __u16 __fswab16(__u16 val )
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -5809,7 +5809,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
       {
       __cil_tmp144 = (void *)pkt;
       __cil_tmp145 = (void const   *)pkthdr;
-      __ret = __memcpy(__cil_tmp144, __cil_tmp145, __len);
+      __ret = memcpy(__cil_tmp144, __cil_tmp145, __len);
       }
     } else {
       {
@@ -6354,7 +6354,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
         {
         __cil_tmp424 = (void *)pkt;
         __cil_tmp425 = (void const   *)pkthdr;
-        __ret___0 = __memcpy(__cil_tmp424, __cil_tmp425, __len___0);
+        __ret___0 = memcpy(__cil_tmp424, __cil_tmp425, __len___0);
         }
       } else {
         {

@@ -3202,7 +3202,7 @@ struct mt2131_priv {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -4248,7 +4248,7 @@ struct dvb_frontend *mt2131_attach(struct dvb_frontend *fe , struct i2c_adapter 
     __cil_tmp39 = (struct dvb_tuner_ops *)__cil_tmp38;
     __cil_tmp40 = (void *)__cil_tmp39;
     __cil_tmp41 = (void const   *)(& mt2131_tuner_ops);
-    __ret = __memcpy(__cil_tmp40, __cil_tmp41, __len);
+    __ret = memcpy(__cil_tmp40, __cil_tmp41, __len);
     }
   } else {
     {

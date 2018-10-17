@@ -10025,7 +10025,7 @@ __inline static int test_and_clear_bit(int nr , unsigned long volatile   *addr )
   return (oldbit);
 }
 }
-extern void *__memcpy(void *to , void    *from , size_t len ) ;
+extern void *memcpy(void *to , void    *from , size_t len ) ;
 static struct lock_class_key __key___8  ;
 __inline static void init_completion___0(struct completion *x )  __attribute__((__no_instrument_function__)) ;
 __inline static void init_completion___0(struct completion *x ) 
@@ -12590,7 +12590,7 @@ int usb_stor_Bulk_transport(struct scsi_cmnd *srb , struct us_data *us )
         __cil_tmp224 = (unsigned long )(usb_stor_sense_invalidCDB) + __cil_tmp223;
         __cil_tmp225 = (unsigned char *)__cil_tmp224;
         __cil_tmp226 = (void    *)__cil_tmp225;
-        __ret___0 = __memcpy(__cil_tmp222, __cil_tmp226, __len___0);
+        __ret___0 = memcpy(__cil_tmp222, __cil_tmp226, __len___0);
         }
       } else {
         {
@@ -14399,7 +14399,7 @@ int ENE_LoadBinCode(struct us_data *us , BYTE flag )
       __cil_tmp25 = (unsigned long )(SM_Init) + __cil_tmp24;
       __cil_tmp26 = (BYTE *)__cil_tmp25;
       __cil_tmp27 = (void    *)__cil_tmp26;
-      __ret = __memcpy(__cil_tmp23, __cil_tmp27, __len);
+      __ret = memcpy(__cil_tmp23, __cil_tmp27, __len);
       }
     } else {
       {
@@ -14424,7 +14424,7 @@ int ENE_LoadBinCode(struct us_data *us , BYTE flag )
       __cil_tmp35 = (unsigned long )(SM_Rdwr) + __cil_tmp34;
       __cil_tmp36 = (BYTE *)__cil_tmp35;
       __cil_tmp37 = (void    *)__cil_tmp36;
-      __ret___0 = __memcpy(__cil_tmp33, __cil_tmp37, __len___0);
+      __ret___0 = memcpy(__cil_tmp33, __cil_tmp37, __len___0);
       }
     } else {
       {
@@ -20242,7 +20242,7 @@ int Ssfdc_D_ReadRedtData(struct us_data *us , BYTE *redundant )
     {
     __cil_tmp66 = (void *)redundant;
     __cil_tmp67 = (void    *)buf;
-    __ret = __memcpy(__cil_tmp66, __cil_tmp67, __len);
+    __ret = memcpy(__cil_tmp66, __cil_tmp67, __len);
     }
   } else {
     {
@@ -21490,7 +21490,7 @@ int _Correct_D_SwECC(BYTE *buf , BYTE *redundant_ecc , BYTE *calculate_ecc___0 )
       {
       __cil_tmp13 = (void *)calculate_ecc___0;
       __cil_tmp14 = (void    *)redundant_ecc;
-      __ret = __memcpy(__cil_tmp13, __cil_tmp14, __len);
+      __ret = memcpy(__cil_tmp13, __cil_tmp14, __len);
       }
     } else {
       {

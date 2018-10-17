@@ -20028,7 +20028,7 @@ void ldv___ldv_spin_unlock_470(spinlock_t *ldv_func_arg1 )
 }
 }
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 void ldv___ldv_spin_lock_489(spinlock_t *ldv_func_arg1 ) ;
 void ldv___ldv_spin_lock_492(spinlock_t *ldv_func_arg1 ) ;
 void ldv___ldv_spin_lock_494(spinlock_t *ldv_func_arg1 ) ;
@@ -21131,7 +21131,7 @@ void intel_sdvo_init(struct drm_device *dev , int output_device )
   } else {
     __len = 2UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
+      __ret = memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),

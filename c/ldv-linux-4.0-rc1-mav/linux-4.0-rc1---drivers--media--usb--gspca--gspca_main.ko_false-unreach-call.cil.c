@@ -5784,8 +5784,8 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
@@ -6801,7 +6801,7 @@ void gspca_frame_add(struct gspca_dev *gspca_dev , enum gspca_packet_type packet
       }
     } else {
       {
-      __memcpy((void *)gspca_dev->image + (unsigned long )gspca_dev->image_len, (void const   *)data,
+      memcpy((void *)gspca_dev->image + (unsigned long )gspca_dev->image_len, (void const   *)data,
                (size_t )len);
       gspca_dev->image_len = gspca_dev->image_len + (u32 )len;
       }
@@ -8403,7 +8403,7 @@ static int vidioc_querybuf(struct file *file , void *priv , struct v4l2_buffer *
   }
   {
   frame = (struct gspca_frame *)(& gspca_dev->frame) + (unsigned long )v4l2_buf->index;
-  __memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf), 88UL);
+  memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf), 88UL);
   }
   return (0);
 }
@@ -8942,7 +8942,7 @@ static int vidioc_dqbuf(struct file *file , void *priv , struct v4l2_buffer *v4l
   frame = (struct gspca_frame *)(& gspca_dev->frame) + (unsigned long )j;
   gspca_dev->fr_o = (u8 )((i + 1) % 16);
   frame->v4l2_buf.flags = frame->v4l2_buf.flags & 4294967291U;
-  __memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf), 88UL);
+  memcpy((void *)v4l2_buf, (void const   *)(& frame->v4l2_buf), 88UL);
   }
   if (gspca_debug > 3) {
     {
@@ -9113,7 +9113,7 @@ static int read_alloc(struct gspca_dev *gspca_dev , struct file *file )
   }
   if ((int )((signed char )gspca_dev->nframes) == 0) {
     {
-    __memset((void *)(& rb), 0, 20UL);
+    memset((void *)(& rb), 0, 20UL);
     rb.count = (__u32 )gspca_dev->nbufread;
     rb.type = 1U;
     rb.memory = 7U;
@@ -9133,7 +9133,7 @@ static int read_alloc(struct gspca_dev *gspca_dev , struct file *file )
 
     }
     {
-    __memset((void *)(& v4l2_buf), 0, 88UL);
+    memset((void *)(& v4l2_buf), 0, 88UL);
     v4l2_buf.type = 1U;
     v4l2_buf.memory = 7U;
     i = 0;
@@ -9317,7 +9317,7 @@ static ssize_t dev_read(struct file *file , char *data , size_t count , loff_t *
   }
   ldv_36972: 
   {
-  __memset((void *)(& v4l2_buf), 0, 88UL);
+  memset((void *)(& v4l2_buf), 0, 88UL);
   v4l2_buf.type = 1U;
   v4l2_buf.memory = 7U;
   ret = vidioc_dqbuf(file, (void *)gspca_dev, & v4l2_buf);

@@ -6379,7 +6379,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -7356,7 +7356,7 @@ static int isdn_net_open(struct net_device *dev___0 )
     if ((unsigned long )ifa != (unsigned long )((struct in_ifaddr *)0)) {
       __len = 4UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)dev___0->dev_addr + 2U, (void const   *)(& ifa->ifa_local),
+        __ret = memcpy((void *)dev___0->dev_addr + 2U, (void const   *)(& ifa->ifa_local),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)dev___0->dev_addr + 2U, (void const   *)(& ifa->ifa_local),
@@ -11789,7 +11789,7 @@ static void isdn_tty_senddown(modem_info *info )
       __len___0 = 2UL;
       if (__len___0 > 63UL) {
         tmp___3 = skb_push(skb, 2U);
-        __ret___0 = __memcpy((void *)tmp___3, (void const   *)"\001", __len___0);
+        __ret___0 = memcpy((void *)tmp___3, (void const   *)"\001", __len___0);
       } else {
         tmp___4 = skb_push(skb, 2U);
         __ret___0 = __builtin_memcpy((void *)tmp___4, (void const   *)"\001", __len___0);
@@ -11798,7 +11798,7 @@ static void isdn_tty_senddown(modem_info *info )
       __len___1 = 4UL;
       if (__len___1 > 63UL) {
         tmp___5 = skb_push(skb, 4U);
-        __ret___1 = __memcpy((void *)tmp___5, (void const   *)"\001", __len___1);
+        __ret___1 = memcpy((void *)tmp___5, (void const   *)"\001", __len___1);
       } else {
         tmp___6 = skb_push(skb, 4U);
         __ret___1 = __builtin_memcpy((void *)tmp___6, (void const   *)"\001", __len___1);
@@ -13130,21 +13130,21 @@ static void isdn_tty_modem_reset_regs(modem_info *info , int force )
   if (((int )m->mdmreg[12] & 32) != 0 || force != 0) {
     __len = 24UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& m->mdmreg), (void const   *)(& m->profile), __len);
+      __ret = memcpy((void *)(& m->mdmreg), (void const   *)(& m->profile), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& m->mdmreg), (void const   *)(& m->profile),
                                __len);
     }
     __len___0 = 32UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& m->msn), (void const   *)(& m->pmsn), __len___0);
+      __ret___0 = memcpy((void *)(& m->msn), (void const   *)(& m->pmsn), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& m->msn), (void const   *)(& m->pmsn),
                                    __len___0);
     }
     __len___1 = 255UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& m->lmsn), (void const   *)(& m->plmsn), __len___1);
+      __ret___1 = memcpy((void *)(& m->lmsn), (void const   *)(& m->plmsn), __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& m->lmsn), (void const   *)(& m->plmsn),
                                    __len___1);
@@ -13171,21 +13171,21 @@ static void modem_write_profile(atemu *m )
   {
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& m->profile), (void const   *)(& m->mdmreg), __len);
+    __ret = memcpy((void *)(& m->profile), (void const   *)(& m->mdmreg), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& m->profile), (void const   *)(& m->mdmreg),
                              __len);
   }
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& m->pmsn), (void const   *)(& m->msn), __len___0);
+    __ret___0 = memcpy((void *)(& m->pmsn), (void const   *)(& m->msn), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& m->pmsn), (void const   *)(& m->msn),
                                  __len___0);
   }
   __len___1 = 255UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& m->plmsn), (void const   *)(& m->lmsn), __len___1);
+    __ret___1 = memcpy((void *)(& m->plmsn), (void const   *)(& m->lmsn), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& m->plmsn), (void const   *)(& m->lmsn),
                                  __len___1);
@@ -19788,7 +19788,7 @@ static int isdn_ioctl(struct file *file , uint cmd , ulong arg )
       c.arg = (ulong )cmd;
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& c.parm.num), (void const   *)(& iocpar.iocts.arg),
+        __ret = memcpy((void *)(& c.parm.num), (void const   *)(& iocpar.iocts.arg),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& c.parm.num), (void const   *)(& iocpar.iocts.arg),
@@ -19797,7 +19797,7 @@ static int isdn_ioctl(struct file *file , uint cmd , ulong arg )
       ret = isdn_command(& c);
       __len___0 = 8UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& iocpar.iocts.arg), (void const   *)(& c.parm.num),
+        __ret___0 = memcpy((void *)(& iocpar.iocts.arg), (void const   *)(& c.parm.num),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& iocpar.iocts.arg), (void const   *)(& c.parm.num),

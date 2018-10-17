@@ -3721,7 +3721,7 @@ __inline static void list_move_tail(struct list_head *list , struct list_head *h
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static void atomic_inc(atomic_t *v ) 
@@ -6438,7 +6438,7 @@ static int find_and_insert_self_id(struct fw_ohci *ohci , int self_id_count )
   self_id = (u32 )tmp___0 | self_id;
   pos = get_self_id_pos(ohci, self_id, self_id_count);
   if (pos >= 0) {
-    __memmove((void *)(& ohci->self_id_buffer) + ((unsigned long )pos + 1UL), (void const   *)(& ohci->self_id_buffer) + (unsigned long )pos,
+    memmove((void *)(& ohci->self_id_buffer) + ((unsigned long )pos + 1UL), (void const   *)(& ohci->self_id_buffer) + (unsigned long )pos,
               (unsigned long )(self_id_count - pos) * 4UL);
     ohci->self_id_buffer[pos] = self_id;
     self_id_count = self_id_count + 1;

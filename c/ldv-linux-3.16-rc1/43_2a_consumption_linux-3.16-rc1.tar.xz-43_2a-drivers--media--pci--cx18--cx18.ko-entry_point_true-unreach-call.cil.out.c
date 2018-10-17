@@ -18373,7 +18373,7 @@ struct sk_buff *ldv_skb_clone_332(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return (tmp);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int mod_timer(struct timer_list * , unsigned long  ) ;
 int ldv_mod_timer_375(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
 void *ldv_kmem_cache_alloc_358(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
@@ -18990,7 +18990,7 @@ static int cx18_s_fmt_sliced_vbi_cap(struct file *file , void *fh , struct v4l2_
   cx->vbi.in.type = 6U;
   __len = 112UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)cx->vbi.sliced_in, (void const   *)vbifmt, __len);
+    __ret = memcpy((void *)cx->vbi.sliced_in, (void const   *)vbifmt, __len);
   } else {
     __ret = __builtin_memcpy((void *)cx->vbi.sliced_in, (void const   *)vbifmt, __len);
   }
@@ -22895,7 +22895,7 @@ static void copy_vbi_data(struct cx18 *cx , int lines , u32 pts_stamp )
   *(dst + (unsigned long )((sd + 12) + line * 43)) = (u8 )tmp;
   __len = 42UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(dst + (((unsigned long )sd + (unsigned long )(line * 43)) + 13UL)),
+    __ret = memcpy((void *)(dst + (((unsigned long )sd + (unsigned long )(line * 43)) + 13UL)),
                      (void const   *)(& sdata->data), __len);
   } else {
     __ret = __builtin_memcpy((void *)(dst + (((unsigned long )sd + (unsigned long )(line * 43)) + 13UL)),
@@ -22912,14 +22912,14 @@ static void copy_vbi_data(struct cx18 *cx , int lines , u32 pts_stamp )
   }
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)dst, (void const   *)(& mpeg_hdr_data), __len___0);
+    __ret___0 = memcpy((void *)dst, (void const   *)(& mpeg_hdr_data), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)dst, (void const   *)(& mpeg_hdr_data), __len___0);
   }
   if (line == 36) {
     __len___1 = 4UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)dst + (unsigned long )sd, (void const   *)"ITV0",
+      __ret___1 = memcpy((void *)dst + (unsigned long )sd, (void const   *)"ITV0",
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)dst + (unsigned long )sd, (void const   *)"ITV0",
@@ -22931,7 +22931,7 @@ static void copy_vbi_data(struct cx18 *cx , int lines , u32 pts_stamp )
   } else {
     __len___2 = 4UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)dst + (unsigned long )sd, (void const   *)"itv0",
+      __ret___2 = memcpy((void *)dst + (unsigned long )sd, (void const   *)"itv0",
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)dst + (unsigned long )sd, (void const   *)"itv0",
@@ -22939,7 +22939,7 @@ static void copy_vbi_data(struct cx18 *cx , int lines , u32 pts_stamp )
     }
     __len___3 = 8UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)(dst + ((unsigned long )sd + 4UL)), (void const   *)(& linemask),
+      __ret___3 = memcpy((void *)(dst + ((unsigned long )sd + 4UL)), (void const   *)(& linemask),
                            __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)(dst + ((unsigned long )sd + 4UL)), (void const   *)(& linemask),
@@ -23069,7 +23069,7 @@ static u32 compress_sliced_buf(struct cx18 *cx , u8 *buf , u32 size , u32 const 
     cx->vbi.sliced_data[line].line = vbi.line;
     __len = 42UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& cx->vbi.sliced_data[line].data), (void const   *)vbi.p,
+      __ret = memcpy((void *)(& cx->vbi.sliced_data[line].data), (void const   *)vbi.p,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& cx->vbi.sliced_data[line].data), (void const   *)vbi.p,
@@ -23121,7 +23121,7 @@ static void _cx18_process_vbi_data(struct cx18 *cx , struct cx18_buffer *buf )
     p = p + (unsigned long )(size - 4U);
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)p, (void const   *)(& cx->vbi.frame), __len);
+      __ret = memcpy((void *)p, (void const   *)(& cx->vbi.frame), __len);
     } else {
       __ret = __builtin_memcpy((void *)p, (void const   *)(& cx->vbi.frame), __len);
     }

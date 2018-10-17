@@ -7029,7 +7029,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
                              int  ) ;
@@ -7560,7 +7560,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -8278,7 +8278,7 @@ static int at76_get_hw_config(struct at76_priv *priv )
     }
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& priv->mac_addr), (void const   *)(& hwcfg->i.mac_addr),
+      __ret = memcpy((void *)(& priv->mac_addr), (void const   *)(& hwcfg->i.mac_addr),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& priv->mac_addr), (void const   *)(& hwcfg->i.mac_addr),
@@ -8296,7 +8296,7 @@ static int at76_get_hw_config(struct at76_priv *priv )
       }
       __len___0 = 6UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& priv->mac_addr), (void const   *)(& hwcfg->r3.mac_addr),
+        __ret___0 = memcpy((void *)(& priv->mac_addr), (void const   *)(& hwcfg->r3.mac_addr),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& priv->mac_addr), (void const   *)(& hwcfg->r3.mac_addr),
@@ -8312,7 +8312,7 @@ static int at76_get_hw_config(struct at76_priv *priv )
       }
       __len___1 = 6UL;
       if (__len___1 > 63UL) {
-        __ret___1 = __memcpy((void *)(& priv->mac_addr), (void const   *)(& hwcfg->r5.mac_addr),
+        __ret___1 = memcpy((void *)(& priv->mac_addr), (void const   *)(& hwcfg->r5.mac_addr),
                              __len___1);
       } else {
         __ret___1 = __builtin_memcpy((void *)(& priv->mac_addr), (void const   *)(& hwcfg->r5.mac_addr),
@@ -9356,7 +9356,7 @@ static int at76_startup_device(struct at76_priv *priv )
   ccfg->fragmentation_threshold = (unsigned short )priv->frag_threshold;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ccfg->basic_rate_set), (void const   *)(& hw_rates),
+    __ret = memcpy((void *)(& ccfg->basic_rate_set), (void const   *)(& hw_rates),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ccfg->basic_rate_set), (void const   *)(& hw_rates),
@@ -9367,7 +9367,7 @@ static int at76_startup_device(struct at76_priv *priv )
   ccfg->privacy_invoked = (u8 )priv->wep_enabled;
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ccfg->current_ssid), (void const   *)(& priv->essid),
+    __ret___0 = memcpy((void *)(& ccfg->current_ssid), (void const   *)(& priv->essid),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ccfg->current_ssid), (void const   *)(& priv->essid),
@@ -9377,7 +9377,7 @@ static int at76_startup_device(struct at76_priv *priv )
   ccfg->wep_default_key_id = (u8 )priv->wep_key_id;
   __len___1 = 52UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& ccfg->wep_default_key_value), (void const   *)(& priv->wep_keys),
+    __ret___1 = memcpy((void *)(& ccfg->wep_default_key_value), (void const   *)(& priv->wep_keys),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& ccfg->wep_default_key_value), (void const   *)(& priv->wep_keys),
@@ -9657,7 +9657,7 @@ static void at76_rx_tasklet(unsigned long param )
   __len = 40UL;
   if (__len > 63UL) {
     tmp___3 = IEEE80211_SKB_RXCB(priv->rx_skb);
-    __ret = __memcpy((void *)tmp___3, (void const   *)(& rx_status), __len);
+    __ret = memcpy((void *)tmp___3, (void const   *)(& rx_status), __len);
   } else {
     tmp___4 = IEEE80211_SKB_RXCB(priv->rx_skb);
     __ret = __builtin_memcpy((void *)tmp___4, (void const   *)(& rx_status), __len);
@@ -9771,7 +9771,7 @@ static int at76_join(struct at76_priv *priv )
   join.essid_size = (u8 )priv->essid_size;
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& join.bssid), (void const   *)(& priv->bssid),
+    __ret___0 = memcpy((void *)(& join.bssid), (void const   *)(& priv->bssid),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& join.bssid), (void const   *)(& priv->bssid),
@@ -9927,7 +9927,7 @@ static void at76_mac80211_tx(struct ieee80211_hw *hw , struct ieee80211_tx_contr
     if (tmp___1) {
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& priv->bssid), (void const   *)(& mgmt->bssid),
+        __ret = memcpy((void *)(& priv->bssid), (void const   *)(& mgmt->bssid),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& priv->bssid), (void const   *)(& mgmt->bssid),
@@ -10296,7 +10296,7 @@ static void at76_bss_info_changed(struct ieee80211_hw *hw , struct ieee80211_vif
   mutex_lock_nested(& priv->mtx, 0U);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->bssid), (void const   *)conf->bssid, __len);
+    __ret = memcpy((void *)(& priv->bssid), (void const   *)conf->bssid, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->bssid), (void const   *)conf->bssid,
                              __len);
@@ -10373,7 +10373,7 @@ static int at76_set_wep(struct at76_priv *priv )
   mib_data->wep_default_key_id = (u8 )priv->wep_key_id;
   __len = 52UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mib_data->wep_default_keyvalue), (void const   *)(& priv->wep_keys),
+    __ret = memcpy((void *)(& mib_data->wep_default_keyvalue), (void const   *)(& priv->wep_keys),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mib_data->wep_default_keyvalue), (void const   *)(& priv->wep_keys),
@@ -10878,7 +10878,7 @@ static int at76_probe(struct usb_interface *interface , struct usb_device_id  co
   usb_set_intfdata(interface, (void *)priv);
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->fw_version), (void const   *)fwv, __len);
+    __ret = memcpy((void *)(& priv->fw_version), (void const   *)fwv, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->fw_version), (void const   *)fwv, __len);
   }

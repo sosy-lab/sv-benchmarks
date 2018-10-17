@@ -10269,7 +10269,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern unsigned long _raw_spin_lock_irqsave(raw_spinlock_t * ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long  ) ;
@@ -10724,7 +10724,7 @@ static void _rtl8723be_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
                                __len___0);
   __len___1 = 3UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& boxcontent) + 1U, (void const   *)p_cmdbuffer + (unsigned long )buf_index,
+    __ret___1 = memcpy((void *)(& boxcontent) + 1U, (void const   *)p_cmdbuffer + (unsigned long )buf_index,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)p_cmdbuffer + (unsigned long )buf_index,
@@ -11252,14 +11252,14 @@ void rtl8723be_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
   *((u16 *)p_pspoll + 2U) = (u16 )((unsigned int )mac->assoc_id | 49152U);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p_pspoll + 4U, (void const   *)(& mac->bssid), __len);
+    __ret = memcpy((void *)p_pspoll + 4U, (void const   *)(& mac->bssid), __len);
   } else {
     __ret = __builtin_memcpy((void *)p_pspoll + 4U, (void const   *)(& mac->bssid),
                              __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)p_pspoll + 10U, (void const   *)(& mac->mac_addr),
+    __ret___0 = memcpy((void *)p_pspoll + 10U, (void const   *)(& mac->mac_addr),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)p_pspoll + 10U, (void const   *)(& mac->mac_addr),
@@ -14892,7 +14892,7 @@ static void _rtl8723be_read_adapter_info(struct ieee80211_hw *hw , bool pseudo_t
     rtl_efuse_shadow_map_update(hw);
     __len = 512UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
+      __ret = memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
@@ -24631,7 +24631,7 @@ static void _rtl8723be_translate_rx_signal_stuff(struct ieee80211_hw *hw , struc
   psaddr = ieee80211_get_SA(hdr);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& pstatus->psaddr), (void const   *)psaddr, __len);
+    __ret = memcpy((void *)(& pstatus->psaddr), (void const   *)psaddr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pstatus->psaddr), (void const   *)psaddr,
                              __len);

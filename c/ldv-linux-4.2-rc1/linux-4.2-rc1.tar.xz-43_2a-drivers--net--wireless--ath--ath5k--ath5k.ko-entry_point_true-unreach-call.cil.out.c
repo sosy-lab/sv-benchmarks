@@ -24409,7 +24409,7 @@ __inline static int list_empty(struct list_head  const  *head )
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) ;
@@ -27490,7 +27490,7 @@ static int ath5k_add_padding(struct sk_buff *skb )
 
     }
     skb_push(skb, (unsigned int )padsize);
-    __memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
+    memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
               (size_t )padpos);
     return (padsize);
   } else {
@@ -27510,7 +27510,7 @@ static int ath5k_remove_padding(struct sk_buff *skb )
   padpos = tmp;
   padsize = padpos & 3;
   if (padsize != 0 && skb->len >= (unsigned int )(padpos + padsize)) {
-    __memmove((void *)skb->data + (unsigned long )padsize, (void const   *)skb->data,
+    memmove((void *)skb->data + (unsigned long )padsize, (void const   *)skb->data,
               (size_t )padpos);
     skb_pull(skb, (unsigned int )padsize);
     return (padsize);

@@ -11093,7 +11093,7 @@ void *ldv_kmem_cache_alloc_84(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return ((void *)0);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 void *ldv_kmem_cache_alloc_104(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern unsigned long msleep_interruptible(unsigned int  ) ;
 int tw28_set_ctrl_val(struct solo_dev *solo_dev , u32 ctrl , u8 ch , s32 val ) ;
@@ -11437,7 +11437,7 @@ static int tw2865_setup(struct solo_dev *solo_dev , u8 dev_addr )
   if (solo_dev->video_type == 1073741824U) {
     __len = 256UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_pal_template),
+      __ret = memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_pal_template),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_pal_template),
@@ -11446,7 +11446,7 @@ static int tw2865_setup(struct solo_dev *solo_dev , u8 dev_addr )
   } else {
     __len___0 = 256UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_ntsc_template),
+      __ret___0 = memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_ntsc_template),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_ntsc_template),
@@ -11518,7 +11518,7 @@ static int tw2864_setup(struct solo_dev *solo_dev , u8 dev_addr )
   if (solo_dev->video_type == 1073741824U) {
     __len = 256UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_pal_template),
+      __ret = memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_pal_template),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_pal_template),
@@ -11527,7 +11527,7 @@ static int tw2864_setup(struct solo_dev *solo_dev , u8 dev_addr )
   } else {
     __len___0 = 256UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_ntsc_template),
+      __ret___0 = memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_ntsc_template),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_ntsc_template),
@@ -14212,7 +14212,7 @@ void solo_update_mode(struct solo_enc_dev *solo_enc )
   __len___0 = 138UL;
   if (__len___0 > 63UL) {
     tmp = solo_g_jpeg_qp(solo_dev, (unsigned int )solo_enc->ch);
-    __ret___0 = __memcpy((void *)vop + 17U, (void const   *)(& jpeg_dqt) + (unsigned long )tmp,
+    __ret___0 = memcpy((void *)vop + 17U, (void const   *)(& jpeg_dqt) + (unsigned long )tmp,
                          __len___0);
   } else {
     tmp___0 = solo_g_jpeg_qp(solo_dev, (unsigned int )solo_enc->ch);

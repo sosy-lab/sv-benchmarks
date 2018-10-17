@@ -5402,7 +5402,7 @@ long ldv_ptr_err(void const   *ptr ) ;
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -7401,7 +7401,7 @@ static void read_mac_address(struct net_device *ndev , unsigned char *mac )
   if ((((((unsigned int )*mac != 0U || (unsigned int )*(mac + 1UL) != 0U) || (unsigned int )*(mac + 2UL) != 0U) || (unsigned int )*(mac + 3UL) != 0U) || (unsigned int )*(mac + 4UL) != 0U) || (unsigned int )*(mac + 5UL) != 0U) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)ndev->dev_addr, (void const   *)mac, __len);
+      __ret = memcpy((void *)ndev->dev_addr, (void const   *)mac, __len);
     } else {
       __ret = __builtin_memcpy((void *)ndev->dev_addr, (void const   *)mac, __len);
     }
@@ -8732,7 +8732,7 @@ static void sh_eth_get_strings(struct net_device *ndev , u32 stringset , u8 *dat
   case 1U: 
   __len = 128UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& sh_eth_gstrings_stats), __len);
+    __ret = memcpy((void *)data, (void const   *)(& sh_eth_gstrings_stats), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& sh_eth_gstrings_stats),
                              __len);

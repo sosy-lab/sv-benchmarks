@@ -462,7 +462,7 @@ __inline static void clear_bit(int nr , unsigned long volatile   *addr )
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern int memcmp(void const   *cs , void const   *ct , unsigned long count ) ;
 extern int param_set_uint(char const   *val , struct kernel_param *kp ) ;
 extern int param_get_uint(char *buffer , struct kernel_param *kp ) ;
@@ -906,7 +906,7 @@ static void cfag12864b_update(struct work_struct *work )
     }
     __len = (2 * 8) * 64;
     if (__len >= (size_t )64) {
-      __ret = __memcpy(cfag12864b_cache, cfag12864b_buffer, __len);
+      __ret = memcpy(cfag12864b_cache, cfag12864b_buffer, __len);
     } else {
       __ret = __builtin_memcpy(cfag12864b_cache, cfag12864b_buffer, __len);
     }

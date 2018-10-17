@@ -8754,7 +8754,7 @@ static void ldv_mutex_lock_124(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_126(struct mutex *ldv_func_arg1 ) ;
 void ldv_linux_kernel_locking_mutex_mutex_lock_mixer_mutex_of_vx_core(struct mutex *lock ) ;
 void ldv_linux_kernel_locking_mutex_mutex_unlock_mixer_mutex_of_vx_core(struct mutex *lock ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 static void ldv_mutex_unlock_90(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_92(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_94(struct mutex *ldv_func_arg1 ) ;
@@ -9049,7 +9049,7 @@ int vx_set_monitor_level(struct vx_core *chip , int audio , int level , int acti
 
   {
   {
-  __memset((void *)(& info), 0, 16UL);
+  memset((void *)(& info), 0, 16UL);
   info.has_monitor_level = 1U;
   info.monitor_level = (short )level;
   info.has_monitor_mute = 1U;
@@ -9068,7 +9068,7 @@ static int vx_set_audio_switch(struct vx_core *chip , int audio , int active )
 
   {
   {
-  __memset((void *)(& info), 0, 16UL);
+  memset((void *)(& info), 0, 16UL);
   info.has_mute = 1U;
   info.mute = active == 0;
   chip->audio_active[audio] = (unsigned char )active;
@@ -9084,7 +9084,7 @@ static int vx_set_audio_gain(struct vx_core *chip , int audio , int capture , in
 
   {
   {
-  __memset((void *)(& info), 0, 16UL);
+  memset((void *)(& info), 0, 16UL);
   info.has_level = 1U;
   info.level = (short )level;
   chip->audio_gain[capture][audio] = level;
@@ -9101,10 +9101,10 @@ static void vx_reset_audio_levels(struct vx_core *chip )
 
   {
   {
-  __memset((void *)(& chip->audio_gain), 0, 32UL);
-  __memset((void *)(& chip->audio_active), 0, 4UL);
-  __memset((void *)(& chip->audio_monitor), 0, 16UL);
-  __memset((void *)(& chip->audio_monitor_active), 0, 4UL);
+  memset((void *)(& chip->audio_gain), 0, 32UL);
+  memset((void *)(& chip->audio_active), 0, 4UL);
+  memset((void *)(& chip->audio_monitor), 0, 16UL);
+  memset((void *)(& chip->audio_monitor_active), 0, 4UL);
   c = 0U;
   }
   goto ldv_31698;
@@ -9113,7 +9113,7 @@ static void vx_reset_audio_levels(struct vx_core *chip )
   goto ldv_31695;
   ldv_31694: 
   {
-  __memset((void *)(& info), 0, 16UL);
+  memset((void *)(& info), 0, 16UL);
   }
   if (c == 0U) {
     info.has_monitor_level = 1U;

@@ -2994,7 +2994,7 @@ __inline static int get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int debug_locks ;
 extern void lockdep_rcu_dereference(char const   * , int const    ) ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
@@ -3711,7 +3711,7 @@ struct dvb_frontend *mt2266_attach(struct dvb_frontend *fe , struct i2c_adapter 
   printk("<6>MT2266: successfully identified\n");
   __len = 272UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& mt2266_tuner_ops),
+    __ret = memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& mt2266_tuner_ops),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& mt2266_tuner_ops),

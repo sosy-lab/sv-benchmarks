@@ -13550,7 +13550,7 @@ __inline static __u64 __fswab64(__u64 val )
 }
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __preempt_count ;
 __inline static void __preempt_count_add(int val ) 
 { 
@@ -14542,7 +14542,7 @@ static void ath9k_htc_tx_process(struct ath9k_htc_priv *priv , struct sk_buff *s
   hdrlen = (int )tmp___1;
   padsize = hdrlen & 3;
   if (padsize != 0 && skb->len > (unsigned int )(hdrlen + padsize)) {
-    __memmove((void *)skb->data + (unsigned long )padsize, (void const   *)skb->data,
+    memmove((void *)skb->data + (unsigned long )padsize, (void const   *)skb->data,
               (size_t )hdrlen);
     skb_pull(skb, (unsigned int )padsize);
   } else {
@@ -16944,7 +16944,7 @@ static void ath9k_htc_tx(struct ieee80211_hw *hw , struct ieee80211_tx_control *
 
     }
     skb_push(skb, (unsigned int )padsize);
-    __memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
+    memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
               (size_t )padpos);
   } else {
 
@@ -19534,7 +19534,7 @@ static void ath9k_htc_send_buffered(struct ath9k_htc_priv *priv , int slot )
 
     }
     skb_push(skb, (unsigned int )padsize);
-    __memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
+    memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
               (size_t )padpos);
   } else {
 

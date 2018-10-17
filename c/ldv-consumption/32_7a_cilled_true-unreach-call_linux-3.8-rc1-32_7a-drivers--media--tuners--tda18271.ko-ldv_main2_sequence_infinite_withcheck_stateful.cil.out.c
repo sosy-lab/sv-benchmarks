@@ -3400,7 +3400,7 @@ struct tda18271_config {
    unsigned int config ;
 };
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_4(struct mutex *ldv_func_arg1 ) ;
 extern void mutex_unlock(struct mutex * ) ;
@@ -4684,7 +4684,7 @@ int tda18271_assign_map_layout(struct dvb_frontend *fe )
   priv->maps = & tda18271c1_map_layout;
   __len = 60UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->std), (void const   *)(& tda18271c1_std_map),
+    __ret = memcpy((void *)(& priv->std), (void const   *)(& tda18271c1_std_map),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->std), (void const   *)(& tda18271c1_std_map),
@@ -4695,7 +4695,7 @@ int tda18271_assign_map_layout(struct dvb_frontend *fe )
   priv->maps = & tda18271c2_map_layout;
   __len___0 = 60UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& priv->std), (void const   *)(& tda18271c2_std_map),
+    __ret___0 = memcpy((void *)(& priv->std), (void const   *)(& tda18271c2_std_map),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& priv->std), (void const   *)(& tda18271c2_std_map),
@@ -4709,7 +4709,7 @@ int tda18271_assign_map_layout(struct dvb_frontend *fe )
   ldv_24054: 
   __len___1 = 384UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& priv->rf_cal_state), (void const   *)(& tda18271_rf_band_template),
+    __ret___1 = memcpy((void *)(& priv->rf_cal_state), (void const   *)(& tda18271_rf_band_template),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& priv->rf_cal_state), (void const   *)(& tda18271_rf_band_template),
@@ -7534,7 +7534,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& std->fm_radio), (void const   *)(& map->fm_radio),
+      __ret = memcpy((void *)(& std->fm_radio), (void const   *)(& map->fm_radio),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& std->fm_radio), (void const   *)(& map->fm_radio),
@@ -7552,7 +7552,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___0 = 4UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& std->atv_b), (void const   *)(& map->atv_b),
+      __ret___0 = memcpy((void *)(& std->atv_b), (void const   *)(& map->atv_b),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& std->atv_b), (void const   *)(& map->atv_b),
@@ -7570,7 +7570,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___1 = 4UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& std->atv_dk), (void const   *)(& map->atv_dk),
+      __ret___1 = memcpy((void *)(& std->atv_dk), (void const   *)(& map->atv_dk),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& std->atv_dk), (void const   *)(& map->atv_dk),
@@ -7588,7 +7588,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___2 = 4UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& std->atv_gh), (void const   *)(& map->atv_gh),
+      __ret___2 = memcpy((void *)(& std->atv_gh), (void const   *)(& map->atv_gh),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& std->atv_gh), (void const   *)(& map->atv_gh),
@@ -7606,7 +7606,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___3 = 4UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)(& std->atv_i), (void const   *)(& map->atv_i),
+      __ret___3 = memcpy((void *)(& std->atv_i), (void const   *)(& map->atv_i),
                            __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)(& std->atv_i), (void const   *)(& map->atv_i),
@@ -7624,7 +7624,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___4 = 4UL;
     if (__len___4 > 63UL) {
-      __ret___4 = __memcpy((void *)(& std->atv_l), (void const   *)(& map->atv_l),
+      __ret___4 = memcpy((void *)(& std->atv_l), (void const   *)(& map->atv_l),
                            __len___4);
     } else {
       __ret___4 = __builtin_memcpy((void *)(& std->atv_l), (void const   *)(& map->atv_l),
@@ -7642,7 +7642,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___5 = 4UL;
     if (__len___5 > 63UL) {
-      __ret___5 = __memcpy((void *)(& std->atv_lc), (void const   *)(& map->atv_lc),
+      __ret___5 = memcpy((void *)(& std->atv_lc), (void const   *)(& map->atv_lc),
                            __len___5);
     } else {
       __ret___5 = __builtin_memcpy((void *)(& std->atv_lc), (void const   *)(& map->atv_lc),
@@ -7660,7 +7660,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___6 = 4UL;
     if (__len___6 > 63UL) {
-      __ret___6 = __memcpy((void *)(& std->atv_mn), (void const   *)(& map->atv_mn),
+      __ret___6 = memcpy((void *)(& std->atv_mn), (void const   *)(& map->atv_mn),
                            __len___6);
     } else {
       __ret___6 = __builtin_memcpy((void *)(& std->atv_mn), (void const   *)(& map->atv_mn),
@@ -7678,7 +7678,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___7 = 4UL;
     if (__len___7 > 63UL) {
-      __ret___7 = __memcpy((void *)(& std->atsc_6), (void const   *)(& map->atsc_6),
+      __ret___7 = memcpy((void *)(& std->atsc_6), (void const   *)(& map->atsc_6),
                            __len___7);
     } else {
       __ret___7 = __builtin_memcpy((void *)(& std->atsc_6), (void const   *)(& map->atsc_6),
@@ -7696,7 +7696,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___8 = 4UL;
     if (__len___8 > 63UL) {
-      __ret___8 = __memcpy((void *)(& std->dvbt_6), (void const   *)(& map->dvbt_6),
+      __ret___8 = memcpy((void *)(& std->dvbt_6), (void const   *)(& map->dvbt_6),
                            __len___8);
     } else {
       __ret___8 = __builtin_memcpy((void *)(& std->dvbt_6), (void const   *)(& map->dvbt_6),
@@ -7714,7 +7714,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___9 = 4UL;
     if (__len___9 > 63UL) {
-      __ret___9 = __memcpy((void *)(& std->dvbt_7), (void const   *)(& map->dvbt_7),
+      __ret___9 = memcpy((void *)(& std->dvbt_7), (void const   *)(& map->dvbt_7),
                            __len___9);
     } else {
       __ret___9 = __builtin_memcpy((void *)(& std->dvbt_7), (void const   *)(& map->dvbt_7),
@@ -7732,7 +7732,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___10 = 4UL;
     if (__len___10 > 63UL) {
-      __ret___10 = __memcpy((void *)(& std->dvbt_8), (void const   *)(& map->dvbt_8),
+      __ret___10 = memcpy((void *)(& std->dvbt_8), (void const   *)(& map->dvbt_8),
                             __len___10);
     } else {
       __ret___10 = __builtin_memcpy((void *)(& std->dvbt_8), (void const   *)(& map->dvbt_8),
@@ -7750,7 +7750,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___11 = 4UL;
     if (__len___11 > 63UL) {
-      __ret___11 = __memcpy((void *)(& std->qam_6), (void const   *)(& map->qam_6),
+      __ret___11 = memcpy((void *)(& std->qam_6), (void const   *)(& map->qam_6),
                             __len___11);
     } else {
       __ret___11 = __builtin_memcpy((void *)(& std->qam_6), (void const   *)(& map->qam_6),
@@ -7768,7 +7768,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
     }
     __len___12 = 4UL;
     if (__len___12 > 63UL) {
-      __ret___12 = __memcpy((void *)(& std->qam_8), (void const   *)(& map->qam_8),
+      __ret___12 = memcpy((void *)(& std->qam_8), (void const   *)(& map->qam_8),
                             __len___12);
     } else {
       __ret___12 = __builtin_memcpy((void *)(& std->qam_8), (void const   *)(& map->qam_8),
@@ -8077,7 +8077,7 @@ struct dvb_frontend *tda18271_attach(struct dvb_frontend *fe , u8 addr , struct 
   ldv_mutex_unlock_49(& tda18271_list_mutex);
   __len = 288UL;
   if (__len > 63UL) {
-    __ret___3 = __memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& tda18271_tuner_ops),
+    __ret___3 = memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& tda18271_tuner_ops),
                          __len);
   } else {
     __ret___3 = __builtin_memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& tda18271_tuner_ops),

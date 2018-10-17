@@ -8954,7 +8954,7 @@ void ldv_mutex_unlock_19(struct mutex *ldv_func_arg1 )
 }
 }
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_42(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_40(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_43(struct mutex *ldv_func_arg1 ) ;
@@ -9121,7 +9121,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
   *tmp___1 = 41U;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
+    __ret = memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
   } else {
     __ret = __builtin_memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
   }
@@ -9131,7 +9131,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
   *tmp___2 = 42U;
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)cmd, (void const   *)(& remap_cmd), __len___0);
+    __ret___0 = memcpy((void *)cmd, (void const   *)(& remap_cmd), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)cmd, (void const   *)(& remap_cmd), __len___0);
   }
@@ -9184,7 +9184,7 @@ static void vmw_gmr2_unbind(struct vmw_private *dev_priv , int gmr_id )
   *tmp___1 = 41U;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
+    __ret = memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
   } else {
     __ret = __builtin_memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
   }
@@ -10219,7 +10219,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
   if (box->w == 64U && cmd->dma.guest.pitch == 256U) {
     __len = 16384UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)srf->snooper.image, (void const   *)virtual, __len);
+      __ret = memcpy((void *)srf->snooper.image, (void const   *)virtual, __len);
     } else {
       __ret = __builtin_memcpy((void *)srf->snooper.image, (void const   *)virtual,
                                __len);
@@ -29177,7 +29177,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
   srf->scanout = req->scanout != 0;
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& srf->mip_levels), (void const   *)(& req->mip_levels),
+    __ret = memcpy((void *)(& srf->mip_levels), (void const   *)(& req->mip_levels),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& srf->mip_levels), (void const   *)(& req->mip_levels),
@@ -29362,7 +29362,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
   rep->format = srf->format;
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rep->mip_levels), (void const   *)(& srf->mip_levels),
+    __ret = memcpy((void *)(& rep->mip_levels), (void const   *)(& srf->mip_levels),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rep->mip_levels), (void const   *)(& srf->mip_levels),

@@ -22623,7 +22623,7 @@ void ldv_mutex_unlock_205(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_220(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_218(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_221(struct mutex *ldv_func_arg1 ) ;
@@ -22725,7 +22725,7 @@ static void usb_parse_ss_endpoint_companion(struct device *ddev , int cfgno , in
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ep->ss_ep_comp), (void const   *)desc, __len);
+    __ret = memcpy((void *)(& ep->ss_ep_comp), (void const   *)desc, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ep->ss_ep_comp), (void const   *)desc, __len);
   }
@@ -23091,7 +23091,7 @@ static int usb_parse_interface(struct device *ddev , int cfgno , struct usb_host
   intfc->num_altsetting = intfc->num_altsetting + 1U;
   __len = 9UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& alt->desc), (void const   *)d, __len);
+    __ret = memcpy((void *)(& alt->desc), (void const   *)d, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& alt->desc), (void const   *)d, __len);
   }
@@ -23214,7 +23214,7 @@ static int usb_parse_configuration(struct usb_device *dev , int cfgidx , struct 
   iad_num = 0U;
   __len = 9UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& config->desc), (void const   *)buffer, __len);
+    __ret = memcpy((void *)(& config->desc), (void const   *)buffer, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& config->desc), (void const   *)buffer, __len);
   }
@@ -27599,7 +27599,7 @@ static ssize_t usbdev_read(struct file *file , char *buf , size_t nbytes , loff_
   if ((unsigned long long )pos <= 17ULL) {
     __len = 18UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& temp_desc), (void const   *)(& dev->descriptor),
+      __ret = memcpy((void *)(& temp_desc), (void const   *)(& dev->descriptor),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& temp_desc), (void const   *)(& dev->descriptor),

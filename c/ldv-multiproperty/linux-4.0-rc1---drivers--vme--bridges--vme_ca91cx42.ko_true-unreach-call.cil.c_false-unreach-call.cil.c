@@ -4188,7 +4188,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -5367,7 +5367,7 @@ static int ca91cx42_alloc_resource(struct vme_master_resource *image , unsigned 
     image->kern_base = (void *)0;
     kfree((void const   *)image->bus_resource.name);
     release_resource(& image->bus_resource);
-    __memset((void *)(& image->bus_resource), 0, 56UL);
+    memset((void *)(& image->bus_resource), 0, 56UL);
     }
   } else {
 
@@ -5429,7 +5429,7 @@ static int ca91cx42_alloc_resource(struct vme_master_resource *image , unsigned 
   err_resource: 
   {
   kfree((void const   *)image->bus_resource.name);
-  __memset((void *)(& image->bus_resource), 0, 56UL);
+  memset((void *)(& image->bus_resource), 0, 56UL);
   }
   err_name: ;
   return (retval);
@@ -5445,7 +5445,7 @@ static void ca91cx42_free_resource(struct vme_master_resource *image )
   image->kern_base = (void *)0;
   release_resource(& image->bus_resource);
   kfree((void const   *)image->bus_resource.name);
-  __memset((void *)(& image->bus_resource), 0, 56UL);
+  memset((void *)(& image->bus_resource), 0, 56UL);
   }
   return;
 }
@@ -6116,7 +6116,7 @@ static int ca91cx42_dma_list_add(struct vme_dma_list *list , struct vme_dma_attr
 
   }
   {
-  __memset((void *)(& entry->descriptor), 0, 32UL);
+  memset((void *)(& entry->descriptor), 0, 32UL);
   }
   if (dest->type == 4U) {
     entry->descriptor.dctl = entry->descriptor.dctl | 2147483648U;
@@ -6972,7 +6972,7 @@ static int ca91cx42_probe(struct pci_dev *pdev , struct pci_device_id  const  *i
   master_image->address_attr = 119U;
   master_image->cycle_attr = 61447U;
   master_image->width_attr = 15U;
-  __memset((void *)(& master_image->bus_resource), 0, 56UL);
+  memset((void *)(& master_image->bus_resource), 0, 56UL);
   master_image->kern_base = (void *)0;
   list_add_tail(& master_image->list, & ca91cx42_bridge->master_resources);
   i = i + 1;

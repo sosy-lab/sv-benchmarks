@@ -5299,8 +5299,8 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strcat(char * , char const   * ) ;
@@ -7291,7 +7291,7 @@ static void skd_request_fn(struct request_queue *q )
     skmsg->state = 1;
     skmsg->id = skmsg->id + 1024U;
     fmh = (struct fit_msg_hdr *)skmsg->msg_buf;
-    __memset((void *)fmh, 0, 64UL);
+    memset((void *)fmh, 0, 64UL);
     fmh->protocol_id = 3U;
     skmsg->length = 64U;
     }
@@ -7301,7 +7301,7 @@ static void skd_request_fn(struct request_queue *q )
   {
   skreq->fitmsg_id = skmsg->id;
   cmd_ptr = (void *)skmsg->msg_buf + (unsigned long )skmsg->length;
-  __memset(cmd_ptr, 0, 32UL);
+  memset(cmd_ptr, 0, 32UL);
   tmp___10 = __fswab32(lba);
   be_lba = tmp___10;
   tmp___11 = __fswab32(count);
@@ -8392,7 +8392,7 @@ static int skd_ioctl_sg_io(struct skd_device *skdev , fmode_t mode , void *argp 
 
   {
   {
-  __memset((void *)(& sksgio), 0, 160UL);
+  memset((void *)(& sksgio), 0, 160UL);
   sksgio.mode = mode;
   sksgio.argp = argp;
   sksgio.iov = & sksgio.no_iov_iov;
@@ -9385,7 +9385,7 @@ static int skd_sg_io_send_fitmsg(struct skd_device *skdev , struct skd_sg_io *sk
   skspcl = sksgio->skspcl;
   fmh = (struct fit_msg_hdr *)skspcl->msg_buf;
   scsi_req = (struct skd_scsi_request *)fmh + 1U;
-  __memset((void *)skspcl->msg_buf, 0, 128UL);
+  memset((void *)skspcl->msg_buf, 0, 128UL);
   fmh->protocol_id = 3U;
   fmh->num_protocol_cmds_coalesced = 1U;
   }
@@ -9401,7 +9401,7 @@ static int skd_sg_io_send_fitmsg(struct skd_device *skdev , struct skd_sg_io *sk
   scsi_req->hdr.tag = skspcl->req.id;
   tmp___0 = __fswab32(skspcl->req.sg_byte_count);
   scsi_req->hdr.sg_list_len_bytes = tmp___0;
-  __memcpy((void *)(& scsi_req->cdb), (void const   *)(& sksgio->cdb), 16UL);
+  memcpy((void *)(& scsi_req->cdb), (void const   *)(& sksgio->cdb), 16UL);
   skspcl->req.state = 2;
   skd_send_special_fitmsg(skdev, skspcl);
   }
@@ -9505,7 +9505,7 @@ static int skd_sg_io_await(struct skd_device *skdev , struct skd_sg_io *sksgio )
     }
     {
     (sksgio->skspcl)->req.completion.status = 2U;
-    __memset((void *)(& (sksgio->skspcl)->req.err_info), 0, 32UL);
+    memset((void *)(& (sksgio->skspcl)->req.err_info), 0, 32UL);
     (sksgio->skspcl)->req.err_info.type = 112U;
     (sksgio->skspcl)->req.err_info.key = 11U;
     (sksgio->skspcl)->req.err_info.code = 68U;
@@ -9727,7 +9727,7 @@ static int skd_format_internal_skspcl(struct skd_device *skdev )
   fmh->protocol_id = 3U;
   fmh->num_protocol_cmds_coalesced = 1U;
   scsi = (struct skd_scsi_request *)skspcl->msg_buf + 64U;
-  __memset((void *)scsi, 0, 32UL);
+  memset((void *)scsi, 0, 32UL);
   dma_address = skspcl->req.sksg_dma_address;
   tmp = __fswab64(dma_address);
   scsi->hdr.sg_list_dma_address = tmp;
@@ -9777,7 +9777,7 @@ static void skd_send_internal_skspcl(struct skd_device *skdev , struct skd_speci
   skspcl->req.id = (unsigned int )skspcl->req.id + 1024U;
   scsi = (struct skd_scsi_request *)skspcl->msg_buf + 64U;
   scsi->hdr.tag = skspcl->req.id;
-  __memset((void *)(& scsi->cdb), 0, 16UL);
+  memset((void *)(& scsi->cdb), 0, 16UL);
   }
   {
   if ((int )opcode == 0) {
@@ -9872,7 +9872,7 @@ static void skd_send_internal_skspcl(struct skd_device *skdev , struct skd_speci
   sgd->byte_count = 512U;
   tmp___3 = __fswab32(sgd->byte_count);
   scsi->hdr.sg_list_len_bytes = tmp___3;
-  __memset(skspcl->data_buf, 0, (size_t )sgd->byte_count);
+  memset(skspcl->data_buf, 0, (size_t )sgd->byte_count);
   }
   goto ldv_38928;
   switch_default: /* CIL Label */ ;
@@ -11122,7 +11122,7 @@ static void skd_do_inq_page_da(struct skd_device *skdev , struct fit_completion_
 
   }
   {
-  __memset((void *)(& inq), 0, 44UL);
+  memset((void *)(& inq), 0, 44UL);
   inq.page_code = 218U;
   skd_get_link_info(pdev, & inq.pcie_link_speed, & inq.pcie_link_lanes);
   tmp___0 = __fswab16((int )(pdev->bus)->number);
@@ -11142,18 +11142,18 @@ static void skd_do_inq_page_da(struct skd_device *skdev , struct fit_completion_
   tmp___4 = __fswab16((int )val);
   inq.pcie_subsystem_device_id = tmp___4;
   inq.driver_version_length = 20U;
-  __memset((void *)(& inq.driver_version), 32, 20UL);
+  memset((void *)(& inq.driver_version), 32, 20UL);
   _min1 = 20UL;
   tmp___5 = strlen("2.2.1.0260");
   _min2 = tmp___5;
-  __memcpy((void *)(& inq.driver_version), (void const   *)"2.2.1.0260", _min1 < _min2 ? _min1 : _min2);
+  memcpy((void *)(& inq.driver_version), (void const   *)"2.2.1.0260", _min1 < _min2 ? _min1 : _min2);
   inq.page_length = 10240U;
   skcomp->status = 0U;
-  __memset((void *)skerr, 0, 32UL);
+  memset((void *)skerr, 0, 32UL);
   max_bytes = (unsigned int )(((int )*(cdb + 3UL) << 8) | (int )*(cdb + 4UL));
   __min1 = max_bytes;
   __min2 = 44U;
-  __memcpy((void *)buf, (void const   *)(& inq), (size_t )(__min1 < __min2 ? __min1 : __min2));
+  memcpy((void *)buf, (void const   *)(& inq), (size_t )(__min1 < __min2 ? __min1 : __min2));
   __min1___0 = (uint16_t )max_bytes;
   __min2___0 = 44U;
   tmp___6 = __fswab32((unsigned int )((int )__min1___0 < (int )__min2___0 ? __min1___0 : __min2___0));
@@ -11732,7 +11732,7 @@ static void skd_reset_skcomp(struct skd_device *skdev )
   {
   nbytes = 2048U;
   nbytes = nbytes + 8192U;
-  __memset((void *)skdev->skcomp_table, 0, (size_t )nbytes);
+  memset((void *)skdev->skcomp_table, 0, (size_t )nbytes);
   skdev->skcomp_ix = 0U;
   skdev->skcomp_cycle = 1U;
   }
@@ -14287,7 +14287,7 @@ static int skd_cons_skmsg(struct skd_device *skdev )
   skmsg->msg_buf = (u8 *)((unsigned long long )skmsg->msg_buf & 0xffffffffffffffc0ULL);
   skmsg->mb_dma_address = skmsg->mb_dma_address + 63ULL;
   skmsg->mb_dma_address = skmsg->mb_dma_address & 0xffffffffffffffc0ULL;
-  __memset((void *)skmsg->msg_buf, 0, 512UL);
+  memset((void *)skmsg->msg_buf, 0, 512UL);
   skmsg->next = skmsg + 1UL;
   i = i + 1U;
   }
@@ -14322,7 +14322,7 @@ static struct fit_sg_descriptor *skd_cons_sg_list(struct skd_device *skdev , u32
   if ((unsigned long )sg_list != (unsigned long )((struct fit_sg_descriptor *)0)) {
     {
     dma_address = *ret_dma_addr;
-    __memset((void *)sg_list, 0, (size_t )nbytes);
+    memset((void *)sg_list, 0, (size_t )nbytes);
     i = 0U;
     }
     goto ldv_39597;
@@ -16116,7 +16116,7 @@ static char const   *skd_name(struct skd_device *skdev )
 
   {
   {
-  __memset((void *)(& skdev->id_str), 0, 80UL);
+  memset((void *)(& skdev->id_str), 0, 80UL);
   }
   if (skdev->inquiry_is_valid != 0) {
     {

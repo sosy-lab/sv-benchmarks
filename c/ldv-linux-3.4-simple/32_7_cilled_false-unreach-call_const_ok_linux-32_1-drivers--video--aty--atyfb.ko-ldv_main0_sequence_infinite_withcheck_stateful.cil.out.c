@@ -3895,7 +3895,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void *to , void    *from , size_t len ) ;
+extern void *memcpy(void *to , void    *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *ptr )  __attribute__((__no_instrument_function__)) ;
 __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *ptr ) 
@@ -8932,7 +8932,7 @@ static int atyfb_check_var(struct fb_var_screeninfo *var , struct fb_info *info 
     __cil_tmp15 = __cil_tmp14 + 960;
     __cil_tmp16 = (union aty_pll *)__cil_tmp15;
     __cil_tmp17 = (void    *)__cil_tmp16;
-    __ret = __memcpy(__cil_tmp13, __cil_tmp17, __len);
+    __ret = memcpy(__cil_tmp13, __cil_tmp17, __len);
     }
   } else {
     {

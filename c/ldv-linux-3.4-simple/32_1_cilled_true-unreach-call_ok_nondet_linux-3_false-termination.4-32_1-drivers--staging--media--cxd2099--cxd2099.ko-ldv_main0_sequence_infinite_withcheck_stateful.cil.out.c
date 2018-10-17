@@ -2823,7 +2823,7 @@ struct cxd {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern void __mutex_init(struct mutex *lock , char const   *name , struct lock_class_key *key ) ;
 void mutex_lock(struct mutex *lock ) ;
@@ -5018,7 +5018,7 @@ struct dvb_ca_en50221 *cxd2099_attach(struct cxd2099_cfg *cfg , void *priv , str
     __cil_tmp26 = (struct cxd2099_cfg *)__cil_tmp25;
     __cil_tmp27 = (void *)__cil_tmp26;
     __cil_tmp28 = (void const   *)cfg;
-    __ret = __memcpy(__cil_tmp27, __cil_tmp28, __len);
+    __ret = memcpy(__cil_tmp27, __cil_tmp28, __len);
     }
   } else {
     {
@@ -5048,7 +5048,7 @@ struct dvb_ca_en50221 *cxd2099_attach(struct cxd2099_cfg *cfg , void *priv , str
     __cil_tmp42 = (struct dvb_ca_en50221 *)ci;
     __cil_tmp43 = (void *)__cil_tmp42;
     __cil_tmp44 = (void const   *)(& en_templ);
-    __ret___0 = __memcpy(__cil_tmp43, __cil_tmp44, __len___0);
+    __ret___0 = memcpy(__cil_tmp43, __cil_tmp44, __len___0);
     }
   } else {
     {

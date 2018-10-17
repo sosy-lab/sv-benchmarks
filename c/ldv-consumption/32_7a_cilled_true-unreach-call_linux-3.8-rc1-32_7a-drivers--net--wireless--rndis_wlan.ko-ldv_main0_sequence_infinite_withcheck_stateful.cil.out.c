@@ -5961,7 +5961,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -7737,14 +7737,14 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
   if (cipher == 1027074U && key_len == 32) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ndis_key.material), (void const   *)key, __len);
+      __ret = memcpy((void *)(& ndis_key.material), (void const   *)key, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ndis_key.material), (void const   *)key,
                                __len);
     }
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& ndis_key.material) + 16U, (void const   *)key + 24U,
+      __ret___0 = memcpy((void *)(& ndis_key.material) + 16U, (void const   *)key + 24U,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& ndis_key.material) + 16U, (void const   *)key + 24U,
@@ -7752,7 +7752,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
     }
     __len___1 = 8UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& ndis_key.material) + 24U, (void const   *)key + 16U,
+      __ret___1 = memcpy((void *)(& ndis_key.material) + 24U, (void const   *)key + 16U,
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& ndis_key.material) + 24U, (void const   *)key + 16U,
@@ -7773,7 +7773,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
   if ((flags & 1073741824U) != 0U) {
     __len___4 = 6UL;
     if (__len___4 > 63UL) {
-      __ret___4 = __memcpy((void *)(& ndis_key.bssid), (void const   *)addr, __len___4);
+      __ret___4 = memcpy((void *)(& ndis_key.bssid), (void const   *)addr, __len___4);
     } else {
       __ret___4 = __builtin_memcpy((void *)(& ndis_key.bssid), (void const   *)addr,
                                    __len___4);
@@ -7813,7 +7813,7 @@ static int add_wpa_key(struct usbnet *usbdev , u8 const   *key , int key_len , u
   if ((flags & 1073741824U) != 0U) {
     __len___6 = 6UL;
     if (__len___6 > 63UL) {
-      __ret___6 = __memcpy((void *)(& priv->encr_keys[(int )index].bssid), (void const   *)(& ndis_key.bssid),
+      __ret___6 = memcpy((void *)(& priv->encr_keys[(int )index].bssid), (void const   *)(& ndis_key.bssid),
                            __len___6);
     } else {
       __ret___6 = __builtin_memcpy((void *)(& priv->encr_keys[(int )index].bssid),
@@ -7962,7 +7962,7 @@ static int remove_key(struct usbnet *usbdev , u8 index , u8 const   *bssid )
       }
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& remove_key___0.bssid), (void const   *)bssid,
+        __ret = memcpy((void *)(& remove_key___0.bssid), (void const   *)bssid,
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& remove_key___0.bssid), (void const   *)bssid,
@@ -8063,7 +8063,7 @@ static void set_multicast_list(struct usbnet *usbdev )
     if (__len > 63UL) {
       tmp___1 = i;
       i = i + 1;
-      __ret = __memcpy((void *)mc_addrs + (unsigned long )(tmp___1 * 6), (void const   *)(& ha->addr),
+      __ret = memcpy((void *)mc_addrs + (unsigned long )(tmp___1 * 6), (void const   *)(& ha->addr),
                        __len);
     } else {
       tmp___2 = i;
@@ -8364,7 +8364,7 @@ static struct ndis_80211_pmkid *update_pmkid(struct usbnet *usbdev , struct ndis
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& pmkids->bssid_info[i].pmkid), (void const   *)pmksa->pmkid,
+    __ret = memcpy((void *)(& pmkids->bssid_info[i].pmkid), (void const   *)pmksa->pmkid,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pmkids->bssid_info[i].pmkid), (void const   *)pmksa->pmkid,
@@ -8413,7 +8413,7 @@ static struct ndis_80211_pmkid *update_pmkid(struct usbnet *usbdev , struct ndis
   pmkids->bssid_info_count = count + 1U;
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& pmkids->bssid_info[count].bssid), (void const   *)pmksa->bssid,
+    __ret___0 = memcpy((void *)(& pmkids->bssid_info[count].bssid), (void const   *)pmksa->bssid,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& pmkids->bssid_info[count].bssid), (void const   *)pmksa->bssid,
@@ -8421,7 +8421,7 @@ static struct ndis_80211_pmkid *update_pmkid(struct usbnet *usbdev , struct ndis
   }
   __len___1 = 16UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& pmkids->bssid_info[count].pmkid), (void const   *)pmksa->pmkid,
+    __ret___1 = memcpy((void *)(& pmkids->bssid_info[count].pmkid), (void const   *)pmksa->pmkid,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& pmkids->bssid_info[count].pmkid), (void const   *)pmksa->pmkid,
@@ -9712,7 +9712,7 @@ static int rndis_dump_station(struct wiphy *wiphy , struct net_device *dev , int
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mac, (void const   *)(& priv->bssid), __len);
+    __ret = memcpy((void *)mac, (void const   *)(& priv->bssid), __len);
   } else {
     __ret = __builtin_memcpy((void *)mac, (void const   *)(& priv->bssid), __len);
   }
@@ -10246,7 +10246,7 @@ static void rndis_wlan_do_link_up_work(struct usbnet *usbdev )
   priv->connected = 1;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->bssid), (void const   *)(& bssid), __len);
+    __ret = memcpy((void *)(& priv->bssid), (void const   *)(& bssid), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->bssid), (void const   *)(& bssid), __len);
   }
@@ -11028,7 +11028,7 @@ static int rndis_wlan_bind(struct usbnet *usbdev , struct usb_interface *intf )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& wiphy->perm_addr), (void const   *)(usbdev->net)->dev_addr,
+    __ret = memcpy((void *)(& wiphy->perm_addr), (void const   *)(usbdev->net)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& wiphy->perm_addr), (void const   *)(usbdev->net)->dev_addr,
@@ -11040,7 +11040,7 @@ static int rndis_wlan_bind(struct usbnet *usbdev , struct usb_interface *intf )
   rndis_wlan_get_caps(usbdev, wiphy);
   __len___0 = 560UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& priv->channels), (void const   *)(& rndis_channels),
+    __ret___0 = memcpy((void *)(& priv->channels), (void const   *)(& rndis_channels),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& priv->channels), (void const   *)(& rndis_channels),
@@ -11048,7 +11048,7 @@ static int rndis_wlan_bind(struct usbnet *usbdev , struct usb_interface *intf )
   }
   __len___1 = 144UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& priv->rates), (void const   *)(& rndis_rates),
+    __ret___1 = memcpy((void *)(& priv->rates), (void const   *)(& rndis_rates),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& priv->rates), (void const   *)(& rndis_rates),
@@ -11062,7 +11062,7 @@ static int rndis_wlan_bind(struct usbnet *usbdev , struct usb_interface *intf )
   wiphy->signal_type = 2;
   __len___2 = 16UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& priv->cipher_suites), (void const   *)(& rndis_cipher_suites),
+    __ret___2 = memcpy((void *)(& priv->cipher_suites), (void const   *)(& rndis_cipher_suites),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& priv->cipher_suites), (void const   *)(& rndis_cipher_suites),

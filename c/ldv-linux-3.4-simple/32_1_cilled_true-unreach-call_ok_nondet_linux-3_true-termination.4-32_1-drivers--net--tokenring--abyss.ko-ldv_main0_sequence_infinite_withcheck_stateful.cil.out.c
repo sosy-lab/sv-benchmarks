@@ -4738,7 +4738,7 @@ struct net_local {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -5321,7 +5321,7 @@ static int abyss_attach(struct pci_dev *pdev , struct pci_device_id  const  *ent
     __cil_tmp97 = (unsigned char *)__cil_tmp96;
     __cil_tmp98 = (void *)__cil_tmp97;
     __cil_tmp99 = (void const   *)"Madge PCI 16/4 Mk2";
-    __ret = __memcpy(__cil_tmp98, __cil_tmp99, __len);
+    __ret = memcpy(__cil_tmp98, __cil_tmp99, __len);
     }
   } else {
     {

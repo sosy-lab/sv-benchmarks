@@ -17939,7 +17939,7 @@ struct page *ldv_alloc_page_vma_204(gfp_t ldv_func_arg1 , struct vm_area_struct 
 }
 }
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 struct page *ldv_alloc_page_vma_220(gfp_t ldv_func_arg1 , struct vm_area_struct *ldv_func_arg2 ,
                                     unsigned long ldv_func_arg3 ) ;
 unsigned long ldv___get_free_pages_210(gfp_t ldv_func_arg1 , unsigned int ldv_func_arg2 ) ;
@@ -19030,7 +19030,7 @@ void intel_sdvo_init(struct drm_device *dev , int output_device )
   } else {
     __len = 2UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
+      __ret = memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),

@@ -5146,7 +5146,7 @@ __inline static __u16 __fswab16(__u16 val )
 }
 extern void __might_sleep(char const   * , int  , int  ) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
@@ -5977,7 +5977,7 @@ static int pvc_ioctl(struct net_device *dev , struct ifreq *ifr , int cmd )
     info.dlci = (unsigned int )pvc->dlci;
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& info.master), (void const   *)(& (pvc->frad)->name),
+      __ret = memcpy((void *)(& info.master), (void const   *)(& (pvc->frad)->name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& info.master), (void const   *)(& (pvc->frad)->name),

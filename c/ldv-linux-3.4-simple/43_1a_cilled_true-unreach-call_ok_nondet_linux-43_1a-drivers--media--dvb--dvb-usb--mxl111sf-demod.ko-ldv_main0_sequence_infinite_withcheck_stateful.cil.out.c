@@ -5843,7 +5843,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -7802,7 +7802,7 @@ struct dvb_frontend *mxl111sf_demod_attach(struct mxl111sf_state *mxl_state , st
     __cil_tmp16 = (struct dvb_frontend_ops *)__cil_tmp15;
     __cil_tmp17 = (void *)__cil_tmp16;
     __cil_tmp18 = (void const   *)(& mxl111sf_demod_ops);
-    __ret = __memcpy(__cil_tmp17, __cil_tmp18, __len);
+    __ret = memcpy(__cil_tmp17, __cil_tmp18, __len);
     }
   } else {
     {

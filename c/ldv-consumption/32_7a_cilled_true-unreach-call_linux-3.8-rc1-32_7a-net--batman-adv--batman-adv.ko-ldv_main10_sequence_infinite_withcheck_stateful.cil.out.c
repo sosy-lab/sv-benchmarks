@@ -5836,7 +5836,7 @@ __inline static void hlist_add_head(struct hlist_node *n , struct hlist_head *h 
 }
 extern void __bad_percpu_size(void) ;
 extern unsigned long __per_cpu_offset[4096U] ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , int  ) ;
 __inline static int bitmap_weight(unsigned long const   *src , int nbits ) 
@@ -6636,7 +6636,7 @@ static void batadv_iv_ogm_iface_update_mac(struct batadv_hard_iface *hard_iface 
   batadv_ogm_packet = (struct batadv_ogm_packet *)ogm_buff;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& batadv_ogm_packet->orig), (void const   *)(hard_iface->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& batadv_ogm_packet->orig), (void const   *)(hard_iface->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& batadv_ogm_packet->orig), (void const   *)(hard_iface->net_dev)->dev_addr,
@@ -6644,7 +6644,7 @@ static void batadv_iv_ogm_iface_update_mac(struct batadv_hard_iface *hard_iface 
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& batadv_ogm_packet->prev_sender), (void const   *)(hard_iface->net_dev)->dev_addr,
+    __ret___0 = memcpy((void *)(& batadv_ogm_packet->prev_sender), (void const   *)(hard_iface->net_dev)->dev_addr,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& batadv_ogm_packet->prev_sender), (void const   *)(hard_iface->net_dev)->dev_addr,
@@ -7209,7 +7209,7 @@ static void batadv_iv_ogm_forward(struct batadv_orig_node *orig_node , struct et
   batadv_ogm_packet->header.ttl = (uint8_t )((int )batadv_ogm_packet->header.ttl - 1);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& batadv_ogm_packet->prev_sender), (void const   *)(& ethhdr->h_source),
+    __ret = memcpy((void *)(& batadv_ogm_packet->prev_sender), (void const   *)(& ethhdr->h_source),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& batadv_ogm_packet->prev_sender), (void const   *)(& ethhdr->h_source),
@@ -9304,7 +9304,7 @@ static struct batadv_backbone_gw *batadv_backbone_hash_find(struct batadv_priv *
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& search_entry.orig), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& search_entry.orig), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& search_entry.orig), (void const   *)addr,
                              __len);
@@ -9455,7 +9455,7 @@ static void batadv_bla_send_claim(struct batadv_priv *bat_priv , uint8_t *mac , 
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& local_claim_dest), (void const   *)(& bat_priv->bla.claim_dest),
+    __ret = memcpy((void *)(& local_claim_dest), (void const   *)(& bat_priv->bla.claim_dest),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& local_claim_dest), (void const   *)(& bat_priv->bla.claim_dest),
@@ -9476,7 +9476,7 @@ static void batadv_bla_send_claim(struct batadv_priv *bat_priv , uint8_t *mac , 
   case 0: 
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ethhdr->h_source), (void const   *)mac, __len___0);
+    __ret___0 = memcpy((void *)(& ethhdr->h_source), (void const   *)mac, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ethhdr->h_source), (void const   *)mac,
                                  __len___0);
@@ -9491,7 +9491,7 @@ static void batadv_bla_send_claim(struct batadv_priv *bat_priv , uint8_t *mac , 
   case 1: 
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)hw_src, (void const   *)mac, __len___1);
+    __ret___1 = memcpy((void *)hw_src, (void const   *)mac, __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)hw_src, (void const   *)mac, __len___1);
   }
@@ -9505,7 +9505,7 @@ static void batadv_bla_send_claim(struct batadv_priv *bat_priv , uint8_t *mac , 
   case 2: 
   __len___2 = 6UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)hw_src, (void const   *)mac, __len___2);
+    __ret___2 = memcpy((void *)hw_src, (void const   *)mac, __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)hw_src, (void const   *)mac, __len___2);
   }
@@ -9520,13 +9520,13 @@ static void batadv_bla_send_claim(struct batadv_priv *bat_priv , uint8_t *mac , 
   case 3: 
   __len___3 = 6UL;
   if (__len___3 > 63UL) {
-    __ret___3 = __memcpy((void *)hw_src, (void const   *)mac, __len___3);
+    __ret___3 = memcpy((void *)hw_src, (void const   *)mac, __len___3);
   } else {
     __ret___3 = __builtin_memcpy((void *)hw_src, (void const   *)mac, __len___3);
   }
   __len___4 = 6UL;
   if (__len___4 > 63UL) {
-    __ret___4 = __memcpy((void *)(& ethhdr->h_dest), (void const   *)mac, __len___4);
+    __ret___4 = memcpy((void *)(& ethhdr->h_dest), (void const   *)mac, __len___4);
   } else {
     __ret___4 = __builtin_memcpy((void *)(& ethhdr->h_dest), (void const   *)mac,
                                  __len___4);
@@ -9604,7 +9604,7 @@ static struct batadv_backbone_gw *batadv_bla_get_backbone_gw(struct batadv_priv 
   atomic_set(& entry->wait_periods, 0);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& entry->orig), (void const   *)orig, __len);
+    __ret = memcpy((void *)(& entry->orig), (void const   *)orig, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& entry->orig), (void const   *)orig, __len);
   }
@@ -9779,7 +9779,7 @@ static void batadv_bla_send_announce(struct batadv_priv *bat_priv , struct batad
   {
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mac), (void const   *)(& batadv_announce_mac), __len);
+    __ret = memcpy((void *)(& mac), (void const   *)(& batadv_announce_mac), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mac), (void const   *)(& batadv_announce_mac),
                              __len);
@@ -9788,7 +9788,7 @@ static void batadv_bla_send_announce(struct batadv_priv *bat_priv , struct batad
   crc = tmp;
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& mac) + 4U, (void const   *)(& crc), __len___0);
+    __ret___0 = memcpy((void *)(& mac) + 4U, (void const   *)(& crc), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& mac) + 4U, (void const   *)(& crc), __len___0);
   }
@@ -9816,7 +9816,7 @@ static void batadv_bla_add_claim(struct batadv_priv *bat_priv , uint8_t const   
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& search_claim.addr), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& search_claim.addr), (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& search_claim.addr), (void const   *)mac, __len);
   }
@@ -9832,7 +9832,7 @@ static void batadv_bla_add_claim(struct batadv_priv *bat_priv , uint8_t const   
     }
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& claim->addr), (void const   *)mac, __len___0);
+      __ret___0 = memcpy((void *)(& claim->addr), (void const   *)mac, __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& claim->addr), (void const   *)mac, __len___0);
     }
@@ -9897,7 +9897,7 @@ static void batadv_bla_del_claim(struct batadv_priv *bat_priv , uint8_t const   
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& search_claim.addr), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& search_claim.addr), (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& search_claim.addr), (void const   *)mac, __len);
   }
@@ -10554,7 +10554,7 @@ void batadv_bla_update_orig_address(struct batadv_priv *bat_priv , struct batadv
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& backbone_gw->orig), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& backbone_gw->orig), (void const   *)(primary_if->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& backbone_gw->orig), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -10775,7 +10775,7 @@ int batadv_bla_init(struct batadv_priv *bat_priv )
   }
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& bat_priv->bla.claim_dest.magic), (void const   *)(& claim_dest),
+    __ret = memcpy((void *)(& bat_priv->bla.claim_dest.magic), (void const   *)(& claim_dest),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& bat_priv->bla.claim_dest.magic), (void const   *)(& claim_dest),
@@ -10888,7 +10888,7 @@ int batadv_bla_check_bcast_duplist(struct batadv_priv *bat_priv , struct sk_buff
   entry->entrytime = jiffies;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& entry->orig), (void const   *)(& bcast_packet->orig),
+    __ret = memcpy((void *)(& entry->orig), (void const   *)(& bcast_packet->orig),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& entry->orig), (void const   *)(& bcast_packet->orig),
@@ -11110,7 +11110,7 @@ int batadv_bla_rx(struct batadv_priv *bat_priv , struct sk_buff *skb , short vid
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& search_claim.addr), (void const   *)(& ethhdr->h_source),
+    __ret = memcpy((void *)(& search_claim.addr), (void const   *)(& ethhdr->h_source),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& search_claim.addr), (void const   *)(& ethhdr->h_source),
@@ -11217,7 +11217,7 @@ int batadv_bla_tx(struct batadv_priv *bat_priv , struct sk_buff *skb , short vid
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& search_claim.addr), (void const   *)(& ethhdr->h_source),
+    __ret = memcpy((void *)(& search_claim.addr), (void const   *)(& ethhdr->h_source),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& search_claim.addr), (void const   *)(& ethhdr->h_source),
@@ -13123,7 +13123,7 @@ static void batadv_dat_entry_add(struct batadv_priv *bat_priv , __be32 ip , uint
     if (tmp == 0) {
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& dat_entry->mac_addr), (void const   *)mac_addr,
+        __ret = memcpy((void *)(& dat_entry->mac_addr), (void const   *)mac_addr,
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& dat_entry->mac_addr), (void const   *)mac_addr,
@@ -13153,7 +13153,7 @@ static void batadv_dat_entry_add(struct batadv_priv *bat_priv , __be32 ip , uint
   dat_entry->ip = ip;
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& dat_entry->mac_addr), (void const   *)mac_addr,
+    __ret___0 = memcpy((void *)(& dat_entry->mac_addr), (void const   *)mac_addr,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& dat_entry->mac_addr), (void const   *)mac_addr,
@@ -16582,7 +16582,7 @@ static void batadv_primary_if_update_addr(struct batadv_priv *bat_priv , struct 
   vis_packet = (struct batadv_vis_packet *)skb->data;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vis_packet->vis_orig), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& vis_packet->vis_orig), (void const   *)(primary_if->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vis_packet->vis_orig), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -16590,7 +16590,7 @@ static void batadv_primary_if_update_addr(struct batadv_priv *bat_priv , struct 
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& vis_packet->sender_orig), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret___0 = memcpy((void *)(& vis_packet->sender_orig), (void const   *)(primary_if->net_dev)->dev_addr,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& vis_packet->sender_orig), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -18225,7 +18225,7 @@ static ssize_t batadv_socket_write(struct file *file , char const   *buff , size
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& icmp_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& icmp_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& icmp_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -18234,7 +18234,7 @@ static ssize_t batadv_socket_write(struct file *file , char const   *buff , size
   if (packet_len == 116UL) {
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& icmp_packet->rr), (void const   *)((neigh_node->if_incoming)->net_dev)->dev_addr,
+      __ret___0 = memcpy((void *)(& icmp_packet->rr), (void const   *)((neigh_node->if_incoming)->net_dev)->dev_addr,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& icmp_packet->rr), (void const   *)((neigh_node->if_incoming)->net_dev)->dev_addr,
@@ -19705,7 +19705,7 @@ struct batadv_neigh_node *batadv_neigh_node_new(struct batadv_hard_iface *hard_i
   INIT_HLIST_NODE(& neigh_node->list);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& neigh_node->addr), (void const   *)neigh_addr, __len);
+    __ret = memcpy((void *)(& neigh_node->addr), (void const   *)neigh_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& neigh_node->addr), (void const   *)neigh_addr,
                              __len);
@@ -19908,7 +19908,7 @@ struct batadv_orig_node *batadv_get_orig_node(struct batadv_priv *bat_priv , uin
   orig_node->bat_priv = bat_priv;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& orig_node->orig), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& orig_node->orig), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& orig_node->orig), (void const   *)addr, __len);
   }
@@ -21379,7 +21379,7 @@ void batadv_bonding_save_primary(struct batadv_orig_node  const  *orig_node , st
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& orig_neigh_node->primary_addr), (void const   *)(& orig_node->orig),
+    __ret = memcpy((void *)(& orig_neigh_node->primary_addr), (void const   *)(& orig_node->orig),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& orig_neigh_node->primary_addr), (void const   *)(& orig_node->orig),
@@ -21522,7 +21522,7 @@ static int batadv_recv_my_icmp_packet(struct batadv_priv *bat_priv , struct sk_b
   icmp_packet = (struct batadv_icmp_packet_rr *)skb->data;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& icmp_packet->dst), (void const   *)(& icmp_packet->orig),
+    __ret = memcpy((void *)(& icmp_packet->dst), (void const   *)(& icmp_packet->orig),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& icmp_packet->dst), (void const   *)(& icmp_packet->orig),
@@ -21530,7 +21530,7 @@ static int batadv_recv_my_icmp_packet(struct batadv_priv *bat_priv , struct sk_b
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& icmp_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret___0 = memcpy((void *)(& icmp_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& icmp_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -21617,7 +21617,7 @@ static int batadv_recv_icmp_ttl_exceeded(struct batadv_priv *bat_priv , struct s
   icmp_packet = (struct batadv_icmp_packet *)skb->data;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& icmp_packet->dst), (void const   *)(& icmp_packet->orig),
+    __ret = memcpy((void *)(& icmp_packet->dst), (void const   *)(& icmp_packet->orig),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& icmp_packet->dst), (void const   *)(& icmp_packet->orig),
@@ -21625,7 +21625,7 @@ static int batadv_recv_icmp_ttl_exceeded(struct batadv_priv *bat_priv , struct s
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& icmp_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret___0 = memcpy((void *)(& icmp_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& icmp_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -21718,7 +21718,7 @@ int batadv_recv_icmp_packet(struct sk_buff *skb , struct batadv_hard_iface *recv
   if (hdr_size == 116 && (unsigned int )icmp_packet->rr_cur <= 15U) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& icmp_packet->rr) + (unsigned long )icmp_packet->rr_cur,
+      __ret = memcpy((void *)(& icmp_packet->rr) + (unsigned long )icmp_packet->rr_cur,
                        (void const   *)(& ethhdr->h_dest), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& icmp_packet->rr) + (unsigned long )icmp_packet->rr_cur,
@@ -22442,7 +22442,7 @@ static bool batadv_reroute_unicast_packet(struct batadv_priv *bat_priv , struct 
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& unicast_packet->dest), (void const   *)orig_addr,
+    __ret = memcpy((void *)(& unicast_packet->dest), (void const   *)orig_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& unicast_packet->dest), (void const   *)orig_addr,
@@ -22595,7 +22595,7 @@ static int batadv_check_unicast_ttvn(struct batadv_priv *bat_priv , struct sk_bu
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& unicast_packet->dest), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& unicast_packet->dest), (void const   *)(primary_if->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& unicast_packet->dest), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -23133,7 +23133,7 @@ int batadv_send_skb_packet(struct sk_buff *skb , struct batadv_hard_iface *hard_
   ethhdr = (struct ethhdr *)tmp___1;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ethhdr->h_source), (void const   *)(hard_iface->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& ethhdr->h_source), (void const   *)(hard_iface->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ethhdr->h_source), (void const   *)(hard_iface->net_dev)->dev_addr,
@@ -23141,7 +23141,7 @@ int batadv_send_skb_packet(struct sk_buff *skb , struct batadv_hard_iface *hard_
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ethhdr->h_dest), (void const   *)dst_addr, __len___0);
+    __ret___0 = memcpy((void *)(& ethhdr->h_dest), (void const   *)dst_addr, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ethhdr->h_dest), (void const   *)dst_addr,
                                  __len___0);
@@ -24039,14 +24039,14 @@ static int batadv_interface_set_mac_addr(struct net_device *dev , void *p )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& old_addr), (void const   *)dev->dev_addr, __len);
+    __ret = memcpy((void *)(& old_addr), (void const   *)dev->dev_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& old_addr), (void const   *)dev->dev_addr,
                              __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
+    __ret___0 = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
@@ -24242,7 +24242,7 @@ static int batadv_interface_tx(struct sk_buff *skb , struct net_device *soft_ifa
     bcast_packet->reserved = 0U;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& bcast_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
+      __ret = memcpy((void *)(& bcast_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& bcast_packet->orig), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -24663,7 +24663,7 @@ static void batadv_get_strings(struct net_device *dev , unsigned int stringset ,
   if (stringset == 1U) {
     __len = 704UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)data, (void const   *)(& batadv_counters_strings),
+      __ret = memcpy((void *)data, (void const   *)(& batadv_counters_strings),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)data, (void const   *)(& batadv_counters_strings),
@@ -26990,7 +26990,7 @@ static void batadv_tt_local_event(struct batadv_priv *bat_priv , uint8_t const  
   tt_change_node->change.flags = flags;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tt_change_node->change.addr), (void const   *)addr,
+    __ret = memcpy((void *)(& tt_change_node->change.addr), (void const   *)addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tt_change_node->change.addr), (void const   *)addr,
@@ -27178,7 +27178,7 @@ void batadv_tt_local_add(struct net_device *soft_iface , uint8_t const   *addr ,
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tt_local->common.addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& tt_local->common.addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tt_local->common.addr), (void const   *)addr,
                              __len);
@@ -27363,7 +27363,7 @@ static int batadv_tt_changes_fill_buff(struct batadv_priv *bat_priv , unsigned c
     __len = 7UL;
     if (__len > 63UL) {
       tmp___0 = batadv_tt_len(count);
-      __ret = __memcpy((void *)tt_buff + (unsigned long )tmp___0, (void const   *)(& entry->change),
+      __ret = memcpy((void *)tt_buff + (unsigned long )tmp___0, (void const   *)(& entry->change),
                        __len);
     } else {
       tmp___1 = batadv_tt_len(count);
@@ -27904,7 +27904,7 @@ int batadv_tt_global_add(struct batadv_priv *bat_priv , struct batadv_orig_node 
     common = & tt_global_entry->common;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& common->addr), (void const   *)tt_addr, __len);
+      __ret = memcpy((void *)(& common->addr), (void const   *)tt_addr, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& common->addr), (void const   *)tt_addr,
                                __len);
@@ -29082,7 +29082,7 @@ static struct batadv_tt_req_node *batadv_new_tt_req_node(struct batadv_priv *bat
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tt_req_node->addr), (void const   *)(& orig_node->orig),
+    __ret = memcpy((void *)(& tt_req_node->addr), (void const   *)(& orig_node->orig),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tt_req_node->addr), (void const   *)(& orig_node->orig),
@@ -29217,7 +29217,7 @@ static struct sk_buff *batadv_tt_response_fill_table(uint16_t tt_len , uint8_t t
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tt_change->addr), (void const   *)(& tt_common_entry->addr),
+    __ret = memcpy((void *)(& tt_change->addr), (void const   *)(& tt_common_entry->addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tt_change->addr), (void const   *)(& tt_common_entry->addr),
@@ -29306,7 +29306,7 @@ static int batadv_send_tt_request(struct batadv_priv *bat_priv , struct batadv_o
   tt_request->header.version = 14U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tt_request->src), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& tt_request->src), (void const   *)(primary_if->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tt_request->src), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -29314,7 +29314,7 @@ static int batadv_send_tt_request(struct batadv_priv *bat_priv , struct batadv_o
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& tt_request->dst), (void const   *)(& dst_orig_node->orig),
+    __ret___0 = memcpy((void *)(& tt_request->dst), (void const   *)(& dst_orig_node->orig),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& tt_request->dst), (void const   *)(& dst_orig_node->orig),
@@ -29491,7 +29491,7 @@ static bool batadv_send_other_tt_response(struct batadv_priv *bat_priv , struct 
   tt_response->header.ttl = 50U;
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& tt_response->src), (void const   *)(& req_dst_orig_node->orig),
+    __ret___0 = memcpy((void *)(& tt_response->src), (void const   *)(& req_dst_orig_node->orig),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& tt_response->src), (void const   *)(& req_dst_orig_node->orig),
@@ -29499,7 +29499,7 @@ static bool batadv_send_other_tt_response(struct batadv_priv *bat_priv , struct 
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& tt_response->dst), (void const   *)(& tt_request->src),
+    __ret___1 = memcpy((void *)(& tt_response->dst), (void const   *)(& tt_request->src),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& tt_response->dst), (void const   *)(& tt_request->src),
@@ -29658,7 +29658,7 @@ static bool batadv_send_my_tt_response(struct batadv_priv *bat_priv , struct bat
   tt_response->header.ttl = 50U;
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& tt_response->src), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret___0 = memcpy((void *)(& tt_response->src), (void const   *)(primary_if->net_dev)->dev_addr,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& tt_response->src), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -29666,7 +29666,7 @@ static bool batadv_send_my_tt_response(struct batadv_priv *bat_priv , struct bat
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& tt_response->dst), (void const   *)(& tt_request->src),
+    __ret___1 = memcpy((void *)(& tt_response->dst), (void const   *)(& tt_request->src),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& tt_response->dst), (void const   *)(& tt_request->src),
@@ -30088,7 +30088,7 @@ static bool batadv_tt_check_roam_count(struct batadv_priv *bat_priv , uint8_t *c
     atomic_set(& tt_roam_node->counter, 4);
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tt_roam_node->addr), (void const   *)client, __len);
+      __ret = memcpy((void *)(& tt_roam_node->addr), (void const   *)client, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tt_roam_node->addr), (void const   *)client,
                                __len);
@@ -30159,7 +30159,7 @@ static void batadv_send_roam_adv(struct batadv_priv *bat_priv , uint8_t *client 
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& roam_adv_packet->src), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& roam_adv_packet->src), (void const   *)(primary_if->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& roam_adv_packet->src), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -30168,7 +30168,7 @@ static void batadv_send_roam_adv(struct batadv_priv *bat_priv , uint8_t *client 
   batadv_hardif_free_ref(primary_if);
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& roam_adv_packet->dst), (void const   *)(& orig_node->orig),
+    __ret___0 = memcpy((void *)(& roam_adv_packet->dst), (void const   *)(& orig_node->orig),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& roam_adv_packet->dst), (void const   *)(& orig_node->orig),
@@ -30176,7 +30176,7 @@ static void batadv_send_roam_adv(struct batadv_priv *bat_priv , uint8_t *client 
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& roam_adv_packet->client), (void const   *)client,
+    __ret___1 = memcpy((void *)(& roam_adv_packet->client), (void const   *)client,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& roam_adv_packet->client), (void const   *)client,
@@ -31206,7 +31206,7 @@ int batadv_frag_send_skb(struct sk_buff *skb , struct batadv_priv *bat_priv , st
   frag2 = (struct batadv_unicast_frag_packet *)frag_skb->data;
   __len___0 = 10UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)frag1, (void const   *)(& tmp_uc), __len___0);
+    __ret___0 = memcpy((void *)frag1, (void const   *)(& tmp_uc), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)frag1, (void const   *)(& tmp_uc), __len___0);
   }
@@ -31215,7 +31215,7 @@ int batadv_frag_send_skb(struct sk_buff *skb , struct batadv_priv *bat_priv , st
   frag1->header.packet_type = 6U;
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& frag1->orig), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret___1 = memcpy((void *)(& frag1->orig), (void const   *)(primary_if->net_dev)->dev_addr,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& frag1->orig), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -31223,7 +31223,7 @@ int batadv_frag_send_skb(struct sk_buff *skb , struct batadv_priv *bat_priv , st
   }
   __len___2 = 20UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)frag2, (void const   *)frag1, __len___2);
+    __ret___2 = memcpy((void *)frag2, (void const   *)frag1, __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)frag2, (void const   *)frag1, __len___2);
   }
@@ -31282,7 +31282,7 @@ static bool batadv_unicast_push_and_fill_skb(struct sk_buff *skb , int hdr_size 
   unicast_packet->header.ttl = 50U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& unicast_packet->dest), (void const   *)(& orig_node->orig),
+    __ret = memcpy((void *)(& unicast_packet->dest), (void const   *)(& orig_node->orig),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& unicast_packet->dest), (void const   *)(& orig_node->orig),
@@ -31337,7 +31337,7 @@ bool batadv_unicast_4addr_prepare_skb(struct batadv_priv *bat_priv , struct sk_b
   unicast_4addr_packet->u.header.packet_type = 9U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& unicast_4addr_packet->src), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& unicast_4addr_packet->src), (void const   *)(primary_if->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& unicast_4addr_packet->src), (void const   *)(primary_if->net_dev)->dev_addr,
@@ -32063,7 +32063,7 @@ static void batadv_vis_data_insert_interface(uint8_t const   *interface , struct
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& entry->addr), (void const   *)interface, __len);
+    __ret = memcpy((void *)(& entry->addr), (void const   *)interface, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& entry->addr), (void const   *)interface, __len);
   }
@@ -32383,7 +32383,7 @@ static void batadv_recv_list_add(struct batadv_priv *bat_priv , struct list_head
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& entry->mac), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& entry->mac), (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& entry->mac), (void const   *)mac, __len);
   }
@@ -32474,7 +32474,7 @@ static struct batadv_vis_info *batadv_add_packet(struct batadv_priv *bat_priv , 
   search_packet = (struct batadv_vis_packet *)tmp;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& search_packet->vis_orig), (void const   *)(& vis_packet->vis_orig),
+    __ret = memcpy((void *)(& search_packet->vis_orig), (void const   *)(& vis_packet->vis_orig),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& search_packet->vis_orig), (void const   *)(& vis_packet->vis_orig),
@@ -32536,7 +32536,7 @@ static struct batadv_vis_info *batadv_add_packet(struct batadv_priv *bat_priv , 
   if (make_broadcast != 0) {
     __len___1 = 6UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& packet->target_orig), (void const   *)(& batadv_broadcast_addr),
+      __ret___1 = memcpy((void *)(& packet->target_orig), (void const   *)(& batadv_broadcast_addr),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& packet->target_orig), (void const   *)(& batadv_broadcast_addr),
@@ -32699,7 +32699,7 @@ static int batadv_find_best_vis_server(struct batadv_priv *bat_priv , struct bat
     best_tq = (int )router->tq_avg;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& packet->target_orig), (void const   *)(& orig_node->orig),
+      __ret = memcpy((void *)(& packet->target_orig), (void const   *)(& orig_node->orig),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& packet->target_orig), (void const   *)(& orig_node->orig),
@@ -32809,7 +32809,7 @@ static int batadv_generate_vis_packet(struct batadv_priv *bat_priv )
   packet->vis_type = (uint8_t )tmp;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& packet->target_orig), (void const   *)(& batadv_broadcast_addr),
+    __ret = memcpy((void *)(& packet->target_orig), (void const   *)(& batadv_broadcast_addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& packet->target_orig), (void const   *)(& batadv_broadcast_addr),
@@ -32874,7 +32874,7 @@ static int batadv_generate_vis_packet(struct batadv_priv *bat_priv )
   entry = (struct batadv_vis_info_entry *)packet_pos;
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& entry->src), (void const   *)((router->if_incoming)->net_dev)->dev_addr,
+    __ret___0 = memcpy((void *)(& entry->src), (void const   *)((router->if_incoming)->net_dev)->dev_addr,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& entry->src), (void const   *)((router->if_incoming)->net_dev)->dev_addr,
@@ -32882,7 +32882,7 @@ static int batadv_generate_vis_packet(struct batadv_priv *bat_priv )
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& entry->dest), (void const   *)(& orig_node->orig),
+    __ret___1 = memcpy((void *)(& entry->dest), (void const   *)(& orig_node->orig),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& entry->dest), (void const   *)(& orig_node->orig),
@@ -32945,7 +32945,7 @@ static int batadv_generate_vis_packet(struct batadv_priv *bat_priv )
   memset((void *)(& entry->src), 0, 6UL);
   __len___2 = 6UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& entry->dest), (void const   *)(& tt_common_entry->addr),
+    __ret___2 = memcpy((void *)(& entry->dest), (void const   *)(& tt_common_entry->addr),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& entry->dest), (void const   *)(& tt_common_entry->addr),
@@ -33099,7 +33099,7 @@ static void batadv_broadcast_vis_packet(struct batadv_priv *bat_priv , struct ba
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& packet->target_orig), (void const   *)(& orig_node->orig),
+    __ret = memcpy((void *)(& packet->target_orig), (void const   *)(& orig_node->orig),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& packet->target_orig), (void const   *)(& orig_node->orig),
@@ -33230,7 +33230,7 @@ static void batadv_send_vis_packet(struct batadv_priv *bat_priv , struct batadv_
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& packet->sender_orig), (void const   *)(primary_if->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& packet->sender_orig), (void const   *)(primary_if->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& packet->sender_orig), (void const   *)(primary_if->net_dev)->dev_addr,

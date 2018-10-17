@@ -4015,7 +4015,7 @@ extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static void *ERR_PTR(long error ) 
 { 
@@ -6915,7 +6915,7 @@ static int pciserial_init_one(struct pci_dev *dev , struct pci_device_id  const 
   if ((unsigned long )ent->driver_data == 0UL) {
     __len = 24UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tmp), (void const   *)board, __len);
+      __ret = memcpy((void *)(& tmp), (void const   *)board, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tmp), (void const   *)board, __len);
     }
@@ -6929,7 +6929,7 @@ static int pciserial_init_one(struct pci_dev *dev , struct pci_device_id  const 
   } else {
     __len___0 = 24UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& tmp), (void const   *)(& pci_boards), __len___0);
+      __ret___0 = memcpy((void *)(& tmp), (void const   *)(& pci_boards), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& tmp), (void const   *)(& pci_boards),
                                    __len___0);

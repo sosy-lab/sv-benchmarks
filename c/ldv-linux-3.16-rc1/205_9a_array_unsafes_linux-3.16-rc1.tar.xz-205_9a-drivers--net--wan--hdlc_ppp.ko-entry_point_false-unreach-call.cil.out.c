@@ -5124,7 +5124,7 @@ __inline static __u16 __fswab16(__u16 val )
   return ((__u16 )((int )((short )((int )val << 8)) | (int )((short )((int )val >> 8))));
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const   * , struct lock_class_key * ) ;
 extern unsigned long _raw_spin_lock_irqsave(raw_spinlock_t * ) ;
@@ -5810,7 +5810,7 @@ static void ppp_cp_parse_cr(struct net_device *dev , u16 pid , u8 id , unsigned 
     if (rej_len == 0U) {
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)out + (unsigned long )nak_len, (void const   *)(& valid_accm),
+        __ret = memcpy((void *)out + (unsigned long )nak_len, (void const   *)(& valid_accm),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)out + (unsigned long )nak_len, (void const   *)(& valid_accm),

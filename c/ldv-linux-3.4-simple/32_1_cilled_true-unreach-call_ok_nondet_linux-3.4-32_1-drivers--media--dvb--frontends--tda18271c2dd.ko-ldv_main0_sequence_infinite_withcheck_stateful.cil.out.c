@@ -3244,7 +3244,7 @@ struct tda_state {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -7407,7 +7407,7 @@ static int FixedContentsI2CUpdate(struct tda_state *state )
     __cil_tmp12 = (unsigned long )(InitRegs) + __cil_tmp11;
     __cil_tmp13 = (u8 *)__cil_tmp12;
     __cil_tmp14 = (void const   *)__cil_tmp13;
-    __ret = __memcpy(__cil_tmp10, __cil_tmp14, __len);
+    __ret = memcpy(__cil_tmp10, __cil_tmp14, __len);
     }
   } else {
     {
@@ -9375,7 +9375,7 @@ struct dvb_frontend *tda18271c2dd_attach(struct dvb_frontend *fe , struct i2c_ad
     __cil_tmp16 = (struct dvb_tuner_ops *)__cil_tmp15;
     __cil_tmp17 = (void *)__cil_tmp16;
     __cil_tmp18 = (void const   *)(& tuner_ops);
-    __ret = __memcpy(__cil_tmp17, __cil_tmp18, __len);
+    __ret = memcpy(__cil_tmp17, __cil_tmp18, __len);
     }
   } else {
     {

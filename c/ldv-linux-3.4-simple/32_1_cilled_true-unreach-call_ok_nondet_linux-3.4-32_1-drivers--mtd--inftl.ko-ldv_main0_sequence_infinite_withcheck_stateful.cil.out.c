@@ -6419,7 +6419,7 @@ long ldv__builtin_expect(long val , long res )
 }
 
 
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
 __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags ) 
 { void *tmp ;
@@ -7154,7 +7154,7 @@ static int find_boot_record(struct INFTLrecord *inftl )
       __cil_tmp112 = (unsigned long )(buf) + __cil_tmp111;
       __cil_tmp113 = (u8 *)__cil_tmp112;
       __cil_tmp114 = (void const   *)__cil_tmp113;
-      __ret = __memcpy(__cil_tmp110, __cil_tmp114, __len);
+      __ret = memcpy(__cil_tmp110, __cil_tmp114, __len);
       }
     } else {
       {

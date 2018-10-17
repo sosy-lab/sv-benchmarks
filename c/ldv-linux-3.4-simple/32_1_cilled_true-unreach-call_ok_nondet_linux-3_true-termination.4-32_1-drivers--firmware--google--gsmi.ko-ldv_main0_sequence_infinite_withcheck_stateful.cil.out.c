@@ -3137,7 +3137,7 @@ __inline static int __attribute__((__warn_unused_result__))  kstrtoul(char const
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 __inline static long __attribute__((__warn_unused_result__))  PTR_ERR(void const   *ptr )  __attribute__((__no_instrument_function__)) ;
@@ -4092,7 +4092,7 @@ static efi_status_t gsmi_get_variable(efi_char16_t *name , efi_guid_t *vendor , 
     __cil_tmp112 = (efi_guid_t *)__cil_tmp111;
     __cil_tmp113 = (void *)__cil_tmp112;
     __cil_tmp114 = (void const   *)vendor;
-    __ret = __memcpy(__cil_tmp113, __cil_tmp114, __len);
+    __ret = memcpy(__cil_tmp113, __cil_tmp114, __len);
     }
   } else {
     {
@@ -4150,7 +4150,7 @@ static efi_status_t gsmi_get_variable(efi_char16_t *name , efi_guid_t *vendor , 
     __cil_tmp153 = *((u8 **)__cil_tmp152);
     __cil_tmp154 = (void *)__cil_tmp153;
     __cil_tmp155 = (void const   *)(& param);
-    __ret___1 = __memcpy(__cil_tmp154, __cil_tmp155, __len___1);
+    __ret___1 = memcpy(__cil_tmp154, __cil_tmp155, __len___1);
     }
   } else {
     {
@@ -4186,7 +4186,7 @@ static efi_status_t gsmi_get_variable(efi_char16_t *name , efi_guid_t *vendor , 
       __cil_tmp167 = *((struct gsmi_buf **)__cil_tmp166);
       __cil_tmp168 = *((u8 **)__cil_tmp167);
       __cil_tmp169 = (void const   *)__cil_tmp168;
-      __ret___2 = __memcpy(__cil_tmp165, __cil_tmp169, __len___2);
+      __ret___2 = memcpy(__cil_tmp165, __cil_tmp169, __len___2);
       }
     } else {
       {
@@ -4518,7 +4518,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
     __cil_tmp90 = (u8 (*)[16])__cil_tmp89;
     __cil_tmp91 = (void *)__cil_tmp90;
     __cil_tmp92 = (void const   *)vendor;
-    __ret = __memcpy(__cil_tmp91, __cil_tmp92, __len);
+    __ret = memcpy(__cil_tmp91, __cil_tmp92, __len);
     }
   } else {
     {
@@ -4556,7 +4556,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
     __cil_tmp113 = *((u8 **)__cil_tmp112);
     __cil_tmp114 = (void *)__cil_tmp113;
     __cil_tmp115 = (void const   *)(& param);
-    __ret___1 = __memcpy(__cil_tmp114, __cil_tmp115, __len___1);
+    __ret___1 = memcpy(__cil_tmp114, __cil_tmp115, __len___1);
     }
   } else {
     {
@@ -4592,7 +4592,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
       __cil_tmp127 = *((struct gsmi_buf **)__cil_tmp126);
       __cil_tmp128 = *((u8 **)__cil_tmp127);
       __cil_tmp129 = (void const   *)__cil_tmp128;
-      __ret___2 = __memcpy(__cil_tmp125, __cil_tmp129, __len___2);
+      __ret___2 = memcpy(__cil_tmp125, __cil_tmp129, __len___2);
       }
     } else {
       {
@@ -4612,7 +4612,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
       __cil_tmp137 = *((struct gsmi_buf **)__cil_tmp136);
       __cil_tmp138 = *((u8 **)__cil_tmp137);
       __cil_tmp139 = (void const   *)__cil_tmp138;
-      __ret___3 = __memcpy(__cil_tmp135, __cil_tmp139, __len___3);
+      __ret___3 = memcpy(__cil_tmp135, __cil_tmp139, __len___3);
       }
     } else {
       {
@@ -4635,7 +4635,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
       __cil_tmp146 = & param;
       __cil_tmp147 = (u8 (*)[16])__cil_tmp146;
       __cil_tmp148 = (void const   *)__cil_tmp147;
-      __ret___4 = __memcpy(__cil_tmp145, __cil_tmp148, __len___4);
+      __ret___4 = memcpy(__cil_tmp145, __cil_tmp148, __len___4);
       }
     } else {
       {
@@ -4950,7 +4950,7 @@ static efi_status_t gsmi_set_variable(efi_char16_t *name , efi_guid_t *vendor , 
     __cil_tmp103 = (efi_guid_t *)__cil_tmp102;
     __cil_tmp104 = (void *)__cil_tmp103;
     __cil_tmp105 = (void const   *)vendor;
-    __ret = __memcpy(__cil_tmp104, __cil_tmp105, __len);
+    __ret = memcpy(__cil_tmp104, __cil_tmp105, __len);
     }
   } else {
     {
@@ -5015,7 +5015,7 @@ static efi_status_t gsmi_set_variable(efi_char16_t *name , efi_guid_t *vendor , 
     __cil_tmp149 = *((u8 **)__cil_tmp148);
     __cil_tmp150 = (void *)__cil_tmp149;
     __cil_tmp151 = (void const   *)(& param);
-    __ret___2 = __memcpy(__cil_tmp150, __cil_tmp151, __len___2);
+    __ret___2 = memcpy(__cil_tmp150, __cil_tmp151, __len___2);
     }
   } else {
     {
@@ -5214,7 +5214,7 @@ static ssize_t eventlog_write(struct file *filp , struct kobject *kobj , struct 
     __cil_tmp62 = *((u8 **)__cil_tmp61);
     __cil_tmp63 = (void *)__cil_tmp62;
     __cil_tmp64 = (void const   *)(& param);
-    __ret___0 = __memcpy(__cil_tmp63, __cil_tmp64, __len___0);
+    __ret___0 = memcpy(__cil_tmp63, __cil_tmp64, __len___0);
     }
   } else {
     {
@@ -5358,7 +5358,7 @@ static ssize_t gsmi_clear_eventlog_store(struct kobject *kobj , struct kobj_attr
     __cil_tmp33 = *((u8 **)__cil_tmp32);
     __cil_tmp34 = (void *)__cil_tmp33;
     __cil_tmp35 = (void const   *)(& param);
-    __ret = __memcpy(__cil_tmp34, __cil_tmp35, __len);
+    __ret = memcpy(__cil_tmp34, __cil_tmp35, __len);
     }
   } else {
     {
@@ -5589,7 +5589,7 @@ static int gsmi_shutdown_reason(int reason )
     __cil_tmp33 = *((u8 **)__cil_tmp32);
     __cil_tmp34 = (void *)__cil_tmp33;
     __cil_tmp35 = (void const   *)(& entry);
-    __ret = __memcpy(__cil_tmp34, __cil_tmp35, __len);
+    __ret = memcpy(__cil_tmp34, __cil_tmp35, __len);
     }
   } else {
     {
@@ -5627,7 +5627,7 @@ static int gsmi_shutdown_reason(int reason )
     __cil_tmp57 = *((u8 **)__cil_tmp56);
     __cil_tmp58 = (void *)__cil_tmp57;
     __cil_tmp59 = (void const   *)(& param);
-    __ret___0 = __memcpy(__cil_tmp58, __cil_tmp59, __len___0);
+    __ret___0 = memcpy(__cil_tmp58, __cil_tmp59, __len___0);
     }
   } else {
     {
@@ -5746,7 +5746,7 @@ static u32 hash_oem_table_id(char *s )
     {
     __cil_tmp6 = (void *)(& input);
     __cil_tmp7 = (void const   *)s;
-    __ret = __memcpy(__cil_tmp6, __cil_tmp7, __len);
+    __ret = memcpy(__cil_tmp6, __cil_tmp7, __len);
     }
   } else {
     {

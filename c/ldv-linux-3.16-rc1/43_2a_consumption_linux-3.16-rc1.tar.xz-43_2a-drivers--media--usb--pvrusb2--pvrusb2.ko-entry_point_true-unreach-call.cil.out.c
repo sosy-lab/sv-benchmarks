@@ -12167,7 +12167,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
                              int  ) ;
@@ -14474,7 +14474,7 @@ static int pvr2_upload_firmware1(struct pvr2_hdw *hdw )
   ldv_50731: 
   __len = 2048UL;
   if (__len > 63UL) {
-    __ret = __memcpy(fw_ptr, (void const   *)fw_entry->data + (unsigned long )address,
+    __ret = memcpy(fw_ptr, (void const   *)fw_entry->data + (unsigned long )address,
                      __len);
   } else {
     __ret = __builtin_memcpy(fw_ptr, (void const   *)fw_entry->data + (unsigned long )address,
@@ -16089,7 +16089,7 @@ struct pvr2_hdw *pvr2_hdw_create(struct usb_interface *intf , struct usb_device_
   if ((unsigned long )cptr != (unsigned long )((struct pvr2_ctrl *)0)) {
     __len = 144UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& hdw->std_info_avail), (void const   *)cptr->info,
+      __ret = memcpy((void *)(& hdw->std_info_avail), (void const   *)cptr->info,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& hdw->std_info_avail), (void const   *)cptr->info,
@@ -16105,7 +16105,7 @@ struct pvr2_hdw *pvr2_hdw_create(struct usb_interface *intf , struct usb_device_
   if ((unsigned long )cptr != (unsigned long )((struct pvr2_ctrl *)0)) {
     __len___0 = 144UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& hdw->std_info_cur), (void const   *)cptr->info,
+      __ret___0 = memcpy((void *)(& hdw->std_info_cur), (void const   *)cptr->info,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& hdw->std_info_cur), (void const   *)cptr->info,
@@ -16121,7 +16121,7 @@ struct pvr2_hdw *pvr2_hdw_create(struct usb_interface *intf , struct usb_device_
   if ((unsigned long )cptr != (unsigned long )((struct pvr2_ctrl *)0)) {
     __len___1 = 144UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& hdw->std_info_detect), (void const   *)cptr->info,
+      __ret___1 = memcpy((void *)(& hdw->std_info_detect), (void const   *)cptr->info,
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& hdw->std_info_detect), (void const   *)cptr->info,
@@ -17374,7 +17374,7 @@ int pvr2_hdw_get_cropcap(struct pvr2_hdw *hdw , struct v4l2_cropcap *pp )
   if (stat == 0) {
     __len = 44UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)pp, (void const   *)(& hdw->cropcap_info), __len);
+      __ret = memcpy((void *)pp, (void const   *)(& hdw->cropcap_info), __len);
     } else {
       __ret = __builtin_memcpy((void *)pp, (void const   *)(& hdw->cropcap_info),
                                __len);
@@ -17402,7 +17402,7 @@ int pvr2_hdw_get_tuner_status(struct pvr2_hdw *hdw , struct v4l2_tuner *vtp )
   }
   __len = 84UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)vtp, (void const   *)(& hdw->tuner_signal_info), __len);
+    __ret = memcpy((void *)vtp, (void const   *)(& hdw->tuner_signal_info), __len);
   } else {
     __ret = __builtin_memcpy((void *)vtp, (void const   *)(& hdw->tuner_signal_info),
                              __len);
@@ -20612,7 +20612,7 @@ static int pvr2_querycap(struct file *file , void *priv , struct v4l2_capability
   hdw = (fh->channel.mc_head)->hdw;
   __len = 104UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)cap, (void const   *)(& pvr_capability), __len);
+    __ret = memcpy((void *)cap, (void const   *)(& pvr_capability), __len);
   } else {
     __ret = __builtin_memcpy((void *)cap, (void const   *)(& pvr_capability), __len);
   }
@@ -20983,7 +20983,7 @@ static int pvr2_enum_fmt_vid_cap(struct file *file , void *priv , struct v4l2_fm
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)fd, (void const   *)(& pvr_fmtdesc), __len);
+    __ret = memcpy((void *)fd, (void const   *)(& pvr_fmtdesc), __len);
   } else {
     __ret = __builtin_memcpy((void *)fd, (void const   *)(& pvr_fmtdesc), __len);
   }
@@ -21005,7 +21005,7 @@ static int pvr2_g_fmt_vid_cap(struct file *file , void *priv , struct v4l2_forma
   hdw = (fh->channel.mc_head)->hdw;
   __len = 208UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)vf, (void const   *)(& pvr_format), __len);
+    __ret = memcpy((void *)vf, (void const   *)(& pvr_format), __len);
   } else {
     __ret = __builtin_memcpy((void *)vf, (void const   *)(& pvr_format), __len);
   }
@@ -21071,7 +21071,7 @@ static int pvr2_try_fmt_vid_cap(struct file *file , void *priv , struct v4l2_for
   }
   __len = 208UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)vf, (void const   *)(& pvr_format), __len);
+    __ret = memcpy((void *)vf, (void const   *)(& pvr_format), __len);
   } else {
     __ret = __builtin_memcpy((void *)vf, (void const   *)(& pvr_format), __len);
   }
@@ -24621,7 +24621,7 @@ static int pvr2_std_fill(struct v4l2_standard *std , v4l2_std_id id )
   idx = (int )std->index;
   __len = 72UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)std, (void const   *)template, __len);
+    __ret = memcpy((void *)std, (void const   *)template, __len);
   } else {
     __ret = __builtin_memcpy((void *)std, (void const   *)template, __len);
   }

@@ -5393,7 +5393,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __init_waitqueue_head(wait_queue_head_t * , char const   * , struct lock_class_key * ) ;
 __inline static void init_completion(struct completion *x ) 
@@ -6422,7 +6422,7 @@ static int mrf24j40_filter(struct ieee802154_dev *dev , struct ieee802154_hw_add
   if ((changed & 2UL) != 0UL) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& addr), (void const   *)(& filt->ieee_addr), __len);
+      __ret = memcpy((void *)(& addr), (void const   *)(& filt->ieee_addr), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& addr), (void const   *)(& filt->ieee_addr),
                                __len);

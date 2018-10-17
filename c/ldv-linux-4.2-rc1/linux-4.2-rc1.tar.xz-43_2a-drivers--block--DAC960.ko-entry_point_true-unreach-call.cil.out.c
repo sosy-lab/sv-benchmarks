@@ -6065,7 +6065,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 extern void __bad_percpu_size(void) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strcat(char * , char const   * ) ;
@@ -7629,8 +7629,8 @@ __inline static void DAC960_P_To_PD_TranslateDeviceState(void *DeviceState )
 
   {
   memcpy(DeviceState + 2UL, (void const   *)DeviceState + 3U, 1UL);
-  __memmove(DeviceState + 4UL, (void const   *)DeviceState + 5U, 2UL);
-  __memmove(DeviceState + 6UL, (void const   *)DeviceState + 8U, 4UL);
+  memmove(DeviceState + 4UL, (void const   *)DeviceState + 5U, 2UL);
+  memmove(DeviceState + 6UL, (void const   *)DeviceState + 8U, 4UL);
   return;
 }
 }

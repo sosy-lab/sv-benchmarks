@@ -4865,8 +4865,8 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void __bad_percpu_size(void) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern char *strrchr(char const   * , int  ) ;
@@ -6110,7 +6110,7 @@ static int xlbd_reserve_minors(unsigned int minor , unsigned int nr )
     if (end > nr_minors) {
       {
       old = minors;
-      __memcpy((void *)bitmap, (void const   *)minors, (((unsigned long )nr_minors + 63UL) / 64UL) * 8UL);
+      memcpy((void *)bitmap, (void const   *)minors, (((unsigned long )nr_minors + 63UL) / 64UL) * 8UL);
       minors = bitmap;
       nr_minors = (unsigned int )(((unsigned long )end + 63UL) / 64UL) * 64U;
       }
@@ -6639,7 +6639,7 @@ static int blkif_queue_request(struct request *req )
       tmp___16 = sg_page(sg);
       tmp___17 = kmap_atomic(tmp___16);
       bvec_data = (char *)tmp___17;
-      __memcpy(shared_data + (unsigned long )sg->offset, (void const   *)bvec_data + (unsigned long )sg->offset,
+      memcpy(shared_data + (unsigned long )sg->offset, (void const   *)bvec_data + (unsigned long )sg->offset,
                (size_t )sg->length);
       __cond___0 = 0;
       }
@@ -7640,7 +7640,7 @@ static void blkif_completion(struct blk_shadow *s , struct blkfront_info *info ,
     tmp___0 = sg_page(sg);
     tmp___1 = kmap_atomic(tmp___0);
     bvec_data = (char *)tmp___1;
-    __memcpy((void *)bvec_data + (unsigned long )sg->offset, (void const   *)shared_data + (unsigned long )sg->offset,
+    memcpy((void *)bvec_data + (unsigned long )sg->offset, (void const   *)shared_data + (unsigned long )sg->offset,
              (size_t )sg->length);
     __cond = 0;
     }
@@ -8110,7 +8110,7 @@ static int setup_blkring(struct xenbus_device *dev , struct blkfront_info *info 
   tmp___1 = 1U;
   sring->rsp_event = tmp___1;
   sring->req_event = tmp___1;
-  __memset((void *)(& sring->pad), 0, 48UL);
+  memset((void *)(& sring->pad), 0, 48UL);
   info->ring.req_prod_pvt = 0U;
   info->ring.rsp_cons = 0U;
   info->ring.nr_ents = 32U;
@@ -8489,7 +8489,7 @@ static int blkif_recover(struct blkfront_info *info )
 
   }
   {
-  __memset((void *)(& info->shadow), 0, 4608UL);
+  memset((void *)(& info->shadow), 0, 4608UL);
   i = 0;
   }
   goto ldv_40117;

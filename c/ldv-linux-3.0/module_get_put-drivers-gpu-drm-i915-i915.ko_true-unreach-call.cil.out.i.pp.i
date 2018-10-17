@@ -23028,7 +23028,7 @@ __inline static int ffs(int x )
 }
 }
 extern void __might_sleep(char const * , int , int ) ;
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 __inline static void set_ti_thread_flag(struct thread_info *ti , int flag )
 {
 
@@ -31014,7 +31014,7 @@ void i915_gem_detach_phys_object(struct drm_device *dev , struct drm_i915_gem_ob
     }
     if (__len > 63UL) {
       {
-      __ret = __memcpy((void *)dst, (void const *)(vaddr + (unsigned long )i * 4096UL),
+      __ret = memcpy((void *)dst, (void const *)(vaddr + (unsigned long )i * 4096UL),
                        __len);
       }
     } else {
@@ -31128,7 +31128,7 @@ int i915_gem_attach_phys_object(struct drm_device *dev , struct drm_i915_gem_obj
   }
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)dst, (void const *)src, __len);
+    __ret = memcpy((void *)dst, (void const *)src, __len);
     }
   } else {
     {
@@ -34805,7 +34805,7 @@ static void i915_gem_swizzle_page(struct page *page )
   __len = 64UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& temp), (void const *)vaddr + (unsigned long )i,
+    __ret = memcpy((void *)(& temp), (void const *)vaddr + (unsigned long )i,
                      __len);
     }
   } else {
@@ -34817,7 +34817,7 @@ static void i915_gem_swizzle_page(struct page *page )
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
     {
-    __ret___0 = __memcpy((void *)vaddr + (unsigned long )i, (void const *)(vaddr + ((unsigned long )i + 64UL)),
+    __ret___0 = memcpy((void *)vaddr + (unsigned long )i, (void const *)(vaddr + ((unsigned long )i + 64UL)),
                          __len___0);
     }
   } else {
@@ -34829,7 +34829,7 @@ static void i915_gem_swizzle_page(struct page *page )
   __len___1 = 64UL;
   if (__len___1 > 63UL) {
     {
-    __ret___1 = __memcpy((void *)(vaddr + ((unsigned long )i + 64UL)), (void const *)(& temp),
+    __ret___1 = memcpy((void *)(vaddr + ((unsigned long )i + 64UL)), (void const *)(& temp),
                          __len___1);
     }
   } else {
@@ -36389,7 +36389,7 @@ static bool intel_find_pll_ironlake_dp(intel_limit_t const *limit , struct drm_c
   }
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)best_clock, (void const *)(& clock), __len);
+    __ret = memcpy((void *)best_clock, (void const *)(& clock), __len);
     }
   } else {
     {
@@ -36426,7 +36426,7 @@ static bool intel_find_pll_g4x_dp(intel_limit_t const *limit , struct drm_crtc *
   __len = 36UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)best_clock, (void const *)(& clock), __len);
+    __ret = memcpy((void *)best_clock, (void const *)(& clock), __len);
     }
   } else {
     {
@@ -54376,7 +54376,7 @@ static void parse_device_mapping(struct drm_i915_private *dev_priv , struct bdb_
   __len = 33UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)child_dev_ptr, (void const *)p_child, __len);
+    __ret = memcpy((void *)child_dev_ptr, (void const *)p_child, __len);
     }
   } else {
     {
@@ -62497,7 +62497,7 @@ static bool intel_sdvo_output_setup(struct intel_sdvo *intel_sdvo , uint16_t fla
     __len = 2UL;
     if (__len > 63UL) {
       {
-      __ret = __memcpy((void *)(& bytes), (void const *)(& intel_sdvo->caps.output_flags),
+      __ret = memcpy((void *)(& bytes), (void const *)(& intel_sdvo->caps.output_flags),
                        __len);
       }
     } else {
@@ -70663,7 +70663,7 @@ static void update_polyphase_filter(struct overlay_registers *regs )
   __len = 170UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& regs->Y_HCOEFS), (void const *)(& y_static_hcoeffs),
+    __ret = memcpy((void *)(& regs->Y_HCOEFS), (void const *)(& y_static_hcoeffs),
                      __len);
     }
   } else {
@@ -70675,7 +70675,7 @@ static void update_polyphase_filter(struct overlay_registers *regs )
   __len___0 = 102UL;
   if (__len___0 > 63UL) {
     {
-    __ret___0 = __memcpy((void *)(& regs->UV_HCOEFS), (void const *)(& uv_static_hcoeffs),
+    __ret___0 = memcpy((void *)(& regs->UV_HCOEFS), (void const *)(& uv_static_hcoeffs),
                          __len___0);
     }
   } else {

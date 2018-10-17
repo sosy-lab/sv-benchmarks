@@ -4073,7 +4073,7 @@ struct i2o_scsi_host {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 __inline static void * __attribute__((__warn_unused_result__)) ERR_PTR(long error )  __attribute__((__no_instrument_function__)) ;
 __inline static void * __attribute__((__warn_unused_result__)) ERR_PTR(long error ) 
 { 
@@ -6190,7 +6190,7 @@ static int i2o_scsi_queuecommand_lck(struct scsi_cmnd *SCpnt , void (*done)(stru
     __cil_tmp86 = __cil_tmp85 + 80;
     __cil_tmp87 = *((unsigned char **)__cil_tmp86);
     __cil_tmp88 = (void const   *)__cil_tmp87;
-    __ret = __memcpy(__cil_tmp84, __cil_tmp88, __len);
+    __ret = memcpy(__cil_tmp84, __cil_tmp88, __len);
     }
   } else {
     {

@@ -4000,7 +4000,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void *ERR_PTR(long error ) 
 { 
 
@@ -6007,7 +6007,7 @@ static int i2o_scsi_queuecommand_lck(struct scsi_cmnd *SCpnt , void (*done)(stru
     __cil_tmp83 = __cil_tmp82 + 80;
     __cil_tmp84 = *((unsigned char **)__cil_tmp83);
     __cil_tmp85 = (void const   *)__cil_tmp84;
-    __ret = __memcpy(__cil_tmp81, __cil_tmp85, __len);
+    __ret = memcpy(__cil_tmp81, __cil_tmp85, __len);
     }
   } else {
     {

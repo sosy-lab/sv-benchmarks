@@ -7607,7 +7607,7 @@ __inline static void list_add(struct list_head *new , struct list_head *head )
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 void ldv_mutex_unlock_48(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_lock_47(struct mutex *ldv_func_arg1 ) ;
 extern void d_instantiate(struct dentry * , struct inode * ) ;
@@ -7849,7 +7849,7 @@ static int hfs_readdir(struct file *filp , void *dirent , int (*filldir)(void * 
   }
   __len = 38UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rd->key), (void const   *)(& fd.key), __len);
+    __ret = memcpy((void *)(& rd->key), (void const   *)(& fd.key), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rd->key), (void const   *)(& fd.key), __len);
   }
@@ -9765,7 +9765,7 @@ void hfs_inode_read_fork(struct inode *inode , struct hfs_extent *ext , __be32 _
   __len = 12UL;
   if (__len > 63UL) {
     __mptr = (struct inode  const  *)inode;
-    __ret = __memcpy((void *)(& ((struct hfs_inode_info *)__mptr + 0xfffffffffffffed0UL)->first_extents),
+    __ret = memcpy((void *)(& ((struct hfs_inode_info *)__mptr + 0xfffffffffffffed0UL)->first_extents),
                      (void const   *)ext, __len);
   } else {
     __mptr___0 = (struct inode  const  *)inode;
@@ -9999,7 +9999,7 @@ void hfs_inode_write_fork(struct inode *inode , struct hfs_extent *ext , __be32 
   __len = 12UL;
   if (__len > 63UL) {
     __mptr = (struct inode  const  *)inode;
-    __ret = __memcpy((void *)ext, (void const   *)(& ((struct hfs_inode_info *)__mptr + 0xfffffffffffffed0UL)->first_extents),
+    __ret = memcpy((void *)ext, (void const   *)(& ((struct hfs_inode_info *)__mptr + 0xfffffffffffffed0UL)->first_extents),
                      __len);
   } else {
     __mptr___0 = (struct inode  const  *)inode;
@@ -10691,7 +10691,7 @@ int hfs_setxattr(struct dentry *dentry , char const   *name , void const   *valu
     if (size == 4UL) {
       __len = 4UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& file->UsrWds.fdType), value, __len);
+        __ret = memcpy((void *)(& file->UsrWds.fdType), value, __len);
       } else {
         __ret = __builtin_memcpy((void *)(& file->UsrWds.fdType), value, __len);
       }
@@ -10704,7 +10704,7 @@ int hfs_setxattr(struct dentry *dentry , char const   *name , void const   *valu
       if (size == 4UL) {
         __len___0 = 4UL;
         if (__len___0 > 63UL) {
-          __ret___0 = __memcpy((void *)(& file->UsrWds.fdCreator), value, __len___0);
+          __ret___0 = memcpy((void *)(& file->UsrWds.fdCreator), value, __len___0);
         } else {
           __ret___0 = __builtin_memcpy((void *)(& file->UsrWds.fdCreator), value,
                                        __len___0);
@@ -10785,7 +10785,7 @@ ssize_t hfs_getxattr(struct dentry *dentry , char const   *name , void *value , 
     if (size > 3UL) {
       __len = 4UL;
       if (__len > 63UL) {
-        __ret = __memcpy(value, (void const   *)(& file->UsrWds.fdType), __len);
+        __ret = memcpy(value, (void const   *)(& file->UsrWds.fdType), __len);
       } else {
         __ret = __builtin_memcpy(value, (void const   *)(& file->UsrWds.fdType), __len);
       }
@@ -10799,7 +10799,7 @@ ssize_t hfs_getxattr(struct dentry *dentry , char const   *name , void *value , 
       if (size > 3UL) {
         __len___0 = 4UL;
         if (__len___0 > 63UL) {
-          __ret___0 = __memcpy(value, (void const   *)(& file->UsrWds.fdCreator),
+          __ret___0 = memcpy(value, (void const   *)(& file->UsrWds.fdCreator),
                                __len___0);
         } else {
           __ret___0 = __builtin_memcpy(value, (void const   *)(& file->UsrWds.fdCreator),
@@ -11401,7 +11401,7 @@ void hfs_mdb_commit(struct super_block *sb )
     lock_buffer(((struct hfs_sb_info *)sb->s_fs_info)->alt_mdb_bh);
     __len = 512UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)((struct hfs_sb_info *)sb->s_fs_info)->alt_mdb, (void const   *)((struct hfs_sb_info *)sb->s_fs_info)->mdb,
+      __ret = memcpy((void *)((struct hfs_sb_info *)sb->s_fs_info)->alt_mdb, (void const   *)((struct hfs_sb_info *)sb->s_fs_info)->mdb,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)((struct hfs_sb_info *)sb->s_fs_info)->alt_mdb,
@@ -12347,7 +12347,7 @@ __inline static int match_fourchar(substring_t *arg , u32 *result )
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)result, (void const   *)arg->from, __len);
+    __ret = memcpy((void *)result, (void const   *)arg->from, __len);
   } else {
     __ret = __builtin_memcpy((void *)result, (void const   *)arg->from, __len);
   }

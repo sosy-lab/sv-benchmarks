@@ -4689,7 +4689,7 @@ void ldv_mutex_unlock_15(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern char *strchr(char const   * , int  ) ;
@@ -5156,7 +5156,7 @@ void initialize_msgs(void)
   {
   __len = 2592UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& speakup_msgs), (void const   *)(& speakup_default_msgs),
+    __ret = memcpy((void *)(& speakup_msgs), (void const   *)(& speakup_default_msgs),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& speakup_msgs), (void const   *)(& speakup_default_msgs),
@@ -7995,7 +7995,7 @@ void reset_default_chars(void)
   }
   __len = 2048UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& characters), (void const   *)(& default_chars), __len);
+    __ret = memcpy((void *)(& characters), (void const   *)(& default_chars), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& characters), (void const   *)(& default_chars),
                              __len);
@@ -8011,7 +8011,7 @@ void reset_default_chartab(void)
   {
   __len = 512UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& spk_chartab), (void const   *)(& default_chartab),
+    __ret = memcpy((void *)(& spk_chartab), (void const   *)(& default_chartab),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& spk_chartab), (void const   *)(& default_chartab),

@@ -3062,7 +3062,7 @@ long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static long PTR_ERR(void const   *ptr ) 
@@ -3507,7 +3507,7 @@ static long phantom_ioctl(struct file *file , unsigned int cmd , unsigned long a
   if ((dev->status & 2UL) != 0UL) {
     __len = 40UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& dev->oregs), (void const   *)(& rs), __len);
+      __ret = memcpy((void *)(& dev->oregs), (void const   *)(& rs), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& dev->oregs), (void const   *)(& rs), __len);
     }

@@ -6407,7 +6407,7 @@ __inline static void list_splice_init(struct list_head *list , struct list_head 
 }
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
@@ -11733,7 +11733,7 @@ static void rtl8152_get_strings(struct net_device *dev , u32 stringset , u8 *dat
   case 1U: 
   __len = 416UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& rtl8152_gstrings), __len);
+    __ret = memcpy((void *)data, (void const   *)(& rtl8152_gstrings), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& rtl8152_gstrings), __len);
   }

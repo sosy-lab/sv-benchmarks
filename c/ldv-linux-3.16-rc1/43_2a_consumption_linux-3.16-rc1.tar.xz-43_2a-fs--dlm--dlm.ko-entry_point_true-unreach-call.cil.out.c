@@ -7159,7 +7159,7 @@ __inline static void list_del_init(struct list_head *entry )
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __xadd_wrong_size(void) ;
 __inline static int atomic_add_return(int i , atomic_t *v ) 
@@ -7504,7 +7504,7 @@ int dlm_rem_lkb_callback(struct dlm_ls *ls , struct dlm_lkb *lkb , struct dlm_ca
   }
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)cb, (void const   *)(& lkb->lkb_callbacks), __len);
+    __ret = memcpy((void *)cb, (void const   *)(& lkb->lkb_callbacks), __len);
   } else {
     __ret = __builtin_memcpy((void *)cb, (void const   *)(& lkb->lkb_callbacks), __len);
   }
@@ -7519,7 +7519,7 @@ int dlm_rem_lkb_callback(struct dlm_ls *ls , struct dlm_lkb *lkb , struct dlm_ca
   }
   __len___0 = 24UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& lkb->lkb_callbacks) + ((unsigned long )i + 0xffffffffffffffffUL),
+    __ret___0 = memcpy((void *)(& lkb->lkb_callbacks) + ((unsigned long )i + 0xffffffffffffffffUL),
                          (void const   *)(& lkb->lkb_callbacks) + (unsigned long )i,
                          __len___0);
   } else {
@@ -7558,7 +7558,7 @@ int dlm_rem_lkb_callback(struct dlm_ls *ls , struct dlm_lkb *lkb , struct dlm_ca
   if ((int )cb->flags & 1) {
     __len___1 = 24UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& lkb->lkb_last_cast), (void const   *)cb, __len___1);
+      __ret___1 = memcpy((void *)(& lkb->lkb_last_cast), (void const   *)cb, __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& lkb->lkb_last_cast), (void const   *)cb,
                                    __len___1);
@@ -7570,7 +7570,7 @@ int dlm_rem_lkb_callback(struct dlm_ls *ls , struct dlm_lkb *lkb , struct dlm_ca
   if ((cb->flags & 2U) != 0U) {
     __len___2 = 24UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& lkb->lkb_last_bast), (void const   *)cb, __len___2);
+      __ret___2 = memcpy((void *)(& lkb->lkb_last_bast), (void const   *)cb, __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& lkb->lkb_last_bast), (void const   *)cb,
                                    __len___2);
@@ -8503,7 +8503,7 @@ static struct config_group *make_cluster(struct config_group *g , char const   *
   cl->cl_recover_callbacks = (unsigned int )dlm_config.ci_recover_callbacks;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cl->cl_cluster_name), (void const   *)(& dlm_config.ci_cluster_name),
+    __ret = memcpy((void *)(& cl->cl_cluster_name), (void const   *)(& dlm_config.ci_cluster_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cl->cl_cluster_name), (void const   *)(& dlm_config.ci_cluster_name),
@@ -9357,7 +9357,7 @@ int dlm_our_addr(struct __kernel_sockaddr_storage *addr , int num )
   }
   __len = 128UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)addr, (void const   *)local_comm->addr[num], __len);
+    __ret = memcpy((void *)addr, (void const   *)local_comm->addr[num], __len);
   } else {
     __ret = __builtin_memcpy((void *)addr, (void const   *)local_comm->addr[num],
                              __len);
@@ -11278,7 +11278,7 @@ int dlm_recover_directory(struct dlm_ls *ls )
   }
   __len = 2UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& v), (void const   *)b, __len);
+    __ret = memcpy((void *)(& v), (void const   *)b, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& v), (void const   *)b, __len);
   }
@@ -11492,7 +11492,7 @@ void dlm_copy_master_names(struct dlm_ls *ls , char *inbuf , int inlen , char *o
     be_namelen = 0U;
     __len = 2UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)outbuf + (unsigned long )offset, (void const   *)(& be_namelen),
+      __ret = memcpy((void *)outbuf + (unsigned long )offset, (void const   *)(& be_namelen),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)outbuf + (unsigned long )offset, (void const   *)(& be_namelen),
@@ -11508,7 +11508,7 @@ void dlm_copy_master_names(struct dlm_ls *ls , char *inbuf , int inlen , char *o
   be_namelen = tmp;
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)outbuf + (unsigned long )offset, (void const   *)(& be_namelen),
+    __ret___0 = memcpy((void *)outbuf + (unsigned long )offset, (void const   *)(& be_namelen),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)outbuf + (unsigned long )offset, (void const   *)(& be_namelen),
@@ -11533,7 +11533,7 @@ void dlm_copy_master_names(struct dlm_ls *ls , char *inbuf , int inlen , char *o
     be_namelen = 65535U;
     __len___2 = 2UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)outbuf + (unsigned long )offset, (void const   *)(& be_namelen),
+      __ret___2 = memcpy((void *)outbuf + (unsigned long )offset, (void const   *)(& be_namelen),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)outbuf + (unsigned long )offset, (void const   *)(& be_namelen),
@@ -14312,7 +14312,7 @@ static void shrink_bucket(struct dlm_ls *ls , int b )
       ls->ls_remove_lens[remote_count] = r->res_length;
       __len = 64UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)ls->ls_remove_names[remote_count], (void const   *)(& r->res_name),
+        __ret = memcpy((void *)ls->ls_remove_names[remote_count], (void const   *)(& r->res_name),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)ls->ls_remove_names[remote_count], (void const   *)(& r->res_name),
@@ -14419,7 +14419,7 @@ static void shrink_bucket(struct dlm_ls *ls , int b )
   ls->ls_remove_len = len;
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ls->ls_remove_name), (void const   *)name, __len___0);
+    __ret___0 = memcpy((void *)(& ls->ls_remove_name), (void const   *)name, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ls->ls_remove_name), (void const   *)name,
                                  __len___0);
@@ -17204,7 +17204,7 @@ static void send_repeat_remove(struct dlm_ls *ls , char *ms_name , int len )
   ls->ls_remove_len = len;
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ls->ls_remove_name), (void const   *)(& name),
+    __ret___0 = memcpy((void *)(& ls->ls_remove_name), (void const   *)(& name),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ls->ls_remove_name), (void const   *)(& name),
@@ -19425,7 +19425,7 @@ int dlm_user_convert(struct dlm_ls *ls , struct dlm_user_args *ua_tmp , int mode
   if ((unsigned long )lvb_in != (unsigned long )((char *)0) && (unsigned long )ua->lksb.sb_lvbptr != (unsigned long )((char *)0)) {
     __len = 32UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)ua->lksb.sb_lvbptr, (void const   *)lvb_in, __len);
+      __ret = memcpy((void *)ua->lksb.sb_lvbptr, (void const   *)lvb_in, __len);
     } else {
       __ret = __builtin_memcpy((void *)ua->lksb.sb_lvbptr, (void const   *)lvb_in,
                                __len);
@@ -19483,7 +19483,7 @@ int dlm_user_unlock(struct dlm_ls *ls , struct dlm_user_args *ua_tmp , uint32_t 
   if ((unsigned long )lvb_in != (unsigned long )((char *)0) && (unsigned long )ua->lksb.sb_lvbptr != (unsigned long )((char *)0)) {
     __len = 32UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)ua->lksb.sb_lvbptr, (void const   *)lvb_in, __len);
+      __ret = memcpy((void *)ua->lksb.sb_lvbptr, (void const   *)lvb_in, __len);
     } else {
       __ret = __builtin_memcpy((void *)ua->lksb.sb_lvbptr, (void const   *)lvb_in,
                                __len);
@@ -25073,7 +25073,7 @@ static int nodeid_to_addr(int nodeid , struct __kernel_sockaddr_storage *sas_out
     }
     __len = 128UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& sas), (void const   *)na->addr[na->curr_addr_index],
+      __ret = memcpy((void *)(& sas), (void const   *)na->addr[na->curr_addr_index],
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& sas), (void const   *)na->addr[na->curr_addr_index],
@@ -25096,7 +25096,7 @@ static int nodeid_to_addr(int nodeid , struct __kernel_sockaddr_storage *sas_out
   if ((unsigned long )sas_out != (unsigned long )((struct __kernel_sockaddr_storage *)0)) {
     __len___0 = 128UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)sas_out, (void const   *)(& sas), __len___0);
+      __ret___0 = memcpy((void *)sas_out, (void const   *)(& sas), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)sas_out, (void const   *)(& sas), __len___0);
     }
@@ -26199,7 +26199,7 @@ static void tcp_connect_to_sock(struct connection *con )
   add_sock(sock, con);
   __len = 128UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& src_addr), (void const   *)dlm_local_addr[0], __len);
+    __ret = memcpy((void *)(& src_addr), (void const   *)dlm_local_addr[0], __len);
   } else {
     __ret = __builtin_memcpy((void *)(& src_addr), (void const   *)dlm_local_addr[0],
                              __len);
@@ -26343,7 +26343,7 @@ static void init_local(void)
   }
   __len = 128UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)addr, (void const   *)(& sas), __len);
+    __ret = memcpy((void *)addr, (void const   *)(& sas), __len);
   } else {
     __ret = __builtin_memcpy((void *)addr, (void const   *)(& sas), __len);
   }
@@ -26454,7 +26454,7 @@ static int sctp_listen_for_all(void)
   ldv_55513: 
   __len = 128UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& localaddr), (void const   *)dlm_local_addr[i], __len);
+    __ret = memcpy((void *)(& localaddr), (void const   *)dlm_local_addr[i], __len);
   } else {
     __ret = __builtin_memcpy((void *)(& localaddr), (void const   *)dlm_local_addr[i],
                              __len);
@@ -27840,7 +27840,7 @@ static ssize_t dev_read(struct file *file , char *u , size_t count , loff_t *ppo
     }
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& info), (void const   *)(& op->info), __len);
+      __ret = memcpy((void *)(& info), (void const   *)(& op->info), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& info), (void const   *)(& op->info), __len);
     }
@@ -27911,7 +27911,7 @@ static ssize_t dev_write(struct file *file , char const   *u , size_t count , lo
     list_del_init(& op->list);
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& op->info), (void const   *)(& info), __len);
+      __ret = memcpy((void *)(& op->info), (void const   *)(& info), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& op->info), (void const   *)(& info), __len);
     }
@@ -28711,7 +28711,7 @@ static void receive_rcom_lock(struct dlm_ls *ls , struct dlm_rcom *rc_in )
   }
   __len = 108UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rc->rc_buf), (void const   *)(& rc_in->rc_buf), __len);
+    __ret = memcpy((void *)(& rc->rc_buf), (void const   *)(& rc_in->rc_buf), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rc->rc_buf), (void const   *)(& rc_in->rc_buf),
                              __len);
@@ -31104,7 +31104,7 @@ static void compat_input(struct dlm_write_request *kb , struct dlm_write_request
     kb->i.lock.lksb = (struct dlm_lksb *)((long )kb32->i.lock.lksb);
     __len___0 = 32UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& kb->i.lock.lvb), (void const   *)(& kb32->i.lock.lvb),
+      __ret___0 = memcpy((void *)(& kb->i.lock.lvb), (void const   *)(& kb32->i.lock.lvb),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& kb->i.lock.lvb), (void const   *)(& kb32->i.lock.lvb),
@@ -31778,7 +31778,7 @@ static int copy_result_to_user(struct dlm_user_args *ua , int compat , uint32_t 
   result.version[2] = 1U;
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& result.lksb), (void const   *)(& ua->lksb), __len);
+    __ret = memcpy((void *)(& result.lksb), (void const   *)(& ua->lksb), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& result.lksb), (void const   *)(& ua->lksb),
                              __len);

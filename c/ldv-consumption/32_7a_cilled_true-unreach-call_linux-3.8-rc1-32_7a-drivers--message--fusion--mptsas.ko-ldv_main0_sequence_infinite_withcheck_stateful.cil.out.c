@@ -5398,7 +5398,7 @@ __inline static int list_empty(struct list_head  const  *head )
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern struct pv_irq_ops pv_irq_ops ;
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -6217,7 +6217,7 @@ static void mptsas_print_phy_pg0(MPT_ADAPTER *ioc , SasPhyPage0_t *pg0 )
   {
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sas_address), (void const   *)(& pg0->SASAddress),
+    __ret = memcpy((void *)(& sas_address), (void const   *)(& pg0->SASAddress),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sas_address), (void const   *)(& pg0->SASAddress),
@@ -6313,7 +6313,7 @@ static void mptsas_print_device_pg0(MPT_ADAPTER *ioc , SasDevicePage0_t *pg0 )
   {
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sas_address), (void const   *)(& pg0->SASAddress),
+    __ret = memcpy((void *)(& sas_address), (void const   *)(& pg0->SASAddress),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sas_address), (void const   *)(& pg0->SASAddress),
@@ -7896,7 +7896,7 @@ static void mptsas_queue_device_delete(MPT_ADAPTER *ioc , MpiEventDataSasDeviceS
   }
   __len = 36UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& fw_event->event_data), (void const   *)sas_event_data,
+    __ret = memcpy((void *)(& fw_event->event_data), (void const   *)sas_event_data,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& fw_event->event_data), (void const   *)sas_event_data,
@@ -8047,7 +8047,7 @@ static void mptsas_target_reset_queue(MPT_ADAPTER *ioc , EVENT_DATA_SAS_DEVICE_S
   }
   __len = 36UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& target_reset_list->sas_event_data), (void const   *)sas_event_data,
+    __ret = memcpy((void *)(& target_reset_list->sas_event_data), (void const   *)sas_event_data,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& target_reset_list->sas_event_data), (void const   *)sas_event_data,
@@ -8323,7 +8323,7 @@ static int mptsas_sas_enclosure_pg0(MPT_ADAPTER *ioc , struct mptsas_enclosure *
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& le_identifier), (void const   *)(& buffer->EnclosureLogicalID),
+    __ret = memcpy((void *)(& le_identifier), (void const   *)(& buffer->EnclosureLogicalID),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& le_identifier), (void const   *)(& buffer->EnclosureLogicalID),
@@ -9546,7 +9546,7 @@ static int mptsas_smp_handler(struct Scsi_Host *shost , struct sas_rphy *rphy , 
     smprep = (SmpPassthroughReply_t *)(& ioc->sas_mgmt.reply);
     __len = 28UL;
     if (__len > 63UL) {
-      __ret = __memcpy(req->sense, (void const   *)smprep, __len);
+      __ret = memcpy(req->sense, (void const   *)smprep, __len);
     } else {
       __ret = __builtin_memcpy(req->sense, (void const   *)smprep, __len);
     }
@@ -9878,7 +9878,7 @@ static int mptsas_sas_device_pg0(MPT_ADAPTER *ioc , struct mptsas_devinfo *devic
   device_info->channel = buffer->Bus;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sas_address), (void const   *)(& buffer->SASAddress),
+    __ret = memcpy((void *)(& sas_address), (void const   *)(& buffer->SASAddress),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sas_address), (void const   *)(& buffer->SASAddress),
@@ -9971,7 +9971,7 @@ static int mptsas_sas_expander_pg0(MPT_ADAPTER *ioc , struct mptsas_portinfo *po
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sas_address), (void const   *)(& buffer->SASAddress),
+    __ret = memcpy((void *)(& sas_address), (void const   *)(& buffer->SASAddress),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sas_address), (void const   *)(& buffer->SASAddress),
@@ -10781,7 +10781,7 @@ static void mptsas_expander_event_add(MPT_ADAPTER *ioc , MpiEventDataSasExpander
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sas_address), (void const   *)(& expander_data->SASAddress),
+    __ret = memcpy((void *)(& sas_address), (void const   *)(& expander_data->SASAddress),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sas_address), (void const   *)(& expander_data->SASAddress),
@@ -10985,7 +10985,7 @@ static void mptsas_send_expander_event(struct fw_event_work *fw_event )
   expander_data = (MpiEventDataSasExpanderStatusChange_t *)(& fw_event->event_data);
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sas_address), (void const   *)(& expander_data->SASAddress),
+    __ret = memcpy((void *)(& sas_address), (void const   *)(& expander_data->SASAddress),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sas_address), (void const   *)(& expander_data->SASAddress),
@@ -11099,7 +11099,7 @@ static void mptsas_send_link_status_event(struct fw_event_work *fw_event )
   link_data = (MpiEventDataSasPhyLinkStatus_t *)(& fw_event->event_data);
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sas_address), (void const   *)(& link_data->SASAddress),
+    __ret = memcpy((void *)(& sas_address), (void const   *)(& link_data->SASAddress),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sas_address), (void const   *)(& link_data->SASAddress),
@@ -11777,7 +11777,7 @@ static struct mptsas_phyinfo *mptsas_find_phyinfo_by_phys_disk_num(MPT_ADAPTER *
   if ((int )phys_disk->Path[i].PhysDiskID == (int )id && (int )phys_disk->Path[i].PhysDiskBus == (int )channel) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& sas_address), (void const   *)(& phys_disk->Path[i].WWID),
+      __ret = memcpy((void *)(& sas_address), (void const   *)(& phys_disk->Path[i].WWID),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& sas_address), (void const   *)(& phys_disk->Path[i].WWID),
@@ -12280,7 +12280,7 @@ static void mptsas_send_sas_event(struct fw_event_work *fw_event )
   hot_plug_info.phy_id = sas_event_data->PhyNum;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sas_address), (void const   *)(& sas_event_data->SASAddress),
+    __ret = memcpy((void *)(& sas_address), (void const   *)(& sas_event_data->SASAddress),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sas_address), (void const   *)(& sas_event_data->SASAddress),

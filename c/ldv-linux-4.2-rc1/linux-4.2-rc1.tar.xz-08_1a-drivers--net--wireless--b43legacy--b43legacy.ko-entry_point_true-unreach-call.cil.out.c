@@ -24242,7 +24242,7 @@ bool ldv_queue_delayed_work_on_83(int ldv_func_arg1 , struct workqueue_struct *l
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 bool ldv_queue_work_on_93(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                           struct work_struct *ldv_func_arg3 ) ;
 bool ldv_queue_work_on_95(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
@@ -25000,7 +25000,7 @@ void b43legacy_rx(struct b43legacy_wldev *dev , struct sk_buff *skb , void const
       } else {
 
       }
-      __memmove((void *)skb->data + (unsigned long )iv_len, (void const   *)skb->data,
+      memmove((void *)skb->data + (unsigned long )iv_len, (void const   *)skb->data,
                 (size_t )wlhdr_len);
       skb_pull(skb, (unsigned int )iv_len);
       skb_trim(skb, skb->len - (unsigned int )icv_len);

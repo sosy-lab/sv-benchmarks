@@ -8245,7 +8245,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void __bad_percpu_size(void) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int __preempt_count ;
 __inline static int preempt_count(void) 
@@ -10439,7 +10439,7 @@ enum vxge_hw_status vxge_hw_device_initialize(struct __vxge_hw_device **devh , s
   vxge_hw_device_debug_set(hldev, 2, 4294967295U);
   __len = 3280UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hldev->config), (void const   *)device_config, __len);
+    __ret = memcpy((void *)(& hldev->config), (void const   *)device_config, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hldev->config), (void const   *)device_config,
                              __len);
@@ -10778,7 +10778,7 @@ enum vxge_hw_status vxge_hw_device_stats_get(struct __vxge_hw_device *hldev , st
   }
   __len = 624UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)hldev->virtual_paths[i].hw_stats_sav, (void const   *)hldev->virtual_paths[i].hw_stats,
+    __ret = memcpy((void *)hldev->virtual_paths[i].hw_stats_sav, (void const   *)hldev->virtual_paths[i].hw_stats,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)hldev->virtual_paths[i].hw_stats_sav, (void const   *)hldev->virtual_paths[i].hw_stats,
@@ -10796,7 +10796,7 @@ enum vxge_hw_status vxge_hw_device_stats_get(struct __vxge_hw_device *hldev , st
   }
   __len___0 = 10744UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)hw_stats, (void const   *)(& hldev->stats.hw_dev_info_stats),
+    __ret___0 = memcpy((void *)hw_stats, (void const   *)(& hldev->stats.hw_dev_info_stats),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)hw_stats, (void const   *)(& hldev->stats.hw_dev_info_stats),
@@ -10813,7 +10813,7 @@ enum vxge_hw_status vxge_hw_driver_stats_get(struct __vxge_hw_device *hldev , st
   {
   __len = 4096UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)sw_stats, (void const   *)(& hldev->stats.sw_dev_info_stats),
+    __ret = memcpy((void *)sw_stats, (void const   *)(& hldev->stats.sw_dev_info_stats),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)sw_stats, (void const   *)(& hldev->stats.sw_dev_info_stats),
@@ -13808,7 +13808,7 @@ static enum vxge_hw_status vxge_hw_vpath_stats_enable(struct __vxge_hw_vpath_han
   }
   __len = 624UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)vpath->hw_stats_sav, (void const   *)vpath->hw_stats,
+    __ret = memcpy((void *)vpath->hw_stats_sav, (void const   *)vpath->hw_stats,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)vpath->hw_stats_sav, (void const   *)vpath->hw_stats,
@@ -18798,7 +18798,7 @@ static void vxge_ethtool_get_strings(struct net_device *dev , u32 stringset , u8
   }
   __len = 512UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data + (unsigned long )stat_size, (void const   *)(& ethtool_driver_stats_keys),
+    __ret = memcpy((void *)data + (unsigned long )stat_size, (void const   *)(& ethtool_driver_stats_keys),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)data + (unsigned long )stat_size, (void const   *)(& ethtool_driver_stats_keys),
@@ -21308,7 +21308,7 @@ static int vxge_mac_list_add(struct vxge_vpath *vpath , struct macInfo *mac )
   mac_address = (u8 *)(& new_mac_entry->macaddr);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mac_address, (void const   *)(& mac->macaddr), __len);
+    __ret = memcpy((void *)mac_address, (void const   *)(& mac->macaddr), __len);
   } else {
     __ret = __builtin_memcpy((void *)mac_address, (void const   *)(& mac->macaddr),
                              __len);
@@ -21383,7 +21383,7 @@ static int vxge_learn_mac(struct vxgedev *vdev , u8 *mac_header )
   mac_address = (u8 *)(& mac_addr);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mac_address, (void const   *)mac_header, __len);
+    __ret = memcpy((void *)mac_address, (void const   *)mac_header, __len);
   } else {
     __ret = __builtin_memcpy((void *)mac_address, (void const   *)mac_header, __len);
   }
@@ -21407,7 +21407,7 @@ static int vxge_learn_mac(struct vxgedev *vdev , u8 *mac_header )
   memset((void *)(& mac_info), 0, 20UL);
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& mac_info.macaddr), (void const   *)mac_header,
+    __ret___0 = memcpy((void *)(& mac_info.macaddr), (void const   *)mac_header,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& mac_info.macaddr), (void const   *)mac_header,
@@ -21825,7 +21825,7 @@ static int vxge_mac_list_del(struct vxge_vpath *vpath , struct macInfo *mac )
   mac_address = (u8 *)(& del_mac);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mac_address, (void const   *)(& mac->macaddr), __len);
+    __ret = memcpy((void *)mac_address, (void const   *)(& mac->macaddr), __len);
   } else {
     __ret = __builtin_memcpy((void *)mac_address, (void const   *)(& mac->macaddr),
                              __len);
@@ -22014,7 +22014,7 @@ static void vxge_set_multicast(struct net_device *dev )
     mac_address = (u8 *)(& mac_entry->macaddr);
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& mac_info.macaddr), (void const   *)mac_address,
+      __ret = memcpy((void *)(& mac_info.macaddr), (void const   *)mac_address,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& mac_info.macaddr), (void const   *)mac_address,
@@ -22059,7 +22059,7 @@ static void vxge_set_multicast(struct net_device *dev )
     ldv_53256: 
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& mac_info.macaddr), (void const   *)(& ha->addr),
+      __ret___0 = memcpy((void *)(& mac_info.macaddr), (void const   *)(& ha->addr),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& mac_info.macaddr), (void const   *)(& ha->addr),
@@ -22108,7 +22108,7 @@ static void vxge_set_multicast(struct net_device *dev )
     mac_address = (u8 *)(& mac_entry->macaddr);
     __len___1 = 6UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& mac_info.macaddr), (void const   *)mac_address,
+      __ret___1 = memcpy((void *)(& mac_info.macaddr), (void const   *)mac_address,
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& mac_info.macaddr), (void const   *)mac_address,
@@ -22399,7 +22399,7 @@ static enum vxge_hw_status vxge_restore_vpath_mac_addr(struct vxge_vpath *vpath 
     mac_address = (u8 *)(& ((struct vxge_mac_addrs *)entry)->macaddr);
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& mac_info.macaddr), (void const   *)mac_address,
+      __ret = memcpy((void *)(& mac_info.macaddr), (void const   *)mac_address,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& mac_info.macaddr), (void const   *)mac_address,
@@ -24723,7 +24723,7 @@ static int vxge_device_register(struct __vxge_hw_device *hldev , struct vxge_con
   vdev->pdev = hldev->pdev;
   __len = 648UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vdev->config), (void const   *)config, __len);
+    __ret = memcpy((void *)(& vdev->config), (void const   *)config, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vdev->config), (void const   *)config, __len);
   }
@@ -26001,7 +26001,7 @@ static int vxge_probe(struct pci_dev *pdev , struct pci_device_id  const  *pre )
   (vdev->vpaths + (unsigned long )j)->max_mac_addr_cnt = max_mac_vpath;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (vdev->vpaths + (unsigned long )j)->macaddr), (void const   *)(& ll_config->device_hw_info.mac_addrs) + (unsigned long )i,
+    __ret = memcpy((void *)(& (vdev->vpaths + (unsigned long )j)->macaddr), (void const   *)(& ll_config->device_hw_info.mac_addrs) + (unsigned long )i,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (vdev->vpaths + (unsigned long )j)->macaddr),
@@ -26070,7 +26070,7 @@ static int vxge_probe(struct pci_dev *pdev , struct pci_device_id  const  *pre )
   strcpy((char *)(& vdev->fw_version), (char const   *)(& ll_config->device_hw_info.fw_version.version));
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(vdev->ndev)->dev_addr, (void const   *)(& (vdev->vpaths)->macaddr),
+    __ret___0 = memcpy((void *)(vdev->ndev)->dev_addr, (void const   *)(& (vdev->vpaths)->macaddr),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(vdev->ndev)->dev_addr, (void const   *)(& (vdev->vpaths)->macaddr),
@@ -26091,7 +26091,7 @@ static int vxge_probe(struct pci_dev *pdev , struct pci_device_id  const  *pre )
   macaddr = (u8 *)(& entry->macaddr);
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)macaddr, (void const   *)(vdev->ndev)->dev_addr,
+    __ret___1 = memcpy((void *)macaddr, (void const   *)(vdev->ndev)->dev_addr,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)macaddr, (void const   *)(vdev->ndev)->dev_addr,

@@ -5170,7 +5170,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
@@ -5591,7 +5591,7 @@ static ssize_t pcmcia_store_new_id(struct device_driver *driver , char const   *
   dynid->id.device_no = device_no;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dynid->id.prod_id_hash), (void const   *)(& prod_id_hash),
+    __ret = memcpy((void *)(& dynid->id.prod_id_hash), (void const   *)(& prod_id_hash),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dynid->id.prod_id_hash), (void const   *)(& prod_id_hash),

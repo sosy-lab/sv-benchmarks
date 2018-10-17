@@ -7097,7 +7097,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
@@ -8383,7 +8383,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -9571,7 +9571,7 @@ static int rxq_process(struct ieee80211_hw *hw , int index , int limit )
   __len = 40UL;
   if (__len > 63UL) {
     tmp___2 = IEEE80211_SKB_RXCB(skb);
-    __ret = __memcpy((void *)tmp___2, (void const   *)(& status), __len);
+    __ret = memcpy((void *)tmp___2, (void const   *)(& status), __len);
   } else {
     tmp___3 = IEEE80211_SKB_RXCB(skb);
     __ret = __builtin_memcpy((void *)tmp___3, (void const   *)(& status), __len);
@@ -10674,7 +10674,7 @@ static void mwl8k_setup_2ghz_band(struct ieee80211_hw *hw )
   priv = (struct mwl8k_priv *)hw->priv;
   __len = 896UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->channels_24), (void const   *)(& mwl8k_channels_24),
+    __ret = memcpy((void *)(& priv->channels_24), (void const   *)(& mwl8k_channels_24),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->channels_24), (void const   *)(& mwl8k_channels_24),
@@ -10682,7 +10682,7 @@ static void mwl8k_setup_2ghz_band(struct ieee80211_hw *hw )
   }
   __len___0 = 156UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& priv->rates_24), (void const   *)(& mwl8k_rates_24),
+    __ret___0 = memcpy((void *)(& priv->rates_24), (void const   *)(& mwl8k_rates_24),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& priv->rates_24), (void const   *)(& mwl8k_rates_24),
@@ -10709,7 +10709,7 @@ static void mwl8k_setup_5ghz_band(struct ieee80211_hw *hw )
   priv = (struct mwl8k_priv *)hw->priv;
   __len = 256UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->channels_50), (void const   *)(& mwl8k_channels_50),
+    __ret = memcpy((void *)(& priv->channels_50), (void const   *)(& mwl8k_channels_50),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->channels_50), (void const   *)(& mwl8k_channels_50),
@@ -10717,7 +10717,7 @@ static void mwl8k_setup_5ghz_band(struct ieee80211_hw *hw )
   }
   __len___0 = 96UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& priv->rates_50), (void const   *)(& mwl8k_rates_50),
+    __ret___0 = memcpy((void *)(& priv->rates_50), (void const   *)(& mwl8k_rates_50),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& priv->rates_50), (void const   *)(& mwl8k_rates_50),
@@ -11075,7 +11075,7 @@ static struct mwl8k_cmd_pkt *__mwl8k_cmd_mac_multicast_adr(struct ieee80211_hw *
     ldv_49455: 
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& cmd->addr) + (unsigned long )i, (void const   *)(& ha->addr),
+      __ret = memcpy((void *)(& cmd->addr) + (unsigned long )i, (void const   *)(& ha->addr),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& cmd->addr) + (unsigned long )i, (void const   *)(& ha->addr),
@@ -11398,7 +11398,7 @@ static int mwl8k_cmd_set_post_scan(struct ieee80211_hw *hw , __u8 const   *mac )
   cmd->isibss = 0U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->bssid), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& cmd->bssid), (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->bssid), (void const   *)mac, __len);
   }
@@ -11610,7 +11610,7 @@ static int mwl8k_cmd_set_aid(struct ieee80211_hw *hw , struct ieee80211_vif *vif
   cmd->aid = vif->bss_conf.aid;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->bssid), (void const   *)vif->bss_conf.bssid,
+    __ret = memcpy((void *)(& cmd->bssid), (void const   *)vif->bss_conf.bssid,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->bssid), (void const   *)vif->bss_conf.bssid,
@@ -11661,7 +11661,7 @@ static int mwl8k_cmd_set_rate(struct ieee80211_hw *hw , struct ieee80211_vif *vi
   legacy_rate_mask_to_array((u8 *)(& cmd->legacy_rates), legacy_rate_mask);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->mcs_set), (void const   *)mcs_rates, __len);
+    __ret = memcpy((void *)(& cmd->mcs_set), (void const   *)mcs_rates, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->mcs_set), (void const   *)mcs_rates,
                              __len);
@@ -11985,7 +11985,7 @@ static int mwl8k_cmd_update_mac_addr(struct ieee80211_hw *hw , struct ieee80211_
     cmd->ldv_49815.mbss.mac_type = (unsigned short )mac_type;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& cmd->ldv_49815.mbss.mac_addr), (void const   *)mac,
+      __ret = memcpy((void *)(& cmd->ldv_49815.mbss.mac_addr), (void const   *)mac,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& cmd->ldv_49815.mbss.mac_addr), (void const   *)mac,
@@ -11994,7 +11994,7 @@ static int mwl8k_cmd_update_mac_addr(struct ieee80211_hw *hw , struct ieee80211_
   } else {
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& cmd->ldv_49815.mac_addr), (void const   *)mac,
+      __ret___0 = memcpy((void *)(& cmd->ldv_49815.mac_addr), (void const   *)mac,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& cmd->ldv_49815.mac_addr), (void const   *)mac,
@@ -12247,7 +12247,7 @@ static int mwl8k_check_ba(struct ieee80211_hw *hw , struct mwl8k_ampdu_stream *s
   cmd->ldv_49942.create_params.queue_id = stream->idx;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->ldv_49942.create_params.peer_mac_addr), (void const   *)(& (stream->sta)->addr),
+    __ret = memcpy((void *)(& cmd->ldv_49942.create_params.peer_mac_addr), (void const   *)(& (stream->sta)->addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->ldv_49942.create_params.peer_mac_addr),
@@ -12285,7 +12285,7 @@ static int mwl8k_create_ba(struct ieee80211_hw *hw , struct mwl8k_ampdu_stream *
   cmd->ldv_49942.create_params.queue_id = stream->idx;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->ldv_49942.create_params.peer_mac_addr), (void const   *)(& (stream->sta)->addr),
+    __ret = memcpy((void *)(& cmd->ldv_49942.create_params.peer_mac_addr), (void const   *)(& (stream->sta)->addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->ldv_49942.create_params.peer_mac_addr),
@@ -12350,7 +12350,7 @@ static int mwl8k_cmd_set_new_stn_add(struct ieee80211_hw *hw , struct ieee80211_
   cmd->aid = sta->aid;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->mac_addr), (void const   *)(& sta->addr), __len);
+    __ret = memcpy((void *)(& cmd->mac_addr), (void const   *)(& sta->addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->mac_addr), (void const   *)(& sta->addr),
                              __len);
@@ -12399,7 +12399,7 @@ static int mwl8k_cmd_set_new_stn_add_self(struct ieee80211_hw *hw , struct ieee8
   cmd->header.length = 48U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->mac_addr), (void const   *)(& vif->addr), __len);
+    __ret = memcpy((void *)(& cmd->mac_addr), (void const   *)(& vif->addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->mac_addr), (void const   *)(& vif->addr),
                              __len);
@@ -12469,7 +12469,7 @@ static int mwl8k_cmd_set_new_stn_del(struct ieee80211_hw *hw , struct ieee80211_
   cmd->header.length = 48U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->mac_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& cmd->mac_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->mac_addr), (void const   *)addr, __len);
   }
@@ -12501,7 +12501,7 @@ static int mwl8k_cmd_update_encryption_enable(struct ieee80211_hw *hw , struct i
   cmd->action = 0U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->mac_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& cmd->mac_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->mac_addr), (void const   *)addr, __len);
   }
@@ -12525,7 +12525,7 @@ static int mwl8k_encryption_set_cmd_info(struct mwl8k_cmd_set_key *cmd , u8 *add
   cmd->key_len = (unsigned short )key->keylen;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->mac_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& cmd->mac_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->mac_addr), (void const   *)addr, __len);
   }
@@ -12741,7 +12741,7 @@ static int mwl8k_cmd_update_stadb_add(struct ieee80211_hw *hw , struct ieee80211
   cmd->action = 1U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->peer_addr), (void const   *)(& sta->addr), __len);
+    __ret = memcpy((void *)(& cmd->peer_addr), (void const   *)(& sta->addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->peer_addr), (void const   *)(& sta->addr),
                              __len);
@@ -12760,7 +12760,7 @@ static int mwl8k_cmd_update_stadb_add(struct ieee80211_hw *hw , struct ieee80211
   legacy_rate_mask_to_array((u8 *)(& p->legacy_rates), rates);
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& p->ht_rates), (void const   *)(& sta->ht_cap.mcs.rx_mask),
+    __ret___0 = memcpy((void *)(& p->ht_rates), (void const   *)(& sta->ht_cap.mcs.rx_mask),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& p->ht_rates), (void const   *)(& sta->ht_cap.mcs.rx_mask),
@@ -12800,7 +12800,7 @@ static int mwl8k_cmd_update_stadb_del(struct ieee80211_hw *hw , struct ieee80211
   cmd->action = 2U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->peer_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& cmd->peer_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->peer_addr), (void const   *)addr, __len);
   }
@@ -13152,7 +13152,7 @@ static int mwl8k_add_interface(struct ieee80211_hw *hw , struct ieee80211_vif *v
   mwl8k_vif->seqno = 0U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mwl8k_vif->bssid), (void const   *)(& vif->addr),
+    __ret = memcpy((void *)(& mwl8k_vif->bssid), (void const   *)(& vif->addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mwl8k_vif->bssid), (void const   *)(& vif->addr),
@@ -13357,7 +13357,7 @@ static void mwl8k_bss_info_changed_sta(struct ieee80211_hw *hw , struct ieee8021
     }
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ap_mcs_rates), (void const   *)(& ap->ht_cap.mcs.rx_mask),
+      __ret = memcpy((void *)(& ap_mcs_rates), (void const   *)(& ap->ht_cap.mcs.rx_mask),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ap_mcs_rates), (void const   *)(& ap->ht_cap.mcs.rx_mask),
@@ -13430,7 +13430,7 @@ static void mwl8k_bss_info_changed_sta(struct ieee80211_hw *hw , struct ieee8021
   if ((int )vif->bss_conf.assoc && (changed & 65U) != 0U) {
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& priv->capture_bssid), (void const   *)vif->bss_conf.bssid,
+      __ret___0 = memcpy((void *)(& priv->capture_bssid), (void const   *)vif->bss_conf.bssid,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& priv->capture_bssid), (void const   *)vif->bss_conf.bssid,
@@ -13764,7 +13764,7 @@ static int mwl8k_conf_tx(struct ieee80211_hw *hw , struct ieee80211_vif *vif , u
     }
     __len = 10UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& priv->wmm_params) + (unsigned long )queue, (void const   *)params,
+      __ret = memcpy((void *)(& priv->wmm_params) + (unsigned long )queue, (void const   *)params,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& priv->wmm_params) + (unsigned long )queue,
@@ -13829,7 +13829,7 @@ static int mwl8k_get_survey(struct ieee80211_hw *hw , int idx , struct survey_in
     }
     __len = 56UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)survey, (void const   *)(& priv->survey) + (unsigned long )idx,
+      __ret = memcpy((void *)survey, (void const   *)(& priv->survey) + (unsigned long )idx,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)survey, (void const   *)(& priv->survey) + (unsigned long )idx,

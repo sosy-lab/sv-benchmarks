@@ -5131,7 +5131,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 int ldv_mutex_trylock_28(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_26(struct mutex *ldv_func_arg1 ) ;
@@ -5731,7 +5731,7 @@ int i2o_device_parse_lct(struct i2o_controller *c )
   entry->bios_info = (unsigned char )(buf >> 24);
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& entry->identity_tag), (void const   *)dlct, __len);
+    __ret = memcpy((void *)(& entry->identity_tag), (void const   *)dlct, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& entry->identity_tag), (void const   *)dlct,
                              __len);

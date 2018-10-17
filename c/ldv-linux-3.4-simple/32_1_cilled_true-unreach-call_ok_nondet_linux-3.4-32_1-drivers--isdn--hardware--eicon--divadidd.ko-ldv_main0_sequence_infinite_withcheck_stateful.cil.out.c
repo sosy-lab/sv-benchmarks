@@ -3727,7 +3727,7 @@ long ldv__builtin_expect(long val , long res )
 }
 }
 
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void myDbgPrint_ERR(char *format  , ...) ;
 int DbgRegister(char *drvName , char *drvTag , unsigned long dbgMask ) ;
 void DbgDeregister(void) ;
@@ -3876,7 +3876,7 @@ static int connect_didd(void)
         __cil_tmp18 = (unsigned long )(DIDD_Table) + __cil_tmp17;
         __cil_tmp19 = (DESCRIPTOR *)__cil_tmp18;
         __cil_tmp20 = (void const   *)__cil_tmp19;
-        __ret = __memcpy(__cil_tmp16, __cil_tmp20, __len);
+        __ret = memcpy(__cil_tmp16, __cil_tmp20, __len);
         }
       } else {
         {
@@ -5367,7 +5367,7 @@ static int diva_didd_add_descriptor(DESCRIPTOR *d )
         __cil_tmp33 = (DESCRIPTOR *)__cil_tmp32;
         __cil_tmp34 = (void *)__cil_tmp33;
         __cil_tmp35 = (void const   *)d;
-        __ret = __memcpy(__cil_tmp34, __cil_tmp35, __len);
+        __ret = memcpy(__cil_tmp34, __cil_tmp35, __len);
         }
       } else {
         {
@@ -5680,7 +5680,7 @@ static int diva_didd_read_adapter_array(DESCRIPTOR *buffer , int length )
         __cil_tmp26 = (unsigned long )(HandleTable) + __cil_tmp25;
         __cil_tmp27 = (DESCRIPTOR *)__cil_tmp26;
         __cil_tmp28 = (void const   *)__cil_tmp27;
-        __ret = __memcpy(__cil_tmp24, __cil_tmp28, __len);
+        __ret = memcpy(__cil_tmp24, __cil_tmp28, __len);
         }
       } else {
         {
@@ -5713,7 +5713,7 @@ static int diva_didd_read_adapter_array(DESCRIPTOR *buffer , int length )
       __cil_tmp36 = buffer + dst;
       __cil_tmp37 = (void *)__cil_tmp36;
       __cil_tmp38 = (void const   *)(& MAdapter);
-      __ret___0 = __memcpy(__cil_tmp37, __cil_tmp38, __len___0);
+      __ret___0 = memcpy(__cil_tmp37, __cil_tmp38, __len___0);
       }
     } else {
       {
@@ -5745,7 +5745,7 @@ static int diva_didd_read_adapter_array(DESCRIPTOR *buffer , int length )
       __cil_tmp45 = buffer + dst;
       __cil_tmp46 = (void *)__cil_tmp45;
       __cil_tmp47 = (void const   *)(& DAdapter);
-      __ret___1 = __memcpy(__cil_tmp46, __cil_tmp47, __len___1);
+      __ret___1 = memcpy(__cil_tmp46, __cil_tmp47, __len___1);
       }
     } else {
       {
@@ -6255,7 +6255,7 @@ static void diva_notify_adapter_change(DESCRIPTOR *d , int removal )
         __cil_tmp14 = (unsigned long )(NotificationTable) + __cil_tmp13;
         __cil_tmp15 = (didd_adapter_change_notification_t *)__cil_tmp14;
         __cil_tmp16 = (void const   *)__cil_tmp15;
-        __ret = __memcpy(__cil_tmp12, __cil_tmp16, __len);
+        __ret = memcpy(__cil_tmp12, __cil_tmp16, __len);
         }
       } else {
         {

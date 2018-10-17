@@ -4723,7 +4723,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static void bitmap_zero(unsigned long *dst , int nbits ) 
 { 
@@ -5554,7 +5554,7 @@ static int acpi_processor_get_throttling_control(struct acpi_processor *pr )
   }
   __len = 15UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& pr->throttling.control_register), (void const   *)obj.buffer.pointer,
+    __ret = memcpy((void *)(& pr->throttling.control_register), (void const   *)obj.buffer.pointer,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pr->throttling.control_register), (void const   *)obj.buffer.pointer,
@@ -5570,7 +5570,7 @@ static int acpi_processor_get_throttling_control(struct acpi_processor *pr )
   }
   __len___0 = 15UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& pr->throttling.status_register), (void const   *)obj.buffer.pointer,
+    __ret___0 = memcpy((void *)(& pr->throttling.status_register), (void const   *)obj.buffer.pointer,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& pr->throttling.status_register), (void const   *)obj.buffer.pointer,
@@ -7449,7 +7449,7 @@ static int acpi_processor_get_power_info_cst(struct acpi_processor *pr )
   current_count = current_count + 1;
   __len = 52UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& pr->power.states) + (unsigned long )current_count,
+    __ret = memcpy((void *)(& pr->power.states) + (unsigned long )current_count,
                      (void const   *)(& cx), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pr->power.states) + (unsigned long )current_count,
@@ -9883,7 +9883,7 @@ static int acpi_processor_get_performance_control(struct acpi_processor *pr )
   }
   __len = 15UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (pr->performance)->control_register), (void const   *)obj.buffer.pointer,
+    __ret = memcpy((void *)(& (pr->performance)->control_register), (void const   *)obj.buffer.pointer,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (pr->performance)->control_register), (void const   *)obj.buffer.pointer,
@@ -9899,7 +9899,7 @@ static int acpi_processor_get_performance_control(struct acpi_processor *pr )
   }
   __len___0 = 15UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& (pr->performance)->status_register), (void const   *)obj.buffer.pointer,
+    __ret___0 = memcpy((void *)(& (pr->performance)->status_register), (void const   *)obj.buffer.pointer,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& (pr->performance)->status_register), (void const   *)obj.buffer.pointer,
@@ -10052,7 +10052,7 @@ static int acpi_processor_get_performance_states(struct acpi_processor *pr )
   if (last_invalid != -1) {
     __len = 48UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(pr->performance)->states + (unsigned long )last_invalid,
+      __ret = memcpy((void *)(pr->performance)->states + (unsigned long )last_invalid,
                        (void const   *)px, __len);
     } else {
       __ret = __builtin_memcpy((void *)(pr->performance)->states + (unsigned long )last_invalid,

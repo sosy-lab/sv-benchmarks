@@ -3209,7 +3209,7 @@ struct dib3000_state {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -9511,7 +9511,7 @@ struct dvb_frontend *dib3000mb_attach(struct dib3000_config  const  *config , st
     __cil_tmp18 = (struct dib3000_config *)__cil_tmp17;
     __cil_tmp19 = (void *)__cil_tmp18;
     __cil_tmp20 = (void const   *)config;
-    __ret = __memcpy(__cil_tmp19, __cil_tmp20, __len);
+    __ret = memcpy(__cil_tmp19, __cil_tmp20, __len);
     }
   } else {
     {
@@ -9549,7 +9549,7 @@ struct dvb_frontend *dib3000mb_attach(struct dib3000_config  const  *config , st
     __cil_tmp30 = (struct dvb_frontend_ops *)__cil_tmp29;
     __cil_tmp31 = (void *)__cil_tmp30;
     __cil_tmp32 = (void const   *)(& dib3000mb_ops);
-    __ret___0 = __memcpy(__cil_tmp31, __cil_tmp32, __len___0);
+    __ret___0 = memcpy(__cil_tmp31, __cil_tmp32, __len___0);
     }
   } else {
     {

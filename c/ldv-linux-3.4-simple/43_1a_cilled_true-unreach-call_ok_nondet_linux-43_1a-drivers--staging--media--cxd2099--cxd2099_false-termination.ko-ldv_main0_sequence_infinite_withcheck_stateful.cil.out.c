@@ -2815,7 +2815,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
@@ -5100,7 +5100,7 @@ struct dvb_ca_en50221 *cxd2099_attach(struct cxd2099_cfg *cfg , void *priv , str
     __cil_tmp32 = (struct cxd2099_cfg *)__cil_tmp31;
     __cil_tmp33 = (void *)__cil_tmp32;
     __cil_tmp34 = (void const   *)cfg;
-    __ret = __memcpy(__cil_tmp33, __cil_tmp34, __len);
+    __ret = memcpy(__cil_tmp33, __cil_tmp34, __len);
     }
   } else {
     {
@@ -5130,7 +5130,7 @@ struct dvb_ca_en50221 *cxd2099_attach(struct cxd2099_cfg *cfg , void *priv , str
     __cil_tmp48 = (struct dvb_ca_en50221 *)ci;
     __cil_tmp49 = (void *)__cil_tmp48;
     __cil_tmp50 = (void const   *)(& en_templ);
-    __ret___0 = __memcpy(__cil_tmp49, __cil_tmp50, __len___0);
+    __ret___0 = memcpy(__cil_tmp49, __cil_tmp50, __len___0);
     }
   } else {
     {

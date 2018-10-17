@@ -4160,7 +4160,7 @@ struct cmd {
 };
 typedef int ldv_func_ret_type___2;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_4(struct mutex *ldv_func_arg1 ) ;
@@ -5084,7 +5084,7 @@ static void jpeg_define(u8 *jpeg_hdr , int height , int width )
   {
   __len = 521UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)jpeg_hdr, (void const   *)(& jpeg_head), __len);
+    __ret = memcpy((void *)jpeg_hdr, (void const   *)(& jpeg_head), __len);
   } else {
     __ret = __builtin_memcpy((void *)jpeg_hdr, (void const   *)(& jpeg_head), __len);
   }
@@ -5874,7 +5874,7 @@ static void set_dqt(struct gspca_dev *gspca_dev , u8 q )
   } else {
     __len = 130UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& sd->jpeg_hdr) + 6U, (void const   *)(& DQT) + (unsigned long )q,
+      __ret = memcpy((void *)(& sd->jpeg_hdr) + 6U, (void const   *)(& DQT) + (unsigned long )q,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& sd->jpeg_hdr) + 6U, (void const   *)(& DQT) + (unsigned long )q,

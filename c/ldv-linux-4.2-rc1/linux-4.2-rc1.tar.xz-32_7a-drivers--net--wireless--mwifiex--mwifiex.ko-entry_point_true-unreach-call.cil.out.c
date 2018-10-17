@@ -10770,7 +10770,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;
@@ -11527,7 +11527,7 @@ static int mwifiex_register(void *card , struct mwifiex_if_ops *if_ops , void **
   }
   *padapter = (void *)adapter;
   adapter->card = card;
-  __memmove((void *)(& adapter->if_ops), (void const   *)if_ops, 200UL);
+  memmove((void *)(& adapter->if_ops), (void const   *)if_ops, 200UL);
   adapter->debug_mask = debug_mask;
   if ((unsigned long )adapter->if_ops.init_if != (unsigned long )((int (*)(struct mwifiex_adapter * ))0)) {
     tmp___0 = (*(adapter->if_ops.init_if))(adapter);
@@ -20469,7 +20469,7 @@ int mwifiex_process_mgmt_packet(struct mwifiex_private *priv , struct sk_buff *s
   } else {
 
   }
-  __memmove((void *)skb->data + 24U, (void const   *)skb->data + 30U, (unsigned long )pkt_len - 30UL);
+  memmove((void *)skb->data + 24U, (void const   *)skb->data + 30U, (unsigned long )pkt_len - 30UL);
   pkt_len = (unsigned int )pkt_len - 8U;
   rx_pd->rx_pkt_length = pkt_len;
   cfg80211_rx_mgmt(& priv->wdev, (int )priv->roc_cfg.chan.center_freq, (int )((short )rx_pd->snr) + (int )((short )rx_pd->nf),
@@ -34823,11 +34823,11 @@ static int mwifiex_cmd_tx_power_cfg(struct host_cmd_ds_command *cmd , u16 cmd_ac
   case 1: ;
   if (txp->mode != 0U) {
     pg_tlv = (struct mwifiex_types_power_group *)((unsigned long )txp + 8UL);
-    __memmove((void *)cmd_txp_cfg, (void const   *)txp, (unsigned long )pg_tlv->length + 12UL);
+    memmove((void *)cmd_txp_cfg, (void const   *)txp, (unsigned long )pg_tlv->length + 12UL);
     pg_tlv = (struct mwifiex_types_power_group *)cmd_txp_cfg + 8U;
     cmd->size = (unsigned int )((int )cmd->size + (int )pg_tlv->length) + 4U;
   } else {
-    __memmove((void *)cmd_txp_cfg, (void const   *)txp, 8UL);
+    memmove((void *)cmd_txp_cfg, (void const   *)txp, 8UL);
   }
   cmd_txp_cfg->action = cmd_action;
   goto ldv_61118;
@@ -35028,7 +35028,7 @@ static int mwifiex_set_keyparamset_wep(struct mwifiex_private *priv , struct mwi
     } else {
       key_param_set->key[1] = 0U;
     }
-    __memmove((void *)(& key_param_set->key) + 2U, (void const   *)(& priv->wep_key[(int )i].key_material),
+    memmove((void *)(& key_param_set->key) + 2U, (void const   *)(& priv->wep_key[(int )i].key_material),
               (size_t )priv->wep_key[(int )i].key_length);
     cur_key_param_len = (int )(priv->wep_key[(int )i].key_length + 12U);
     *key_param_len = (int )*key_param_len + (int )((u16 )cur_key_param_len);
@@ -52913,7 +52913,7 @@ static int mwifiex_construct_tdls_action_frame(struct mwifiex_private *priv , u8
   mgmt->u.action.u.tdls_discover_resp.action_code = 14U;
   mgmt->u.action.u.tdls_discover_resp.dialog_token = dialog_token;
   mgmt->u.action.u.tdls_discover_resp.capability = capab;
-  __memmove((void *)pos + 6U, (void const   *)(& mgmt->u.action.category), 4UL);
+  memmove((void *)pos + 6U, (void const   *)(& mgmt->u.action.category), 4UL);
   memcpy((void *)pos, (void const   *)(& bc_addr), 6UL);
   ret = mwifiex_tdls_append_rates_ie(priv, skb);
   if (ret != 0) {

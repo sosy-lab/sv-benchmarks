@@ -6168,7 +6168,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 extern int __preempt_count ;
@@ -7039,7 +7039,7 @@ static int if_usb_send_fw_pkt(struct if_usb_card *cardp )
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& fwdata->hdr), (void const   *)firmware + (unsigned long )cardp->totalbytes,
+    __ret = memcpy((void *)(& fwdata->hdr), (void const   *)firmware + (unsigned long )cardp->totalbytes,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& fwdata->hdr), (void const   *)firmware + (unsigned long )cardp->totalbytes,
@@ -7267,7 +7267,7 @@ static void if_usb_receive_fwload(struct urb *urb )
   if ((int )cardp->bootcmdresp <= 0) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& bootcmdresp), (void const   *)skb->data + 2U, __len);
+      __ret = memcpy((void *)(& bootcmdresp), (void const   *)skb->data + 2U, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& bootcmdresp), (void const   *)skb->data + 2U,
                                __len);

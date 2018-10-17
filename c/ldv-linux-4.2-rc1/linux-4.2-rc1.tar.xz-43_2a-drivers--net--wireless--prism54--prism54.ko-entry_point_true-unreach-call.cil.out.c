@@ -6225,7 +6225,7 @@ __inline static long ldv__builtin_expect(long exp , long c )
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
   int __var ;
@@ -6729,7 +6729,7 @@ netdev_tx_t islpci_eth_transmit(struct sk_buff *skb , struct net_device *ndev )
       if (tmp___3 >= offset) {
         src = skb->data;
         skb_reserve(skb, (int )(- ((unsigned int )((long )skb->data))) & 3);
-        __memmove((void *)skb->data, (void const   *)src, (size_t )skb->len);
+        memmove((void *)skb->data, (void const   *)src, (size_t )skb->len);
       } else {
         goto _L;
       }

@@ -5855,7 +5855,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
@@ -7828,7 +7828,7 @@ static int az6007_read_mac_addr(struct dvb_usb_device *d , u8 *mac )
     __cil_tmp19 = __cil_tmp18 + 440;
     __cil_tmp20 = (unsigned char (*)[4096U])__cil_tmp19;
     __cil_tmp21 = (void const   *)__cil_tmp20;
-    __ret = __memcpy(__cil_tmp17, __cil_tmp21, __len);
+    __ret = memcpy(__cil_tmp17, __cil_tmp21, __len);
     }
   } else {
     {

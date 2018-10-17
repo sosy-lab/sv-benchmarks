@@ -7030,7 +7030,7 @@ __inline static int constant_test_bit(long nr , unsigned long const volatile   *
 }
 }
 extern void __might_sleep(char const   * , int  , int  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 __inline static void *ERR_PTR(long error ) ;
@@ -7754,7 +7754,7 @@ static int ncp_force_unlink(struct inode *dir , struct dentry *dentry )
   {
   {
   res = 156;
-  __memset((void *)(& info), 0, 38UL);
+  memset((void *)(& info), 0, 38UL);
   inode = dentry->d_inode;
   tmp = NCP_FINFO((struct inode  const  *)inode);
   old_nwattr = tmp->nwattr;
@@ -7819,7 +7819,7 @@ static int ncp_force_rename(struct inode *old_dir , struct dentry *old_dentry , 
   new_nwattr = 0U;
   old_nwattr_changed = 0;
   new_nwattr_changed = 0;
-  __memset((void *)(& info), 0, 38UL);
+  memset((void *)(& info), 0, 38UL);
   info.attributes = old_nwattr & 4294574078U;
   tmp___0 = NCP_SBP((struct super_block  const  *)old_inode->i_sb);
   res2 = ncp_modify_file_or_subdir_dos_info_path(tmp___0, old_inode, (char const   *)0,
@@ -11359,7 +11359,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 __inline static void atomic_dec(atomic_t *v ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
@@ -11737,7 +11737,7 @@ void ncp_update_inode(struct inode *inode , struct ncp_entry_info *nwinfo )
   tmp___0 = NCP_FINFO((struct inode  const  *)inode);
   tmp___0->access = nwinfo->access;
   tmp___1 = NCP_FINFO((struct inode  const  *)inode);
-  __memcpy((void *)(& tmp___1->file_handle), (void const   *)(& nwinfo->file_handle),
+  memcpy((void *)(& tmp___1->file_handle), (void const   *)(& nwinfo->file_handle),
            6UL);
   }
   return;
@@ -12444,7 +12444,7 @@ static int ncp_fill_super(struct super_block *sb , void *raw_data , int silent )
 
   {
   {
-  __memset((void *)(& data), 0, 72UL);
+  memset((void *)(& data), 0, 72UL);
   tmp = kzalloc(3216UL, 208U);
   server = (struct ncp_server *)tmp;
   }
@@ -12493,7 +12493,7 @@ static int ncp_fill_super(struct super_block *sb , void *raw_data , int silent )
   data.file_mode = (umode_t )md->file_mode;
   data.dir_mode = (umode_t )md->dir_mode;
   data.info_fd = -1;
-  __memcpy((void *)(& data.mounted_vol), (void const   *)(& md->mounted_vol), 17UL);
+  memcpy((void *)(& data.mounted_vol), (void const   *)(& md->mounted_vol), 17UL);
   }
   goto ldv_50940;
   case_4: /* CIL Label */ 
@@ -12600,7 +12600,7 @@ static int ncp_fill_super(struct super_block *sb , void *raw_data , int silent )
   sb->s_d_op = & ncp_dentry_operations;
   sb->s_bdi = & server->bdi;
   server = NCP_SBP((struct super_block  const  *)sb);
-  __memset((void *)server, 0, 3216UL);
+  memset((void *)server, 0, 3216UL);
   error = bdi_setup_and_register(& server->bdi, (char *)"ncpfs");
   }
   if (error != 0) {
@@ -12787,7 +12787,7 @@ static int ncp_fill_super(struct super_block *sb , void *raw_data , int silent )
     }
   }
   {
-  __memset((void *)(& finfo), 0, 376UL);
+  memset((void *)(& finfo), 0, 376UL);
   finfo.i.attributes = 16U;
   finfo.i.dataStreamSize = 0U;
   finfo.i.dirEntNum = 0U;
@@ -13104,7 +13104,7 @@ int ncp_notify_change(struct dentry *dentry , struct iattr *attr )
   }
   {
   info_mask = 0U;
-  __memset((void *)(& info), 0, 38UL);
+  memset((void *)(& info), 0, 38UL);
   }
   if ((int )attr->ia_valid & 1) {
     newmode = attr->ia_mode;
@@ -15265,7 +15265,7 @@ static int ncp_get_charsets(struct ncp_server *server , struct ncp_nls_ioctl *ar
 
   {
   {
-  __memset((void *)(& user), 0, 42UL);
+  memset((void *)(& user), 0, 42UL);
   ldv_mutex_lock_94(& server->root_setup_lock);
   }
   if ((unsigned long )server->nls_vol != (unsigned long )((struct nls_table *)0) && (unsigned long )(server->nls_vol)->charset != (unsigned long )((char const   *)0)) {
@@ -15637,7 +15637,7 @@ static long __ncp_ioctl(struct inode *inode , unsigned int cmd , unsigned long a
   ncp_lock_server(server);
   server->has_subfunction = 0;
   server->current_size = (int )request.size;
-  __memcpy((void *)server->packet, (void const   *)bouncebuffer, (size_t )request.size);
+  memcpy((void *)server->packet, (void const   *)bouncebuffer, (size_t )request.size);
   result = ncp_request2(server, (int )request.function, (void *)bouncebuffer, 65536);
   }
   if (result < 0) {
@@ -16019,9 +16019,9 @@ static long __ncp_ioctl(struct inode *inode , unsigned int cmd , unsigned long a
   if ((unsigned long )argp != (unsigned long )((void *)0)) {
     if (server->sign_wanted != 0) {
       {
-      __memcpy((void *)(& server->sign_root), (void const   *)(& sign.sign_root),
+      memcpy((void *)(& server->sign_root), (void const   *)(& sign.sign_root),
                8UL);
-      __memcpy((void *)(& server->sign_last), (void const   *)(& sign.sign_last),
+      memcpy((void *)(& server->sign_last), (void const   *)(& sign.sign_last),
                16UL);
       server->sign_active = 1;
       }
@@ -17418,7 +17418,7 @@ static int ncp_file_mmap_fault(struct vm_area_struct *area , struct vm_fault *vm
   }
   if (already_read <= 4095U) {
     {
-    __memset((void *)pg_addr + (unsigned long )already_read, 0, 4096UL - (unsigned long )already_read);
+    memset((void *)pg_addr + (unsigned long )already_read, 0, 4096UL - (unsigned long )already_read);
     }
   } else {
 
@@ -17945,7 +17945,7 @@ static void ncp_add_mem(struct ncp_server *server , void const   *source , int s
   {
   {
   assert_server_locked(server);
-  __memcpy((void *)server->packet + (unsigned long )server->current_size, source,
+  memcpy((void *)server->packet + (unsigned long )server->current_size, source,
            (size_t )size);
   server->current_size = server->current_size + size;
   }
@@ -18207,7 +18207,7 @@ int ncp_get_volume_info_with_number(struct ncp_server *server , int n , struct n
   target->total_dir_entries = ncp_reply_dword_lh(server, 16);
   target->available_dir_entries = ncp_reply_dword_lh(server, 20);
   target->sectors_per_block = ncp_reply_byte(server, 28);
-  __memset((void *)(& target->volume_name), 0, 17UL);
+  memset((void *)(& target->volume_name), 0, 17UL);
   result = -5;
   tmp = ncp_reply_byte(server, 29);
   len = (int )tmp;
@@ -18219,7 +18219,7 @@ int ncp_get_volume_info_with_number(struct ncp_server *server , int n , struct n
   }
   {
   tmp___1 = ncp_reply_data(server, 30);
-  __memcpy((void *)(& target->volume_name), (void const   *)tmp___1, (size_t )len);
+  memcpy((void *)(& target->volume_name), (void const   *)tmp___1, (size_t )len);
   result = 0;
   }
   out: 
@@ -18255,7 +18255,7 @@ int ncp_get_directory_info(struct ncp_server *server , __u8 n , struct ncp_volum
   target->total_dir_entries = ncp_reply_dword_lh(server, 8);
   target->available_dir_entries = ncp_reply_dword_lh(server, 12);
   target->sectors_per_block = ncp_reply_byte(server, 20);
-  __memset((void *)(& target->volume_name), 0, 17UL);
+  memset((void *)(& target->volume_name), 0, 17UL);
   result = -5;
   tmp = ncp_reply_byte(server, 21);
   len = (int )tmp;
@@ -18267,7 +18267,7 @@ int ncp_get_directory_info(struct ncp_server *server , __u8 n , struct ncp_volum
   }
   {
   tmp___1 = ncp_reply_data(server, 22);
-  __memcpy((void *)(& target->volume_name), (void const   *)tmp___1, (size_t )len);
+  memcpy((void *)(& target->volume_name), (void const   *)tmp___1, (size_t )len);
   result = 0;
   }
   out: 
@@ -18411,10 +18411,10 @@ void ncp_extract_file_info(void const   *structure , struct nw_info_struct *targ
   {
   {
   info_struct_size = 76;
-  __memcpy((void *)target, structure, (size_t )info_struct_size);
+  memcpy((void *)target, structure, (size_t )info_struct_size);
   name_len = (__u8 const   *)structure + 76U;
   target->nameLen = *name_len;
-  __memcpy((void *)(& target->entryName), (void const   *)name_len + 1U, (size_t )*name_len);
+  memcpy((void *)(& target->entryName), (void const   *)name_len + 1U, (size_t )*name_len);
   target->entryName[(int )*name_len] = 0U;
   target->volNumber = target->volNumber;
   }
@@ -18764,7 +18764,7 @@ int ncp_lookup_volume(struct ncp_server *server , char const   *volname , struct
 
   {
   {
-  __memset((void *)target, 0, 341UL);
+  memset((void *)target, 0, 341UL);
   result = ncp_get_volume_root(server, volname, & target->volNumber, & target->dirEntNum,
                                & target->DosDirNum);
   }
@@ -18777,7 +18777,7 @@ int ncp_lookup_volume(struct ncp_server *server , char const   *volname , struct
   ncp_update_known_namespace(server, (int )((__u8 )target->volNumber), (int *)0);
   tmp = strlen(volname);
   target->nameLen = (__u8 )tmp;
-  __memcpy((void *)(& target->entryName), (void const   *)volname, (size_t )((int )target->nameLen + 1));
+  memcpy((void *)(& target->entryName), (void const   *)volname, (size_t )((int )target->nameLen + 1));
   target->attributes = 16U;
   tmp___0 = 0U;
   target->modifyTime = tmp___0;
@@ -19061,7 +19061,7 @@ int ncp_initialize_search(struct ncp_server *server , struct inode *dir , struct
   }
   {
   tmp___1 = ncp_reply_data(server, 0);
-  __memcpy((void *)target, (void const   *)tmp___1, 9UL);
+  memcpy((void *)target, (void const   *)tmp___1, 9UL);
   }
   out: 
   {
@@ -19128,7 +19128,7 @@ int ncp_search_for_fileset(struct ncp_server *server , struct nw_search_sequence
   *cnt = (int )tmp;
   tmp___0 = BVAL((void const   *)buffer + 9U);
   *more = (int )tmp___0;
-  __memcpy((void *)seq, (void const   *)buffer, 9UL);
+  memcpy((void *)seq, (void const   *)buffer, 9UL);
   }
   return (0);
 }
@@ -19245,7 +19245,7 @@ int ncp_read_kernel(struct ncp_server *server , char const   *file_id , __u32 of
   *bytes_read = (int )tmp;
   tmp___0 = ncp_reply_data(server, (int )((offset & 1U) + 2U));
   source = (char const   *)tmp___0;
-  __memcpy((void *)target, (void const   *)source, (size_t )*bytes_read);
+  memcpy((void *)target, (void const   *)source, (size_t )*bytes_read);
   }
   out: 
   {
@@ -19858,7 +19858,7 @@ __inline static void siginitsetinv(sigset_t *set , unsigned long mask )
   goto switch_default;
   switch_default: /* CIL Label */ 
   {
-  __memset((void *)(& set->sig) + 1U, -1, 0UL);
+  memset((void *)(& set->sig) + 1U, -1, 0UL);
   }
   goto ldv_28083;
   case_2: /* CIL Label */ 
@@ -20084,7 +20084,7 @@ __inline static void ncp_finish_request(struct ncp_server *server , struct ncp_r
   req->result = result;
   if ((unsigned int )req->status != 4U) {
     {
-    __memcpy((void *)req->reply_buf, (void const   *)server->rxbuf, req->datalen);
+    memcpy((void *)req->reply_buf, (void const   *)server->rxbuf, req->datalen);
     }
   } else {
 
@@ -20241,7 +20241,7 @@ static int ncpdgram_send(struct socket *sock , struct ncp_request_reply *req )
 
   {
   {
-  __memcpy((void *)(& vec), (void const   *)req->tx_ciov, req->tx_iovlen * 16UL);
+  memcpy((void *)(& vec), (void const   *)req->tx_ciov, req->tx_iovlen * 16UL);
   tmp = do_send(sock, (struct kvec *)(& vec), (int )req->tx_iovlen, (int )req->tx_totallen,
                 64U);
   }
@@ -20263,7 +20263,7 @@ static void __ncptcp_try_send(struct ncp_server *server )
 
   }
   {
-  __memcpy((void *)(& iovc), (void const   *)rq->tx_ciov, rq->tx_iovlen * 16UL);
+  memcpy((void *)(& iovc), (void const   *)rq->tx_ciov, rq->tx_iovlen * 16UL);
   result = do_send(server->ncp_sock, (struct kvec *)(& iovc), (int )rq->tx_iovlen,
                    (int )rq->tx_totallen, 16448U);
   }
@@ -20392,7 +20392,7 @@ __inline static void __ncp_start_request(struct ncp_server *server , struct ncp_
 
   {
   {
-  __memcpy((void *)server->txbuf, (void const   *)req->tx_iov[1].iov_base, req->tx_iov[1].iov_len);
+  memcpy((void *)server->txbuf, (void const   *)req->tx_iov[1].iov_base, req->tx_iov[1].iov_len);
   req->tx_iov[1].iov_base = (void *)server->txbuf;
   }
   if ((int )(server->ncp_sock)->type == 1) {
@@ -21829,22 +21829,22 @@ void __sign_packet(struct ncp_server *server , char const   *packet , size_t siz
 
   {
   {
-  __memcpy((void *)(& data), (void const   *)(& server->sign_root), 8UL);
+  memcpy((void *)(& data), (void const   *)(& server->sign_root), 8UL);
   *((__u32 *)(& data) + 8U) = totalsize;
   }
   if (size <= 51UL) {
     {
-    __memcpy((void *)(& data) + 12U, (void const   *)packet, size);
-    __memset((void *)(& data) + (size + 12UL), 0, 52UL - size);
+    memcpy((void *)(& data) + 12U, (void const   *)packet, size);
+    memset((void *)(& data) + (size + 12UL), 0, 52UL - size);
     }
   } else {
     {
-    __memcpy((void *)(& data) + 12U, (void const   *)packet, 52UL);
+    memcpy((void *)(& data) + 12U, (void const   *)packet, 52UL);
     }
   }
   {
   nwsign((char *)(& server->sign_last), (char *)(& data), (char *)(& server->sign_last));
-  __memcpy(sign_buff, (void const   *)(& server->sign_last), 8UL);
+  memcpy(sign_buff, (void const   *)(& server->sign_last), 8UL);
   }
   return;
 }
@@ -21858,17 +21858,17 @@ int sign_verify_reply(struct ncp_server *server , char const   *packet , size_t 
 
   {
   {
-  __memcpy((void *)(& data), (void const   *)(& server->sign_root), 8UL);
+  memcpy((void *)(& data), (void const   *)(& server->sign_root), 8UL);
   *((__u32 *)(& data) + 8U) = totalsize;
   }
   if (size <= 51UL) {
     {
-    __memcpy((void *)(& data) + 12U, (void const   *)packet, size);
-    __memset((void *)(& data) + (size + 12UL), 0, 52UL - size);
+    memcpy((void *)(& data) + 12U, (void const   *)packet, size);
+    memset((void *)(& data) + (size + 12UL), 0, 52UL - size);
     }
   } else {
     {
-    __memcpy((void *)(& data) + 12U, (void const   *)packet, 52UL);
+    memcpy((void *)(& data) + 12U, (void const   *)packet, 52UL);
     }
   }
   {

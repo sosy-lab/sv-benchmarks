@@ -12488,7 +12488,7 @@ void *ldv_kmem_cache_alloc_73(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 }
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
 
@@ -13408,7 +13408,7 @@ static int cx25840_ir_rx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
   mutex_lock_nested(& ir_state->rx_params_lock, 0U);
   __len = 44UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p, (void const   *)(& ir_state->rx_params), __len);
+    __ret = memcpy((void *)p, (void const   *)(& ir_state->rx_params), __len);
   } else {
     __ret = __builtin_memcpy((void *)p, (void const   *)(& ir_state->rx_params), __len);
   }
@@ -13568,7 +13568,7 @@ static int cx25840_ir_tx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
   mutex_lock_nested(& ir_state->tx_params_lock, 0U);
   __len = 44UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p, (void const   *)(& ir_state->tx_params), __len);
+    __ret = memcpy((void *)p, (void const   *)(& ir_state->tx_params), __len);
   } else {
     __ret = __builtin_memcpy((void *)p, (void const   *)(& ir_state->tx_params), __len);
   }

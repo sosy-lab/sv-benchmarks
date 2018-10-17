@@ -5484,7 +5484,7 @@ struct usb_cardstate {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern struct module __this_module ;
 __inline static int test_and_set_bit(long nr , unsigned long volatile   *addr ) 
@@ -6419,7 +6419,7 @@ static int gigaset_brkchars(struct cardstate *cs , unsigned char const   *buf )
   gigaset_dbg_buffer(1048576, (unsigned char const   *)"brkchars", 6UL, buf);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (cs->hw.usb)->bchars), (void const   *)buf, __len);
+    __ret = memcpy((void *)(& (cs->hw.usb)->bchars), (void const   *)buf, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (cs->hw.usb)->bchars), (void const   *)buf,
                              __len);

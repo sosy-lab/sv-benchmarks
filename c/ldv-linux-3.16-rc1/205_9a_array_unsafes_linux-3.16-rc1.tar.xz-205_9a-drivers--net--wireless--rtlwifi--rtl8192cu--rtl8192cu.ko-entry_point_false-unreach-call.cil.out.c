@@ -8304,7 +8304,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -9187,7 +9187,7 @@ static void _rtl92cu_read_adapter_info(struct ieee80211_hw *hw )
     rtl_efuse_shadow_map_update(hw);
     __len = 128UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
+      __ret = memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
@@ -12208,7 +12208,7 @@ static void rtl92cu_update_hal_rate_mask(struct ieee80211_hw *hw , struct ieee80
   }
   __len = 5UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rtlpriv->rate_mask), (void const   *)(& rate_mask),
+    __ret = memcpy((void *)(& rtlpriv->rate_mask), (void const   *)(& rate_mask),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rtlpriv->rate_mask), (void const   *)(& rate_mask),
@@ -20388,7 +20388,7 @@ static void _rtl_rx_process(struct ieee80211_hw *hw , struct sk_buff *skb )
   __len = 40UL;
   if (__len > 63UL) {
     tmp___21 = IEEE80211_SKB_RXCB(skb);
-    __ret = __memcpy((void *)tmp___21, (void const   *)rx_status, __len);
+    __ret = memcpy((void *)tmp___21, (void const   *)rx_status, __len);
   } else {
     tmp___22 = IEEE80211_SKB_RXCB(skb);
     __ret = __builtin_memcpy((void *)tmp___22, (void const   *)rx_status, __len);

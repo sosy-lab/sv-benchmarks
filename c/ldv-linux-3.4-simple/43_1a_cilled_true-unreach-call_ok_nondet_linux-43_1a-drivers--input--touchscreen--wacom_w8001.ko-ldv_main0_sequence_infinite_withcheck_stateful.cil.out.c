@@ -1828,7 +1828,7 @@ __inline static void __set_bit(int nr , unsigned long volatile   *addr )
 }
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
 extern void __init_waitqueue_head(wait_queue_head_t * , char const   * , struct lock_class_key * ) ;
@@ -3549,7 +3549,7 @@ static irqreturn_t w8001_interrupt(struct serio *serio , unsigned char data , un
       __cil_tmp109 = __cil_tmp108 + 132;
       __cil_tmp110 = (unsigned char (*)[11U])__cil_tmp109;
       __cil_tmp111 = (void const   *)__cil_tmp110;
-      __ret = __memcpy(__cil_tmp107, __cil_tmp111, __len);
+      __ret = memcpy(__cil_tmp107, __cil_tmp111, __len);
       }
     } else {
       {

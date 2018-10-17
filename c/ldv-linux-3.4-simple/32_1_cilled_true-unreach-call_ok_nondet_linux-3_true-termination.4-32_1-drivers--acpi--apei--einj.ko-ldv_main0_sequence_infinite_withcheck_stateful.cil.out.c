@@ -2578,7 +2578,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern unsigned long strlen(char const   *s ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -3102,7 +3102,7 @@ static void *einj_get_parameter_address(void)
             __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
             __cil_tmp39 = (u64 *)__cil_tmp38;
             __cil_tmp40 = (void const   *)__cil_tmp39;
-            __ret = __memcpy(__cil_tmp35, __cil_tmp40, __len);
+            __ret = memcpy(__cil_tmp35, __cil_tmp40, __len);
             }
           } else {
             {
@@ -3152,7 +3152,7 @@ static void *einj_get_parameter_address(void)
             __cil_tmp60 = __cil_tmp59 + __cil_tmp58;
             __cil_tmp61 = (u64 *)__cil_tmp60;
             __cil_tmp62 = (void const   *)__cil_tmp61;
-            __ret___0 = __memcpy(__cil_tmp57, __cil_tmp62, __len___0);
+            __ret___0 = memcpy(__cil_tmp57, __cil_tmp62, __len___0);
             }
           } else {
             {

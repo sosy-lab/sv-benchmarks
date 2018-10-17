@@ -5701,7 +5701,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
@@ -6971,7 +6971,7 @@ static int vp702x_read_mac_addr(struct dvb_usb_device *d , u8 *mac )
     {
     __cil_tmp24 = (void *)mac;
     __cil_tmp25 = (void const   *)buf;
-    __ret = __memcpy(__cil_tmp24, __cil_tmp25, __len);
+    __ret = memcpy(__cil_tmp24, __cil_tmp25, __len);
     }
   } else {
     {
@@ -8959,7 +8959,7 @@ static int vp702x_fe_set_tone(struct dvb_frontend *fe , fe_sec_tone_mode_t tone 
     __cil_tmp44 = __cil_tmp43 + 1728;
     __cil_tmp45 = (u8 (*)[8U])__cil_tmp44;
     __cil_tmp46 = (void const   *)__cil_tmp45;
-    __ret = __memcpy(__cil_tmp42, __cil_tmp46, __len);
+    __ret = memcpy(__cil_tmp42, __cil_tmp46, __len);
     }
   } else {
     {
@@ -9159,7 +9159,7 @@ static int vp702x_fe_set_voltage(struct dvb_frontend *fe , fe_sec_voltage_t volt
     __cil_tmp44 = __cil_tmp43 + 1728;
     __cil_tmp45 = (u8 (*)[8U])__cil_tmp44;
     __cil_tmp46 = (void const   *)__cil_tmp45;
-    __ret = __memcpy(__cil_tmp42, __cil_tmp46, __len);
+    __ret = memcpy(__cil_tmp42, __cil_tmp46, __len);
     }
   } else {
     {
@@ -9297,7 +9297,7 @@ struct dvb_frontend *vp702x_fe_attach(struct dvb_usb_device *d )
     __cil_tmp11 = (struct dvb_frontend_ops *)s;
     __cil_tmp12 = (void *)__cil_tmp11;
     __cil_tmp13 = (void const   *)(& vp702x_fe_ops);
-    __ret = __memcpy(__cil_tmp12, __cil_tmp13, __len);
+    __ret = memcpy(__cil_tmp12, __cil_tmp13, __len);
     }
   } else {
     {

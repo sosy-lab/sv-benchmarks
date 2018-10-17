@@ -4474,7 +4474,7 @@ typedef int ldv_func_ret_type___0;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_2(struct mutex *ldv_func_arg1 ) ;
 extern void mutex_unlock(struct mutex * ) ;
@@ -4727,7 +4727,7 @@ static int abyss_attach(struct pci_dev *pdev , struct pci_device_id  const  *ent
   tp->sifwritew = & abyss_sifwritew;
   __len = 19UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
+    __ret = memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",

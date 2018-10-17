@@ -6780,7 +6780,7 @@ long ldv__builtin_expect(long exp , long c ) ;
 extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern int sscanf(char const   * , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern unsigned long volatile   jiffies ;
 __inline static int timer_pending(struct timer_list  const  *timer ) 
@@ -8651,7 +8651,7 @@ static int hfc_usb_probe(struct usb_interface *intf , struct usb_device_id  cons
     ep = iface->endpoint;
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& cmptbl), (void const   *)vcf, __len);
+      __ret = memcpy((void *)(& cmptbl), (void const   *)vcf, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& cmptbl), (void const   *)vcf, __len);
     }

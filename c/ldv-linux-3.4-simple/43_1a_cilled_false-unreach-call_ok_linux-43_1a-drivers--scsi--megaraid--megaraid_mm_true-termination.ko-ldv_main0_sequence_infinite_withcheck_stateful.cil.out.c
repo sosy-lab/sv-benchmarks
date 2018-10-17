@@ -3235,7 +3235,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void    * , size_t  ) ;
+extern void *memcpy(void * , void    * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void    * , void    * , size_t  ) ;
 extern void warn_slowpath_fmt(char    * , int     , char const   *  , ...) ;
@@ -4616,7 +4616,7 @@ static int mimd_to_kioc(mimd_t *umimd , mraid_mmadp_t *adp , uioc_t *kioc )
     __cil_tmp137 = (unsigned long )(& mimd) + 32;
     __cil_tmp138 = (uint8_t (*)[18U])__cil_tmp137;
     __cil_tmp139 = (void    *)__cil_tmp138;
-    __ret = __memcpy(__cil_tmp136, __cil_tmp139, __len);
+    __ret = memcpy(__cil_tmp136, __cil_tmp139, __len);
     }
   } else {
     {

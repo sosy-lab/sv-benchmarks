@@ -5549,7 +5549,7 @@ extern void __bad_percpu_size(void) ;
 extern unsigned long __per_cpu_offset[8192U] ;
 extern unsigned long this_cpu_off ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -8652,7 +8652,7 @@ static int __team_change_mode(struct team *team , struct team_mode  const  *new_
   team->mode = new_mode;
   __len = 72UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& team->ops), (void const   *)new_mode->ops, __len);
+    __ret = memcpy((void *)(& team->ops), (void const   *)new_mode->ops, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& team->ops), (void const   *)new_mode->ops,
                              __len);

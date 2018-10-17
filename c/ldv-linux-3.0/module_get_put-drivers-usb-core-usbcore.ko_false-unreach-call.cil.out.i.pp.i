@@ -21274,7 +21274,7 @@ struct bus_type usb_bus_type =
     & usb_device_match, & usb_uevent, (int (*)(struct device * ))0, (int (*)(struct device * ))0,
     (void (*)(struct device * ))0, (int (*)(struct device * , pm_message_t ))0, (int (*)(struct device * ))0,
     (struct dev_pm_ops const *)0, (struct subsys_private *)0};
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 __inline static int usb_endpoint_xfer_isoc(struct usb_endpoint_descriptor const *epd )
 {
 
@@ -21386,7 +21386,7 @@ static void usb_parse_ss_endpoint_companion(struct device *ddev , int cfgno , in
   __len = 6UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& ep->ss_ep_comp), (void const *)desc, __len);
+    __ret = memcpy((void *)(& ep->ss_ep_comp), (void const *)desc, __len);
     }
   } else {
     {
@@ -21855,7 +21855,7 @@ static int usb_parse_interface(struct device *ddev , int cfgno , struct usb_host
   __len = 9UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& alt->desc), (void const *)d, __len);
+    __ret = memcpy((void *)(& alt->desc), (void const *)d, __len);
     }
   } else {
     {
@@ -21982,7 +21982,7 @@ static int usb_parse_configuration(struct usb_device *dev , int cfgidx , struct 
   __len = 9UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& config->desc), (void const *)buffer, __len);
+    __ret = memcpy((void *)(& config->desc), (void const *)buffer, __len);
     }
   } else {
     {
@@ -25818,7 +25818,7 @@ static ssize_t usbdev_read(struct file *file , char *buf , size_t nbytes , loff_
     __len = 18UL;
     if (__len > 63UL) {
       {
-      __ret = __memcpy((void *)(& temp_desc), (void const *)(& dev->descriptor),
+      __ret = memcpy((void *)(& temp_desc), (void const *)(& dev->descriptor),
                        __len);
       }
     } else {

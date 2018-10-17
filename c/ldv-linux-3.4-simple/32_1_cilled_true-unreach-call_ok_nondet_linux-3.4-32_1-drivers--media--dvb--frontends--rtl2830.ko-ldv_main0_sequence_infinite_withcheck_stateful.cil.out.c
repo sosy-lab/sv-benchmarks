@@ -3217,7 +3217,7 @@ struct __anonstruct_254 {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 __inline static u64 div_u64_rem(u64 dividend , u32 divisor , u32 *remainder )  __attribute__((__no_instrument_function__)) ;
 __inline static u64 div_u64_rem(u64 dividend , u32 divisor , u32 *remainder ) 
@@ -5448,7 +5448,7 @@ struct dvb_frontend *rtl2830_attach(struct rtl2830_config  const  *cfg , struct 
     __cil_tmp18 = (struct rtl2830_config *)__cil_tmp17;
     __cil_tmp19 = (void *)__cil_tmp18;
     __cil_tmp20 = (void const   *)cfg;
-    __ret = __memcpy(__cil_tmp19, __cil_tmp20, __len);
+    __ret = memcpy(__cil_tmp19, __cil_tmp20, __len);
     }
   } else {
     {
@@ -5477,7 +5477,7 @@ struct dvb_frontend *rtl2830_attach(struct rtl2830_config  const  *cfg , struct 
     __cil_tmp29 = (struct dvb_frontend_ops *)__cil_tmp28;
     __cil_tmp30 = (void *)__cil_tmp29;
     __cil_tmp31 = (void const   *)(& rtl2830_ops);
-    __ret___0 = __memcpy(__cil_tmp30, __cil_tmp31, __len___0);
+    __ret___0 = memcpy(__cil_tmp30, __cil_tmp31, __len___0);
     }
   } else {
     {

@@ -8211,7 +8211,7 @@ __inline static int __get_order(unsigned long size )
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;
 __inline static int bitmap_weight(unsigned long const   *src , unsigned int nbits ) 
@@ -10467,7 +10467,7 @@ __inline static int __vlan_insert_tag(struct sk_buff *skb , __be16 vlan_proto , 
   }
   tmp___0 = skb_push(skb, 4U);
   veth = (struct vlan_ethhdr *)tmp___0;
-  __memmove((void *)skb->data, (void const   *)skb->data + 4U, 12UL);
+  memmove((void *)skb->data, (void const   *)skb->data + 4U, 12UL);
   skb->mac_header = (unsigned int )skb->mac_header + 65532U;
   veth->h_vlan_proto = vlan_proto;
   tmp___1 = __fswab16((int )vlan_tci);

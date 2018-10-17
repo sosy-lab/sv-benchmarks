@@ -6117,7 +6117,7 @@ extern unsigned long __per_cpu_offset[8192U] ;
 extern unsigned long this_cpu_off ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int __bitmap_weight(unsigned long const   * , int  ) ;
@@ -8505,7 +8505,7 @@ static int xennet_get_extras(struct netfront_queue *queue , struct xen_netif_ext
     } else {
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(extras + ((unsigned long )extra->type + 0xffffffffffffffffUL)),
+        __ret = memcpy((void *)(extras + ((unsigned long )extra->type + 0xffffffffffffffffUL)),
                          (void const   *)extra, __len);
       } else {
         __ret = __builtin_memcpy((void *)(extras + ((unsigned long )extra->type + 0xffffffffffffffffUL)),
@@ -8912,7 +8912,7 @@ static int xennet_poll(struct napi_struct *napi , int budget )
   ldv_54227: 
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)rx, (void const   *)(& (queue->rx.sring)->ring[(queue->rx.nr_ents - 1U) & i].rsp),
+    __ret = memcpy((void *)rx, (void const   *)(& (queue->rx.sring)->ring[(queue->rx.nr_ents - 1U) & i].rsp),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)rx, (void const   *)(& (queue->rx.sring)->ring[(queue->rx.nr_ents - 1U) & i].rsp),
@@ -10488,7 +10488,7 @@ static void xennet_get_strings(struct net_device *dev , u32 stringset , u8 *data
   ldv_54569: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& xennet_stats[i].name),
+    __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& xennet_stats[i].name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& xennet_stats[i].name),

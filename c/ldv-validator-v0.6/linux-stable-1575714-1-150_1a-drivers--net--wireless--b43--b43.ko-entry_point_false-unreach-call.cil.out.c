@@ -6234,7 +6234,7 @@ extern int vprintk(char const   * , __va_list_tag * ) ;
 extern int printk(char const   *  , ...) ;
 extern void print_hex_dump(char const   * , char const   * , int  , int  , int  ,
                            void const   * , size_t  , bool  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -7161,7 +7161,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -8177,13 +8177,13 @@ static void b43_write_mac_bssid_templates(struct b43_wldev *dev )
   b43_macfilter_set(dev, 3, bssid);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mac_bssid), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& mac_bssid), (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mac_bssid), (void const   *)mac, __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& mac_bssid) + 6U, (void const   *)bssid, __len___0);
+    __ret___0 = memcpy((void *)(& mac_bssid) + 6U, (void const   *)bssid, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& mac_bssid) + 6U, (void const   *)bssid,
                                  __len___0);
@@ -12294,7 +12294,7 @@ static int b43_op_conf_tx(struct ieee80211_hw *hw , u16 _queue , struct ieee8021
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& wl->qos_params[queue].p), (void const   *)params,
+    __ret = memcpy((void *)(& wl->qos_params[queue].p), (void const   *)params,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& wl->qos_params[queue].p), (void const   *)params,
@@ -12323,7 +12323,7 @@ static int b43_op_get_stats(struct ieee80211_hw *hw , struct ieee80211_low_level
   mutex_lock_nested(& wl->mutex, 0U);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)stats, (void const   *)(& wl->ieee_stats), __len);
+    __ret = memcpy((void *)stats, (void const   *)(& wl->ieee_stats), __len);
   } else {
     __ret = __builtin_memcpy((void *)stats, (void const   *)(& wl->ieee_stats), __len);
   }
@@ -12815,7 +12815,7 @@ static void b43_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee80211_v
     if ((unsigned long )conf->bssid != (unsigned long )((u8 const   *)0U)) {
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& wl->bssid), (void const   *)conf->bssid, __len);
+        __ret = memcpy((void *)(& wl->bssid), (void const   *)conf->bssid, __len);
       } else {
         __ret = __builtin_memcpy((void *)(& wl->bssid), (void const   *)conf->bssid,
                                  __len);
@@ -13837,7 +13837,7 @@ static int b43_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_vif *
   wl->if_type = (int )vif->type;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& wl->mac_addr), (void const   *)(& vif->addr), __len);
+    __ret = memcpy((void *)(& wl->mac_addr), (void const   *)(& vif->addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& wl->mac_addr), (void const   *)(& vif->addr),
                              __len);
@@ -20156,14 +20156,14 @@ static void b43_phy_init_pctl(struct b43_wldev *dev )
     } else {
       __len = 2UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& old_rfatt), (void const   *)(& gphy->rfatt), __len);
+        __ret = memcpy((void *)(& old_rfatt), (void const   *)(& gphy->rfatt), __len);
       } else {
         __ret = __builtin_memcpy((void *)(& old_rfatt), (void const   *)(& gphy->rfatt),
                                  __len);
       }
       __len___0 = 1UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& old_bbatt), (void const   *)(& gphy->bbatt),
+        __ret___0 = memcpy((void *)(& old_bbatt), (void const   *)(& gphy->bbatt),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& old_bbatt), (void const   *)(& gphy->bbatt),
@@ -29485,7 +29485,7 @@ int b43_generate_txhdr(struct b43_wldev *dev , u8 *_txhdr , struct sk_buff *skb_
   txhdr->mac_frame_ctl = wlhdr->frame_control;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& txhdr->tx_receiver), (void const   *)(& wlhdr->addr1),
+    __ret = memcpy((void *)(& txhdr->tx_receiver), (void const   *)(& wlhdr->addr1),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& txhdr->tx_receiver), (void const   *)(& wlhdr->addr1),
@@ -29539,7 +29539,7 @@ int b43_generate_txhdr(struct b43_wldev *dev , u8 *_txhdr , struct sk_buff *skb_
       }
       __len___0 = 3UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& txhdr->iv) + 10U, (void const   *)wlhdr + (unsigned long )wlhdr_len,
+        __ret___0 = memcpy((void *)(& txhdr->iv) + 10U, (void const   *)wlhdr + (unsigned long )wlhdr_len,
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& txhdr->iv) + 10U, (void const   *)wlhdr + (unsigned long )wlhdr_len,
@@ -30010,7 +30010,7 @@ void b43_rx(struct b43_wldev *dev , struct sk_buff *skb , void const   *_rxhdr )
   __len = 32UL;
   if (__len > 63UL) {
     tmp___14 = IEEE80211_SKB_RXCB(skb);
-    __ret = __memcpy((void *)tmp___14, (void const   *)(& status), __len);
+    __ret = memcpy((void *)tmp___14, (void const   *)(& status), __len);
   } else {
     tmp___15 = IEEE80211_SKB_RXCB(skb);
     __ret = __builtin_memcpy((void *)tmp___15, (void const   *)(& status), __len);
@@ -30952,7 +30952,7 @@ static int lo_probe_possible_loctls(struct b43_wldev *dev , struct b43_loctl *pr
   }
   __len = 2UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& orig_loctl), (void const   *)probe_loctl, __len);
+    __ret = memcpy((void *)(& orig_loctl), (void const   *)probe_loctl, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& orig_loctl), (void const   *)probe_loctl,
                              __len);
@@ -30971,7 +30971,7 @@ static int lo_probe_possible_loctls(struct b43_wldev *dev , struct b43_loctl *pr
   ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& test_loctl), (void const   *)(& orig_loctl), __len___0);
+    __ret___0 = memcpy((void *)(& test_loctl), (void const   *)(& orig_loctl), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& test_loctl), (void const   *)(& orig_loctl),
                                  __len___0);
@@ -30989,7 +30989,7 @@ static int lo_probe_possible_loctls(struct b43_wldev *dev , struct b43_loctl *pr
         if ((int )d->lowest_feedth > (int )feedth) {
           __len___1 = 2UL;
           if (__len___1 > 63UL) {
-            __ret___1 = __memcpy((void *)probe_loctl, (void const   *)(& test_loctl),
+            __ret___1 = memcpy((void *)probe_loctl, (void const   *)(& test_loctl),
                                  __len___1);
           } else {
             __ret___1 = __builtin_memcpy((void *)probe_loctl, (void const   *)(& test_loctl),
@@ -31016,7 +31016,7 @@ static int lo_probe_possible_loctls(struct b43_wldev *dev , struct b43_loctl *pr
   }
   __len___2 = 2UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& prev_loctl), (void const   *)(& test_loctl), __len___2);
+    __ret___2 = memcpy((void *)(& prev_loctl), (void const   *)(& test_loctl), __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& prev_loctl), (void const   *)(& test_loctl),
                                  __len___2);
@@ -31073,7 +31073,7 @@ static void lo_probe_loctls_statemachine(struct b43_wldev *dev , struct b43_loct
   }
   __len = 2UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& d.min_loctl), (void const   *)loctl, __len);
+    __ret = memcpy((void *)(& d.min_loctl), (void const   *)loctl, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& d.min_loctl), (void const   *)loctl, __len);
   }
@@ -31111,7 +31111,7 @@ static void lo_probe_loctls_statemachine(struct b43_wldev *dev , struct b43_loct
   ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& probe_loctl), (void const   *)(& d.min_loctl),
+    __ret___0 = memcpy((void *)(& probe_loctl), (void const   *)(& d.min_loctl),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& probe_loctl), (void const   *)(& d.min_loctl),
@@ -31130,7 +31130,7 @@ static void lo_probe_loctls_statemachine(struct b43_wldev *dev , struct b43_loct
   }
   __len___1 = 2UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& d.min_loctl), (void const   *)(& probe_loctl),
+    __ret___1 = memcpy((void *)(& d.min_loctl), (void const   *)(& probe_loctl),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& d.min_loctl), (void const   *)(& probe_loctl),
@@ -31145,7 +31145,7 @@ static void lo_probe_loctls_statemachine(struct b43_wldev *dev , struct b43_loct
   ldv_37558: 
   __len___2 = 2UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)loctl, (void const   *)(& d.min_loctl), __len___2);
+    __ret___2 = memcpy((void *)loctl, (void const   *)(& d.min_loctl), __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)loctl, (void const   *)(& d.min_loctl), __len___2);
   }
@@ -31252,19 +31252,19 @@ static struct b43_lo_calib *b43_calibrate_lo_setting(struct b43_wldev *dev , str
   }
   __len = 1UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cal->bbatt), (void const   *)bbatt, __len);
+    __ret = memcpy((void *)(& cal->bbatt), (void const   *)bbatt, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cal->bbatt), (void const   *)bbatt, __len);
   }
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& cal->rfatt), (void const   *)rfatt, __len___0);
+    __ret___0 = memcpy((void *)(& cal->rfatt), (void const   *)rfatt, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& cal->rfatt), (void const   *)rfatt, __len___0);
   }
   __len___1 = 2UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& cal->ctl), (void const   *)(& loctl), __len___1);
+    __ret___1 = memcpy((void *)(& cal->ctl), (void const   *)(& loctl), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& cal->ctl), (void const   *)(& loctl),
                                  __len___1);
@@ -31425,7 +31425,7 @@ void b43_lo_g_adjust(struct b43_wldev *dev )
   gphy = dev->phy.ldv_37018.g;
   __len = 2UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rf), (void const   *)(& gphy->rfatt), __len);
+    __ret = memcpy((void *)(& rf), (void const   *)(& gphy->rfatt), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rf), (void const   *)(& gphy->rfatt), __len);
   }
@@ -39931,7 +39931,7 @@ void b43_debugfs_log_txstat(struct b43_wldev *dev , struct b43_txstatus  const  
   cur = log->log + (unsigned long )i;
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)cur, (void const   *)status, __len);
+    __ret = memcpy((void *)cur, (void const   *)status, __len);
   } else {
     __ret = __builtin_memcpy((void *)cur, (void const   *)status, __len);
   }

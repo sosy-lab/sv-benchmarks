@@ -3683,7 +3683,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -7420,7 +7420,7 @@ int sisusb_reset_text_mode(struct sisusb_usb_data *sisusb , int init )
   ldv_30138: 
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)tempbuf + (unsigned long )(i * 32), myfont->data + (unsigned long )(i * 16),
+    __ret = memcpy((void *)tempbuf + (unsigned long )(i * 32), myfont->data + (unsigned long )(i * 16),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)tempbuf + (unsigned long )(i * 32), myfont->data + (unsigned long )(i * 16),
@@ -12255,7 +12255,7 @@ static int sisusbcon_font_get(struct vc_data *c , struct console_font *font )
   }
   __len = 8192UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)font->data, (void const   *)sisusb->font_backup, __len);
+    __ret = memcpy((void *)font->data, (void const   *)sisusb->font_backup, __len);
   } else {
     __ret = __builtin_memcpy((void *)font->data, (void const   *)sisusb->font_backup,
                              __len);

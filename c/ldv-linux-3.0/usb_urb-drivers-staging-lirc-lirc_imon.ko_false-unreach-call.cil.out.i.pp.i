@@ -3305,7 +3305,7 @@ extern int printk(char const *fmt , ...) ;
 extern void warn_slowpath_fmt(char const *file , int const line , char const *fmt
                               , ...) ;
 extern void *memdup_user(void const * , size_t ) ;
-extern void *__memcpy(void *to , void const *from , size_t len ) ;
+extern void *memcpy(void *to , void const *from , size_t len ) ;
 extern char *strcpy(char *dest , char const *src ) ;
 __inline static long __attribute__((__warn_unused_result__)) PTR_ERR(void const *ptr )
 {
@@ -4248,7 +4248,7 @@ static ssize_t vfd_write(struct file *file , char const *buf , size_t n_bytes ,
     __len___0 = (size_t )7;
     if (__len___0 >= 64UL) {
       {
-      __ret___0 = __memcpy((void *)(context->usb_tx_buf), (void const *)(context->tx.data_buf + offset),
+      __ret___0 = memcpy((void *)(context->usb_tx_buf), (void const *)(context->tx.data_buf + offset),
                            __len___0);
       }
     } else {
@@ -4284,7 +4284,7 @@ static ssize_t vfd_write(struct file *file , char const *buf , size_t n_bytes ,
     __len___1 = sizeof(vfd_packet6);
     if (__len___1 >= 64UL) {
       {
-      __ret___1 = __memcpy((void *)(context->usb_tx_buf), (void const *)(& vfd_packet6),
+      __ret___1 = memcpy((void *)(context->usb_tx_buf), (void const *)(& vfd_packet6),
                            __len___1);
       }
     } else {

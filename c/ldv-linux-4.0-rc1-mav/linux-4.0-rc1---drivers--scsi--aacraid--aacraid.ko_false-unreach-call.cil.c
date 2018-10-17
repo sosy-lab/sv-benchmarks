@@ -12146,8 +12146,8 @@ extern void ldv_after_alloc(void * ) ;
 extern void might_fault(void) ;
 extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_96(spinlock_t *ldv_func_arg1 ) ;
@@ -12681,7 +12681,7 @@ static void get_container_name_callback(void *context , struct fib *fibptr )
       }
       {
       scsi_sg_copy_to_buffer(scsicmd, (void *)(& inq), 36);
-      __memcpy((void *)(& inq.inqd_pid), (void const   *)(& d), 16UL);
+      memcpy((void *)(& inq.inqd_pid), (void const   *)(& d), 16UL);
       scsi_sg_copy_from_buffer(scsicmd, (void *)(& inq), 36);
       }
     } else {
@@ -13070,7 +13070,7 @@ static void setinqstr(struct aac_dev *dev , void *data , int tindex )
   {
   {
   str = (struct scsi_inq *)data;
-  __memset((void *)str, 32, 28UL);
+  memset((void *)str, 32, 28UL);
   }
   if ((unsigned int )dev->supplement_adapter_info.AdapterTypeText[0] != 0U) {
     cp = (char *)(& dev->supplement_adapter_info.AdapterTypeText);
@@ -13336,7 +13336,7 @@ static int aac_bounds_32(struct aac_dev *dev , struct scsi_cmnd *cmd , u64 lba )
     set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 4, 68, 0, 0, 0);
     __min1 = 19UL;
     __min2 = 96UL;
-    __memcpy((void *)cmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+    memcpy((void *)cmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
              __min1 < __min2 ? __min1 : __min2);
     (*(cmd->scsi_done))(cmd);
     }
@@ -13377,7 +13377,7 @@ static int aac_read_raw_io(struct fib *fib , struct scsi_cmnd *cmd , u64 lba , u
   if ((unsigned int )dev->comm_interface == 4U && dev->sync_mode == 0) {
     {
     readcmd2 = (struct aac_raw_io2 *)(& (fib->hw_fib_va)->data);
-    __memset((void *)readcmd2, 0, 48UL);
+    memset((void *)readcmd2, 0, 48UL);
     readcmd2->blockLow = (unsigned int )lba;
     readcmd2->blockHigh = (unsigned int )(lba >> 32);
     readcmd2->byteCount = count << 9;
@@ -13548,7 +13548,7 @@ static int aac_write_raw_io(struct fib *fib , struct scsi_cmnd *cmd , u64 lba , 
   if ((unsigned int )dev->comm_interface == 4U && dev->sync_mode == 0) {
     {
     writecmd2 = (struct aac_raw_io2 *)(& (fib->hw_fib_va)->data);
-    __memset((void *)writecmd2, 0, 48UL);
+    memset((void *)writecmd2, 0, 48UL);
     writecmd2->blockLow = (unsigned int )lba;
     writecmd2->blockHigh = (unsigned int )(lba >> 32);
     writecmd2->byteCount = count << 9;
@@ -13803,8 +13803,8 @@ static int aac_scsi_64(struct fib *fib , struct scsi_cmnd *cmd )
   }
   {
   srbcmd->count = scsi_bufflen(cmd);
-  __memset((void *)(& srbcmd->cdb), 0, 16UL);
-  __memcpy((void *)(& srbcmd->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
+  memset((void *)(& srbcmd->cdb), 0, 16UL);
+  memcpy((void *)(& srbcmd->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
   fibsize = ((unsigned int )((u16 )srbcmd->sg.count) & 255U) * 12U + 56U;
   tmp___0 = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                              0L);
@@ -13847,8 +13847,8 @@ static int aac_scsi_32(struct fib *fib , struct scsi_cmnd *cmd )
   }
   {
   srbcmd->count = scsi_bufflen(cmd);
-  __memset((void *)(& srbcmd->cdb), 0, 16UL);
-  __memcpy((void *)(& srbcmd->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
+  memset((void *)(& srbcmd->cdb), 0, 16UL);
+  memcpy((void *)(& srbcmd->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
   fibsize = (unsigned int )((u16 )((unsigned long )((srbcmd->sg.count & 255U) - 1U) + 8UL)) * 8U;
   tmp___0 = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                              0L);
@@ -13916,7 +13916,7 @@ int aac_get_adapter_info(struct aac_dev *dev )
   {
   aac_fib_init(fibptr);
   info = (struct aac_adapter_info *)(& (fibptr->hw_fib_va)->data);
-  __memset((void *)info, 0, 88UL);
+  memset((void *)info, 0, 88UL);
   rcode = aac_fib_send(703, fibptr, 88UL, 1, -1, 1, (void (*)(void * , struct fib * ))0,
                        (void *)0);
   }
@@ -13934,19 +13934,19 @@ int aac_get_adapter_info(struct aac_dev *dev )
 
   }
   {
-  __memcpy((void *)(& dev->adapter_info), (void const   *)info, 88UL);
+  memcpy((void *)(& dev->adapter_info), (void const   *)info, 88UL);
   }
   if ((dev->adapter_info.options & 65536U) != 0U) {
     {
     aac_fib_init(fibptr);
     sinfo = (struct aac_supplement_adapter_info *)(& (fibptr->hw_fib_va)->data);
-    __memset((void *)sinfo, 0, 480UL);
+    memset((void *)sinfo, 0, 480UL);
     rcode = aac_fib_send(706, fibptr, 480UL, 1, 1, 1, (void (*)(void * , struct fib * ))0,
                          (void *)0);
     }
     if (rcode >= 0) {
       {
-      __memcpy((void *)(& dev->supplement_adapter_info), (void const   *)sinfo, 480UL);
+      memcpy((void *)(& dev->supplement_adapter_info), (void const   *)sinfo, 480UL);
       }
     } else {
 
@@ -13969,7 +13969,7 @@ int aac_get_adapter_info(struct aac_dev *dev )
   {
   aac_fib_init(fibptr);
   bus_info = (struct aac_bus_info_response *)(& (fibptr->hw_fib_va)->data);
-  __memset((void *)bus_info, 0, 52UL);
+  memset((void *)bus_info, 0, 52UL);
   command = (struct aac_bus_info *)bus_info;
   command->Command = 3U;
   command->ObjType = 9U;
@@ -14525,7 +14525,7 @@ static void io_callback(void *context , struct fib *fibptr )
   set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 2, 4, 1, 0, 0);
   __min1 = 19UL;
   __min2 = 96UL;
-  __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+  memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
            __min1 < __min2 ? __min1 : __min2);
   }
   goto ldv_39362;
@@ -14535,7 +14535,7 @@ static void io_callback(void *context , struct fib *fibptr )
   set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 4, 68, 0, 0, 0);
   __min1___0 = 19UL;
   __min2___0 = 96UL;
-  __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+  memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
            __min1___0 < __min2___0 ? __min1___0 : __min2___0);
   }
   goto ldv_39362;
@@ -14618,7 +14618,7 @@ static int aac_read(struct scsi_cmnd *scsicmd )
     set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 4, 68, 0, 0, 0);
     __min1 = 19UL;
     __min2 = 96UL;
-    __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+    memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
              __min1 < __min2 ? __min1 : __min2);
     (*(scsicmd->scsi_done))(scsicmd);
     }
@@ -14717,7 +14717,7 @@ static int aac_write(struct scsi_cmnd *scsicmd )
     set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 4, 68, 0, 0, 0);
     __min1 = 19UL;
     __min2 = 96UL;
-    __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+    memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
              __min1 < __min2 ? __min1 : __min2);
     (*(scsicmd->scsi_done))(scsicmd);
     }
@@ -14814,7 +14814,7 @@ static void synchronize_callback(void *context , struct fib *fibptr )
     set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 4, 68, 0, 0, 0);
     __min1 = 19UL;
     __min2 = 96UL;
-    __memcpy((void *)cmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+    memcpy((void *)cmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
              __min1 < __min2 ? __min1 : __min2);
     }
   }
@@ -15184,7 +15184,7 @@ int aac_scsi_cmd(struct scsi_cmnd *scsicmd )
     set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 5, 32, 0, 0, 0);
     __min1 = 19UL;
     __min2 = 96UL;
-    __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+    memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
              __min1 < __min2 ? __min1 : __min2);
     (*(scsicmd->scsi_done))(scsicmd);
     }
@@ -15266,7 +15266,7 @@ int aac_scsi_cmd(struct scsi_cmnd *scsicmd )
   goto switch_break___0;
   case_18___0: /* CIL Label */ 
   {
-  __memset((void *)(& inq_data), 0, 36UL);
+  memset((void *)(& inq_data), 0, 36UL);
   }
   if ((int )*(scsicmd->cmnd + 1UL) & 1 && aac_wwn != 0) {
     {
@@ -15307,7 +15307,7 @@ int aac_scsi_cmd(struct scsi_cmnd *scsicmd )
       set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 5, 36, 0, 7, 2);
       __min1___0 = 19UL;
       __min2___0 = 96UL;
-      __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+      memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
                __min1___0 < __min2___0 ? __min1___0 : __min2___0);
       }
     }
@@ -15477,9 +15477,9 @@ int aac_scsi_cmd(struct scsi_cmnd *scsicmd )
   return (0);
   case_3: /* CIL Label */ 
   {
-  __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+  memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
            19UL);
-  __memset((void *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data), 0, 19UL);
+  memset((void *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data), 0, 19UL);
   scsicmd->result = 0;
   (*(scsicmd->scsi_done))(scsicmd);
   }
@@ -15502,7 +15502,7 @@ int aac_scsi_cmd(struct scsi_cmnd *scsicmd )
     set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 2, 4, 1, 0, 0);
     __min1___2 = 19UL;
     __min2___2 = 96UL;
-    __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+    memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
              __min1___2 < __min2___2 ? __min1___2 : __min2___2);
     (*(scsicmd->scsi_done))(scsicmd);
     }
@@ -15635,7 +15635,7 @@ int aac_scsi_cmd(struct scsi_cmnd *scsicmd )
   set_sense(& (dev->fsa_dev + (unsigned long )cid)->sense_data, 5, 32, 0, 0, 0);
   __min1___3 = 19UL;
   __min2___3 = 96UL;
-  __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
+  memcpy((void *)scsicmd->sense_buffer, (void const   *)(& (dev->fsa_dev + (unsigned long )cid)->sense_data),
            __min1___3 < __min2___3 ? __min1___3 : __min2___3);
   (*(scsicmd->scsi_done))(scsicmd);
   }
@@ -15896,7 +15896,7 @@ static void aac_srb_callback(void *context , struct fib *fibptr )
     __min2 = 96U;
     len = (int )(__min1 < __min2 ? __min1 : __min2);
     scsicmd->result = 458754;
-    __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& srbreply->sense_data),
+    memcpy((void *)scsicmd->sense_buffer, (void const   *)(& srbreply->sense_data),
              (size_t )len);
     }
   } else {
@@ -16206,7 +16206,7 @@ static void aac_srb_callback(void *context , struct fib *fibptr )
     __min1___0 = srbreply->sense_data_size;
     __min2___0 = 96U;
     len___0 = (int )(__min1___0 < __min2___0 ? __min1___0 : __min2___0);
-    __memcpy((void *)scsicmd->sense_buffer, (void const   *)(& srbreply->sense_data),
+    memcpy((void *)scsicmd->sense_buffer, (void const   *)(& srbreply->sense_data),
              (size_t )len___0);
     }
   } else {
@@ -16728,7 +16728,7 @@ static int aac_convert_sgraw2(struct aac_raw_io2 *rio2 , int pages , int nseg , 
   }
   {
   *(sge + (unsigned long )pos) = rio2->sge[nseg + -1];
-  __memcpy((void *)(& rio2->sge) + 1U, (void const   *)sge + 1U, (unsigned long )(nseg_new + -1) * 16UL);
+  memcpy((void *)(& rio2->sge) + 1U, (void const   *)sge + 1U, (unsigned long )(nseg_new + -1) * 16UL);
   kfree((void const   *)sge);
   rio2->sgeCnt = (u8 )nseg_new;
   rio2->flags = (__le16 )((unsigned int )rio2->flags | 16U);
@@ -17062,8 +17062,8 @@ static int ioctl_send_fib(struct aac_dev *dev , void *arg )
     hw_fib_pa = fibptr->hw_fib_pa;
     fibptr->hw_fib_va = kfib;
     fibptr->hw_fib_pa = daddr;
-    __memset((void *)kfib + (unsigned long )dev->max_fib_size, 0, (size_t )(size - dev->max_fib_size));
-    __memcpy((void *)kfib, (void const   *)hw_fib, (size_t )dev->max_fib_size);
+    memset((void *)kfib + (unsigned long )dev->max_fib_size, 0, (size_t )(size - dev->max_fib_size));
+    memcpy((void *)kfib, (void const   *)hw_fib, (size_t )dev->max_fib_size);
     }
   } else {
 
@@ -17545,7 +17545,7 @@ static int aac_send_raw_srb(struct aac_dev *dev , void *arg )
   aac_fib_init(srbfib);
   (srbfib->hw_fib_va)->header.XferState = (srbfib->hw_fib_va)->header.XferState & 4294443007U;
   srbcmd = (struct aac_srb *)(& (srbfib->hw_fib_va)->data);
-  __memset((void *)(& sg_list), 0, 256UL);
+  memset((void *)(& sg_list), 0, 256UL);
   tmp___1 = copy_from_user((void *)(& fibsize), (void const   *)(& user_srb->count),
                            4UL);
   }
@@ -17591,7 +17591,7 @@ static int aac_send_raw_srb(struct aac_dev *dev , void *arg )
   srbcmd->flags = flags;
   srbcmd->retry_limit = 0U;
   srbcmd->cdb_size = user_srbcmd->cdb_size;
-  __memcpy((void *)(& srbcmd->cdb), (void const   *)(& user_srbcmd->cdb), 16UL);
+  memcpy((void *)(& srbcmd->cdb), (void const   *)(& user_srbcmd->cdb), 16UL);
   }
   {
   if ((flags & 192U) == 128U) {
@@ -17713,7 +17713,7 @@ static int aac_send_raw_srb(struct aac_dev *dev , void *arg )
 
       }
       {
-      __memcpy((void *)usg, (void const   *)upsg, (unsigned long )actual_fibsize - 52UL);
+      memcpy((void *)usg, (void const   *)upsg, (unsigned long )actual_fibsize - 52UL);
       actual_fibsize = actual_fibsize64;
       i = 0;
       }
@@ -18204,7 +18204,7 @@ static int aac_alloc_comm(struct aac_dev *dev , void **commaddr , unsigned long 
     {
     dev->host_rrq = (u32 *)base + 4096U;
     dev->host_rrq_pa = phys + 4096ULL;
-    __memset((void *)dev->host_rrq, 0, host_rrq_size);
+    memset((void *)dev->host_rrq, 0, host_rrq_size);
     }
   } else {
 
@@ -18270,7 +18270,7 @@ static int aac_alloc_comm(struct aac_dev *dev , void **commaddr , unsigned long 
   dev->printfbuf = (void *)base;
   init->printfbuf = (unsigned int )phys;
   init->printfbufsiz = 256U;
-  __memset((void *)base, 0, printfbufsiz);
+  memset((void *)base, 0, printfbufsiz);
   }
   return (1);
 }
@@ -18874,7 +18874,7 @@ int aac_fib_setup(struct aac_dev *dev )
   hw_fib_pa = (dev->hw_fib_pa + 31ULL) & 0xffffffffffffffe0ULL;
   dev->hw_fib_va = dev->hw_fib_va + (unsigned long )(hw_fib_pa - dev->hw_fib_pa);
   dev->hw_fib_pa = hw_fib_pa;
-  __memset((void *)dev->hw_fib_va, 0, ((unsigned long )dev->max_fib_size + 32UL) * (unsigned long )((dev->scsi_host_ptr)->can_queue + 8));
+  memset((void *)dev->hw_fib_va, 0, ((unsigned long )dev->max_fib_size + 32UL) * (unsigned long )((dev->scsi_host_ptr)->can_queue + 8));
   dev->hw_fib_va = dev->hw_fib_va + 32U;
   dev->hw_fib_pa = dev->hw_fib_pa + 32ULL;
   hw_fib = dev->hw_fib_va;
@@ -18995,7 +18995,7 @@ void aac_fib_init(struct fib *fibptr )
   {
   {
   hw_fib = fibptr->hw_fib_va;
-  __memset((void *)(& hw_fib->header), 0, 32UL);
+  memset((void *)(& hw_fib->header), 0, 32UL);
   hw_fib->header.StructType = 1U;
   hw_fib->header.Size = (unsigned short )(fibptr->dev)->max_fib_size;
   hw_fib->header.XferState = 524301U;
@@ -19637,7 +19637,7 @@ void aac_printf(struct aac_dev *dev , u32 val )
 
   }
   {
-  __memset((void *)cp, 0, 256UL);
+  memset((void *)cp, 0, 256UL);
   }
   return;
 }
@@ -20976,7 +20976,7 @@ int aac_command_thread(void *data )
   __mptr = (struct list_head  const  *)entry;
   fib = (struct fib *)__mptr + 0xffffffffffffff20UL;
   hw_fib = fib->hw_fib_va;
-  __memset((void *)fib, 0, 264UL);
+  memset((void *)fib, 0, 264UL);
   fib->type = 780;
   fib->size = 264;
   fib->hw_fib_va = hw_fib;
@@ -21133,8 +21133,8 @@ int aac_command_thread(void *data )
       tmp___19 = fib_p;
       fib_p = fib_p + 1;
       *tmp___19 = (struct fib *)0;
-      __memcpy((void *)hw_newfib, (void const   *)hw_fib, 512UL);
-      __memcpy((void *)newfib, (void const   *)fib, 264UL);
+      memcpy((void *)hw_newfib, (void const   *)hw_fib, 512UL);
+      memcpy((void *)newfib, (void const   *)fib, 264UL);
       newfib->hw_fib_va = hw_newfib;
       list_add_tail(& newfib->fiblink, & fibctx->fib_list);
       fibctx->count = fibctx->count + 1UL;
@@ -21927,7 +21927,7 @@ unsigned int aac_command_normal(struct aac_queue *q )
 
   }
   {
-  __memset((void *)fib, 0, 264UL);
+  memset((void *)fib, 0, 264UL);
   INIT_LIST_HEAD(& fib->fiblink);
   fib->type = 780;
   fib->size = 264;
@@ -22057,11 +22057,11 @@ unsigned int aac_intr_normal(struct aac_dev *dev , u32 index , int isAif , int i
     }
     if ((unsigned long )aif_fib != (unsigned long )((struct hw_fib *)0)) {
       {
-      __memcpy((void *)hw_fib, (void const   *)aif_fib, 512UL);
+      memcpy((void *)hw_fib, (void const   *)aif_fib, 512UL);
       }
     } else {
       {
-      __memcpy((void *)hw_fib, (void const   *)((unsigned long )dev->regs.sa + (unsigned long )index),
+      memcpy((void *)hw_fib, (void const   *)((unsigned long )dev->regs.sa + (unsigned long )index),
                512UL);
       }
     }
@@ -22894,7 +22894,7 @@ static int aac_rx_check_health(struct aac_dev *dev )
 
     }
     {
-    __memset((void *)buffer, 0, 512UL);
+    memset((void *)buffer, 0, 512UL);
     post->Post_Command = 20U;
     post->Post_Address = (unsigned int )baddr;
     writel((unsigned int )paddr, (void volatile   *)(& (dev->regs.rx)->MUnit.IMRx));

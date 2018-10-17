@@ -10249,7 +10249,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -10738,7 +10738,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -12379,7 +12379,7 @@ int zd_mac_rx(struct ieee80211_hw *hw , u8 const   *buffer , unsigned int length
   __len___0 = 40UL;
   if (__len___0 > 63UL) {
     tmp___7 = IEEE80211_SKB_RXCB(skb);
-    __ret___0 = __memcpy((void *)tmp___7, (void const   *)(& stats), __len___0);
+    __ret___0 = memcpy((void *)tmp___7, (void const   *)(& stats), __len___0);
   } else {
     tmp___8 = IEEE80211_SKB_RXCB(skb);
     __ret___0 = __builtin_memcpy((void *)tmp___8, (void const   *)(& stats), __len___0);
@@ -12724,14 +12724,14 @@ struct ieee80211_hw *zd_mac_alloc_hw(struct usb_interface *intf )
   mac->type = 0;
   __len = 896UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mac->channels), (void const   *)(& zd_channels), __len);
+    __ret = memcpy((void *)(& mac->channels), (void const   *)(& zd_channels), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mac->channels), (void const   *)(& zd_channels),
                              __len);
   }
   __len___0 = 144UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& mac->rates), (void const   *)(& zd_rates), __len___0);
+    __ret___0 = memcpy((void *)(& mac->rates), (void const   *)(& zd_rates), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& mac->rates), (void const   *)(& zd_rates),
                                  __len___0);
@@ -17426,7 +17426,7 @@ __inline static void handle_regs_int(struct urb *urb )
     spin_lock(& mac->lock);
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& mac->intr_buffer), (void const   *)urb->transfer_buffer,
+      __ret = memcpy((void *)(& mac->intr_buffer), (void const   *)urb->transfer_buffer,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& mac->intr_buffer), (void const   *)urb->transfer_buffer,

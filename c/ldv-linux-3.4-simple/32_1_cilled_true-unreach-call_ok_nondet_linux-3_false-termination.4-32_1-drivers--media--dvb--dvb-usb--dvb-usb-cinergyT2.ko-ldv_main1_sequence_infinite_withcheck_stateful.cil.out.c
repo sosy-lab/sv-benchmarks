@@ -7076,7 +7076,7 @@ long ldv__builtin_expect(long val , long res )
 }
 }
 
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void kfree(void const   * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
@@ -8106,7 +8106,7 @@ struct dvb_frontend *cinergyt2_fe_attach(struct dvb_usb_device *d )
     __cil_tmp12 = (struct dvb_frontend_ops *)s;
     __cil_tmp13 = (void *)__cil_tmp12;
     __cil_tmp14 = (void const   *)(& cinergyt2_fe_ops);
-    __ret = __memcpy(__cil_tmp13, __cil_tmp14, __len);
+    __ret = memcpy(__cil_tmp13, __cil_tmp14, __len);
     }
   } else {
     {

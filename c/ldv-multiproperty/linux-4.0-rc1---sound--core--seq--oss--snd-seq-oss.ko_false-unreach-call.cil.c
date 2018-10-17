@@ -5498,7 +5498,7 @@ static void ldv_ldv_initialize_114(void)
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 extern void ldv_after_alloc(void * ) ;
 extern int sprintf(char * , char const   *  , ...) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern struct workqueue_struct *system_wq ;
 extern bool queue_work_on(int  , struct workqueue_struct * , struct work_struct * ) ;
@@ -5616,17 +5616,17 @@ int snd_seq_oss_create_client(void)
   }
   {
   system_client = rc;
-  __memset((void *)port, 0, 168UL);
+  memset((void *)port, 0, 168UL);
   strcpy((char *)(& port->name), "Receiver");
   port->addr.client = (unsigned char )system_client;
   port->capability = 2U;
   port->type = 0U;
-  __memset((void *)(& port_callback), 0, 64UL);
+  memset((void *)(& port_callback), 0, 64UL);
   port_callback.event_input = & receive_announce;
   port->kernel = (void *)(& port_callback);
   snd_seq_kernel_client_ctl(system_client, 3232256800U, (void *)port);
   system_port = (int )port->addr.port;
-  __memset((void *)(& subs), 0, 80UL);
+  memset((void *)(& subs), 0, 80UL);
   subs.sender.client = 0U;
   subs.sender.port = 1U;
   subs.dest.client = (unsigned char )system_client;
@@ -5679,7 +5679,7 @@ static int receive_announce(struct snd_seq_event *ev , int direct , void *privat
 
   }
   {
-  __memset((void *)(& pinfo), 0, 168UL);
+  memset((void *)(& pinfo), 0, 168UL);
   pinfo.addr = ev->data.addr;
   tmp = snd_seq_kernel_client_ctl(system_client, 3232256802U, (void *)(& pinfo));
   }
@@ -5908,14 +5908,14 @@ static int create_port(struct seq_oss_devinfo *dp )
 
   {
   {
-  __memset((void *)(& port), 0, 168UL);
+  memset((void *)(& port), 0, 168UL);
   port.addr.client = (unsigned char )dp->cseq;
   sprintf((char *)(& port.name), "Sequencer-%d", dp->index);
   port.capability = 3U;
   port.type = 1U;
   port.midi_channels = 128;
   port.synth_voices = 128;
-  __memset((void *)(& callback), 0, 64UL);
+  memset((void *)(& callback), 0, 64UL);
   callback.owner = & __this_module;
   callback.private_data = (void *)dp;
   callback.event_input = & snd_seq_oss_event_input;
@@ -5958,7 +5958,7 @@ static int alloc_seq_queue(struct seq_oss_devinfo *dp )
 
   {
   {
-  __memset((void *)(& qinfo), 0, 140UL);
+  memset((void *)(& qinfo), 0, 140UL);
   qinfo.owner = system_client;
   qinfo.locked = 1U;
   strcpy((char *)(& qinfo.name), "OSS Sequencer Emulation");
@@ -5985,7 +5985,7 @@ static int delete_seq_queue(int queue )
 
   }
   {
-  __memset((void *)(& qinfo), 0, 140UL);
+  memset((void *)(& qinfo), 0, 140UL);
   qinfo.queue = queue;
   rc = snd_seq_kernel_client_ctl(system_client, 1082938163U, (void *)(& qinfo));
   }
@@ -6404,7 +6404,7 @@ static int send_timer_event(struct seq_oss_devinfo *dp , int type , int value )
 
   {
   {
-  __memset((void *)(& ev), 0, 28UL);
+  memset((void *)(& ev), 0, 28UL);
   ev.type = (snd_seq_event_type_t )type;
   ev.source.client = (unsigned char )dp->cseq;
   ev.source.port = 0U;
@@ -6433,7 +6433,7 @@ int snd_seq_oss_timer_start(struct seq_oss_timer *timer )
 
   }
   {
-  __memset((void *)(& tmprec), 0, 44UL);
+  memset((void *)(& tmprec), 0, 44UL);
   tmprec.queue = dp->queue;
   tmprec.ppq = timer->ppq;
   tmprec.tempo = (unsigned int )timer->tempo;
@@ -6995,7 +6995,7 @@ static int snd_seq_oss_oob_user(struct seq_oss_devinfo *dp , void *arg )
 
   }
   {
-  __memset((void *)(& tmpev), 0, 28UL);
+  memset((void *)(& tmpev), 0, 28UL);
   snd_seq_oss_fill_addr(dp, & tmpev, (int )dp->addr.port, (int )dp->addr.client);
   tmpev.time.tick = 0U;
   tmp___0 = snd_seq_oss_process_event(dp, (union evrec *)(& ev), & tmpev);
@@ -7751,7 +7751,7 @@ int snd_seq_oss_ioctl(struct seq_oss_devinfo *dp , unsigned int cmd , unsigned l
   return (0);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int snd_seq_oss_synth_is_valid(struct seq_oss_devinfo *dp , int dev ) ;
 int snd_seq_oss_synth_sysex(struct seq_oss_devinfo *dp , int dev , unsigned char *buf ,
                             struct snd_seq_event *ev ) ;
@@ -8287,7 +8287,7 @@ static int timing_event(struct seq_oss_devinfo *dp , union evrec *q , struct snd
     return (tmp);
   } else {
     {
-    __memset((void *)(& tmp___0), 0, 8UL);
+    memset((void *)(& tmp___0), 0, 8UL);
     tmp___0.echo = (q->t.time << 8) | 8U;
     tmp___1 = set_echo_event(dp, & tmp___0, ev);
     }
@@ -8567,7 +8567,7 @@ static int set_echo_event(struct seq_oss_devinfo *dp , union evrec *rec , struct
   {
   ev->type = 50U;
   snd_seq_oss_fill_addr(dp, ev, (int )dp->addr.client, (int )dp->addr.port);
-  __memcpy((void *)(& ev->data), (void const   *)rec, 8UL);
+  memcpy((void *)(& ev->data), (void const   *)rec, 8UL);
   }
   return (0);
 }
@@ -8847,7 +8847,7 @@ static int insert_queue(struct seq_oss_devinfo *dp , union evrec *rec , struct f
 
   }
   {
-  __memset((void *)(& event), 0, 28UL);
+  memset((void *)(& event), 0, 28UL);
   event.type = 7U;
   snd_seq_oss_fill_addr(dp, & event, (int )dp->addr.port, (int )dp->addr.client);
   tmp___0 = snd_seq_oss_process_event(dp, rec, & event);
@@ -9197,7 +9197,7 @@ void snd_seq_oss_synth_setup(struct seq_oss_devinfo *dp )
   {
   dp->max_synthdev = max_synth_devs;
   dp->synth_opened = 0;
-  __memset((void *)(& dp->synths), 0, 1024UL);
+  memset((void *)(& dp->synths), 0, 1024UL);
   i = 0;
   }
   goto ldv_32538;
@@ -9608,7 +9608,7 @@ void snd_seq_oss_synth_reset(struct seq_oss_devinfo *dp , int dev )
     }
   } else {
     {
-    __memset((void *)(& ev), 0, 28UL);
+    memset((void *)(& ev), 0, 28UL);
     snd_seq_oss_fill_addr(dp, & ev, (int )info->arg.addr.client, (int )info->arg.addr.port);
     ev.type = 41U;
     snd_seq_oss_dispatch(dp, & ev, 0, 0);
@@ -9856,7 +9856,7 @@ int snd_seq_oss_synth_raw_event(struct seq_oss_devinfo *dp , int dev , unsigned 
   }
   {
   ev->type = 51U;
-  __memcpy((void *)(& ev->data.raw8.d), (void const   *)data, 8UL);
+  memcpy((void *)(& ev->data.raw8.d), (void const   *)data, 8UL);
   tmp___1 = snd_seq_oss_synth_addr(dp, dev, ev);
   }
   return (tmp___1);
@@ -10553,7 +10553,7 @@ int snd_seq_oss_midi_open(struct seq_oss_devinfo *dp , int dev , int fmode )
   }
   {
   perm = perm & ~ mdev->opened;
-  __memset((void *)(& subs), 0, 80UL);
+  memset((void *)(& subs), 0, 80UL);
   }
   if ((perm & 66) != 0) {
     {
@@ -10625,7 +10625,7 @@ int snd_seq_oss_midi_close(struct seq_oss_devinfo *dp , int dev )
 
   }
   {
-  __memset((void *)(& subs), 0, 80UL);
+  memset((void *)(& subs), 0, 80UL);
   }
   if ((mdev->opened & 66) != 0) {
     {
@@ -10711,7 +10711,7 @@ void snd_seq_oss_midi_reset(struct seq_oss_devinfo *dp , int dev )
   }
   if ((mdev->opened & 66) != 0) {
     {
-    __memset((void *)(& ev), 0, 28UL);
+    memset((void *)(& ev), 0, 28UL);
     ev.dest.client = (unsigned char )mdev->client;
     ev.dest.port = (unsigned char )mdev->port;
     ev.queue = (unsigned char )dp->queue;
@@ -10834,7 +10834,7 @@ static int send_synth_event(struct seq_oss_devinfo *dp , struct snd_seq_event *e
 
   {
   {
-  __memset((void *)(& ossev), 0, 8UL);
+  memset((void *)(& ossev), 0, 8UL);
   }
   {
   if ((int )ev->type == 6) {
@@ -11378,7 +11378,7 @@ int snd_seq_oss_readq_puts(struct seq_oss_readq *q , int dev , unsigned char *da
 
   {
   {
-  __memset((void *)(& rec), 0, 8UL);
+  memset((void *)(& rec), 0, 8UL);
   rec.c[0] = 5U;
   rec.c[2] = (unsigned char )dev;
   }
@@ -11425,7 +11425,7 @@ int snd_seq_oss_readq_put_event(struct seq_oss_readq *q , union evrec *ev )
 
   }
   {
-  __memcpy((void *)q->q + (unsigned long )q->tail, (void const   *)ev, 8UL);
+  memcpy((void *)q->q + (unsigned long )q->tail, (void const   *)ev, 8UL);
   q->tail = (q->tail + 1) % q->maxlen;
   q->qlen = q->qlen + 1;
   tmp = waitqueue_active(& q->midi_sleep);
@@ -11454,7 +11454,7 @@ int snd_seq_oss_readq_pick(struct seq_oss_readq *q , union evrec *rec )
 
   }
   {
-  __memcpy((void *)rec, (void const   *)q->q + (unsigned long )q->head, 8UL);
+  memcpy((void *)rec, (void const   *)q->q + (unsigned long )q->head, 8UL);
   }
   return (0);
 }
@@ -11557,7 +11557,7 @@ int snd_seq_oss_readq_put_timestamp(struct seq_oss_readq *q , unsigned long curt
   {
   if (curt != q->input_time) {
     {
-    __memset((void *)(& rec), 0, 8UL);
+    memset((void *)(& rec), 0, 8UL);
     }
     {
     if (seq_mode == 0) {
@@ -11664,7 +11664,7 @@ struct seq_oss_writeq *snd_seq_oss_writeq_new(struct seq_oss_devinfo *dp , int m
   q->sync_event_put = 0;
   q->sync_time = 0U;
   __init_waitqueue_head(& q->sync_sleep, "&q->sync_sleep", & __key___0);
-  __memset((void *)(& pool), 0, 88UL);
+  memset((void *)(& pool), 0, 88UL);
   pool.client = dp->cseq;
   pool.output_pool = maxlen;
   pool.output_room = maxlen / 2;
@@ -11695,7 +11695,7 @@ void snd_seq_oss_writeq_clear(struct seq_oss_writeq *q )
 
   {
   {
-  __memset((void *)(& reset), 0, 64UL);
+  memset((void *)(& reset), 0, 64UL);
   reset.remove_mode = 2U;
   snd_seq_oss_control(q->dp, 1077957454U, (void *)(& reset));
   snd_seq_oss_writeq_wakeup(q, 0U);
@@ -11731,7 +11731,7 @@ int snd_seq_oss_writeq_sync(struct seq_oss_writeq *q )
   }
   if (q->sync_event_put == 0) {
     {
-    __memset((void *)(& ev), 0, 28UL);
+    memset((void *)(& ev), 0, 28UL);
     ev.flags = 0U;
     ev.type = 50U;
     ev.time.tick = time;

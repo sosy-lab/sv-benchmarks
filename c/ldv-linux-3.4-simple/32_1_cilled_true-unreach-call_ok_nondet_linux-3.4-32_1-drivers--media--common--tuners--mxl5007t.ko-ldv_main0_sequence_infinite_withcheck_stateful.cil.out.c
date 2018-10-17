@@ -3315,7 +3315,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 extern void list_del(struct list_head *entry ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void __mutex_init(struct mutex *lock , char const   *name , struct lock_class_key *key ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -4660,7 +4660,7 @@ static struct reg_pair_t *mxl5007t_calc_init_regs(struct mxl5007t_state *state ,
     __cil_tmp12 = (struct reg_pair_t (*)[sizeof(init_tab) / sizeof(init_tab[0]) + sizeof(struct __anonstruct_272 )])__cil_tmp11;
     __cil_tmp13 = (void *)__cil_tmp12;
     __cil_tmp14 = (void const   *)(& init_tab);
-    __ret = __memcpy(__cil_tmp13, __cil_tmp14, __len);
+    __ret = memcpy(__cil_tmp13, __cil_tmp14, __len);
     }
   } else {
     {
@@ -4680,7 +4680,7 @@ static struct reg_pair_t *mxl5007t_calc_init_regs(struct mxl5007t_state *state ,
     __cil_tmp22 = (struct reg_pair_t (*)[sizeof(init_tab_cable) / sizeof(init_tab_cable[0]) + sizeof(struct __anonstruct_273 )])__cil_tmp21;
     __cil_tmp23 = (void *)__cil_tmp22;
     __cil_tmp24 = (void const   *)(& init_tab_cable);
-    __ret___0 = __memcpy(__cil_tmp23, __cil_tmp24, __len___0);
+    __ret___0 = memcpy(__cil_tmp23, __cil_tmp24, __len___0);
     }
   } else {
     {
@@ -4896,7 +4896,7 @@ static struct reg_pair_t *mxl5007t_calc_rf_tune_regs(struct mxl5007t_state *stat
     __cil_tmp12 = (struct reg_pair_t (*)[sizeof(reg_pair_rftune) / sizeof(reg_pair_rftune[0]) + sizeof(struct __anonstruct_274 )])__cil_tmp11;
     __cil_tmp13 = (void *)__cil_tmp12;
     __cil_tmp14 = (void const   *)(& reg_pair_rftune);
-    __ret = __memcpy(__cil_tmp13, __cil_tmp14, __len);
+    __ret = memcpy(__cil_tmp13, __cil_tmp14, __len);
     }
   } else {
     {
@@ -6832,7 +6832,7 @@ struct dvb_frontend *mxl5007t_attach(struct dvb_frontend *fe , struct i2c_adapte
     __cil_tmp136 = (struct dvb_tuner_ops *)__cil_tmp135;
     __cil_tmp137 = (void *)__cil_tmp136;
     __cil_tmp138 = (void const   *)(& mxl5007t_tuner_ops);
-    __ret___1 = __memcpy(__cil_tmp137, __cil_tmp138, __len);
+    __ret___1 = memcpy(__cil_tmp137, __cil_tmp138, __len);
     }
   } else {
     {

@@ -3296,7 +3296,7 @@ extern int printk(char const   *  , ...) ;
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern unsigned long kernel_stack ;
 __inline static struct thread_info *current_thread_info(void) 
@@ -4649,7 +4649,7 @@ static int zram_read_before_write(struct zram *zram , char *mem , u32 index )
       {
       __cil_tmp38 = (void *)mem;
       __cil_tmp39 = (void const   *)cmem;
-      __ret = __memcpy(__cil_tmp38, __cil_tmp39, __len);
+      __ret = memcpy(__cil_tmp38, __cil_tmp39, __len);
       }
     } else {
       {

@@ -7067,8 +7067,8 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
 { 
@@ -7533,14 +7533,14 @@ int dvb_register_device(struct dvb_adapter *adap , struct dvb_device **pdvbdev ,
 
   }
   {
-  __memcpy((void *)dvbdev, (void const   *)template, 160UL);
+  memcpy((void *)dvbdev, (void const   *)template, 160UL);
   dvbdev->type = type;
   dvbdev->id = (u32 )id;
   dvbdev->adapter = adap;
   dvbdev->priv = priv;
   dvbdev->fops = (struct file_operations  const  *)dvbdevfops;
   __init_waitqueue_head(& dvbdev->wait_queue, "&dvbdev->wait_queue", & __key);
-  __memcpy((void *)dvbdevfops, (void const   *)template->fops, 240UL);
+  memcpy((void *)dvbdevfops, (void const   *)template->fops, 240UL);
   dvbdevfops->owner = adap->module;
   list_add_tail(& dvbdev->list_head, & adap->device_list);
   down_write(& minor_rwsem);
@@ -7747,7 +7747,7 @@ int dvb_register_adapter(struct dvb_adapter *adap , char const   *name , struct 
 
   }
   {
-  __memset((void *)adap, 0, 256UL);
+  memset((void *)adap, 0, 256UL);
   INIT_LIST_HEAD(& adap->device_list);
   printk("\016DVB: registering new adapter (%s)\n", name);
   adap->num = num;
@@ -10839,11 +10839,11 @@ static int dvb_dmxdev_filter_start(struct dmxdev_filter *filter )
   }
   {
   (*secfilter)->priv = (void *)filter;
-  __memcpy((void *)(& (*secfilter)->filter_value) + 3U, (void const   *)(& para->filter.filter) + 1U,
+  memcpy((void *)(& (*secfilter)->filter_value) + 3U, (void const   *)(& para->filter.filter) + 1U,
            15UL);
-  __memcpy((void *)(& (*secfilter)->filter_mask) + 3U, (void const   *)(& para->filter.mask) + 1U,
+  memcpy((void *)(& (*secfilter)->filter_mask) + 3U, (void const   *)(& para->filter.mask) + 1U,
            15UL);
-  __memcpy((void *)(& (*secfilter)->filter_mode) + 3U, (void const   *)(& para->filter.mode) + 1U,
+  memcpy((void *)(& (*secfilter)->filter_mode) + 3U, (void const   *)(& para->filter.mode) + 1U,
            15UL);
   (*secfilter)->filter_value[0] = para->filter.filter[0];
   (*secfilter)->filter_mask[0] = para->filter.mask[0];
@@ -11125,7 +11125,7 @@ static int dvb_dmxdev_filter_set(struct dmxdev *dmxdev , struct dmxdev_filter *d
   {
   dvb_dmxdev_filter_stop(dmxdevfilter);
   dmxdevfilter->type = 1;
-  __memcpy((void *)(& dmxdevfilter->params.sec), (void const   *)params, 60UL);
+  memcpy((void *)(& dmxdevfilter->params.sec), (void const   *)params, 60UL);
   invert_mode(& dmxdevfilter->params.sec.filter);
   dvb_dmxdev_filter_state_set(dmxdevfilter, 2);
   }
@@ -11158,7 +11158,7 @@ static int dvb_dmxdev_pes_filter_set(struct dmxdev *dmxdev , struct dmxdev_filte
   }
   {
   dmxdevfilter->type = 2;
-  __memcpy((void *)(& dmxdevfilter->params), (void const   *)params, 20UL);
+  memcpy((void *)(& dmxdevfilter->params), (void const   *)params, 20UL);
   INIT_LIST_HEAD(& dmxdevfilter->feed.ts);
   dvb_dmxdev_filter_state_set(dmxdevfilter, 2);
   ret = dvb_dmxdev_add_pid(dmxdev, dmxdevfilter, (int )dmxdevfilter->params.pes.pid);
@@ -13556,7 +13556,7 @@ static void dvb_dmx_memcopy(struct dvb_demux_feed *f , u8 *d , u8 const   *s , s
 
   {
   {
-  __memcpy((void *)d, (void const   *)s, len);
+  memcpy((void *)d, (void const   *)s, len);
   }
   return;
 }
@@ -14173,7 +14173,7 @@ __inline static void _dvb_dmx_swfilter(struct dvb_demux *demux , u8 const   *buf
     j = (int )pktsize - i;
     if (count < (size_t )j) {
       {
-      __memcpy((void *)(& demux->tsbuf) + (unsigned long )i, (void const   *)buf,
+      memcpy((void *)(& demux->tsbuf) + (unsigned long )i, (void const   *)buf,
                count);
       demux->tsbufp = (int )((unsigned int )demux->tsbufp + (unsigned int )count);
       }
@@ -14182,7 +14182,7 @@ __inline static void _dvb_dmx_swfilter(struct dvb_demux *demux , u8 const   *buf
 
     }
     {
-    __memcpy((void *)(& demux->tsbuf) + (unsigned long )i, (void const   *)buf, (size_t )j);
+    memcpy((void *)(& demux->tsbuf) + (unsigned long )i, (void const   *)buf, (size_t )j);
     }
     if ((unsigned int )demux->tsbuf[0] == 71U) {
       {
@@ -14213,7 +14213,7 @@ __inline static void _dvb_dmx_swfilter(struct dvb_demux *demux , u8 const   *buf
   q = buf + (unsigned long )p;
   if ((int )pktsize == 204 && (unsigned int )((unsigned char )*q) == 184U) {
     {
-    __memcpy((void *)(& demux->tsbuf), (void const   *)q, 188UL);
+    memcpy((void *)(& demux->tsbuf), (void const   *)q, 188UL);
     demux->tsbuf[0] = 71U;
     q = (u8 const   *)(& demux->tsbuf);
     }
@@ -14229,7 +14229,7 @@ __inline static void _dvb_dmx_swfilter(struct dvb_demux *demux , u8 const   *buf
   i = (int )((unsigned int )count - (unsigned int )p);
   if (i != 0) {
     {
-    __memcpy((void *)(& demux->tsbuf), (void const   *)buf + (unsigned long )p, (size_t )i);
+    memcpy((void *)(& demux->tsbuf), (void const   *)buf + (unsigned long )p, (size_t )i);
     demux->tsbufp = i;
     }
     if ((int )pktsize == 204 && (unsigned int )demux->tsbuf[0] == 184U) {
@@ -15275,7 +15275,7 @@ static int dvbdmx_get_pes_pids(struct dmx_demux *demux , u16 *pids )
   {
   {
   dvbdemux = (struct dvb_demux *)demux;
-  __memcpy((void *)pids, (void const   *)(& dvbdemux->pids), 10UL);
+  memcpy((void *)pids, (void const   *)(& dvbdemux->pids), 10UL);
   }
   return (0);
 }
@@ -16288,7 +16288,7 @@ int dvb_filter_pes2ts(struct dvb_filter_pes2ts *p2ts , unsigned char *pes , int 
   tmp = p2ts->cc;
   p2ts->cc = (unsigned char )((int )p2ts->cc + 1);
   *(buf + 3UL) = (unsigned char )(((int )((signed char )tmp) & 15) | 16);
-  __memcpy((void *)buf + 4U, (void const   *)pes, 184UL);
+  memcpy((void *)buf + 4U, (void const   *)pes, 184UL);
   ret = (*(p2ts->cb))(p2ts->priv, buf);
   }
   if (ret != 0) {
@@ -16319,7 +16319,7 @@ int dvb_filter_pes2ts(struct dvb_filter_pes2ts *p2ts , unsigned char *pes , int 
     *(buf + 5UL) = 0U;
     if (rest != 1) {
       {
-      __memset((void *)buf + 6U, 255, (size_t )(rest + -1));
+      memset((void *)buf + 6U, 255, (size_t )(rest + -1));
       }
     } else {
 
@@ -16329,7 +16329,7 @@ int dvb_filter_pes2ts(struct dvb_filter_pes2ts *p2ts , unsigned char *pes , int 
   }
   {
   *(buf + 4UL) = (unsigned char )rest;
-  __memcpy((void *)(buf + ((unsigned long )rest + 5UL)), (void const   *)pes, (size_t )len);
+  memcpy((void *)(buf + ((unsigned long )rest + 5UL)), (void const   *)pes, (size_t )len);
   tmp___1 = (*(p2ts->cb))(p2ts->priv, buf);
   }
   return (tmp___1);
@@ -17205,7 +17205,7 @@ static int dvb_ca_en50221_read_data(struct dvb_ca_private *ca , int slot , u8 *e
     }
   } else {
     {
-    __memcpy((void *)ebuf, (void const   *)(& buf), (size_t )bytes_read);
+    memcpy((void *)ebuf, (void const   *)(& buf), (size_t )bytes_read);
     }
   }
   if (dvb_ca_en50221_debug != 0) {
@@ -18899,7 +18899,7 @@ int dvb_ca_en50221_init(struct dvb_adapter *dvb_adapter , struct dvb_ca_en50221 
   goto ldv_46823;
   ldv_46822: 
   {
-  __memset((void *)ca->slot_info + (unsigned long )i, 0, 400UL);
+  memset((void *)ca->slot_info + (unsigned long )i, 0, 400UL);
   (ca->slot_info + (unsigned long )i)->slot_state = 0;
   atomic_set(& (ca->slot_info + (unsigned long )i)->camchange_count, 0);
   (ca->slot_info + (unsigned long )i)->camchange_type = 0;
@@ -21405,7 +21405,7 @@ static int dvb_frontend_clear_cache(struct dvb_frontend *fe )
   {
   c = & fe->dtv_property_cache;
   delsys = (u32 )c->delivery_system;
-  __memset((void *)c, 0, 160UL);
+  memset((void *)c, 0, 160UL);
   c->delivery_system = (fe_delivery_system_t )delsys;
   c->state = 2U;
   descriptor.modname = "dvb_core";
@@ -23940,7 +23940,7 @@ static int dtv_set_frontend(struct dvb_frontend *fe )
 
   }
   {
-  __memset((void *)(& fetunesettings), 0, 12UL);
+  memset((void *)(& fetunesettings), 0, 12UL);
   }
   if ((unsigned long )fe->ops.get_tune_settings != (unsigned long )((int (*)(struct dvb_frontend * ,
                                                                              struct dvb_frontend_tune_settings * ))0)) {
@@ -24171,7 +24171,7 @@ static int dvb_frontend_ioctl_legacy(struct file *file , unsigned int cmd , void
   case_2158522173: /* CIL Label */ 
   {
   info = (struct dvb_frontend_info *)parg;
-  __memcpy((void *)info, (void const   *)(& fe->ops.info), 168UL);
+  memcpy((void *)info, (void const   *)(& fe->ops.info), 168UL);
   dvb_frontend_get_frequency_limits(fe, & info->frequency_min, & info->frequency_max);
   tmp = dvbv3_type((u32 )c->delivery_system);
   }
@@ -25854,7 +25854,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   {
-  __memcpy(to, (void const   *)skb->data, (size_t )len);
+  memcpy(to, (void const   *)skb->data, (size_t )len);
   }
   return;
 }
@@ -26486,7 +26486,7 @@ static void dvb_net_ule(struct net_device *dev , u8 const   *buf , size_t buf_le
   _min2 = (int )ts_remain;
   how_much = (u8 )(_min1 < _min2 ? _min1 : _min2);
   tmp___0 = skb_put(priv->ule_skb, (unsigned int )how_much);
-  __memcpy((void *)tmp___0, (void const   *)from_where, (size_t )how_much);
+  memcpy((void *)tmp___0, (void const   *)from_where, (size_t )how_much);
   priv->ule_sndu_remain = priv->ule_sndu_remain - (int )how_much;
   ts_remain = (int )ts_remain - (int )how_much;
   from_where = from_where + (unsigned long )how_much;
@@ -26645,12 +26645,12 @@ static void dvb_net_ule(struct net_device *dev , u8 const   *buf , size_t buf_le
         }
         if ((unsigned int )priv->ule_dbit == 0U) {
           {
-          __memcpy((void *)(& ethh->h_dest), (void const   *)(& dest_addr), 6UL);
-          __memset((void *)(& ethh->h_source), 0, 6UL);
+          memcpy((void *)(& ethh->h_dest), (void const   *)(& dest_addr), 6UL);
+          memset((void *)(& ethh->h_source), 0, 6UL);
           }
         } else {
           {
-          __memset((void *)ethh, 0, 12UL);
+          memset((void *)ethh, 0, 12UL);
           }
         }
         {
@@ -26803,7 +26803,7 @@ static void dvb_net_sec(struct net_device *dev , u8 const   *pkt , int pkt_len )
   skb->dev = dev;
   tmp___0 = skb_put(skb, (unsigned int )((pkt_len + -2) - snap));
   eth = tmp___0;
-  __memcpy((void *)eth + 14U, (void const   *)(pkt + ((unsigned long )snap + 12UL)),
+  memcpy((void *)eth + 14U, (void const   *)(pkt + ((unsigned long )snap + 12UL)),
            (size_t )((pkt_len + -16) - snap));
   *eth = *(pkt + 11UL);
   *(eth + 1UL) = *(pkt + 10UL);
@@ -26902,9 +26902,9 @@ static int dvb_net_filter_sec_set(struct net_device *dev , struct dmx_section_fi
   }
   {
   (*secfilter)->priv = (void *)dev;
-  __memset((void *)(& (*secfilter)->filter_value), 0, 18UL);
-  __memset((void *)(& (*secfilter)->filter_mask), 0, 18UL);
-  __memset((void *)(& (*secfilter)->filter_mode), 255, 18UL);
+  memset((void *)(& (*secfilter)->filter_value), 0, 18UL);
+  memset((void *)(& (*secfilter)->filter_mask), 0, 18UL);
+  memset((void *)(& (*secfilter)->filter_mode), 255, 18UL);
   (*secfilter)->filter_value[0] = 62U;
   (*secfilter)->filter_value[3] = *(mac + 5UL);
   (*secfilter)->filter_value[4] = *(mac + 4UL);
@@ -27436,7 +27436,7 @@ static int dvb_set_mc_filter(struct net_device *dev , unsigned char *addr )
 
   }
   {
-  __memcpy((void *)(& priv->multi_macs) + (unsigned long )priv->multi_num, (void const   *)addr,
+  memcpy((void *)(& priv->multi_macs) + (unsigned long )priv->multi_num, (void const   *)addr,
            6UL);
   priv->multi_num = priv->multi_num + 1;
   }
@@ -27602,7 +27602,7 @@ static int dvb_net_set_mac(struct net_device *dev , void *p )
   tmp = netdev_priv((struct net_device  const  *)dev);
   priv = (struct dvb_net_priv *)tmp;
   addr = (struct sockaddr *)p;
-  __memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), (size_t )dev->addr_len);
+  memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), (size_t )dev->addr_len);
   tmp___0 = netif_running((struct net_device  const  *)dev);
   }
   if ((int )tmp___0) {
@@ -27746,7 +27746,7 @@ static int dvb_net_add_if(struct dvb_net *dvbnet , u16 pid , u8 feedtype )
   }
   {
   net->addr_len = 6U;
-  __memcpy((void *)net->dev_addr, (void const   *)(& ((dvbnet->dvbdev)->adapter)->proposed_mac),
+  memcpy((void *)net->dev_addr, (void const   *)(& ((dvbnet->dvbdev)->adapter)->proposed_mac),
            6UL);
   dvbnet->device[if_num] = net;
   tmp = netdev_priv((struct net_device  const  *)net);
@@ -29273,7 +29273,7 @@ void dvb_ringbuffer_read(struct dvb_ringbuffer *rbuf , u8 *buf , size_t len )
   split = (unsigned long )rbuf->pread + len > (unsigned long )rbuf->size ? (size_t )(rbuf->size - rbuf->pread) : 0UL;
   if (split != 0UL) {
     {
-    __memcpy((void *)buf, (void const   *)rbuf->data + (unsigned long )rbuf->pread,
+    memcpy((void *)buf, (void const   *)rbuf->data + (unsigned long )rbuf->pread,
              split);
     buf = buf + split;
     todo = todo - split;
@@ -29283,7 +29283,7 @@ void dvb_ringbuffer_read(struct dvb_ringbuffer *rbuf , u8 *buf , size_t len )
 
   }
   {
-  __memcpy((void *)buf, (void const   *)rbuf->data + (unsigned long )rbuf->pread,
+  memcpy((void *)buf, (void const   *)rbuf->data + (unsigned long )rbuf->pread,
            todo);
   rbuf->pread = (ssize_t )(((unsigned long )rbuf->pread + todo) % (unsigned long )rbuf->size);
   }
@@ -29300,7 +29300,7 @@ ssize_t dvb_ringbuffer_write(struct dvb_ringbuffer *rbuf , u8 const   *buf , siz
   split = (unsigned long )rbuf->pwrite + len > (unsigned long )rbuf->size ? (size_t )(rbuf->size - rbuf->pwrite) : 0UL;
   if (split != 0UL) {
     {
-    __memcpy((void *)rbuf->data + (unsigned long )rbuf->pwrite, (void const   *)buf,
+    memcpy((void *)rbuf->data + (unsigned long )rbuf->pwrite, (void const   *)buf,
              split);
     buf = buf + split;
     todo = todo - split;
@@ -29310,7 +29310,7 @@ ssize_t dvb_ringbuffer_write(struct dvb_ringbuffer *rbuf , u8 const   *buf , siz
 
   }
   {
-  __memcpy((void *)rbuf->data + (unsigned long )rbuf->pwrite, (void const   *)buf,
+  memcpy((void *)rbuf->data + (unsigned long )rbuf->pwrite, (void const   *)buf,
            todo);
   rbuf->pwrite = (ssize_t )(((unsigned long )rbuf->pwrite + todo) % (unsigned long )rbuf->size);
   }
@@ -29462,7 +29462,7 @@ ssize_t dvb_ringbuffer_pkt_read(struct dvb_ringbuffer *rbuf , size_t idx , int o
   split = idx + len > (unsigned long )rbuf->size ? (unsigned long )rbuf->size - idx : 0UL;
   if (split != 0UL) {
     {
-    __memcpy((void *)buf, (void const   *)(rbuf->data + idx), split);
+    memcpy((void *)buf, (void const   *)(rbuf->data + idx), split);
     buf = buf + split;
     todo = todo - split;
     idx = 0UL;
@@ -29471,7 +29471,7 @@ ssize_t dvb_ringbuffer_pkt_read(struct dvb_ringbuffer *rbuf , size_t idx , int o
 
   }
   {
-  __memcpy((void *)buf, (void const   *)(rbuf->data + idx), todo);
+  memcpy((void *)buf, (void const   *)(rbuf->data + idx), todo);
   }
   return ((ssize_t )len);
 }

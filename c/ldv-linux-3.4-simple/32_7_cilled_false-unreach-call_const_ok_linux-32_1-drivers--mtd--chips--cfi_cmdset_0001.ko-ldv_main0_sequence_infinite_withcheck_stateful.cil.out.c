@@ -2460,7 +2460,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void *to , void    *from , size_t len ) ;
+extern void *memcpy(void *to , void    *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern void __xchg_wrong_size(void) ;
 extern int default_wake_function(wait_queue_t *wait , unsigned int mode , int flags ,
@@ -4361,7 +4361,7 @@ static void fixup_convert_atmel_pri(struct mtd_info *mtd )
     {
     __cil_tmp30 = (void *)(& atmel_pri);
     __cil_tmp31 = (void    *)extp;
-    __ret = __memcpy(__cil_tmp30, __cil_tmp31, __len);
+    __ret = memcpy(__cil_tmp30, __cil_tmp31, __len);
     }
   } else {
     {
@@ -7109,7 +7109,7 @@ static int cfi_intelext_partition_fixup(struct mtd_info *mtd , struct cfi_privat
             {
             __cil_tmp148 = (void *)newcfi;
             __cil_tmp149 = (void    *)cfi;
-            __ret = __memcpy(__cil_tmp148, __cil_tmp149, __len);
+            __ret = memcpy(__cil_tmp148, __cil_tmp149, __len);
             }
           } else {
             {

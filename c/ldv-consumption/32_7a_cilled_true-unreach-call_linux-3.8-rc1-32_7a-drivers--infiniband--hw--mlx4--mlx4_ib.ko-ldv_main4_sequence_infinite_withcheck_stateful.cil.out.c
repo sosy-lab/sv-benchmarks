@@ -7049,7 +7049,7 @@ __inline static __u32 __fswab32(__u32 val )
   return (tmp);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static void *ERR_PTR(long error ) 
 { 
@@ -7151,14 +7151,14 @@ __inline static void rdma_get_ll_mac(struct in6_addr *addr , u8 *mac )
   {
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mac, (void const   *)(& addr->in6_u.u6_addr8) + 8U, __len);
+    __ret = memcpy((void *)mac, (void const   *)(& addr->in6_u.u6_addr8) + 8U, __len);
   } else {
     __ret = __builtin_memcpy((void *)mac, (void const   *)(& addr->in6_u.u6_addr8) + 8U,
                              __len);
   }
   __len___0 = 3UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)mac + 3U, (void const   *)(& addr->in6_u.u6_addr8) + 13U,
+    __ret___0 = memcpy((void *)mac + 3U, (void const   *)(& addr->in6_u.u6_addr8) + 13U,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)mac + 3U, (void const   *)(& addr->in6_u.u6_addr8) + 13U,
@@ -7271,7 +7271,7 @@ int mlx4_ib_resolve_grh(struct mlx4_ib_dev *dev , struct ib_ah_attr  const  *ah_
   *is_mcast = 0;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& in6), (void const   *)(& ah_attr->grh.dgid.raw), __len);
+    __ret = memcpy((void *)(& in6), (void const   *)(& ah_attr->grh.dgid.raw), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& in6), (void const   *)(& ah_attr->grh.dgid.raw),
                              __len);
@@ -7319,7 +7319,7 @@ static struct ib_ah *create_ib_ah(struct ib_pd *pd , struct ib_ah_attr *ah_attr 
     ah->av.ib.sl_tclass_flowlabel = ah->av.ib.sl_tclass_flowlabel | tmp___2;
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ah->av.ib.dgid), (void const   *)(& ah_attr->grh.dgid.raw),
+      __ret = memcpy((void *)(& ah->av.ib.dgid), (void const   *)(& ah_attr->grh.dgid.raw),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ah->av.ib.dgid), (void const   *)(& ah_attr->grh.dgid.raw),
@@ -7386,7 +7386,7 @@ static struct ib_ah *create_iboe_ah(struct ib_pd *pd , struct ib_ah_attr *ah_att
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ah->av.eth.mac), (void const   *)(& mac), __len);
+    __ret = memcpy((void *)(& ah->av.eth.mac), (void const   *)(& mac), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ah->av.eth.mac), (void const   *)(& mac),
                              __len);
@@ -7433,7 +7433,7 @@ static struct ib_ah *create_iboe_ah(struct ib_pd *pd , struct ib_ah_attr *ah_att
   }
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ah->av.eth.dgid), (void const   *)(& ah_attr->grh.dgid.raw),
+    __ret___0 = memcpy((void *)(& ah->av.eth.dgid), (void const   *)(& ah_attr->grh.dgid.raw),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ah->av.eth.dgid), (void const   *)(& ah_attr->grh.dgid.raw),
@@ -7531,7 +7531,7 @@ int mlx4_ib_query_ah(struct ib_ah *ibah , struct ib_ah_attr *ah_attr )
     ah_attr->grh.sgid_index = ah->av.ib.gid_index;
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ah_attr->grh.dgid.raw), (void const   *)(& ah->av.ib.dgid),
+      __ret = memcpy((void *)(& ah_attr->grh.dgid.raw), (void const   *)(& ah->av.ib.dgid),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ah_attr->grh.dgid.raw), (void const   *)(& ah->av.ib.dgid),
@@ -9146,7 +9146,7 @@ void __mlx4_ib_cq_clean(struct mlx4_ib_cq *cq , u32 qpn , struct mlx4_ib_srq *sr
     owner_bit = (unsigned int )dest->owner_sr_opcode & 128U;
     __len = 32UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)dest, (void const   *)cqe, __len);
+      __ret = memcpy((void *)dest, (void const   *)cqe, __len);
     } else {
       __ret = __builtin_memcpy((void *)dest, (void const   *)cqe, __len);
     }
@@ -10008,7 +10008,7 @@ int mlx4_MAD_IFC(struct mlx4_ib_dev *dev , int mad_ifc_flags , int port , struct
   }
   __len = 256UL;
   if (__len > 63UL) {
-    __ret = __memcpy(inbox, (void const   *)in_mad, __len);
+    __ret = memcpy(inbox, (void const   *)in_mad, __len);
   } else {
     __ret = __builtin_memcpy(inbox, (void const   *)in_mad, __len);
   }
@@ -10042,7 +10042,7 @@ int mlx4_MAD_IFC(struct mlx4_ib_dev *dev , int mad_ifc_flags , int port , struct
     if ((unsigned long )in_grh != (unsigned long )((struct ib_grh *)0)) {
       __len___0 = 40UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& ext_info->grh), (void const   *)in_grh, __len___0);
+        __ret___0 = memcpy((void *)(& ext_info->grh), (void const   *)in_grh, __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& ext_info->grh), (void const   *)in_grh,
                                      __len___0);
@@ -10061,7 +10061,7 @@ int mlx4_MAD_IFC(struct mlx4_ib_dev *dev , int mad_ifc_flags , int port , struct
   if (err == 0) {
     __len___1 = 256UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy(response_mad, (void const   *)outmailbox->buf, __len___1);
+      __ret___1 = memcpy(response_mad, (void const   *)outmailbox->buf, __len___1);
     } else {
       __ret___1 = __builtin_memcpy(response_mad, (void const   *)outmailbox->buf,
                                    __len___1);
@@ -10366,7 +10366,7 @@ static void node_desc_override(struct ib_device *dev , struct ib_mad *mad )
     flags = _raw_spin_lock_irqsave(tmp___0);
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ((struct ib_smp *)mad)->data), (void const   *)(& dev->node_desc),
+      __ret = memcpy((void *)(& ((struct ib_smp *)mad)->data), (void const   *)(& dev->node_desc),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ((struct ib_smp *)mad)->data), (void const   *)(& dev->node_desc),
@@ -10408,7 +10408,7 @@ static void forward_trap(struct mlx4_ib_dev *dev , u8 port_num , struct ib_mad *
     flags = _raw_spin_lock_irqsave(tmp___0);
     __len = 256UL;
     if (__len > 63UL) {
-      __ret = __memcpy(send_buf->mad, (void const   *)mad, __len);
+      __ret = memcpy(send_buf->mad, (void const   *)mad, __len);
     } else {
       __ret = __builtin_memcpy(send_buf->mad, (void const   *)mad, __len);
     }
@@ -10659,7 +10659,7 @@ int mlx4_ib_send_to_slave(struct mlx4_ib_dev *dev , int slave , u8 port , enum i
   if ((unsigned long )grh != (unsigned long )((struct ib_grh *)0)) {
     __len = 40UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tun_mad->grh), (void const   *)grh, __len);
+      __ret = memcpy((void *)(& tun_mad->grh), (void const   *)grh, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tun_mad->grh), (void const   *)grh, __len);
     }
@@ -10668,7 +10668,7 @@ int mlx4_ib_send_to_slave(struct mlx4_ib_dev *dev , int slave , u8 port , enum i
   }
   __len___0 = 256UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& tun_mad->mad), (void const   *)mad, __len___0);
+    __ret___0 = memcpy((void *)(& tun_mad->mad), (void const   *)mad, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& tun_mad->mad), (void const   *)mad, __len___0);
   }
@@ -11620,7 +11620,7 @@ int mlx4_ib_send_to_wire(struct mlx4_ib_dev *dev , int slave , u8 port , enum ib
                                  256UL, 1);
   __len = 256UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sqp_mad->payload), (void const   *)mad, __len);
+    __ret = memcpy((void *)(& sqp_mad->payload), (void const   *)mad, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sqp_mad->payload), (void const   *)mad, __len);
   }
@@ -11758,7 +11758,7 @@ static void mlx4_ib_multiplex_mad(struct mlx4_ib_demux_pv_ctx *ctx , struct ib_w
   ldv_23828: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ah.av), (void const   *)(& tunnel->hdr.av), __len);
+    __ret = memcpy((void *)(& ah.av), (void const   *)(& tunnel->hdr.av), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ah.av), (void const   *)(& tunnel->hdr.av),
                              __len);
@@ -14073,7 +14073,7 @@ static int mlx4_ib_query_device(struct ib_device *ibdev , struct ib_device_attr 
   props->hw_ver = __be32_to_cpup((__be32 const   *)(& out_mad->data) + 32U);
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& props->sys_image_guid), (void const   *)(& out_mad->data) + 4U,
+    __ret = memcpy((void *)(& props->sys_image_guid), (void const   *)(& out_mad->data) + 4U,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& props->sys_image_guid), (void const   *)(& out_mad->data) + 4U,
@@ -14425,7 +14425,7 @@ int __mlx4_ib_query_gid(struct ib_device *ibdev , u8 port , int index , union ib
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& gid->raw), (void const   *)(& out_mad->data) + 8U,
+    __ret = memcpy((void *)(& gid->raw), (void const   *)(& out_mad->data) + 8U,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& gid->raw), (void const   *)(& out_mad->data) + 8U,
@@ -14455,7 +14455,7 @@ int __mlx4_ib_query_gid(struct ib_device *ibdev , u8 port , int index , union ib
   }
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& gid->raw) + 8U, (void const   *)(& out_mad->data) + (unsigned long )((index % 8) * 8),
+    __ret___0 = memcpy((void *)(& gid->raw) + 8U, (void const   *)(& out_mad->data) + (unsigned long )((index % 8) * 8),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& gid->raw) + 8U, (void const   *)(& out_mad->data) + (unsigned long )((index % 8) * 8),
@@ -14606,7 +14606,7 @@ static int mlx4_ib_modify_device(struct ib_device *ibdev , int mask , struct ib_
   flags = _raw_spin_lock_irqsave(tmp___2);
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ibdev->node_desc), (void const   *)(& props->node_desc),
+    __ret = memcpy((void *)(& ibdev->node_desc), (void const   *)(& props->node_desc),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ibdev->node_desc), (void const   *)(& props->node_desc),
@@ -14625,7 +14625,7 @@ static int mlx4_ib_modify_device(struct ib_device *ibdev , int mask , struct ib_
   memset(mailbox->buf, 0, 256UL);
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy(mailbox->buf, (void const   *)(& props->node_desc), __len___0);
+    __ret___0 = memcpy(mailbox->buf, (void const   *)(& props->node_desc), __len___0);
   } else {
     __ret___0 = __builtin_memcpy(mailbox->buf, (void const   *)(& props->node_desc),
                                  __len___0);
@@ -15103,7 +15103,7 @@ static int mlx4_ib_mcg_attach(struct ib_qp *ibqp , union ib_gid *gid , u16 lid )
   if ((unsigned long )ib_steering != (unsigned long )((struct mlx4_ib_steering *)0)) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ib_steering->gid.raw), (void const   *)(& gid->raw),
+      __ret = memcpy((void *)(& ib_steering->gid.raw), (void const   *)(& gid->raw),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ib_steering->gid.raw), (void const   *)(& gid->raw),
@@ -15300,7 +15300,7 @@ static int init_node_data(struct mlx4_ib_dev *dev )
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dev->ib_dev.node_desc), (void const   *)(& out_mad->data),
+    __ret = memcpy((void *)(& dev->ib_dev.node_desc), (void const   *)(& out_mad->data),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dev->ib_dev.node_desc), (void const   *)(& out_mad->data),
@@ -15317,7 +15317,7 @@ static int init_node_data(struct mlx4_ib_dev *dev )
   (dev->dev)->rev_id = (u8 )tmp___2;
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& dev->ib_dev.node_guid), (void const   *)(& out_mad->data) + 12U,
+    __ret___0 = memcpy((void *)(& dev->ib_dev.node_guid), (void const   *)(& out_mad->data) + 12U,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& dev->ib_dev.node_guid), (void const   *)(& out_mad->data) + 12U,
@@ -15407,13 +15407,13 @@ static void mlx4_addrconf_ifid_eui48(u8 *eui , u16 vlan_id , struct net_device *
   {
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)eui, (void const   *)dev->dev_addr, __len);
+    __ret = memcpy((void *)eui, (void const   *)dev->dev_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)eui, (void const   *)dev->dev_addr, __len);
   }
   __len___0 = 3UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)eui + 5U, (void const   *)dev->dev_addr + 3U, __len___0);
+    __ret___0 = memcpy((void *)eui + 5U, (void const   *)dev->dev_addr + 3U, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)eui + 5U, (void const   *)dev->dev_addr + 3U,
                                  __len___0);
@@ -15460,7 +15460,7 @@ static void update_gids_task(struct work_struct *work )
   gids = (union ib_gid *)mailbox->buf;
   __len = 2048UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)gids, (void const   *)(& gw->gids), __len);
+    __ret = memcpy((void *)gids, (void const   *)(& gw->gids), __len);
   } else {
     __ret = __builtin_memcpy((void *)gids, (void const   *)(& gw->gids), __len);
   }
@@ -15470,7 +15470,7 @@ static void update_gids_task(struct work_struct *work )
   } else {
     __len___0 = 2048UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& (gw->dev)->iboe.gid_table) + ((unsigned long )gw->port + 0xffffffffffffffffUL),
+      __ret___0 = memcpy((void *)(& (gw->dev)->iboe.gid_table) + ((unsigned long )gw->port + 0xffffffffffffffffUL),
                            (void const   *)(& gw->gids), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& (gw->dev)->iboe.gid_table) + ((unsigned long )gw->port + 0xffffffffffffffffUL),
@@ -15674,7 +15674,7 @@ static int update_ipv6_gids(struct mlx4_ib_dev *dev , int port , int clear )
   if (need_update != 0) {
     __len = 2048UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& work->gids), (void const   *)(& dev->iboe.gid_table) + ((unsigned long )port + 0xffffffffffffffffUL),
+      __ret = memcpy((void *)(& work->gids), (void const   *)(& dev->iboe.gid_table) + ((unsigned long )port + 0xffffffffffffffffUL),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& work->gids), (void const   *)(& dev->iboe.gid_table) + ((unsigned long )port + 0xffffffffffffffffUL),
@@ -16610,7 +16610,7 @@ static void mlx4_ib_event(struct mlx4_dev *dev , void *ibdev_ptr , enum mlx4_dev
   ew->work.func = & handle_port_mgmt_change_event;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ew->ib_eqe), (void const   *)eqe, __len);
+    __ret = memcpy((void *)(& ew->ib_eqe), (void const   *)eqe, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ew->ib_eqe), (void const   *)eqe, __len);
   }
@@ -19511,7 +19511,7 @@ static int mlx4_set_path(struct mlx4_ib_dev *dev , struct ib_ah_attr  const  *ah
     path->tclass_flowlabel = tmp___1;
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& path->rgid), (void const   *)(& ah->grh.dgid.raw),
+      __ret = memcpy((void *)(& path->rgid), (void const   *)(& ah->grh.dgid.raw),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& path->rgid), (void const   *)(& ah->grh.dgid.raw),
@@ -19535,7 +19535,7 @@ static int mlx4_set_path(struct mlx4_ib_dev *dev , struct ib_ah_attr  const  *ah
     }
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& path->dmac), (void const   *)(& mac), __len___0);
+      __ret___0 = memcpy((void *)(& path->dmac), (void const   *)(& mac), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& path->dmac), (void const   *)(& mac),
                                    __len___0);
@@ -20523,7 +20523,7 @@ static int build_mlx_header(struct mlx4_ib_sqp *sqp , struct ib_send_wr *wr , vo
     }
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& sqp->ud_header.grh.destination_gid.raw), (void const   *)(& ah->av.ib.dgid),
+      __ret = memcpy((void *)(& sqp->ud_header.grh.destination_gid.raw), (void const   *)(& ah->av.ib.dgid),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& sqp->ud_header.grh.destination_gid.raw),
@@ -20566,7 +20566,7 @@ static int build_mlx_header(struct mlx4_ib_sqp *sqp , struct ib_send_wr *wr , vo
     mlx->sched_prio = tmp___16;
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& sqp->ud_header.eth.dmac_h), (void const   *)(& ah->av.eth.mac),
+      __ret___0 = memcpy((void *)(& sqp->ud_header.eth.dmac_h), (void const   *)(& ah->av.eth.mac),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& sqp->ud_header.eth.dmac_h), (void const   *)(& ah->av.eth.mac),
@@ -20582,7 +20582,7 @@ static int build_mlx_header(struct mlx4_ib_sqp *sqp , struct ib_send_wr *wr , vo
     smac = ndev->dev_addr;
     __len___1 = 6UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& sqp->ud_header.eth.smac_h), (void const   *)smac,
+      __ret___1 = memcpy((void *)(& sqp->ud_header.eth.smac_h), (void const   *)smac,
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& sqp->ud_header.eth.smac_h), (void const   *)smac,
@@ -20851,7 +20851,7 @@ static void set_datagram_seg(struct mlx4_wqe_datagram_seg *dseg , struct ib_send
   __len = 32UL;
   if (__len > 63UL) {
     tmp = to_mah(wr->wr.ud.ah);
-    __ret = __memcpy((void *)(& dseg->av), (void const   *)(& tmp->av), __len);
+    __ret = memcpy((void *)(& dseg->av), (void const   *)(& tmp->av), __len);
   } else {
     tmp___0 = to_mah(wr->wr.ud.ah);
     __ret = __builtin_memcpy((void *)(& dseg->av), (void const   *)(& tmp___0->av),
@@ -20866,7 +20866,7 @@ static void set_datagram_seg(struct mlx4_wqe_datagram_seg *dseg , struct ib_send
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
     tmp___4 = to_mah(wr->wr.ud.ah);
-    __ret___0 = __memcpy((void *)(& dseg->mac), (void const   *)(& tmp___4->av.eth.mac),
+    __ret___0 = memcpy((void *)(& dseg->mac), (void const   *)(& tmp___4->av.eth.mac),
                          __len___0);
   } else {
     tmp___5 = to_mah(wr->wr.ud.ah);
@@ -20921,7 +20921,7 @@ static void set_tunnel_datagram_seg(struct mlx4_ib_dev *dev , struct mlx4_wqe_da
   sqp_av.sl_tclass_flowlabel = av->ib.sl_tclass_flowlabel & 240U;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dseg->av), (void const   *)(& sqp_av), __len);
+    __ret = memcpy((void *)(& dseg->av), (void const   *)(& sqp_av), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dseg->av), (void const   *)(& sqp_av), __len);
   }
@@ -20959,7 +20959,7 @@ static void build_tunnel_header(struct ib_send_wr *wr , void *wqe , unsigned int
   ah = tmp;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hdr.av), (void const   *)(& ah->av), __len);
+    __ret = memcpy((void *)(& hdr.av), (void const   *)(& ah->av), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hdr.av), (void const   *)(& ah->av), __len);
   }
@@ -20973,7 +20973,7 @@ static void build_tunnel_header(struct ib_send_wr *wr , void *wqe , unsigned int
   if ((unsigned int )spc > 55U) {
     __len___0 = 56UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)inl___0 + 1U, (void const   *)(& hdr), __len___0);
+      __ret___0 = memcpy((void *)inl___0 + 1U, (void const   *)(& hdr), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)inl___0 + 1U, (void const   *)(& hdr),
                                    __len___0);
@@ -21640,7 +21640,7 @@ static void to_ib_ah_attr(struct mlx4_ib_dev *ibdev , struct ib_ah_attr *ib_ah_a
     ib_ah_attr->grh.flow_label = tmp___2 & 1048575U;
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ib_ah_attr->grh.dgid.raw), (void const   *)(& path->rgid),
+      __ret = memcpy((void *)(& ib_ah_attr->grh.dgid.raw), (void const   *)(& path->rgid),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ib_ah_attr->grh.dgid.raw), (void const   *)(& path->rgid),
@@ -22782,7 +22782,7 @@ static int send_join_to_wire(struct mcast_group *group , struct ib_sa_mad *sa_ma
   sa_mad_data = (struct ib_sa_mcmember_data *)(& mad.data);
   __len = 256UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mad), (void const   *)sa_mad, __len);
+    __ret = memcpy((void *)(& mad), (void const   *)sa_mad, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mad), (void const   *)sa_mad, __len);
   }
@@ -22873,7 +22873,7 @@ static int send_reply_to_slave(int slave , struct mcast_group *group , struct ib
   sa_data->scope_join_state = (u8 )((int )((signed char )sa_data->scope_join_state) | ((int )((signed char )group->func[slave].join_state) & 15));
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sa_data->port_gid), (void const   *)(& req_sa_data->port_gid),
+    __ret = memcpy((void *)(& sa_data->port_gid), (void const   *)(& req_sa_data->port_gid),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sa_data->port_gid), (void const   *)(& req_sa_data->port_gid),
@@ -23453,7 +23453,7 @@ static void mlx4_ib_mcg_work_handler(struct work_struct *work )
       }
       __len = 56UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& group->rec), (void const   *)(& group->response_sa_mad.data),
+        __ret = memcpy((void *)(& group->rec), (void const   *)(& group->response_sa_mad.data),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& group->rec), (void const   *)(& group->response_sa_mad.data),
@@ -25780,7 +25780,7 @@ void mlx4_ib_update_cache_on_guid_change(struct mlx4_ib_dev *dev , int block_num
     }
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& dev->sriov.demux[port_index].guid_cache) + (unsigned long )slave_id,
+      __ret = memcpy((void *)(& dev->sriov.demux[port_index].guid_cache) + (unsigned long )slave_id,
                        (void const   *)p_data + (unsigned long )(i * 8), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& dev->sriov.demux[port_index].guid_cache) + (unsigned long )slave_id,
@@ -26071,7 +26071,7 @@ static void aliasguid_query_handler(int status , struct ib_sa_guidinfo_rec *guid
   } else {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& rec->all_recs) + (unsigned long )(i * 8), (void const   *)(& guid_rec->guid_info_list) + (unsigned long )(i * 8),
+      __ret = memcpy((void *)(& rec->all_recs) + (unsigned long )(i * 8), (void const   *)(& guid_rec->guid_info_list) + (unsigned long )(i * 8),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& rec->all_recs) + (unsigned long )(i * 8),
@@ -26233,7 +26233,7 @@ static int set_guid_rec(struct ib_device *ibdev , u8 port , int index , struct m
   guid_info_rec.block_num = (u8 )index;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& guid_info_rec.guid_info_list), (void const   *)(& rec_det->all_recs),
+    __ret = memcpy((void *)(& guid_info_rec.guid_info_list), (void const   *)(& rec_det->all_recs),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& guid_info_rec.guid_info_list), (void const   *)(& rec_det->all_recs),
@@ -26366,7 +26366,7 @@ static int get_next_record_to_update(struct mlx4_ib_dev *dev , u8 port , struct 
   if ((unsigned int )dev->sriov.alias_guid.ports_guid[(int )port].all_rec_per_port[j].status == 0U) {
     __len = 88UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& rec->rec_det), (void const   *)(& dev->sriov.alias_guid.ports_guid[(int )port].all_rec_per_port) + (unsigned long )j,
+      __ret = memcpy((void *)(& rec->rec_det), (void const   *)(& dev->sriov.alias_guid.ports_guid[(int )port].all_rec_per_port) + (unsigned long )j,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& rec->rec_det), (void const   *)(& dev->sriov.alias_guid.ports_guid[(int )port].all_rec_per_port) + (unsigned long )j,
@@ -26402,7 +26402,7 @@ static void set_administratively_guid_record(struct mlx4_ib_dev *dev , int port 
   dev->sriov.alias_guid.ports_guid[port].all_rec_per_port[rec_index].guid_indexes = rec_det->guid_indexes;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dev->sriov.alias_guid.ports_guid[port].all_rec_per_port[rec_index].all_recs),
+    __ret = memcpy((void *)(& dev->sriov.alias_guid.ports_guid[port].all_rec_per_port[rec_index].all_recs),
                      (void const   *)(& rec_det->all_recs), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dev->sriov.alias_guid.ports_guid[port].all_rec_per_port[rec_index].all_recs),

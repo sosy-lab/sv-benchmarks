@@ -4820,7 +4820,7 @@ __inline static struct task_struct *get_current(void)
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -15112,7 +15112,7 @@ static int get_bitmap_file(struct mddev *mddev , void *arg )
       tmp___0 = PTR_ERR((void const   *)ptr);
       err = (int )tmp___0;
     } else {
-      __memmove((void *)(& file->pathname), (void const   *)ptr, (unsigned long )((long )(& file->pathname) - (long )ptr) + 4096UL);
+      memmove((void *)(& file->pathname), (void const   *)ptr, (unsigned long )((long )(& file->pathname) - (long )ptr) + 4096UL);
     }
   }
   spin_unlock(& mddev->lock);
@@ -19725,7 +19725,7 @@ static int md_set_badblocks(struct badblocks *bb , sector_t s , int sectors , in
     if (s >= a___2 && newlen <= 511) {
       ack___1 = (long )*(p + (unsigned long )lo) < 0L && (long )*(p + (unsigned long )hi) < 0L;
       *(p + (unsigned long )lo) = ((*(p + (unsigned long )lo) & 9223372036854775296ULL) | (unsigned long long )(newlen + -1)) | (ack___1 != 0 ? 0x8000000000000000ULL : 0ULL);
-      __memmove((void *)p + (unsigned long )hi, (void const   *)(p + ((unsigned long )hi + 1UL)),
+      memmove((void *)p + (unsigned long )hi, (void const   *)(p + ((unsigned long )hi + 1UL)),
                 (size_t )(((bb->count - hi) + -1) * 8));
       bb->count = bb->count - 1;
     } else {
@@ -19741,7 +19741,7 @@ static int md_set_badblocks(struct badblocks *bb , sector_t s , int sectors , in
     goto ldv_40057;
   } else {
     this_sectors = sectors;
-    __memmove((void *)(p + ((unsigned long )hi + 1UL)), (void const   *)p + (unsigned long )hi,
+    memmove((void *)(p + ((unsigned long )hi + 1UL)), (void const   *)p + (unsigned long )hi,
               (size_t )((bb->count - hi) * 8));
     bb->count = bb->count + 1;
     if (this_sectors > 512) {
@@ -19857,7 +19857,7 @@ static int md_clear_badblocks(struct badblocks *bb , sector_t s , int sectors )
         } else {
 
         }
-        __memmove((void *)(p + ((unsigned long )lo + 1UL)), (void const   *)p + (unsigned long )lo,
+        memmove((void *)(p + ((unsigned long )lo + 1UL)), (void const   *)p + (unsigned long )lo,
                   (size_t )((bb->count - lo) * 8));
         bb->count = bb->count + 1;
         *(p + (unsigned long )lo) = (unsigned long long )((a___0 << 9) | ((s - a___0) - 1UL)) | (ack != 0 ? 0x8000000000000000ULL : 0ULL);
@@ -19890,7 +19890,7 @@ static int md_clear_badblocks(struct badblocks *bb , sector_t s , int sectors )
     }
     ldv_40099: ;
     if (hi - lo > 1) {
-      __memmove((void *)(p + ((unsigned long )lo + 1UL)), (void const   *)p + (unsigned long )hi,
+      memmove((void *)(p + ((unsigned long )lo + 1UL)), (void const   *)p + (unsigned long )hi,
                 (size_t )((bb->count - hi) * 8));
       bb->count = bb->count + ((lo - hi) + 1);
     } else {

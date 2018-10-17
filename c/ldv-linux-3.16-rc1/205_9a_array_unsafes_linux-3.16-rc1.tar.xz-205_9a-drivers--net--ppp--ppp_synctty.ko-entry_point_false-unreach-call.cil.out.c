@@ -5341,7 +5341,7 @@ extern int printk(char const   *  , ...) ;
 extern void print_hex_dump(char const   * , char const   * , int  , int  , int  ,
                            void const   * , size_t  , bool  ) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void atomic_set(atomic_t *v , int i ) 
 { 
 
@@ -6396,7 +6396,7 @@ static int ppp_sync_ioctl(struct ppp_channel *chan , unsigned int cmd , unsigned
   accm[3] = accm[3] | 1610612736U;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ap->xaccm), (void const   *)(& accm), __len);
+    __ret = memcpy((void *)(& ap->xaccm), (void const   *)(& accm), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ap->xaccm), (void const   *)(& accm), __len);
   }

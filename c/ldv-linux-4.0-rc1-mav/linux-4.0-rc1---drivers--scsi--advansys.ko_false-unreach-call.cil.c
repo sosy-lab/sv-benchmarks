@@ -5564,8 +5564,8 @@ extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
@@ -12158,7 +12158,7 @@ static int asc_build_req(struct asc_board *boardp , struct scsi_cmnd *scp , stru
   {
   {
   asc_dvc = & boardp->dvc_var.asc_dvc_var;
-  __memset((void *)asc_scsi_q, 0, 64UL);
+  memset((void *)asc_scsi_q, 0, 64UL);
   asc_scsi_q->q2.srb_ptr = advansys_ptr_to_srb(asc_dvc, (void *)scp);
   }
   if (asc_scsi_q->q2.srb_ptr == 0U) {
@@ -15271,7 +15271,7 @@ static int AdvInitFrom3550EEP(ADV_DVC_VAR *asc_dvc )
   if ((int )tmp != (int )eep_config.check_sum) {
     {
     warn_code = (ushort )((unsigned int )warn_code | 2U);
-    __memcpy((void *)(& eep_config), (void const   *)(& Default_3550_EEPROM_Config),
+    memcpy((void *)(& eep_config), (void const   *)(& Default_3550_EEPROM_Config),
              74UL);
     eep_config.serial_number_word3 = AdvReadEEPWord(iop_base, 20);
     eep_config.serial_number_word2 = AdvReadEEPWord(iop_base, 19);
@@ -15365,7 +15365,7 @@ static int AdvInitFrom38C0800EEP(ADV_DVC_VAR *asc_dvc )
   if ((int )tmp != (int )eep_config.check_sum) {
     {
     warn_code = (ushort )((unsigned int )warn_code | 2U);
-    __memcpy((void *)(& eep_config), (void const   *)(& Default_38C0800_EEPROM_Config),
+    memcpy((void *)(& eep_config), (void const   *)(& Default_38C0800_EEPROM_Config),
              128UL);
     eep_config.serial_number_word3 = AdvReadEEPWord(iop_base, 20);
     eep_config.serial_number_word2 = AdvReadEEPWord(iop_base, 19);
@@ -15515,7 +15515,7 @@ static int AdvInitFrom38C1600EEP(ADV_DVC_VAR *asc_dvc )
     __mptr = (struct device  const  *)((struct asc_board *)__mptr___0 + 0xfffffffffffffff0UL)->dev;
     pdev = (struct pci_dev *)__mptr + 0xffffffffffffff68UL;
     warn_code = (ushort )((unsigned int )warn_code | 2U);
-    __memcpy((void *)(& eep_config), (void const   *)(& Default_38C1600_EEPROM_Config),
+    memcpy((void *)(& eep_config), (void const   *)(& Default_38C1600_EEPROM_Config),
              128UL);
     }
     if ((pdev->devfn & 7U) != 0U) {

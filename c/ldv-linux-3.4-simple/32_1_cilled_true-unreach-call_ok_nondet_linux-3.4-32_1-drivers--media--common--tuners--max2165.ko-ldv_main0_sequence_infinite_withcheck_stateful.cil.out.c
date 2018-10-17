@@ -3209,7 +3209,7 @@ struct max2165_priv {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -5102,7 +5102,7 @@ struct dvb_frontend *max2165_attach(struct dvb_frontend *fe , struct i2c_adapter
     __cil_tmp21 = (struct dvb_tuner_ops *)__cil_tmp20;
     __cil_tmp22 = (void *)__cil_tmp21;
     __cil_tmp23 = (void const   *)(& max2165_tuner_ops);
-    __ret = __memcpy(__cil_tmp22, __cil_tmp23, __len);
+    __ret = memcpy(__cil_tmp22, __cil_tmp23, __len);
     }
   } else {
     {

@@ -17809,7 +17809,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static void *ERR_PTR(long error ) ;
 bool ldv_queue_work_on_192(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;
@@ -18900,7 +18900,7 @@ static netdev_tx_t fm10k_xmit_frame(struct sk_buff *skb , struct net_device *dev
     proto = vhdr->h_vlan_encapsulated_proto;
     tmp___3 = __fswab16((int )proto);
     skb->protocol = (unsigned int )tmp___3 > 1535U ? proto : 1024U;
-    __memmove((void *)skb->data + 4U, (void const   *)skb->data, 12UL);
+    memmove((void *)skb->data + 4U, (void const   *)skb->data, 12UL);
     __skb_pull(skb, 4U);
     skb_reset_mac_header(skb);
   } else {
@@ -28377,7 +28377,7 @@ static u16 fm10k_mbx_dequeue_rx(struct fm10k_hw *hw , struct fm10k_mbx_info *mbx
   } else {
 
   }
-  __memmove((void *)fifo->buffer, (void const   *)fifo->buffer + (unsigned long )fifo->tail,
+  memmove((void *)fifo->buffer, (void const   *)fifo->buffer + (unsigned long )fifo->tail,
             (size_t )((int )mbx->pushed << 2));
   fifo->tail = (int )fifo->tail - (int )fifo->head;
   fifo->head = 0U;

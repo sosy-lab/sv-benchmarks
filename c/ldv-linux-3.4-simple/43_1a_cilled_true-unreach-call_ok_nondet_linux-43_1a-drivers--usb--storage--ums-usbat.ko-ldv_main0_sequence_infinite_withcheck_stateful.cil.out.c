@@ -3779,7 +3779,7 @@ __inline static __u32 __fswab32(__u32 val )
 }
 }
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
@@ -7562,7 +7562,7 @@ static int usbat_flash_transport(struct scsi_cmnd *srb , struct us_data *us )
       {
       __cil_tmp44 = (void *)ptr;
       __cil_tmp45 = (void const   *)(& inquiry_response);
-      __ret = __memcpy(__cil_tmp44, __cil_tmp45, __len);
+      __ret = memcpy(__cil_tmp44, __cil_tmp45, __len);
       }
     } else {
       {

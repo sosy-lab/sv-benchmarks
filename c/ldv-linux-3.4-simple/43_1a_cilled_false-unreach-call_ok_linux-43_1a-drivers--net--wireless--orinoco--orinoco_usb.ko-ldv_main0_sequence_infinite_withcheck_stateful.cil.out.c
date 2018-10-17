@@ -5500,7 +5500,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void    * , size_t  ) ;
+extern void *memcpy(void * , void    * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char    * , int     ) ;
 __inline static void atomic_set(atomic_t *v , int i ) 
@@ -8456,7 +8456,7 @@ static int ezusb_firmware_download(struct ezusb_priv *upriv , struct ez_usb_fw *
     __cil_tmp22 = *((u8    **)__cil_tmp21);
     __cil_tmp23 = (void    *)__cil_tmp22;
     __cil_tmp24 = __cil_tmp23 + __cil_tmp19;
-    __ret = __memcpy(__cil_tmp18, __cil_tmp24, __len);
+    __ret = memcpy(__cil_tmp18, __cil_tmp24, __len);
     }
   } else {
     {
@@ -10212,7 +10212,7 @@ static netdev_tx_t ezusb_xmit(struct sk_buff *skb , struct net_device *dev )
       {
       __cil_tmp84 = (void *)buf;
       __cil_tmp85 = (void    *)m;
-      __ret___0 = __memcpy(__cil_tmp84, __cil_tmp85, __len___0);
+      __ret___0 = memcpy(__cil_tmp84, __cil_tmp85, __len___0);
       }
     } else {
       {

@@ -4468,7 +4468,7 @@ extern int printk(char const * , ...) ;
 extern void warn_slowpath_null(char const * , int const ) ;
 extern unsigned long __phys_addr(unsigned long ) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern char *strcpy(char * , char const * ) ;
 __inline static unsigned long arch_local_save_flags(void)
 { unsigned long __ret ;
@@ -5471,7 +5471,7 @@ static int sis900_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
   __len = 6UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
                      __len);
     }
   } else {
@@ -5534,7 +5534,7 @@ static int sis630e_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net
   __len = 6UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
                      __len);
     }
   } else {
@@ -5583,7 +5583,7 @@ static int sis635_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
   __len = 6UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
                      __len);
     }
   } else {
@@ -5637,7 +5637,7 @@ static int sis96x_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
     __len = 6UL;
     if (__len > 63UL) {
       {
-      __ret = __memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
+      __ret = memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
                        __len);
       }
     } else {

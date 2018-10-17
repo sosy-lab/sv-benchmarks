@@ -3538,7 +3538,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void *to , void const *from , size_t len ) ;
+extern void *memcpy(void *to , void const *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern int memcmp(void const *cs , void const *ct , unsigned long count ) ;
 extern char *strncpy(char * , char const * , __kernel_size_t ) ;
@@ -5597,7 +5597,7 @@ void sm_cache_put(struct sm_ftl *ftl , char *buffer , int boffset )
   __len = (size_t )512;
   if (__len >= 64UL) {
     {
-    __ret = __memcpy((void *)(ftl->cache_data + boffset), (void const *)buffer,
+    __ret = memcpy((void *)(ftl->cache_data + boffset), (void const *)buffer,
                      __len);
     }
   } else {
@@ -5630,7 +5630,7 @@ int sm_cache_get(struct sm_ftl *ftl , char *buffer , int boffset )
   __len = (size_t )512;
   if (__len >= 64UL) {
     {
-    __ret = __memcpy((void *)buffer, (void const *)(ftl->cache_data + boffset),
+    __ret = memcpy((void *)buffer, (void const *)(ftl->cache_data + boffset),
                      __len);
     }
   } else {

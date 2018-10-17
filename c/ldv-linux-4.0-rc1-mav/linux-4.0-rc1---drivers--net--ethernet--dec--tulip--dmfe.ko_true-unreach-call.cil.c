@@ -6306,8 +6306,8 @@ __inline static __u16 __le16_to_cpup(__le16 const   *p )
 }
 extern int printk(char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -6736,7 +6736,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   {
-  __memcpy(to, (void const   *)skb->data, (size_t )len);
+  memcpy(to, (void const   *)skb->data, (size_t )len);
   }
   return;
 }
@@ -8602,7 +8602,7 @@ static void dm9132_id_table(struct net_device *dev )
 
   }
   {
-  __memset((void *)(& hash_table), 0, 8UL);
+  memset((void *)(& hash_table), 0, 8UL);
   hash_table[3] = 32768U;
   __mptr = (struct list_head  const  *)dev->mc.list.next;
   ha = (struct netdev_hw_addr *)__mptr;

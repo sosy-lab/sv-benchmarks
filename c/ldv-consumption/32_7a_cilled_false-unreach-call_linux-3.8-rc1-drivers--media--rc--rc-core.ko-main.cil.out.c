@@ -3239,7 +3239,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern int strcasecmp(char const   * , char const   * ) ;
@@ -4052,7 +4052,7 @@ static int ir_getkeycode(struct input_dev *idev , struct input_keymap_entry *ke 
     ke->len = 4U;
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ke->scancode), (void const   *)(& entry->scancode),
+      __ret = memcpy((void *)(& ke->scancode), (void const   *)(& entry->scancode),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ke->scancode), (void const   *)(& entry->scancode),
@@ -4843,7 +4843,7 @@ int rc_register_device(struct rc_dev *dev )
   (dev->input_dev)->dev.parent = & dev->dev;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (dev->input_dev)->id), (void const   *)(& dev->input_id),
+    __ret = memcpy((void *)(& (dev->input_dev)->id), (void const   *)(& dev->input_id),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (dev->input_dev)->id), (void const   *)(& dev->input_id),

@@ -5355,7 +5355,7 @@ struct smsc95xx_priv {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern struct module __this_module ;
 __inline static int constant_test_bit(long nr , unsigned long const volatile   *addr ) 
@@ -6685,7 +6685,7 @@ static void smsc95xx_status(struct usbnet *dev , struct urb *urb )
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& intdata), (void const   *)urb->transfer_buffer, __len);
+    __ret = memcpy((void *)(& intdata), (void const   *)urb->transfer_buffer, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& intdata), (void const   *)urb->transfer_buffer,
                              __len);
@@ -8462,7 +8462,7 @@ static int smsc95xx_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
   ldv_42633: 
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& header), (void const   *)skb->data, __len);
+    __ret = memcpy((void *)(& header), (void const   *)skb->data, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& header), (void const   *)skb->data, __len);
   }
@@ -8659,7 +8659,7 @@ static struct sk_buff *smsc95xx_tx_fixup(struct usbnet *dev , struct sk_buff *sk
       skb_push(skb, 4U);
       __len = 4UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)skb->data, (void const   *)(& csum_preamble), __len);
+        __ret = memcpy((void *)skb->data, (void const   *)(& csum_preamble), __len);
       } else {
         __ret = __builtin_memcpy((void *)skb->data, (void const   *)(& csum_preamble),
                                  __len);
@@ -8677,7 +8677,7 @@ static struct sk_buff *smsc95xx_tx_fixup(struct usbnet *dev , struct sk_buff *sk
   }
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)skb->data, (void const   *)(& tx_cmd_b), __len___0);
+    __ret___0 = memcpy((void *)skb->data, (void const   *)(& tx_cmd_b), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)skb->data, (void const   *)(& tx_cmd_b),
                                  __len___0);
@@ -8686,7 +8686,7 @@ static struct sk_buff *smsc95xx_tx_fixup(struct usbnet *dev , struct sk_buff *sk
   tx_cmd_a = (skb->len - 8U) | 12288U;
   __len___1 = 4UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)skb->data, (void const   *)(& tx_cmd_a), __len___1);
+    __ret___1 = memcpy((void *)skb->data, (void const   *)(& tx_cmd_a), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)skb->data, (void const   *)(& tx_cmd_a),
                                  __len___1);

@@ -5380,7 +5380,7 @@ __inline static __u16 __be16_to_cpup(__be16 const   *p )
 }
 extern int printk(char const   *  , ...) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void atomic_set(atomic_t *v , int i ) 
 { 
 
@@ -6423,7 +6423,7 @@ static int ppp_async_ioctl(struct ppp_channel *chan , unsigned int cmd , unsigne
   accm[3] = accm[3] | 1610612736U;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ap->xaccm), (void const   *)(& accm), __len);
+    __ret = memcpy((void *)(& ap->xaccm), (void const   *)(& accm), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ap->xaccm), (void const   *)(& accm), __len);
   }

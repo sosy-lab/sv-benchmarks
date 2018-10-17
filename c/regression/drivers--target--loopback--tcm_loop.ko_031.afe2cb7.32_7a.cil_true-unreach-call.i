@@ -6509,7 +6509,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
@@ -7830,7 +7830,7 @@ static int tcm_loop_queue_status(struct se_cmd *se_cmd )
   if ((unsigned long )se_cmd->sense_buffer != (unsigned long )((void *)0) && ((se_cmd->se_cmd_flags & 2U) != 0U || (se_cmd->se_cmd_flags & 4U) != 0U)) {
     __len = 96UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)sc->sense_buffer, (void const   *)se_cmd->sense_buffer,
+      __ret = memcpy((void *)sc->sense_buffer, (void const   *)se_cmd->sense_buffer,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)sc->sense_buffer, (void const   *)se_cmd->sense_buffer,

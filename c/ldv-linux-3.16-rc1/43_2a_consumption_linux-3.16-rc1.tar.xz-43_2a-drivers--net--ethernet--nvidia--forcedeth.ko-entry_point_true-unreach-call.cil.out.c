@@ -5593,7 +5593,7 @@ extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -11110,7 +11110,7 @@ static int nv_set_mac_address(struct net_device *dev , void *addr )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& macaddr->sa_data),
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& macaddr->sa_data),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& macaddr->sa_data),

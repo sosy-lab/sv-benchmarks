@@ -13746,7 +13746,7 @@ void ldv_mutex_unlock_284(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
@@ -14872,7 +14872,7 @@ static void qat_uclo_map_initmem_table(struct icp_qat_uof_encap_obj *encap_uof_o
   tmp = qat_uclo_find_chunk(encap_uof_obj->obj_hdr, (char *)"UOF_IMEM", (void *)0);
   chunk_hdr = (struct icp_qat_uof_chunkhdr *)tmp;
   if ((unsigned long )chunk_hdr != (unsigned long )((struct icp_qat_uof_chunkhdr *)0)) {
-    __memmove((void *)(& init_mem_tab->entry_num), (void const   *)encap_uof_obj->beg_uof + (unsigned long )chunk_hdr->offset,
+    memmove((void *)(& init_mem_tab->entry_num), (void const   *)encap_uof_obj->beg_uof + (unsigned long )chunk_hdr->offset,
               4UL);
     init_mem_tab->init_mem = (struct icp_qat_uof_initmem *)(encap_uof_obj->beg_uof + ((unsigned long )chunk_hdr->offset + 4UL));
   } else {

@@ -3838,7 +3838,7 @@ long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 unsigned long strlen(char const   *str ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
@@ -5331,7 +5331,7 @@ static int si4713_setup(struct si4713_device *sdev )
   mutex_lock_nested(& sdev->mutex, 0U);
   __len = 2616UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)tmp, (void const   *)sdev, __len);
+    __ret = memcpy((void *)tmp, (void const   *)sdev, __len);
   } else {
     __ret = __builtin_memcpy((void *)tmp, (void const   *)sdev, __len);
   }

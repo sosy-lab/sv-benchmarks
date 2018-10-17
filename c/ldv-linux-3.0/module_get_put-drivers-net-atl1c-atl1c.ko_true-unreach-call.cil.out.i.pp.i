@@ -5119,7 +5119,7 @@ extern void warn_slowpath_null(char const * , int const ) ;
 extern unsigned long __phys_addr(unsigned long ) ;
 extern void __bad_percpu_size(void) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 __inline static unsigned long arch_local_save_flags(void)
 { unsigned long __ret ;
@@ -10109,7 +10109,7 @@ static void atl1c_tx_map(struct atl1c_adapter *adapter , struct sk_buff *skb , s
       }
       if (__len > 63UL) {
         {
-        __ret = __memcpy((void *)use_tpd, (void const *)tpd, __len);
+        __ret = memcpy((void *)use_tpd, (void const *)tpd, __len);
         }
       } else {
         {
@@ -10145,7 +10145,7 @@ static void atl1c_tx_map(struct atl1c_adapter *adapter , struct sk_buff *skb , s
   }
   if (__len___0 > 63UL) {
     {
-    __ret___0 = __memcpy((void *)use_tpd, (void const *)tpd, __len___0);
+    __ret___0 = memcpy((void *)use_tpd, (void const *)tpd, __len___0);
     }
   } else {
     {
@@ -11911,7 +11911,7 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
     __len = 6UL;
     if (__len > 63UL) {
       {
-      __ret = __memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
+      __ret = memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
                        __len);
       }
     } else {
@@ -12068,7 +12068,7 @@ int atl1c_read_mac_addr(struct atl1c_hw *hw )
   __len = 6UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& hw->mac_addr), (void const *)(& hw->perm_mac_addr),
+    __ret = memcpy((void *)(& hw->mac_addr), (void const *)(& hw->perm_mac_addr),
                      __len);
     }
   } else {

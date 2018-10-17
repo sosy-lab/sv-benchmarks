@@ -6211,7 +6211,7 @@ __inline static int get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern unsigned long __get_free_pages(gfp_t gfp_mask , unsigned int order ) ;
 __inline static void rcu_read_lock_sched_notrace(void)  __attribute__((__no_instrument_function__)) ;
 __inline static void rcu_read_lock_sched_notrace(void) 
@@ -7088,7 +7088,7 @@ struct dvb_frontend *vp7045_fe_attach(struct dvb_usb_device *d )
   s->d = d;
   __len = sizeof(struct dvb_frontend_ops );
   if (__len >= (size_t )64) {
-    __ret = __memcpy(& s->fe.ops, & vp7045_fe_ops, __len);
+    __ret = memcpy(& s->fe.ops, & vp7045_fe_ops, __len);
   } else {
     __ret = __builtin_memcpy(& s->fe.ops, & vp7045_fe_ops, __len);
   }

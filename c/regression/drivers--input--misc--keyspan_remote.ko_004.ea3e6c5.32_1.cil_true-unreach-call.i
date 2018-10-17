@@ -2851,7 +2851,7 @@ __inline static void ( __attribute__((__always_inline__)) __clear_bit)(int nr , 
 extern int ( /* format attribute */  snprintf)(char *buf , size_t size , char const   *fmt 
                                                , ...) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern unsigned long strlen(char const   *s ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
@@ -3227,7 +3227,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
   if (i < 8) {
     __len = 8;
     if (__len >= (size_t )64) {
-      __ret = __memcpy(remote->data.buffer, remote->in_buffer, __len);
+      __ret = memcpy(remote->data.buffer, remote->in_buffer, __len);
     } else {
       __ret = __builtin_memcpy(remote->data.buffer, remote->in_buffer, __len);
     }
@@ -3243,7 +3243,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
   case 1: 
   __len___0 = 8;
   if (__len___0 >= (size_t )64) {
-    __ret___0 = __memcpy(remote->data.buffer + remote->data.len, remote->in_buffer,
+    __ret___0 = memcpy(remote->data.buffer + remote->data.len, remote->in_buffer,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy(remote->data.buffer + remote->data.len, remote->in_buffer,
@@ -3293,7 +3293,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
   case 2: 
   __len___1 = 8;
   if (__len___1 >= (size_t )64) {
-    __ret___1 = __memcpy(remote->data.buffer + remote->data.len, remote->in_buffer,
+    __ret___1 = memcpy(remote->data.buffer + remote->data.len, remote->in_buffer,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy(remote->data.buffer + remote->data.len, remote->in_buffer,
@@ -3602,7 +3602,7 @@ static int keyspan_probe(struct usb_interface *interface , struct usb_device_id 
   strlcat(remote->phys, "/input0", sizeof(remote->phys));
   __len = sizeof(remote->keymap);
   if (__len >= (size_t )64) {
-    __ret = __memcpy(remote->keymap, keyspan_key_table, __len);
+    __ret = memcpy(remote->keymap, keyspan_key_table, __len);
   } else {
     __ret = __builtin_memcpy(remote->keymap, keyspan_key_table, __len);
   }

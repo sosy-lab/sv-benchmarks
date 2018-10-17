@@ -4665,7 +4665,7 @@ extern void warn_slowpath_null(char const *file , int const line ) ;
 extern int sprintf(char *buf , char const *fmt , ...) ;
 extern unsigned long __phys_addr(unsigned long ) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void *to , void const *from , size_t len ) ;
+extern void *memcpy(void *to , void const *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 __inline static unsigned long arch_local_save_flags(void) __attribute__((__no_instrument_function__)) ;
 __inline static unsigned long arch_local_save_flags(void) __attribute__((__no_instrument_function__)) ;
@@ -9320,7 +9320,7 @@ static void msgin_set_sync(struct AdapterCtlBlk *acb , struct ScsiReqBlk *srb )
     }
     if (__len >= 64UL) {
       {
-      __ret = __memcpy((void *)(srb->msgout_buf), (void const *)(srb->msgin_buf),
+      __ret = memcpy((void *)(srb->msgout_buf), (void const *)(srb->msgin_buf),
                        __len);
       }
     } else {
@@ -9448,7 +9448,7 @@ static void msgin_set_wide(struct AdapterCtlBlk *acb , struct ScsiReqBlk *srb )
     }
     if (__len >= 64UL) {
       {
-      __ret = __memcpy((void *)(srb->msgout_buf), (void const *)(srb->msgin_buf),
+      __ret = memcpy((void *)(srb->msgout_buf), (void const *)(srb->msgin_buf),
                        __len);
       }
     } else {

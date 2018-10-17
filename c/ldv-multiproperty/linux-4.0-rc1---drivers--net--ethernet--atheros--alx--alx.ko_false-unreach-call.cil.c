@@ -7189,8 +7189,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -9430,8 +9430,8 @@ static void alx_free_txring_buf(struct alx_priv *alx )
 
   }
   {
-  __memset((void *)txq->bufs, 0, (unsigned long )alx->tx_ringsz * 24UL);
-  __memset((void *)txq->tpd, 0, (unsigned long )alx->tx_ringsz * 16UL);
+  memset((void *)txq->bufs, 0, (unsigned long )alx->tx_ringsz * 24UL);
+  memset((void *)txq->tpd, 0, (unsigned long )alx->tx_ringsz * 16UL);
   txq->write_idx = 0U;
   txq->read_idx = 0U;
   netdev_reset_queue(alx->dev);
@@ -9635,8 +9635,8 @@ static int alx_set_mac_address(struct net_device *netdev , void *data )
 
   }
   {
-  __memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
-  __memcpy((void *)(& hw->mac_addr), (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
+  memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
+  memcpy((void *)(& hw->mac_addr), (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
   alx_set_macaddr(hw, (u8 const   *)(& hw->mac_addr));
   }
   return (0);
@@ -10522,7 +10522,7 @@ static netdev_tx_t alx_start_xmit(struct sk_buff *skb , struct net_device *netde
   }
   {
   first = txq->tpd + (unsigned long )txq->write_idx;
-  __memset((void *)first, 0, 16UL);
+  memset((void *)first, 0, 16UL);
   tmp___2 = alx_tx_csum(skb, first);
   }
   if (tmp___2 != 0) {
@@ -10936,15 +10936,15 @@ static int alx_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent )
     {
     dev_warn((struct device  const  *)(& pdev->dev), "Invalid permanent address programmed, using random one\n");
     eth_hw_addr_random(netdev);
-    __memcpy((void *)(& hw->perm_addr), (void const   *)netdev->dev_addr, (size_t )netdev->addr_len);
+    memcpy((void *)(& hw->perm_addr), (void const   *)netdev->dev_addr, (size_t )netdev->addr_len);
     }
   } else {
 
   }
   {
-  __memcpy((void *)(& hw->mac_addr), (void const   *)(& hw->perm_addr), 6UL);
-  __memcpy((void *)netdev->dev_addr, (void const   *)(& hw->mac_addr), 6UL);
-  __memcpy((void *)(& netdev->perm_addr), (void const   *)(& hw->perm_addr), 6UL);
+  memcpy((void *)(& hw->mac_addr), (void const   *)(& hw->perm_addr), 6UL);
+  memcpy((void *)netdev->dev_addr, (void const   *)(& hw->mac_addr), 6UL);
+  memcpy((void *)(& netdev->perm_addr), (void const   *)(& hw->perm_addr), 6UL);
   hw->mdio.prtad = 0;
   hw->mdio.mmds = 0U;
   hw->mdio.dev = netdev;
@@ -14601,7 +14601,7 @@ static void alx_get_ethtool_stats(struct net_device *netdev , struct ethtool_sta
 
   }
   {
-  __memcpy((void *)data, (void const   *)(& hw->stats.rx_ok), 400UL);
+  memcpy((void *)data, (void const   *)(& hw->stats.rx_ok), 400UL);
   ldv_spin_unlock_142(& alx->stats_lock);
   }
   return;
@@ -14622,7 +14622,7 @@ static void alx_get_strings(struct net_device *netdev , u32 stringset , u8 *buf 
   goto switch_default;
   case_1: /* CIL Label */ 
   {
-  __memcpy((void *)buf, (void const   *)(& alx_gstrings_stats), 1600UL);
+  memcpy((void *)buf, (void const   *)(& alx_gstrings_stats), 1600UL);
   }
   goto ldv_51513;
   switch_default: /* CIL Label */ 

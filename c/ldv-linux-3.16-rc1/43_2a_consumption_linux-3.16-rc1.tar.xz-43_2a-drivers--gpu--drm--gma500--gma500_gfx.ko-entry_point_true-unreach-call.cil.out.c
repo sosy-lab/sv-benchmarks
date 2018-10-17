@@ -10441,7 +10441,7 @@ void *ldv_kmem_cache_alloc_96(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return ((void *)0);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 extern void *ldv_malloc(size_t);
@@ -11119,7 +11119,7 @@ static void parse_device_mapping(struct drm_psb_private *dev_priv , struct bdb_h
   count = count + 1;
   __len = 33UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)child_dev_ptr, (void const   *)p_child, __len);
+    __ret = memcpy((void *)child_dev_ptr, (void const   *)p_child, __len);
   } else {
     __ret = __builtin_memcpy((void *)child_dev_ptr, (void const   *)p_child, __len);
   }
@@ -17061,7 +17061,7 @@ int gma_crtc_cursor_set(struct drm_crtc *crtc , struct drm_file *file_priv , uin
     tmp_src = kmap(*(gt->pages + (unsigned long )i));
     __len = 4096UL;
     if (__len > 63UL) {
-      __ret = __memcpy(tmp_dst, (void const   *)tmp_src, __len);
+      __ret = memcpy(tmp_dst, (void const   *)tmp_src, __len);
     } else {
       __ret = __builtin_memcpy(tmp_dst, (void const   *)tmp_src, __len);
     }
@@ -23147,7 +23147,7 @@ static bool psb_intel_sdvo_output_setup(struct psb_intel_sdvo *psb_intel_sdvo , 
     psb_intel_sdvo->controlled_output = 0U;
     __len = 2UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& bytes), (void const   *)(& psb_intel_sdvo->caps.output_flags),
+      __ret = memcpy((void *)(& bytes), (void const   *)(& psb_intel_sdvo->caps.output_flags),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& bytes), (void const   *)(& psb_intel_sdvo->caps.output_flags),
@@ -29154,7 +29154,7 @@ static bool cdv_intel_find_dp_pll(struct gma_limit_t  const  *limit , struct drm
   (*((gma_crtc->clock_funcs)->clock))(refclk, & clock);
   __len = 36UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)best_clock, (void const   *)(& clock), __len);
+    __ret = memcpy((void *)best_clock, (void const   *)(& clock), __len);
   } else {
     __ret = __builtin_memcpy((void *)best_clock, (void const   *)(& clock), __len);
   }
@@ -35867,14 +35867,14 @@ static int oaktrail_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mod
   }
   __len = 208UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& gma_crtc->saved_mode), (void const   *)mode, __len);
+    __ret = memcpy((void *)(& gma_crtc->saved_mode), (void const   *)mode, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& gma_crtc->saved_mode), (void const   *)mode,
                              __len);
   }
   __len___0 = 208UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& gma_crtc->saved_adjusted_mode), (void const   *)adjusted_mode,
+    __ret___0 = memcpy((void *)(& gma_crtc->saved_adjusted_mode), (void const   *)adjusted_mode,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& gma_crtc->saved_adjusted_mode), (void const   *)adjusted_mode,
@@ -38439,7 +38439,7 @@ static void hdmi_i2c_read(struct oaktrail_hdmi_dev *hdmi_dev )
   temp = readl((void const volatile   *)hdmi_dev->regs + (unsigned long )((i + 1152) * 4));
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const   *)(& temp),
+    __ret = memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const   *)(& temp),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const   *)(& temp),
