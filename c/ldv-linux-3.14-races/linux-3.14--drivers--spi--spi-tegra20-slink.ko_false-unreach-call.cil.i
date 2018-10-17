@@ -7062,9 +7062,9 @@ int ldv_atomic_dec_and_lock_siglock_of_sighand_struct(void)
   return (0);
 }
 }
-void *__VEFIRIER_nondet_pointer(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VEFIRIER_nondet_pointer();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {
@@ -7085,17 +7085,17 @@ void __const_udelay(unsigned long arg0){
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int reset_control_assert(struct reset_control *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int platform_get_irq(struct platform_device *arg0, unsigned int arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int devm_spi_register_master(struct device *arg0, struct spi_master *arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void ldv_after_alloc(void *arg0){
   return;
@@ -7103,21 +7103,21 @@ void ldv_after_alloc(void *arg0){
 void debug_dma_sync_single_for_cpu(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int clk_enable(struct clk *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int wait_for_completion_interruptible_timeout(struct completion *arg0, unsigned long arg1){
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 void *external_alloc(void);
 struct dma_chan *dma_request_slave_channel_reason(struct device *arg0, const char *arg1){
   return (struct dma_chan *)external_alloc();
 }
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int wait_for_completion_timeout(struct completion *arg0, unsigned long arg1){
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 void ldv_switch_to_interrupt_context(){
   return;
@@ -7125,9 +7125,9 @@ void ldv_switch_to_interrupt_context(){
 void __pm_runtime_disable(struct device *arg0, bool arg1){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int reset_control_deassert(struct reset_control *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void ldv_check_alloc_flags(gfp_t arg0){
   return;
@@ -7136,16 +7136,16 @@ void *external_alloc(void);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2){
   return (struct resource *)external_alloc();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int clk_set_rate(struct clk *arg0, unsigned long arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void sg_init_table(struct scatterlist *arg0, unsigned int arg1){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __pm_runtime_resume(struct device *arg0, int arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void __ldv_spin_lock(spinlock_t *arg0){
   return;
@@ -7166,21 +7166,21 @@ void *external_alloc(void);
 struct reset_control *devm_reset_control_get(struct device *arg0, const char *arg1){
   return (struct reset_control *)external_alloc();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int msecs_to_jiffies(const unsigned int arg0){
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int spi_master_resume(struct spi_master *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void pm_runtime_enable(struct device *arg0){
   return;
@@ -7200,13 +7200,13 @@ struct clk *devm_clk_get(struct device *arg0, const char *arg1){
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __pm_runtime_idle(struct device *arg0, int arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int spi_master_suspend(struct spi_master *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3){
   return;
@@ -7218,9 +7218,9 @@ void *external_alloc(void);
 void *memcpy(void *arg0, const void *arg1, size_t arg2){
   return (void *)external_alloc();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int clk_prepare(struct clk *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void dma_release_channel(struct dma_chan *arg0){
   return;

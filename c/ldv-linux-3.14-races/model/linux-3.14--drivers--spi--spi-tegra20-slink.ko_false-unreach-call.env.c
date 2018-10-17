@@ -49,28 +49,28 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1){
 // Function: reset_control_assert
 // with type: int reset_control_assert(struct reset_control *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int reset_control_assert(struct reset_control *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: platform_get_irq
 // with type: int platform_get_irq(struct platform_device *, unsigned int)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int platform_get_irq(struct platform_device *arg0, unsigned int arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: devm_spi_register_master
 // with type: int devm_spi_register_master(struct device *, struct spi_master *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int devm_spi_register_master(struct device *arg0, struct spi_master *arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: ldv_after_alloc
@@ -94,19 +94,19 @@ void debug_dma_sync_single_for_cpu(struct device *arg0, dma_addr_t arg1, size_t 
 // Function: clk_enable
 // with type: int clk_enable(struct clk *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int clk_enable(struct clk *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: wait_for_completion_interruptible_timeout
 // with type: long int wait_for_completion_interruptible_timeout(struct completion *, unsigned long)
 // with return type: long int
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int wait_for_completion_interruptible_timeout(struct completion *arg0, unsigned long arg1){
   // Simple type
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 
 // Function: dma_request_slave_channel_reason
@@ -121,10 +121,10 @@ struct dma_chan *dma_request_slave_channel_reason(struct device *arg0, const cha
 // Function: wait_for_completion_timeout
 // with type: unsigned long int wait_for_completion_timeout(struct completion *, unsigned long)
 // with return type: unsigned long int
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int wait_for_completion_timeout(struct completion *arg0, unsigned long arg1){
   // Simple type
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 
 // Skip function: memset
@@ -148,10 +148,10 @@ void __pm_runtime_disable(struct device *arg0, bool arg1){
 // Function: reset_control_deassert
 // with type: int reset_control_deassert(struct reset_control *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int reset_control_deassert(struct reset_control *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: ldv_check_alloc_flags
@@ -174,10 +174,10 @@ struct resource *platform_get_resource(struct platform_device *arg0, unsigned in
 // Function: clk_set_rate
 // with type: int clk_set_rate(struct clk *, unsigned long)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int clk_set_rate(struct clk *arg0, unsigned long arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: sg_init_table
@@ -191,10 +191,10 @@ void sg_init_table(struct scatterlist *arg0, unsigned int arg1){
 // Function: __pm_runtime_resume
 // with type: int __pm_runtime_resume(struct device *, int)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __pm_runtime_resume(struct device *arg0, int arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: __VERIFIER_nondet_ulong
@@ -253,28 +253,28 @@ struct reset_control *devm_reset_control_get(struct device *arg0, const char *ar
 // Function: dev_err
 // with type: int dev_err(const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: msecs_to_jiffies
 // with type: unsigned long int msecs_to_jiffies(const unsigned int)
 // with return type: unsigned long int
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int msecs_to_jiffies(const unsigned int arg0){
   // Simple type
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 
 // Function: __dynamic_dev_dbg
 // with type: int __dynamic_dev_dbg(struct _ddebug *, const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: __VERIFIER_error
@@ -282,10 +282,10 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 // Function: spi_master_resume
 // with type: int spi_master_resume(struct spi_master *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int spi_master_resume(struct spi_master *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: free
@@ -338,19 +338,19 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
 // Function: __pm_runtime_idle
 // with type: int __pm_runtime_idle(struct device *, int)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __pm_runtime_idle(struct device *arg0, int arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: spi_master_suspend
 // with type: int spi_master_suspend(struct spi_master *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int spi_master_suspend(struct spi_master *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: debug_dma_free_coherent
@@ -381,10 +381,10 @@ void *memcpy(void *arg0, const void *arg1, size_t arg2){
 // Function: clk_prepare
 // with type: int clk_prepare(struct clk *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int clk_prepare(struct clk *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: __VERIFIER_nondet_int

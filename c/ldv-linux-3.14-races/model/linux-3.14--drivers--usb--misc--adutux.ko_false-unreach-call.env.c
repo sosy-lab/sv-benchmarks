@@ -15,19 +15,19 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: usb_submit_urb
 // with type: int usb_submit_urb(struct urb *, gfp_t )
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_submit_urb(struct urb *arg0, gfp_t arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: _dev_info
 // with type: int _dev_info(const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: remove_wait_queue
@@ -41,10 +41,10 @@ void remove_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1){
 // Function: _copy_to_user
 // with type: unsigned long int _copy_to_user(void *, const void *, unsigned int)
 // with return type: unsigned long int
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2){
   // Simple type
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 
 // Skip function: pthread_mutex_lock
@@ -80,10 +80,10 @@ void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3)
 // Function: usb_register_dev
 // with type: int usb_register_dev(struct usb_interface *, struct usb_class_driver *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_register_dev(struct usb_interface *arg0, struct usb_class_driver *arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: usb_free_urb
@@ -143,10 +143,10 @@ void might_fault(){
 // Function: printk
 // with type: int printk(const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: calloc
@@ -162,19 +162,19 @@ void ldv_pre_probe(){
 // Function: dev_err
 // with type: int dev_err(const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: __dynamic_dev_dbg
 // with type: int __dynamic_dev_dbg(struct _ddebug *, const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: __mutex_init
@@ -198,23 +198,23 @@ void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg
 // Function: ldv_failed_usb_register_driver
 // with type: int ldv_failed_usb_register_driver()
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int ldv_failed_usb_register_driver(){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: noop_llseek
 // with type: loff_t noop_llseek(struct file *, loff_t , int)
 // with return type: loff_t 
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2){
   // Typedef type
   // Real type: __kernel_loff_t 
   // Typedef type
   // Real type: long long
   // Simple type
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 
 // Skip function: free
@@ -257,10 +257,10 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
 // Function: schedule_timeout
 // with type: long int schedule_timeout(long)
 // with return type: long int
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int schedule_timeout(long arg0){
   // Simple type
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 
 // Function: __copy_from_user_overflow
@@ -282,10 +282,10 @@ void _raw_spin_lock(raw_spinlock_t *arg0){
 // Function: usb_string
 // with type: int usb_string(struct usb_device *, int, char *, size_t )
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_string(struct usb_device *arg0, int arg1, char *arg2, size_t arg3){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: usb_alloc_urb
@@ -320,10 +320,10 @@ struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1){
 // Function: _copy_from_user
 // with type: unsigned long int _copy_from_user(void *, const void *, unsigned int)
 // with return type: unsigned long int
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_from_user(void *arg0, const void *arg1, unsigned int arg2){
   // Simple type
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 
 // Skip function: pthread_create

@@ -9,7 +9,7 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: vb2_read
 // with type: size_t vb2_read(struct vb2_queue *, char *, size_t , loff_t *, int)
 // with return type: size_t 
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 size_t vb2_read(struct vb2_queue *arg0, char *arg1, size_t arg2, loff_t *arg3, int arg4){
   // Typedef type
   // Real type: __kernel_size_t 
@@ -18,7 +18,7 @@ size_t vb2_read(struct vb2_queue *arg0, char *arg1, size_t arg2, loff_t *arg3, i
   // Typedef type
   // Real type: unsigned long
   // Simple type
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 
 // Skip function: pthread_join
@@ -50,10 +50,10 @@ void vb2_buffer_done(struct vb2_buffer *arg0, enum vb2_buffer_state arg1){
 // Function: video_ioctl2
 // with type: long int video_ioctl2(struct file *, unsigned int, unsigned long)
 // with return type: long int
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int video_ioctl2(struct file *arg0, unsigned int arg1, unsigned long arg2){
   // Simple type
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 
 // Skip function: pthread_mutex_trylock
@@ -61,10 +61,10 @@ long int video_ioctl2(struct file *arg0, unsigned int arg1, unsigned long arg2){
 // Function: pci_enable_device
 // with type: int pci_enable_device(struct pci_dev *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: __const_udelay
@@ -112,10 +112,10 @@ struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i
 // Function: vb2_streamon
 // with type: int vb2_streamon(struct vb2_queue *, enum v4l2_buf_type )
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_streamon(struct vb2_queue *arg0, enum v4l2_buf_type arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: debug_dma_unmap_sg
@@ -181,7 +181,7 @@ void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3)
 // Function: strlcpy
 // with type: size_t strlcpy(char *, const char *, size_t )
 // with return type: size_t 
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2){
   // Typedef type
   // Real type: __kernel_size_t 
@@ -190,7 +190,7 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2){
   // Typedef type
   // Real type: unsigned long
   // Simple type
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 
 // Skip function: __VERIFIER_nondet_pointer
@@ -214,10 +214,10 @@ void iowrite32(u32 arg0, void *arg1){
 // Function: vb2_queue_init
 // with type: int vb2_queue_init(struct vb2_queue *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_queue_init(struct vb2_queue *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: __tasklet_schedule
@@ -277,19 +277,19 @@ void *vb2_dma_contig_init_ctx(struct device *arg0){
 // Function: prepare_to_wait_event
 // with type: long int prepare_to_wait_event(wait_queue_head_t *, wait_queue_t *, int)
 // with return type: long int
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2){
   // Simple type
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 
 // Function: v4l2_device_register
 // with type: int v4l2_device_register(struct device *, struct v4l2_device *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int v4l2_device_register(struct device *arg0, struct v4l2_device *arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: kfree
@@ -313,19 +313,19 @@ void ldv_switch_to_process_context(){
 // Function: vb2_mmap
 // with type: int vb2_mmap(struct vb2_queue *, struct vm_area_struct *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_mmap(struct vb2_queue *arg0, struct vm_area_struct *arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: vb2_dqbuf
 // with type: int vb2_dqbuf(struct vb2_queue *, struct v4l2_buffer *, bool )
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_dqbuf(struct vb2_queue *arg0, struct v4l2_buffer *arg1, bool arg2){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: pci_iomap
@@ -348,10 +348,10 @@ void pci_iounmap(struct pci_dev *arg0, void *arg1){
 // Function: printk
 // with type: int printk(const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: tasklet_init
@@ -391,10 +391,10 @@ void vb2_queue_release(struct vb2_queue *arg0){
 // Function: dev_err
 // with type: int dev_err(const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: pci_disable_device
@@ -408,19 +408,19 @@ void pci_disable_device(struct pci_dev *arg0){
 // Function: __dynamic_dev_dbg
 // with type: int __dynamic_dev_dbg(struct _ddebug *, const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: vb2_qbuf
 // with type: int vb2_qbuf(struct vb2_queue *, struct v4l2_buffer *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_qbuf(struct vb2_queue *arg0, struct v4l2_buffer *arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: __mutex_init
@@ -499,10 +499,10 @@ void video_unregister_device(struct video_device *arg0){
 // Function: vb2_querybuf
 // with type: int vb2_querybuf(struct vb2_queue *, struct v4l2_buffer *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_querybuf(struct vb2_queue *arg0, struct v4l2_buffer *arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: debug_dma_map_sg
@@ -516,28 +516,28 @@ void debug_dma_map_sg(struct device *arg0, struct scatterlist *arg1, int arg2, i
 // Function: v4l2_ctrl_handler_init_class
 // with type: int v4l2_ctrl_handler_init_class(struct v4l2_ctrl_handler *, unsigned int, struct lock_class_key *, const char *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_handler_init_class(struct v4l2_ctrl_handler *arg0, unsigned int arg1, struct lock_class_key *arg2, const char *arg3){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: dev_warn
 // with type: int dev_warn(const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: schedule_timeout
 // with type: long int schedule_timeout(long)
 // with return type: long int
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int schedule_timeout(long arg0){
   // Simple type
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 
 // Function: _raw_spin_lock
@@ -568,28 +568,28 @@ void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_a
 // Function: ioread32
 // with type: unsigned int ioread32(void *)
 // with return type: unsigned int
-unsigned int __VEFIRIER_nondet_uint(void);
+unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0){
   // Simple type
-  return __VEFIRIER_nondet_uint();
+  return __VERIFIER_nondet_uint();
 }
 
 // Function: __video_register_device
 // with type: int __video_register_device(struct video_device *, int, int, int, struct module *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __video_register_device(struct video_device *arg0, int arg1, int arg2, int arg3, struct module *arg4){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: vb2_streamoff
 // with type: int vb2_streamoff(struct vb2_queue *, enum v4l2_buf_type )
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_streamoff(struct vb2_queue *arg0, enum v4l2_buf_type arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: memcpy
@@ -606,19 +606,19 @@ void *memcpy(void *arg0, const void *arg1, size_t arg2){
 // Function: vb2_poll
 // with type: unsigned int vb2_poll(struct vb2_queue *, struct file *, poll_table *)
 // with return type: unsigned int
-unsigned int __VEFIRIER_nondet_uint(void);
+unsigned int __VERIFIER_nondet_uint(void);
 unsigned int vb2_poll(struct vb2_queue *arg0, struct file *arg1, poll_table *arg2){
   // Simple type
-  return __VEFIRIER_nondet_uint();
+  return __VERIFIER_nondet_uint();
 }
 
 // Function: pci_save_state
 // with type: int pci_save_state(struct pci_dev *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int pci_save_state(struct pci_dev *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: finish_wait
@@ -632,10 +632,10 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1){
 // Function: i2c_add_adapter
 // with type: int i2c_add_adapter(struct i2c_adapter *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int i2c_add_adapter(struct i2c_adapter *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: pthread_create
@@ -643,9 +643,9 @@ int i2c_add_adapter(struct i2c_adapter *arg0){
 // Function: vb2_reqbufs
 // with type: int vb2_reqbufs(struct vb2_queue *, struct v4l2_requestbuffers *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_reqbufs(struct vb2_queue *arg0, struct v4l2_requestbuffers *arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 

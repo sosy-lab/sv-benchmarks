@@ -7685,9 +7685,9 @@ int ldv_atomic_dec_and_lock_siglock_of_sighand_struct(void)
   return (0);
 }
 }
-void *__VEFIRIER_nondet_pointer(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VEFIRIER_nondet_pointer();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {
@@ -7696,25 +7696,25 @@ void kfree(void const *p) {
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_submit_urb(struct urb *arg0, gfp_t arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlen(const char *arg0){
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int memcmp(const void *arg0, const void *arg1, size_t arg2){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2){
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 void *external_alloc(void);
 char *kasprintf(gfp_t arg0, const char *arg1, ...){
@@ -7727,9 +7727,9 @@ void *external_alloc(void);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3){
   return (void *)external_alloc();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 arg3, __u16 arg4, __u16 arg5, void *arg6, __u16 arg7, int arg8){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void ldv_after_alloc(void *arg0){
   return;
@@ -7737,9 +7737,9 @@ void ldv_after_alloc(void *arg0){
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_register_dev(struct usb_interface *arg0, struct usb_class_driver *arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void usb_free_urb(struct urb *arg0){
   return;
@@ -7753,23 +7753,23 @@ void usb_kill_urb(struct urb *arg0){
 void ldv_check_alloc_flags(gfp_t arg0){
   return;
 }
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2){
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 void might_fault(){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void ldv_pre_probe(){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2){
   return;
@@ -7777,13 +7777,13 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg1){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int ldv_failed_usb_register_driver(){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2){
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 void __copy_to_user_overflow(){
   return;
@@ -7801,9 +7801,9 @@ void __copy_from_user_overflow(){
 void _raw_spin_lock(raw_spinlock_t *arg0){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_string(struct usb_device *arg0, int arg1, char *arg2, size_t arg3){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void schedule(){
   return;
@@ -7820,9 +7820,9 @@ void *external_alloc(void);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1){
   return (struct usb_interface *)external_alloc();
 }
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_from_user(void *arg0, const void *arg1, unsigned int arg2){
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1){
   return;
