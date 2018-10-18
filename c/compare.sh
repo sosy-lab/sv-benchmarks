@@ -23,14 +23,16 @@ if [ "x$SETS" = "x" ] ; then
   SETS="*.set"
 fi
 
-if [ ! -e ../cbmc.git/src/goto-cc/goto-cc ] ; then
-  git clone --depth=1 http://github.com/diffblue/cbmc.git ../cbmc.git
-  cd ../cbmc.git/src
-  make minisat2-download
-  make CXX=g++-5 goto-diff.dir goto-cc.dir
-  cd ../../c
+if ! (which goto-cc && which goto-diff); then
+  if [ ! -e ../cbmc.git/src/goto-cc/goto-cc ] ; then
+    git clone --depth=1 http://github.com/diffblue/cbmc.git ../cbmc.git
+    cd ../cbmc.git/src
+    make minisat2-download
+    make CXX=g++-5 goto-diff.dir goto-cc.dir
+    cd ../../c
+  fi
+  export PATH=$PWD/../cbmc.git/src/goto-cc:$PWD/../cbmc.git/src/goto-diff:$PATH
 fi
-export PATH=$PWD/../cbmc.git/src/goto-cc:$PWD/../cbmc.git/src/goto-diff:$PATH
 
 EC=0
 
