@@ -6,16 +6,16 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-int __VERIFIER_nondet_int();
+int __VERIFIER_nondet_uint();
 
 int main()
 {
 
 	int i,j,k;
 	int m=1000,n=1500,p=1800;
-	int A [m][n][p];
-        int B [m][n][p];
-        int C [m][n][p];
+	unsigned int A [m][n][p];
+        unsigned int B [m][n][p];
+        unsigned int C [m][n][p];
 	
 	i=0;
 	j=0;
@@ -26,8 +26,8 @@ int main()
 		while(j < n){
 			k=0;
 			while(k < p){
-					A[i][j][k]= __VERIFIER_nondet_int();
-                                        B[i][j][k]= __VERIFIER_nondet_int();
+					A[i][j][k]= __VERIFIER_nondet_uint();
+                                        B[i][j][k]= __VERIFIER_nondet_uint();
 					k=k+1;
 			}
 			j=j+1;
