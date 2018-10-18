@@ -11,10 +11,10 @@ void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2,
 // Function: async_wrap_skb
 // with type: int async_wrap_skb(struct sk_buff *, __u8 *, int)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int async_wrap_skb(struct sk_buff *arg0, __u8 *arg1, int arg2){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: async_unwrap_char
@@ -54,10 +54,10 @@ void __const_udelay(unsigned long arg0){
 // Function: sprintf
 // with type: int sprintf(char *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int sprintf(char *arg0, const char *arg1, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: pthread_mutex_lock
@@ -101,10 +101,10 @@ void irda_qos_bits_to_value(struct qos_info *arg0){
 // Function: netif_rx
 // with type: int netif_rx(struct sk_buff *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int netif_rx(struct sk_buff *arg0){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: memset
@@ -171,10 +171,10 @@ struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, g
 // Function: printk
 // with type: int printk(const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: warn_slowpath_null
@@ -188,12 +188,12 @@ void warn_slowpath_null(const char *arg0, const int arg1){
 // Function: capable
 // with type: bool capable(int)
 // with return type: bool 
-bool __VEFIRIER_nondet_bool(void);
+bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0){
   // Typedef type
   // Real type: _Bool
   // Simple type
-  return __VEFIRIER_nondet_bool();
+  return __VERIFIER_nondet_bool();
 }
 
 // Skip function: calloc
@@ -220,19 +220,19 @@ void __udelay(unsigned long arg0){
 // Function: request_dma
 // with type: int request_dma(unsigned int, const char *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int request_dma(unsigned int arg0, const char *arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: net_ratelimit
 // with type: int net_ratelimit()
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int net_ratelimit(){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: free
@@ -259,10 +259,10 @@ void irlap_close(struct irlap_cb *arg0){
 // Function: ldv_failed_register_netdev
 // with type: int ldv_failed_register_netdev()
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int ldv_failed_register_netdev(){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: __request_region
@@ -322,10 +322,10 @@ struct irlap_cb *irlap_open(struct net_device *arg0, struct qos_info *arg1, cons
 // Function: netpoll_trap
 // with type: int netpoll_trap()
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int netpoll_trap(){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: irda_device_set_media_busy

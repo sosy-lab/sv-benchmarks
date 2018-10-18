@@ -10056,9 +10056,9 @@ int ldv_atomic_dec_and_lock_tx_global_lock_of_net_device(void)
   return (0);
 }
 }
-void *__VEFIRIER_nondet_pointer(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VEFIRIER_nondet_pointer();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {
@@ -10067,9 +10067,9 @@ void kfree(void const *p) {
 void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2, void *arg3){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int async_wrap_skb(struct sk_buff *arg0, __u8 *arg1, int arg2){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void async_unwrap_char(struct net_device *arg0, struct net_device_stats *arg1, iobuff_t *arg2, __u8 arg3){
   return;
@@ -10083,9 +10083,9 @@ void consume_skb(struct sk_buff *arg0){
 void __const_udelay(unsigned long arg0){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int sprintf(char *arg0, const char *arg1, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1){
   return;
@@ -10099,9 +10099,9 @@ void ldv_after_alloc(void *arg0){
 void irda_qos_bits_to_value(struct qos_info *arg0){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int netif_rx(struct sk_buff *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void ldv_switch_to_interrupt_context(){
   return;
@@ -10125,16 +10125,16 @@ void *external_alloc(void);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2){
   return (struct sk_buff *)external_alloc();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void warn_slowpath_null(const char *arg0, const int arg1){
   return;
 }
-bool __VEFIRIER_nondet_bool(void);
+bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0){
-  return __VEFIRIER_nondet_bool();
+  return __VERIFIER_nondet_bool();
 }
 void *external_alloc(void);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1){
@@ -10143,13 +10143,13 @@ unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1){
 void __udelay(unsigned long arg0){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int request_dma(unsigned int arg0, const char *arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int net_ratelimit(){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void *external_alloc(void);
 void *external_allocated_data(){
@@ -10158,9 +10158,9 @@ void *external_allocated_data(){
 void irlap_close(struct irlap_cb *arg0){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int ldv_failed_register_netdev(){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void *external_alloc(void);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4){
@@ -10184,9 +10184,9 @@ void *external_alloc(void);
 struct irlap_cb *irlap_open(struct net_device *arg0, struct qos_info *arg1, const char *arg2){
   return (struct irlap_cb *)external_alloc();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int netpoll_trap(){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void irda_device_set_media_busy(struct net_device *arg0, int arg1){
   return;

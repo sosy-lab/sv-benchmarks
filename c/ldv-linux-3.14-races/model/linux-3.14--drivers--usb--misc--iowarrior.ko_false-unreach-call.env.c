@@ -15,25 +15,25 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: usb_submit_urb
 // with type: int usb_submit_urb(struct urb *, gfp_t )
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_submit_urb(struct urb *arg0, gfp_t arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: _dev_info
 // with type: int _dev_info(const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: strlen
 // with type: size_t strlen(const char *)
 // with return type: size_t 
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlen(const char *arg0){
   // Typedef type
   // Real type: __kernel_size_t 
@@ -42,25 +42,25 @@ size_t strlen(const char *arg0){
   // Typedef type
   // Real type: unsigned long
   // Simple type
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 
 // Function: memcmp
 // with type: int memcmp(const void *, const void *, size_t )
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int memcmp(const void *arg0, const void *arg1, size_t arg2){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: _copy_to_user
 // with type: unsigned long int _copy_to_user(void *, const void *, unsigned int)
 // with return type: unsigned long int
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2){
   // Simple type
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 
 // Skip function: pthread_mutex_lock
@@ -96,10 +96,10 @@ void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_a
 // Function: usb_control_msg
 // with type: int usb_control_msg(struct usb_device *, unsigned int, __u8 , __u8 , __u16 , __u16 , void *, __u16 , int)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 arg3, __u16 arg4, __u16 arg5, void *arg6, __u16 arg7, int arg8){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: ldv_after_alloc
@@ -123,10 +123,10 @@ void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3)
 // Function: usb_register_dev
 // with type: int usb_register_dev(struct usb_interface *, struct usb_class_driver *)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_register_dev(struct usb_interface *arg0, struct usb_class_driver *arg1){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: usb_free_urb
@@ -168,10 +168,10 @@ void ldv_check_alloc_flags(gfp_t arg0){
 // Function: prepare_to_wait_event
 // with type: long int prepare_to_wait_event(wait_queue_head_t *, wait_queue_t *, int)
 // with return type: long int
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2){
   // Simple type
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 
 // Skip function: kfree
@@ -187,10 +187,10 @@ void might_fault(){
 // Function: printk
 // with type: int printk(const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Skip function: calloc
@@ -206,10 +206,10 @@ void ldv_pre_probe(){
 // Function: dev_err
 // with type: int dev_err(const struct device *, const char *, ...)
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: __mutex_init
@@ -233,23 +233,23 @@ void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg
 // Function: ldv_failed_usb_register_driver
 // with type: int ldv_failed_usb_register_driver()
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int ldv_failed_usb_register_driver(){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: noop_llseek
 // with type: loff_t noop_llseek(struct file *, loff_t , int)
 // with return type: loff_t 
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2){
   // Typedef type
   // Real type: __kernel_loff_t 
   // Typedef type
   // Real type: long long
   // Simple type
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 
 // Skip function: free
@@ -300,10 +300,10 @@ void _raw_spin_lock(raw_spinlock_t *arg0){
 // Function: usb_string
 // with type: int usb_string(struct usb_device *, int, char *, size_t )
 // with return type: int
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int usb_string(struct usb_device *arg0, int arg1, char *arg2, size_t arg3){
   // Simple type
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 
 // Function: schedule
@@ -346,10 +346,10 @@ struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1){
 // Function: _copy_from_user
 // with type: unsigned long int _copy_from_user(void *, const void *, unsigned int)
 // with return type: unsigned long int
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_from_user(void *arg0, const void *arg1, unsigned int arg2){
   // Simple type
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 
 // Function: finish_wait

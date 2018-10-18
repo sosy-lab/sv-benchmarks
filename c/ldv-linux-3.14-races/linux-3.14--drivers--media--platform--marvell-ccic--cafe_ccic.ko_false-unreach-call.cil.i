@@ -12137,9 +12137,9 @@ int ldv_atomic_dec_and_lock_siglock_of_sighand_struct(void)
   return (0);
 }
 }
-void *__VEFIRIER_nondet_pointer(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VEFIRIER_nondet_pointer();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {
@@ -12148,9 +12148,9 @@ void kfree(void const *p) {
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2){
   return;
 }
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 size_t vb2_read(struct vb2_queue *arg0, char *arg1, size_t arg2, loff_t *arg3, int arg4){
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2, void *arg3){
   return;
@@ -12161,13 +12161,13 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void vb2_buffer_done(struct vb2_buffer *arg0, enum vb2_buffer_state arg1){
   return;
 }
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int video_ioctl2(struct file *arg0, unsigned int arg1, unsigned long arg2){
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void __const_udelay(unsigned long arg0){
   return;
@@ -12186,9 +12186,9 @@ void *external_alloc(void);
 struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i2c_adapter *arg1, struct i2c_board_info *arg2, const unsigned short *arg3){
   return (struct v4l2_subdev *)external_alloc();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_streamon(struct vb2_queue *arg0, enum v4l2_buf_type arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void debug_dma_unmap_sg(struct device *arg0, struct scatterlist *arg1, int arg2, int arg3){
   return;
@@ -12211,9 +12211,9 @@ void ldv_after_alloc(void *arg0){
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3){
   return;
 }
-unsigned long __VEFIRIER_nondet_ulong(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2){
-  return __VEFIRIER_nondet_ulong();
+  return __VERIFIER_nondet_ulong();
 }
 void vb2_dma_contig_cleanup_ctx(void *arg0){
   return;
@@ -12221,9 +12221,9 @@ void vb2_dma_contig_cleanup_ctx(void *arg0){
 void iowrite32(u32 arg0, void *arg1){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_queue_init(struct vb2_queue *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void __tasklet_schedule(struct tasklet_struct *arg0){
   return;
@@ -12245,13 +12245,13 @@ void *external_alloc(void);
 void *vb2_dma_contig_init_ctx(struct device *arg0){
   return (void *)external_alloc();
 }
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2){
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int v4l2_device_register(struct device *arg0, struct v4l2_device *arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void __ldv_spin_lock(spinlock_t *arg0){
   return;
@@ -12259,13 +12259,13 @@ void __ldv_spin_lock(spinlock_t *arg0){
 void ldv_switch_to_process_context(){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_mmap(struct vb2_queue *arg0, struct vm_area_struct *arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_dqbuf(struct vb2_queue *arg0, struct v4l2_buffer *arg1, bool arg2){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void *external_alloc(void);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2){
@@ -12274,9 +12274,9 @@ void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2){
 void pci_iounmap(struct pci_dev *arg0, void *arg1){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void tasklet_init(struct tasklet_struct *arg0, void (*arg1)(unsigned long), unsigned long arg2){
   return;
@@ -12290,20 +12290,20 @@ void ldv_pre_probe(){
 void vb2_queue_release(struct vb2_queue *arg0){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void pci_disable_device(struct pci_dev *arg0){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_qbuf(struct vb2_queue *arg0, struct v4l2_buffer *arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2){
   return;
@@ -12332,24 +12332,24 @@ void i2c_del_adapter(struct i2c_adapter *arg0){
 void video_unregister_device(struct video_device *arg0){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_querybuf(struct vb2_queue *arg0, struct v4l2_buffer *arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void debug_dma_map_sg(struct device *arg0, struct scatterlist *arg1, int arg2, int arg3, int arg4){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_handler_init_class(struct v4l2_ctrl_handler *arg0, unsigned int arg1, struct lock_class_key *arg2, const char *arg3){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-long __VEFIRIER_nondet_long(void);
+long __VERIFIER_nondet_long(void);
 long int schedule_timeout(long arg0){
-  return __VEFIRIER_nondet_long();
+  return __VERIFIER_nondet_long();
 }
 void _raw_spin_lock(raw_spinlock_t *arg0){
   return;
@@ -12361,38 +12361,38 @@ void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1){
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3){
   return;
 }
-unsigned int __VEFIRIER_nondet_uint(void);
+unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0){
-  return __VEFIRIER_nondet_uint();
+  return __VERIFIER_nondet_uint();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int __video_register_device(struct video_device *arg0, int arg1, int arg2, int arg3, struct module *arg4){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_streamoff(struct vb2_queue *arg0, enum v4l2_buf_type arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void *external_alloc(void);
 void *memcpy(void *arg0, const void *arg1, size_t arg2){
   return (void *)external_alloc();
 }
-unsigned int __VEFIRIER_nondet_uint(void);
+unsigned int __VERIFIER_nondet_uint(void);
 unsigned int vb2_poll(struct vb2_queue *arg0, struct file *arg1, poll_table *arg2){
-  return __VEFIRIER_nondet_uint();
+  return __VERIFIER_nondet_uint();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int pci_save_state(struct pci_dev *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1){
   return;
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int i2c_add_adapter(struct i2c_adapter *arg0){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
-int __VEFIRIER_nondet_int(void);
+int __VERIFIER_nondet_int(void);
 int vb2_reqbufs(struct vb2_queue *arg0, struct v4l2_requestbuffers *arg1){
-  return __VEFIRIER_nondet_int();
+  return __VERIFIER_nondet_int();
 }
