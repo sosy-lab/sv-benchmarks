@@ -24,7 +24,7 @@ addons:
       - gcc-5
       - clang-3.8
       # for check.py:
-      - python-yaml
+      - python3-yaml
       # for compare.sh
       - libwww-perl
       - g++-5
