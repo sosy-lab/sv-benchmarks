@@ -3932,7 +3932,7 @@ extern void kfree(void const * ) ;
 extern void *ldv_malloc(size_t);
 void *__kmalloc(size_t size, gfp_t t)
 {
-        return ldv_malloc(size);
+ return ldv_malloc(size);
 }
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
@@ -6565,7 +6565,7 @@ void ldv_mutex_unlock_i_mutex_of_inode(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_i_mutex_of_inode);
+  pthread_mutex_unlock(& pmutex_i_mutex_of_inode);
   }
   return;
 }
@@ -6639,7 +6639,7 @@ void ldv_mutex_unlock_iowarrior_mutex(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_iowarrior_mutex);
+  pthread_mutex_unlock(& pmutex_iowarrior_mutex);
   }
   return;
 }
@@ -6713,7 +6713,7 @@ void ldv_mutex_unlock_iowarrior_open_disc_lock(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_iowarrior_open_disc_lock);
+  pthread_mutex_unlock(& pmutex_iowarrior_open_disc_lock);
   }
   return;
 }
@@ -6787,7 +6787,7 @@ void ldv_mutex_unlock_lock(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_lock);
+  pthread_mutex_unlock(& pmutex_lock);
   }
   return;
 }
@@ -6861,7 +6861,7 @@ void ldv_mutex_unlock_mutex_of_device(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_mutex_of_device);
+  pthread_mutex_unlock(& pmutex_mutex_of_device);
   }
   return;
 }
@@ -6935,7 +6935,7 @@ void ldv_mutex_unlock_mutex_of_iowarrior(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_mutex_of_iowarrior);
+  pthread_mutex_unlock(& pmutex_mutex_of_iowarrior);
   }
   return;
 }

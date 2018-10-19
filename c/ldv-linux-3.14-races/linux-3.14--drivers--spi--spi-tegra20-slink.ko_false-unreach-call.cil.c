@@ -3329,7 +3329,7 @@ __inline static struct of_device_id  const  *__of_match_device(struct of_device_
 
 
   {
-  return ((struct of_device_id  const  *)0);
+  return ((struct of_device_id  const  *)__VERIFIER_nondet_pointer());
 }
 }
 extern int reset_control_assert(struct reset_control * ) ;
@@ -6617,7 +6617,7 @@ void ldv_mutex_unlock_lock(struct mutex *lock )
 
   {
   {
-  pthread_mutex_lock(& pmutex_lock);
+  pthread_mutex_unlock(& pmutex_lock);
   }
   return;
 }
@@ -6700,7 +6700,7 @@ void ldv_mutex_unlock_mutex_of_device(struct mutex *lock )
 
   {
   {
-  pthread_mutex_lock(& pmutex_mutex_of_device);
+  pthread_mutex_unlock(& pmutex_mutex_of_device);
   }
   return;
 }
