@@ -1,9 +1,12 @@
 heap-manipulation/*_true-valid-memsafety*.i
 heap-manipulation/*_false-valid-deref*.i
 heap-manipulation/*_false-valid-memtrack*.i
+heap-manipulation/*_false-valid-memcleanup*.i
 forester-heap/*_false-valid-memtrack*.i
+forester-heap/*_false-valid-memcleanup*.i
 list-properties/*_true-valid-memsafety*.i
 list-properties/*_false-valid-memtrack*.i
+list-properties/*_false-valid-memcleanup*.i
 ddv-machzwd/*_true-valid-memsafety*.i
 ddv-machzwd/*_false-valid-memtrack*.i
 forester-heap/*_true-valid-memsafety*.i
