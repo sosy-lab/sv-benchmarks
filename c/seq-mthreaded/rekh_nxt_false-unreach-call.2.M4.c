@@ -2416,3 +2416,27 @@ __inline void __startrek_init_shared(void)
   _nxtway_gs_mode_[0] = __startrek_hidden_nxtway_gs_mode;
 }
 }
+
+void ecrobot_bt_data_logger(char arg0, char arg1) {
+  return;
+}
+
+void ecrobot_sound_tone(unsigned int arg0, unsigned int arg1, char arg2) {
+  return;
+}
+
+void ecrobot_status_monitor(char *arg0) {
+  return;
+}
+
+void nxt_motor_set_count(unsigned char arg0, char arg1) {
+  return;
+}
+
+void nxt_motor_set_speed(unsigned char arg0, char arg1, char arg2) {
+  return;
+}
+
+void write_mode_on_lcd(unsigned char arg0) {
+  return;
+}
