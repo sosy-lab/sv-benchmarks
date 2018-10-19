@@ -6,7 +6,7 @@
 #define __likely(x) x
 
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
 
 static inline unsigned long skip_to(const char *format) {
   unsigned long nr;
@@ -15,7 +15,7 @@ static inline unsigned long skip_to(const char *format) {
 }
 
 int main(){
-  int in_len = nondet_int();
+  int in_len = __VERIFIER_nondet_int();
   if(in_len < 1){return 1;}
   char* hay = alloca(in_len*sizeof(char));
   hay[in_len-1]=0;

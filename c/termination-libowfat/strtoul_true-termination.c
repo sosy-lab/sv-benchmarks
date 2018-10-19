@@ -6,7 +6,7 @@
 #define __likely(x) (x)
 
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
 
 unsigned long int strtoul(const char *ptr, char **endptr, int base)
 {
@@ -55,11 +55,11 @@ skip0x:
 }
 
 int main(){
-  int in_len = nondet_int();
+  int in_len = __VERIFIER_nondet_int();
   if(in_len < 1){return 1;}
   char* in = alloca(in_len);
   in[in_len-1]=0;
-  int base = nondet_int();
+  int base = __VERIFIER_nondet_int();
   char* end = 0;
   return strtoul(in, &end, base);
 }

@@ -6,7 +6,7 @@
 #define __likely(x) x
 
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
 
 char * strcpy (char *s1, const char *s2) {
     char           *res = s1;
@@ -37,9 +37,9 @@ static void build_fullname(char * fullname, const char * directory, const char *
 }
 
 int main(){
-  int dir_len = nondet_int();
+  int dir_len = __VERIFIER_nondet_int();
   if(dir_len < 1){return 1;}
-  int file_len = nondet_int();
+  int file_len = __VERIFIER_nondet_int();
   if(file_len < 1){return 1;}
   char* dir = alloca(dir_len);
   dir[dir_len-1]=0;
