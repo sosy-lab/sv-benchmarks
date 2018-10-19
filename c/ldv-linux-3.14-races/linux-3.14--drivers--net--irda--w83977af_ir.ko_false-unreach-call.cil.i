@@ -5729,7 +5729,8 @@ extern void *external_allocated_data(void) ;
 void *ldv_xmalloc_unknown_size(size_t size ) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long ) ;
-void ldv_assert(char const *desc , int expr ) ;
+void ldv_assert(int expr ) ;
+__u32 io_speed;
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 {
   {
@@ -6542,7 +6543,6 @@ static void w83977af_change_speed(struct w83977af_ir *self , __u32 speed )
   ir_mode = 96;
   iobase = self->io.fir_base;
   self->io.speed = speed;
-  ldv_assert("", self->io.speed == speed);
   set = inb(iobase + 3);
   switch_bank(iobase, 3);
   outb(0, iobase + 1);
@@ -6690,6 +6690,8 @@ static netdev_tx_t w83977af_hard_xmit(struct sk_buff *skb , struct net_device *d
   tmp___0 = irda_get_next_speed((struct sk_buff const *)skb);
   speed = (__s32 )tmp___0;
   }
+  io_speed = self->io.speed;
+  ldv_assert(io_speed == self->io.speed);
   if ((__u32 )speed != self->io.speed && speed != -1) {
     if (skb->len == 0U) {
       {
@@ -8296,7 +8298,7 @@ void ldv__builtin_trap(void)
 {
   {
   {
-  ldv_assert("", 0);
+  ldv_assert(0);
   }
   return;
 }
@@ -8783,7 +8785,7 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void ldv_assert(char const *desc , int expr )
+void ldv_assert(int expr )
 {
   {
   if (expr == 0) {

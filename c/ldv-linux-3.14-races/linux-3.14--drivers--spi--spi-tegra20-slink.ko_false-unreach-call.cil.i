@@ -3298,11 +3298,12 @@ __inline static int of_property_read_u32(struct device_node const *np , char con
   return (tmp);
 }
 }
+extern void *__VERIFIER_nondet_pointer(void);
 __inline static struct of_device_id const *__of_match_device(struct of_device_id const *matches ,
                                                                struct device const *dev )
 {
   {
-  return ((struct of_device_id const *)0);
+  return ((struct of_device_id const *)__VERIFIER_nondet_pointer());
 }
 }
 extern int reset_control_assert(struct reset_control * ) ;
@@ -6199,7 +6200,6 @@ unsigned long ldv_undef_ulong(void) ;
 int ldv_undef_int_nonpositive(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 int ldv_undef_int(void)
 {
   int tmp ;
@@ -6328,7 +6328,7 @@ void ldv_mutex_unlock_lock(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_lock);
+  pthread_mutex_unlock(& pmutex_lock);
   }
   return;
 }
@@ -6402,7 +6402,7 @@ void ldv_mutex_unlock_mutex_of_device(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_mutex_of_device);
+  pthread_mutex_unlock(& pmutex_mutex_of_device);
   }
   return;
 }
