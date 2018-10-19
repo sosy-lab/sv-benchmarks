@@ -10,6 +10,7 @@ pthread-lit/*_false-unreach-call*.i
 pthread-lit/*_true-unreach-call*.i
 ldv-races/*_true-unreach-call*.i
 ldv-races/*_false-unreach-call*.i
+ldv-linux-3.14-races/*_false-unreach-call*.i
 pthread-complex/*_false-unreach-call*.i
 pthread-complex/*_true-unreach-call*.i
 pthread-driver-races/*_true-unreach-call*.i
