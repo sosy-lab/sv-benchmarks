@@ -6,7 +6,7 @@
 #define __likely(x) (x)
 
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
 
 size_t strspn(const char *s, const char *accept)
 {
@@ -55,11 +55,11 @@ char*strtok_r(char*s,const char*delim,char**ptrptr) {
 
 
 int main(){
-  int in_len = nondet_int();
+  int in_len = __VERIFIER_nondet_int();
   if(in_len < 1){return 1;}
   char* in = alloca(in_len);
   in[in_len-1]=0;
-  int delim_len = nondet_int();
+  int delim_len = __VERIFIER_nondet_int();
   if(delim_len < 1){return 1;}
   char* delim = alloca(delim_len);
   char* ptr = 0;

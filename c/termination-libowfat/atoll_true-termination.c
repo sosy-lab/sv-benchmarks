@@ -3,7 +3,7 @@
 #include <alloca.h>
 
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
 
 long long int atoll(const char* s) {
   long long int v=0;
@@ -21,7 +21,7 @@ long long int atoll(const char* s) {
 
 int main(){
 
-  int in_len = nondet_int();
+  int in_len = __VERIFIER_nondet_int();
   if(in_len < 1){return 1;}
   char* in = alloca(in_len);
   in[in_len-1]=0;

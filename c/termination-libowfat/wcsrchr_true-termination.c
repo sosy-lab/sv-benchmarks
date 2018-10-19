@@ -6,7 +6,7 @@
 #define __likely(x) (x)
 #define wchar_t int
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
 
 wchar_t* wcsrchr(const wchar_t *wcs, wchar_t wc) {
   wchar_t* last=0;
@@ -18,10 +18,10 @@ wchar_t* wcsrchr(const wchar_t *wcs, wchar_t wc) {
 
 
 int main(){
-  int in_len = nondet_int();
+  int in_len = __VERIFIER_nondet_int();
   if(in_len < 1){return 1;}
   wchar_t* hay = alloca(in_len*sizeof(wchar_t));
   hay[in_len-1]=0;
-  wchar_t needle = nondet_int();
+  wchar_t needle = __VERIFIER_nondet_int();
   return (int) wcsrchr(hay, needle);
 }

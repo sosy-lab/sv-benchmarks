@@ -6,7 +6,7 @@
 #define __likely(x) x
 
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
   
   void * memcpy (void *dst, const void *src, size_t n) {
     void           *res = dst;
@@ -32,7 +32,7 @@ char *strdup(const char *s) {
 }
 
 int main(){
-  int in_len = nondet_int();
+  int in_len = __VERIFIER_nondet_int();
   if(in_len < 1){return 1;}
   char* in = alloca(in_len);
   in[in_len-1]=0;

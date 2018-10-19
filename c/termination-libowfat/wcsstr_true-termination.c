@@ -6,7 +6,7 @@
 #define __likely(x) (x)
 #define wchar_t int
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
 
 wchar_t *wcsstr(const wchar_t *haystack, const wchar_t *needle) {
   size_t i,j;
@@ -21,11 +21,11 @@ wchar_t *wcsstr(const wchar_t *haystack, const wchar_t *needle) {
 
 
 int main(){
-  int in_len = nondet_int();
+  int in_len = __VERIFIER_nondet_int();
   if(in_len < 1){return 1;}
   wchar_t* hay = alloca(in_len);
   hay[in_len-1]=0;
-  int out_len = nondet_int();
+  int out_len = __VERIFIER_nondet_int();
   if(out_len < 1){return 1;}
   wchar_t* needle = alloca(out_len);
   needle[out_len-1]=0;

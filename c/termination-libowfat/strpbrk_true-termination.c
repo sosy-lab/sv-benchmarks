@@ -6,7 +6,7 @@
 #define __likely(x) x
 
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
 
 char *strpbrk(const char *s, const char *accept) {
   register unsigned int i;
@@ -18,11 +18,11 @@ char *strpbrk(const char *s, const char *accept) {
 }
 
 int main(){
-  int in_len = nondet_int();
+  int in_len = __VERIFIER_nondet_int();
   if(in_len < 1){return 1;}
   char* in = alloca(in_len);
   in[in_len-1]=0;
-  int out_len = nondet_int();
+  int out_len = __VERIFIER_nondet_int();
   if(out_len < 1){return 1;}
   char* out = alloca(out_len);
   out[out_len-1]=0;

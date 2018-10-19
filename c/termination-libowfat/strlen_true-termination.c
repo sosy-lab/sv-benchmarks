@@ -6,7 +6,7 @@
 #define __likely(x) x
 
 
-extern int nondet_int();
+extern int __VERIFIER_nondet_int(void);
 
 size_t strlen(const char *s) {
   register size_t i;
@@ -16,7 +16,7 @@ size_t strlen(const char *s) {
 }
 
 int main(){
-  int in_len = nondet_int();
+  int in_len = __VERIFIER_nondet_int();
   if(in_len < 1){return 1;}
   char* hay = alloca(in_len);
   hay[in_len-1]=0;
