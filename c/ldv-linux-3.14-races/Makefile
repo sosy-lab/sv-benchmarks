@@ -1,6 +1,6 @@
 LEVEL := ../
 
-CC.Arch := 64
+CC.Arch := 32
 
 IGNORE_DIRS := ./model/
 
