@@ -8828,6 +8828,7 @@ __inline static __u16 __le16_to_cpup(__le16 const   *p )
 }
 void *ldv_err_ptr(long error ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) ;

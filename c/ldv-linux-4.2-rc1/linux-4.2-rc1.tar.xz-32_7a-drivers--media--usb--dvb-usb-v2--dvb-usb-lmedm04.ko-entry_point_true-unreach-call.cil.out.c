@@ -7028,6 +7028,7 @@ extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern void __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;

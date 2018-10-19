@@ -10776,6 +10776,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *__memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
