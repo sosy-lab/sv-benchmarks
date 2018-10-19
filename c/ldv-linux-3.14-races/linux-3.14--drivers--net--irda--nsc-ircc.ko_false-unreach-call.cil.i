@@ -11309,7 +11309,7 @@ void ldv_mutex_unlock_i_mutex_of_inode(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_i_mutex_of_inode);
+  pthread_mutex_unlock(& pmutex_i_mutex_of_inode);
   }
   return;
 }
@@ -11383,7 +11383,7 @@ void ldv_mutex_unlock_lock(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_lock);
+  pthread_mutex_unlock(& pmutex_lock);
   }
   return;
 }
@@ -11457,7 +11457,7 @@ void ldv_mutex_unlock_mutex_of_device(struct mutex *lock )
 {
   {
   {
-  pthread_mutex_lock(& pmutex_mutex_of_device);
+  pthread_mutex_unlock(& pmutex_mutex_of_device);
   }
   return;
 }

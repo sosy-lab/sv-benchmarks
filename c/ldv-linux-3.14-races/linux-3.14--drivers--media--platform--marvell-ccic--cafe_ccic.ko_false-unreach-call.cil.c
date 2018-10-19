@@ -6391,6 +6391,12 @@ void *ldv_pci_scenario_3(void *arg0 )
   {
   tmp___2 = ldv_xmalloc(2936UL);
   ldv_3_resource_dev = (struct pci_dev *)tmp___2;
+  ldv_3_resource_dev->bus = external_allocated_data();
+  ldv_3_resource_dev->subordinate = external_allocated_data();
+  ldv_3_resource_dev->sysdata = external_allocated_data();
+  ldv_3_resource_dev->procent = external_allocated_data();
+  ldv_3_resource_dev->slot = external_allocated_data();
+
   }
   goto ldv_main_3;
   return ((void *)0);
@@ -11677,7 +11683,7 @@ void ldv_mutex_unlock_i_mutex_of_inode(struct mutex *lock )
 
   {
   {
-  pthread_mutex_lock(& pmutex_i_mutex_of_inode);
+  pthread_mutex_unlock(& pmutex_i_mutex_of_inode);
   }
   return;
 }
@@ -11760,7 +11766,7 @@ void ldv_mutex_unlock_lock(struct mutex *lock )
 
   {
   {
-  pthread_mutex_lock(& pmutex_lock);
+  pthread_mutex_unlock(& pmutex_lock);
   }
   return;
 }
@@ -11843,7 +11849,7 @@ void ldv_mutex_unlock_lock_of_v4l2_ctrl_handler(struct mutex *lock )
 
   {
   {
-  pthread_mutex_lock(& pmutex_lock_of_v4l2_ctrl_handler);
+  pthread_mutex_unlock(& pmutex_lock_of_v4l2_ctrl_handler);
   }
   return;
 }
@@ -11926,7 +11932,7 @@ void ldv_mutex_unlock_mutex_of_device(struct mutex *lock )
 
   {
   {
-  pthread_mutex_lock(& pmutex_mutex_of_device);
+  pthread_mutex_unlock(& pmutex_mutex_of_device);
   }
   return;
 }
@@ -12009,7 +12015,7 @@ void ldv_mutex_unlock_s_mutex_of_mcam_camera(struct mutex *lock )
 
   {
   {
-  pthread_mutex_lock(& pmutex_s_mutex_of_mcam_camera);
+  pthread_mutex_unlock(& pmutex_s_mutex_of_mcam_camera);
   }
   return;
 }
