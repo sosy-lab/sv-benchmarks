@@ -3323,6 +3323,9 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   while(tmp_if_expr$1 != (_Bool)0);
   return n;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   struct _IO_FILE *src_stream;

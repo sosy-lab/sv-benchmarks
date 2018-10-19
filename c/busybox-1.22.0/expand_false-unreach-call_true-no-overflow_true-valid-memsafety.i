@@ -2474,6 +2474,9 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
   }
   while((_Bool)1);
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   const char *opt_t = "8";

@@ -866,6 +866,9 @@ int stat(const char *__file, struct stat *__buf)
 }
 
 // file coreutils/who.c line 74
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   struct utmp *ut;

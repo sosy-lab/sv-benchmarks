@@ -54,6 +54,9 @@ static signed int fflush_all(void)
 }
 
 // file coreutils/hostid.c line 33
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
 

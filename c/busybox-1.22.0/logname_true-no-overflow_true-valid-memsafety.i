@@ -2346,6 +2346,9 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
   }
   return total;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char buf[64l];

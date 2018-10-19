@@ -2778,6 +2778,9 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
   *list_head = (struct llist_t *)return_value_xzalloc$1;
   (*list_head)->data = (char *)data;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char *buf;

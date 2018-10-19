@@ -2514,6 +2514,9 @@ int nanosleep (const struct timespec *__requested_time,
                 return -1;
         }
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   double duration;

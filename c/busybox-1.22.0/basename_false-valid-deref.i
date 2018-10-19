@@ -1304,6 +1304,9 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 static const char *applet_name;
 static signed int bb_errno_location;
 static signed int * const bb_errno;
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   unsigned long int m;

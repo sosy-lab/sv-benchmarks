@@ -950,6 +950,9 @@ static char * skip_whitespace(const char *s)
 }
 
 // file coreutils/uniq.c line 33
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   const char *input_filename;

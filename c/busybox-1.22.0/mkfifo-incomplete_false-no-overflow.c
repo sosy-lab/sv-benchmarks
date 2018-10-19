@@ -211,6 +211,9 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file coreutils/mkfifo.c line 28
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   unsigned int mode;

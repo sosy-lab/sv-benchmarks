@@ -47,6 +47,9 @@ static signed int bb_errno_location;
 static signed int * const bb_errno;
 
 // file coreutils/basename.c line 49
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   unsigned long int m;

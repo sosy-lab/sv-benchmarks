@@ -565,6 +565,9 @@ static unsigned long long int du(const char *filename)
 }
 
 // file coreutils/du.c line 193
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   unsigned long long int total;

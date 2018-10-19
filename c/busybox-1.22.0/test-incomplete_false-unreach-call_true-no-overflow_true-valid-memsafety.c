@@ -993,6 +993,9 @@ static signed int test_eaccess(char *path, signed int mode)
 }
 
 // file coreutils/test.c line 825
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   signed int res;

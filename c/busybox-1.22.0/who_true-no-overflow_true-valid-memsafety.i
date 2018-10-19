@@ -3027,6 +3027,9 @@ int stat(const char *__file, struct stat *__buf)
   __VERIFIER_assume(__buf->st_atim.tv_sec >= 0);
   return 0;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   struct utmp *ut;

@@ -893,6 +893,9 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file coreutils/tac.c line 34
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char **name;

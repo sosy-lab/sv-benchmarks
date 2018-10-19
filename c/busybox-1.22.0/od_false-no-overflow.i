@@ -3900,6 +3900,9 @@ static void * llist_pop(struct llist_t **head)
   }
   return data;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   const char *str_A;

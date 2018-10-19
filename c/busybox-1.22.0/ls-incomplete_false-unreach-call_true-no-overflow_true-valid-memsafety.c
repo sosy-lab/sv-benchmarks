@@ -1920,6 +1920,9 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
 }
 
 // file coreutils/ls.c line 1064
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   struct dnode **dnd;

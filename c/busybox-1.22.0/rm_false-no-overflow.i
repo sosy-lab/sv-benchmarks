@@ -3341,6 +3341,9 @@ static signed int remove_file(const char *path, signed int flags)
   }
   return 0;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   signed int status = 0;

@@ -1157,6 +1157,9 @@ static char ** print_formatted(char *f, char **argv, signed int *conv_err)
 }
 
 // file coreutils/printf.c line 376
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   signed int conv_err;

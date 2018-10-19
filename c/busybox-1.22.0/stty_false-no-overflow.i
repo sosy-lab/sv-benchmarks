@@ -3719,6 +3719,9 @@ static void set_window_size(signed int rows, signed int cols)
     perror_on_device("%s");
   }
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   struct termios mode;

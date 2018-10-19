@@ -389,6 +389,9 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 }
 
 // file coreutils/date.c line 174
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   struct timespec ts;

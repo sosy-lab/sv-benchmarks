@@ -1396,6 +1396,9 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file coreutils/uudecode.c line 92
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   struct _IO_FILE *src_stream;

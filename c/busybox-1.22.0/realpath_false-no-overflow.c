@@ -269,6 +269,9 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file coreutils/realpath.c line 21
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   signed int retval = 0;
