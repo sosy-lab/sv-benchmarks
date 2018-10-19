@@ -9407,6 +9407,7 @@ extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;

@@ -6177,6 +6177,7 @@ __inline static struct task_struct *get_current(void)
 }
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcat(char * , char const   * ) ;

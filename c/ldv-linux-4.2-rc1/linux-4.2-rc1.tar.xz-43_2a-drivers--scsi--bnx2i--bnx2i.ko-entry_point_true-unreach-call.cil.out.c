@@ -8354,6 +8354,7 @@ __inline static int list_empty(struct list_head  const  *head )
 extern unsigned long __per_cpu_offset[8192U] ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern int nr_cpu_ids ;
 extern struct cpumask  const  * const  cpu_possible_mask ;

@@ -7026,6 +7026,7 @@ __inline static long ldv__builtin_expect(long exp , long c )
 }
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern char *strchr(char const   * , int  ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;

@@ -6990,6 +6990,7 @@ typedef int ldv_func_ret_type___2;
 extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_8(struct mutex *ldv_func_arg1 ) ;

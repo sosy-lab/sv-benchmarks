@@ -6369,6 +6369,7 @@ __inline static long ldv__builtin_expect(long exp , long c )
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const   * , struct lock_class_key * ) ;
 extern void _raw_spin_lock(raw_spinlock_t * ) ;
