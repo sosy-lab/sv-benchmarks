@@ -2647,6 +2647,11 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 void syslog(int priority, const char *format, ...)
 {
 }
+int stime (const time_t *__when)
+{
+        (void) __when;
+        return __VERIFIER_nondet_int();
+}
 signed int __main(signed int argc, char **argv)
 {
   struct timespec ts;
