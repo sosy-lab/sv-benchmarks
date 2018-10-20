@@ -562,7 +562,6 @@ void *expandArray(int **pointer) {
       temp[newsize - 1] = i;
       *pointer = temp;
     } else {
-      free(pointer);
       return 0;
     }
   }
