@@ -6,5 +6,5 @@ array-memsafety/*_true-valid-memsafety*.i
 array-examples/*_false-valid-deref*.i
 #array-examples/*_true-valid-memsafety*.i
 
-array-memsafety-realloc/*_false-valid-deref*.i
+array-memsafety-realloc/*_false-valid-free*.i
 array-memsafety-realloc/*_true-valid-memsafety*.i
