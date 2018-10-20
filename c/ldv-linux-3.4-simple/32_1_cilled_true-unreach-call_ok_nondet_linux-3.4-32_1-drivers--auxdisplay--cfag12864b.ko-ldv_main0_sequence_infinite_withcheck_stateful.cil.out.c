@@ -284,7 +284,7 @@ __inline static void ( __attribute__((__always_inline__)) clear_bit)(int nr , un
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern int memcmp(void const   *cs , void const   *ct , unsigned long count ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -1005,7 +1005,7 @@ static void cfag12864b_update(struct work_struct *work )
       __cil_tmp54 = & cfag12864b_buffer;
       __cil_tmp55 = *__cil_tmp54;
       __cil_tmp56 = (void const   *)__cil_tmp55;
-      __ret = __memcpy(__cil_tmp53, __cil_tmp56, __len);
+      __ret = memcpy(__cil_tmp53, __cil_tmp56, __len);
       }
     } else {
       {

@@ -4777,7 +4777,7 @@ __inline static __u32 __fswab32(__u32 val )
 }
 extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                               , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void dev_err(struct device  const  * , char const   *  , ...) ;
 extern void _dev_info(struct device  const  * , char const   *  , ...) ;
 extern u32 crc32_le(u32  , unsigned char const   * , size_t  ) ;
@@ -4921,7 +4921,7 @@ static int rsxx_save_config(struct rsxx_cardinfo *card )
 
   {
   {
-  __memcpy((void *)(& cfg), (void const   *)(& card->config), 36UL);
+  memcpy((void *)(& cfg), (void const   *)(& card->config), 36UL);
   tmp = ldv__builtin_expect(cfg.hdr.version != 4U, 0L);
   }
   if (tmp != 0L) {
@@ -11976,7 +11976,7 @@ __inline static void list_splice_tail(struct list_head *list , struct list_head 
   return;
 }
 }
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 __inline static void atomic_add(int i , atomic_t *v ) ;
 __inline static void atomic_sub(int i , atomic_t *v ) ;
@@ -13465,10 +13465,10 @@ int rsxx_hw_buffers_init(struct pci_dev *dev , struct rsxx_dma_ctrl *ctrl )
 
   }
   {
-  __memset(ctrl->status.buf, 172, 4096UL);
+  memset(ctrl->status.buf, 172, 4096UL);
   iowrite32((unsigned int )ctrl->status.dma_addr, ctrl->regmap + 48UL);
   iowrite32((unsigned int )(ctrl->status.dma_addr >> 32ULL), ctrl->regmap + 52UL);
-  __memset(ctrl->cmd.buf, 131, 4096UL);
+  memset(ctrl->cmd.buf, 131, 4096UL);
   iowrite32((unsigned int )ctrl->cmd.dma_addr, ctrl->regmap + 32UL);
   iowrite32((unsigned int )(ctrl->cmd.dma_addr >> 32ULL), ctrl->regmap + 36UL);
   ctrl->status.idx = ioread32(ctrl->regmap + 56UL);
@@ -13525,7 +13525,7 @@ static int rsxx_dma_ctrl_init(struct pci_dev *dev , struct rsxx_dma_ctrl *ctrl )
 
   {
   {
-  __memset((void *)(& ctrl->stats), 0, 68UL);
+  memset((void *)(& ctrl->stats), 0, 68UL);
   tmp = ldv_vmalloc_128(4160UL);
   ctrl->trackers = (struct dma_tracker_list *)tmp;
   }

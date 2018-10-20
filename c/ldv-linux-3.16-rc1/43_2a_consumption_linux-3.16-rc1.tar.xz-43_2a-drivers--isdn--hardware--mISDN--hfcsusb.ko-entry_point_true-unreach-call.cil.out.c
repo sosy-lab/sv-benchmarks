@@ -6210,7 +6210,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const   * , struct lock_class_key * ) ;
 extern void _raw_spin_lock(raw_spinlock_t * ) ;
@@ -9175,7 +9175,7 @@ static int hfcsusb_probe(struct usb_interface *intf , struct usb_device_id  cons
   ep = iface->endpoint;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmptbl), (void const   *)vcf, __len);
+    __ret = memcpy((void *)(& cmptbl), (void const   *)vcf, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmptbl), (void const   *)vcf, __len);
   }

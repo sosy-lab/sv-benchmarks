@@ -6040,7 +6040,7 @@ typedef int ldv_func_ret_type___0;
 typedef int ldv_func_ret_type___1;
 typedef int ldv_func_ret_type___2;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 __inline static int usb_endpoint_num(struct usb_endpoint_descriptor  const  *epd ) 
@@ -6948,7 +6948,7 @@ static int if_usb_send_fw_pkt(struct if_usb_card *cardp )
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& fwdata->hdr), (void const   *)firmware + (unsigned long )cardp->totalbytes,
+    __ret = memcpy((void *)(& fwdata->hdr), (void const   *)firmware + (unsigned long )cardp->totalbytes,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& fwdata->hdr), (void const   *)firmware + (unsigned long )cardp->totalbytes,
@@ -7176,7 +7176,7 @@ static void if_usb_receive_fwload(struct urb *urb )
   if ((int )cardp->bootcmdresp <= 0) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& bootcmdresp), (void const   *)skb->data + 2U, __len);
+      __ret = memcpy((void *)(& bootcmdresp), (void const   *)skb->data + 2U, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& bootcmdresp), (void const   *)skb->data + 2U,
                                __len);

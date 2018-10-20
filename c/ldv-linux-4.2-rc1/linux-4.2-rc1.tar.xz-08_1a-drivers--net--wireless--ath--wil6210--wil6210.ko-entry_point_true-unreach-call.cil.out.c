@@ -28923,7 +28923,7 @@ void ldv_free_irq_165(unsigned int ldv_func_arg1 , void *ldv_func_arg2 )
 void __builtin_prefetch(void const   *  , ...) ;
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static u64 paravirt_read_tsc___0(void) 
 { 
   u64 __ret ;
@@ -30592,7 +30592,7 @@ static struct sk_buff *wil_vring_reap_rx(struct wil6210_priv *wil , struct vring
 
   }
   if (snaplen != 0U) {
-    __memmove((void *)skb->data + (unsigned long )snaplen, (void const   *)skb->data,
+    memmove((void *)skb->data + (unsigned long )snaplen, (void const   *)skb->data,
               12UL);
     skb_pull(skb, snaplen);
   } else {

@@ -6069,7 +6069,7 @@ struct __anonstruct_p54u_fwlist_297 {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -7216,7 +7216,7 @@ static int p54u_upload_firmware_3887(struct ieee80211_hw *dev )
   hdr = (struct x2_header *)(buf + tmp___3);
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hdr->signature), (void const   *)"x2  ", __len);
+    __ret = memcpy((void *)(& hdr->signature), (void const   *)"x2  ", __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hdr->signature), (void const   *)"x2  ", __len);
   }

@@ -3698,7 +3698,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 __inline static int test_ti_thread_flag(struct thread_info *ti , int flag )  __attribute__((__no_instrument_function__)) ;
 __inline static int test_ti_thread_flag(struct thread_info *ti , int flag ) 
@@ -5334,7 +5334,7 @@ static int qt_get_device(struct usb_serial *serial , struct qt_get_device_data *
       {
       __cil_tmp21 = (void *)device_data;
       __cil_tmp22 = (void const   *)transfer_buffer;
-      __ret = __memcpy(__cil_tmp21, __cil_tmp22, __len);
+      __ret = memcpy(__cil_tmp21, __cil_tmp22, __len);
       }
     } else {
       {

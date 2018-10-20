@@ -3757,7 +3757,7 @@ void ldv_mutex_unlock_7(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_20(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_16(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_18(struct mutex *ldv_func_arg1 ) ;
@@ -3817,7 +3817,7 @@ static int connect_didd(void)
     dadapter = 1;
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& _DAdapter), (void const   *)(& DIDD_Table) + (unsigned long )x,
+      __ret = memcpy((void *)(& _DAdapter), (void const   *)(& DIDD_Table) + (unsigned long )x,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& _DAdapter), (void const   *)(& DIDD_Table) + (unsigned long )x,
@@ -4702,7 +4702,7 @@ static int diva_didd_add_descriptor(DESCRIPTOR *d )
   if ((unsigned int )HandleTable[i].type == 0U) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& HandleTable) + (unsigned long )i, (void const   *)d,
+      __ret = memcpy((void *)(& HandleTable) + (unsigned long )i, (void const   *)d,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& HandleTable) + (unsigned long )i, (void const   *)d,
@@ -4817,7 +4817,7 @@ static int diva_didd_read_adapter_array(DESCRIPTOR *buffer , int length )
   if ((unsigned int )HandleTable[src].type != 0U) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& HandleTable) + (unsigned long )src,
+      __ret = memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& HandleTable) + (unsigned long )src,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& HandleTable) + (unsigned long )src,
@@ -4839,7 +4839,7 @@ static int diva_didd_read_adapter_array(DESCRIPTOR *buffer , int length )
   if (dst < length) {
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& MAdapter),
+      __ret___0 = memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& MAdapter),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& MAdapter),
@@ -4855,7 +4855,7 @@ static int diva_didd_read_adapter_array(DESCRIPTOR *buffer , int length )
   if (dst < length) {
     __len___1 = 16UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& DAdapter),
+      __ret___1 = memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& DAdapter),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& DAdapter),
@@ -5044,7 +5044,7 @@ static void diva_notify_adapter_change(DESCRIPTOR *d , int removal )
                                                                                   int  ))0)) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& nfy), (void const   *)(& NotificationTable) + (unsigned long )i,
+      __ret = memcpy((void *)(& nfy), (void const   *)(& NotificationTable) + (unsigned long )i,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& nfy), (void const   *)(& NotificationTable) + (unsigned long )i,

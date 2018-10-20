@@ -24081,7 +24081,7 @@ void ldv_mutex_lock_201(struct mutex *ldv_func_arg1 )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_228(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_225(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_229(struct mutex *ldv_func_arg1 ) ;
@@ -24374,9 +24374,9 @@ static void b43_set_txpower_g(struct b43_wldev *dev , struct b43_bbatt  const  *
 
   }
   gphy->tx_control = tx_control;
-  __memmove((void *)(& gphy->rfatt), (void const   *)rfatt, 2UL);
+  memmove((void *)(& gphy->rfatt), (void const   *)rfatt, 2UL);
   gphy->rfatt.with_padmix = ((int )tx_control & 16) != 0;
-  __memmove((void *)(& gphy->bbatt), (void const   *)bbatt, 1UL);
+  memmove((void *)(& gphy->bbatt), (void const   *)bbatt, 1UL);
   tmp___0 = b43_debug(dev, 0);
   if ((int )tmp___0) {
     b43dbg(dev->wl, "Tuning TX-power to bbatt(%u), rfatt(%u), tx_control(0x%02X), tx_bias(0x%02X), tx_magn(0x%02X)\n",

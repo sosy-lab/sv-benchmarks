@@ -10715,7 +10715,7 @@ void ldv_mutex_unlock_33(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static int list_empty(struct list_head  const  *head ) 
 { 
 
@@ -11196,7 +11196,7 @@ static int seq_queue(unsigned char *note , char nonblock )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)queue + (unsigned long )((int )qtail * 8), (void const   *)note,
+    __ret = memcpy((void *)queue + (unsigned long )((int )qtail * 8), (void const   *)note,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)queue + (unsigned long )((int )qtail * 8), (void const   *)note,
@@ -12934,7 +12934,7 @@ int sequencer_ioctl(int dev , struct file *file , unsigned int cmd , void *arg )
   }
   __len = 140UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& inf), (void const   *)(synth_devs[dev])->info, __len);
+    __ret = memcpy((void *)(& inf), (void const   *)(synth_devs[dev])->info, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& inf), (void const   *)(synth_devs[dev])->info,
                              __len);

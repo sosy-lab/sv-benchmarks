@@ -4814,7 +4814,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;
 __inline static int bitmap_weight(unsigned long const   *src , unsigned int nbits ) 
 { 
@@ -6182,7 +6182,7 @@ static long gru_get_config_info(unsigned long arg )
     nodesperblade = 1;
   }
   {
-  __memset((void *)(& info), 0, 80UL);
+  memset((void *)(& info), 0, 80UL);
   tmp___2 = cpumask_weight(cpu_online_mask);
   info.cpus = (int )tmp___2;
   info.nodes = num_node_state(1);
@@ -6840,7 +6840,7 @@ static int gru_init_tables(unsigned long gru_base_paddr , void *gru_base_vaddr )
   {
   tmp = lowmem_page_address((struct page  const  *)page);
   gru_base[bid] = (struct gru_blade_state *)tmp;
-  __memset((void *)gru_base[bid], 0, 1136UL);
+  memset((void *)gru_base[bid], 0, 1136UL);
   (gru_base[bid])->bs_lru_gru = (struct gru_state *)(& (gru_base[bid])->bs_grus);
   spinlock_check(& (gru_base[bid])->bs_lock);
   __raw_spin_lock_init(& (gru_base[bid])->bs_lock.__annonCompField18.rlock, "&(&gru_base[bid]->bs_lock)->rlock",
@@ -8552,7 +8552,7 @@ __inline static struct task_struct *get_current___0(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void clflush(void volatile   *__p ) 
 { 
 
@@ -11284,7 +11284,7 @@ struct gru_thread_state *gru_alloc_gts(struct vm_area_struct *vma , int cbr_au_c
 
   }
   {
-  __memset((void *)gts, 0, 464UL);
+  memset((void *)gts, 0, 464UL);
   atomic_set(& gts->ts_refcnt, 1);
   __mutex_init(& gts->ts_ctxlock, "&gts->ts_ctxlock", & __key);
   gts->ts_cbr_au_count = (unsigned char )cbr_au_count;
@@ -12587,7 +12587,7 @@ __inline static long gru_copy_handle(void *d , void *s )
 
   {
   {
-  __memcpy(d, (void const   *)s, 64UL);
+  memcpy(d, (void const   *)s, 64UL);
   }
   return (64L);
 }
@@ -12677,8 +12677,8 @@ static void gru_load_context_data(void *save , void *grubase , int ctxnum , unsi
     }
   } else {
     {
-    __memset(cb, 0, 64UL);
-    __memset(cbe + (unsigned long )(i * 256), 0, 64UL);
+    memset(cb, 0, 64UL);
+    memset(cbe + (unsigned long )(i * 256), 0, 64UL);
     }
   }
   {
@@ -12706,11 +12706,11 @@ static void gru_load_context_data(void *save , void *grubase , int ctxnum , unsi
 
   if (data_valid != 0) {
     {
-    __memcpy(gseg + 131072UL, (void const   *)save, length);
+    memcpy(gseg + 131072UL, (void const   *)save, length);
     }
   } else {
     {
-    __memset(gseg + 131072UL, 0, length);
+    memset(gseg + 131072UL, 0, length);
     }
   }
   return;
@@ -12804,7 +12804,7 @@ static void gru_unload_context_data(void *save , void *grubase , int ctxnum , un
 
   }
   {
-  __memcpy(save, (void const   *)gseg + 131072U, length);
+  memcpy(save, (void const   *)gseg + 131072U, length);
   }
   return;
 }
@@ -21755,12 +21755,12 @@ long gru_get_gseg_statistics(unsigned long arg )
   }
   if ((unsigned long )gts != (unsigned long )((struct gru_thread_state *)0)) {
     {
-    __memcpy((void *)(& req.stats), (void const   *)(& gts->ustats), 112UL);
+    memcpy((void *)(& req.stats), (void const   *)(& gts->ustats), 112UL);
     gru_unlock_gts(gts);
     }
   } else {
     {
-    __memset((void *)(& req.stats), 0, 112UL);
+    memset((void *)(& req.stats), 0, 112UL);
     }
   }
   {
@@ -25574,7 +25574,7 @@ static ssize_t statistics_write(struct file *file , char const   *userbuf , size
 
   {
   {
-  __memset((void *)(& gru_stats), 0, 592UL);
+  memset((void *)(& gru_stats), 0, 592UL);
   }
   return ((ssize_t )count);
 }
@@ -25632,7 +25632,7 @@ static ssize_t mcs_statistics_write(struct file *file , char const   *userbuf , 
 
   {
   {
-  __memset((void *)(& mcs_op_statistics), 0, 192UL);
+  memset((void *)(& mcs_op_statistics), 0, 192UL);
   }
   return ((ssize_t )count);
 }
@@ -29760,7 +29760,7 @@ int gru_create_message_queue(struct gru_message_queue_desc *mqd , void *p , unsi
   {
   mq = (struct message_queue *)p;
   qlines = bytes / 64U - 2U;
-  __memset((void *)mq, 0, (size_t )bytes);
+  memset((void *)mq, 0, (size_t )bytes);
   mq->start = (void *)(& mq->data);
   mq->start2 = (void *)(& mq->data) + (unsigned long )((qlines / 2U + 67108863U) * 64U);
   mq->next = (void *)(& mq->data);
@@ -30303,7 +30303,7 @@ int gru_send_message_gpa(struct gru_message_queue_desc *mqd , void *mesg , unsig
 
   }
   {
-  __memcpy(dsr, (void const   *)mesg, (size_t )bytes);
+  memcpy(dsr, (void const   *)mesg, (size_t )bytes);
   mhdr = (struct message_header *)dsr;
   mhdr->present = 1;
   mhdr->lines = (char )clines;
@@ -31547,7 +31547,7 @@ static int quicktest1(unsigned long arg )
   }
   {
   mq = (void *)(((unsigned long )p + 1023UL) & 0xfffffffffffffc00UL);
-  __memset((void *)(& mes), 238, 64UL);
+  memset((void *)(& mes), 238, 64UL);
   dw = (unsigned long *)mq;
   gru_create_message_queue(& mqd, mq, 512U, 0, 0, 0);
   i = 0;
@@ -32109,7 +32109,7 @@ static int quicktest2(unsigned long arg )
   }
   {
   gru_lock_async_resource(han, & cb0, (void **)0);
-  __memset((void *)buf, 238, (size_t )bytes);
+  memset((void *)buf, 238, (size_t )bytes);
   i = 0;
   }
   goto ldv_34323;
@@ -32637,9 +32637,9 @@ static int quicktest3(unsigned long arg )
   {
   {
   ret = 0;
-  __memset((void *)(& buf2), 0, 200UL);
+  memset((void *)(& buf2), 0, 200UL);
   tmp = get_cycles();
-  __memset((void *)(& buf1), (int )tmp & 255, 200UL);
+  memset((void *)(& buf1), (int )tmp & 255, 200UL);
   tmp___0 = uv_gpa((void *)(& buf1));
   tmp___1 = uv_gpa((void *)(& buf2));
   gru_copy_gpa(tmp___1, tmp___0, 200U);
@@ -33396,7 +33396,7 @@ static int gru_dump_context_data(void *grubase , struct gru_context_configuratio
 
   if (dsrcnt != 0) {
     {
-    __memcpy(ubuf, (void const   *)gseg + 131072U, (size_t )(dsrcnt * 256));
+    memcpy(ubuf, (void const   *)gseg + 131072U, (size_t )(dsrcnt * 256));
     }
   } else {
 
@@ -33513,7 +33513,7 @@ static int gru_dump_context(struct gru_state *gru , int ctxnum , void *ubuf , vo
   dsrcnt = 0;
   bytes = 0;
   ret = 0;
-  __memset((void *)(& hdr), 0, 32UL);
+  memset((void *)(& hdr), 0, 32UL);
   grubase = gru->gs_gru_base_vaddr;
   cch = get_cch(grubase, ctxnum);
   try = 0;

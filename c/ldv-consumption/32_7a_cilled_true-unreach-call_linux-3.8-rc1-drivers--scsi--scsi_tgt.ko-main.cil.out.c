@@ -7306,7 +7306,7 @@ void ldv_mutex_unlock_7(struct mutex *ldv_func_arg1 )
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 int ldv_mutex_trylock_18(struct mutex *ldv_func_arg1 ) ;
@@ -7403,7 +7403,7 @@ static int tgt_uspace_send_event(u32 type , struct tgt_event *p )
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)ev, (void const   *)p, __len);
+    __ret = memcpy((void *)ev, (void const   *)p, __len);
   } else {
     __ret = __builtin_memcpy((void *)ev, (void const   *)p, __len);
   }
@@ -7434,14 +7434,14 @@ int scsi_tgt_uspace_send_cmd(struct scsi_cmnd *cmd , u64 itn_id , struct scsi_lu
   ev.p.cmd_req.data_len = scsi_bufflen(cmd);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ev.p.cmd_req.scb), (void const   *)cmd->cmnd, __len);
+    __ret = memcpy((void *)(& ev.p.cmd_req.scb), (void const   *)cmd->cmnd, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ev.p.cmd_req.scb), (void const   *)cmd->cmnd,
                              __len);
   }
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ev.p.cmd_req.lun), (void const   *)lun, __len___0);
+    __ret___0 = memcpy((void *)(& ev.p.cmd_req.lun), (void const   *)lun, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ev.p.cmd_req.lun), (void const   *)lun,
                                  __len___0);
@@ -7497,7 +7497,7 @@ int scsi_tgt_uspace_send_tsk_mgmt(int host_no , u64 itn_id , int function , u64 
   ev.p.tsk_mgmt_req.tag = tag;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ev.p.tsk_mgmt_req.lun), (void const   *)scsilun, __len);
+    __ret = memcpy((void *)(& ev.p.tsk_mgmt_req.lun), (void const   *)scsilun, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ev.p.tsk_mgmt_req.lun), (void const   *)scsilun,
                              __len);

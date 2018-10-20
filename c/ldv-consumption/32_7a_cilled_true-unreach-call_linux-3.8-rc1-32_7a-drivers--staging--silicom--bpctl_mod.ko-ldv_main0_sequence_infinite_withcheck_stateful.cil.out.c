@@ -4797,7 +4797,7 @@ extern void might_fault(void) ;
 extern int kstrtoint_from_user(char const   * , size_t  , unsigned int  , int * ) ;
 extern int sprintf(char * , char const   *  , ...) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -5305,7 +5305,7 @@ static int bp_device_event(struct notifier_block *unused , unsigned long event ,
     }
     __len = 32UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info), __len);
+      __ret = memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info),
                                __len);
@@ -11814,7 +11814,7 @@ static void if_scan_init(void)
   }
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info), __len);
+    __ret = memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info),
                              __len);

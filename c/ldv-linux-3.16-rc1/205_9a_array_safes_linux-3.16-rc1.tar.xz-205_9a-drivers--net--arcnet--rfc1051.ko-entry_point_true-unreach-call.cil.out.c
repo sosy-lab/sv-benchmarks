@@ -5233,7 +5233,7 @@ typedef void *Element;
 typedef Element Set;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 void ldv_kfree_skb_6(struct sk_buff *ldv_func_arg1 ) ;
 void ldv_kfree_skb_7(struct sk_buff *ldv_func_arg1 ) ;
@@ -5495,7 +5495,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
   pkt = (struct archdr *)skb->data;
   __len = 20UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)pkt, (void const   *)pkthdr, __len);
+    __ret = memcpy((void *)pkt, (void const   *)pkthdr, __len);
   } else {
     __ret = __builtin_memcpy((void *)pkt, (void const   *)pkthdr, __len);
   }

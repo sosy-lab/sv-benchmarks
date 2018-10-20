@@ -3184,7 +3184,7 @@ __inline static void __clear_bit(int nr , unsigned long volatile   *addr )
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
@@ -3518,7 +3518,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
   if (i <= 7) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& remote->data.buffer), (void const   *)remote->in_buffer,
+      __ret = memcpy((void *)(& remote->data.buffer), (void const   *)remote->in_buffer,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& remote->data.buffer), (void const   *)remote->in_buffer,
@@ -3536,7 +3536,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
   case 1: 
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
+    __ret___0 = memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
                          (void const   *)remote->in_buffer, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
@@ -3590,7 +3590,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
   case 2: 
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
+    __ret___1 = memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
                          (void const   *)remote->in_buffer, __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
@@ -3977,7 +3977,7 @@ static int keyspan_probe(struct usb_interface *interface , struct usb_device_id 
   strlcat((char *)(& remote->phys), "/input0", 64UL);
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& remote->keymap), (void const   *)(& keyspan_key_table),
+    __ret = memcpy((void *)(& remote->keymap), (void const   *)(& keyspan_key_table),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& remote->keymap), (void const   *)(& keyspan_key_table),

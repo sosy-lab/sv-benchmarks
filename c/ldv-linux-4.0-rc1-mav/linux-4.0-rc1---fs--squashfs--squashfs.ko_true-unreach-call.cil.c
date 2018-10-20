@@ -4407,7 +4407,7 @@ __inline static int constant_test_bit(long nr , unsigned long const volatile   *
 extern int printk(char const   *  , ...) ;
 extern void __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern void __might_sleep(char const   * , int  , int  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void atomic_dec(atomic_t *v ) ;
 extern void kfree(void const   * ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) ;
@@ -4804,7 +4804,7 @@ int squashfs_read_data(struct super_block *sb , u64 index , int length , u64 *ne
     __min1 = in;
     __min2 = (int )(4096U - (unsigned int )pg_offset);
     avail = __min1 < __min2 ? __min1 : __min2;
-    __memcpy(data + (unsigned long )pg_offset, (void const   *)(*(bh + (unsigned long )k))->b_data + (unsigned long )offset,
+    memcpy(data + (unsigned long )pg_offset, (void const   *)(*(bh + (unsigned long )k))->b_data + (unsigned long )offset,
              (size_t )avail);
     in = in - avail;
     pg_offset = pg_offset + avail;
@@ -5436,7 +5436,7 @@ int squashfs_copy_data(void *buffer , struct squashfs_cache_entry *entry , int o
   bytes = __min1 < __min2 ? __min1 : __min2;
   if (bytes >= remaining) {
     {
-    __memcpy(buffer, (void const   *)buff, (size_t )remaining);
+    memcpy(buffer, (void const   *)buff, (size_t )remaining);
     remaining = 0;
     }
     goto ldv_31188;
@@ -5444,7 +5444,7 @@ int squashfs_copy_data(void *buffer , struct squashfs_cache_entry *entry , int o
 
   }
   {
-  __memcpy(buffer, (void const   *)buff, (size_t )bytes);
+  memcpy(buffer, (void const   *)buff, (size_t )bytes);
   buffer = buffer + (unsigned long )bytes;
   remaining = remaining - bytes;
   offset = offset + bytes;
@@ -6611,7 +6611,7 @@ __inline static void set_bit(long nr , unsigned long volatile   *addr )
 }
 }
 extern void __bad_percpu_size(void) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 static void ldv_mutex_unlock_96(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_98(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_100(struct mutex *ldv_func_arg1 ) ;
@@ -7531,7 +7531,7 @@ void squashfs_copy_cache(struct page *page , struct squashfs_cache_entry *buffer
   {
   pageaddr = kmap_atomic(push_page);
   squashfs_copy_data(pageaddr, buffer, offset, avail);
-  __memset(pageaddr + (unsigned long )avail, 0, 4096UL - (unsigned long )avail);
+  memset(pageaddr + (unsigned long )avail, 0, 4096UL - (unsigned long )avail);
   __cond = 0;
   }
   if ((int )__cond) {
@@ -7740,7 +7740,7 @@ static int squashfs_readpage(struct file *file , struct page *page )
   out: 
   {
   pageaddr = kmap_atomic(page);
-  __memset(pageaddr, 0, 4096UL);
+  memset(pageaddr, 0, 4096UL);
   __cond = 0;
   }
   if ((int )__cond) {
@@ -12376,7 +12376,7 @@ static int squashfs_symlink_readpage(struct file *file , struct page *page )
   }
   if (copied == length - bytes) {
     {
-    __memset(pageaddr + (unsigned long )length, 0, 4096UL - (unsigned long )length);
+    memset(pageaddr + (unsigned long )length, 0, 4096UL - (unsigned long )length);
     }
   } else {
     block = entry->next_index;
@@ -13148,7 +13148,7 @@ static size_t squashfs_user_list(struct dentry *d , char *list , size_t list_siz
   {
   if ((unsigned long )list != (unsigned long )((char *)0) && list_size > 4UL) {
     {
-    __memcpy((void *)list, (void const   *)"user.", 5UL);
+    memcpy((void *)list, (void const   *)"user.", 5UL);
     }
   } else {
 
@@ -13196,7 +13196,7 @@ static size_t squashfs_trusted_list(struct dentry *d , char *list , size_t list_
   }
   if ((unsigned long )list != (unsigned long )((char *)0) && list_size > 7UL) {
     {
-    __memcpy((void *)list, (void const   *)"trusted.", 8UL);
+    memcpy((void *)list, (void const   *)"trusted.", 8UL);
     }
   } else {
 
@@ -13230,7 +13230,7 @@ static size_t squashfs_security_list(struct dentry *d , char *list , size_t list
   {
   if ((unsigned long )list != (unsigned long )((char *)0) && list_size > 8UL) {
     {
-    __memcpy((void *)list, (void const   *)"security.", 9UL);
+    memcpy((void *)list, (void const   *)"security.", 9UL);
     }
   } else {
 
@@ -13646,7 +13646,7 @@ static int lz4_uncompress(struct squashfs_sb_info *msblk , void *strm , struct b
   _min1 = bytes;
   _min2 = msblk->devblksize - offset;
   avail = _min1 < _min2 ? _min1 : _min2;
-  __memcpy(buff, (void const   *)(*(bh + (unsigned long )i))->b_data + (unsigned long )offset,
+  memcpy(buff, (void const   *)(*(bh + (unsigned long )i))->b_data + (unsigned long )offset,
            (size_t )avail);
   buff = buff + (unsigned long )avail;
   bytes = bytes - avail;
@@ -13678,14 +13678,14 @@ static int lz4_uncompress(struct squashfs_sb_info *msblk , void *strm , struct b
   ldv_31577: ;
   if ((unsigned int )bytes <= 4096U) {
     {
-    __memcpy(data, (void const   *)buff, (size_t )bytes);
+    memcpy(data, (void const   *)buff, (size_t )bytes);
     }
     goto ldv_31576;
   } else {
 
   }
   {
-  __memcpy(data, (void const   *)buff, 4096UL);
+  memcpy(data, (void const   *)buff, 4096UL);
   buff = buff + 4096UL;
   bytes = (int )((unsigned int )bytes - 4096U);
   data = squashfs_next_page(output);
@@ -13900,7 +13900,7 @@ static int lzo_uncompress(struct squashfs_sb_info *msblk , void *strm , struct b
   _min1 = bytes;
   _min2 = msblk->devblksize - offset;
   avail = _min1 < _min2 ? _min1 : _min2;
-  __memcpy(buff, (void const   *)(*(bh + (unsigned long )i))->b_data + (unsigned long )offset,
+  memcpy(buff, (void const   *)(*(bh + (unsigned long )i))->b_data + (unsigned long )offset,
            (size_t )avail);
   buff = buff + (unsigned long )avail;
   bytes = bytes - avail;
@@ -13933,12 +13933,12 @@ static int lzo_uncompress(struct squashfs_sb_info *msblk , void *strm , struct b
   ldv_31554: ;
   if ((unsigned int )bytes <= 4096U) {
     {
-    __memcpy(data, (void const   *)buff, (size_t )bytes);
+    memcpy(data, (void const   *)buff, (size_t )bytes);
     }
     goto ldv_31553;
   } else {
     {
-    __memcpy(data, (void const   *)buff, 4096UL);
+    memcpy(data, (void const   *)buff, 4096UL);
     buff = buff + 4096UL;
     bytes = (int )((unsigned int )bytes - 4096U);
     data = squashfs_next_page(output);

@@ -4653,7 +4653,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;
 __inline static void bitmap_zero(unsigned long *dst , unsigned int nbits ) 
@@ -4663,7 +4663,7 @@ __inline static void bitmap_zero(unsigned long *dst , unsigned int nbits )
   {
   {
   len = (unsigned int )(((unsigned long )nbits + 63UL) / 64UL) * 8U;
-  __memset((void *)dst, 0, (size_t )len);
+  memset((void *)dst, 0, (size_t )len);
   }
   return;
 }
@@ -5470,7 +5470,7 @@ static int msb_run_state_machine(struct msb_data *msb , int (*state_func)(struct
   msb->int_polling = 0;
   msb->state = 0;
   msb->exit_error = 0;
-  __memset((void *)(& card->current_mrq), 0, 48UL);
+  memset((void *)(& card->current_mrq), 0, 48UL);
   card->next_request = state_func;
   memstick_new_req(card->host);
   ldv_wait_for_completion_95(& card->mrq_complete);
@@ -6645,7 +6645,7 @@ static int msb_read_page(struct msb_data *msb , u16 pba , u8 page , struct ms_ex
     _min1 = miter.length - (size_t )offset;
     _min2 = len;
     chunklen = (int )(_min1 < _min2 ? _min1 : _min2);
-    __memset(miter.addr + (unsigned long )offset, 255, (size_t )chunklen);
+    memset(miter.addr + (unsigned long )offset, 255, (size_t )chunklen);
     len = len - (size_t )chunklen;
     offset = 0;
     }
@@ -6680,7 +6680,7 @@ static int msb_read_page(struct msb_data *msb , u16 pba , u8 page , struct ms_ex
     }
     if ((unsigned long )extra != (unsigned long )((struct ms_extra_data_register *)0)) {
       {
-      __memset((void *)extra, 255, 4UL);
+      memset((void *)extra, 255, 4UL);
       }
     } else {
 
@@ -7572,7 +7572,7 @@ static int msb_ftl_initialize(struct msb_data *msb )
 
   }
   {
-  __memset((void *)msb->lba_to_pba_table, 65535, (unsigned long )msb->logical_block_count * 2UL);
+  memset((void *)msb->lba_to_pba_table, 65535, (unsigned long )msb->logical_block_count * 2UL);
   }
   if (debug > 0) {
     {
@@ -7654,7 +7654,7 @@ static int msb_ftl_scan(struct msb_data *msb )
 
   }
   {
-  __memset((void *)(& extra), 0, 4UL);
+  memset((void *)(& extra), 0, 4UL);
   error = msb_read_oob(msb, (int )pba, 0, & extra);
   }
   if (error == -74) {

@@ -6082,7 +6082,7 @@ int main(void)
   return 0;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *__kmalloc(size_t  , gfp_t  ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
@@ -6310,7 +6310,7 @@ struct dvb_frontend *vp7045_fe_attach(struct dvb_usb_device *d )
   s->d = d;
   __len = 752UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops), __len);
+    __ret = memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops),
                              __len);

@@ -7394,8 +7394,8 @@ extern void might_fault(void) ;
 extern void panic(char const   *  , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -9131,7 +9131,7 @@ static int fore200e_push_rpd(struct fore200e *fore200e , struct atm_vcc *vcc , s
   (*((fore200e->bus)->dma_sync_for_cpu))(fore200e, (u32 )buffer->data.dma_addr, (int )rpd->rsd[i].length,
                                          2);
   tmp___0 = skb_put(skb, rpd->rsd[i].length);
-  __memcpy((void *)tmp___0, (void const   *)buffer->data.align_addr, (size_t )rpd->rsd[i].length);
+  memcpy((void *)tmp___0, (void const   *)buffer->data.align_addr, (size_t )rpd->rsd[i].length);
   (*((fore200e->bus)->dma_sync_for_device))(fore200e, (u32 )buffer->data.dma_addr,
                                             (int )rpd->rsd[i].length, 2);
   i = i + 1;
@@ -9749,11 +9749,11 @@ static int fore200e_send(struct atm_vcc *vcc , struct sk_buff *skb )
 
     }
     {
-    __memcpy((void *)data, (void const   *)skb_data, (size_t )skb_len);
+    memcpy((void *)data, (void const   *)skb_data, (size_t )skb_len);
     }
     if (skb_len < tx_len) {
       {
-      __memset((void *)data + (unsigned long )skb_len, 0, (size_t )(tx_len - skb_len));
+      memset((void *)data + (unsigned long )skb_len, 0, (size_t )(tx_len - skb_len));
       }
     } else {
 
@@ -10341,7 +10341,7 @@ static int fore200e_change_qos(struct atm_vcc *vcc , struct atm_qos *qos , int f
     fore200e->available_cell_rate = fore200e->available_cell_rate + (u32 )vcc->qos.txtp.max_pcr;
     fore200e->available_cell_rate = fore200e->available_cell_rate - (u32 )qos->txtp.max_pcr;
     ldv_mutex_unlock_148(& fore200e->rate_mtx);
-    __memcpy((void *)(& vcc->qos), (void const   *)qos, 84UL);
+    memcpy((void *)(& vcc->qos), (void const   *)qos, 84UL);
     fore200e_rate_ctrl(qos, & fore200e_vcc->rate);
     set_bit(6L, (unsigned long volatile   *)(& vcc->flags));
     }

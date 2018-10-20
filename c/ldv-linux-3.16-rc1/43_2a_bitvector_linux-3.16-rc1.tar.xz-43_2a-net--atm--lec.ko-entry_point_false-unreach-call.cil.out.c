@@ -6293,7 +6293,7 @@ __inline static void hlist_add_head(struct hlist_node *n , struct hlist_head *h 
 }
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
@@ -8048,7 +8048,7 @@ static int send_to_lecd(struct lec_priv *priv , atmlec_msg_type type , unsigned 
   if ((unsigned long )atm_addr != (unsigned long )((unsigned char const   *)0U)) {
     __len = 20UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& mesg->content.normal.atm_addr), (void const   *)atm_addr,
+      __ret = memcpy((void *)(& mesg->content.normal.atm_addr), (void const   *)atm_addr,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& mesg->content.normal.atm_addr), (void const   *)atm_addr,
@@ -10079,7 +10079,7 @@ static void lec_arp_update(struct lec_priv *priv , unsigned char const   *mac_ad
         tmp->status = 5U;
         __len = 20UL;
         if (__len > 63UL) {
-          __ret = __memcpy((void *)(& tmp->atm_addr), (void const   *)atm_addr, __len);
+          __ret = memcpy((void *)(& tmp->atm_addr), (void const   *)atm_addr, __len);
         } else {
           __ret = __builtin_memcpy((void *)(& tmp->atm_addr), (void const   *)atm_addr,
                                    __len);
@@ -10151,7 +10151,7 @@ static void lec_arp_update(struct lec_priv *priv , unsigned char const   *mac_ad
   }
   __len___0 = 20UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& entry->atm_addr), (void const   *)atm_addr, __len___0);
+    __ret___0 = memcpy((void *)(& entry->atm_addr), (void const   *)atm_addr, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& entry->atm_addr), (void const   *)atm_addr,
                                  __len___0);
@@ -10302,7 +10302,7 @@ static void lec_vcc_added(struct lec_priv *priv , struct atmlec_ioc  const  *ioc
     ldv_del_timer_48(& entry->timer);
     __len = 20UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
+      __ret = memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
@@ -10344,7 +10344,7 @@ static void lec_vcc_added(struct lec_priv *priv , struct atmlec_ioc  const  *ioc
     }
     __len___0 = 20UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
+      __ret___0 = memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
@@ -10492,7 +10492,7 @@ static void lec_vcc_added(struct lec_priv *priv , struct atmlec_ioc  const  *ioc
   entry->old_push = old_push;
   __len___1 = 20UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
+    __ret___1 = memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
@@ -10743,7 +10743,7 @@ static int lec_mcast_make(struct lec_priv *priv , struct atm_vcc *vcc )
   }
   __len = 20UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& to_add->atm_addr), (void const   *)(& vcc->remote.sas_addr.prv),
+    __ret = memcpy((void *)(& to_add->atm_addr), (void const   *)(& vcc->remote.sas_addr.prv),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& to_add->atm_addr), (void const   *)(& vcc->remote.sas_addr.prv),

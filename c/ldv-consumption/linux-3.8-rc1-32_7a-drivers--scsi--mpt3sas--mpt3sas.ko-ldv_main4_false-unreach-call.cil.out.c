@@ -6415,7 +6415,7 @@ __inline static int __get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , int  ) ;
@@ -10641,7 +10641,7 @@ int mpt3sas_base_sas_iounit_control(struct MPT3SAS_ADAPTER *ioc , Mpi2SasIoUnitC
   ioc->base_cmds.smid = smid;
   __len = 44UL;
   if (__len > 63UL) {
-    __ret = __memcpy(request, (void const   *)mpi_request, __len);
+    __ret = memcpy(request, (void const   *)mpi_request, __len);
   } else {
     __ret = __builtin_memcpy(request, (void const   *)mpi_request, __len);
   }
@@ -10674,7 +10674,7 @@ int mpt3sas_base_sas_iounit_control(struct MPT3SAS_ADAPTER *ioc , Mpi2SasIoUnitC
   if (((int )ioc->base_cmds.status & 4) != 0) {
     __len___0 = 20UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)mpi_reply, (void const   *)ioc->base_cmds.reply,
+      __ret___0 = memcpy((void *)mpi_reply, (void const   *)ioc->base_cmds.reply,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)mpi_reply, (void const   *)ioc->base_cmds.reply,
@@ -10767,7 +10767,7 @@ int mpt3sas_base_scsi_enclosure_processor(struct MPT3SAS_ADAPTER *ioc , Mpi2SepR
   ioc->base_cmds.smid = smid;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy(request, (void const   *)mpi_request, __len);
+    __ret = memcpy(request, (void const   *)mpi_request, __len);
   } else {
     __ret = __builtin_memcpy(request, (void const   *)mpi_request, __len);
   }
@@ -10790,7 +10790,7 @@ int mpt3sas_base_scsi_enclosure_processor(struct MPT3SAS_ADAPTER *ioc , Mpi2SepR
   if (((int )ioc->base_cmds.status & 4) != 0) {
     __len___0 = 32UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)mpi_reply, (void const   *)ioc->base_cmds.reply,
+      __ret___0 = memcpy((void *)mpi_reply, (void const   *)ioc->base_cmds.reply,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)mpi_reply, (void const   *)ioc->base_cmds.reply,
@@ -12980,7 +12980,7 @@ static int _config_request(struct MPT3SAS_ADAPTER *ioc , Mpi2ConfigRequest_t *mp
   ioc->config_cmds.smid = smid;
   __len___0 = 44UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)config_request, (void const   *)mpi_request, __len___0);
+    __ret___0 = memcpy((void *)config_request, (void const   *)mpi_request, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)config_request, (void const   *)mpi_request,
                                  __len___0);
@@ -13012,7 +13012,7 @@ static int _config_request(struct MPT3SAS_ADAPTER *ioc , Mpi2ConfigRequest_t *mp
   if (((int )ioc->config_cmds.status & 4) != 0) {
     __len___1 = 24UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)mpi_reply, (void const   *)ioc->config_cmds.reply,
+      __ret___1 = memcpy((void *)mpi_reply, (void const   *)ioc->config_cmds.reply,
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)mpi_reply, (void const   *)ioc->config_cmds.reply,
@@ -16923,7 +16923,7 @@ void mpt3sas_send_trigger_data_event(struct MPT3SAS_ADAPTER *ioc , struct SL_WH_
   fw_event->ioc = ioc;
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy(fw_event->event_data, (void const   *)event_data, __len);
+    __ret = memcpy(fw_event->event_data, (void const   *)event_data, __len);
   } else {
     __ret = __builtin_memcpy(fw_event->event_data, (void const   *)event_data, __len);
   }
@@ -25738,7 +25738,7 @@ static int _transport_smp_handler(struct Scsi_Host *shost , struct sas_rphy *rph
     }
     __len___0 = 28UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy(req->sense, (void const   *)mpi_reply, __len___0);
+      __ret___0 = memcpy(req->sense, (void const   *)mpi_reply, __len___0);
     } else {
       __ret___0 = __builtin_memcpy(req->sense, (void const   *)mpi_reply, __len___0);
     }
@@ -27231,7 +27231,7 @@ static long _ctl_eventquery(struct MPT3SAS_ADAPTER *ioc , void *arg )
   karg.event_entries = 50U;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& karg.event_types), (void const   *)(& ioc->event_type),
+    __ret = memcpy((void *)(& karg.event_types), (void const   *)(& ioc->event_type),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& karg.event_types), (void const   *)(& ioc->event_type),
@@ -27271,7 +27271,7 @@ static long _ctl_eventenable(struct MPT3SAS_ADAPTER *ioc , void *arg )
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ioc->event_type), (void const   *)(& karg.event_types),
+    __ret = memcpy((void *)(& ioc->event_type), (void const   *)(& karg.event_types),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ioc->event_type), (void const   *)(& karg.event_types),
@@ -27637,7 +27637,7 @@ static long _ctl_diag_register_2(struct MPT3SAS_ADAPTER *ioc , struct mpt3_diag_
   ioc->diag_buffer_status[(int )buffer_type] = 0U;
   __len = 23UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ioc->product_specific) + (unsigned long )buffer_type,
+    __ret = memcpy((void *)(& ioc->product_specific) + (unsigned long )buffer_type,
                      (void const   *)(& diag_register->product_specific), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ioc->product_specific) + (unsigned long )buffer_type,
@@ -29826,7 +29826,7 @@ static void _mpt3sas_raise_sigio(struct MPT3SAS_ADAPTER *ioc , struct SL_WH_TRIG
   mpi_reply->EventDataLength = event_data_sz;
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mpi_reply->EventData), (void const   *)event_data,
+    __ret = memcpy((void *)(& mpi_reply->EventData), (void const   *)event_data,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mpi_reply->EventData), (void const   *)event_data,

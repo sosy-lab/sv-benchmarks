@@ -4024,8 +4024,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
@@ -4637,7 +4637,7 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
   try = 0;
   if (block == -1) {
     {
-    __memset((void *)buffer, 255, 512UL);
+    memset((void *)buffer, 255, 512UL);
     }
     return (0);
   } else {
@@ -4908,7 +4908,7 @@ static int sm_write_block(struct sm_ftl *ftl , uint8_t *buf , int zone , int blo
   {
   {
   retry = 0;
-  __memset((void *)(& oob), 255, 16UL);
+  memset((void *)(& oob), 255, 16UL);
   sm_write_lba(& oob, (int )((uint16_t )lba));
   }
   restart: ;
@@ -4988,7 +4988,7 @@ static void sm_mark_block_bad(struct sm_ftl *ftl , int zone , int block )
 
   {
   {
-  __memset((void *)(& oob), 255, 16UL);
+  memset((void *)(& oob), 255, 16UL);
   oob.block_status = 240U;
   }
   if ((int )ftl->unstable) {
@@ -5588,7 +5588,7 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
 
   }
   {
-  __memset((void *)zone->lba_to_phys_table, -1, (size_t )(ftl->max_lba * 2));
+  memset((void *)zone->lba_to_phys_table, -1, (size_t )(ftl->max_lba * 2));
   __tmp = & zone->free_sectors;
   __kfifo = & __tmp->__annonCompField60.kfifo;
   tmp___0 = __kfifo_alloc(__kfifo, (unsigned int )(ftl->zone_size * 2), 1UL, 208U);
@@ -5830,7 +5830,7 @@ static void sm_cache_put(struct sm_ftl *ftl , char *buffer , int boffset )
 
   {
   {
-  __memcpy((void *)ftl->cache_data + (unsigned long )boffset, (void const   *)buffer,
+  memcpy((void *)ftl->cache_data + (unsigned long )boffset, (void const   *)buffer,
            512UL);
   clear_bit((long )(boffset / 512), (unsigned long volatile   *)(& ftl->cache_data_invalid_bitmap));
   ftl->cache_clean = 0;
@@ -5852,7 +5852,7 @@ static int sm_cache_get(struct sm_ftl *ftl , char *buffer , int boffset )
 
   }
   {
-  __memcpy((void *)buffer, (void const   *)ftl->cache_data + (unsigned long )boffset,
+  memcpy((void *)buffer, (void const   *)ftl->cache_data + (unsigned long )boffset,
            512UL);
   }
   return (0);
@@ -6061,7 +6061,7 @@ static int sm_read(struct mtd_blktrans_dev *dev , unsigned long sect_no , char *
   block = (int )*(zone->lba_to_phys_table + (unsigned long )block);
   if (block == -1) {
     {
-    __memset((void *)buf, 255, 512UL);
+    memset((void *)buf, 255, 512UL);
     }
     goto unlock;
   } else {

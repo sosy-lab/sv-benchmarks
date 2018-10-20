@@ -5228,7 +5228,7 @@ struct ipheth_device {
 typedef int ldv_func_ret_type;
 typedef int ldv_func_ret_type___0;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 __inline static int usb_endpoint_dir_in(struct usb_endpoint_descriptor  const  *epd ) 
@@ -5955,7 +5955,7 @@ static int ipheth_get_macaddr(struct ipheth_device *dev )
   } else {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)net->dev_addr, (void const   *)dev->ctrl_buf, __len);
+      __ret = memcpy((void *)net->dev_addr, (void const   *)dev->ctrl_buf, __len);
     } else {
       __ret = __builtin_memcpy((void *)net->dev_addr, (void const   *)dev->ctrl_buf,
                                __len);

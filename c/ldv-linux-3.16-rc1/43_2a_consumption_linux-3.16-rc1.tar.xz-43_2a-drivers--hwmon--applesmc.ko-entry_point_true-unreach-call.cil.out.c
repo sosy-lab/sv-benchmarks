@@ -2478,7 +2478,7 @@ __inline static int kstrtoul(char const   *s , unsigned int base , unsigned long
 }
 extern int sprintf(char * , char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 __inline static void *ERR_PTR(long error ) 
@@ -3132,14 +3132,14 @@ static struct applesmc_entry  const  *applesmc_get_entry_by_index(int index )
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cache->key), (void const   *)(& key), __len);
+    __ret = memcpy((void *)(& cache->key), (void const   *)(& key), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cache->key), (void const   *)(& key), __len);
   }
   cache->len = info[0];
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& cache->type), (void const   *)(& info) + 1U, __len___0);
+    __ret___0 = memcpy((void *)(& cache->type), (void const   *)(& info) + 1U, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& cache->type), (void const   *)(& info) + 1U,
                                  __len___0);

@@ -6735,7 +6735,7 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 __inline static void atomic_inc(atomic_t *v ) 
@@ -7457,7 +7457,7 @@ u32 ceph_choose_frag(struct ceph_inode_info *ci , u32 v , struct ceph_inode_frag
     if ((unsigned long )pfrag != (unsigned long )((struct ceph_inode_frag *)0)) {
       __len = 56UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)pfrag, (void const   *)frag, __len);
+        __ret = memcpy((void *)pfrag, (void const   *)frag, __len);
       } else {
         __ret = __builtin_memcpy((void *)pfrag, (void const   *)frag, __len);
       }
@@ -20523,7 +20523,7 @@ static long ceph_ioctl_get_dataloc(struct file *file , void *arg )
     if ((unsigned long )a != (unsigned long )((struct ceph_entity_addr *)0)) {
       __len = 128UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& dl.osd_addr), (void const   *)(& a->in_addr),
+        __ret = memcpy((void *)(& dl.osd_addr), (void const   *)(& a->in_addr),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& dl.osd_addr), (void const   *)(& a->in_addr),

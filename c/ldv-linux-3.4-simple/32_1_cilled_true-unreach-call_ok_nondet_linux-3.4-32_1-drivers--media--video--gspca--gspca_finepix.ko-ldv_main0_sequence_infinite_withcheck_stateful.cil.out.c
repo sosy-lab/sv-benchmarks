@@ -3512,7 +3512,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -3663,7 +3663,7 @@ static int command(struct gspca_dev *gspca_dev , int order )
     __cil_tmp14 = (unsigned long )(order_values) + __cil_tmp13;
     __cil_tmp15 = (u8 *)__cil_tmp14;
     __cil_tmp16 = (void const   *)__cil_tmp15;
-    __ret = __memcpy(__cil_tmp10, __cil_tmp16, __len);
+    __ret = memcpy(__cil_tmp10, __cil_tmp16, __len);
     }
   } else {
     {

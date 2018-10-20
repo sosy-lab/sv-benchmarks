@@ -11530,7 +11530,7 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) ;
@@ -11774,7 +11774,7 @@ int lbs_update_hw_spec(struct lbs_private *priv )
 
   }
   if ((unsigned int )priv->current_addr[0] == 255U) {
-    __memmove((void *)(& priv->current_addr), (void const   *)(& cmd.permanentaddr),
+    memmove((void *)(& priv->current_addr), (void const   *)(& cmd.permanentaddr),
               6UL);
   } else {
 

@@ -7161,7 +7161,7 @@ long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -8610,7 +8610,7 @@ int beiscsi_get_macaddr(char *buf , struct beiscsi_hba *phba )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& phba->mac_address), (void const   *)(& resp.mac_address),
+    __ret = memcpy((void *)(& phba->mac_address), (void const   *)(& resp.mac_address),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& phba->mac_address), (void const   *)(& resp.mac_address),
@@ -15302,7 +15302,7 @@ static int beiscsi_get_boot_info(struct beiscsi_hba *phba )
   session_resp = (struct be_cmd_get_session_resp *)nonemb_cmd.va;
   __len = 1164UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& phba->boot_sess), (void const   *)(& session_resp->session_info),
+    __ret = memcpy((void *)(& phba->boot_sess), (void const   *)(& session_resp->session_info),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& phba->boot_sess), (void const   *)(& session_resp->session_info),
@@ -17832,7 +17832,7 @@ int mgmt_open_connection(struct beiscsi_hba *phba , struct sockaddr *dst_addr , 
     req->ip_address.ip_type = 16U;
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& req->ip_address.addr), (void const   *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
+      __ret = memcpy((void *)(& req->ip_address.addr), (void const   *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& req->ip_address.addr), (void const   *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
@@ -17844,7 +17844,7 @@ int mgmt_open_connection(struct beiscsi_hba *phba , struct sockaddr *dst_addr , 
     beiscsi_ep->dst_tcpport = tmp___2;
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& beiscsi_ep->dst6_addr), (void const   *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
+      __ret___0 = memcpy((void *)(& beiscsi_ep->dst6_addr), (void const   *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& beiscsi_ep->dst6_addr), (void const   *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),

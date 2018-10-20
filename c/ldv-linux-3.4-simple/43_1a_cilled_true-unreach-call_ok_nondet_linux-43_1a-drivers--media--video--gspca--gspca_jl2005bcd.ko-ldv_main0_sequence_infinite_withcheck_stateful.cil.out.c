@@ -3495,7 +3495,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
                              int  ) ;
@@ -3626,7 +3626,7 @@ static int jl2005c_write2(struct gspca_dev *gspca_dev , unsigned char *command )
     __cil_tmp9 = *((__u8 **)__cil_tmp8);
     __cil_tmp10 = (void *)__cil_tmp9;
     __cil_tmp11 = (void const   *)command;
-    __ret = __memcpy(__cil_tmp10, __cil_tmp11, __len);
+    __ret = memcpy(__cil_tmp10, __cil_tmp11, __len);
     }
   } else {
     {

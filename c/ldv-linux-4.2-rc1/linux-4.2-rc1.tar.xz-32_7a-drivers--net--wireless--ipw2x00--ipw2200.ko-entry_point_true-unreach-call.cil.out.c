@@ -7398,7 +7398,7 @@ __inline static int list_empty(struct list_head  const  *head )
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -20515,13 +20515,13 @@ static void ipw_rebuild_decrypted_skb(struct ipw_priv *priv , struct sk_buff *sk
   hdr->frame_control = fc;
   switch ((int )(priv->ieee)->sec.level) {
   case 4: 
-  __memmove((void *)skb->data + 24U, (void const   *)skb->data + 32U, (size_t )(skb->len - 32U));
+  memmove((void *)skb->data + 24U, (void const   *)skb->data + 32U, (size_t )(skb->len - 32U));
   skb_trim(skb, skb->len - 16U);
   goto ldv_55454;
   case 2: ;
   goto ldv_55454;
   case 1: 
-  __memmove((void *)skb->data + 24U, (void const   *)skb->data + 28U, (size_t )(skb->len - 28U));
+  memmove((void *)skb->data + 24U, (void const   *)skb->data + 28U, (size_t )(skb->len - 28U));
   skb_trim(skb, skb->len - 8U);
   goto ldv_55454;
   case 0: ;
@@ -20706,7 +20706,7 @@ static void ipw_handle_data_packet_monitor(struct ipw_priv *priv , struct ipw_rx
   } else {
 
   }
-  __memmove((void *)(rxb->skb)->data + 25U, (void const   *)(rxb->skb)->data + 28U,
+  memmove((void *)(rxb->skb)->data + 25U, (void const   *)(rxb->skb)->data + 28U,
             (size_t )len);
   ipw_rt = (struct ipw_rt_hdr *)(rxb->skb)->data;
   ipw_rt->rt_hdr.it_version = 0U;

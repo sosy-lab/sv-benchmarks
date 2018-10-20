@@ -3143,7 +3143,7 @@ struct dvb_dummy_fe_state {
 };
 
 long ldv__builtin_expect(long val , long res ) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -3398,7 +3398,7 @@ struct dvb_frontend *dvb_dummy_fe_ofdm_attach(void)
     __cil_tmp9 = (struct dvb_frontend_ops *)state;
     __cil_tmp10 = (void *)__cil_tmp9;
     __cil_tmp11 = (void const   *)(& dvb_dummy_fe_ofdm_ops);
-    __ret = __memcpy(__cil_tmp10, __cil_tmp11, __len);
+    __ret = memcpy(__cil_tmp10, __cil_tmp11, __len);
     }
   } else {
     {
@@ -3469,7 +3469,7 @@ struct dvb_frontend *dvb_dummy_fe_qpsk_attach(void)
     __cil_tmp9 = (struct dvb_frontend_ops *)state;
     __cil_tmp10 = (void *)__cil_tmp9;
     __cil_tmp11 = (void const   *)(& dvb_dummy_fe_qpsk_ops);
-    __ret = __memcpy(__cil_tmp10, __cil_tmp11, __len);
+    __ret = memcpy(__cil_tmp10, __cil_tmp11, __len);
     }
   } else {
     {
@@ -3540,7 +3540,7 @@ struct dvb_frontend *dvb_dummy_fe_qam_attach(void)
     __cil_tmp9 = (struct dvb_frontend_ops *)state;
     __cil_tmp10 = (void *)__cil_tmp9;
     __cil_tmp11 = (void const   *)(& dvb_dummy_fe_qam_ops);
-    __ret = __memcpy(__cil_tmp10, __cil_tmp11, __len);
+    __ret = memcpy(__cil_tmp10, __cil_tmp11, __len);
     }
   } else {
     {

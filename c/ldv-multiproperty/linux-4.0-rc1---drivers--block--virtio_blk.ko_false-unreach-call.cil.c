@@ -4614,9 +4614,9 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern bool sysfs_streq(char const   * , char const   * ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
@@ -6199,9 +6199,9 @@ static int virtblk_name_format(char *prefix , int index , char *buf , int buflen
 
   }
   {
-  __memmove((void *)begin, (void const   *)p, (size_t )((long )end - (long )p));
+  memmove((void *)begin, (void const   *)p, (size_t )((long )end - (long )p));
   tmp___0 = strlen((char const   *)prefix);
-  __memcpy((void *)buf, (void const   *)prefix, tmp___0);
+  memcpy((void *)buf, (void const   *)prefix, tmp___0);
   }
   return (0);
 }
@@ -6696,7 +6696,7 @@ static int virtblk_probe(struct virtio_device *vdev )
 
   }
   {
-  __memset((void *)(& vblk->tag_set), 0, 232UL);
+  memset((void *)(& vblk->tag_set), 0, 232UL);
   vblk->tag_set.ops = & virtio_mq_ops;
   vblk->tag_set.queue_depth = virtblk_queue_depth;
   vblk->tag_set.numa_node = -1;

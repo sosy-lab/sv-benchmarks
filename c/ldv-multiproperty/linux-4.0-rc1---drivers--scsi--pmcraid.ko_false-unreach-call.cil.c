@@ -8535,8 +8535,8 @@ __inline static int __get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -10441,7 +10441,7 @@ void pmcraid_init_cmdblk(struct pmcraid_cmd *cmd , int index )
     ioarcb->ioasa_len = 304U;
   } else {
     {
-    __memset((void *)(& (cmd->ioa_cb)->ioarcb.cdb), 0, 16UL);
+    memset((void *)(& (cmd->ioa_cb)->ioarcb.cdb), 0, 16UL);
     ioarcb->hrrq_id = 0U;
     ioarcb->request_flags0 = 0U;
     ioarcb->request_flags1 = 0U;
@@ -10995,7 +10995,7 @@ static void pmcraid_erp_done(struct pmcraid_cmd *cmd )
   }
   if ((unsigned long )cmd->__annonCompField113.__annonCompField112.sense_buffer != (unsigned long )((u8 *)0U)) {
     {
-    __memcpy((void *)scsi_cmd->sense_buffer, (void const   *)cmd->__annonCompField113.__annonCompField112.sense_buffer,
+    memcpy((void *)scsi_cmd->sense_buffer, (void const   *)cmd->__annonCompField113.__annonCompField112.sense_buffer,
              96UL);
     pci_free_consistent(pinstance->pdev, 96UL, (void *)cmd->__annonCompField113.__annonCompField112.sense_buffer,
                         cmd->__annonCompField113.__annonCompField112.sense_buffer_dma);
@@ -11205,8 +11205,8 @@ static void pmcraid_identify_hrrq(struct pmcraid_cmd *cmd )
 
   }
   {
-  __memcpy((void *)(& ioarcb->cdb) + 2U, (void const   *)(& hrrq_addr), 8UL);
-  __memcpy((void *)(& ioarcb->cdb) + 10U, (void const   *)(& hrrq_size), 4UL);
+  memcpy((void *)(& ioarcb->cdb) + 2U, (void const   *)(& hrrq_addr), 8UL);
+  memcpy((void *)(& ioarcb->cdb) + 10U, (void const   *)(& hrrq_size), 4UL);
   pmcraid_send_cmd(cmd, done_function, 15000UL, & pmcraid_timeout_handler);
   }
   return;
@@ -11313,11 +11313,11 @@ static void pmcraid_prepare_cancel_cmd(struct pmcraid_cmd *cmd , struct pmcraid_
   ioarcb_addr = (cmd_to_cancel->ioa_cb)->ioarcb.ioarcb_bus_addr;
   ioarcb->resource_handle = (cmd_to_cancel->ioa_cb)->ioarcb.resource_handle;
   ioarcb->request_type = 1U;
-  __memset((void *)(& ioarcb->cdb), 0, 16UL);
+  memset((void *)(& ioarcb->cdb), 0, 16UL);
   ioarcb->cdb[0] = 199U;
   tmp = __fswab64(ioarcb_addr);
   ioarcb_addr = tmp;
-  __memcpy((void *)(& ioarcb->cdb) + 2U, (void const   *)(& ioarcb_addr), 8UL);
+  memcpy((void *)(& ioarcb->cdb) + 2U, (void const   *)(& ioarcb_addr), 8UL);
   }
   return;
 }
@@ -11682,7 +11682,7 @@ static void pmcraid_handle_config_change(struct pmcraid_instance *pinstance )
 
   }
   {
-  __memcpy((void *)(& res->__annonCompField114.cfg_entry), (void const   *)cfg_entry,
+  memcpy((void *)(& res->__annonCompField114.cfg_entry), (void const   *)cfg_entry,
            (size_t )pinstance->config_table_entry_size);
   }
   if ((unsigned int )(pinstance->ccn.hcam)->notification_type == 2U || hidden_entry != 0U) {
@@ -12687,8 +12687,8 @@ static void pmcraid_request_sense(struct pmcraid_cmd *cmd )
 
   }
   {
-  __memset((void *)(& (cmd->ioa_cb)->ioasa), 0, 304UL);
-  __memset((void *)(& ioarcb->cdb), 0, 16UL);
+  memset((void *)(& (cmd->ioa_cb)->ioasa), 0, 304UL);
+  memset((void *)(& ioarcb->cdb), 0, 16UL);
   ioarcb->request_flags0 = 44U;
   ioarcb->request_type = 0U;
   ioarcb->cdb[0] = 3U;
@@ -12717,7 +12717,7 @@ static void pmcraid_cancel_all(struct pmcraid_cmd *cmd , u32 sense )
   ioarcb = & (cmd->ioa_cb)->ioarcb;
   res = (struct pmcraid_resource_entry *)(scsi_cmd->device)->hostdata;
   cmd_done = sense != 0U ? & pmcraid_erp_done : & pmcraid_request_sense;
-  __memset((void *)(& ioarcb->cdb), 0, 16UL);
+  memset((void *)(& ioarcb->cdb), 0, 16UL);
   ioarcb->request_flags0 = 16U;
   ioarcb->request_type = 1U;
   ioarcb->cdb[0] = 206U;
@@ -12752,7 +12752,7 @@ static void pmcraid_frame_auto_sense(struct pmcraid_cmd *cmd )
   ioasa = & (cmd->ioa_cb)->ioasa;
   ioasc = ioasa->ioasc;
   failing_lba = 0U;
-  __memset((void *)sense_buf, 0, 96UL);
+  memset((void *)sense_buf, 0, 96UL);
   (cmd->scsi_cmd)->result = 2;
   }
   if (((unsigned int )res->__annonCompField114.cfg_entry.resource_type == 2U && ioasc == 51448832U) && ioasa->u.vset.failing_lba_hi != 0U) {
@@ -12965,7 +12965,7 @@ static int pmcraid_error_handler(struct pmcraid_cmd *cmd )
     __min1 = (unsigned short )sense_len;
     __min2 = 96U;
     data_size = (int )__min1 < (int )__min2 ? __min1 : __min2;
-    __memcpy((void *)scsi_cmd->sense_buffer, (void const   *)(& ioasa->sense_data),
+    memcpy((void *)scsi_cmd->sense_buffer, (void const   *)(& ioasa->sense_data),
              (size_t )data_size);
     sense_copied = 1U;
     }
@@ -13772,7 +13772,7 @@ static int pmcraid_queuecommand_lck(struct scsi_cmnd *scsi_cmd , void (*done)(st
   {
   cmd->scsi_cmd = scsi_cmd;
   ioarcb = & (cmd->ioa_cb)->ioarcb;
-  __memcpy((void *)(& ioarcb->cdb), (void const   *)scsi_cmd->cmnd, (size_t )scsi_cmd->cmd_len);
+  memcpy((void *)(& ioarcb->cdb), (void const   *)scsi_cmd->cmnd, (size_t )scsi_cmd->cmd_len);
   ioarcb->resource_handle = res->__annonCompField114.cfg_entry.resource_handle;
   ioarcb->request_type = 0U;
   tmp___0 = atomic_add_return(1, & pinstance->last_message_id);
@@ -14181,13 +14181,13 @@ static long pmcraid_ioctl_passthrough(struct pmcraid_instance *pinstance , unsig
   ioarcb->request_type = buffer->ioarcb.request_type;
   ioarcb->request_flags0 = buffer->ioarcb.request_flags0;
   ioarcb->request_flags1 = buffer->ioarcb.request_flags1;
-  __memcpy((void *)(& ioarcb->cdb), (void const   *)(& buffer->ioarcb.cdb), 16UL);
+  memcpy((void *)(& ioarcb->cdb), (void const   *)(& buffer->ioarcb.cdb), 16UL);
   }
   if ((unsigned int )buffer->ioarcb.add_cmd_param_length != 0U) {
     {
     ioarcb->add_cmd_param_length = buffer->ioarcb.add_cmd_param_length;
     ioarcb->add_cmd_param_offset = buffer->ioarcb.add_cmd_param_offset;
-    __memcpy((void *)(& ioarcb->add_data.u.add_cmd_params), (void const   *)(& buffer->ioarcb.add_data.u.add_cmd_params),
+    memcpy((void *)(& ioarcb->add_data.u.add_cmd_params), (void const   *)(& buffer->ioarcb.add_data.u.add_cmd_params),
              (size_t )buffer->ioarcb.add_cmd_param_length);
     }
   } else {
@@ -15288,7 +15288,7 @@ static int pmcraid_allocate_control_blocks(struct pmcraid_instance *pinstance )
 
   }
   {
-  __memset((void *)(pinstance->cmd_list[i])->ioa_cb, 0, 1472UL);
+  memset((void *)(pinstance->cmd_list[i])->ioa_cb, 0, 1472UL);
   i = i + 1;
   }
   ldv_63343: ;
@@ -15352,7 +15352,7 @@ static int pmcraid_allocate_host_rrqs(struct pmcraid_instance *pinstance )
 
   }
   {
-  __memset((void *)pinstance->hrrq_start[i], 0, (size_t )buffer_size);
+  memset((void *)pinstance->hrrq_start[i], 0, (size_t )buffer_size);
   pinstance->hrrq_curr[i] = pinstance->hrrq_start[i];
   pinstance->hrrq_end[i] = pinstance->hrrq_start[i] + 1023U;
   pinstance->host_toggle_bit[i] = 1U;
@@ -15725,7 +15725,7 @@ static void pmcraid_reinit_buffers(struct pmcraid_instance *pinstance )
   goto ldv_63413;
   ldv_63412: 
   {
-  __memset((void *)pinstance->hrrq_start[i], 0, (size_t )buffer_size);
+  memset((void *)pinstance->hrrq_start[i], 0, (size_t )buffer_size);
   pinstance->hrrq_curr[i] = pinstance->hrrq_start[i];
   pinstance->hrrq_end[i] = pinstance->hrrq_start[i] + 1023U;
   pinstance->host_toggle_bit[i] = 1U;
@@ -16108,7 +16108,7 @@ static void pmcraid_set_timestamp(struct pmcraid_cmd *cmd )
   ioarcb->resource_handle = 4294967295U;
   ioarcb->cdb[0] = 164U;
   ioarcb->cdb[1] = 15U;
-  __memcpy((void *)(& ioarcb->cdb) + 6U, (void const   *)(& time_stamp_len), 4UL);
+  memcpy((void *)(& ioarcb->cdb) + 6U, (void const   *)(& time_stamp_len), 4UL);
   ioarcb->ioadl_bus_addr = cmd->ioa_cb_bus_addr + 80ULL;
   ioarcb->ioadl_length = 16U;
   ioarcb->ioarcb_bus_addr = ioarcb->ioarcb_bus_addr & 0xffffffffffffffe0ULL;
@@ -16263,7 +16263,7 @@ static void pmcraid_init_res_table(struct pmcraid_cmd *cmd )
   }
   if (found != 0) {
     {
-    __memcpy((void *)(& res->__annonCompField114.cfg_entry), (void const   *)cfgte,
+    memcpy((void *)(& res->__annonCompField114.cfg_entry), (void const   *)cfgte,
              (size_t )pinstance->config_table_entry_size);
     }
     if (pmcraid_debug_log != 0U) {
@@ -16345,7 +16345,7 @@ static void pmcraid_querycfg(struct pmcraid_cmd *cmd )
   ioarcb->request_type = 1U;
   ioarcb->resource_handle = 4294967295U;
   ioarcb->cdb[0] = 197U;
-  __memcpy((void *)(& ioarcb->cdb) + 10U, (void const   *)(& cfg_table_size), 4UL);
+  memcpy((void *)(& ioarcb->cdb) + 10U, (void const   *)(& cfg_table_size), 4UL);
   ioarcb->ioadl_bus_addr = cmd->ioa_cb_bus_addr + 80ULL;
   ioarcb->ioadl_length = 16U;
   ioarcb->ioarcb_bus_addr = ioarcb->ioarcb_bus_addr & 0xffffffffffffffe0ULL;
@@ -16470,7 +16470,7 @@ static int pmcraid_probe(struct pci_dev *pdev , struct pci_device_id  const  *de
   host->max_channel = 1U;
   host->max_cmd_len = 16U;
   pinstance = (struct pmcraid_instance *)(& host->hostdata);
-  __memset((void *)pinstance, 0, 12208UL);
+  memset((void *)pinstance, 0, 12208UL);
   pinstance->chip_cfg = (struct pmcraid_chip_details *)dev_id->driver_data;
   rc = pmcraid_init_instance(pdev, host, mapped_pci_addr);
   }

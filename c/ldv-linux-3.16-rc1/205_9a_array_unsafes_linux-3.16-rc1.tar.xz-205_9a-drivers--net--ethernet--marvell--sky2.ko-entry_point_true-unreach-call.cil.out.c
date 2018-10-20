@@ -6300,7 +6300,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -13269,7 +13269,7 @@ static void sky2_get_strings(struct net_device *dev , u32 stringset , u8 *data )
   ldv_53544: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& sky2_stats[i].name),
+    __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& sky2_stats[i].name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& sky2_stats[i].name),
@@ -13320,7 +13320,7 @@ static int sky2_set_mac_address(struct net_device *dev , void *p )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), __len);
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), __len);
   } else {
     __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
                              __len);
@@ -14538,7 +14538,7 @@ static struct net_device *sky2_init_netdev(struct sky2_hw *hw , unsigned int por
   if ((unsigned long )iap != (unsigned long )((void const   *)0)) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)dev->dev_addr, iap, __len);
+      __ret = memcpy((void *)dev->dev_addr, iap, __len);
     } else {
       __ret = __builtin_memcpy((void *)dev->dev_addr, iap, __len);
     }

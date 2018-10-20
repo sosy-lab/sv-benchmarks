@@ -4885,7 +4885,7 @@ typedef int ldv_func_ret_type___1;
 typedef int ldv_func_ret_type___2;
 typedef int ldv_func_ret_type___3;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 __inline static int usb_endpoint_dir_in(struct usb_endpoint_descriptor  const  *epd ) 
@@ -8611,7 +8611,7 @@ static void s2255_fwload_start(struct s2255_dev *dev , int reset )
   atomic_set(& (dev->fw_data)->fw_state, 0);
   __len = 512UL;
   if (__len > 63UL) {
-    __ret = __memcpy((dev->fw_data)->pfw_data, (void const   *)((dev->fw_data)->fw)->data,
+    __ret = memcpy((dev->fw_data)->pfw_data, (void const   *)((dev->fw_data)->fw)->data,
                      __len);
   } else {
     __ret = __builtin_memcpy((dev->fw_data)->pfw_data, (void const   *)((dev->fw_data)->fw)->data,

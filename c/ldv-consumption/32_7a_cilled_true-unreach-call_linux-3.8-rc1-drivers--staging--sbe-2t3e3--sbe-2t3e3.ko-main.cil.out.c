@@ -8071,7 +8071,7 @@ void ldv_mutex_unlock_83(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_94(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_92(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_95(struct mutex *ldv_func_arg1 ) ;
@@ -8342,7 +8342,7 @@ void t3e3_port_get(struct channel *sc , t3e3_param_t *param )
   {
   __len = 17UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)param, (void const   *)(& sc->p), __len);
+    __ret = memcpy((void *)param, (void const   *)(& sc->p), __len);
   } else {
     __ret = __builtin_memcpy((void *)param, (void const   *)(& sc->p), __len);
   }
@@ -8502,7 +8502,7 @@ void t3e3_port_get_stats(struct channel *sc , t3e3_stats_t *stats )
   sc->s.CP_BIT = sc->s.CP_BIT + result;
   __len = 120UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)stats, (void const   *)(& sc->s), __len);
+    __ret = memcpy((void *)stats, (void const   *)(& sc->s), __len);
   } else {
     __ret = __builtin_memcpy((void *)stats, (void const   *)(& sc->s), __len);
   }

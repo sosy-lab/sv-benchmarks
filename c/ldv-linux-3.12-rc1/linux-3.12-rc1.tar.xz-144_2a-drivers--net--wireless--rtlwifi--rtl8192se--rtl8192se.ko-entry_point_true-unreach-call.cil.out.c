@@ -9941,7 +9941,7 @@ void rtl92s_set_fw_joinbss_report_cmd(struct ieee80211_hw *hw , u8 mstatus , u8 
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void print_hex_dump(char const   * , char const   * , int  , int  , int  ,
                            void const   * , size_t  , bool  ) ;
 extern struct task_struct *current_task ;
@@ -12330,7 +12330,7 @@ static void _rtl92se_read_adapter_info(struct ieee80211_hw *hw )
     rtl_efuse_shadow_map_update(hw);
     __len = 128UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
+      __ret = memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),

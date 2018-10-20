@@ -4185,7 +4185,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 void ldv_linux_kernel_locking_spinlock_spin_lock_read_buffer_lock_of_lego_usb_tower(void) ;
 void ldv_linux_kernel_locking_spinlock_spin_unlock_read_buffer_lock_of_lego_usb_tower(void) ;
 void ldv_linux_usb_urb_usb_free_urb(struct urb *urb ) ;
@@ -5395,7 +5395,7 @@ static void tower_interrupt_in_callback(struct urb *urb )
     }
     if (dev->read_buffer_length + (size_t )urb->actual_length < (size_t )read_buffer_size) {
       {
-      __memcpy((void *)(dev->read_buffer + dev->read_buffer_length), (void const   *)dev->interrupt_in_buffer,
+      memcpy((void *)(dev->read_buffer + dev->read_buffer_length), (void const   *)dev->interrupt_in_buffer,
                (size_t )urb->actual_length);
       dev->read_buffer_length = dev->read_buffer_length + (size_t )urb->actual_length;
       dev->read_last_arrival = jiffies;

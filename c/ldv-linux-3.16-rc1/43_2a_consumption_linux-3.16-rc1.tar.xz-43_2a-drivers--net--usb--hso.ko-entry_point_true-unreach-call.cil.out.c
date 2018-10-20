@@ -6156,7 +6156,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
@@ -7710,7 +7710,7 @@ static void packetizeRx(struct hso_net *odev , unsigned char *ip_pkt , unsigned 
     tmp_rx_buf = skb_put(odev->skb_rx_buf, 20U);
     __len___0 = 20UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)tmp_rx_buf, (void const   *)(& odev->rx_ip_hdr),
+      __ret___0 = memcpy((void *)tmp_rx_buf, (void const   *)(& odev->rx_ip_hdr),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)tmp_rx_buf, (void const   *)(& odev->rx_ip_hdr),
@@ -8489,7 +8489,7 @@ static int hso_wait_modem_status(struct hso_serial *serial , unsigned long arg )
   spin_lock_irq(& serial->serial_lock);
   __len = 44UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cprev), (void const   *)(& tiocmget->icount), __len);
+    __ret = memcpy((void *)(& cprev), (void const   *)(& tiocmget->icount), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cprev), (void const   *)(& tiocmget->icount),
                              __len);
@@ -8500,7 +8500,7 @@ static int hso_wait_modem_status(struct hso_serial *serial , unsigned long arg )
   spin_lock_irq(& serial->serial_lock);
   __len___0 = 44UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount), __len___0);
+    __ret___0 = memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount),
                                  __len___0);
@@ -8576,7 +8576,7 @@ static int hso_get_count(struct tty_struct *tty , struct serial_icounter_struct 
   spin_lock_irq(& serial->serial_lock);
   __len = 44UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount), __len);
+    __ret = memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount),
                              __len);

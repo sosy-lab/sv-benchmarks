@@ -3121,7 +3121,7 @@ struct cxd2820r_priv {
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 void *__builtin_alloca(unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 __inline static u64 div_u64_rem(u64 dividend , u32 divisor , u32 *remainder ) 
@@ -3472,7 +3472,7 @@ static int cxd2820r_gpio(struct dvb_frontend *fe )
   }
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->gpio), (void const   *)gpio, __len);
+    __ret = memcpy((void *)(& priv->gpio), (void const   *)gpio, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->gpio), (void const   *)gpio, __len);
   }
@@ -5776,7 +5776,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     priv->i2c = i2c;
     __len = 32UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& priv->cfg), (void const   *)cfg, __len);
+      __ret = memcpy((void *)(& priv->cfg), (void const   *)cfg, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& priv->cfg), (void const   *)cfg, __len);
     }
@@ -5798,7 +5798,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     }
     __len___0 = 744UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& priv->fe[0].ops), (void const   *)(& cxd2820r_ops),
+      __ret___0 = memcpy((void *)(& priv->fe[0].ops), (void const   *)(& cxd2820r_ops),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& priv->fe[0].ops), (void const   *)(& cxd2820r_ops),
@@ -5806,7 +5806,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     }
     __len___1 = 744UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& priv->fe[1].ops), (void const   *)(& cxd2820r_ops) + 1U,
+      __ret___1 = memcpy((void *)(& priv->fe[1].ops), (void const   *)(& cxd2820r_ops) + 1U,
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& priv->fe[1].ops), (void const   *)(& cxd2820r_ops) + 1U,

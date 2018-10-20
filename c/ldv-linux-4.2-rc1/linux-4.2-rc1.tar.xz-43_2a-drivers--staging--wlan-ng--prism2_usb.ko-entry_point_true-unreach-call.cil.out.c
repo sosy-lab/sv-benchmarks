@@ -8850,7 +8850,7 @@ __inline static void list_splice_init(struct list_head *list , struct list_head 
 extern void __bad_percpu_size(void) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
@@ -12014,7 +12014,7 @@ static void hfa384x_usbin_rx(wlandevice_t *wlandev , struct sk_buff *skb )
   hdrlen = (int )tmp;
   skb_pull(skb, 60U);
   tmp___0 = skb_push(skb, (unsigned int )hdrlen);
-  __memmove((void *)tmp___0, (void const   *)(& usbin->rxfrm.desc.frame_control),
+  memmove((void *)tmp___0, (void const   *)(& usbin->rxfrm.desc.frame_control),
             (size_t )hdrlen);
   skb->dev = wlandev->netdev;
   (skb->dev)->last_rx = jiffies;

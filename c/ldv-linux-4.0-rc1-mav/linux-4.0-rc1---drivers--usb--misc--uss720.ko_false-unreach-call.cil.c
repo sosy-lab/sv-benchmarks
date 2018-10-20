@@ -4442,7 +4442,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static void atomic_set(atomic_t *v , int i ) 
 { 
@@ -4839,7 +4839,7 @@ static void async_complete(struct urb *urb )
   } else
   if ((unsigned int )(rq->dr)->bRequest == 3U) {
     {
-    __memcpy((void *)(& priv->reg), (void const   *)(& rq->reg), 7UL);
+    memcpy((void *)(& priv->reg), (void const   *)(& rq->reg), 7UL);
     }
     if ((((int )rq->reg[2] & (int )rq->reg[1]) & 16) != 0 && (unsigned long )pp != (unsigned long )((struct parport *)0)) {
       {

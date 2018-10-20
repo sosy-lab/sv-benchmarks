@@ -3065,7 +3065,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
 extern void mutex_unlock(struct mutex * ) ;
@@ -3491,7 +3491,7 @@ static int ds_recv_status_nodump(struct ds_device *dev , struct ds_status *st , 
       {
       __cil_tmp34 = (void *)st;
       __cil_tmp35 = (void const   *)buf;
-      __ret = __memcpy(__cil_tmp34, __cil_tmp35, __len);
+      __ret = memcpy(__cil_tmp34, __cil_tmp35, __len);
       }
     } else {
       {

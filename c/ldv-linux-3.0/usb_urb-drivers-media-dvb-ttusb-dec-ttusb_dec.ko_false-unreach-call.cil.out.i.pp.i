@@ -6273,7 +6273,7 @@ extern int printk(char const *fmt , ...) ;
 extern void warn_slowpath_null(char const *file , int const line ) ;
 extern int snprintf(char *buf , size_t size , char const *fmt , ...) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void *to , void const *from , size_t len ) ;
+extern void *memcpy(void *to , void const *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern size_t strlcat(char * , char const * , __kernel_size_t ) ;
 __inline static unsigned long arch_local_save_flags(void) __attribute__((__no_instrument_function__)) ;
@@ -7302,7 +7302,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
       __len = (size_t )4;
       if (__len >= 64UL) {
         {
-        __ret = __memcpy((void *)(& tmp___7), (void const *)(c), __len);
+        __ret = memcpy((void *)(& tmp___7), (void const *)(c), __len);
         }
       } else {
         {
@@ -7320,7 +7320,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
       __len___0 = (size_t )4;
       if (__len___0 >= 64UL) {
         {
-        __ret___0 = __memcpy((void *)(& tmp___7), (void const *)(& c[4]), __len___0);
+        __ret___0 = memcpy((void *)(& tmp___7), (void const *)(& c[4]), __len___0);
         }
       } else {
         {
@@ -7339,7 +7339,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
       __len___1 = (size_t )4;
       if (__len___1 >= 64UL) {
         {
-        __ret___1 = __memcpy((void *)(& tmp___7), (void const *)(& c[8]), __len___1);
+        __ret___1 = memcpy((void *)(& tmp___7), (void const *)(& c[8]), __len___1);
         }
       } else {
         {
@@ -7432,7 +7432,7 @@ static void ttusb_dec_set_pids(struct ttusb_dec *dec )
   __len = (size_t )2;
   if (__len >= 64UL) {
     {
-    __ret = __memcpy((void *)(& b[0]), (void const *)(& pcr), __len);
+    __ret = memcpy((void *)(& b[0]), (void const *)(& pcr), __len);
     }
   } else {
     {
@@ -7442,7 +7442,7 @@ static void ttusb_dec_set_pids(struct ttusb_dec *dec )
   __len___0 = (size_t )2;
   if (__len___0 >= 64UL) {
     {
-    __ret___0 = __memcpy((void *)(& b[2]), (void const *)(& audio), __len___0);
+    __ret___0 = memcpy((void *)(& b[2]), (void const *)(& audio), __len___0);
     }
   } else {
     {
@@ -7452,7 +7452,7 @@ static void ttusb_dec_set_pids(struct ttusb_dec *dec )
   __len___1 = (size_t )2;
   if (__len___1 >= 64UL) {
     {
-    __ret___1 = __memcpy((void *)(& b[4]), (void const *)(& video), __len___1);
+    __ret___1 = memcpy((void *)(& b[4]), (void const *)(& video), __len___1);
     }
   } else {
     {
@@ -7585,7 +7585,7 @@ static void ttusb_dec_process_pva(struct ttusb_dec *dec , u8 *pva , int length )
       }
       if (__len___2 >= 64UL) {
         {
-        __ret___2 = __memcpy((void *)(& dec->v_pes[4]), (void const *)(& v_pes_payload_length),
+        __ret___2 = memcpy((void *)(& dec->v_pes[4]), (void const *)(& v_pes_payload_length),
                              __len___2);
         }
       } else {
@@ -8668,7 +8668,7 @@ static int ttusb_dec_start_sec_feed(struct dvb_demux_feed *dvbdmxfeed )
   }
   if (__len >= 64UL) {
     {
-    __ret = __memcpy((void *)(& b0[0]), (void const *)(& pid), __len);
+    __ret = memcpy((void *)(& b0[0]), (void const *)(& pid), __len);
     }
   } else {
     {
@@ -8678,7 +8678,7 @@ static int ttusb_dec_start_sec_feed(struct dvb_demux_feed *dvbdmxfeed )
   __len___0 = (size_t )1;
   if (__len___0 >= 64UL) {
     {
-    __ret___0 = __memcpy((void *)(& b0[4]), (void const *)(& x), __len___0);
+    __ret___0 = memcpy((void *)(& b0[4]), (void const *)(& x), __len___0);
     }
   } else {
     {
@@ -8688,7 +8688,7 @@ static int ttusb_dec_start_sec_feed(struct dvb_demux_feed *dvbdmxfeed )
   __len___1 = (size_t )1;
   if (__len___1 >= 64UL) {
     {
-    __ret___1 = __memcpy((void *)(& b0[5]), (void const *)(& (dvbdmxfeed->filter)->filter.filter_value[0]),
+    __ret___1 = memcpy((void *)(& b0[5]), (void const *)(& (dvbdmxfeed->filter)->filter.filter_value[0]),
                          __len___1);
     }
   } else {
@@ -9317,7 +9317,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   }
   if (__len >= 64UL) {
     {
-    __ret = __memcpy((void *)(& tmp___7), (void const *)(firmware + 56), __len);
+    __ret = memcpy((void *)(& tmp___7), (void const *)(firmware + 56), __len);
     }
   } else {
     {
@@ -9342,7 +9342,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   __len___0 = (size_t )20;
   if (__len___0 >= 64UL) {
     {
-    __ret___0 = __memcpy((void *)(idstring), (void const *)(firmware + 36), __len___0);
+    __ret___0 = memcpy((void *)(idstring), (void const *)(firmware + 36), __len___0);
     }
   } else {
     {
@@ -9359,7 +9359,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   }
   if (__len___1 >= 64UL) {
     {
-    __ret___1 = __memcpy((void *)(b0), (void const *)(& firmware_size_nl), __len___1);
+    __ret___1 = memcpy((void *)(b0), (void const *)(& firmware_size_nl), __len___1);
     }
   } else {
     {
@@ -9376,7 +9376,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   }
   if (__len___2 >= 64UL) {
     {
-    __ret___2 = __memcpy((void *)(& b0[6]), (void const *)(& firmware_csum_ns),
+    __ret___2 = memcpy((void *)(& b0[6]), (void const *)(& firmware_csum_ns),
                          __len___2);
     }
   } else {

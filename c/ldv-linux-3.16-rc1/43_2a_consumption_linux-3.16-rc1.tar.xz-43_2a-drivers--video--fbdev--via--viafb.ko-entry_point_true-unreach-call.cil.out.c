@@ -4477,7 +4477,7 @@ extern int kstrtou8(char const   * , unsigned int  , u8 * ) ;
 extern int kstrtou8_from_user(char const   * , size_t  , unsigned int  , u8 * ) ;
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern void *memdup_user(void const   * , size_t  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -7406,7 +7406,7 @@ int via_fb_pci_probe(struct viafb_dev *vdev )
     viaparinfo1->iga_path = 2U;
     __len___0 = 1632UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)viafbinfo1, (void const   *)viafbinfo, __len___0);
+      __ret___0 = memcpy((void *)viafbinfo1, (void const   *)viafbinfo, __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)viafbinfo1, (void const   *)viafbinfo,
                                    __len___0);

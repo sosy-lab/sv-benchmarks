@@ -12315,7 +12315,7 @@ void ldv_free_netdev_22(struct net_device *dev___0 )
 extern struct module __this_module ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 bool ldv_is_err(void const   *ptr ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern char *strcat(char * , char const   * ) ;
 __inline static bool IS_ERR(void const   *ptr ) ;
 __inline static int atomic_dec_and_test(atomic_t *v ) 
@@ -12938,7 +12938,7 @@ static int isdn_tty_handleDLEdown(modem_info *info , atemu *m , int len )
     switch ((int )*p) {
     case 16: ;
     if (len > 1) {
-      __memmove((void *)p, (void const   *)p + 1U, (size_t )(len + -1));
+      memmove((void *)p, (void const   *)p + 1U, (size_t )(len + -1));
     } else {
 
     }
@@ -12959,7 +12959,7 @@ static int isdn_tty_handleDLEdown(modem_info *info , atemu *m , int len )
     case 113: ;
     case 115: ;
     if (len > 1) {
-      __memmove((void *)p, (void const   *)p + 1U, (size_t )(len + -1));
+      memmove((void *)p, (void const   *)p + 1U, (size_t )(len + -1));
     } else {
 
     }

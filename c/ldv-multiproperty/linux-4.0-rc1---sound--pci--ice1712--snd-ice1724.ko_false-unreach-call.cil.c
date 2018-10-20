@@ -5347,8 +5347,8 @@ __inline static __u16 __fswab16(__u16 val )
 extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                               , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strcat(char * , char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -7982,7 +7982,7 @@ static int snd_vt1724_ac97_mixer(struct snd_ice1712 *ice )
 
     }
     {
-    __memset((void *)(& ac97), 0, 40UL);
+    memset((void *)(& ac97), 0, 40UL);
     ac97.private_data = (void *)ice;
     err = snd_ac97_mixer(pbus, & ac97, & ice->ac97);
     }
@@ -8120,7 +8120,7 @@ static int snd_vt1724_eeprom_get(struct snd_kcontrol *kcontrol , struct snd_ctl_
   {
   {
   ice = (struct snd_ice1712 *)kcontrol->private_data;
-  __memcpy((void *)(& ucontrol->value.bytes.data), (void const   *)(& ice->eeprom),
+  memcpy((void *)(& ucontrol->value.bytes.data), (void const   *)(& ice->eeprom),
            52UL);
   }
   return (0);
@@ -8235,7 +8235,7 @@ static void decode_spdif_bits(struct snd_aes_iec958 *diga , unsigned int val )
 
   {
   {
-  __memset((void *)(& diga->status), 0, 24UL);
+  memset((void *)(& diga->status), 0, 24UL);
   diga->status[0] = (unsigned int )((unsigned char )val) & 3U;
   }
   if ((int )val & 1) {
@@ -9106,7 +9106,7 @@ static int snd_vt1724_read_eeprom(struct snd_ice1712 *ice , char const   *modeln
   {
   ice->eeprom.version = 2U;
   ice->eeprom.size = (unsigned int )((unsigned char )c->eeprom_size) + 6U;
-  __memcpy((void *)(& ice->eeprom.data), (void const   *)c->eeprom_data, (size_t )c->eeprom_size);
+  memcpy((void *)(& ice->eeprom.data), (void const   *)c->eeprom_data, (size_t )c->eeprom_size);
   }
   goto read_skipped;
   ldv_37423: 
@@ -17553,7 +17553,7 @@ static int aureon_ac97_init(struct snd_ice1712 *ice )
   tmp = tmp | 65536U;
   snd_ice1712_gpio_write(ice, tmp);
   __const_udelay(12885UL);
-  __memset((void *)(& spec->stac9744), 0, 128UL);
+  memset((void *)(& spec->stac9744), 0, 128UL);
   i = 0;
   }
   goto ldv_35618;
@@ -18912,7 +18912,7 @@ static int aureon_cs8415_mask_get(struct snd_kcontrol *kcontrol , struct snd_ctl
 
   {
   {
-  __memset((void *)(& ucontrol->value.iec958.status), 255, 24UL);
+  memset((void *)(& ucontrol->value.iec958.status), 255, 24UL);
   }
   return (0);
 }
@@ -24829,7 +24829,7 @@ static struct snd_kcontrol *ctl_find(struct snd_card *card , char const   *name 
 
   {
   {
-  __memset((void *)(& sid), 0, 64UL);
+  memset((void *)(& sid), 0, 64UL);
   strcpy((char *)(& sid.name), name);
   sid.iface = 2;
   tmp = snd_ctl_find_id(card, & sid);
@@ -27997,7 +27997,7 @@ static int se200pci_add_controls(struct snd_ice1712 *ice )
 
   {
   {
-  __memset((void *)(& cont), 0, 80UL);
+  memset((void *)(& cont), 0, 80UL);
   cont.iface = 2;
   i = 0;
   }
@@ -29905,7 +29905,7 @@ static struct snd_kcontrol *ctl_find___0(struct snd_card *card , char const   *n
 
   {
   {
-  __memset((void *)(& sid), 0, 64UL);
+  memset((void *)(& sid), 0, 64UL);
   strcpy((char *)(& sid.name), name);
   sid.iface = 2;
   tmp = snd_ctl_find_id(card, & sid);
@@ -30842,7 +30842,7 @@ static void psc724_set_jack_state(struct snd_ice1712 *ice , bool hp_connected )
   {
   snd_wm8776_set_power(& spec->wm8776, (int )power);
   spec->hp_connected = hp_connected;
-  __memset((void *)(& elem_id), 0, 64UL);
+  memset((void *)(& elem_id), 0, 64UL);
   elem_id.iface = 2;
   strlcpy((char *)(& elem_id.name), "Master Speakers Playback Switch", 44UL);
   kctl = snd_ctl_find_id(ice->card, & elem_id);
@@ -31017,7 +31017,7 @@ static int psc724_add_controls(struct snd_ice1712 *ice )
   spec->wm8766.ctl[12].name = rear_clfe_izd;
   spec->wm8766.ctl[13].name = rear_clfe_zc;
   snd_wm8766_build_controls(& spec->wm8766);
-  __memset((void *)(& cont), 0, 80UL);
+  memset((void *)(& cont), 0, 80UL);
   cont.iface = 2;
   i = 0;
   }
@@ -31531,7 +31531,7 @@ void snd_wm8766_init(struct snd_wm8766 *wm )
   default_values[8] = 0U;
   default_values[9] = 0U;
   default_values[10] = 128U;
-  __memcpy((void *)(& wm->ctl), (void const   *)(& snd_wm8766_default_ctl), 2688UL);
+  memcpy((void *)(& wm->ctl), (void const   *)(& snd_wm8766_default_ctl), 2688UL);
   snd_wm8766_write(wm, 31, 0);
   __const_udelay(42950UL);
   i = 0;
@@ -31760,7 +31760,7 @@ static int snd_wm8766_add_control(struct snd_wm8766 *wm , int num )
 
   {
   {
-  __memset((void *)(& cont), 0, 80UL);
+  memset((void *)(& cont), 0, 80UL);
   cont.iface = 2;
   cont.private_value = (unsigned long )num;
   cont.name = (unsigned char const   *)wm->ctl[num].name;
@@ -31890,7 +31890,7 @@ static void snd_wm8776_activate_ctl(struct snd_wm8776___0 *wm , char const   *ct
   {
   {
   card = wm->card;
-  __memset((void *)(& elem_id), 0, 64UL);
+  memset((void *)(& elem_id), 0, 64UL);
   strlcpy((char *)(& elem_id.name), ctl_name, 44UL);
   elem_id.iface = 2;
   kctl = snd_ctl_find_id(card, & elem_id);
@@ -32215,7 +32215,7 @@ void snd_wm8776_init(struct snd_wm8776___0 *wm )
   default_values[20] = 166U;
   default_values[21] = 1U;
   default_values[22] = 1U;
-  __memcpy((void *)(& wm->ctl), (void const   *)(& snd_wm8776_default_ctl), 5888UL);
+  memcpy((void *)(& wm->ctl), (void const   *)(& snd_wm8776_default_ctl), 5888UL);
   snd_wm8776_write(wm, 23, 0);
   __const_udelay(42950UL);
   i = 0;
@@ -32442,7 +32442,7 @@ static int snd_wm8776_add_control(struct snd_wm8776___0 *wm , int num )
 
   {
   {
-  __memset((void *)(& cont), 0, 80UL);
+  memset((void *)(& cont), 0, 80UL);
   cont.iface = 2;
   cont.private_value = (unsigned long )num;
   cont.name = (unsigned char const   *)wm->ctl[num].name;

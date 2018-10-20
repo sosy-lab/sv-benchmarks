@@ -6999,8 +6999,8 @@ __inline static struct task_struct *get_current(void)
 }
 }
 extern void *memdup_user(void const   * , size_t  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
@@ -9895,7 +9895,7 @@ static int ppp_net_ioctl(struct net_device *dev , struct ifreq *ifr , int cmd )
   goto ldv_51812;
   case_35314: /* CIL Label */ 
   {
-  __memset((void *)(& cstats), 0, 80UL);
+  memset((void *)(& cstats), 0, 80UL);
   }
   if ((unsigned long )ppp->xc_state != (unsigned long )((void *)0)) {
     {
@@ -10637,7 +10637,7 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
     *(q + 5UL) = (unsigned char )ppp->nxseq;
   }
   {
-  __memcpy((void *)q + (unsigned long )hdrlen, (void const   *)p, (size_t )flen);
+  memcpy((void *)q + (unsigned long )hdrlen, (void const   *)p, (size_t )flen);
   chan = pch->chan;
   tmp___0 = skb_queue_empty((struct sk_buff_head  const  *)(& pch->file.xq));
   }
@@ -12316,7 +12316,7 @@ static void ppp_get_stats(struct ppp *ppp , struct ppp_stats *st )
   {
   {
   vj = ppp->vj;
-  __memset((void *)st, 0, 76UL);
+  memset((void *)st, 0, 76UL);
   st->p.ppp_ipackets = (__u32 )ppp->stats64.rx_packets;
   st->p.ppp_ierrors = (__u32 )(ppp->dev)->stats.rx_errors;
   st->p.ppp_ibytes = (__u32 )ppp->stats64.rx_bytes;

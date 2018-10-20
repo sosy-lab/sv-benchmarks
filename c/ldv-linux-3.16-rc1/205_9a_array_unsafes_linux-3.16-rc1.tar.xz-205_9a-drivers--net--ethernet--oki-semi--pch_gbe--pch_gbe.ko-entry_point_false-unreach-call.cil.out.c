@@ -6883,7 +6883,7 @@ __inline static int constant_test_bit(long nr , unsigned long const volatile   *
   return ((int )((unsigned long )*(addr + (unsigned long )(nr >> 6)) >> ((int )nr & 63)) & 1);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern unsigned int ioread32(void * ) ;
 extern void kfree(void const   * ) ;
@@ -7510,7 +7510,7 @@ static void pch_gbe_get_strings(struct net_device *netdev , u32 stringset , u8 *
   ldv_52105: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p, (void const   *)(& pch_gbe_gstrings_stats[i].string),
+    __ret = memcpy((void *)p, (void const   *)(& pch_gbe_gstrings_stats[i].string),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)p, (void const   *)(& pch_gbe_gstrings_stats[i].string),
@@ -10368,7 +10368,7 @@ static int pch_ptp_match(struct sk_buff *skb , u16 uid_hi , u32 uid_lo , u16 seq
   id = (u16 *)(data + ((unsigned long )offset + 30UL));
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& lo), (void const   *)hi + 1U, __len);
+    __ret = memcpy((void *)(& lo), (void const   *)hi + 1U, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& lo), (void const   *)hi + 1U, __len);
   }
@@ -11826,7 +11826,7 @@ static void pch_gbe_tx_queue(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   tmp_skb = buffer_info->skb;
   __len = 14UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)tmp_skb->data, (void const   *)skb->data, __len);
+    __ret = memcpy((void *)tmp_skb->data, (void const   *)skb->data, __len);
   } else {
     __ret = __builtin_memcpy((void *)tmp_skb->data, (void const   *)skb->data, __len);
   }
@@ -13359,7 +13359,7 @@ static void pch_gbe_set_multi(struct net_device *netdev )
   if (__len > 63UL) {
     tmp___2 = i;
     i = i + 1;
-    __ret = __memcpy((void *)mta_list + (unsigned long )(tmp___2 * 6), (void const   *)(& ha->addr),
+    __ret = memcpy((void *)mta_list + (unsigned long )(tmp___2 * 6), (void const   *)(& ha->addr),
                      __len);
   } else {
     tmp___3 = i;

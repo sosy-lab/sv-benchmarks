@@ -3577,7 +3577,7 @@ struct nexio_touch_packet {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -4802,7 +4802,7 @@ static int nexio_init(struct usbtouch_usb *usbtouch )
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buf, (void const   *)(& nexio_init_pkt), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& nexio_init_pkt), __len);
   } else {
     __ret = __builtin_memcpy((void *)buf, (void const   *)(& nexio_init_pkt), __len);
   }

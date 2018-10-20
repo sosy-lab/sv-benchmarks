@@ -4504,8 +4504,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
 extern __kernel_size_t strnlen(char const   * , __kernel_size_t  ) ;
@@ -5076,7 +5076,7 @@ static int ims_pcu_setup_buttons(struct ims_pcu *pcu , unsigned short const   *k
   snprintf((char *)(& buttons->name), 32UL, "IMS PCU#%d Button Interface", pcu->device_no);
   usb_make_path(pcu->udev, (char *)(& buttons->phys), 32UL);
   strlcat((char *)(& buttons->phys), "/input0", 32UL);
-  __memcpy((void *)(& buttons->keymap), (void const   *)keymap, keymap_len * 2UL);
+  memcpy((void *)(& buttons->keymap), (void const   *)keymap, keymap_len * 2UL);
   input->name = (char const   *)(& buttons->name);
   input->phys = (char const   *)(& buttons->phys);
   usb_to_input_id((struct usb_device  const  *)pcu->udev, & input->id);
@@ -5278,7 +5278,7 @@ static void ims_pcu_handle_response(struct ims_pcu *pcu )
   switch_default: /* CIL Label */ ;
   if ((int )pcu->read_buf[0] == (int )pcu->expected_response && (int )pcu->read_buf[1] == (int )pcu->ack_id + -1) {
     {
-    __memcpy((void *)(& pcu->cmd_buf), (void const   *)(& pcu->read_buf), (size_t )pcu->read_pos);
+    memcpy((void *)(& pcu->cmd_buf), (void const   *)(& pcu->read_buf), (size_t )pcu->read_pos);
     pcu->cmd_buf_len = pcu->read_pos;
     complete(& pcu->cmd_done);
     }
@@ -5642,7 +5642,7 @@ static int __ims_pcu_execute_bl_command(struct ims_pcu *pcu , u8 command , void 
   pcu->cmd_buf[0] = command;
   if ((unsigned long )data != (unsigned long )((void const   *)0)) {
     {
-    __memcpy((void *)(& pcu->cmd_buf) + 1U, data, len);
+    memcpy((void *)(& pcu->cmd_buf) + 1U, data, len);
     }
   } else {
 
@@ -5691,10 +5691,10 @@ static int ims_pcu_get_info(struct ims_pcu *pcu )
 
   }
   {
-  __memcpy((void *)(& pcu->part_number), (void const   *)(& pcu->cmd_buf) + 2U, 15UL);
-  __memcpy((void *)(& pcu->date_of_manufacturing), (void const   *)(& pcu->cmd_buf) + 17U,
+  memcpy((void *)(& pcu->part_number), (void const   *)(& pcu->cmd_buf) + 2U, 15UL);
+  memcpy((void *)(& pcu->date_of_manufacturing), (void const   *)(& pcu->cmd_buf) + 17U,
            8UL);
-  __memcpy((void *)(& pcu->serial_number), (void const   *)(& pcu->cmd_buf) + 25U,
+  memcpy((void *)(& pcu->serial_number), (void const   *)(& pcu->cmd_buf) + 25U,
            8UL);
   }
   return (0);
@@ -5706,10 +5706,10 @@ static int ims_pcu_set_info(struct ims_pcu *pcu )
 
   {
   {
-  __memcpy((void *)(& pcu->cmd_buf) + 2U, (void const   *)(& pcu->part_number), 15UL);
-  __memcpy((void *)(& pcu->cmd_buf) + 17U, (void const   *)(& pcu->date_of_manufacturing),
+  memcpy((void *)(& pcu->cmd_buf) + 2U, (void const   *)(& pcu->part_number), 15UL);
+  memcpy((void *)(& pcu->cmd_buf) + 17U, (void const   *)(& pcu->date_of_manufacturing),
            8UL);
-  __memcpy((void *)(& pcu->cmd_buf) + 25U, (void const   *)(& pcu->serial_number),
+  memcpy((void *)(& pcu->cmd_buf) + 25U, (void const   *)(& pcu->serial_number),
            8UL);
   error = __ims_pcu_execute_command(pcu, 171, (void const   *)(& pcu->cmd_buf) + 2U,
                                     31UL, 203, 500);
@@ -5860,7 +5860,7 @@ static int ims_pcu_flash_firmware(struct ims_pcu *pcu , struct firmware  const  
   fragment = (struct ims_pcu_flash_fmt *)(& pcu->cmd_buf) + 1U;
   put_unaligned_le32(addr, (void *)(& fragment->addr));
   fragment->len = len;
-  __memcpy((void *)(& fragment->data), (void const   *)(& rec->data), (size_t )len);
+  memcpy((void *)(& fragment->data), (void const   *)(& rec->data), (size_t )len);
   error = __ims_pcu_execute_bl_command(pcu, 164, (void const   *)0, (size_t )((int )len + 5),
                                        196, 500);
   }
@@ -6192,8 +6192,8 @@ static ssize_t ims_pcu_attribute_store(struct device *dev , struct device_attrib
 
   }
   {
-  __memset((void *)field, 0, (size_t )attr->field_length);
-  __memcpy((void *)field, (void const   *)buf, data_len);
+  memset((void *)field, 0, (size_t )attr->field_length);
+  memcpy((void *)field, (void const   *)buf, data_len);
   error = ims_pcu_set_info(pcu);
   ims_pcu_get_info(pcu);
   ldv_mutex_unlock_103(& pcu->cmd_mutex);
@@ -7164,7 +7164,7 @@ static int ims_pcu_line_setup(struct ims_pcu *pcu )
   {
   interface = (pcu->ctrl_intf)->cur_altsetting;
   line = (struct usb_cdc_line_coding *)(& pcu->cmd_buf);
-  __memset((void *)line, 0, 7UL);
+  memset((void *)line, 0, 7UL);
   line->dwDTERate = 57600U;
   line->bDataBits = 8U;
   tmp = __create_pipe(pcu->udev, 0U);

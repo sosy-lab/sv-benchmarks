@@ -6844,7 +6844,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -12950,7 +12950,7 @@ static int process_ipsec(struct pktgen_dev *pkt_dev , struct sk_buff *skb , __be
       eth = tmp___0;
       __len = 12UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)eth, (void const   *)(& pkt_dev->hh), __len);
+        __ret = memcpy((void *)eth, (void const   *)(& pkt_dev->hh), __len);
       } else {
         __ret = __builtin_memcpy((void *)eth, (void const   *)(& pkt_dev->hh), __len);
       }
@@ -13270,7 +13270,7 @@ static struct sk_buff *fill_packet_ipv4(struct net_device *odev , struct pktgen_
   skb->priority = pkt_dev->skb_priority;
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)eth, (void const   *)(& pkt_dev->hh), __len);
+    __ret = memcpy((void *)eth, (void const   *)(& pkt_dev->hh), __len);
   } else {
     __ret = __builtin_memcpy((void *)eth, (void const   *)(& pkt_dev->hh), __len);
   }
@@ -13440,7 +13440,7 @@ static struct sk_buff *fill_packet_ipv6(struct net_device *odev , struct pktgen_
   skb->priority = pkt_dev->skb_priority;
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)eth, (void const   *)(& pkt_dev->hh), __len);
+    __ret = memcpy((void *)eth, (void const   *)(& pkt_dev->hh), __len);
   } else {
     __ret = __builtin_memcpy((void *)eth, (void const   *)(& pkt_dev->hh), __len);
   }

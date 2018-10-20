@@ -3924,7 +3924,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern struct pv_cpu_ops pv_cpu_ops ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
@@ -5817,7 +5817,7 @@ static int dlfb_setup_modes(struct dlfb_data *dev , struct fb_info *info , char 
     dlfb_var_color_format(& info->var);
     __len___0 = 80UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& info->fix), (void const   *)(& dlfb_fix), __len___0);
+      __ret___0 = memcpy((void *)(& info->fix), (void const   *)(& dlfb_fix), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& info->fix), (void const   *)(& dlfb_fix),
                                    __len___0);

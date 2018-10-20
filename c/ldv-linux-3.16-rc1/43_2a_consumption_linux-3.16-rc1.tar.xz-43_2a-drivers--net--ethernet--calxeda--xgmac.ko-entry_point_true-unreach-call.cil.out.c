@@ -5292,7 +5292,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -8659,7 +8659,7 @@ static void xgmac_get_strings(struct net_device *dev , u32 stringset , u8 *data 
   ldv_42699: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p, (void const   *)(& xgmac_gstrings_stats[i].stat_string),
+    __ret = memcpy((void *)p, (void const   *)(& xgmac_gstrings_stats[i].stat_string),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)p, (void const   *)(& xgmac_gstrings_stats[i].stat_string),

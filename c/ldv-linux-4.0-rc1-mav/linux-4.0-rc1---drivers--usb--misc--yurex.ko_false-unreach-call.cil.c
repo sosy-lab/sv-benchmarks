@@ -4202,7 +4202,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static void atomic_set(atomic_t *v , int i ) 
 { 
@@ -5327,7 +5327,7 @@ static ssize_t yurex_write(struct file *file , char const   *user_buffer , size_
 
   }
   {
-  __memset((void *)dev->cntl_buffer, 255, 8UL);
+  memset((void *)dev->cntl_buffer, 255, 8UL);
   }
   {
   if ((int )buffer[0] == 65) {

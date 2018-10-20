@@ -6073,7 +6073,7 @@ void ldv___ldv_spin_lock_14(spinlock_t *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 void ldv___ldv_spin_lock_62(spinlock_t *ldv_func_arg1 ) ;
 void ldv___ldv_spin_lock_72(spinlock_t *ldv_func_arg1 ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
@@ -6292,7 +6292,7 @@ struct dvb_frontend *vp7045_fe_attach(struct dvb_usb_device *d )
   s->d = d;
   __len = 744UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops), __len);
+    __ret = memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops),
                              __len);

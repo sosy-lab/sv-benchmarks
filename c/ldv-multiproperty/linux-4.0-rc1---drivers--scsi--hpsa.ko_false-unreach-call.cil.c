@@ -5965,8 +5965,8 @@ extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
 extern unsigned long __per_cpu_offset[8192U] ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
@@ -5979,7 +5979,7 @@ __inline static void bitmap_zero(unsigned long *dst , unsigned int nbits )
   {
   {
   len = (unsigned int )(((unsigned long )nbits + 63UL) / 64UL) * 8U;
-  __memset((void *)dst, 0, (size_t )len);
+  memset((void *)dst, 0, (size_t )len);
   }
   return;
 }
@@ -8270,7 +8270,7 @@ static ssize_t lunid_show(struct device *dev , struct device_attribute *attr , c
 
   }
   {
-  __memcpy((void *)(& lunid), (void const   *)(& hdev->scsi3addr), 8UL);
+  memcpy((void *)(& lunid), (void const   *)(& hdev->scsi3addr), 8UL);
   ldv_spin_unlock_irqrestore_97(& h->lock, flags);
   tmp = snprintf(buf, 20UL, "0x%02x%02x%02x%02x%02x%02x%02x%02x\n", (int )lunid[0],
                  (int )lunid[1], (int )lunid[2], (int )lunid[3], (int )lunid[4], (int )lunid[5],
@@ -8307,7 +8307,7 @@ static ssize_t unique_id_show(struct device *dev , struct device_attribute *attr
 
   }
   {
-  __memcpy((void *)(& sn), (void const   *)(& hdev->device_id), 16UL);
+  memcpy((void *)(& sn), (void const   *)(& hdev->device_id), 16UL);
   ldv_spin_unlock_irqrestore_97(& h->lock, flags);
   tmp = snprintf(buf, 34UL, "%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X\n",
                  (int )sn[0], (int )sn[1], (int )sn[2], (int )sn[3], (int )sn[4],
@@ -9354,7 +9354,7 @@ static int hpsa_scsi_add_entry(struct ctlr_info *h , int hostno , struct hpsa_sc
 
   }
   {
-  __memcpy((void *)(& addr1), (void const   *)(& device->scsi3addr), 8UL);
+  memcpy((void *)(& addr1), (void const   *)(& device->scsi3addr), 8UL);
   addr1[4] = 0U;
   i = 0;
   }
@@ -9362,7 +9362,7 @@ static int hpsa_scsi_add_entry(struct ctlr_info *h , int hostno , struct hpsa_sc
   ldv_41562: 
   {
   sd = h->dev[i];
-  __memcpy((void *)(& addr2), (void const   *)(& sd->scsi3addr), 8UL);
+  memcpy((void *)(& addr2), (void const   *)(& sd->scsi3addr), 8UL);
   addr2[4] = 0U;
   tmp___0 = memcmp((void const   *)(& addr1), (void const   *)(& addr2), 8UL);
   }
@@ -9761,7 +9761,7 @@ static void hpsa_monitor_offline_device(struct ctlr_info *h , unsigned char *scs
 
   }
   {
-  __memcpy((void *)(& device->scsi3addr), (void const   *)scsi3addr, 8UL);
+  memcpy((void *)(& device->scsi3addr), (void const   *)scsi3addr, 8UL);
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_115(& h->offline_device_lock);
   list_add_tail(& device->offline_list, & h->offline_device_list);
   ldv_spin_unlock_irqrestore_113(& h->offline_device_lock, flags);
@@ -10554,7 +10554,7 @@ static void complete_scsi_command(struct CommandList *cp )
 
   }
   {
-  __memcpy((void *)cmd->sense_buffer, (void const   *)(& ei->SenseInfo), sense_data_size);
+  memcpy((void *)cmd->sense_buffer, (void const   *)(& ei->SenseInfo), sense_data_size);
   }
   if (cp->cmd_type == 4) {
     {
@@ -10564,9 +10564,9 @@ static void complete_scsi_command(struct CommandList *cp )
     cp->Header.SGTotal = (unsigned short )cp->Header.SGList;
     cp->Request.CDBLen = (unsigned int )((u8 )c->io_flags) & 31U;
     cp->Header.tag = c->tag;
-    __memcpy((void *)(& cp->Header.LUN.LunAddrBytes), (void const   *)(& c->CISS_LUN),
+    memcpy((void *)(& cp->Header.LUN.LunAddrBytes), (void const   *)(& c->CISS_LUN),
              8UL);
-    __memcpy((void *)(& cp->Request.CDB), (void const   *)(& c->CDB), (size_t )cp->Request.CDBLen);
+    memcpy((void *)(& cp->Request.CDB), (void const   *)(& c->CDB), (size_t )cp->Request.CDBLen);
     tmp___0 = is_logical_dev_addr_mode((unsigned char *)(& dev->scsi3addr));
     }
     if (tmp___0 != 0) {
@@ -11330,7 +11330,7 @@ static void hpsa_scsi_do_simple_cmd_with_retry(struct ctlr_info *h , struct Comm
   retry_count = 0;
   ldv_42006: 
   {
-  __memset((void *)c->err_info, 0, 48UL);
+  memset((void *)c->err_info, 0, 48UL);
   hpsa_scsi_do_simple_cmd_core(h, c);
   retry_count = retry_count + 1;
   }
@@ -12099,7 +12099,7 @@ static int hpsa_get_device_id(struct ctlr_info *h , unsigned char *scsi3addr , u
   }
   if (rc == 0) {
     {
-    __memcpy((void *)device_id, (void const   *)buf + 8U, (size_t )buflen);
+    memcpy((void *)device_id, (void const   *)buf + 8U, (size_t )buflen);
     }
   } else {
 
@@ -12134,7 +12134,7 @@ static int hpsa_scsi_do_report_luns(struct ctlr_info *h , int logical , void *bu
 
   }
   {
-  __memset((void *)(& scsi3addr), 0, 8UL);
+  memset((void *)(& scsi3addr), 0, 8UL);
   tmp = fill_cmd(c, logical != 0 ? 194 : 195, h, buf, (size_t )bufsize, 0, (unsigned char *)(& scsi3addr),
                  0);
   }
@@ -12415,10 +12415,10 @@ static int hpsa_update_device_info(struct ctlr_info *h , unsigned char *scsi3add
   }
   {
   this_device->devtype = (int )*inq_buff & 31;
-  __memcpy((void *)(& this_device->scsi3addr), (void const   *)scsi3addr, 8UL);
-  __memcpy((void *)(& this_device->vendor), (void const   *)inq_buff + 8U, 8UL);
-  __memcpy((void *)(& this_device->model), (void const   *)inq_buff + 16U, 16UL);
-  __memset((void *)(& this_device->device_id), 0, 16UL);
+  memcpy((void *)(& this_device->scsi3addr), (void const   *)scsi3addr, 8UL);
+  memcpy((void *)(& this_device->vendor), (void const   *)inq_buff + 8U, 8UL);
+  memcpy((void *)(& this_device->model), (void const   *)inq_buff + 16U, 16UL);
+  memset((void *)(& this_device->device_id), 0, 16UL);
   hpsa_get_device_id(h, scsi3addr, (unsigned char *)(& this_device->device_id), 16);
   }
   if (this_device->devtype == 0) {
@@ -12610,7 +12610,7 @@ static int add_ext_target_dev(struct ctlr_info *h , struct hpsa_scsi_dev_t *tmpd
 
   }
   {
-  __memset((void *)(& scsi3addr), 0, 8UL);
+  memset((void *)(& scsi3addr), 0, 8UL);
   scsi3addr[3] = (unsigned char )tmpdevice->target;
   tmp___3 = is_hba_lunid((unsigned char *)(& scsi3addr));
   }
@@ -12754,7 +12754,7 @@ static int hpsa_get_pdisk_of_ioaccel2(struct ctlr_info *h , struct CommandList *
   }
   {
   found = 1;
-  __memcpy((void *)scsi3addr, (void const   *)(& entry->lunid), 8UL);
+  memcpy((void *)scsi3addr, (void const   *)(& entry->lunid), 8UL);
   }
   if (h->raid_offload_debug > 0) {
     {
@@ -12931,7 +12931,7 @@ static void hpsa_get_ioaccel_drive_info(struct ctlr_info *h , struct hpsa_scsi_d
   {
   rle = (struct ext_report_lun_entry *)lunaddrbytes;
   dev->ioaccel_handle = rle->ioaccel_handle;
-  __memset((void *)id_phys, 0, 2048UL);
+  memset((void *)id_phys, 0, 2048UL);
   rc = hpsa_bmic_id_physical_device(h, lunaddrbytes, (int )(((((unsigned int )((u16 )*(lunaddrbytes + 7UL)) & 63U) + 65535U) << 8U) + (unsigned int )((u16 )*(lunaddrbytes + 6UL))),
                                     id_phys, 2048UL);
   }
@@ -13007,7 +13007,7 @@ static void hpsa_update_scsi_devices(struct ctlr_info *h , int hostno )
 
   }
   {
-  __memset((void *)(& lunzerobits), 0, 8UL);
+  memset((void *)(& lunzerobits), 0, 8UL);
   rescan_hba_mode = hpsa_hba_mode_enabled(h);
   }
   if (rescan_hba_mode < 0) {
@@ -13590,8 +13590,8 @@ static int hpsa_scsi_ioaccel1_queue_command(struct ctlr_info *h , struct Command
   cp->transfer_len = total_len;
   cp->io_flags = (unsigned short )(((int )((short )cdb_len) & 31) | 16384);
   cp->control = control;
-  __memcpy((void *)(& cp->CDB), (void const   *)cdb, (size_t )cdb_len);
-  __memcpy((void *)(& cp->CISS_LUN), (void const   *)scsi3addr, 8UL);
+  memcpy((void *)(& cp->CDB), (void const   *)cdb, (size_t )cdb_len);
+  memcpy((void *)(& cp->CISS_LUN), (void const   *)scsi3addr, 8UL);
   enqueue_cmd_and_start_io(h, c);
   }
   return (0);
@@ -13778,7 +13778,7 @@ static int hpsa_scsi_ioaccel2_queue_command(struct ctlr_info *h , struct Command
 
   }
   {
-  __memset((void *)cp, 0, 640UL);
+  memset((void *)cp, 0, 640UL);
   cp->IU_type = 64U;
   use_sg = scsi_dma_map(cmd);
   }
@@ -13879,7 +13879,7 @@ static int hpsa_scsi_ioaccel2_queue_command(struct ctlr_info *h , struct Command
   set_encrypt_ioaccel2(h, c, cp);
   cp->scsi_nexus = ioaccel_handle;
   cp->Tag = (unsigned int )c->cmdindex << 4U;
-  __memcpy((void *)(& cp->cdb), (void const   *)cdb, 16UL);
+  memcpy((void *)(& cp->cdb), (void const   *)cdb, 16UL);
   cp->sg_count = (unsigned char )use_sg;
   cp->data_len = total_len;
   cp->err_ptr = (unsigned long long )((unsigned long )c->busaddr + 512UL);
@@ -14322,10 +14322,10 @@ static int hpsa_ciss_submit(struct ctlr_info *h , struct CommandList *c , struct
   c->cmd_type = 3;
   c->scsi_cmd = cmd;
   c->Header.ReplyQueue = 0U;
-  __memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)scsi3addr, 8UL);
+  memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)scsi3addr, 8UL);
   c->Header.tag = (unsigned long long )(c->cmdindex << 4);
   c->Request.Timeout = 0U;
-  __memset((void *)(& c->Request.CDB), 0, 16UL);
+  memset((void *)(& c->Request.CDB), 0, 16UL);
   tmp = ldv__builtin_expect((unsigned int )cmd->cmd_len > 16U, 0L);
   }
   if (tmp != 0L) {
@@ -14339,7 +14339,7 @@ static int hpsa_ciss_submit(struct ctlr_info *h , struct CommandList *c , struct
   }
   {
   c->Request.CDBLen = (u8 )cmd->cmd_len;
-  __memcpy((void *)(& c->Request.CDB), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
+  memcpy((void *)(& c->Request.CDB), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
   }
   {
   if ((unsigned int )cmd->sc_data_direction == 1U) {
@@ -14472,7 +14472,7 @@ static int hpsa_scsi_queue_command(struct Scsi_Host *sh , struct scsi_cmnd *cmd 
 
   }
   {
-  __memcpy((void *)(& scsi3addr), (void const   *)(& dev->scsi3addr), 8UL);
+  memcpy((void *)(& scsi3addr), (void const   *)(& dev->scsi3addr), 8UL);
   tmp = lockup_detected(h);
   tmp___0 = ldv__builtin_expect(tmp != 0U, 0L);
   }
@@ -14935,7 +14935,7 @@ static void swizzle_abort_tag(u8 *tag )
 
   {
   {
-  __memcpy((void *)(& original_tag), (void const   *)tag, 8UL);
+  memcpy((void *)(& original_tag), (void const   *)tag, 8UL);
   *tag = original_tag[3];
   *(tag + 1UL) = original_tag[2];
   *(tag + 2UL) = original_tag[1];
@@ -14968,7 +14968,7 @@ static void hpsa_get_tag(struct ctlr_info *h , struct CommandList *c , __le32 *t
   if (c->cmd_type == 5) {
     {
     cm2 = h->ioaccel2_cmd_pool + (unsigned long )c->cmdindex;
-    __memset((void *)tagupper, 0, 4UL);
+    memset((void *)tagupper, 0, 4UL);
     *taglower = cm2->Tag;
     }
     return;
@@ -15298,7 +15298,7 @@ static int hpsa_eh_abort_handler(struct scsi_cmnd *sc )
 
   }
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   tmp___2 = sprintf((char *)(& msg) + (unsigned long )ml, "ABORT REQUEST on C%d:B%d:T%d:L%llu ",
                     (h->scsi_host)->host_no, (sc->device)->channel, (sc->device)->id,
                     (sc->device)->lun);
@@ -15482,11 +15482,11 @@ static struct CommandList *cmd_alloc(struct ctlr_info *h )
   ldv_42703: 
   {
   h->last_allocation = i;
-  __memset((void *)c, 0, 700UL);
+  memset((void *)c, 0, 700UL);
   c->Header.tag = (unsigned long long )(i << 4);
   cmd_dma_handle = h->cmd_pool_dhandle + (unsigned long long )((unsigned long )i * 768UL);
   c->err_info = h->errinfo_pool + (unsigned long )i;
-  __memset((void *)c->err_info, 0, 48UL);
+  memset((void *)c->err_info, 0, 48UL);
   err_dma_handle = h->errinfo_pool_dhandle + (unsigned long long )((unsigned long )i * 48UL);
   c->cmdindex = (long )i;
   c->busaddr = (unsigned int )cmd_dma_handle;
@@ -15542,7 +15542,7 @@ static int hpsa_ioctl32_passthru(struct scsi_device *dev , int cmd , void *arg )
   arg32 = (IOCTL32_Command_struct *)arg;
   tmp = compat_alloc_user_space(88UL);
   p = (IOCTL_Command_struct *)tmp;
-  __memset((void *)(& arg64), 0, 88UL);
+  memset((void *)(& arg64), 0, 88UL);
   err = 0;
   tmp___0 = copy_from_user((void *)(& arg64.LUN_info), (void const   *)(& arg32->LUN_info),
                            8UL);
@@ -15620,7 +15620,7 @@ static int hpsa_ioctl32_big_passthru(struct scsi_device *dev , int cmd , void *a
   arg32 = (BIG_IOCTL32_Command_struct *)arg;
   tmp = compat_alloc_user_space(96UL);
   p = (BIG_IOCTL_Command_struct *)tmp;
-  __memset((void *)(& arg64), 0, 96UL);
+  memset((void *)(& arg64), 0, 96UL);
   err = 0;
   tmp___0 = copy_from_user((void *)(& arg64.LUN_info), (void const   *)(& arg32->LUN_info),
                            8UL);
@@ -15947,7 +15947,7 @@ static int hpsa_passthru_ioctl(struct ctlr_info *h , void *argp )
       }
     } else {
       {
-      __memset((void *)buff, 0, (size_t )iocommand.buf_size);
+      memset((void *)buff, 0, (size_t )iocommand.buf_size);
       }
     }
   } else {
@@ -15972,8 +15972,8 @@ static int hpsa_passthru_ioctl(struct ctlr_info *h , void *argp )
     c->Header.SGTotal = 0U;
   }
   {
-  __memcpy((void *)(& c->Header.LUN), (void const   *)(& iocommand.LUN_info), 8UL);
-  __memcpy((void *)(& c->Request), (void const   *)(& iocommand.Request), 20UL);
+  memcpy((void *)(& c->Header.LUN), (void const   *)(& iocommand.LUN_info), 8UL);
+  memcpy((void *)(& c->Request), (void const   *)(& iocommand.Request), 20UL);
   }
   if ((unsigned int )iocommand.buf_size != 0U) {
     {
@@ -16006,7 +16006,7 @@ static int hpsa_passthru_ioctl(struct ctlr_info *h , void *argp )
   }
   {
   check_ioctl_unit_attention(h, c);
-  __memcpy((void *)(& iocommand.error_info), (void const   *)c->err_info, 48UL);
+  memcpy((void *)(& iocommand.error_info), (void const   *)c->err_info, 48UL);
   tmp___5 = copy_to_user(argp, (void const   *)(& iocommand), 88UL);
   }
   if (tmp___5 != 0UL) {
@@ -16176,7 +16176,7 @@ static int hpsa_big_passthru_ioctl(struct ctlr_info *h , void *argp )
     }
   } else {
     {
-    __memset((void *)*(buff + (unsigned long )sg_used), 0, (size_t )sz);
+    memset((void *)*(buff + (unsigned long )sg_used), 0, (size_t )sz);
     }
   }
   left = left - sz;
@@ -16202,8 +16202,8 @@ static int hpsa_big_passthru_ioctl(struct ctlr_info *h , void *argp )
   c->Header.ReplyQueue = 0U;
   c->Header.SGList = sg_used;
   c->Header.SGTotal = (unsigned short )sg_used;
-  __memcpy((void *)(& c->Header.LUN), (void const   *)(& ioc->LUN_info), 8UL);
-  __memcpy((void *)(& c->Request), (void const   *)(& ioc->Request), 20UL);
+  memcpy((void *)(& c->Header.LUN), (void const   *)(& ioc->LUN_info), 8UL);
+  memcpy((void *)(& c->Request), (void const   *)(& ioc->Request), 20UL);
   }
   if (ioc->buf_size != 0U) {
     i = 0;
@@ -16252,7 +16252,7 @@ static int hpsa_big_passthru_ioctl(struct ctlr_info *h , void *argp )
   }
   {
   check_ioctl_unit_attention(h, c);
-  __memcpy((void *)(& ioc->error_info), (void const   *)c->err_info, 48UL);
+  memcpy((void *)(& ioc->error_info), (void const   *)c->err_info, 48UL);
   tmp___8 = copy_to_user(argp, (void const   *)ioc, 96UL);
   }
   if (tmp___8 != 0UL) {
@@ -16482,7 +16482,7 @@ static int fill_cmd(struct CommandList *c , u8 cmd , struct ctlr_info *h , void 
     c->Header.SGTotal = 0U;
   }
   {
-  __memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)scsi3addr, 8UL);
+  memcpy((void *)(& c->Header.LUN.LunAddrBytes), (void const   *)scsi3addr, 8UL);
   }
   if (cmd_type == 0) {
     {
@@ -16625,7 +16625,7 @@ static int fill_cmd(struct CommandList *c , u8 cmd , struct ctlr_info *h , void 
     c->Request.CDBLen = 16U;
     c->Request.type_attr_dir = (u8 )(((int )((signed char )cmd_type) & 7) | 32);
     c->Request.Timeout = 0U;
-    __memset((void *)(& c->Request.CDB), 0, 16UL);
+    memset((void *)(& c->Request.CDB), 0, 16UL);
     c->Request.CDB[0] = cmd;
     c->Request.CDB[1] = 4U;
     c->Request.CDB[4] = 0U;
@@ -16662,7 +16662,7 @@ static int fill_cmd(struct CommandList *c , u8 cmd , struct ctlr_info *h , void 
     c->Request.CDB[1] = 0U;
     c->Request.CDB[2] = 0U;
     c->Request.CDB[3] = 0U;
-    __memcpy((void *)(& c->Request.CDB) + 4U, (void const   *)(& a->Header.tag), 8UL);
+    memcpy((void *)(& c->Request.CDB) + 4U, (void const   *)(& a->Header.tag), 8UL);
     c->Request.CDB[12] = 0U;
     c->Request.CDB[13] = 0U;
     c->Request.CDB[14] = 0U;
@@ -17137,13 +17137,13 @@ static int hpsa_message(struct pci_dev *pdev , unsigned char opcode , unsigned c
   cmd->CommandHeader.SGList = 0U;
   cmd->CommandHeader.SGTotal = 0U;
   cmd->CommandHeader.tag = paddr64;
-  __memset((void *)(& cmd->CommandHeader.LUN.LunAddrBytes), 0, 8UL);
+  memset((void *)(& cmd->CommandHeader.LUN.LunAddrBytes), 0, 8UL);
   cmd->Request.CDBLen = 16U;
   cmd->Request.type_attr_dir = 41U;
   cmd->Request.Timeout = 0U;
   cmd->Request.CDB[0] = opcode;
   cmd->Request.CDB[1] = type;
-  __memset((void *)(& cmd->Request.CDB) + 2U, 0, 14UL);
+  memset((void *)(& cmd->Request.CDB) + 2U, 0, 14UL);
   cmd->ErrorDescriptor.Addr = (unsigned long long )((unsigned long )paddr32 + 52UL);
   cmd->ErrorDescriptor.Len = 48U;
   writel(paddr32, (void volatile   *)vaddr + 64U);
@@ -17245,7 +17245,7 @@ static void init_driver_version(char *driver_version , int len )
 
   {
   {
-  __memset((void *)driver_version, 0, (size_t )len);
+  memset((void *)driver_version, 0, (size_t )len);
   strncpy(driver_version, "hpsa 3.4.4-1", (__kernel_size_t )(len + -1));
   }
   return;
@@ -19824,7 +19824,7 @@ static int hpsa_enter_performant_mode(struct ctlr_info *h , u32 trans_support )
   goto ldv_43462;
   ldv_43461: 
   {
-  __memset((void *)h->reply_queue[i].head, 0, h->reply_queue_size);
+  memset((void *)h->reply_queue[i].head, 0, h->reply_queue_size);
   i = i + 1;
   }
   ldv_43462: ;
@@ -19944,7 +19944,7 @@ static int hpsa_enter_performant_mode(struct ctlr_info *h , u32 trans_support )
     goto ldv_43478;
     ldv_43477: 
     {
-    __memset((void *)h->reply_queue[i].head, 255, h->reply_queue_size);
+    memset((void *)h->reply_queue[i].head, 255, h->reply_queue_size);
     i = i + 1;
     }
     ldv_43478: ;
@@ -20076,7 +20076,7 @@ static int hpsa_alloc_ioaccel_cmd_and_bft(struct ctlr_info *h )
 
   }
   {
-  __memset((void *)h->ioaccel_cmd_pool, 0, (unsigned long )h->nr_cmds * 512UL);
+  memset((void *)h->ioaccel_cmd_pool, 0, (unsigned long )h->nr_cmds * 512UL);
   }
   return (0);
   clean_up: ;
@@ -20132,7 +20132,7 @@ static int ioaccel2_alloc_cmds_and_bft(struct ctlr_info *h )
 
   }
   {
-  __memset((void *)h->ioaccel2_cmd_pool, 0, (unsigned long )h->nr_cmds * 640UL);
+  memset((void *)h->ioaccel2_cmd_pool, 0, (unsigned long )h->nr_cmds * 640UL);
   }
   return (0);
   clean_up: ;

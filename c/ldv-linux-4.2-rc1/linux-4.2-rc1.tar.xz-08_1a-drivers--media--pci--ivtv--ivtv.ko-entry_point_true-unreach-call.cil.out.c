@@ -31706,7 +31706,7 @@ bool ldv_queue_delayed_work_on_215(int ldv_func_arg1 , struct workqueue_struct *
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 bool ldv_queue_work_on_225(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;
 bool ldv_queue_work_on_227(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
@@ -32112,7 +32112,7 @@ static void copy_vbi_data(struct ivtv *itv , int lines , u32 pts_stamp )
   memcpy((void *)dst, (void const   *)(& mpeg_hdr_data), 32UL);
   if (line == 36) {
     memcpy((void *)dst + (unsigned long )sd, (void const   *)"ITV0", 4UL);
-    __memmove((void *)(dst + ((unsigned long )sd + 4UL)), (void const   *)(dst + ((unsigned long )sd + 12UL)),
+    memmove((void *)(dst + ((unsigned long )sd + 4UL)), (void const   *)(dst + ((unsigned long )sd + 12UL)),
               (size_t )(line * 43));
     size = (((unsigned int )((unsigned short )line) * 43U + 3U) & 65532U) + 4U;
   } else {
@@ -32588,7 +32588,7 @@ void ivtv_vbi_work_handler(struct ivtv *itv )
     goto ldv_39284;
     ldv_39286: 
     cc = vi->cc_payload[0];
-    __memmove((void *)(& vi->cc_payload), (void const   *)(& vi->cc_payload) + 1U,
+    memmove((void *)(& vi->cc_payload), (void const   *)(& vi->cc_payload) + 1U,
               1020UL);
     vi->cc_payload_idx = vi->cc_payload_idx - 1;
     if ((vi->cc_payload_idx != 0 && (unsigned int )cc.odd[0] == 128U) && (unsigned int )cc.odd[1] == 128U) {

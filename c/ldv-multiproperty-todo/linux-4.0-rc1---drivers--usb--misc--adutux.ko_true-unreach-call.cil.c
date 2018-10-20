@@ -4243,8 +4243,8 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void __xchg_wrong_size(void) ;
 extern void __ldv_linux_kernel_locking_spinlock_spin_lock(spinlock_t * ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_95(spinlock_t *ldv_func_arg1 ) ;
@@ -4799,7 +4799,7 @@ static void adu_interrupt_in_callback(struct urb *urb )
     }
     if ((u32 )dev->read_buffer_length < (u32 )(tmp___2 * 4) - urb->actual_length) {
       {
-      __memcpy((void *)dev->read_buffer_primary + (unsigned long )dev->read_buffer_length,
+      memcpy((void *)dev->read_buffer_primary + (unsigned long )dev->read_buffer_length,
                (void const   *)dev->interrupt_in_buffer, (size_t )urb->actual_length);
       dev->read_buffer_length = (int )((u32 )dev->read_buffer_length + urb->actual_length);
       descriptor___0.modname = "adutux";
@@ -6205,11 +6205,11 @@ static int adu_probe(struct usb_interface *interface , struct usb_device_id  con
 
   }
   {
-  __memset((void *)dev->read_buffer_primary, 97, (size_t )in_end_size);
-  __memset((void *)dev->read_buffer_primary + (unsigned long )in_end_size, 98, (size_t )in_end_size);
-  __memset((void *)dev->read_buffer_primary + (unsigned long )(in_end_size * 2), 99,
+  memset((void *)dev->read_buffer_primary, 97, (size_t )in_end_size);
+  memset((void *)dev->read_buffer_primary + (unsigned long )in_end_size, 98, (size_t )in_end_size);
+  memset((void *)dev->read_buffer_primary + (unsigned long )(in_end_size * 2), 99,
            (size_t )in_end_size);
-  __memset((void *)dev->read_buffer_primary + (unsigned long )(in_end_size * 3), 100,
+  memset((void *)dev->read_buffer_primary + (unsigned long )(in_end_size * 3), 100,
            (size_t )in_end_size);
   tmp___4 = kmalloc((size_t )(in_end_size * 4), 208U);
   dev->read_buffer_secondary = (char *)tmp___4;
@@ -6224,12 +6224,12 @@ static int adu_probe(struct usb_interface *interface , struct usb_device_id  con
 
   }
   {
-  __memset((void *)dev->read_buffer_secondary, 101, (size_t )in_end_size);
-  __memset((void *)dev->read_buffer_secondary + (unsigned long )in_end_size, 102,
+  memset((void *)dev->read_buffer_secondary, 101, (size_t )in_end_size);
+  memset((void *)dev->read_buffer_secondary + (unsigned long )in_end_size, 102,
            (size_t )in_end_size);
-  __memset((void *)dev->read_buffer_secondary + (unsigned long )(in_end_size * 2),
+  memset((void *)dev->read_buffer_secondary + (unsigned long )(in_end_size * 2),
            103, (size_t )in_end_size);
-  __memset((void *)dev->read_buffer_secondary + (unsigned long )(in_end_size * 3),
+  memset((void *)dev->read_buffer_secondary + (unsigned long )(in_end_size * 3),
            104, (size_t )in_end_size);
   tmp___5 = kmalloc((size_t )in_end_size, 208U);
   dev->interrupt_in_buffer = (char *)tmp___5;
@@ -6243,7 +6243,7 @@ static int adu_probe(struct usb_interface *interface , struct usb_device_id  con
 
   }
   {
-  __memset((void *)dev->interrupt_in_buffer, 105, (size_t )in_end_size);
+  memset((void *)dev->interrupt_in_buffer, 105, (size_t )in_end_size);
   dev->interrupt_in_urb = ldv_usb_alloc_urb_135(0, 208U);
   }
   if ((unsigned long )dev->interrupt_in_urb == (unsigned long )((struct urb *)0)) {

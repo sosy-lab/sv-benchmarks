@@ -4599,7 +4599,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern struct resource ioport_resource ;
 extern struct resource *__request_region(struct resource * , resource_size_t  , resource_size_t  ,
                                          char const   * , int  ) ;
@@ -5109,7 +5109,7 @@ static int abyss_attach(struct pci_dev *pdev , struct pci_device_id  const  *ent
     __cil_tmp78 = (unsigned char (*)[19U])__cil_tmp77;
     __cil_tmp79 = (void *)__cil_tmp78;
     __cil_tmp80 = (void const   *)"Madge PCI 16/4 Mk2";
-    __ret = __memcpy(__cil_tmp79, __cil_tmp80, __len);
+    __ret = memcpy(__cil_tmp79, __cil_tmp80, __len);
     }
   } else {
     {

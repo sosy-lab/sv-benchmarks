@@ -3617,7 +3617,7 @@ struct dst_config {
 };
 typedef int ldv_func_ret_type___4;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -5044,7 +5044,7 @@ static int dst_get_mac(struct dst_state *state )
   memset((void *)(& state->mac_address), 0, 8UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& state->mac_address), (void const   *)(& state->rxbuffer),
+    __ret = memcpy((void *)(& state->mac_address), (void const   *)(& state->rxbuffer),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& state->mac_address), (void const   *)(& state->rxbuffer),
@@ -5114,7 +5114,7 @@ static int dst_fw_ver(struct dst_state *state )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& state->fw_version), (void const   *)(& state->rxbuffer),
+    __ret = memcpy((void *)(& state->fw_version), (void const   *)(& state->rxbuffer),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& state->fw_version), (void const   *)(& state->rxbuffer),
@@ -5202,7 +5202,7 @@ static int dst_card_type(struct dst_state *state )
   memset((void *)(& state->card_info), 0, 8UL);
   __len = 7UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& state->card_info), (void const   *)(& state->rxbuffer),
+    __ret = memcpy((void *)(& state->card_info), (void const   *)(& state->rxbuffer),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& state->card_info), (void const   *)(& state->rxbuffer),
@@ -5315,7 +5315,7 @@ static int dst_get_vendor(struct dst_state *state )
   memset((void *)(& state->vendor), 0, 8UL);
   __len = 7UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& state->vendor), (void const   *)(& state->rxbuffer),
+    __ret = memcpy((void *)(& state->vendor), (void const   *)(& state->rxbuffer),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& state->vendor), (void const   *)(& state->rxbuffer),
@@ -5599,7 +5599,7 @@ static int dst_get_tuner_info(struct dst_state *state )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& state->board_info), (void const   *)(& state->rxbuffer),
+    __ret = memcpy((void *)(& state->board_info), (void const   *)(& state->rxbuffer),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& state->board_info), (void const   *)(& state->rxbuffer),
@@ -7183,7 +7183,7 @@ static int dst_init(struct dvb_frontend *fe )
   if ((unsigned int )state->dst_type == 0U) {
     __len = 10UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& state->tx_tuna), (void const   *)((state->type_flags & 4096U) != 0U ? & sat_tuna_188 : & sat_tuna_204),
+      __ret = memcpy((void *)(& state->tx_tuna), (void const   *)((state->type_flags & 4096U) != 0U ? & sat_tuna_188 : & sat_tuna_204),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& state->tx_tuna), (void const   *)((state->type_flags & 4096U) != 0U ? & sat_tuna_188 : & sat_tuna_204),
@@ -7193,7 +7193,7 @@ static int dst_init(struct dvb_frontend *fe )
   if ((unsigned int )state->dst_type == 1U) {
     __len___0 = 10UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& state->tx_tuna), (void const   *)((state->type_flags & 4096U) != 0U ? & ter_tuna_188 : & ter_tuna_204),
+      __ret___0 = memcpy((void *)(& state->tx_tuna), (void const   *)((state->type_flags & 4096U) != 0U ? & ter_tuna_188 : & ter_tuna_204),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& state->tx_tuna), (void const   *)((state->type_flags & 4096U) != 0U ? & ter_tuna_188 : & ter_tuna_204),
@@ -7203,7 +7203,7 @@ static int dst_init(struct dvb_frontend *fe )
   if ((unsigned int )state->dst_type == 2U) {
     __len___1 = 10UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& state->tx_tuna), (void const   *)((state->type_flags & 4096U) != 0U ? & cab_tuna_188 : & cab_tuna_204),
+      __ret___1 = memcpy((void *)(& state->tx_tuna), (void const   *)((state->type_flags & 4096U) != 0U ? & cab_tuna_188 : & cab_tuna_204),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& state->tx_tuna), (void const   *)((state->type_flags & 4096U) != 0U ? & cab_tuna_188 : & cab_tuna_204),
@@ -7213,7 +7213,7 @@ static int dst_init(struct dvb_frontend *fe )
   if ((unsigned int )state->dst_type == 3U) {
     __len___2 = 10UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& state->tx_tuna), (void const   *)(& atsc_tuner),
+      __ret___2 = memcpy((void *)(& state->tx_tuna), (void const   *)(& atsc_tuner),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& state->tx_tuna), (void const   *)(& atsc_tuner),
@@ -7527,7 +7527,7 @@ struct dst_state *dst_attach(struct dst_state *state , struct dvb_adapter *dvb_a
   case 1: 
   __len = 768UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_dvbt_ops),
+    __ret = memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_dvbt_ops),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_dvbt_ops),
@@ -7537,7 +7537,7 @@ struct dst_state *dst_attach(struct dst_state *state , struct dvb_adapter *dvb_a
   case 2: 
   __len___0 = 768UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_dvbc_ops),
+    __ret___0 = memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_dvbc_ops),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_dvbc_ops),
@@ -7547,7 +7547,7 @@ struct dst_state *dst_attach(struct dst_state *state , struct dvb_adapter *dvb_a
   case 0: 
   __len___1 = 768UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_dvbs_ops),
+    __ret___1 = memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_dvbs_ops),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_dvbs_ops),
@@ -7557,7 +7557,7 @@ struct dst_state *dst_attach(struct dst_state *state , struct dvb_adapter *dvb_a
   case 3: 
   __len___2 = 768UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_atsc_ops),
+    __ret___2 = memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_atsc_ops),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& state->frontend.ops), (void const   *)(& dst_atsc_ops),

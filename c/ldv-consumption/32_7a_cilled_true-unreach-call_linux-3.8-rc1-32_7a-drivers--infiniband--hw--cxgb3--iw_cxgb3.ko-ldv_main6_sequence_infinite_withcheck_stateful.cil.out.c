@@ -7837,7 +7837,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
@@ -9757,7 +9757,7 @@ static void send_mpa_req(struct iwch_ep *ep , struct sk_buff *skb )
   memset((void *)mpa, 0, 20UL);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mpa->key), (void const   *)"MPA ID Req Frame", __len);
+    __ret = memcpy((void *)(& mpa->key), (void const   *)"MPA ID Req Frame", __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mpa->key), (void const   *)"MPA ID Req Frame",
                              __len);
@@ -9856,7 +9856,7 @@ static int send_mpa_reject(struct iwch_ep *ep , void const   *pdata , u8 plen )
   memset((void *)mpa, 0, 20UL);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mpa->key), (void const   *)"MPA ID Rep Frame", __len);
+    __ret = memcpy((void *)(& mpa->key), (void const   *)"MPA ID Rep Frame", __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mpa->key), (void const   *)"MPA ID Rep Frame",
                              __len);
@@ -9953,7 +9953,7 @@ static int send_mpa_reply(struct iwch_ep *ep , void const   *pdata , u8 plen )
   memset((void *)mpa, 0, 20UL);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mpa->key), (void const   *)"MPA ID Rep Frame", __len);
+    __ret = memcpy((void *)(& mpa->key), (void const   *)"MPA ID Rep Frame", __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mpa->key), (void const   *)"MPA ID Rep Frame",
                              __len);
@@ -18005,7 +18005,7 @@ static int iwch_reregister_phys_mem(struct ib_mr *mr , int mr_rereg_mask , struc
   }
   __len = 112UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mh), (void const   *)mhp, __len);
+    __ret = memcpy((void *)(& mh), (void const   *)mhp, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mh), (void const   *)mhp, __len);
   }
@@ -19080,7 +19080,7 @@ static int iwch_query_gid(struct ib_device *ibdev , u8 port , int index , union 
   memset((void *)(& gid->raw), 0, 16UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& gid->raw), (void const   *)(dev->rdev.port_info.lldevs[(int )port + -1])->dev_addr,
+    __ret = memcpy((void *)(& gid->raw), (void const   *)(dev->rdev.port_info.lldevs[(int )port + -1])->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& gid->raw), (void const   *)(dev->rdev.port_info.lldevs[(int )port + -1])->dev_addr,
@@ -19138,7 +19138,7 @@ static int iwch_query_device(struct ib_device *ibdev , struct ib_device_attr *pr
   memset((void *)props, 0, 176UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& props->sys_image_guid), (void const   *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
+    __ret = memcpy((void *)(& props->sys_image_guid), (void const   *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& props->sys_image_guid), (void const   *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
@@ -19455,7 +19455,7 @@ int iwch_register_device(struct iwch_dev *dev )
   memset((void *)(& dev->ibdev.node_guid), 0, 8UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dev->ibdev.node_guid), (void const   *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
+    __ret = memcpy((void *)(& dev->ibdev.node_guid), (void const   *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dev->ibdev.node_guid), (void const   *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
@@ -19468,7 +19468,7 @@ int iwch_register_device(struct iwch_dev *dev )
   dev->ibdev.node_type = 4U;
   __len___0 = 29UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& dev->ibdev.node_desc), (void const   *)"cxgb3 Chelsio Communications",
+    __ret___0 = memcpy((void *)(& dev->ibdev.node_desc), (void const   *)"cxgb3 Chelsio Communications",
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& dev->ibdev.node_desc), (void const   *)"cxgb3 Chelsio Communications",

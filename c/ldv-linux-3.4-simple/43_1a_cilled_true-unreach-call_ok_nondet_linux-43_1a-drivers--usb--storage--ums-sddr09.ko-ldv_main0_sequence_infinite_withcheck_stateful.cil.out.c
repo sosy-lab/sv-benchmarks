@@ -4085,7 +4085,7 @@ __inline static __u32 __fswab32(__u32 val )
 }
 extern int printk(char const   *  , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void kfree(void const   * ) ;
@@ -4775,7 +4775,7 @@ static void nand_store_ecc(unsigned char *data , unsigned char *ecc )
     {
     __cil_tmp5 = (void *)data;
     __cil_tmp6 = (void const   *)ecc;
-    __ret = __memcpy(__cil_tmp5, __cil_tmp6, __len);
+    __ret = memcpy(__cil_tmp5, __cil_tmp6, __len);
     }
   } else {
     {
@@ -8353,7 +8353,7 @@ static int sddr09_transport(struct scsi_cmnd *srb , struct us_data *us )
       {
       __cil_tmp107 = (void *)ptr;
       __cil_tmp108 = (void const   *)(& inquiry_response);
-      __ret = __memcpy(__cil_tmp107, __cil_tmp108, __len);
+      __ret = memcpy(__cil_tmp107, __cil_tmp108, __len);
       }
     } else {
       {
@@ -8499,7 +8499,7 @@ static int sddr09_transport(struct scsi_cmnd *srb , struct us_data *us )
         {
         __cil_tmp181 = (void *)ptr;
         __cil_tmp182 = (void const   *)(& mode_page_01);
-        __ret___0 = __memcpy(__cil_tmp181, __cil_tmp182, __len___0);
+        __ret___0 = memcpy(__cil_tmp181, __cil_tmp182, __len___0);
         }
       } else {
         {

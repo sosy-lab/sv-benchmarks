@@ -5462,7 +5462,7 @@ extern int __dynamic_netdev_dbg(struct _ddebug * , struct net_device  const  * ,
                                 , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const   * , struct lock_class_key * ) ;
@@ -6197,7 +6197,7 @@ __inline static void set_ethernet_addr(rtl8150_t *dev )
   get_registers(dev, 288, 6, (void *)(& node_id));
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(dev->netdev)->dev_addr, (void const   *)(& node_id),
+    __ret = memcpy((void *)(dev->netdev)->dev_addr, (void const   *)(& node_id),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(dev->netdev)->dev_addr, (void const   *)(& node_id),

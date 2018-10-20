@@ -5545,7 +5545,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern char *strsep(char ** , char const   * ) ;
@@ -6798,7 +6798,7 @@ static void set_ethernet_addr(pegasus_t *pegasus )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(pegasus->net)->dev_addr, (void const   *)(& node_id),
+    __ret = memcpy((void *)(pegasus->net)->dev_addr, (void const   *)(& node_id),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(pegasus->net)->dev_addr, (void const   *)(& node_id),
@@ -6901,7 +6901,7 @@ static int enable_net_traffic(struct net_device *dev , struct usb_device *usb )
   data[2] = (int )loopback ? 9U : 1U;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& pegasus->eth_regs), (void const   *)(& data), __len);
+    __ret = memcpy((void *)(& pegasus->eth_regs), (void const   *)(& data), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pegasus->eth_regs), (void const   *)(& data),
                              __len);

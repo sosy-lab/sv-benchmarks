@@ -4472,7 +4472,7 @@ __inline static struct task_struct *get_current(void)
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
@@ -10368,7 +10368,7 @@ static void move_buffer_data(struct st_buffer *st_bp , int offset )
   count = _min1 < _min2 ? _min1 : _min2;
   tmp___0 = lowmem_page_address((struct page  const  *)spage);
   tmp___1 = lowmem_page_address((struct page  const  *)dpage);
-  __memmove(tmp___1 + (unsigned long )dst_offset, (void const   *)tmp___0 + (unsigned long )src_offset,
+  memmove(tmp___1 + (unsigned long )dst_offset, (void const   *)tmp___0 + (unsigned long )src_offset,
             (size_t )count);
   src_offset = src_offset + count;
   if (src_offset >= length) {

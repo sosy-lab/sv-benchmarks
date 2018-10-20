@@ -6625,7 +6625,7 @@ extern void print_hex_dump(char const   * , char const   * , int  , int  , int  
                            void const   * , size_t  , bool  ) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern int vsnprintf(char * , size_t  , char const   * , __va_list_tag * ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void __ldv_linux_kernel_locking_spinlock_spin_lock(spinlock_t * ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_102(spinlock_t *ldv_func_arg1 ) ;
@@ -6761,7 +6761,7 @@ static int esas2r_log_master(long const   level , struct device  const  *dev , c
 
     }
     {
-    __memset((void *)buffer, 0, buflen);
+    memset((void *)buffer, 0, buflen);
     }
     if ((unsigned long )dev == (unsigned long )((struct device  const  *)0)) {
       {
@@ -6974,7 +6974,7 @@ __inline static void list_splice_tail_init(struct list_head *list , struct list_
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_98(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_102___0(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_104(spinlock_t *ldv_func_arg1 ) ;
@@ -7790,7 +7790,7 @@ static bool esas2r_disc_raid_grp_info(struct esas2r_adapter *a , struct esas2r_r
   {
   esas2r_rq_init_request(rq, a);
   grpinfo = & (rq->__annonCompField102.vda_rsp_data)->mgt_data.data.grp_info;
-  __memset((void *)grpinfo, 0, 112UL);
+  memset((void *)grpinfo, 0, 112UL);
   esas2r_build_mgt_req(a, rq, 16, (int )dc->scan_gen, 0, 112U, (void *)0);
   grpinfo->grp_index = dc->raid_grp_ix;
   rq->comp_cb = & esas2r_disc_raid_grp_info_cb;
@@ -7824,7 +7824,7 @@ static void esas2r_disc_raid_grp_info_cb(struct esas2r_adapter *a , struct esas2
       dc->raid_grp_ix = (u8 )((int )dc->raid_grp_ix + 1);
     } else {
       {
-      __memcpy((void *)(& dc->raid_grp_name), (void const   *)(& grpinfo->grp_name),
+      memcpy((void *)(& dc->raid_grp_name), (void const   *)(& grpinfo->grp_name),
                15UL);
       dc->interleave = grpinfo->interleave;
       dc->block_size = grpinfo->block_size;
@@ -7878,10 +7878,10 @@ static bool esas2r_disc_part_info(struct esas2r_adapter *a , struct esas2r_reque
   {
   esas2r_rq_init_request(rq, a);
   partinfo = & (rq->__annonCompField102.vda_rsp_data)->mgt_data.data.part_info;
-  __memset((void *)partinfo, 0, 88UL);
+  memset((void *)partinfo, 0, 88UL);
   esas2r_build_mgt_req(a, rq, 48, (int )dc->scan_gen, 0, 88U, (void *)0);
   partinfo->part_no = dc->part_num;
-  __memcpy((void *)(& partinfo->grp_name), (void const   *)(& dc->raid_grp_name),
+  memcpy((void *)(& partinfo->grp_name), (void const   *)(& dc->raid_grp_name),
            15UL);
   rq->comp_cb = & esas2r_disc_part_info_cb;
   rq->interrupt_cx = (void *)dc;
@@ -7953,7 +7953,7 @@ static bool esas2r_disc_passthru_dev_info(struct esas2r_adapter *a , struct esas
   dc = (struct esas2r_disc_context *)rq->interrupt_cx;
   esas2r_rq_init_request(rq, a);
   devinfo = & (rq->__annonCompField102.vda_rsp_data)->mgt_data.data.dev_info;
-  __memset((void *)devinfo, 0, 112UL);
+  memset((void *)devinfo, 0, 112UL);
   esas2r_build_mgt_req(a, rq, 5, (int )dc->scan_gen, (int )dc->dev_ix, 112U, (void *)0);
   rq->comp_cb = & esas2r_disc_passthru_dev_info_cb;
   rq->interrupt_cx = (void *)dc;
@@ -8052,7 +8052,7 @@ static bool esas2r_disc_passthru_dev_addr(struct esas2r_adapter *a , struct esas
   rq->comp_cb = & esas2r_disc_passthru_dev_addr_cb;
   rq->interrupt_cx = (void *)dc;
   hi = (struct atto_ioctl *)a->disc_buffer;
-  __memset((void *)a->disc_buffer, 0, 512UL);
+  memset((void *)a->disc_buffer, 0, 512UL);
   hi->version = 0U;
   hi->function = 5U;
   hi->flags = 1U;
@@ -8083,12 +8083,12 @@ static void esas2r_disc_passthru_dev_addr_cb(struct esas2r_adapter *a , struct e
     if ((unsigned int )dc->dev_addr_type == 0U) {
       if ((unsigned int )addrlen == 8U) {
         {
-        __memcpy((void *)(& dc->sas_addr), (void const   *)(& hi->data.get_dev_addr.address),
+        memcpy((void *)(& dc->sas_addr), (void const   *)(& hi->data.get_dev_addr.address),
                  (size_t )addrlen);
         }
       } else {
         {
-        __memset((void *)(& dc->sas_addr), 0, 8UL);
+        memset((void *)(& dc->sas_addr), 0, 8UL);
         }
       }
       dc->dev_addr_type = 4U;
@@ -8101,7 +8101,7 @@ static void esas2r_disc_passthru_dev_addr_cb(struct esas2r_adapter *a , struct e
       }
       if ((unsigned long )t != (unsigned long )((struct esas2r_target *)0)) {
         {
-        __memcpy((void *)(& t->sas_addr), (void const   *)(& dc->sas_addr), 8UL);
+        memcpy((void *)(& t->sas_addr), (void const   *)(& dc->sas_addr), 8UL);
         }
       } else {
 
@@ -8926,7 +8926,7 @@ static bool complete_fmapi_req(struct esas2r_adapter *a , struct esas2r_request 
   rq->req_stat = 0U;
   if ((unsigned int )fi_stat != 8U) {
     {
-    __memset((void *)fc->scratch, 0, 2048UL);
+    memset((void *)fc->scratch, 0, 2048UL);
     }
   } else {
 
@@ -9153,7 +9153,7 @@ static void fw_download_proc(struct esas2r_adapter *a , struct esas2r_request *r
   {
   a->flash_ver = fi->cmp_hdr[2].version;
   esas2r_print_flash_rev(a);
-  __memcpy((void *)(& a->image_type), (void const   *)(& fi->rel_version), 16UL);
+  memcpy((void *)(& a->image_type), (void const   *)(& fi->rel_version), 16UL);
   complete_fmapi_req(a, rq, 0);
   }
   return;
@@ -10188,7 +10188,7 @@ bool esas2r_nvram_write(struct esas2r_adapter *a , struct esas2r_request *rq , s
 
   }
   {
-  __memcpy((void *)(& sas_address_bytes), (void const   *)(& n->sas_addr), 8UL);
+  memcpy((void *)(& sas_address_bytes), (void const   *)(& n->sas_addr), 8UL);
   }
   if (((((unsigned int )sas_address_bytes[0] != 80U || (unsigned int )sas_address_bytes[1] != 1U) || (unsigned int )sas_address_bytes[2] != 8U) || ((int )sas_address_bytes[3] & 240) != 96) || (((u32 )sas_address_bytes[3] & 15U) | *(sas_address_dwords + 1UL)) == 0U) {
     {
@@ -10207,7 +10207,7 @@ bool esas2r_nvram_write(struct esas2r_adapter *a , struct esas2r_request *rq , s
   n->version = 0U;
   tmp___1 = esas2r_calc_byte_cksum((void *)n, 256U, 90);
   n->checksum = (int )n->checksum - (int )tmp___1;
-  __memcpy((void *)a->nvram, (void const   *)n, 256UL);
+  memcpy((void *)a->nvram, (void const   *)n, 256UL);
   n = a->nvram;
   esas2r_disable_heartbeat(a);
   tmp___2 = esas2r_calc_byte_xor_cksum((u8 *)n, 256U, 0);
@@ -10293,9 +10293,9 @@ void esas2r_nvram_get_defaults(struct esas2r_adapter *a , struct esas2r_sas_nvra
 
   {
   {
-  __memcpy((void *)(& sas_addr), (void const   *)(& (a->nvram)->sas_addr), 8UL);
+  memcpy((void *)(& sas_addr), (void const   *)(& (a->nvram)->sas_addr), 8UL);
   *nvram = default_sas_nvram;
-  __memcpy((void *)(& nvram->sas_addr), (void const   *)(& sas_addr), 8UL);
+  memcpy((void *)(& nvram->sas_addr), (void const   *)(& sas_addr), 8UL);
   }
   return;
 }
@@ -10337,7 +10337,7 @@ bool esas2r_fm_api(struct esas2r_adapter *a , struct esas2r_flash_img *fi , stru
 
   }
   {
-  __memcpy((void *)(& fc->sgc), (void const   *)sgc, 96UL);
+  memcpy((void *)(& fc->sgc), (void const   *)sgc, 96UL);
   sgc = & fc->sgc;
   fc->fi = fi;
   fc->sgc_offset = sgc->cur_offset;
@@ -10443,7 +10443,7 @@ bool esas2r_fm_api(struct esas2r_adapter *a , struct esas2r_flash_img *fi , stru
   fi->flags = 0U;
   fi->num_comps = fc->num_comps;
   fi->length = fc->fi_hdr_len;
-  __memcpy((void *)(& fi->rel_version), (void const   *)(& a->image_type), 16UL);
+  memcpy((void *)(& fi->rel_version), (void const   *)(& a->image_type), 16UL);
   j = 0U;
   ch = (struct esas2r_component_header *)(& fi->cmp_hdr);
   }
@@ -11271,7 +11271,7 @@ static bool esas2r_initmem_alloc(struct esas2r_adapter *a , struct esas2r_mem_de
   {
   mem_desc->virt_addr = (void *)((((unsigned long )mem_desc->esas2r_data + (unsigned long )align) - 1UL) & - ((unsigned long )align));
   mem_desc->phys_addr = ((mem_desc->phys_addr + (unsigned long long )align) - 1ULL) & - ((unsigned long long )align);
-  __memset(mem_desc->virt_addr, 0, (size_t )mem_desc->size);
+  memset(mem_desc->virt_addr, 0, (size_t )mem_desc->size);
   }
   return (1);
 }
@@ -11576,7 +11576,7 @@ int esas2r_init_adapter(struct Scsi_Host *host , struct pci_dev *pcid , int inde
   }
   {
   a = (struct esas2r_adapter *)(& host->hostdata);
-  __memset((void *)a, 0, 559640UL);
+  memset((void *)a, 0, 559640UL);
   a->pcid = pcid;
   a->host = host;
   tmp = dma_get_required_mask(& pcid->dev);
@@ -11731,7 +11731,7 @@ int esas2r_init_adapter(struct Scsi_Host *host , struct pci_dev *pcid , int inde
   }
   {
   a->uncached_phys = bus_addr;
-  __memset((void *)a->uncached, 0, (size_t )a->uncached_size);
+  memset((void *)a->uncached, 0, (size_t )a->uncached_size);
   next_uncached = (void *)a->uncached;
   tmp___12 = esas2r_init_adapter_struct(a, & next_uncached);
   }
@@ -12490,7 +12490,7 @@ bool esas2r_init_adapter_struct(struct esas2r_adapter *a , void **uncached_area 
   }
   if (tmp___14 != 0) {
     {
-    __memset((void *)a->req_table, 0, (unsigned long )((num_requests + num_ae_requests) + 1) * 8UL);
+    memset((void *)a->req_table, 0, (unsigned long )((num_requests + num_ae_requests) + 1) * 8UL);
     esas2r_targ_db_initialize(a);
     element = (struct esas2r_inbound_list_source_entry *)a->inbound_list_md.virt_addr;
     i = 0U;
@@ -14252,7 +14252,7 @@ static void esas2r_handle_outbound_rsp_err(struct esas2r_adapter *a , struct esa
   }
   if (tmp != 0L) {
     {
-    __memcpy((void *)(& rq->func_rsp), (void const   *)(& rsp->func_rsp), 8UL);
+    memcpy((void *)(& rq->func_rsp), (void const   *)(& rsp->func_rsp), 8UL);
     }
     if ((unsigned int )rq->req_stat == 10U) {
       if (rq->timeout > 4294967293U) {
@@ -14377,7 +14377,7 @@ static void esas2r_get_outbound_responses(struct esas2r_adapter *a )
     }
   } else {
     {
-    __memcpy((void *)(& rq->func_rsp), (void const   *)(& rsp->func_rsp), 8UL);
+    memcpy((void *)(& rq->func_rsp), (void const   *)(& rsp->func_rsp), 8UL);
     }
   }
   {
@@ -15051,7 +15051,7 @@ static void esas2r_lun_event(struct esas2r_adapter *a , union atto_vda_ae *ae , 
   }
   if ((unsigned int )t->new_target_state != 255U) {
     {
-    __memcpy((void *)(& t->lu_event), (void const   *)(& ae->lu), (size_t )cplen);
+    memcpy((void *)(& t->lu_event), (void const   *)(& ae->lu), (size_t )cplen);
     esas2r_disc_queue_event(a, 1);
     }
   } else {
@@ -15206,7 +15206,7 @@ static void esas2r_check_req_rsp_sense(struct esas2r_adapter *a , struct esas2r_
   if ((unsigned int )snslen != 0U) {
     if ((unsigned long )rq->sense_buf != (unsigned long )((u8 *)0U)) {
       {
-      __memcpy((void *)rq->sense_buf, (void const   *)rq->__annonCompField102.data_buf,
+      memcpy((void *)rq->sense_buf, (void const   *)rq->__annonCompField102.data_buf,
                (size_t )snslen);
       }
     } else {
@@ -15727,7 +15727,7 @@ bool esas2r_build_sg_list_sge(struct esas2r_adapter *a , struct esas2r_sg_contex
     }
     {
     sgelen = (int )((unsigned char )((long )sgc->sge.a64.curr)) - (int )((unsigned char )((long )sgc->sge.a64.last));
-    __memcpy(sgl->virt_addr, (void const   *)sgc->sge.a64.last, (size_t )sgelen);
+    memcpy(sgl->virt_addr, (void const   *)sgc->sge.a64.last, (size_t )sgelen);
     sgc->sge.a64.curr = (struct atto_vda_sge *)sgl->virt_addr + (unsigned long )sgelen;
     sgc->sge.a64.limit = (struct atto_vda_sge *)sgl->virt_addr + ((unsigned long )sgl_page_size + 0xfffffffffffffff4UL);
     (sgc->sge.a64.last)->length = 2214592512U;
@@ -16288,7 +16288,7 @@ bool esas2r_send_task_mgmt(struct esas2r_adapter *a , struct esas2r_request *rqa
   (rqaux->vrq)->scsi.length = 0U;
   rqaux->target_id = targetid;
   (rqaux->vrq)->scsi.flags = (rqaux->vrq)->scsi.flags | (u32 )lun;
-  __memset((void *)(& (rqaux->vrq)->scsi.cdb), 0, 16UL);
+  memset((void *)(& (rqaux->vrq)->scsi.cdb), 0, 16UL);
   (rqaux->vrq)->scsi.flags = (rqaux->vrq)->scsi.flags;
   tmp___0 = constant_test_bit(10L, (unsigned long const volatile   *)(& a->flags));
   }
@@ -16875,7 +16875,7 @@ static void do_fm_api(struct esas2r_adapter *a , struct esas2r_flash_img *fi )
 
     }
     {
-    __memcpy(a->firmware.header_buff, (void const   *)fi, 2176UL);
+    memcpy(a->firmware.header_buff, (void const   *)fi, 2176UL);
     a->save_offset = (u8 *)a->firmware.header_buff;
     a->fm_api_sgc.get_phys_addr = & get_physaddr_fm_api_header;
     }
@@ -16949,7 +16949,7 @@ static void do_fm_api(struct esas2r_adapter *a , struct esas2r_flash_img *fi )
   all_done: ;
   if ((unsigned long )fi == (unsigned long )(& a->firmware.header)) {
     {
-    __memcpy((void *)fi, (void const   *)a->firmware.header_buff, 2176UL);
+    memcpy((void *)fi, (void const   *)a->firmware.header_buff, 2176UL);
     dma_free_attrs(& (a->pcid)->dev, 2176UL, a->firmware.header_buff, a->firmware.header_buff_phys,
                    (struct dma_attrs *)0);
     }
@@ -17058,7 +17058,7 @@ static u8 handle_buffered_ioctl(struct esas2r_buffered_ioctl *bi )
 
   }
   {
-  __memcpy((void *)esas2r_buffered_ioctl, (void const   *)bi->ioctl, (size_t )bi->length);
+  memcpy((void *)esas2r_buffered_ioctl, (void const   *)bi->ioctl, (size_t )bi->length);
   rq = esas2r_alloc_request(a);
   }
   if ((unsigned long )rq == (unsigned long )((struct esas2r_request *)0)) {
@@ -17147,7 +17147,7 @@ static u8 handle_buffered_ioctl(struct esas2r_buffered_ioctl *bi )
   exit_cleanly: ;
   if ((unsigned int )result == 0U) {
     {
-    __memcpy(bi->ioctl, (void const   *)esas2r_buffered_ioctl, (size_t )bi->length);
+    memcpy(bi->ioctl, (void const   *)esas2r_buffered_ioctl, (size_t )bi->length);
     }
   } else {
 
@@ -17196,7 +17196,7 @@ static u8 handle_smp_ioctl(struct esas2r_adapter *a , struct atto_ioctl_smp *si 
 
   {
   {
-  __memset((void *)(& bi), 0, 64UL);
+  memset((void *)(& bi), 0, 64UL);
   bi.a = a;
   bi.ioctl = (void *)si;
   bi.length = (si->req_length + si->rsp_length) + 68U;
@@ -17447,7 +17447,7 @@ static int csmi_ioctl_callback(struct esas2r_adapter *a , struct esas2r_request 
   gcc->__annonCompField96.pci_addr.bus_num = ((a->pcid)->bus)->number;
   gcc->__annonCompField96.pci_addr.device_num = (unsigned int )((u8 )((a->pcid)->devfn >> 3)) & 31U;
   gcc->__annonCompField96.pci_addr.function_num = (unsigned int )((u8 )(a->pcid)->devfn) & 7U;
-  __memset((void *)(& gcc->serial_num), 0, 81UL);
+  memset((void *)(& gcc->serial_num), 0, 81UL);
   gcc->major_rev = (u16 )((unsigned char )a->fw_version);
   gcc->minor_rev = (u16 )((unsigned char )((int )((unsigned short )a->fw_version) >> 8));
   gcc->build_rev = (u16 )((unsigned char )(a->fw_version >> 16));
@@ -17515,7 +17515,7 @@ static int csmi_ioctl_callback(struct esas2r_adapter *a , struct esas2r_request 
   case_27: /* CIL Label */ 
   {
   gsa = & ioctl_csmi->scsi_addr;
-  __memcpy((void *)(& lun___0), (void const   *)(& gsa->sas_lun), 8UL);
+  memcpy((void *)(& lun___0), (void const   *)(& gsa->sas_lun), 8UL);
   tmp___4 = check_lun(lun___0);
   }
   if (tmp___4) {
@@ -17557,7 +17557,7 @@ static int csmi_ioctl_callback(struct esas2r_adapter *a , struct esas2r_request 
   }
   {
   *((u64 *)(& gda___0->sas_addr)) = t->sas_addr;
-  __memset((void *)(& gda___0->sas_lun), 0, 8UL);
+  memset((void *)(& gda___0->sas_lun), 0, 8UL);
   gda___0->sas_lun[1] = (unsigned char )(rq->vrq)->scsi.flags;
   }
   goto ldv_39989;
@@ -17650,7 +17650,7 @@ static u8 handle_csmi_ioctl(struct esas2r_adapter *a , struct atto_csmi *ci )
 
   {
   {
-  __memset((void *)(& bi), 0, 64UL);
+  memset((void *)(& bi), 0, 64UL);
   bi.a = a;
   bi.ioctl = (void *)(& ci->data);
   bi.length = 2064U;
@@ -17930,7 +17930,7 @@ static int hba_ioctl_callback(struct esas2r_adapter *a , struct esas2r_request *
 
   }
   {
-  __memset((void *)gai, 0, 512UL);
+  memset((void *)gai, 0, 512UL);
   gai->pci.vendor_id = (a->pcid)->vendor;
   gai->pci.device_id = (a->pcid)->device;
   gai->pci.ss_vendor_id = (a->pcid)->subsystem_vendor;
@@ -18028,7 +18028,7 @@ static int hba_ioctl_callback(struct esas2r_adapter *a , struct esas2r_request *
       hi->status = 10U;
     } else {
       {
-      __memcpy((void *)(& gaa->address), (void const   *)(& (a->nvram)->sas_addr),
+      memcpy((void *)(& gaa->address), (void const   *)(& (a->nvram)->sas_addr),
                8UL);
       gaa->addr_len = 8U;
       }
@@ -18100,14 +18100,14 @@ static int hba_ioctl_callback(struct esas2r_adapter *a , struct esas2r_request *
 
       }
       {
-      __memcpy((void *)trc + 1U, (void const   *)(& a->fw_coredump_buff) + (unsigned long )offset,
+      memcpy((void *)trc + 1U, (void const   *)(& a->fw_coredump_buff) + (unsigned long )offset,
                (size_t )len);
       hi->data_length = len;
       }
     } else
     if ((unsigned int )trc->trace_func == 5U) {
       {
-      __memset((void *)(& a->fw_coredump_buff), 0, 524288UL);
+      memset((void *)(& a->fw_coredump_buff), 0, 524288UL);
       clear_bit(4L, (unsigned long volatile   *)(& a->flags2));
       }
     } else
@@ -18135,7 +18135,7 @@ static int hba_ioctl_callback(struct esas2r_adapter *a , struct esas2r_request *
   case_4: /* CIL Label */ 
   {
   spt = & hi->data.scsi_pass_thru;
-  __memcpy((void *)(& lun), (void const   *)(& spt->lun), 8UL);
+  memcpy((void *)(& lun), (void const   *)(& spt->lun), 8UL);
   }
   if ((int )hi->flags & 1) {
     {
@@ -18182,7 +18182,7 @@ static int hba_ioctl_callback(struct esas2r_adapter *a , struct esas2r_request *
   sgc->cur_offset = sgc->cur_offset + 416UL;
   rq->target_id = (unsigned short )spt->target_id;
   (rq->vrq)->scsi.flags = (rq->vrq)->scsi.flags | (u32 )spt->lun[1];
-  __memcpy((void *)(& (rq->vrq)->scsi.cdb), (void const   *)(& spt->cdb), 16UL);
+  memcpy((void *)(& (rq->vrq)->scsi.cdb), (void const   *)(& spt->cdb), 16UL);
   (rq->vrq)->scsi.length = hi->data_length;
   rq->sense_len = spt->sense_length;
   rq->sense_buf = (u8 *)(& spt->sense_data);
@@ -18434,7 +18434,7 @@ u8 handle_hba_ioctl(struct esas2r_adapter *a , struct atto_ioctl *ioctl_hba )
 
   {
   {
-  __memset((void *)(& bi), 0, 64UL);
+  memset((void *)(& bi), 0, 64UL);
   bi.a = a;
   bi.ioctl = (void *)ioctl_hba;
   bi.length = ioctl_hba->data_length + 576U;
@@ -18733,7 +18733,7 @@ int esas2r_ioctl_handler(void *hostdata , int cmd , void *arg )
   goto ldv_40140;
   case_17665: /* CIL Label */ 
   {
-  __memcpy((void *)(& ioctl->data.prw.data_buffer), (void const   *)a->nvram, 256UL);
+  memcpy((void *)(& ioctl->data.prw.data_buffer), (void const   *)a->nvram, 256UL);
   ioctl->data.prw.code = 1U;
   }
   goto ldv_40140;
@@ -18943,7 +18943,7 @@ int esas2r_read_fw(struct esas2r_adapter *a , char *buf , long off , int count )
     __min1 = count;
     __min2 = 2176;
     size = __min1 < __min2 ? __min1 : __min2;
-    __memcpy((void *)buf, (void const   *)(& a->firmware.header), (size_t )size);
+    memcpy((void *)buf, (void const   *)(& a->firmware.header), (size_t )size);
     }
     return (size);
   } else {
@@ -18962,7 +18962,7 @@ int esas2r_read_fw(struct esas2r_adapter *a , char *buf , long off , int count )
 
         }
         {
-        __memcpy((void *)a->firmware.data, (void const   *)(& a->firmware.header),
+        memcpy((void *)a->firmware.data, (void const   *)(& a->firmware.header),
                  2176UL);
         do_fm_api(a, (struct esas2r_flash_img *)a->firmware.data);
         }
@@ -18973,7 +18973,7 @@ int esas2r_read_fw(struct esas2r_adapter *a , char *buf , long off , int count )
         _min2 = 2176;
         size___0 = _min1 < _min2 ? _min1 : _min2;
         do_fm_api(a, & a->firmware.header);
-        __memcpy((void *)buf, (void const   *)(& a->firmware.header), (size_t )size___0);
+        memcpy((void *)buf, (void const   *)(& a->firmware.header), (size_t )size___0);
         }
         return (size___0);
       } else {
@@ -18998,7 +18998,7 @@ int esas2r_read_fw(struct esas2r_adapter *a , char *buf , long off , int count )
 
     }
     {
-    __memcpy((void *)buf, (void const   *)a->firmware.data + (unsigned long )off,
+    memcpy((void *)buf, (void const   *)a->firmware.data + (unsigned long )off,
              (size_t )count);
     }
     if ((long )length <= off + (long )count) {
@@ -19058,12 +19058,12 @@ int esas2r_write_fw(struct esas2r_adapter *a , char const   *buf , long off , in
 
       }
       {
-      __memcpy((void *)(& a->firmware.header), (void const   *)buf, 2176UL);
+      memcpy((void *)(& a->firmware.header), (void const   *)buf, 2176UL);
       }
     } else
     if ((unsigned int )header->action - 1U <= 1U) {
       {
-      __memcpy((void *)(& a->firmware.header), (void const   *)buf, 2176UL);
+      memcpy((void *)(& a->firmware.header), (void const   *)buf, 2176UL);
       a->firmware.state = 2;
       }
       return (count);
@@ -19090,13 +19090,13 @@ int esas2r_write_fw(struct esas2r_adapter *a , char const   *buf , long off , in
 
     }
     {
-    __memcpy((void *)a->firmware.data + (unsigned long )off, (void const   *)buf,
+    memcpy((void *)a->firmware.data + (unsigned long )off, (void const   *)buf,
              (size_t )count);
     }
     if ((long )length == off + (long )count) {
       {
       do_fm_api(a, (struct esas2r_flash_img *)a->firmware.data);
-      __memcpy((void *)(& a->firmware.header), (void const   *)a->firmware.data, 2176UL);
+      memcpy((void *)(& a->firmware.header), (void const   *)a->firmware.data, 2176UL);
       a->firmware.state = 1;
       free_fw_buffers(a);
       }
@@ -19243,7 +19243,7 @@ int esas2r_read_vda(struct esas2r_adapter *a , char *buf , long off , int count 
 
   }
   {
-  __memcpy((void *)buf, (void const   *)a->vda_buffer + (unsigned long )off, (size_t )count);
+  memcpy((void *)buf, (void const   *)a->vda_buffer + (unsigned long )off, (size_t )count);
   }
   return (count);
 }
@@ -19284,7 +19284,7 @@ int esas2r_write_vda(struct esas2r_adapter *a , char const   *buf , long off , i
 
   }
   {
-  __memcpy((void *)a->vda_buffer + (unsigned long )off, (void const   *)buf, (size_t )count);
+  memcpy((void *)a->vda_buffer + (unsigned long )off, (void const   *)buf, (size_t )count);
   }
   return (count);
 }
@@ -19456,7 +19456,7 @@ int esas2r_read_fs(struct esas2r_adapter *a , char *buf , long off , int count )
 
   }
   {
-  __memcpy((void *)buf, (void const   *)a->fs_api_buffer + (unsigned long )off, (size_t )count);
+  memcpy((void *)buf, (void const   *)a->fs_api_buffer + (unsigned long )off, (size_t )count);
   }
   return (count);
 }
@@ -19524,7 +19524,7 @@ int esas2r_write_fs(struct esas2r_adapter *a , char const   *buf , long off , in
 
   }
   {
-  __memcpy((void *)a->fs_api_buffer + (unsigned long )off, (void const   *)buf, (size_t )count);
+  memcpy((void *)a->fs_api_buffer + (unsigned long )off, (void const   *)buf, (size_t )count);
   }
   return (count);
 }
@@ -19558,7 +19558,7 @@ void esas2r_targ_db_initialize(struct esas2r_adapter *a )
   goto ldv_39875;
   ldv_39874: 
   {
-  __memset((void *)t, 0, 120UL);
+  memset((void *)t, 0, 120UL);
   t->target_state = 0U;
   t->buffered_target_state = 0U;
   t->new_target_state = 255U;
@@ -19732,7 +19732,7 @@ struct esas2r_target *esas2r_targ_db_add_pthru(struct esas2r_adapter *a , struct
   t->virt_targ_id = dc->curr_virt_id;
   t->phys_targ_id = dc->curr_phys_id;
   t->identifier_len = ident_len;
-  __memcpy((void *)(& t->identifier), (void const   *)ident, (size_t )ident_len);
+  memcpy((void *)(& t->identifier), (void const   *)ident, (size_t )ident_len);
   t->flags = (u8 )((unsigned int )t->flags | 3U);
   t->target_state = 5U;
   }
@@ -20032,7 +20032,7 @@ bool esas2r_process_vda_ioctl(struct esas2r_adapter *a , struct atto_ioctl_vda *
   {
   (rq->vrq)->flash.length = datalen;
   (rq->vrq)->flash.sub_func = vi->cmd.flash.sub_func;
-  __memcpy((void *)(& (rq->vrq)->flash.data.file.file_name), (void const   *)(& vi->cmd.flash.data.file.file_name),
+  memcpy((void *)(& (rq->vrq)->flash.data.file.file_name), (void const   *)(& vi->cmd.flash.data.file.file_name),
            16UL);
   firstsg = (struct atto_vda_sge *)(& (rq->vrq)->flash.data.file.sge);
   }
@@ -20111,7 +20111,7 @@ bool esas2r_process_vda_ioctl(struct esas2r_adapter *a , struct atto_ioctl_vda *
   (rq->vrq)->cfg.length = vi->cmd.cfg.data_length;
   if ((unsigned int )vi->cmd.cfg.cfg_func == 1U) {
     {
-    __memcpy((void *)(& (rq->vrq)->cfg.data), (void const   *)(& vi->cmd.cfg.data),
+    memcpy((void *)(& (rq->vrq)->cfg.data), (void const   *)(& vi->cmd.cfg.data),
              (size_t )vi->cmd.cfg.data_length);
     esas2r_nuxi_cfg_data((int )(rq->vrq)->cfg.sub_func, (void *)(& (rq->vrq)->cfg.data));
     }
@@ -20123,7 +20123,7 @@ bool esas2r_process_vda_ioctl(struct esas2r_adapter *a , struct atto_ioctl_vda *
   case_8: /* CIL Label */ 
   {
   vi->cmd.gsv.rsp_len = vercnt;
-  __memcpy((void *)(& vi->cmd.gsv.version_info), (void const   *)(& esas2r_vdaioctl_versions),
+  memcpy((void *)(& vi->cmd.gsv.version_info), (void const   *)(& esas2r_vdaioctl_versions),
            (size_t )vercnt);
   vi->vda_status = 0U;
   }
@@ -20221,7 +20221,7 @@ static void esas2r_complete_vda_ioctl(struct esas2r_adapter *a , struct esas2r_r
     cfg->data.init.fw_build = rsp->fw_build;
     snprintf((char *)(& buf), 5UL, "%1.1u.%2.2u", (int )((unsigned char )rsp->fw_release),
              (int )((unsigned char )((int )rsp->fw_release >> 8)));
-    __memcpy((void *)(& cfg->data.init.fw_release), (void const   *)(& buf), 4UL);
+    memcpy((void *)(& cfg->data.init.fw_release), (void const   *)(& buf), 4UL);
     }
     if ((unsigned int )((unsigned char )cfg->data.init.fw_build) == 65U) {
       cfg->data.init.fw_version = cfg->data.init.fw_build;
@@ -20303,7 +20303,7 @@ void esas2r_build_mgt_req(struct esas2r_adapter *a , struct esas2r_request *rq ,
   if ((unsigned long )data != (unsigned long )((void *)0)) {
     {
     esas2r_nuxi_mgt_data((int )sub_func, data);
-    __memcpy((void *)(& (rq->__annonCompField102.vda_rsp_data)->mgt_data.data.bytes),
+    memcpy((void *)(& (rq->__annonCompField102.vda_rsp_data)->mgt_data.data.bytes),
              (void const   *)data, (size_t )length);
     }
   } else {
@@ -20387,7 +20387,7 @@ void esas2r_build_cfg_req(struct esas2r_adapter *a , struct esas2r_request *rq ,
   if ((unsigned long )data != (unsigned long )((void *)0)) {
     {
     esas2r_nuxi_cfg_data((int )sub_func, data);
-    __memcpy((void *)(& vrq->data), (void const   *)data, (size_t )length);
+    memcpy((void *)(& vrq->data), (void const   *)data, (size_t )length);
     }
   } else {
 
@@ -20402,10 +20402,10 @@ static void clear_vda_request(struct esas2r_request *rq )
   {
   {
   handle = (rq->vrq)->scsi.handle;
-  __memset((void *)rq->vrq, 0, 1024UL);
+  memset((void *)rq->vrq, 0, 1024UL);
   (rq->vrq)->scsi.handle = handle;
   rq->req_stat = 254U;
-  __memset(rq->__annonCompField102.data_buf, 0, 256UL);
+  memset(rq->__annonCompField102.data_buf, 0, 256UL);
   INIT_LIST_HEAD(& rq->req_list);
   }
   return;
@@ -20793,7 +20793,7 @@ static ssize_t read_live_nvram(struct file *file , struct kobject *kobj , struct
   __min1 = 256UL;
   __min2 = 4096UL;
   length = (int )(__min1 < __min2 ? __min1 : __min2);
-  __memcpy((void *)buf, (void const   *)a->nvram, (size_t )length);
+  memcpy((void *)buf, (void const   *)a->nvram, (size_t )length);
   }
   return ((ssize_t )length);
 }
@@ -20880,7 +20880,7 @@ static ssize_t read_hw(struct file *file , struct kobject *kobj , struct bin_att
 
   }
   {
-  __memcpy((void *)buf, (void const   *)a->local_atto_ioctl, (size_t )length);
+  memcpy((void *)buf, (void const   *)a->local_atto_ioctl, (size_t )length);
   }
   return ((ssize_t )length);
 }
@@ -20920,8 +20920,8 @@ static ssize_t write_hw(struct file *file , struct kobject *kobj , struct bin_at
 
   }
   {
-  __memset((void *)a->local_atto_ioctl, 0, 576UL);
-  __memcpy((void *)a->local_atto_ioctl, (void const   *)buf, (size_t )length);
+  memset((void *)a->local_atto_ioctl, 0, 576UL);
+  memcpy((void *)a->local_atto_ioctl, (void const   *)buf, (size_t )length);
   }
   return ((ssize_t )length);
 }
@@ -21040,7 +21040,7 @@ static int esas2r_probe(struct pci_dev *pcid , struct pci_device_id  const  *id 
 
   }
   {
-  __memset((void *)(& host->hostdata), 0, host_alloc_size);
+  memset((void *)(& host->hostdata), 0, host_alloc_size);
   a = (struct esas2r_adapter *)(& host->hostdata);
   esas2r_log(3L, "scsi_host_alloc() OK host: %p", host);
   host->max_id = 256U;
@@ -21593,7 +21593,7 @@ int esas2r_queuecommand(struct Scsi_Host *host , struct scsi_cmnd *cmd )
 
   }
   {
-  __memcpy((void *)(& (rq->vrq)->scsi.cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
+  memcpy((void *)(& (rq->vrq)->scsi.cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
   (rq->vrq)->scsi.length = bufflen;
   rq->target_id = (u16 )(cmd->device)->id;
   (rq->vrq)->scsi.flags = (rq->vrq)->scsi.flags | (u32 )(cmd->device)->lun;
@@ -21693,7 +21693,7 @@ static int esas2r_check_active_queue(struct esas2r_adapter *a , struct esas2r_re
       (ar->vrq)->scsi.length = 0U;
       ar->target_id = rq->target_id;
       (ar->vrq)->scsi.flags = (ar->vrq)->scsi.flags | (u32 )((unsigned char )(rq->vrq)->scsi.flags);
-      __memset((void *)(& (ar->vrq)->scsi.cdb), 0, 16UL);
+      memset((void *)(& (ar->vrq)->scsi.cdb), 0, 16UL);
       (ar->vrq)->scsi.flags = (ar->vrq)->scsi.flags | 8388608U;
       (ar->vrq)->scsi.u.abort_handle = (rq->vrq)->scsi.handle;
       }
@@ -23097,11 +23097,11 @@ void esas2r_queue_fw_event(struct esas2r_adapter *a , enum fw_event_type type , 
     ae->signature = 1096045647U;
     ae->bus_number = ((a->pcid)->bus)->number;
     ae->devfn = (u8 )(a->pcid)->devfn;
-    __memcpy((void *)(& ae->vda_ae), (void const   *)data, 128UL);
+    memcpy((void *)(& ae->vda_ae), (void const   *)data, 128UL);
     }
   } else {
     {
-    __memcpy((void *)(& fw_event->data), (void const   *)data, (size_t )data_sz);
+    memcpy((void *)(& fw_event->data), (void const   *)data, (size_t )data_sz);
     }
   }
   {

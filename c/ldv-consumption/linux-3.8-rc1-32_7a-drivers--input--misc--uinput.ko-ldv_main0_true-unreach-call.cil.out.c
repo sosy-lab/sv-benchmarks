@@ -3119,7 +3119,7 @@ __inline static struct task_struct *get_current(void)
 }
 extern char *strndup_user(char const   * , long  ) ;
 extern void *memdup_user(void const   * , size_t  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *kstrndup(char const   * , size_t  , gfp_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
@@ -4416,7 +4416,7 @@ static int uinput_ff_upload_to_user(char *buffer , struct uinput_ff_upload  cons
     ff_up_compat.retval = ff_up->retval;
     __len = 44UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ff_up_compat.effect), (void const   *)(& ff_up->effect),
+      __ret = memcpy((void *)(& ff_up_compat.effect), (void const   *)(& ff_up->effect),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ff_up_compat.effect), (void const   *)(& ff_up->effect),
@@ -4424,7 +4424,7 @@ static int uinput_ff_upload_to_user(char *buffer , struct uinput_ff_upload  cons
     }
     __len___0 = 44UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& ff_up_compat.old), (void const   *)(& ff_up->old),
+      __ret___0 = memcpy((void *)(& ff_up_compat.old), (void const   *)(& ff_up->old),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& ff_up_compat.old), (void const   *)(& ff_up->old),
@@ -4471,7 +4471,7 @@ static int uinput_ff_upload_from_user(char const   *buffer , struct uinput_ff_up
     ff_up->retval = ff_up_compat.retval;
     __len = 44UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ff_up->effect), (void const   *)(& ff_up_compat.effect),
+      __ret = memcpy((void *)(& ff_up->effect), (void const   *)(& ff_up_compat.effect),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ff_up->effect), (void const   *)(& ff_up_compat.effect),
@@ -4479,7 +4479,7 @@ static int uinput_ff_upload_from_user(char const   *buffer , struct uinput_ff_up
     }
     __len___0 = 44UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& ff_up->old), (void const   *)(& ff_up_compat.old),
+      __ret___0 = memcpy((void *)(& ff_up->old), (void const   *)(& ff_up_compat.old),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& ff_up->old), (void const   *)(& ff_up_compat.old),

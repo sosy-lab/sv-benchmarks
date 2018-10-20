@@ -16417,7 +16417,7 @@ void ldv_mutex_unlock_215(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 void ldv_mutex_lock_nested_241(struct mutex *ldv_func_arg1 , unsigned int ldv_func_arg2 ) ;
 void ldv_mutex_unlock_238(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_240(struct mutex *ldv_func_arg1 ) ;
@@ -17272,7 +17272,7 @@ int ubifs_read_superblock(struct ubifs_info *c )
   (c->vfs_sb)->s_time_gran = sup->time_gran;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& c->uuid), (void const   *)(& sup->uuid), __len);
+    __ret = memcpy((void *)(& c->uuid), (void const   *)(& sup->uuid), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& c->uuid), (void const   *)(& sup->uuid), __len);
   }
@@ -36300,7 +36300,7 @@ int ubifs_find_dirty_leb(struct ubifs_info *c , struct ubifs_lprops *ret_lp , in
   }
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)ret_lp, (void const   *)lp, __len);
+    __ret = memcpy((void *)ret_lp, (void const   *)lp, __len);
   } else {
     __ret = __builtin_memcpy((void *)ret_lp, (void const   *)lp, __len);
   }
@@ -38652,7 +38652,7 @@ int ubifs_tnc_start_commit(struct ubifs_info *c , struct ubifs_zbranch *zroot )
   destroy_old_idx(c);
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)zroot, (void const   *)(& c->zroot), __len);
+    __ret = memcpy((void *)zroot, (void const   *)(& c->zroot), __len);
   } else {
     __ret = __builtin_memcpy((void *)zroot, (void const   *)(& c->zroot), __len);
   }
@@ -41983,7 +41983,7 @@ static struct ubifs_nnode *dirty_cow_nnode(struct ubifs_info *c , struct ubifs_n
   }
   __len = 104UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)n, (void const   *)nnode, __len);
+    __ret = memcpy((void *)n, (void const   *)nnode, __len);
   } else {
     __ret = __builtin_memcpy((void *)n, (void const   *)nnode, __len);
   }
@@ -42067,7 +42067,7 @@ static struct ubifs_pnode *dirty_cow_pnode(struct ubifs_info *c , struct ubifs_p
   }
   __len = 168UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p, (void const   *)pnode, __len);
+    __ret = memcpy((void *)p, (void const   *)pnode, __len);
   } else {
     __ret = __builtin_memcpy((void *)p, (void const   *)pnode, __len);
   }
@@ -44544,7 +44544,7 @@ void ubifs_get_lp_stats(struct ubifs_info *c , struct ubifs_lp_stats *lst )
   spin_lock(& c->space_lock);
   __len = 56UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)lst, (void const   *)(& c->lst), __len);
+    __ret = memcpy((void *)lst, (void const   *)(& c->lst), __len);
   } else {
     __ret = __builtin_memcpy((void *)lst, (void const   *)(& c->lst), __len);
   }
@@ -44675,7 +44675,7 @@ int ubifs_read_one_lp(struct ubifs_info *c , int lnum , struct ubifs_lprops *lp 
   }
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)lp, (void const   *)lpp, __len);
+    __ret = memcpy((void *)lp, (void const   *)lpp, __len);
   } else {
     __ret = __builtin_memcpy((void *)lp, (void const   *)lpp, __len);
   }
@@ -46149,7 +46149,7 @@ int ubifs_recover_master_node(struct ubifs_info *c )
   printk("\rUBIFS: recovered master node from LEB %d\n", (unsigned long )mst == (unsigned long )mst1 ? 1 : 2);
   __len = 512UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)c->mst_node, (void const   *)mst, __len);
+    __ret = memcpy((void *)c->mst_node, (void const   *)mst, __len);
   } else {
     __ret = __builtin_memcpy((void *)c->mst_node, (void const   *)mst, __len);
   }
@@ -46164,7 +46164,7 @@ int ubifs_recover_master_node(struct ubifs_info *c )
     }
     __len___0 = 512UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)c->rcvrd_mst_node, (void const   *)c->mst_node,
+      __ret___0 = memcpy((void *)c->rcvrd_mst_node, (void const   *)c->mst_node,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)c->rcvrd_mst_node, (void const   *)c->mst_node,
@@ -55330,14 +55330,14 @@ void dbg_save_space_info(struct ubifs_info *c )
   spin_lock(& c->space_lock);
   __len = 56UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& d->saved_lst), (void const   *)(& c->lst), __len);
+    __ret = memcpy((void *)(& d->saved_lst), (void const   *)(& c->lst), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& d->saved_lst), (void const   *)(& c->lst),
                              __len);
   }
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& d->saved_bi), (void const   *)(& c->bi), __len___0);
+    __ret___0 = memcpy((void *)(& d->saved_bi), (void const   *)(& c->bi), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& d->saved_bi), (void const   *)(& c->bi),
                                  __len___0);

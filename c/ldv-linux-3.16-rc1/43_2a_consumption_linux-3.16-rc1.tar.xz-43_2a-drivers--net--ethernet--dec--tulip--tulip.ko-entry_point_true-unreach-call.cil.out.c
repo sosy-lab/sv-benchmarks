@@ -5424,7 +5424,7 @@ __inline static __u16 __le16_to_cpup(__le16 const   *p )
 }
 }
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern unsigned int ioread32(void * ) ;
 extern void iowrite32(u32  , void * ) ;
 extern void *ldv_malloc(size_t);
@@ -5739,7 +5739,7 @@ void tulip_parse_eeprom(struct net_device *dev )
       }
       __len = 64UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)ee_data + 26U, (void const   *)(& eeprom_fixups[i].newtable),
+        __ret = memcpy((void *)ee_data + 26U, (void const   *)(& eeprom_fixups[i].newtable),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)ee_data + 26U, (void const   *)(& eeprom_fixups[i].newtable),

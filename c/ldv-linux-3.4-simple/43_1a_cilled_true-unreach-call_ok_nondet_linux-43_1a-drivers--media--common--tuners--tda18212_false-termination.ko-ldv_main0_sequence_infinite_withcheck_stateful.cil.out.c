@@ -3198,7 +3198,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -4394,7 +4394,7 @@ struct dvb_frontend *tda18212_attach(struct dvb_frontend *fe , struct i2c_adapte
     __cil_tmp53 = (struct dvb_tuner_ops *)__cil_tmp52;
     __cil_tmp54 = (void *)__cil_tmp53;
     __cil_tmp55 = (void const   *)(& tda18212_tuner_ops);
-    __ret = __memcpy(__cil_tmp54, __cil_tmp55, __len);
+    __ret = memcpy(__cil_tmp54, __cil_tmp55, __len);
     }
   } else {
     {

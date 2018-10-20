@@ -3810,7 +3810,7 @@ struct i2o_scsi_host {
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void *ERR_PTR(long error ) 
 { 
 
@@ -4572,7 +4572,7 @@ static int i2o_scsi_queuecommand_lck(struct scsi_cmnd *SCpnt , void (*done)(stru
   *tmp___1 = (u32 )SCpnt->cmd_len | scsi_flags;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mptr, (void const   *)SCpnt->cmnd, __len);
+    __ret = memcpy((void *)mptr, (void const   *)SCpnt->cmnd, __len);
   } else {
     __ret = __builtin_memcpy((void *)mptr, (void const   *)SCpnt->cmnd, __len);
   }

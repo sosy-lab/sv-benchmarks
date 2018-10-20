@@ -7974,7 +7974,7 @@ __inline static void list_cut_position(struct list_head *list , struct list_head
 }
 extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
   int __var ;
@@ -9261,7 +9261,7 @@ static struct sk_buff *oz_build_frame(struct oz_pd *pd , struct oz_tx_frame *f )
   tmp___0 = skb_put(skb, (unsigned int )f->total_size);
   oz_hdr = (struct oz_hdr *)tmp___0;
   f->hdr.last_pkt_num = (u8 )pd->trigger_pkt_num;
-  __memcpy((void *)oz_hdr, (void const   *)(& f->hdr), 6UL);
+  memcpy((void *)oz_hdr, (void const   *)(& f->hdr), 6UL);
   elt = (struct oz_elt *)oz_hdr + 1U;
   __mptr = (struct list_head  const  *)f->elt_list.next;
   ei = (struct oz_elt_info *)__mptr;
@@ -9269,7 +9269,7 @@ static struct sk_buff *oz_build_frame(struct oz_pd *pd , struct oz_tx_frame *f )
   goto ldv_47127;
   ldv_47126: 
   {
-  __memcpy((void *)elt, (void const   *)(& ei->data), (size_t )ei->length);
+  memcpy((void *)elt, (void const   *)(& ei->data), (size_t )ei->length);
   elt = elt + ((unsigned long )elt->length + 1UL);
   __mptr___0 = (struct list_head  const  *)ei->link.next;
   ei = (struct oz_elt_info *)__mptr___0;
@@ -9677,7 +9677,7 @@ static int oz_send_isoc_frame(struct oz_pd *pd )
   goto ldv_47190;
   ldv_47189: 
   {
-  __memcpy((void *)elt, (void const   *)(& ei->data), (size_t )ei->length);
+  memcpy((void *)elt, (void const   *)(& ei->data), (size_t )ei->length);
   elt = elt + ((unsigned long )elt->length + 1UL);
   __mptr___0 = (struct list_head  const  *)ei->link.next;
   ei = (struct oz_elt_info *)__mptr___0;
@@ -9989,7 +9989,7 @@ int oz_send_isoc_unit(struct oz_pd *pd , u8 ep_num , u8 const   *data , int len 
   }
   {
   tmp___0 = skb_put(skb, (unsigned int )len);
-  __memcpy((void *)tmp___0, (void const   *)data, (size_t )len);
+  memcpy((void *)tmp___0, (void const   *)data, (size_t )len);
   size = size + len;
   nb_units = (u8 )((int )nb_units + 1);
   }
@@ -10014,8 +10014,8 @@ int oz_send_isoc_unit(struct oz_pd *pd , u8 ep_num , u8 const   *data , int len 
     iso.endpoint = ep_num;
     iso.format = 7U;
     iso.ms_data = nb_units;
-    __memcpy((void *)oz_hdr, (void const   *)(& oz), 6UL);
-    __memcpy((void *)oz_hdr + 1U, (void const   *)(& iso), 4UL);
+    memcpy((void *)oz_hdr, (void const   *)(& oz), 6UL);
+    memcpy((void *)oz_hdr + 1U, (void const   *)(& iso), 4UL);
     tmp___1 = dev_hard_header(skb, dev, 35118, (void const   *)(& pd->mac_addr), (void const   *)dev->dev_addr,
                               skb->len);
     }
@@ -11439,7 +11439,7 @@ static int oz_usb_vendor_class_req(void *hpd , u8 req_id , u8 req_type , u8 requ
   ldv_48259: ;
   if (data_len != 0) {
     {
-    __memcpy((void *)(& body->data), (void const   *)data, (size_t )data_len);
+    memcpy((void *)(& body->data), (void const   *)data, (size_t )data_len);
     }
   } else {
 
@@ -11607,7 +11607,7 @@ int oz_usb_send_isoc(void *hpd , u8 ep_num , struct urb *urb )
   desc = (struct usb_iso_packet_descriptor *)(& urb->iso_frame_desc) + (unsigned long )i;
   if ((unsigned int )unit_size == desc->length && desc->length <= (unsigned int )rem) {
     {
-    __memcpy((void *)data, (void const   *)urb->transfer_buffer + (unsigned long )desc->offset,
+    memcpy((void *)data, (void const   *)urb->transfer_buffer + (unsigned long )desc->offset,
              (size_t )unit_size);
     data = data + (unsigned long )unit_size;
     rem = rem - unit_size;
@@ -11984,7 +11984,7 @@ __inline static void list_splice_tail(struct list_head *list , struct list_head 
   return;
 }
 }
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 __inline static u64 div_u64_rem(u64 dividend , u32 divisor , u32 *remainder ) 
 { 
 
@@ -12565,12 +12565,12 @@ static void oz_complete_buffered_urb(struct oz_port *port , struct oz_endpoint *
 
   }
   {
-  __memcpy(urb->transfer_buffer, (void const   *)ep->buffer + (unsigned long )ep->out_ix,
+  memcpy(urb->transfer_buffer, (void const   *)ep->buffer + (unsigned long )ep->out_ix,
            (size_t )copy_len);
   }
   if (copy_len < available_space) {
     {
-    __memcpy(urb->transfer_buffer + (unsigned long )copy_len, (void const   *)ep->buffer,
+    memcpy(urb->transfer_buffer + (unsigned long )copy_len, (void const   *)ep->buffer,
              (size_t )(available_space - copy_len));
     ep->out_ix = available_space - copy_len;
     }
@@ -13057,7 +13057,7 @@ void oz_hcd_get_desc_cnf(void *hport , u8 req_id , int status , u8 const   *desc
 
     }
     {
-    __memcpy(urb->transfer_buffer + (unsigned long )offset, (void const   *)desc,
+    memcpy(urb->transfer_buffer + (unsigned long )offset, (void const   *)desc,
              (size_t )copy_len);
     offset = offset + copy_len;
     }
@@ -13322,7 +13322,7 @@ void oz_hcd_control_cnf(void *hport , u8 req_id , u8 rcode , u8 const   *data , 
         copy_len = (int )urb->transfer_buffer_length;
       }
       {
-      __memcpy(urb->transfer_buffer, (void const   *)data, (size_t )copy_len);
+      memcpy(urb->transfer_buffer, (void const   *)data, (size_t )copy_len);
       urb->actual_length = (u32 )copy_len;
       }
     } else {
@@ -13371,11 +13371,11 @@ static int oz_hcd_buffer_data(struct oz_endpoint *ep , u8 const   *data , int da
 
   }
   {
-  __memcpy((void *)ep->buffer + (unsigned long )ep->in_ix, (void const   *)data, (size_t )copy_len);
+  memcpy((void *)ep->buffer + (unsigned long )ep->in_ix, (void const   *)data, (size_t )copy_len);
   }
   if (copy_len < data_len) {
     {
-    __memcpy((void *)ep->buffer, (void const   *)data + (unsigned long )copy_len,
+    memcpy((void *)ep->buffer, (void const   *)data + (unsigned long )copy_len,
              (size_t )(data_len - copy_len));
     ep->in_ix = data_len - copy_len;
     }
@@ -13451,7 +13451,7 @@ void oz_hcd_data_ind(void *hport , u8 endpoint , u8 const   *data , int data_len
       copy_len = (int )urb->transfer_buffer_length;
     }
     {
-    __memcpy(urb->transfer_buffer, (void const   *)data, (size_t )copy_len);
+    memcpy(urb->transfer_buffer, (void const   *)data, (size_t )copy_len);
     urb->actual_length = (u32 )copy_len;
     oz_complete_urb((port->ozhcd)->hcd, urb, 0);
     }
@@ -13697,12 +13697,12 @@ int oz_hcd_heartbeat(void *hport )
 
   }
   {
-  __memcpy(urb___0->transfer_buffer, (void const   *)ep->buffer + (unsigned long )ep->out_ix,
+  memcpy(urb___0->transfer_buffer, (void const   *)ep->buffer + (unsigned long )ep->out_ix,
            (size_t )copy_len);
   }
   if (copy_len < len) {
     {
-    __memcpy(urb___0->transfer_buffer + (unsigned long )copy_len, (void const   *)ep->buffer,
+    memcpy(urb___0->transfer_buffer + (unsigned long )copy_len, (void const   *)ep->buffer,
              (size_t )(len - copy_len));
     ep->out_ix = len - copy_len;
     }
@@ -15216,7 +15216,7 @@ static void oz_get_hub_descriptor(struct usb_hcd *hcd , struct usb_hub_descripto
 
   {
   {
-  __memset((void *)desc, 0, 15UL);
+  memset((void *)desc, 0, 15UL);
   desc->bDescriptorType = 41U;
   desc->bDescLength = 9U;
   desc->wHubCharacteristics = 1U;
@@ -16609,7 +16609,7 @@ static int oz_plat_probe(struct platform_device *dev )
   }
   {
   ozhcd = oz_hcd_private(hcd);
-  __memset((void *)ozhcd, 0, 3344UL);
+  memset((void *)ozhcd, 0, 3344UL);
   INIT_LIST_HEAD(& ozhcd->urb_pending_list);
   INIT_LIST_HEAD(& ozhcd->urb_cancel_list);
   INIT_LIST_HEAD(& ozhcd->orphanage);
@@ -17885,7 +17885,7 @@ void oz_elt_buf_init(struct oz_elt_buf *buf )
 
   {
   {
-  __memset((void *)buf, 0, 128UL);
+  memset((void *)buf, 0, 128UL);
   INIT_LIST_HEAD(& buf->stream_list);
   INIT_LIST_HEAD(& buf->order_list);
   INIT_LIST_HEAD(& buf->isoc_list);
@@ -19279,7 +19279,7 @@ static void oz_send_conn_rsp(struct oz_pd *pd , u8 status )
   {
   elt->type = 7U;
   elt->length = 12U;
-  __memset((void *)body, 0, 12UL);
+  memset((void *)body, 0, 12UL);
   body->status = status;
   }
   if ((unsigned int )status == 0U) {
@@ -19689,7 +19689,7 @@ static void oz_add_farewell(struct oz_pd *pd , u8 ep_num , u8 index , u8 const  
   f->ep_num = ep_num;
   f->index = index;
   f->len = len;
-  __memcpy((void *)(& f->report), (void const   *)report, (size_t )len);
+  memcpy((void *)(& f->report), (void const   *)report, (size_t )len);
   ldv_spin_lock_122(& g_polling_lock);
   __mptr = (struct list_head  const  *)pd->farewell_list.next;
   f2 = (struct oz_farewell *)__mptr;
@@ -20372,7 +20372,7 @@ void oz_binding_add(char const   *net_dev )
   binding->ptype.func = & oz_pkt_recv;
   if ((unsigned long )net_dev != (unsigned long )((char const   *)0) && (int )((signed char )*net_dev) != 0) {
     {
-    __memcpy((void *)(& binding->name), (void const   *)net_dev, 32UL);
+    memcpy((void *)(& binding->name), (void const   *)net_dev, 32UL);
     binding->ptype.dev = dev_get_by_name(& init_net, net_dev);
     }
     if ((unsigned long )binding->ptype.dev == (unsigned long )((struct net_device *)0)) {
@@ -21294,7 +21294,7 @@ static int oz_set_active_pd(u8 const   *addr )
       ldv_spin_lock_bh_123___4(& g_cdev.lock);
       pd = g_cdev.active_pd;
       g_cdev.active_pd = (struct oz_pd *)0;
-      __memset((void *)(& g_cdev.active_addr), 0, 6UL);
+      memset((void *)(& g_cdev.active_addr), 0, 6UL);
       ldv_spin_unlock_bh_124___3(& g_cdev.lock);
       }
       if ((unsigned long )pd != (unsigned long )((struct oz_pd *)0)) {
@@ -21410,7 +21410,7 @@ static long oz_cdev_ioctl(struct file *filp , unsigned int cmd , unsigned long a
   goto switch_break;
   case_2150953984: /* CIL Label */ 
   {
-  __memset((void *)(& list), 0, 52UL);
+  memset((void *)(& list), 0, 52UL);
   tmp___8 = oz_get_pd_list((struct oz_mac_addr *)(& list.addr), 8);
   list.count = (__u32 )tmp___8;
   tmp___9 = copy_to_user((void *)arg, (void const   *)(& list), 52UL);
@@ -21538,7 +21538,7 @@ int oz_cdev_register(void)
 
   {
   {
-  __memset((void *)(& g_cdev), 0, 520UL);
+  memset((void *)(& g_cdev), 0, 520UL);
   err = ldv_alloc_chrdev_region_141(& g_cdev.devnum, 0U, 1U, "ozwpan");
   }
   if (err < 0) {
@@ -21804,7 +21804,7 @@ void oz_cdev_rx(struct oz_pd *pd , struct oz_elt *elt )
 
   }
   {
-  __memcpy((void *)(& ctx->rd_buf) + (unsigned long )ix, (void const   *)data, (size_t )copy_sz);
+  memcpy((void *)(& ctx->rd_buf) + (unsigned long )ix, (void const   *)data, (size_t )copy_sz);
   len = len - copy_sz;
   ix = ix + copy_sz;
   }
@@ -21815,7 +21815,7 @@ void oz_cdev_rx(struct oz_pd *pd , struct oz_elt *elt )
   }
   if (len != 0) {
     {
-    __memcpy((void *)(& ctx->rd_buf), (void const   *)data + (unsigned long )copy_sz,
+    memcpy((void *)(& ctx->rd_buf), (void const   *)data + (unsigned long )copy_sz,
              (size_t )len);
     ix = len;
     }

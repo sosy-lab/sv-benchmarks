@@ -10287,7 +10287,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __xadd_wrong_size(void) ;
 __inline static void atomic_set(atomic_t *v , int i ) 
@@ -15041,7 +15041,7 @@ static void nes_cqp_ce_handler(struct nes_device *nesdev , struct nes_hw_cq *cq 
   cqp_wqe = nesdev->cqp.sq_vbase + (unsigned long )head;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)cqp_wqe, (void const   *)(& cqp_request->cqp_wqe), __len);
+    __ret = memcpy((void *)cqp_wqe, (void const   *)(& cqp_request->cqp_wqe), __len);
   } else {
     __ret = __builtin_memcpy((void *)cqp_wqe, (void const   *)(& cqp_request->cqp_wqe),
                              __len);
@@ -17706,7 +17706,7 @@ static void nes_netdev_set_multicast_list(struct net_device *netdev )
     if (__len > 63UL) {
       tmp___3 = i;
       i = i + 1;
-      __ret = __memcpy((void *)addrs + (unsigned long )(tmp___3 * 6), (void const   *)(& ha->addr),
+      __ret = memcpy((void *)addrs + (unsigned long )(tmp___3 * 6), (void const   *)(& ha->addr),
                        __len);
     } else {
       tmp___4 = i;
@@ -18253,7 +18253,7 @@ static void nes_netdev_get_strings(struct net_device *netdev , u32 stringset , u
   if (stringset == 1U) {
     __len = 1856UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)ethtool_strings, (void const   *)(& nes_ethtool_stringset),
+      __ret = memcpy((void *)ethtool_strings, (void const   *)(& nes_ethtool_stringset),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)ethtool_strings, (void const   *)(& nes_ethtool_stringset),
@@ -18655,7 +18655,7 @@ static int nes_netdev_get_coalesce(struct net_device *netdev , struct ethtool_co
   spin_unlock_irqrestore(& nesadapter->periodic_timer_lock, flags);
   __len = 92UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)et_coalesce, (void const   *)(& temp_et_coalesce), __len);
+    __ret = memcpy((void *)et_coalesce, (void const   *)(& temp_et_coalesce), __len);
   } else {
     __ret = __builtin_memcpy((void *)et_coalesce, (void const   *)(& temp_et_coalesce),
                              __len);
@@ -18970,7 +18970,7 @@ struct net_device *nes_netdev_init(struct nes_device *nesdev , void *mmio_addr )
   *(netdev->dev_addr + 5UL) = (unsigned char )u64temp;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& netdev->perm_addr), (void const   *)netdev->dev_addr,
+    __ret = memcpy((void *)(& netdev->perm_addr), (void const   *)netdev->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& netdev->perm_addr), (void const   *)netdev->dev_addr,
@@ -20486,7 +20486,7 @@ void nes_post_cqp_request(struct nes_device *nesdev , struct nes_cqp_request *cq
       cqp_wqe = nesdev->cqp.sq_vbase + (unsigned long )cqp_head;
       __len = 64UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)cqp_wqe, (void const   *)(& cqp_request->cqp_wqe),
+        __ret = memcpy((void *)cqp_wqe, (void const   *)(& cqp_request->cqp_wqe),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)cqp_wqe, (void const   *)(& cqp_request->cqp_wqe),
@@ -20588,7 +20588,7 @@ int nes_arp_table(struct nes_device *nesdev , u32 ip_addr , u8 *mac_addr , u32 a
     nesadapter->arp_table[arp_index].ip_addr = ip_addr;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& nesadapter->arp_table[arp_index].mac_addr), (void const   *)mac_addr,
+      __ret = memcpy((void *)(& nesadapter->arp_table[arp_index].mac_addr), (void const   *)mac_addr,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& nesadapter->arp_table[arp_index].mac_addr),
@@ -21905,7 +21905,7 @@ static int nes_query_device(struct ib_device *ibdev , struct ib_device_attr *pro
   memset((void *)props, 0, 176UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& props->sys_image_guid), (void const   *)(nesvnic->netdev)->dev_addr,
+    __ret = memcpy((void *)(& props->sys_image_guid), (void const   *)(nesvnic->netdev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& props->sys_image_guid), (void const   *)(nesvnic->netdev)->dev_addr,
@@ -22019,7 +22019,7 @@ static int nes_query_gid(struct ib_device *ibdev , u8 port , int index , union i
   memset((void *)(& gid->raw), 0, 16UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& gid->raw), (void const   *)(nesvnic->netdev)->dev_addr,
+    __ret = memcpy((void *)(& gid->raw), (void const   *)(nesvnic->netdev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& gid->raw), (void const   *)(nesvnic->netdev)->dev_addr,
@@ -26515,7 +26515,7 @@ struct nes_ib_device *nes_init_ofa_device(struct net_device *netdev )
   memset((void *)(& nesibdev->ibdev.node_guid), 0, 8UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& nesibdev->ibdev.node_guid), (void const   *)netdev->dev_addr,
+    __ret = memcpy((void *)(& nesibdev->ibdev.node_guid), (void const   *)netdev->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& nesibdev->ibdev.node_guid), (void const   *)netdev->dev_addr,
@@ -27482,7 +27482,7 @@ static void form_cm_frame(struct sk_buff *skb , struct nes_cm_node *cm_node , vo
   skb->mac_len = 14U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ethh->h_dest), (void const   *)(& cm_node->rem_mac),
+    __ret = memcpy((void *)(& ethh->h_dest), (void const   *)(& cm_node->rem_mac),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ethh->h_dest), (void const   *)(& cm_node->rem_mac),
@@ -27490,7 +27490,7 @@ static void form_cm_frame(struct sk_buff *skb , struct nes_cm_node *cm_node , vo
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ethh->h_source), (void const   *)(& cm_node->loc_mac),
+    __ret___0 = memcpy((void *)(& ethh->h_source), (void const   *)(& cm_node->loc_mac),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ethh->h_source), (void const   *)(& cm_node->loc_mac),
@@ -27716,7 +27716,7 @@ static void build_mpa_v1(struct nes_cm_node *cm_node , void *start_addr , u8 mpa
   case 0: 
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mpa_frame->key), (void const   *)"MPA ID Req Frame",
+    __ret = memcpy((void *)(& mpa_frame->key), (void const   *)"MPA ID Req Frame",
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mpa_frame->key), (void const   *)"MPA ID Req Frame",
@@ -27726,7 +27726,7 @@ static void build_mpa_v1(struct nes_cm_node *cm_node , void *start_addr , u8 mpa
   case 1: 
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& mpa_frame->key), (void const   *)"MPA ID Rep Frame",
+    __ret___0 = memcpy((void *)(& mpa_frame->key), (void const   *)"MPA ID Rep Frame",
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& mpa_frame->key), (void const   *)"MPA ID Rep Frame",
@@ -28799,7 +28799,7 @@ static struct nes_cm_node *make_cm_node(struct nes_cm_core *cm_core , struct nes
   cm_node->cm_id = cm_info->ldv_52927.cm_id;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cm_node->loc_mac), (void const   *)(nesvnic->netdev)->dev_addr,
+    __ret = memcpy((void *)(& cm_node->loc_mac), (void const   *)(nesvnic->netdev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cm_node->loc_mac), (void const   *)(nesvnic->netdev)->dev_addr,
@@ -28843,7 +28843,7 @@ static struct nes_cm_node *make_cm_node(struct nes_cm_core *cm_core , struct nes
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& cm_node->rem_mac), (void const   *)(& nesadapter->arp_table[arpindex].mac_addr),
+    __ret___0 = memcpy((void *)(& cm_node->rem_mac), (void const   *)(& nesadapter->arp_table[arpindex].mac_addr),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& cm_node->rem_mac), (void const   *)(& nesadapter->arp_table[arpindex].mac_addr),
@@ -32497,7 +32497,7 @@ static int get_fpdu_info(struct nes_device *nesdev , struct nes_qp *nesqp , stru
   nesqp->pau_rcv_nxt = nesqp->pau_rcv_nxt + (fpdu_len + fin_rcvd);
   __len___0 = 96UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& fpdu_info->frags), (void const   *)(& frags),
+    __ret___0 = memcpy((void *)(& fpdu_info->frags), (void const   *)(& frags),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& fpdu_info->frags), (void const   *)(& frags),

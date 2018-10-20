@@ -7872,8 +7872,8 @@ __inline static void list_splice_tail_init(struct list_head *list , struct list_
 }
 extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 void ldv_linux_kernel_locking_spinlock_spin_lock__xmit_lock_of_netdev_queue(void) ;
 void ldv_linux_kernel_locking_spinlock_spin_unlock__xmit_lock_of_netdev_queue(void) ;
@@ -8894,7 +8894,7 @@ static void netxen_p2_nic_set_multi(struct net_device *netdev )
   {
   tmp = netdev_priv((struct net_device  const  *)netdev);
   adapter = (struct netxen_adapter *)tmp;
-  __memset((void *)(& null_addr), 0, 6UL);
+  memset((void *)(& null_addr), 0, 6UL);
   }
   if ((netdev->flags & 256U) != 0U) {
     {
@@ -9023,7 +9023,7 @@ static int netxen_send_cmd_descs(struct netxen_adapter *adapter , struct cmd_des
   pbuf = tx_ring->cmd_buf_arr + (unsigned long )producer;
   pbuf->skb = (struct sk_buff *)0;
   pbuf->frag_count = 0U;
-  __memcpy((void *)tx_ring->desc_head + (unsigned long )producer, (void const   *)cmd_desc_arr + (unsigned long )i,
+  memcpy((void *)tx_ring->desc_head + (unsigned long )producer, (void const   *)cmd_desc_arr + (unsigned long )i,
            64UL);
   producer = (producer + 1U) & (tx_ring->num_desc - 1U);
   i = i + 1U;
@@ -9050,13 +9050,13 @@ static int nx_p3_sre_macaddr_change(struct netxen_adapter *adapter , u8 *addr , 
 
   {
   {
-  __memset((void *)(& req), 0, 64UL);
+  memset((void *)(& req), 0, 64UL);
   req.qhdr = 167772160ULL;
   word = ((unsigned long long )adapter->portnum << 16) | 1ULL;
   req.req_hdr = word;
   mac_req = (nx_mac_req_t *)(& req.words);
   mac_req->op = (u8 )op;
-  __memcpy((void *)(& mac_req->mac_addr), (void const   *)addr, 6UL);
+  memcpy((void *)(& mac_req->mac_addr), (void const   *)addr, 6UL);
   tmp = netxen_send_cmd_descs(adapter, (struct cmd_desc_type0 *)(& req), 1);
   }
   return (tmp);
@@ -9105,7 +9105,7 @@ static int nx_p3_nic_add_mac(struct netxen_adapter *adapter , u8 const   *addr ,
 
   }
   {
-  __memcpy((void *)(& cur->mac_addr), (void const   *)addr, 6UL);
+  memcpy((void *)(& cur->mac_addr), (void const   *)addr, 6UL);
   list_add_tail(& cur->list, & adapter->mac_list);
   tmp___1 = nx_p3_sre_macaddr_change(adapter, (u8 *)(& cur->mac_addr), 1U);
   }
@@ -9218,7 +9218,7 @@ static int netxen_p3_nic_set_promisc(struct netxen_adapter *adapter , u32 mode )
 
   {
   {
-  __memset((void *)(& req), 0, 64UL);
+  memset((void *)(& req), 0, 64UL);
   req.qhdr = 159383552ULL;
   word = ((unsigned long long )adapter->portnum << 16) | 12ULL;
   req.req_hdr = word;
@@ -9279,12 +9279,12 @@ int netxen_config_intr_coalesce(struct netxen_adapter *adapter )
 
   {
   {
-  __memset((void *)(& req), 0, 64UL);
-  __memset((void *)(& word), 0, 48UL);
+  memset((void *)(& req), 0, 64UL);
+  memset((void *)(& word), 0, 48UL);
   req.qhdr = 159383552ULL;
   word[0] = ((unsigned long long )adapter->portnum << 16) | 3ULL;
   req.req_hdr = word[0];
-  __memcpy((void *)(& word), (void const   *)(& adapter->coal), 48UL);
+  memcpy((void *)(& word), (void const   *)(& adapter->coal), 48UL);
   i = 0;
   }
   goto ldv_55034;
@@ -9328,7 +9328,7 @@ int netxen_config_hw_lro(struct netxen_adapter *adapter , int enable )
 
   }
   {
-  __memset((void *)(& req), 0, 64UL);
+  memset((void *)(& req), 0, 64UL);
   req.qhdr = 159383552ULL;
   word = ((unsigned long long )adapter->portnum << 16) | 24ULL;
   req.req_hdr = word;
@@ -9359,7 +9359,7 @@ int netxen_config_bridged_mode(struct netxen_adapter *adapter , int enable )
 
   }
   {
-  __memset((void *)(& req), 0, 64UL);
+  memset((void *)(& req), 0, 64UL);
   req.qhdr = 159383552ULL;
   word = ((unsigned long long )adapter->portnum << 16) | 23ULL;
   req.req_hdr = word;
@@ -9392,7 +9392,7 @@ int netxen_config_rss(struct netxen_adapter *adapter , int enable )
   key[2] = 0xae7b30b4d0ca2bcbULL;
   key[3] = 4873897208919303485ULL;
   key[4] = 2691761430505084634ULL;
-  __memset((void *)(& req), 0, 64UL);
+  memset((void *)(& req), 0, 64UL);
   req.qhdr = 159383552ULL;
   word = ((unsigned long long )adapter->portnum << 16) | 1ULL;
   req.req_hdr = word;
@@ -9431,12 +9431,12 @@ int netxen_config_ipaddr(struct netxen_adapter *adapter , __be32 ip , int cmd )
 
   {
   {
-  __memset((void *)(& req), 0, 64UL);
+  memset((void *)(& req), 0, 64UL);
   req.qhdr = 159383552ULL;
   word = ((unsigned long long )adapter->portnum << 16) | 18ULL;
   req.req_hdr = word;
   req.words[0] = (unsigned long long )cmd;
-  __memcpy((void *)(& req.words) + 1U, (void const   *)(& ip), 4UL);
+  memcpy((void *)(& req.words) + 1U, (void const   *)(& ip), 4UL);
   rv = netxen_send_cmd_descs(adapter, (struct cmd_desc_type0 *)(& req), 1);
   }
   if (rv != 0) {
@@ -9458,7 +9458,7 @@ int netxen_linkevent_request(struct netxen_adapter *adapter , int enable )
 
   {
   {
-  __memset((void *)(& req), 0, 64UL);
+  memset((void *)(& req), 0, 64UL);
   req.qhdr = 159383552ULL;
   word = ((unsigned long long )adapter->portnum << 16) | 21ULL;
   req.req_hdr = word;
@@ -9492,7 +9492,7 @@ int netxen_send_lro_cleanup(struct netxen_adapter *adapter )
 
   }
   {
-  __memset((void *)(& req), 0, 64UL);
+  memset((void *)(& req), 0, 64UL);
   req.qhdr = 159383552ULL;
   word = ((unsigned long long )adapter->portnum << 16) | 288230376151711751ULL;
   req.req_hdr = word;
@@ -9597,7 +9597,7 @@ static int netxen_get_flash_block(struct netxen_adapter *adapter , int base , in
     }
     {
     local = (unsigned int )v;
-    __memcpy((void *)ptr32, (void const   *)(& local), (size_t )((long )((char *)buf + (unsigned long )size) - (long )ptr32));
+    memcpy((void *)ptr32, (void const   *)(& local), (size_t )((long )((char *)buf + (unsigned long )size) - (long )ptr32));
     }
   } else {
 
@@ -11832,7 +11832,7 @@ static int netxen_parse_md_template(struct netxen_adapter *adapter )
   template_hdr = (struct netxen_minidump_template_hdr *)template_buff;
   num_of_entries = (int )template_hdr->num_of_entries;
   entry = (struct netxen_minidump_entry *)template_buff + (unsigned long )template_hdr->first_entry_offset;
-  __memcpy((void *)dump_buff, (void const   *)template_buff, (size_t )adapter->mdump.md_template_size);
+  memcpy((void *)dump_buff, (void const   *)template_buff, (size_t )adapter->mdump.md_template_size);
   dump_buff = dump_buff + (unsigned long )adapter->mdump.md_template_size;
   }
   if (template_hdr->entry_type == 99U) {
@@ -12912,7 +12912,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   {
-  __memcpy(to, (void const   *)skb->data, (size_t )len);
+  memcpy(to, (void const   *)skb->data, (size_t )len);
   }
   return;
 }
@@ -12925,7 +12925,7 @@ __inline static void skb_copy_from_linear_data_offset(struct sk_buff  const  *sk
 
   {
   {
-  __memcpy(to, (void const   *)skb->data + (unsigned long )offset, (size_t )len);
+  memcpy(to, (void const   *)skb->data + (unsigned long )offset, (size_t )len);
   }
   return;
 }
@@ -14634,7 +14634,7 @@ static int netxen_read_mac_addr(struct netxen_adapter *adapter )
 
   }
   {
-  __memcpy((void *)(& adapter->mac_addr), (void const   *)netdev->dev_addr, (size_t )netdev->addr_len);
+  memcpy((void *)(& adapter->mac_addr), (void const   *)netdev->dev_addr, (size_t )netdev->addr_len);
   tmp___1 = is_valid_ether_addr((u8 const   *)netdev->dev_addr);
   }
   if (tmp___1) {
@@ -14691,8 +14691,8 @@ static int netxen_nic_set_mac(struct net_device *netdev , void *p )
 
   }
   {
-  __memcpy((void *)(& adapter->mac_addr), (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
-  __memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
+  memcpy((void *)(& adapter->mac_addr), (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
+  memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
   (*(adapter->macaddr_set))(adapter, (u8 *)(& addr->sa_data));
   tmp___3 = netif_running((struct net_device  const  *)netdev);
   }
@@ -18546,12 +18546,12 @@ static ssize_t netxen_sysfs_read_crb(struct file *filp , struct kobject *kobj , 
   if ((unsigned int )adapter->ahw.revision_id > 47U && (unsigned long )offset - 75497472UL <= 2047UL) {
     {
     netxen_pci_camqm_read_2M(adapter, (u64 )offset, & qmdata);
-    __memcpy((void *)buf, (void const   *)(& qmdata), size);
+    memcpy((void *)buf, (void const   *)(& qmdata), size);
     }
   } else {
     {
     data = (*(adapter->crb_read))(adapter, (ulong )offset);
-    __memcpy((void *)buf, (void const   *)(& data), size);
+    memcpy((void *)buf, (void const   *)(& data), size);
     }
   }
   return ((ssize_t )size);
@@ -18583,12 +18583,12 @@ static ssize_t netxen_sysfs_write_crb(struct file *filp , struct kobject *kobj ,
   }
   if ((unsigned int )adapter->ahw.revision_id > 47U && (unsigned long )offset - 75497472UL <= 2047UL) {
     {
-    __memcpy((void *)(& qmdata), (void const   *)buf, size);
+    memcpy((void *)(& qmdata), (void const   *)buf, size);
     netxen_pci_camqm_write_2M(adapter, (u64 )offset, qmdata);
     }
   } else {
     {
-    __memcpy((void *)(& data), (void const   *)buf, size);
+    memcpy((void *)(& data), (void const   *)buf, size);
     (*(adapter->crb_write))(adapter, (ulong )offset, data);
     }
   }
@@ -18647,7 +18647,7 @@ static ssize_t netxen_sysfs_read_mem(struct file *filp , struct kobject *kobj , 
 
   }
   {
-  __memcpy((void *)buf, (void const   *)(& data), size);
+  memcpy((void *)buf, (void const   *)(& data), size);
   }
   return ((ssize_t )size);
 }
@@ -18677,7 +18677,7 @@ static ssize_t netxen_sysfs_write_mem(struct file *filp , struct kobject *kobj ,
 
   }
   {
-  __memcpy((void *)(& data), (void const   *)buf, size);
+  memcpy((void *)(& data), (void const   *)buf, size);
   tmp___0 = (*(adapter->pci_mem_write))(adapter, (u64 )offset, data);
   }
   if (tmp___0 != 0) {
@@ -18727,7 +18727,7 @@ static ssize_t netxen_sysfs_read_dimm(struct file *filp , struct kobject *kobj ,
 
   }
   {
-  __memset((void *)(& dimm), 0, 8UL);
+  memset((void *)(& dimm), 0, 8UL);
   val = (*(adapter->crb_read))(adapter, 136323672UL);
   }
   if ((int )val < 0) {
@@ -18916,7 +18916,7 @@ static ssize_t netxen_sysfs_read_dimm(struct file *filp , struct kobject *kobj ,
   dimm.size = dimm.size / 1048576U;
   out: 
   {
-  __memcpy((void *)buf, (void const   *)(& dimm), 8UL);
+  memcpy((void *)buf, (void const   *)(& dimm), 8UL);
   }
   return (8L);
 }
@@ -26652,7 +26652,7 @@ void netxen_nic_clear_stats(struct netxen_adapter *adapter )
 
   {
   {
-  __memset((void *)(& adapter->stats), 0, 72UL);
+  memset((void *)(& adapter->stats), 0, 72UL);
   }
   return;
 }
@@ -27377,7 +27377,7 @@ static void netxen_nic_get_regs(struct net_device *dev , struct ethtool_regs *re
   regs_buff = (u32 *)p;
   i = 0;
   port = (int )adapter->physical_port;
-  __memset(p, 0, 120UL);
+  memset(p, 0, 120UL);
   regs->version = (__u32 )((((int )adapter->ahw.revision_id << 16) | 16777216) | (int )(adapter->pdev)->device);
   }
   if ((unsigned int )adapter->is_up != 777U) {
@@ -27952,7 +27952,7 @@ static void netxen_nic_diag_test(struct net_device *dev , struct ethtool_test *e
 
   {
   {
-  __memset((void *)data, 0, 16UL);
+  memset((void *)data, 0, 16UL);
   tmp___0 = netxen_nic_reg_test(dev);
   tmp = (u64 )tmp___0;
   *data = tmp;
@@ -27994,7 +27994,7 @@ static void netxen_nic_get_strings(struct net_device *dev , u32 stringset , u8 *
   goto switch_break;
   case_0: /* CIL Label */ 
   {
-  __memcpy((void *)data, (void const   *)(& netxen_nic_gstrings_test), 64UL);
+  memcpy((void *)data, (void const   *)(& netxen_nic_gstrings_test), 64UL);
   }
   goto ldv_52934;
   case_1: /* CIL Label */ 
@@ -28002,7 +28002,7 @@ static void netxen_nic_get_strings(struct net_device *dev , u32 stringset , u8 *
   goto ldv_52939;
   ldv_52938: 
   {
-  __memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& netxen_nic_gstrings_stats[index].stat_string),
+  memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& netxen_nic_gstrings_stats[index].stat_string),
            32UL);
   index = index + 1;
   }
@@ -28387,7 +28387,7 @@ static int netxen_get_dump_data(struct net_device *netdev , struct ethtool_dump 
 
   }
   {
-  __memcpy(buffer + (unsigned long )copy_sz, (void const   *)mdump->md_capture_buff + (unsigned long )mdump->md_template_size,
+  memcpy(buffer + (unsigned long )copy_sz, (void const   *)mdump->md_capture_buff + (unsigned long )mdump->md_template_size,
            (size_t )mdump->md_capture_size);
   dump->len = (u32 )copy_sz + mdump->md_capture_size;
   dump->flag = (__u32 )mdump->md_capture_mask;
@@ -28837,9 +28837,9 @@ static int netxen_get_minidump_template_size(struct netxen_adapter *adapter )
 
   {
   {
-  __memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd), 0, 32UL);
   cmd.req.cmd = 47U;
-  __memset((void *)(& cmd.rsp), 1, 16UL);
+  memset((void *)(& cmd.rsp), 1, 16UL);
   netxen_issue_cmd(adapter, & cmd);
   }
   if (cmd.rsp.cmd != 0U) {
@@ -28885,8 +28885,8 @@ static int netxen_get_minidump_template(struct netxen_adapter *adapter )
 
   }
   {
-  __memset((void *)(& cmd), 0, 32UL);
-  __memset((void *)(& cmd.rsp), 1, 16UL);
+  memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd.rsp), 1, 16UL);
   cmd.req.cmd = 48U;
   cmd.req.arg1 = (unsigned int )md_template_addr;
   cmd.req.arg2 = (unsigned int )(md_template_addr >> 32ULL);
@@ -28895,7 +28895,7 @@ static int netxen_get_minidump_template(struct netxen_adapter *adapter )
   }
   if (cmd.rsp.cmd == 0U && size == cmd.rsp.arg2) {
     {
-    __memcpy(adapter->mdump.md_template, (void const   *)addr, (size_t )size);
+    memcpy(adapter->mdump.md_template, (void const   *)addr, (size_t )size);
     }
   } else {
     {
@@ -29060,7 +29060,7 @@ int nx_fw_cmd_set_mtu(struct netxen_adapter *adapter , int mtu )
   {
   rcode = 0U;
   recv_ctx = & adapter->recv_ctx;
-  __memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd), 0, 32UL);
   cmd.req.cmd = 18U;
   cmd.req.arg1 = (u32 )recv_ctx->context_id;
   cmd.req.arg2 = (u32 )mtu;
@@ -29089,7 +29089,7 @@ int nx_fw_cmd_set_gbe_port(struct netxen_adapter *adapter , u32 speed , u32 dupl
 
   {
   {
-  __memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd), 0, 32UL);
   cmd.req.cmd = 31U;
   cmd.req.arg1 = speed;
   cmd.req.arg2 = duplex;
@@ -29200,7 +29200,7 @@ static int nx_fw_cmd_create_rx_ctx(struct netxen_adapter *adapter )
   }
   {
   phys_addr = hostrq_phys_addr;
-  __memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd), 0, 32UL);
   cmd.req.arg1 = (unsigned int )(phys_addr >> 32);
   cmd.req.arg2 = (unsigned int )phys_addr;
   cmd.req.arg3 = (u32 )rq_size;
@@ -29273,7 +29273,7 @@ static void nx_fw_cmd_destroy_rx_ctx(struct netxen_adapter *adapter )
   {
   {
   recv_ctx = & adapter->recv_ctx;
-  __memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd), 0, 32UL);
   cmd.req.arg1 = (u32 )recv_ctx->context_id;
   cmd.req.arg2 = 0U;
   cmd.req.arg3 = 0U;
@@ -29334,9 +29334,9 @@ static int nx_fw_cmd_create_tx_ctx(struct netxen_adapter *adapter )
 
   }
   {
-  __memset(rq_addr, 0, rq_size);
+  memset(rq_addr, 0, rq_size);
   prq = (nx_hostrq_tx_ctx_t *)rq_addr;
-  __memset(rsp_addr, 0, rsp_size);
+  memset(rsp_addr, 0, rsp_size);
   prsp = (nx_cardrsp_tx_ctx_t *)rsp_addr;
   prq->host_rsp_dma_addr = rsp_phys_addr;
   temp = 69U;
@@ -29351,7 +29351,7 @@ static int nx_fw_cmd_create_tx_ctx(struct netxen_adapter *adapter )
   prq_cds->host_phys_addr = tx_ring->phys_addr;
   prq_cds->ring_size = tx_ring->num_desc;
   phys_addr = rq_phys_addr;
-  __memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd), 0, 32UL);
   cmd.req.arg1 = (unsigned int )(phys_addr >> 32);
   cmd.req.arg2 = (unsigned int )phys_addr;
   cmd.req.arg3 = (u32 )rq_size;
@@ -29388,7 +29388,7 @@ static void nx_fw_cmd_destroy_tx_ctx(struct netxen_adapter *adapter )
 
   {
   {
-  __memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd), 0, 32UL);
   cmd.req.arg1 = (u32 )adapter->tx_context_id;
   cmd.req.arg2 = 0U;
   cmd.req.arg3 = 0U;
@@ -29412,7 +29412,7 @@ int nx_fw_cmd_query_phy(struct netxen_adapter *adapter , u32 reg , u32 *val )
 
   {
   {
-  __memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd), 0, 32UL);
   cmd.req.arg1 = reg;
   cmd.req.arg2 = 0U;
   cmd.req.arg3 = 0U;
@@ -29441,7 +29441,7 @@ int nx_fw_cmd_set_phy(struct netxen_adapter *adapter , u32 reg , u32 val )
 
   {
   {
-  __memset((void *)(& cmd), 0, 32UL);
+  memset((void *)(& cmd), 0, 32UL);
   cmd.req.arg1 = reg;
   cmd.req.arg2 = val;
   cmd.req.arg3 = 0U;
@@ -29562,7 +29562,7 @@ int netxen_alloc_hw_resources(struct netxen_adapter *adapter )
 
   }
   {
-  __memset(addr, 0, 192UL);
+  memset(addr, 0, 192UL);
   recv_ctx->hwctx = (struct netxen_ring_ctx *)addr;
   (recv_ctx->hwctx)->ctx_id = (unsigned int )port;
   (recv_ctx->hwctx)->cmd_consumer_offset = recv_ctx->phys_addr + 192ULL;

@@ -7095,8 +7095,8 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern void __xchg_wrong_size(void) ;
@@ -8980,9 +8980,9 @@ static int rose_listen(struct socket *sock , int backlog )
     {
     rose = (struct rose_sock *)sk;
     rose->dest_ndigis = 0U;
-    __memset((void *)(& rose->dest_addr), 0, 5UL);
-    __memset((void *)(& rose->dest_call), 0, 7UL);
-    __memset((void *)(& rose->dest_digis), 0, 42UL);
+    memset((void *)(& rose->dest_addr), 0, 5UL);
+    memset((void *)(& rose->dest_call), 0, 7UL);
+    memset((void *)(& rose->dest_digis), 0, 42UL);
     sk->sk_max_ack_backlog = (unsigned short )backlog;
     sk->__sk_common.skc_state = 10U;
     }
@@ -9436,7 +9436,7 @@ static int rose_connect(struct socket *sock , struct sockaddr *uaddr , int addr_
 
     }
     {
-    __memcpy((void *)(& rose->source_addr), (void const   *)dev->dev_addr, 5UL);
+    memcpy((void *)(& rose->source_addr), (void const   *)dev->dev_addr, 5UL);
     rose->source_call = user->call;
     rose->device = dev;
     ax25_uid_put(user);
@@ -9667,7 +9667,7 @@ static int rose_getname(struct socket *sock , struct sockaddr *uaddr , int *uadd
   srose = (struct full_sockaddr_rose *)uaddr;
   sk = sock->sk;
   rose = (struct rose_sock *)sk;
-  __memset((void *)srose, 0, 64UL);
+  memset((void *)srose, 0, 64UL);
   }
   if (peer != 0) {
     if ((unsigned int )((unsigned char )sk->__sk_common.skc_state) != 1U) {
@@ -9729,7 +9729,7 @@ int rose_rx_call_request(struct sk_buff *skb , struct net_device *dev , struct r
   {
   {
   skb->sk = (struct sock *)0;
-  __memset((void *)(& facilities), 0, 128UL);
+  memset((void *)(& facilities), 0, 128UL);
   tmp = rose_parse_facilities(skb->data + 14UL, skb->len - 14U, & facilities);
   }
   if (tmp == 0) {
@@ -9912,8 +9912,8 @@ static int rose_sendmsg(struct kiocb *iocb , struct socket *sock , struct msghdr
 
     }
     {
-    __memset((void *)(& srose), 0, 64UL);
-    __memcpy((void *)(& srose), (void const   *)usrose, (size_t )msg->msg_namelen);
+    memset((void *)(& srose), 0, 64UL);
+    memcpy((void *)(& srose), (void const   *)usrose, (size_t )msg->msg_namelen);
     tmp___1 = rosecmp(& rose->dest_addr, & srose.srose_addr);
     }
     if (tmp___1 != 0) {
@@ -10116,7 +10116,7 @@ static int rose_recvmsg(struct kiocb *iocb , struct socket *sock , struct msghdr
     }
     {
     full_srose = (struct full_sockaddr_rose *)msg->msg_name;
-    __memset(msg->msg_name, 0, 64UL);
+    memset(msg->msg_name, 0, 64UL);
     srose = (struct sockaddr_rose *)msg->msg_name;
     srose->srose_family = 11U;
     srose->srose_addr = rose->dest_addr;
@@ -14897,7 +14897,7 @@ static int rose_set_mac_address(struct net_device *dev , void *addr )
 
   }
   {
-  __memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data), (size_t )dev->addr_len);
+  memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data), (size_t )dev->addr_len);
   }
   return (0);
 }
@@ -18703,7 +18703,7 @@ int rose_route_frame(struct sk_buff *skb , ax25_cb *ax25 )
 
   }
   {
-  __memset((void *)(& facilities), 0, 128UL);
+  memset((void *)(& facilities), 0, 128UL);
   tmp___3 = rose_parse_facilities(skb->data + 14UL, skb->len - 14U, & facilities);
   }
   if (tmp___3 == 0) {
@@ -20695,11 +20695,11 @@ void rose_write_internal(struct sock *sk , int frametype )
   tmp___3 = dptr;
   dptr = dptr + 1;
   *tmp___3 = 170U;
-  __memcpy((void *)dptr, (void const   *)(& rose->dest_addr), 5UL);
+  memcpy((void *)dptr, (void const   *)(& rose->dest_addr), 5UL);
   dptr = dptr + 5UL;
-  __memcpy((void *)dptr, (void const   *)(& rose->source_addr), 5UL);
+  memcpy((void *)dptr, (void const   *)(& rose->source_addr), 5UL);
   dptr = dptr + 5UL;
-  __memcpy((void *)dptr, (void const   *)(& buffer), (size_t )faclen);
+  memcpy((void *)dptr, (void const   *)(& buffer), (size_t )faclen);
   dptr = dptr + (unsigned long )faclen;
   }
   goto ldv_49375;
@@ -20970,7 +20970,7 @@ static int rose_parse_national(unsigned char *p , struct rose_facilities_struct 
 
       }
       {
-      __memcpy((void *)(& facilities->source_digis), (void const   *)p + 2U, 7UL);
+      memcpy((void *)(& facilities->source_digis), (void const   *)p + 2U, 7UL);
       facilities->source_ndigis = 1U;
       }
     } else {
@@ -20985,7 +20985,7 @@ static int rose_parse_national(unsigned char *p , struct rose_facilities_struct 
 
       }
       {
-      __memcpy((void *)(& facilities->dest_digis), (void const   *)p + 2U, 7UL);
+      memcpy((void *)(& facilities->dest_digis), (void const   *)p + 2U, 7UL);
       facilities->dest_ndigis = 1U;
       }
     } else {
@@ -20999,7 +20999,7 @@ static int rose_parse_national(unsigned char *p , struct rose_facilities_struct 
 
     }
     {
-    __memcpy((void *)(& facilities->fail_call), (void const   *)p + 2U, 7UL);
+    memcpy((void *)(& facilities->fail_call), (void const   *)p + 2U, 7UL);
     }
   } else
   if ((unsigned int )*p == 238U) {
@@ -21009,7 +21009,7 @@ static int rose_parse_national(unsigned char *p , struct rose_facilities_struct 
 
     }
     {
-    __memcpy((void *)(& facilities->fail_addr), (void const   *)p + 3U, 5UL);
+    memcpy((void *)(& facilities->fail_addr), (void const   *)p + 3U, 5UL);
     }
   } else
   if ((unsigned int )*p == 239U) {
@@ -21034,7 +21034,7 @@ static int rose_parse_national(unsigned char *p , struct rose_facilities_struct 
       {
       tmp = facilities->dest_ndigis;
       facilities->dest_ndigis = (unsigned char )((int )facilities->dest_ndigis + 1);
-      __memcpy((void *)(& facilities->dest_digis) + (unsigned long )tmp, (void const   *)pt,
+      memcpy((void *)(& facilities->dest_digis) + (unsigned long )tmp, (void const   *)pt,
                7UL);
       }
     } else {
@@ -21046,7 +21046,7 @@ static int rose_parse_national(unsigned char *p , struct rose_facilities_struct 
       {
       tmp___0 = facilities->source_ndigis;
       facilities->source_ndigis = (unsigned char )((int )facilities->source_ndigis + 1);
-      __memcpy((void *)(& facilities->source_digis) + (unsigned long )tmp___0, (void const   *)pt,
+      memcpy((void *)(& facilities->source_digis) + (unsigned long )tmp___0, (void const   *)pt,
                7UL);
       }
     }
@@ -21154,8 +21154,8 @@ static int rose_parse_ccitt(unsigned char *p , struct rose_facilities_struct *fa
   }
   if ((unsigned int )*p == 201U) {
     {
-    __memcpy((void *)(& facilities->source_addr), (void const   *)p + 7U, 5UL);
-    __memcpy((void *)(& callsign), (void const   *)p + 12U, (size_t )((int )l + -10));
+    memcpy((void *)(& facilities->source_addr), (void const   *)p + 7U, 5UL);
+    memcpy((void *)(& callsign), (void const   *)p + 12U, (size_t )((int )l + -10));
     callsign[(int )l + -10] = 0;
     asc2ax(& facilities->source_call, (char const   *)(& callsign));
     }
@@ -21164,8 +21164,8 @@ static int rose_parse_ccitt(unsigned char *p , struct rose_facilities_struct *fa
   }
   if ((unsigned int )*p == 203U) {
     {
-    __memcpy((void *)(& facilities->dest_addr), (void const   *)p + 7U, 5UL);
-    __memcpy((void *)(& callsign), (void const   *)p + 12U, (size_t )((int )l + -10));
+    memcpy((void *)(& facilities->dest_addr), (void const   *)p + 7U, 5UL);
+    memcpy((void *)(& callsign), (void const   *)p + 12U, (size_t )((int )l + -10));
     callsign[(int )l + -10] = 0;
     asc2ax(& facilities->dest_call, (char const   *)(& callsign));
     }
@@ -21361,7 +21361,7 @@ static int rose_create_facilities(unsigned char *buffer , struct rose_sock *rose
 
       }
       {
-      __memcpy((void *)p, (void const   *)(& rose->source_digis) + (unsigned long )nb,
+      memcpy((void *)p, (void const   *)(& rose->source_digis) + (unsigned long )nb,
                7UL);
       *(p + 6UL) = (unsigned int )*(p + 6UL) | 128U;
       p = p + 7UL;
@@ -21384,7 +21384,7 @@ static int rose_create_facilities(unsigned char *buffer , struct rose_sock *rose
 
       }
       {
-      __memcpy((void *)p, (void const   *)(& rose->dest_digis) + (unsigned long )nb,
+      memcpy((void *)p, (void const   *)(& rose->dest_digis) + (unsigned long )nb,
                7UL);
       *(p + 6UL) = (unsigned int )*(p + 6UL) & 127U;
       p = p + 7UL;
@@ -21408,7 +21408,7 @@ static int rose_create_facilities(unsigned char *buffer , struct rose_sock *rose
       tmp___7 = p;
       p = p + 1;
       *tmp___7 = 7U;
-      __memcpy((void *)p, (void const   *)(& rose->source_digis), 7UL);
+      memcpy((void *)p, (void const   *)(& rose->source_digis), 7UL);
       p = p + 7UL;
       }
     } else {
@@ -21422,7 +21422,7 @@ static int rose_create_facilities(unsigned char *buffer , struct rose_sock *rose
       tmp___9 = p;
       p = p + 1;
       *tmp___9 = 7U;
-      __memcpy((void *)p, (void const   *)(& rose->dest_digis), 7UL);
+      memcpy((void *)p, (void const   *)(& rose->dest_digis), 7UL);
       p = p + 7UL;
       }
     } else {
@@ -21462,10 +21462,10 @@ static int rose_create_facilities(unsigned char *buffer , struct rose_sock *rose
   tmp___20 = p;
   p = p + 1;
   *tmp___20 = 10U;
-  __memcpy((void *)p, (void const   *)(& rose->dest_addr), 5UL);
+  memcpy((void *)p, (void const   *)(& rose->dest_addr), 5UL);
   p = p + 5UL;
   tmp___21 = strlen((char const   *)callsign);
-  __memcpy((void *)p, (void const   *)callsign, tmp___21);
+  memcpy((void *)p, (void const   *)callsign, tmp___21);
   tmp___22 = strlen((char const   *)callsign);
   p = p + tmp___22;
   tmp___23 = p;
@@ -21492,10 +21492,10 @@ static int rose_create_facilities(unsigned char *buffer , struct rose_sock *rose
   tmp___31 = p;
   p = p + 1;
   *tmp___31 = 10U;
-  __memcpy((void *)p, (void const   *)(& rose->source_addr), 5UL);
+  memcpy((void *)p, (void const   *)(& rose->source_addr), 5UL);
   p = p + 5UL;
   tmp___32 = strlen((char const   *)callsign);
-  __memcpy((void *)p, (void const   *)callsign, tmp___32);
+  memcpy((void *)p, (void const   *)callsign, tmp___32);
   tmp___33 = strlen((char const   *)callsign);
   p = p + tmp___33;
   len = (int )((unsigned int )((long )p) - (unsigned int )((long )buffer));

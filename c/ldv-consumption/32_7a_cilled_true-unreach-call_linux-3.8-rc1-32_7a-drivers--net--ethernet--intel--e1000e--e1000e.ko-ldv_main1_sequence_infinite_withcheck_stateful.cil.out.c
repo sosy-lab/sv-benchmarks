@@ -23865,7 +23865,7 @@ __inline static int constant_test_bit(unsigned int nr , unsigned long const vola
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -27135,7 +27135,7 @@ static void e1000_get_strings(struct net_device *netdev , u32 stringset , u8 *da
   case 0U: 
   __len = 160UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& e1000_gstrings_test), __len);
+    __ret = memcpy((void *)data, (void const   *)(& e1000_gstrings_test), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& e1000_gstrings_test),
                              __len);
@@ -27147,7 +27147,7 @@ static void e1000_get_strings(struct net_device *netdev , u32 stringset , u8 *da
   ldv_41510: 
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)p, (void const   *)(& e1000_gstrings_stats[i].stat_string),
+    __ret___0 = memcpy((void *)p, (void const   *)(& e1000_gstrings_stats[i].stat_string),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)p, (void const   *)(& e1000_gstrings_stats[i].stat_string),
@@ -31288,7 +31288,7 @@ static int e1000_request_msix(struct e1000_adapter *adapter )
   } else {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
+      __ret = memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
@@ -31311,7 +31311,7 @@ static int e1000_request_msix(struct e1000_adapter *adapter )
   } else {
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
+      __ret___0 = memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
@@ -32567,7 +32567,7 @@ static int e1000e_write_mc_addr_list(struct net_device *netdev )
   if (__len > 63UL) {
     tmp___1 = i;
     i = i + 1;
-    __ret = __memcpy((void *)mta_list + (unsigned long )(tmp___1 * 6), (void const   *)(& ha->addr),
+    __ret = memcpy((void *)mta_list + (unsigned long )(tmp___1 * 6), (void const   *)(& ha->addr),
                      __len);
   } else {
     tmp___2 = i;
@@ -36133,21 +36133,21 @@ static int e1000_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   }
   __len = 176UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hw->mac.ops), (void const   *)ei->mac_ops, __len);
+    __ret = memcpy((void *)(& hw->mac.ops), (void const   *)ei->mac_ops, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hw->mac.ops), (void const   *)ei->mac_ops,
                              __len);
   }
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& hw->nvm.ops), (void const   *)ei->nvm_ops, __len___0);
+    __ret___0 = memcpy((void *)(& hw->nvm.ops), (void const   *)ei->nvm_ops, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& hw->nvm.ops), (void const   *)ei->nvm_ops,
                                  __len___0);
   }
   __len___1 = 176UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& hw->phy.ops), (void const   *)ei->phy_ops, __len___1);
+    __ret___1 = memcpy((void *)(& hw->phy.ops), (void const   *)ei->phy_ops, __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& hw->phy.ops), (void const   *)ei->phy_ops,
                                  __len___1);

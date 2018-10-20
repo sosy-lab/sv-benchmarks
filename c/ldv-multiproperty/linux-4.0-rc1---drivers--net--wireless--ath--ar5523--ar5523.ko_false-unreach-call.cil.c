@@ -7738,9 +7738,9 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
@@ -8060,7 +8060,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
 
   {
   {
-  __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, 6UL);
+  memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, 6UL);
   }
   return;
 }
@@ -8186,7 +8186,7 @@ static void ar5523_read_reply(struct ar5523 *ar , struct ar5523_cmd_hdr *hdr , s
     } else {
       {
       cmd->olen = olen;
-      __memcpy(cmd->odata, (void const   *)rp + 1U, (size_t )olen);
+      memcpy(cmd->odata, (void const   *)rp + 1U, (size_t )olen);
       cmd->res = 0;
       }
     }
@@ -8423,7 +8423,7 @@ static void ar5523_cmd_rx_cb(struct urb *urb )
 
   }
   {
-  __memcpy(cmd->odata, (void const   *)hdr + 1U, 4UL);
+  memcpy(cmd->odata, (void const   *)hdr + 1U, 4UL);
   cmd->olen = 4;
   cmd->res = 0;
   complete(& cmd->done);
@@ -8606,7 +8606,7 @@ static int ar5523_cmd(struct ar5523 *ar , u32 code , void const   *idata , int i
   cmd = & ar->tx_cmd;
   xferlen = (int )((unsigned int )ilen + 35U) & -4;
   hdr = (struct ar5523_cmd_hdr *)cmd->buf_tx;
-  __memset((void *)hdr, 0, 32UL);
+  memset((void *)hdr, 0, 32UL);
   tmp = __fswab32((__u32 )xferlen);
   hdr->len = tmp;
   tmp___0 = __fswab32(code);
@@ -8619,7 +8619,7 @@ static int ar5523_cmd(struct ar5523 *ar , u32 code , void const   *idata , int i
 
   }
   {
-  __memcpy((void *)hdr + 1U, idata, (size_t )ilen);
+  memcpy((void *)hdr + 1U, idata, (size_t )ilen);
   cmd->odata = odata;
   cmd->olen = olen;
   cmd->flags = flags;
@@ -8761,7 +8761,7 @@ static int ar5523_config_multi(struct ar5523 *ar , u32 reg , void const   *data 
   write.reg = tmp;
   tmp___0 = __fswab32((__u32 )len);
   write.len = tmp___0;
-  __memcpy((void *)(& write.data), data, (size_t )len);
+  memcpy((void *)(& write.data), data, (size_t )len);
   error = ar5523_cmd_write(ar, 5U, (void const   *)(& write), len != 0 ? (int )((unsigned int )len + 8U) : 4,
                            0);
   }
@@ -9282,7 +9282,7 @@ static int ar5523_set_chan(struct ar5523 *ar )
   {
   {
   conf = & (ar->hw)->conf;
-  __memset((void *)(& reset), 0, 28UL);
+  memset((void *)(& reset), 0, 28UL);
   reset.flags = reset.flags | 1048576U;
   reset.flags = reset.flags | 262144U;
   tmp = __fswab32((__u32 )(conf->chandef.chan)->center_freq);
@@ -9657,7 +9657,7 @@ static void ar5523_data_rx_cb(struct urb *urb )
     }
     {
     pad = ((hdrlen + 3) & -4) - hdrlen;
-    __memmove((void *)(data->skb)->data + (unsigned long )pad, (void const   *)(data->skb)->data,
+    memmove((void *)(data->skb)->data + (unsigned long )pad, (void const   *)(data->skb)->data,
               (size_t )hdrlen);
     skb_pull(data->skb, (unsigned int )pad);
     skb_put(data->skb, (unsigned int )pad);
@@ -9667,7 +9667,7 @@ static void ar5523_data_rx_cb(struct urb *urb )
   }
   {
   rx_status = IEEE80211_SKB_RXCB(data->skb);
-  __memset((void *)rx_status, 0, 40UL);
+  memset((void *)rx_status, 0, 40UL);
   tmp___14 = __fswab32(desc->channel);
   rx_status->freq = (u16 )tmp___14;
   rx_status->band = (u8 )(hw->conf.chandef.chan)->band;
@@ -11251,7 +11251,7 @@ static int ar5523_set_basic_rates(struct ar5523 *ar , struct ieee80211_bss_conf 
 
   {
   {
-  __memset((void *)(& rates), 0, 45UL);
+  memset((void *)(& rates), 0, 45UL);
   rates.connid = 33554432U;
   rates.size = 553648128U;
   ar5523_create_rateset(ar, bss, & rates.rateset, 1);
@@ -11270,7 +11270,7 @@ static int ar5523_create_connection(struct ar5523 *ar , struct ieee80211_vif *vi
 
   {
   {
-  __memset((void *)(& create), 0, 53UL);
+  memset((void *)(& create), 0, 53UL);
   create.connid = 33554432U;
   create.bssid = 0U;
   create.size = 553648128U;
@@ -11291,12 +11291,12 @@ static int ar5523_write_associd(struct ar5523 *ar , struct ieee80211_bss_conf *b
 
   {
   {
-  __memset((void *)(& associd), 0, 22UL);
+  memset((void *)(& associd), 0, 22UL);
   associd.defaultrateix = 0U;
   tmp = __fswab32((__u32 )bss->aid);
   associd.associd = tmp;
   associd.timoffset = 989855744U;
-  __memcpy((void *)(& associd.bssid), (void const   *)bss->bssid, 6UL);
+  memcpy((void *)(& associd.bssid), (void const   *)bss->bssid, 6UL);
   tmp___0 = ar5523_cmd_write(ar, 34U, (void const   *)(& associd), 22, 0);
   }
   return (tmp___0);
@@ -11645,8 +11645,8 @@ static int ar5523_init_modes(struct ar5523 *ar )
 
   }
   {
-  __memcpy((void *)(& ar->channels), (void const   *)(& ar5523_channels), 896UL);
-  __memcpy((void *)(& ar->rates), (void const   *)(& ar5523_rates), 144UL);
+  memcpy((void *)(& ar->channels), (void const   *)(& ar5523_channels), 896UL);
+  memcpy((void *)(& ar->rates), (void const   *)(& ar5523_rates), 144UL);
   ar->band.band = 0;
   ar->band.channels = (struct ieee80211_channel *)(& ar->channels);
   ar->band.n_channels = 14;
@@ -11720,7 +11720,7 @@ static int ar5523_load_firmware(struct usb_device *dev )
 
   }
   {
-  __memset((void *)txblock, 0, 512UL);
+  memset((void *)txblock, 0, 512UL);
   txblock->flags = 268435456U;
   tmp___2 = __fswab32((__u32 )fw->size);
   txblock->total = tmp___2;
@@ -11750,7 +11750,7 @@ static int ar5523_load_firmware(struct usb_device *dev )
 
   }
   {
-  __memcpy(fwbuf, (void const   *)fw->data + (unsigned long )offset, (size_t )mlen);
+  memcpy(fwbuf, (void const   *)fw->data + (unsigned long )offset, (size_t )mlen);
   tmp___6 = __create_pipe(dev, 2U);
   error = usb_bulk_msg(dev, tmp___6 | 3221225472U, fwbuf, mlen, & foolen, 10000);
   }

@@ -5910,7 +5910,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -7775,7 +7775,7 @@ static void unix_get_secdata(struct scm_cookie *scm , struct sk_buff *skb )
   {
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ((struct unix_skb_parms *)(& skb->cb))->secid), (void const   *)(& scm->secid),
+    __ret = memcpy((void *)(& ((struct unix_skb_parms *)(& skb->cb))->secid), (void const   *)(& scm->secid),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ((struct unix_skb_parms *)(& skb->cb))->secid),

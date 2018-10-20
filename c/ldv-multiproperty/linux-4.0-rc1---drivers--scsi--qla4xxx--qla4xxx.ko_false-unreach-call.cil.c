@@ -10546,8 +10546,8 @@ __inline static struct task_struct *get_current(void)
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -12285,12 +12285,12 @@ static int qla4xxx_send_ping(struct Scsi_Host *shost , uint32_t iface_num , uint
   tmp = to_qla_host(shost);
   ha = tmp;
   options = 0U;
-  __memset((void *)(& ipaddr), 0, 16UL);
+  memset((void *)(& ipaddr), 0, 16UL);
   }
   if (iface_type == 1U && (unsigned int )dst_addr->sa_family == 2U) {
     {
     addr = (struct sockaddr_in *)dst_addr;
-    __memcpy((void *)(& ipaddr), (void const   *)(& addr->sin_addr.s_addr), 4UL);
+    memcpy((void *)(& ipaddr), (void const   *)(& addr->sin_addr.s_addr), 4UL);
     }
     if (ql4xextended_error_logging == 2) {
       {
@@ -12312,7 +12312,7 @@ static int qla4xxx_send_ping(struct Scsi_Host *shost , uint32_t iface_num , uint
   if (iface_type == 2U && (unsigned int )dst_addr->sa_family == 10U) {
     {
     addr6 = (struct sockaddr_in6 *)dst_addr;
-    __memcpy((void *)(& ipaddr), (void const   *)(& addr6->sin6_addr.in6_u.u6_addr8),
+    memcpy((void *)(& ipaddr), (void const   *)(& addr6->sin6_addr.in6_u.u6_addr8),
              16UL);
     options = options | 1U;
     }
@@ -13655,8 +13655,8 @@ static void qla4xxx_create_chap_list(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)ha->chap_list, 0, (size_t )chap_size);
-  __memcpy((void *)ha->chap_list, (void const   *)chap_flash_data, (size_t )chap_size);
+  memset((void *)ha->chap_list, 0, (size_t )chap_size);
+  memcpy((void *)ha->chap_list, (void const   *)chap_flash_data, (size_t )chap_size);
   }
   exit_chap_list: 
   {
@@ -13950,7 +13950,7 @@ static int qla4xxx_delete_chap(struct Scsi_Host *shost , uint16_t chap_tbl_idx )
 
   }
   {
-  __memset((void *)chap_table, 0, 364UL);
+  memset((void *)chap_table, 0, 364UL);
   tmp___1 = is_qla80XX(ha);
   }
   if (tmp___1 != 0) {
@@ -14025,7 +14025,7 @@ static int qla4xxx_delete_chap(struct Scsi_Host *shost , uint16_t chap_tbl_idx )
   if (ret == 0 && (unsigned long )ha->chap_list != (unsigned long )((uint8_t *)0U)) {
     {
     ldv_mutex_lock_135(& ha->chap_sem);
-    __memcpy((void *)ha->chap_list + (unsigned long )chap_tbl_idx, (void const   *)chap_table,
+    memcpy((void *)ha->chap_list + (unsigned long )chap_tbl_idx, (void const   *)chap_table,
              364UL);
     ldv_mutex_unlock_136(& ha->chap_sem);
     }
@@ -14074,7 +14074,7 @@ static int qla4xxx_set_chap_entry(struct Scsi_Host *shost , void *data , int len
   max_chap_entries = 0;
   rem = len;
   rc = 0;
-  __memset((void *)(& chap_rec), 0, 524UL);
+  memset((void *)(& chap_rec), 0, 524UL);
   attr = (struct nlattr *)data;
   rem = len;
   }
@@ -14122,7 +14122,7 @@ static int qla4xxx_set_chap_entry(struct Scsi_Host *shost , void *data , int len
   __min1 = 256UL;
   __min2 = (size_t )param_info->len;
   size = (int )(__min1 < __min2 ? __min1 : __min2);
-  __memcpy((void *)(& chap_rec.username), (void const   *)(& param_info->value), (size_t )size);
+  memcpy((void *)(& chap_rec.username), (void const   *)(& param_info->value), (size_t )size);
   }
   goto ldv_66112;
   case_3: /* CIL Label */ 
@@ -14130,7 +14130,7 @@ static int qla4xxx_set_chap_entry(struct Scsi_Host *shost , void *data , int len
   __min1___0 = 256UL;
   __min2___0 = (size_t )param_info->len;
   size = (int )(__min1___0 < __min2___0 ? __min1___0 : __min2___0);
-  __memcpy((void *)(& chap_rec.password), (void const   *)(& param_info->value), (size_t )size);
+  memcpy((void *)(& chap_rec.password), (void const   *)(& param_info->value), (size_t )size);
   }
   goto ldv_66112;
   case_4: /* CIL Label */ 
@@ -15297,11 +15297,11 @@ static struct iscsi_endpoint *qla4xxx_ep_connect(struct Scsi_Host *shost , struc
   }
   {
   qla_ep = (struct qla_endpoint *)ep->dd_data;
-  __memset((void *)qla_ep, 0, 136UL);
+  memset((void *)qla_ep, 0, 136UL);
   }
   if ((unsigned int )dst_addr->sa_family == 2U) {
     {
-    __memcpy((void *)(& qla_ep->dst_addr), (void const   *)dst_addr, 16UL);
+    memcpy((void *)(& qla_ep->dst_addr), (void const   *)dst_addr, 16UL);
     addr = (struct sockaddr_in *)(& qla_ep->dst_addr);
     }
     if (ql4xextended_error_logging == 2) {
@@ -15315,7 +15315,7 @@ static struct iscsi_endpoint *qla4xxx_ep_connect(struct Scsi_Host *shost , struc
   } else
   if ((unsigned int )dst_addr->sa_family == 10U) {
     {
-    __memcpy((void *)(& qla_ep->dst_addr), (void const   *)dst_addr, 28UL);
+    memcpy((void *)(& qla_ep->dst_addr), (void const   *)dst_addr, 28UL);
     addr6 = (struct sockaddr_in6 *)(& qla_ep->dst_addr);
     }
     if (ql4xextended_error_logging == 2) {
@@ -16037,12 +16037,12 @@ static void qla4xxx_set_ipv6(struct scsi_qla_host *ha , struct iscsi_iface_param
   case_7: /* CIL Label */ ;
   if ((int )iface_param->iface_num & 1) {
     {
-    __memcpy((void *)(& init_fw_cb->ipv6_addr1), (void const   *)(& iface_param->value),
+    memcpy((void *)(& init_fw_cb->ipv6_addr1), (void const   *)(& iface_param->value),
              16UL);
     }
   } else {
     {
-    __memcpy((void *)(& init_fw_cb->ipv6_addr0), (void const   *)(& iface_param->value),
+    memcpy((void *)(& init_fw_cb->ipv6_addr0), (void const   *)(& iface_param->value),
              16UL);
     }
   }
@@ -16054,7 +16054,7 @@ static void qla4xxx_set_ipv6(struct scsi_qla_host *ha , struct iscsi_iface_param
 
   }
   {
-  __memcpy((void *)(& init_fw_cb->ipv6_if_id), (void const   *)(& iface_param->value) + 8U,
+  memcpy((void *)(& init_fw_cb->ipv6_if_id), (void const   *)(& iface_param->value) + 8U,
            8UL);
   }
   goto ldv_66349;
@@ -16065,7 +16065,7 @@ static void qla4xxx_set_ipv6(struct scsi_qla_host *ha , struct iscsi_iface_param
 
   }
   {
-  __memcpy((void *)(& init_fw_cb->ipv6_dflt_rtr_addr), (void const   *)(& iface_param->value),
+  memcpy((void *)(& init_fw_cb->ipv6_dflt_rtr_addr), (void const   *)(& iface_param->value),
            16UL);
   }
   goto ldv_66349;
@@ -16111,7 +16111,7 @@ static void qla4xxx_set_ipv6(struct scsi_qla_host *ha , struct iscsi_iface_param
   }
   if ((unsigned int )iface_param->value[0] == 1U) {
     {
-    __memset((void *)(& init_fw_cb->ipv6_dflt_rtr_addr), 0, 16UL);
+    memset((void *)(& init_fw_cb->ipv6_dflt_rtr_addr), 0, 16UL);
     }
   } else {
 
@@ -16498,19 +16498,19 @@ static void qla4xxx_set_ipv4(struct scsi_qla_host *ha , struct iscsi_iface_param
   goto switch_default;
   case_1: /* CIL Label */ 
   {
-  __memcpy((void *)(& init_fw_cb->ipv4_addr), (void const   *)(& iface_param->value),
+  memcpy((void *)(& init_fw_cb->ipv4_addr), (void const   *)(& iface_param->value),
            4UL);
   }
   goto ldv_66384;
   case_2: /* CIL Label */ 
   {
-  __memcpy((void *)(& init_fw_cb->ipv4_subnet), (void const   *)(& iface_param->value),
+  memcpy((void *)(& init_fw_cb->ipv4_subnet), (void const   *)(& iface_param->value),
            4UL);
   }
   goto ldv_66384;
   case_3: /* CIL Label */ 
   {
-  __memcpy((void *)(& init_fw_cb->ipv4_gw_addr), (void const   *)(& iface_param->value),
+  memcpy((void *)(& init_fw_cb->ipv4_gw_addr), (void const   *)(& iface_param->value),
            4UL);
   }
   goto ldv_66384;
@@ -16703,7 +16703,7 @@ static void qla4xxx_set_ipv4(struct scsi_qla_host *ha , struct iscsi_iface_param
 
   }
   {
-  __memcpy((void *)(& init_fw_cb->ipv4_dhcp_alt_cid), (void const   *)(& iface_param->value),
+  memcpy((void *)(& init_fw_cb->ipv4_dhcp_alt_cid), (void const   *)(& iface_param->value),
            10UL);
   tmp___0 = strlen((char const   *)(& init_fw_cb->ipv4_dhcp_alt_cid));
   init_fw_cb->ipv4_dhcp_alt_cid_len = (uint8_t )tmp___0;
@@ -16740,7 +16740,7 @@ static void qla4xxx_set_ipv4(struct scsi_qla_host *ha , struct iscsi_iface_param
 
   }
   {
-  __memcpy((void *)(& init_fw_cb->ipv4_dhcp_vid), (void const   *)(& iface_param->value),
+  memcpy((void *)(& init_fw_cb->ipv4_dhcp_vid), (void const   *)(& iface_param->value),
            10UL);
   tmp___1 = strlen((char const   *)(& init_fw_cb->ipv4_dhcp_vid));
   init_fw_cb->ipv4_dhcp_vid_len = (uint8_t )tmp___1;
@@ -17107,21 +17107,21 @@ static void qla4xxx_initcb_to_acb(struct addr_ctrl_blk *init_fw_cb )
   {
   {
   acb = (struct addr_ctrl_blk_def *)init_fw_cb;
-  __memset((void *)(& acb->reserved1), 0, 1UL);
-  __memset((void *)(& acb->reserved2), 0, 11UL);
-  __memset((void *)(& acb->reserved3), 0, 34UL);
-  __memset((void *)(& acb->reserved4), 0, 2UL);
-  __memset((void *)(& acb->reserved5), 0, 4UL);
-  __memset((void *)(& acb->reserved6), 0, 2UL);
-  __memset((void *)(& acb->reserved7), 0, 4UL);
-  __memset((void *)(& acb->reserved8), 0, 8UL);
-  __memset((void *)(& acb->reserved9), 0, 12UL);
-  __memset((void *)(& acb->reserved10), 0, 84UL);
-  __memset((void *)(& acb->reserved11), 0, 10UL);
-  __memset((void *)(& acb->reserved12), 0, 20UL);
-  __memset((void *)(& acb->reserved13), 0, 32UL);
-  __memset((void *)(& acb->reserved14), 0, 18UL);
-  __memset((void *)(& acb->reserved15), 0, 140UL);
+  memset((void *)(& acb->reserved1), 0, 1UL);
+  memset((void *)(& acb->reserved2), 0, 11UL);
+  memset((void *)(& acb->reserved3), 0, 34UL);
+  memset((void *)(& acb->reserved4), 0, 2UL);
+  memset((void *)(& acb->reserved5), 0, 4UL);
+  memset((void *)(& acb->reserved6), 0, 2UL);
+  memset((void *)(& acb->reserved7), 0, 4UL);
+  memset((void *)(& acb->reserved8), 0, 8UL);
+  memset((void *)(& acb->reserved9), 0, 12UL);
+  memset((void *)(& acb->reserved10), 0, 84UL);
+  memset((void *)(& acb->reserved11), 0, 10UL);
+  memset((void *)(& acb->reserved12), 0, 20UL);
+  memset((void *)(& acb->reserved13), 0, 32UL);
+  memset((void *)(& acb->reserved14), 0, 18UL);
+  memset((void *)(& acb->reserved15), 0, 140UL);
   }
   return;
 }
@@ -17164,9 +17164,9 @@ static int qla4xxx_iface_set_param(struct Scsi_Host *shost , void *data , uint32
 
   }
   {
-  __memset((void *)init_fw_cb, 0, 768UL);
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)init_fw_cb, 0, 768UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   tmp___1 = qla4xxx_get_ifcb(ha, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts),
                              init_fw_cb_dma);
   }
@@ -17324,7 +17324,7 @@ static int qla4xxx_iface_set_param(struct Scsi_Host *shost , void *data , uint32
 
   }
   {
-  __memset((void *)init_fw_cb, 0, 768UL);
+  memset((void *)init_fw_cb, 0, 768UL);
   qla4xxx_update_local_ifcb(ha, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts),
                             init_fw_cb, init_fw_cb_dma);
   }
@@ -17355,7 +17355,7 @@ static int qla4xxx_session_get_param(struct iscsi_cls_session *cls_sess , enum i
   ddb_entry = (struct ddb_entry *)sess->dd_data;
   ha = ddb_entry->ha;
   cls_conn = ddb_entry->conn;
-  __memset((void *)(& chap_tbl), 0, 364UL);
+  memset((void *)(& chap_tbl), 0, 364UL);
   }
   {
   if ((unsigned int )param == 37U) {
@@ -18209,7 +18209,7 @@ static int qla4xxx_alloc_pdu(struct iscsi_task *task , uint8_t opcode )
   ddb_entry = (struct ddb_entry *)sess->dd_data;
   ha = ddb_entry->ha;
   task_data = (struct ql4_task_data *)task->dd_data;
-  __memset((void *)task_data, 0, 224UL);
+  memset((void *)task_data, 0, 224UL);
   }
   if ((unsigned long )task->sc != (unsigned long )((struct scsi_cmnd *)0)) {
     {
@@ -18539,8 +18539,8 @@ static int qla4xxx_copy_from_fwddb_param(struct iscsi_bus_flash_session *sess , 
 
   }
   {
-  __memcpy((void *)conn->ipaddress, (void const   *)(& fw_ddb_entry->ip_addr), 16UL);
-  __memcpy((void *)conn->redirect_ipaddr, (void const   *)(& fw_ddb_entry->tgt_addr),
+  memcpy((void *)conn->ipaddress, (void const   *)(& fw_ddb_entry->ip_addr), 16UL);
+  memcpy((void *)conn->redirect_ipaddr, (void const   *)(& fw_ddb_entry->tgt_addr),
            16UL);
   tmp___22 = constant_test_bit(8L, (unsigned long const volatile   *)(& options));
   }
@@ -18790,14 +18790,14 @@ static int qla4xxx_copy_to_fwddb_param(struct iscsi_bus_flash_session *sess , st
   }
   if ((unsigned long )conn->ipaddress != (unsigned long )((char *)0)) {
     {
-    __memcpy((void *)(& fw_ddb_entry->ip_addr), (void const   *)conn->ipaddress, 16UL);
+    memcpy((void *)(& fw_ddb_entry->ip_addr), (void const   *)conn->ipaddress, 16UL);
     }
   } else {
 
   }
   if ((unsigned long )conn->redirect_ipaddr != (unsigned long )((char *)0)) {
     {
-    __memcpy((void *)(& fw_ddb_entry->tgt_addr), (void const   *)conn->redirect_ipaddr,
+    memcpy((void *)(& fw_ddb_entry->tgt_addr), (void const   *)conn->redirect_ipaddr,
              32UL);
     }
   } else {
@@ -18805,7 +18805,7 @@ static int qla4xxx_copy_to_fwddb_param(struct iscsi_bus_flash_session *sess , st
   }
   if ((unsigned long )conn->link_local_ipv6_addr != (unsigned long )((char *)0)) {
     {
-    __memcpy((void *)(& fw_ddb_entry->link_local_ipv6_addr), (void const   *)conn->link_local_ipv6_addr,
+    memcpy((void *)(& fw_ddb_entry->link_local_ipv6_addr), (void const   *)conn->link_local_ipv6_addr,
              16UL);
     }
   } else {
@@ -18813,7 +18813,7 @@ static int qla4xxx_copy_to_fwddb_param(struct iscsi_bus_flash_session *sess , st
   }
   if ((unsigned long )sess->targetname != (unsigned long )((char *)0)) {
     {
-    __memcpy((void *)(& fw_ddb_entry->iscsi_name), (void const   *)sess->targetname,
+    memcpy((void *)(& fw_ddb_entry->iscsi_name), (void const   *)sess->targetname,
              224UL);
     }
   } else {
@@ -18821,7 +18821,7 @@ static int qla4xxx_copy_to_fwddb_param(struct iscsi_bus_flash_session *sess , st
   }
   if ((unsigned long )sess->targetalias != (unsigned long )((char *)0)) {
     {
-    __memcpy((void *)(& fw_ddb_entry->iscsi_alias), (void const   *)sess->targetalias,
+    memcpy((void *)(& fw_ddb_entry->iscsi_alias), (void const   *)sess->targetalias,
              32UL);
     }
   } else {
@@ -19007,7 +19007,7 @@ static void qla4xxx_copy_to_sess_conn_params(struct iscsi_conn *conn , struct is
   }
   if ((options & 256UL) != 0UL) {
     {
-    __memset((void *)(& ip_addr), 0, 64UL);
+    memset((void *)(& ip_addr), 0, 64UL);
     sprintf((char *)(& ip_addr), "%pI6", (uint8_t *)(& fw_ddb_entry->link_local_ipv6_addr));
     iscsi_set_param(conn->cls_conn, 71, (char *)(& ip_addr), 0);
     }
@@ -19037,18 +19037,18 @@ static void qla4xxx_copy_fwddb_param(struct scsi_qla_host *ha , struct dev_db_en
   sess = (struct iscsi_session *)cls_sess->dd_data;
   ddb_entry = (struct ddb_entry *)sess->dd_data;
   conn = (struct iscsi_conn *)cls_conn->dd_data;
-  __memset((void *)(& chap_tbl), 0, 364UL);
+  memset((void *)(& chap_tbl), 0, 364UL);
   ddb_entry->chap_tbl_idx = fw_ddb_entry->chap_tbl_idx;
   qla4xxx_copy_to_sess_conn_params(conn, sess, fw_ddb_entry);
   sess->def_taskmgmt_tmo = fw_ddb_entry->def_timeout;
   conn->persistent_port = (int )fw_ddb_entry->port;
-  __memset((void *)(& ip_addr), 0, 64UL);
+  memset((void *)(& ip_addr), 0, 64UL);
   options = fw_ddb_entry->options;
   }
   if (((int )options & 256) != 0) {
     {
     iscsi_set_param(cls_conn, 44, (char *)"ipv6", 4);
-    __memset((void *)(& ip_addr), 0, 64UL);
+    memset((void *)(& ip_addr), 0, 64UL);
     sprintf((char *)(& ip_addr), "%pI6", (uint8_t *)(& fw_ddb_entry->ip_addr));
     }
   } else {
@@ -19198,7 +19198,7 @@ void qla4xxx_update_session_conn_param(struct scsi_qla_host *ha , struct ddb_ent
   qla4xxx_copy_to_sess_conn_params(conn, sess, fw_ddb_entry);
   _min1 = 256UL;
   _min2 = 8UL;
-  __memcpy((void *)sess->initiatorname, (void const   *)(& ha->name_string), _min1 < _min2 ? _min1 : _min2);
+  memcpy((void *)sess->initiatorname, (void const   *)(& ha->name_string), _min1 < _min2 ? _min1 : _min2);
   }
   exit_session_conn_param: ;
   if ((unsigned long )fw_ddb_entry != (unsigned long )((struct dev_db_entry *)0)) {
@@ -19639,7 +19639,7 @@ static int qla4xxx_mem_alloc(struct scsi_qla_host *ha )
 
   }
   {
-  __memset(ha->queues, 0, ha->queues_len);
+  memset(ha->queues, 0, ha->queues_len);
   align = 0UL;
   _max1___2 = 1024;
   _max2___2 = 64;
@@ -21450,7 +21450,7 @@ int qla4xxx_post_aen_work(struct scsi_qla_host *ha , enum iscsi_host_event_code 
   {
   e->u.aen.code = aen_code;
   e->u.aen.data_size = data_size;
-  __memcpy((void *)(& e->u.aen.data), (void const   *)data, (size_t )data_size);
+  memcpy((void *)(& e->u.aen.data), (void const   *)data, (size_t )data_size);
   qla4xxx_post_work(ha, e);
   }
   return (0);
@@ -21474,7 +21474,7 @@ int qla4xxx_post_ping_evt_work(struct scsi_qla_host *ha , uint32_t status , uint
   e->u.ping.status = status;
   e->u.ping.pid = pid;
   e->u.ping.data_size = data_size;
-  __memcpy((void *)(& e->u.ping.data), (void const   *)data, (size_t )data_size);
+  memcpy((void *)(& e->u.ping.data), (void const   *)data, (size_t )data_size);
   qla4xxx_post_work(ha, e);
   }
   return (0);
@@ -22999,19 +22999,19 @@ static int qla4xxx_get_boot_target(struct scsi_qla_host *ha , struct ql4_boot_se
   {
   _min1 = 224UL;
   _min2 = 224UL;
-  __memcpy((void *)(& boot_sess->target_name), (void const   *)(& fw_ddb_entry->iscsi_name),
+  memcpy((void *)(& boot_sess->target_name), (void const   *)(& fw_ddb_entry->iscsi_name),
            _min1 < _min2 ? _min1 : _min2);
   options = fw_ddb_entry->options;
   }
   if (((int )options & 256) != 0) {
     {
-    __memcpy((void *)(& boot_conn->dest_ipaddr.ip_address), (void const   *)(& fw_ddb_entry->ip_addr),
+    memcpy((void *)(& boot_conn->dest_ipaddr.ip_address), (void const   *)(& fw_ddb_entry->ip_addr),
              16UL);
     }
   } else {
     {
     boot_conn->dest_ipaddr.ip_type = 1U;
-    __memcpy((void *)(& boot_conn->dest_ipaddr.ip_address), (void const   *)(& fw_ddb_entry->ip_addr),
+    memcpy((void *)(& boot_conn->dest_ipaddr.ip_address), (void const   *)(& fw_ddb_entry->ip_addr),
              4UL);
     }
   }
@@ -23085,7 +23085,7 @@ static int qla4xxx_get_boot_info(struct scsi_qla_host *ha )
   {
   {
   ret = 1;
-  __memset((void *)(& ddb_index), 0, 4UL);
+  memset((void *)(& ddb_index), 0, 4UL);
   ddb_index[0] = 65535U;
   ddb_index[1] = 65535U;
   ret = get_fw_boot_info(ha, (uint16_t *)(& ddb_index));
@@ -23311,7 +23311,7 @@ static void qla4xxx_convert_param_ddb(struct dev_db_entry *fw_ddb_entry , struct
   tddb->tpgt = (int )fw_ddb_entry->tgt_portal_grp;
   _min1 = 224UL;
   _min2 = 224UL;
-  __memcpy((void *)(& tddb->iscsi_name), (void const   *)(& fw_ddb_entry->iscsi_name),
+  memcpy((void *)(& tddb->iscsi_name), (void const   *)(& fw_ddb_entry->iscsi_name),
            _min1 < _min2 ? _min1 : _min2);
   options = fw_ddb_entry->options;
   }
@@ -23327,11 +23327,11 @@ static void qla4xxx_convert_param_ddb(struct dev_db_entry *fw_ddb_entry , struct
   tddb->port = (int )fw_ddb_entry->port;
   if ((unsigned long )flash_isid == (unsigned long )((uint8_t *)0U)) {
     {
-    __memcpy((void *)(& tddb->isid), (void const   *)(& fw_ddb_entry->isid), 6UL);
+    memcpy((void *)(& tddb->isid), (void const   *)(& fw_ddb_entry->isid), 6UL);
     }
   } else {
     {
-    __memcpy((void *)(& tddb->isid), (void const   *)flash_isid, 6UL);
+    memcpy((void *)(& tddb->isid), (void const   *)flash_isid, 6UL);
     }
   }
   return;
@@ -23823,7 +23823,7 @@ static struct iscsi_endpoint *qla4xxx_get_ep_fwdb(struct scsi_qla_host *ha , str
     t_addr->sa_family = 10U;
     addr6 = (struct sockaddr_in6 *)dst_addr;
     ip = (char *)(& addr6->sin6_addr);
-    __memcpy((void *)ip, (void const   *)(& fw_ddb_entry->ip_addr), 16UL);
+    memcpy((void *)ip, (void const   *)(& fw_ddb_entry->ip_addr), 16UL);
     tmp___0 = __fswab16((int )fw_ddb_entry->port);
     addr6->sin6_port = tmp___0;
     }
@@ -23833,7 +23833,7 @@ static struct iscsi_endpoint *qla4xxx_get_ep_fwdb(struct scsi_qla_host *ha , str
     t_addr->sa_family = 2U;
     addr = (struct sockaddr_in *)dst_addr;
     ip = (char *)(& addr->sin_addr);
-    __memcpy((void *)ip, (void const   *)(& fw_ddb_entry->ip_addr), 4UL);
+    memcpy((void *)ip, (void const   *)(& fw_ddb_entry->ip_addr), 4UL);
     tmp___1 = __fswab16((int )fw_ddb_entry->port);
     addr->sin_port = tmp___1;
     }
@@ -24353,7 +24353,7 @@ static int qla4xxx_sess_conn_setup(struct scsi_qla_host *ha , struct dev_db_entr
   ddb_entry = (struct ddb_entry *)sess->dd_data;
   ddb_entry->sess = cls_sess;
   cls_sess->recovery_tmo = ql4xsess_recovery_tmo;
-  __memcpy((void *)(& ddb_entry->fw_ddb_entry), (void const   *)fw_ddb_entry, 512UL);
+  memcpy((void *)(& ddb_entry->fw_ddb_entry), (void const   *)fw_ddb_entry, 512UL);
   qla4xxx_setup_flash_ddb_entry(ha, ddb_entry, (int )idx);
   cls_conn = iscsi_conn_setup(cls_sess, 8, (uint32_t )conn_id);
   }
@@ -24558,7 +24558,7 @@ static void qla4xxx_build_nt_list(struct scsi_qla_host *ha , struct list_head *l
     }
     {
     nt_ddb_idx->fw_ddb_idx = (uint16_t )idx;
-    __memcpy((void *)(& nt_ddb_idx->flash_isid), (void const   *)(& fw_ddb_entry->isid),
+    memcpy((void *)(& nt_ddb_idx->flash_isid), (void const   *)(& fw_ddb_entry->isid),
              6UL);
     ret = qla4xxx_is_flash_ddb_exists(ha, list_nt, fw_ddb_entry);
     }
@@ -24571,7 +24571,7 @@ static void qla4xxx_build_nt_list(struct scsi_qla_host *ha , struct list_head *l
 
     }
     {
-    __memcpy((void *)(& nt_ddb_idx->fw_ddb), (void const   *)fw_ddb_entry, 512UL);
+    memcpy((void *)(& nt_ddb_idx->fw_ddb), (void const   *)fw_ddb_entry, 512UL);
     list_add_tail(& nt_ddb_idx->list, list_nt);
     }
   } else
@@ -25123,7 +25123,7 @@ static ssize_t qla4xxx_sysfs_ddb_conn_open(struct scsi_qla_host *ha , struct dev
 
   }
   {
-  __memcpy((void *)ddb_entry, (void const   *)fw_ddb_entry, 512UL);
+  memcpy((void *)ddb_entry, (void const   *)fw_ddb_entry, 512UL);
   ret = qla4xxx_set_ddb_entry(ha, (int )idx, ddb_entry_dma, & mbx_sts);
   }
   if (ret != 0) {
@@ -25511,7 +25511,7 @@ static int qla4xxx_sysfs_ddb_logout_sid(struct iscsi_cls_session *cls_sess )
   atomic_set(& ddb_entry->relogin_timer, 0);
   options = 2;
   qla4xxx_session_logout_ddb(ha, ddb_entry, options);
-  __memset((void *)fw_ddb_entry, 0, 512UL);
+  memset((void *)fw_ddb_entry, 0, 512UL);
   wtime = (unsigned long )jiffies + 2500UL;
   }
   ldv_67709: 
@@ -26493,7 +26493,7 @@ static int qla4xxx_sysfs_ddb_set_param(struct iscsi_bus_flash_session *fnode_ses
   chap_out_idx = 65535U;
   rc = 1;
   rem = (uint32_t )len;
-  __memset((void *)(& chap_tbl), 0, 364UL);
+  memset((void *)(& chap_tbl), 0, 364UL);
   attr = (struct nlattr *)data;
   rem = (uint32_t )len;
   }
@@ -26771,7 +26771,7 @@ static int qla4xxx_sysfs_ddb_set_param(struct iscsi_bus_flash_session *fnode_ses
   case_1: /* CIL Label */ 
   {
   tmp___2 = strlen((char const   *)fnode_sess->portal_type);
-  __memcpy((void *)fnode_sess->portal_type, (void const   *)(& fnode_param->value),
+  memcpy((void *)fnode_sess->portal_type, (void const   *)(& fnode_param->value),
            tmp___2);
   }
   goto ldv_67828;
@@ -26866,7 +26866,7 @@ static int qla4xxx_sysfs_ddb_set_param(struct iscsi_bus_flash_session *fnode_ses
   goto ldv_67828;
   case_30: /* CIL Label */ 
   {
-  __memcpy((void *)(& fnode_sess->isid), (void const   *)(& fnode_param->value), 6UL);
+  memcpy((void *)(& fnode_sess->isid), (void const   *)(& fnode_param->value), 6UL);
   }
   goto ldv_67828;
   case_31: /* CIL Label */ 
@@ -26883,7 +26883,7 @@ static int qla4xxx_sysfs_ddb_set_param(struct iscsi_bus_flash_session *fnode_ses
   goto ldv_67828;
   case_35: /* CIL Label */ 
   {
-  __memcpy((void *)fnode_conn->ipaddress, (void const   *)(& fnode_param->value),
+  memcpy((void *)fnode_conn->ipaddress, (void const   *)(& fnode_param->value),
            16UL);
   }
   goto ldv_67828;
@@ -26894,7 +26894,7 @@ static int qla4xxx_sysfs_ddb_set_param(struct iscsi_bus_flash_session *fnode_ses
   goto ldv_67828;
   case_37: /* CIL Label */ 
   {
-  __memcpy((void *)fnode_conn->redirect_ipaddr, (void const   *)(& fnode_param->value),
+  memcpy((void *)fnode_conn->redirect_ipaddr, (void const   *)(& fnode_param->value),
            16UL);
   }
   goto ldv_67828;
@@ -26923,7 +26923,7 @@ static int qla4xxx_sysfs_ddb_set_param(struct iscsi_bus_flash_session *fnode_ses
   goto ldv_67828;
   case_45: /* CIL Label */ 
   {
-  __memcpy((void *)fnode_conn->link_local_ipv6_addr, (void const   *)(& fnode_param->value),
+  memcpy((void *)fnode_conn->link_local_ipv6_addr, (void const   *)(& fnode_param->value),
            16UL);
   }
   goto ldv_67828;
@@ -27098,7 +27098,7 @@ static int qla4xxx_sysfs_ddb_delete(struct iscsi_bus_flash_session *fnode_sess )
   if (tmp___2 != 0) {
     {
     fw_ddb_entry = (struct dev_db_entry *)pddb;
-    __memset((void *)fw_ddb_entry, 0, ddb_size);
+    memset((void *)fw_ddb_entry, 0, ddb_size);
     ddb_cookie = & fw_ddb_entry->cookie;
     }
   } else {
@@ -27491,7 +27491,7 @@ static int qla4xxx_probe_adapter(struct pci_dev *pdev , struct pci_device_id  co
   }
   {
   ha = to_qla_host(host);
-  __memset((void *)ha, 0, 43072UL);
+  memset((void *)ha, 0, 43072UL);
   ha->pdev = pdev;
   ha->host = host;
   ha->host_no = (unsigned long )host->host_no;
@@ -28806,7 +28806,7 @@ static int qla4xxx_context_reset(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)acb, 0, (size_t )acb_len);
+  memset((void *)acb, 0, (size_t )acb_len);
   rval = qla4xxx_get_acb(ha, acb_dma, 0U, acb_len);
   }
   if (rval != 0) {
@@ -45889,7 +45889,7 @@ int qla4xxx_get_sys_info(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)sys_info, 0, 512UL);
+  memset((void *)sys_info, 0, 512UL);
   tmp___0 = qla4xxx_get_flash(ha, sys_info_dma, 33554432U, 512U);
   }
   if (tmp___0 != 0) {
@@ -45908,11 +45908,11 @@ int qla4xxx_get_sys_info(struct scsi_qla_host *ha )
   {
   _min1 = 6UL;
   _min2 = 6UL;
-  __memcpy((void *)(& ha->my_mac), (void const   *)(& sys_info->physAddr[0].address),
+  memcpy((void *)(& ha->my_mac), (void const   *)(& sys_info->physAddr[0].address),
            _min1 < _min2 ? _min1 : _min2);
   _min1___0 = 16UL;
   _min2___0 = 16UL;
-  __memcpy((void *)(& ha->serial_number), (void const   *)(& sys_info->acSerialNumber),
+  memcpy((void *)(& ha->serial_number), (void const   *)(& sys_info->acSerialNumber),
            _min1___0 < _min2___0 ? _min1___0 : _min2___0);
   status = 0;
   }
@@ -46272,7 +46272,7 @@ void qla4xxx_alloc_fw_dump(struct scsi_qla_host *ha )
 
   }
   {
-  __memcpy(ha->fw_dump, (void const   *)md_tmp, (size_t )ha->fw_dump_tmplt_size);
+  memcpy(ha->fw_dump, (void const   *)md_tmp, (size_t )ha->fw_dump_tmplt_size);
   ha->fw_dump_tmplt_hdr = ha->fw_dump;
   }
   alloc_cleanup: 
@@ -46643,7 +46643,7 @@ static void qla4xxx_set_model_info(struct scsi_qla_host *ha )
 
   }
   {
-  __memcpy((void *)(& ha->model_name), (void const   *)(& board_id_string), (size_t )size);
+  memcpy((void *)(& ha->model_name), (void const   *)(& board_id_string), (size_t )size);
   }
   return;
 }
@@ -47741,7 +47741,7 @@ void qla4xxx_login_flash_ddb(struct iscsi_cls_session *cls_session )
 
   }
   {
-  __memcpy((void *)fw_ddb_entry, (void const   *)(& ddb_entry->fw_ddb_entry), 512UL);
+  memcpy((void *)fw_ddb_entry, (void const   *)(& ddb_entry->fw_ddb_entry), 512UL);
   (ddb_entry->sess)->target_id = (unsigned int )ddb_entry->fw_ddb_index;
   ret = qla4xxx_set_ddb_entry(ha, (int )ddb_entry->fw_ddb_index, fw_ddb_dma, & mbx_sts);
   }
@@ -48461,8 +48461,8 @@ int qla4xxx_get_minidump_template(struct scsi_qla_host *ha , dma_addr_t phys_add
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 297U;
   mbox_cmd[1] = 1U;
   mbox_cmd[2] = (unsigned int )phys_addr;
@@ -48495,8 +48495,8 @@ int qla4xxx_req_template_size(struct scsi_qla_host *ha )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 297U;
   mbox_cmd[1] = 0U;
   status = qla4xxx_mailbox_command(ha, 8, 8, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
@@ -48570,8 +48570,8 @@ static uint8_t qla4xxx_set_ifcb(struct scsi_qla_host *ha , uint32_t *mbox_cmd , 
 
   {
   {
-  __memset((void *)mbox_cmd, 0, 32UL);
-  __memset((void *)mbox_sts, 0, 32UL);
+  memset((void *)mbox_cmd, 0, 32UL);
+  memset((void *)mbox_sts, 0, 32UL);
   tmp = is_qla8022(ha);
   }
   if (tmp != 0) {
@@ -48612,8 +48612,8 @@ uint8_t qla4xxx_get_ifcb(struct scsi_qla_host *ha , uint32_t *mbox_cmd , uint32_
 
   {
   {
-  __memset((void *)mbox_cmd, 0, 32UL);
-  __memset((void *)mbox_sts, 0, 32UL);
+  memset((void *)mbox_cmd, 0, 32UL);
+  memset((void *)mbox_sts, 0, 32UL);
   *mbox_cmd = 97U;
   *(mbox_cmd + 2UL) = (unsigned int )init_fw_cb_dma;
   *(mbox_cmd + 3UL) = (unsigned int )(init_fw_cb_dma >> 32ULL);
@@ -48751,15 +48751,15 @@ static void qla4xxx_update_local_ip(struct scsi_qla_host *ha , struct addr_ctrl_
   {
   _min1 = 4UL;
   _min2 = 4UL;
-  __memcpy((void *)(& ha->ip_config.ip_address), (void const   *)(& init_fw_cb->ipv4_addr),
+  memcpy((void *)(& ha->ip_config.ip_address), (void const   *)(& init_fw_cb->ipv4_addr),
            _min1 < _min2 ? _min1 : _min2);
   _min1___0 = 4UL;
   _min2___0 = 4UL;
-  __memcpy((void *)(& ha->ip_config.subnet_mask), (void const   *)(& init_fw_cb->ipv4_subnet),
+  memcpy((void *)(& ha->ip_config.subnet_mask), (void const   *)(& init_fw_cb->ipv4_subnet),
            _min1___0 < _min2___0 ? _min1___0 : _min2___0);
   _min1___1 = 4UL;
   _min2___1 = 4UL;
-  __memcpy((void *)(& ha->ip_config.gateway), (void const   *)(& init_fw_cb->ipv4_gw_addr),
+  memcpy((void *)(& ha->ip_config.gateway), (void const   *)(& init_fw_cb->ipv4_gw_addr),
            _min1___1 < _min2___1 ? _min1___1 : _min2___1);
   tmp = __fswab16((int )init_fw_cb->ipv4_vlan_tag);
   ha->ip_config.ipv4_vlan_tag = tmp;
@@ -48770,12 +48770,12 @@ static void qla4xxx_update_local_ip(struct scsi_qla_host *ha , struct addr_ctrl_
   ha->ip_config.ipv4_alt_cid_len = init_fw_cb->ipv4_dhcp_alt_cid_len;
   _min1___2 = 11UL;
   _min2___2 = 11UL;
-  __memcpy((void *)(& ha->ip_config.ipv4_alt_cid), (void const   *)(& init_fw_cb->ipv4_dhcp_alt_cid),
+  memcpy((void *)(& ha->ip_config.ipv4_alt_cid), (void const   *)(& init_fw_cb->ipv4_dhcp_alt_cid),
            _min1___2 < _min2___2 ? _min1___2 : _min2___2);
   ha->ip_config.ipv4_vid_len = init_fw_cb->ipv4_dhcp_vid_len;
   _min1___3 = 11UL;
   _min2___3 = 11UL;
-  __memcpy((void *)(& ha->ip_config.ipv4_vid), (void const   *)(& init_fw_cb->ipv4_dhcp_vid),
+  memcpy((void *)(& ha->ip_config.ipv4_vid), (void const   *)(& init_fw_cb->ipv4_dhcp_vid),
            _min1___3 < _min2___3 ? _min1___3 : _min2___3);
   ha->ip_config.ipv4_ttl = init_fw_cb->ipv4_ttl;
   ha->ip_config.def_timeout = init_fw_cb->def_timeout;
@@ -48787,7 +48787,7 @@ static void qla4xxx_update_local_ip(struct scsi_qla_host *ha , struct addr_ctrl_
   ha->ip_config.iscsi_max_burst_len = init_fw_cb->iscsi_max_burst_len;
   _min1___4 = 224UL;
   _min2___4 = 224UL;
-  __memcpy((void *)(& ha->ip_config.iscsi_name), (void const   *)(& init_fw_cb->iscsi_name),
+  memcpy((void *)(& ha->ip_config.iscsi_name), (void const   *)(& init_fw_cb->iscsi_name),
            _min1___4 < _min2___4 ? _min1___4 : _min2___4);
   tmp___1 = is_ipv6_enabled(ha);
   }
@@ -48841,19 +48841,19 @@ static void qla4xxx_update_local_ip(struct scsi_qla_host *ha , struct addr_ctrl_
     ha->ip_config.ipv6_link_local_addr.in6_u.u6_addr8[1] = 128U;
     _min1___5 = 8UL;
     _min2___5 = 8UL;
-    __memcpy((void *)(& ha->ip_config.ipv6_link_local_addr.in6_u.u6_addr8) + 8U, (void const   *)(& init_fw_cb->ipv6_if_id),
+    memcpy((void *)(& ha->ip_config.ipv6_link_local_addr.in6_u.u6_addr8) + 8U, (void const   *)(& init_fw_cb->ipv6_if_id),
              _min1___5 < _min2___5 ? _min1___5 : _min2___5);
     _min1___6 = 16UL;
     _min2___6 = 16UL;
-    __memcpy((void *)(& ha->ip_config.ipv6_addr0), (void const   *)(& init_fw_cb->ipv6_addr0),
+    memcpy((void *)(& ha->ip_config.ipv6_addr0), (void const   *)(& init_fw_cb->ipv6_addr0),
              _min1___6 < _min2___6 ? _min1___6 : _min2___6);
     _min1___7 = 16UL;
     _min2___7 = 16UL;
-    __memcpy((void *)(& ha->ip_config.ipv6_addr1), (void const   *)(& init_fw_cb->ipv6_addr1),
+    memcpy((void *)(& ha->ip_config.ipv6_addr1), (void const   *)(& init_fw_cb->ipv6_addr1),
              _min1___7 < _min2___7 ? _min1___7 : _min2___7);
     _min1___8 = 16UL;
     _min2___8 = 16UL;
-    __memcpy((void *)(& ha->ip_config.ipv6_default_router_addr), (void const   *)(& init_fw_cb->ipv6_dflt_rtr_addr),
+    memcpy((void *)(& ha->ip_config.ipv6_default_router_addr), (void const   *)(& init_fw_cb->ipv6_dflt_rtr_addr),
              _min1___8 < _min2___8 ? _min1___8 : _min2___8);
     tmp___0 = __fswab16((int )init_fw_cb->ipv6_vlan_tag);
     ha->ip_config.ipv6_vlan_tag = tmp___0;
@@ -48912,7 +48912,7 @@ uint8_t qla4xxx_update_local_ifcb(struct scsi_qla_host *ha , uint32_t *mbox_cmd 
   ha->heartbeat_interval = init_fw_cb->hb_interval;
   _min1 = 256UL;
   _min2 = 224UL;
-  __memcpy((void *)(& ha->name_string), (void const   *)(& init_fw_cb->iscsi_name),
+  memcpy((void *)(& ha->name_string), (void const   *)(& init_fw_cb->iscsi_name),
            _min1 < _min2 ? _min1 : _min2);
   ha->def_timeout = init_fw_cb->def_timeout;
   qla4xxx_update_local_ip(ha, init_fw_cb);
@@ -48952,9 +48952,9 @@ int qla4xxx_initialize_fw_cb(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)init_fw_cb, 0, 768UL);
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)init_fw_cb, 0, 768UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   tmp___0 = qla4xxx_get_ifcb(ha, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts),
                              init_fw_cb_dma);
   }
@@ -49053,7 +49053,7 @@ int qla4xxx_get_dhcp_ip_address(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)init_fw_cb, 0, 768UL);
+  memset((void *)init_fw_cb, 0, 768UL);
   tmp___0 = qla4xxx_get_ifcb(ha, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts),
                              init_fw_cb_dma);
   }
@@ -49087,8 +49087,8 @@ int qla4xxx_get_firmware_state(struct scsi_qla_host *ha )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 105U;
   tmp = qla4xxx_mailbox_command(ha, 8, 4, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
   }
@@ -49127,8 +49127,8 @@ int qla4xxx_get_firmware_status(struct scsi_qla_host *ha )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 31U;
   tmp = qla4xxx_mailbox_command(ha, 8, 3, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
   }
@@ -49203,12 +49203,12 @@ int qla4xxx_get_fwddb_entry(struct scsi_qla_host *ha , uint16_t fw_ddb_index , s
 
   }
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   }
   if ((unsigned long )fw_ddb_entry != (unsigned long )((struct dev_db_entry *)0)) {
     {
-    __memset((void *)fw_ddb_entry, 0, 512UL);
+    memset((void *)fw_ddb_entry, 0, 512UL);
     }
   } else {
 
@@ -49310,8 +49310,8 @@ int qla4xxx_conn_open(struct scsi_qla_host *ha , uint16_t fw_ddb_index )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 116U;
   mbox_cmd[1] = (uint32_t )fw_ddb_index;
   status = qla4xxx_mailbox_command(ha, 8, 2, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
@@ -49336,8 +49336,8 @@ int qla4xxx_set_ddb_entry(struct scsi_qla_host *ha , uint16_t fw_ddb_index , dma
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 99U;
   mbox_cmd[1] = (unsigned int )fw_ddb_index;
   mbox_cmd[2] = (unsigned int )fw_ddb_entry_dma;
@@ -49370,8 +49370,8 @@ int qla4xxx_session_logout_ddb(struct scsi_qla_host *ha , struct ddb_entry *ddb_
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 86U;
   mbox_cmd[1] = (uint32_t )ddb_entry->fw_ddb_index;
   mbox_cmd[3] = (uint32_t )options;
@@ -49415,8 +49415,8 @@ void qla4xxx_get_crash_record(struct scsi_qla_host *ha )
   crash_record = (struct crash_record *)0;
   crash_record_dma = 0ULL;
   crash_record_size = 0U;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 118U;
   tmp = qla4xxx_mailbox_command(ha, 8, 5, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
   }
@@ -49456,8 +49456,8 @@ void qla4xxx_get_crash_record(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 118U;
   mbox_cmd[2] = (unsigned int )crash_record_dma;
   mbox_cmd[3] = (unsigned int )(crash_record_dma >> 32ULL);
@@ -49502,8 +49502,8 @@ void qla4xxx_get_conn_event_log(struct scsi_qla_host *ha )
   event_log_dma = 0ULL;
   event_log_size = 0U;
   oldest_entry = 0U;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 119U;
   tmp = qla4xxx_mailbox_command(ha, 8, 5, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
   }
@@ -49529,8 +49529,8 @@ void qla4xxx_get_conn_event_log(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 119U;
   mbox_cmd[2] = (unsigned int )event_log_dma;
   mbox_cmd[3] = (unsigned int )(event_log_dma >> 32ULL);
@@ -49629,8 +49629,8 @@ int qla4xxx_abort_task(struct scsi_qla_host *ha , struct srb *srb )
   cmd = srb->cmd;
   status = 0;
   flags = 0UL;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_143___0(& ha->hardware_lock);
   index = (uint32_t )((long )cmd->host_scribble);
   ldv_spin_unlock_irqrestore_128(& ha->hardware_lock, flags);
@@ -49682,8 +49682,8 @@ int qla4xxx_reset_lun(struct scsi_qla_host *ha , struct ddb_entry *ddb_entry , u
 
   }
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   int_to_scsilun(lun, (struct scsi_lun *)(& scsi_lun));
   mbox_cmd[0] = 22U;
   mbox_cmd[1] = (uint32_t )ddb_entry->fw_ddb_index;
@@ -49716,8 +49716,8 @@ int qla4xxx_reset_target(struct scsi_qla_host *ha , struct ddb_entry *ddb_entry 
 
   }
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 23U;
   mbox_cmd[1] = (uint32_t )ddb_entry->fw_ddb_index;
   mbox_cmd[5] = 1U;
@@ -49740,8 +49740,8 @@ int qla4xxx_get_flash(struct scsi_qla_host *ha , dma_addr_t dma_addr , uint32_t 
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 38U;
   mbox_cmd[1] = (unsigned int )dma_addr;
   mbox_cmd[2] = (unsigned int )(dma_addr >> 32ULL);
@@ -49797,9 +49797,9 @@ int qla4xxx_about_firmware(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)about_fw, 0, 256UL);
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)about_fw, 0, 256UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 9U;
   mbox_cmd[2] = (unsigned int )about_fw_dma;
   mbox_cmd[3] = (unsigned int )(about_fw_dma >> 32ULL);
@@ -49824,9 +49824,9 @@ int qla4xxx_about_firmware(struct scsi_qla_host *ha )
   ha->fw_info.fw_minor = about_fw->fw_minor;
   ha->fw_info.fw_patch = about_fw->fw_patch;
   ha->fw_info.fw_build = about_fw->fw_build;
-  __memcpy((void *)(& ha->fw_info.fw_build_date), (void const   *)(& about_fw->fw_build_date),
+  memcpy((void *)(& ha->fw_info.fw_build_date), (void const   *)(& about_fw->fw_build_date),
            16UL);
-  __memcpy((void *)(& ha->fw_info.fw_build_time), (void const   *)(& about_fw->fw_build_time),
+  memcpy((void *)(& ha->fw_info.fw_build_time), (void const   *)(& about_fw->fw_build_time),
            16UL);
   tmp___0 = skip_spaces((char const   *)(& about_fw->fw_build_user));
   strcpy((char *)(& ha->fw_info.fw_build_user), (char const   *)tmp___0);
@@ -49858,8 +49858,8 @@ int qla4xxx_get_default_ddb(struct scsi_qla_host *ha , uint32_t options , dma_ad
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 107U;
   mbox_cmd[1] = options;
   mbox_cmd[2] = (unsigned int )dma_addr;
@@ -49890,8 +49890,8 @@ int qla4xxx_req_ddb_entry(struct scsi_qla_host *ha , uint32_t ddb_index , uint32
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 98U;
   mbox_cmd[1] = ddb_index;
   status = qla4xxx_mailbox_command(ha, 8, 1, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
@@ -49920,8 +49920,8 @@ int qla4xxx_clear_ddb_entry(struct scsi_qla_host *ha , uint32_t ddb_index )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 49U;
   mbox_cmd[1] = ddb_index;
   status = qla4xxx_mailbox_command(ha, 2, 1, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
@@ -49951,8 +49951,8 @@ int qla4xxx_set_flash(struct scsi_qla_host *ha , dma_addr_t dma_addr , uint32_t 
   {
   {
   status = 0;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 37U;
   mbox_cmd[1] = (unsigned int )dma_addr;
   mbox_cmd[2] = (unsigned int )(dma_addr >> 32ULL);
@@ -49988,7 +49988,7 @@ int qla4xxx_bootdb_by_index(struct scsi_qla_host *ha , struct dev_db_entry *fw_d
   {
   dev_db_start_offset = 83886080U;
   status = 1;
-  __memset((void *)fw_ddb_entry, 0, 512UL);
+  memset((void *)fw_ddb_entry, 0, 512UL);
   dev_db_start_offset = dev_db_start_offset + (uint32_t )ddb_index * 512U;
   dev_db_end_offset = 83918847U;
   }
@@ -50038,7 +50038,7 @@ int qla4xxx_flashdb_by_index(struct scsi_qla_host *ha , struct dev_db_entry *fw_
   {
   {
   status = 1;
-  __memset((void *)fw_ddb_entry, 0, 512UL);
+  memset((void *)fw_ddb_entry, 0, 512UL);
   tmp = is_qla40XX(ha);
   }
   if (tmp != 0) {
@@ -50115,7 +50115,7 @@ int qla4xxx_get_chap(struct scsi_qla_host *ha , char *username , char *password 
   }
   {
   chap_size = 364U;
-  __memset((void *)chap_table, 0, (size_t )chap_size);
+  memset((void *)chap_table, 0, (size_t )chap_size);
   tmp___0 = is_qla40XX(ha);
   }
   if (tmp___0 != 0) {
@@ -50195,7 +50195,7 @@ int qla4xxx_set_chap(struct scsi_qla_host *ha , char *username , char *password 
 
   }
   {
-  __memset((void *)chap_table, 0, 364UL);
+  memset((void *)chap_table, 0, 364UL);
   }
   if (bidi != 0) {
     chap_table->flags = (uint8_t )((unsigned int )chap_table->flags | 64U);
@@ -50228,7 +50228,7 @@ int qla4xxx_set_chap(struct scsi_qla_host *ha , char *username , char *password 
   }
   if (rval == 0 && (unsigned long )ha->chap_list != (unsigned long )((uint8_t *)0U)) {
     {
-    __memcpy((void *)ha->chap_list + (unsigned long )idx, (void const   *)chap_table,
+    memcpy((void *)ha->chap_list + (unsigned long )idx, (void const   *)chap_table,
              364UL);
     }
   } else {
@@ -50457,8 +50457,8 @@ int qla4xxx_conn_close_sess_logout(struct scsi_qla_host *ha , uint16_t fw_ddb_in
   {
   {
   status = 0;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 86U;
   mbox_cmd[1] = (uint32_t )fw_ddb_index;
   mbox_cmd[2] = (uint32_t )connection_id;
@@ -50488,8 +50488,8 @@ static int qla4_84xx_extend_idc_tmo(struct scsi_qla_host *ha , uint32_t ext_tmo 
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   ext_tmo = ext_tmo & 15U;
   mbox_cmd[0] = 258U;
   mbox_cmd[1] = (ha->idc_info.request_desc & 4294963455U) | (ext_tmo << 8);
@@ -50529,8 +50529,8 @@ int qla4xxx_disable_acb(struct scsi_qla_host *ha )
   {
   {
   status = 0;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 138U;
   status = qla4xxx_mailbox_command(ha, 8, 5, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
   }
@@ -50588,8 +50588,8 @@ int qla4xxx_get_acb(struct scsi_qla_host *ha , dma_addr_t acb_dma , uint32_t acb
   {
   {
   status = 0;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 137U;
   mbox_cmd[1] = acb_type;
   mbox_cmd[2] = (unsigned int )acb_dma;
@@ -50620,8 +50620,8 @@ int qla4xxx_set_acb(struct scsi_qla_host *ha , uint32_t *mbox_cmd , uint32_t *mb
   {
   {
   status = 0;
-  __memset((void *)mbox_cmd, 0, 32UL);
-  __memset((void *)mbox_sts, 0, 32UL);
+  memset((void *)mbox_cmd, 0, 32UL);
+  memset((void *)mbox_sts, 0, 32UL);
   *mbox_cmd = 136U;
   *(mbox_cmd + 1UL) = 0U;
   *(mbox_cmd + 2UL) = (unsigned int )acb_dma;
@@ -50727,30 +50727,30 @@ int qla4xxx_set_param_ddbentry(struct scsi_qla_host *ha , struct ddb_entry *ddb_
   }
   {
   iscsi_opts = fw_ddb_entry->iscsi_options;
-  __memset((void *)(& fw_ddb_entry->iscsi_alias), 0, 32UL);
-  __memset((void *)(& fw_ddb_entry->iscsi_name), 0, 224UL);
+  memset((void *)(& fw_ddb_entry->iscsi_alias), 0, 32UL);
+  memset((void *)(& fw_ddb_entry->iscsi_name), 0, 224UL);
   }
   if ((unsigned long )sess->targetname != (unsigned long )((char *)0)) {
     {
     tmp___0 = strlen((char const   *)sess->targetname);
     _min1 = tmp___0;
     _min2 = 224UL;
-    __memcpy((void *)(& fw_ddb_entry->iscsi_name), (void const   *)sess->targetname,
+    memcpy((void *)(& fw_ddb_entry->iscsi_name), (void const   *)sess->targetname,
              _min1 < _min2 ? _min1 : _min2);
     }
   } else {
 
   }
   {
-  __memset((void *)(& fw_ddb_entry->ip_addr), 0, 16UL);
-  __memset((void *)(& fw_ddb_entry->tgt_addr), 0, 32UL);
+  memset((void *)(& fw_ddb_entry->ip_addr), 0, 16UL);
+  memset((void *)(& fw_ddb_entry->tgt_addr), 0, 32UL);
   fw_ddb_entry->options = 66U;
   }
   if ((unsigned int )dst_addr->sa_family == 2U) {
     {
     addr = (struct sockaddr_in *)dst_addr;
     ip = (char *)(& addr->sin_addr);
-    __memcpy((void *)(& fw_ddb_entry->ip_addr), (void const   *)ip, 4UL);
+    memcpy((void *)(& fw_ddb_entry->ip_addr), (void const   *)ip, 4UL);
     tmp___1 = __fswab16((int )addr->sin_port);
     fw_ddb_entry->port = tmp___1;
     }
@@ -50768,7 +50768,7 @@ int qla4xxx_set_param_ddbentry(struct scsi_qla_host *ha , struct ddb_entry *ddb_
     {
     addr6 = (struct sockaddr_in6 *)dst_addr;
     ip = (char *)(& addr6->sin6_addr);
-    __memcpy((void *)(& fw_ddb_entry->ip_addr), (void const   *)ip, 16UL);
+    memcpy((void *)(& fw_ddb_entry->ip_addr), (void const   *)ip, 16UL);
     tmp___2 = __fswab16((int )addr6->sin6_port);
     fw_ddb_entry->port = tmp___2;
     fw_ddb_entry->options = (uint16_t )((unsigned int )fw_ddb_entry->options | 256U);
@@ -50915,8 +50915,8 @@ int qla4xxx_get_mgmt_data(struct scsi_qla_host *ha , uint16_t fw_ddb_index , uin
   {
   {
   status = 0;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 30U;
   mbox_cmd[1] = (uint32_t )fw_ddb_index;
   mbox_cmd[2] = (unsigned int )stats_dma;
@@ -50949,8 +50949,8 @@ int qla4xxx_get_ip_state(struct scsi_qla_host *ha , uint32_t acb_idx , uint32_t 
   {
   {
   status = 0;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 145U;
   mbox_cmd[1] = acb_idx;
   mbox_cmd[2] = ip_idx;
@@ -50969,7 +50969,7 @@ int qla4xxx_get_ip_state(struct scsi_qla_host *ha , uint32_t acb_idx , uint32_t 
 
   }
   {
-  __memcpy((void *)sts, (void const   *)(& mbox_sts), 32UL);
+  memcpy((void *)sts, (void const   *)(& mbox_sts), 32UL);
   }
   return (status);
 }
@@ -50984,8 +50984,8 @@ int qla4xxx_get_nvram(struct scsi_qla_host *ha , dma_addr_t nvram_dma , uint32_t
   {
   {
   status = 0;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 120U;
   mbox_cmd[1] = (unsigned int )nvram_dma;
   mbox_cmd[2] = (unsigned int )(nvram_dma >> 32ULL);
@@ -51018,8 +51018,8 @@ int qla4xxx_set_nvram(struct scsi_qla_host *ha , dma_addr_t nvram_dma , uint32_t
   {
   {
   status = 0;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 121U;
   mbox_cmd[1] = (unsigned int )nvram_dma;
   mbox_cmd[2] = (unsigned int )(nvram_dma >> 32ULL);
@@ -51052,8 +51052,8 @@ int qla4xxx_restore_factory_defaults(struct scsi_qla_host *ha , uint32_t region 
   {
   {
   status = 0;
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 135U;
   mbox_cmd[3] = region;
   mbox_cmd[4] = field0;
@@ -51084,8 +51084,8 @@ int qla4_8xxx_set_param(struct scsi_qla_host *ha , int param )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 89U;
   }
   if (param == 512) {
@@ -51125,8 +51125,8 @@ int qla4_83xx_post_idc_ack(struct scsi_qla_host *ha )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 257U;
   mbox_cmd[1] = ha->idc_info.request_desc;
   mbox_cmd[2] = ha->idc_info.info1;
@@ -51178,7 +51178,7 @@ int qla4_84xx_config_acb(struct scsi_qla_host *ha , int acb_config )
 
   }
   {
-  __memset((void *)acb, 0, (size_t )acb_len);
+  memset((void *)acb, 0, (size_t )acb_len);
   }
   {
   if (acb_config == 0) {
@@ -51228,7 +51228,7 @@ int qla4_84xx_config_acb(struct scsi_qla_host *ha , int acb_config )
 
   }
   {
-  __memcpy((void *)ha->saved_acb, (void const   *)acb, (size_t )acb_len);
+  memcpy((void *)ha->saved_acb, (void const   *)acb, (size_t )acb_len);
   }
   goto ldv_65544;
   case_1: /* CIL Label */ ;
@@ -51243,7 +51243,7 @@ int qla4_84xx_config_acb(struct scsi_qla_host *ha , int acb_config )
 
   }
   {
-  __memcpy((void *)acb, (void const   *)ha->saved_acb, (size_t )acb_len);
+  memcpy((void *)acb, (void const   *)ha->saved_acb, (size_t )acb_len);
   rval = qla4xxx_set_acb(ha, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts), acb_dma);
   }
   if (rval != 0) {
@@ -51292,8 +51292,8 @@ int qla4_83xx_get_port_config(struct scsi_qla_host *ha , uint32_t *config )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 291U;
   status = qla4xxx_mailbox_command(ha, 8, 8, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
   }
@@ -51316,8 +51316,8 @@ int qla4_83xx_set_port_config(struct scsi_qla_host *ha , uint32_t *config )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 290U;
   mbox_cmd[1] = *config;
   status = qla4xxx_mailbox_command(ha, 8, 8, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
@@ -51612,7 +51612,7 @@ static int qla4xxx_get_req_pkt(struct scsi_qla_host *ha , struct queue_entry **q
   if (tmp != 0) {
     {
     *queue_entry = ha->request_ptr;
-    __memset((void *)*queue_entry, 0, 64UL);
+    memset((void *)*queue_entry, 0, 64UL);
     qla4xxx_advance_req_ring_ptr(ha);
     ha->req_q_count = (int )ha->req_q_count - (int )req_cnt;
     }
@@ -51892,13 +51892,13 @@ int qla4xxx_send_command_to_isp(struct scsi_qla_host *ha , struct srb *srb )
   }
   {
   cmd_entry = (struct command_t3_entry *)ha->request_ptr;
-  __memset((void *)cmd_entry, 0, 64UL);
+  memset((void *)cmd_entry, 0, 64UL);
   cmd_entry->hdr.entryType = 25U;
   cmd_entry->handle = index;
   cmd_entry->target = ddb_entry->fw_ddb_index;
   int_to_scsilun((cmd->device)->lun, & cmd_entry->lun);
   cmd_entry->ttlByteCnt = scsi_bufflen(cmd);
-  __memcpy((void *)(& cmd_entry->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
+  memcpy((void *)(& cmd_entry->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
   cmd_entry->dataSegCnt = tot_dsds;
   cmd_entry->hdr.entryCount = (uint8_t )req_cnt;
   cmd_entry->control_flags = 0U;
@@ -51986,7 +51986,7 @@ int qla4xxx_send_passthru0(struct iscsi_task *task )
   }
   {
   passthru_iocb = (struct passthru0 *)ha->request_ptr;
-  __memset((void *)passthru_iocb, 0, 64UL);
+  memset((void *)passthru_iocb, 0, 64UL);
   passthru_iocb->hdr.entryType = 58U;
   passthru_iocb->hdr.systemDefined = 1U;
   passthru_iocb->hdr.entryCount = task_data->iocb_req_cnt;
@@ -51996,7 +51996,7 @@ int qla4xxx_send_passthru0(struct iscsi_task *task )
   }
   if (task_data->req_len != 0U) {
     {
-    __memcpy(task_data->req_buffer + 48U, (void const   *)task->data, (size_t )task->data_count);
+    memcpy(task_data->req_buffer + 48U, (void const   *)task->data, (size_t )task->data_count);
     ctrl_flags = (uint16_t )((unsigned int )ctrl_flags | 512U);
     passthru_iocb->out_dsd.base.addrLow = (unsigned int )task_data->req_dma;
     passthru_iocb->out_dsd.base.addrHigh = (unsigned int )(task_data->req_dma >> 32ULL);
@@ -52097,7 +52097,7 @@ static int qla4xxx_send_mbox_iocb(struct scsi_qla_host *ha , struct mrb *mrb , u
   (mrb->mbox)->handle = index;
   (mrb->mbox)->hdr.entryType = 56U;
   (mrb->mbox)->hdr.entryCount = (uint8_t )mrb->iocb_cnt;
-  __memcpy((void *)(& (mrb->mbox)->in_mbox), (void const   *)in_mbox, 32UL);
+  memcpy((void *)(& (mrb->mbox)->in_mbox), (void const   *)in_mbox, 32UL);
   mrb->mbox_cmd = *in_mbox;
   __asm__  volatile   ("sfence": : : "memory");
   ha->iocb_cnt = (int )ha->iocb_cnt + (int )mrb->iocb_cnt;
@@ -52121,7 +52121,7 @@ int qla4xxx_ping_iocb(struct scsi_qla_host *ha , uint32_t options , uint32_t pay
   {
   mrb = (struct mrb *)0;
   rval = 0;
-  __memset((void *)(& in_mbox), 0, 32UL);
+  memset((void *)(& in_mbox), 0, 32UL);
   mrb = qla4xxx_get_new_mrb(ha);
   }
   if ((unsigned long )mrb == (unsigned long )((struct mrb *)0)) {
@@ -52141,10 +52141,10 @@ int qla4xxx_ping_iocb(struct scsi_qla_host *ha , uint32_t options , uint32_t pay
   {
   in_mbox[0] = 11U;
   in_mbox[1] = options;
-  __memcpy((void *)(& in_mbox) + 2U, (void const   *)ipaddr, 4UL);
-  __memcpy((void *)(& in_mbox) + 3U, (void const   *)ipaddr + 4U, 4UL);
-  __memcpy((void *)(& in_mbox) + 4U, (void const   *)ipaddr + 8U, 4UL);
-  __memcpy((void *)(& in_mbox) + 5U, (void const   *)ipaddr + 12U, 4UL);
+  memcpy((void *)(& in_mbox) + 2U, (void const   *)ipaddr, 4UL);
+  memcpy((void *)(& in_mbox) + 3U, (void const   *)ipaddr + 4U, 4UL);
+  memcpy((void *)(& in_mbox) + 4U, (void const   *)ipaddr + 8U, 4UL);
+  memcpy((void *)(& in_mbox) + 5U, (void const   *)ipaddr + 12U, 4UL);
   in_mbox[6] = payload_size;
   mrb->pid = pid;
   rval = qla4xxx_send_mbox_iocb(ha, mrb, (uint32_t *)(& in_mbox));
@@ -52387,7 +52387,7 @@ static void qla4xxx_copy_sense(struct scsi_qla_host *ha , struct status_entry *s
   {
   {
   cmd = srb->cmd;
-  __memset((void *)cmd->sense_buffer, 0, 96UL);
+  memset((void *)cmd->sense_buffer, 0, 96UL);
   sense_len = sts_entry->senseDataByteCnt;
   }
   if ((unsigned int )sense_len == 0U) {
@@ -52414,7 +52414,7 @@ static void qla4xxx_copy_sense(struct scsi_qla_host *ha , struct status_entry *s
   __min1___0 = sense_len;
   __min2___0 = 32U;
   sense_len = (uint16_t )((int )__min1___0 < (int )__min2___0 ? __min1___0 : __min2___0);
-  __memcpy((void *)cmd->sense_buffer, (void const   *)(& sts_entry->senseData), (size_t )sense_len);
+  memcpy((void *)cmd->sense_buffer, (void const   *)(& sts_entry->senseData), (size_t )sense_len);
   }
   if (ql4xextended_error_logging == 2) {
     {
@@ -52471,7 +52471,7 @@ static void qla4xxx_status_cont_entry(struct scsi_qla_host *ha , struct status_c
   __min1 = srb->req_sense_len;
   __min2 = 60U;
   sense_len = (uint16_t )((int )__min1 < (int )__min2 ? __min1 : __min2);
-  __memcpy((void *)srb->req_sense_ptr, (void const   *)(& sts_cont->ext_sense_data),
+  memcpy((void *)srb->req_sense_ptr, (void const   *)(& sts_cont->ext_sense_data),
            (size_t )sense_len);
   srb->req_sense_ptr = srb->req_sense_ptr + (unsigned long )sense_len;
   srb->req_sense_len = (int )srb->req_sense_len - (int )sense_len;
@@ -52864,7 +52864,7 @@ static void qla4xxx_passthru_status_entry(struct scsi_qla_host *ha , struct pass
   }
   {
   task_data = (struct ql4_task_data *)task->dd_data;
-  __memcpy((void *)(& task_data->sts), (void const   *)sts_entry, 64UL);
+  memcpy((void *)(& task_data->sts), (void const   *)sts_entry, 64UL);
   ha->iocb_cnt = (int )ha->iocb_cnt - (int )((uint16_t )task_data->iocb_req_cnt);
   queue_work(ha->task_wq, & task_data->task_work);
   }
@@ -53226,13 +53226,13 @@ static void qla4xxx_default_router_changed(struct scsi_qla_host *ha , uint32_t *
 
   {
   {
-  __memcpy((void *)(& ha->ip_config.ipv6_default_router_addr.in6_u.u6_addr32), (void const   *)mbox_sts + 2U,
+  memcpy((void *)(& ha->ip_config.ipv6_default_router_addr.in6_u.u6_addr32), (void const   *)mbox_sts + 2U,
            4UL);
-  __memcpy((void *)(& ha->ip_config.ipv6_default_router_addr.in6_u.u6_addr32) + 1U,
+  memcpy((void *)(& ha->ip_config.ipv6_default_router_addr.in6_u.u6_addr32) + 1U,
            (void const   *)mbox_sts + 3U, 4UL);
-  __memcpy((void *)(& ha->ip_config.ipv6_default_router_addr.in6_u.u6_addr32) + 2U,
+  memcpy((void *)(& ha->ip_config.ipv6_default_router_addr.in6_u.u6_addr32) + 2U,
            (void const   *)mbox_sts + 4U, 4UL);
-  __memcpy((void *)(& ha->ip_config.ipv6_default_router_addr.in6_u.u6_addr32) + 3U,
+  memcpy((void *)(& ha->ip_config.ipv6_default_router_addr.in6_u.u6_addr32) + 3U,
            (void const   *)mbox_sts + 5U, 4UL);
   }
   return;
@@ -58564,7 +58564,7 @@ static int qla4_8xxx_minidump_pex_dma_read(struct scsi_qla_host *ha , struct qla
 
   }
   {
-  __memcpy((void *)data_ptr, (void const   *)rdmem_buffer, (size_t )size);
+  memcpy((void *)data_ptr, (void const   *)rdmem_buffer, (size_t )size);
   data_ptr = data_ptr + (unsigned long )size;
   read_size = read_size + size;
   }
@@ -61843,8 +61843,8 @@ int qla4_8xxx_stop_firmware(struct scsi_qla_host *ha )
 
   {
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 20U;
   status = qla4xxx_mailbox_command(ha, 8, 1, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
   }
@@ -61935,9 +61935,9 @@ int qla4_8xxx_get_sys_info(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)sys_info, 0, 64UL);
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)sys_info, 0, 64UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 120U;
   mbox_cmd[1] = (unsigned int )sys_info_dma;
   mbox_cmd[2] = (unsigned int )(sys_info_dma >> 32ULL);
@@ -61988,14 +61988,14 @@ int qla4_8xxx_get_sys_info(struct scsi_qla_host *ha )
   ha->port_num = sys_info->port_num;
   _min1 = 6UL;
   _min2 = 6UL;
-  __memcpy((void *)(& ha->my_mac), (void const   *)(& sys_info->mac_addr), _min1 < _min2 ? _min1 : _min2);
+  memcpy((void *)(& ha->my_mac), (void const   *)(& sys_info->mac_addr), _min1 < _min2 ? _min1 : _min2);
   _min1___0 = 16UL;
   _min2___0 = 16UL;
-  __memcpy((void *)(& ha->serial_number), (void const   *)(& sys_info->serial_number),
+  memcpy((void *)(& ha->serial_number), (void const   *)(& sys_info->serial_number),
            _min1___0 < _min2___0 ? _min1___0 : _min2___0);
   _min1___1 = 16UL;
   _min2___1 = 16UL;
-  __memcpy((void *)(& ha->model_name), (void const   *)(& sys_info->board_id_str),
+  memcpy((void *)(& ha->model_name), (void const   *)(& sys_info->board_id_str),
            _min1___1 < _min2___1 ? _min1___1 : _min2___1);
   ha->phy_port_cnt = sys_info->phys_port_cnt;
   ha->phy_port_num = sys_info->port_num;
@@ -62033,8 +62033,8 @@ int qla4_8xxx_intr_enable(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 16U;
   mbox_cmd[1] = 1U;
   tmp = qla4xxx_mailbox_command(ha, 8, 1, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
@@ -62070,8 +62070,8 @@ int qla4_8xxx_intr_disable(struct scsi_qla_host *ha )
 
   }
   {
-  __memset((void *)(& mbox_cmd), 0, 32UL);
-  __memset((void *)(& mbox_sts), 0, 32UL);
+  memset((void *)(& mbox_cmd), 0, 32UL);
+  memset((void *)(& mbox_sts), 0, 32UL);
   mbox_cmd[0] = 16U;
   mbox_cmd[1] = 0U;
   tmp = qla4xxx_mailbox_command(ha, 8, 1, (uint32_t *)(& mbox_cmd), (uint32_t *)(& mbox_sts));
@@ -67440,7 +67440,7 @@ static void ql4xxx_execute_diag_cmd(struct bsg_job *bsg_job )
   }
   {
   bsg_reply->reply_payload_rcv_len = 0U;
-  __memcpy((void *)(& mbox_cmd), (void const   *)(& bsg_req->rqst_data.h_vendor.vendor_cmd) + 1U,
+  memcpy((void *)(& mbox_cmd), (void const   *)(& bsg_req->rqst_data.h_vendor.vendor_cmd) + 1U,
            32UL);
   }
   if (ql4xextended_error_logging == 2) {
@@ -67472,7 +67472,7 @@ static void ql4xxx_execute_diag_cmd(struct bsg_job *bsg_job )
   {
   bsg_job->reply_len = 40U;
   rsp_ptr = (uint8_t *)bsg_reply + 8UL;
-  __memcpy((void *)rsp_ptr, (void const   *)(& mbox_sts), 32UL);
+  memcpy((void *)rsp_ptr, (void const   *)(& mbox_sts), 32UL);
   }
   exit_diag_mem_test: ;
   if (ql4xextended_error_logging == 2) {
@@ -67801,7 +67801,7 @@ static void qla4xxx_execute_diag_loopback_cmd(struct bsg_job *bsg_job )
 
   }
   {
-  __memcpy((void *)(& mbox_cmd), (void const   *)(& bsg_req->rqst_data.h_vendor.vendor_cmd) + 1U,
+  memcpy((void *)(& mbox_cmd), (void const   *)(& bsg_req->rqst_data.h_vendor.vendor_cmd) + 1U,
            32UL);
   tmp___3 = is_qla8032(ha);
   }
@@ -67864,7 +67864,7 @@ static void qla4xxx_execute_diag_loopback_cmd(struct bsg_job *bsg_job )
   {
   bsg_job->reply_len = 40U;
   rsp_ptr = (uint8_t *)bsg_reply + 8UL;
-  __memcpy((void *)rsp_ptr, (void const   *)(& mbox_sts), 32UL);
+  memcpy((void *)rsp_ptr, (void const   *)(& mbox_sts), 32UL);
   }
   restore: 
   {

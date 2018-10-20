@@ -5280,8 +5280,8 @@ __inline static int __get_order(unsigned long size )
 }
 }
 extern void *memdup_user(void const   * , size_t  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -6925,7 +6925,7 @@ static ssize_t sg_read(struct file *filp , char *buf , size_t count , loff_t *pp
 
   }
   {
-  __memset((void *)old_hdr, 0, 36UL);
+  memset((void *)old_hdr, 0, 36UL);
   old_hdr->reply_len = (int )hp->timeout;
   old_hdr->pack_len = old_hdr->reply_len;
   old_hdr->pack_id = hp->pack_id;
@@ -6936,7 +6936,7 @@ static ssize_t sg_read(struct file *filp , char *buf , size_t count , loff_t *pp
   }
   if ((int )hp->masked_status & 1 || ((unsigned int )hp->driver_status & 8U) != 0U) {
     {
-    __memcpy((void *)(& old_hdr->sense_buffer), (void const   *)(& srp->sense_b),
+    memcpy((void *)(& old_hdr->sense_buffer), (void const   *)(& srp->sense_b),
              16UL);
     }
   } else {
@@ -9440,7 +9440,7 @@ static long sg_ioctl(struct file *filp , unsigned int cmd_in , unsigned long arg
     goto ldv_38526;
     ldv_38525: 
     {
-    __memset((void *)rinfo + (unsigned long )val, 0, 24UL);
+    memset((void *)rinfo + (unsigned long )val, 0, 24UL);
     }
     if ((unsigned long )srp != (unsigned long )((Sg_request *)0)) {
       (rinfo + (unsigned long )val)->req_state = (char )((unsigned int )((unsigned char )srp->done) + 1U);
@@ -10708,7 +10708,7 @@ static int sg_start_req(Sg_request *srp , unsigned char *cmd )
 
   }
   {
-  __memcpy((void *)rq->cmd, (void const   *)cmd, (size_t )hp->cmd_len);
+  memcpy((void *)rq->cmd, (void const   *)cmd, (size_t )hp->cmd_len);
   rq->cmd_len = (unsigned short )hp->cmd_len;
   srp->rq = rq;
   rq->end_io_data = (void *)srp;
@@ -11142,7 +11142,7 @@ static void sg_remove_scat(Sg_fd *sfp , Sg_scatter_hold *schp )
 
   }
   {
-  __memset((void *)schp, 0, 32UL);
+  memset((void *)schp, 0, 32UL);
   }
   return;
 }
@@ -11408,7 +11408,7 @@ static Sg_request *sg_add_request(Sg_fd *sfp )
   }
   if ((unsigned long )resp == (unsigned long )((Sg_request *)0)) {
     {
-    __memset((void *)rp, 0, 336UL);
+    memset((void *)rp, 0, 336UL);
     rp->parentfp = sfp;
     resp = rp;
     sfp->headrp = resp;
@@ -11436,7 +11436,7 @@ static Sg_request *sg_add_request(Sg_fd *sfp )
     ldv_38896: ;
     if (k <= 15) {
       {
-      __memset((void *)rp, 0, 336UL);
+      memset((void *)rp, 0, 336UL);
       rp->parentfp = sfp;
       }
       goto ldv_38900;

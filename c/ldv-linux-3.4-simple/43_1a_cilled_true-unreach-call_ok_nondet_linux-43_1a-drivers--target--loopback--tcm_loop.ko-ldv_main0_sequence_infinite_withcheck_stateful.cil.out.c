@@ -6637,7 +6637,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
@@ -9408,7 +9408,7 @@ static int tcm_loop_queue_status(struct se_cmd *se_cmd )
           __cil_tmp46 = __cil_tmp45 + 64;
           __cil_tmp47 = *((void **)__cil_tmp46);
           __cil_tmp48 = (void const   *)__cil_tmp47;
-          __ret = __memcpy(__cil_tmp44, __cil_tmp48, __len);
+          __ret = memcpy(__cil_tmp44, __cil_tmp48, __len);
           }
         } else {
           {

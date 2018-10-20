@@ -4617,7 +4617,7 @@ __inline static int test_and_clear_bit(int nr , unsigned long volatile   *addr )
 }
 extern int printk(char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -5300,7 +5300,7 @@ static void znet_set_multicast_list(struct net_device *dev )
   *tmp___0 = 16U;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)znet->tx_cur, (void const   *)cfblk, __len);
+    __ret = memcpy((void *)znet->tx_cur, (void const   *)cfblk, __len);
   } else {
     __ret = __builtin_memcpy((void *)znet->tx_cur, (void const   *)cfblk, __len);
   }
@@ -5826,7 +5826,7 @@ static void znet_rx(struct net_device *dev )
   if ((int )cur_frame_end_offset <= 3) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)znet->rx_end, (void const   *)znet->rx_start, __len);
+      __ret = memcpy((void *)znet->rx_end, (void const   *)znet->rx_start, __len);
     } else {
       __ret = __builtin_memcpy((void *)znet->rx_end, (void const   *)znet->rx_start,
                                __len);
@@ -6092,7 +6092,7 @@ static void hardware_init(struct net_device *dev )
   *tmp___4 = 6U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)znet->tx_cur, (void const   *)dev->dev_addr, __len);
+    __ret = memcpy((void *)znet->tx_cur, (void const   *)dev->dev_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)znet->tx_cur, (void const   *)dev->dev_addr,
                              __len);

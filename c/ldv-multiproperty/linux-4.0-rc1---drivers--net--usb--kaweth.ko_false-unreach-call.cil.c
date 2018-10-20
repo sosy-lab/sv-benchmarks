@@ -6439,7 +6439,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
@@ -6744,7 +6744,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const   
 
   {
   {
-  __memcpy((void *)skb->data, from, (size_t )len);
+  memcpy((void *)skb->data, from, (size_t )len);
   }
   return;
 }
@@ -7394,7 +7394,7 @@ static int kaweth_download_firmware(struct kaweth_device *kaweth , char const   
   }
   {
   data_len = (int )fw->size;
-  __memcpy((void *)kaweth->firmware_buf, (void const   *)fw->data, fw->size);
+  memcpy((void *)kaweth->firmware_buf, (void const   *)fw->data, fw->size);
   release_firmware(fw);
   *(kaweth->firmware_buf + 2UL) = (unsigned int )((__u8 )data_len) + 249U;
   *(kaweth->firmware_buf + 3UL) = (__u8 )(data_len >> 8);
@@ -8764,8 +8764,8 @@ static int kaweth_probe(struct usb_interface *intf , struct usb_device_id  const
 
   }
   {
-  __memcpy((void *)(& netdev->broadcast), (void const   *)(& bcast_addr), 6UL);
-  __memcpy((void *)netdev->dev_addr, (void const   *)(& kaweth->configuration.hw_addr),
+  memcpy((void *)(& netdev->broadcast), (void const   *)(& bcast_addr), 6UL);
+  memcpy((void *)netdev->dev_addr, (void const   *)(& kaweth->configuration.hw_addr),
            6UL);
   netdev->netdev_ops = & kaweth_netdev_ops;
   netdev->watchdog_timeo = 1250;

@@ -763,7 +763,7 @@ __inline static __u16 __fswab16(__u16 val )
 extern int printk(char const   *  , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static long IS_ERR(void const   *ptr ) 
 { long tmp ;
@@ -1766,7 +1766,7 @@ static void *mppe_alloc(unsigned char *options , int optlen )
     __cil_tmp46 = (void *)__cil_tmp45;
     __cil_tmp47 = (void const   *)options;
     __cil_tmp48 = __cil_tmp47 + 6U;
-    __ret = __memcpy(__cil_tmp46, __cil_tmp48, __len);
+    __ret = memcpy(__cil_tmp46, __cil_tmp48, __len);
     }
   } else {
     {
@@ -1790,7 +1790,7 @@ static void *mppe_alloc(unsigned char *options , int optlen )
     __cil_tmp60 = __cil_tmp59 + 24;
     __cil_tmp61 = (unsigned char (*)[16U])__cil_tmp60;
     __cil_tmp62 = (void const   *)__cil_tmp61;
-    __ret___0 = __memcpy(__cil_tmp58, __cil_tmp62, __len___0);
+    __ret___0 = memcpy(__cil_tmp58, __cil_tmp62, __len___0);
     }
   } else {
     {

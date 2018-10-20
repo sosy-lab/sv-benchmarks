@@ -4085,7 +4085,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -4782,7 +4782,7 @@ void sn9c102_attach_sensor(struct sn9c102_device *cam , struct sn9c102_sensor  c
   {
   __len = 7472UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cam->sensor), (void const   *)sensor, __len);
+    __ret = memcpy((void *)(& cam->sensor), (void const   *)sensor, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cam->sensor), (void const   *)sensor, __len);
   }
@@ -6149,7 +6149,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
   pos = (u8 *)f->bufmem;
   __len = 589UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)pos, (void const   *)(& jpeg_header), __len);
+    __ret = memcpy((void *)pos, (void const   *)(& jpeg_header), __len);
   } else {
     __ret = __builtin_memcpy((void *)pos, (void const   *)(& jpeg_header), __len);
   }
@@ -6158,7 +6158,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
   if (cam->compression.quality == 0) {
     __len___0 = 64UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)pos + 7U, (void const   *)(& SN9C102_Y_QTABLE0),
+      __ret___0 = memcpy((void *)pos + 7U, (void const   *)(& SN9C102_Y_QTABLE0),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)pos + 7U, (void const   *)(& SN9C102_Y_QTABLE0),
@@ -6166,7 +6166,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
     }
     __len___1 = 64UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)pos + 72U, (void const   *)(& SN9C102_UV_QTABLE0),
+      __ret___1 = memcpy((void *)pos + 72U, (void const   *)(& SN9C102_UV_QTABLE0),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)pos + 72U, (void const   *)(& SN9C102_UV_QTABLE0),
@@ -6176,7 +6176,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
   if (cam->compression.quality == 1) {
     __len___2 = 64UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)pos + 7U, (void const   *)(& SN9C102_Y_QTABLE1),
+      __ret___2 = memcpy((void *)pos + 7U, (void const   *)(& SN9C102_Y_QTABLE1),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)pos + 7U, (void const   *)(& SN9C102_Y_QTABLE1),
@@ -6184,7 +6184,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
     }
     __len___3 = 64UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)pos + 72U, (void const   *)(& SN9C102_UV_QTABLE1),
+      __ret___3 = memcpy((void *)pos + 72U, (void const   *)(& SN9C102_UV_QTABLE1),
                            __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)pos + 72U, (void const   *)(& SN9C102_UV_QTABLE1),
@@ -7808,14 +7808,14 @@ static int sn9c102_init(struct sn9c102_device *cam )
     cam->nreadbuffers = 2U;
     __len = 3604UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& s->_qctrl), (void const   *)(& s->qctrl), __len);
+      __ret = memcpy((void *)(& s->_qctrl), (void const   *)(& s->qctrl), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& s->_qctrl), (void const   *)(& s->qctrl),
                                __len);
     }
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& s->_rect), (void const   *)(& s->cropcap.defrect),
+      __ret___0 = memcpy((void *)(& s->_rect), (void const   *)(& s->cropcap.defrect),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& s->_rect), (void const   *)(& s->cropcap.defrect),
@@ -8767,7 +8767,7 @@ static int sn9c102_vidioc_query_ctrl(struct sn9c102_device *cam , void *arg )
   if (qc.id != 0U && qc.id == s->qctrl[(int )i].id) {
     __len = 68UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& qc), (void const   *)(& s->qctrl) + (unsigned long )i,
+      __ret = memcpy((void *)(& qc), (void const   *)(& s->qctrl) + (unsigned long )i,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& qc), (void const   *)(& s->qctrl) + (unsigned long )i,
@@ -8953,7 +8953,7 @@ static int sn9c102_vidioc_g_crop(struct sn9c102_device *cam , void *arg )
   crop.c.height = 0;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& crop.c), (void const   *)(& s->_rect), __len);
+    __ret = memcpy((void *)(& crop.c), (void const   *)(& s->_rect), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& crop.c), (void const   *)(& s->_rect), __len);
   }
@@ -9127,7 +9127,7 @@ static int sn9c102_vidioc_s_crop(struct sn9c102_device *cam , void *arg )
   s->pix_format.height = (__u32 )(rect->height / (int )scale);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& s->_rect), (void const   *)rect, __len);
+    __ret = memcpy((void *)(& s->_rect), (void const   *)rect, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& s->_rect), (void const   *)rect, __len);
   }
@@ -9296,7 +9296,7 @@ static int sn9c102_vidioc_g_fmt(struct sn9c102_device *cam , void *arg )
   pfmt->field = 1U;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& format.fmt.pix), (void const   *)pfmt, __len);
+    __ret = memcpy((void *)(& format.fmt.pix), (void const   *)pfmt, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& format.fmt.pix), (void const   *)pfmt, __len);
   }
@@ -9366,7 +9366,7 @@ static int sn9c102_vidioc_try_s_fmt(struct sn9c102_device *cam , unsigned int cm
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rect), (void const   *)(& s->_rect), __len);
+    __ret = memcpy((void *)(& rect), (void const   *)(& s->_rect), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rect), (void const   *)(& s->_rect), __len);
   }
@@ -9521,13 +9521,13 @@ static int sn9c102_vidioc_try_s_fmt(struct sn9c102_device *cam , unsigned int cm
   }
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)pfmt, (void const   *)pix, __len___0);
+    __ret___0 = memcpy((void *)pfmt, (void const   *)pix, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)pfmt, (void const   *)pix, __len___0);
   }
   __len___1 = 16UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& s->_rect), (void const   *)(& rect), __len___1);
+    __ret___1 = memcpy((void *)(& s->_rect), (void const   *)(& rect), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& s->_rect), (void const   *)(& rect), __len___1);
   }

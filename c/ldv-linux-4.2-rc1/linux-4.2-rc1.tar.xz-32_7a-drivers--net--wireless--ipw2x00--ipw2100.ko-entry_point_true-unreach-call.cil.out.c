@@ -7470,7 +7470,7 @@ __inline static int list_empty(struct list_head  const  *head )
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -12666,7 +12666,7 @@ static void isr_rx_monitor(struct ipw2100_priv *priv , int i , struct libipw_rx_
 
   }
   pci_unmap_single(priv->pci_dev, packet->dma_addr, 2340UL, 2);
-  __memmove((void *)(packet->skb)->data + 9U, (void const   *)(packet->skb)->data,
+  memmove((void *)(packet->skb)->data + 9U, (void const   *)(packet->skb)->data,
             (size_t )status->frame_size);
   ipw_rt = (struct ipw_rt_hdr *)(packet->skb)->data;
   ipw_rt->rt_hdr.it_version = 0U;

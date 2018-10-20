@@ -5646,7 +5646,7 @@ int ldv_pskb_expand_head_18(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
   return (tmp);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 unsigned long ldv___get_free_pages_26(gfp_t ldv_func_arg1 , unsigned int ldv_func_arg2 ) ;
 extern void kfree(void const   * ) ;
 void *ldv_kmem_cache_alloc_31(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -5864,7 +5864,7 @@ struct dvb_frontend *vp7045_fe_attach(struct dvb_usb_device *d )
   s->d = d;
   __len = 752UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops), __len);
+    __ret = memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops),
                              __len);

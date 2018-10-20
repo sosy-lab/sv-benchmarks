@@ -4096,7 +4096,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void *to , void    *from , size_t len ) ;
+extern void *memcpy(void *to , void    *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern char *strcpy(char *dest , char    *src ) ;
 extern char *strcat(char *dest , char    *src ) ;
@@ -6853,7 +6853,7 @@ static int cpia2_queryctrl(struct file *file , void *fh , struct v4l2_queryctrl 
         __cil_tmp19 = (struct v4l2_queryctrl *)__cil_tmp18;
         __cil_tmp20 = __cil_tmp19 + i;
         __cil_tmp21 = (void    *)__cil_tmp20;
-        __ret = __memcpy(__cil_tmp16, __cil_tmp21, __len);
+        __ret = memcpy(__cil_tmp16, __cil_tmp21, __len);
         }
       } else {
         {
@@ -10269,7 +10269,7 @@ int cpia2_register_camera(struct camera_data *cam )
     __cil_tmp12 = *((struct video_device **)__cil_tmp11);
     __cil_tmp13 = (void *)__cil_tmp12;
     __cil_tmp14 = (void    *)(& cpia2_template);
-    __ret = __memcpy(__cil_tmp13, __cil_tmp14, __len);
+    __ret = memcpy(__cil_tmp13, __cil_tmp14, __len);
     }
   } else {
     {

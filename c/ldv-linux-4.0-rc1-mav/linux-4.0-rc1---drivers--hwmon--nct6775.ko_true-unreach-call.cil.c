@@ -4305,7 +4305,7 @@ __inline static int kstrtol(char const   *s , unsigned int base , long *res )
 }
 extern int sprintf(char * , char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 __inline static void slow_down_io(void) 
 { 
@@ -10510,7 +10510,7 @@ static int sensors_nct6775_init(void)
 
   }
   {
-  __memset((void *)(& res), 0, 56UL);
+  memset((void *)(& res), 0, 56UL);
   res.name = "nct6775";
   res.start = (resource_size_t )(address + 5);
   res.end = (resource_size_t )(address + 6);

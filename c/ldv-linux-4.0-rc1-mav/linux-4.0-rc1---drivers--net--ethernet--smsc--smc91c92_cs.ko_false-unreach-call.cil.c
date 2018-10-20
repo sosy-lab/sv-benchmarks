@@ -6798,7 +6798,7 @@ extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char 
                               , ...) ;
 extern void __dynamic_netdev_dbg(struct _ddebug * , struct net_device  const  * ,
                                  char const   *  , ...) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -9700,7 +9700,7 @@ static void set_rx_mode(struct net_device *dev )
   ioaddr = (unsigned int )dev->base_addr;
   tmp = netdev_priv((struct net_device  const  *)dev);
   smc = (struct smc_private *)tmp;
-  __memset((void *)(& multicast_table), 0, 8UL);
+  memset((void *)(& multicast_table), 0, 8UL);
   }
   if ((dev->flags & 256U) != 0U) {
     rx_cfg_setting = 774U;

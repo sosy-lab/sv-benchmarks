@@ -7782,8 +7782,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -8712,7 +8712,7 @@ __inline static void ieee80211_tx_info_clear_status(struct ieee80211_tx_info *in
 
   }
   {
-  __memset((void *)(& info->__annonCompField93.status.ampdu_ack_len), 0, 24UL);
+  memset((void *)(& info->__annonCompField93.status.ampdu_ack_len), 0, 24UL);
   }
   return;
 }
@@ -8734,7 +8734,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
 
   {
   {
-  __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, 6UL);
+  memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, 6UL);
   }
   return;
 }
@@ -9219,7 +9219,7 @@ static void rtl8180_handle_rx(struct ieee80211_hw *dev )
     }
     {
     tmp___4 = IEEE80211_SKB_RXCB(skb);
-    __memcpy((void *)tmp___4, (void const   *)(& rx_status), 40UL);
+    memcpy((void *)tmp___4, (void const   *)(& rx_status), 40UL);
     ieee80211_rx_irqsafe(dev, skb);
     skb = new_skb;
     priv->rx_buf[priv->rx_idx] = skb;
@@ -11276,8 +11276,8 @@ static int rtl8180_probe(struct pci_dev *pdev , struct pci_device_id  const  *id
 
   }
   {
-  __memcpy((void *)(& priv->channels), (void const   *)(& rtl818x_channels), 896UL);
-  __memcpy((void *)(& priv->rates), (void const   *)(& rtl818x_rates), 144UL);
+  memcpy((void *)(& priv->channels), (void const   *)(& rtl818x_channels), 896UL);
+  memcpy((void *)(& priv->rates), (void const   *)(& rtl818x_rates), 144UL);
   priv->band.band = 0;
   priv->band.channels = (struct ieee80211_channel *)(& priv->channels);
   priv->band.n_channels = 14;

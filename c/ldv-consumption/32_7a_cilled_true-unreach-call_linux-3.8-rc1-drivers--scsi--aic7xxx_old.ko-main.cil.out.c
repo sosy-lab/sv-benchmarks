@@ -4315,7 +4315,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -8884,7 +8884,7 @@ static void aic7xxx_handle_seqint(struct aic7xxx_host *p , unsigned char intstat
     if (((unsigned int )scb->flags & 8U) == 0U) {
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)scb->sense_cmd, (void const   *)(& generic_sense),
+        __ret = memcpy((void *)scb->sense_cmd, (void const   *)(& generic_sense),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)scb->sense_cmd, (void const   *)(& generic_sense),
@@ -13013,7 +13013,7 @@ static void aic7xxx_load_seeprom(struct aic7xxx_host *p , unsigned char *sxfrctl
     }
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& p->sc), (void const   *)sc, __len);
+      __ret = memcpy((void *)(& p->sc), (void const   *)sc, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& p->sc), (void const   *)sc, __len);
     }

@@ -4763,7 +4763,7 @@ struct cx8802_dev {
 };
 typedef int ldv_func_ret_type___0;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
 
@@ -6030,7 +6030,7 @@ int cx8802_register_driver(struct cx8802_driver *drv )
   drv->request_release = & cx8802_request_release;
   __len = 96UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)driver, (void const   *)drv, __len);
+    __ret = memcpy((void *)driver, (void const   *)drv, __len);
   } else {
     __ret = __builtin_memcpy((void *)driver, (void const   *)drv, __len);
   }

@@ -5580,7 +5580,7 @@ __inline static void __clear_bit(int nr , unsigned long volatile   *addr )
 }
 extern void warn_slowpath(char const   * , int const    , char const   *  , ...) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static int hlist_unhashed(struct hlist_node  const  *h ) 
 { 
 
@@ -6417,7 +6417,7 @@ static int mISDN_sock_recvmsg(struct kiocb *iocb , struct socket *sock , struct 
   }
   if (______r___8 != 0) {
     tmp = skb_push(skb, 8U);
-    __ret = __memcpy((void *)tmp, (void const   *)(& skb->cb), __len);
+    __ret = memcpy((void *)tmp, (void const   *)(& skb->cb), __len);
   } else {
     tmp___0 = skb_push(skb, 8U);
     __ret = __builtin_memcpy((void *)tmp___0, (void const   *)(& skb->cb), __len);
@@ -6599,7 +6599,7 @@ static int mISDN_sock_sendmsg(struct kiocb *iocb , struct socket *sock , struct 
     ______f___6.ldv_806.ldv_805.miss = ______f___6.ldv_806.ldv_805.miss + 1UL;
   }
   if (______r___6 != 0) {
-    __ret = __memcpy((void *)(& skb->cb), (void const   *)skb->data, __len);
+    __ret = memcpy((void *)(& skb->cb), (void const   *)skb->data, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& skb->cb), (void const   *)skb->data, __len);
   }
@@ -7254,7 +7254,7 @@ static int data_sock_ioctl(struct socket *sock , unsigned int cmd , unsigned lon
       ______f___2.ldv_806.ldv_805.miss = ______f___2.ldv_806.ldv_805.miss + 1UL;
     }
     if (______r___2 != 0) {
-      __ret = __memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
+      __ret = memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
@@ -8266,7 +8266,7 @@ static int base_sock_ioctl(struct socket *sock , unsigned int cmd , unsigned lon
       ______f___2.ldv_806.ldv_805.miss = ______f___2.ldv_806.ldv_805.miss + 1UL;
     }
     if (______r___2 != 0) {
-      __ret = __memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
+      __ret = memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),

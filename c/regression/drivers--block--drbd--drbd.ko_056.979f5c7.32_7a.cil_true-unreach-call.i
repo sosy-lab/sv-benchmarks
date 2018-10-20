@@ -13185,7 +13185,7 @@ __inline static __u64 __fswab64(__u64 val )
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -19837,7 +19837,7 @@ static int receive_bitmap(struct drbd_conf *mdev , struct p_header *h )
     p = (struct p_compressed_bm *)buffer;
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)p, (void const   *)h, __len);
+      __ret = memcpy((void *)p, (void const   *)h, __len);
     } else {
       __ret = __builtin_memcpy((void *)p, (void const   *)h, __len);
     }
@@ -24505,7 +24505,7 @@ int drbd_md_sync_page_io(struct drbd_conf *mdev , struct drbd_backing_dev *bdev 
       }
       __len = 512UL;
       if (__len > 63UL) {
-        __ret = __memcpy(hp + (unsigned long )(offset * 512), (void const   *)p, __len);
+        __ret = memcpy(hp + (unsigned long )(offset * 512), (void const   *)p, __len);
       } else {
         __ret = __builtin_memcpy(hp + (unsigned long )(offset * 512), (void const   *)p,
                                  __len);
@@ -24557,7 +24557,7 @@ int drbd_md_sync_page_io(struct drbd_conf *mdev , struct drbd_backing_dev *bdev 
     hp___0 = tmp___23;
     __len___0 = 512UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy(p___0, (void const   *)hp___0 + (unsigned long )(offset * 512),
+      __ret___0 = memcpy(p___0, (void const   *)hp___0 + (unsigned long )(offset * 512),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy(p___0, (void const   *)hp___0 + (unsigned long )(offset * 512),
@@ -40284,7 +40284,7 @@ static int drbd_nl_syncer_conf(struct drbd_conf *mdev , struct drbd_nl_cfg_req *
   } else {
     __len = 188UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& sc), (void const   *)(& mdev->sync_conf), __len);
+      __ret = memcpy((void *)(& sc), (void const   *)(& mdev->sync_conf), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& sc), (void const   *)(& mdev->sync_conf),
                                __len);

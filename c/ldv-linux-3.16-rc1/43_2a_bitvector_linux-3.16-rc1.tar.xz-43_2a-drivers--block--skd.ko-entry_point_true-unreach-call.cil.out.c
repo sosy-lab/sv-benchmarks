@@ -4481,7 +4481,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -7841,7 +7841,7 @@ static int skd_sg_io_send_fitmsg(struct skd_device *skdev , struct skd_sg_io *sk
   scsi_req->hdr.sg_list_len_bytes = tmp___0;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& scsi_req->cdb), (void const   *)(& sksgio->cdb), __len);
+    __ret = memcpy((void *)(& scsi_req->cdb), (void const   *)(& sksgio->cdb), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& scsi_req->cdb), (void const   *)(& sksgio->cdb),
                              __len);

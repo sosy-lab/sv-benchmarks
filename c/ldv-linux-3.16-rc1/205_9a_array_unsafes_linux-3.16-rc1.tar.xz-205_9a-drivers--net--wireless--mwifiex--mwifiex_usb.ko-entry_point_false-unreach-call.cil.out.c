@@ -7144,7 +7144,7 @@ extern int printk(char const   *  , ...) ;
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
@@ -8854,7 +8854,7 @@ static int mwifiex_prog_fw_w_helper(struct mwifiex_adapter *adapter , struct mwi
   } else {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& fwdata->fw_hdr), (void const   *)firmware + (unsigned long )tlen,
+      __ret = memcpy((void *)(& fwdata->fw_hdr), (void const   *)firmware + (unsigned long )tlen,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& fwdata->fw_hdr), (void const   *)firmware + (unsigned long )tlen,
@@ -8893,7 +8893,7 @@ static int mwifiex_prog_fw_w_helper(struct mwifiex_adapter *adapter , struct mwi
   }
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& sync_fw), (void const   *)recv_buff, __len___1);
+    __ret___1 = memcpy((void *)(& sync_fw), (void const   *)recv_buff, __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& sync_fw), (void const   *)recv_buff, __len___1);
   }

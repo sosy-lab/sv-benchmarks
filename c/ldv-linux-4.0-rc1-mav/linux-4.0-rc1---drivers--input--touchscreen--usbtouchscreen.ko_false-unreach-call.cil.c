@@ -4345,8 +4345,8 @@ extern int printk(char const   *  , ...) ;
 extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                               , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
@@ -5639,7 +5639,7 @@ static int nexio_init(struct usbtouch_usb *usbtouch )
 
   }
   {
-  __memcpy((void *)buf, (void const   *)(& nexio_init_pkt), 4UL);
+  memcpy((void *)buf, (void const   *)(& nexio_init_pkt), 4UL);
   tmp___4 = __create_pipe(dev, (unsigned int )output_ep);
   ret = usb_bulk_msg(dev, tmp___4 | 3221225472U, (void *)buf, 4, & actual_len, 5000);
   }
@@ -5652,7 +5652,7 @@ static int nexio_init(struct usbtouch_usb *usbtouch )
   goto ldv_30163;
   ldv_30162: 
   {
-  __memset((void *)buf, 0, 1024UL);
+  memset((void *)buf, 0, 1024UL);
   tmp___5 = __create_pipe(dev, (unsigned int )input_ep);
   ret = usb_bulk_msg(dev, tmp___5 | 3221225600U, (void *)buf, 1024, & actual_len,
                      5000);
@@ -5990,7 +5990,7 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
 
       }
       {
-      __memcpy((void *)usbtouch->buffer + (unsigned long )usbtouch->buf_len, (void const   *)pkt,
+      memcpy((void *)usbtouch->buffer + (unsigned long )usbtouch->buf_len, (void const   *)pkt,
                (size_t )append);
       usbtouch->buf_len = usbtouch->buf_len + append;
       pkt_len = (*((usbtouch->type)->get_pkt_len))(usbtouch->buffer, usbtouch->buf_len);
@@ -6010,7 +6010,7 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
 
     }
     {
-    __memcpy((void *)usbtouch->buffer + (unsigned long )usbtouch->buf_len, (void const   *)pkt,
+    memcpy((void *)usbtouch->buffer + (unsigned long )usbtouch->buf_len, (void const   *)pkt,
              (size_t )tmp);
     usbtouch_process_pkt(usbtouch, usbtouch->buffer, pkt_len);
     buffer = pkt + (unsigned long )tmp;
@@ -6046,7 +6046,7 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
       }
     } else {
       {
-      __memcpy((void *)usbtouch->buffer, (void const   *)buffer + (unsigned long )pos,
+      memcpy((void *)usbtouch->buffer, (void const   *)buffer + (unsigned long )pos,
                (size_t )(buf_len - pos));
       usbtouch->buf_len = buf_len - pos;
       }
@@ -6054,7 +6054,7 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
     }
   } else {
     {
-    __memcpy((void *)usbtouch->buffer, (void const   *)buffer + (unsigned long )pos,
+    memcpy((void *)usbtouch->buffer, (void const   *)buffer + (unsigned long )pos,
              (size_t )(buf_len - pos));
     usbtouch->buf_len = buf_len - pos;
     }

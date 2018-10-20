@@ -6389,8 +6389,8 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 __inline static void arch_local_irq_disable(void) 
 { 
@@ -7908,7 +7908,7 @@ static void complete_transaction(struct fw_card *card , int rcode , void *payloa
   }
   if (rcode == 0) {
     {
-    __memcpy((void *)(& rsp->data), (void const   *)payload, (size_t )rsp->length);
+    memcpy((void *)(& rsp->data), (void const   *)payload, (size_t )rsp->length);
     }
   } else {
 
@@ -8545,7 +8545,7 @@ static void iso_callback(struct fw_iso_context *context , u32 cycle , size_t hea
   e->interrupt.closure = client->iso_closure;
   e->interrupt.cycle = cycle;
   e->interrupt.header_length = (__u32 )header_length;
-  __memcpy((void *)(& e->interrupt.header), (void const   *)header, header_length);
+  memcpy((void *)(& e->interrupt.header), (void const   *)header, header_length);
   queue_event(client, & e->event, (void *)(& e->interrupt), header_length + 24UL,
               (void *)0, 0UL);
   }
@@ -9647,7 +9647,7 @@ static int dispatch_ioctl(struct client *client , unsigned int cmd , void *arg )
 
   }
   {
-  __memset((void *)(& buffer), 0, 40UL);
+  memset((void *)(& buffer), 0, 40UL);
   }
   if ((cmd & 1073741824U) != 0U) {
     {
@@ -11806,7 +11806,7 @@ static ssize_t config_rom_show(struct device *dev , struct device_attribute *att
   device = tmp;
   down_read(& fw_device_rwsem);
   length = device->config_rom_length * 4UL;
-  __memcpy((void *)buf, (void const   *)device->config_rom, length);
+  memcpy((void *)buf, (void const   *)device->config_rom, length);
   up_read(& fw_device_rwsem);
   }
   return ((ssize_t )length);
@@ -12046,7 +12046,7 @@ static int read_config_rom(struct fw_device *device , int generation )
   }
   {
   stack = rom + 256UL;
-  __memset((void *)rom, 0, 1024UL);
+  memset((void *)rom, 0, 1024UL);
   device->max_speed = 0U;
   i = 0;
   }
@@ -15754,7 +15754,7 @@ static void transaction_callback(struct fw_card *card , int rcode , void *payloa
   d = (struct transaction_callback_data *)data;
   if (rcode == 0) {
     {
-    __memcpy(d->payload, (void const   *)payload, length);
+    memcpy(d->payload, (void const   *)payload, length);
     }
   } else {
 
@@ -16426,13 +16426,13 @@ static struct fw_request *allocate_request(struct fw_card *card , struct fw_pack
   }
   if ((unsigned long )data != (unsigned long )((u32 *)0U)) {
     {
-    __memcpy((void *)(& request->data), (void const   *)data, (size_t )length);
+    memcpy((void *)(& request->data), (void const   *)data, (size_t )length);
     }
   } else {
 
   }
   {
-  __memcpy((void *)(& request->request_header), (void const   *)(& p->header), 16UL);
+  memcpy((void *)(& request->request_header), (void const   *)(& p->header), 16UL);
   }
   return (request);
 }
@@ -16933,7 +16933,7 @@ static void handle_topology_map(struct fw_card *card , struct fw_request *reques
   }
   {
   start = (int )((offset - (unsigned long long )topology_map_region.start) / 4ULL);
-  __memcpy(payload, (void const   *)(& card->topology_map) + (unsigned long )start,
+  memcpy(payload, (void const   *)(& card->topology_map) + (unsigned long )start,
            length);
   fw_send_response(card, request, 0);
   }

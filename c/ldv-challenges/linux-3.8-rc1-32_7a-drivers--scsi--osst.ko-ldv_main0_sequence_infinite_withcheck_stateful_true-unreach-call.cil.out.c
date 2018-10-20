@@ -4238,7 +4238,7 @@ __inline static int __get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -4974,7 +4974,7 @@ static struct osst_request *osst_do_scsi(struct osst_request *SRpnt , struct oss
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
+    __ret = memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
   }
@@ -5057,7 +5057,7 @@ static void osst_init_aux(struct osst_tape *STp , int frame_type , int frame_seq
   aux->format_id = 0U;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& aux->application_sig), (void const   *)"LIN4", __len);
+    __ret = memcpy((void *)(& aux->application_sig), (void const   *)"LIN4", __len);
   } else {
     __ret = __builtin_memcpy((void *)(& aux->application_sig), (void const   *)"LIN4",
                              __len);
@@ -6857,7 +6857,7 @@ static int osst_write_filler(struct osst_tape *STp , struct osst_request **aSRpn
   ldv_32494: 
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(STp->buffer)->b_data, (void const   *)"Filler", __len);
+    __ret = memcpy((void *)(STp->buffer)->b_data, (void const   *)"Filler", __len);
   } else {
     __ret = __builtin_memcpy((void *)(STp->buffer)->b_data, (void const   *)"Filler",
                              __len);
@@ -7020,7 +7020,7 @@ static int osst_write_header(struct osst_tape *STp , struct osst_request **aSRpn
   } else {
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& STp->application_sig), (void const   *)"LIN4", __len);
+      __ret = memcpy((void *)(& STp->application_sig), (void const   *)"LIN4", __len);
     } else {
       __ret = __builtin_memcpy((void *)(& STp->application_sig), (void const   *)"LIN4",
                                __len);
@@ -7197,7 +7197,7 @@ static int __osst_analyze_headers(struct osst_tape *STp , struct osst_request **
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& id_string), (void const   *)(& aux->application_sig),
+    __ret = memcpy((void *)(& id_string), (void const   *)(& aux->application_sig),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& id_string), (void const   *)(& aux->application_sig),
@@ -7225,7 +7225,7 @@ static int __osst_analyze_headers(struct osst_tape *STp , struct osst_request **
   if (STp->linux_media_version < linux_media_version) {
     __len___0 = 5UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& STp->application_sig), (void const   *)(& id_string),
+      __ret___0 = memcpy((void *)(& STp->application_sig), (void const   *)(& id_string),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& STp->application_sig), (void const   *)(& id_string),
@@ -7272,7 +7272,7 @@ static int __osst_analyze_headers(struct osst_tape *STp , struct osst_request **
     if ((unsigned int )header->minor_rev <= 3U && STp->linux_media_version == 4) {
       __len___1 = 4096UL;
       if (__len___1 > 63UL) {
-        __ret___1 = __memcpy((void *)(& header->dat_fm_tab.fm_tab_ent), (void const   *)(& header->old_filemark_list),
+        __ret___1 = memcpy((void *)(& header->dat_fm_tab.fm_tab_ent), (void const   *)(& header->old_filemark_list),
                              __len___1);
       } else {
         __ret___1 = __builtin_memcpy((void *)(& header->dat_fm_tab.fm_tab_ent), (void const   *)(& header->old_filemark_list),
@@ -7757,7 +7757,7 @@ static int osst_get_frame_position(struct osst_tape *STp , struct osst_request *
     if (result == -5) {
       __len = 16UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& mysense), (void const   *)(& SRpnt->sense), __len);
+        __ret = memcpy((void *)(& mysense), (void const   *)(& SRpnt->sense), __len);
       } else {
         __ret = __builtin_memcpy((void *)(& mysense), (void const   *)(& SRpnt->sense),
                                  __len);
@@ -7771,7 +7771,7 @@ static int osst_get_frame_position(struct osst_tape *STp , struct osst_request *
       if ((STp->buffer)->syscall_result == 0) {
         __len___0 = 16UL;
         if (__len___0 > 63UL) {
-          __ret___0 = __memcpy((void *)(& SRpnt->sense), (void const   *)(& mysense),
+          __ret___0 = memcpy((void *)(& SRpnt->sense), (void const   *)(& mysense),
                                __len___0);
         } else {
           __ret___0 = __builtin_memcpy((void *)(& SRpnt->sense), (void const   *)(& mysense),
@@ -8903,7 +8903,7 @@ static int osst_set_options(struct osst_tape *STp , long options )
   if ((unsigned int )STm->defined == 0U) {
     __len = 56UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)STm, (void const   *)(& STp->modes), __len);
+      __ret = memcpy((void *)STm, (void const   *)(& STp->modes), __len);
     } else {
       __ret = __builtin_memcpy((void *)STm, (void const   *)(& STp->modes), __len);
     }

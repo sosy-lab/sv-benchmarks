@@ -2532,7 +2532,7 @@ typedef int ldv_func_ret_type___1;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
 void ldv___ldv_spin_lock_1(spinlock_t *ldv_func_arg1 ) ;
 void ldv___ldv_spin_lock_4(spinlock_t *ldv_func_arg1 ) ;
@@ -2921,7 +2921,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
     }
     __len = 176UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)mem->vma, (void const   *)vma, __len);
+      __ret = memcpy((void *)mem->vma, (void const   *)vma, __len);
     } else {
       __ret = __builtin_memcpy((void *)mem->vma, (void const   *)vma, __len);
     }

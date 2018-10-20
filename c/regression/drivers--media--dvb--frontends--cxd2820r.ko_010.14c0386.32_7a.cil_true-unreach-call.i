@@ -3133,7 +3133,7 @@ enum hrtimer_restart;
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 void *__builtin_alloca(unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 __inline static u64 div_u64_rem(u64 dividend , u32 divisor , u32 *remainder ) 
 { 
@@ -3494,7 +3494,7 @@ int cxd2820r_gpio(struct dvb_frontend *fe )
   }
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->gpio), (void const   *)gpio, __len);
+    __ret = memcpy((void *)(& priv->gpio), (void const   *)gpio, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->gpio), (void const   *)gpio, __len);
   }
@@ -4152,7 +4152,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
   priv->i2c = i2c;
   __len = 13UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->cfg), (void const   *)cfg, __len);
+    __ret = memcpy((void *)(& priv->cfg), (void const   *)cfg, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->cfg), (void const   *)cfg, __len);
   }
@@ -4172,7 +4172,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
   }
   __len___0 = 752UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& priv->fe.ops), (void const   *)(& cxd2820r_ops),
+    __ret___0 = memcpy((void *)(& priv->fe.ops), (void const   *)(& cxd2820r_ops),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& priv->fe.ops), (void const   *)(& cxd2820r_ops),

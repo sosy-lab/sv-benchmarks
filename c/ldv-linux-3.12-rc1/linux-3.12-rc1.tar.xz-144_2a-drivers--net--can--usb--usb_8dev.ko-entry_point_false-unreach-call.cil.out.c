@@ -5387,7 +5387,7 @@ struct usb_8dev_cmd_msg {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 __inline static __u32 __arch_swab32(__u32 val ) 
@@ -5967,7 +5967,7 @@ static int usb_8dev_send_cmd(struct usb_8dev_priv *priv , struct usb_8dev_cmd_ms
   mutex_lock_nested(& priv->usb_8dev_cmd_lock, 0U);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)priv->cmd_msg_buffer, (void const   *)out, __len);
+    __ret = memcpy((void *)priv->cmd_msg_buffer, (void const   *)out, __len);
   } else {
     __ret = __builtin_memcpy((void *)priv->cmd_msg_buffer, (void const   *)out, __len);
   }
@@ -5987,7 +5987,7 @@ static int usb_8dev_send_cmd(struct usb_8dev_priv *priv , struct usb_8dev_cmd_ms
   }
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)in, (void const   *)priv->cmd_msg_buffer, __len___0);
+    __ret___0 = memcpy((void *)in, (void const   *)priv->cmd_msg_buffer, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)in, (void const   *)priv->cmd_msg_buffer,
                                  __len___0);
@@ -6033,7 +6033,7 @@ static int usb_8dev_cmd_open(struct usb_8dev_priv *priv )
   bebrp = tmp;
   __len = 2UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& outmsg.data) + 3U, (void const   *)(& bebrp), __len);
+    __ret = memcpy((void *)(& outmsg.data) + 3U, (void const   *)(& bebrp), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& outmsg.data) + 3U, (void const   *)(& bebrp),
                              __len);
@@ -6057,7 +6057,7 @@ static int usb_8dev_cmd_open(struct usb_8dev_priv *priv )
   beflags = tmp___0;
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& outmsg.data) + 5U, (void const   *)(& beflags),
+    __ret___0 = memcpy((void *)(& outmsg.data) + 5U, (void const   *)(& beflags),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& outmsg.data) + 5U, (void const   *)(& beflags),

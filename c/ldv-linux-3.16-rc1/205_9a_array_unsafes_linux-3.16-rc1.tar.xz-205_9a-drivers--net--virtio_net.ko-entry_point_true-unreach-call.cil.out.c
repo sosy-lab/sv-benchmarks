@@ -5306,7 +5306,7 @@ extern unsigned long this_cpu_off ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern bool __virt_addr_valid(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , int  ) ;
@@ -8457,7 +8457,7 @@ static void virtnet_set_rx_mode(struct net_device *dev )
   if (__len > 63UL) {
     tmp___6 = i;
     i = i + 1;
-    __ret = __memcpy((void *)(& mac_data->macs) + (unsigned long )tmp___6, (void const   *)(& ha->addr),
+    __ret = memcpy((void *)(& mac_data->macs) + (unsigned long )tmp___6, (void const   *)(& ha->addr),
                      __len);
   } else {
     tmp___7 = i;
@@ -8485,7 +8485,7 @@ static void virtnet_set_rx_mode(struct net_device *dev )
   if (__len___0 > 63UL) {
     tmp___8 = i;
     i = i + 1;
-    __ret___0 = __memcpy((void *)(& mac_data->macs) + (unsigned long )tmp___8, (void const   *)(& ha->addr),
+    __ret___0 = memcpy((void *)(& mac_data->macs) + (unsigned long )tmp___8, (void const   *)(& ha->addr),
                          __len___0);
   } else {
     tmp___9 = i;

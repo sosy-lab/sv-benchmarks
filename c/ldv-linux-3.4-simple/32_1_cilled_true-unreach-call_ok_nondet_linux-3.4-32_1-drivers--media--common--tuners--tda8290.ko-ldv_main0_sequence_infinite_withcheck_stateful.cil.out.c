@@ -3277,7 +3277,7 @@ struct __anonstruct_276 {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -8008,7 +8008,7 @@ struct dvb_frontend *tda829x_attach(struct dvb_frontend *fe , struct i2c_adapter
       __cil_tmp39 = (struct analog_demod_ops *)__cil_tmp38;
       __cil_tmp40 = (void *)__cil_tmp39;
       __cil_tmp41 = (void const   *)(& tda8290_ops);
-      __ret = __memcpy(__cil_tmp40, __cil_tmp41, __len);
+      __ret = memcpy(__cil_tmp40, __cil_tmp41, __len);
       }
     } else {
       {
@@ -8041,7 +8041,7 @@ struct dvb_frontend *tda829x_attach(struct dvb_frontend *fe , struct i2c_adapter
       __cil_tmp54 = (struct analog_demod_ops *)__cil_tmp53;
       __cil_tmp55 = (void *)__cil_tmp54;
       __cil_tmp56 = (void const   *)(& tda8295_ops);
-      __ret___0 = __memcpy(__cil_tmp55, __cil_tmp56, __len___0);
+      __ret___0 = memcpy(__cil_tmp55, __cil_tmp56, __len___0);
       }
     } else {
       {

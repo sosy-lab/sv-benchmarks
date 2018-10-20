@@ -5255,7 +5255,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcat(char * , char const   * ) ;
@@ -8806,7 +8806,7 @@ static int set_params(SLMP_INFO *info , MGSL_PARAMS *new_params )
   flags = _raw_spin_lock_irqsave(tmp___1);
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& info->params), (void const   *)(& tmp_params), __len);
+    __ret = memcpy((void *)(& info->params), (void const   *)(& tmp_params), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& info->params), (void const   *)(& tmp_params),
                              __len);
@@ -10223,7 +10223,7 @@ static SLMP_INFO *alloc_dev(int adapter_num , int port_num , struct pci_dev *pde
                          & __key___2);
     __len = 48UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& info->params), (void const   *)(& default_params),
+      __ret = memcpy((void *)(& info->params), (void const   *)(& default_params),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& info->params), (void const   *)(& default_params),
@@ -10302,7 +10302,7 @@ static void device_init(int adapter_num , struct pci_dev *pdev )
   ldv_42430: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (port_array[port])->port_array), (void const   *)(& port_array),
+    __ret = memcpy((void *)(& (port_array[port])->port_array), (void const   *)(& port_array),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (port_array[port])->port_array), (void const   *)(& port_array),

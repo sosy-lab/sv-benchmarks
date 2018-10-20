@@ -11850,7 +11850,7 @@ void ldv_mutex_unlock_63(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
 
@@ -12794,7 +12794,7 @@ static int cx25840_ir_rx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
   ldv_mutex_lock_82(& ir_state->rx_params_lock);
   __len = 44UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p, (void const   *)(& ir_state->rx_params), __len);
+    __ret = memcpy((void *)p, (void const   *)(& ir_state->rx_params), __len);
   } else {
     __ret = __builtin_memcpy((void *)p, (void const   *)(& ir_state->rx_params), __len);
   }
@@ -12956,7 +12956,7 @@ static int cx25840_ir_tx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
   ldv_mutex_lock_88(& ir_state->tx_params_lock);
   __len = 44UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p, (void const   *)(& ir_state->tx_params), __len);
+    __ret = memcpy((void *)p, (void const   *)(& ir_state->tx_params), __len);
   } else {
     __ret = __builtin_memcpy((void *)p, (void const   *)(& ir_state->tx_params), __len);
   }
@@ -13348,7 +13348,7 @@ int cx25840_ir_probe(struct v4l2_subdev *sd )
   __mutex_init(& ir_state->rx_params_lock, "&ir_state->rx_params_lock", & __key___0);
   __len = 44UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& default_params), (void const   *)(& default_rx_params),
+    __ret = memcpy((void *)(& default_params), (void const   *)(& default_rx_params),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& default_params), (void const   *)(& default_rx_params),
@@ -13367,7 +13367,7 @@ int cx25840_ir_probe(struct v4l2_subdev *sd )
   __mutex_init(& ir_state->tx_params_lock, "&ir_state->tx_params_lock", & __key___1);
   __len___0 = 44UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& default_params), (void const   *)(& default_tx_params),
+    __ret___0 = memcpy((void *)(& default_params), (void const   *)(& default_tx_params),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& default_params), (void const   *)(& default_tx_params),

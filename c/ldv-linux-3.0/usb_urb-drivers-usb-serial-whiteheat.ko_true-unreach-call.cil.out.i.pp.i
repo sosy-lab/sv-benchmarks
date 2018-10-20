@@ -3828,7 +3828,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void *to , void const *from , size_t len ) ;
+extern void *memcpy(void *to , void const *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
@@ -6621,7 +6621,7 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
       }
       if (__len___0 >= 64UL) {
         {
-        __ret___1 = __memcpy((void *)(& info->mcr), (void const *)(command_info->result_buffer),
+        __ret___1 = memcpy((void *)(& info->mcr), (void const *)(command_info->result_buffer),
                              __len___0);
         }
       } else {

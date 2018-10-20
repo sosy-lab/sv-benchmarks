@@ -3264,7 +3264,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -7398,7 +7398,7 @@ struct dvb_frontend *dib3000mc_attach(struct i2c_adapter *i2c_adap , u8 i2c_addr
     __cil_tmp21 = (struct dvb_frontend_ops *)st;
     __cil_tmp22 = (void *)__cil_tmp21;
     __cil_tmp23 = (void const   *)(& dib3000mc_ops);
-    __ret = __memcpy(__cil_tmp22, __cil_tmp23, __len);
+    __ret = memcpy(__cil_tmp22, __cil_tmp23, __len);
     }
   } else {
     {

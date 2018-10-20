@@ -7780,7 +7780,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void __bad_percpu_size(void) ;
 extern unsigned long __per_cpu_offset[8192U] ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -9397,7 +9397,7 @@ static int nf_tables_dump_tables(struct sk_buff *skb , struct netlink_callback *
   }
   if (idx > s_idx) {
     {
-    __memset((void *)(& cb->args) + 1U, 0, 40UL);
+    memset((void *)(& cb->args) + 1U, 0, 40UL);
     }
   } else {
 
@@ -10361,7 +10361,7 @@ static int nft_dump_stats(struct sk_buff *skb , struct nft_stats *stats )
 
   {
   {
-  __memset((void *)(& total), 0, 16UL);
+  memset((void *)(& total), 0, 16UL);
   cpu = -1;
   }
   goto ldv_50663;
@@ -10764,7 +10764,7 @@ static int nf_tables_dump_chains(struct sk_buff *skb , struct netlink_callback *
   }
   if (idx > s_idx) {
     {
-    __memset((void *)(& cb->args) + 1U, 0, 40UL);
+    memset((void *)(& cb->args) + 1U, 0, 40UL);
     }
   } else {
 
@@ -12015,7 +12015,7 @@ static int nf_tables_expr_parse(struct nft_ctx  const  *ctx , struct nlattr  con
     }
   } else {
     {
-    __memset((void *)(& info___0->tb), 0, (unsigned long )((unsigned int )type->maxattr + 1U) * 8UL);
+    memset((void *)(& info___0->tb), 0, (unsigned long )((unsigned int )type->maxattr + 1U) * 8UL);
     }
   }
   if ((unsigned long )type->select_ops != (unsigned long )((struct nft_expr_ops  const  *(*/* const  */)(struct nft_ctx  const  * ,
@@ -12552,7 +12552,7 @@ static int nf_tables_dump_rules(struct sk_buff *skb , struct netlink_callback *c
   }
   if (idx > s_idx) {
     {
-    __memset((void *)(& cb->args) + 1U, 0, 40UL);
+    memset((void *)(& cb->args) + 1U, 0, 40UL);
     }
   } else {
 
@@ -13805,7 +13805,7 @@ static int nf_tables_set_alloc_name(struct nft_ctx *ctx , struct nft_set *set , 
     if (n > 32767U) {
       {
       min = min + 32768U;
-      __memset((void *)inuse, 0, 4096UL);
+      memset((void *)inuse, 0, 4096UL);
       }
       goto cont;
     } else {
@@ -14528,7 +14528,7 @@ static int nf_tables_newset(struct sock *nlsk , struct sk_buff *skb , struct nlm
 
   }
   {
-  __memset((void *)(& desc), 0, 12UL);
+  memset((void *)(& desc), 0, 12UL);
   ktype = 0U;
   }
   if ((unsigned long )*(nla + 4UL) != (unsigned long )((struct nlattr  const  */* const  */)0)) {

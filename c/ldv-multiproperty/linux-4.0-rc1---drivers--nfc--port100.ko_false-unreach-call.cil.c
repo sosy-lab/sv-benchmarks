@@ -4529,8 +4529,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
@@ -5921,7 +5921,7 @@ static int port100_in_set_rf(struct nfc_digital_dev *ddev , u8 rf )
   }
   {
   tmp___0 = skb_put(skb, 4U);
-  __memcpy((void *)tmp___0, (void const   *)(& in_rf_settings) + (unsigned long )rf,
+  memcpy((void *)tmp___0, (void const   *)(& in_rf_settings) + (unsigned long )rf,
            4UL);
   resp = port100_send_cmd_sync(dev, 0, skb);
   tmp___2 = IS_ERR((void const   *)resp);
@@ -5993,7 +5993,7 @@ static int port100_in_set_framing(struct nfc_digital_dev *ddev , int param )
   }
   {
   tmp___0 = skb_put(skb, (unsigned int )size);
-  __memcpy((void *)tmp___0, (void const   *)protocols, size);
+  memcpy((void *)tmp___0, (void const   *)protocols, size);
   resp = port100_send_cmd_sync(dev, 2, skb);
   tmp___2 = IS_ERR((void const   *)resp);
   }
@@ -6139,7 +6139,7 @@ static int port100_in_send_cmd(struct nfc_digital_dev *ddev , struct sk_buff *sk
   cb_arg->complete_arg = arg;
   timeout = (unsigned int )_timeout * 10U;
   tmp___1 = skb_push(skb, 2U);
-  __memcpy((void *)tmp___1, (void const   *)(& timeout), 2UL);
+  memcpy((void *)tmp___1, (void const   *)(& timeout), 2UL);
   tmp___2 = port100_send_cmd_async(dev, 4, skb, & port100_in_comm_rf_complete, (void *)cb_arg);
   }
   return (tmp___2);
@@ -6176,7 +6176,7 @@ static int port100_tg_set_rf(struct nfc_digital_dev *ddev , u8 rf )
   }
   {
   tmp___0 = skb_put(skb, 2U);
-  __memcpy((void *)tmp___0, (void const   *)(& tg_rf_settings) + (unsigned long )rf,
+  memcpy((void *)tmp___0, (void const   *)(& tg_rf_settings) + (unsigned long )rf,
            2UL);
   resp = port100_send_cmd_sync(dev, 64, skb);
   tmp___2 = IS_ERR((void const   *)resp);
@@ -6248,7 +6248,7 @@ static int port100_tg_set_framing(struct nfc_digital_dev *ddev , int param )
   }
   {
   tmp___0 = skb_put(skb, (unsigned int )size);
-  __memcpy((void *)tmp___0, (void const   *)protocols, size);
+  memcpy((void *)tmp___0, (void const   *)protocols, size);
   resp = port100_send_cmd_sync(dev, 66, skb);
   tmp___2 = IS_ERR((void const   *)resp);
   }
@@ -6432,7 +6432,7 @@ static int port100_tg_send_cmd(struct nfc_digital_dev *ddev , struct sk_buff *sk
   cb_arg->complete_arg = arg;
   skb_push(skb, 33U);
   hdr = (struct port100_tg_comm_rf_cmd *)skb->data;
-  __memset((void *)hdr, 0, 33UL);
+  memset((void *)hdr, 0, 33UL);
   hdr->guard_time = 500U;
   hdr->send_timeout = 65535U;
   hdr->recv_timeout = timeout;
@@ -6500,15 +6500,15 @@ static int port100_listen_mdaa(struct nfc_digital_dev *ddev , struct digital_tg_
   {
   skb_push(skb, 33U);
   hdr = (struct port100_tg_comm_rf_cmd *)skb->data;
-  __memset((void *)hdr, 0, 33UL);
+  memset((void *)hdr, 0, 33UL);
   hdr->guard_time = 0U;
   hdr->send_timeout = 65535U;
   hdr->mdaa = 1U;
   hdr->nfca_param[0] = (u8 )((int )params->sens_res >> 8);
   hdr->nfca_param[1] = (u8 )params->sens_res;
-  __memcpy((void *)(& hdr->nfca_param) + 2U, (void const   *)(& params->nfcid1), 3UL);
+  memcpy((void *)(& hdr->nfca_param) + 2U, (void const   *)(& params->nfcid1), 3UL);
   hdr->nfca_param[5] = params->sel_res;
-  __memcpy((void *)(& hdr->nfcf_param), (void const   *)(& params->nfcid2), 8UL);
+  memcpy((void *)(& hdr->nfcf_param), (void const   *)(& params->nfcid2), 8UL);
   hdr->nfcf_param[16] = (u8 )((int )params->sc >> 8);
   hdr->nfcf_param[17] = (u8 )params->sc;
   hdr->recv_timeout = timeout;

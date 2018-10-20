@@ -3040,7 +3040,7 @@ struct net_local {
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
 void ldv___ldv_spin_lock_4(spinlock_t *ldv_func_arg1 ) ;
 void ldv_spin_lock_node_size_lock_of_pglist_data(void) ;
@@ -3283,7 +3283,7 @@ static int abyss_attach(struct pci_dev *pdev , struct pci_device_id  const  *ent
   tp->sifwritew = & abyss_sifwritew;
   __len = 19UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
+    __ret = memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",

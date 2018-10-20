@@ -4832,7 +4832,7 @@ extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;
@@ -9619,7 +9619,7 @@ static int rssd_disk_name_format(char *prefix , int index , char *buf , int bufl
   } else {
 
   }
-  __memmove((void *)begin, (void const   *)p, (size_t )((long )end - (long )p));
+  memmove((void *)begin, (void const   *)p, (size_t )((long )end - (long )p));
   tmp___0 = strlen((char const   *)prefix);
   memcpy((void *)buf, (void const   *)prefix, tmp___0);
   return (0);

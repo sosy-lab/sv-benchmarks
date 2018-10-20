@@ -6021,7 +6021,7 @@ extern int ( /* format attribute */  __dynamic_pr_debug)(struct _ddebug *descrip
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
                                                         char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memmove(void *dest , void const   *src , size_t count ) ;
 extern char *strcpy(char *dest , char const   *src ) ;
 extern unsigned long _raw_spin_lock_irqsave(raw_spinlock_t *lock )  __attribute__((__section__(".spinlock.text"))) ;
@@ -11944,7 +11944,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
         __cil_tmp132 = __cil_tmp131 + 224;
         __cil_tmp133 = *((unsigned char **)__cil_tmp132);
         __cil_tmp134 = (void const   *)__cil_tmp133;
-        __ret = __memcpy(__cil_tmp130, __cil_tmp134, __len);
+        __ret = memcpy(__cil_tmp130, __cil_tmp134, __len);
         }
       } else {
         {

@@ -6500,8 +6500,8 @@ extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
 extern unsigned long __per_cpu_offset[8192U] ;
 extern unsigned long this_cpu_off ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -8473,7 +8473,7 @@ static int __set_port_dev_addr(struct net_device *port_dev , unsigned char const
 
   {
   {
-  __memcpy((void *)(& addr.sa_data), (void const   *)dev_addr, (size_t )port_dev->addr_len);
+  memcpy((void *)(& addr.sa_data), (void const   *)dev_addr, (size_t )port_dev->addr_len);
   addr.sa_family = port_dev->type;
   tmp = dev_set_mac_address(port_dev, & addr);
   }
@@ -9480,7 +9480,7 @@ static int __team_change_mode(struct team *team , struct team_mode  const  *new_
   if ((int )tmp) {
     {
     exit_op = team->ops.exit;
-    __memset((void *)(& team->ops), 0, 72UL);
+    memset((void *)(& team->ops), 0, 72UL);
     team_adjust_ops(team);
     }
     if ((unsigned long )exit_op != (unsigned long )((void (*)(struct team * ))0)) {
@@ -9493,7 +9493,7 @@ static int __team_change_mode(struct team *team , struct team_mode  const  *new_
     {
     team_mode_put(team->mode);
     team_set_no_mode(team);
-    __memset((void *)(& team->mode_priv), 0, 32UL);
+    memset((void *)(& team->mode_priv), 0, 32UL);
     }
   } else {
 
@@ -9517,7 +9517,7 @@ static int __team_change_mode(struct team *team , struct team_mode  const  *new_
   }
   {
   team->mode = new_mode;
-  __memcpy((void *)(& team->ops), (void const   *)new_mode->ops, 72UL);
+  memcpy((void *)(& team->ops), (void const   *)new_mode->ops, 72UL);
   team_adjust_ops(team);
   }
   return (0);
@@ -10894,7 +10894,7 @@ static int team_port_add(struct team *team , struct net_device *port_dev )
 
   }
   {
-  __memcpy((void *)(& port->orig.dev_addr), (void const   *)port_dev->dev_addr, (size_t )port_dev->addr_len);
+  memcpy((void *)(& port->orig.dev_addr), (void const   *)port_dev->dev_addr, (size_t )port_dev->addr_len);
   err = team_port_enter(team, port);
   }
   if (err != 0) {
@@ -12088,7 +12088,7 @@ static int team_set_mac_address(struct net_device *dev , void *p )
 
   }
   {
-  __memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), (size_t )dev->addr_len);
+  memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), (size_t )dev->addr_len);
   rcu_read_lock();
   __ptr = team->port_list.next;
   __var = (struct list_head *)0;
@@ -12682,7 +12682,7 @@ static void team_setup_by_port(struct net_device *dev , struct net_device *port_
   dev->hard_header_len = port_dev->hard_header_len;
   dev->addr_len = port_dev->addr_len;
   dev->mtu = port_dev->mtu;
-  __memcpy((void *)(& dev->broadcast), (void const   *)(& port_dev->broadcast), (size_t )port_dev->addr_len);
+  memcpy((void *)(& dev->broadcast), (void const   *)(& port_dev->broadcast), (size_t )port_dev->addr_len);
   eth_hw_addr_inherit(dev, port_dev);
   }
   return;

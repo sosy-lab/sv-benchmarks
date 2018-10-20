@@ -5633,7 +5633,7 @@ extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char c
                              , ...) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern char *kstrdup(char const   * , gfp_t  ) ;
@@ -6793,7 +6793,7 @@ static int load_firmware(struct snd_cs46xx *chip , struct dsp_module_desc **modu
   entry->address = *(fwdat + (unsigned long )tmp___3);
   __len = 99UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& entry->symbol_name), (void const   *)fwdat + (unsigned long )fwlen,
+    __ret = memcpy((void *)(& entry->symbol_name), (void const   *)fwdat + (unsigned long )fwlen,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& entry->symbol_name), (void const   *)fwdat + (unsigned long )fwlen,

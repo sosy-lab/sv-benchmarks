@@ -4834,7 +4834,7 @@ __inline static int kstrtoul(char const   *s , unsigned int base , unsigned long
 }
 }
 extern int sprintf(char * , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -5453,7 +5453,7 @@ int softing_netdev_rx(struct net_device *netdev , struct can_frame  const  *msg 
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)cf, (void const   *)msg, __len);
+    __ret = memcpy((void *)cf, (void const   *)msg, __len);
   } else {
     __ret = __builtin_memcpy((void *)cf, (void const   *)msg, __len);
   }
@@ -5642,7 +5642,7 @@ static int softing_handle_1(struct softing *card )
     if ((msg.can_id & 1073741824U) == 0U) {
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& msg.data), (void const   *)ptr, __len);
+        __ret = memcpy((void *)(& msg.data), (void const   *)ptr, __len);
       } else {
         __ret = __builtin_memcpy((void *)(& msg.data), (void const   *)ptr, __len);
       }
@@ -6177,7 +6177,7 @@ static struct net_device *softing_netdev_create(struct softing *card , uint16_t 
   priv->card = card;
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->btr_const), (void const   *)(& softing_btr_const),
+    __ret = memcpy((void *)(& priv->btr_const), (void const   *)(& softing_btr_const),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->btr_const), (void const   *)(& softing_btr_const),

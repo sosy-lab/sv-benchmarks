@@ -4368,7 +4368,7 @@ __inline static __u16 __fswab16(__u16 val )
 }
 }
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -5422,7 +5422,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
       {
       __cil_tmp119 = (void *)pkt;
       __cil_tmp120 = (void const   *)pkthdr;
-      __ret = __memcpy(__cil_tmp119, __cil_tmp120, __len);
+      __ret = memcpy(__cil_tmp119, __cil_tmp120, __len);
       }
     } else {
       {
@@ -5834,7 +5834,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
         {
         __cil_tmp358 = (void *)pkt;
         __cil_tmp359 = (void const   *)pkthdr;
-        __ret___0 = __memcpy(__cil_tmp358, __cil_tmp359, __len___0);
+        __ret___0 = memcpy(__cil_tmp358, __cil_tmp359, __len___0);
         }
       } else {
         {

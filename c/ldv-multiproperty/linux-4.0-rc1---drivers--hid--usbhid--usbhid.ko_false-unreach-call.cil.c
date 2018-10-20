@@ -5149,8 +5149,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -6338,7 +6338,7 @@ static int hid_submit_out(struct hid_device *hid )
   }
   if ((unsigned long )raw_report != (unsigned long )((char *)0)) {
     {
-    __memcpy((void *)usbhid->outbuf, (void const   *)raw_report, (size_t )(usbhid->urbout)->transfer_buffer_length);
+    memcpy((void *)usbhid->outbuf, (void const   *)raw_report, (size_t )(usbhid->urbout)->transfer_buffer_length);
     kfree((void const   *)raw_report);
     usbhid->out[(int )usbhid->outtail].raw_report = (char *)0;
     }
@@ -6401,7 +6401,7 @@ static int hid_submit_ctrl(struct hid_device *hid )
     }
     if ((unsigned long )raw_report != (unsigned long )((char *)0)) {
       {
-      __memcpy((void *)usbhid->ctrlbuf, (void const   *)raw_report, (size_t )len);
+      memcpy((void *)usbhid->ctrlbuf, (void const   *)raw_report, (size_t )len);
       kfree((void const   *)raw_report);
       usbhid->ctrl[(int )usbhid->ctrltail].raw_report = (char *)0;
       }
@@ -6961,7 +6961,7 @@ static int hid_get_class_descriptor(struct usb_device *dev , int ifnum , unsigne
   {
   {
   retries = 4;
-  __memset(buf, 0, (size_t )size);
+  memset(buf, 0, (size_t )size);
   }
   ldv_35011: 
   {
@@ -11491,7 +11491,7 @@ void hiddev_report_event(struct hid_device *hid , struct hid_report *report )
   {
   {
   type = report->type;
-  __memset((void *)(& uref), 0, 24UL);
+  memset((void *)(& uref), 0, 24UL);
   uref.report_type = type != 0U ? (type != 1U ? (type == 2U ? 3U : 0U) : 2U) : 1U;
   uref.report_id = report->id;
   uref.field_index = 4294967295U;
@@ -12456,7 +12456,7 @@ static long hiddev_ioctl(struct file *file , unsigned int cmd , unsigned long ar
   __mptr = (struct device  const  *)(hid->dev.parent)->parent;
   dev = (struct usb_device *)__mptr + 0xffffffffffffff70UL;
   usbhid = (struct usbhid_device *)hid->driver_data;
-  __memset((void *)(& dinfo), 0, 28UL);
+  memset((void *)(& dinfo), 0, 28UL);
   dinfo.bustype = 3U;
   dinfo.busnum = (__u32 )(dev->bus)->busnum;
   dinfo.devnum = (__u32 )dev->devnum;
@@ -12662,7 +12662,7 @@ static long hiddev_ioctl(struct file *file , unsigned int cmd , unsigned long ar
   }
   {
   field = report->field[finfo.field_index];
-  __memset((void *)(& finfo), 0, 56UL);
+  memset((void *)(& finfo), 0, 56UL);
   finfo.report_type = rinfo.report_type;
   finfo.report_id = rinfo.report_id;
   finfo.field_index = field->report_count - 1U;

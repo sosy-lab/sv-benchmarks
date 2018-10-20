@@ -3432,7 +3432,7 @@ __inline static void __clear_bit(int nr , unsigned long volatile *addr )
 }
 extern int printk(char const *fmt , ...) ;
 extern int snprintf(char *buf , size_t size , char const *fmt , ...) ;
-extern void *__memcpy(void *to , void const *from , size_t len ) ;
+extern void *memcpy(void *to , void const *from , size_t len ) ;
 extern unsigned long strlen(char const *s ) ;
 extern size_t strlcpy(char * , char const * , size_t ) ;
 extern size_t strlcat(char * , char const * , __kernel_size_t ) ;
@@ -3875,7 +3875,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
       __len = (size_t )8;
       if (__len >= 64UL) {
         {
-        __ret = __memcpy((void *)(remote->data.buffer), (void const *)remote->in_buffer,
+        __ret = memcpy((void *)(remote->data.buffer), (void const *)remote->in_buffer,
                          __len);
         }
       } else {
@@ -3897,7 +3897,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
     __len___0 = (size_t )8;
     if (__len___0 >= 64UL) {
       {
-      __ret___0 = __memcpy((void *)(remote->data.buffer + remote->data.len), (void const *)remote->in_buffer,
+      __ret___0 = memcpy((void *)(remote->data.buffer + remote->data.len), (void const *)remote->in_buffer,
                            __len___0);
       }
     } else {
@@ -3971,7 +3971,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
     __len___1 = (size_t )8;
     if (__len___1 >= 64UL) {
       {
-      __ret___1 = __memcpy((void *)(remote->data.buffer + remote->data.len), (void const *)remote->in_buffer,
+      __ret___1 = memcpy((void *)(remote->data.buffer + remote->data.len), (void const *)remote->in_buffer,
                            __len___1);
       }
     } else {
@@ -4532,7 +4532,7 @@ static int keyspan_probe(struct usb_interface *interface , struct usb_device_id 
   }
   if (__len >= 64UL) {
     {
-    __ret = __memcpy((void *)(remote->keymap), (void const *)(keyspan_key_table),
+    __ret = memcpy((void *)(remote->keymap), (void const *)(keyspan_key_table),
                      __len);
     }
   } else {

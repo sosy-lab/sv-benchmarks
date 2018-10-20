@@ -6135,7 +6135,7 @@ __inline static int __get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , int  ) ;
@@ -9641,7 +9641,7 @@ static void ql_process_mac_rx_page(struct ql_adapter *qdev , struct rx_ring *rx_
   __len = 14UL;
   if (__len > 63UL) {
     tmp___0 = skb_put(skb, 14U);
-    __ret = __memcpy((void *)tmp___0, (void const   *)addr, __len);
+    __ret = memcpy((void *)tmp___0, (void const   *)addr, __len);
   } else {
     tmp___1 = skb_put(skb, 14U);
     __ret = __builtin_memcpy((void *)tmp___1, (void const   *)addr, __len);
@@ -12268,7 +12268,7 @@ static int ql_start_rss(struct ql_adapter *qdev )
   }
   __len = 40UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ricb->ipv6_hash_key), (void const   *)(& init_hash_seed),
+    __ret = memcpy((void *)(& ricb->ipv6_hash_key), (void const   *)(& init_hash_seed),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ricb->ipv6_hash_key), (void const   *)(& init_hash_seed),
@@ -12276,7 +12276,7 @@ static int ql_start_rss(struct ql_adapter *qdev )
   }
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ricb->ipv4_hash_key), (void const   *)(& init_hash_seed),
+    __ret___0 = memcpy((void *)(& ricb->ipv4_hash_key), (void const   *)(& init_hash_seed),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ricb->ipv4_hash_key), (void const   *)(& init_hash_seed),
@@ -15595,7 +15595,7 @@ static void ql_build_coredump_seg_header(struct mpi_coredump_segment_header *seg
   seg_hdr->segSize = seg_size;
   __len = 15UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& seg_hdr->description), (void const   *)desc, __len);
+    __ret = memcpy((void *)(& seg_hdr->description), (void const   *)desc, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& seg_hdr->description), (void const   *)desc,
                              __len);
@@ -15640,7 +15640,7 @@ int ql_core_dump(struct ql_adapter *qdev , struct ql_mpi_coredump *mpi_coredump 
   mpi_coredump->mpi_global_header.imageSize = 176196U;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const   *)"MPI Coredump",
+    __ret = memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const   *)"MPI Coredump",
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mpi_coredump->mpi_global_header.idString),
@@ -15996,7 +15996,7 @@ void ql_gen_reg_dump(struct ql_adapter *qdev , struct ql_reg_dump *mpi_coredump 
   mpi_coredump->mpi_global_header.imageSize = 1432U;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const   *)"MPI Coredump",
+    __ret = memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const   *)"MPI Coredump",
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mpi_coredump->mpi_global_header.idString),
@@ -18251,7 +18251,7 @@ static void ql_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
   case 0U: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buf, (void const   *)(& ql_gstrings_test), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& ql_gstrings_test), __len);
   } else {
     __ret = __builtin_memcpy((void *)buf, (void const   *)(& ql_gstrings_test), __len);
   }
@@ -18262,7 +18262,7 @@ static void ql_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
   ldv_47677: 
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)buf + (unsigned long )(index * 32), (void const   *)(& ql_gstrings_stats[index].stat_string),
+    __ret___0 = memcpy((void *)buf + (unsigned long )(index * 32), (void const   *)(& ql_gstrings_stats[index].stat_string),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)buf + (unsigned long )(index * 32), (void const   *)(& ql_gstrings_stats[index].stat_string),

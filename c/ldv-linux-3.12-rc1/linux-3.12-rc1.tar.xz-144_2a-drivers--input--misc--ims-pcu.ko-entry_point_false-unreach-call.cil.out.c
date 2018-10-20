@@ -3673,7 +3673,7 @@ struct ims_pcu_attribute {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
@@ -4926,7 +4926,7 @@ static int ims_pcu_get_info(struct ims_pcu *pcu )
   }
   __len = 15UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& pcu->part_number), (void const   *)(& pcu->cmd_buf) + 2U,
+    __ret = memcpy((void *)(& pcu->part_number), (void const   *)(& pcu->cmd_buf) + 2U,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pcu->part_number), (void const   *)(& pcu->cmd_buf) + 2U,
@@ -4934,7 +4934,7 @@ static int ims_pcu_get_info(struct ims_pcu *pcu )
   }
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& pcu->date_of_manufacturing), (void const   *)(& pcu->cmd_buf) + 17U,
+    __ret___0 = memcpy((void *)(& pcu->date_of_manufacturing), (void const   *)(& pcu->cmd_buf) + 17U,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& pcu->date_of_manufacturing), (void const   *)(& pcu->cmd_buf) + 17U,
@@ -4942,7 +4942,7 @@ static int ims_pcu_get_info(struct ims_pcu *pcu )
   }
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& pcu->serial_number), (void const   *)(& pcu->cmd_buf) + 25U,
+    __ret___1 = memcpy((void *)(& pcu->serial_number), (void const   *)(& pcu->cmd_buf) + 25U,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& pcu->serial_number), (void const   *)(& pcu->cmd_buf) + 25U,
@@ -4964,7 +4964,7 @@ static int ims_pcu_set_info(struct ims_pcu *pcu )
   {
   __len = 15UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& pcu->cmd_buf) + 2U, (void const   *)(& pcu->part_number),
+    __ret = memcpy((void *)(& pcu->cmd_buf) + 2U, (void const   *)(& pcu->part_number),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pcu->cmd_buf) + 2U, (void const   *)(& pcu->part_number),
@@ -4972,7 +4972,7 @@ static int ims_pcu_set_info(struct ims_pcu *pcu )
   }
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& pcu->cmd_buf) + 17U, (void const   *)(& pcu->date_of_manufacturing),
+    __ret___0 = memcpy((void *)(& pcu->cmd_buf) + 17U, (void const   *)(& pcu->date_of_manufacturing),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& pcu->cmd_buf) + 17U, (void const   *)(& pcu->date_of_manufacturing),
@@ -4980,7 +4980,7 @@ static int ims_pcu_set_info(struct ims_pcu *pcu )
   }
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& pcu->cmd_buf) + 25U, (void const   *)(& pcu->serial_number),
+    __ret___1 = memcpy((void *)(& pcu->cmd_buf) + 25U, (void const   *)(& pcu->serial_number),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& pcu->cmd_buf) + 25U, (void const   *)(& pcu->serial_number),

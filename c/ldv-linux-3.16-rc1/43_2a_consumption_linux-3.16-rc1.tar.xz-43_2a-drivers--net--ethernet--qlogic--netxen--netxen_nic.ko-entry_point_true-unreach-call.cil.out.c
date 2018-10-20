@@ -7001,7 +7001,7 @@ __inline static void list_splice_tail_init(struct list_head *list , struct list_
 }
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void _raw_spin_lock(raw_spinlock_t * ) ;
 extern void _raw_spin_lock_bh(raw_spinlock_t * ) ;
@@ -8073,7 +8073,7 @@ static int netxen_send_cmd_descs(struct netxen_adapter *adapter , struct cmd_des
   pbuf->frag_count = 0U;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)tx_ring->desc_head + (unsigned long )producer, (void const   *)cmd_desc_arr + (unsigned long )i,
+    __ret = memcpy((void *)tx_ring->desc_head + (unsigned long )producer, (void const   *)cmd_desc_arr + (unsigned long )i,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)tx_ring->desc_head + (unsigned long )producer,
@@ -8110,7 +8110,7 @@ static int nx_p3_sre_macaddr_change(struct netxen_adapter *adapter , u8 *addr , 
   mac_req->op = (u8 )op;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mac_req->mac_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& mac_req->mac_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mac_req->mac_addr), (void const   *)addr,
                              __len);
@@ -8159,7 +8159,7 @@ static int nx_p3_nic_add_mac(struct netxen_adapter *adapter , u8 const   *addr ,
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cur->mac_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& cur->mac_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cur->mac_addr), (void const   *)addr, __len);
   }
@@ -8323,7 +8323,7 @@ int netxen_config_intr_coalesce(struct netxen_adapter *adapter )
   req.req_hdr = word[0];
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& word), (void const   *)(& adapter->coal), __len);
+    __ret = memcpy((void *)(& word), (void const   *)(& adapter->coal), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& word), (void const   *)(& adapter->coal),
                              __len);
@@ -8461,7 +8461,7 @@ int netxen_config_ipaddr(struct netxen_adapter *adapter , __be32 ip , int cmd )
   req.words[0] = (unsigned long long )cmd;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& req.words) + 1U, (void const   *)(& ip), __len);
+    __ret = memcpy((void *)(& req.words) + 1U, (void const   *)(& ip), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& req.words) + 1U, (void const   *)(& ip), __len);
   }
@@ -16470,7 +16470,7 @@ static ssize_t netxen_sysfs_read_dimm(struct file *filp , struct kobject *kobj ,
   out: 
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buf, (void const   *)(& dimm), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& dimm), __len);
   } else {
     __ret = __builtin_memcpy((void *)buf, (void const   *)(& dimm), __len);
   }
@@ -22377,7 +22377,7 @@ static void netxen_nic_get_strings(struct net_device *dev , u32 stringset , u8 *
   case 0U: 
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& netxen_nic_gstrings_test), __len);
+    __ret = memcpy((void *)data, (void const   *)(& netxen_nic_gstrings_test), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& netxen_nic_gstrings_test),
                              __len);
@@ -22389,7 +22389,7 @@ static void netxen_nic_get_strings(struct net_device *dev , u32 stringset , u8 *
   ldv_49288: 
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& netxen_nic_gstrings_stats[index].stat_string),
+    __ret___0 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& netxen_nic_gstrings_stats[index].stat_string),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& netxen_nic_gstrings_stats[index].stat_string),

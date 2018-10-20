@@ -23204,7 +23204,7 @@ __inline static void list_splice_tail_init(struct list_head *list , struct list_
   return;
 }
 }
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void lock_acquire(struct lockdep_map * , unsigned int  , int  , int  , int  ,
                          struct lockdep_map * , unsigned long  ) ;
 extern void lock_release(struct lockdep_map * , int  , unsigned long  ) ;
@@ -26672,7 +26672,7 @@ static int ath_tx_prepare(struct ieee80211_hw *hw , struct sk_buff *skb , struct
 
     }
     skb_push(skb, (unsigned int )padsize);
-    __memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
+    memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
               (size_t )padpos);
   } else {
 
@@ -27017,7 +27017,7 @@ static void ath_tx_complete(struct ath_softc *sc , struct sk_buff *skb , int tx_
   padpos = (int )tmp___1;
   padsize = padpos & 3;
   if (padsize != 0 && skb->len > (unsigned int )(padpos + padsize)) {
-    __memmove((void *)skb->data + (unsigned long )padsize, (void const   *)skb->data,
+    memmove((void *)skb->data + (unsigned long )padsize, (void const   *)skb->data,
               (size_t )padpos);
     skb_pull(skb, (unsigned int )padsize);
   } else {
@@ -27645,7 +27645,7 @@ int ath9k_tx99_send(struct ath_softc *sc , struct sk_buff *skb , struct ath_tx_c
 
     }
     skb_push(skb, (unsigned int )padsize);
-    __memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
+    memmove((void *)skb->data, (void const   *)skb->data + (unsigned long )padsize,
               (size_t )padpos);
   } else {
 

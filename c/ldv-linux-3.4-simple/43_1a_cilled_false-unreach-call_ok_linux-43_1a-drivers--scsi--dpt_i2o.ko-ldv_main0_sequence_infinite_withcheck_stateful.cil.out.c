@@ -4251,7 +4251,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void    * , size_t  ) ;
+extern void *memcpy(void * , void    * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_fmt(char    * , int     , char const   *  , ...) ;
 extern void warn_slowpath_null(char    * , int     ) ;
@@ -6040,7 +6040,7 @@ static void adpt_inquiry(adpt_hba *pHba )
     {
     __cil_tmp82 = (void *)mptr;
     __cil_tmp83 = (void    *)(& scb);
-    __ret = __memcpy(__cil_tmp82, __cil_tmp83, __len);
+    __ret = memcpy(__cil_tmp82, __cil_tmp83, __len);
     }
   } else {
     {
@@ -6149,7 +6149,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __cil_tmp123 = (char (*)[55U])__cil_tmp122;
       __cil_tmp124 = (void *)__cil_tmp123;
       __cil_tmp125 = (void    *)"Vendor: Adaptec ";
-      __ret___0 = __memcpy(__cil_tmp124, __cil_tmp125, __len___0);
+      __ret___0 = memcpy(__cil_tmp124, __cil_tmp125, __len___0);
       }
     } else {
       {
@@ -6170,7 +6170,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __cil_tmp134 = (void *)__cil_tmp133;
       __cil_tmp135 = __cil_tmp134 + 16U;
       __cil_tmp136 = (void    *)" Model: ";
-      __ret___1 = __memcpy(__cil_tmp135, __cil_tmp136, __len___1);
+      __ret___1 = memcpy(__cil_tmp135, __cil_tmp136, __len___1);
       }
     } else {
       {
@@ -6193,7 +6193,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __cil_tmp147 = __cil_tmp146 + 24U;
       __cil_tmp148 = (void    *)buf;
       __cil_tmp149 = __cil_tmp148 + 16U;
-      __ret___2 = __memcpy(__cil_tmp147, __cil_tmp149, __len___2);
+      __ret___2 = memcpy(__cil_tmp147, __cil_tmp149, __len___2);
       }
     } else {
       {
@@ -6216,7 +6216,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __cil_tmp160 = (void *)__cil_tmp159;
       __cil_tmp161 = __cil_tmp160 + 40U;
       __cil_tmp162 = (void    *)" FW: ";
-      __ret___3 = __memcpy(__cil_tmp161, __cil_tmp162, __len___3);
+      __ret___3 = memcpy(__cil_tmp161, __cil_tmp162, __len___3);
       }
     } else {
       {
@@ -6239,7 +6239,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __cil_tmp173 = __cil_tmp172 + 44U;
       __cil_tmp174 = (void    *)buf;
       __cil_tmp175 = __cil_tmp174 + 32U;
-      __ret___4 = __memcpy(__cil_tmp173, __cil_tmp175, __len___4);
+      __ret___4 = memcpy(__cil_tmp173, __cil_tmp175, __len___4);
       }
     } else {
       {
@@ -11392,7 +11392,7 @@ static int adpt_i2o_parse_lct(adpt_hba *pHba )
     __cil_tmp128 = (i2o_lct_entry (*)[1U])__cil_tmp127;
     __cil_tmp129 = (void    *)__cil_tmp128;
     __cil_tmp130 = __cil_tmp129 + __cil_tmp125;
-    __ret = __memcpy(__cil_tmp124, __cil_tmp130, __len);
+    __ret = memcpy(__cil_tmp124, __cil_tmp130, __len);
     }
   } else {
     {
@@ -15775,7 +15775,7 @@ static s32 adpt_i2o_reparse_lct(adpt_hba *pHba )
             __cil_tmp145 = (i2o_lct_entry (*)[1U])__cil_tmp144;
             __cil_tmp146 = (void    *)__cil_tmp145;
             __cil_tmp147 = __cil_tmp146 + __cil_tmp142;
-            __ret = __memcpy(__cil_tmp141, __cil_tmp147, __len);
+            __ret = memcpy(__cil_tmp141, __cil_tmp147, __len);
             }
           } else {
             {
@@ -16015,7 +16015,7 @@ static s32 adpt_i2o_reparse_lct(adpt_hba *pHba )
               __cil_tmp272 = (i2o_lct_entry (*)[1U])__cil_tmp271;
               __cil_tmp273 = (void    *)__cil_tmp272;
               __cil_tmp274 = __cil_tmp273 + __cil_tmp269;
-              __ret___0 = __memcpy(__cil_tmp268, __cil_tmp274, __len___0);
+              __ret___0 = memcpy(__cil_tmp268, __cil_tmp274, __len___0);
               }
             } else {
               {
@@ -19044,7 +19044,7 @@ static int adpt_i2o_query_scalar(adpt_hba *pHba , int tid , int group , int fiel
     {
     __cil_tmp75 = (void *)opblk_va;
     __cil_tmp76 = (void    *)(& opblk);
-    __ret = __memcpy(__cil_tmp75, __cil_tmp76, __len);
+    __ret = memcpy(__cil_tmp75, __cil_tmp76, __len);
     }
   } else {
     {

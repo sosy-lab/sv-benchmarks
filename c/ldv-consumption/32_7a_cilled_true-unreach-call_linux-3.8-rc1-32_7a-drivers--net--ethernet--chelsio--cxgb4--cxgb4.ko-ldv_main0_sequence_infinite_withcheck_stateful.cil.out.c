@@ -7116,7 +7116,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , int  ) ;
@@ -9410,14 +9410,14 @@ static int set_filter_wr(struct adapter *adapter , int fidx )
   fwr->ovlanm = tmp___10;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& fwr->lip), (void const   *)(& f->fs.val.lip), __len);
+    __ret = memcpy((void *)(& fwr->lip), (void const   *)(& f->fs.val.lip), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& fwr->lip), (void const   *)(& f->fs.val.lip),
                              __len);
   }
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& fwr->lipm), (void const   *)(& f->fs.mask.lip),
+    __ret___0 = memcpy((void *)(& fwr->lipm), (void const   *)(& f->fs.mask.lip),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& fwr->lipm), (void const   *)(& f->fs.mask.lip),
@@ -9425,7 +9425,7 @@ static int set_filter_wr(struct adapter *adapter , int fidx )
   }
   __len___1 = 16UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& fwr->fip), (void const   *)(& f->fs.val.fip),
+    __ret___1 = memcpy((void *)(& fwr->fip), (void const   *)(& f->fs.val.fip),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& fwr->fip), (void const   *)(& f->fs.val.fip),
@@ -9433,7 +9433,7 @@ static int set_filter_wr(struct adapter *adapter , int fidx )
   }
   __len___2 = 16UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& fwr->fipm), (void const   *)(& f->fs.mask.fip),
+    __ret___2 = memcpy((void *)(& fwr->fipm), (void const   *)(& f->fs.mask.fip),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& fwr->fipm), (void const   *)(& f->fs.mask.fip),
@@ -9450,7 +9450,7 @@ static int set_filter_wr(struct adapter *adapter , int fidx )
   if ((unsigned int )*((unsigned char *)f + 18UL) != 0U) {
     __len___3 = 6UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)(& fwr->sma), (void const   *)(& f->fs.smac), __len___3);
+      __ret___3 = memcpy((void *)(& fwr->sma), (void const   *)(& f->fs.smac), __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)(& fwr->sma), (void const   *)(& f->fs.smac),
                                    __len___3);
@@ -9901,7 +9901,7 @@ static void get_strings(struct net_device *dev , u32 stringset , u8 *data )
   if (stringset == 1U) {
     __len = 2080UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)data, (void const   *)(& stats_strings), __len);
+      __ret = memcpy((void *)data, (void const   *)(& stats_strings), __len);
     } else {
       __ret = __builtin_memcpy((void *)data, (void const   *)(& stats_strings), __len);
     }
@@ -15907,7 +15907,7 @@ static int write_l2e(struct adapter *adap , struct l2t_entry *e , int sync )
   if ((unsigned long )e->neigh != (unsigned long )((struct neighbour *)0)) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& e->dmac), (void const   *)(& (e->neigh)->ha), __len);
+      __ret = memcpy((void *)(& e->dmac), (void const   *)(& (e->neigh)->ha), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& e->dmac), (void const   *)(& (e->neigh)->ha),
                                __len);
@@ -15917,7 +15917,7 @@ static int write_l2e(struct adapter *adap , struct l2t_entry *e , int sync )
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& req->dst_mac), (void const   *)(& e->dmac), __len___0);
+    __ret___0 = memcpy((void *)(& req->dst_mac), (void const   *)(& e->dmac), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& req->dst_mac), (void const   *)(& e->dmac),
                                  __len___0);
@@ -16444,7 +16444,7 @@ int t4_l2t_set_switching(struct adapter *adap , struct l2t_entry *e , u16 vlan ,
   e->lport = port;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& e->dmac), (void const   *)eth_addr, __len);
+    __ret = memcpy((void *)(& e->dmac), (void const   *)eth_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& e->dmac), (void const   *)eth_addr, __len);
   }
@@ -17567,7 +17567,7 @@ int get_vpd_params(struct adapter *adapter , struct vpd_params *p )
   strim((char *)(& p->id));
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& p->ec), (void const   *)vpd + (unsigned long )ec,
+    __ret___0 = memcpy((void *)(& p->ec), (void const   *)vpd + (unsigned long )ec,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& p->ec), (void const   *)vpd + (unsigned long )ec,
@@ -17894,7 +17894,7 @@ int t4_check_fw_version(struct adapter *adapter )
   micro = (int )(adapter->params.fw_vers >> 8) & 255;
   __len = 7UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& adapter->params.api_vers), (void const   *)(& api_vers),
+    __ret = memcpy((void *)(& adapter->params.api_vers), (void const   *)(& api_vers),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& adapter->params.api_vers), (void const   *)(& api_vers),
@@ -18109,7 +18109,7 @@ int t4_load_fw(struct adapter *adap , u8 const   *fw_data , unsigned int size )
   }
   __len = 256UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& first_page), (void const   *)fw_data, __len);
+    __ret = memcpy((void *)(& first_page), (void const   *)fw_data, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& first_page), (void const   *)fw_data, __len);
   }
@@ -20986,7 +20986,7 @@ int t4_alloc_vi(struct adapter *adap , unsigned int mbox , unsigned int port , u
   if ((unsigned long )mac != (unsigned long )((u8 *)0)) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)mac, (void const   *)(& c.mac), __len);
+      __ret = memcpy((void *)mac, (void const   *)(& c.mac), __len);
     } else {
       __ret = __builtin_memcpy((void *)mac, (void const   *)(& c.mac), __len);
     }
@@ -20994,7 +20994,7 @@ int t4_alloc_vi(struct adapter *adap , unsigned int mbox , unsigned int port , u
     case 5U: 
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)mac + 24U, (void const   *)(& c.nmac3), __len___0);
+      __ret___0 = memcpy((void *)mac + 24U, (void const   *)(& c.nmac3), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)mac + 24U, (void const   *)(& c.nmac3),
                                    __len___0);
@@ -21002,7 +21002,7 @@ int t4_alloc_vi(struct adapter *adap , unsigned int mbox , unsigned int port , u
     case 4U: 
     __len___1 = 6UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)mac + 18U, (void const   *)(& c.nmac2), __len___1);
+      __ret___1 = memcpy((void *)mac + 18U, (void const   *)(& c.nmac2), __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)mac + 18U, (void const   *)(& c.nmac2),
                                    __len___1);
@@ -21010,7 +21010,7 @@ int t4_alloc_vi(struct adapter *adap , unsigned int mbox , unsigned int port , u
     case 3U: 
     __len___2 = 6UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)mac + 12U, (void const   *)(& c.nmac1), __len___2);
+      __ret___2 = memcpy((void *)mac + 12U, (void const   *)(& c.nmac1), __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)mac + 12U, (void const   *)(& c.nmac1),
                                    __len___2);
@@ -21018,7 +21018,7 @@ int t4_alloc_vi(struct adapter *adap , unsigned int mbox , unsigned int port , u
     case 2U: 
     __len___3 = 6UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)mac + 6U, (void const   *)(& c.nmac0), __len___3);
+      __ret___3 = memcpy((void *)mac + 6U, (void const   *)(& c.nmac0), __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)mac + 6U, (void const   *)(& c.nmac0),
                                    __len___3);
@@ -21115,7 +21115,7 @@ int t4_alloc_mac_filt(struct adapter *adap , unsigned int mbox , unsigned int vi
   p->valid_to_idx = 65411U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& p->macaddr), (void const   *)*(addr + (unsigned long )i),
+    __ret = memcpy((void *)(& p->macaddr), (void const   *)*(addr + (unsigned long )i),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& p->macaddr), (void const   *)*(addr + (unsigned long )i),
@@ -21197,7 +21197,7 @@ int t4_change_mac(struct adapter *adap , unsigned int mbox , unsigned int viid ,
   p->valid_to_idx = tmp___0;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& p->macaddr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& p->macaddr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& p->macaddr), (void const   *)addr, __len);
   }
@@ -21619,7 +21619,7 @@ int t4_port_init(struct adapter *adap , int mbox , int pf , int vf )
   p->rss_size = (u16 )rss_size;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(adap->port[i])->dev_addr, (void const   *)(& addr),
+    __ret = memcpy((void *)(adap->port[i])->dev_addr, (void const   *)(& addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(adap->port[i])->dev_addr, (void const   *)(& addr),
@@ -21627,7 +21627,7 @@ int t4_port_init(struct adapter *adap , int mbox , int pf , int vf )
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& (adap->port[i])->perm_addr), (void const   *)(& addr),
+    __ret___0 = memcpy((void *)(& (adap->port[i])->perm_addr), (void const   *)(& addr),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& (adap->port[i])->perm_addr), (void const   *)(& addr),

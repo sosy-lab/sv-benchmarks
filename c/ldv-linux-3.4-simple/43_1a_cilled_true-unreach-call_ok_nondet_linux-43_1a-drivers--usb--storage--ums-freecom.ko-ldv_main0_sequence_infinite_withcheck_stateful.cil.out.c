@@ -3768,7 +3768,7 @@ void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -4112,7 +4112,7 @@ static int freecom_transport(struct scsi_cmnd *srb , struct us_data *us )
     __cil_tmp33 = __cil_tmp32 + 80;
     __cil_tmp34 = *((unsigned char **)__cil_tmp33);
     __cil_tmp35 = (void const   *)__cil_tmp34;
-    __ret = __memcpy(__cil_tmp31, __cil_tmp35, __len);
+    __ret = memcpy(__cil_tmp31, __cil_tmp35, __len);
     }
   } else {
     {

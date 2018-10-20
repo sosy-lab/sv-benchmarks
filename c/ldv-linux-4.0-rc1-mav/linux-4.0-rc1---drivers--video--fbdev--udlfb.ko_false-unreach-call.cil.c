@@ -4873,8 +4873,8 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static u64 paravirt_read_tsc(void) 
@@ -5904,7 +5904,7 @@ static void dlfb_compress_hline(uint16_t const   **pixel_start_ptr , uint16_t co
   if ((unsigned long )((unsigned char const   *)cmd_buffer_end) <= (unsigned long )((unsigned char const   *)cmd + 11U)) {
     if ((unsigned long )((unsigned char const   *)cmd_buffer_end) > (unsigned long )((unsigned char const   *)cmd)) {
       {
-      __memset((void *)cmd, 175, (size_t )((long )cmd_buffer_end - (long )cmd));
+      memset((void *)cmd, 175, (size_t )((long )cmd_buffer_end - (long )cmd));
       }
     } else {
 
@@ -5954,7 +5954,7 @@ static int dlfb_render_hline(struct dlfb_data *dev , struct urb **urb_ptr , char
     dev_addr = dev_addr + (u32 )offset;
     back_start = back_start + (unsigned long )offset;
     line_start = line_start + (unsigned long )offset;
-    __memcpy((void *)back_start, (void const   *)line_start, (size_t )byte_width);
+    memcpy((void *)back_start, (void const   *)line_start, (size_t )byte_width);
     }
   } else {
 
@@ -6803,7 +6803,7 @@ static int dlfb_realloc_framebuffer(struct dlfb_data *dev , struct fb_info *info
     }
     if ((unsigned long )info->screen_base != (unsigned long )((char *)0)) {
       {
-      __memcpy((void *)new_fb, (void const   *)old_fb, (size_t )old_len);
+      memcpy((void *)new_fb, (void const   *)old_fb, (size_t )old_len);
       vfree((void const   *)info->screen_base);
       }
     } else {
@@ -6876,7 +6876,7 @@ static int dlfb_setup_modes(struct dlfb_data *dev , struct fb_info *info , char 
   }
   {
   fb_destroy_modelist(& info->modelist);
-  __memset((void *)(& info->monspecs), 0, 144UL);
+  memset((void *)(& info->monspecs), 0, 144UL);
   }
   goto ldv_34098;
   ldv_34097: 
@@ -6934,7 +6934,7 @@ static int dlfb_setup_modes(struct dlfb_data *dev , struct fb_info *info , char 
       }
       if (info->monspecs.modedb_len != 0U) {
         {
-        __memcpy((void *)edid, (void const   *)default_edid, default_edid_size);
+        memcpy((void *)edid, (void const   *)default_edid, default_edid_size);
         dev->edid = edid;
         dev->edid_size = default_edid_size;
         printk("\vudlfb: Using default/backup EDID\n");
@@ -7031,7 +7031,7 @@ static int dlfb_setup_modes(struct dlfb_data *dev , struct fb_info *info , char 
     {
     fb_videomode_to_var(& info->var, default_vmode);
     dlfb_var_color_format(& info->var);
-    __memcpy((void *)(& info->fix), (void const   *)(& dlfb_fix), 80UL);
+    memcpy((void *)(& info->fix), (void const   *)(& dlfb_fix), 80UL);
     info->fix.line_length = info->var.xres * (info->var.bits_per_pixel / 8U);
     result = dlfb_realloc_framebuffer(dev, info);
     }
@@ -7170,7 +7170,7 @@ static ssize_t edid_show(struct file *filp , struct kobject *kobj , struct bin_a
   }
   {
   printk("\016udlfb: sysfs edid copy %p to %p, %d bytes\n", dev->edid, buf, (int )count);
-  __memcpy((void *)buf, (void const   *)dev->edid, count);
+  memcpy((void *)buf, (void const   *)dev->edid, count);
   }
   return ((ssize_t )count);
 }

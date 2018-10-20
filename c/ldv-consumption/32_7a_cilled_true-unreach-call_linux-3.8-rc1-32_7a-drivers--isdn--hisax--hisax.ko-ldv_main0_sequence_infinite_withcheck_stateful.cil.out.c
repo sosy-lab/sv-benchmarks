@@ -6047,7 +6047,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strchr(char const   * , int  ) ;
@@ -7002,7 +7002,7 @@ static void HiSax_shiftcards(int idx )
   ldv_42166: 
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cards) + (unsigned long )i, (void const   *)(& cards) + ((unsigned long )i + 1UL),
+    __ret = memcpy((void *)(& cards) + (unsigned long )i, (void const   *)(& cards) + ((unsigned long )i + 1UL),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cards) + (unsigned long )i, (void const   *)(& cards) + ((unsigned long )i + 1UL),
@@ -16278,7 +16278,7 @@ static void lli_deliver_call(struct FsmInst *fi , int event , void *arg )
   ic.arg = (ulong )chanp->chan;
   __len = 68UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ic.parm.setup), (void const   *)(& (chanp->proc)->para.setup),
+    __ret = memcpy((void *)(& ic.parm.setup), (void const   *)(& (chanp->proc)->para.setup),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ic.parm.setup), (void const   *)(& (chanp->proc)->para.setup),
@@ -16304,7 +16304,7 @@ static void lli_deliver_call(struct FsmInst *fi , int event , void *arg )
   if (ret == 5) {
     __len___0 = 68UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& chanp->setup), (void const   *)(& ic.parm.setup),
+      __ret___0 = memcpy((void *)(& chanp->setup), (void const   *)(& ic.parm.setup),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& chanp->setup), (void const   *)(& ic.parm.setup),
@@ -17813,7 +17813,7 @@ int HiSax_command(isdn_ctrl *ic )
   }
   __len = 68UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& chanp->setup), (void const   *)(& ic->parm.setup),
+    __ret = memcpy((void *)(& chanp->setup), (void const   *)(& ic->parm.setup),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& chanp->setup), (void const   *)(& ic->parm.setup),
@@ -17845,7 +17845,7 @@ int HiSax_command(isdn_ctrl *ic )
   chanp = (struct Channel *)(& csta->channel) + ic->arg;
   __len___0 = 68UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& chanp->setup), (void const   *)(& ic->parm.setup),
+    __ret___0 = memcpy((void *)(& chanp->setup), (void const   *)(& ic->parm.setup),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& chanp->setup), (void const   *)(& ic->parm.setup),
@@ -18041,7 +18041,7 @@ int HiSax_command(isdn_ctrl *ic )
   }
   __len___1 = 68UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& chanp->setup), (void const   *)(& ic->parm.setup),
+    __ret___1 = memcpy((void *)(& chanp->setup), (void const   *)(& ic->parm.setup),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& chanp->setup), (void const   *)(& ic->parm.setup),
@@ -23652,7 +23652,7 @@ static void dss1down(struct PStack *st , int pr , void *arg )
       chan->proc = proc;
       __len = 68UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& proc->para.setup), (void const   *)(& chan->setup),
+        __ret = memcpy((void *)(& proc->para.setup), (void const   *)(& chan->setup),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& proc->para.setup), (void const   *)(& chan->setup),
@@ -24507,7 +24507,7 @@ static void l3ni1_message_plus_chid(struct l3_process *pc , u_char mt )
   __len = 7UL;
   if (__len > 63UL) {
     tmp___8 = skb_put(skb, 7U);
-    __ret = __memcpy((void *)tmp___8, (void const   *)(& tmp), __len);
+    __ret = memcpy((void *)tmp___8, (void const   *)(& tmp), __len);
   } else {
     tmp___9 = skb_put(skb, 7U);
     __ret = __builtin_memcpy((void *)tmp___9, (void const   *)(& tmp), __len);
@@ -28771,7 +28771,7 @@ static void ni1down(struct PStack *st , int pr , void *arg )
       chan->proc = proc;
       __len = 68UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& proc->para.setup), (void const   *)(& chan->setup),
+        __ret = memcpy((void *)(& proc->para.setup), (void const   *)(& chan->setup),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& proc->para.setup), (void const   *)(& chan->setup),
@@ -30342,7 +30342,7 @@ static void down1tr6(struct PStack *st , int pr , void *arg )
       chan->proc = proc;
       __len = 68UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& proc->para.setup), (void const   *)(& chan->setup),
+        __ret = memcpy((void *)(& proc->para.setup), (void const   *)(& chan->setup),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& proc->para.setup), (void const   *)(& chan->setup),
@@ -43413,7 +43413,7 @@ static void bch_int(struct IsdnCardState *cs , u_char hscx )
         __len___0 = 64UL;
         if (__len___0 > 63UL) {
           tmp___3 = skb_put(skb, 64U);
-          __ret___0 = __memcpy((void *)tmp___3, (void const   *)bcs->hw.hscx.rcvbuf,
+          __ret___0 = memcpy((void *)tmp___3, (void const   *)bcs->hw.hscx.rcvbuf,
                                __len___0);
         } else {
           tmp___4 = skb_put(skb, 64U);
@@ -46028,7 +46028,7 @@ static void send_DLE_ETX(struct BCState *bcs )
     __len = 2UL;
     if (__len > 63UL) {
       tmp = skb_put(skb, 2U);
-      __ret = __memcpy((void *)tmp, (void const   *)(& dleetx), __len);
+      __ret = memcpy((void *)tmp, (void const   *)(& dleetx), __len);
     } else {
       tmp___0 = skb_put(skb, 2U);
       __ret = __builtin_memcpy((void *)tmp___0, (void const   *)(& dleetx), __len);
@@ -48044,7 +48044,7 @@ int isar_auxcmd(struct IsdnCardState *cs , isdn_ctrl *ic )
   features = 527360;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& adr), (void const   *)(& ic->parm.num), __len);
+    __ret = memcpy((void *)(& adr), (void const   *)(& ic->parm.num), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& adr), (void const   *)(& ic->parm.num), __len);
   }
@@ -61729,7 +61729,7 @@ static void W6692B_interrupt(struct IsdnCardState *cs , u_char bchan )
         __len___0 = 64UL;
         if (__len___0 > 63UL) {
           tmp___3 = skb_put(skb, 64U);
-          __ret___0 = __memcpy((void *)tmp___3, (void const   *)bcs->hw.w6692.rcvbuf,
+          __ret___0 = memcpy((void *)tmp___3, (void const   *)bcs->hw.w6692.rcvbuf,
                                __len___0);
         } else {
           tmp___4 = skb_put(skb, 64U);

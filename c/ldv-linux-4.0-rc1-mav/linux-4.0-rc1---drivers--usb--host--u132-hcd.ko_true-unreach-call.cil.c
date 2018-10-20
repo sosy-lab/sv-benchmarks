@@ -4428,7 +4428,7 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -9053,7 +9053,7 @@ static int u132_roothub_descriptor(struct u132 *u132 , struct usb_hub_descriptor
 
   }
   {
-  __memset((void *)(& desc->u.hs.DeviceRemovable), 255, 4UL);
+  memset((void *)(& desc->u.hs.DeviceRemovable), 255, 4UL);
   desc->u.hs.DeviceRemovable[0] = (__u8 )rh_b;
   }
   if (u132->num_ports > 7) {

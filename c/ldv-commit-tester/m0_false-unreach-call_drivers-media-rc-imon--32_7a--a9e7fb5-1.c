@@ -3318,7 +3318,7 @@ __inline static struct task_struct *get_current(void)
 }
 }
 extern void __xchg_wrong_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
@@ -4100,7 +4100,7 @@ static int send_associate_24g(struct imon_context *ictx )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& packet), __len);
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& packet), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& packet),
                              __len);
@@ -4178,7 +4178,7 @@ static int send_set_imon_clock(struct imon_context *ictx , unsigned int year , u
   ldv_26659: 
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& clock_enable_pkt) + (unsigned long )i,
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& clock_enable_pkt) + (unsigned long )i,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& clock_enable_pkt) + (unsigned long )i,
@@ -4433,7 +4433,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   ldv_26726: 
   __len = 7UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& ictx->tx.data_buf) + (unsigned long )offset,
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& ictx->tx.data_buf) + (unsigned long )offset,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& ictx->tx.data_buf) + (unsigned long )offset,
@@ -4455,7 +4455,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   }
   __len___0 = 7UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& vfd_packet6),
+    __ret___0 = memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& vfd_packet6),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& vfd_packet6),
@@ -4690,7 +4690,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 rc_type )
   ldv_26761: 
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& ir_proto_packet),
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& ir_proto_packet),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& ir_proto_packet),
@@ -5631,7 +5631,7 @@ static struct rc_dev *imon_init_rdev(struct imon_context *ictx )
   rdev->driver_name = (char *)"imon";
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& fp_packet),
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& fp_packet),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const   *)(& fp_packet),

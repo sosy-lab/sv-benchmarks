@@ -4539,7 +4539,7 @@ extern void __bad_percpu_size(void) ;
 extern void trace_hardirqs_on(void) ;
 extern void trace_hardirqs_off(void) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -6306,7 +6306,7 @@ static int gdth_set_asc_info(struct Scsi_Host *host , char *buffer , int length 
     pcpar = (gdth_cpar_str *)ha->pscratch;
     __len = 12UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)pcpar, (void const   *)(& ha->cpar), __len);
+      __ret = memcpy((void *)pcpar, (void const   *)(& ha->cpar), __len);
     } else {
       __ret = __builtin_memcpy((void *)pcpar, (void const   *)(& ha->cpar), __len);
     }
@@ -8577,7 +8577,7 @@ static int gdth_search_drives(gdth_ha_str *ha )
   if (tmp___4 != 0) {
     __len = 84UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ha->binfo), (void const   *)ha->pscratch, __len);
+      __ret = memcpy((void *)(& ha->binfo), (void const   *)ha->pscratch, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ha->binfo), (void const   *)ha->pscratch,
                                __len);
@@ -9632,7 +9632,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
     if ((unsigned int )scp->cmd_len == 16U) {
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& no), (void const   *)scp->cmnd + 2U, __len);
+        __ret = memcpy((void *)(& no), (void const   *)scp->cmnd + 2U, __len);
       } else {
         __ret = __builtin_memcpy((void *)(& no), (void const   *)scp->cmnd + 2U, __len);
       }
@@ -9640,7 +9640,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
       blockno = tmp___0;
       __len___0 = 4UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& cnt), (void const   *)scp->cmnd + 10U, __len___0);
+        __ret___0 = memcpy((void *)(& cnt), (void const   *)scp->cmnd + 10U, __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& cnt), (void const   *)scp->cmnd + 10U,
                                      __len___0);
@@ -9651,7 +9651,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
     if ((unsigned int )scp->cmd_len == 10U) {
       __len___1 = 4UL;
       if (__len___1 > 63UL) {
-        __ret___1 = __memcpy((void *)(& no), (void const   *)scp->cmnd + 2U, __len___1);
+        __ret___1 = memcpy((void *)(& no), (void const   *)scp->cmnd + 2U, __len___1);
       } else {
         __ret___1 = __builtin_memcpy((void *)(& no), (void const   *)scp->cmnd + 2U,
                                      __len___1);
@@ -9660,7 +9660,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
       blockno = (u64 )tmp___2;
       __len___2 = 2UL;
       if (__len___2 > 63UL) {
-        __ret___2 = __memcpy((void *)(& cnt), (void const   *)scp->cmnd + 7U, __len___2);
+        __ret___2 = memcpy((void *)(& cnt), (void const   *)scp->cmnd + 7U, __len___2);
       } else {
         __ret___2 = __builtin_memcpy((void *)(& cnt), (void const   *)scp->cmnd + 7U,
                                      __len___2);
@@ -9670,7 +9670,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
     } else {
       __len___3 = 4UL;
       if (__len___3 > 63UL) {
-        __ret___3 = __memcpy((void *)(& no), (void const   *)scp->cmnd, __len___3);
+        __ret___3 = memcpy((void *)(& no), (void const   *)scp->cmnd, __len___3);
       } else {
         __ret___3 = __builtin_memcpy((void *)(& no), (void const   *)scp->cmnd, __len___3);
       }
@@ -9844,7 +9844,7 @@ static int gdth_fill_raw_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u8 b )
       cmdp->u.raw64.direction = (unsigned int )gdth_direction_tab[(int )*(scp->cmnd)] == 2U ? 0U : 16777216U;
       __len = 16UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& cmdp->u.raw64.cmd), (void const   *)scp->cmnd,
+        __ret = memcpy((void *)(& cmdp->u.raw64.cmd), (void const   *)scp->cmnd,
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& cmdp->u.raw64.cmd), (void const   *)scp->cmnd,
@@ -9867,7 +9867,7 @@ static int gdth_fill_raw_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u8 b )
       cmdp->u.raw.direction = (unsigned int )gdth_direction_tab[(int )*(scp->cmnd)] == 2U ? 0U : 16777216U;
       __len___0 = 12UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& cmdp->u.raw.cmd), (void const   *)scp->cmnd,
+        __ret___0 = memcpy((void *)(& cmdp->u.raw.cmd), (void const   *)scp->cmnd,
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& cmdp->u.raw.cmd), (void const   *)scp->cmnd,
@@ -10134,7 +10134,7 @@ static int gdth_read_event(gdth_ha_str *ha , int handle , gdth_evt_str *estr )
     }
     __len = 294UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)estr, (void const   *)e, __len);
+      __ret = memcpy((void *)estr, (void const   *)e, __len);
     } else {
       __ret = __builtin_memcpy((void *)estr, (void const   *)e, __len);
     }
@@ -10190,7 +10190,7 @@ static void gdth_readapp_event(gdth_ha_str *ha , u8 application , gdth_evt_str *
   if ((unsigned int )found != 0U) {
     __len = 294UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)estr, (void const   *)e, __len);
+      __ret = memcpy((void *)estr, (void const   *)e, __len);
     } else {
       __ret = __builtin_memcpy((void *)estr, (void const   *)e, __len);
     }
@@ -11668,7 +11668,7 @@ static int ioc_general(void *arg , char *cmnd )
         gen.command.u.raw64.target = gen.command.u.raw.target;
         __len = 16UL;
         if (__len > 63UL) {
-          __ret = __memcpy((void *)(& cmd), (void const   *)(& gen.command.u.raw.cmd),
+          __ret = memcpy((void *)(& cmd), (void const   *)(& gen.command.u.raw.cmd),
                            __len);
         } else {
           __ret = __builtin_memcpy((void *)(& cmd), (void const   *)(& gen.command.u.raw.cmd),
@@ -11676,7 +11676,7 @@ static int ioc_general(void *arg , char *cmnd )
         }
         __len___0 = 16UL;
         if (__len___0 > 63UL) {
-          __ret___0 = __memcpy((void *)(& gen.command.u.raw64.cmd), (void const   *)(& cmd),
+          __ret___0 = memcpy((void *)(& gen.command.u.raw64.cmd), (void const   *)(& cmd),
                                __len___0);
         } else {
           __ret___0 = __builtin_memcpy((void *)(& gen.command.u.raw64.cmd), (void const   *)(& cmd),

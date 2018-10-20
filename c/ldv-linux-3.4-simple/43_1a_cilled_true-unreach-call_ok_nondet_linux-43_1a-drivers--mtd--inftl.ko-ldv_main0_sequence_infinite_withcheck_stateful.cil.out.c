@@ -6311,7 +6311,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 }
 
 
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -7052,7 +7052,7 @@ static int find_boot_record(struct INFTLrecord *inftl )
     {
     __cil_tmp106 = (void *)mh;
     __cil_tmp107 = (void const   *)(& buf);
-    __ret = __memcpy(__cil_tmp106, __cil_tmp107, __len);
+    __ret = memcpy(__cil_tmp106, __cil_tmp107, __len);
     }
   } else {
     {

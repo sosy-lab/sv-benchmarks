@@ -4658,7 +4658,7 @@ extern enum system_states system_state ;
 extern void dump_stack(void) ;
 extern void __cmpxchg_wrong_size(void) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 __inline static unsigned long __raw_local_save_flags(void) 
@@ -7118,7 +7118,7 @@ static void rtl8169_update_counters(struct net_device *dev )
   if (((unsigned long )tmp___2 & 8UL) == 0UL) {
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tp->counters), (void const   *)counters, __len);
+      __ret = memcpy((void *)(& tp->counters), (void const   *)counters, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tp->counters), (void const   *)counters,
                                __len);
@@ -7190,7 +7190,7 @@ static void rtl8169_get_strings(struct net_device *dev , u32 stringset , u8 *dat
   case 1U: 
   __len = 416UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& rtl8169_gstrings), __len);
+    __ret = memcpy((void *)data, (void const   *)(& rtl8169_gstrings), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& rtl8169_gstrings), __len);
   }

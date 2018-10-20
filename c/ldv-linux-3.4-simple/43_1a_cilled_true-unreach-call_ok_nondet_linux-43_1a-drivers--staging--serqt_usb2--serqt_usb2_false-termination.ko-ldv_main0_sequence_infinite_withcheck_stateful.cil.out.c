@@ -3629,7 +3629,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static int test_ti_thread_flag(struct thread_info *ti , int flag ) 
 { int tmp ;
@@ -5200,7 +5200,7 @@ static int qt_get_device(struct usb_serial *serial , struct qt_get_device_data *
       {
       __cil_tmp21 = (void *)device_data;
       __cil_tmp22 = (void const   *)transfer_buffer;
-      __ret = __memcpy(__cil_tmp21, __cil_tmp22, __len);
+      __ret = memcpy(__cil_tmp21, __cil_tmp22, __len);
       }
     } else {
       {

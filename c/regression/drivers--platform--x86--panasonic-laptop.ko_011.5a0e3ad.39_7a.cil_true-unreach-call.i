@@ -3013,7 +3013,7 @@ __inline static int get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 __inline static long PTR_ERR(void const   *ptr ) 
@@ -3885,7 +3885,7 @@ static int acpi_pcc_init_input(struct pcc_acpi *pcc )
   (pcc->input_dev)->setkeycode = & pcc_setkeycode;
   __len = 44UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
+    __ret = memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),

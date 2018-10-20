@@ -6325,7 +6325,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
@@ -8729,7 +8729,7 @@ static void ixgb_set_multi(struct net_device *netdev )
     ldv_50946: 
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)addr, (void const   *)(& ha->addr), __len);
+      __ret = memcpy((void *)addr, (void const   *)(& ha->addr), __len);
     } else {
       __ret = __builtin_memcpy((void *)addr, (void const   *)(& ha->addr), __len);
     }
@@ -14849,7 +14849,7 @@ static void ixgb_get_strings(struct net_device *netdev , u32 stringset , u8 *dat
   ldv_50742: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& ixgb_gstrings_stats[i].stat_string),
+    __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& ixgb_gstrings_stats[i].stat_string),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& ixgb_gstrings_stats[i].stat_string),

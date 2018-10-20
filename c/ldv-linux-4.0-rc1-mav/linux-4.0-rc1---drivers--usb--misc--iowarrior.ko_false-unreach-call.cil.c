@@ -4188,8 +4188,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
@@ -4738,7 +4738,7 @@ static void iowarrior_callback(struct urb *urb )
   }
   {
   offset = intr_idx * (dev->report_size + 1);
-  __memcpy((void *)dev->read_queue + (unsigned long )offset, (void const   *)urb->transfer_buffer,
+  memcpy((void *)dev->read_queue + (unsigned long )offset, (void const   *)urb->transfer_buffer,
            (size_t )dev->report_size);
   tmp___0 = dev->serial_number;
   dev->serial_number = (unsigned char )((int )dev->serial_number + 1);
@@ -5471,14 +5471,14 @@ static long iowarrior_ioctl(struct file *file , unsigned int cmd , unsigned long
   case_2150154243: /* CIL Label */ 
   {
   cfg_descriptor = & ((dev->udev)->actconfig)->desc;
-  __memset((void *)(& info), 0, 40UL);
+  memset((void *)(& info), 0, 40UL);
   info.vendor = (__u32 )(dev->udev)->descriptor.idVendor;
   info.product = (__u32 )dev->product_id;
   info.revision = (__u32 )(dev->udev)->descriptor.bcdDevice;
   info.speed = (__u32 )((unsigned short )(dev->udev)->speed);
   info.if_num = (__u32 )((dev->interface)->cur_altsetting)->desc.bInterfaceNumber;
   info.report_size = (__u32 )dev->report_size;
-  __memcpy((void *)(& info.serial), (void const   *)(& dev->chip_serial), 9UL);
+  memcpy((void *)(& info.serial), (void const   *)(& dev->chip_serial), 9UL);
   }
   if ((unsigned long )cfg_descriptor == (unsigned long )((struct usb_config_descriptor *)0)) {
     info.power = 4294967295U;
@@ -5835,14 +5835,14 @@ static int iowarrior_probe(struct usb_interface *interface , struct usb_device_i
 
   }
   {
-  __memset((void *)(& dev->chip_serial), 0, 9UL);
+  memset((void *)(& dev->chip_serial), 0, 9UL);
   usb_string(udev, (int )udev->descriptor.iSerialNumber, (char *)(& dev->chip_serial),
              9UL);
   tmp___6 = strlen((char const   *)(& dev->chip_serial));
   }
   if (tmp___6 != 8UL) {
     {
-    __memset((void *)(& dev->chip_serial), 0, 9UL);
+    memset((void *)(& dev->chip_serial), 0, 9UL);
     }
   } else {
 

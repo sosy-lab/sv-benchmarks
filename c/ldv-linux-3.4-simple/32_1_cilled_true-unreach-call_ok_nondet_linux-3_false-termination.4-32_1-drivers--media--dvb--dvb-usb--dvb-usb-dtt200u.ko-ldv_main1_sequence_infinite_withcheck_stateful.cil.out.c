@@ -8495,7 +8495,7 @@ long ldv__builtin_expect(long val , long res )
 }
 }
 
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void msleep(unsigned int msecs ) ;
 extern void kfree(void const   * ) ;
 extern int __VERIFIER_nondet_int(void);
@@ -9098,7 +9098,7 @@ static int dtt200u_fe_get_frontend(struct dvb_frontend *fe )
     __cil_tmp13 = __cil_tmp12 + 12;
     __cil_tmp14 = (struct dtv_frontend_properties *)__cil_tmp13;
     __cil_tmp15 = (void const   *)__cil_tmp14;
-    __ret = __memcpy(__cil_tmp11, __cil_tmp15, __len);
+    __ret = memcpy(__cil_tmp11, __cil_tmp15, __len);
     }
   } else {
     {
@@ -9205,7 +9205,7 @@ struct dvb_frontend *dtt200u_fe_attach(struct dvb_usb_device *d )
     __cil_tmp14 = (struct dvb_frontend_ops *)__cil_tmp13;
     __cil_tmp15 = (void *)__cil_tmp14;
     __cil_tmp16 = (void const   *)(& dtt200u_fe_ops);
-    __ret = __memcpy(__cil_tmp15, __cil_tmp16, __len);
+    __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
     }
   } else {
     {

@@ -3081,7 +3081,7 @@ struct mt2266_priv {
 };
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void msleep(unsigned int  ) ;
 extern int i2c_transfer(struct i2c_adapter * , struct i2c_msg * , int  ) ;
 extern void kfree(void const   * ) ;
@@ -3506,7 +3506,7 @@ struct dvb_frontend *mt2266_attach(struct dvb_frontend *fe , struct i2c_adapter 
   printk("<6>MT2266: successfully identified\n");
   __len = 280UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& mt2266_tuner_ops),
+    __ret = memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& mt2266_tuner_ops),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& mt2266_tuner_ops),

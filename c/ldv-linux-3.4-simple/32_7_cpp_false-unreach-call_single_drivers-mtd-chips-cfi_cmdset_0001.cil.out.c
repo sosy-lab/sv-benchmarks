@@ -3140,7 +3140,7 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
        : "memory");
  return to;
 }
-extern void *__memcpy(void *to, const void *from, size_t len);
+extern void *memcpy(void *to, const void *from, size_t len);
 void *memset(void *s, int c, size_t n);
 
 
@@ -3348,7 +3348,7 @@ static inline __attribute__((no_instrument_function)) void bitmap_copy(unsigned 
   *dst = *src;
  else {
   int len = (((nbits) + (8 * sizeof(long)) - 1) / (8 * sizeof(long))) * sizeof(unsigned long);
-  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = __memcpy((dst), (src), __len); else __ret = __builtin_memcpy((dst), (src), __len); __ret; });
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = __builtin_memcpy((dst), (src), __len); __ret; });
  }
 }
 
@@ -11153,13 +11153,13 @@ memset_io(volatile void *addr, unsigned char val, size_t count)
 static inline __attribute__((no_instrument_function)) void
 memcpy_fromio(void *dst, const volatile void *src, size_t count)
 {
- ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = __memcpy((dst), ((const void *)src), __len); else __ret = __builtin_memcpy((dst), ((const void *)src), __len); __ret; });
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy((dst), ((const void *)src), __len); else __ret = __builtin_memcpy((dst), ((const void *)src), __len); __ret; });
 }
 
 static inline __attribute__((no_instrument_function)) void
 memcpy_toio(volatile void *dst, const void *src, size_t count)
 {
- ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = __memcpy(((void *)dst), (src), __len); else __ret = __builtin_memcpy(((void *)dst), (src), __len); __ret; });
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy(((void *)dst), (src), __len); else __ret = __builtin_memcpy(((void *)dst), (src), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void flush_write_buffers(void)
 {
@@ -16328,10 +16328,10 @@ void do_schedule_next_timer(struct siginfo *info);
 static inline __attribute__((no_instrument_function)) void copy_siginfo(struct siginfo *to, struct siginfo *from)
 {
  if (from->si_code < 0)
-  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = __memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
+  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
  else
 
-  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = __memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
+  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
 }
 
 
@@ -22150,7 +22150,7 @@ static inline __attribute__((no_instrument_function)) map_word map_word_load(str
   r.x[0] = (( typeof(*((uint64_t *)ptr)))({ __builtin_choose_expr(sizeof(*((uint64_t *)ptr)) == 1, *((uint64_t *)ptr), __builtin_choose_expr(sizeof(*((uint64_t *)ptr)) == 2, get_unaligned_le16(((uint64_t *)ptr)), __builtin_choose_expr(sizeof(*((uint64_t *)ptr)) == 4, get_unaligned_le32(((uint64_t *)ptr)), __builtin_choose_expr(sizeof(*((uint64_t *)ptr)) == 8, get_unaligned_le64(((uint64_t *)ptr)), __bad_unaligned_access_size())))); }));
 
  else if ((((map)->bankwidth) > 64/8))
-  ({ size_t __len = (map->bankwidth); void *__ret; if (__builtin_constant_p(map->bankwidth) && __len >= 64) __ret = __memcpy((r.x), (ptr), __len); else __ret = __builtin_memcpy((r.x), (ptr), __len); __ret; });
+  ({ size_t __len = (map->bankwidth); void *__ret; if (__builtin_constant_p(map->bankwidth) && __len >= 64) __ret = memcpy((r.x), (ptr), __len); else __ret = __builtin_memcpy((r.x), (ptr), __len); __ret; });
 
  return r;
 }
@@ -22161,7 +22161,7 @@ static inline __attribute__((no_instrument_function)) map_word map_word_load_par
 
  if ((((map)->bankwidth) > 64/8)) {
   char *dest = (char *)&orig;
-  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = __memcpy((dest+start), (buf), __len); else __ret = __builtin_memcpy((dest+start), (buf), __len); __ret; });
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dest+start), (buf), __len); else __ret = __builtin_memcpy((dest+start), (buf), __len); __ret; });
  } else {
   for (i=start; i < start+len; i++) {
    int bitpos;
@@ -22240,7 +22240,7 @@ static inline __attribute__((no_instrument_function)) void inline_map_write(stru
 static inline __attribute__((no_instrument_function)) void inline_map_copy_from(struct map_info *map, void *to, unsigned long from, ssize_t len)
 {
  if (map->cached)
-  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = __memcpy((to), ((char *)map->cached + from), __len); else __ret = __builtin_memcpy((to), ((char *)map->cached + from), __len); __ret; });
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), ((char *)map->cached + from), __len); else __ret = __builtin_memcpy((to), ((char *)map->cached + from), __len); __ret; });
  else
   memcpy_fromio(to, map->virt + from, len);
 }
@@ -24018,7 +24018,7 @@ static void fixup_convert_atmel_pri(struct mtd_info *mtd)
  extp->BlkStatusRegMask = (( __le16)(__u16)(extp->BlkStatusRegMask));
  extp->ProtRegAddr = (( __le16)(__u16)(extp->ProtRegAddr));
 
- ({ size_t __len = (sizeof(atmel_pri)); void *__ret; if (__builtin_constant_p(sizeof(atmel_pri)) && __len >= 64) __ret = __memcpy((&atmel_pri), (extp), __len); else __ret = __builtin_memcpy((&atmel_pri), (extp), __len); __ret; });
+ ({ size_t __len = (sizeof(atmel_pri)); void *__ret; if (__builtin_constant_p(sizeof(atmel_pri)) && __len >= 64) __ret = memcpy((&atmel_pri), (extp), __len); else __ret = __builtin_memcpy((&atmel_pri), (extp), __len); __ret; });
  memset((char *)extp + 5, 0, sizeof(*extp) - 5);
 
  printk("<3>" "atmel Features: %02x\n", atmel_pri.Features);
@@ -24515,7 +24515,7 @@ static int cfi_intelext_partition_fixup(struct mtd_info *mtd,
    kfree(newcfi);
    return -12;
   }
-  ({ size_t __len = (sizeof(struct cfi_private)); void *__ret; if (__builtin_constant_p(sizeof(struct cfi_private)) && __len >= 64) __ret = __memcpy((newcfi), (cfi), __len); else __ret = __builtin_memcpy((newcfi), (cfi), __len); __ret; });
+  ({ size_t __len = (sizeof(struct cfi_private)); void *__ret; if (__builtin_constant_p(sizeof(struct cfi_private)) && __len >= 64) __ret = memcpy((newcfi), (cfi), __len); else __ret = __builtin_memcpy((newcfi), (cfi), __len); __ret; });
   newcfi->numchips = numvirtchips;
   newcfi->chipshift = partshift;
 

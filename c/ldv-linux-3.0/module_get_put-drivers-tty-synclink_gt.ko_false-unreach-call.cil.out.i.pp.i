@@ -5002,7 +5002,7 @@ __inline static struct task_struct *get_current(void)
 }
 extern void __xchg_wrong_size(void) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern int memcmp(void const * , void const * , size_t ) ;
 extern char *strcat(char * , char const * ) ;
@@ -10037,7 +10037,7 @@ static int set_params(struct slgt_info *info , MGSL_PARAMS *new_params )
     __len = 48UL;
     if (__len > 63UL) {
       {
-      __ret = __memcpy((void *)(& info->params), (void const *)(& tmp_params), __len);
+      __ret = memcpy((void *)(& info->params), (void const *)(& tmp_params), __len);
       }
     } else {
       {
@@ -12424,7 +12424,7 @@ static struct slgt_info *alloc_dev(int adapter_num , int port_num , struct pci_d
       }
       if (__len > 63UL) {
         {
-        __ret = __memcpy((void *)(& info->params), (void const *)(& default_params),
+        __ret = memcpy((void *)(& info->params), (void const *)(& default_params),
                          __len);
         }
       } else {
@@ -12514,7 +12514,7 @@ static void device_init(int adapter_num , struct pci_dev *pdev )
   __len = 32UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& (port_array[i])->port_array), (void const *)(& port_array),
+    __ret = memcpy((void *)(& (port_array[i])->port_array), (void const *)(& port_array),
                      __len);
     }
   } else {
@@ -14741,7 +14741,7 @@ static int loopback_test(struct slgt_info *info )
   __len = 48UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& params), (void const *)(& info->params), __len);
+    __ret = memcpy((void *)(& params), (void const *)(& info->params), __len);
     }
   } else {
     {
@@ -14821,7 +14821,7 @@ static int loopback_test(struct slgt_info *info )
   }
   if (__len___0 > 63UL) {
     {
-    __ret___0 = __memcpy((void *)(& info->params), (void const *)(& params), __len___0);
+    __ret___0 = memcpy((void *)(& info->params), (void const *)(& params), __len___0);
     }
   } else {
     {

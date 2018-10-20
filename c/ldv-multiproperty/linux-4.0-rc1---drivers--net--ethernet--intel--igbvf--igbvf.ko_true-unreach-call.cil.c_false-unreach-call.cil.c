@@ -7249,8 +7249,8 @@ void *ldv_alloc_macro(gfp_t flags )
   return (tmp);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned int readl(void const volatile   *addr ) 
 { 
   unsigned int ret ;
@@ -7387,7 +7387,7 @@ static s32 e1000_reset_hw_vf(struct e1000_hw *hw )
     if (ret_val == 0U) {
       if (msgbuf[0] == 2147483649U) {
         {
-        __memcpy((void *)(& hw->mac.perm_addr), (void const   *)addr, 6UL);
+        memcpy((void *)(& hw->mac.perm_addr), (void const   *)addr, 6UL);
         }
       } else {
         ret_val = 4294967291U;
@@ -7526,9 +7526,9 @@ static void e1000_rar_set_vf(struct e1000_hw *hw , u8 *addr , u32 index )
   {
   mbx = & hw->mbx;
   msg_addr = (u8 *)(& msgbuf) + 1U;
-  __memset((void *)(& msgbuf), 0, 12UL);
+  memset((void *)(& msgbuf), 0, 12UL);
   msgbuf[0] = 2U;
-  __memcpy((void *)msg_addr, (void const   *)addr, 6UL);
+  memcpy((void *)msg_addr, (void const   *)addr, 6UL);
   ret_val = (*(mbx->ops.write_posted))(hw, (u32 *)(& msgbuf), 3);
   }
   if (ret_val == 0) {
@@ -7555,7 +7555,7 @@ static s32 e1000_read_mac_addr_vf(struct e1000_hw *hw )
 
   {
   {
-  __memcpy((void *)(& hw->mac.addr), (void const   *)(& hw->mac.perm_addr), 6UL);
+  memcpy((void *)(& hw->mac.addr), (void const   *)(& hw->mac.perm_addr), 6UL);
   }
   return (0);
 }
@@ -8244,7 +8244,7 @@ static void igbvf_get_regs(struct net_device *netdev , struct ethtool_regs *regs
   adapter = (struct igbvf_adapter *)tmp;
   hw = & adapter->hw;
   regs_buff = (u32 *)p;
-  __memset(p, 0, 32UL);
+  memset(p, 0, 32UL);
   regs->version = (__u32 )((((int )(adapter->pdev)->revision << 16) | 16777216) | (int )(adapter->pdev)->device);
   *regs_buff = readl((void const volatile   *)hw->hw_addr);
   *(regs_buff + 1UL) = readl((void const volatile   *)hw->hw_addr + 8U);
@@ -8425,7 +8425,7 @@ static int igbvf_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
   }
   if (new_tx_count != (adapter->tx_ring)->count) {
     {
-    __memcpy((void *)temp_ring, (void const   *)adapter->tx_ring, 400UL);
+    memcpy((void *)temp_ring, (void const   *)adapter->tx_ring, 400UL);
     temp_ring->count = new_tx_count;
     err = igbvf_setup_tx_resources(adapter, temp_ring);
     }
@@ -8436,14 +8436,14 @@ static int igbvf_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
     }
     {
     igbvf_free_tx_resources(adapter->tx_ring);
-    __memcpy((void *)adapter->tx_ring, (void const   *)temp_ring, 400UL);
+    memcpy((void *)adapter->tx_ring, (void const   *)temp_ring, 400UL);
     }
   } else {
 
   }
   if (new_rx_count != (adapter->rx_ring)->count) {
     {
-    __memcpy((void *)temp_ring, (void const   *)adapter->rx_ring, 400UL);
+    memcpy((void *)temp_ring, (void const   *)adapter->rx_ring, 400UL);
     temp_ring->count = new_rx_count;
     err = igbvf_setup_rx_resources(adapter, temp_ring);
     }
@@ -8454,7 +8454,7 @@ static int igbvf_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
     }
     {
     igbvf_free_rx_resources(adapter->rx_ring);
-    __memcpy((void *)adapter->rx_ring, (void const   *)temp_ring, 400UL);
+    memcpy((void *)adapter->rx_ring, (void const   *)temp_ring, 400UL);
     }
   } else {
 
@@ -8687,7 +8687,7 @@ static void igbvf_get_strings(struct net_device *netdev , u32 stringset , u8 *da
   goto switch_break;
   case_0: /* CIL Label */ 
   {
-  __memcpy((void *)data, (void const   *)(& igbvf_gstrings_test), 32UL);
+  memcpy((void *)data, (void const   *)(& igbvf_gstrings_test), 32UL);
   }
   goto ldv_47242;
   case_1: /* CIL Label */ 
@@ -8695,7 +8695,7 @@ static void igbvf_get_strings(struct net_device *netdev , u32 stringset , u8 *da
   goto ldv_47247;
   ldv_47246: 
   {
-  __memcpy((void *)p, (void const   *)(& igbvf_gstrings_stats[i].stat_string), 32UL);
+  memcpy((void *)p, (void const   *)(& igbvf_gstrings_stats[i].stat_string), 32UL);
   p = p + 32UL;
   i = i + 1;
   }
@@ -11338,8 +11338,8 @@ static void igbvf_clean_tx_ring(struct igbvf_ring *tx_ring )
   }
   {
   size = (unsigned long )tx_ring->count * 40UL;
-  __memset((void *)tx_ring->buffer_info, 0, size);
-  __memset((void *)tx_ring->desc, 0, (size_t )tx_ring->size);
+  memset((void *)tx_ring->buffer_info, 0, size);
+  memset((void *)tx_ring->desc, 0, (size_t )tx_ring->size);
   tx_ring->next_to_use = 0U;
   tx_ring->next_to_clean = 0U;
   writel(0U, (void volatile   *)adapter->hw.hw_addr + (unsigned long )tx_ring->head);
@@ -11436,8 +11436,8 @@ static void igbvf_clean_rx_ring(struct igbvf_ring *rx_ring )
   }
   {
   size = (unsigned long )rx_ring->count * 40UL;
-  __memset((void *)rx_ring->buffer_info, 0, size);
-  __memset((void *)rx_ring->desc, 0, (size_t )rx_ring->size);
+  memset((void *)rx_ring->buffer_info, 0, size);
+  memset((void *)rx_ring->desc, 0, (size_t )rx_ring->size);
   rx_ring->next_to_clean = 0U;
   rx_ring->next_to_use = 0U;
   writel(0U, (void volatile   *)adapter->hw.hw_addr + (unsigned long )rx_ring->head);
@@ -12099,9 +12099,9 @@ static int igbvf_request_msix(struct igbvf_adapter *adapter )
     }
   } else {
     {
-    __memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
+    memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
              16UL);
-    __memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
+    memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
              16UL);
     }
   }
@@ -12554,7 +12554,7 @@ static void igbvf_set_multi(struct net_device *netdev )
   {
   tmp___1 = i;
   i = i + 1;
-  __memcpy((void *)mta_list + (unsigned long )(tmp___1 * 6), (void const   *)(& ha->addr),
+  memcpy((void *)mta_list + (unsigned long )(tmp___1 * 6), (void const   *)(& ha->addr),
            6UL);
   __mptr___0 = (struct list_head  const  *)ha->list.next;
   ha = (struct netdev_hw_addr *)__mptr___0;
@@ -12617,8 +12617,8 @@ static void igbvf_reset(struct igbvf_adapter *adapter )
   }
   if ((int )tmp___0) {
     {
-    __memcpy((void *)netdev->dev_addr, (void const   *)(& adapter->hw.mac.addr), (size_t )netdev->addr_len);
-    __memcpy((void *)(& netdev->perm_addr), (void const   *)(& adapter->hw.mac.addr),
+    memcpy((void *)netdev->dev_addr, (void const   *)(& adapter->hw.mac.addr), (size_t )netdev->addr_len);
+    memcpy((void *)(& netdev->perm_addr), (void const   *)(& adapter->hw.mac.addr),
              (size_t )netdev->addr_len);
     }
   } else {
@@ -12956,7 +12956,7 @@ static int igbvf_set_mac(struct net_device *netdev , void *p )
 
   }
   {
-  __memcpy((void *)(& hw->mac.addr), (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
+  memcpy((void *)(& hw->mac.addr), (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
   (*(hw->mac.ops.rar_set))(hw, (u8 *)(& hw->mac.addr), 0U);
   tmp___2 = ether_addr_equal((u8 const   *)(& addr->sa_data), (u8 const   *)(& hw->mac.addr));
   }
@@ -12971,7 +12971,7 @@ static int igbvf_set_mac(struct net_device *netdev , void *p )
 
   }
   {
-  __memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
+  memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
   }
   return (0);
 }
@@ -14527,7 +14527,7 @@ static int igbvf_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
       }
     }
     {
-    __memcpy((void *)netdev->dev_addr, (void const   *)(& adapter->hw.mac.addr), (size_t )netdev->addr_len);
+    memcpy((void *)netdev->dev_addr, (void const   *)(& adapter->hw.mac.addr), (size_t )netdev->addr_len);
     }
   }
   {
@@ -14542,7 +14542,7 @@ static int igbvf_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
     {
     _dev_info((struct device  const  *)(& pdev->dev), "Assigning random MAC address.\n");
     eth_hw_addr_random(netdev);
-    __memcpy((void *)(& adapter->hw.mac.addr), (void const   *)netdev->dev_addr, (size_t )netdev->addr_len);
+    memcpy((void *)(& adapter->hw.mac.addr), (void const   *)netdev->dev_addr, (size_t )netdev->addr_len);
     }
   } else {
 

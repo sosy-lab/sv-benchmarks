@@ -10330,7 +10330,7 @@ void ldv_mutex_unlock_130(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_150(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_148(struct mutex *ldv_func_arg1 ) ;
@@ -10586,7 +10586,7 @@ static void parse_backlight_data(struct drm_psb_private *dev_priv , struct bdb_h
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)lvds_bl, (void const   *)vbt_lvds_bl, __len);
+    __ret = memcpy((void *)lvds_bl, (void const   *)vbt_lvds_bl, __len);
   } else {
     __ret = __builtin_memcpy((void *)lvds_bl, (void const   *)vbt_lvds_bl, __len);
   }
@@ -10926,7 +10926,7 @@ static void parse_device_mapping(struct drm_psb_private *dev_priv , struct bdb_h
   count = count + 1;
   __len = 33UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)child_dev_ptr, (void const   *)p_child, __len);
+    __ret = memcpy((void *)child_dev_ptr, (void const   *)p_child, __len);
   } else {
     __ret = __builtin_memcpy((void *)child_dev_ptr, (void const   *)p_child, __len);
   }
@@ -17724,7 +17724,7 @@ static int psb_intel_crtc_cursor_set(struct drm_crtc *crtc , struct drm_file *fi
     tmp_src = kmap(*(gt->pages + (unsigned long )i));
     __len = 4096UL;
     if (__len > 63UL) {
-      __ret = __memcpy(tmp_dst, (void const   *)tmp_src, __len);
+      __ret = memcpy(tmp_dst, (void const   *)tmp_src, __len);
     } else {
       __ret = __builtin_memcpy(tmp_dst, (void const   *)tmp_src, __len);
     }
@@ -22890,7 +22890,7 @@ static bool psb_intel_sdvo_output_setup(struct psb_intel_sdvo *psb_intel_sdvo , 
     psb_intel_sdvo->controlled_output = 0U;
     __len = 2UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& bytes), (void const   *)(& psb_intel_sdvo->caps.output_flags),
+      __ret = memcpy((void *)(& bytes), (void const   *)(& psb_intel_sdvo->caps.output_flags),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& bytes), (void const   *)(& psb_intel_sdvo->caps.output_flags),
@@ -29481,7 +29481,7 @@ static bool cdv_intel_find_dp_pll(struct cdv_intel_limit_t  const  *limit , stru
   clock.dot = clock.vco / clock.p;
   __len = 36UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)best_clock, (void const   *)(& clock), __len);
+    __ret = memcpy((void *)best_clock, (void const   *)(& clock), __len);
   } else {
     __ret = __builtin_memcpy((void *)best_clock, (void const   *)(& clock), __len);
   }
@@ -36712,7 +36712,7 @@ static int oaktrail_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mod
   }
   __len = 216UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& psb_intel_crtc->saved_mode), (void const   *)mode,
+    __ret = memcpy((void *)(& psb_intel_crtc->saved_mode), (void const   *)mode,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& psb_intel_crtc->saved_mode), (void const   *)mode,
@@ -36720,7 +36720,7 @@ static int oaktrail_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mod
   }
   __len___0 = 216UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& psb_intel_crtc->saved_adjusted_mode), (void const   *)adjusted_mode,
+    __ret___0 = memcpy((void *)(& psb_intel_crtc->saved_adjusted_mode), (void const   *)adjusted_mode,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& psb_intel_crtc->saved_adjusted_mode),
@@ -39423,7 +39423,7 @@ static void hdmi_i2c_read(struct oaktrail_hdmi_dev *hdmi_dev )
   temp = readl((void const volatile   *)hdmi_dev->regs + (unsigned long )((i + 1152) * 4));
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const   *)(& temp),
+    __ret = memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const   *)(& temp),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const   *)(& temp),

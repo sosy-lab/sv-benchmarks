@@ -5837,7 +5837,7 @@ extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
@@ -11757,7 +11757,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
         __cil_tmp152 = __cil_tmp151 + 224;
         __cil_tmp153 = *((unsigned char **)__cil_tmp152);
         __cil_tmp154 = (void const   *)__cil_tmp153;
-        __ret = __memcpy(__cil_tmp150, __cil_tmp154, __len);
+        __ret = memcpy(__cil_tmp150, __cil_tmp154, __len);
         }
       } else {
         {

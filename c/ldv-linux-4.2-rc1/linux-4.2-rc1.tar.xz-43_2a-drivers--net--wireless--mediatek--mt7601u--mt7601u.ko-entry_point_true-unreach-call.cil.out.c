@@ -26166,7 +26166,7 @@ struct sk_buff *ldv_skb_clone_492(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return ((struct sk_buff *)tmp);
 }
 }
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 bool ldv_queue_work_on_512(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;
 bool ldv_queue_work_on_514(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
@@ -26286,7 +26286,7 @@ void mt76_remove_hdr_pad(struct sk_buff *skb )
   {
   tmp = ieee80211_get_hdrlen_from_skb((struct sk_buff  const  *)skb);
   len = (int )tmp;
-  __memmove((void *)skb->data + 2U, (void const   *)skb->data, (size_t )len);
+  memmove((void *)skb->data + 2U, (void const   *)skb->data, (size_t )len);
   skb_pull(skb, 2U);
   return;
 }
@@ -26312,7 +26312,7 @@ int mt76_insert_hdr_pad(struct sk_buff *skb )
 
   }
   skb_push(skb, 2U);
-  __memmove((void *)skb->data, (void const   *)skb->data + 2U, (size_t )len);
+  memmove((void *)skb->data, (void const   *)skb->data + 2U, (size_t )len);
   *(skb->data + (unsigned long )len) = 0U;
   *(skb->data + ((unsigned long )len + 1UL)) = 0U;
   return (0);

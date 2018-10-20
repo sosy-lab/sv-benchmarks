@@ -5828,8 +5828,8 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 extern void list_del(struct list_head * ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strcat(char * , char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -15262,7 +15262,7 @@ static void blogic_init_ccbs(struct blogic_adapter *adapter , void *blk_pointer 
   {
   ccb = (struct blogic_ccb *)blk_pointer;
   offset = 0U;
-  __memset(blk_pointer, 0, (size_t )blk_size);
+  memset(blk_pointer, 0, (size_t )blk_size);
   ccb->allocgrp_head = blkp;
   ccb->allocgrp_size = (unsigned int )blk_size;
   }
@@ -15526,7 +15526,7 @@ static int blogic_cmd(struct blogic_adapter *adapter , enum blogic_opcode opcode
   reply_b = 0;
   if (replylen > 0) {
     {
-    __memset(reply, 0, (size_t )replylen);
+    memset(reply, 0, (size_t )replylen);
     }
   } else {
 
@@ -15912,9 +15912,9 @@ static void blogic_sort_probeinfo(struct blogic_probeinfo *probeinfo_list , int 
   probeinfo2 = probeinfo_list + ((unsigned long )j + 1UL);
   if ((int )probeinfo1->bus > (int )probeinfo2->bus || ((int )probeinfo1->bus == (int )probeinfo2->bus && (int )probeinfo1->dev > (int )probeinfo2->dev)) {
     {
-    __memcpy((void *)(& tmp_probeinfo), (void const   *)probeinfo1, 40UL);
-    __memcpy((void *)probeinfo1, (void const   *)probeinfo2, 40UL);
-    __memcpy((void *)probeinfo2, (void const   *)(& tmp_probeinfo), 40UL);
+    memcpy((void *)(& tmp_probeinfo), (void const   *)probeinfo1, 40UL);
+    memcpy((void *)probeinfo1, (void const   *)probeinfo2, 40UL);
+    memcpy((void *)probeinfo2, (void const   *)(& tmp_probeinfo), 40UL);
     last_exchange = j;
     }
   } else {
@@ -16451,11 +16451,11 @@ static void blogic_init_probeinfo_list(struct blogic_adapter *adapter )
         if ((unsigned int )*((unsigned char *)(& d0_mapbyte) + 0UL) != 0U) {
           {
           mmcount___0 = blogic_probeinfo_count - fpcount;
-          __memcpy((void *)(& saved_probeinfo), (void const   *)blogic_probeinfo_list,
+          memcpy((void *)(& saved_probeinfo), (void const   *)blogic_probeinfo_list,
                    (unsigned long )blogic_probeinfo_count * 40UL);
-          __memcpy((void *)blogic_probeinfo_list, (void const   *)(& saved_probeinfo) + (unsigned long )fpcount,
+          memcpy((void *)blogic_probeinfo_list, (void const   *)(& saved_probeinfo) + (unsigned long )fpcount,
                    (unsigned long )mmcount___0 * 40UL);
-          __memcpy((void *)blogic_probeinfo_list + (unsigned long )mmcount___0, (void const   *)(& saved_probeinfo),
+          memcpy((void *)blogic_probeinfo_list + (unsigned long )mmcount___0, (void const   *)(& saved_probeinfo),
                    (unsigned long )fpcount * 40UL);
           }
         } else {
@@ -17800,8 +17800,8 @@ static bool blogic_initadapter(struct blogic_adapter *adapter )
   adapter->first_inbox = (struct blogic_inbox *)adapter->last_outbox + 1U;
   adapter->last_inbox = adapter->first_inbox + ((unsigned long )adapter->mbox_count + 0xffffffffffffffffUL);
   adapter->next_inbox = adapter->first_inbox;
-  __memset((void *)adapter->first_outbox, 0, (unsigned long )adapter->mbox_count * 8UL);
-  __memset((void *)adapter->first_inbox, 0, (unsigned long )adapter->mbox_count * 8UL);
+  memset((void *)adapter->first_outbox, 0, (unsigned long )adapter->mbox_count * 8UL);
+  memset((void *)adapter->first_inbox, 0, (unsigned long )adapter->mbox_count * 8UL);
   extmbox_req.mbox_count = (unsigned char )adapter->mbox_count;
   extmbox_req.base_mbox_addr = (unsigned int )adapter->mbox_space_handle;
   tmp___2 = blogic_cmd(adapter, 129, (void *)(& extmbox_req), 5, (void *)0, 0);
@@ -18201,7 +18201,7 @@ static int blogic_init(void)
 
   }
   {
-  __memset((void *)myadapter, 0, 12816UL);
+  memset((void *)myadapter, 0, 12816UL);
   myadapter->adapter_type = probeinfo->adapter_type;
   myadapter->adapter_bus_type = probeinfo->adapter_bus_type;
   myadapter->io_addr = probeinfo->io_addr;
@@ -18289,7 +18289,7 @@ static int blogic_init(void)
   }
   {
   myadapter = (struct blogic_adapter *)(& host->hostdata);
-  __memcpy((void *)myadapter, (void const   *)adapter, 12816UL);
+  memcpy((void *)myadapter, (void const   *)adapter, 12816UL);
   myadapter->scsi_host = host;
   myadapter->host_no = (unsigned char )host->host_no;
   list_add_tail(& myadapter->host_list, & blogic_host_list);
@@ -19271,7 +19271,7 @@ static int blogic_qcmd_lck(struct scsi_cmnd *command , void (*comp_cb)(struct sc
 
   }
   {
-  __memcpy((void *)(& ccb->cdb), (void const   *)cdb, (size_t )cdblen);
+  memcpy((void *)(& ccb->cdb), (void const   *)cdb, (size_t )cdblen);
   ccb->sense_datalen = 96U;
   ccb->command = command;
   sense_buf = pci_map_single(adapter->pci_device, (void *)command->sense_buffer, (size_t )ccb->sense_datalen,
@@ -19564,7 +19564,7 @@ static int blogic_write_info(struct Scsi_Host *shost , char *procbuf , int bytes
   tgt_stats = (struct blogic_tgt_stats *)(& adapter->tgt_stats);
   adapter->ext_resets = 0U;
   adapter->adapter_intern_errors = 0U;
-  __memset((void *)tgt_stats, 0, 2112UL);
+  memset((void *)tgt_stats, 0, 2112UL);
   }
   return (0);
 }
@@ -19907,7 +19907,7 @@ static int blogic_parseopts(char *options )
   tmp = blogic_drvr_options_count;
   blogic_drvr_options_count = blogic_drvr_options_count + 1;
   drvr_opts = (struct blogic_drvr_options *)(& blogic_drvr_options) + (unsigned long )tmp;
-  __memset((void *)drvr_opts, 0, 26UL);
+  memset((void *)drvr_opts, 0, 26UL);
   }
   goto ldv_40747;
   ldv_40746: 

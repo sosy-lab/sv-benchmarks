@@ -7043,7 +7043,7 @@ extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char c
                              , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -7645,7 +7645,7 @@ __inline static void MWIFIEX_SKB_PACB(struct sk_buff *skb , struct mwifiex_dma_m
   {
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mapping, (void const   *)(& skb->cb), __len);
+    __ret = memcpy((void *)mapping, (void const   *)(& skb->cb), __len);
   } else {
     __ret = __builtin_memcpy((void *)mapping, (void const   *)(& skb->cb), __len);
   }
@@ -7883,7 +7883,7 @@ static int mwifiex_map_pci_memory(struct mwifiex_adapter *adapter , struct sk_bu
   mapping.len = size;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& skb->cb), (void const   *)(& mapping), __len);
+    __ret = memcpy((void *)(& skb->cb), (void const   *)(& mapping), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& skb->cb), (void const   *)(& mapping), __len);
   }
@@ -10040,7 +10040,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
     adapter->event_cause = event;
     __len = 2UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& data_len), (void const   *)skb_cmd->data, __len);
+      __ret = memcpy((void *)(& data_len), (void const   *)skb_cmd->data, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& data_len), (void const   *)skb_cmd->data,
                                __len);

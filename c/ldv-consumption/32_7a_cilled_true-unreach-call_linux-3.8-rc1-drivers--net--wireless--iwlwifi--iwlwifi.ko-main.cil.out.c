@@ -11087,7 +11087,7 @@ __inline static __u16 __le16_to_cpup(__le16 const   *p )
   return ((__u16 )*p);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_96(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_94(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_97(struct mutex *ldv_func_arg1 ) ;
@@ -12003,7 +12003,7 @@ struct iwl_nvm_data *iwl_parse_eeprom_data(struct device *dev , struct iwl_cfg  
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& data->hw_addr), tmp, __len);
+    __ret = memcpy((void *)(& data->hw_addr), tmp, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& data->hw_addr), tmp, __len);
   }
@@ -12024,7 +12024,7 @@ struct iwl_nvm_data *iwl_parse_eeprom_data(struct device *dev , struct iwl_cfg  
   }
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& data->xtal_calib), tmp, __len___0);
+    __ret___0 = memcpy((void *)(& data->xtal_calib), tmp, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& data->xtal_calib), tmp, __len___0);
   }

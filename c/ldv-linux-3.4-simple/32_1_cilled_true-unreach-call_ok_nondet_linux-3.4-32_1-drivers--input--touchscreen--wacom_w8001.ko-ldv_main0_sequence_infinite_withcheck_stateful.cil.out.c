@@ -1839,7 +1839,7 @@ extern int ( /* format attribute */  __dynamic_pr_debug)(struct _ddebug *descrip
                                                          char const   *fmt  , ...) ;
 extern int ( /* format attribute */  snprintf)(char *buf , size_t size , char const   *fmt 
                                                , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
 extern void __init_waitqueue_head(wait_queue_head_t *q , char const   *name , struct lock_class_key * ) ;
@@ -3563,7 +3563,7 @@ static irqreturn_t w8001_interrupt(struct serio *serio , unsigned char data , un
       __cil_tmp112 = __cil_tmp111 + __cil_tmp110;
       __cil_tmp113 = (unsigned char *)__cil_tmp112;
       __cil_tmp114 = (void const   *)__cil_tmp113;
-      __ret = __memcpy(__cil_tmp108, __cil_tmp114, __len);
+      __ret = memcpy(__cil_tmp108, __cil_tmp114, __len);
       }
     } else {
       {

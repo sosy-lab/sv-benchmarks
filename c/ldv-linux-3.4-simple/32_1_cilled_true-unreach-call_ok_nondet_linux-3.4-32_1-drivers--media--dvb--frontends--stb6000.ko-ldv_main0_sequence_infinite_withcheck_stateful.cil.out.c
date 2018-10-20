@@ -3195,7 +3195,7 @@ struct stb6000_priv {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -4146,7 +4146,7 @@ struct dvb_frontend *stb6000_attach(struct dvb_frontend *fe , int addr , struct 
     __cil_tmp73 = (struct dvb_tuner_ops *)__cil_tmp72;
     __cil_tmp74 = (void *)__cil_tmp73;
     __cil_tmp75 = (void const   *)(& stb6000_tuner_ops);
-    __ret = __memcpy(__cil_tmp74, __cil_tmp75, __len);
+    __ret = memcpy(__cil_tmp74, __cil_tmp75, __len);
     }
   } else {
     {

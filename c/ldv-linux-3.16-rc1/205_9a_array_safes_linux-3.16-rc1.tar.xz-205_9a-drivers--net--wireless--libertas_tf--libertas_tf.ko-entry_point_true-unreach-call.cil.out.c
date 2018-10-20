@@ -6218,7 +6218,7 @@ __inline static void list_add(struct list_head *new , struct list_head *head )
 }
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __preempt_count ;
@@ -7060,7 +7060,7 @@ static void lbtf_tx_work(struct work_struct *work )
   txpd->tx_control = txpd->tx_control | ((unsigned int )tmp___4->hw_value | 16U);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& txpd->tx_dest_addr_high), (void const   *)skb->data + 28U,
+    __ret = memcpy((void *)(& txpd->tx_dest_addr_high), (void const   *)skb->data + 28U,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& txpd->tx_dest_addr_high), (void const   *)skb->data + 28U,
@@ -7374,7 +7374,7 @@ static u64 lbtf_op_prepare_multicast(struct ieee80211_hw *hw , struct netdev_hw_
   if (__len > 63UL) {
     tmp = i;
     i = i + 1;
-    __ret = __memcpy((void *)(& priv->multicastlist) + (unsigned long )tmp, (void const   *)(& ha->addr),
+    __ret = memcpy((void *)(& priv->multicastlist) + (unsigned long )tmp, (void const   *)(& ha->addr),
                      __len);
   } else {
     tmp___0 = i;
@@ -7635,7 +7635,7 @@ int lbtf_rx(struct lbtf_private *priv , struct sk_buff *skb )
   __len = 40UL;
   if (__len > 63UL) {
     tmp___4 = IEEE80211_SKB_RXCB(skb);
-    __ret = __memcpy((void *)tmp___4, (void const   *)(& stats), __len);
+    __ret = memcpy((void *)tmp___4, (void const   *)(& stats), __len);
   } else {
     tmp___5 = IEEE80211_SKB_RXCB(skb);
     __ret = __builtin_memcpy((void *)tmp___5, (void const   *)(& stats), __len);
@@ -7714,7 +7714,7 @@ struct lbtf_private *lbtf_add_card(void *card , struct device *dmdev )
   hw->extra_tx_headroom = 24U;
   __len = 896UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->channels), (void const   *)(& lbtf_channels),
+    __ret = memcpy((void *)(& priv->channels), (void const   *)(& lbtf_channels),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->channels), (void const   *)(& lbtf_channels),
@@ -7722,7 +7722,7 @@ struct lbtf_private *lbtf_add_card(void *card , struct device *dmdev )
   }
   __len___0 = 144UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& priv->rates), (void const   *)(& lbtf_rates),
+    __ret___0 = memcpy((void *)(& priv->rates), (void const   *)(& lbtf_rates),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& priv->rates), (void const   *)(& lbtf_rates),
@@ -8637,7 +8637,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -8754,7 +8754,7 @@ int lbtf_update_hw_spec(struct lbtf_private *priv )
   cmd.hdr.size = 46U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd.permanentaddr), (void const   *)(& priv->current_addr),
+    __ret = memcpy((void *)(& cmd.permanentaddr), (void const   *)(& priv->current_addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd.permanentaddr), (void const   *)(& priv->current_addr),
@@ -9217,7 +9217,7 @@ void lbtf_set_bssid(struct lbtf_private *priv , bool activate , u8 const   *bssi
   if ((int )activate) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& cmd.bssid), (void const   *)bssid, __len);
+      __ret = memcpy((void *)(& cmd.bssid), (void const   *)bssid, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& cmd.bssid), (void const   *)bssid, __len);
     }
@@ -9255,7 +9255,7 @@ int lbtf_set_mac_address(struct lbtf_private *priv , uint8_t *mac_addr )
   cmd.action = 1U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd.macadd), (void const   *)mac_addr, __len);
+    __ret = memcpy((void *)(& cmd.macadd), (void const   *)mac_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd.macadd), (void const   *)mac_addr, __len);
   }

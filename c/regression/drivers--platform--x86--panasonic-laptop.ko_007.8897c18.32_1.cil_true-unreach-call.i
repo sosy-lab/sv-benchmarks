@@ -3031,7 +3031,7 @@ extern  __attribute__((__noreturn__)) int ____ilog2_NaN(void)  __attribute__((__
 extern int ( /* format attribute */  snprintf)(char *buf , size_t size , char const   *fmt 
                                                , ...) ;
 extern int ( /* format attribute */  sscanf)(char const   * , char const   *  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern char *strcpy(char *dest , char const   *src ) ;
 __inline static int get_order(unsigned long size )  __attribute__((__const__)) ;
 __inline static int get_order(unsigned long size ) 
@@ -4309,7 +4309,7 @@ static int acpi_pcc_init_input(struct pcc_acpi *pcc )
   (pcc->input_dev)->setkeycode = & pcc_setkeycode;
   __len = sizeof(pcc->keymap);
   if (__len >= (size_t )64) {
-    __ret = __memcpy(pcc->keymap, initial_keymap, __len);
+    __ret = memcpy(pcc->keymap, initial_keymap, __len);
   } else {
     __ret = __builtin_memcpy(pcc->keymap, initial_keymap, __len);
   }

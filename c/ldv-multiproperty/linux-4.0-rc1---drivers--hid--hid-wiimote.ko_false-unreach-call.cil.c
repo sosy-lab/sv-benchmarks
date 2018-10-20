@@ -4316,8 +4316,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern __kernel_size_t strnlen(char const   * , __kernel_size_t  ) ;
@@ -4917,7 +4917,7 @@ static void wiimote_queue(struct wiimote_data *wdata , __u8 const   *buffer , si
   }
   {
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_107(& wdata->queue.lock);
-  __memcpy((void *)(& wdata->queue.outq[(int )wdata->queue.head].data), (void const   *)buffer,
+  memcpy((void *)(& wdata->queue.outq[(int )wdata->queue.head].data), (void const   *)buffer,
            count);
   wdata->queue.outq[(int )wdata->queue.head].size = count;
   newhead = (__u8 )(((int )wdata->queue.head + 1) % 32);
@@ -5177,13 +5177,13 @@ static void wiiproto_req_wmem(struct wiimote_data *wdata , bool eeprom , __u32 o
 
   }
   {
-  __memset((void *)(& cmd), 0, 22UL);
+  memset((void *)(& cmd), 0, 22UL);
   cmd[0] = 22U;
   cmd[2] = (__u8 )(offset >> 16);
   cmd[3] = (__u8 )(offset >> 8);
   cmd[4] = (__u8 )offset;
   cmd[5] = size;
-  __memcpy((void *)(& cmd) + 6U, (void const   *)buf, (size_t )size);
+  memcpy((void *)(& cmd) + 6U, (void const   *)buf, (size_t )size);
   }
   if (! eeprom) {
     cmd[1] = (__u8 )((unsigned int )cmd[1] | 4U);
@@ -6970,7 +6970,7 @@ static void handler_data(struct wiimote_data *wdata , __u8 const   *payload )
     wdata->state.cmd_read_size = size;
     if ((unsigned long )wdata->state.cmd_read_buf != (unsigned long )((__u8 *)0U)) {
       {
-      __memcpy((void *)wdata->state.cmd_read_buf, (void const   *)payload + 5U, (size_t )size);
+      memcpy((void *)wdata->state.cmd_read_buf, (void const   *)payload + 5U, (size_t )size);
       }
     } else {
 

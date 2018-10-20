@@ -13822,7 +13822,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 extern int nr_cpu_ids ;
@@ -16728,7 +16728,7 @@ static int proc_do_sync_threshold(ctl_table *table , int write , void *buffer , 
   valp = (int *)table->data;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& val), (void const   *)valp, __len);
+    __ret = memcpy((void *)(& val), (void const   *)valp, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& val), (void const   *)valp, __len);
   }
@@ -16736,7 +16736,7 @@ static int proc_do_sync_threshold(ctl_table *table , int write , void *buffer , 
   if (write != 0 && ((*valp < 0 || *(valp + 1UL) < 0) || (*valp >= *(valp + 1UL) && *(valp + 1UL) != 0))) {
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)valp, (void const   *)(& val), __len___0);
+      __ret___0 = memcpy((void *)valp, (void const   *)(& val), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)valp, (void const   *)(& val), __len___0);
     }
@@ -25411,7 +25411,7 @@ static void ip_vs_sync_conn_v0(struct net *net , struct ip_vs_conn *cp , int pkt
     opt = (struct ip_vs_sync_conn_options *)s + 1U;
     __len = 24UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)opt, (void const   *)(& cp->in_seq), __len);
+      __ret = memcpy((void *)opt, (void const   *)(& cp->in_seq), __len);
     } else {
       __ret = __builtin_memcpy((void *)opt, (void const   *)(& cp->in_seq), __len);
     }
@@ -25825,7 +25825,7 @@ static void ip_vs_proc_conn(struct net *net , struct ip_vs_conn_param *param , u
   if ((unsigned long )opt != (unsigned long )((struct ip_vs_sync_conn_options *)0)) {
     __len = 24UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& cp->in_seq), (void const   *)opt, __len);
+      __ret = memcpy((void *)(& cp->in_seq), (void const   *)opt, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& cp->in_seq), (void const   *)opt, __len);
     }
@@ -26535,7 +26535,7 @@ static int join_mcast_group(struct sock *sk , struct in_addr *addr , char *ifnam
   memset((void *)(& mreq), 0, 12UL);
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mreq.imr_multiaddr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& mreq.imr_multiaddr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mreq.imr_multiaddr), (void const   *)addr,
                              __len);

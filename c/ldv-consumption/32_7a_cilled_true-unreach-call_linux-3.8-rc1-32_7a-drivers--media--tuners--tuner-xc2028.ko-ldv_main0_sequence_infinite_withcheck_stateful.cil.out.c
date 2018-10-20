@@ -3363,7 +3363,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern int strcasecmp(char const   * , char const   * ) ;
@@ -3963,7 +3963,7 @@ static int load_all_firmwares(struct dvb_frontend *fe , struct firmware  const  
   }
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& name), (void const   *)p, __len);
+    __ret = memcpy((void *)(& name), (void const   *)p, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& name), (void const   *)p, __len);
   }
@@ -5125,7 +5125,7 @@ static int check_firmware(struct dvb_frontend *fe , unsigned int type , v4l2_std
   read_not_reliable: 
   __len = 40UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->cur_fw), (void const   *)(& new_fw), __len);
+    __ret = memcpy((void *)(& priv->cur_fw), (void const   *)(& new_fw), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->cur_fw), (void const   *)(& new_fw),
                              __len);
@@ -5979,7 +5979,7 @@ static int xc2028_set_config(struct dvb_frontend *fe , void *priv_cfg )
   }
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->ctrl), (void const   *)p, __len);
+    __ret = memcpy((void *)(& priv->ctrl), (void const   *)p, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->ctrl), (void const   *)p, __len);
   }
@@ -6156,7 +6156,7 @@ struct dvb_frontend *xc2028_attach(struct dvb_frontend *fe , struct xc2028_confi
   ldv_25222: 
   __len = 288UL;
   if (__len > 63UL) {
-    __ret___0 = __memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& xc2028_dvb_tuner_ops),
+    __ret___0 = memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& xc2028_dvb_tuner_ops),
                          __len);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& xc2028_dvb_tuner_ops),

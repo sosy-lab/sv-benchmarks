@@ -3453,7 +3453,7 @@ struct imon_context {
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
 extern void *memdup_user(void const   * , size_t  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern struct module __this_module ;
@@ -4199,7 +4199,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   ldv_29803: 
   __len___0 = 7UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + (unsigned long )offset,
+    __ret___0 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + (unsigned long )offset,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + (unsigned long )offset,
@@ -4224,7 +4224,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   if (context->vfd_proto_6p != 0) {
     __len___1 = 7UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& context->usb_tx_buf), (void const   *)(& vfd_packet6),
+      __ret___1 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& vfd_packet6),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)(& vfd_packet6),

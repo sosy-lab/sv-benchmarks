@@ -14352,7 +14352,7 @@ static int ldv_mutex_lock_interruptible_100___0(struct mutex *ldv_func_arg1 ) ;
 extern struct pv_irq_ops pv_irq_ops ;
 extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -14488,7 +14488,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   {
-  __memcpy((void *)dst, src, count);
+  memcpy((void *)dst, src, count);
   }
   return;
 }

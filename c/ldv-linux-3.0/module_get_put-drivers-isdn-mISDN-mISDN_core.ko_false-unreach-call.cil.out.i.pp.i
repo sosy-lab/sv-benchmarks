@@ -5937,7 +5937,7 @@ __inline static void __clear_bit(int nr , unsigned long volatile *addr )
 extern void warn_slowpath_fmt(char const * , int const , char const * , ...) ;
 extern void warn_slowpath_null(char const * , int const ) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 __inline static int atomic_read(atomic_t const *v )
 {
@@ -6589,7 +6589,7 @@ static int mISDN_sock_recvmsg(struct kiocb *iocb , struct socket *sock , struct 
   if (__len > 63UL) {
     {
     tmp = skb_push(skb, 8U);
-    __ret = __memcpy((void *)tmp, (void const *)(& skb->cb), __len);
+    __ret = memcpy((void *)tmp, (void const *)(& skb->cb), __len);
     }
   } else {
     {
@@ -6674,7 +6674,7 @@ static int mISDN_sock_sendmsg(struct kiocb *iocb , struct socket *sock , struct 
   __len = 8UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& skb->cb), (void const *)skb->data, __len);
+    __ret = memcpy((void *)(& skb->cb), (void const *)skb->data, __len);
     }
   } else {
     {
@@ -7162,7 +7162,7 @@ static int data_sock_ioctl(struct socket *sock , unsigned int cmd , unsigned lon
         }
         if (__len > 63UL) {
           {
-          __ret = __memcpy((void *)(& di.channelmap), (void const *)(& dev->channelmap),
+          __ret = memcpy((void *)(& di.channelmap), (void const *)(& dev->channelmap),
                            __len);
           }
         } else {
@@ -7847,7 +7847,7 @@ static int base_sock_ioctl(struct socket *sock , unsigned int cmd , unsigned lon
         }
         if (__len > 63UL) {
           {
-          __ret = __memcpy((void *)(& di.channelmap), (void const *)(& dev->channelmap),
+          __ret = memcpy((void *)(& di.channelmap), (void const *)(& dev->channelmap),
                            __len);
           }
         } else {

@@ -4392,8 +4392,8 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 __inline static void rep_nop(void) 
 { 
 
@@ -6342,7 +6342,7 @@ static void complete_req(struct pch_udc_ep *ep , struct pch_udc_request *req , i
         {
         dma_unmap_single_attrs(& (dev->pdev)->dev, req->dma, (size_t )req->req.length,
                                2, (struct dma_attrs *)0);
-        __memcpy(req->req.buf, (void const   *)req->buf, (size_t )req->req.length);
+        memcpy(req->req.buf, (void const   *)req->buf, (size_t )req->req.length);
         }
       }
       {
@@ -6845,7 +6845,7 @@ static int pch_udc_pcd_queue(struct usb_ep *usbep , struct usb_request *usbreq ,
       }
       if ((unsigned int )*((unsigned char *)ep + 128UL) != 0U) {
         {
-        __memcpy(req->buf, (void const   *)usbreq->buf, (size_t )usbreq->length);
+        memcpy(req->buf, (void const   *)usbreq->buf, (size_t )usbreq->length);
         req->dma = dma_map_single_attrs(& (dev->pdev)->dev, req->buf, (size_t )usbreq->length,
                                         1, (struct dma_attrs *)0);
         }
@@ -7131,7 +7131,7 @@ static void pch_udc_init_setup_buff(struct pch_udc_stp_dma_desc *td_stp )
   {
   pky_marker = pky_marker + 1U;
   td_stp->reserved = pky_marker;
-  __memset((void *)(& td_stp->request), 255, 8UL);
+  memset((void *)(& td_stp->request), 255, 8UL);
   td_stp->status = 0U;
   }
   return;
@@ -7890,7 +7890,7 @@ static void pch_udc_svc_intf_interrupt(struct pch_udc_dev *dev )
   dev->cfg_data.cur_intf = (u16 )((dev_stat & 240U) >> 4);
   dev->cfg_data.cur_alt = (u16 )((dev_stat & 3840U) >> 8);
   dev->set_cfg_not_acked = 1U;
-  __memset((void *)(& dev->setup_data), 0, 8UL);
+  memset((void *)(& dev->setup_data), 0, 8UL);
   dev->setup_data.bRequest = 11U;
   dev->setup_data.bRequestType = 1U;
   dev->setup_data.wValue = dev->cfg_data.cur_alt;
@@ -7936,7 +7936,7 @@ static void pch_udc_svc_cfg_interrupt(struct pch_udc_dev *dev )
   dev_stat = pch_udc_read_device_status(dev);
   dev->set_cfg_not_acked = 1U;
   dev->cfg_data.cur_cfg = (unsigned int )((u16 )dev_stat) & 15U;
-  __memset((void *)(& dev->setup_data), 0, 8UL);
+  memset((void *)(& dev->setup_data), 0, 8UL);
   dev->setup_data.bRequest = 9U;
   dev->setup_data.wValue = dev->cfg_data.cur_cfg;
   reg = pch_udc_read_csr(dev, 1U);
@@ -8370,7 +8370,7 @@ static void pch_udc_pcd_reinit(struct pch_udc_dev *dev )
   ep_string[31] = "ep15out";
   dev->gadget.speed = 0;
   INIT_LIST_HEAD(& dev->gadget.ep_list);
-  __memset((void *)(& dev->ep), 0, 4608UL);
+  memset((void *)(& dev->ep), 0, 4608UL);
   i = 0;
   }
   goto ldv_36100;

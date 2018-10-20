@@ -6779,7 +6779,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -12240,7 +12240,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
   tv_cmd->tvc_resp = (struct virtio_scsi_cmd_resp *)vq->iov[out].iov_base;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tv_cmd->tvc_cdb), (void const   *)(& v_req.cdb), __len);
+    __ret = memcpy((void *)(& tv_cmd->tvc_cdb), (void const   *)(& v_req.cdb), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tv_cmd->tvc_cdb), (void const   *)(& v_req.cdb),
                              __len);
@@ -12577,7 +12577,7 @@ static int vhost_scsi_release(struct inode *inode , struct file *f )
   if ((unsigned long )s->vs_tpg != (unsigned long )((struct tcm_vhost_tpg *)0) && (unsigned long )(s->vs_tpg)->tport != (unsigned long )((struct tcm_vhost_tport *)0)) {
     __len = 224UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& backend.vhost_wwpn), (void const   *)(& ((s->vs_tpg)->tport)->tport_name),
+      __ret = memcpy((void *)(& backend.vhost_wwpn), (void const   *)(& ((s->vs_tpg)->tport)->tport_name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& backend.vhost_wwpn), (void const   *)(& ((s->vs_tpg)->tport)->tport_name),

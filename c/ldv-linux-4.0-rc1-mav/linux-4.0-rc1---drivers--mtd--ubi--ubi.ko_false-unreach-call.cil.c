@@ -5099,8 +5099,8 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern __kernel_size_t strnlen(char const   * , __kernel_size_t  ) ;
@@ -5315,7 +5315,7 @@ int ubi_change_vtbl_record(struct ubi_device *ubi , int idx , struct ubi_vtbl_re
     }
   }
   {
-  __memcpy((void *)ubi->vtbl + (unsigned long )idx, (void const   *)vtbl_rec, 172UL);
+  memcpy((void *)ubi->vtbl + (unsigned long )idx, (void const   *)vtbl_rec, 172UL);
   i = 0;
   }
   goto ldv_31420;
@@ -5365,7 +5365,7 @@ int ubi_vtbl_rename_volumes(struct ubi_device *ubi , struct list_head *rename_li
   vtbl_rec = ubi->vtbl + (unsigned long )vol->vol_id;
   if (re->remove != 0) {
     {
-    __memcpy((void *)vtbl_rec, (void const   *)(& empty_vtbl_record), 172UL);
+    memcpy((void *)vtbl_rec, (void const   *)(& empty_vtbl_record), 172UL);
     }
     goto ldv_31437;
   } else {
@@ -5374,8 +5374,8 @@ int ubi_vtbl_rename_volumes(struct ubi_device *ubi , struct list_head *rename_li
   {
   tmp = __fswab16((int )((__u16 )re->new_name_len));
   vtbl_rec->name_len = tmp;
-  __memcpy((void *)(& vtbl_rec->name), (void const   *)(& re->new_name), (size_t )re->new_name_len);
-  __memset((void *)(& vtbl_rec->name) + (unsigned long )re->new_name_len, 0, (size_t )(128 - re->new_name_len));
+  memcpy((void *)(& vtbl_rec->name), (void const   *)(& re->new_name), (size_t )re->new_name_len);
+  memset((void *)(& vtbl_rec->name) + (unsigned long )re->new_name_len, 0, (size_t )(128 - re->new_name_len));
   crc = crc32_le(4294967295U, (unsigned char const   *)vtbl_rec, 168UL);
   tmp___0 = __fswab32(crc);
   vtbl_rec->crc = tmp___0;
@@ -5955,7 +5955,7 @@ static struct ubi_vtbl_record *create_empty_lvol(struct ubi_device *ubi , struct
   goto ldv_31516;
   ldv_31515: 
   {
-  __memcpy((void *)vtbl + (unsigned long )i, (void const   *)(& empty_vtbl_record),
+  memcpy((void *)vtbl + (unsigned long )i, (void const   *)(& empty_vtbl_record),
            172UL);
   i = i + 1;
   }
@@ -6047,7 +6047,7 @@ static int init_volumes(struct ubi_device *ubi , struct ubi_attach_info  const  
   tmp___4 = __fswab16((int )(vtbl + (unsigned long )i)->name_len);
   vol->name_len = (int )tmp___4;
   vol->usable_leb_size = ubi->leb_size - vol->data_pad;
-  __memcpy((void *)(& vol->name), (void const   *)(& (vtbl + (unsigned long )i)->name),
+  memcpy((void *)(& vol->name), (void const   *)(& (vtbl + (unsigned long )i)->name),
            (size_t )vol->name_len);
   vol->name[vol->name_len] = 0;
   vol->vol_id = i;
@@ -6136,7 +6136,7 @@ static int init_volumes(struct ubi_device *ubi , struct ubi_attach_info  const  
   vol->alignment = 1;
   vol->vol_type = 3;
   vol->name_len = 13;
-  __memcpy((void *)(& vol->name), (void const   *)"layout volume", (size_t )(vol->name_len + 1));
+  memcpy((void *)(& vol->name), (void const   *)"layout volume", (size_t )(vol->name_len + 1));
   vol->usable_leb_size = ubi->leb_size;
   vol->used_ebs = vol->reserved_pebs;
   vol->last_eb_bytes = vol->reserved_pebs;
@@ -7062,7 +7062,7 @@ int ubi_create_volume(struct ubi_device *ubi , struct ubi_mkvol_req *req )
   vol->data_pad = ubi->leb_size % vol->alignment;
   vol->vol_type = (int )req->vol_type;
   vol->name_len = (int )req->name_len;
-  __memcpy((void *)(& vol->name), (void const   *)(& req->name), (size_t )vol->name_len);
+  memcpy((void *)(& vol->name), (void const   *)(& req->name), (size_t )vol->name_len);
   vol->ubi = ubi;
   err = ubi_wl_flush(ubi, vol_id, -1);
   }
@@ -7147,7 +7147,7 @@ int ubi_create_volume(struct ubi_device *ubi , struct ubi_mkvol_req *req )
 
   }
   {
-  __memset((void *)(& vtbl_rec), 0, 172UL);
+  memset((void *)(& vtbl_rec), 0, 172UL);
   tmp___8 = __fswab32((__u32 )vol->reserved_pebs);
   vtbl_rec.reserved_pebs = tmp___8;
   tmp___9 = __fswab32((__u32 )vol->alignment);
@@ -7163,7 +7163,7 @@ int ubi_create_volume(struct ubi_device *ubi , struct ubi_mkvol_req *req )
     vtbl_rec.vol_type = 2U;
   }
   {
-  __memcpy((void *)(& vtbl_rec.name), (void const   *)(& vol->name), (size_t )vol->name_len);
+  memcpy((void *)(& vtbl_rec.name), (void const   *)(& vol->name), (size_t )vol->name_len);
   err = ubi_change_vtbl_record(ubi, vol_id, & vtbl_rec);
   }
   if (err != 0) {
@@ -7631,7 +7631,7 @@ int ubi_rename_volumes(struct ubi_device *ubi , struct list_head *rename_list )
     vol = (re->desc)->vol;
     ldv_spin_lock_95(& ubi->volumes_lock);
     vol->name_len = re->new_name_len;
-    __memcpy((void *)(& vol->name), (void const   *)(& re->new_name), (size_t )(re->new_name_len + 1));
+    memcpy((void *)(& vol->name), (void const   *)(& re->new_name), (size_t )(re->new_name_len + 1));
     ldv_spin_unlock_96(& ubi->volumes_lock);
     ubi_volume_notify(ubi, vol, 3);
     }
@@ -8697,7 +8697,7 @@ static int write_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
   if (vol->vol_type == 3) {
     {
     l = (len + (ubi->min_io_size + -1)) & - ubi->min_io_size;
-    __memset(buf + (unsigned long )len, 255, (size_t )(l - len));
+    memset(buf + (unsigned long )len, 255, (size_t )(l - len));
     len = ubi_calc_data_len((struct ubi_device  const  *)ubi, (void const   *)buf,
                             l);
     }
@@ -8729,7 +8729,7 @@ static int write_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
     }
   } else {
     {
-    __memset(buf + (unsigned long )len, 0, (size_t )(vol->usable_leb_size - len));
+    memset(buf + (unsigned long )len, 0, (size_t )(vol->usable_leb_size - len));
     err = ubi_eba_write_leb_st(ubi, vol, lnum, (void const   *)buf, len, used_ebs);
     }
   }
@@ -8976,7 +8976,7 @@ int ubi_more_leb_change_data(struct ubi_device *ubi , struct ubi_volume *vol , v
   if (vol->upd_received == vol->upd_bytes) {
     {
     len = ((int )vol->upd_bytes + (ubi->min_io_size + -1)) & - ubi->min_io_size;
-    __memset(vol->upd_buf + (unsigned long )vol->upd_bytes, 255, (size_t )((long long )len - vol->upd_bytes));
+    memset(vol->upd_buf + (unsigned long )vol->upd_bytes, 255, (size_t )((long long )len - vol->upd_bytes));
     len = ubi_calc_data_len((struct ubi_device  const  *)ubi, (void const   *)vol->upd_buf,
                             len);
     err = ubi_eba_atomic_leb_change(ubi, vol, vol->ch_lnum, (void const   *)vol->upd_buf,
@@ -14191,7 +14191,7 @@ static int rename_volumes(struct ubi_device *ubi , struct ubi_rnvol_req *req )
   }
   {
   re->new_name_len = name_len;
-  __memcpy((void *)(& re->new_name), (void const   *)name, (size_t )name_len);
+  memcpy((void *)(& re->new_name), (void const   *)name, (size_t )name_len);
   list_add_tail(& re->list, & rename_list);
   descriptor.modname = "ubi";
   descriptor.function = "rename_volumes";
@@ -18442,7 +18442,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
 
     }
     {
-    __memset(buf, 255, (size_t )len);
+    memset(buf, 255, (size_t )len);
     }
     return (0);
   } else {
@@ -18748,7 +18748,7 @@ static int recover_peb(struct ubi_device *ubi , int pnum , int vol_id , int lnum
   {
   data_size = offset + len;
   ldv_mutex_lock_105___0(& ubi->buf_mutex);
-  __memset(ubi->peb_buf + (unsigned long )offset, 255, (size_t )len);
+  memset(ubi->peb_buf + (unsigned long )offset, 255, (size_t )len);
   }
   if (offset > 0) {
     {
@@ -18764,7 +18764,7 @@ static int recover_peb(struct ubi_device *ubi , int pnum , int vol_id , int lnum
 
   }
   {
-  __memcpy(ubi->peb_buf + (unsigned long )offset, buf, (size_t )len);
+  memcpy(ubi->peb_buf + (unsigned long )offset, buf, (size_t )len);
   err = ubi_io_write_data___0(ubi, (void const   *)ubi->peb_buf, new_pnum, 0, data_size);
   }
   if (err != 0) {
@@ -19743,7 +19743,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
     {
     ___might_sleep("drivers/mtd/ubi/eba.c", 1190, 0);
     _cond_resched();
-    __memset(ubi->peb_buf, 255, (size_t )aldata_size);
+    memset(ubi->peb_buf, 255, (size_t )aldata_size);
     err = ubi_io_read_data___0((struct ubi_device  const  *)ubi, ubi->peb_buf, to,
                                0, aldata_size);
     }
@@ -21118,7 +21118,7 @@ static int do_sync_erase(struct ubi_device *ubi , int pnum )
   retry: 
   {
   __init_waitqueue_head(& wq, "&wq", & __key);
-  __memset((void *)(& ei), 0, 88UL);
+  memset((void *)(& ei), 0, 88UL);
   ei.mtd = ubi->mtd;
   ei.addr = (uint64_t )((long long )pnum * (long long )ubi->peb_size);
   ei.len = (uint64_t )ubi->peb_size;
@@ -21302,7 +21302,7 @@ static int torture_peb(struct ubi_device *ubi , int pnum )
 
   }
   {
-  __memset(ubi->peb_buf, (int )patterns[i], (size_t )ubi->peb_size);
+  memset(ubi->peb_buf, (int )patterns[i], (size_t )ubi->peb_size);
   err = ubi_io_write(ubi, (void const   *)ubi->peb_buf, pnum, 0, ubi->peb_size);
   }
   if (err != 0) {
@@ -21311,7 +21311,7 @@ static int torture_peb(struct ubi_device *ubi , int pnum )
 
   }
   {
-  __memset(ubi->peb_buf, ~ ((int )patterns[i]), (size_t )ubi->peb_size);
+  memset(ubi->peb_buf, ~ ((int )patterns[i]), (size_t )ubi->peb_size);
   err = ubi_io_read((struct ubi_device  const  *)ubi, ubi->peb_buf, pnum, 0, ubi->peb_size);
   }
   if (err != 0) {
@@ -28171,7 +28171,7 @@ static int check_corruption(struct ubi_device *ubi , struct ubi_vid_hdr *vid_hdr
   {
   {
   ldv_mutex_lock_101(& ubi->buf_mutex);
-  __memset(ubi->peb_buf, 0, (size_t )ubi->leb_size);
+  memset(ubi->peb_buf, 0, (size_t )ubi->leb_size);
   err = ubi_io_read((struct ubi_device  const  *)ubi, ubi->peb_buf, pnum, ubi->leb_start,
                     ubi->leb_size);
   }
@@ -30651,7 +30651,7 @@ void ubi_dump_mkvol_req(struct ubi_mkvol_req  const  *req )
   printk("\v\tbytes     %lld\n", req->bytes);
   printk("\v\tvol_type  %d\n", (int )req->vol_type);
   printk("\v\tname_len  %d\n", (int )req->name_len);
-  __memcpy((void *)(& nm), (void const   *)(& req->name), 16UL);
+  memcpy((void *)(& nm), (void const   *)(& req->name), 16UL);
   nm[16] = 0;
   printk("\v\t1st 16 characters of name: %s\n", (char *)(& nm));
   }
@@ -33120,7 +33120,7 @@ int ubi_scan_fastmap(struct ubi_device *ubi , struct ubi_attach_info *ai , int f
   ret = 0;
   sqnum = 0ULL;
   ldv_mutex_lock_99___0(& ubi->fm_mutex);
-  __memset(ubi->fm_buf, 0, ubi->fm_size);
+  memset(ubi->fm_buf, 0, ubi->fm_size);
   tmp = kmalloc(312UL, 208U);
   fmsb = (struct ubi_fm_sb *)tmp;
   }
@@ -33573,7 +33573,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   {
   fm_pos = 0UL;
   fm_raw = ubi->fm_buf;
-  __memset(ubi->fm_buf, 0, ubi->fm_size);
+  memset(ubi->fm_buf, 0, ubi->fm_size);
   avhdr = new_fm_vhdr(ubi, 2147479552);
   }
   if ((unsigned long )avhdr == (unsigned long )((struct ubi_vid_hdr *)0)) {

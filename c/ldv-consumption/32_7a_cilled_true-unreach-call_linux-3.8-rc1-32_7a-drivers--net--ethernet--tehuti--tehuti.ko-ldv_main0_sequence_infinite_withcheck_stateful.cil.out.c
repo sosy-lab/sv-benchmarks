@@ -5725,7 +5725,7 @@ extern int printk(char const   *  , ...) ;
 extern void might_fault(void) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
@@ -9677,7 +9677,7 @@ static void bdx_get_strings(struct net_device *netdev , u32 stringset , u8 *data
   case 1U: 
   __len = 736UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& bdx_stat_names), __len);
+    __ret = memcpy((void *)data, (void const   *)(& bdx_stat_names), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& bdx_stat_names), __len);
   }
@@ -9725,7 +9725,7 @@ static void bdx_get_ethtool_stats(struct net_device *netdev , struct ethtool_sta
     bdx_update_stats(priv);
     __len = 184UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)data, (void const   *)(& priv->hw_stats), __len);
+      __ret = memcpy((void *)data, (void const   *)(& priv->hw_stats), __len);
     } else {
       __ret = __builtin_memcpy((void *)data, (void const   *)(& priv->hw_stats), __len);
     }

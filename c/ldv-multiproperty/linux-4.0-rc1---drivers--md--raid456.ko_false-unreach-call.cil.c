@@ -5462,7 +5462,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;
 __inline static int bitmap_weight(unsigned long const   *src , unsigned int nbits ) 
 { 
@@ -16330,7 +16330,7 @@ static void analyse_stripe(struct stripe_head *sh , struct stripe_head_state *s 
   conf = sh->raid_conf;
   disks = sh->disks;
   do_recovery = 0;
-  __memset((void *)s, 0, 112UL);
+  memset((void *)s, 0, 112UL);
   s->expanding = constant_test_bit(11L, (unsigned long const volatile   *)(& sh->state));
   s->expanded = constant_test_bit(12L, (unsigned long const volatile   *)(& sh->state));
   s->failed_num[0] = -1;
@@ -19432,7 +19432,7 @@ static sector_t reshape_request(struct mddev *mddev , sector_t sector_nr , int *
   }
   {
   tmp___15 = lowmem_page_address((struct page  const  *)sh->dev[j].page);
-  __memset(tmp___15, 0, 4096UL);
+  memset(tmp___15, 0, 4096UL);
   set_bit(11L, (unsigned long volatile   *)(& sh->dev[j].flags));
   set_bit(0L, (unsigned long volatile   *)(& sh->dev[j].flags));
   }

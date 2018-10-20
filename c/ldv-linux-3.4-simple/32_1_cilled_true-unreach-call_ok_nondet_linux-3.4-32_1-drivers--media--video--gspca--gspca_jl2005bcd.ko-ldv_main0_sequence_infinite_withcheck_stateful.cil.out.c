@@ -3535,7 +3535,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern int memcmp(void const   *cs , void const   *ct , unsigned long count ) ;
 extern void __init_work(struct work_struct *work , int onstack ) ;
 extern struct workqueue_struct *( /* format attribute */  __alloc_workqueue_key)(char const   *fmt ,
@@ -3709,7 +3709,7 @@ static int jl2005c_write2(struct gspca_dev *gspca_dev , unsigned char *command )
     __cil_tmp9 = *((__u8 **)__cil_tmp8);
     __cil_tmp10 = (void *)__cil_tmp9;
     __cil_tmp11 = (void const   *)command;
-    __ret = __memcpy(__cil_tmp10, __cil_tmp11, __len);
+    __ret = memcpy(__cil_tmp10, __cil_tmp11, __len);
     }
   } else {
     {

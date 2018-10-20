@@ -3593,7 +3593,7 @@ __inline static void list_add(struct list_head *new , struct list_head *head )
 }
 extern void list_del(struct list_head * ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static void *ERR_PTR(long error ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
                              int  ) ;
@@ -4338,7 +4338,7 @@ static void wdm_in_callback(struct urb *urb )
   } else {
     tmp___2 = constant_test_bit(10L, (unsigned long const volatile   *)(& desc->flags));
     if (tmp___2 == 0) {
-      __memmove((void *)desc->ubuf + (unsigned long )desc->length, (void const   *)desc->inbuf,
+      memmove((void *)desc->ubuf + (unsigned long )desc->length, (void const   *)desc->inbuf,
                 (size_t )length);
       desc->length = desc->length + length;
       desc->reslength = length;

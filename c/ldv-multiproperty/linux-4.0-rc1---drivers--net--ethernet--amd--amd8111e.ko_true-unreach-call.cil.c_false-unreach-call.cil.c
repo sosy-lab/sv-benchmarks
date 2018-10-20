@@ -6329,7 +6329,7 @@ extern void __dynamic_netdev_dbg(struct _ddebug * , struct net_device  const  * 
                                  char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -9261,7 +9261,7 @@ static int amd8111e_set_mac_address(struct net_device *dev , void *p )
   tmp = netdev_priv((struct net_device  const  *)dev);
   lp = (struct amd8111e_priv *)tmp;
   addr = (struct sockaddr *)p;
-  __memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), (size_t )dev->addr_len);
+  memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), (size_t )dev->addr_len);
   ldv_spin_lock_irq_127(& lp->lock);
   i = 0;
   }

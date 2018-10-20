@@ -6808,7 +6808,7 @@ struct fw_data {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 __inline static int usb_endpoint_num(struct usb_endpoint_descriptor  const  *epd ) 
@@ -8485,7 +8485,7 @@ static int mwifiex_prog_fw_w_helper(struct mwifiex_adapter *adapter , struct mwi
   } else {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& fwdata->fw_hdr), (void const   *)firmware + (unsigned long )tlen,
+      __ret = memcpy((void *)(& fwdata->fw_hdr), (void const   *)firmware + (unsigned long )tlen,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& fwdata->fw_hdr), (void const   *)firmware + (unsigned long )tlen,
@@ -8524,7 +8524,7 @@ static int mwifiex_prog_fw_w_helper(struct mwifiex_adapter *adapter , struct mwi
   }
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& sync_fw), (void const   *)recv_buff, __len___1);
+    __ret___1 = memcpy((void *)(& sync_fw), (void const   *)recv_buff, __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& sync_fw), (void const   *)recv_buff, __len___1);
   }

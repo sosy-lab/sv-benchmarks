@@ -5380,7 +5380,7 @@ void *ldv_err_ptr(long error ) ;
 long ldv_ptr_err(void const   *ptr ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -6482,7 +6482,7 @@ static int at91ether_probe(struct platform_device *pdev )
   if ((unsigned long )mac != (unsigned long )((char const   *)0)) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(lp->dev)->dev_addr, (void const   *)mac, __len);
+      __ret = memcpy((void *)(lp->dev)->dev_addr, (void const   *)mac, __len);
     } else {
       __ret = __builtin_memcpy((void *)(lp->dev)->dev_addr, (void const   *)mac, __len);
     }

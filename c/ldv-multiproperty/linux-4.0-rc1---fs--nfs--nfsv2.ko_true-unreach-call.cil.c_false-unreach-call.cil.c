@@ -30152,7 +30152,7 @@ __inline static __u32 __be32_to_cpup(__be32 const   *p )
   return (tmp);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static dev_t new_decode_dev(u32 dev ) 
 { 
@@ -30411,7 +30411,7 @@ static void encode_fhandle(struct xdr_stream *xdr , struct nfs_fh  const  *fh )
   {
   {
   p = xdr_reserve_space(xdr, 32UL);
-  __memcpy((void *)p, (void const   *)(& fh->data), 32UL);
+  memcpy((void *)p, (void const   *)(& fh->data), 32UL);
   }
   return;
 }
@@ -30433,7 +30433,7 @@ static int decode_fhandle(struct xdr_stream *xdr , struct nfs_fh *fh )
   }
   {
   fh->size = 32U;
-  __memcpy((void *)(& fh->data), (void const   *)p, 32UL);
+  memcpy((void *)(& fh->data), (void const   *)p, 32UL);
   }
   return (0);
   out_overflow: 

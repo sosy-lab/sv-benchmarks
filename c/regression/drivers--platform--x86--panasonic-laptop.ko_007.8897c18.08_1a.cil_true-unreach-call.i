@@ -3044,7 +3044,7 @@ __inline static void __clear_bit(int nr , unsigned long volatile   *addr )
 }
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern int sscanf(char const   * , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 __inline static int get_order(unsigned long size ) 
 { 
@@ -4396,7 +4396,7 @@ static int acpi_pcc_init_input(struct pcc_acpi *pcc )
   ______r___0 = __len > 63UL;
   ______f___0.ldv_807.miss_hit[______r___0] = ______f___0.ldv_807.miss_hit[______r___0] + 1UL;
   if (______r___0 != 0) {
-    __ret = __memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
+    __ret = memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),

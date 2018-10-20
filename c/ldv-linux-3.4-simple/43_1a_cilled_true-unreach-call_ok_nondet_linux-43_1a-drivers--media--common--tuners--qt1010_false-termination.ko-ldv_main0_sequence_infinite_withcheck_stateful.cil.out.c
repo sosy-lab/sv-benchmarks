@@ -3198,7 +3198,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -6734,7 +6734,7 @@ struct dvb_frontend *qt1010_attach(struct dvb_frontend *fe , struct i2c_adapter 
     __cil_tmp46 = (struct dvb_tuner_ops *)__cil_tmp45;
     __cil_tmp47 = (void *)__cil_tmp46;
     __cil_tmp48 = (void const   *)(& qt1010_tuner_ops);
-    __ret = __memcpy(__cil_tmp47, __cil_tmp48, __len);
+    __ret = memcpy(__cil_tmp47, __cil_tmp48, __len);
     }
   } else {
     {

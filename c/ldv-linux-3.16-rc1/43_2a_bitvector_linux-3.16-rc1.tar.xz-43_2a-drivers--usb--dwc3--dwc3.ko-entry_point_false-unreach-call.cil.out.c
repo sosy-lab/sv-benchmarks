@@ -10752,7 +10752,7 @@ void ldv_free_irq_71(unsigned int ldv_func_arg1 , void *ldv_func_arg2 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void spin_lock(spinlock_t *lock ) ;
 __inline static void spin_unlock(spinlock_t *lock ) ;
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) ;
@@ -11443,7 +11443,7 @@ static void dwc3_ep0_set_sel_cmpl(struct usb_ep *ep , struct usb_request *req )
   param = 0U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& timing), (void const   *)req->buf, __len);
+    __ret = memcpy((void *)(& timing), (void const   *)req->buf, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& timing), (void const   *)req->buf, __len);
   }

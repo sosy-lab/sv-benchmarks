@@ -3206,7 +3206,7 @@ struct __anonstruct_278 {
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern void __const_udelay(unsigned long xloops ) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 void mutex_lock(struct mutex *lock ) ;
@@ -6006,7 +6006,7 @@ static int mt2032_init(struct dvb_frontend *fe )
     __cil_tmp152 = (struct dvb_tuner_ops *)__cil_tmp151;
     __cil_tmp153 = (void *)__cil_tmp152;
     __cil_tmp154 = (void const   *)(& mt2032_tuner_ops);
-    __ret = __memcpy(__cil_tmp153, __cil_tmp154, __len);
+    __ret = memcpy(__cil_tmp153, __cil_tmp154, __len);
     }
   } else {
     {
@@ -7156,7 +7156,7 @@ static int mt2050_init(struct dvb_frontend *fe )
     __cil_tmp62 = (struct dvb_tuner_ops *)__cil_tmp61;
     __cil_tmp63 = (void *)__cil_tmp62;
     __cil_tmp64 = (void const   *)(& mt2050_tuner_ops);
-    __ret = __memcpy(__cil_tmp63, __cil_tmp64, __len);
+    __ret = memcpy(__cil_tmp63, __cil_tmp64, __len);
     }
   } else {
     {

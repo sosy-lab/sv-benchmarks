@@ -23300,7 +23300,7 @@ int ldv_request_threaded_irq_70(unsigned int ldv_func_arg1 , irqreturn_t (*handl
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 bool ldv_queue_work_on_81(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                           struct work_struct *ldv_func_arg3 ) ;
 bool ldv_queue_work_on_83(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
@@ -23586,9 +23586,9 @@ static void b43_set_txpower_g(struct b43_wldev *dev , struct b43_bbatt  const  *
 
   }
   gphy->tx_control = tx_control;
-  __memmove((void *)(& gphy->rfatt), (void const   *)rfatt, 2UL);
+  memmove((void *)(& gphy->rfatt), (void const   *)rfatt, 2UL);
   gphy->rfatt.with_padmix = ((int )tx_control & 16) != 0;
-  __memmove((void *)(& gphy->bbatt), (void const   *)bbatt, 1UL);
+  memmove((void *)(& gphy->bbatt), (void const   *)bbatt, 1UL);
   tmp___0 = b43_debug(dev, 0);
   if ((int )tmp___0) {
     b43dbg(dev->wl, "Tuning TX-power to bbatt(%u), rfatt(%u), tx_control(0x%02X), tx_bias(0x%02X), tx_magn(0x%02X)\n",

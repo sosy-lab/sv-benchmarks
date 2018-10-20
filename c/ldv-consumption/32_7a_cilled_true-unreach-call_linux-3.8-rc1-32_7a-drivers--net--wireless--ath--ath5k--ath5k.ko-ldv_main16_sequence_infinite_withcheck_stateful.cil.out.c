@@ -13738,7 +13738,7 @@ __inline static unsigned long __roundup_pow_of_two(unsigned long n )
   return (1UL << (int )tmp);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_88(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_86(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_89(struct mutex *ldv_func_arg1 ) ;
@@ -13860,7 +13860,7 @@ int ath5k_hw_get_tx_queueprops(struct ath5k_hw *ah , int queue , struct ath5k_tx
   {
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)queue_info, (void const   *)(& ah->ah_txq) + (unsigned long )queue,
+    __ret = memcpy((void *)queue_info, (void const   *)(& ah->ah_txq) + (unsigned long )queue,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)queue_info, (void const   *)(& ah->ah_txq) + (unsigned long )queue,
@@ -14803,7 +14803,7 @@ int ath5k_hw_set_lladdr(struct ath5k_hw *ah , u8 const   *mac )
   common = tmp;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& common->macaddr), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& common->macaddr), (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& common->macaddr), (void const   *)mac, __len);
   }
@@ -14865,7 +14865,7 @@ void ath5k_hw_set_bssid_mask(struct ath5k_hw *ah , u8 const   *mask )
   common = tmp;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& common->bssidmask), (void const   *)mask, __len);
+    __ret = memcpy((void *)(& common->bssidmask), (void const   *)mask, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& common->bssidmask), (void const   *)mask,
                              __len);
@@ -17575,7 +17575,7 @@ static s16 ath5k_hw_get_median_noise_floor(struct ath5k_hw *ah )
   {
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sort), (void const   *)(& ah->ah_nfcal_hist.nfval),
+    __ret = memcpy((void *)(& sort), (void const   *)(& ah->ah_nfcal_hist.nfval),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sort), (void const   *)(& ah->ah_nfcal_hist.nfval),
@@ -21425,7 +21425,7 @@ int ath5k_hw_init(struct ath5k_hw *ah )
   ath5k_hw_set_lladdr(ah, (u8 const   *)(& zero_mac));
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& common->curbssid), (void const   *)(& ath_bcast_mac),
+    __ret = memcpy((void *)(& common->curbssid), (void const   *)(& ath_bcast_mac),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& common->curbssid), (void const   *)(& ath_bcast_mac),
@@ -22307,7 +22307,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -22982,7 +22982,7 @@ static int ath5k_setup_bands(struct ieee80211_hw *hw )
   if (tmp___2 != 0) {
     __len = 144UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)sband->bitrates, (void const   *)(& ath5k_rates), __len);
+      __ret = memcpy((void *)sband->bitrates, (void const   *)(& ath5k_rates), __len);
     } else {
       __ret = __builtin_memcpy((void *)sband->bitrates, (void const   *)(& ath5k_rates),
                                __len);
@@ -22999,7 +22999,7 @@ static int ath5k_setup_bands(struct ieee80211_hw *hw )
     if (tmp___1 != 0) {
       __len___0 = 48UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)sband->bitrates, (void const   *)(& ath5k_rates),
+        __ret___0 = memcpy((void *)sband->bitrates, (void const   *)(& ath5k_rates),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)sband->bitrates, (void const   *)(& ath5k_rates),
@@ -23041,7 +23041,7 @@ static int ath5k_setup_bands(struct ieee80211_hw *hw )
     sband->bitrates = (struct ieee80211_rate *)(& ah->rates) + 1U;
     __len___1 = 96UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)sband->bitrates, (void const   *)(& ath5k_rates) + 4U,
+      __ret___1 = memcpy((void *)sband->bitrates, (void const   *)(& ath5k_rates) + 4U,
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)sband->bitrates, (void const   *)(& ath5k_rates) + 4U,
@@ -23117,7 +23117,7 @@ void ath5k_vif_iter(void *data , u8 *mac , struct ieee80211_vif *vif )
     iter_data->found_active = 1;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& iter_data->active_mac), (void const   *)mac, __len);
+      __ret = memcpy((void *)(& iter_data->active_mac), (void const   *)mac, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& iter_data->active_mac), (void const   *)mac,
                                __len);
@@ -23194,7 +23194,7 @@ void ath5k_update_bssid_mask_and_opmode(struct ath5k_hw *ah , struct ieee80211_v
   ieee80211_iterate_active_interfaces_atomic(ah->hw, 1U, & ath5k_vif_iter, (void *)(& iter_data));
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ah->bssidmask), (void const   *)(& iter_data.mask),
+    __ret = memcpy((void *)(& ah->bssidmask), (void const   *)(& iter_data.mask),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ah->bssidmask), (void const   *)(& iter_data.mask),
@@ -27742,7 +27742,7 @@ static int ath5k_hw_ani_get_listen_time(struct ath5k_hw *ah , struct ath5k_ani_s
   ath_hw_cycle_counters_update(common);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& as->last_cc), (void const   *)(& common->cc_ani),
+    __ret = memcpy((void *)(& as->last_cc), (void const   *)(& common->cc_ani),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& as->last_cc), (void const   *)(& common->cc_ani),
@@ -28959,7 +28959,7 @@ static void ath5k_bss_info_changed(struct ieee80211_hw *hw , struct ieee80211_vi
   if ((changes & 128U) != 0U) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
+      __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
@@ -29419,7 +29419,7 @@ static int ath5k_get_survey(struct ieee80211_hw *hw , int idx , struct survey_in
   spin_unlock_bh(& common->cc_lock);
   __len = 56UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)survey, (void const   *)(& ah->survey), __len);
+    __ret = memcpy((void *)survey, (void const   *)(& ah->survey), __len);
   } else {
     __ret = __builtin_memcpy((void *)survey, (void const   *)(& ah->survey), __len);
   }
@@ -32063,7 +32063,7 @@ static int ath5k_pci_eeprom_read_mac(struct ath5k_hw *ah , u8 *mac )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mac, (void const   *)(& mac_d), __len);
+    __ret = memcpy((void *)mac, (void const   *)(& mac_d), __len);
   } else {
     __ret = __builtin_memcpy((void *)mac, (void const   *)(& mac_d), __len);
   }

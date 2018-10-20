@@ -1795,7 +1795,7 @@ __inline static void clear_bit(int nr , unsigned long volatile   *addr )
 }
 }
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern struct module __this_module ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
@@ -2105,7 +2105,7 @@ static int skbd_connect(struct serio *serio , struct serio_driver *drv )
     __cil_tmp28 = (unsigned char (*)[128U])skbd;
     __cil_tmp29 = (void *)__cil_tmp28;
     __cil_tmp30 = (void const   *)(& skbd_keycode);
-    __ret = __memcpy(__cil_tmp29, __cil_tmp30, __len);
+    __ret = memcpy(__cil_tmp29, __cil_tmp30, __len);
     }
   } else {
     {

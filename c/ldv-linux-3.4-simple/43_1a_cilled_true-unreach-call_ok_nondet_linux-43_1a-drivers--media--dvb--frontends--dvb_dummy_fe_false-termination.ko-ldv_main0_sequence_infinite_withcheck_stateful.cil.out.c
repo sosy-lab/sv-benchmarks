@@ -3133,7 +3133,7 @@ struct dvb_dummy_fe_state {
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -3353,7 +3353,7 @@ struct dvb_frontend *dvb_dummy_fe_ofdm_attach(void)
     __cil_tmp8 = (struct dvb_frontend_ops *)state;
     __cil_tmp9 = (void *)__cil_tmp8;
     __cil_tmp10 = (void const   *)(& dvb_dummy_fe_ofdm_ops);
-    __ret = __memcpy(__cil_tmp9, __cil_tmp10, __len);
+    __ret = memcpy(__cil_tmp9, __cil_tmp10, __len);
     }
   } else {
     {
@@ -3418,7 +3418,7 @@ struct dvb_frontend *dvb_dummy_fe_qpsk_attach(void)
     __cil_tmp8 = (struct dvb_frontend_ops *)state;
     __cil_tmp9 = (void *)__cil_tmp8;
     __cil_tmp10 = (void const   *)(& dvb_dummy_fe_qpsk_ops);
-    __ret = __memcpy(__cil_tmp9, __cil_tmp10, __len);
+    __ret = memcpy(__cil_tmp9, __cil_tmp10, __len);
     }
   } else {
     {
@@ -3483,7 +3483,7 @@ struct dvb_frontend *dvb_dummy_fe_qam_attach(void)
     __cil_tmp8 = (struct dvb_frontend_ops *)state;
     __cil_tmp9 = (void *)__cil_tmp8;
     __cil_tmp10 = (void const   *)(& dvb_dummy_fe_qam_ops);
-    __ret = __memcpy(__cil_tmp9, __cil_tmp10, __len);
+    __ret = memcpy(__cil_tmp9, __cil_tmp10, __len);
     }
   } else {
     {

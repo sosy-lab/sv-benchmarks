@@ -3539,7 +3539,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -6927,7 +6927,7 @@ struct parport *parport_pc_probe_port(unsigned long base , unsigned long base_hi
   }
   __len = 192UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)ops, (void const   *)(& parport_pc_ops), __len);
+    __ret = memcpy((void *)ops, (void const   *)(& parport_pc_ops), __len);
   } else {
     __ret = __builtin_memcpy((void *)ops, (void const   *)(& parport_pc_ops), __len);
   }

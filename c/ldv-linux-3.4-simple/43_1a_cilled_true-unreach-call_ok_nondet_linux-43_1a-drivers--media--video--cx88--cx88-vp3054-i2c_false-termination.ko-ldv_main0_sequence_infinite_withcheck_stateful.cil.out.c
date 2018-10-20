@@ -6413,7 +6413,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 __inline static unsigned int readl(void const volatile   *addr ) 
 { unsigned int ret ;
@@ -6827,7 +6827,7 @@ int vp3054_i2c_probe(struct cx8802_dev *dev )
     __cil_tmp18 = (struct i2c_algo_bit_data *)__cil_tmp17;
     __cil_tmp19 = (void *)__cil_tmp18;
     __cil_tmp20 = (void const   *)(& vp3054_i2c_algo_template);
-    __ret = __memcpy(__cil_tmp19, __cil_tmp20, __len);
+    __ret = memcpy(__cil_tmp19, __cil_tmp20, __len);
     }
   } else {
     {

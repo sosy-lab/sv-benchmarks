@@ -6333,7 +6333,7 @@ struct sk_buff___0 {
 typedef void *Element;
 typedef Element Set;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned int readl(void const volatile   *addr ) 
 { 
@@ -6577,7 +6577,7 @@ static s32 e1000_reset_hw_vf(struct e1000_hw *hw )
       if (msgbuf[0] == 2147483649U) {
         __len = 6UL;
         if (__len > 63UL) {
-          __ret = __memcpy((void *)(& hw->mac.perm_addr), (void const   *)addr, __len);
+          __ret = memcpy((void *)(& hw->mac.perm_addr), (void const   *)addr, __len);
         } else {
           __ret = __builtin_memcpy((void *)(& hw->mac.perm_addr), (void const   *)addr,
                                    __len);
@@ -6714,7 +6714,7 @@ static void e1000_rar_set_vf(struct e1000_hw *hw , u8 *addr , u32 index )
   msgbuf[0] = 2U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)msg_addr, (void const   *)addr, __len);
+    __ret = memcpy((void *)msg_addr, (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)msg_addr, (void const   *)addr, __len);
   }
@@ -6741,7 +6741,7 @@ static s32 e1000_read_mac_addr_vf(struct e1000_hw *hw )
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& hw->mac.addr), (void const   *)(& hw->mac.perm_addr),
+    __ret = memcpy((void *)(& hw->mac.addr), (void const   *)(& hw->mac.perm_addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& hw->mac.addr), (void const   *)(& hw->mac.perm_addr),
@@ -7637,7 +7637,7 @@ static int igbvf_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
   if ((adapter->tx_ring)->count != new_tx_count) {
     __len = 304UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)temp_ring, (void const   *)adapter->tx_ring, __len);
+      __ret = memcpy((void *)temp_ring, (void const   *)adapter->tx_ring, __len);
     } else {
       __ret = __builtin_memcpy((void *)temp_ring, (void const   *)adapter->tx_ring,
                                __len);
@@ -7652,7 +7652,7 @@ static int igbvf_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
     igbvf_free_tx_resources(adapter->tx_ring);
     __len___0 = 304UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)adapter->tx_ring, (void const   *)temp_ring, __len___0);
+      __ret___0 = memcpy((void *)adapter->tx_ring, (void const   *)temp_ring, __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)adapter->tx_ring, (void const   *)temp_ring,
                                    __len___0);
@@ -7663,7 +7663,7 @@ static int igbvf_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
   if ((adapter->rx_ring)->count != new_rx_count) {
     __len___1 = 304UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)temp_ring, (void const   *)adapter->rx_ring, __len___1);
+      __ret___1 = memcpy((void *)temp_ring, (void const   *)adapter->rx_ring, __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)temp_ring, (void const   *)adapter->rx_ring,
                                    __len___1);
@@ -7678,7 +7678,7 @@ static int igbvf_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
     igbvf_free_rx_resources(adapter->rx_ring);
     __len___2 = 304UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)adapter->rx_ring, (void const   *)temp_ring, __len___2);
+      __ret___2 = memcpy((void *)adapter->rx_ring, (void const   *)temp_ring, __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)adapter->rx_ring, (void const   *)temp_ring,
                                    __len___2);
@@ -7874,7 +7874,7 @@ static void igbvf_get_strings(struct net_device *netdev , u32 stringset , u8 *da
   case 0U: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& igbvf_gstrings_test), __len);
+    __ret = memcpy((void *)data, (void const   *)(& igbvf_gstrings_test), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& igbvf_gstrings_test),
                              __len);
@@ -7886,7 +7886,7 @@ static void igbvf_get_strings(struct net_device *netdev , u32 stringset , u8 *da
   ldv_43729: 
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)p, (void const   *)(& igbvf_gstrings_stats[i].stat_string),
+    __ret___0 = memcpy((void *)p, (void const   *)(& igbvf_gstrings_stats[i].stat_string),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)p, (void const   *)(& igbvf_gstrings_stats[i].stat_string),
@@ -10876,7 +10876,7 @@ static int igbvf_request_msix(struct igbvf_adapter *adapter )
   } else {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
+      __ret = memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
@@ -10884,7 +10884,7 @@ static int igbvf_request_msix(struct igbvf_adapter *adapter )
     }
     __len___0 = 16UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
+      __ret___0 = memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
@@ -11277,7 +11277,7 @@ static void igbvf_set_multi(struct net_device *netdev )
   if (__len > 63UL) {
     tmp___1 = i;
     i = i + 1;
-    __ret = __memcpy((void *)mta_list + (unsigned long )(tmp___1 * 6), (void const   *)(& ha->addr),
+    __ret = memcpy((void *)mta_list + (unsigned long )(tmp___1 * 6), (void const   *)(& ha->addr),
                      __len);
   } else {
     tmp___2 = i;

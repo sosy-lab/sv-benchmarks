@@ -3878,7 +3878,7 @@ __inline static __u32 __fswab32(__u32 val )
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern unsigned long volatile   jiffies  __attribute__((__section__(".data"))) ;
 void mutex_lock(struct mutex *lock ) ;
@@ -6835,7 +6835,7 @@ static int sddr55_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp69 = __cil_tmp68 + __cil_tmp67;
       __cil_tmp70 = (unsigned char *)__cil_tmp69;
       __cil_tmp71 = (void const   *)__cil_tmp70;
-      __ret = __memcpy(__cil_tmp65, __cil_tmp71, __len);
+      __ret = memcpy(__cil_tmp65, __cil_tmp71, __len);
       }
     } else {
       {
@@ -6894,7 +6894,7 @@ static int sddr55_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp102 = (unsigned long )(inquiry_response) + __cil_tmp101;
       __cil_tmp103 = (unsigned char *)__cil_tmp102;
       __cil_tmp104 = (void const   *)__cil_tmp103;
-      __ret___0 = __memcpy(__cil_tmp100, __cil_tmp104, __len___0);
+      __ret___0 = memcpy(__cil_tmp100, __cil_tmp104, __len___0);
       }
     } else {
       {
@@ -7098,7 +7098,7 @@ static int sddr55_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp194 = (unsigned long )(mode_page_01) + __cil_tmp193;
       __cil_tmp195 = (unsigned char *)__cil_tmp194;
       __cil_tmp196 = (void const   *)__cil_tmp195;
-      __ret___1 = __memcpy(__cil_tmp192, __cil_tmp196, __len___1);
+      __ret___1 = memcpy(__cil_tmp192, __cil_tmp196, __len___1);
       }
     } else {
       {

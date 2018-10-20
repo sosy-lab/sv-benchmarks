@@ -6587,8 +6587,8 @@ __inline static struct task_struct *get_current(void)
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -8194,7 +8194,7 @@ static struct ib_fmr_pool *srp_alloc_fmr_pool(struct srp_target_port *target )
   {
   {
   dev = (target->srp_host)->srp_dev;
-  __memset((void *)(& fmr_param), 0, 48UL);
+  memset((void *)(& fmr_param), 0, 48UL);
   fmr_param.pool_size = (target->scsi_host)->can_queue;
   fmr_param.dirty_watermark = fmr_param.pool_size / 4;
   fmr_param.cache = 1U;
@@ -9078,24 +9078,24 @@ static int srp_send_req(struct srp_rdma_ch *ch , bool multich )
   }
   if ((unsigned int )target->io_class == 65280U) {
     {
-    __memcpy((void *)(& req->priv.initiator_port_id), (void const   *)(& target->sgid.global.interface_id),
+    memcpy((void *)(& req->priv.initiator_port_id), (void const   *)(& target->sgid.global.interface_id),
              8UL);
-    __memcpy((void *)(& req->priv.initiator_port_id) + 8U, (void const   *)(& target->initiator_ext),
+    memcpy((void *)(& req->priv.initiator_port_id) + 8U, (void const   *)(& target->initiator_ext),
              8UL);
-    __memcpy((void *)(& req->priv.target_port_id), (void const   *)(& target->ioc_guid),
+    memcpy((void *)(& req->priv.target_port_id), (void const   *)(& target->ioc_guid),
              8UL);
-    __memcpy((void *)(& req->priv.target_port_id) + 8U, (void const   *)(& target->id_ext),
+    memcpy((void *)(& req->priv.target_port_id) + 8U, (void const   *)(& target->id_ext),
              8UL);
     }
   } else {
     {
-    __memcpy((void *)(& req->priv.initiator_port_id), (void const   *)(& target->initiator_ext),
+    memcpy((void *)(& req->priv.initiator_port_id), (void const   *)(& target->initiator_ext),
              8UL);
-    __memcpy((void *)(& req->priv.initiator_port_id) + 8U, (void const   *)(& target->sgid.global.interface_id),
+    memcpy((void *)(& req->priv.initiator_port_id) + 8U, (void const   *)(& target->sgid.global.interface_id),
              8UL);
-    __memcpy((void *)(& req->priv.target_port_id), (void const   *)(& target->id_ext),
+    memcpy((void *)(& req->priv.target_port_id), (void const   *)(& target->id_ext),
              8UL);
-    __memcpy((void *)(& req->priv.target_port_id) + 8U, (void const   *)(& target->ioc_guid),
+    memcpy((void *)(& req->priv.target_port_id) + 8U, (void const   *)(& target->ioc_guid),
              8UL);
     }
   }
@@ -9108,8 +9108,8 @@ static int srp_send_req(struct srp_rdma_ch *ch , bool multich )
     dev_printk("\017", (struct device  const  *)(& (target->scsi_host)->shost_gendev),
                "ib_srp: Topspin/Cisco initiator port ID workaround activated for target GUID %016llx\n",
                tmp___1);
-    __memset((void *)(& req->priv.initiator_port_id), 0, 8UL);
-    __memcpy((void *)(& req->priv.initiator_port_id) + 8U, (void const   *)(& (((target->srp_host)->srp_dev)->dev)->node_guid),
+    memset((void *)(& req->priv.initiator_port_id), 0, 8UL);
+    memcpy((void *)(& req->priv.initiator_port_id) + 8U, (void const   *)(& (((target->srp_host)->srp_dev)->dev)->node_guid),
              8UL);
     }
   } else {
@@ -10147,8 +10147,8 @@ static int srp_map_finish_fr(struct srp_map_state *state , struct srp_rdma_ch *c
   {
   rkey = ib_inc_rkey((desc->mr)->rkey);
   ib_update_fast_reg_key(desc->mr, (int )((u8 )rkey));
-  __memcpy((void *)(desc->frpl)->page_list, (void const   *)state->pages, (unsigned long )state->npages * 8UL);
-  __memset((void *)(& wr), 0, 96UL);
+  memcpy((void *)(desc->frpl)->page_list, (void const   *)state->pages, (unsigned long )state->npages * 8UL);
+  memset((void *)(& wr), 0, 96UL);
   wr.opcode = 11;
   wr.wr_id = 2ULL;
   wr.wr.fast_reg.iova_start = state->base_dma_addr;
@@ -10507,7 +10507,7 @@ static int srp_map_data(struct scsi_cmnd *scmnd , struct srp_rdma_ch *ch , struc
   indirect_hdr = (struct srp_indirect_buf *)(& cmd->add_data);
   ib_dma_sync_single_for_cpu(ibdev, req->indirect_dma_addr, (size_t )target->indirect_size,
                              1);
-  __memset((void *)(& state), 0, 80UL);
+  memset((void *)(& state), 0, 80UL);
   srp_map_sg(& state, ch, req, scat, count);
   }
   if (state.ndesc == 1U) {
@@ -10544,7 +10544,7 @@ static int srp_map_data(struct scsi_cmnd *scmnd , struct srp_rdma_ch *ch , struc
   fmt = 2U;
   len = 68;
   len = (int )((unsigned int )len + (unsigned int )((unsigned long )count) * 16U);
-  __memcpy((void *)(& indirect_hdr->desc_list), (void const   *)req->indirect_desc,
+  memcpy((void *)(& indirect_hdr->desc_list), (void const   *)req->indirect_desc,
            (unsigned long )count * 16UL);
   tmp___9 = __fswab64(req->indirect_dma_addr);
   indirect_hdr->table_desc.va = tmp___9;
@@ -10759,7 +10759,7 @@ static void srp_process_rsp(struct srp_rdma_ch *ch , struct srp_rsp *rsp )
       __min1 = (int )tmp___2;
       __min2 = 96;
       tmp___3 = __fswab32(rsp->resp_data_len);
-      __memcpy((void *)scmnd->sense_buffer, (void const   *)(& rsp->data) + (unsigned long )tmp___3,
+      memcpy((void *)scmnd->sense_buffer, (void const   *)(& rsp->data) + (unsigned long )tmp___3,
                (size_t )(__min1 < __min2 ? __min1 : __min2));
       }
     } else {
@@ -10845,7 +10845,7 @@ static int srp_response_common(struct srp_rdma_ch *ch , s32 req_delta , void *rs
   }
   {
   ib_dma_sync_single_for_cpu(dev, iu->dma, (size_t )len, 1);
-  __memcpy(iu->buf, (void const   *)rsp, (size_t )len);
+  memcpy(iu->buf, (void const   *)rsp, (size_t )len);
   ib_dma_sync_single_for_device(dev, iu->dma, (size_t )len, 1);
   err = srp_post_send(ch, iu, len);
   }
@@ -11306,12 +11306,12 @@ static int srp_queuecommand(struct Scsi_Host *shost , struct scsi_cmnd *scmnd )
   ib_dma_sync_single_for_cpu(dev, iu->dma, (size_t )target->max_iu_len, 1);
   scmnd->host_scribble = (unsigned char *)req;
   cmd = (struct srp_cmd *)iu->buf;
-  __memset((void *)cmd, 0, 48UL);
+  memset((void *)cmd, 0, 48UL);
   cmd->opcode = 2U;
   tmp___12 = __fswab64((scmnd->device)->lun << 48);
   cmd->lun = tmp___12;
   cmd->tag = (u64 )tag;
-  __memcpy((void *)(& cmd->cdb), (void const   *)scmnd->cmnd, (size_t )scmnd->cmd_len);
+  memcpy((void *)(& cmd->cdb), (void const   *)scmnd->cmnd, (size_t )scmnd->cmd_len);
   req->scmnd = scmnd;
   req->cmd = iu;
   len = srp_map_data(scmnd, ch, req);
@@ -11704,7 +11704,7 @@ static void srp_cm_rej_handler(struct ib_cm_id *cm_id , struct ib_cm_event *even
   ch->path.pkey = cpi->redirect_pkey;
   tmp = __fswab32(cpi->redirect_qp);
   cm_id->remote_cm_qpn = tmp & 16777215U;
-  __memcpy((void *)(& ch->path.dgid.raw), (void const   *)(& cpi->redirect_gid), 16UL);
+  memcpy((void *)(& ch->path.dgid.raw), (void const   *)(& cpi->redirect_gid), 16UL);
   ch->status = (unsigned int )ch->path.dlid != 0U ? 2 : 1;
   }
   goto ldv_40477;
@@ -11714,7 +11714,7 @@ static void srp_cm_rej_handler(struct ib_cm_id *cm_id , struct ib_cm_event *even
   }
   if (tmp___2 != 0) {
     {
-    __memcpy((void *)(& ch->path.dgid.raw), (void const   *)event->param.rej_rcvd.ari,
+    memcpy((void *)(& ch->path.dgid.raw), (void const   *)event->param.rej_rcvd.ari,
              16UL);
     tmp___0 = __fswab64(ch->path.dgid.global.interface_id);
     tmp___1 = __fswab64(ch->path.dgid.global.subnet_prefix);
@@ -11960,7 +11960,7 @@ static int srp_send_tsk_mgmt(struct srp_rdma_ch *ch , u64 req_tag , unsigned int
   {
   ib_dma_sync_single_for_cpu(dev, iu->dma, 48UL, 1);
   tsk_mgmt = (struct srp_tsk_mgmt *)iu->buf;
-  __memset((void *)tsk_mgmt, 0, 48UL);
+  memset((void *)tsk_mgmt, 0, 48UL);
   tsk_mgmt->opcode = 1U;
   tmp = __fswab64((unsigned long long )lun << 48);
   tsk_mgmt->lun = tmp;
@@ -12636,8 +12636,8 @@ static int srp_add_target(struct srp_host *host , struct srp_target_port *target
 
   }
   {
-  __memcpy((void *)(& ids.port_id), (void const   *)(& target->id_ext), 8UL);
-  __memcpy((void *)(& ids.port_id) + 8U, (void const   *)(& target->ioc_guid), 8UL);
+  memcpy((void *)(& ids.port_id), (void const   *)(& target->id_ext), 8UL);
+  memcpy((void *)(& ids.port_id) + 8U, (void const   *)(& target->ioc_guid), 8UL);
   ids.roles = 1U;
   rport = srp_rport_add(target->scsi_host, & ids);
   tmp___2 = IS_ERR((void const   *)rport);

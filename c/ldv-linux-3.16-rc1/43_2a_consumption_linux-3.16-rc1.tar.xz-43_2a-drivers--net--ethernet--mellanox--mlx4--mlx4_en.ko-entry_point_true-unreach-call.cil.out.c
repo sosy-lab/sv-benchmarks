@@ -10940,7 +10940,7 @@ __inline static unsigned long __rounddown_pow_of_two(unsigned long n )
 }
 }
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
 
@@ -12533,7 +12533,7 @@ static struct sk_buff *mlx4_en_rx_skb(struct mlx4_en_priv *priv , struct mlx4_en
     ((struct skb_shared_info *)tmp___2)->nr_frags = (unsigned char )used_frags;
     __len = 128UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)skb->data, (void const   *)va, __len);
+      __ret = memcpy((void *)skb->data, (void const   *)va, __len);
     } else {
       __ret = __builtin_memcpy((void *)skb->data, (void const   *)va, __len);
     }
@@ -14923,7 +14923,7 @@ static int mlx4_en_ethtool_add_mac_rule(struct ethtool_rxnfc *cmd , struct list_
   spec_l2->id = 0;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& spec_l2->ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_msk),
+    __ret = memcpy((void *)(& spec_l2->ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_msk),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& spec_l2->ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_msk),
@@ -14931,7 +14931,7 @@ static int mlx4_en_ethtool_add_mac_rule(struct ethtool_rxnfc *cmd , struct list_
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& spec_l2->ldv_44214.eth.dst_mac), (void const   *)mac,
+    __ret___0 = memcpy((void *)(& spec_l2->ldv_44214.eth.dst_mac), (void const   *)mac,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& spec_l2->ldv_44214.eth.dst_mac), (void const   *)mac,
@@ -14971,7 +14971,7 @@ static int mlx4_en_ethtool_add_mac_rule_by_ipv4(struct mlx4_en_priv *priv , stru
     if ((cmd->fs.flow_type & 1073741824U) != 0U) {
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& mac), (void const   *)(& cmd->fs.h_ext.h_dest),
+        __ret = memcpy((void *)(& mac), (void const   *)(& cmd->fs.h_ext.h_dest),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& mac), (void const   *)(& cmd->fs.h_ext.h_dest),
@@ -14980,7 +14980,7 @@ static int mlx4_en_ethtool_add_mac_rule_by_ipv4(struct mlx4_en_priv *priv , stru
     } else {
       __len___0 = 6UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& mac), (void const   *)(priv->dev)->dev_addr,
+        __ret___0 = memcpy((void *)(& mac), (void const   *)(priv->dev)->dev_addr,
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& mac), (void const   *)(priv->dev)->dev_addr,
@@ -15268,7 +15268,7 @@ static int mlx4_en_flow_replace(struct net_device *dev , struct ethtool_rxnfc *c
   loc_rule->id = reg_id;
   __len = 168UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& loc_rule->flow_spec), (void const   *)(& cmd->fs),
+    __ret = memcpy((void *)(& loc_rule->flow_spec), (void const   *)(& cmd->fs),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& loc_rule->flow_spec), (void const   *)(& cmd->fs),
@@ -15357,7 +15357,7 @@ static int mlx4_en_get_flow(struct net_device *dev , struct ethtool_rxnfc *cmd ,
   if (rule->id != 0ULL) {
     __len = 168UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& cmd->fs), (void const   *)(& rule->flow_spec), __len);
+      __ret = memcpy((void *)(& cmd->fs), (void const   *)(& rule->flow_spec), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& cmd->fs), (void const   *)(& rule->flow_spec),
                                __len);
@@ -18424,7 +18424,7 @@ static void mlx4_en_filter_work(struct work_struct *work )
   rule.qpn = (u32 )priv->rss_map.qps[filter->rxq_index].qpn;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac), (void const   *)(priv->dev)->dev_addr,
+    __ret = memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac), (void const   *)(priv->dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac), (void const   *)(priv->dev)->dev_addr,
@@ -18432,7 +18432,7 @@ static void mlx4_en_filter_work(struct work_struct *work )
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_mask),
+    __ret___0 = memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_mask),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_mask),
@@ -19058,7 +19058,7 @@ static int mlx4_en_tunnel_steer_add(struct mlx4_en_priv *priv , unsigned char *a
   spec_eth_outer.id = 0;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& spec_eth_outer.ldv_44214.eth.dst_mac), (void const   *)addr,
+    __ret = memcpy((void *)(& spec_eth_outer.ldv_44214.eth.dst_mac), (void const   *)addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& spec_eth_outer.ldv_44214.eth.dst_mac), (void const   *)addr,
@@ -19066,7 +19066,7 @@ static int mlx4_en_tunnel_steer_add(struct mlx4_en_priv *priv , unsigned char *a
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& spec_eth_outer.ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_mask),
+    __ret___0 = memcpy((void *)(& spec_eth_outer.ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_mask),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& spec_eth_outer.ldv_44214.eth.dst_mac_msk),
@@ -19132,7 +19132,7 @@ static int mlx4_en_uc_steer_add(struct mlx4_en_priv *priv , unsigned char *mac ,
   qp.qpn = *qpn;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& gid) + 10U, (void const   *)mac, __len);
+    __ret = memcpy((void *)(& gid) + 10U, (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& gid) + 10U, (void const   *)mac, __len);
   }
@@ -19193,7 +19193,7 @@ static int mlx4_en_uc_steer_add(struct mlx4_en_priv *priv , unsigned char *mac ,
   spec_eth.id = 0;
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac), (void const   *)mac,
+    __ret___0 = memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac), (void const   *)mac,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac), (void const   *)mac,
@@ -19201,7 +19201,7 @@ static int mlx4_en_uc_steer_add(struct mlx4_en_priv *priv , unsigned char *mac ,
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_mask),
+    __ret___1 = memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_mask),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& spec_eth.ldv_44214.eth.dst_mac_msk), (void const   *)(& mac_mask),
@@ -19252,7 +19252,7 @@ static void mlx4_en_uc_steer_release(struct mlx4_en_priv *priv , unsigned char *
   qp.qpn = qpn;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& gid) + 10U, (void const   *)mac, __len);
+    __ret = memcpy((void *)(& gid) + 10U, (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& gid) + 10U, (void const   *)mac, __len);
   }
@@ -19351,7 +19351,7 @@ static int mlx4_en_get_qp(struct mlx4_en_priv *priv )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& entry->mac), (void const   *)(priv->dev)->dev_addr,
+    __ret = memcpy((void *)(& entry->mac), (void const   *)(priv->dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& entry->mac), (void const   *)(priv->dev)->dev_addr,
@@ -19525,7 +19525,7 @@ static int mlx4_en_replace_mac(struct mlx4_en_priv *priv , int qpn , unsigned ch
       synchronize_rcu();
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& entry->mac), (void const   *)new_mac, __len);
+        __ret = memcpy((void *)(& entry->mac), (void const   *)new_mac, __len);
       } else {
         __ret = __builtin_memcpy((void *)(& entry->mac), (void const   *)new_mac,
                                  __len);
@@ -19598,7 +19598,7 @@ static int mlx4_en_do_set_mac(struct mlx4_en_priv *priv )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->prev_mac), (void const   *)(priv->dev)->dev_addr,
+    __ret = memcpy((void *)(& priv->prev_mac), (void const   *)(priv->dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->prev_mac), (void const   *)(priv->dev)->dev_addr,
@@ -19638,7 +19638,7 @@ static int mlx4_en_set_mac(struct net_device *dev , void *addr )
   mutex_lock_nested(& mdev->state_lock, 0U);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)dev->dev_addr, (void const   *)(& saddr->sa_data), __len);
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& saddr->sa_data), __len);
   } else {
     __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& saddr->sa_data),
                              __len);
@@ -19712,7 +19712,7 @@ static void mlx4_en_cache_mclist(struct net_device *dev )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tmp___0->addr), (void const   *)(& ha->addr), __len);
+    __ret = memcpy((void *)(& tmp___0->addr), (void const   *)(& ha->addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tmp___0->addr), (void const   *)(& ha->addr),
                              __len);
@@ -20114,7 +20114,7 @@ static void mlx4_en_do_multicast(struct mlx4_en_priv *priv , struct net_device *
     if ((unsigned int )mclist->action == 1U) {
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& mc_list) + 10U, (void const   *)(& mclist->addr),
+        __ret = memcpy((void *)(& mc_list) + 10U, (void const   *)(& mclist->addr),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& mc_list) + 10U, (void const   *)(& mclist->addr),
@@ -20144,7 +20144,7 @@ static void mlx4_en_do_multicast(struct mlx4_en_priv *priv , struct net_device *
     if ((unsigned int )mclist->action == 2U) {
       __len___0 = 6UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& mc_list) + 10U, (void const   *)(& mclist->addr),
+        __ret___0 = memcpy((void *)(& mc_list) + 10U, (void const   *)(& mclist->addr),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& mc_list) + 10U, (void const   *)(& mclist->addr),
@@ -20362,7 +20362,7 @@ static void mlx4_en_do_uc_filter(struct mlx4_en_priv *priv , struct net_device *
     mac = mlx4_mac_to_u64((u8 *)(& ha->addr));
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& entry->mac), (void const   *)(& ha->addr), __len);
+      __ret = memcpy((void *)(& entry->mac), (void const   *)(& ha->addr), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& entry->mac), (void const   *)(& ha->addr),
                                __len);
@@ -20601,7 +20601,7 @@ static struct net_device_stats *mlx4_en_get_stats(struct net_device *dev )
   spin_lock_bh(& priv->stats_lock);
   __len = 184UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->ret_stats), (void const   *)(& priv->stats),
+    __ret = memcpy((void *)(& priv->ret_stats), (void const   *)(& priv->stats),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->ret_stats), (void const   *)(& priv->stats),
@@ -21291,7 +21291,7 @@ void mlx4_en_stop_port(struct net_device *dev , int detach )
   ldv_54017: 
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mc_list) + 10U, (void const   *)(& mclist->addr),
+    __ret = memcpy((void *)(& mc_list) + 10U, (void const   *)(& mclist->addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mc_list) + 10U, (void const   *)(& mclist->addr),
@@ -22464,7 +22464,7 @@ int mlx4_en_init_netdev(struct mlx4_en_dev *mdev , int port , struct mlx4_en_por
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->prev_mac), (void const   *)dev->dev_addr, __len);
+    __ret = memcpy((void *)(& priv->prev_mac), (void const   *)dev->dev_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->prev_mac), (void const   *)dev->dev_addr,
                              __len);
@@ -23879,7 +23879,7 @@ static int mlx4_en_test_loopback_xmit(struct mlx4_en_priv *priv )
   packet = skb_put(skb, packet_size);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ethh->h_dest), (void const   *)(priv->dev)->dev_addr,
+    __ret = memcpy((void *)(& ethh->h_dest), (void const   *)(priv->dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ethh->h_dest), (void const   *)(priv->dev)->dev_addr,
@@ -24783,7 +24783,7 @@ static int mlx4_en_dcbnl_ieee_getets(struct net_device *dev , struct ieee_ets *e
   ets->cbs = my_ets->cbs;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ets->tc_tx_bw), (void const   *)(& my_ets->tc_tx_bw),
+    __ret = memcpy((void *)(& ets->tc_tx_bw), (void const   *)(& my_ets->tc_tx_bw),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ets->tc_tx_bw), (void const   *)(& my_ets->tc_tx_bw),
@@ -24791,7 +24791,7 @@ static int mlx4_en_dcbnl_ieee_getets(struct net_device *dev , struct ieee_ets *e
   }
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ets->tc_tsa), (void const   *)(& my_ets->tc_tsa),
+    __ret___0 = memcpy((void *)(& ets->tc_tsa), (void const   *)(& my_ets->tc_tsa),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ets->tc_tsa), (void const   *)(& my_ets->tc_tsa),
@@ -24799,7 +24799,7 @@ static int mlx4_en_dcbnl_ieee_getets(struct net_device *dev , struct ieee_ets *e
   }
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& ets->prio_tc), (void const   *)(& my_ets->prio_tc),
+    __ret___1 = memcpy((void *)(& ets->prio_tc), (void const   *)(& my_ets->prio_tc),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& ets->prio_tc), (void const   *)(& my_ets->prio_tc),
@@ -24959,7 +24959,7 @@ static int mlx4_en_dcbnl_ieee_setets(struct net_device *dev , struct ieee_ets *e
   }
   __len = 59UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->ets), (void const   *)ets, __len);
+    __ret = memcpy((void *)(& priv->ets), (void const   *)ets, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->ets), (void const   *)ets, __len);
   }
@@ -25092,7 +25092,7 @@ static int mlx4_en_dcbnl_ieee_setmaxrate(struct net_device *dev , struct ieee_ma
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& priv->maxrate), (void const   *)(& tmp___0), __len);
+    __ret = memcpy((void *)(& priv->maxrate), (void const   *)(& tmp___0), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& priv->maxrate), (void const   *)(& tmp___0),
                              __len);

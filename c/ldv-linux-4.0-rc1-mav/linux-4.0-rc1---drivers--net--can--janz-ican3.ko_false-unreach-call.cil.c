@@ -6714,8 +6714,8 @@ __inline static int kstrtoul(char const   *s , unsigned int base , unsigned long
 }
 }
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
@@ -6802,7 +6802,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   {
-  __memcpy(dst, (void const   *)src, count);
+  memcpy(dst, (void const   *)src, count);
   }
   return;
 }
@@ -6813,7 +6813,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   {
-  __memcpy((void *)dst, src, count);
+  memcpy((void *)dst, src, count);
   }
   return;
 }
@@ -7576,7 +7576,7 @@ static void ican3_init_fast_host_interface(struct ican3_dev *mod )
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_128(& mod->lock);
   mod->fastrx_start = mod->free_page;
   mod->fastrx_num = 0U;
-  __memset((void *)(& desc), 0, 16UL);
+  memset((void *)(& desc), 0, 16UL);
   desc.control = 0U;
   desc.command = 1U;
   addr = 0U;
@@ -7617,7 +7617,7 @@ static void ican3_init_fast_host_interface(struct ican3_dev *mod )
   {
   mod->fasttx_start = mod->free_page;
   mod->fasttx_num = 0U;
-  __memset((void *)(& desc), 0, 16UL);
+  memset((void *)(& desc), 0, 16UL);
   desc.control = 128U;
   desc.command = 1U;
   addr = 0U;
@@ -7802,7 +7802,7 @@ static int ican3_msg_connect(struct ican3_dev *mod )
 
   {
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 2U;
   msg.len = 0U;
   tmp = ican3_send_msg(mod, & msg);
@@ -7817,7 +7817,7 @@ static int ican3_msg_disconnect(struct ican3_dev *mod )
 
   {
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 3U;
   msg.len = 0U;
   tmp = ican3_send_msg(mod, & msg);
@@ -7834,7 +7834,7 @@ static int ican3_msg_newhostif(struct ican3_dev *mod )
 
   {
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 8U;
   msg.len = 0U;
   __ret_warn_on = mod->iftype != 0U;
@@ -7870,7 +7870,7 @@ static int ican3_msg_fasthostif(struct ican3_dev *mod )
 
   {
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 17U;
   msg.len = 8U;
   addr = mod->fastrx_start * 256U;
@@ -7908,7 +7908,7 @@ static int ican3_set_id_filter(struct ican3_dev *mod , bool accept )
 
   {
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 16U;
   msg.len = 5U;
   msg.data[0] = 0U;
@@ -7924,7 +7924,7 @@ static int ican3_set_id_filter(struct ican3_dev *mod , bool accept )
 
   }
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 16U;
   msg.len = 13U;
   msg.data[0] = 0U;
@@ -7949,7 +7949,7 @@ static int ican3_set_bus_state(struct ican3_dev *mod , bool on )
 
   {
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = (int )on ? 67U : 66U;
   msg.len = 0U;
   tmp = ican3_send_msg(mod, & msg);
@@ -7964,7 +7964,7 @@ static int ican3_set_termination(struct ican3_dev *mod , bool on )
 
   {
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 18U;
   msg.len = 2U;
   msg.data[0] = 0U;
@@ -7981,7 +7981,7 @@ static int ican3_send_inquiry(struct ican3_dev *mod , u8 subspec )
 
   {
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 10U;
   msg.len = 2U;
   msg.data[0] = subspec;
@@ -7998,7 +7998,7 @@ static int ican3_set_buserror(struct ican3_dev *mod , u8 quota )
 
   {
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 71U;
   msg.len = 2U;
   msg.data[0] = 0U;
@@ -8029,7 +8029,7 @@ static void ican3_to_can_frame(struct ican3_dev *mod , struct ican3_fast_desc *d
     __min1 = (unsigned int )desc->data[1] & 15U;
     __min2 = 8U;
     cf->can_dlc = (__u8 )((int )__min1 < (int )__min2 ? __min1 : __min2);
-    __memcpy((void *)(& cf->data), (void const   *)(& desc->data) + 2U, (size_t )cf->can_dlc);
+    memcpy((void *)(& cf->data), (void const   *)(& desc->data) + 2U, (size_t )cf->can_dlc);
     }
   } else {
     __min1___0 = (unsigned int )desc->data[0] & 15U;
@@ -8051,7 +8051,7 @@ static void ican3_to_can_frame(struct ican3_dev *mod , struct ican3_fast_desc *d
       cf->can_id = cf->can_id | (canid_t )((int )desc->data[3] >> 5);
     }
     {
-    __memcpy((void *)(& cf->data), (void const   *)(& desc->data) + 6U, (size_t )cf->can_dlc);
+    memcpy((void *)(& cf->data), (void const   *)(& desc->data) + 6U, (size_t )cf->can_dlc);
     }
   }
   return;
@@ -8063,7 +8063,7 @@ static void can_frame_to_ican3(struct ican3_dev *mod , struct can_frame *cf , st
 
   {
   {
-  __memset((void *)(& desc->data), 0, 14UL);
+  memset((void *)(& desc->data), 0, 14UL);
   desc->command = 1U;
   desc->data[0] = (u8 )((int )desc->data[0] | (int )cf->can_dlc);
   desc->data[1] = (u8 )((unsigned int )desc->data[1] | 16U);
@@ -8089,7 +8089,7 @@ static void can_frame_to_ican3(struct ican3_dev *mod , struct can_frame *cf , st
     desc->data[3] = (int )((u8 )cf->can_id) << 5U;
   }
   {
-  __memcpy((void *)(& desc->data) + 6U, (void const   *)(& cf->data), (size_t )cf->can_dlc);
+  memcpy((void *)(& desc->data) + 6U, (void const   *)(& cf->data), (size_t )cf->can_dlc);
   }
   return;
 }
@@ -9086,7 +9086,7 @@ static int ican3_xmit(struct sk_buff *skb , struct net_device *ndev )
   {
   ican3_set_page(mod, mod->fasttx_start + mod->fasttx_num / 16U);
   desc_addr = mod->dpm + ((unsigned long )mod->fasttx_num & 15UL) * 16UL;
-  __memset((void *)(& desc), 0, 16UL);
+  memset((void *)(& desc), 0, 16UL);
   memcpy_fromio((void *)(& desc), (void const volatile   *)desc_addr, 1UL);
   can_frame_to_ican3(mod, cf, & desc);
   ican3_put_echo_skb(mod, skb);
@@ -9148,7 +9148,7 @@ static int ican3_set_bittiming(struct net_device *ndev )
 
   }
   {
-  __memset((void *)(& msg), 0, 256UL);
+  memset((void *)(& msg), 0, 256UL);
   msg.spec = 65U;
   msg.len = 4U;
   msg.data[0] = 0U;

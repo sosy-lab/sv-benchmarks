@@ -7056,7 +7056,7 @@ __inline static void list_add(struct list_head *new , struct list_head *head )
 }
 extern void list_del(struct list_head * ) ;
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int __preempt_count ;
 __inline static void __preempt_count_add(int val ) 
@@ -7536,7 +7536,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -8043,14 +8043,14 @@ static int wcn36xx_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , stru
   if ((unsigned int )vif_priv->encrypt_type == 3U) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& key), (void const   *)(& key_conf->key), __len);
+      __ret = memcpy((void *)(& key), (void const   *)(& key_conf->key), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& key), (void const   *)(& key_conf->key),
                                __len);
     }
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& key) + 16U, (void const   *)(& key_conf->key) + 24U,
+      __ret___0 = memcpy((void *)(& key) + 16U, (void const   *)(& key_conf->key) + 24U,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& key) + 16U, (void const   *)(& key_conf->key) + 24U,
@@ -8058,7 +8058,7 @@ static int wcn36xx_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , stru
     }
     __len___1 = 8UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& key) + 24U, (void const   *)(& key_conf->key) + 16U,
+      __ret___1 = memcpy((void *)(& key) + 24U, (void const   *)(& key_conf->key) + 16U,
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& key) + 24U, (void const   *)(& key_conf->key) + 16U,
@@ -8198,7 +8198,7 @@ static void wcn36xx_update_allowed_rates(struct ieee80211_sta *sta , enum ieee80
   if ((int )sta->ht_cap.ht_supported) {
     __len = 10UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& sta_priv->supported_rates.supported_mcs_set), (void const   *)(& sta->ht_cap.mcs.rx_mask),
+      __ret = memcpy((void *)(& sta_priv->supported_rates.supported_mcs_set), (void const   *)(& sta->ht_cap.mcs.rx_mask),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& sta_priv->supported_rates.supported_mcs_set),
@@ -8235,7 +8235,7 @@ void wcn36xx_set_default_rates(struct wcn36xx_hal_supported_rates *rates )
   rates->op_rate_mode = 6;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& rates->dsss_rates), (void const   *)(& dsss_rates),
+    __ret = memcpy((void *)(& rates->dsss_rates), (void const   *)(& dsss_rates),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& rates->dsss_rates), (void const   *)(& dsss_rates),
@@ -8243,7 +8243,7 @@ void wcn36xx_set_default_rates(struct wcn36xx_hal_supported_rates *rates )
   }
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& rates->ofdm_rates), (void const   *)(& ofdm_rates),
+    __ret___0 = memcpy((void *)(& rates->ofdm_rates), (void const   *)(& ofdm_rates),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& rates->ofdm_rates), (void const   *)(& ofdm_rates),
@@ -11223,7 +11223,7 @@ int wcn36xx_rx_skb(struct wcn36xx *wcn , struct sk_buff *skb )
   __len = 40UL;
   if (__len > 63UL) {
     tmp___0 = IEEE80211_SKB_RXCB(skb);
-    __ret = __memcpy((void *)tmp___0, (void const   *)(& status), __len);
+    __ret = memcpy((void *)tmp___0, (void const   *)(& status), __len);
   } else {
     tmp___1 = IEEE80211_SKB_RXCB(skb);
     __ret = __builtin_memcpy((void *)tmp___1, (void const   *)(& status), __len);
@@ -11776,7 +11776,7 @@ static void wcn36xx_smd_set_sta_params(struct wcn36xx *wcn , struct ieee80211_vi
   if ((unsigned int )vif->type == 2U) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& sta_params->mac), (void const   *)(& vif->addr),
+      __ret = memcpy((void *)(& sta_params->mac), (void const   *)(& vif->addr),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& sta_params->mac), (void const   *)(& vif->addr),
@@ -11785,7 +11785,7 @@ static void wcn36xx_smd_set_sta_params(struct wcn36xx *wcn , struct ieee80211_vi
   } else {
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& sta_params->bssid), (void const   *)(& vif->addr),
+      __ret___0 = memcpy((void *)(& sta_params->bssid), (void const   *)(& vif->addr),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& sta_params->bssid), (void const   *)(& vif->addr),
@@ -11807,7 +11807,7 @@ static void wcn36xx_smd_set_sta_params(struct wcn36xx *wcn , struct ieee80211_vi
     if ((unsigned int )vif->type == 2U) {
       __len___1 = 6UL;
       if (__len___1 > 63UL) {
-        __ret___1 = __memcpy((void *)(& sta_params->bssid), (void const   *)(& sta->addr),
+        __ret___1 = memcpy((void *)(& sta_params->bssid), (void const   *)(& sta->addr),
                              __len___1);
       } else {
         __ret___1 = __builtin_memcpy((void *)(& sta_params->bssid), (void const   *)(& sta->addr),
@@ -11816,7 +11816,7 @@ static void wcn36xx_smd_set_sta_params(struct wcn36xx *wcn , struct ieee80211_vi
     } else {
       __len___2 = 6UL;
       if (__len___2 > 63UL) {
-        __ret___2 = __memcpy((void *)(& sta_params->mac), (void const   *)(& sta->addr),
+        __ret___2 = memcpy((void *)(& sta_params->mac), (void const   *)(& sta->addr),
                              __len___2);
       } else {
         __ret___2 = __builtin_memcpy((void *)(& sta_params->mac), (void const   *)(& sta->addr),
@@ -11829,7 +11829,7 @@ static void wcn36xx_smd_set_sta_params(struct wcn36xx *wcn , struct ieee80211_vi
     wcn36xx_smd_set_sta_ht_params(sta, sta_params);
     __len___3 = 58UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)(& sta_params->supported_rates), (void const   *)(& priv_sta->supported_rates),
+      __ret___3 = memcpy((void *)(& sta_params->supported_rates), (void const   *)(& priv_sta->supported_rates),
                            __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)(& sta_params->supported_rates), (void const   *)(& priv_sta->supported_rates),
@@ -11951,7 +11951,7 @@ int wcn36xx_smd_load_nv(struct wcn36xx *wcn )
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12007,7 +12007,7 @@ static int wcn36xx_smd_start_rsp(struct wcn36xx *wcn , void *buf , size_t len )
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& wcn->crm_version), (void const   *)(& rsp->start_rsp_params.crm_version),
+    __ret = memcpy((void *)(& wcn->crm_version), (void const   *)(& rsp->start_rsp_params.crm_version),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& wcn->crm_version), (void const   *)(& rsp->start_rsp_params.crm_version),
@@ -12015,7 +12015,7 @@ static int wcn36xx_smd_start_rsp(struct wcn36xx *wcn , void *buf , size_t len )
   }
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& wcn->wlan_version), (void const   *)(& rsp->start_rsp_params.wlan_version),
+    __ret___0 = memcpy((void *)(& wcn->wlan_version), (void const   *)(& rsp->start_rsp_params.wlan_version),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& wcn->wlan_version), (void const   *)(& rsp->start_rsp_params.wlan_version),
@@ -12054,7 +12054,7 @@ int wcn36xx_smd_start(struct wcn36xx *wcn )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12100,7 +12100,7 @@ int wcn36xx_smd_stop(struct wcn36xx *wcn )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12141,7 +12141,7 @@ int wcn36xx_smd_init_scan(struct wcn36xx *wcn , enum wcn36xx_hal_sys_mode mode )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12187,7 +12187,7 @@ int wcn36xx_smd_start_scan(struct wcn36xx *wcn )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 9UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12233,7 +12233,7 @@ int wcn36xx_smd_end_scan(struct wcn36xx *wcn )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 9UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12279,7 +12279,7 @@ int wcn36xx_smd_finish_scan(struct wcn36xx *wcn , enum wcn36xx_hal_sys_mode mode
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 53UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12351,7 +12351,7 @@ int wcn36xx_smd_switch_channel(struct wcn36xx *wcn , struct ieee80211_vif *vif ,
   msg_body.max_tx_power = 191U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& msg_body.self_sta_mac_addr), (void const   *)(& vif->addr),
+    __ret = memcpy((void *)(& msg_body.self_sta_mac_addr), (void const   *)(& vif->addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& msg_body.self_sta_mac_addr), (void const   *)(& vif->addr),
@@ -12360,7 +12360,7 @@ int wcn36xx_smd_switch_channel(struct wcn36xx *wcn , struct ieee80211_vif *vif ,
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___0 = 28UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
+    __ret___0 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___0);
@@ -12425,7 +12425,7 @@ int wcn36xx_smd_update_scan_params(struct wcn36xx *wcn )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 49UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12502,7 +12502,7 @@ int wcn36xx_smd_add_sta_self(struct wcn36xx *wcn , struct ieee80211_vif *vif )
   msg_body.header.len = 18U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& msg_body.self_addr), (void const   *)(& vif->addr),
+    __ret = memcpy((void *)(& msg_body.self_addr), (void const   *)(& vif->addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& msg_body.self_addr), (void const   *)(& vif->addr),
@@ -12511,7 +12511,7 @@ int wcn36xx_smd_add_sta_self(struct wcn36xx *wcn , struct ieee80211_vif *vif )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___0 = 18UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
+    __ret___0 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___0);
@@ -12559,7 +12559,7 @@ int wcn36xx_smd_delete_sta_self(struct wcn36xx *wcn , u8 *addr )
   msg_body.header.len = 14U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& msg_body.self_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& msg_body.self_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& msg_body.self_addr), (void const   *)addr,
                              __len);
@@ -12567,7 +12567,7 @@ int wcn36xx_smd_delete_sta_self(struct wcn36xx *wcn , u8 *addr )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___0 = 14UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
+    __ret___0 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___0);
@@ -12609,7 +12609,7 @@ int wcn36xx_smd_delete_sta(struct wcn36xx *wcn , u8 sta_index )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 9UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12681,13 +12681,13 @@ int wcn36xx_smd_join(struct wcn36xx *wcn , u8 const   *bssid , u8 *vif , u8 ch )
   msg_body.header.len = 31U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& msg_body.bssid), (void const   *)bssid, __len);
+    __ret = memcpy((void *)(& msg_body.bssid), (void const   *)bssid, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& msg_body.bssid), (void const   *)bssid, __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& msg_body.self_sta_mac_addr), (void const   *)vif,
+    __ret___0 = memcpy((void *)(& msg_body.self_sta_mac_addr), (void const   *)vif,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& msg_body.self_sta_mac_addr), (void const   *)vif,
@@ -12710,7 +12710,7 @@ int wcn36xx_smd_join(struct wcn36xx *wcn , u8 const   *bssid , u8 *vif , u8 ch )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___1 = 31UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___1);
+    __ret___1 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___1);
@@ -12762,13 +12762,13 @@ int wcn36xx_smd_set_link_st(struct wcn36xx *wcn , u8 const   *bssid , u8 const  
   msg_body.header.len = 24U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& msg_body.bssid), (void const   *)bssid, __len);
+    __ret = memcpy((void *)(& msg_body.bssid), (void const   *)bssid, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& msg_body.bssid), (void const   *)bssid, __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& msg_body.self_mac_addr), (void const   *)sta_mac,
+    __ret___0 = memcpy((void *)(& msg_body.self_mac_addr), (void const   *)sta_mac,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& msg_body.self_mac_addr), (void const   *)sta_mac,
@@ -12778,7 +12778,7 @@ int wcn36xx_smd_set_link_st(struct wcn36xx *wcn , u8 const   *bssid , u8 const  
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___1 = 24UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___1);
+    __ret___1 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___1);
@@ -12821,14 +12821,14 @@ static void wcn36xx_smd_convert_sta_to_v1(struct wcn36xx *wcn , struct wcn36xx_h
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& v1->bssid), (void const   *)(& orig->bssid), __len);
+    __ret = memcpy((void *)(& v1->bssid), (void const   *)(& orig->bssid), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& v1->bssid), (void const   *)(& orig->bssid),
                              __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& v1->mac), (void const   *)(& orig->mac), __len___0);
+    __ret___0 = memcpy((void *)(& v1->mac), (void const   *)(& orig->mac), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& v1->mac), (void const   *)(& orig->mac),
                                  __len___0);
@@ -12843,7 +12843,7 @@ static void wcn36xx_smd_convert_sta_to_v1(struct wcn36xx *wcn , struct wcn36xx_h
   v1->sgi_20Mhz = orig->sgi_20Mhz;
   __len___1 = 58UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& v1->supported_rates), (void const   *)(& orig->supported_rates),
+    __ret___1 = memcpy((void *)(& v1->supported_rates), (void const   *)(& orig->supported_rates),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& v1->supported_rates), (void const   *)(& orig->supported_rates),
@@ -12906,7 +12906,7 @@ static int wcn36xx_smd_config_sta_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 114UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -12952,7 +12952,7 @@ int wcn36xx_smd_config_sta(struct wcn36xx *wcn , struct ieee80211_vif *vif , str
     memset((void *)wcn->hal_buf, 0, (size_t )msg.header.len);
     __len = 113UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg), __len);
+      __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg), __len);
     } else {
       __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg), __len);
     }
@@ -13018,7 +13018,7 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   msg_body.header.len = 470U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& msg_body.bss_params.bssid), (void const   *)(& orig->bss_params.bssid),
+    __ret = memcpy((void *)(& msg_body.bss_params.bssid), (void const   *)(& orig->bss_params.bssid),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& msg_body.bss_params.bssid), (void const   *)(& orig->bss_params.bssid),
@@ -13026,7 +13026,7 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& msg_body.bss_params.self_mac_addr), (void const   *)(& orig->bss_params.self_mac_addr),
+    __ret___0 = memcpy((void *)(& msg_body.bss_params.self_mac_addr), (void const   *)(& orig->bss_params.self_mac_addr),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& msg_body.bss_params.self_mac_addr), (void const   *)(& orig->bss_params.self_mac_addr),
@@ -13051,7 +13051,7 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   msg_body.bss_params.reserved = orig->bss_params.reserved;
   __len___1 = 33UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& msg_body.bss_params.ssid), (void const   *)(& orig->bss_params.ssid),
+    __ret___1 = memcpy((void *)(& msg_body.bss_params.ssid), (void const   *)(& orig->bss_params.ssid),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& msg_body.bss_params.ssid), (void const   *)(& orig->bss_params.ssid),
@@ -13070,7 +13070,7 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   msg_body.bss_params.edca_params_valid = orig->bss_params.edca_params_valid;
   __len___2 = 4UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& msg_body.bss_params.acbe), (void const   *)(& orig->bss_params.acbe),
+    __ret___2 = memcpy((void *)(& msg_body.bss_params.acbe), (void const   *)(& orig->bss_params.acbe),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& msg_body.bss_params.acbe), (void const   *)(& orig->bss_params.acbe),
@@ -13078,7 +13078,7 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   }
   __len___3 = 4UL;
   if (__len___3 > 63UL) {
-    __ret___3 = __memcpy((void *)(& msg_body.bss_params.acbk), (void const   *)(& orig->bss_params.acbk),
+    __ret___3 = memcpy((void *)(& msg_body.bss_params.acbk), (void const   *)(& orig->bss_params.acbk),
                          __len___3);
   } else {
     __ret___3 = __builtin_memcpy((void *)(& msg_body.bss_params.acbk), (void const   *)(& orig->bss_params.acbk),
@@ -13086,7 +13086,7 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   }
   __len___4 = 4UL;
   if (__len___4 > 63UL) {
-    __ret___4 = __memcpy((void *)(& msg_body.bss_params.acvi), (void const   *)(& orig->bss_params.acvi),
+    __ret___4 = memcpy((void *)(& msg_body.bss_params.acvi), (void const   *)(& orig->bss_params.acvi),
                          __len___4);
   } else {
     __ret___4 = __builtin_memcpy((void *)(& msg_body.bss_params.acvi), (void const   *)(& orig->bss_params.acvi),
@@ -13094,7 +13094,7 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   }
   __len___5 = 4UL;
   if (__len___5 > 63UL) {
-    __ret___5 = __memcpy((void *)(& msg_body.bss_params.acvo), (void const   *)(& orig->bss_params.acvo),
+    __ret___5 = memcpy((void *)(& msg_body.bss_params.acvo), (void const   *)(& orig->bss_params.acvo),
                          __len___5);
   } else {
     __ret___5 = __builtin_memcpy((void *)(& msg_body.bss_params.acvo), (void const   *)(& orig->bss_params.acvo),
@@ -13103,7 +13103,7 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   msg_body.bss_params.ext_set_sta_key_param_valid = orig->bss_params.ext_set_sta_key_param_valid;
   __len___6 = 4UL;
   if (__len___6 > 63UL) {
-    __ret___6 = __memcpy((void *)(& msg_body.bss_params.ext_set_sta_key_param), (void const   *)(& orig->bss_params.ext_set_sta_key_param),
+    __ret___6 = memcpy((void *)(& msg_body.bss_params.ext_set_sta_key_param), (void const   *)(& orig->bss_params.ext_set_sta_key_param),
                          __len___6);
   } else {
     __ret___6 = __builtin_memcpy((void *)(& msg_body.bss_params.ext_set_sta_key_param),
@@ -13118,7 +13118,7 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn , struct wcn36xx_hal_co
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___7 = 470UL;
   if (__len___7 > 63UL) {
-    __ret___7 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___7);
+    __ret___7 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___7);
   } else {
     __ret___7 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___7);
@@ -13228,13 +13228,13 @@ int wcn36xx_smd_config_bss(struct wcn36xx *wcn , struct ieee80211_vif *vif , str
   ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& bss->bssid), (void const   *)bssid, __len);
+    __ret = memcpy((void *)(& bss->bssid), (void const   *)bssid, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& bss->bssid), (void const   *)bssid, __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& bss->self_mac_addr), (void const   *)(& vif->addr),
+    __ret___0 = memcpy((void *)(& bss->self_mac_addr), (void const   *)(& vif->addr),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& bss->self_mac_addr), (void const   *)(& vif->addr),
@@ -13325,7 +13325,7 @@ int wcn36xx_smd_config_bss(struct wcn36xx *wcn , struct ieee80211_vif *vif , str
     memset((void *)wcn->hal_buf, 0, (size_t )msg.header.len);
     __len___2 = 469UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg), __len___2);
+      __ret___2 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg), __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg),
                                    __len___2);
@@ -13370,7 +13370,7 @@ int wcn36xx_smd_delete_bss(struct wcn36xx *wcn , struct ieee80211_vif *vif )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 9UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -13423,7 +13423,7 @@ int wcn36xx_smd_send_beacon(struct wcn36xx *wcn , struct ieee80211_vif *vif , st
   if (msg_body.beacon_length <= 383U) {
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& msg_body.beacon), (void const   *)(& skb_beacon->len),
+      __ret = memcpy((void *)(& msg_body.beacon), (void const   *)(& skb_beacon->len),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& msg_body.beacon), (void const   *)(& skb_beacon->len),
@@ -13439,7 +13439,7 @@ int wcn36xx_smd_send_beacon(struct wcn36xx *wcn , struct ieee80211_vif *vif , st
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& msg_body.bssid), (void const   *)(& vif->addr),
+    __ret___1 = memcpy((void *)(& msg_body.bssid), (void const   *)(& vif->addr),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& msg_body.bssid), (void const   *)(& vif->addr),
@@ -13454,7 +13454,7 @@ int wcn36xx_smd_send_beacon(struct wcn36xx *wcn , struct ieee80211_vif *vif , st
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___2 = 408UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___2);
+    __ret___2 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___2);
@@ -13515,7 +13515,7 @@ int wcn36xx_smd_update_proberesp_tmpl(struct wcn36xx *wcn , struct ieee80211_vif
                            __len);
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& msg.bssid), (void const   *)(& vif->addr), __len___0);
+    __ret___0 = memcpy((void *)(& msg.bssid), (void const   *)(& vif->addr), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& msg.bssid), (void const   *)(& vif->addr),
                                  __len___0);
@@ -13523,7 +13523,7 @@ int wcn36xx_smd_update_proberesp_tmpl(struct wcn36xx *wcn , struct ieee80211_vif
   memset((void *)wcn->hal_buf, 0, (size_t )msg.header.len);
   __len___1 = 436UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg), __len___1);
+    __ret___1 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg), __len___1);
   }
@@ -13584,7 +13584,7 @@ int wcn36xx_smd_set_stakey(struct wcn36xx *wcn , enum ani_ed_type enc_type , u8 
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___0 = 248UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
+    __ret___0 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___0);
@@ -13639,7 +13639,7 @@ int wcn36xx_smd_set_bsskey(struct wcn36xx *wcn , enum ani_ed_type enc_type , u8 
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___0 = 243UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
+    __ret___0 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___0);
@@ -13684,7 +13684,7 @@ int wcn36xx_smd_remove_stakey(struct wcn36xx *wcn , enum ani_ed_type enc_type , 
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -13727,7 +13727,7 @@ int wcn36xx_smd_remove_bsskey(struct wcn36xx *wcn , enum ani_ed_type enc_type , 
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 18UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -13772,7 +13772,7 @@ int wcn36xx_smd_enter_bmps(struct wcn36xx *wcn , struct ieee80211_vif *vif )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 28UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -13815,7 +13815,7 @@ int wcn36xx_smd_exit_bmps(struct wcn36xx *wcn , struct ieee80211_vif *vif )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 28UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -13862,7 +13862,7 @@ int wcn36xx_smd_set_power_params(struct wcn36xx *wcn , bool ignore_dtim )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -13909,7 +13909,7 @@ int wcn36xx_smd_keep_alive_req(struct wcn36xx *wcn , struct ieee80211_vif *vif ,
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 28UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -13955,7 +13955,7 @@ int wcn36xx_smd_dump_cmd_req(struct wcn36xx *wcn , u32 arg1 , u32 arg2 , u32 arg
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 28UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -14054,7 +14054,7 @@ int wcn36xx_smd_feature_caps_exchange(struct wcn36xx *wcn )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -14109,7 +14109,7 @@ int wcn36xx_smd_add_ba_session(struct wcn36xx *wcn , struct ieee80211_sta *sta ,
   msg_body.sta_index = (u16 )sta_index;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& msg_body.mac_addr), (void const   *)(& sta->addr),
+    __ret = memcpy((void *)(& msg_body.mac_addr), (void const   *)(& sta->addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& msg_body.mac_addr), (void const   *)(& sta->addr),
@@ -14129,7 +14129,7 @@ int wcn36xx_smd_add_ba_session(struct wcn36xx *wcn , struct ieee80211_sta *sta ,
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len___0 = 26UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
+    __ret___0 = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body),
                                  __len___0);
@@ -14172,7 +14172,7 @@ int wcn36xx_smd_add_ba(struct wcn36xx *wcn )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 10UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -14215,7 +14215,7 @@ int wcn36xx_smd_del_ba(struct wcn36xx *wcn , u16 tid , u8 sta_index )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -14259,7 +14259,7 @@ int wcn36xx_smd_trigger_ba(struct wcn36xx *wcn , u8 sta_index )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 11UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }
@@ -14447,7 +14447,7 @@ int wcn36xx_smd_update_cfg(struct wcn36xx *wcn , u32 cfg_id , u32 value )
   memset((void *)wcn->hal_buf, 0, (size_t )msg_body.header.len);
   __len = 12UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
+    __ret = memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   } else {
     __ret = __builtin_memcpy((void *)wcn->hal_buf, (void const   *)(& msg_body), __len);
   }

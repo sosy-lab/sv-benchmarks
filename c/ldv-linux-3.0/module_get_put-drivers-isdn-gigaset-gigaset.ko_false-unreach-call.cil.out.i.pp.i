@@ -7384,7 +7384,7 @@ __inline static int constant_test_bit(unsigned int nr , unsigned long const vola
 }
 extern void warn_slowpath_fmt(char const * , int const , char const * , ...) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 __inline static long IS_ERR(void const *ptr )
 { long tmp ;
 
@@ -7687,7 +7687,7 @@ static int if_version(struct cardstate *cs , unsigned int *arg )
       __len = 16UL;
       if (__len > 63UL) {
         {
-        __ret = __memcpy((void *)arg, (void const *)(& version), __len);
+        __ret = memcpy((void *)arg, (void const *)(& version), __len);
         }
       } else {
         {
@@ -7699,7 +7699,7 @@ static int if_version(struct cardstate *cs , unsigned int *arg )
       __len___0 = 16UL;
       if (__len___0 > 63UL) {
         {
-        __ret___0 = __memcpy((void *)arg, (void const *)(& compat), __len___0);
+        __ret___0 = memcpy((void *)arg, (void const *)(& compat), __len___0);
         }
       } else {
         {
@@ -11316,7 +11316,7 @@ static void do_action(int action , struct cardstate *cs , struct bc_state *bcs ,
         __len = 3UL;
         if (__len > 63UL) {
           {
-          __ret = __memcpy((void *)(& cb->buf), (void const *)"+++", __len);
+          __ret = memcpy((void *)(& cb->buf), (void const *)"+++", __len);
           }
         } else {
           {
@@ -11738,7 +11738,7 @@ static void do_action(int action , struct cardstate *cs , struct bc_state *bcs ,
         __len___0 = 16UL;
         if (__len___0 > 63UL) {
           {
-          __ret___0 = __memcpy(ev->arg, (void const *)(& cs->fwver), __len___0);
+          __ret___0 = memcpy(ev->arg, (void const *)(& cs->fwver), __len___0);
           }
         } else {
           {

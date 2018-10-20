@@ -5536,9 +5536,9 @@ extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
 extern unsigned long __per_cpu_offset[8192U] ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern int __bitmap_empty(unsigned long const   * , unsigned int  ) ;
@@ -7263,7 +7263,7 @@ static void print_tags(struct driver_data *dd , char *msg , unsigned long *tagbi
   {
   {
   tagmap_len = 0;
-  __memset((void *)(& tagmap), 0, 128UL);
+  memset((void *)(& tagmap), 0, 128UL);
   group = 4;
   }
   goto ldv_47101;
@@ -7385,7 +7385,7 @@ static void mtip_handle_tfe(struct driver_data *dd )
 
   }
   {
-  __memset((void *)(& tagaccum), 0, 32UL);
+  memset((void *)(& tagaccum), 0, 32UL);
   group = 0;
   }
   goto ldv_47150;
@@ -7511,7 +7511,7 @@ static void mtip_handle_tfe(struct driver_data *dd )
     }
   }
   {
-  __memset((void *)(& tagaccum), 0, 32UL);
+  memset((void *)(& tagaccum), 0, 32UL);
   group = 0;
   }
   goto ldv_47161;
@@ -8271,7 +8271,7 @@ static int mtip_exec_internal_command(struct mtip_port *port , struct host_to_de
     int_cmd->comp_func = & mtip_null_completion;
   }
   {
-  __memcpy(int_cmd->command, (void const   *)fis, (size_t )(fis_len * 4));
+  memcpy(int_cmd->command, (void const   *)fis, (size_t )(fis_len * 4));
   (int_cmd->command_header)->opts = opts | (u32 )fis_len;
   }
   if (buf_len != 0) {
@@ -8572,12 +8572,12 @@ static int mtip_get_identify(struct mtip_port *port , void *user_buffer )
 
   }
   {
-  __memset((void *)(& fis), 0, 20UL);
+  memset((void *)(& fis), 0, 20UL);
   fis.type = 39U;
   fis.opts = 128U;
   fis.command = 236U;
   port->identify_valid = 0UL;
-  __memset((void *)port->identify, 0, 512UL);
+  memset((void *)port->identify, 0, 512UL);
   tmp___0 = mtip_exec_internal_command(port, & fis, 5, port->identify_dma, 512, 0U,
                                        208U, 5000UL);
   }
@@ -8629,7 +8629,7 @@ static int mtip_standby_immediate(struct mtip_port *port )
 
   {
   {
-  __memset((void *)(& fis), 0, 20UL);
+  memset((void *)(& fis), 0, 20UL);
   fis.type = 39U;
   fis.opts = 128U;
   fis.command = 224U;
@@ -8655,7 +8655,7 @@ static int mtip_read_log_page(struct mtip_port *port , u8 page , u16 *buffer , d
 
   {
   {
-  __memset((void *)(& fis), 0, 20UL);
+  memset((void *)(& fis), 0, 20UL);
   fis.type = 39U;
   fis.opts = 128U;
   fis.command = 47U;
@@ -8664,7 +8664,7 @@ static int mtip_read_log_page(struct mtip_port *port , u8 page , u16 *buffer , d
   fis.__annonCompField84.lba_low = page;
   fis.__annonCompField85.lba_mid = 0U;
   fis.__annonCompField87.device = 160U;
-  __memset((void *)buffer, 0, (size_t )(sectors * 512U));
+  memset((void *)buffer, 0, (size_t )(sectors * 512U));
   tmp = mtip_exec_internal_command(port, & fis, 5, buffer_dma, (int )(sectors * 512U),
                                    0U, 32U, 5000UL);
   }
@@ -8678,7 +8678,7 @@ static int mtip_get_smart_data(struct mtip_port *port , u8 *buffer , dma_addr_t 
 
   {
   {
-  __memset((void *)(& fis), 0, 20UL);
+  memset((void *)(& fis), 0, 20UL);
   fis.type = 39U;
   fis.opts = 128U;
   fis.command = 176U;
@@ -8729,7 +8729,7 @@ static int mtip_get_smart_attr(struct mtip_port *port , unsigned int id , struct
 
   }
   {
-  __memset((void *)port->smart_buf, 0, 512UL);
+  memset((void *)port->smart_buf, 0, 512UL);
   rv = mtip_get_smart_data(port, port->smart_buf, port->smart_buf_dma);
   }
   if (rv != 0) {
@@ -8746,7 +8746,7 @@ static int mtip_get_smart_attr(struct mtip_port *port , unsigned int id , struct
   ldv_47339: ;
   if ((unsigned int )pattr->attr_id == id) {
     {
-    __memcpy((void *)attrib, (void const   *)pattr, 12UL);
+    memcpy((void *)attrib, (void const   *)pattr, 12UL);
     }
     goto ldv_47338;
   } else {
@@ -8846,7 +8846,7 @@ static int mtip_send_trim(struct driver_data *dd , unsigned int lba , unsigned i
 
   }
   {
-  __memset((void *)buf, 0, 512UL);
+  memset((void *)buf, 0, 512UL);
   i = 0;
   sect_left = (u64 )len;
   tlba = (u64 )lba;
@@ -8878,7 +8878,7 @@ static int mtip_send_trim(struct driver_data *dd , unsigned int lba , unsigned i
   }
   {
   ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
-  __memset((void *)(& fis), 0, 20UL);
+  memset((void *)(& fis), 0, 20UL);
   fis.type = 39U;
   fis.opts = 128U;
   fis.command = 251U;
@@ -9041,7 +9041,7 @@ static int exec_drive_task(struct mtip_port *port , u8 *command )
   {
   {
   reply = (struct host_to_dev_fis *)port->rxfis + 64U;
-  __memset((void *)(& fis), 0, 20UL);
+  memset((void *)(& fis), 0, 20UL);
   fis.type = 39U;
   fis.opts = 128U;
   fis.command = *command;
@@ -9105,13 +9105,13 @@ static int exec_drive_command(struct mtip_port *port , u8 *command , void *user_
 
     }
     {
-    __memset((void *)buf, 0, (size_t )(xfer_sz * 512));
+    memset((void *)buf, 0, (size_t )(xfer_sz * 512));
     }
   } else {
 
   }
   {
-  __memset((void *)(& fis), 0, 20UL);
+  memset((void *)(& fis), 0, 20UL);
   fis.type = 39U;
   fis.opts = 128U;
   fis.command = *command;
@@ -9423,7 +9423,7 @@ static int exec_drive_taskfile(struct driver_data *dd , void *buf , ide_task_req
   }
   ldv_47459: 
   {
-  __memset((void *)(& fis), 0, 20UL);
+  memset((void *)(& fis), 0, 20UL);
   fis.type = 39U;
   fis.opts = 128U;
   fis.command = req_task->io_ports[7];
@@ -9883,7 +9883,7 @@ static ssize_t show_device_status(struct device_driver *drv , char *buf )
       }
     } else {
       {
-      __memset((void *)(& id_buf), 0, 42UL);
+      memset((void *)(& id_buf), 0, 42UL);
       status = 0U;
       }
     }
@@ -9943,7 +9943,7 @@ static ssize_t show_device_status(struct device_driver *drv , char *buf )
       }
     } else {
       {
-      __memset((void *)(& id_buf), 0, 42UL);
+      memset((void *)(& id_buf), 0, 42UL);
       status = 0U;
       }
     }
@@ -10899,7 +10899,7 @@ static int mtip_dma_alloc(struct driver_data *dd )
 
   }
   {
-  __memset(port->block1, 0, 4096UL);
+  memset(port->block1, 0, 4096UL);
   port->command_list = dmam_alloc_coherent(& (dd->pdev)->dev, 8192UL, & port->command_list_dma,
                                            208U);
   }
@@ -10914,7 +10914,7 @@ static int mtip_dma_alloc(struct driver_data *dd )
 
   }
   {
-  __memset(port->command_list, 0, 8192UL);
+  memset(port->command_list, 0, 8192UL);
   port->rxfis = port->block1;
   port->rxfis_dma = port->block1_dma;
   port->identify = (u16 *)port->block1 + 1024U;
@@ -10988,7 +10988,7 @@ static int mtip_hw_get_identify(struct driver_data *dd )
     }
   }
   {
-  __memset((void *)(& attr242), 0, 12UL);
+  memset((void *)(& attr242), 0, 12UL);
   tmp___0 = mtip_get_smart_attr(dd->port, 242U, & attr242);
   }
   if (tmp___0 != 0) {
@@ -11421,9 +11421,9 @@ static int rssd_disk_name_format(char *prefix , int index , char *buf , int bufl
 
   }
   {
-  __memmove((void *)begin, (void const   *)p, (size_t )((long )end - (long )p));
+  memmove((void *)begin, (void const   *)p, (size_t )((long )end - (long )p));
   tmp___0 = strlen((char const   *)prefix);
-  __memcpy((void *)buf, (void const   *)prefix, tmp___0);
+  memcpy((void *)buf, (void const   *)prefix, tmp___0);
   }
   return (0);
 }
@@ -11994,7 +11994,7 @@ static int mtip_init_cmd(void *data , struct request *rq , unsigned int hctx_idx
 
   }
   {
-  __memset(cmd->command, 0, 8192UL);
+  memset(cmd->command, 0, 8192UL);
   cmd->command_header = (struct mtip_cmd_hdr *)((dd->port)->command_list + (unsigned long )request_idx * 32UL);
   cmd->command_header_dma = (dd->port)->command_list_dma + (unsigned long long )((unsigned long )request_idx * 32UL);
   }
@@ -12102,7 +12102,7 @@ static int mtip_block_initialize(struct driver_data *dd )
   }
   skip_create_disk: 
   {
-  __memset((void *)(& dd->tags), 0, 232UL);
+  memset((void *)(& dd->tags), 0, 232UL);
   dd->tags.ops = & mtip_mq_ops;
   dd->tags.nr_hw_queues = 1U;
   dd->tags.queue_depth = 256U;
@@ -13218,7 +13218,7 @@ static int mtip_pci_probe(struct pci_dev *pdev , struct pci_device_id  const  *e
   dd->numa_node = my_node;
   INIT_LIST_HEAD(& dd->online_list);
   INIT_LIST_HEAD(& dd->remove_list);
-  __memset((void *)(& dd->workq_name), 0, 32UL);
+  memset((void *)(& dd->workq_name), 0, 32UL);
   snprintf((char *)(& dd->workq_name), 31UL, "mtipq%d", dd->instance);
   __lock_name = "\"%s\"(dd->workq_name)";
   tmp___5 = __alloc_workqueue_key("%s", 8U, 1, & __key, __lock_name, (char *)(& dd->workq_name));
@@ -13234,7 +13234,7 @@ static int mtip_pci_probe(struct pci_dev *pdev , struct pci_device_id  const  *e
 
   }
   {
-  __memset((void *)(& cpu_list), 0, 256UL);
+  memset((void *)(& cpu_list), 0, 256UL);
   node_mask = cpumask_of_node(dd->numa_node);
   tmp___12 = cpumask_empty(node_mask);
   }
@@ -13309,7 +13309,7 @@ static int mtip_pci_probe(struct pci_dev *pdev , struct pci_device_id  const  *e
   goto ldv_48044;
   ldv_48043: 
   {
-  __memset((void *)(& cpu_list), 0, 256UL);
+  memset((void *)(& cpu_list), 0, 256UL);
   i = 0;
   j = 0;
   }

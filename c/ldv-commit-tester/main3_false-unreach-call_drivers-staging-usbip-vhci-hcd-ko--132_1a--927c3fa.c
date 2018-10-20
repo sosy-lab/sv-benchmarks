@@ -5170,7 +5170,7 @@ __inline static int variable_test_bit(int nr , unsigned long const volatile   *a
   return (oldbit);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __list_add(struct list_head * , struct list_head * , struct list_head * ) ;
 __inline static void list_add_tail(struct list_head *new , struct list_head *head ) 
@@ -5309,7 +5309,7 @@ static void setup_cmd_submit_pdu(struct usbip_header *pdup , struct urb *urb )
   if ((unsigned long )urb->setup_packet != (unsigned long )((unsigned char *)0)) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& pdup->u.cmd_submit.setup), (void const   *)urb->setup_packet,
+      __ret = memcpy((void *)(& pdup->u.cmd_submit.setup), (void const   *)urb->setup_packet,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& pdup->u.cmd_submit.setup), (void const   *)urb->setup_packet,

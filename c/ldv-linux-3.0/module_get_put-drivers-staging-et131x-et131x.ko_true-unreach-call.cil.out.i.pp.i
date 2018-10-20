@@ -9168,7 +9168,7 @@ void et131x_handle_send_interrupt(struct et131x_adapter *etdev )
   return;
 }
 }
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const * , struct lock_class_key * ,
                              int ) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
@@ -9294,7 +9294,7 @@ void et131x_hwaddr_init(struct et131x_adapter *adapter )
               }
               if (__len > 63UL) {
                 {
-                __ret = __memcpy((void *)(& adapter->rom_addr), (void const *)(& adapter->addr),
+                __ret = memcpy((void *)(& adapter->rom_addr), (void const *)(& adapter->addr),
                                  __len);
                 }
               } else {
@@ -9323,7 +9323,7 @@ void et131x_hwaddr_init(struct et131x_adapter *adapter )
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
       {
-      __ret___0 = __memcpy((void *)(& adapter->addr), (void const *)(& adapter->rom_addr),
+      __ret___0 = memcpy((void *)(& adapter->addr), (void const *)(& adapter->rom_addr),
                            __len___0);
       }
     } else {
@@ -9472,7 +9472,7 @@ static int et131x_pci_init(struct et131x_adapter *adapter , struct pci_dev *pdev
   __len = 6UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& adapter->addr), (void const *)(& adapter->rom_addr),
+    __ret = memcpy((void *)(& adapter->addr), (void const *)(& adapter->rom_addr),
                      __len);
     }
   } else {
@@ -9806,7 +9806,7 @@ static struct et131x_adapter *et131x_adapter_init(struct net_device *netdev , st
   __len = 6UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& etdev->addr), (void const *)(& default_mac), __len);
+    __ret = memcpy((void *)(& etdev->addr), (void const *)(& default_mac), __len);
     }
   } else {
     {
@@ -9973,7 +9973,7 @@ static int et131x_pci_setup(struct pci_dev *pdev , struct pci_device_id const *e
   }
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)netdev->dev_addr, (void const *)(& adapter->addr),
+    __ret = memcpy((void *)netdev->dev_addr, (void const *)(& adapter->addr),
                      __len);
     }
   } else {
@@ -10961,7 +10961,7 @@ void et131x_multicast(struct net_device *netdev )
     {
     tmp___1 = i;
     i = i + 1;
-    __ret = __memcpy((void *)(& adapter->MCList) + (unsigned long )tmp___1, (void const *)(& ha->addr),
+    __ret = memcpy((void *)(& adapter->MCList) + (unsigned long )tmp___1, (void const *)(& ha->addr),
                      __len);
     }
   } else {
@@ -11126,7 +11126,7 @@ int et131x_change_mtu(struct net_device *netdev , int new_mtu )
   }
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)netdev->dev_addr, (void const *)(& adapter->addr),
+    __ret = memcpy((void *)netdev->dev_addr, (void const *)(& adapter->addr),
                      __len);
     }
   } else {

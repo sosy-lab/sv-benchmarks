@@ -3108,7 +3108,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 extern void list_del(struct list_head *entry ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -3563,7 +3563,7 @@ static int ds_recv_status_nodump(struct ds_device *dev , struct ds_status *st , 
       {
       __cil_tmp37 = (void *)st;
       __cil_tmp38 = (void const   *)buf;
-      __ret = __memcpy(__cil_tmp37, __cil_tmp38, __len);
+      __ret = memcpy(__cil_tmp37, __cil_tmp38, __len);
       }
     } else {
       {

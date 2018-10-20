@@ -1338,7 +1338,7 @@ struct memcg_cache_params___0 {
 long ldv__builtin_expect(long exp , long c ) ;
 extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
@@ -2030,7 +2030,7 @@ static int ff_init(void)
   ldv_19608: 
   __len = 8192UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ff_eeimg) + (unsigned long )i, (void const   *)(& ff_eeimg),
+    __ret = memcpy((void *)(& ff_eeimg) + (unsigned long )i, (void const   *)(& ff_eeimg),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ff_eeimg) + (unsigned long )i, (void const   *)(& ff_eeimg),

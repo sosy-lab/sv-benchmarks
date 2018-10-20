@@ -4993,7 +4993,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -7561,7 +7561,7 @@ unsigned int ata_exec_internal_sg(struct ata_device *dev , struct ata_taskfile *
   if ((unsigned long )cdb != (unsigned long )((u8 const   *)0)) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& qc->cdb), (void const   *)cdb, __len);
+      __ret = memcpy((void *)(& qc->cdb), (void const   *)cdb, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& qc->cdb), (void const   *)cdb, __len);
     }
@@ -9114,7 +9114,7 @@ int ata_timing_compute(struct ata_device *adev , unsigned short speed , struct a
   }
   __len = 20UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)t, (void const   *)s, __len);
+    __ret = memcpy((void *)t, (void const   *)s, __len);
   } else {
     __ret = __builtin_memcpy((void *)t, (void const   *)s, __len);
   }
@@ -10156,7 +10156,7 @@ int ata_dev_reread_id(struct ata_device *dev , unsigned int readid_flags )
   }
   __len = 512UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dev->ldv_38497.id), (void const   *)id, __len);
+    __ret = memcpy((void *)(& dev->ldv_38497.id), (void const   *)id, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dev->ldv_38497.id), (void const   *)id, __len);
   }
@@ -16530,13 +16530,13 @@ static unsigned int ata_scsiop_inq_std(struct ata_scsi_args *args , u8 *rbuf )
   }
   __len = 5UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)rbuf, (void const   *)(& hdr), __len);
+    __ret = memcpy((void *)rbuf, (void const   *)(& hdr), __len);
   } else {
     __ret = __builtin_memcpy((void *)rbuf, (void const   *)(& hdr), __len);
   }
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)rbuf + 8U, (void const   *)"ATA     ", __len___0);
+    __ret___0 = memcpy((void *)rbuf + 8U, (void const   *)"ATA     ", __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)rbuf + 8U, (void const   *)"ATA     ", __len___0);
   }
@@ -16545,7 +16545,7 @@ static unsigned int ata_scsiop_inq_std(struct ata_scsi_args *args , u8 *rbuf )
   if ((unsigned int )*(rbuf + 32UL) == 0U || (unsigned int )*(rbuf + 32UL) == 32U) {
     __len___1 = 4UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)rbuf + 32U, (void const   *)"n/a ", __len___1);
+      __ret___1 = memcpy((void *)rbuf + 32U, (void const   *)"n/a ", __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)rbuf + 32U, (void const   *)"n/a ", __len___1);
     }
@@ -16554,7 +16554,7 @@ static unsigned int ata_scsiop_inq_std(struct ata_scsi_args *args , u8 *rbuf )
   }
   __len___2 = 5UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)rbuf + 59U, (void const   *)(& versions), __len___2);
+    __ret___2 = memcpy((void *)rbuf + 59U, (void const   *)(& versions), __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)rbuf + 59U, (void const   *)(& versions),
                                  __len___2);
@@ -16579,7 +16579,7 @@ static unsigned int ata_scsiop_inq_00(struct ata_scsi_args *args , u8 *rbuf )
   *(rbuf + 3UL) = 7U;
   __len = 7UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)rbuf + 4U, (void const   *)(& pages), __len);
+    __ret = memcpy((void *)rbuf + 4U, (void const   *)(& pages), __len);
   } else {
     __ret = __builtin_memcpy((void *)rbuf + 4U, (void const   *)(& pages), __len);
   }
@@ -16599,7 +16599,7 @@ static unsigned int ata_scsiop_inq_80(struct ata_scsi_args *args , u8 *rbuf )
   hdr[3] = 20U;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)rbuf, (void const   *)(& hdr), __len);
+    __ret = memcpy((void *)rbuf, (void const   *)(& hdr), __len);
   } else {
     __ret = __builtin_memcpy((void *)rbuf, (void const   *)(& hdr), __len);
   }
@@ -16630,7 +16630,7 @@ static unsigned int ata_scsiop_inq_83(struct ata_scsi_args *args , u8 *rbuf )
   num = num + 4;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)rbuf + (unsigned long )num, (void const   *)"ATA     ",
+    __ret = memcpy((void *)rbuf + (unsigned long )num, (void const   *)"ATA     ",
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)rbuf + (unsigned long )num, (void const   *)"ATA     ",
@@ -16675,20 +16675,20 @@ static unsigned int ata_scsiop_inq_89(struct ata_scsi_args *args , u8 *rbuf )
   *(rbuf + 3UL) = 56U;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)rbuf + 8U, (void const   *)"linux   ", __len);
+    __ret = memcpy((void *)rbuf + 8U, (void const   *)"linux   ", __len);
   } else {
     __ret = __builtin_memcpy((void *)rbuf + 8U, (void const   *)"linux   ", __len);
   }
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)rbuf + 16U, (void const   *)"libata          ", __len___0);
+    __ret___0 = memcpy((void *)rbuf + 16U, (void const   *)"libata          ", __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)rbuf + 16U, (void const   *)"libata          ",
                                  __len___0);
   }
   __len___1 = 4UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)rbuf + 32U, (void const   *)"3.00", __len___1);
+    __ret___1 = memcpy((void *)rbuf + 32U, (void const   *)"3.00", __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)rbuf + 32U, (void const   *)"3.00", __len___1);
   }
@@ -16701,7 +16701,7 @@ static unsigned int ata_scsiop_inq_89(struct ata_scsi_args *args , u8 *rbuf )
   *(rbuf + 56UL) = 236U;
   __len___2 = 512UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)rbuf + 60U, (void const   *)args->id, __len___2);
+    __ret___2 = memcpy((void *)rbuf + 60U, (void const   *)args->id, __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)rbuf + 60U, (void const   *)args->id, __len___2);
   }
@@ -16780,7 +16780,7 @@ static void modecpy(u8 *dest , u8 const   *src , int n , bool changeable )
   if ((int )changeable) {
     __len = 2UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)dest, (void const   *)src, __len);
+      __ret = memcpy((void *)dest, (void const   *)src, __len);
     } else {
       __ret = __builtin_memcpy((void *)dest, (void const   *)src, __len);
     }
@@ -16991,7 +16991,7 @@ static unsigned int ata_scsiop_mode_sense(struct ata_scsi_args *args , u8 *rbuf 
       *(rbuf + 3UL) = 8U;
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)rbuf + 4U, (void const   *)(& sat_blk_desc), __len);
+        __ret = memcpy((void *)rbuf + 4U, (void const   *)(& sat_blk_desc), __len);
       } else {
         __ret = __builtin_memcpy((void *)rbuf + 4U, (void const   *)(& sat_blk_desc),
                                  __len);
@@ -17008,7 +17008,7 @@ static unsigned int ata_scsiop_mode_sense(struct ata_scsi_args *args , u8 *rbuf 
       *(rbuf + 7UL) = 8U;
       __len___0 = 8UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)rbuf + 8U, (void const   *)(& sat_blk_desc),
+        __ret___0 = memcpy((void *)rbuf + 8U, (void const   *)(& sat_blk_desc),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)rbuf + 8U, (void const   *)(& sat_blk_desc),
@@ -20851,7 +20851,7 @@ void ata_eh_analyze_ncq_error(struct ata_link *link )
   qc = __ata_qc_from_tag(ap, (unsigned int )tag);
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& qc->result_tf), (void const   *)(& tf), __len);
+    __ret = memcpy((void *)(& qc->result_tf), (void const   *)(& tf), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& qc->result_tf), (void const   *)(& tf), __len);
   }
@@ -29747,7 +29747,7 @@ static int sata_pmp_revalidate(struct ata_device *dev , unsigned int new_class )
   }
   __len = 512UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dev->ldv_38497.gscr), (void const   *)gscr, __len);
+    __ret = memcpy((void *)(& dev->ldv_38497.gscr), (void const   *)gscr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dev->ldv_38497.gscr), (void const   *)gscr,
                              __len);
@@ -30679,7 +30679,7 @@ int ata_acpi_gtm(struct ata_port *ap , struct ata_acpi_gtm *gtm )
   }
   __len = 20UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)gtm, (void const   *)out_obj->buffer.pointer, __len);
+    __ret = memcpy((void *)gtm, (void const   *)out_obj->buffer.pointer, __len);
   } else {
     __ret = __builtin_memcpy((void *)gtm, (void const   *)out_obj->buffer.pointer,
                              __len);

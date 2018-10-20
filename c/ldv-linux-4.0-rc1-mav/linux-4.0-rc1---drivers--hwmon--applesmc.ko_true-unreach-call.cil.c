@@ -4066,7 +4066,7 @@ __inline static int kstrtoul(char const   *s , unsigned int base , unsigned long
 }
 extern int sprintf(char * , char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
@@ -4646,9 +4646,9 @@ static struct applesmc_entry  const  *applesmc_get_entry_by_index(int index )
 
   }
   {
-  __memcpy((void *)(& cache->key), (void const   *)(& key), 4UL);
+  memcpy((void *)(& cache->key), (void const   *)(& key), 4UL);
   cache->len = info[0];
-  __memcpy((void *)(& cache->type), (void const   *)(& info) + 1U, 4UL);
+  memcpy((void *)(& cache->type), (void const   *)(& info) + 1U, 4UL);
   cache->flags = info[5];
   cache->valid = 1U;
   }

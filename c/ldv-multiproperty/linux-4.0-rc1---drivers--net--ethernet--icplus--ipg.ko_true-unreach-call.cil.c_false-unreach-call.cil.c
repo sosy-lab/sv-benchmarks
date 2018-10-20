@@ -6284,7 +6284,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -8415,7 +8415,7 @@ static void ipg_nic_rx_with_end(struct net_device *dev , struct ipg_nic_private 
       } else {
         {
         tmp = skb_put(jumbo->skb, (unsigned int )endframelen);
-        __memcpy((void *)tmp, (void const   *)skb->data, (size_t )endframelen);
+        memcpy((void *)tmp, (void const   *)skb->data, (size_t )endframelen);
         (jumbo->skb)->protocol = eth_type_trans(jumbo->skb, dev);
         skb_checksum_none_assert((struct sk_buff  const  *)jumbo->skb);
         netif_rx(jumbo->skb);
@@ -8462,7 +8462,7 @@ static void ipg_nic_rx_no_start_no_end(struct net_device *dev , struct ipg_nic_p
         if ((unsigned long )jumbo->current_size <= sp->rxsupport_size) {
           {
           tmp = skb_put(jumbo->skb, (unsigned int )sp->rxfrag_size);
-          __memcpy((void *)tmp, (void const   *)skb->data, sp->rxfrag_size);
+          memcpy((void *)tmp, (void const   *)skb->data, sp->rxfrag_size);
           }
         } else {
 

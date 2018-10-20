@@ -7743,7 +7743,7 @@ __inline static struct task_struct *get_current(void)
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
@@ -9444,11 +9444,11 @@ __inline static void mwl8k_remove_dma_header(struct sk_buff *skb , __le16 qos )
   if (hdrlen != 30) {
     tmp___0 = ieee80211_is_data_qos((int )tr->wh.frame_control);
     if (tmp___0 != 0) {
-      __memmove((void *)(& tr->data) + - ((unsigned long )hdrlen), (void const   *)(& tr->wh),
+      memmove((void *)(& tr->data) + - ((unsigned long )hdrlen), (void const   *)(& tr->wh),
                 (size_t )(hdrlen + -2));
       *((__le16 *)(& tr->data) + 0xfffffffffffffffeUL) = qos;
     } else {
-      __memmove((void *)(& tr->data) + - ((unsigned long )hdrlen), (void const   *)(& tr->wh),
+      memmove((void *)(& tr->data) + - ((unsigned long )hdrlen), (void const   *)(& tr->wh),
                 (size_t )hdrlen);
     }
   } else {
@@ -9503,7 +9503,7 @@ static void mwl8k_add_dma_header(struct mwl8k_priv *priv , struct sk_buff *skb ,
   }
   tr = (struct mwl8k_dma_data *)skb->data;
   if ((unsigned long )(& tr->wh) != (unsigned long )wh) {
-    __memmove((void *)(& tr->wh), (void const   *)wh, (size_t )hdrlen);
+    memmove((void *)(& tr->wh), (void const   *)wh, (size_t )hdrlen);
   } else {
 
   }

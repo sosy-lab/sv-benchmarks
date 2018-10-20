@@ -4077,7 +4077,7 @@ __inline static int __get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -4560,7 +4560,7 @@ static int mmc_test_wait_busy(struct mmc_test_card *test )
   busy = 0;
   ldv_33374: 
   {
-  __memset((void *)(& cmd), 0, 64UL);
+  memset((void *)(& cmd), 0, 64UL);
   cmd.opcode = 13U;
   cmd.arg = (test->card)->rca << 16;
   cmd.flags = 21U;
@@ -5193,7 +5193,7 @@ static int __mmc_test_prepare(struct mmc_test_card *test , int write )
   }
   if (write != 0) {
     {
-    __memset((void *)test->buffer, 223, 512UL);
+    memset((void *)test->buffer, 223, 512UL);
     }
   } else {
     i = 0;
@@ -5268,7 +5268,7 @@ static int mmc_test_cleanup(struct mmc_test_card *test )
 
   }
   {
-  __memset((void *)test->buffer, 0, 512UL);
+  memset((void *)test->buffer, 0, 512UL);
   i = 0;
   }
   goto ldv_33524;
@@ -5536,10 +5536,10 @@ static void mmc_test_nonblock_reset(struct mmc_request *mrq , struct mmc_command
 
   {
   {
-  __memset((void *)mrq, 0, 144UL);
-  __memset((void *)cmd, 0, 64UL);
-  __memset((void *)data, 0, 72UL);
-  __memset((void *)stop, 0, 64UL);
+  memset((void *)mrq, 0, 144UL);
+  memset((void *)cmd, 0, 64UL);
+  memset((void *)data, 0, 72UL);
+  memset((void *)stop, 0, 64UL);
   mrq->cmd = cmd;
   mrq->data = data;
   mrq->stop = stop;
@@ -5813,7 +5813,7 @@ static int mmc_test_transfer(struct mmc_test_card *test , struct scatterlist *sg
 
   } else {
     {
-    __memset((void *)(& test->scratch), 0, 16384UL);
+    memset((void *)(& test->scratch), 0, 16384UL);
     }
   }
   {
@@ -5870,7 +5870,7 @@ static int mmc_test_transfer(struct mmc_test_card *test , struct scatterlist *sg
 
     }
     {
-    __memset((void *)test->buffer, 0, (size_t )(sectors * 512));
+    memset((void *)test->buffer, 0, (size_t )(sectors * 512));
     i = 0;
     }
     goto ldv_33636;

@@ -3309,7 +3309,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -5532,7 +5532,7 @@ static int i_ipmi_request(ipmi_user_t user , ipmi_smi_t intf , struct ipmi_addr 
     }
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& recv_msg->addr), (void const   *)smi_addr, __len);
+      __ret = memcpy((void *)(& recv_msg->addr), (void const   *)smi_addr, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& recv_msg->addr), (void const   *)smi_addr,
                                __len);
@@ -5638,7 +5638,7 @@ static int i_ipmi_request(ipmi_user_t user , ipmi_smi_t intf , struct ipmi_addr 
         }
         __len___1 = 8UL;
         if (__len___1 > 63UL) {
-          __ret___1 = __memcpy((void *)(& recv_msg->addr), (void const   *)ipmb_addr,
+          __ret___1 = memcpy((void *)(& recv_msg->addr), (void const   *)ipmb_addr,
                                __len___1);
         } else {
           __ret___1 = __builtin_memcpy((void *)(& recv_msg->addr), (void const   *)ipmb_addr,
@@ -5710,7 +5710,7 @@ static int i_ipmi_request(ipmi_user_t user , ipmi_smi_t intf , struct ipmi_addr 
           }
           __len___3 = 12UL;
           if (__len___3 > 63UL) {
-            __ret___3 = __memcpy((void *)(& recv_msg->addr), (void const   *)lan_addr,
+            __ret___3 = memcpy((void *)(& recv_msg->addr), (void const   *)lan_addr,
                                  __len___3);
           } else {
             __ret___3 = __builtin_memcpy((void *)(& recv_msg->addr), (void const   *)lan_addr,
@@ -6676,7 +6676,7 @@ static void guid_handler(ipmi_smi_t intf , struct ipmi_recv_msg *msg )
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (intf->bmc)->guid), (void const   *)msg->msg.data,
+    __ret = memcpy((void *)(& (intf->bmc)->guid), (void const   *)msg->msg.data,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (intf->bmc)->guid), (void const   *)msg->msg.data,

@@ -770,7 +770,7 @@ __inline static __u16 __fswab16(__u16 val )
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern int ( /* format attribute */  sprintf)(char *buf , char const   *fmt  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -2056,7 +2056,7 @@ static void *mppe_alloc(unsigned char *options , int optlen )
     __cil_tmp54 = (void *)__cil_tmp53;
     __cil_tmp55 = options + 6;
     __cil_tmp56 = (void const   *)__cil_tmp55;
-    __ret = __memcpy(__cil_tmp54, __cil_tmp56, __len);
+    __ret = memcpy(__cil_tmp54, __cil_tmp56, __len);
     }
   } else {
     {
@@ -2086,7 +2086,7 @@ static void *mppe_alloc(unsigned char *options , int optlen )
     __cil_tmp74 = __cil_tmp73 + __cil_tmp72;
     __cil_tmp75 = (unsigned char *)__cil_tmp74;
     __cil_tmp76 = (void const   *)__cil_tmp75;
-    __ret___0 = __memcpy(__cil_tmp70, __cil_tmp76, __len___0);
+    __ret___0 = memcpy(__cil_tmp70, __cil_tmp76, __len___0);
     }
   } else {
     {

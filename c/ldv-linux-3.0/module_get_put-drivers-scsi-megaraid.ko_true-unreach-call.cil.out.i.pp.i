@@ -4564,7 +4564,7 @@ extern unsigned long __phys_addr(unsigned long ) ;
 extern void __bad_percpu_size(void) ;
 extern struct pv_cpu_ops pv_cpu_ops ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void const * , size_t ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern int memcmp(void const * , void const * , size_t ) ;
 extern char *strcat(char * , char const * ) ;
@@ -5780,7 +5780,7 @@ static int mega_query_adapter(adapter_t *adapter )
     __len = 4UL;
     if (__len > 63UL) {
       {
-      __ret = __memcpy((void *)(& adapter->fw_version), (void const *)(& adapter->product_info.fw_version),
+      __ret = memcpy((void *)(& adapter->fw_version), (void const *)(& adapter->product_info.fw_version),
                        __len);
       }
     } else {
@@ -5793,7 +5793,7 @@ static int mega_query_adapter(adapter_t *adapter )
     __len___0 = 4UL;
     if (__len___0 > 63UL) {
       {
-      __ret___0 = __memcpy((void *)(& adapter->bios_version), (void const *)(& adapter->product_info.bios_version),
+      __ret___0 = memcpy((void *)(& adapter->bios_version), (void const *)(& adapter->product_info.bios_version),
                            __len___0);
       }
     } else {
@@ -6547,7 +6547,7 @@ static int issue_scb(adapter_t *adapter , scb_t *scb )
   __len = 15UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& mbox->m_out), (void const *)(& scb->raw_mbox), __len);
+    __ret = memcpy((void *)(& mbox->m_out), (void const *)(& scb->raw_mbox), __len);
     }
   } else {
     {
@@ -6648,7 +6648,7 @@ static int issue_scb_block(adapter_t *adapter , u_char *raw_mbox )
   __len = 15UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)mbox, (void const *)raw_mbox, __len);
+    __ret = memcpy((void *)mbox, (void const *)raw_mbox, __len);
     }
   } else {
     {
@@ -7077,7 +7077,7 @@ static void mega_cmd_done(adapter_t *adapter , u8 *completed , int nstatus , int
         __len = 14UL;
         if (__len > 63UL) {
           {
-          __ret = __memcpy((void *)cmd->sense_buffer, (void const *)(& pthru->reqsensearea),
+          __ret = memcpy((void *)cmd->sense_buffer, (void const *)(& pthru->reqsensearea),
                            __len);
           }
         } else {
@@ -7092,7 +7092,7 @@ static void mega_cmd_done(adapter_t *adapter , u8 *completed , int nstatus , int
         __len___0 = 14UL;
         if (__len___0 > 63UL) {
           {
-          __ret___0 = __memcpy((void *)cmd->sense_buffer, (void const *)(& epthru->reqsensearea),
+          __ret___0 = memcpy((void *)cmd->sense_buffer, (void const *)(& epthru->reqsensearea),
                                __len___0);
           }
         } else {
@@ -7590,7 +7590,7 @@ __inline static int make_local_pdev(adapter_t *adapter , struct pci_dev **pdev )
   __len = 2848UL;
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)*pdev, (void const *)adapter->dev, __len);
+    __ret = memcpy((void *)*pdev, (void const *)adapter->dev, __len);
     }
   } else {
     {
@@ -9387,7 +9387,7 @@ static int megadev_ioctl(struct file *filep , unsigned int cmd , unsigned long a
         __len = 18UL;
         if (__len > 63UL) {
           {
-          __ret = __memcpy((void *)(& mc), (void const *)(& uioc.__ua.__raw_mbox),
+          __ret = memcpy((void *)(& mc), (void const *)(& uioc.__ua.__raw_mbox),
                            __len);
           }
         } else {
@@ -9565,7 +9565,7 @@ static int mega_m_to_n(void *arg , nitioctl_t *uioc )
       __len = 18UL;
       if (__len > 63UL) {
         {
-        __ret = __memcpy((void *)(& uioc->__ua.__raw_mbox), (void const *)(& uioc_mimd.mbox),
+        __ret = memcpy((void *)(& uioc->__ua.__raw_mbox), (void const *)(& uioc_mimd.mbox),
                          __len);
         }
       } else {
@@ -9592,7 +9592,7 @@ static int mega_m_to_n(void *arg , nitioctl_t *uioc )
       __len___0 = 18UL;
       if (__len___0 > 63UL) {
         {
-        __ret___0 = __memcpy((void *)(& uioc->__ua.__raw_mbox), (void const *)(& uioc_mimd.mbox),
+        __ret___0 = memcpy((void *)(& uioc->__ua.__raw_mbox), (void const *)(& uioc_mimd.mbox),
                              __len___0);
         }
       } else {
@@ -10327,7 +10327,7 @@ static int mega_internal_command(adapter_t *adapter , megacmd_t *mc , mega_passt
   }
   if (__len > 63UL) {
     {
-    __ret = __memcpy((void *)(& scb->raw_mbox), (void const *)mc, __len);
+    __ret = memcpy((void *)(& scb->raw_mbox), (void const *)mc, __len);
     }
   } else {
     {

@@ -3935,7 +3935,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -4959,7 +4959,7 @@ static struct st_request *st_do_scsi(struct st_request *SRpnt , struct scsi_tape
   }
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
+    __ret = memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
   }
@@ -6875,7 +6875,7 @@ static int st_set_options(struct scsi_tape *STp , long options )
     cd1 = STm->cdevs[1];
     __len = 56UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)STm, (void const   *)(& STp->modes), __len);
+      __ret = memcpy((void *)STm, (void const   *)(& STp->modes), __len);
     } else {
       __ret = __builtin_memcpy((void *)STm, (void const   *)(& STp->modes), __len);
     }

@@ -3274,7 +3274,7 @@ struct dib3000mc_state {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -7426,7 +7426,7 @@ struct dvb_frontend *dib3000mc_attach(struct i2c_adapter *i2c_adap , u8 i2c_addr
     __cil_tmp22 = (struct dvb_frontend_ops *)st;
     __cil_tmp23 = (void *)__cil_tmp22;
     __cil_tmp24 = (void const   *)(& dib3000mc_ops);
-    __ret = __memcpy(__cil_tmp23, __cil_tmp24, __len);
+    __ret = memcpy(__cil_tmp23, __cil_tmp24, __len);
     }
   } else {
     {

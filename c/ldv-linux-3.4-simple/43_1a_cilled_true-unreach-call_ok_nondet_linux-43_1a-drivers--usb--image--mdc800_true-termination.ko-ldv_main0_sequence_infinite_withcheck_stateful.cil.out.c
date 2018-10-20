@@ -3241,7 +3241,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static int test_ti_thread_flag(struct thread_info *ti , int flag ) 
 { int tmp ;
   unsigned long __cil_tmp4 ;
@@ -3869,7 +3869,7 @@ static void mdc800_usb_irq(struct urb *urb )
           __cil_tmp38 = (char (*)[8U])__cil_tmp37;
           __cil_tmp39 = (void *)__cil_tmp38;
           __cil_tmp40 = (void const   *)b;
-          __ret = __memcpy(__cil_tmp39, __cil_tmp40, __len);
+          __ret = memcpy(__cil_tmp39, __cil_tmp40, __len);
           }
         } else {
           {
@@ -4262,7 +4262,7 @@ static void mdc800_usb_download_notify(struct urb *urb )
       __cil_tmp16 = __cil_tmp15 + 104;
       __cil_tmp17 = *((void **)__cil_tmp16);
       __cil_tmp18 = (void const   *)__cil_tmp17;
-      __ret = __memcpy(__cil_tmp14, __cil_tmp18, __len);
+      __ret = memcpy(__cil_tmp14, __cil_tmp18, __len);
       }
     } else {
       {
@@ -6162,7 +6162,7 @@ static ssize_t mdc800_device_write(struct file *file , char const   *buf , size_
       __cil_tmp101 = __cil_tmp100 + 632;
       __cil_tmp102 = (char (*)[8U])__cil_tmp101;
       __cil_tmp103 = (void const   *)__cil_tmp102;
-      __ret = __memcpy(__cil_tmp99, __cil_tmp103, __len);
+      __ret = memcpy(__cil_tmp99, __cil_tmp103, __len);
       }
     } else {
       {
@@ -6384,7 +6384,7 @@ static ssize_t mdc800_device_write(struct file *file , char const   *buf , size_
             __cil_tmp200 = __cil_tmp199 + 152;
             __cil_tmp201 = (char (*)[8U])__cil_tmp200;
             __cil_tmp202 = (void const   *)__cil_tmp201;
-            __ret___1 = __memcpy(__cil_tmp198, __cil_tmp202, __len___0);
+            __ret___1 = memcpy(__cil_tmp198, __cil_tmp202, __len___0);
             }
           } else {
             {
@@ -6411,7 +6411,7 @@ static ssize_t mdc800_device_write(struct file *file , char const   *buf , size_
             __cil_tmp217 = __cil_tmp216 + 152;
             __cil_tmp218 = (char (*)[8U])__cil_tmp217;
             __cil_tmp219 = (void const   *)__cil_tmp218;
-            __ret___2 = __memcpy(__cil_tmp215, __cil_tmp219, __len___1);
+            __ret___2 = memcpy(__cil_tmp215, __cil_tmp219, __len___1);
             }
           } else {
             {

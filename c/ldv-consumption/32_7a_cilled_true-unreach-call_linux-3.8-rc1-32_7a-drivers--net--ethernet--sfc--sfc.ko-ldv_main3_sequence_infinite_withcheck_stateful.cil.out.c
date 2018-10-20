@@ -7014,7 +7014,7 @@ __inline static int __get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -9919,7 +9919,7 @@ static int efx_probe_port(struct efx_nic *efx )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(efx->net_dev)->dev_addr, (void const   *)(& (efx->net_dev)->perm_addr),
+    __ret = memcpy((void *)(efx->net_dev)->dev_addr, (void const   *)(& (efx->net_dev)->perm_addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(efx->net_dev)->dev_addr, (void const   *)(& (efx->net_dev)->perm_addr),
@@ -19744,7 +19744,7 @@ static int falcon_read_nvram(struct efx_nic *efx , struct falcon_nvconfig *nvcon
   if ((unsigned long )nvconfig_out != (unsigned long )((struct falcon_nvconfig *)0)) {
     __len = 200UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)nvconfig_out, (void const   *)nvconfig, __len);
+      __ret = memcpy((void *)nvconfig_out, (void const   *)nvconfig, __len);
     } else {
       __ret = __builtin_memcpy((void *)nvconfig_out, (void const   *)nvconfig, __len);
     }
@@ -20231,7 +20231,7 @@ static int falcon_probe_nvconfig(struct efx_nic *efx )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (efx->net_dev)->perm_addr), (void const   *)(& nvconfig->mac_address),
+    __ret = memcpy((void *)(& (efx->net_dev)->perm_addr), (void const   *)(& nvconfig->mac_address),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (efx->net_dev)->perm_addr), (void const   *)(& nvconfig->mac_address),
@@ -20693,7 +20693,7 @@ static int falcon_init_nic(struct efx_nic *efx )
   if (tmp___2 > 1) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key), __len);
+      __ret = memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key),
                                __len);
@@ -21847,7 +21847,7 @@ static int siena_init_nic(struct efx_nic *efx )
   efx_writeo(efx, & temp, 2048U);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key), __len);
+    __ret = memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key),
                              __len);
@@ -21855,7 +21855,7 @@ static int siena_init_nic(struct efx_nic *efx )
   efx_writeo(efx, & temp, 2144U);
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key), __len___0);
+    __ret___0 = memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key),
                                  __len___0);
@@ -21863,7 +21863,7 @@ static int siena_init_nic(struct efx_nic *efx )
   efx_writeo(efx, & temp, 2256U);
   __len___1 = 16UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key) + 16U,
+    __ret___1 = memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key) + 16U,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key) + 16U,
@@ -21874,7 +21874,7 @@ static int siena_init_nic(struct efx_nic *efx )
   temp.u64[1] = 6ULL;
   __len___2 = 8UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key) + 32U,
+    __ret___2 = memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key) + 32U,
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& temp), (void const   *)(& efx->rx_hash_key) + 32U,
@@ -24716,7 +24716,7 @@ static void efx_recycle_rx_buffer(struct efx_channel *channel , struct efx_rx_bu
   new_buf = efx_rx_buffer(rx_queue, index);
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)new_buf, (void const   *)rx_buf, __len);
+    __ret = memcpy((void *)new_buf, (void const   *)rx_buf, __len);
   } else {
     __ret = __builtin_memcpy((void *)new_buf, (void const   *)rx_buf, __len);
   }
@@ -26994,7 +26994,7 @@ static void falcon_reconfigure_xmac_core(struct efx_nic *efx )
   efx_writeo(efx, & reg, 4720U);
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& reg), (void const   *)(efx->net_dev)->dev_addr, __len);
+    __ret = memcpy((void *)(& reg), (void const   *)(efx->net_dev)->dev_addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& reg), (void const   *)(efx->net_dev)->dev_addr,
                              __len);
@@ -27002,7 +27002,7 @@ static void falcon_reconfigure_xmac_core(struct efx_nic *efx )
   efx_writeo(efx, & reg, 4608U);
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& reg), (void const   *)(efx->net_dev)->dev_addr + 4U,
+    __ret___0 = memcpy((void *)(& reg), (void const   *)(efx->net_dev)->dev_addr + 4U,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& reg), (void const   *)(efx->net_dev)->dev_addr + 4U,
@@ -27327,7 +27327,7 @@ int efx_mcdi_set_mac(struct efx_nic *efx )
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmdbytes) + 8U, (void const   *)(efx->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& cmdbytes) + 8U, (void const   *)(efx->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmdbytes) + 8U, (void const   *)(efx->net_dev)->dev_addr,
@@ -28260,7 +28260,7 @@ static void efx_iterate_state(struct efx_nic *efx )
   payload = & state->payload;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& payload->header.h_dest), (void const   *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& payload->header.h_dest), (void const   *)net_dev->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& payload->header.h_dest), (void const   *)net_dev->dev_addr,
@@ -28268,7 +28268,7 @@ static void efx_iterate_state(struct efx_nic *efx )
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& payload->header.h_source), (void const   *)(& payload_source),
+    __ret___0 = memcpy((void *)(& payload->header.h_source), (void const   *)(& payload_source),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& payload->header.h_source), (void const   *)(& payload_source),
@@ -28289,7 +28289,7 @@ static void efx_iterate_state(struct efx_nic *efx )
   payload->iteration = tmp___0;
   __len___1 = 55UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& payload->msg), (void const   *)(& payload_msg),
+    __ret___1 = memcpy((void *)(& payload->msg), (void const   *)(& payload_msg),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& payload->msg), (void const   *)(& payload_msg),
@@ -28332,7 +28332,7 @@ static int efx_begin_loopback(struct efx_tx_queue *tx_queue )
   payload = (struct efx_loopback_payload *)tmp;
   __len = 108UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)payload, (void const   *)(& state->payload), __len);
+    __ret = memcpy((void *)payload, (void const   *)(& state->payload), __len);
   } else {
     __ret = __builtin_memcpy((void *)payload, (void const   *)(& state->payload),
                              __len);
@@ -30246,7 +30246,7 @@ static int efx_ethtool_get_class_rule(struct efx_nic *efx , struct ethtool_rx_fl
     rule->flow_type = 18U;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& mac_mask->h_dest), (void const   *)(& mac_addr_mc_mask),
+      __ret = memcpy((void *)(& mac_mask->h_dest), (void const   *)(& mac_addr_mc_mask),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& mac_mask->h_dest), (void const   *)(& mac_addr_mc_mask),
@@ -30255,7 +30255,7 @@ static int efx_ethtool_get_class_rule(struct efx_nic *efx , struct ethtool_rx_fl
     if ((unsigned int )*((unsigned char *)(& spec) + 0UL) == 9U) {
       __len___0 = 6UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& mac_entry->h_dest), (void const   *)(& mac_addr_mc_mask),
+        __ret___0 = memcpy((void *)(& mac_entry->h_dest), (void const   *)(& mac_addr_mc_mask),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& mac_entry->h_dest), (void const   *)(& mac_addr_mc_mask),
@@ -30584,7 +30584,7 @@ static int efx_ethtool_get_rxfh_indir(struct net_device *net_dev , u32 *indir )
   efx = (struct efx_nic *)tmp;
   __len = 512UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)indir, (void const   *)(& efx->rx_indir_table), __len);
+    __ret = memcpy((void *)indir, (void const   *)(& efx->rx_indir_table), __len);
   } else {
     __ret = __builtin_memcpy((void *)indir, (void const   *)(& efx->rx_indir_table),
                              __len);
@@ -30604,7 +30604,7 @@ static int efx_ethtool_set_rxfh_indir(struct net_device *net_dev , u32 const   *
   efx = (struct efx_nic *)tmp;
   __len = 512UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& efx->rx_indir_table), (void const   *)indir, __len);
+    __ret = memcpy((void *)(& efx->rx_indir_table), (void const   *)indir, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& efx->rx_indir_table), (void const   *)indir,
                              __len);
@@ -35463,7 +35463,7 @@ int efx_mcdi_get_board_cfg(struct efx_nic *efx , u8 *mac_address , u16 *fw_subty
   if ((unsigned long )mac_address != (unsigned long )((u8 *)0)) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)mac_address, (void const   *)(& outbuf) + offset, __len);
+      __ret = memcpy((void *)mac_address, (void const   *)(& outbuf) + offset, __len);
     } else {
       __ret = __builtin_memcpy((void *)mac_address, (void const   *)(& outbuf) + offset,
                                __len);
@@ -36022,7 +36022,7 @@ static int efx_mcdi_wol_filter_set(struct efx_nic *efx , u32 type , u8 const   *
   ((efx_dword_t *)(& inbuf))->u32[0] = 0U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& inbuf) + 8U, (void const   *)mac, __len);
+    __ret = memcpy((void *)(& inbuf) + 8U, (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& inbuf) + 8U, (void const   *)mac, __len);
   }
@@ -36332,7 +36332,7 @@ static int efx_mcdi_get_phy_cfg(struct efx_nic *efx , struct efx_mcdi_phy_data *
   cfg->stats_mask = ((efx_dword_t *)(& outbuf) + 20U)->u32[0];
   __len = 20UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cfg->name), (void const   *)(& outbuf) + 24U, __len);
+    __ret = memcpy((void *)(& cfg->name), (void const   *)(& outbuf) + 24U, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cfg->name), (void const   *)(& outbuf) + 24U,
                              __len);
@@ -36341,7 +36341,7 @@ static int efx_mcdi_get_phy_cfg(struct efx_nic *efx , struct efx_mcdi_phy_data *
   cfg->mmd_mask = ((efx_dword_t *)(& outbuf) + 48U)->u32[0];
   __len___0 = 20UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& cfg->revision), (void const   *)(& outbuf) + 52U,
+    __ret___0 = memcpy((void *)(& cfg->revision), (void const   *)(& outbuf) + 52U,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& cfg->revision), (void const   *)(& outbuf) + 52U,
@@ -42768,7 +42768,7 @@ static void efx_sriov_reset_vf(struct efx_vf *vf , struct efx_buffer *buffer )
   ldv_43006: 
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy(buffer->addr + (unsigned long )pos, (void const   *)(& event),
+    __ret = memcpy(buffer->addr + (unsigned long )pos, (void const   *)(& event),
                      __len);
   } else {
     __ret = __builtin_memcpy(buffer->addr + (unsigned long )pos, (void const   *)(& event),
@@ -43011,7 +43011,7 @@ static void efx_sriov_peer_work(struct work_struct *data )
   ldv_43075: 
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& peer->mac_addr), (void const   *)(& local_addr->addr),
+    __ret = memcpy((void *)(& peer->mac_addr), (void const   *)(& local_addr->addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& peer->mac_addr), (void const   *)(& local_addr->addr),
@@ -43347,7 +43347,7 @@ int efx_sriov_init(struct efx_nic *efx )
   rtnl_lock();
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const   *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const   *)net_dev->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const   *)net_dev->dev_addr,
@@ -43547,7 +43547,7 @@ void efx_sriov_mac_address_changed(struct efx_nic *efx )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const   *)(efx->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const   *)(efx->net_dev)->dev_addr,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const   *)(efx->net_dev)->dev_addr,
@@ -43756,7 +43756,7 @@ int efx_sriov_set_vf_mac(struct net_device *net_dev , int vf_i , u8 *mac )
   ldv_mutex_lock_465(& vf->status_lock);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vf->addr.mac_addr), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& vf->addr.mac_addr), (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vf->addr.mac_addr), (void const   *)mac, __len);
   }
@@ -43840,7 +43840,7 @@ int efx_sriov_get_vf_config(struct net_device *net_dev , int vf_i , struct ifla_
   ivi->vf = (__u32 )vf_i;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ivi->mac), (void const   *)(& vf->addr.mac_addr),
+    __ret = memcpy((void *)(& ivi->mac), (void const   *)(& vf->addr.mac_addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ivi->mac), (void const   *)(& vf->addr.mac_addr),

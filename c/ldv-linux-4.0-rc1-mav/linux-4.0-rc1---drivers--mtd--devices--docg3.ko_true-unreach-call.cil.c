@@ -4587,8 +4587,8 @@ extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char 
 extern int sprintf(char * , char const   *  , ...) ;
 extern char *kasprintf(gfp_t  , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6790,7 +6790,7 @@ static int doc_read(struct mtd_info *mtd , loff_t from , size_t len , size_t *re
 
   {
   {
-  __memset((void *)(& ops), 0, 64UL);
+  memset((void *)(& ops), 0, 64UL);
   ops.datbuf = buf;
   ops.len = len;
   ops.mode = 1U;
@@ -7280,7 +7280,7 @@ static void doc_fill_autooob(u8 *dst , u8 *oobsrc )
 
   {
   {
-  __memcpy((void *)dst, (void const   *)oobsrc, 7UL);
+  memcpy((void *)dst, (void const   *)oobsrc, 7UL);
   *(dst + 15UL) = *(oobsrc + 7UL);
   }
   return;
@@ -7315,7 +7315,7 @@ static int doc_backup_oob(struct docg3 *docg3 , loff_t to , struct mtd_oob_ops *
     }
   } else {
     {
-    __memcpy((void *)(& docg3->oob_write_buf), (void const   *)ops->oobbuf, 16UL);
+    memcpy((void *)(& docg3->oob_write_buf), (void const   *)ops->oobbuf, 16UL);
     ops->oobretlen = 16UL;
     }
   }
@@ -7447,11 +7447,11 @@ static int doc_write_oob(struct mtd_info *mtd , loff_t ofs , struct mtd_oob_ops 
   goto ldv_35780;
   ldv_35779: 
   {
-  __memset((void *)(& oob), 0, 16UL);
+  memset((void *)(& oob), 0, 16UL);
   }
   if (ofs == docg3->oob_write_ofs) {
     {
-    __memcpy((void *)(& oob), (void const   *)(& docg3->oob_write_buf), 16UL);
+    memcpy((void *)(& oob), (void const   *)(& docg3->oob_write_buf), 16UL);
     }
   } else
   if (ooblen != 0UL && ops->mode == 1U) {
@@ -7461,7 +7461,7 @@ static int doc_write_oob(struct mtd_info *mtd , loff_t ofs , struct mtd_oob_ops 
   } else
   if (ooblen != 0UL) {
     {
-    __memcpy((void *)(& oob), (void const   *)oobbuf, 16UL);
+    memcpy((void *)(& oob), (void const   *)oobbuf, 16UL);
     }
   } else {
 

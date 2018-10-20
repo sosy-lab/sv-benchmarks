@@ -6432,8 +6432,8 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -7199,7 +7199,7 @@ static int uvc_parse_format(struct uvc_device *dev , struct uvc_streaming *strea
   format->bpp = 0U;
   ftype = 0U;
   frame = format->frame;
-  __memset((void *)format->frame, 0, 40UL);
+  memset((void *)format->frame, 0, 40UL);
   frame->bFrameIntervalType = 1U;
   frame->dwDefaultFrameInterval = 1U;
   frame->dwFrameInterval = *intervals;
@@ -7916,14 +7916,14 @@ static int uvc_parse_vendor_control(struct uvc_device *dev , unsigned char const
 
   }
   {
-  __memcpy((void *)(& unit->__annonCompField85.extension.guidExtensionCode), (void const   *)buffer + 4U,
+  memcpy((void *)(& unit->__annonCompField85.extension.guidExtensionCode), (void const   *)buffer + 4U,
            16UL);
   unit->__annonCompField85.extension.bNumControls = *(buffer + 20UL);
-  __memcpy((void *)unit->baSourceID, (void const   *)buffer + 22U, (size_t )p);
+  memcpy((void *)unit->baSourceID, (void const   *)buffer + 22U, (size_t )p);
   unit->__annonCompField85.extension.bControlSize = *(buffer + (unsigned long )(p + 22U));
   unit->__annonCompField85.extension.bmControls = (__u8 *)unit + 504UL;
   unit->__annonCompField85.extension.bmControlsType = (__u8 *)unit + ((unsigned long )n + 504UL);
-  __memcpy((void *)unit->__annonCompField85.extension.bmControls, (void const   *)buffer + (unsigned long )(p + 23U),
+  memcpy((void *)unit->__annonCompField85.extension.bmControls, (void const   *)buffer + (unsigned long )(p + 23U),
            (size_t )(n * 2U));
   }
   if ((unsigned int )((unsigned char )*(buffer + (unsigned long )((p + n * 2U) + 24U))) != 0U) {
@@ -8120,7 +8120,7 @@ static int uvc_parse_standard_control(struct uvc_device *dev , unsigned char con
     term->__annonCompField85.camera.wObjectiveFocalLengthMin = get_unaligned_le16((void const   *)buffer + 8U);
     term->__annonCompField85.camera.wObjectiveFocalLengthMax = get_unaligned_le16((void const   *)buffer + 10U);
     term->__annonCompField85.camera.wOcularFocalLength = get_unaligned_le16((void const   *)buffer + 12U);
-    __memcpy((void *)term->__annonCompField85.camera.bmControls, (void const   *)buffer + 15U,
+    memcpy((void *)term->__annonCompField85.camera.bmControls, (void const   *)buffer + 15U,
              (size_t )n);
     }
   } else
@@ -8130,9 +8130,9 @@ static int uvc_parse_standard_control(struct uvc_device *dev , unsigned char con
     term->__annonCompField85.media.bmControls = (__u8 *)term + 504UL;
     term->__annonCompField85.media.bTransportModeSize = (__u8 )p;
     term->__annonCompField85.media.bmTransportModes = (__u8 *)term + ((unsigned long )n + 504UL);
-    __memcpy((void *)term->__annonCompField85.media.bmControls, (void const   *)buffer + 9U,
+    memcpy((void *)term->__annonCompField85.media.bmControls, (void const   *)buffer + 9U,
              (size_t )n);
-    __memcpy((void *)term->__annonCompField85.media.bmTransportModes, (void const   *)buffer + (unsigned long )(n + 10U),
+    memcpy((void *)term->__annonCompField85.media.bmTransportModes, (void const   *)buffer + (unsigned long )(n + 10U),
              (size_t )p);
     }
   } else {
@@ -8202,7 +8202,7 @@ static int uvc_parse_standard_control(struct uvc_device *dev , unsigned char con
 
   }
   {
-  __memcpy((void *)term->baSourceID, (void const   *)buffer + 7U, 1UL);
+  memcpy((void *)term->baSourceID, (void const   *)buffer + 7U, 1UL);
   }
   if ((unsigned int )((unsigned char )*(buffer + 8UL)) != 0U) {
     {
@@ -8241,7 +8241,7 @@ static int uvc_parse_standard_control(struct uvc_device *dev , unsigned char con
 
   }
   {
-  __memcpy((void *)unit->baSourceID, (void const   *)buffer + 5U, (size_t )p);
+  memcpy((void *)unit->baSourceID, (void const   *)buffer + 5U, (size_t )p);
   }
   if ((unsigned int )((unsigned char )*(buffer + (unsigned long )(p + 5U))) != 0U) {
     {
@@ -8282,11 +8282,11 @@ static int uvc_parse_standard_control(struct uvc_device *dev , unsigned char con
 
   }
   {
-  __memcpy((void *)unit->baSourceID, (void const   *)buffer + 4U, 1UL);
+  memcpy((void *)unit->baSourceID, (void const   *)buffer + 4U, 1UL);
   unit->__annonCompField85.processing.wMaxMultiplier = get_unaligned_le16((void const   *)buffer + 5U);
   unit->__annonCompField85.processing.bControlSize = *(buffer + 7UL);
   unit->__annonCompField85.processing.bmControls = (__u8 *)unit + 504UL;
-  __memcpy((void *)unit->__annonCompField85.processing.bmControls, (void const   *)buffer + 8U,
+  memcpy((void *)unit->__annonCompField85.processing.bmControls, (void const   *)buffer + 8U,
            (size_t )n);
   }
   if ((unsigned int )dev->uvc_version > 271U) {
@@ -8333,13 +8333,13 @@ static int uvc_parse_standard_control(struct uvc_device *dev , unsigned char con
 
   }
   {
-  __memcpy((void *)(& unit->__annonCompField85.extension.guidExtensionCode), (void const   *)buffer + 4U,
+  memcpy((void *)(& unit->__annonCompField85.extension.guidExtensionCode), (void const   *)buffer + 4U,
            16UL);
   unit->__annonCompField85.extension.bNumControls = *(buffer + 20UL);
-  __memcpy((void *)unit->baSourceID, (void const   *)buffer + 22U, (size_t )p);
+  memcpy((void *)unit->baSourceID, (void const   *)buffer + 22U, (size_t )p);
   unit->__annonCompField85.extension.bControlSize = *(buffer + (unsigned long )(p + 22U));
   unit->__annonCompField85.extension.bmControls = (__u8 *)unit + 504UL;
-  __memcpy((void *)unit->__annonCompField85.extension.bmControls, (void const   *)buffer + (unsigned long )(p + 23U),
+  memcpy((void *)unit->__annonCompField85.extension.bmControls, (void const   *)buffer + (unsigned long )(p + 23U),
            (size_t )n);
   }
   if ((unsigned int )((unsigned char )*(buffer + (unsigned long )((p + n) + 23U))) != 0U) {
@@ -14238,8 +14238,8 @@ static int uvc_ioctl_ctrl_map(struct uvc_video_chain *chain , struct uvc_xu_cont
   }
   {
   map->id = xmap->id;
-  __memcpy((void *)(& map->name), (void const   *)(& xmap->name), 32UL);
-  __memcpy((void *)(& map->entity), (void const   *)(& xmap->entity), 16UL);
+  memcpy((void *)(& map->name), (void const   *)(& xmap->name), 32UL);
+  memcpy((void *)(& map->entity), (void const   *)(& xmap->entity), 16UL);
   map->selector = xmap->selector;
   map->size = xmap->size;
   map->offset = xmap->offset;
@@ -14489,7 +14489,7 @@ static int uvc_v4l2_try_format(struct uvc_streaming *stream , struct v4l2_format
 
   }
   {
-  __memset((void *)probe, 0, 34UL);
+  memset((void *)probe, 0, 34UL);
   probe->bmHint = 1U;
   probe->bFormatIndex = format->index;
   probe->bFrameIndex = frame->bFrameIndex;
@@ -14629,7 +14629,7 @@ static int uvc_v4l2_get_streamparm(struct uvc_streaming *stream , struct v4l2_st
   ldv_mutex_unlock_105___0(& stream->mutex);
   denominator = 10000000U;
   uvc_simplify_fraction(& numerator, & denominator, 8U, 333U);
-  __memset((void *)parm, 0, 204UL);
+  memset((void *)parm, 0, 204UL);
   parm->type = (__u32 )stream->type;
   }
   if ((unsigned int )stream->type == 1U) {
@@ -14939,7 +14939,7 @@ static int uvc_ioctl_enum_fmt(struct uvc_streaming *stream , struct v4l2_fmtdesc
 
   }
   {
-  __memset((void *)fmt, 0, 64UL);
+  memset((void *)fmt, 0, 64UL);
   fmt->index = index;
   fmt->type = (__u32 )type;
   format = stream->format + (unsigned long )fmt->index;
@@ -15363,7 +15363,7 @@ static int uvc_ioctl_enum_input(struct file *file , void *fh , struct v4l2_input
 
   }
   {
-  __memset((void *)input, 0, 80UL);
+  memset((void *)input, 0, 80UL);
   input->index = index;
   strlcpy((char *)(& input->name), (char const   *)(& iterm->name), 32UL);
   }
@@ -15472,7 +15472,7 @@ static int uvc_ioctl_g_ctrl(struct file *file , void *fh , struct v4l2_control *
   {
   handle = (struct uvc_fh *)fh;
   chain = handle->chain;
-  __memset((void *)(& xctrl), 0, 20UL);
+  memset((void *)(& xctrl), 0, 20UL);
   xctrl.id = ctrl->id;
   ret = uvc_ctrl_begin(chain);
   }
@@ -15505,7 +15505,7 @@ static int uvc_ioctl_s_ctrl(struct file *file , void *fh , struct v4l2_control *
   {
   handle = (struct uvc_fh *)fh;
   chain = handle->chain;
-  __memset((void *)(& xctrl), 0, 20UL);
+  memset((void *)(& xctrl), 0, 20UL);
   xctrl.id = ctrl->id;
   xctrl.__annonCompField77.value = ctrl->value;
   ret = uvc_ctrl_begin(chain);
@@ -16059,7 +16059,7 @@ static int uvc_v4l2_get_xu_mapping(struct uvc_xu_control_mapping *kp , struct uv
     }
   }
   {
-  __memset((void *)(& kp->reserved), 0, 16UL);
+  memset((void *)(& kp->reserved), 0, 16UL);
   }
   if (kp->menu_count == 0U) {
     kp->menu_info = (struct uvc_menu_info *)0;
@@ -18149,7 +18149,7 @@ static int uvc_get_video_ctrl(struct uvc_streaming *stream , struct uvc_streamin
 
     }
     {
-    __memset((void *)ctrl, 0, 34UL);
+    memset((void *)ctrl, 0, 34UL);
     ctrl->wCompQuality = __le16_to_cpup((__le16 const   *)data);
     ret = 0;
     }
@@ -18917,7 +18917,7 @@ static void uvc_video_stats_update(struct uvc_streaming *stream )
 
   }
   {
-  __memset((void *)(& stream->stats.frame), 0, 60UL);
+  memset((void *)(& stream->stats.frame), 0, 60UL);
   }
   return;
 }
@@ -18975,7 +18975,7 @@ static void uvc_video_stats_start(struct uvc_streaming *stream )
 
   {
   {
-  __memset((void *)(& stream->stats), 0, 152UL);
+  memset((void *)(& stream->stats), 0, 152UL);
   stream->stats.stream.min_sof = 2048U;
   }
   return;
@@ -19107,7 +19107,7 @@ static void uvc_video_decode_data(struct uvc_streaming *stream , struct uvc_buff
   _min1 = (unsigned int )len;
   _min2 = maxlen;
   nbytes = _min1 < _min2 ? _min1 : _min2;
-  __memcpy(mem, (void const   *)data, (size_t )nbytes);
+  memcpy(mem, (void const   *)data, (size_t )nbytes);
   buf->bytesused = buf->bytesused + nbytes;
   }
   if ((unsigned int )len > maxlen) {
@@ -19194,7 +19194,7 @@ static int uvc_video_encode_data(struct uvc_streaming *stream , struct uvc_buffe
   _min1___0 = stream->bulk.max_payload_size - stream->bulk.payload_size;
   _min2___0 = nbytes;
   nbytes = _min1___0 < _min2___0 ? _min1___0 : _min2___0;
-  __memcpy((void *)data, (void const   *)mem, (size_t )nbytes);
+  memcpy((void *)data, (void const   *)mem, (size_t )nbytes);
   queue->buf_used = queue->buf_used + nbytes;
   }
   return ((int )nbytes);
@@ -19327,7 +19327,7 @@ static void uvc_video_decode_bulk(struct urb *urb , struct uvc_streaming *stream
       stream->bulk.skip_payload = 1;
     } else {
       {
-      __memcpy((void *)(& stream->bulk.header), (void const   *)mem, (size_t )ret);
+      memcpy((void *)(& stream->bulk.header), (void const   *)mem, (size_t )ret);
       stream->bulk.header_size = (unsigned int )ret;
       mem = mem + (unsigned long )ret;
       len = len - ret;
@@ -21216,7 +21216,7 @@ static int uvc_ctrl_populate_cache(struct uvc_video_chain *chain , struct uvc_co
       }
       {
       tmp___4 = uvc_ctrl_data(ctrl, 4);
-      __memset((void *)tmp___4, 0, (size_t )ctrl->info.size);
+      memset((void *)tmp___4, 0, (size_t )ctrl->info.size);
       }
     } else {
 
@@ -21309,7 +21309,7 @@ static int __uvc_query_v4l2_ctrl(struct uvc_video_chain *chain , struct uvc_cont
   {
   master_map = (struct uvc_control_mapping *)0;
   master_ctrl = (struct uvc_control *)0;
-  __memset((void *)v4l2_ctrl, 0, 68UL);
+  memset((void *)v4l2_ctrl, 0, 68UL);
   v4l2_ctrl->id = mapping->id;
   v4l2_ctrl->type = (__u32 )mapping->v4l2_type;
   strlcpy((char *)(& v4l2_ctrl->name), (char const   *)(& mapping->name), 32UL);
@@ -21504,7 +21504,7 @@ int uvc_query_v4l2_menu(struct uvc_video_chain *chain , struct v4l2_querymenu *q
   {
   index = query_menu->index;
   id = query_menu->id;
-  __memset((void *)query_menu, 0, 44UL);
+  memset((void *)query_menu, 0, 44UL);
   query_menu->id = id;
   query_menu->index = index;
   ret = ldv_mutex_lock_interruptible_100(& chain->ctrl_mutex);
@@ -21576,7 +21576,7 @@ static void uvc_ctrl_fill_event(struct uvc_video_chain *chain , struct v4l2_even
   {
   {
   __uvc_query_v4l2_ctrl(chain, ctrl, mapping, & v4l2_ctrl);
-  __memset((void *)(& ev->reserved), 0, 32UL);
+  memset((void *)(& ev->reserved), 0, 32UL);
   ev->type = 3U;
   ev->id = v4l2_ctrl.id;
   ev->u.ctrl.__annonCompField82.value = value;
@@ -21898,7 +21898,7 @@ static int uvc_ctrl_commit_entity(struct uvc_device *dev , struct uvc_entity *en
     {
     tmp___0 = uvc_ctrl_data(ctrl, 1);
     tmp___1 = uvc_ctrl_data(ctrl, 0);
-    __memcpy((void *)tmp___1, (void const   *)tmp___0, (size_t )ctrl->info.size);
+    memcpy((void *)tmp___1, (void const   *)tmp___0, (size_t )ctrl->info.size);
     }
   } else {
 
@@ -22148,7 +22148,7 @@ int uvc_ctrl_set(struct uvc_video_chain *chain , struct v4l2_ext_control *xctrl 
     if ((ctrl->info.flags & 2U) == 0U) {
       {
       tmp___5 = uvc_ctrl_data(ctrl, 0);
-      __memset((void *)tmp___5, 0, (size_t )ctrl->info.size);
+      memset((void *)tmp___5, 0, (size_t )ctrl->info.size);
       }
     } else {
       {
@@ -22170,7 +22170,7 @@ int uvc_ctrl_set(struct uvc_video_chain *chain , struct v4l2_ext_control *xctrl 
     {
     tmp___7 = uvc_ctrl_data(ctrl, 0);
     tmp___8 = uvc_ctrl_data(ctrl, 1);
-    __memcpy((void *)tmp___8, (void const   *)tmp___7, (size_t )ctrl->info.size);
+    memcpy((void *)tmp___8, (void const   *)tmp___7, (size_t )ctrl->info.size);
     }
   } else {
 
@@ -22287,7 +22287,7 @@ static int uvc_ctrl_fill_xu_info(struct uvc_device *dev , struct uvc_control  co
 
   }
   {
-  __memcpy((void *)(& info->entity), (void const   *)(& (ctrl->entity)->__annonCompField85.extension.guidExtensionCode),
+  memcpy((void *)(& info->entity), (void const   *)(& (ctrl->entity)->__annonCompField85.extension.guidExtensionCode),
            16UL);
   info->index = ctrl->index;
   info->selector = (unsigned int )((__u8 )ctrl->index) + 1U;
@@ -24194,7 +24194,7 @@ static int isight_decode(struct uvc_video_queue *queue , struct uvc_buffer *buf 
     _min1 = len;
     _min2 = maxlen;
     nbytes = _min1 < _min2 ? _min1 : _min2;
-    __memcpy((void *)mem, (void const   *)data, (size_t )nbytes);
+    memcpy((void *)mem, (void const   *)data, (size_t )nbytes);
     buf->bytesused = buf->bytesused + nbytes;
     }
     if (len > maxlen || buf->bytesused == buf->length) {

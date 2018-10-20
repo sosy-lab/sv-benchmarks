@@ -7505,7 +7505,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -8983,7 +8983,7 @@ static int ac97_queryctrl(struct v4l2_queryctrl *qc )
   if (qc->id != 0U && qc->id == ac97_qctrl[i].id) {
     __len = 68UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
+      __ret = memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
@@ -10893,7 +10893,7 @@ static int radio_queryctrl(struct file *file , void *priv , struct v4l2_queryctr
   if (qc->id != 0U && qc->id == ac97_qctrl[i].id) {
     __len = 68UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
+      __ret = memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,

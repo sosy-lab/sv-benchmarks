@@ -10625,7 +10625,7 @@ static int ldv_ldv_post_probe_128(int retval )
 }
 extern void might_fault(void) ;
 extern int sprintf(char * , char const   *  , ...) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_96___1(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_100(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_102(spinlock_t *ldv_func_arg1 ) ;
@@ -10844,7 +10844,7 @@ long dgnc_mgmt_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
 
   }
   {
-  __memset((void *)(& di), 0, 32UL);
+  memset((void *)(& di), 0, 32UL);
   di.info_bdnum = (unsigned int )brd;
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_104(& (dgnc_Board[brd])->bd_lock);
   di.info_bdtype = (dgnc_Board[brd])->dpatype;
@@ -10899,7 +10899,7 @@ long dgnc_mgmt_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
 
   }
   {
-  __memset((void *)(& ni), 0, 60UL);
+  memset((void *)(& ni), 0, 60UL);
   ni.board = (int )board;
   ni.channel = (int )channel;
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_106(& ch->ch_lock);
@@ -11038,7 +11038,7 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_106(spinlock_t *ld
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_96___2(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_99___0(spinlock_t *ldv_func_arg1 ) ;
@@ -11100,7 +11100,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   {
-  __memcpy(dst, (void const   *)src, count);
+  memcpy(dst, (void const   *)src, count);
   }
   return;
 }
@@ -11111,7 +11111,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   {
-  __memcpy((void *)dst, src, count);
+  memcpy((void *)dst, src, count);
   }
   return;
 }
@@ -12298,7 +12298,7 @@ static void neo_copy_data_from_uart_to_queue(struct channel_t *ch )
   linestatus = 0U;
   memcpy_fromio((void *)ch->ch_rqueue + (unsigned long )head, (void const volatile   *)(& (ch->ch_neo_uart)->txrxburst),
                 (size_t )n);
-  __memset((void *)ch->ch_equeue + (unsigned long )head, 0, (size_t )n);
+  memset((void *)ch->ch_equeue + (unsigned long )head, 0, (size_t )n);
   head = (unsigned int )((ushort )((int )head + (int )((unsigned short )n))) & 8191U;
   total = total - n;
   qleft = qleft - n;
@@ -13081,7 +13081,7 @@ static void neo_vpd(struct dgnc_board *brd )
 
   if (((unsigned int )brd->vpd[8] != 130U && (unsigned int )brd->vpd[16] != 130U) || (unsigned int )brd->vpd[127] != 120U) {
     {
-    __memset((void *)(& brd->vpd), 0, 64UL);
+    memset((void *)(& brd->vpd), 0, 64UL);
     }
   } else {
     i = 0U;
@@ -14312,7 +14312,7 @@ static void dgnc_wmove(struct channel_t *ch , char *buf , uint n )
   if (n >= (uint )remain) {
     {
     n = n - (uint )remain;
-    __memcpy((void *)ch->ch_wqueue + (unsigned long )head, (void const   *)buf, (size_t )remain);
+    memcpy((void *)ch->ch_wqueue + (unsigned long )head, (void const   *)buf, (size_t )remain);
     head = 0U;
     buf = buf + (unsigned long )remain;
     }
@@ -14322,7 +14322,7 @@ static void dgnc_wmove(struct channel_t *ch , char *buf , uint n )
   if (n != 0U) {
     {
     remain = (int )n;
-    __memcpy((void *)ch->ch_wqueue + (unsigned long )head, (void const   *)buf, (size_t )remain);
+    memcpy((void *)ch->ch_wqueue + (unsigned long )head, (void const   *)buf, (size_t )remain);
     head = head + (uint )remain;
     }
   } else {
@@ -15881,7 +15881,7 @@ static int dgnc_tty_write(struct tty_struct *tty , unsigned char const   *buf , 
   if ((uint )n >= remain) {
     {
     n = (int )((uint )n - remain);
-    __memcpy((void *)ch->ch_wqueue + (unsigned long )head, (void const   *)buf, (size_t )remain);
+    memcpy((void *)ch->ch_wqueue + (unsigned long )head, (void const   *)buf, (size_t )remain);
     head = 0U;
     buf = buf + (unsigned long )remain;
     }
@@ -15891,7 +15891,7 @@ static int dgnc_tty_write(struct tty_struct *tty , unsigned char const   *buf , 
   if (n > 0) {
     {
     remain = (uint )n;
-    __memcpy((void *)ch->ch_wqueue + (unsigned long )head, (void const   *)buf, (size_t )remain);
+    memcpy((void *)ch->ch_wqueue + (unsigned long )head, (void const   *)buf, (size_t )remain);
     head = (int )head + (int )((ushort )remain);
     }
   } else {
@@ -16498,9 +16498,9 @@ static int dgnc_tty_digigeta(struct tty_struct *tty , struct digi_t *retinfo )
 
   }
   {
-  __memset((void *)(& tmp), 0, 76UL);
+  memset((void *)(& tmp), 0, 76UL);
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_158(& ch->ch_lock);
-  __memcpy((void *)(& tmp), (void const   *)(& ch->ch_digi), 76UL);
+  memcpy((void *)(& tmp), (void const   *)(& ch->ch_digi), 76UL);
   ldv_spin_unlock_irqrestore_97(& ch->ch_lock, flags);
   tmp___0 = copy_to_user((void *)retinfo, (void const   *)(& tmp), 76UL);
   }
@@ -16577,7 +16577,7 @@ static int dgnc_tty_digiseta(struct tty_struct *tty , struct digi_t *new_info )
 
   }
   {
-  __memcpy((void *)(& ch->ch_digi), (void const   *)(& new_digi), 76UL);
+  memcpy((void *)(& ch->ch_digi), (void const   *)(& new_digi), 76UL);
   }
   if ((unsigned int )ch->ch_digi.digi_maxcps == 0U) {
     ch->ch_digi.digi_maxcps = 1U;

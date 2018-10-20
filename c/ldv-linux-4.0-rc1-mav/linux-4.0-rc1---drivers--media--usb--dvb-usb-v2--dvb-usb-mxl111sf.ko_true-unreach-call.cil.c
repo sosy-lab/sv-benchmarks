@@ -7757,8 +7757,8 @@ void ldv_linux_kernel_locking_mutex_mutex_unlock_fe_lock_of_mxl111sf_state(struc
 extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern void __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void msleep(unsigned int  ) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 static void ldv_mutex_unlock_122(struct mutex *ldv_func_arg1 ) ;
@@ -7850,9 +7850,9 @@ int mxl111sf_ctrl_msg(struct dvb_usb_device *d , u8 cmd , u8 *wbuf , int wlen , 
 
   }
   {
-  __memset((void *)(& sndbuf), 0, (size_t )(wlen + 1));
+  memset((void *)(& sndbuf), 0, (size_t )(wlen + 1));
   sndbuf[0] = cmd;
-  __memcpy((void *)(& sndbuf) + 1U, (void const   *)wbuf, (size_t )wlen);
+  memcpy((void *)(& sndbuf) + 1U, (void const   *)wbuf, (size_t )wlen);
   }
   if (wo != 0) {
     {

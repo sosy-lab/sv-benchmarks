@@ -7419,7 +7419,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __xadd_wrong_size(void) ;
 __inline static int atomic_read(atomic_t const   *v ) 
@@ -9664,7 +9664,7 @@ static void bm_page_io_async(struct bm_aio_ctx *ctx , int page_nr , int rw )
     src = kmap_atomic(*(b->bm_pages + (unsigned long )page_nr));
     __len = 4096UL;
     if (__len > 63UL) {
-      __ret = __memcpy(dest, (void const   *)src, __len);
+      __ret = memcpy(dest, (void const   *)src, __len);
     } else {
       __ret = __builtin_memcpy(dest, (void const   *)src, __len);
     }

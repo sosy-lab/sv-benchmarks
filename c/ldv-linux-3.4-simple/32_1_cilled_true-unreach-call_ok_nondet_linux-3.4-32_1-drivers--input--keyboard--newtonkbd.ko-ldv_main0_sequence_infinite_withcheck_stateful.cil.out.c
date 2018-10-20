@@ -1824,7 +1824,7 @@ __inline static void ( __attribute__((__always_inline__)) clear_bit)(int nr , un
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern int ( /* format attribute */  snprintf)(char *buf , size_t size , char const   *fmt 
                                                , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
@@ -2275,7 +2275,7 @@ static int nkbd_connect(struct serio *serio , struct serio_driver *drv )
     __cil_tmp31 = (unsigned long )(nkbd_keycode) + __cil_tmp30;
     __cil_tmp32 = (unsigned char *)__cil_tmp31;
     __cil_tmp33 = (void const   *)__cil_tmp32;
-    __ret = __memcpy(__cil_tmp29, __cil_tmp33, __len);
+    __ret = memcpy(__cil_tmp29, __cil_tmp33, __len);
     }
   } else {
     {

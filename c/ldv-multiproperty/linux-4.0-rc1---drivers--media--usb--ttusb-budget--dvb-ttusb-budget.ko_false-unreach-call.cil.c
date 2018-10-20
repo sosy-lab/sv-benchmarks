@@ -7520,8 +7520,8 @@ __inline static __u16 __le16_to_cpup(__le16 const   *p )
 }
 }
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -7935,7 +7935,7 @@ static int ttusb_result(struct ttusb *ttusb , u8 *data , int len )
 
   {
   {
-  __memcpy((void *)data, (void const   *)(& ttusb->last_result), (size_t )len);
+  memcpy((void *)data, (void const   *)(& ttusb->last_result), (size_t )len);
   ldv_mutex_unlock_126(& ttusb->semusb);
   }
   return (0);
@@ -8121,7 +8121,7 @@ static int ttusb_boot_dsp(struct ttusb *ttusb )
   goto ldv_50480;
   ldv_50479: 
   {
-  __memcpy((void *)(& b) + 4U, (void const   *)fw->data + (unsigned long )i, 28UL);
+  memcpy((void *)(& b) + 4U, (void const   *)fw->data + (unsigned long )i, 28UL);
   ttusb->c = (u8 )((int )ttusb->c + 1);
   b[1] = ttusb->c;
   err = ttusb_cmd(ttusb, (u8 const   *)(& b), 32, 0);
@@ -8646,7 +8646,7 @@ static void ttusb_process_frame(struct ttusb *ttusb , u8 *data , int len )
 
   }
   {
-  __memcpy((void *)(& ttusb->muxpack) + (unsigned long )ttusb->muxpack_ptr, (void const   *)data,
+  memcpy((void *)(& ttusb->muxpack) + (unsigned long )ttusb->muxpack_ptr, (void const   *)data,
            (size_t )avail);
   ttusb->muxpack_ptr = ttusb->muxpack_ptr + avail;
   tmp___2 = ldv__builtin_expect(ttusb->muxpack_ptr > 264, 0L);
@@ -10294,7 +10294,7 @@ static int ttusb_probe(struct usb_interface *intf , struct usb_device_id  const 
   }
   {
   ttusb->adapter.priv = (void *)ttusb;
-  __memset((void *)(& ttusb->i2c_adap), 0, 1920UL);
+  memset((void *)(& ttusb->i2c_adap), 0, 1920UL);
   strcpy((char *)(& ttusb->i2c_adap.name), "TTUSB DEC");
   i2c_set_adapdata(& ttusb->i2c_adap, (void *)ttusb);
   ttusb->i2c_adap.algo = (struct i2c_algorithm  const  *)(& ttusb_dec_algo);
@@ -10308,7 +10308,7 @@ static int ttusb_probe(struct usb_interface *intf , struct usb_device_id  const 
 
   }
   {
-  __memset((void *)(& ttusb->dvb_demux), 0, 944UL);
+  memset((void *)(& ttusb->dvb_demux), 0, 944UL);
   ttusb->dvb_demux.dmx.capabilities = 5U;
   ttusb->dvb_demux.priv = (void *)0;
   ttusb->dvb_demux.filternum = 32;

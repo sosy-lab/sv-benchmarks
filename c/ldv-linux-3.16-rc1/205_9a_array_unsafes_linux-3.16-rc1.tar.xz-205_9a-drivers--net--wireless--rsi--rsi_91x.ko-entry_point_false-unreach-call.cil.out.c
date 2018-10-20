@@ -8074,7 +8074,7 @@ struct sk_buff *ldv_skb_dequeue_24(struct sk_buff_head *ldv_func_arg1 )
   return (tmp);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
@@ -8142,7 +8142,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -8262,7 +8262,7 @@ static void rsi_register_rates_channels(struct rsi_hw *adapter , int band )
     channels = kmalloc(896UL, 208U);
     __len = 896UL;
     if (__len > 63UL) {
-      __ret = __memcpy(channels, (void const   *)(& rsi_2ghz_channels), __len);
+      __ret = memcpy(channels, (void const   *)(& rsi_2ghz_channels), __len);
     } else {
       __ret = __builtin_memcpy(channels, (void const   *)(& rsi_2ghz_channels), __len);
     }
@@ -8274,7 +8274,7 @@ static void rsi_register_rates_channels(struct rsi_hw *adapter , int band )
     channels = kmalloc(1536UL, 208U);
     __len___0 = 1536UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy(channels, (void const   *)(& rsi_5ghz_channels), __len___0);
+      __ret___0 = memcpy(channels, (void const   *)(& rsi_5ghz_channels), __len___0);
     } else {
       __ret___0 = __builtin_memcpy(channels, (void const   *)(& rsi_5ghz_channels),
                                    __len___0);
@@ -8553,7 +8553,7 @@ static int rsi_mac80211_conf_tx(struct ieee80211_hw *hw , struct ieee80211_vif *
   ldv_46444: 
   __len = 10UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& common->edca_params) + (unsigned long )idx, (void const   *)params,
+    __ret = memcpy((void *)(& common->edca_params) + (unsigned long )idx, (void const   *)params,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& common->edca_params) + (unsigned long )idx,
@@ -9621,7 +9621,7 @@ static int rsi_load_radio_caps(struct rsi_common *common )
   }
   __len = 40UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& common->rate_pwr), (void const   *)(& gc), __len);
+    __ret = memcpy((void *)(& common->rate_pwr), (void const   *)(& gc), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& common->rate_pwr), (void const   *)(& gc),
                              __len);
@@ -9862,7 +9862,7 @@ int rsi_set_vap_capabilities(struct rsi_common *common , enum opmode mode )
   vap_caps->desc_word[7] = (unsigned short )(((int )((short )((int )vap_id << 8)) | (int )((short )((int )common->mac_id << 4))) | (int )((short )common->radio_id));
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vap_caps->mac_addr), (void const   *)(& common->mac_addr),
+    __ret = memcpy((void *)(& vap_caps->mac_addr), (void const   *)(& common->mac_addr),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vap_caps->mac_addr), (void const   *)(& common->mac_addr),
@@ -9953,7 +9953,7 @@ int rsi_hal_load_key(struct rsi_common *common , u8 *data , u16 key_len , u8 key
   }
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& set_key->tx_mic_key), (void const   *)data + 16U,
+    __ret___1 = memcpy((void *)(& set_key->tx_mic_key), (void const   *)data + 16U,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& set_key->tx_mic_key), (void const   *)data + 16U,
@@ -9961,7 +9961,7 @@ int rsi_hal_load_key(struct rsi_common *common , u8 *data , u16 key_len , u8 key
   }
   __len___2 = 8UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& set_key->rx_mic_key), (void const   *)data + 24U,
+    __ret___2 = memcpy((void *)(& set_key->rx_mic_key), (void const   *)data + 24U,
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& set_key->rx_mic_key), (void const   *)data + 24U,
@@ -9997,7 +9997,7 @@ static int rsi_load_bootup_params(struct rsi_common *common )
   if ((unsigned int )common->channel_width == 1U) {
     __len = 104UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& boot_params->bootup_params), (void const   *)(& boot_params_40),
+      __ret = memcpy((void *)(& boot_params->bootup_params), (void const   *)(& boot_params_40),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& boot_params->bootup_params), (void const   *)(& boot_params_40),
@@ -10008,7 +10008,7 @@ static int rsi_load_bootup_params(struct rsi_common *common )
   } else {
     __len___0 = 104UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& boot_params->bootup_params), (void const   *)(& boot_params_20),
+      __ret___0 = memcpy((void *)(& boot_params->bootup_params), (void const   *)(& boot_params_20),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& boot_params->bootup_params), (void const   *)(& boot_params_20),
@@ -10455,7 +10455,7 @@ static int rsi_handle_ta_confirm_type(struct rsi_common *common , u8 *msg )
       offset = 21U;
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& common->mac_addr), (void const   *)msg + (unsigned long )offset,
+        __ret = memcpy((void *)(& common->mac_addr), (void const   *)msg + (unsigned long )offset,
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& common->mac_addr), (void const   *)msg + (unsigned long )offset,
@@ -10463,7 +10463,7 @@ static int rsi_handle_ta_confirm_type(struct rsi_common *common , u8 *msg )
       }
       __len___0 = 8UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& common->fw_ver), (void const   *)(msg + ((unsigned long )offset + 6UL)),
+        __ret___0 = memcpy((void *)(& common->fw_ver), (void const   *)(msg + ((unsigned long )offset + 6UL)),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& common->fw_ver), (void const   *)(msg + ((unsigned long )offset + 6UL)),

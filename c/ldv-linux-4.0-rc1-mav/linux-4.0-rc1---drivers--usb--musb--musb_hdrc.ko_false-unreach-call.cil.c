@@ -13282,7 +13282,7 @@ __inline static int list_is_singular(struct list_head  const  *head )
   return (tmp == 0 && (unsigned long )head->next == (unsigned long )head->prev);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_98___0(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_100(spinlock_t *ldv_func_arg1 ) ;
@@ -16936,7 +16936,7 @@ static void musb_free_temp_buffer(struct urb *urb )
   }
   if ((unsigned int )dir == 2U) {
     {
-    __memcpy(temp->old_xfer_buffer, (void const   *)(& temp->data), (size_t )urb->transfer_buffer_length);
+    memcpy(temp->old_xfer_buffer, (void const   *)(& temp->data), (size_t )urb->transfer_buffer_length);
     }
   } else {
 
@@ -16979,7 +16979,7 @@ static int musb_alloc_temp_buffer(struct urb *urb , gfp_t mem_flags )
   temp->old_xfer_buffer = urb->transfer_buffer;
   if ((unsigned int )dir == 1U) {
     {
-    __memcpy((void *)(& temp->data), (void const   *)urb->transfer_buffer, (size_t )urb->transfer_buffer_length);
+    memcpy((void *)(& temp->data), (void const   *)urb->transfer_buffer, (size_t )urb->transfer_buffer_length);
     }
   } else {
 
@@ -19852,7 +19852,7 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_99(spinlock_t *ldv
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_98___1(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_100___0(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_102___1(spinlock_t *ldv_func_arg1 ) ;
@@ -22654,7 +22654,7 @@ static void init_peripheral_ep(struct musb *musb , struct musb_ep *ep , u8 epnum
   {
   {
   hw_ep = (struct musb_hw_ep *)(& musb->endpoints) + (unsigned long )epnum;
-  __memset((void *)ep, 0, 144UL);
+  memset((void *)ep, 0, 144UL);
   ep->current_epnum = epnum;
   ep->musb = musb;
   ep->hw_ep = hw_ep;
@@ -24080,7 +24080,7 @@ static ssize_t musb_test_mode_write(struct file *file , char const   *ubuf , siz
   s = (struct seq_file *)file->private_data;
   musb = (struct musb *)s->private;
   test = 0U;
-  __memset((void *)(& buf), 0, 18UL);
+  memset((void *)(& buf), 0, 18UL);
   __min1 = 17UL;
   __min2 = count;
   tmp = copy_from_user((void *)(& buf), (void const   *)ubuf, __min1 < __min2 ? __min1 : __min2);
@@ -24689,7 +24689,7 @@ __inline static void bitmap_zero(unsigned long *dst , unsigned int nbits )
   {
   {
   len = (unsigned int )(((unsigned long )nbits + 63UL) / 64UL) * 8U;
-  __memset((void *)dst, 0, (size_t )len);
+  memset((void *)dst, 0, (size_t )len);
   }
   return;
 }

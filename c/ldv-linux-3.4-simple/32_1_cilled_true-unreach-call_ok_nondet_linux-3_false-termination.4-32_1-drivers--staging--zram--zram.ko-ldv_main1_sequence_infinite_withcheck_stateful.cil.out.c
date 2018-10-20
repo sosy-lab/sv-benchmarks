@@ -3245,7 +3245,7 @@ extern int ( /* format attribute */  __dynamic_pr_debug)(struct _ddebug *descrip
 extern int ( /* format attribute */  snprintf)(char *buf , size_t size , char const   *fmt 
                                                , ...) ;
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern unsigned long kernel_stack  __attribute__((__section__(".data..percpu"))) ;
 __inline static struct thread_info *current_thread_info(void)  __attribute__((__no_instrument_function__)) ;
@@ -4735,7 +4735,7 @@ static int zram_read_before_write(struct zram *zram , char *mem , u32 index )
       {
       __cil_tmp35 = (void *)mem;
       __cil_tmp36 = (void const   *)cmem;
-      __ret = __memcpy(__cil_tmp35, __cil_tmp36, __len);
+      __ret = memcpy(__cil_tmp35, __cil_tmp36, __len);
       }
     } else {
       {

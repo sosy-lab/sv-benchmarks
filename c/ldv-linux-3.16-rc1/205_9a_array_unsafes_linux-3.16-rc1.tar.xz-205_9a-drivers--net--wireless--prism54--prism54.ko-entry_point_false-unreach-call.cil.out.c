@@ -7728,7 +7728,7 @@ __inline static void list_move(struct list_head *list , struct list_head *head )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
@@ -7855,7 +7855,7 @@ __inline static char *iwe_stream_add_event(struct iw_request_info *info , char *
     iwe->len = (__u16 )event_len;
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)stream, (void const   *)iwe, __len);
+      __ret = memcpy((void *)stream, (void const   *)iwe, __len);
     } else {
       __ret = __builtin_memcpy((void *)stream, (void const   *)iwe, __len);
     }
@@ -7899,13 +7899,13 @@ __inline static char *iwe_stream_add_point(struct iw_request_info *info , char *
     iwe->len = (__u16 )event_len;
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)stream, (void const   *)iwe, __len);
+      __ret = memcpy((void *)stream, (void const   *)iwe, __len);
     } else {
       __ret = __builtin_memcpy((void *)stream, (void const   *)iwe, __len);
     }
     __len___0 = 4UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)stream + (unsigned long )lcp_len, (void const   *)(& iwe->u) + 8U,
+      __ret___0 = memcpy((void *)stream + (unsigned long )lcp_len, (void const   *)(& iwe->u) + 8U,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)stream + (unsigned long )lcp_len, (void const   *)(& iwe->u) + 8U,
@@ -8091,7 +8091,7 @@ void prism54_update_stats(struct work_struct *work )
   data = (char *)r.ptr;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& bss.address), (void const   *)data, __len);
+    __ret = memcpy((void *)(& bss.address), (void const   *)data, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& bss.address), (void const   *)data, __len);
   }
@@ -8125,7 +8125,7 @@ struct iw_statistics *prism54_get_wireless_stats(struct net_device *ndev )
   if (tmp___0 != 0) {
     __len = 32UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& priv->iwstatistics), (void const   *)(& priv->local_iwstatistics),
+      __ret = memcpy((void *)(& priv->iwstatistics), (void const   *)(& priv->local_iwstatistics),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& priv->iwstatistics), (void const   *)(& priv->local_iwstatistics),
@@ -8480,7 +8480,7 @@ static int prism54_set_wap(struct net_device *ndev , struct iw_request_info *inf
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& bssid), (void const   *)(& awrq->sa_data), __len);
+    __ret = memcpy((void *)(& bssid), (void const   *)(& awrq->sa_data), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& bssid), (void const   *)(& awrq->sa_data),
                              __len);
@@ -8505,7 +8505,7 @@ static int prism54_get_wap(struct net_device *ndev , struct iw_request_info *inf
   rvalue = mgt_get_request(priv, 7, 0, (void *)0, & r);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& awrq->sa_data), (void const   *)r.ptr, __len);
+    __ret = memcpy((void *)(& awrq->sa_data), (void const   *)r.ptr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& awrq->sa_data), (void const   *)r.ptr, __len);
   }
@@ -8548,7 +8548,7 @@ static char *prism54_translate_bss(struct net_device *ndev , struct iw_request_i
   priv = (islpci_private *)tmp;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const   *)(& bss->address),
+    __ret = memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const   *)(& bss->address),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const   *)(& bss->address),
@@ -10058,7 +10058,7 @@ static int prism54_add_mac(struct net_device *ndev , struct iw_request_info *inf
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& entry->addr), (void const   *)(& addr->sa_data), __len);
+    __ret = memcpy((void *)(& entry->addr), (void const   *)(& addr->sa_data), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& entry->addr), (void const   *)(& addr->sa_data),
                              __len);
@@ -10163,7 +10163,7 @@ static int prism54_get_mac(struct net_device *ndev , struct iw_request_info *inf
   ldv_44848: 
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& dst->sa_data), (void const   *)(& entry->addr), __len);
+    __ret = memcpy((void *)(& dst->sa_data), (void const   *)(& entry->addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& dst->sa_data), (void const   *)(& entry->addr),
                              __len);
@@ -10339,7 +10339,7 @@ static int prism54_kick_mac(struct net_device *ndev , struct iw_request_info *in
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mlme->address), (void const   *)(& addr->sa_data),
+    __ret = memcpy((void *)(& mlme->address), (void const   *)(& addr->sa_data),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mlme->address), (void const   *)(& addr->sa_data),
@@ -10527,7 +10527,7 @@ static void prism54_wpa_bss_ie_add(islpci_private *priv , u8 *bssid , u8 *wpa_ie
     if ((unsigned long )bss != (unsigned long )((struct islpci_bss_wpa_ie *)0)) {
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& bss->bssid), (void const   *)bssid, __len);
+        __ret = memcpy((void *)(& bss->bssid), (void const   *)bssid, __len);
       } else {
         __ret = __builtin_memcpy((void *)(& bss->bssid), (void const   *)bssid, __len);
       }
@@ -10830,7 +10830,7 @@ static int prism54_process_trap_helper(islpci_private *priv , enum oid_num_t oid
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
+    __ret = memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
@@ -10877,7 +10877,7 @@ static int prism54_process_trap_helper(islpci_private *priv , enum oid_num_t oid
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
+    __ret___0 = memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
@@ -10920,7 +10920,7 @@ static int prism54_process_trap_helper(islpci_private *priv , enum oid_num_t oid
   }
   __len___2 = 6UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
+    __ret___2 = memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
@@ -10997,7 +10997,7 @@ int prism54_set_mac_address(struct net_device *ndev , void *addr )
   if (ret == 0) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(priv->ndev)->dev_addr, (void const   *)(& ((struct sockaddr *)addr)->sa_data),
+      __ret = memcpy((void *)(priv->ndev)->dev_addr, (void const   *)(& ((struct sockaddr *)addr)->sa_data),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(priv->ndev)->dev_addr, (void const   *)(& ((struct sockaddr *)addr)->sa_data),
@@ -12560,7 +12560,7 @@ struct net_device *islpci_setup(struct pci_dev *pdev )
   ndev->addr_len = 6U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)ndev->dev_addr, (void const   *)(& dummy_mac), __len);
+    __ret = memcpy((void *)ndev->dev_addr, (void const   *)(& dummy_mac), __len);
   } else {
     __ret = __builtin_memcpy((void *)ndev->dev_addr, (void const   *)(& dummy_mac),
                              __len);
@@ -14736,7 +14736,7 @@ static int mgt_update_addr(islpci_private *priv )
   if ((ret == 0 && (unsigned long )res != (unsigned long )((struct islpci_mgmtframe *)0)) && (unsigned int )(res->header)->operation != 3U) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(priv->ndev)->dev_addr, (void const   *)res->data,
+      __ret = memcpy((void *)(priv->ndev)->dev_addr, (void const   *)res->data,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(priv->ndev)->dev_addr, (void const   *)res->data,

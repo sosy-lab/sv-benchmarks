@@ -3192,7 +3192,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
@@ -5675,7 +5675,7 @@ static int mt2032_init(struct dvb_frontend *fe )
     __cil_tmp155 = (struct dvb_tuner_ops *)__cil_tmp154;
     __cil_tmp156 = (void *)__cil_tmp155;
     __cil_tmp157 = (void const   *)(& mt2032_tuner_ops);
-    __ret = __memcpy(__cil_tmp156, __cil_tmp157, __len);
+    __ret = memcpy(__cil_tmp156, __cil_tmp157, __len);
     }
   } else {
     {
@@ -6772,7 +6772,7 @@ static int mt2050_init(struct dvb_frontend *fe )
     __cil_tmp55 = (struct dvb_tuner_ops *)__cil_tmp54;
     __cil_tmp56 = (void *)__cil_tmp55;
     __cil_tmp57 = (void const   *)(& mt2050_tuner_ops);
-    __ret = __memcpy(__cil_tmp56, __cil_tmp57, __len);
+    __ret = memcpy(__cil_tmp56, __cil_tmp57, __len);
     }
   } else {
     {

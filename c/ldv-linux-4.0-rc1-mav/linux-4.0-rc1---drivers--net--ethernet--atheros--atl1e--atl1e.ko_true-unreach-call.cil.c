@@ -7273,8 +7273,8 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 extern void __bad_percpu_size(void) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -9341,8 +9341,8 @@ static int atl1e_set_mac_addr(struct net_device *netdev , void *p )
 
   }
   {
-  __memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
-  __memcpy((void *)(& adapter->hw.mac_addr), (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
+  memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
+  memcpy((void *)(& adapter->hw.mac_addr), (void const   *)(& addr->sa_data), (size_t )netdev->addr_len);
   atl1e_hw_set_mac_addr(& adapter->hw);
   }
   return (0);
@@ -9798,8 +9798,8 @@ static void atl1e_clean_tx_ring(struct atl1e_adapter *adapter )
 
   }
   {
-  __memset((void *)tx_ring->desc, 0, (unsigned long )ring_count * 16UL);
-  __memset((void *)tx_ring->tx_buffer, 0, (unsigned long )ring_count * 24UL);
+  memset((void *)tx_ring->desc, 0, (unsigned long )ring_count * 16UL);
+  memset((void *)tx_ring->tx_buffer, 0, (unsigned long )ring_count * 24UL);
   }
   return;
 }
@@ -9827,7 +9827,7 @@ static void atl1e_clean_rx_ring(struct atl1e_adapter *adapter )
   ldv_55056: ;
   if ((unsigned long )(rx_page_desc + (unsigned long )i)->rx_page[(int )j].addr != (unsigned long )((u8 *)0U)) {
     {
-    __memset((void *)(rx_page_desc + (unsigned long )i)->rx_page[(int )j].addr, 0,
+    memset((void *)(rx_page_desc + (unsigned long )i)->rx_page[(int )j].addr, 0,
              (size_t )rx_ring->real_page_size);
     }
   } else {
@@ -10831,7 +10831,7 @@ static void atl1e_clean_rx_irq(struct atl1e_adapter *adapter , u8 que , int *wor
 
     }
     {
-    __memcpy((void *)skb->data, (void const   *)prrs + 1U, (size_t )packet_size);
+    memcpy((void *)skb->data, (void const   *)prrs + 1U, (size_t )packet_size);
     skb_put(skb, packet_size);
     skb->protocol = eth_type_trans(skb, netdev);
     atl1e_rx_checksum(adapter, skb, prrs);
@@ -11008,7 +11008,7 @@ static struct atl1e_tpd_desc *atl1e_get_tpd(struct atl1e_adapter *adapter )
 
   }
   {
-  __memset((void *)tx_ring->desc + (unsigned long )next_to_use, 0, 16UL);
+  memset((void *)tx_ring->desc + (unsigned long )next_to_use, 0, 16UL);
   }
   return (tx_ring->desc + (unsigned long )next_to_use);
 }
@@ -11299,7 +11299,7 @@ static int atl1e_tx_map(struct atl1e_adapter *adapter , struct sk_buff *skb , st
   } else {
     {
     use_tpd = atl1e_get_tpd(adapter);
-    __memcpy((void *)use_tpd, (void const   *)tpd, 16UL);
+    memcpy((void *)use_tpd, (void const   *)tpd, 16UL);
     }
   }
   {
@@ -11358,7 +11358,7 @@ static int atl1e_tx_map(struct atl1e_adapter *adapter , struct sk_buff *skb , st
   ldv_55339: 
   {
   use_tpd = atl1e_get_tpd(adapter);
-  __memcpy((void *)use_tpd, (void const   *)tpd, 16UL);
+  memcpy((void *)use_tpd, (void const   *)tpd, 16UL);
   tx_buffer = atl1e_get_tx_buffer(adapter, use_tpd);
   tmp___7 = ldv__builtin_expect((unsigned long )tx_buffer->skb != (unsigned long )((struct sk_buff *)0),
                              0L);
@@ -12332,7 +12332,7 @@ static int atl1e_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
 
   }
   {
-  __memcpy((void *)netdev->dev_addr, (void const   *)(& adapter->hw.mac_addr), (size_t )netdev->addr_len);
+  memcpy((void *)netdev->dev_addr, (void const   *)(& adapter->hw.mac_addr), (size_t )netdev->addr_len);
   descriptor.modname = "atl1e";
   descriptor.function = "atl1e_probe";
   descriptor.filename = "drivers/net/ethernet/atheros/atl1e/atl1e_main.c";
@@ -14858,7 +14858,7 @@ static int atl1e_get_permanent_address(struct atl1e_hw *hw )
   }
   if ((int )tmp___3) {
     {
-    __memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr), 6UL);
+    memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr), 6UL);
     }
     return (0);
   } else {
@@ -14948,7 +14948,7 @@ s32 atl1e_read_mac_addr(struct atl1e_hw *hw )
 
   }
   {
-  __memcpy((void *)(& hw->mac_addr), (void const   *)(& hw->perm_mac_addr), 6UL);
+  memcpy((void *)(& hw->mac_addr), (void const   *)(& hw->perm_mac_addr), 6UL);
   }
   return (0);
 }
@@ -15804,7 +15804,7 @@ static void atl1e_get_regs(struct net_device *netdev , struct ethtool_regs *regs
   adapter = (struct atl1e_adapter *)tmp;
   hw = & adapter->hw;
   regs_buff = (u32 *)p;
-  __memset(p, 0, 300UL);
+  memset(p, 0, 300UL);
   regs->version = (__u32 )((((int )hw->revision_id << 16) | 16777216) | (int )hw->device_id);
   *regs_buff = readl((void const volatile   *)hw->hw_addr + 108U);
   *(regs_buff + 1UL) = readl((void const volatile   *)hw->hw_addr + 512U);
@@ -15938,7 +15938,7 @@ static int atl1e_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
 
   }
   {
-  __memcpy((void *)bytes, (void const   *)eeprom_buff + ((unsigned long )eeprom->offset & 3UL),
+  memcpy((void *)bytes, (void const   *)eeprom_buff + ((unsigned long )eeprom->offset & 3UL),
            (size_t )eeprom->len);
   kfree((void const   *)eeprom_buff);
   }
@@ -16032,7 +16032,7 @@ static int atl1e_set_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
 
   }
   {
-  __memcpy((void *)ptr, (void const   *)bytes, (size_t )eeprom->len);
+  memcpy((void *)ptr, (void const   *)bytes, (size_t )eeprom->len);
   i = 0;
   }
   goto ldv_54725;

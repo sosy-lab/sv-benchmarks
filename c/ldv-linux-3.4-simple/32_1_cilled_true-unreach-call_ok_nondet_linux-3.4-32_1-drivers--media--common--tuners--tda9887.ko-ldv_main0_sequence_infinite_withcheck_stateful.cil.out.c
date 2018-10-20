@@ -3248,7 +3248,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 extern void list_del(struct list_head *entry ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -7714,7 +7714,7 @@ struct dvb_frontend *tda9887_attach(struct dvb_frontend *fe , struct i2c_adapter
     __cil_tmp136 = (struct analog_demod_ops *)__cil_tmp135;
     __cil_tmp137 = (void *)__cil_tmp136;
     __cil_tmp138 = (void const   *)(& tda9887_ops);
-    __ret___0 = __memcpy(__cil_tmp137, __cil_tmp138, __len);
+    __ret___0 = memcpy(__cil_tmp137, __cil_tmp138, __len);
     }
   } else {
     {

@@ -7845,7 +7845,7 @@ __inline static void __clear_bit(int nr , unsigned long volatile   *addr )
 extern void ( /* format attribute */  warn_slowpath)(char const   *file , int const   line ,
                                                      char const   *fmt  , ...) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 __inline static int hlist_unhashed(struct hlist_node  const  *h ) 
 { 
 
@@ -8680,7 +8680,7 @@ static int mISDN_sock_recvmsg(struct kiocb *iocb , struct socket *sock , struct 
   }
   if (______r___8) {
     tmp = skb_push(skb, sizeof(struct mISDNhead ));
-    __ret = __memcpy(tmp, (struct mISDNhead *)(& skb->cb[0]), __len);
+    __ret = memcpy(tmp, (struct mISDNhead *)(& skb->cb[0]), __len);
   } else {
     tmp___0 = skb_push(skb, sizeof(struct mISDNhead ));
     __ret = __builtin_memcpy(tmp___0, (struct mISDNhead *)(& skb->cb[0]), __len);
@@ -8854,7 +8854,7 @@ static int mISDN_sock_sendmsg(struct kiocb *iocb , struct socket *sock , struct 
     ______f___1268.__annonCompField3.__annonCompField2.miss = ______f___1268.__annonCompField3.__annonCompField2.miss + 1UL;
   }
   if (______r___6) {
-    __ret = __memcpy((struct mISDNhead *)(& skb->cb[0]), skb->data, __len);
+    __ret = memcpy((struct mISDNhead *)(& skb->cb[0]), skb->data, __len);
   } else {
     __ret = __builtin_memcpy((struct mISDNhead *)(& skb->cb[0]), skb->data, __len);
   }
@@ -9518,7 +9518,7 @@ static int data_sock_ioctl(struct socket *sock , unsigned int cmd , unsigned lon
       ______f___1287.__annonCompField3.__annonCompField2.miss = ______f___1287.__annonCompField3.__annonCompField2.miss + 1UL;
     }
     if (______r___2) {
-      __ret = __memcpy(di.channelmap, dev->channelmap, __len);
+      __ret = memcpy(di.channelmap, dev->channelmap, __len);
     } else {
       __ret = __builtin_memcpy(di.channelmap, dev->channelmap, __len);
     }
@@ -10541,7 +10541,7 @@ static int base_sock_ioctl(struct socket *sock , unsigned int cmd , unsigned lon
       ______f___1316.__annonCompField3.__annonCompField2.miss = ______f___1316.__annonCompField3.__annonCompField2.miss + 1UL;
     }
     if (______r___2) {
-      __ret = __memcpy(di.channelmap, dev->channelmap, __len);
+      __ret = memcpy(di.channelmap, dev->channelmap, __len);
     } else {
       __ret = __builtin_memcpy(di.channelmap, dev->channelmap, __len);
     }

@@ -6131,7 +6131,7 @@ extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char 
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
 { 
@@ -6255,7 +6255,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   {
-  __memcpy(dst, (void const   *)src, count);
+  memcpy(dst, (void const   *)src, count);
   }
   return;
 }
@@ -6266,7 +6266,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   {
-  __memcpy((void *)dst, src, count);
+  memcpy((void *)dst, src, count);
   }
   return;
 }
@@ -8078,7 +8078,7 @@ static int ethoc_set_mac_address(struct net_device *dev , void *p )
 
   }
   {
-  __memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), 6UL);
+  memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), 6UL);
   ethoc_do_set_mac_address(dev);
   }
   return (0);
@@ -8666,7 +8666,7 @@ static int ethoc_probe(struct platform_device *pdev )
   }
   if ((unsigned long )pdata != (unsigned long )((struct ethoc_platform_data *)0)) {
     {
-    __memcpy((void *)netdev->dev_addr, (void const   *)(& pdata->hwaddr), 6UL);
+    memcpy((void *)netdev->dev_addr, (void const   *)(& pdata->hwaddr), 6UL);
     priv->phy_id = pdata->phy_id;
     }
   } else {

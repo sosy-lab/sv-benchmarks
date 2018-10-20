@@ -5652,7 +5652,7 @@ extern int printk(char const   *  , ...) ;
 extern void dump_stack(void) ;
 extern int __dynamic_netdev_dbg(struct _ddebug * , struct net_device  const  * , char const   * 
                                 , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
@@ -6975,7 +6975,7 @@ static int can_changelink(struct net_device *dev , struct nlattr **tb , struct n
     __len = 32UL;
     if (__len > 63UL) {
       tmp___2 = nla_data((struct nlattr  const  *)*(data + 1UL));
-      __ret = __memcpy((void *)(& bt), (void const   *)tmp___2, __len);
+      __ret = memcpy((void *)(& bt), (void const   *)tmp___2, __len);
     } else {
       tmp___3 = nla_data((struct nlattr  const  *)*(data + 1UL));
       __ret = __builtin_memcpy((void *)(& bt), (void const   *)tmp___3, __len);
@@ -6988,7 +6988,7 @@ static int can_changelink(struct net_device *dev , struct nlattr **tb , struct n
     }
     __len___0 = 32UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& priv->bittiming), (void const   *)(& bt), __len___0);
+      __ret___0 = memcpy((void *)(& priv->bittiming), (void const   *)(& bt), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& priv->bittiming), (void const   *)(& bt),
                                    __len___0);
@@ -7064,7 +7064,7 @@ static int can_changelink(struct net_device *dev , struct nlattr **tb , struct n
     __len___1 = 32UL;
     if (__len___1 > 63UL) {
       tmp___6 = nla_data((struct nlattr  const  *)*(data + 9UL));
-      __ret___1 = __memcpy((void *)(& dbt), (void const   *)tmp___6, __len___1);
+      __ret___1 = memcpy((void *)(& dbt), (void const   *)tmp___6, __len___1);
     } else {
       tmp___7 = nla_data((struct nlattr  const  *)*(data + 9UL));
       __ret___1 = __builtin_memcpy((void *)(& dbt), (void const   *)tmp___7, __len___1);
@@ -7077,7 +7077,7 @@ static int can_changelink(struct net_device *dev , struct nlattr **tb , struct n
     }
     __len___2 = 32UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& priv->data_bittiming), (void const   *)(& dbt),
+      __ret___2 = memcpy((void *)(& priv->data_bittiming), (void const   *)(& dbt),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& priv->data_bittiming), (void const   *)(& dbt),

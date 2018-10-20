@@ -6541,7 +6541,7 @@ struct filter_info {
 };
 typedef int ldv_func_ret_type;
 long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcat(char * , char const   * , __kernel_size_t  ) ;
 __inline static __u32 __arch_swab32(__u32 val ) 
@@ -7334,7 +7334,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
     if ((unsigned long )mode != (unsigned long )((unsigned int *)0U)) {
       __len = 4UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& tmp), (void const   *)(& c), __len);
+        __ret = memcpy((void *)(& tmp), (void const   *)(& c), __len);
       } else {
         __ret = __builtin_memcpy((void *)(& tmp), (void const   *)(& c), __len);
       }
@@ -7346,7 +7346,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
     if ((unsigned long )model != (unsigned long )((unsigned int *)0U)) {
       __len___0 = 4UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& tmp), (void const   *)(& c) + 4U, __len___0);
+        __ret___0 = memcpy((void *)(& tmp), (void const   *)(& c) + 4U, __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& tmp), (void const   *)(& c) + 4U,
                                      __len___0);
@@ -7359,7 +7359,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
     if ((unsigned long )version != (unsigned long )((unsigned int *)0U)) {
       __len___1 = 4UL;
       if (__len___1 > 63UL) {
-        __ret___1 = __memcpy((void *)(& tmp), (void const   *)(& c) + 8U, __len___1);
+        __ret___1 = memcpy((void *)(& tmp), (void const   *)(& c) + 8U, __len___1);
       } else {
         __ret___1 = __builtin_memcpy((void *)(& tmp), (void const   *)(& c) + 8U,
                                      __len___1);
@@ -7441,19 +7441,19 @@ static void ttusb_dec_set_pids(struct ttusb_dec *dec )
   }
   __len = 2UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& b), (void const   *)(& pcr), __len);
+    __ret = memcpy((void *)(& b), (void const   *)(& pcr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& b), (void const   *)(& pcr), __len);
   }
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& b) + 2U, (void const   *)(& audio), __len___0);
+    __ret___0 = memcpy((void *)(& b) + 2U, (void const   *)(& audio), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& b) + 2U, (void const   *)(& audio), __len___0);
   }
   __len___1 = 2UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& b) + 4U, (void const   *)(& video), __len___1);
+    __ret___1 = memcpy((void *)(& b) + 4U, (void const   *)(& video), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& b) + 4U, (void const   *)(& video), __len___1);
   }
@@ -7546,7 +7546,7 @@ static void ttusb_dec_process_pva(struct ttusb_dec *dec , u8 *pva , int length )
   v_pes_payload_length = tmp;
   __len___2 = 2UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& dec->v_pes) + 4U, (void const   *)(& v_pes_payload_length),
+    __ret___2 = memcpy((void *)(& dec->v_pes) + 4U, (void const   *)(& v_pes_payload_length),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& dec->v_pes) + 4U, (void const   *)(& v_pes_payload_length),
@@ -8326,19 +8326,19 @@ static int ttusb_dec_start_sec_feed(struct dvb_demux_feed *dvbdmxfeed )
   pid = tmp;
   __len = 2UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& b0), (void const   *)(& pid), __len);
+    __ret = memcpy((void *)(& b0), (void const   *)(& pid), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& b0), (void const   *)(& pid), __len);
   }
   __len___0 = 1UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& b0) + 4U, (void const   *)(& x), __len___0);
+    __ret___0 = memcpy((void *)(& b0) + 4U, (void const   *)(& x), __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& b0) + 4U, (void const   *)(& x), __len___0);
   }
   __len___1 = 1UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& b0) + 5U, (void const   *)(& (dvbdmxfeed->filter)->filter.filter_value),
+    __ret___1 = memcpy((void *)(& b0) + 5U, (void const   *)(& (dvbdmxfeed->filter)->filter.filter_value),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& b0) + 5U, (void const   *)(& (dvbdmxfeed->filter)->filter.filter_value),
@@ -8762,7 +8762,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   crc32_csum = ~ tmp___1;
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tmp), (void const   *)firmware + 56U, __len);
+    __ret = memcpy((void *)(& tmp), (void const   *)firmware + 56U, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tmp), (void const   *)firmware + 56U, __len);
   }
@@ -8778,7 +8778,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   }
   __len___0 = 20UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& idstring), (void const   *)firmware + 36U, __len___0);
+    __ret___0 = memcpy((void *)(& idstring), (void const   *)firmware + 36U, __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& idstring), (void const   *)firmware + 36U,
                                  __len___0);
@@ -8789,7 +8789,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   firmware_size_nl = tmp___3;
   __len___1 = 4UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& b0), (void const   *)(& firmware_size_nl), __len___1);
+    __ret___1 = memcpy((void *)(& b0), (void const   *)(& firmware_size_nl), __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& b0), (void const   *)(& firmware_size_nl),
                                  __len___1);
@@ -8800,7 +8800,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   firmware_csum_ns = tmp___5;
   __len___2 = 2UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& b0) + 6U, (void const   *)(& firmware_csum_ns),
+    __ret___2 = memcpy((void *)(& b0) + 6U, (void const   *)(& firmware_csum_ns),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& b0) + 6U, (void const   *)(& firmware_csum_ns),

@@ -3486,7 +3486,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
@@ -3746,7 +3746,7 @@ int ubi_change_vtbl_record(struct ubi_device *ubi , int idx , struct ubi_vtbl_re
   }
   __len = 172UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)ubi->vtbl + (unsigned long )idx, (void const   *)vtbl_rec,
+    __ret = memcpy((void *)ubi->vtbl + (unsigned long )idx, (void const   *)vtbl_rec,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)ubi->vtbl + (unsigned long )idx, (void const   *)vtbl_rec,
@@ -3807,7 +3807,7 @@ int ubi_vtbl_rename_volumes(struct ubi_device *ubi , struct list_head *rename_li
   if (re->remove != 0) {
     __len = 172UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)vtbl_rec, (void const   *)(& empty_vtbl_record), __len);
+      __ret = memcpy((void *)vtbl_rec, (void const   *)(& empty_vtbl_record), __len);
     } else {
       __ret = __builtin_memcpy((void *)vtbl_rec, (void const   *)(& empty_vtbl_record),
                                __len);
@@ -4322,7 +4322,7 @@ static struct ubi_vtbl_record *create_empty_lvol(struct ubi_device *ubi , struct
   ldv_23485: 
   __len = 172UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)vtbl + (unsigned long )i, (void const   *)(& empty_vtbl_record),
+    __ret = memcpy((void *)vtbl + (unsigned long )i, (void const   *)(& empty_vtbl_record),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)vtbl + (unsigned long )i, (void const   *)(& empty_vtbl_record),
@@ -22434,7 +22434,7 @@ void ubi_dump_mkvol_req(struct ubi_mkvol_req  const  *req )
   printk("\v\tname_len  %d\n", (int )req->name_len);
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& nm), (void const   *)(& req->name), __len);
+    __ret = memcpy((void *)(& nm), (void const   *)(& req->name), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& nm), (void const   *)(& req->name), __len);
   }

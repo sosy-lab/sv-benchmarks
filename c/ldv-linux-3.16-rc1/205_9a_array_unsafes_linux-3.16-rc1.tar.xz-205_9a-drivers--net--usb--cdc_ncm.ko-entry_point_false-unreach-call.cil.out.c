@@ -5652,7 +5652,7 @@ __inline static int kstrtoul(char const   *s , unsigned int base , unsigned long
 extern int sprintf(char * , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
@@ -6472,7 +6472,7 @@ static void cdc_ncm_get_strings(struct net_device *netdev , u32 stringset , u8 *
   ldv_43336: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p, (void const   *)(& cdc_ncm_gstrings_stats[i].stat_string),
+    __ret = memcpy((void *)p, (void const   *)(& cdc_ncm_gstrings_stats[i].stat_string),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)p, (void const   *)(& cdc_ncm_gstrings_stats[i].stat_string),

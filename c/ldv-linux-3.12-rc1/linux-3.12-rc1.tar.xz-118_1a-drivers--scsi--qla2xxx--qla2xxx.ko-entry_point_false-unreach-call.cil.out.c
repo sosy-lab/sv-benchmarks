@@ -11603,7 +11603,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strcat(char * , char const   * ) ;
@@ -17405,7 +17405,7 @@ int qla2x00_post_idc_ack_work(struct scsi_qla_host *vha , uint16_t *mb )
   }
   __len = 14UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& e->u.idc_ack.mb), (void const   *)mb, __len);
+    __ret = memcpy((void *)(& e->u.idc_ack.mb), (void const   *)mb, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& e->u.idc_ack.mb), (void const   *)mb, __len);
   }
@@ -29485,7 +29485,7 @@ int qla2x00_nvram_config(struct scsi_qla_host *vha )
   if ((int )((signed char )nv->host_p[1]) < 0) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& icb->node_name), (void const   *)(& nv->alternate_node_name),
+      __ret = memcpy((void *)(& icb->node_name), (void const   *)(& nv->alternate_node_name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& icb->node_name), (void const   *)(& nv->alternate_node_name),
@@ -29493,7 +29493,7 @@ int qla2x00_nvram_config(struct scsi_qla_host *vha )
     }
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& icb->port_name), (void const   *)(& nv->alternate_port_name),
+      __ret___0 = memcpy((void *)(& icb->port_name), (void const   *)(& nv->alternate_port_name),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& icb->port_name), (void const   *)(& nv->alternate_port_name),
@@ -29505,7 +29505,7 @@ int qla2x00_nvram_config(struct scsi_qla_host *vha )
   if (((int )icb->firmware_options[1] & 64) == 0) {
     __len___1 = 8UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& icb->node_name), (void const   *)(& icb->port_name),
+      __ret___1 = memcpy((void *)(& icb->node_name), (void const   *)(& icb->port_name),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& icb->node_name), (void const   *)(& icb->port_name),
@@ -29534,7 +29534,7 @@ int qla2x00_nvram_config(struct scsi_qla_host *vha )
   ha->operating_mode = (uint8_t )(((int )icb->add_firmware_options[0] & 112) >> 4);
   __len___2 = 4UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& ha->fw_seriallink_options), (void const   *)(& nv->seriallink_options),
+    __ret___2 = memcpy((void *)(& ha->fw_seriallink_options), (void const   *)(& nv->seriallink_options),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& ha->fw_seriallink_options), (void const   *)(& nv->seriallink_options),
@@ -29545,7 +29545,7 @@ int qla2x00_nvram_config(struct scsi_qla_host *vha )
   ha->serial2 = icb->port_name[7];
   __len___3 = 8UL;
   if (__len___3 > 63UL) {
-    __ret___3 = __memcpy((void *)(& vha->node_name), (void const   *)(& icb->node_name),
+    __ret___3 = memcpy((void *)(& vha->node_name), (void const   *)(& icb->node_name),
                          __len___3);
   } else {
     __ret___3 = __builtin_memcpy((void *)(& vha->node_name), (void const   *)(& icb->node_name),
@@ -29553,7 +29553,7 @@ int qla2x00_nvram_config(struct scsi_qla_host *vha )
   }
   __len___4 = 8UL;
   if (__len___4 > 63UL) {
-    __ret___4 = __memcpy((void *)(& vha->port_name), (void const   *)(& icb->port_name),
+    __ret___4 = memcpy((void *)(& vha->port_name), (void const   *)(& icb->port_name),
                          __len___4);
   } else {
     __ret___4 = __builtin_memcpy((void *)(& vha->port_name), (void const   *)(& icb->port_name),
@@ -29975,7 +29975,7 @@ static int qla2x00_configure_local_loop(scsi_qla_host_t *vha )
   fcport->d_id.b24 = new_fcport->d_id.b24;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& fcport->node_name), (void const   *)(& new_fcport->node_name),
+    __ret = memcpy((void *)(& fcport->node_name), (void const   *)(& new_fcport->node_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& fcport->node_name), (void const   *)(& new_fcport->node_name),
@@ -30575,7 +30575,7 @@ static int qla2x00_find_all_fabric_devs(scsi_qla_host_t *vha , struct list_head 
       new_fcport->d_id.b24 = (swl + (unsigned long )swl_idx)->d_id.b24;
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& new_fcport->node_name), (void const   *)(& (swl + (unsigned long )swl_idx)->node_name),
+        __ret = memcpy((void *)(& new_fcport->node_name), (void const   *)(& (swl + (unsigned long )swl_idx)->node_name),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& new_fcport->node_name), (void const   *)(& (swl + (unsigned long )swl_idx)->node_name),
@@ -30583,7 +30583,7 @@ static int qla2x00_find_all_fabric_devs(scsi_qla_host_t *vha , struct list_head 
       }
       __len___0 = 8UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& new_fcport->port_name), (void const   *)(& (swl + (unsigned long )swl_idx)->port_name),
+        __ret___0 = memcpy((void *)(& new_fcport->port_name), (void const   *)(& (swl + (unsigned long )swl_idx)->port_name),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& new_fcport->port_name), (void const   *)(& (swl + (unsigned long )swl_idx)->port_name),
@@ -30591,7 +30591,7 @@ static int qla2x00_find_all_fabric_devs(scsi_qla_host_t *vha , struct list_head 
       }
       __len___1 = 8UL;
       if (__len___1 > 63UL) {
-        __ret___1 = __memcpy((void *)(& new_fcport->fabric_port_name), (void const   *)(& (swl + (unsigned long )swl_idx)->fabric_port_name),
+        __ret___1 = memcpy((void *)(& new_fcport->fabric_port_name), (void const   *)(& (swl + (unsigned long )swl_idx)->fabric_port_name),
                              __len___1);
       } else {
         __ret___1 = __builtin_memcpy((void *)(& new_fcport->fabric_port_name), (void const   *)(& (swl + (unsigned long )swl_idx)->fabric_port_name),
@@ -30686,7 +30686,7 @@ static int qla2x00_find_all_fabric_devs(scsi_qla_host_t *vha , struct list_head 
   found = found + 1;
   __len___2 = 8UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& fcport->fabric_port_name), (void const   *)(& new_fcport->fabric_port_name),
+    __ret___2 = memcpy((void *)(& fcport->fabric_port_name), (void const   *)(& new_fcport->fabric_port_name),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& fcport->fabric_port_name), (void const   *)(& new_fcport->fabric_port_name),
@@ -32233,7 +32233,7 @@ int qla24xx_nvram_config(struct scsi_qla_host *vha )
   if ((nv->host_p & 32768U) != 0U) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& icb->node_name), (void const   *)(& nv->alternate_node_name),
+      __ret = memcpy((void *)(& icb->node_name), (void const   *)(& nv->alternate_node_name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& icb->node_name), (void const   *)(& nv->alternate_node_name),
@@ -32241,7 +32241,7 @@ int qla24xx_nvram_config(struct scsi_qla_host *vha )
     }
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& icb->port_name), (void const   *)(& nv->alternate_port_name),
+      __ret___0 = memcpy((void *)(& icb->port_name), (void const   *)(& nv->alternate_port_name),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& icb->port_name), (void const   *)(& nv->alternate_port_name),
@@ -32253,7 +32253,7 @@ int qla24xx_nvram_config(struct scsi_qla_host *vha )
   if ((icb->firmware_options_1 & 16384U) == 0U) {
     __len___1 = 8UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& icb->node_name), (void const   *)(& icb->port_name),
+      __ret___1 = memcpy((void *)(& icb->node_name), (void const   *)(& icb->port_name),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& icb->node_name), (void const   *)(& icb->port_name),
@@ -32272,7 +32272,7 @@ int qla24xx_nvram_config(struct scsi_qla_host *vha )
   ha->operating_mode = (uint8_t )((icb->firmware_options_2 & 112U) >> 4);
   __len___2 = 8UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& ha->fw_seriallink_options24), (void const   *)(& nv->seriallink_options),
+    __ret___2 = memcpy((void *)(& ha->fw_seriallink_options24), (void const   *)(& nv->seriallink_options),
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& ha->fw_seriallink_options24), (void const   *)(& nv->seriallink_options),
@@ -32283,7 +32283,7 @@ int qla24xx_nvram_config(struct scsi_qla_host *vha )
   ha->serial2 = icb->port_name[7];
   __len___3 = 8UL;
   if (__len___3 > 63UL) {
-    __ret___3 = __memcpy((void *)(& vha->node_name), (void const   *)(& icb->node_name),
+    __ret___3 = memcpy((void *)(& vha->node_name), (void const   *)(& icb->node_name),
                          __len___3);
   } else {
     __ret___3 = __builtin_memcpy((void *)(& vha->node_name), (void const   *)(& icb->node_name),
@@ -32291,7 +32291,7 @@ int qla24xx_nvram_config(struct scsi_qla_host *vha )
   }
   __len___4 = 8UL;
   if (__len___4 > 63UL) {
-    __ret___4 = __memcpy((void *)(& vha->port_name), (void const   *)(& icb->port_name),
+    __ret___4 = memcpy((void *)(& vha->port_name), (void const   *)(& icb->port_name),
                          __len___4);
   } else {
     __ret___4 = __builtin_memcpy((void *)(& vha->port_name), (void const   *)(& icb->port_name),
@@ -33176,7 +33176,7 @@ int qla81xx_nvram_config(struct scsi_qla_host *vha )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& icb->enode_mac), (void const   *)(& nv->enode_mac),
+    __ret = memcpy((void *)(& icb->enode_mac), (void const   *)(& nv->enode_mac),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& icb->enode_mac), (void const   *)(& nv->enode_mac),
@@ -33195,7 +33195,7 @@ int qla81xx_nvram_config(struct scsi_qla_host *vha )
   }
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)ha->ex_init_cb, (void const   *)(& nv->ex_version),
+    __ret___0 = memcpy((void *)ha->ex_init_cb, (void const   *)(& nv->ex_version),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)ha->ex_init_cb, (void const   *)(& nv->ex_version),
@@ -33206,7 +33206,7 @@ int qla81xx_nvram_config(struct scsi_qla_host *vha )
   if ((nv->host_p & 32768U) != 0U) {
     __len___1 = 8UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& icb->node_name), (void const   *)(& nv->alternate_node_name),
+      __ret___1 = memcpy((void *)(& icb->node_name), (void const   *)(& nv->alternate_node_name),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& icb->node_name), (void const   *)(& nv->alternate_node_name),
@@ -33214,7 +33214,7 @@ int qla81xx_nvram_config(struct scsi_qla_host *vha )
     }
     __len___2 = 8UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& icb->port_name), (void const   *)(& nv->alternate_port_name),
+      __ret___2 = memcpy((void *)(& icb->port_name), (void const   *)(& nv->alternate_port_name),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& icb->port_name), (void const   *)(& nv->alternate_port_name),
@@ -33226,7 +33226,7 @@ int qla81xx_nvram_config(struct scsi_qla_host *vha )
   if ((icb->firmware_options_1 & 16384U) == 0U) {
     __len___3 = 8UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)(& icb->node_name), (void const   *)(& icb->port_name),
+      __ret___3 = memcpy((void *)(& icb->node_name), (void const   *)(& icb->port_name),
                            __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)(& icb->node_name), (void const   *)(& icb->port_name),
@@ -33248,7 +33248,7 @@ int qla81xx_nvram_config(struct scsi_qla_host *vha )
   ha->serial2 = icb->port_name[7];
   __len___4 = 8UL;
   if (__len___4 > 63UL) {
-    __ret___4 = __memcpy((void *)(& vha->node_name), (void const   *)(& icb->node_name),
+    __ret___4 = memcpy((void *)(& vha->node_name), (void const   *)(& icb->node_name),
                          __len___4);
   } else {
     __ret___4 = __builtin_memcpy((void *)(& vha->node_name), (void const   *)(& icb->node_name),
@@ -33256,7 +33256,7 @@ int qla81xx_nvram_config(struct scsi_qla_host *vha )
   }
   __len___5 = 8UL;
   if (__len___5 > 63UL) {
-    __ret___5 = __memcpy((void *)(& vha->port_name), (void const   *)(& icb->port_name),
+    __ret___5 = memcpy((void *)(& vha->port_name), (void const   *)(& icb->port_name),
                          __len___5);
   } else {
     __ret___5 = __builtin_memcpy((void *)(& vha->port_name), (void const   *)(& icb->port_name),
@@ -35196,7 +35196,7 @@ int qla2x00_get_port_database(scsi_qla_host_t *vha , fc_port_t *fcport , uint8_t
     }
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& fcport->node_name), (void const   *)(& pd24->node_name),
+      __ret = memcpy((void *)(& fcport->node_name), (void const   *)(& pd24->node_name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& fcport->node_name), (void const   *)(& pd24->node_name),
@@ -35204,7 +35204,7 @@ int qla2x00_get_port_database(scsi_qla_host_t *vha , fc_port_t *fcport , uint8_t
     }
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& fcport->port_name), (void const   *)(& pd24->port_name),
+      __ret___0 = memcpy((void *)(& fcport->port_name), (void const   *)(& pd24->port_name),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& fcport->port_name), (void const   *)(& pd24->port_name),
@@ -35257,7 +35257,7 @@ int qla2x00_get_port_database(scsi_qla_host_t *vha , fc_port_t *fcport , uint8_t
     }
     __len___1 = 8UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& fcport->node_name), (void const   *)(& pd->node_name),
+      __ret___1 = memcpy((void *)(& fcport->node_name), (void const   *)(& pd->node_name),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& fcport->node_name), (void const   *)(& pd->node_name),
@@ -35265,7 +35265,7 @@ int qla2x00_get_port_database(scsi_qla_host_t *vha , fc_port_t *fcport , uint8_t
     }
     __len___2 = 8UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& fcport->port_name), (void const   *)(& pd->port_name),
+      __ret___2 = memcpy((void *)(& fcport->port_name), (void const   *)(& pd->port_name),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& fcport->port_name), (void const   *)(& pd->port_name),
@@ -35983,7 +35983,7 @@ int qla2x00_get_fcal_position_map(scsi_qla_host_t *vha , char *pos_map )
     if ((unsigned long )pos_map != (unsigned long )((char *)0)) {
       __len = 128UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)pos_map, (void const   *)pmap, __len);
+        __ret = memcpy((void *)pos_map, (void const   *)pmap, __len);
       } else {
         __ret = __builtin_memcpy((void *)pos_map, (void const   *)pmap, __len);
       }
@@ -36573,7 +36573,7 @@ int qla2x00_enable_fce_trace(scsi_qla_host_t *vha , dma_addr_t fce_dma , uint16_
     if ((unsigned long )mb != (unsigned long )((uint16_t *)0U)) {
       __len = 16UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)mb, (void const   *)(& mcp->mb), __len);
+        __ret = memcpy((void *)mb, (void const   *)(& mcp->mb), __len);
       } else {
         __ret = __builtin_memcpy((void *)mb, (void const   *)(& mcp->mb), __len);
       }
@@ -36854,7 +36854,7 @@ int qla24xx_modify_vp_config(scsi_qla_host_t *vha )
   qlt_modify_vp_config(vha, vpmod);
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& vpmod->node_name_idx1), (void const   *)(& vha->node_name),
+    __ret = memcpy((void *)(& vpmod->node_name_idx1), (void const   *)(& vha->node_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& vpmod->node_name_idx1), (void const   *)(& vha->node_name),
@@ -36862,7 +36862,7 @@ int qla24xx_modify_vp_config(scsi_qla_host_t *vha )
   }
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& vpmod->port_name_idx1), (void const   *)(& vha->port_name),
+    __ret___0 = memcpy((void *)(& vpmod->port_name_idx1), (void const   *)(& vha->port_name),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& vpmod->port_name_idx1), (void const   *)(& vha->port_name),
@@ -37256,7 +37256,7 @@ int qla81xx_idc_ack(scsi_qla_host_t *vha , uint16_t *mb )
   mcp->mb[0] = 257U;
   __len = 14UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mcp->mb) + 1U, (void const   *)mb, __len);
+    __ret = memcpy((void *)(& mcp->mb) + 1U, (void const   *)mb, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mcp->mb) + 1U, (void const   *)mb, __len);
   }
@@ -37495,7 +37495,7 @@ int qla25xx_set_driver_version(scsi_qla_host_t *vha , char *version )
   }
   __len = 4UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)str, (void const   *)"\a\003\021", __len);
+    __ret = memcpy((void *)str, (void const   *)"\a\003\021", __len);
   } else {
     __ret = __builtin_memcpy((void *)str, (void const   *)"\a\003\021", __len);
   }
@@ -37809,7 +37809,7 @@ int qla2x00_loopback_test(scsi_qla_host_t *vha , struct msg_echo_lb *mreq , uint
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mresp, (void const   *)(& mcp->mb), __len);
+    __ret = memcpy((void *)mresp, (void const   *)(& mcp->mb), __len);
   } else {
     __ret = __builtin_memcpy((void *)mresp, (void const   *)(& mcp->mb), __len);
   }
@@ -37876,7 +37876,7 @@ int qla2x00_echo_test(scsi_qla_host_t *vha , struct msg_echo_lb *mreq , uint16_t
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)mresp, (void const   *)(& mcp->mb), __len);
+    __ret = memcpy((void *)mresp, (void const   *)(& mcp->mb), __len);
   } else {
     __ret = __builtin_memcpy((void *)mresp, (void const   *)(& mcp->mb), __len);
   }
@@ -38074,7 +38074,7 @@ int qla81xx_get_port_config(scsi_qla_host_t *vha , uint16_t *mb )
   } else {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)mb, (void const   *)(& mcp->mb) + 1U, __len);
+      __ret = memcpy((void *)mb, (void const   *)(& mcp->mb) + 1U, __len);
     } else {
       __ret = __builtin_memcpy((void *)mb, (void const   *)(& mcp->mb) + 1U, __len);
     }
@@ -38097,7 +38097,7 @@ int qla81xx_set_port_config(scsi_qla_host_t *vha , uint16_t *mb )
   mcp->mb[0] = 290U;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mcp->mb) + 1U, (void const   *)mb, __len);
+    __ret = memcpy((void *)(& mcp->mb) + 1U, (void const   *)mb, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mcp->mb) + 1U, (void const   *)mb, __len);
   }
@@ -43885,7 +43885,7 @@ static void qla24xx_els_ct_entry(scsi_qla_host_t *vha , struct req_que *req , st
       fw_sts_ptr = (uint8_t *)(bsg_job->req)->sense + 16UL;
       __len = 12UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)fw_sts_ptr, (void const   *)(& fw_status), __len);
+        __ret = memcpy((void *)fw_sts_ptr, (void const   *)(& fw_status), __len);
       } else {
         __ret = __builtin_memcpy((void *)fw_sts_ptr, (void const   *)(& fw_status),
                                  __len);
@@ -43899,7 +43899,7 @@ static void qla24xx_els_ct_entry(scsi_qla_host_t *vha , struct req_que *req , st
       fw_sts_ptr = (uint8_t *)(bsg_job->req)->sense + 16UL;
       __len___0 = 12UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)fw_sts_ptr, (void const   *)(& fw_status), __len___0);
+        __ret___0 = memcpy((void *)fw_sts_ptr, (void const   *)(& fw_status), __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)fw_sts_ptr, (void const   *)(& fw_status),
                                      __len___0);
@@ -46074,7 +46074,7 @@ int qla2x00_ga_nxt(scsi_qla_host_t *vha , fc_port_t *fcport )
       fcport->d_id.b.al_pa = ct_rsp->rsp.ga_nxt.port_id[2];
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& fcport->node_name), (void const   *)(& ct_rsp->rsp.ga_nxt.node_name),
+        __ret = memcpy((void *)(& fcport->node_name), (void const   *)(& ct_rsp->rsp.ga_nxt.node_name),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& fcport->node_name), (void const   *)(& ct_rsp->rsp.ga_nxt.node_name),
@@ -46082,7 +46082,7 @@ int qla2x00_ga_nxt(scsi_qla_host_t *vha , fc_port_t *fcport )
       }
       __len___0 = 8UL;
       if (__len___0 > 63UL) {
-        __ret___0 = __memcpy((void *)(& fcport->port_name), (void const   *)(& ct_rsp->rsp.ga_nxt.port_name),
+        __ret___0 = memcpy((void *)(& fcport->port_name), (void const   *)(& ct_rsp->rsp.ga_nxt.port_name),
                              __len___0);
       } else {
         __ret___0 = __builtin_memcpy((void *)(& fcport->port_name), (void const   *)(& ct_rsp->rsp.ga_nxt.port_name),
@@ -46227,7 +46227,7 @@ int qla2x00_gpn_id(scsi_qla_host_t *vha , sw_info_t *list )
     } else {
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& (list + (unsigned long )i)->port_name), (void const   *)(& ct_rsp->rsp.gpn_id.port_name),
+        __ret = memcpy((void *)(& (list + (unsigned long )i)->port_name), (void const   *)(& ct_rsp->rsp.gpn_id.port_name),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& (list + (unsigned long )i)->port_name),
@@ -46297,7 +46297,7 @@ int qla2x00_gnn_id(scsi_qla_host_t *vha , sw_info_t *list )
     } else {
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& (list + (unsigned long )i)->node_name), (void const   *)(& ct_rsp->rsp.gnn_id.node_name),
+        __ret = memcpy((void *)(& (list + (unsigned long )i)->node_name), (void const   *)(& ct_rsp->rsp.gnn_id.node_name),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& (list + (unsigned long )i)->node_name),
@@ -46438,7 +46438,7 @@ int qla2x00_rnn_id(scsi_qla_host_t *vha )
   ct_req->req.rnn_id.port_id[2] = vha->d_id.b.al_pa;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ct_req->req.rnn_id.node_name), (void const   *)(& vha->node_name),
+    __ret = memcpy((void *)(& ct_req->req.rnn_id.node_name), (void const   *)(& vha->node_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ct_req->req.rnn_id.node_name), (void const   *)(& vha->node_name),
@@ -46502,7 +46502,7 @@ int qla2x00_rsnn_nn(scsi_qla_host_t *vha )
   ct_rsp = & (ha->ct_sns)->p.rsp;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ct_req->req.rsnn_nn.node_name), (void const   *)(& vha->node_name),
+    __ret = memcpy((void *)(& ct_req->req.rsnn_nn.node_name), (void const   *)(& vha->node_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ct_req->req.rsnn_nn.node_name), (void const   *)(& vha->node_name),
@@ -46581,7 +46581,7 @@ static int qla2x00_sns_ga_nxt(scsi_qla_host_t *vha , fc_port_t *fcport )
     fcport->d_id.b.al_pa = sns_cmd->p.gan_data[19];
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& fcport->node_name), (void const   *)(& sns_cmd->p.gan_data) + 284U,
+      __ret = memcpy((void *)(& fcport->node_name), (void const   *)(& sns_cmd->p.gan_data) + 284U,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& fcport->node_name), (void const   *)(& sns_cmd->p.gan_data) + 284U,
@@ -46589,7 +46589,7 @@ static int qla2x00_sns_ga_nxt(scsi_qla_host_t *vha , fc_port_t *fcport )
     }
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& fcport->port_name), (void const   *)(& sns_cmd->p.gan_data) + 20U,
+      __ret___0 = memcpy((void *)(& fcport->port_name), (void const   *)(& sns_cmd->p.gan_data) + 20U,
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& fcport->port_name), (void const   *)(& sns_cmd->p.gan_data) + 20U,
@@ -46692,7 +46692,7 @@ static int qla2x00_sns_gpn_id(scsi_qla_host_t *vha , sw_info_t *list )
   } else {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& (list + (unsigned long )i)->port_name), (void const   *)(& sns_cmd->p.gpn_data) + 16U,
+      __ret = memcpy((void *)(& (list + (unsigned long )i)->port_name), (void const   *)(& sns_cmd->p.gpn_data) + 16U,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& (list + (unsigned long )i)->port_name),
@@ -46745,7 +46745,7 @@ static int qla2x00_sns_gnn_id(scsi_qla_host_t *vha , sw_info_t *list )
   } else {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& (list + (unsigned long )i)->node_name), (void const   *)(& sns_cmd->p.gnn_data) + 16U,
+      __ret = memcpy((void *)(& (list + (unsigned long )i)->node_name), (void const   *)(& sns_cmd->p.gnn_data) + 16U,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& (list + (unsigned long )i)->node_name),
@@ -47008,7 +47008,7 @@ static int qla2x00_fdmi_rhba(scsi_qla_host_t *vha )
   ct_rsp = & (ha->ct_sns)->p.rsp;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ct_req->req.rhba.hba_identifier), (void const   *)(& vha->port_name),
+    __ret = memcpy((void *)(& ct_req->req.rhba.hba_identifier), (void const   *)(& vha->port_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ct_req->req.rhba.hba_identifier), (void const   *)(& vha->port_name),
@@ -47017,7 +47017,7 @@ static int qla2x00_fdmi_rhba(scsi_qla_host_t *vha )
   ct_req->req.rhba.entry_count = 16777216U;
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& ct_req->req.rhba.port_name), (void const   *)(& vha->port_name),
+    __ret___0 = memcpy((void *)(& ct_req->req.rhba.port_name), (void const   *)(& vha->port_name),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& ct_req->req.rhba.port_name), (void const   *)(& vha->port_name),
@@ -47031,7 +47031,7 @@ static int qla2x00_fdmi_rhba(scsi_qla_host_t *vha )
   eiter->len = 3072U;
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& eiter->a.node_name), (void const   *)(& vha->node_name),
+    __ret___1 = memcpy((void *)(& eiter->a.node_name), (void const   *)(& vha->node_name),
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& eiter->a.node_name), (void const   *)(& vha->node_name),
@@ -47164,7 +47164,7 @@ static int qla2x00_fdmi_dhba(scsi_qla_host_t *vha )
   ct_rsp = & (ha->ct_sns)->p.rsp;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ct_req->req.dhba.port_name), (void const   *)(& vha->port_name),
+    __ret = memcpy((void *)(& ct_req->req.dhba.port_name), (void const   *)(& vha->port_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ct_req->req.dhba.port_name), (void const   *)(& vha->port_name),
@@ -47218,7 +47218,7 @@ static int qla2x00_fdmi_rpa(scsi_qla_host_t *vha )
   ct_rsp = & (ha->ct_sns)->p.rsp;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ct_req->req.rpa.port_name), (void const   *)(& vha->port_name),
+    __ret = memcpy((void *)(& ct_req->req.rpa.port_name), (void const   *)(& vha->port_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ct_req->req.rpa.port_name), (void const   *)(& vha->port_name),
@@ -47421,7 +47421,7 @@ int qla2x00_gfpn_id(scsi_qla_host_t *vha , sw_info_t *list )
     } else {
       __len = 8UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& (list + (unsigned long )i)->fabric_port_name),
+        __ret = memcpy((void *)(& (list + (unsigned long )i)->fabric_port_name),
                          (void const   *)(& ct_rsp->rsp.gfpn_id.port_name), __len);
       } else {
         __ret = __builtin_memcpy((void *)(& (list + (unsigned long )i)->fabric_port_name),
@@ -47534,7 +47534,7 @@ int qla2x00_gpsc(scsi_qla_host_t *vha , sw_info_t *list )
   ct_rsp = & (ha->ct_sns)->p.rsp;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& ct_req->req.gpsc.port_name), (void const   *)(& (list + (unsigned long )i)->fabric_port_name),
+    __ret = memcpy((void *)(& ct_req->req.gpsc.port_name), (void const   *)(& (list + (unsigned long )i)->fabric_port_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& ct_req->req.gpsc.port_name), (void const   *)(& (list + (unsigned long )i)->fabric_port_name),
@@ -52674,7 +52674,7 @@ void qla2xxx_flash_npiv_conf(scsi_qla_host_t *vha )
   ldv_43780: 
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)ha->npiv_info + (unsigned long )i, (void const   *)entry,
+    __ret = memcpy((void *)ha->npiv_info + (unsigned long )i, (void const   *)entry,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)ha->npiv_info + (unsigned long )i, (void const   *)entry,
@@ -52903,7 +52903,7 @@ static int qla24xx_write_flash_data(scsi_qla_host_t *vha , uint32_t *dwptr , uin
   if ((unsigned long )optrom != (unsigned long )((void *)0) && liter + 1024U <= dwords) {
     __len = 4096UL;
     if (__len > 63UL) {
-      __ret = __memcpy(optrom, (void const   *)dwptr, __len);
+      __ret = memcpy(optrom, (void const   *)dwptr, __len);
     } else {
       __ret = __builtin_memcpy(optrom, (void const   *)dwptr, __len);
     }
@@ -55929,7 +55929,7 @@ static ssize_t qla2x00_sysfs_read_sfp(struct file *filp , struct kobject *kobj ,
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)buf, (void const   *)ha->sfp_data, __len);
+    __ret = memcpy((void *)buf, (void const   *)ha->sfp_data, __len);
   } else {
     __ret = __builtin_memcpy((void *)buf, (void const   *)ha->sfp_data, __len);
   }
@@ -62682,7 +62682,7 @@ __inline static int qla81xx_reset_loopback_mode(scsi_qla_host_t *vha , uint16_t 
     ql_dbg(8388608U, vha, 28863, "new_config[0]=%02x\n", (int )new_config[0] & 14);
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& new_config) + 1U, (void const   *)config + 1U, __len);
+      __ret = memcpy((void *)(& new_config) + 1U, (void const   *)config + 1U, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& new_config) + 1U, (void const   *)config + 1U,
                                __len);
@@ -62768,7 +62768,7 @@ __inline static int qla81xx_set_loopback_mode(scsi_qla_host_t *vha , uint16_t *c
   ql_dbg(8388608U, vha, 28862, "new_config[0]=%02x\n", (int )*new_config & 14);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)new_config + 1U, (void const   *)config + 1U, __len);
+    __ret = memcpy((void *)new_config + 1U, (void const   *)config + 1U, __len);
   } else {
     __ret = __builtin_memcpy((void *)new_config + 1U, (void const   *)config + 1U,
                              __len);
@@ -63020,7 +63020,7 @@ static int qla2x00_process_loopback(struct fc_bsg_job *bsg_job )
   fw_sts_ptr = (uint8_t *)(bsg_job->req)->sense + 16UL;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)fw_sts_ptr, (void const   *)(& response), __len);
+    __ret = memcpy((void *)fw_sts_ptr, (void const   *)(& response), __len);
   } else {
     __ret = __builtin_memcpy((void *)fw_sts_ptr, (void const   *)(& response), __len);
   }
@@ -63484,7 +63484,7 @@ static int qla24xx_iidma(struct fc_bsg_job *bsg_job )
       rsp_ptr = (uint8_t *)bsg_job->reply + 16UL;
       __len = 20UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)rsp_ptr, (void const   *)port_param, __len);
+        __ret = memcpy((void *)rsp_ptr, (void const   *)port_param, __len);
       } else {
         __ret = __builtin_memcpy((void *)rsp_ptr, (void const   *)port_param, __len);
       }
@@ -63683,7 +63683,7 @@ static int qla2x00_update_fru_versions(struct fc_bsg_job *bsg_job )
   ldv_43775: 
   __len = 36UL;
   if (__len > 63UL) {
-    __ret = __memcpy(sfp, (void const   *)(& image->field_info), __len);
+    __ret = memcpy(sfp, (void const   *)(& image->field_info), __len);
   } else {
     __ret = __builtin_memcpy(sfp, (void const   *)(& image->field_info), __len);
   }
@@ -67662,7 +67662,7 @@ static int qla82xx_write_flash_data(struct scsi_qla_host *vha , uint32_t *dwptr 
   if ((unsigned long )optrom != (unsigned long )((void *)0) && liter + 1024U <= dwords) {
     __len = 4096UL;
     if (__len > 63UL) {
-      __ret = __memcpy(optrom, (void const   *)dwptr, __len);
+      __ret = memcpy(optrom, (void const   *)dwptr, __len);
     } else {
       __ret = __builtin_memcpy(optrom, (void const   *)dwptr, __len);
     }
@@ -72127,7 +72127,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     pinfo = (struct config_info_data *)fdisc->u.fxiocb.rsp_addr;
     __len = 256UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& (vha->hw)->mr.product_name), (void const   *)(& pinfo->product_name),
+      __ret = memcpy((void *)(& (vha->hw)->mr.product_name), (void const   *)(& pinfo->product_name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& (vha->hw)->mr.product_name), (void const   *)(& pinfo->product_name),
@@ -72135,7 +72135,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     }
     __len___0 = 64UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& (vha->hw)->mr.symbolic_name), (void const   *)(& pinfo->symbolic_name),
+      __ret___0 = memcpy((void *)(& (vha->hw)->mr.symbolic_name), (void const   *)(& pinfo->symbolic_name),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& (vha->hw)->mr.symbolic_name), (void const   *)(& pinfo->symbolic_name),
@@ -72143,7 +72143,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     }
     __len___1 = 32UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& (vha->hw)->mr.serial_num), (void const   *)(& pinfo->serial_num),
+      __ret___1 = memcpy((void *)(& (vha->hw)->mr.serial_num), (void const   *)(& pinfo->serial_num),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& (vha->hw)->mr.serial_num), (void const   *)(& pinfo->serial_num),
@@ -72151,7 +72151,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     }
     __len___2 = 16UL;
     if (__len___2 > 63UL) {
-      __ret___2 = __memcpy((void *)(& (vha->hw)->mr.hw_version), (void const   *)(& pinfo->hw_version),
+      __ret___2 = memcpy((void *)(& (vha->hw)->mr.hw_version), (void const   *)(& pinfo->hw_version),
                            __len___2);
     } else {
       __ret___2 = __builtin_memcpy((void *)(& (vha->hw)->mr.hw_version), (void const   *)(& pinfo->hw_version),
@@ -72159,7 +72159,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     }
     __len___3 = 16UL;
     if (__len___3 > 63UL) {
-      __ret___3 = __memcpy((void *)(& (vha->hw)->mr.fw_version), (void const   *)(& pinfo->fw_version),
+      __ret___3 = memcpy((void *)(& (vha->hw)->mr.fw_version), (void const   *)(& pinfo->fw_version),
                            __len___3);
     } else {
       __ret___3 = __builtin_memcpy((void *)(& (vha->hw)->mr.fw_version), (void const   *)(& pinfo->fw_version),
@@ -72168,7 +72168,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     strim((char *)(& (vha->hw)->mr.fw_version));
     __len___4 = 16UL;
     if (__len___4 > 63UL) {
-      __ret___4 = __memcpy((void *)(& (vha->hw)->mr.uboot_version), (void const   *)(& pinfo->uboot_version),
+      __ret___4 = memcpy((void *)(& (vha->hw)->mr.uboot_version), (void const   *)(& pinfo->uboot_version),
                            __len___4);
     } else {
       __ret___4 = __builtin_memcpy((void *)(& (vha->hw)->mr.uboot_version), (void const   *)(& pinfo->uboot_version),
@@ -72176,7 +72176,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     }
     __len___5 = 32UL;
     if (__len___5 > 63UL) {
-      __ret___5 = __memcpy((void *)(& (vha->hw)->mr.fru_serial_num), (void const   *)(& pinfo->fru_serial_num),
+      __ret___5 = memcpy((void *)(& (vha->hw)->mr.fru_serial_num), (void const   *)(& pinfo->fru_serial_num),
                            __len___5);
     } else {
       __ret___5 = __builtin_memcpy((void *)(& (vha->hw)->mr.fru_serial_num), (void const   *)(& pinfo->fru_serial_num),
@@ -72189,7 +72189,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     pinfo___0 = (struct port_info_data *)fdisc->u.fxiocb.rsp_addr;
     __len___6 = 8UL;
     if (__len___6 > 63UL) {
-      __ret___6 = __memcpy((void *)(& vha->node_name), (void const   *)(& pinfo___0->node_name),
+      __ret___6 = memcpy((void *)(& vha->node_name), (void const   *)(& pinfo___0->node_name),
                            __len___6);
     } else {
       __ret___6 = __builtin_memcpy((void *)(& vha->node_name), (void const   *)(& pinfo___0->node_name),
@@ -72197,7 +72197,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     }
     __len___7 = 8UL;
     if (__len___7 > 63UL) {
-      __ret___7 = __memcpy((void *)(& vha->port_name), (void const   *)(& pinfo___0->port_name),
+      __ret___7 = memcpy((void *)(& vha->port_name), (void const   *)(& pinfo___0->port_name),
                            __len___7);
     } else {
       __ret___7 = __builtin_memcpy((void *)(& vha->port_name), (void const   *)(& pinfo___0->port_name),
@@ -72213,7 +72213,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     pinfo___1 = (struct qlafx00_tgt_node_info *)fdisc->u.fxiocb.rsp_addr;
     __len___8 = 8UL;
     if (__len___8 > 63UL) {
-      __ret___8 = __memcpy((void *)(& fcport->node_name), (void const   *)(& pinfo___1->tgt_node_wwnn),
+      __ret___8 = memcpy((void *)(& fcport->node_name), (void const   *)(& pinfo___1->tgt_node_wwnn),
                            __len___8);
     } else {
       __ret___8 = __builtin_memcpy((void *)(& fcport->node_name), (void const   *)(& pinfo___1->tgt_node_wwnn),
@@ -72221,7 +72221,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     }
     __len___9 = 8UL;
     if (__len___9 > 63UL) {
-      __ret___9 = __memcpy((void *)(& fcport->port_name), (void const   *)(& pinfo___1->tgt_node_wwpn),
+      __ret___9 = memcpy((void *)(& fcport->port_name), (void const   *)(& pinfo___1->tgt_node_wwpn),
                            __len___9);
     } else {
       __ret___9 = __builtin_memcpy((void *)(& fcport->port_name), (void const   *)(& pinfo___1->tgt_node_wwpn),
@@ -72235,7 +72235,7 @@ int qlafx00_fx_disc(scsi_qla_host_t *vha , fc_port_t *fcport , uint16_t fx_type 
     ql_dump_buffer(1073872896U, vha, 326, (uint8_t *)pinfo___2, 16U);
     __len___10 = 128UL;
     if (__len___10 > 63UL) {
-      __ret___10 = __memcpy((void *)(vha->hw)->gid_list, (void const   *)pinfo___2,
+      __ret___10 = memcpy((void *)(vha->hw)->gid_list, (void const   *)pinfo___2,
                             __len___10);
     } else {
       __ret___10 = __builtin_memcpy((void *)(vha->hw)->gid_list, (void const   *)pinfo___2,
@@ -72652,7 +72652,7 @@ static void qlafx00_ioctl_iosb_entry(scsi_qla_host_t *vha , struct req_que *req 
     fstatus.seq_number = pkt->seq_no;
     __len = 20UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& fstatus.reserved_3), (void const   *)(& pkt->reserved_2),
+      __ret = memcpy((void *)(& fstatus.reserved_3), (void const   *)(& pkt->reserved_2),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& fstatus.reserved_3), (void const   *)(& pkt->reserved_2),
@@ -72661,7 +72661,7 @@ static void qlafx00_ioctl_iosb_entry(scsi_qla_host_t *vha , struct req_que *req 
     fw_sts_ptr = (uint8_t *)(bsg_job->req)->sense + 16UL;
     __len___0 = 56UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)fw_sts_ptr, (void const   *)(& fstatus), __len___0);
+      __ret___0 = memcpy((void *)fw_sts_ptr, (void const   *)(& fstatus), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)fw_sts_ptr, (void const   *)(& fstatus),
                                    __len___0);
@@ -73721,7 +73721,7 @@ void qlafx00_tm_iocb(srb_t *sp , struct tsk_mgmt_entry_fx00 *ptm_iocb )
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)ptm_iocb, (void const   *)(& tm_iocb), __len);
+    __ret = memcpy((void *)ptm_iocb, (void const   *)(& tm_iocb), __len);
   } else {
     __ret = __builtin_memcpy((void *)ptm_iocb, (void const   *)(& tm_iocb), __len);
   }
@@ -73751,7 +73751,7 @@ void qlafx00_abort_iocb(srb_t *sp , struct abort_iocb_entry_fx00 *pabt_iocb )
   abt_iocb.req_que_no = req->id;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)pabt_iocb, (void const   *)(& abt_iocb), __len);
+    __ret = memcpy((void *)pabt_iocb, (void const   *)(& abt_iocb), __len);
   } else {
     __ret = __builtin_memcpy((void *)pabt_iocb, (void const   *)(& abt_iocb), __len);
   }
@@ -73975,7 +73975,7 @@ void qlafx00_fxdisc_iocb(srb_t *sp , struct fxdisc_entry_fx00 *pfxiocb )
   ql_dump_buffer(8421376U, (sp->fcport)->vha, 12359, (uint8_t *)(& fx_iocb), 64U);
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)pfxiocb, (void const   *)(& fx_iocb), __len);
+    __ret = memcpy((void *)pfxiocb, (void const   *)(& fx_iocb), __len);
   } else {
     __ret = __builtin_memcpy((void *)pfxiocb, (void const   *)(& fx_iocb), __len);
   }
@@ -79212,7 +79212,7 @@ static struct qla_tgt_sess *qlt_create_sess(struct scsi_qla_host *vha , fc_port_
   sess->conf_compl_supported = 0U;
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& sess->port_name), (void const   *)(& fcport->port_name),
+    __ret = memcpy((void *)(& sess->port_name), (void const   *)(& fcport->port_name),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& sess->port_name), (void const   *)(& fcport->port_name),
@@ -79816,7 +79816,7 @@ static int __qlt_24xx_handle_abts(struct scsi_qla_host *vha , struct abts_recv_f
   mcmd->sess = sess;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mcmd->orig_iocb.abts), (void const   *)abts, __len);
+    __ret = memcpy((void *)(& mcmd->orig_iocb.abts), (void const   *)abts, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mcmd->orig_iocb.abts), (void const   *)abts,
                              __len);
@@ -80576,7 +80576,7 @@ int qlt_xmit_response(struct qla_tgt_cmd *cmd , int xmit_type , uint8_t scsi_sta
       ql_dbg(16384U, vha, 57369, "Building additional status packet\n");
       __len = 64UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)ctio, (void const   *)pkt, __len);
+        __ret = memcpy((void *)ctio, (void const   *)pkt, __len);
       } else {
         __ret = __builtin_memcpy((void *)ctio, (void const   *)pkt, __len);
       }
@@ -81311,7 +81311,7 @@ static int qlt_handle_cmd_for_atio(struct scsi_qla_host *vha , struct atio_from_
   INIT_LIST_HEAD(& cmd->cmd_list);
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& cmd->atio), (void const   *)atio, __len);
+    __ret = memcpy((void *)(& cmd->atio), (void const   *)atio, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& cmd->atio), (void const   *)atio, __len);
   }
@@ -81357,7 +81357,7 @@ static int qlt_issue_task_mgmt(struct qla_tgt_sess *sess , uint32_t lun , int fn
   if ((unsigned long )iocb != (unsigned long )((void *)0)) {
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& mcmd->orig_iocb.imm_ntfy), (void const   *)iocb,
+      __ret = memcpy((void *)(& mcmd->orig_iocb.imm_ntfy), (void const   *)iocb,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& mcmd->orig_iocb.imm_ntfy), (void const   *)iocb,
@@ -81474,7 +81474,7 @@ static int __qlt_abort_task(struct scsi_qla_host *vha , struct imm_ntfy_from_isp
   mcmd->sess = sess;
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& mcmd->orig_iocb.imm_ntfy), (void const   *)iocb, __len);
+    __ret = memcpy((void *)(& mcmd->orig_iocb.imm_ntfy), (void const   *)iocb, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& mcmd->orig_iocb.imm_ntfy), (void const   *)iocb,
                              __len);
@@ -82022,7 +82022,7 @@ static void qlt_prepare_srr_imm(struct scsi_qla_host *vha , struct imm_ntfy_from
   if ((unsigned long )imm != (unsigned long )((struct qla_tgt_srr_imm *)0)) {
     __len = 64UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& imm->imm_ntfy), (void const   *)iocb, __len);
+      __ret = memcpy((void *)(& imm->imm_ntfy), (void const   *)iocb, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& imm->imm_ntfy), (void const   *)iocb, __len);
     }
@@ -82148,7 +82148,7 @@ static void qlt_handle_imm_notify(struct scsi_qla_host *vha , struct imm_ntfy_fr
   }
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tgt->link_reinit_iocb), (void const   *)iocb, __len);
+    __ret = memcpy((void *)(& tgt->link_reinit_iocb), (void const   *)iocb, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tgt->link_reinit_iocb), (void const   *)iocb,
                              __len);
@@ -83672,7 +83672,7 @@ void qlt_24xx_config_nvram_stage2(struct scsi_qla_host *vha , struct init_cb_24x
   if ((unsigned int )*((unsigned char *)ha + 3808UL) != 0U) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& icb->node_name), (void const   *)(& ha->tgt.tgt_node_name),
+      __ret = memcpy((void *)(& icb->node_name), (void const   *)(& ha->tgt.tgt_node_name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& icb->node_name), (void const   *)(& ha->tgt.tgt_node_name),
@@ -83774,7 +83774,7 @@ void qlt_81xx_config_nvram_stage2(struct scsi_qla_host *vha , struct init_cb_81x
   if ((unsigned int )*((unsigned char *)ha + 3808UL) != 0U) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& icb->node_name), (void const   *)(& ha->tgt.tgt_node_name),
+      __ret = memcpy((void *)(& icb->node_name), (void const   *)(& ha->tgt.tgt_node_name),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& icb->node_name), (void const   *)(& ha->tgt.tgt_node_name),

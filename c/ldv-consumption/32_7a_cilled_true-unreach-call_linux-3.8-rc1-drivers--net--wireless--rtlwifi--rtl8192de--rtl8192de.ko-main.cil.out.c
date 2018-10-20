@@ -9689,7 +9689,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 int ldv_mutex_trylock_20(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_16(struct mutex *ldv_func_arg1 ) ;
@@ -10887,7 +10887,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   boxcontent[0] = (unsigned int )boxcontent[0] & 127U;
   __len = 1UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret = memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
@@ -10910,7 +10910,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   boxcontent[0] = (unsigned int )boxcontent[0] & 127U;
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret___0 = memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
@@ -10933,7 +10933,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   boxcontent[0] = (unsigned int )boxcontent[0] & 127U;
   __len___1 = 3UL;
   if (__len___1 > 63UL) {
-    __ret___1 = __memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret___1 = memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
                          __len___1);
   } else {
     __ret___1 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
@@ -10956,7 +10956,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   boxcontent[0] = (u8 )((unsigned int )boxcontent[0] | 128U);
   __len___2 = 2UL;
   if (__len___2 > 63UL) {
-    __ret___2 = __memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret___2 = memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
                          __len___2);
   } else {
     __ret___2 = __builtin_memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
@@ -10964,7 +10964,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   }
   __len___3 = 2UL;
   if (__len___3 > 63UL) {
-    __ret___3 = __memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
+    __ret___3 = memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
                          __len___3);
   } else {
     __ret___3 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
@@ -10999,7 +10999,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   boxcontent[0] = (u8 )((unsigned int )boxcontent[0] | 128U);
   __len___4 = 2UL;
   if (__len___4 > 63UL) {
-    __ret___4 = __memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret___4 = memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
                          __len___4);
   } else {
     __ret___4 = __builtin_memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
@@ -11007,7 +11007,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   }
   __len___5 = 3UL;
   if (__len___5 > 63UL) {
-    __ret___5 = __memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
+    __ret___5 = memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
                          __len___5);
   } else {
     __ret___5 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
@@ -11461,14 +11461,14 @@ void rtl92d_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
   *((u16 *)p_pspoll + 2U) = (u16 )((unsigned int )mac->assoc_id | 49152U);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p_pspoll + 4U, (void const   *)(& mac->bssid), __len);
+    __ret = memcpy((void *)p_pspoll + 4U, (void const   *)(& mac->bssid), __len);
   } else {
     __ret = __builtin_memcpy((void *)p_pspoll + 4U, (void const   *)(& mac->bssid),
                              __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = __memcpy((void *)p_pspoll + 10U, (void const   *)(& mac->mac_addr),
+    __ret___0 = memcpy((void *)p_pspoll + 10U, (void const   *)(& mac->mac_addr),
                          __len___0);
   } else {
     __ret___0 = __builtin_memcpy((void *)p_pspoll + 10U, (void const   *)(& mac->mac_addr),
@@ -14358,7 +14358,7 @@ static void _rtl92de_read_adapter_info(struct ieee80211_hw *hw )
     spin_unlock_irqrestore(& globalmutex_for_power_and_efuse, flags);
     __len = 256UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
+      __ret = memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),

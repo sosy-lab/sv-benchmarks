@@ -4947,7 +4947,7 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -6625,7 +6625,7 @@ static int timblogiw_probe(struct platform_device *pdev )
   }
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& lw->pdata), (void const   *)pdata, __len);
+    __ret = memcpy((void *)(& lw->pdata), (void const   *)pdata, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& lw->pdata), (void const   *)pdata, __len);
   }

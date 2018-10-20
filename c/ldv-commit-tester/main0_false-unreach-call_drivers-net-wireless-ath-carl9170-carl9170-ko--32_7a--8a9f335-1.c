@@ -6082,7 +6082,7 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int bitmap_find_free_region(unsigned long * , int  , int  ) ;
 extern void bitmap_release_region(unsigned long * , int  , int  ) ;
@@ -6620,7 +6620,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
@@ -7589,7 +7589,7 @@ static int carl9170_init_interface(struct ar9170 *ar , struct ieee80211_vif *vif
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& common->macaddr), (void const   *)(& vif->addr), __len);
+    __ret = memcpy((void *)(& common->macaddr), (void const   *)(& vif->addr), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& common->macaddr), (void const   *)(& vif->addr),
                              __len);
@@ -8286,7 +8286,7 @@ static void carl9170_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee80
   if ((changed & 128U) != 0U) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
+      __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
@@ -8672,7 +8672,7 @@ static int carl9170_op_conf_tx(struct ieee80211_hw *hw , u16 queue , struct ieee
   if ((int )(ar->hw)->queues > (int )queue) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
+      __ret = memcpy((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
                        (void const   *)param, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
@@ -14061,7 +14061,7 @@ int carl9170_upload_key(struct ar9170 *ar , u8 const   id , u8 const   *mac , u8
   key.type = (unsigned short )ktype;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& key.macAddr), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& key.macAddr), (void const   *)mac, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& key.macAddr), (void const   *)mac, __len);
   }
@@ -21196,7 +21196,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
     head = (struct ar9170_rx_head *)buf;
     __len = 12UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& ar->rx_plcp), (void const   *)buf, __len);
+      __ret = memcpy((void *)(& ar->rx_plcp), (void const   *)buf, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& ar->rx_plcp), (void const   *)buf, __len);
     }
@@ -21298,7 +21298,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
   __len___0 = 40UL;
   if (__len___0 > 63UL) {
     tmp___11 = IEEE80211_SKB_RXCB(skb);
-    __ret___0 = __memcpy((void *)tmp___11, (void const   *)(& status), __len___0);
+    __ret___0 = memcpy((void *)tmp___11, (void const   *)(& status), __len___0);
   } else {
     tmp___12 = IEEE80211_SKB_RXCB(skb);
     __ret___0 = __builtin_memcpy((void *)tmp___12, (void const   *)(& status), __len___0);

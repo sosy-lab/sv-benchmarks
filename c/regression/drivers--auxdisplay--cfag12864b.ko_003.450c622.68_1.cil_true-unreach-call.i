@@ -2674,7 +2674,7 @@ __inline static void ( __attribute__((__always_inline__)) clear_bit)(int nr , vo
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern int memcmp(void const   *cs , void const   *ct , unsigned long count ) ;
 extern int param_set_uint(char const   *val , struct kernel_param *kp ) ;
@@ -3132,7 +3132,7 @@ static void cfag12864b_update(struct work_struct *work )
     }
     __len = (2 * 8) * 64;
     if (__len >= (size_t )64) {
-      __ret = __memcpy(cfag12864b_cache, cfag12864b_buffer, __len);
+      __ret = memcpy(cfag12864b_cache, cfag12864b_buffer, __len);
     } else {
       __ret = __builtin_memcpy(cfag12864b_cache, cfag12864b_buffer, __len);
     }

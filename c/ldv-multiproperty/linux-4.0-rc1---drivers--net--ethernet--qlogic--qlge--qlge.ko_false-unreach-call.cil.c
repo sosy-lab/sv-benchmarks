@@ -7654,8 +7654,8 @@ __inline static int __get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;
 __inline static int bitmap_weight(unsigned long const   *src , unsigned int nbits ) 
@@ -8832,7 +8832,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const   
 
   {
   {
-  __memcpy((void *)skb->data, from, (size_t )len);
+  memcpy((void *)skb->data, from, (size_t )len);
   }
   return;
 }
@@ -10333,7 +10333,7 @@ static int ql_set_mac_addr(struct ql_adapter *qdev , int set )
     }
   } else {
     {
-    __memset((void *)(& zero_mac_addr), 0, 6UL);
+    memset((void *)(& zero_mac_addr), 0, 6UL);
     addr = (char *)(& zero_mac_addr);
     }
     if ((qdev->msg_enable & 32U) != 0U) {
@@ -10886,12 +10886,12 @@ static int ql_get_8000_flash_params(struct ql_adapter *qdev )
   }
   if ((unsigned int )qdev->flash.flash_params_8000.data_type1 == 2U) {
     {
-    __memcpy((void *)(& mac_addr), (void const   *)(& qdev->flash.flash_params_8000.mac_addr1),
+    memcpy((void *)(& mac_addr), (void const   *)(& qdev->flash.flash_params_8000.mac_addr1),
              (size_t )(qdev->ndev)->addr_len);
     }
   } else {
     {
-    __memcpy((void *)(& mac_addr), (void const   *)(& qdev->flash.flash_params_8000.mac_addr),
+    memcpy((void *)(& mac_addr), (void const   *)(& qdev->flash.flash_params_8000.mac_addr),
              (size_t )(qdev->ndev)->addr_len);
     }
   }
@@ -10917,7 +10917,7 @@ static int ql_get_8000_flash_params(struct ql_adapter *qdev )
 
   }
   {
-  __memcpy((void *)(qdev->ndev)->dev_addr, (void const   *)(& mac_addr), (size_t )(qdev->ndev)->addr_len);
+  memcpy((void *)(qdev->ndev)->dev_addr, (void const   *)(& mac_addr), (size_t )(qdev->ndev)->addr_len);
   }
   exit: 
   {
@@ -11011,7 +11011,7 @@ static int ql_get_8012_flash_params(struct ql_adapter *qdev )
 
   }
   {
-  __memcpy((void *)(qdev->ndev)->dev_addr, (void const   *)(& qdev->flash.flash_params_8012.mac_addr),
+  memcpy((void *)(qdev->ndev)->dev_addr, (void const   *)(& qdev->flash.flash_params_8012.mac_addr),
            (size_t )(qdev->ndev)->addr_len);
   }
   exit: 
@@ -12081,7 +12081,7 @@ static void ql_process_mac_rx_page(struct ql_adapter *qdev , struct rx_ring *rx_
   }
   {
   tmp___0 = skb_put(skb, (unsigned int )hlen);
-  __memcpy((void *)tmp___0, (void const   *)addr, hlen);
+  memcpy((void *)tmp___0, (void const   *)addr, hlen);
   }
   if ((qdev->msg_enable & 2048U) != 0U) {
     {
@@ -12193,7 +12193,7 @@ static void ql_process_mac_rx_skb(struct ql_adapter *qdev , struct rx_ring *rx_r
   {
   skb_reserve(new_skb, 0);
   tmp___0 = skb_put(new_skb, length);
-  __memcpy((void *)tmp___0, (void const   *)skb->data, (size_t )length);
+  memcpy((void *)tmp___0, (void const   *)skb->data, (size_t )length);
   skb = new_skb;
   }
   if (((int )ib_mac_rsp->flags2 & 28) != 0) {
@@ -12394,7 +12394,7 @@ static struct sk_buff *ql_build_rx_skb(struct ql_adapter *qdev , struct rx_ring 
       pci_dma_sync_single_for_cpu(qdev->pdev, sbq_desc->mapaddr, (size_t )sbq_desc->maplen,
                                   2);
       tmp___0 = skb_put(skb, length);
-      __memcpy((void *)tmp___0, (void const   *)(sbq_desc->p.skb)->data, (size_t )length);
+      memcpy((void *)tmp___0, (void const   *)(sbq_desc->p.skb)->data, (size_t )length);
       pci_dma_sync_single_for_device(qdev->pdev, sbq_desc->mapaddr, (size_t )sbq_desc->maplen,
                                      2);
       }
@@ -13948,7 +13948,7 @@ static netdev_tx_t qlge_send(struct sk_buff *skb , struct net_device *ndev )
   {
   tx_ring_desc = tx_ring->q + (unsigned long )tx_ring->prod_idx;
   mac_iocb_ptr = tx_ring_desc->queue_entry;
-  __memset((void *)mac_iocb_ptr, 0, 128UL);
+  memset((void *)mac_iocb_ptr, 0, 128UL);
   mac_iocb_ptr->opcode = 1U;
   mac_iocb_ptr->tid = tx_ring_desc->index;
   mac_iocb_ptr->txq_idx = tx_ring_idx;
@@ -14370,14 +14370,14 @@ static void ql_init_lbq_ring(struct ql_adapter *qdev , struct rx_ring *rx_ring )
   {
   {
   bq = (__le64 *)rx_ring->lbq_base;
-  __memset((void *)rx_ring->lbq, 0, (unsigned long )rx_ring->lbq_len * 64UL);
+  memset((void *)rx_ring->lbq, 0, (unsigned long )rx_ring->lbq_len * 64UL);
   i = 0;
   }
   goto ldv_57111;
   ldv_57110: 
   {
   lbq_desc = rx_ring->lbq + (unsigned long )i;
-  __memset((void *)lbq_desc, 0, 64UL);
+  memset((void *)lbq_desc, 0, 64UL);
   lbq_desc->index = (u32 )i;
   lbq_desc->addr = bq;
   bq = bq + 1;
@@ -14402,14 +14402,14 @@ static void ql_init_sbq_ring(struct ql_adapter *qdev , struct rx_ring *rx_ring )
   {
   {
   bq = (__le64 *)rx_ring->sbq_base;
-  __memset((void *)rx_ring->sbq, 0, (unsigned long )rx_ring->sbq_len * 64UL);
+  memset((void *)rx_ring->sbq, 0, (unsigned long )rx_ring->sbq_len * 64UL);
   i = 0;
   }
   goto ldv_57121;
   ldv_57120: 
   {
   sbq_desc = rx_ring->sbq + (unsigned long )i;
-  __memset((void *)sbq_desc, 0, 64UL);
+  memset((void *)sbq_desc, 0, 64UL);
   sbq_desc->index = (u32 )i;
   sbq_desc->addr = bq;
   bq = bq + 1;
@@ -14759,7 +14759,7 @@ static int ql_start_rx_ring(struct ql_adapter *qdev , struct rx_ring *rx_ring )
   rx_ring->valid_db_reg = doorbell_area + 4UL;
   rx_ring->lbq_prod_idx_db_reg = doorbell_area + 24U;
   rx_ring->sbq_prod_idx_db_reg = doorbell_area + 28U;
-  __memset((void *)cqicb, 0, 52UL);
+  memset((void *)cqicb, 0, 52UL);
   cqicb->msix_vect = (u8 )rx_ring->irq;
   bq_len = rx_ring->cq_len != 65536U ? (u16 )rx_ring->cq_len : 0U;
   cqicb->len = (unsigned int )bq_len | 16U;
@@ -15428,7 +15428,7 @@ static int ql_start_rss(struct ql_adapter *qdev )
   ricb = & qdev->ricb;
   status = 0;
   hash_id = (u8 *)(& ricb->hash_cq_id);
-  __memset((void *)ricb, 0, 1084UL);
+  memset((void *)ricb, 0, 1084UL);
   ricb->base_cq = 128U;
   ricb->flags = 175U;
   ricb->mask = 1023U;
@@ -15445,8 +15445,8 @@ static int ql_start_rss(struct ql_adapter *qdev )
 
   }
   {
-  __memcpy((void *)(& ricb->ipv6_hash_key), (void const   *)(& init_hash_seed), 40UL);
-  __memcpy((void *)(& ricb->ipv4_hash_key), (void const   *)(& init_hash_seed), 16UL);
+  memcpy((void *)(& ricb->ipv6_hash_key), (void const   *)(& init_hash_seed), 40UL);
+  memcpy((void *)(& ricb->ipv4_hash_key), (void const   *)(& init_hash_seed), 16UL);
   status = ql_write_cfg(qdev, (void *)ricb, 1084, 4U, 0);
   }
   if (status != 0) {
@@ -16268,7 +16268,7 @@ static int ql_configure_rings(struct ql_adapter *qdev )
   ldv_57377: 
   {
   tx_ring = (struct tx_ring *)(& qdev->tx_ring) + (unsigned long )i;
-  __memset((void *)tx_ring, 0, 432UL);
+  memset((void *)tx_ring, 0, 432UL);
   tx_ring->qdev = qdev;
   tx_ring->wq_id = (u8 )i;
   tx_ring->wq_len = (u32 )qdev->tx_ring_size;
@@ -16287,7 +16287,7 @@ static int ql_configure_rings(struct ql_adapter *qdev )
   ldv_57380: 
   {
   rx_ring = (struct rx_ring *)(& qdev->rx_ring) + (unsigned long )i;
-  __memset((void *)rx_ring, 0, 704UL);
+  memset((void *)rx_ring, 0, 704UL);
   rx_ring->qdev = qdev;
   rx_ring->cq_id = (u16 )i;
   rx_ring->cpu = (u32 )(i % cpu_cnt);
@@ -16842,8 +16842,8 @@ static int qlge_set_mac_address(struct net_device *ndev , void *p )
 
   }
   {
-  __memcpy((void *)ndev->dev_addr, (void const   *)(& addr->sa_data), (size_t )ndev->addr_len);
-  __memcpy((void *)(& qdev->current_mac_addr), (void const   *)ndev->dev_addr, (size_t )ndev->addr_len);
+  memcpy((void *)ndev->dev_addr, (void const   *)(& addr->sa_data), (size_t )ndev->addr_len);
+  memcpy((void *)(& qdev->current_mac_addr), (void const   *)ndev->dev_addr, (size_t )ndev->addr_len);
   status = ql_sem_spinlock(qdev, 12582912U);
   }
   if (status != 0) {
@@ -17098,7 +17098,7 @@ static int ql_init_device(struct pci_dev *pdev , struct net_device *ndev , int c
   tmp = netdev_priv((struct net_device  const  *)ndev);
   qdev = (struct ql_adapter *)tmp;
   err = 0;
-  __memset((void *)qdev, 0, 21776UL);
+  memset((void *)qdev, 0, 21776UL);
   err = pci_enable_device(pdev);
   }
   if (err != 0) {
@@ -17244,7 +17244,7 @@ static int ql_init_device(struct pci_dev *pdev , struct net_device *ndev , int c
 
   }
   {
-  __memcpy((void *)(& qdev->current_mac_addr), (void const   *)ndev->dev_addr, (size_t )ndev->addr_len);
+  memcpy((void *)(& qdev->current_mac_addr), (void const   *)ndev->dev_addr, (size_t )ndev->addr_len);
   qdev->tx_ring_size = 256;
   qdev->rx_ring_size = 256;
   qdev->rx_coalesce_usecs = 100U;
@@ -21851,11 +21851,11 @@ static void ql_build_coredump_seg_header(struct mpi_coredump_segment_header *seg
 
   {
   {
-  __memset((void *)seg_hdr, 0, 32UL);
+  memset((void *)seg_hdr, 0, 32UL);
   seg_hdr->cookie = 1431677610U;
   seg_hdr->segNum = seg_number;
   seg_hdr->segSize = seg_size;
-  __memcpy((void *)(& seg_hdr->description), (void const   *)desc, 15UL);
+  memcpy((void *)(& seg_hdr->description), (void const   *)desc, 15UL);
   }
   return;
 }
@@ -21896,11 +21896,11 @@ int ql_core_dump(struct ql_adapter *qdev , struct ql_mpi_coredump *mpi_coredump 
 
   }
   {
-  __memset((void *)(& mpi_coredump->mpi_global_header), 0, 256UL);
+  memset((void *)(& mpi_coredump->mpi_global_header), 0, 256UL);
   mpi_coredump->mpi_global_header.cookie = 1431677610U;
   mpi_coredump->mpi_global_header.headerSize = 256U;
   mpi_coredump->mpi_global_header.imageSize = 176196U;
-  __memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const   *)"MPI Coredump",
+  memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const   *)"MPI Coredump",
            16UL);
   ql_build_coredump_seg_header(& mpi_coredump->nic_regs_seg_hdr, 16U, 288U, (u8 *)"NIC1 Registers");
   ql_build_coredump_seg_header(& mpi_coredump->nic2_regs_seg_hdr, 17U, 288U, (u8 *)"NIC2 Registers");
@@ -22330,11 +22330,11 @@ static void ql_gen_reg_dump(struct ql_adapter *qdev , struct ql_reg_dump *mpi_co
 
   {
   {
-  __memset((void *)(& mpi_coredump->mpi_global_header), 0, 256UL);
+  memset((void *)(& mpi_coredump->mpi_global_header), 0, 256UL);
   mpi_coredump->mpi_global_header.cookie = 1431677610U;
   mpi_coredump->mpi_global_header.headerSize = 256U;
   mpi_coredump->mpi_global_header.imageSize = 1432U;
-  __memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const   *)"MPI Coredump",
+  memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const   *)"MPI Coredump",
            16UL);
   ql_build_coredump_seg_header(& mpi_coredump->misc_nic_seg_hdr, 30U, 48U, (u8 *)"MISC NIC INFO");
   mpi_coredump->misc_nic_info.rx_ring_count = (u32 )qdev->rx_ring_count;
@@ -23476,7 +23476,7 @@ int ql_mb_about_fw(struct ql_adapter *qdev )
   {
   mbcp = & mbc;
   status = 0;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 1;
   mbcp->out_count = 3;
   mbcp->mbox_in[0] = 8U;
@@ -23513,7 +23513,7 @@ int ql_mb_get_fw_state(struct ql_adapter *qdev )
   {
   mbcp = & mbc;
   status = 0;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 1;
   mbcp->out_count = 2;
   mbcp->mbox_in[0] = 105U;
@@ -23561,7 +23561,7 @@ static int ql_mb_idc_ack(struct ql_adapter *qdev )
   {
   mbcp = & mbc;
   status = 0;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 5;
   mbcp->out_count = 1;
   mbcp->mbox_in[0] = 257U;
@@ -23601,7 +23601,7 @@ int ql_mb_set_port_cfg(struct ql_adapter *qdev )
   {
   mbcp = & mbc;
   status = 0;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 3;
   mbcp->out_count = 1;
   mbcp->mbox_in[0] = 290U;
@@ -23648,7 +23648,7 @@ static int ql_mb_dump_ram(struct ql_adapter *qdev , u64 req_dma , u32 addr , u32
   {
   status = 0;
   mbcp = & mbc;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 9;
   mbcp->out_count = 1;
   mbcp->mbox_in[0] = 12U;
@@ -23704,7 +23704,7 @@ int ql_dump_risc_ram_area(struct ql_adapter *qdev , void *buf , u32 ram_addr , i
   }
   if (status == 0) {
     {
-    __memcpy(buf, (void const   *)my_buf, (unsigned long )word_count * 4UL);
+    memcpy(buf, (void const   *)my_buf, (unsigned long )word_count * 4UL);
     }
   } else {
 
@@ -23726,7 +23726,7 @@ int ql_mb_get_port_cfg(struct ql_adapter *qdev )
   {
   mbcp = & mbc;
   status = 0;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 1;
   mbcp->out_count = 3;
   mbcp->mbox_in[0] = 291U;
@@ -23769,7 +23769,7 @@ int ql_mb_wol_mode(struct ql_adapter *qdev , u32 wol )
   {
   {
   mbcp = & mbc;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 2;
   mbcp->out_count = 1;
   mbcp->mbox_in[0] = 272U;
@@ -23807,7 +23807,7 @@ int ql_mb_wol_set_magic(struct ql_adapter *qdev , u32 enable_wol )
   {
   mbcp = & mbc;
   addr = (qdev->ndev)->dev_addr;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 8;
   mbcp->out_count = 1;
   mbcp->mbox_in[0] = 275U;
@@ -23930,7 +23930,7 @@ int ql_mb_set_led_cfg(struct ql_adapter *qdev , u32 led_config )
   {
   {
   mbcp = & mbc;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 2;
   mbcp->out_count = 1;
   mbcp->mbox_in[0] = 293U;
@@ -23966,7 +23966,7 @@ int ql_mb_get_led_cfg(struct ql_adapter *qdev )
   {
   {
   mbcp = & mbc;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 1;
   mbcp->out_count = 2;
   mbcp->mbox_in[0] = 294U;
@@ -24001,7 +24001,7 @@ int ql_mb_set_mgmnt_traffic_ctl(struct ql_adapter *qdev , u32 control )
   {
   {
   mbcp = & mbc;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->in_count = 1;
   mbcp->out_count = 2;
   mbcp->mbox_in[0] = 352U;
@@ -24051,7 +24051,7 @@ static int ql_mb_get_mgmnt_traffic_ctl(struct ql_adapter *qdev , u32 *control )
   {
   {
   mbcp = & mbc;
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   *control = 0U;
   mbcp->in_count = 1;
   mbcp->out_count = 1;
@@ -24388,7 +24388,7 @@ void ql_mpi_work(struct work_struct *work )
   goto ldv_48619;
   ldv_48618: 
   {
-  __memset((void *)mbcp, 0, 136UL);
+  memset((void *)mbcp, 0, 136UL);
   mbcp->out_count = 1;
   err = ql_mpi_handler(qdev, mbcp);
   }
@@ -25010,7 +25010,7 @@ static void ql_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
   goto switch_break;
   case_0: /* CIL Label */ 
   {
-  __memcpy((void *)buf, (void const   *)(& ql_gstrings_test), 32UL);
+  memcpy((void *)buf, (void const   *)(& ql_gstrings_test), 32UL);
   }
   goto ldv_55330;
   case_1: /* CIL Label */ 
@@ -25018,7 +25018,7 @@ static void ql_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
   goto ldv_55335;
   ldv_55334: 
   {
-  __memcpy((void *)buf + (unsigned long )(index * 32), (void const   *)(& ql_gstrings_stats[index].stat_string),
+  memcpy((void *)buf + (unsigned long )(index * 32), (void const   *)(& ql_gstrings_stats[index].stat_string),
            32UL);
   index = index + 1;
   }
@@ -25326,11 +25326,11 @@ static void ql_create_lb_frame(struct sk_buff *skb , unsigned int frame_size )
 
   {
   {
-  __memset((void *)skb->data, 255, (size_t )frame_size);
+  memset((void *)skb->data, 255, (size_t )frame_size);
   frame_size = frame_size & 4294967294U;
-  __memset((void *)skb->data + (unsigned long )(frame_size / 2U), 170, (size_t )(frame_size / 2U - 1U));
-  __memset((void *)skb->data + (unsigned long )(frame_size / 2U + 10U), 190, 1UL);
-  __memset((void *)skb->data + (unsigned long )(frame_size / 2U + 12U), 175, 1UL);
+  memset((void *)skb->data + (unsigned long )(frame_size / 2U), 170, (size_t )(frame_size / 2U - 1U));
+  memset((void *)skb->data + (unsigned long )(frame_size / 2U + 10U), 190, 1UL);
+  memset((void *)skb->data + (unsigned long )(frame_size / 2U + 12U), 175, 1UL);
   }
   return;
 }
@@ -25440,7 +25440,7 @@ static void ql_self_test(struct net_device *ndev , struct ethtool_test *eth_test
   {
   tmp = netdev_priv((struct net_device  const  *)ndev);
   qdev = (struct ql_adapter *)tmp;
-  __memset((void *)data, 0, 8UL);
+  memset((void *)data, 0, 8UL);
   tmp___1 = netif_running((struct net_device  const  *)ndev);
   }
   if ((int )tmp___1) {

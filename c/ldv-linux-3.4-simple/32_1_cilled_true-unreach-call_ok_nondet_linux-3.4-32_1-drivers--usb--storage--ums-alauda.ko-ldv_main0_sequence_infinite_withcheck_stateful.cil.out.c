@@ -4186,7 +4186,7 @@ __inline static __u32 __fswab32(__u32 val )
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern void *memmove(void *dest , void const   *src , size_t count ) ;
 void mutex_lock(struct mutex *lock ) ;
@@ -4912,7 +4912,7 @@ static void nand_store_ecc(unsigned char *data , unsigned char *ecc )
     {
     __cil_tmp5 = (void *)data;
     __cil_tmp6 = (void const   *)ecc;
-    __ret = __memcpy(__cil_tmp5, __cil_tmp6, __len);
+    __ret = memcpy(__cil_tmp5, __cil_tmp6, __len);
     }
   } else {
     {
@@ -10074,7 +10074,7 @@ static int alauda_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp32 = (unsigned long )(inquiry_response) + __cil_tmp31;
       __cil_tmp33 = (unsigned char *)__cil_tmp32;
       __cil_tmp34 = (void const   *)__cil_tmp33;
-      __ret = __memcpy(__cil_tmp30, __cil_tmp34, __len);
+      __ret = memcpy(__cil_tmp30, __cil_tmp34, __len);
       }
     } else {
       {

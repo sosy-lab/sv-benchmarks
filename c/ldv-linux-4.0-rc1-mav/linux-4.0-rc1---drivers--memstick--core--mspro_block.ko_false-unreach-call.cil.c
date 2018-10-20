@@ -4572,7 +4572,7 @@ extern void __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char 
 extern int sprintf(char * , char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern int scnprintf(char * , size_t  , char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void __ldv_linux_kernel_locking_spinlock_spin_lock(spinlock_t * ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_101(spinlock_t *ldv_func_arg1 ) ;
@@ -5408,9 +5408,9 @@ static ssize_t mspro_block_attr_show_specfile(struct device *dev , struct device
   x_attr = (struct mspro_sys_attr *)__mptr + 0xffffffffffffffc8UL;
   x_spfile = (struct mspro_specfile *)x_attr->data;
   rc = 0L;
-  __memcpy((void *)(& name), (void const   *)(& x_spfile->name), 8UL);
+  memcpy((void *)(& name), (void const   *)(& x_spfile->name), 8UL);
   name[8] = 0;
-  __memcpy((void *)(& ext), (void const   *)(& x_spfile->ext), 3UL);
+  memcpy((void *)(& ext), (void const   *)(& x_spfile->ext), 3UL);
   ext[3] = 0;
   tmp = scnprintf(buffer + (unsigned long )rc, 4096UL - (unsigned long )rc, "name: %s\n",
                   (char *)(& name));
@@ -6460,7 +6460,7 @@ static int mspro_block_read_attributes(struct memstick_dev *card )
 
   }
   {
-  __memcpy((void *)buffer, (void const   *)attr, (size_t )attr_len);
+  memcpy((void *)buffer, (void const   *)attr, (size_t )attr_len);
   cnt = 0;
   }
   goto ldv_34484;
@@ -6533,7 +6533,7 @@ static int mspro_block_read_attributes(struct memstick_dev *card )
   }
   if (addr / (unsigned int )msb->page_size == attr_offset / (unsigned int )msb->page_size && (((size_t )addr + s_attr->size) - 1UL) / (size_t )msb->page_size == (size_t )(attr_offset / (unsigned int )msb->page_size)) {
     {
-    __memcpy(s_attr->data, (void const   *)buffer + (unsigned long )(addr % (unsigned int )msb->page_size),
+    memcpy(s_attr->data, (void const   *)buffer + (unsigned long )(addr % (unsigned int )msb->page_size),
              s_attr->size);
     }
     goto ldv_34481;
@@ -6592,7 +6592,7 @@ static int mspro_block_read_attributes(struct memstick_dev *card )
 
   }
   {
-  __memcpy(s_attr->data, (void const   *)buffer + (unsigned long )(addr % (unsigned int )msb->page_size),
+  memcpy(s_attr->data, (void const   *)buffer + (unsigned long )(addr % (unsigned int )msb->page_size),
            s_attr->size);
   }
   ldv_34481: 

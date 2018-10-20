@@ -7687,7 +7687,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void __xchg_wrong_size(void) ;
 extern unsigned long msecs_to_jiffies(unsigned int const    ) ;
 __inline static ktime_t ktime_set(long const   secs , unsigned long const   nsecs ) 
@@ -7783,7 +7783,7 @@ static int pcan_usb_send_cmd(struct peak_usb_device *dev , u8 f , u8 n , u8 *p )
   if ((unsigned long )p != (unsigned long )((u8 *)0U)) {
     __len = 14UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)dev->cmd_buf + 2U, (void const   *)p, __len);
+      __ret = memcpy((void *)dev->cmd_buf + 2U, (void const   *)p, __len);
     } else {
       __ret = __builtin_memcpy((void *)dev->cmd_buf + 2U, (void const   *)p, __len);
     }
@@ -7832,7 +7832,7 @@ static int pcan_usb_wait_rsp(struct peak_usb_device *dev , u8 f , u8 n , u8 *p )
   if ((unsigned long )p != (unsigned long )((u8 *)0U)) {
     __len = 14UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)p, (void const   *)dev->cmd_buf + 2U, __len);
+      __ret = memcpy((void *)p, (void const   *)dev->cmd_buf + 2U, __len);
     } else {
       __ret = __builtin_memcpy((void *)p, (void const   *)dev->cmd_buf + 2U, __len);
     }
@@ -8073,7 +8073,7 @@ static int pcan_usb_get_serial(struct peak_usb_device *dev , u32 *serial_number 
   if ((unsigned long )serial_number != (unsigned long )((u32 *)0U)) {
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tmp32), (void const   *)(& args), __len);
+      __ret = memcpy((void *)(& tmp32), (void const   *)(& args), __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tmp32), (void const   *)(& args), __len);
     }
@@ -8117,7 +8117,7 @@ static int pcan_usb_update_ts(struct pcan_usb_msg_context *mc )
   }
   __len = 2UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
+    __ret = memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
   }
@@ -8147,7 +8147,7 @@ static int pcan_usb_decode_ts(struct pcan_usb_msg_context *mc , u8 first_packet 
     }
     __len = 2UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
+      __ret = memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
     }
@@ -8434,7 +8434,7 @@ static int pcan_usb_decode_data(struct pcan_usb_msg_context *mc , u8 status_len 
     }
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& tmp32), (void const   *)mc->ptr, __len);
+      __ret = memcpy((void *)(& tmp32), (void const   *)mc->ptr, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& tmp32), (void const   *)mc->ptr, __len);
     }
@@ -8448,7 +8448,7 @@ static int pcan_usb_decode_data(struct pcan_usb_msg_context *mc , u8 status_len 
     }
     __len___0 = 2UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len___0);
+      __ret___0 = memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len___0);
     }
@@ -8585,7 +8585,7 @@ static int pcan_usb_encode_msg(struct peak_usb_device *dev , struct sk_buff *skb
     __len = 4UL;
     if (__len > 63UL) {
       pc = pc + 1;
-      __ret = __memcpy((void *)pc, (void const   *)(& tmp32), __len);
+      __ret = memcpy((void *)pc, (void const   *)(& tmp32), __len);
     } else {
       pc = pc + 1;
       __ret = __builtin_memcpy((void *)pc, (void const   *)(& tmp32), __len);
@@ -8596,7 +8596,7 @@ static int pcan_usb_encode_msg(struct peak_usb_device *dev , struct sk_buff *skb
     __len___0 = 2UL;
     if (__len___0 > 63UL) {
       pc = pc + 1;
-      __ret___0 = __memcpy((void *)pc, (void const   *)(& tmp16), __len___0);
+      __ret___0 = memcpy((void *)pc, (void const   *)(& tmp16), __len___0);
     } else {
       pc = pc + 1;
       __ret___0 = __builtin_memcpy((void *)pc, (void const   *)(& tmp16), __len___0);

@@ -513,7 +513,7 @@ __inline static int get_order(unsigned long size )
   return (order);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int debug_locks ;
 extern void lockdep_rcu_dereference(char const   * , int const    ) ;
@@ -1226,7 +1226,7 @@ static void cfag12864b_update(struct work_struct *work )
     }
     __len = 1024UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
+      __ret = memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,

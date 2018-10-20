@@ -4659,8 +4659,8 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern void __bad_percpu_size(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;
 __inline static int bitmap_weight(unsigned long const   *src , unsigned int nbits ) 
@@ -4785,7 +4785,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   {
-  __memcpy(dst, (void const   *)src, count);
+  memcpy(dst, (void const   *)src, count);
   }
   return;
 }
@@ -4796,7 +4796,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   {
-  __memcpy((void *)dst, src, count);
+  memcpy((void *)dst, src, count);
   }
   return;
 }
@@ -6001,7 +6001,7 @@ int fb_prepare_logo(struct fb_info *info , int rotate )
   {
   tmp = fb_get_color_depth(& info->var, & info->fix);
   depth = tmp;
-  __memset((void *)(& fb_logo), 0, 24UL);
+  memset((void *)(& fb_logo), 0, 24UL);
   }
   if (((unsigned int )*((int *)info + 2UL) & 131073U) != 0U) {
     return (0);
@@ -6523,8 +6523,8 @@ static int fb_check_caps(struct fb_info *info , struct fb_var_screeninfo *var , 
   {
   {
   err = 0;
-  __memset((void *)(& caps), 0, 16UL);
-  __memset((void *)(& fbcaps), 0, 16UL);
+  memset((void *)(& caps), 0, 16UL);
+  memset((void *)(& fbcaps), 0, 16UL);
   caps.flags = (activate___0 & 64U) != 0U;
   event.info = info;
   event.data = (void *)(& caps);
@@ -11693,7 +11693,7 @@ static void ldv_ldv_initialize_128(void)
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 extern void __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
 extern unsigned long int_sqrt(unsigned long  ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern struct edid_info edid_info ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
@@ -11977,7 +11977,7 @@ static void fix_edid(unsigned char *edid , int fix )
   case_1: /* CIL Label */ 
   {
   printk("fbmon: trying a header reconstruct\n");
-  __memcpy((void *)edid, (void const   *)(& edid_v1_header), 8UL);
+  memcpy((void *)edid, (void const   *)(& edid_v1_header), 8UL);
   }
   goto ldv_35012;
   case_2: /* CIL Label */ 
@@ -12734,7 +12734,7 @@ static struct fb_videomode *fb_create_modedb(unsigned char *edid , int *dbsize ,
 
   }
   {
-  __memmove((void *)m, (void const   *)mode, (unsigned long )num * 64UL);
+  memmove((void *)m, (void const   *)mode, (unsigned long )num * 64UL);
   kfree((void const   *)mode);
   }
   return (m);
@@ -13138,7 +13138,7 @@ void fb_edid_to_monspecs(unsigned char *edid , struct fb_monspecs *specs )
 
   }
   {
-  __memset((void *)specs, 0, 144UL);
+  memset((void *)specs, 0, 144UL);
   specs->version = *(edid + 18UL);
   specs->revision = *(edid + 19UL);
   parse_vendor_block(edid + 8UL, specs);
@@ -13367,7 +13367,7 @@ void fb_edid_add_monspecs(unsigned char *edid , struct fb_monspecs *specs )
 
   }
   {
-  __memcpy((void *)m, (void const   *)specs->modedb, (unsigned long )specs->modedb_len * 64UL);
+  memcpy((void *)m, (void const   *)specs->modedb, (unsigned long )specs->modedb_len * 64UL);
   i = (int )specs->modedb_len;
   }
   goto ldv_35217;
@@ -13419,7 +13419,7 @@ void fb_edid_add_monspecs(unsigned char *edid , struct fb_monspecs *specs )
     }
   } else {
     {
-    __memcpy((void *)m + (unsigned long )i, (void const   *)(& cea_modes) + (unsigned long )idx___0,
+    memcpy((void *)m + (unsigned long )i, (void const   *)(& cea_modes) + (unsigned long )idx___0,
              64UL);
     descriptor___2.modname = "fb";
     descriptor___2.function = "fb_edid_add_monspecs";
@@ -14112,16 +14112,16 @@ int fb_copy_cmap(struct fb_cmap  const  *from , struct fb_cmap *to )
   }
   {
   size = (int )((unsigned int )size * 2U);
-  __memcpy((void *)to->red + (unsigned long )tooff, (void const   *)from->red + (unsigned long )fromoff,
+  memcpy((void *)to->red + (unsigned long )tooff, (void const   *)from->red + (unsigned long )fromoff,
            (size_t )size);
-  __memcpy((void *)to->green + (unsigned long )tooff, (void const   *)from->green + (unsigned long )fromoff,
+  memcpy((void *)to->green + (unsigned long )tooff, (void const   *)from->green + (unsigned long )fromoff,
            (size_t )size);
-  __memcpy((void *)to->blue + (unsigned long )tooff, (void const   *)from->blue + (unsigned long )fromoff,
+  memcpy((void *)to->blue + (unsigned long )tooff, (void const   *)from->blue + (unsigned long )fromoff,
            (size_t )size);
   }
   if ((unsigned long )from->transp != (unsigned long )((__u16 */* const  */)0U) && (unsigned long )to->transp != (unsigned long )((__u16 *)0U)) {
     {
-    __memcpy((void *)to->transp + (unsigned long )tooff, (void const   *)from->transp + (unsigned long )fromoff,
+    memcpy((void *)to->transp + (unsigned long )tooff, (void const   *)from->transp + (unsigned long )fromoff,
              (size_t )size);
     }
   } else {
@@ -14316,7 +14316,7 @@ int fb_set_user_cmap(struct fb_cmap_user *cmap , struct fb_info *info )
 
   }
   {
-  __memset((void *)(& umap), 0, 40UL);
+  memset((void *)(& umap), 0, 40UL);
   rc = fb_alloc_cmap_gfp(& umap, (int )cmap->len, (unsigned long )cmap->transp != (unsigned long )((__u16 *)0U),
                          208U);
   }
@@ -14755,7 +14755,7 @@ static ssize_t store_mode(struct device *device , struct device_attribute *attr 
   {
   tmp = dev_get_drvdata((struct device  const  *)device);
   fb_info = (struct fb_info *)tmp;
-  __memset((void *)(& var), 0, 160UL);
+  memset((void *)(& var), 0, 160UL);
   pos = fb_info->modelist.next;
   }
   goto ldv_32607;
@@ -16653,7 +16653,7 @@ int fb_find_mode(struct fb_var_screeninfo *var , struct fb_info *info , char con
     done: ;
     if (cvt != 0) {
       {
-      __memset((void *)(& cvt_mode), 0, 64UL);
+      memset((void *)(& cvt_mode), 0, 64UL);
       cvt_mode.xres = xres;
       cvt_mode.yres = yres;
       cvt_mode.refresh = refresh != 0U ? refresh : 60U;
@@ -17286,7 +17286,7 @@ struct fb_videomode  const  *fb_find_best_display(struct fb_monspecs  const  *sp
   }
   if ((unsigned int )((unsigned char )specs->max_x) != 0U && (unsigned int )((unsigned char )specs->max_y) != 0U) {
     {
-    __memset((void *)(& var), 0, 160UL);
+    memset((void *)(& var), 0, 160UL);
     var.xres = (__u32 )(((int )specs->max_x * 7200) / 254);
     var.yres = (__u32 )(((int )specs->max_y * 7200) / 254);
     m = fb_find_best_mode((struct fb_var_screeninfo  const  *)(& var), head);
@@ -17685,7 +17685,7 @@ int fb_find_mode_cvt(struct fb_videomode *mode , int margins , int rb )
 
   {
   {
-  __memset((void *)(& cvt), 0, 92UL);
+  memset((void *)(& cvt), 0, 92UL);
   }
   if (margins != 0) {
     cvt.flags = cvt.flags | 2U;

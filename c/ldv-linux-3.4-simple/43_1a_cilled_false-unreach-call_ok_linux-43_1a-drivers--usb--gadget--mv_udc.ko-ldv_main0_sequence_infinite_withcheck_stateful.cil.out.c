@@ -2432,7 +2432,7 @@ __inline static int list_empty(struct list_head    *head )
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *__memcpy(void * , void    * , size_t  ) ;
+extern void *memcpy(void * , void    * , size_t  ) ;
 extern char *strncpy(char * , char    * , __kernel_size_t  ) ;
 extern void warn_slowpath_null(char    * , int     ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -11570,7 +11570,7 @@ static void get_setup_data(struct mv_udc *udc , u8 ep_num , u8 *buffer_ptr )
     __cil_tmp38 = __cil_tmp37 + 40;
     __cil_tmp39 = (u8 (*)[8U])__cil_tmp38;
     __cil_tmp40 = (void    *)__cil_tmp39;
-    __ret = __memcpy(__cil_tmp36, __cil_tmp40, __len);
+    __ret = memcpy(__cil_tmp36, __cil_tmp40, __len);
     }
   } else {
     {

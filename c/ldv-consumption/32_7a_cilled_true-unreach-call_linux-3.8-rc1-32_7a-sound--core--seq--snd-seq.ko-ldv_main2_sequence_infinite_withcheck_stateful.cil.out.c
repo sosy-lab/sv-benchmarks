@@ -3519,7 +3519,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void __bad_percpu_size(void) ;
 extern void *memdup_user(void const   * , size_t  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -5169,7 +5169,7 @@ static void get_client_info(struct snd_seq_client *cptr , struct snd_seq_client_
   info->event_lost = cptr->event_lost;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& info->event_filter), (void const   *)(& cptr->event_filter),
+    __ret = memcpy((void *)(& info->event_filter), (void const   *)(& cptr->event_filter),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& info->event_filter), (void const   *)(& cptr->event_filter),
@@ -5244,7 +5244,7 @@ static int snd_seq_ioctl_set_client_info(struct snd_seq_client *client , void *a
   client->event_lost = client_info.event_lost;
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& client->event_filter), (void const   *)(& client_info.event_filter),
+    __ret = memcpy((void *)(& client->event_filter), (void const   *)(& client_info.event_filter),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& client->event_filter), (void const   *)(& client_info.event_filter),

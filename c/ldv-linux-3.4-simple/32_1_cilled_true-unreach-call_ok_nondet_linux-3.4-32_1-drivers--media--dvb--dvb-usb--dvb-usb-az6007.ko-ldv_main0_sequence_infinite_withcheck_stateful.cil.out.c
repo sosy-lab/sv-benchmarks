@@ -5998,7 +5998,7 @@ struct az6007_device_state {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern void __mutex_init(struct mutex *lock , char const   *name , struct lock_class_key *key ) ;
 void mutex_lock(struct mutex *lock ) ;
@@ -7966,7 +7966,7 @@ static int az6007_read_mac_addr(struct dvb_usb_device *d , u8 *mac )
     __cil_tmp22 = __cil_tmp21 + __cil_tmp20;
     __cil_tmp23 = (unsigned char *)__cil_tmp22;
     __cil_tmp24 = (void const   *)__cil_tmp23;
-    __ret = __memcpy(__cil_tmp18, __cil_tmp24, __len);
+    __ret = memcpy(__cil_tmp18, __cil_tmp24, __len);
     }
   } else {
     {

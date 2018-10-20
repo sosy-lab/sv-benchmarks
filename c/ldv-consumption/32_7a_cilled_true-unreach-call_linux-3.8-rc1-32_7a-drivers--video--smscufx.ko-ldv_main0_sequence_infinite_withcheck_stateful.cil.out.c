@@ -3801,7 +3801,7 @@ __inline static int list_empty(struct list_head  const  *head )
   return ((unsigned long )((struct list_head  const  *)head->next) == (unsigned long )head);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
@@ -6600,7 +6600,7 @@ static int ufx_setup_modes(struct ufx_data *dev , struct fb_info *info , char *d
     ufx_var_color_format(& info->var);
     __len___0 = 80UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& info->fix), (void const   *)(& ufx_fix), __len___0);
+      __ret___0 = memcpy((void *)(& info->fix), (void const   *)(& ufx_fix), __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& info->fix), (void const   *)(& ufx_fix),
                                    __len___0);

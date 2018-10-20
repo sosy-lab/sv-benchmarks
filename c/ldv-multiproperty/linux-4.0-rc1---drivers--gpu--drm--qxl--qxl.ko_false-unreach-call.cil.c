@@ -11645,8 +11645,8 @@ void ldv_linux_kernel_locking_mutex_mutex_lock_base_of_ww_mutex(struct mutex *lo
 int ldv_linux_kernel_locking_mutex_mutex_trylock_base_of_ww_mutex(struct mutex *lock ) ;
 void ldv_linux_kernel_locking_mutex_mutex_lock_struct_mutex_of_drm_device(struct mutex *lock ) ;
 void ldv_linux_kernel_locking_mutex_mutex_unlock_struct_mutex_of_drm_device(struct mutex *lock ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern void __cmpxchg_wrong_size(void) ;
 __inline static int atomic_read(atomic_t const   *v ) 
@@ -12740,7 +12740,7 @@ static int qxl_crtc_cursor_set2(struct drm_crtc *crtc , struct drm_file *file_pr
   cursor->chunk.next_chunk = 0ULL;
   cursor->chunk.prev_chunk = 0ULL;
   cursor->chunk.data_size = (uint32_t )size;
-  __memcpy((void *)(& cursor->chunk.data), (void const   *)user_ptr, (size_t )size);
+  memcpy((void *)(& cursor->chunk.data), (void const   *)user_ptr, (size_t )size);
   qxl_bo_kunmap(cursor_bo);
   qxl_bo_kunmap(user_bo);
   tmp___0 = qxl_release_map(qdev, release);
@@ -13860,7 +13860,7 @@ int qxl_create_monitors_object(struct qxl_device *qdev )
   qdev->monitors_config = (struct qxl_monitors_config *)(qdev->monitors_config_bo)->kptr;
   (qdev->ram_header)->monitors_config = qxl_bo_physical_address(qdev, qdev->monitors_config_bo,
                                                                 0UL);
-  __memset((void *)qdev->monitors_config, 0, (size_t )monitors_config_size);
+  memset((void *)qdev->monitors_config, 0, (size_t )monitors_config_size);
   (qdev->monitors_config)->max_allowed = (uint16_t )max_allowed;
   }
   return (0);
@@ -16309,7 +16309,7 @@ static void qxl_fb_image_init(struct qxl_fb_image *qxl_fb_image , struct qxl_dev
     qxl_fb_image->visual = info->fix.visual;
     if (qxl_fb_image->visual == 2U || qxl_fb_image->visual == 4U) {
       {
-      __memcpy((void *)(& qxl_fb_image->pseudo_palette), (void const   *)info->pseudo_palette,
+      memcpy((void *)(& qxl_fb_image->pseudo_palette), (void const   *)info->pseudo_palette,
                64UL);
       }
     } else {
@@ -16323,7 +16323,7 @@ static void qxl_fb_image_init(struct qxl_fb_image *qxl_fb_image , struct qxl_dev
   }
   if ((unsigned long )image != (unsigned long )((struct fb_image  const  *)0)) {
     {
-    __memcpy((void *)(& qxl_fb_image->fb_image), (void const   *)image, 80UL);
+    memcpy((void *)(& qxl_fb_image->fb_image), (void const   *)image, 80UL);
     }
   } else {
 
@@ -16519,7 +16519,7 @@ static void qxl_fb_delayed_imageblit(struct qxl_fbdev *qfbdev , struct fb_image 
   op->op.ib = *fb_image;
   op->img_data = (void *)op + 1U;
   op->op_type = 3;
-  __memcpy(op->img_data, (void const   *)fb_image->data, (size_t )size);
+  memcpy(op->img_data, (void const   *)fb_image->data, (size_t )size);
   op->op.ib.data = (char const   *)op->img_data;
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_116(& qfbdev->delayed_ops_lock);
   list_add_tail(& op->head, & qfbdev->delayed_ops);
@@ -19914,7 +19914,7 @@ int qxl_ring_push(struct qxl_ring *ring , void const   *new_elt , bool interrupt
   {
   idx = (int )(header->prod & (uint32_t )(ring->n_elements + -1));
   elt = (uint8_t *)(& (ring->ring)->elements) + (unsigned long )(idx * ring->element_size);
-  __memcpy((void *)elt, new_elt, (size_t )ring->element_size);
+  memcpy((void *)elt, new_elt, (size_t )ring->element_size);
   header->prod = header->prod + 1U;
   __asm__  volatile   ("mfence": : : "memory");
   }
@@ -19955,7 +19955,7 @@ static bool qxl_ring_pop(struct qxl_ring *ring , void *element )
   {
   idx = (int )((unsigned int )header->cons & (unsigned int )(ring->n_elements + -1));
   ring_elt = (uint8_t volatile   *)(& (ring->ring)->elements) + (unsigned long )(idx * ring->element_size);
-  __memcpy(element, (void const   *)ring_elt, (size_t )ring->element_size);
+  memcpy(element, (void const   *)ring_elt, (size_t )ring->element_size);
   header->cons = header->cons + (uint32_t volatile   )1;
   ldv_spin_unlock_irqrestore_113___1(& ring->lock, flags);
   }
@@ -21462,7 +21462,7 @@ static int qxl_image_init_helper(struct qxl_device *qdev , struct qxl_release *r
     _min1 = size;
     _min2 = remain;
     size = _min1 < _min2 ? _min1 : _min2;
-    __memcpy(k_data, (void const   *)i_data, (size_t )size);
+    memcpy(k_data, (void const   *)i_data, (size_t )size);
     qxl_bo_kunmap_atomic_page(qdev, chunk_bo, ptr);
     i_data = i_data + (unsigned long )size;
     remain = remain - size;
@@ -21492,7 +21492,7 @@ static int qxl_image_init_helper(struct qxl_device *qdev , struct qxl_release *r
     size = _min1___0 < _min2___0 ? _min1___0 : _min2___0;
     ptr = qxl_bo_kmap_atomic_page(qdev, chunk_bo, (int )page_base);
     k_data = ptr + (unsigned long )page_offset___0;
-    __memcpy(k_data, (void const   *)i_data, (size_t )size);
+    memcpy(k_data, (void const   *)i_data, (size_t )size);
     qxl_bo_kunmap_atomic_page(qdev, chunk_bo, ptr);
     remain = remain - size;
     i_data = i_data + (unsigned long )size;

@@ -25035,7 +25035,7 @@ void ldv_mutex_unlock_208(struct mutex *ldv_func_arg1 )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_241(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_239(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_242(struct mutex *ldv_func_arg1 ) ;
@@ -25800,7 +25800,7 @@ void b43legacy_rx(struct b43legacy_wldev *dev , struct sk_buff *skb , void const
       } else {
 
       }
-      __memmove((void *)skb->data + (unsigned long )iv_len, (void const   *)skb->data,
+      memmove((void *)skb->data + (unsigned long )iv_len, (void const   *)skb->data,
                 (size_t )wlhdr_len);
       skb_pull(skb, (unsigned int )iv_len);
       skb_trim(skb, skb->len - (unsigned int )icv_len);

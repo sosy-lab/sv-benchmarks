@@ -3870,7 +3870,7 @@ __inline static __u32 __fswab32(__u32 val )
 }
 }
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 void mutex_lock(struct mutex *lock ) ;
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
@@ -7883,7 +7883,7 @@ static int usbat_flash_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp30 = (unsigned long )(inquiry_response) + __cil_tmp29;
       __cil_tmp31 = (unsigned char *)__cil_tmp30;
       __cil_tmp32 = (void const   *)__cil_tmp31;
-      __ret = __memcpy(__cil_tmp28, __cil_tmp32, __len);
+      __ret = memcpy(__cil_tmp28, __cil_tmp32, __len);
       }
     } else {
       {

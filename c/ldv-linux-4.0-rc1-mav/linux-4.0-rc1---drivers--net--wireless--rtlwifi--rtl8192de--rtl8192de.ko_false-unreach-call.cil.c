@@ -12405,8 +12405,8 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_121___0(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_124(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_126(spinlock_t *ldv_func_arg1 ) ;
@@ -13929,8 +13929,8 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
 
   }
   {
-  __memset((void *)(& boxcontent), 0, 4UL);
-  __memset((void *)(& boxextcontent), 0, 2UL);
+  memset((void *)(& boxcontent), 0, 4UL);
+  memset((void *)(& boxextcontent), 0, 2UL);
   boxcontent[0] = element_id;
   tmp___37 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                               0L);
@@ -13983,7 +13983,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   case_1___0: /* CIL Label */ 
   {
   boxcontent[0] = (unsigned int )boxcontent[0] & 127U;
-  __memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
+  memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
            1UL);
   idx = 0U;
   }
@@ -14004,7 +14004,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   case_2___0: /* CIL Label */ 
   {
   boxcontent[0] = (unsigned int )boxcontent[0] & 127U;
-  __memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
+  memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
            2UL);
   idx = 0U;
   }
@@ -14025,7 +14025,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   case_3___0: /* CIL Label */ 
   {
   boxcontent[0] = (unsigned int )boxcontent[0] & 127U;
-  __memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
+  memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
            3UL);
   idx = 0U;
   }
@@ -14046,9 +14046,9 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   case_4: /* CIL Label */ 
   {
   boxcontent[0] = (u8 )((unsigned int )boxcontent[0] | 128U);
-  __memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
+  memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
            2UL);
-  __memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
+  memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
            2UL);
   idx = 0U;
   }
@@ -14082,9 +14082,9 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   case_5: /* CIL Label */ 
   {
   boxcontent[0] = (u8 )((unsigned int )boxcontent[0] | 128U);
-  __memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
+  memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
            2UL);
-  __memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
+  memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
            3UL);
   idx = 0U;
   }
@@ -14210,8 +14210,8 @@ void rtl92d_fill_h2c_cmd(struct ieee80211_hw *hw , u8 element_id , u32 cmd_len ,
 
   {
   {
-  __memset((void *)(& tmp_cmdbuf), 0, 8UL);
-  __memcpy((void *)(& tmp_cmdbuf), (void const   *)cmdbuffer, (size_t )cmd_len);
+  memset((void *)(& tmp_cmdbuf), 0, 8UL);
+  memcpy((void *)(& tmp_cmdbuf), (void const   *)cmdbuffer, (size_t )cmd_len);
   _rtl92d_fill_h2c_command(hw, (int )element_id, cmd_len, (u8 *)(& tmp_cmdbuf));
   }
   return;
@@ -14640,7 +14640,7 @@ void rtl92d_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
   } else {
     {
     tmp___10 = skb_put(skb, totalpacketlen);
-    __memcpy((void *)tmp___10, (void const   *)(& reserved_page_packet), (size_t )totalpacketlen);
+    memcpy((void *)tmp___10, (void const   *)(& reserved_page_packet), (size_t )totalpacketlen);
     rtstatus = _rtl92d_cmd_send_packet(hw, skb);
     }
     if ((int )rtstatus) {
@@ -17659,7 +17659,7 @@ static void _rtl92de_readpowervalue_fromprom(struct txpower_info *pwrinfo , u8 *
 
   {
   {
-  __memset((void *)pwrinfo, 0, 174UL);
+  memset((void *)pwrinfo, 0, 174UL);
   }
   if ((int )autoLoadfail) {
     group = 0U;
@@ -18423,7 +18423,7 @@ static void _rtl92de_read_adapter_info(struct ieee80211_hw *hw )
     rtl_efuse_shadow_map_update(hw);
     _rtl92de_efuse_update_chip_version(hw);
     ldv_spin_unlock_irqrestore_124(& globalmutex_for_power_and_efuse, flags);
-    __memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map), 256UL);
+    memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map), 256UL);
     }
   } else
   if ((int )rtlefuse->epromtype == 0) {
@@ -19613,7 +19613,7 @@ void rtl92de_set_key(struct ieee80211_hw *hw , u32 key_index , u8 *p_macaddr , b
     }
     if ((unsigned int )idx <= 4U) {
       {
-      __memset((void *)(& rtlpriv->sec.key_buf) + (unsigned long )idx, 0, 61UL);
+      memset((void *)(& rtlpriv->sec.key_buf) + (unsigned long )idx, 0, 61UL);
       rtlpriv->sec.key_len[(int )idx] = 0U;
       }
     } else {
@@ -27344,7 +27344,7 @@ static void _rtl92d_phy_lc_calibrate_sw(struct ieee80211_hw *hw , bool is2t )
     }
   }
   {
-  __memset((void *)(& curvecount_val), 0, 128UL);
+  memset((void *)(& curvecount_val), 0, 128UL);
   rtl_set_rfreg(hw, (enum radio_path )index, 24U, 32768U, 0U);
   tmp___4 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[17] & 4UL) != 0UL,
                              0L);
@@ -36966,7 +36966,7 @@ static void _rtl92de_insert_emcontent(struct rtl_tcb_desc *ptcb_desc , u8 *virtu
 
   {
   {
-  __memset((void *)virtualaddress, 0, 8UL);
+  memset((void *)virtualaddress, 0, 8UL);
   *((__le32 *)virtualaddress) = (*((__le32 *)virtualaddress) & 4294967288U) | ((__le32 )ptcb_desc->empkt_num & 7U);
   *((__le32 *)virtualaddress) = (*((__le32 *)virtualaddress) & 4294901775U) | ((ptcb_desc->empkt_len[0] << 4) & 65535U);
   *((__le32 *)virtualaddress) = (*((__le32 *)virtualaddress) & 4026597375U) | ((ptcb_desc->empkt_len[1] & 4095U) << 16);
@@ -37061,7 +37061,7 @@ void rtl92de_tx_fill_desc(struct ieee80211_hw *hw , struct ieee80211_hdr *hdr , 
   if ((int )rtlhal->earlymode_enable) {
     {
     skb_push(skb, 8U);
-    __memset((void *)skb->data, 0, 8UL);
+    memset((void *)skb->data, 0, 8UL);
     }
   } else {
 
@@ -37100,7 +37100,7 @@ void rtl92de_tx_fill_desc(struct ieee80211_hw *hw , struct ieee80211_hdr *hdr , 
   {
   __min1 = 64UL;
   __min2 = 40UL;
-  __memset((void *)pdesc, 0, __min1 < __min2 ? __min1 : __min2);
+  memset((void *)pdesc, 0, __min1 < __min2 ? __min1 : __min2);
   tmp___5 = ieee80211_is_nullfunc((int )fc);
   }
   if (tmp___5 != 0) {
@@ -37428,7 +37428,7 @@ void rtl92de_tx_fill_cmddesc(struct ieee80211_hw *hw , u8 *pdesc , bool firstseg
   {
   __min1 = 64UL;
   __min2 = 40UL;
-  __memset((void *)pdesc, 0, __min1 < __min2 ? __min1 : __min2);
+  memset((void *)pdesc, 0, __min1 < __min2 ? __min1 : __min2);
   }
   if ((int )firstseg) {
     *((__le32 *)pdesc) = (*((__le32 *)pdesc) & 4278255615U) | 2097152U;

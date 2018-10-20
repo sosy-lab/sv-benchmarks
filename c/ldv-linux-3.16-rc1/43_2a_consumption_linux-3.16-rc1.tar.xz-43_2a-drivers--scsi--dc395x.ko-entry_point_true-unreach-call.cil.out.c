@@ -4506,7 +4506,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
@@ -7517,7 +7517,7 @@ static void msgin_set_sync(struct AdapterCtlBlk *acb , struct ScsiReqBlk *srb )
            (int )srb->msgin_buf[4]);
     __len = 5UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
+      __ret = memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
@@ -7581,7 +7581,7 @@ static void msgin_set_wide(struct AdapterCtlBlk *acb , struct ScsiReqBlk *srb )
     printk("\017dc395x: msgin_set_wide: Wide nego initiated <%02i>\n", (int )dcb->target_id);
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
+      __ret = memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),

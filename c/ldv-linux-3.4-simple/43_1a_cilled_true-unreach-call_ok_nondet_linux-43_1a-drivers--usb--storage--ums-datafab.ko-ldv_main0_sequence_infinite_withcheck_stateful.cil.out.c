@@ -3807,7 +3807,7 @@ __inline static __u32 __fswab32(__u32 val )
 }
 }
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
@@ -4578,7 +4578,7 @@ static int datafab_determine_lun(struct us_data *us , struct datafab_info *info 
     {
     __cil_tmp33 = (void *)command;
     __cil_tmp34 = (void const   *)(& scommand);
-    __ret = __memcpy(__cil_tmp33, __cil_tmp34, __len);
+    __ret = memcpy(__cil_tmp33, __cil_tmp34, __len);
     }
   } else {
     {
@@ -4805,7 +4805,7 @@ static int datafab_id_device(struct us_data *us , struct datafab_info *info )
     {
     __cil_tmp35 = (void *)command;
     __cil_tmp36 = (void const   *)(& scommand);
-    __ret = __memcpy(__cil_tmp35, __cil_tmp36, __len);
+    __ret = memcpy(__cil_tmp35, __cil_tmp36, __len);
     }
   } else {
     {
@@ -5348,7 +5348,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp147 = (void *)ptr;
         __cil_tmp148 = __cil_tmp147 + __cil_tmp146;
         __cil_tmp149 = (void const   *)(& rw_err_page);
-        __ret = __memcpy(__cil_tmp148, __cil_tmp149, __len);
+        __ret = memcpy(__cil_tmp148, __cil_tmp149, __len);
         }
       } else {
         {
@@ -5369,7 +5369,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp155 = (void *)ptr;
         __cil_tmp156 = __cil_tmp155 + __cil_tmp154;
         __cil_tmp157 = (void const   *)(& cache_page);
-        __ret___0 = __memcpy(__cil_tmp156, __cil_tmp157, __len___0);
+        __ret___0 = memcpy(__cil_tmp156, __cil_tmp157, __len___0);
         }
       } else {
         {
@@ -5390,7 +5390,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp163 = (void *)ptr;
         __cil_tmp164 = __cil_tmp163 + __cil_tmp162;
         __cil_tmp165 = (void const   *)(& rbac_page);
-        __ret___1 = __memcpy(__cil_tmp164, __cil_tmp165, __len___1);
+        __ret___1 = memcpy(__cil_tmp164, __cil_tmp165, __len___1);
         }
       } else {
         {
@@ -5411,7 +5411,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp171 = (void *)ptr;
         __cil_tmp172 = __cil_tmp171 + __cil_tmp170;
         __cil_tmp173 = (void const   *)(& timer_page);
-        __ret___2 = __memcpy(__cil_tmp172, __cil_tmp173, __len___2);
+        __ret___2 = memcpy(__cil_tmp172, __cil_tmp173, __len___2);
         }
       } else {
         {
@@ -5432,7 +5432,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp179 = (void *)ptr;
         __cil_tmp180 = __cil_tmp179 + __cil_tmp178;
         __cil_tmp181 = (void const   *)(& timer_page);
-        __ret___3 = __memcpy(__cil_tmp180, __cil_tmp181, __len___3);
+        __ret___3 = memcpy(__cil_tmp180, __cil_tmp181, __len___3);
         }
       } else {
         {
@@ -5451,7 +5451,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp187 = (void *)ptr;
         __cil_tmp188 = __cil_tmp187 + __cil_tmp186;
         __cil_tmp189 = (void const   *)(& rbac_page);
-        __ret___4 = __memcpy(__cil_tmp188, __cil_tmp189, __len___4);
+        __ret___4 = memcpy(__cil_tmp188, __cil_tmp189, __len___4);
         }
       } else {
         {
@@ -5470,7 +5470,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp195 = (void *)ptr;
         __cil_tmp196 = __cil_tmp195 + __cil_tmp194;
         __cil_tmp197 = (void const   *)(& cache_page);
-        __ret___5 = __memcpy(__cil_tmp196, __cil_tmp197, __len___5);
+        __ret___5 = memcpy(__cil_tmp196, __cil_tmp197, __len___5);
         }
       } else {
         {
@@ -5489,7 +5489,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp203 = (void *)ptr;
         __cil_tmp204 = __cil_tmp203 + __cil_tmp202;
         __cil_tmp205 = (void const   *)(& rw_err_page);
-        __ret___6 = __memcpy(__cil_tmp204, __cil_tmp205, __len___6);
+        __ret___6 = memcpy(__cil_tmp204, __cil_tmp205, __len___6);
         }
       } else {
         {
@@ -6028,7 +6028,7 @@ static int datafab_transport(struct scsi_cmnd *srb , struct us_data *us )
       {
       __cil_tmp68 = (void *)ptr;
       __cil_tmp69 = (void const   *)(& inquiry_reply);
-      __ret = __memcpy(__cil_tmp68, __cil_tmp69, __len);
+      __ret = memcpy(__cil_tmp68, __cil_tmp69, __len);
       }
     } else {
       {

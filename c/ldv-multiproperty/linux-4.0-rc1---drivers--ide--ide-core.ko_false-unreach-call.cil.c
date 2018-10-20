@@ -9895,8 +9895,8 @@ void ldv_linux_kernel_locking_mutex_mutex_unlock_ide_setting_mtx(struct mutex *l
 struct request *ldv_linux_block_request_blk_get_request(gfp_t mask ) ;
 void ldv_linux_block_request_put_blk_rq(void) ;
 extern void might_fault(void) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 static void ldv_mutex_unlock_97(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_99(struct mutex *ldv_func_arg1 ) ;
 extern bool capable(int  ) ;
@@ -10162,7 +10162,7 @@ static int ide_get_identity_ioctl(ide_drive_t *drive , unsigned int cmd , unsign
 
   }
   {
-  __memcpy((void *)id, (void const   *)drive->id, (size_t )size);
+  memcpy((void *)id, (void const   *)drive->id, (size_t )size);
   ata_id_to_hd_driveid(id);
   tmp___0 = copy_to_user((void *)arg, (void const   *)id, (unsigned long )size);
   }
@@ -10300,7 +10300,7 @@ static int ide_cmd_ioctl(ide_drive_t *drive , unsigned long arg )
 
   }
   {
-  __memset((void *)(& cmd), 0, 80UL);
+  memset((void *)(& cmd), 0, 80UL);
   tf->__annonCompField83.feature = args[2];
   }
   if ((unsigned int )args[0] == 176U) {
@@ -10400,15 +10400,15 @@ static int ide_task_ioctl(ide_drive_t *drive , unsigned long arg )
 
   }
   {
-  __memset((void *)(& cmd), 0, 80UL);
-  __memcpy((void *)(& cmd.tf.__annonCompField83.feature), (void const   *)(& args) + 1U,
+  memset((void *)(& cmd), 0, 80UL);
+  memcpy((void *)(& cmd.tf.__annonCompField83.feature), (void const   *)(& args) + 1U,
            6UL);
   cmd.tf.__annonCompField84.command = args[0];
   cmd.valid.out.tf = 126U;
   cmd.valid.in.tf = 124U;
   err = ide_no_data_taskfile(drive, & cmd);
   args[0] = cmd.tf.__annonCompField84.command;
-  __memcpy((void *)(& args) + 1U, (void const   *)(& cmd.tf.__annonCompField83.feature),
+  memcpy((void *)(& args) + 1U, (void const   *)(& cmd.tf.__annonCompField83.feature),
            6UL);
   tmp___0 = copy_to_user(p, (void const   *)(& args), 7UL);
   }
@@ -11164,7 +11164,7 @@ void ide_complete_cmd(ide_drive_t *drive , struct ide_cmd *cmd , u8 stat , u8 er
       }
     } else {
       {
-      __memcpy((void *)orig_cmd, (void const   *)cmd, 80UL);
+      memcpy((void *)orig_cmd, (void const   *)cmd, 80UL);
       }
     }
   } else {
@@ -11284,7 +11284,7 @@ static ide_startstop_t do_special(ide_drive_t *drive )
 
   }
   {
-  __memset((void *)(& cmd), 0, 80UL);
+  memset((void *)(& cmd), 0, 80UL);
   cmd.protocol = 1;
   }
   if ((int )drive->special_flags & 1) {
@@ -13102,7 +13102,7 @@ int ide_config_drive_speed(ide_drive_t *drive , u8 speed )
   SELECT_MASK(drive, 1);
   __const_udelay(4295UL);
   (*(tp_ops->write_devctl))(hwif, 10);
-  __memset((void *)(& tf), 0, 8UL);
+  memset((void *)(& tf), 0, 8UL);
   tf.__annonCompField83.feature = 3U;
   tf.nsect = speed;
   (*(tp_ops->tf_load))(drive, & tf, 6);
@@ -13434,7 +13434,7 @@ static void ide_dump_sector(ide_drive_t *drive )
   {
   tf = & cmd.tf;
   lba48 = (drive->dev_flags & 2097152UL) != 0UL;
-  __memset((void *)(& cmd), 0, 80UL);
+  memset((void *)(& cmd), 0, 80UL);
   }
   if ((unsigned int )lba48 != 0U) {
     cmd.valid.in.tf = 56U;
@@ -14352,7 +14352,7 @@ int ide_dev_read_id(ide_drive_t *drive , u8 cmd , u16 *id , int irq_ctx )
   }
   if ((unsigned int )cmd == 161U) {
     {
-    __memset((void *)(& tf), 0, 8UL);
+    memset((void *)(& tf), 0, 8UL);
     (*(tp_ops->tf_load))(drive, & tf, 2);
     }
   } else {
@@ -15616,8 +15616,8 @@ static void ide_port_init_devices_data(ide_hwif_t *hwif )
   {
   j = (unsigned int )hwif->index * 2U + (unsigned int )((u8 )i);
   saved_id = drive->id;
-  __memset((void *)drive, 0, 2240UL);
-  __memset((void *)saved_id, 0, 512UL);
+  memset((void *)drive, 0, 2240UL);
+  memset((void *)saved_id, 0, 512UL);
   drive->id = saved_id;
   drive->media = 32U;
   drive->select = (u8 )((int )((signed char )(i << 4)) | -96);
@@ -15676,7 +15676,7 @@ static void ide_init_port_hw(ide_hwif_t *hwif , struct ide_hw *hw )
 
   {
   {
-  __memcpy((void *)(& hwif->io_ports), (void const   *)(& hw->__annonCompField82.io_ports),
+  memcpy((void *)(& hwif->io_ports), (void const   *)(& hw->__annonCompField82.io_ports),
            80UL);
   hwif->irq = hw->irq;
   hwif->dev = hw->dev;
@@ -17055,7 +17055,7 @@ int taskfile_lib_get_identify(ide_drive_t *drive , u8 *buf )
 
   {
   {
-  __memset((void *)(& cmd), 0, 80UL);
+  memset((void *)(& cmd), 0, 80UL);
   cmd.tf.nsect = 1U;
   }
   if ((unsigned int )drive->media == 32U) {
@@ -17109,7 +17109,7 @@ ide_startstop_t do_rw_taskfile(ide_drive_t *drive , struct ide_cmd *orig_cmd )
 
   }
   {
-  __memcpy((void *)cmd, (void const   *)orig_cmd, 80UL);
+  memcpy((void *)cmd, (void const   *)orig_cmd, 80UL);
   }
   if (((int )cmd->tf_flags & 8) == 0) {
     {
@@ -17870,9 +17870,9 @@ int ide_taskfile_ioctl(ide_drive_t *drive , unsigned long arg )
 
   }
   {
-  __memset((void *)(& cmd), 0, 80UL);
-  __memcpy((void *)(& cmd.hob), (void const   *)(& req_task->hob_ports), 6UL);
-  __memcpy((void *)(& cmd.tf), (void const   *)(& req_task->io_ports), 8UL);
+  memset((void *)(& cmd), 0, 80UL);
+  memcpy((void *)(& cmd.hob), (void const   *)(& req_task->hob_ports), 6UL);
+  memcpy((void *)(& cmd.tf), (void const   *)(& req_task->io_ports), 8UL);
   cmd.valid.out.tf = 64U;
   cmd.valid.in.tf = 124U;
   cmd.tf_flags = 16U;
@@ -18072,8 +18072,8 @@ int ide_taskfile_ioctl(ide_drive_t *drive , unsigned long arg )
   }
   {
   err = ide_raw_taskfile(drive, & cmd, data_buf, (int )nsect);
-  __memcpy((void *)(& req_task->hob_ports), (void const   *)(& cmd.hob), 6UL);
-  __memcpy((void *)(& req_task->io_ports), (void const   *)(& cmd.tf), 8UL);
+  memcpy((void *)(& req_task->hob_ports), (void const   *)(& cmd.hob), 6UL);
+  memcpy((void *)(& req_task->io_ports), (void const   *)(& cmd.tf), 8UL);
   }
   if (((int )cmd.ftf_flags & 2) != 0 && (unsigned int )req_task->in_flags.all == 0U) {
     req_task->in_flags.all = 254U;
@@ -18297,7 +18297,7 @@ int generic_ide_suspend(struct device *dev , pm_message_t mesg )
 
   }
   {
-  __memset((void *)(& rqpm), 0, 16UL);
+  memset((void *)(& rqpm), 0, 16UL);
   rq = ldv_blk_get_request_96___0(drive->queue, 0, 16U);
   rq->cmd_type = 4;
   rq->special = (void *)(& rqpm);
@@ -18373,7 +18373,7 @@ int generic_ide_resume(struct device *dev )
 
   }
   {
-  __memset((void *)(& rqpm), 0, 16UL);
+  memset((void *)(& rqpm), 0, 16UL);
   rq = ldv_blk_get_request_98(drive->queue, 0, 16U);
   rq->cmd_type = 5;
   rq->cmd_flags = rq->cmd_flags | 33554432ULL;
@@ -18895,7 +18895,7 @@ ide_startstop_t ide_do_park_unpark(ide_drive_t *drive , struct request *rq )
   {
   {
   tf = & cmd.tf;
-  __memset((void *)(& cmd), 0, 80UL);
+  memset((void *)(& cmd), 0, 80UL);
   }
   if ((unsigned int )*(rq->cmd) == 34U) {
     drive->sleep = *((unsigned long *)rq->special);
@@ -22930,7 +22930,7 @@ int ide_timing_compute(ide_drive_t *drive , u8 speed , struct ide_timing *t , in
   *t = *s;
   if (((int )*(id + 53UL) & 2) != 0) {
     {
-    __memset((void *)(& p), 0, 16UL);
+    memset((void *)(& p), 0, 16UL);
     }
     if ((unsigned int )speed - 8U <= 7U) {
       if ((unsigned int )speed <= 10U) {
@@ -23105,7 +23105,7 @@ void ide_init_pc(struct ide_atapi_pc *pc )
 
   {
   {
-  __memset((void *)pc, 0, 48UL);
+  memset((void *)pc, 0, 48UL);
   }
   return;
 }
@@ -23141,7 +23141,7 @@ int ide_queue_pc_tail(ide_drive_t *drive , struct gendisk *disk , struct ide_ata
 
   }
   {
-  __memcpy((void *)rq->cmd, (void const   *)(& pc->c), 12UL);
+  memcpy((void *)rq->cmd, (void const   *)(& pc->c), 12UL);
   }
   if ((unsigned int )drive->media == 1U) {
     *(rq->cmd + 13UL) = 1U;
@@ -23335,7 +23335,7 @@ void ide_prep_sense(ide_drive_t *drive , struct request *rq )
 
   }
   {
-  __memset((void *)sense, 0, 64UL);
+  memset((void *)sense, 0, 64UL);
   blk_rq_init(rq->q, sense_rq);
   err = blk_rq_map_kern(drive->queue, sense_rq, (void *)sense, sense_len, 16U);
   tmp___1 = ldv__builtin_expect(err != 0, 0L);
@@ -23421,7 +23421,7 @@ void ide_retry_pc(ide_drive_t *drive )
   pc = & drive->request_sense_pc;
   ide_read_error(drive);
   ide_init_pc(pc);
-  __memcpy((void *)(& pc->c), (void const   *)sense_rq->cmd, 12UL);
+  memcpy((void *)(& pc->c), (void const   *)sense_rq->cmd, 12UL);
   }
   if ((unsigned int )drive->media == 1U) {
     drive->atapi_flags = drive->atapi_flags | 262144UL;
@@ -24789,7 +24789,7 @@ static int ide_hw_configure(struct pci_dev *dev , struct ide_port_info  const  *
 
   }
   {
-  __memset((void *)hw, 0, 112UL);
+  memset((void *)hw, 0, 112UL);
   hw->dev = & dev->dev;
   ide_std_init_ports(hw, base, ctl | 2UL);
   }
@@ -28049,7 +28049,7 @@ static int set_xfer_rate(ide_drive_t *drive , int arg )
 
   }
   {
-  __memset((void *)(& cmd), 0, 80UL);
+  memset((void *)(& cmd), 0, 80UL);
   cmd.tf.__annonCompField84.command = 239U;
   cmd.tf.__annonCompField83.feature = 3U;
   cmd.tf.nsect = (unsigned char )arg;
@@ -28399,7 +28399,7 @@ static ssize_t ide_settings_proc_write(struct file *file , char const   *buffer 
 
   }
   {
-  __memcpy((void *)(& name), (void const   *)q, (size_t )((long )p - (long )q));
+  memcpy((void *)(& name), (void const   *)q, (size_t )((long )p - (long )q));
   name[(long )p - (long )q] = 0;
   }
   if (n != 0UL) {
@@ -32040,8 +32040,8 @@ static int do_drive_set_taskfiles(ide_drive_t *drive , unsigned int gtf_length ,
 
   }
   {
-  __memset((void *)(& cmd), 0, 80UL);
-  __memcpy((void *)(& cmd.tf.__annonCompField83.feature), (void const   *)gtf, 7UL);
+  memset((void *)(& cmd), 0, 80UL);
+  memcpy((void *)(& cmd.tf.__annonCompField83.feature), (void const   *)gtf, 7UL);
   cmd.valid.out.tf = 126U;
   cmd.valid.in.tf = 124U;
   err = ide_no_data_taskfile(drive, & cmd);
@@ -32135,7 +32135,7 @@ void ide_acpi_get_timing(ide_hwif_t *hwif )
 
   }
   {
-  __memcpy((void *)(& (hwif->acpidata)->gtm), (void const   *)out_obj->buffer.pointer,
+  memcpy((void *)(& (hwif->acpidata)->gtm), (void const   *)out_obj->buffer.pointer,
            20UL);
   kfree((void const   *)output.pointer);
   }

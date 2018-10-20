@@ -2881,7 +2881,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void *to , void    *from , size_t len ) ;
+extern void *memcpy(void *to , void    *from , size_t len ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 extern int strcmp(char    *cs , char    *ct ) ;
 extern size_t strlcpy(char * , char    * , size_t  ) ;
@@ -6559,7 +6559,7 @@ u16 capi20_get_version(u32 contr , struct capi_version *verp )
         __cil_tmp14 = __cil_tmp13 + 176;
         __cil_tmp15 = (capi_version *)__cil_tmp14;
         __cil_tmp16 = (void    *)__cil_tmp15;
-        __ret = __memcpy(__cil_tmp12, __cil_tmp16, __len);
+        __ret = memcpy(__cil_tmp12, __cil_tmp16, __len);
         }
       } else {
         {
@@ -6732,7 +6732,7 @@ u16 capi20_get_profile(u32 contr , struct capi_profile *profp )
         __cil_tmp14 = __cil_tmp13 + 192;
         __cil_tmp15 = (capi_profile *)__cil_tmp14;
         __cil_tmp16 = (void    *)__cil_tmp15;
-        __ret = __memcpy(__cil_tmp12, __cil_tmp16, __len);
+        __ret = memcpy(__cil_tmp12, __cil_tmp16, __len);
         }
       } else {
         {
@@ -9368,7 +9368,7 @@ static void pars_2_message(_cmsg *cmsg )
         __cil_tmp106 = (u8 *)cmsg;
         __cil_tmp107 = __cil_tmp106 + __cil_tmp105;
         __cil_tmp108 = (void    *)__cil_tmp107;
-        __ret = __memcpy(__cil_tmp93, __cil_tmp108, __len);
+        __ret = memcpy(__cil_tmp93, __cil_tmp108, __len);
         }
       } else {
         {
@@ -10238,7 +10238,7 @@ static void message_2_pars(_cmsg *cmsg )
         __cil_tmp100 = *((__u8 **)__cil_tmp99);
         __cil_tmp101 = __cil_tmp100 + __cil_tmp97;
         __cil_tmp102 = (void    *)__cil_tmp101;
-        __ret = __memcpy(__cil_tmp94, __cil_tmp102, __len);
+        __ret = memcpy(__cil_tmp94, __cil_tmp102, __len);
         }
       } else {
         {

@@ -3078,7 +3078,7 @@ struct __anonstruct_253___1 {
 
 long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
-extern void *__memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memcpy(void *to , void const   *from , size_t len ) ;
 extern int memcmp(void const   *cs , void const   *ct , unsigned long count ) ;
 __inline static u64 div_u64_rem(u64 dividend , u32 divisor , u32 *remainder )  __attribute__((__no_instrument_function__)) ;
 __inline static u64 div_u64_rem(u64 dividend , u32 divisor , u32 *remainder ) 
@@ -4007,7 +4007,7 @@ int cxd2820r_gpio(struct dvb_frontend *fe )
     __cil_tmp91 = (u8 *)__cil_tmp90;
     __cil_tmp92 = (void *)__cil_tmp91;
     __cil_tmp93 = (void const   *)gpio;
-    __ret = __memcpy(__cil_tmp92, __cil_tmp93, __len);
+    __ret = memcpy(__cil_tmp92, __cil_tmp93, __len);
     }
   } else {
     {
@@ -5382,7 +5382,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     __cil_tmp15 = (struct cxd2820r_config *)__cil_tmp14;
     __cil_tmp16 = (void *)__cil_tmp15;
     __cil_tmp17 = (void const   *)cfg;
-    __ret = __memcpy(__cil_tmp16, __cil_tmp17, __len);
+    __ret = memcpy(__cil_tmp16, __cil_tmp17, __len);
     }
   } else {
     {
@@ -5444,7 +5444,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     __cil_tmp41 = (struct dvb_frontend_ops *)__cil_tmp40;
     __cil_tmp42 = (void *)__cil_tmp41;
     __cil_tmp43 = (void const   *)(& cxd2820r_ops);
-    __ret___0 = __memcpy(__cil_tmp42, __cil_tmp43, __len___0);
+    __ret___0 = memcpy(__cil_tmp42, __cil_tmp43, __len___0);
     }
   } else {
     {

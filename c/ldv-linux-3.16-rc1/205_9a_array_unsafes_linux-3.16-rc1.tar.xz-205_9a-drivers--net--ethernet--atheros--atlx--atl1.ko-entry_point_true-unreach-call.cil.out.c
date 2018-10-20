@@ -6251,7 +6251,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -8381,7 +8381,7 @@ static int atl1_get_permanent_address(struct atl1_hw *hw )
     if ((int )tmp___3) {
       __len = 6UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr),
+        __ret = memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr),
                          __len);
       } else {
         __ret = __builtin_memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr),
@@ -8433,7 +8433,7 @@ static int atl1_get_permanent_address(struct atl1_hw *hw )
   if ((int )tmp___8) {
     __len___0 = 6UL;
     if (__len___0 > 63UL) {
-      __ret___0 = __memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr),
+      __ret___0 = memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr),
                            __len___0);
     } else {
       __ret___0 = __builtin_memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr),
@@ -8453,7 +8453,7 @@ static int atl1_get_permanent_address(struct atl1_hw *hw )
   if ((int )tmp___11) {
     __len___1 = 6UL;
     if (__len___1 > 63UL) {
-      __ret___1 = __memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr),
+      __ret___1 = memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr),
                            __len___1);
     } else {
       __ret___1 = __builtin_memcpy((void *)(& hw->perm_mac_addr), (void const   *)(& eth_addr),
@@ -10443,7 +10443,7 @@ static void atl1_tx_queue(struct atl1_adapter *adapter , u16 count , struct tx_p
   if ((unsigned long )tpd != (unsigned long )ptpd) {
     __len = 16UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)tpd, (void const   *)ptpd, __len);
+      __ret = memcpy((void *)tpd, (void const   *)ptpd, __len);
     } else {
       __ret = __builtin_memcpy((void *)tpd, (void const   *)ptpd, __len);
     }
@@ -11377,7 +11377,7 @@ static void atl1_remove(struct pci_dev *pdev )
   if (tmp___2) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& adapter->hw.mac_addr), (void const   *)(& adapter->hw.perm_mac_addr),
+      __ret = memcpy((void *)(& adapter->hw.mac_addr), (void const   *)(& adapter->hw.perm_mac_addr),
                        __len);
     } else {
       __ret = __builtin_memcpy((void *)(& adapter->hw.mac_addr), (void const   *)(& adapter->hw.perm_mac_addr),
@@ -12011,7 +12011,7 @@ static void atl1_get_strings(struct net_device *netdev , u32 stringset , u8 *dat
   ldv_49471: 
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)p, (void const   *)(& atl1_gstrings_stats[i].stat_string),
+    __ret = memcpy((void *)p, (void const   *)(& atl1_gstrings_stats[i].stat_string),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)p, (void const   *)(& atl1_gstrings_stats[i].stat_string),

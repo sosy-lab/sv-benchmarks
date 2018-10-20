@@ -9157,7 +9157,7 @@ void ldv_mutex_unlock_67(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
@@ -9504,7 +9504,7 @@ static int poseidon_set_fe(struct dvb_frontend *fe , struct dvb_frontend_paramet
     }
     __len = 36UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)(& pd_dvb->fe_param), (void const   *)fep, __len);
+      __ret = memcpy((void *)(& pd_dvb->fe_param), (void const   *)fep, __len);
     } else {
       __ret = __builtin_memcpy((void *)(& pd_dvb->fe_param), (void const   *)fep,
                                __len);
@@ -9571,7 +9571,7 @@ static int poseidon_get_fe(struct dvb_frontend *fe , struct dvb_frontend_paramet
   pd_dvb = & pd->dvb_data;
   __len = 36UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)fep, (void const   *)(& pd_dvb->fe_param), __len);
+    __ret = memcpy((void *)fep, (void const   *)(& pd_dvb->fe_param), __len);
   } else {
     __ret = __builtin_memcpy((void *)fep, (void const   *)(& pd_dvb->fe_param), __len);
   }
@@ -10000,7 +10000,7 @@ int pd_dvb_usb_device_init(struct poseidon *pd )
   pd_dvb->dvb_fe.demodulator_priv = (void *)pd;
   __len = 752UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& pd_dvb->dvb_fe.ops), (void const   *)(& poseidon_frontend_ops),
+    __ret = memcpy((void *)(& pd_dvb->dvb_fe.ops), (void const   *)(& poseidon_frontend_ops),
                      __len);
   } else {
     __ret = __builtin_memcpy((void *)(& pd_dvb->dvb_fe.ops), (void const   *)(& poseidon_frontend_ops),
@@ -11685,7 +11685,7 @@ int send_set_req(struct poseidon *pd , u8 cmdid , s32 param , s32 *cmd_status )
   } else {
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)cmd_status, (void const   *)(& data), __len);
+      __ret = memcpy((void *)cmd_status, (void const   *)(& data), __len);
     } else {
       __ret = __builtin_memcpy((void *)cmd_status, (void const   *)(& data), __len);
     }
@@ -11871,7 +11871,7 @@ int send_get_req(struct poseidon *pd , u8 cmdid , s32 param , void *buf , s32 *c
   } else {
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = __memcpy((void *)cmd_status, (void const   *)(& data), __len);
+      __ret = memcpy((void *)cmd_status, (void const   *)(& data), __len);
     } else {
       __ret = __builtin_memcpy((void *)cmd_status, (void const   *)(& data), __len);
     }

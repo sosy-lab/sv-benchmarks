@@ -3463,7 +3463,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
                              int  ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
@@ -3772,7 +3772,7 @@ static int command(struct gspca_dev *gspca_dev , int order )
     __cil_tmp108 = (unsigned long )order;
     __cil_tmp109 = (void const   *)(& order_values);
     __cil_tmp110 = __cil_tmp109 + __cil_tmp108;
-    __ret = __memcpy(__cil_tmp107, __cil_tmp110, __len);
+    __ret = memcpy(__cil_tmp107, __cil_tmp110, __len);
     }
   } else {
     {

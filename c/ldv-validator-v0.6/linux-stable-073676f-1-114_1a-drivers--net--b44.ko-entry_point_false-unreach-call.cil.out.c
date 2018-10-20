@@ -3371,7 +3371,7 @@ __inline static int get_order(unsigned long size )
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern struct cpuinfo_x86 boot_cpu_data ;
@@ -7477,7 +7477,7 @@ static void b44_get_strings(struct net_device *dev , u32 stringset , u8 *data )
   case 1U: 
   __len = 1504UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)data, (void const   *)(& b44_gstrings), __len);
+    __ret = memcpy((void *)data, (void const   *)(& b44_gstrings), __len);
   } else {
     __ret = __builtin_memcpy((void *)data, (void const   *)(& b44_gstrings), __len);
   }
@@ -7624,7 +7624,7 @@ static int b44_get_invariants(struct b44 *bp )
   bp->phy_addr = (unsigned int )bp->phy_addr & 31U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(bp->dev)->dev_addr, (void const   *)addr, __len);
+    __ret = memcpy((void *)(bp->dev)->dev_addr, (void const   *)addr, __len);
   } else {
     __ret = __builtin_memcpy((void *)(bp->dev)->dev_addr, (void const   *)addr, __len);
   }

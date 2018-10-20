@@ -3761,7 +3761,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
@@ -4173,7 +4173,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
     __cil_tmp36 = __cil_tmp35 + 80;
     __cil_tmp37 = *((unsigned char **)__cil_tmp36);
     __cil_tmp38 = (void const   *)__cil_tmp37;
-    __ret = __memcpy(__cil_tmp34, __cil_tmp38, __len);
+    __ret = memcpy(__cil_tmp34, __cil_tmp38, __len);
     }
   } else {
     {
@@ -4572,7 +4572,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
           __cil_tmp267 = __cil_tmp266 + 136;
           __cil_tmp268 = *((unsigned char **)__cil_tmp267);
           __cil_tmp269 = (void const   *)__cil_tmp268;
-          __ret___0 = __memcpy(__cil_tmp265, __cil_tmp269, __len___0);
+          __ret___0 = memcpy(__cil_tmp265, __cil_tmp269, __len___0);
           }
         } else {
           {
@@ -4669,7 +4669,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
     __cil_tmp311 = *((unsigned char **)__cil_tmp310);
     __cil_tmp312 = (void *)__cil_tmp311;
     __cil_tmp313 = (void const   *)(& usb_stor_sense_invalidCDB);
-    __ret___1 = __memcpy(__cil_tmp312, __cil_tmp313, __len___1);
+    __ret___1 = memcpy(__cil_tmp312, __cil_tmp313, __len___1);
     }
   } else {
     {
@@ -4690,7 +4690,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
     __cil_tmp321 = *((unsigned char **)__cil_tmp320);
     __cil_tmp322 = (void *)__cil_tmp321;
     __cil_tmp323 = (void const   *)(& save_cmnd);
-    __ret___2 = __memcpy(__cil_tmp322, __cil_tmp323, __len___2);
+    __ret___2 = memcpy(__cil_tmp322, __cil_tmp323, __len___2);
     }
   } else {
     {

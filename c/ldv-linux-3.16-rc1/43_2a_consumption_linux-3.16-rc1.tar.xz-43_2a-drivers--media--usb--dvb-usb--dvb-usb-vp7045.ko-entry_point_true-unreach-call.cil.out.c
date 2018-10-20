@@ -7706,7 +7706,7 @@ void ldv_usb_deregister_34(struct usb_driver *arg )
   return;
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 void *ldv_kmem_cache_alloc_62(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
@@ -7924,7 +7924,7 @@ struct dvb_frontend *vp7045_fe_attach(struct dvb_usb_device *d )
   s->d = d;
   __len = 768UL;
   if (__len > 63UL) {
-    __ret = __memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops), __len);
+    __ret = memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops), __len);
   } else {
     __ret = __builtin_memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops),
                              __len);

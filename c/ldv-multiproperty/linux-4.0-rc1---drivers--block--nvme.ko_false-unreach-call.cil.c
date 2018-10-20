@@ -5517,8 +5517,8 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
-extern void *__memset(void * , int  , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memset(void * , int  , size_t  ) ;
 extern int __bitmap_weight(unsigned long const   * , unsigned int  ) ;
 __inline static int bitmap_weight(unsigned long const   *src , unsigned int nbits ) 
 { 
@@ -7835,7 +7835,7 @@ static int __nvme_submit_cmd(struct nvme_queue *nvmeq , struct nvme_command *cmd
   {
   {
   tail = nvmeq->sq_tail;
-  __memcpy((void *)nvmeq->sq_cmds + (unsigned long )tail, (void const   *)cmd, 64UL);
+  memcpy((void *)nvmeq->sq_cmds + (unsigned long )tail, (void const   *)cmd, 64UL);
   tail = (u16 )((int )tail + 1);
   }
   if ((int )tail == (int )nvmeq->q_depth) {
@@ -8408,7 +8408,7 @@ static void nvme_submit_discard(struct nvme_queue *nvmeq , struct nvme_ns *ns , 
   range->nlb = tmp___0 >> ns->lba_shift;
   tmp___1 = blk_rq_pos((struct request  const  *)req);
   range->slba = nvme_block_nr(ns, tmp___1);
-  __memset((void *)cmnd, 0, 64UL);
+  memset((void *)cmnd, 0, 64UL);
   cmnd->__annonCompField73.dsm.opcode = 9U;
   cmnd->__annonCompField73.dsm.command_id = (__u16 )req->tag;
   cmnd->__annonCompField73.dsm.nsid = ns->ns_id;
@@ -8435,7 +8435,7 @@ static void nvme_submit_flush(struct nvme_queue *nvmeq , struct nvme_ns *ns , in
   {
   {
   cmnd = nvmeq->sq_cmds + (unsigned long )nvmeq->sq_tail;
-  __memset((void *)cmnd, 0, 64UL);
+  memset((void *)cmnd, 0, 64UL);
   cmnd->__annonCompField73.common.opcode = 0U;
   cmnd->__annonCompField73.common.command_id = (__u16 )cmdid;
   cmnd->__annonCompField73.common.nsid = ns->ns_id;
@@ -8489,7 +8489,7 @@ static int nvme_submit_iod(struct nvme_queue *nvmeq , struct nvme_iod *iod , str
   }
   {
   cmnd = nvmeq->sq_cmds + (unsigned long )nvmeq->sq_tail;
-  __memset((void *)cmnd, 0, 64UL);
+  memset((void *)cmnd, 0, 64UL);
   cmnd->__annonCompField73.rw.opcode = (int )req->cmd_flags & 1 ? 1U : 2U;
   cmnd->__annonCompField73.rw.command_id = (__u16 )req->tag;
   cmnd->__annonCompField73.rw.nsid = ns->ns_id;
@@ -9009,7 +9009,7 @@ static int nvme_submit_async_admin_req(struct nvme_dev *dev )
   tmp___1 = blk_mq_rq_to_pdu(req);
   cmd_info = (struct nvme_cmd_info *)tmp___1;
   nvme_set_info(cmd_info, (void *)req, & async_req_completion);
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.common.opcode = 12U;
   c.__annonCompField73.common.command_id = (__u16 )req->tag;
   tmp___2 = __nvme_submit_cmd(nvmeq, & c);
@@ -9129,7 +9129,7 @@ static int adapter_delete_queue(struct nvme_dev *dev , u8 opcode , u16 id )
 
   {
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.delete_queue.opcode = opcode;
   c.__annonCompField73.delete_queue.qid = id;
   tmp = nvme_submit_admin_cmd(dev, & c, (u32 *)0U);
@@ -9146,7 +9146,7 @@ static int adapter_alloc_cq(struct nvme_dev *dev , u16 qid , struct nvme_queue *
   {
   {
   flags = 3;
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.create_cq.opcode = 5U;
   c.__annonCompField73.create_cq.prp1 = nvmeq->cq_dma_addr;
   c.__annonCompField73.create_cq.cqid = qid;
@@ -9167,7 +9167,7 @@ static int adapter_alloc_sq(struct nvme_dev *dev , u16 qid , struct nvme_queue *
   {
   {
   flags = 5;
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.create_sq.opcode = 1U;
   c.__annonCompField73.create_sq.prp1 = nvmeq->sq_dma_addr;
   c.__annonCompField73.create_sq.sqid = qid;
@@ -9208,7 +9208,7 @@ int nvme_identify(struct nvme_dev *dev , unsigned int nsid , unsigned int cns , 
 
   {
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.identify.opcode = 6U;
   c.__annonCompField73.identify.nsid = nsid;
   c.__annonCompField73.identify.prp1 = dma_addr;
@@ -9226,7 +9226,7 @@ int nvme_get_features(struct nvme_dev *dev , unsigned int fid , unsigned int nsi
 
   {
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.features.opcode = 10U;
   c.__annonCompField73.features.nsid = nsid;
   c.__annonCompField73.features.prp1 = dma_addr;
@@ -9244,7 +9244,7 @@ int nvme_set_features(struct nvme_dev *dev , unsigned int fid , unsigned int dwo
 
   {
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.features.opcode = 9U;
   c.__annonCompField73.features.prp1 = dma_addr;
   c.__annonCompField73.features.fid = fid;
@@ -9319,7 +9319,7 @@ static void nvme_abort_req(struct request *req )
   tmp___2 = blk_mq_rq_to_pdu(abort_req);
   abort_cmd = (struct nvme_cmd_info *)tmp___2;
   nvme_set_info(abort_cmd, (void *)abort_req, & abort_completion);
-  __memset((void *)(& cmd), 0, 64UL);
+  memset((void *)(& cmd), 0, 64UL);
   cmd.__annonCompField73.abort.opcode = 8U;
   cmd.__annonCompField73.abort.cid = (__u16 )req->tag;
   cmd.__annonCompField73.abort.sqid = nvmeq->qid;
@@ -9654,7 +9654,7 @@ static void nvme_init_queue(struct nvme_queue *nvmeq , u16 qid )
   nvmeq->cq_head = 0U;
   nvmeq->cq_phase = 1U;
   nvmeq->q_db = dev->dbs + (unsigned long )(((u32 )qid * dev->db_stride) * 2U);
-  __memset((void *)nvmeq->cqes, 0, (unsigned long )nvmeq->q_depth * 16UL);
+  memset((void *)nvmeq->cqes, 0, (unsigned long )nvmeq->q_depth * 16UL);
   dev->online_queues = dev->online_queues + 1U;
   ldv_spin_unlock_irq_106(& nvmeq->q_lock);
   }
@@ -10259,7 +10259,7 @@ static int nvme_submit_io(struct nvme_ns *ns , struct nvme_user_io *uio )
 
   }
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.rw.opcode = io.opcode;
   c.__annonCompField73.rw.flags = io.flags;
   c.__annonCompField73.rw.nsid = ns->ns_id;
@@ -10306,7 +10306,7 @@ static int nvme_submit_io(struct nvme_ns *ns , struct nvme_user_io *uio )
       tmp___4 = sg_page((struct scatterlist *)(& meta_iod->sg) + (unsigned long )i);
       tmp___5 = kmap_atomic(tmp___4);
       meta = tmp___5 + (unsigned long )meta_iod->sg[i].offset;
-      __memcpy(meta_mem + (unsigned long )meta_offset, (void const   *)meta, (size_t )meta_iod->sg[i].length);
+      memcpy(meta_mem + (unsigned long )meta_offset, (void const   *)meta, (size_t )meta_iod->sg[i].length);
       __cond = 0;
       }
       if ((int )__cond) {
@@ -10358,7 +10358,7 @@ static int nvme_submit_io(struct nvme_ns *ns , struct nvme_user_io *uio )
       tmp___7 = sg_page((struct scatterlist *)(& meta_iod->sg) + (unsigned long )i);
       tmp___8 = kmap_atomic(tmp___7);
       meta = tmp___8 + (unsigned long )meta_iod->sg[i].offset;
-      __memcpy(meta, (void const   *)meta_mem + (unsigned long )meta_offset___0, (size_t )meta_iod->sg[i].length);
+      memcpy(meta, (void const   *)meta_mem + (unsigned long )meta_offset___0, (size_t )meta_iod->sg[i].length);
       __cond___0 = 0;
       }
       if ((int )__cond___0) {
@@ -10449,7 +10449,7 @@ static int nvme_user_cmd(struct nvme_dev *dev , struct nvme_ns *ns , struct nvme
 
   }
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.common.opcode = cmd.opcode;
   c.__annonCompField73.common.flags = cmd.flags;
   c.__annonCompField73.common.nsid = cmd.nsid;
@@ -10844,7 +10844,7 @@ static int nvme_revalidate_disk(struct gendisk *disk )
     {
     dev_warn((struct device  const  *)(& (dev->pci_dev)->dev), "identify failed ns:%d, setting capacity to 0\n",
              ns->ns_id);
-    __memset((void *)id, 0, 4096UL);
+    memset((void *)id, 0, 4096UL);
     }
   } else {
 
@@ -11504,9 +11504,9 @@ static int nvme_dev_add(struct nvme_dev *dev )
   _min1 = (int )ctrl->aerl + 1;
   _min2 = 8;
   dev->event_limit = (u8 )(_min1 < _min2 ? _min1 : _min2);
-  __memcpy((void *)(& dev->serial), (void const   *)(& ctrl->sn), 20UL);
-  __memcpy((void *)(& dev->model), (void const   *)(& ctrl->mn), 40UL);
-  __memcpy((void *)(& dev->firmware_rev), (void const   *)(& ctrl->fr), 8UL);
+  memcpy((void *)(& dev->serial), (void const   *)(& ctrl->sn), 20UL);
+  memcpy((void *)(& dev->model), (void const   *)(& ctrl->mn), 40UL);
+  memcpy((void *)(& dev->firmware_rev), (void const   *)(& ctrl->fr), 8UL);
   }
   if ((unsigned int )ctrl->mdts != 0U) {
     dev->max_hw_sectors = (u32 )(1 << (((int )ctrl->mdts + shift) + -9));
@@ -12020,10 +12020,10 @@ static int adapter_async_del_queue(struct nvme_queue *nvmeq , u8 opcode , void (
 
   {
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.delete_queue.opcode = opcode;
   c.__annonCompField73.delete_queue.qid = nvmeq->qid;
-  __memset((void *)(& nvmeq->cmdinfo.work), 0, 32UL);
+  memset((void *)(& nvmeq->cmdinfo.work), 0, 32UL);
   INIT_LIST_HEAD(& nvmeq->cmdinfo.work.node);
   nvmeq->cmdinfo.work.func = fn;
   tmp = nvme_submit_admin_async_cmd(nvmeq->dev, & c, & nvmeq->cmdinfo, (unsigned int )((int )admin_timeout * 250));
@@ -12200,7 +12200,7 @@ static void nvme_disable_io_queues(struct nvme_dev *dev )
   tmp___4 = nvme_get_dq(& dq);
   nvmeq->cmdinfo.ctx = (void *)tmp___4;
   nvmeq->cmdinfo.worker = dq.worker;
-  __memset((void *)(& nvmeq->cmdinfo.work), 0, 32UL);
+  memset((void *)(& nvmeq->cmdinfo.work), 0, 32UL);
   INIT_LIST_HEAD(& nvmeq->cmdinfo.work.node);
   nvmeq->cmdinfo.work.func = & nvme_del_queue_start;
   queue_kthread_work(dq.worker, & nvmeq->cmdinfo.work);
@@ -16347,7 +16347,7 @@ static int nvme_trans_completion(struct sg_io_hdr *hdr , u8 status , u8 sense_ke
     hdr->masked_status = (int )status >> 1;
     hdr->host_status = 0U;
     hdr->driver_status = 0U;
-    __memset((void *)(& resp), 0, 8UL);
+    memset((void *)(& resp), 0, 8UL);
     resp[0] = 114U;
     resp[1] = sense_key;
     resp[2] = asc;
@@ -16779,7 +16779,7 @@ static int nvme_trans_standard_inquiry_page(struct nvme_ns *ns , struct sg_io_hd
     protect = 0U;
   }
   {
-  __memset((void *)inq_response, 0, 36UL);
+  memset((void *)inq_response, 0, 36UL);
   *(inq_response + 2UL) = 6U;
   *(inq_response + 3UL) = resp_data_format;
   *(inq_response + 4UL) = 31U;
@@ -16825,7 +16825,7 @@ static int nvme_trans_supported_vpd_pages(struct nvme_ns *ns , struct sg_io_hdr 
   {
   {
   res = 0;
-  __memset((void *)inq_response, 0, 36UL);
+  memset((void *)inq_response, 0, 36UL);
   *(inq_response + 1UL) = 0U;
   *(inq_response + 3UL) = 5U;
   *(inq_response + 4UL) = 0U;
@@ -16854,7 +16854,7 @@ static int nvme_trans_unit_serial_page(struct nvme_ns *ns , struct sg_io_hdr *hd
   {
   dev = ns->dev;
   res = 0;
-  __memset((void *)inq_response, 0, 36UL);
+  memset((void *)inq_response, 0, 36UL);
   *(inq_response + 1UL) = 128U;
   *(inq_response + 3UL) = 20U;
   strncpy((char *)inq_response + 4U, (char const   *)(& dev->serial), 20UL);
@@ -16900,7 +16900,7 @@ static int nvme_trans_device_id_page(struct nvme_ns *ns , struct sg_io_hdr *hdr 
 
   }
   {
-  __memset((void *)inq_response, 0, (size_t )alloc_len);
+  memset((void *)inq_response, 0, (size_t )alloc_len);
   *(inq_response + 1UL) = 131U;
   tmp___3 = readl((void const volatile   *)(& (dev->bar)->vs));
   }
@@ -16953,7 +16953,7 @@ static int nvme_trans_device_id_page(struct nvme_ns *ns , struct sg_io_hdr *hdr 
     *(inq_response + 5UL) = 2U;
     *(inq_response + 6UL) = 0U;
     *(inq_response + 7UL) = (u8 )len;
-    __memcpy((void *)inq_response + 8U, (void const   *)eui, (size_t )len);
+    memcpy((void *)inq_response + 8U, (void const   *)eui, (size_t )len);
     }
   } else {
     scsi_string: ;
@@ -16972,9 +16972,9 @@ static int nvme_trans_device_id_page(struct nvme_ns *ns , struct sg_io_hdr *hdr 
     *(inq_response + 6UL) = 0U;
     *(inq_response + 7UL) = 68U;
     sprintf((char *)inq_response + 8U, "%04x", (int )(dev->pci_dev)->vendor);
-    __memcpy((void *)inq_response + 12U, (void const   *)(& dev->model), 40UL);
+    memcpy((void *)inq_response + 12U, (void const   *)(& dev->model), 40UL);
     sprintf((char *)inq_response + 52U, "%04x", tmp_id);
-    __memcpy((void *)inq_response + 56U, (void const   *)(& dev->serial), 20UL);
+    memcpy((void *)inq_response + 56U, (void const   *)(& dev->serial), 20UL);
     }
   }
   {
@@ -17090,7 +17090,7 @@ static int nvme_trans_ext_inq_page(struct nvme_ns *ns , struct sg_io_hdr *hdr , 
   {
   id_ctrl = (struct nvme_id_ctrl *)mem;
   v_sup = id_ctrl->vwc;
-  __memset((void *)inq_response, 0, 60UL);
+  memset((void *)inq_response, 0, 60UL);
   *(inq_response + 1UL) = 134U;
   *(inq_response + 2UL) = 0U;
   *(inq_response + 3UL) = 60U;
@@ -17234,7 +17234,7 @@ static int nvme_trans_log_info_exceptions(struct nvme_ns *ns , struct sg_io_hdr 
 
   }
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.common.opcode = 2U;
   c.__annonCompField73.common.nsid = 4294967295U;
   c.__annonCompField73.common.prp1 = dma_addr;
@@ -17310,7 +17310,7 @@ static int nvme_trans_log_temperature(struct nvme_ns *ns , struct sg_io_hdr *hdr
 
   }
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.common.opcode = 2U;
   c.__annonCompField73.common.nsid = 4294967295U;
   c.__annonCompField73.common.prp1 = dma_addr;
@@ -17445,8 +17445,8 @@ static int nvme_trans_fill_blk_desc(struct nvme_ns *ns , struct sg_io_hdr *hdr ,
     tmp_cap = tmp;
     tmp___0 = __fswab32(lba_length & 16777215U);
     tmp_len = tmp___0;
-    __memcpy((void *)resp, (void const   *)(& tmp_cap), 4UL);
-    __memcpy((void *)resp + 4U, (void const   *)(& tmp_len), 4UL);
+    memcpy((void *)resp, (void const   *)(& tmp_cap), 4UL);
+    memcpy((void *)resp + 4U, (void const   *)(& tmp_len), 4UL);
     }
   } else {
     {
@@ -17454,8 +17454,8 @@ static int nvme_trans_fill_blk_desc(struct nvme_ns *ns , struct sg_io_hdr *hdr ,
     tmp_cap___0 = tmp___1;
     tmp___2 = __fswab32(lba_length);
     tmp_len___0 = tmp___2;
-    __memcpy((void *)resp, (void const   *)(& tmp_cap___0), 8UL);
-    __memcpy((void *)resp + 12U, (void const   *)(& tmp_len___0), 4UL);
+    memcpy((void *)resp, (void const   *)(& tmp_cap___0), 8UL);
+    memcpy((void *)resp + 12U, (void const   *)(& tmp_len___0), 4UL);
     }
   }
   out_dma: 
@@ -17761,8 +17761,8 @@ static void nvme_trans_fill_read_cap(u8 *response , struct nvme_id_ns *id_ns , u
     tmp_rlba_32 = tmp___0;
     tmp___1 = __fswab32(lba_length);
     tmp_len = tmp___1;
-    __memcpy((void *)response, (void const   *)(& tmp_rlba_32), 4UL);
-    __memcpy((void *)response + 4U, (void const   *)(& tmp_len), 4UL);
+    memcpy((void *)response, (void const   *)(& tmp_rlba_32), 4UL);
+    memcpy((void *)response + 4U, (void const   *)(& tmp_len), 4UL);
     }
   } else {
     {
@@ -17770,8 +17770,8 @@ static void nvme_trans_fill_read_cap(u8 *response , struct nvme_id_ns *id_ns , u
     tmp_rlba = tmp___2;
     tmp___3 = __fswab32(lba_length);
     tmp_len = tmp___3;
-    __memcpy((void *)response, (void const   *)(& tmp_rlba), 8UL);
-    __memcpy((void *)response + 8U, (void const   *)(& tmp_len), 4UL);
+    memcpy((void *)response, (void const   *)(& tmp_rlba), 8UL);
+    memcpy((void *)response + 8U, (void const   *)(& tmp_len), 4UL);
     *(response + 12UL) = (u8 )((int )((signed char )((int )p_type_lut[(int )id_ns->dps & 3] << 1)) | (int )((signed char )prot_en));
     }
   }
@@ -17951,7 +17951,7 @@ static int nvme_trans_send_fw_cmd(struct nvme_ns *ns , struct sg_io_hdr *hdr , u
   res = 0;
   dev = ns->dev;
   iod = (struct nvme_iod *)0;
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.common.opcode = opcode;
   }
   if ((unsigned int )opcode == 17U) {
@@ -18465,7 +18465,7 @@ static int nvme_trans_fmt_send_cmd(struct nvme_ns *ns , struct sg_io_hdr *hdr , 
   {
   cdw10 = cdw10 | (u32 )((int )prot_info << 5);
   cdw10 = cdw10 | ((u32 )selected_lbaf & 15U);
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.format.opcode = 128U;
   c.__annonCompField73.format.nsid = ns->ns_id;
   c.__annonCompField73.format.cdw10 = cdw10;
@@ -18615,7 +18615,7 @@ static int nvme_trans_do_nvme_io(struct nvme_ns *ns , struct sg_io_hdr *hdr , st
   goto ldv_39786;
   ldv_39785: 
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   }
   if ((unsigned int )hdr->iovec_count != 0U) {
     {
@@ -19328,7 +19328,7 @@ static int nvme_trans_report_luns(struct nvme_ns *ns , struct sg_io_hdr *hdr , u
     {
     tmp___0 = __fswab64((__u64 )lun_id);
     tmp_id = tmp___0;
-    __memcpy((void *)response + (unsigned long )lun_id_offset, (void const   *)(& tmp_id),
+    memcpy((void *)response + (unsigned long )lun_id_offset, (void const   *)(& tmp_id),
              8UL);
     lun_id_offset = (unsigned int )lun_id_offset + 8U;
     lun_id = lun_id + 1U;
@@ -19342,7 +19342,7 @@ static int nvme_trans_report_luns(struct nvme_ns *ns , struct sg_io_hdr *hdr , u
     {
     tmp___1 = __fswab32(ll_length);
     tmp_len = tmp___1;
-    __memcpy((void *)response, (void const   *)(& tmp_len), 4UL);
+    memcpy((void *)response, (void const   *)(& tmp_len), 4UL);
     }
   }
   {
@@ -19453,7 +19453,7 @@ static int nvme_trans_start_stop(struct nvme_ns *ns , struct sg_io_hdr *hdr , u8
   } else {
     if ((unsigned int )no_flush == 0U) {
       {
-      __memset((void *)(& c), 0, 64UL);
+      memset((void *)(& c), 0, 64UL);
       c.__annonCompField73.common.opcode = 0U;
       c.__annonCompField73.common.nsid = ns->ns_id;
       nvme_sc = nvme_submit_io_cmd(ns->dev, ns, & c, (u32 *)0U);
@@ -19491,7 +19491,7 @@ static int nvme_trans_synchronize_cache(struct nvme_ns *ns , struct sg_io_hdr *h
   {
   {
   res = 0;
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.common.opcode = 0U;
   c.__annonCompField73.common.nsid = ns->ns_id;
   nvme_sc = nvme_submit_io_cmd(ns->dev, ns, & c, (u32 *)0U);
@@ -19767,7 +19767,7 @@ static int nvme_trans_unmap(struct nvme_ns *ns , struct sg_io_hdr *hdr , u8 *cmd
 
   }
   {
-  __memset((void *)(& c), 0, 64UL);
+  memset((void *)(& c), 0, 64UL);
   c.__annonCompField73.dsm.opcode = 9U;
   c.__annonCompField73.dsm.nsid = ns->ns_id;
   c.__annonCompField73.dsm.prp1 = dma_addr;

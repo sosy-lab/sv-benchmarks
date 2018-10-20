@@ -24659,7 +24659,7 @@ int ldv_mod_timer_524(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_
   return (ldv_func_res);
 }
 }
-extern void *__memmove(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 bool ldv_queue_work_on_545(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;
 bool ldv_queue_work_on_547(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
@@ -24781,7 +24781,7 @@ static void copy_vbi_data(struct cx18 *cx , int lines , u32 pts_stamp )
   memcpy((void *)dst, (void const   *)(& mpeg_hdr_data), 32UL);
   if (line == 36) {
     memcpy((void *)dst + (unsigned long )sd, (void const   *)"ITV0", 4UL);
-    __memmove((void *)(dst + ((unsigned long )sd + 4UL)), (void const   *)(dst + ((unsigned long )sd + 12UL)),
+    memmove((void *)(dst + ((unsigned long )sd + 4UL)), (void const   *)(dst + ((unsigned long )sd + 12UL)),
               (size_t )(line * 43));
     size = (((unsigned int )((unsigned short )line) * 43U + 3U) & 65532U) + 4U;
   } else {

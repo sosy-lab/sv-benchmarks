@@ -5231,7 +5231,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *__memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __xchg_wrong_size(void) ;
 extern int __preempt_count ;
@@ -6593,7 +6593,7 @@ static void cfhsi_rx_done(struct cfhsi *cfhsi )
       }
       __len = 32UL;
       if (__len > 63UL) {
-        __ret = __memcpy((void *)rx_buf, (void const   *)piggy_desc, __len);
+        __ret = memcpy((void *)rx_buf, (void const   *)piggy_desc, __len);
       } else {
         __ret = __builtin_memcpy((void *)rx_buf, (void const   *)piggy_desc, __len);
       }
