@@ -42,7 +42,7 @@ typedef _Bool bool;
 typedef __kernel_uid32_t uid_t;
 typedef __kernel_gid32_t gid_t;
 typedef __kernel_loff_t loff_t;
-typedef __kernel_size_t size_t;
+typedef unsigned int size_t;
 typedef __kernel_ssize_t ssize_t;
 typedef __kernel_time_t time_t;
 typedef __u8 u_int8_t;
