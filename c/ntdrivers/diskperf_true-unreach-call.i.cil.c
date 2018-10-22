@@ -1521,10 +1521,17 @@ PCCHAR KeNumberProcessors ;
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-extern   LONG InterlockedIncrement(PLONG Addend ) ;
-extern   LONG InterlockedDecrement(PLONG Addend ) ;
-extern   LONG InterlockedExchange(PLONG Target ,
-                                                                                                 LONG Value ) ;
+LONG InterlockedIncrement(PLONG Addend ) {
+    return ++(*Addend);
+}
+LONG InterlockedDecrement(PLONG Addend ) {
+    return --(*Addend);
+}
+LONG InterlockedExchange(PLONG Target , LONG Value ) {
+    LONG previous = *Target;
+    *Target = Value;
+    return previous;
+}
 #pragma warning(disable:4035)
  ULONG KeGetCurrentProcessorNumber(void) 
 { 

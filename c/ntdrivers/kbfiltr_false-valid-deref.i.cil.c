@@ -1457,8 +1457,12 @@ extern void *memset(void * , int  , size_t  ) ;
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-extern   LONG InterlockedIncrement(PLONG Addend ) ;
-extern   LONG InterlockedDecrement(PLONG Addend ) ;
+LONG InterlockedIncrement(PLONG Addend ) {
+    return ++(*Addend);
+}
+LONG InterlockedDecrement(PLONG Addend ) {
+    return --(*Addend);
+}
 #pragma warning(disable:4035)
 #pragma warning(push)
 #pragma warning(disable:4164)

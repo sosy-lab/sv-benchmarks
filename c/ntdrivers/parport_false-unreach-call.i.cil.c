@@ -1977,10 +1977,17 @@ extern   NTSTATUS RtlAppendUnicodeStringToString(PUNICODE_STRING Destination ,
 #pragma warning(pop)
 extern   UCHAR READ_PORT_UCHAR(PUCHAR Port ) ;
 extern   void WRITE_PORT_UCHAR(PUCHAR Port , UCHAR Value ) ;
-extern   LONG InterlockedIncrement(PLONG Addend ) ;
-extern   LONG InterlockedDecrement(PLONG Addend ) ;
-extern   LONG InterlockedExchange(PLONG Target ,
-                                                                                                 LONG Value ) ;
+LONG InterlockedIncrement(PLONG Addend ) {
+    return ++(*Addend);
+}
+LONG InterlockedDecrement(PLONG Addend ) {
+    return --(*Addend);
+}
+LONG InterlockedExchange(PLONG Target , LONG Value ) {
+    LONG previous = *Target;
+    *Target = Value;
+    return previous;
+}
 #pragma warning(disable:4035)
 #pragma warning(push)
 #pragma warning(disable:4164)

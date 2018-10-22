@@ -2104,8 +2104,11 @@ __inline LUID ( __attribute__((__stdcall__)) RtlConvertUlongToLuid)(ULONG Ulong 
   return (TempLuid);
 }
 }
-extern  __attribute__((__dllimport__)) LONG ( __attribute__((__fastcall__)) InterlockedExchange)(PLONG Target ,
-                                                                                                 LONG Value ) ;
+LONG InterlockedExchange(PLONG Target , LONG Value ) {
+    LONG previous = *Target;
+    *Target = Value;
+    return previous;
+}
 #pragma warning(disable:4035)
 __inline ULONG KeGetCurrentProcessorNumber(void) 
 { 

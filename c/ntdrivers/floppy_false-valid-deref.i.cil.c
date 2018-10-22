@@ -1759,8 +1759,11 @@ extern void *memmove(void * , void const   * , size_t  ) ;
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-extern   LONG InterlockedExchange(PLONG Target ,
-                                                                                                 LONG Value ) ;
+LONG InterlockedExchange(PLONG Target , LONG Value ) {
+    LONG previous = *Target;
+    *Target = Value;
+    return previous;
+}
 #pragma warning(disable:4035)
 #pragma warning(push)
 #pragma warning(disable:4164)
