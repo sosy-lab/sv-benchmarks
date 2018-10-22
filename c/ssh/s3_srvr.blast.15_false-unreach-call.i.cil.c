@@ -1735,3 +1735,14 @@ int ssl3_accept(SSL *s )
   ERROR: __VERIFIER_error();
 }
 }
+
+extern void *calloc(size_t, size_t);
+SSL_METHOD *sslv3_base_method() {
+  // Most fields of SSL_METHOD are function pointers that are not used here,
+  // so we initialize them to null.
+  // The only other fiels are "version" (initialized nondeterministically)
+  // and "ssl3_enc_method" (unused, set to null).
+  SSL_METHOD *method = calloc(1, sizeof(SSL_METHOD));
+  method->version = __VERIFIER_nondet_int();
+  return method;
+}
