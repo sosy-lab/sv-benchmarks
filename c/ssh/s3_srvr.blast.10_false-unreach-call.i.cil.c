@@ -1021,13 +1021,8 @@ struct ssl3_enc_method {
 };
 extern void *memcpy(void * __restrict  __dest , void const   * __restrict  __src ,
                     size_t __n ) ;
-extern void ERR_put_error(int lib , int func , int reason , char const   *file , int line ) ;
 SSL_METHOD *SSLv3_server_method(void) ;
 extern SSL_METHOD *sslv3_base_method(void) ;
-extern X509 *ssl_get_server_send_cert(SSL * ) ;
-int ssl3_send_server_certificate(SSL *s ) ;
-extern int ssl3_do_write(SSL *s , int type ) ;
-extern unsigned long ssl3_output_cert_chain(SSL *s , X509 *x ) ;
 int ssl3_accept(SSL *s ) ;
 static SSL_METHOD *ssl3_get_server_method(int ver ) ;
 static SSL_METHOD *ssl3_get_server_method(int ver ) 
@@ -1716,36 +1711,14 @@ int ssl3_accept(SSL *s )
   ERROR: __VERIFIER_error();
 }
 }
-int ssl3_send_server_certificate(SSL *s ) 
-{ unsigned long l ;
-  X509 *x ;
-  int tmp ;
 
-  {
-  if (s->state == 8512) {
-    {
-    x = ssl_get_server_send_cert(s);
-    }
-    if ((unsigned long )x == (unsigned long )((void *)0)) {
-      {
-      ERR_put_error(20, 154, 157, "s3_srvr.c", 1844);
-      }
-      return (0);
-    } else {
-
-    }
-    {
-    l = ssl3_output_cert_chain(s, x);
-    s->state = 8513;
-    s->init_num = (int )l;
-    s->init_off = 0;
-    }
-  } else {
-
-  }
-  {
-  tmp = ssl3_do_write(s, 22);
-  }
-  return (tmp);
-}
+extern void *calloc(size_t, size_t);
+SSL_METHOD *sslv3_base_method() {
+  // Most fields of SSL_METHOD are function pointers that are not used here,
+  // so we initialize them to null.
+  // The only other fiels are "version" (initialized nondeterministically)
+  // and "ssl3_enc_method" (unused, set to null).
+  SSL_METHOD *method = calloc(1, sizeof(SSL_METHOD));
+  method->version = __VERIFIER_nondet_int();
+  return method;
 }
