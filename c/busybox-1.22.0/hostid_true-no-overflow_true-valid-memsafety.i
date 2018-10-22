@@ -1760,6 +1760,9 @@ static signed int fflush_all(void)
   return_value_fflush$1=fflush((struct _IO_FILE *)((void *)0));
   return return_value_fflush$1;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   if(!(*(1l + argv) == ((char *)((void *)0))))

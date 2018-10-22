@@ -1128,6 +1128,9 @@ static void bb_show_usage(void)
 {
   ;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char *return_value_single_argv$1;

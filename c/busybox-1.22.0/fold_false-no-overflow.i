@@ -2417,6 +2417,9 @@ static void fflush_stdout_and_exit(signed int retval)
   }
   exit(retval);
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char *line_out = (char *)((void *)0);

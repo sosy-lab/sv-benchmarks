@@ -2371,6 +2371,9 @@ static void xfunc_die(void)
   }
   exit((signed int)xfunc_error_retval);
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char **pp;

@@ -2548,6 +2548,9 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
   }
   while((_Bool)1);
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   struct cut_list *cut_lists = (struct cut_list *)((void *)0);

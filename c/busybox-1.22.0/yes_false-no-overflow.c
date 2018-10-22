@@ -248,6 +248,9 @@ static void xfunc_die(void)
 }
 
 // file coreutils/yes.c line 27
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char **pp;

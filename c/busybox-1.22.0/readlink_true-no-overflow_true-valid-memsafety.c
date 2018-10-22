@@ -843,6 +843,9 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
 }
 
 // file coreutils/readlink.c line 49
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char *buf;

@@ -591,6 +591,9 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
 }
 
 // file coreutils/cut.c line 185
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   struct cut_list *cut_lists = (struct cut_list *)NULL;

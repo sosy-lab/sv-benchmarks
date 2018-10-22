@@ -2046,6 +2046,9 @@ static void * llist_pop(struct llist_t **head)
 }
 
 // file coreutils/od_bloaty.c line 1167
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   const char *str_A;

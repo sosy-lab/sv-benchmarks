@@ -3124,6 +3124,9 @@ static signed int test_eaccess(char *path, signed int mode)
     return 0;
   return -1;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   signed int res;

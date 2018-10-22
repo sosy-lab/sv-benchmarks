@@ -226,6 +226,9 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 }
 
 // file coreutils/chroot.c line 28
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   argv = argv + 1l;

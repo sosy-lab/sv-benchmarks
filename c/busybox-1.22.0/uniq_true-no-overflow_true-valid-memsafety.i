@@ -2972,6 +2972,9 @@ static char * skip_whitespace(const char *s)
     }
   return (char *)s;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   const char *input_filename;

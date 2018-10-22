@@ -2311,6 +2311,9 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
     syslog(3, "%s", msg + (signed long int)applet_len);
   free((void *)msg);
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char **p = argv;

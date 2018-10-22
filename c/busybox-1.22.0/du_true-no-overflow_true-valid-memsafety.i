@@ -2847,6 +2847,9 @@ static unsigned long long int du(const char *filename)
     print(sum, filename);
   return sum;
 }
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   unsigned long long int total;

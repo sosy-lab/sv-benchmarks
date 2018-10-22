@@ -174,6 +174,9 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 }
 
 // file coreutils/chgrp.c line 42
+void syslog(int priority, const char *format, ...)
+{
+}
 signed int __main(signed int argc, char **argv)
 {
   char **p = argv;
