@@ -2654,12 +2654,13 @@ extern void *memset(void * , int  , size_t  ) ;
                                                                                                 PRTL_QUERY_REGISTRY_TABLE QueryTable ,
                                                                                                 PVOID Context ,
                                                                                                 PVOID Environment ) ;
-extern   NTSTATUS RtlWriteRegistryValue(ULONG RelativeTo ,
-                                                                                                      PCWSTR Path ,
-                                                                                                      PCWSTR ValueName ,
-                                                                                                      ULONG ValueType ,
-                                                                                                      PVOID ValueData ,
-                                                                                                      ULONG ValueLength ) ;
+NTSTATUS RtlWriteRegistryValue(ULONG RelativeTo, PCWSTR Path, PCWSTR ValueName, ULONG ValueType, PVOID ValueData, ULONG ValueLength){
+    if(__VERIFIER_nondet_int()){
+        return (long)0x00000000;
+    } else {
+        return (long)0xC000000D;
+    } 
+}
   NTSTATUS RtlDeleteRegistryValue(ULONG RelativeTo ,
                                                                                                 PCWSTR Path ,
                                                                                                 PCWSTR ValueName ) ;
