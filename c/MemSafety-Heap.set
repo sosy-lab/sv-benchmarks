@@ -9,7 +9,6 @@ memsafety-ext2/*_true-valid-memsafety*.i
 list-ext-properties/*_false-valid-deref*.i
 list-ext-properties/*_false-valid-free*.i
 list-ext-properties/*_false-valid-memtrack*.i
-list-ext-properties/*_false-valid-memcleanup*.i
 list-ext-properties/*_true-valid-memsafety*.i
 # memory-alloca/*_false-valid-deref*.i
 # memory-alloca/*_false-valid-free*.i
