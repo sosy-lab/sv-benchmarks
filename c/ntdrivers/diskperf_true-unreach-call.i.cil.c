@@ -4,6 +4,8 @@ extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
 extern void *__VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
+extern long __VERIFIER_nondet_long(void);
 
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void memcpy_guard(void* p1, void* p2, unsigned int n)
@@ -1567,7 +1569,10 @@ LONG InterlockedExchange(PLONG Target , LONG Value ) {
   void KeInitializeSpinLock(PKSPIN_LOCK SpinLock ) ;
   void KfReleaseSpinLock(PKSPIN_LOCK SpinLock ,
                                                                                         KIRQL NewIrql ) ;
-extern   void KeQuerySystemTime(PLARGE_INTEGER CurrentTime ) ;
+void KeQuerySystemTime(PLARGE_INTEGER CurrentTime){
+    (*CurrentTime).u.LowPart = __VERIFIER_nondet_ulong();
+    (*CurrentTime).u.HighPart = __VERIFIER_nondet_long();
+}
   PVOID ExAllocatePoolWithTag(POOL_TYPE PoolType ,
                                                                                             SIZE_T NumberOfBytes ,
                                                                                             ULONG Tag ) ;
