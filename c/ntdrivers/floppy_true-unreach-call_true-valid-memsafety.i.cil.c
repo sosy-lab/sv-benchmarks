@@ -1797,8 +1797,6 @@ LONG InterlockedExchange(PLONG Target , LONG Value ) {
   NTSTATUS KeDelayExecutionThread(KPROCESSOR_MODE WaitMode ,
                                                                 BOOLEAN Alertable ,
                                                                 PLARGE_INTEGER Interval ) ;
-extern   KPRIORITY KeSetPriorityThread(PKTHREAD Thread ,
-                                                                     KPRIORITY Priority ) ;
   NTSTATUS KeWaitForSingleObject(PVOID Object , KWAIT_REASON WaitReason ,
                                                                KPROCESSOR_MODE WaitMode ,
                                                                BOOLEAN Alertable ,

@@ -1924,7 +1924,6 @@ __inline void ListEntry64To32(PLIST_ENTRY64 l64 , PLIST_ENTRY32 l32 )
 extern void *( __attribute__((__cdecl__)) memcpy)(void * , void const   * , size_t  ) ;
 extern void *( __attribute__((__cdecl__)) memset)(void * , int  , size_t  ) ;
 extern void *( __attribute__((__cdecl__)) memmove)(void * , void const   * , size_t  ) ;
-extern PKTHREAD ( __attribute__((__stdcall__)) KeGetCurrentThread)() ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
  __attribute__((__dllimport__)) NTSTATUS ( __attribute__((__stdcall__)) RtlQueryRegistryValues)(ULONG RelativeTo ,
@@ -2137,8 +2136,6 @@ __inline ULONG KeGetCurrentProcessorNumber(void)
  __attribute__((__dllimport__)) NTSTATUS KeDelayExecutionThread(KPROCESSOR_MODE WaitMode ,
                                                                 BOOLEAN Alertable ,
                                                                 PLARGE_INTEGER Interval ) ;
-extern  __attribute__((__dllimport__)) KPRIORITY KeSetPriorityThread(PKTHREAD Thread ,
-                                                                     KPRIORITY Priority ) ;
  __attribute__((__dllimport__)) NTSTATUS KeWaitForSingleObject(PVOID Object , KWAIT_REASON WaitReason ,
                                                                KPROCESSOR_MODE WaitMode ,
                                                                BOOLEAN Alertable ,
@@ -13855,8 +13852,6 @@ void FloppyThread(PVOID Context )
   {
   disketteExtension = (DISKETTE_EXTENSION *)Context;
   ntStatus = 0L;
-  tmp = KeGetCurrentThread();
-  KeSetPriorityThread(tmp, 16L);
   __cil_tmp13 = & queueWait;
   mem_500 = (LONGLONG *)__cil_tmp13;
   *mem_500 = -30000000LL;
