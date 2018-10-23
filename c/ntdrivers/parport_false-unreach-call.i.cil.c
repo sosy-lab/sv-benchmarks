@@ -2163,10 +2163,15 @@ extern   void IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock ,
 extern   void IoWriteErrorLogEntry(PVOID ElEntry ) ;
 extern   NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject ,
                                                                          ULONG Action ) ;
-extern   NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject ,
-                                                                        ULONG DevInstKeyType ,
-                                                                        ACCESS_MASK DesiredAccess ,
-                                                                        PHANDLE DevInstRegKey ) ;
+NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject, ULONG DevInstKeyType, ACCESS_MASK DesiredAccess, PHANDLE DevInstRegKey){
+    if(__VERIFIER_nondet_int()){
+        return (long)0x00000000;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else {
+        return (long)0xC0000010;
+    }
+}
   NTSTATUS IoRegisterDeviceInterface(PDEVICE_OBJECT PhysicalDeviceObject ,
                                                                                                    GUID const   *InterfaceClassGuid ,
                                                                                                    PUNICODE_STRING ReferenceString ,

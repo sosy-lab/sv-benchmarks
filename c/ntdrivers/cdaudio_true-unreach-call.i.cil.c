@@ -2807,10 +2807,15 @@ void MmLockPagableDataSection(PVOID AddressWithinSection){}
                                                                   PVOID Context ) ;
   void IoReleaseCancelSpinLock(KIRQL Irql ) ;
   void IoSetHardErrorOrVerifyDevice(PIRP Irp , PDEVICE_OBJECT DeviceObject ) ;
-extern   NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject ,
-                                                                        ULONG DevInstKeyType ,
-                                                                        ACCESS_MASK DesiredAccess ,
-                                                                        PHANDLE DevInstRegKey ) ;
+NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject, ULONG DevInstKeyType, ACCESS_MASK DesiredAccess, PHANDLE DevInstRegKey){
+    if(__VERIFIER_nondet_int()){
+        return (long)0x00000000;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else {
+        return (long)0xC0000010;
+    }
+}
   NTSTATUS IoRegisterDeviceInterface(PDEVICE_OBJECT PhysicalDeviceObject ,
                                                                                                    GUID const   *InterfaceClassGuid ,
                                                                                                    PUNICODE_STRING ReferenceString ,
