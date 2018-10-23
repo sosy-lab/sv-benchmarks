@@ -1745,7 +1745,6 @@ extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
-extern PKTHREAD KeGetCurrentThread() ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
   NTSTATUS RtlQueryRegistryValues(ULONG RelativeTo ,
@@ -4922,8 +4921,6 @@ void FloppyThread(PVOID Context )
   {
   disketteExtension = Context;
   ntStatus = 0L;
-  tmp = KeGetCurrentThread();
-  KeSetPriorityThread(tmp, 16);
   queueWait.QuadPart = -30000000;
   acquireWait.QuadPart = -150000000;
   }
