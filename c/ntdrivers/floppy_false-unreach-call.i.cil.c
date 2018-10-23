@@ -1793,9 +1793,6 @@ LONG InterlockedExchange(PLONG Target , LONG Value ) {
                                                                BOOLEAN Alertable ,
                                                                PLARGE_INTEGER Timeout ) ;
   void KeInitializeSpinLock(PKSPIN_LOCK SpinLock ) ;
-extern   KIRQL KfAcquireSpinLock(PKSPIN_LOCK SpinLock ) ;
-  void KfReleaseSpinLock(PKSPIN_LOCK SpinLock ,
-                                                                                        KIRQL NewIrql ) ;
   PVOID ExAllocatePoolWithTag(POOL_TYPE PoolType ,
                                                                                             SIZE_T NumberOfBytes ,
                                                                                             ULONG Tag ) ;
@@ -6777,7 +6774,6 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
   }
   {
 /*   ExReleaseFastMutex(PagingMutex); */ /* INLINED */
-  oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock);
   InterlockedExchange((LONG *)((PVOID *)(& Irp->CancelRoutine)), (long )((void *)(& FloppyCancelQueuedRequest)));
   }
   if (Irp->Cancel) {
@@ -6789,7 +6785,6 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
       Irp->IoStatus.__annonCompField4.Status = -1073741536L;
       myStatus = -1073741536L;
       Irp->IoStatus.Information = 0;
-/*       KfReleaseSpinLock(& DisketteExtension->FlCancelSpinLock, oldIrql); */ /* INLINED */
       IofCompleteRequest(Irp, 0);
 /*       ExAcquireFastMutex(PagingMutex); */ /* INLINED */
       PagingReferenceCount -= 1UL;
@@ -6823,7 +6818,6 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
     {
     ExfInterlockedInsertTailList(& DisketteExtension->NewRequestQueue, & Irp->Tail.Overlay.__annonCompField17.ListEntry,
                                  & DisketteExtension->NewRequestQueueSpinLock);
-/*     KfReleaseSpinLock(& DisketteExtension->FlCancelSpinLock, oldIrql); */ /* INLINED */
     ntStatus = 259L;
     }
   }
@@ -6841,7 +6835,6 @@ void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   {
   }
   {
-  oldIrql = KfAcquireSpinLock(& disketteExtension->FlCancelSpinLock);
   Irp->IoStatus.__annonCompField4.Status = -1073741536L;
   myStatus = -1073741536L;
   Irp->IoStatus.Information = 0;
@@ -6855,7 +6848,6 @@ void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 
   }
   {
-/*   KfReleaseSpinLock(& disketteExtension->FlCancelSpinLock, oldIrql); */ /* INLINED */
 /*   IoReleaseCancelSpinLock(Irp->CancelIrql); */ /* INLINED */
   IofCompleteRequest(Irp, 0);
 /*   ExAcquireFastMutex(PagingMutex); */ /* INLINED */
@@ -6883,7 +6875,6 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
 
   {
   {
-  oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock);
   }
   {
   while (1) {
@@ -6908,7 +6899,6 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
       currentIrp = (void *)0;
     }
     {
-/*     KfReleaseSpinLock(& DisketteExtension->FlCancelSpinLock, oldIrql); */ /* INLINED */
     }
     if (currentIrp) {
       if (DisketteExtension->IsRemoved) {
@@ -6977,13 +6967,11 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
 
     }
     {
-    oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock);
     }
   }
   while_188_break: /* CIL Label */ ;
   }
   {
-/*   KfReleaseSpinLock(& DisketteExtension->FlCancelSpinLock, oldIrql); */ /* INLINED */
   }
   return;
 }
@@ -7809,15 +7797,6 @@ LONG KeReleaseSemaphore(PRKSEMAPHORE Semaphore , KPRIORITY Increment , LONG Adju
 
   {
   return (r);
-}
-}
-  void KfReleaseSpinLock(PKSPIN_LOCK SpinLock ,
-                                                                                        KIRQL NewIrql ) ;
-void KfReleaseSpinLock(PKSPIN_LOCK SpinLock , KIRQL NewIrql ) 
-{ 
-
-  {
-  return;
 }
 }
   LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment ,

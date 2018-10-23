@@ -2141,9 +2141,6 @@ __inline ULONG KeGetCurrentProcessorNumber(void)
                                                                BOOLEAN Alertable ,
                                                                PLARGE_INTEGER Timeout ) ;
  __attribute__((__dllimport__)) void ( __attribute__((__stdcall__)) KeInitializeSpinLock)(PKSPIN_LOCK SpinLock ) ;
-extern  __attribute__((__dllimport__)) KIRQL ( __attribute__((__fastcall__)) KfAcquireSpinLock)(PKSPIN_LOCK SpinLock ) ;
- __attribute__((__dllimport__)) void ( __attribute__((__fastcall__)) KfReleaseSpinLock)(PKSPIN_LOCK SpinLock ,
-                                                                                        KIRQL NewIrql ) ;
  __attribute__((__dllimport__)) PVOID ( __attribute__((__stdcall__)) ExAllocatePoolWithTag)(POOL_TYPE PoolType ,
                                                                                             SIZE_T NumberOfBytes ,
                                                                                             ULONG Tag ) ;
@@ -20360,7 +20357,6 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
   {
   ExReleaseFastMutex(PagingMutex);
   __cil_tmp7 = (KSPIN_LOCK *)DisketteExtension;
-  oldIrql = KfAcquireSpinLock(__cil_tmp7);
   __cil_tmp8 = (unsigned int )Irp;
   __cil_tmp9 = __cil_tmp8 + 56;
   __cil_tmp10 = (void (**)(struct _DEVICE_OBJECT *DeviceObject , struct _IRP *Irp ))__cil_tmp9;
@@ -20401,7 +20397,6 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
       mem_67 = (ULONG_PTR *)__cil_tmp29;
       *mem_67 = 0UL;
       __cil_tmp30 = (KSPIN_LOCK *)DisketteExtension;
-      KfReleaseSpinLock(__cil_tmp30, oldIrql);
       IofCompleteRequest(Irp, (char)0);
       ExAcquireFastMutex(PagingMutex);
       PagingReferenceCount = PagingReferenceCount - 1UL;
@@ -20474,7 +20469,6 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
     __cil_tmp63 = (KSPIN_LOCK *)__cil_tmp62;
     ExfInterlockedInsertTailList(__cil_tmp55, __cil_tmp60, __cil_tmp63);
     __cil_tmp64 = (KSPIN_LOCK *)DisketteExtension;
-    KfReleaseSpinLock(__cil_tmp64, oldIrql);
     ntStatus = 259L;
     }
   }
@@ -20543,7 +20537,6 @@ void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   }
   {
   __cil_tmp10 = (KSPIN_LOCK *)disketteExtension;
-  oldIrql = KfAcquireSpinLock(__cil_tmp10);
   __cil_tmp11 = (unsigned int )Irp;
   __cil_tmp12 = __cil_tmp11 + 24;
   mem_38 = (NTSTATUS *)__cil_tmp12;
@@ -20590,7 +20583,6 @@ void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   }
   {
   __cil_tmp32 = (KSPIN_LOCK *)disketteExtension;
-  KfReleaseSpinLock(__cil_tmp32, oldIrql);
   __cil_tmp33 = (unsigned int )Irp;
   __cil_tmp34 = __cil_tmp33 + 37;
   mem_45 = (KIRQL *)__cil_tmp34;
@@ -20698,7 +20690,6 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
   {
   {
   __cil_tmp7 = (KSPIN_LOCK *)DisketteExtension;
-  oldIrql = KfAcquireSpinLock(__cil_tmp7);
   }
   {
   while (1) {
@@ -20767,7 +20758,6 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
     }
     {
     __cil_tmp46 = (KSPIN_LOCK *)DisketteExtension;
-    KfReleaseSpinLock(__cil_tmp46, oldIrql);
     }
     if (currentIrp) {
       {
@@ -20873,14 +20863,12 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
     }
     {
     __cil_tmp69 = (KSPIN_LOCK *)DisketteExtension;
-    oldIrql = KfAcquireSpinLock(__cil_tmp69);
     }
   }
   while_188_break: /* CIL Label */ ;
   }
   {
   __cil_tmp70 = (KSPIN_LOCK *)DisketteExtension;
-  KfReleaseSpinLock(__cil_tmp70, oldIrql);
   }
   return;
 }
@@ -21840,15 +21828,6 @@ LONG KeReleaseSemaphore(PRKSEMAPHORE Semaphore , KPRIORITY Increment , LONG Adju
 
   {
   return (r);
-}
-}
- __attribute__((__dllimport__)) void ( __attribute__((__fastcall__)) KfReleaseSpinLock)(PKSPIN_LOCK SpinLock ,
-                                                                                        KIRQL NewIrql ) ;
-void ( __attribute__((__fastcall__)) KfReleaseSpinLock)(PKSPIN_LOCK SpinLock , KIRQL NewIrql ) 
-{ 
-
-  {
-  return;
 }
 }
  __attribute__((__dllimport__)) LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment ,
