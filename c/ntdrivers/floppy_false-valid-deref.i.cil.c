@@ -1789,7 +1789,7 @@ extern   KPRIORITY KeSetPriorityThread(PKTHREAD Thread ,
                                                                BOOLEAN Alertable ,
                                                                PLARGE_INTEGER Timeout ) ;
   void KeInitializeSpinLock(PKSPIN_LOCK SpinLock ) ;
-extern   KIRQL KfAcquireSpinLock(PKSPIN_LOCK SpinLock ) ;
+/* extern   KIRQL KfAcquireSpinLock(PKSPIN_LOCK SpinLock ) ; */
   void KfReleaseSpinLock(PKSPIN_LOCK SpinLock ,
                                                                                         KIRQL NewIrql ) ;
   PVOID ExAllocatePoolWithTag(POOL_TYPE PoolType ,
@@ -6770,7 +6770,7 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
   }
   {
 /*   ExReleaseFastMutex(PagingMutex); */ /* INLINED */
-  oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock);
+  /* oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock); */
   InterlockedExchange((LONG *)((PVOID *)(& Irp->CancelRoutine)), (long )((void *)(& FloppyCancelQueuedRequest)));
   }
   if (Irp->Cancel) {
@@ -6825,7 +6825,7 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
 }
 void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp ) 
 { PDISKETTE_EXTENSION disketteExtension ;
-  KIRQL oldIrql ;
+  /* KIRQL oldIrql ; */
   PLIST_ENTRY _EX_Blink ;
   PLIST_ENTRY _EX_Flink ;
 
@@ -6834,7 +6834,7 @@ void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   {
   }
   {
-  oldIrql = KfAcquireSpinLock(& disketteExtension->FlCancelSpinLock);
+  /* oldIrql = KfAcquireSpinLock(& disketteExtension->FlCancelSpinLock); */
   Irp->IoStatus.__annonCompField4.Status = -1073741536L;
   myStatus = -1073741536L;
   Irp->IoStatus.Information = 0;
@@ -6868,7 +6868,7 @@ void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 }
 }
 void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension ) 
-{ KIRQL oldIrql ;
+{ /* KIRQL oldIrql ; */
   PLIST_ENTRY headOfList ;
   PIRP currentIrp ;
   PIO_STACK_LOCATION irpSp ;
@@ -6876,7 +6876,7 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
 
   {
   {
-  oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock);
+  /* oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock); */
   }
   {
   while (1) {
@@ -6970,7 +6970,7 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
 
     }
     {
-    oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock);
+    /* oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock); */
     }
   }
   while_188_break: /* CIL Label */ ;
