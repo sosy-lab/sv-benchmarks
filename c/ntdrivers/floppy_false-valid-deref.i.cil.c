@@ -4831,7 +4831,7 @@ void FlAllocateIoBuffer(PDISKETTE_EXTENSION DisketteExtension , ULONG BufferSize
 
   }
   {
-  MmProbeAndLockPages(DisketteExtension->IoBufferMdl, 0, 2);
+  /* MmProbeAndLockPages(DisketteExtension->IoBufferMdl, 0, 2); */
   }
   {
   }
