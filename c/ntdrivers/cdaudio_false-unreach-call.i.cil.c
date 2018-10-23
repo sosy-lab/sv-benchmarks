@@ -2736,7 +2736,7 @@ LONG InterlockedDecrement(PLONG Addend ) {
   PVOID MmAllocateContiguousMemory(SIZE_T NumberOfBytes ,
                                                                  PHYSICAL_ADDRESS HighestAcceptableAddress ) ;
   void MmFreeContiguousMemory(PVOID BaseAddress ) ;
-extern   PVOID MmLockPagableDataSection(PVOID AddressWithinSection ) ;
+void MmLockPagableDataSection(PVOID AddressWithinSection){}
   void MmResetDriverPaging(PVOID AddressWithinSection ) ;
   PVOID MmPageEntireDriver(PVOID AddressWithinSection ) ;
   NTSTATUS PsCreateSystemThread(PHANDLE ThreadHandle ,
