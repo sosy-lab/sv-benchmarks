@@ -2105,17 +2105,17 @@ PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
                                                                                         PIRP Irp ) ;
   void IofCompleteRequest(PIRP Irp ,
                                                                                          CCHAR PriorityBoost ) ;
-extern   NTSTATUS IoConnectInterrupt(PKINTERRUPT *InterruptObject ,
-                                                                   BOOLEAN (*ServiceRoutine)(struct _KINTERRUPT *Interrupt ,
-                                                                                             PVOID ServiceContext ) ,
-                                                                   PVOID ServiceContext ,
-                                                                   PKSPIN_LOCK SpinLock ,
-                                                                   ULONG Vector ,
-                                                                   KIRQL Irql , KIRQL SynchronizeIrql ,
-                                                                   KINTERRUPT_MODE InterruptMode ,
-                                                                   BOOLEAN ShareVector ,
-                                                                   KAFFINITY ProcessorEnableMask ,
-                                                                   BOOLEAN FloatingSave ) ;
+NTSTATUS IoConnectInterrupt(PKINTERRUPT *InterruptObject, BOOLEAN (*ServiceRoutine)(struct _KINTERRUPT *Interrupt, PVOID ServiceContext), PVOID ServiceContext,
+PKSPIN_LOCK SpinLock, ULONG Vector, KIRQL Irql, KIRQL SynchronizeIrql, KINTERRUPT_MODE InterruptMode, BOOLEAN ShareVector, KAFFINITY ProcessorEnableMask, BOOLEAN FloatingSave){
+    if(__VERIFIER_nondet_int()){
+        (*ServiceRoutine)(InterruptObject, ServiceContext);
+        return 0L;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0x00000127;
+    } else {
+        return (long)0xC000016E;
+    }
+}
   NTSTATUS IoCreateDevice(PDRIVER_OBJECT DriverObject ,
                                                         ULONG DeviceExtensionSize ,
                                                         PUNICODE_STRING DeviceName ,
@@ -2126,7 +2126,7 @@ extern   NTSTATUS IoConnectInterrupt(PKINTERRUPT *InterruptObject ,
   void IoDeleteDevice(PDEVICE_OBJECT DeviceObject ) ;
   NTSTATUS IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName ) ;
   void IoDetachDevice(PDEVICE_OBJECT TargetDevice ) ;
-extern   void IoDisconnectInterrupt(PKINTERRUPT InterruptObject ) ;
+
   void IoFreeIrp(PIRP Irp ) ;
   void IoFreeMdl(PMDL Mdl ) ;
   PCONFIGURATION_INFORMATION IoGetConfigurationInformation(void) ;
@@ -8617,7 +8617,7 @@ void PptDisconnectInterrupt(PDEVICE_EXTENSION Extension )
 
   {
   {
-  IoDisconnectInterrupt(Extension->InterruptObject);
+  
   }
   return;
 }
