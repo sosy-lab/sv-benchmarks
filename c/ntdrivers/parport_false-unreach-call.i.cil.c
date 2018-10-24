@@ -1979,7 +1979,10 @@ extern   NTSTATUS RtlAppendUnicodeStringToString(PUNICODE_STRING Destination ,
 UCHAR READ_PORT_UCHAR(PUCHAR Port ) {
     return __VERIFIER_nondet_char();
 }
-extern   void WRITE_PORT_UCHAR(PUCHAR Port , UCHAR Value ) ;
+   void WRITE_PORT_UCHAR(PUCHAR Port , UCHAR Value ) ;
+void WRITE_PORT_UCHAR(PUCHAR Port , UCHAR Value ) {
+    return;
+}
 LONG InterlockedIncrement(PLONG Addend ) {
     return ++(*Addend);
 }
