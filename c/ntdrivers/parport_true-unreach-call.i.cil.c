@@ -2174,7 +2174,7 @@ extern   void IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock ,
 extern   void IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock ,
                                                                                                          PVOID Tag ,
                                                                                                          ULONG RemlockSize ) ;
-extern   void IoWriteErrorLogEntry(PVOID ElEntry ) ;
+void IoWriteErrorLogEntry(PVOID ElEntry){}
 extern   NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject ,
                                                                          ULONG Action ) ;
 NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject, ULONG DevInstKeyType, ACCESS_MASK DesiredAccess, PHANDLE DevInstRegKey){

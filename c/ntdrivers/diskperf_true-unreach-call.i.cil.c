@@ -1674,7 +1674,7 @@ PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
                                                                   PVOID Context ) ;
   void IoReleaseCancelSpinLock(KIRQL Irql ) ;
   void IoSetHardErrorOrVerifyDevice(PIRP Irp , PDEVICE_OBJECT DeviceObject ) ;
-extern   void IoWriteErrorLogEntry(PVOID ElEntry ) ;
+void IoWriteErrorLogEntry(PVOID ElEntry){}
 extern   NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject ,
                                                                          ULONG Action ) ;
   NTSTATUS IoRegisterDeviceInterface(PDEVICE_OBJECT PhysicalDeviceObject ,
