@@ -7,6 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
+unsigned int __VERIFIER_nondet_uint();
 
 int main()
 {
@@ -14,8 +15,8 @@ int main()
 	int i,j;
 	int m=1000,n=1500;
 	int q,s;
-	int A [m][n];
-	int C=__VERIFIER_nondet_int();
+	unsigned int A [m][n];
+	unsigned int C=__VERIFIER_nondet_uint();
         
         q= __VERIFIER_nondet_int();
         s= __VERIFIER_nondet_int();
