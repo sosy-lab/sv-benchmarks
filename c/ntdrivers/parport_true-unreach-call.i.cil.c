@@ -2261,8 +2261,12 @@ extern   NTSTATUS ZwSetValueKey(HANDLE KeyHandle ,
                                                                                               ULONG DataSize ) ;
   struct _GUID  const  GUID_PARALLEL_DEVICE ;
   struct _GUID  const  GUID_PARCLASS_DEVICE ;
-extern NTSTATUS WmiCompleteRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp , NTSTATUS Status ,
-                                   ULONG BufferUsed , CCHAR PriorityBoost ) ;
+NTSTATUS WmiCompleteRequest(PDEVICE_OBJECT DeviceObject, PIRP Irp, NTSTATUS Status, ULONG BufferUsed, CCHAR PriorityBoost){
+    if(Status == (long)0xC0000023){
+        return 0L;
+    }
+    return Status; 
+}
 NTSTATUS WmiSystemControl(PWMILIB_CONTEXT WmiLibInfo , PDEVICE_OBJECT DeviceObject ,
                           PIRP Irp , PSYSCTL_IRP_DISPOSITION IrpDisposition ) ;
 void PptCompleteRequest(PIRP Irp , CCHAR PriorityBoost ) ;

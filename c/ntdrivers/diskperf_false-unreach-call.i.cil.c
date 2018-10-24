@@ -2016,8 +2016,12 @@ extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
   struct _GUID  const  ImageLoadGuid  =    {749821213, 24513, 4562, {171, 225, 0, 160, 201, 17, 245, 24}};
   struct _GUID  const  RegistryGuid  =    {2924704302U, 51299, 4562, {134, 89, 0, 192, 79, 163, 33, 161}};
   struct _GUID  const  TraceErrorGuid  =    {964792796, 11687, 4563, {139, 152, 0, 128, 95, 133, 215, 198}};
-extern NTSTATUS WmiCompleteRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp , NTSTATUS Status ,
-                                   ULONG BufferUsed , CCHAR PriorityBoost ) ;
+NTSTATUS WmiCompleteRequest(PDEVICE_OBJECT DeviceObject, PIRP Irp, NTSTATUS Status, ULONG BufferUsed, CCHAR PriorityBoost){
+    if(Status == (long)0xC0000023){
+        return 0L;
+    }
+    return Status; 
+}
 NTSTATUS WmiSystemControl(PWMILIB_CONTEXT WmiLibInfo , PDEVICE_OBJECT DeviceObject ,
                           PIRP Irp , PSYSCTL_IRP_DISPOSITION IrpDisposition ) ;
 void errorFn(void) 
