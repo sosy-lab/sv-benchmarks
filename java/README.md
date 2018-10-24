@@ -2,57 +2,58 @@
 
 ## Verification Task Structure
 
-Verification tasks are grouped in directories, e.g.,
-`jbmc-regression`.  Within these directories, each verification task
-is in its own directory, e.g., `StringValueOf01_true-assert`. The
-suffix of this directory contains the expected verification outcome,
-i.e., `_true-assert` means that there is no execution of the program
-that violates any of the assertions in that program.  A verification
-task has a structure compatible with the [Maven](https://maven.apache.org)
-standard directory layout (to allow the future use of the Maven build
-system if necessary):
-
-| directory | description |
-| --------- | ----------- |
-|`src/` | |
-| `src/main/java/Main.java` | The `Main` class. |
-| `src/main/java/` | This directory contains the remaining Java source tree. |
-| `target/` | |
-| `target/classes/` | After compiling this directory contains the `.class` built from `src`. |
-| `target/task.jar` | This file assembles the `.class` files from `target/classes`. |
+Verification tasks are grouped in directories depending on their source,
+e.g., `jbmc-regression`.
+Within these directories, each verification task consists of a YAML file
+in the format defined by BenchExec for task-definition files.
+These YAML files define the list of input files (Java sources) of a task
+and the expected verdict for each possible property.
 
 The programs are assumed to be written in Java 1.8.
-The `.java` source files are in the source tree
-in the `src` sub-directory of the benchmark directory.  The
-program may call the Java standard library (`java.*`,
-`javax.*`).  The benchmark must have a `Main` class with a
-`public static void main(String[])` method in the root package.
-The `Main.java` file must have a copyright header indicating
-the source of the benchmark.
+All Java source files of a task need to have the suffix `.java`.
+Program files must have a copyright header indicating
+the source of the benchmark (at least in the "main" source file).
+The program may call the Java standard library (`java.*`, `javax.*`).
+
+## Properties
+
+For each program at least one property file needs to be listed
+in the task-definition file, which defines the entry point
+and the property that the verifier should check.
+
+For checking (un)reachability,
+we use the `assert` keyword provided in the Java language:
+The property `G assert` specifies that all `assert` statements
+in the program can never fail.
+
+A property file that defines the method `main` in the class `Main`
+in the default package as the entry point,
+and uses the assert property would look as follows:
+
+    CHECK( init(Main.main()), LTL(G assert) )
+
+Other properties are currently not defined.
 
 ## Compiling the Verification Tasks
 
-The verification task can be compiled by putting all files
-in the `src` directory on the sourcepath.
+The verification task need to be compilable by putting all `.java` files
+in directories listed as input files on the sourcepath of a Java 8 compiler.
 Makefiles for compiling the sources and assembling them into
-a `target/task.jar` file are provided through links to the
-`Makefile.task`.
+a JAR file can be provided.
 The top-level `Makefile` has a `compile` target for compiling all
-verification tasks. 
+verification tasks.
 
-## Preparing the Verification Tasks for Benchexec
+## Using the Verification Tasks with Benchexec
 
-The input for a verification tool when run in Benchexec
-is a _verification-task-dir-name_`.zip` file, which contains
-the contents of a verification task directory, excluding compilation
-products. If a verification tool requires `.class` files or a `.jar`
-file as input it can use the `Makefile` provided to generate
-these artifacts. `make`, `unzip` and JDK 1.8 can be assumed to be installed
-on the benchmarking machine.
-
-The benchmark group directories have links to `Makefile.dir`, which
-has a `prepare` target for this purpose.  The top-level `Makefile` has
-a `prepare` target for preparing all verification tasks.
+BenchExec will pass the paths
+that are listed as input files in a task-definition file
+to the tool-info module,
+which can pass them to the verifier
+or for example expand them to a list of single `.java` files,
+depending on what the verifier needs.
+If a verification tool requires `.class` files or a `.jar` file as input
+it should use regular Java utilities to create these artifacts
+(in a wrapper script if necessary).
 
 ## Rules for Nondeterminism
 
@@ -81,17 +82,3 @@ verification tasks.
 Exceptions with well-defined behaviors can be explicitly granted if
 they allow a wider range of benchmarks to be included in the
 collection.
-
-## Properties
-
-For checking (un)reachability, we use the `assert` keyword provided
-in the Java language. It is assumed that the `AssertionError` thrown
-on violation of the assertion always leads to abortion of the
-program, i.e., it is not caught in the program. The property definition
-for Benchexec is in the file `ReachSafety.prp`.
-
-`ReachSafety.prp`:
-  * `true` if the conditions in `assert` statements evaluate
-    to true on all paths
-  * `false` if a condition in an `assert` statement evaluates
-    to false on a path

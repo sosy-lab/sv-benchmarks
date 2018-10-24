@@ -1,0 +1,6 @@
+format_version: "0.1"
+input_files: StringValueOf06_false-assert/src/main/java/
+properties:
+  - property_file: ../properties/assert.prp
+    expected_verdict: false
+

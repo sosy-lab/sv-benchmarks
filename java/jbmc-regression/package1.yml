@@ -1,0 +1,6 @@
+format_version: "0.1"
+input_files: package1_true-assert/src/main/java/
+properties:
+  - property_file: ../properties/assert.prp
+    expected_verdict: true
+
