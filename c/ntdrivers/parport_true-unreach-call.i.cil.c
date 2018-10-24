@@ -2223,7 +2223,7 @@ NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject, ULONG DevInstKeyTy
 extern   void KeStallExecutionProcessor(ULONG MicroSeconds ) ;
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-extern   NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
+   NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
                                                                   UCHAR MinorFunction ,
                                                                   POWER_STATE PowerState ,
                                                                   void (*CompletionFunction)(PDEVICE_OBJECT DeviceObject ,
@@ -2233,6 +2233,23 @@ extern   NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
                                                                                              PIO_STATUS_BLOCK IoStatus ) ,
                                                                   PVOID Context ,
                                                                   PIRP *Irp ) ;
+NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
+                                                                  UCHAR MinorFunction ,
+                                                                  POWER_STATE PowerState ,
+                                                                  void (*CompletionFunction)(PDEVICE_OBJECT DeviceObject ,
+                                                                                             UCHAR MinorFunction ,
+                                                                                             POWER_STATE PowerState ,
+                                                                                             PVOID Context ,
+                                                                                             PIO_STATUS_BLOCK IoStatus ) ,
+                                                                  PVOID Context ,
+                                                                  PIRP *Irp ) {
+	NTSTATUS rtr = __VERIFIER_nondet_long();
+	__VERIFIER_assume(rtr == 0x00000103 /* STATUS_PENDING */ ||
+			  rtr == 0xC000009A /* STATUS_INSUFFICIENT_RESOURCES */ ||
+			  rtr == 0xC00000F0 /* STATUS_INVALID_PARAMETER_2 */);
+
+	return rtr;
+}
    POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
                                                                    POWER_STATE_TYPE Type ,
                                                                    POWER_STATE State ) ;
