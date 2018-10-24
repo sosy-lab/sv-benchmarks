@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
 
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
@@ -2222,9 +2223,32 @@ extern   NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
                                                                                              PIO_STATUS_BLOCK IoStatus ) ,
                                                                   PVOID Context ,
                                                                   PIRP *Irp ) ;
-extern   POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
+   POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
                                                                    POWER_STATE_TYPE Type ,
                                                                    POWER_STATE State ) ;
+POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
+                                                                   POWER_STATE_TYPE Type ,
+                                                                   POWER_STATE State ) {
+   static int isFixed = 0;
+   static int isWin98 = 0;
+   if (isFixed == 0)
+   {
+	   isWin98 = __VERIFIER_nondet_int();
+	   isFixed = 1;
+   }
+
+   if (isWin98)
+   {
+       return State;
+   }
+
+   int value = __VERIFIER_nondet_int();
+   __VERIFIER_assume(value >= 0 && value <= 7);
+
+   POWER_STATE pwr;
+   pwr.SystemState = value;
+   return pwr;
+}
   NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject ,
                                                       PIRP Irp ) ;
   void PoStartNextPowerIrp(PIRP Irp ) ;
