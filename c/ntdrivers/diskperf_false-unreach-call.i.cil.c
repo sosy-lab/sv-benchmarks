@@ -1487,6 +1487,7 @@ struct _SCSI_REQUEST_BLOCK;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *malloc(size_t);
 PCCHAR KeNumberProcessors ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
@@ -1600,8 +1601,13 @@ void KeQuerySystemTime(PLARGE_INTEGER CurrentTime){
   NTSTATUS PsTerminateSystemThread(NTSTATUS ExitStatus ) ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
-extern   PVOID IoAllocateErrorLogEntry(PVOID IoObject ,
-                                                                     UCHAR EntrySize ) ;
+PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
+    void* rtr; 
+    if(__VERIFIER_nondet_int()){
+        rtr = malloc(EntrySize);
+    } 
+    return rtr; 
+}
   PMDL IoAllocateMdl(PVOID VirtualAddress , ULONG Length ,
                                                    BOOLEAN SecondaryBuffer , BOOLEAN ChargeQuota ,
                                                    PIRP Irp ) ;
@@ -3341,17 +3347,6 @@ int main(void)
 }
 }
 char _SLAM_alloc_dummy  ;
-char *malloc(int i ) 
-{ int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
-
-  {
-  if (__BLAST_NONDET___0) {
-    return ((char *)0);
-  } else {
-    return ((char *)1);
-  }
-}
-}
   void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) ;
 void ExAcquireFastMutex(PFAST_MUTEX FastMutex ) 
 { 

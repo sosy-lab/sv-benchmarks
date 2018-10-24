@@ -2064,8 +2064,13 @@ extern   ULONG KeQueryTimeIncrement(void) ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 extern   void IoAcquireCancelSpinLock(PKIRQL Irql ) ;
-extern   PVOID IoAllocateErrorLogEntry(PVOID IoObject ,
-                                                                     UCHAR EntrySize ) ;
+PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
+    void* rtr; 
+    if(__VERIFIER_nondet_int()){
+        rtr = malloc(EntrySize);
+    } 
+    return rtr; 
+}
   PMDL IoAllocateMdl(PVOID VirtualAddress , ULONG Length ,
                                                    BOOLEAN SecondaryBuffer , BOOLEAN ChargeQuota ,
                                                    PIRP Irp ) ;
