@@ -1691,7 +1691,21 @@ NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG Action){
                                                                                                    PUNICODE_STRING SymbolicLinkName ) ;
   NTSTATUS IoSetDeviceInterfaceState(PUNICODE_STRING SymbolicLinkName ,
                                                                    BOOLEAN Enable ) ;
-extern   LARGE_INTEGER KeQueryPerformanceCounter(PLARGE_INTEGER PerformanceFrequency ) ;
+LARGE_INTEGER KeQueryPerformanceCounter(PLARGE_INTEGER PerformanceFrequency){
+    LARGE_INTEGER value = { .u ={.LowPart = __VERIFIER_nondet_ulong(), .HighPart = __VERIFIER_nondet_long()}};
+    static int isFixed = 0;
+	static LARGE_INTEGER frequency = { .u ={.LowPart = 0L, .HighPart = 0L}};
+    if (isFixed == 0) {
+        isFixed = 1;
+        frequency.u.LowPart = __VERIFIER_nondet_ulong();
+        frequency.u.HighPart = __VERIFIER_nondet_long();
+    }
+    if( PerformanceFrequency != ((void *)0) ){
+        (*PerformanceFrequency).u.LowPart = frequency.u.LowPart;
+        (*PerformanceFrequency).u.HighPart = frequency.u.HighPart;
+    }
+    return value;
+}
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
   NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject ,
