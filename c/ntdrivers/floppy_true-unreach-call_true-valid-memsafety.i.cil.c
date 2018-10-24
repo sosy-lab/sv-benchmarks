@@ -1819,9 +1819,6 @@ LONG InterlockedExchange(PLONG Target , LONG Value ) {
                                                                                                           PKSPIN_LOCK Lock ) ;
   PLIST_ENTRY ExfInterlockedRemoveHeadList(PLIST_ENTRY ListHead ,
                                                                                                           PKSPIN_LOCK Lock ) ;
-extern   void MmProbeAndLockPages(PMDL MemoryDescriptorList ,
-                                                                KPROCESSOR_MODE AccessMode ,
-                                                                LOCK_OPERATION Operation ) ;
   void MmUnlockPages(PMDL MemoryDescriptorList ) ;
   PVOID MmMapLockedPagesSpecifyCache(PMDL MemoryDescriptorList ,
                                                                    KPROCESSOR_MODE AccessMode ,
@@ -4854,7 +4851,6 @@ void FlAllocateIoBuffer(PDISKETTE_EXTENSION DisketteExtension , ULONG BufferSize
 
   }
   {
-  /* MmProbeAndLockPages(DisketteExtension->IoBufferMdl, 0, 2); */
   }
   {
   }

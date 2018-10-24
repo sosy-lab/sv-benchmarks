@@ -2376,9 +2376,6 @@ __inline void ExFreeToNPagedLookasideList(PNPAGED_LOOKASIDE_LIST Lookaside , PVO
   return;
 }
 }
-extern  __attribute__((__dllimport__)) void MmProbeAndLockPages(PMDL MemoryDescriptorList ,
-                                                                KPROCESSOR_MODE AccessMode ,
-                                                                LOCK_OPERATION Operation ) ;
  __attribute__((__dllimport__)) void MmUnlockPages(PMDL MemoryDescriptorList ) ;
  __attribute__((__dllimport__)) PVOID MmMapLockedPagesSpecifyCache(PMDL MemoryDescriptorList ,
                                                                    KPROCESSOR_MODE AccessMode ,
@@ -13083,7 +13080,6 @@ void FlAllocateIoBuffer(PDISKETTE_EXTENSION DisketteExtension , ULONG BufferSize
   mem_74 = (PMDL *)__cil_tmp46;
   __cil_tmp47 = *mem_74;
   __cil_tmp48 = (enum _LOCK_OPERATION )2;
-  MmProbeAndLockPages(__cil_tmp47, (char)0, __cil_tmp48);
   }
   {
   while (1) {
