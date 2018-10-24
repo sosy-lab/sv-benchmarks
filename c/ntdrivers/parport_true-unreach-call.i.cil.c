@@ -2072,7 +2072,10 @@ extern   ULONG KeQueryTimeIncrement(void) ;
   NTSTATUS PsTerminateSystemThread(NTSTATUS ExitStatus ) ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
-extern   void IoAcquireCancelSpinLock(PKIRQL Irql ) ;
+   void IoAcquireCancelSpinLock(PKIRQL Irql ) ;
+void IoAcquireCancelSpinLock(PKIRQL Irql ) {
+    return;
+}
 PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
     void* rtr; 
     if(__VERIFIER_nondet_int()){
@@ -2374,7 +2377,7 @@ NTSTATUS PptDispatchCleanup(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 
   }
   {
-  IoAcquireCancelSpinLock(& cancelIrql);
+/*  IoAcquireCancelSpinLock(& cancelIrql); */ /* INLINED */
 /*   IoReleaseCancelSpinLock(cancelIrql); */ /* INLINED */
   }
   targetExit: 
@@ -3281,7 +3284,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                   return (0L);
                                   switch_41_exp_3: /* CIL Label */ 
                                   {
-                                  IoAcquireCancelSpinLock(& CancelIrql);
+/*                                  IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                   }
                                   if (Irp->Cancel) {
                                     Status = -1073741536L;
@@ -3396,7 +3399,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                       {
                                       IsrInfo = Irp->AssociatedIrp.SystemBuffer;
                                       InterruptInfo = Irp->AssociatedIrp.SystemBuffer;
-                                      IoAcquireCancelSpinLock(& CancelIrql);
+/*                                      IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                       }
                                       if (Extension->InterruptRefCount) {
                                         {
@@ -3411,7 +3414,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                         }
                                         if (Status >= 0L) {
                                           {
-                                          IoAcquireCancelSpinLock(& CancelIrql);
+/*                                          IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                           Extension->InterruptRefCount += 1UL;
 /*                                           IoReleaseCancelSpinLock(CancelIrql); */ /* INLINED */
                                           }
@@ -3460,7 +3463,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                   } else {
                                     {
                                     IsrInfo = Irp->AssociatedIrp.SystemBuffer;
-                                    IoAcquireCancelSpinLock(& CancelIrql);
+/*                                    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                     }
                                     if (Extension->InterruptRefCount) {
                                       {
@@ -3474,7 +3477,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                       if (tmp___1) {
                                         {
                                         Status = 0L;
-                                        IoAcquireCancelSpinLock(& CancelIrql);
+/*                                        IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                         Extension->InterruptRefCount -= 1UL;
                                         }
                                         if (Extension->InterruptRefCount == 0UL) {
@@ -3552,7 +3555,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                     } else {
                                       {
                                       Status = PptTrySelectDevice(Extension, Irp->AssociatedIrp.SystemBuffer);
-                                      IoAcquireCancelSpinLock(& CancelIrql);
+/*                                      IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                       }
                                       if (Status == 259L) {
                                         {
@@ -4015,7 +4018,7 @@ NTSTATUS PptTrySelectDevice(PVOID Context , PVOID TrySelectCommand )
       {
       }
       {
-      IoAcquireCancelSpinLock(& CancelIrql);
+/*      IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
       SyncContext.Count = & Extension->WorkQueueCount;
       }
       if (Extension->InterruptRefCount) {
@@ -7566,7 +7569,7 @@ NTSTATUS PptPnpSurpriseRemoval(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 /*   ExAcquireFastMutex(& extension->ExtensionFastMutex); */ /* INLINED */
   extension->DeviceStateFlags |= 4096UL;
 /*   ExReleaseFastMutex(& extension->ExtensionFastMutex); */ /* INLINED */
-  IoAcquireCancelSpinLock(& cancelIrql);
+/*  IoAcquireCancelSpinLock(& cancelIrql); */ /* INLINED */
 /*   IoReleaseCancelSpinLock(cancelIrql); */ /* INLINED */
   IoSetDeviceInterfaceState(& extension->SymbolicLinkName, 0);
   Irp->IoStatus.__annonCompField4.Status = 0L;
@@ -8090,7 +8093,7 @@ NTSTATUS PptTrySelectLegacyZip(PVOID Context , PVOID TrySelectCommand )
     {
     }
     {
-    IoAcquireCancelSpinLock(& CancelIrql);
+/*    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
     SyncContext.Count = & Extension->WorkQueueCount;
     }
     if (Extension->InterruptRefCount) {
@@ -8806,7 +8809,7 @@ BOOLEAN PptTryAllocatePort(PVOID Extension )
     }
   } else {
     {
-    IoAcquireCancelSpinLock(& CancelIrql);
+/*    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
     b = PptTryAllocatePortAtInterruptLevel(DeviceExtension);
 /*     IoReleaseCancelSpinLock(CancelIrql); */ /* INLINED */
     }
@@ -8865,7 +8868,7 @@ void PptFreePort(PVOID Extension )
   }
   {
   SyncContext.Count = & DeviceExtension->WorkQueueCount;
-  IoAcquireCancelSpinLock(& CancelIrql);
+/*  IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
   }
   if (DeviceExtension->InterruptRefCount) {
     {
@@ -8899,7 +8902,7 @@ void PptFreePort(PVOID Extension )
   }
   if (! Allocated) {
     {
-    IoAcquireCancelSpinLock(& CancelIrql);
+/*    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
     InterruptRefCount = DeviceExtension->InterruptRefCount;
 /*     IoReleaseCancelSpinLock(CancelIrql); */ /* INLINED */
     }
@@ -8933,7 +8936,7 @@ ULONG PptQueryNumWaiters(PVOID Extension )
     }
   } else {
     {
-    IoAcquireCancelSpinLock(& CancelIrql);
+/*    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
     PptSynchronizedRead(& SyncContext);
 /*     IoReleaseCancelSpinLock(CancelIrql); */ /* INLINED */
     }
