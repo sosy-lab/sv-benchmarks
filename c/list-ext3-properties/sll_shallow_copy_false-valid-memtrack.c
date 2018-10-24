@@ -28,10 +28,7 @@ int main() {
 
   /* Lose track of first allocation */
   *s = *(s->next);
-
-  struct node* t = s->next;
   free(s);
-  free(t);
 
   return 0;
 }

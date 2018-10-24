@@ -569,8 +569,6 @@ int main() {
   struct node* s = alloc_node();
   s->next = alloc_node();
   *s = *(s->next);
-  struct node* t = s->next;
   free(s);
-  free(t);
   return 0;
 }
