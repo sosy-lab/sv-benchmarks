@@ -1675,8 +1675,25 @@ PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
   void IoReleaseCancelSpinLock(KIRQL Irql ) ;
   void IoSetHardErrorOrVerifyDevice(PIRP Irp , PDEVICE_OBJECT DeviceObject ) ;
 void IoWriteErrorLogEntry(PVOID ElEntry){}
-extern   NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject ,
-                                                                         ULONG Action ) ;
+NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG Action){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000E;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000296;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000297;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000298;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC00002DD;
+    } else {
+        return (long)0xC0000302;
+    }
+}
   NTSTATUS IoRegisterDeviceInterface(PDEVICE_OBJECT PhysicalDeviceObject ,
                                                                                                    GUID const   *InterfaceClassGuid ,
                                                                                                    PUNICODE_STRING ReferenceString ,

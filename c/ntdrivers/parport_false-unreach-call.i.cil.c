@@ -2166,8 +2166,25 @@ extern   void IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock ,
                                                                                                          PVOID Tag ,
                                                                                                          ULONG RemlockSize ) ;
 void IoWriteErrorLogEntry(PVOID ElEntry){}
-extern   NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject ,
-                                                                         ULONG Action ) ;
+NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG Action){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000E;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000296;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000297;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000298;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC00002DD;
+    } else {
+        return (long)0xC0000302;
+    }
+}
 NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject, ULONG DevInstKeyType, ACCESS_MASK DesiredAccess, PHANDLE DevInstRegKey){
     if(__VERIFIER_nondet_int()){
         return (long)0x00000000;
