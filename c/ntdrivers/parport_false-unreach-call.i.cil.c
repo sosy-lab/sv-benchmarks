@@ -1975,7 +1975,10 @@ extern   NTSTATUS RtlAppendUnicodeStringToString(PUNICODE_STRING Destination ,
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-extern   UCHAR READ_PORT_UCHAR(PUCHAR Port ) ;
+   UCHAR READ_PORT_UCHAR(PUCHAR Port ) ;
+UCHAR READ_PORT_UCHAR(PUCHAR Port ) {
+    return __VERIFIER_nondet_char();
+}
 extern   void WRITE_PORT_UCHAR(PUCHAR Port , UCHAR Value ) ;
 LONG InterlockedIncrement(PLONG Addend ) {
     return ++(*Addend);
