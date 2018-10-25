@@ -2159,22 +2159,14 @@ extern   NTSTATUS IoReportResourceUsage(PUNICODE_STRING DriverClassName ,
                                                                       BOOLEAN OverrideConflict ,
                                                                       PBOOLEAN ConflictDetected ) ;
   void IoSetHardErrorOrVerifyDevice(PIRP Irp , PDEVICE_OBJECT DeviceObject ) ;
-extern   void IoInitializeRemoveLockEx(PIO_REMOVE_LOCK Lock ,
-                                                                                                     ULONG AllocateTag ,
-                                                                                                     ULONG MaxLockedMinutes ,
-                                                                                                     ULONG HighWatermark ,
-                                                                                                     ULONG RemlockSize ) ;
+void IoInitializeRemoveLockEx(PIO_REMOVE_LOCK Lock, ULONG AllocateTag, ULONG MaxLockedMinutes, ULONG HighWatermark, ULONG RemlockSize) {}
   NTSTATUS IoAcquireRemoveLockEx(PIO_REMOVE_LOCK RemoveLock ,
                                                                                                PVOID Tag ,
                                                                                                PCSTR File ,
                                                                                                ULONG Line ,
                                                                                                ULONG RemlockSize ) ;
-extern   void IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock ,
-                                                                                                  PVOID Tag ,
-                                                                                                  ULONG RemlockSize ) ;
-extern   void IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock ,
-                                                                                                         PVOID Tag ,
-                                                                                                         ULONG RemlockSize ) ;
+void IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize) {}
+void IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize) {}
 void IoWriteErrorLogEntry(PVOID ElEntry){}
 NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG Action){
     if(__VERIFIER_nondet_int()){
