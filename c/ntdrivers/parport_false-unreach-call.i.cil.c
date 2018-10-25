@@ -2210,7 +2210,7 @@ NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject, ULONG DevInstKeyTy
                                                                                                    PUNICODE_STRING SymbolicLinkName ) ;
   NTSTATUS IoSetDeviceInterfaceState(PUNICODE_STRING SymbolicLinkName ,
                                                                    BOOLEAN Enable ) ;
-extern   void KeStallExecutionProcessor(ULONG MicroSeconds ) ;
+void KeStallExecutionProcessor(ULONG MicroSeconds){}
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
    NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
