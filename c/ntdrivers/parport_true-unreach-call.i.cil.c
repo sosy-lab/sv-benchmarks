@@ -4,6 +4,7 @@ extern void __VERIFIER_assume(int);
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern void *__VERIFIER_nondet_pointer(void);
 
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
@@ -2048,7 +2049,10 @@ BOOLEAN KeSynchronizeExecution(PKINTERRUPT Interrupt ,
   void KeInitializeSpinLock(PKSPIN_LOCK SpinLock ) ;
   void KfReleaseSpinLock(PKSPIN_LOCK SpinLock ,
                                                                                         KIRQL NewIrql ) ;
-extern   ULONG KeQueryTimeIncrement(void) ;
+   ULONG KeQueryTimeIncrement(void) ;
+ULONG KeQueryTimeIncrement(void) {
+	return __VERIFIER_nondet_ulong();
+}
   PVOID ExAllocatePoolWithTag(POOL_TYPE PoolType ,
                                                                                             SIZE_T NumberOfBytes ,
                                                                                             ULONG Tag ) ;
