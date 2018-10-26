@@ -2011,8 +2011,12 @@ extern   void KeInitializeDpc(PRKDPC Dpc , void (*DeferredRoutine)(struct _KDPC 
                                                                                                  PVOID SystemArgument1 ,
                                                                                                  PVOID SystemArgument2 ) ,
                                                             PVOID DeferredContext ) ;
-extern   BOOLEAN KeInsertQueueDpc(PRKDPC Dpc , PVOID SystemArgument1 ,
+   BOOLEAN KeInsertQueueDpc(PRKDPC Dpc , PVOID SystemArgument1 ,
                                                                 PVOID SystemArgument2 ) ;
+BOOLEAN KeInsertQueueDpc(PRKDPC Dpc , PVOID SystemArgument1 ,
+                                                                PVOID SystemArgument2 ) {
+	return __VERIFIER_nondet_int();
+}
    BOOLEAN KeSynchronizeExecution(PKINTERRUPT Interrupt ,
                                                                       BOOLEAN (*SynchronizeRoutine)(PVOID SynchronizeContext ) ,
                                                                       PVOID SynchronizeContext ) ;
