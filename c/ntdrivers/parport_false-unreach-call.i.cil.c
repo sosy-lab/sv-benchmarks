@@ -2158,15 +2158,25 @@ PKSPIN_LOCK SpinLock, ULONG Vector, KIRQL Irql, KIRQL SynchronizeIrql, KINTERRUP
                                                                                              PKEY_VALUE_FULL_INFORMATION *PeripheralInformation ) ,
                                                                   PVOID Context ) ;
   void IoReleaseCancelSpinLock(KIRQL Irql ) ;
-extern   NTSTATUS IoReportResourceUsage(PUNICODE_STRING DriverClassName ,
-                                                                      PDRIVER_OBJECT DriverObject ,
-                                                                      PCM_RESOURCE_LIST DriverList ,
-                                                                      ULONG DriverListSize ,
-                                                                      PDEVICE_OBJECT DeviceObject ,
-                                                                      PCM_RESOURCE_LIST DeviceList ,
-                                                                      ULONG DeviceListSize ,
-                                                                      BOOLEAN OverrideConflict ,
-                                                                      PBOOLEAN ConflictDetected ) ;
+NTSTATUS IoReportResourceUsage(PUNICODE_STRING DriverClassName, PDRIVER_OBJECT DriverObject, PCM_RESOURCE_LIST DriverList, ULONG DriverListSize, PDEVICE_OBJECT DeviceObject, PCM_RESOURCE_LIST DeviceList, ULONG DeviceListSize, BOOLEAN OverrideConflict, PBOOLEAN ConflictDetected){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000E;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000296;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000297;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000298;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC00002DD;
+    } else {
+        return (long)0xC0000302;
+    }
+}
   void IoSetHardErrorOrVerifyDevice(PIRP Irp , PDEVICE_OBJECT DeviceObject ) ;
 void IoInitializeRemoveLockEx(PIO_REMOVE_LOCK Lock, ULONG AllocateTag, ULONG MaxLockedMinutes, ULONG HighWatermark, ULONG RemlockSize) {}
   NTSTATUS IoAcquireRemoveLockEx(PIO_REMOVE_LOCK RemoveLock ,
