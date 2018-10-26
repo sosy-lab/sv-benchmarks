@@ -2302,7 +2302,10 @@ POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
                                                                    KPROCESSOR_MODE AccessMode ,
                                                                    PVOID *Object ,
                                                                    POBJECT_HANDLE_INFORMATION HandleInformation ) ;
-extern   void ObfReferenceObject(PVOID Object ) ;
+  void ObfReferenceObject(PVOID Object ) ;
+  void ObfReferenceObject(PVOID Object ) {
+	  return;
+  }
   void ObfDereferenceObject(PVOID Object ) ;
   NTSTATUS ZwClose(HANDLE Handle ) ;
 NTSTATUS ZwQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass, PVOID KeyValueInformation, ULONG Length, PULONG ResultLength){
@@ -6262,7 +6265,7 @@ PDEVICE_RELATIONS PptPnpBuildRemovalRelations(PDEVICE_EXTENSION Extension )
     }
     {
     pDevObj = node->DeviceObject;
-    ObfReferenceObject(pDevObj);
+/*    ObfReferenceObject(pDevObj); */ /* NOOP */
     relations->Objects[i] = pDevObj;
     _EX_ListHead___1 = listHead;
     _EX_Blink___2 = _EX_ListHead___1->Blink;
