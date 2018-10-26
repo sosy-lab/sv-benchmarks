@@ -1960,12 +1960,23 @@ extern void *memmove(void * , void const   * , size_t  ) ;
   NTSTATUS RtlDeleteRegistryValue(ULONG RelativeTo ,
                                                                                                 PCWSTR Path ,
                                                                                                 PCWSTR ValueName ) ;
-extern   NTSTATUS RtlIntegerToUnicodeString(ULONG Value ,
-                                                                                                          ULONG Base ,
-                                                                                                          PUNICODE_STRING String ) ;
-extern   NTSTATUS RtlUnicodeStringToInteger(PUNICODE_STRING String ,
-                                                                                                          ULONG Base ,
-                                                                                                          PULONG Value ) ;
+NTSTATUS RtlIntegerToUnicodeString(ULONG Value, ULONG Base, PUNICODE_STRING String){
+    if(__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else if(String->MaximumLength > 0){
+        return 0L;
+    } else{
+        return (long)0x80000005;
+    }
+}
+NTSTATUS RtlUnicodeStringToInteger(PUNICODE_STRING String, ULONG Base, PULONG Value){
+    if(__VERIFIER_nondet_int()){
+        *Value = __VERIFIER_nondet_ulong();
+        return 0L;
+    } else {
+        return (long)0xC000000D;
+    }
+}
   void RtlInitString(PSTRING DestinationString ,
                                                                                    PCSZ SourceString ) ;
   void RtlInitUnicodeString(PUNICODE_STRING DestinationString ,
@@ -1973,13 +1984,21 @@ extern   NTSTATUS RtlUnicodeStringToInteger(PUNICODE_STRING String ,
   NTSTATUS RtlAnsiStringToUnicodeString(PUNICODE_STRING DestinationString ,
                                                                                                       PANSI_STRING SourceString ,
                                                                                                       BOOLEAN AllocateDestinationString ) ;
-extern   LONG RtlCompareUnicodeString(PUNICODE_STRING String1 ,
-                                                                                                    PUNICODE_STRING String2 ,
-                                                                                                    BOOLEAN CaseInSensitive ) ;
+LONG RtlCompareUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive){
+    if( String1 == String2){
+        return 0L;
+    }
+    return __VERIFIER_nondet_long();
+}
   void RtlCopyUnicodeString(PUNICODE_STRING DestinationString ,
                                                                                           PUNICODE_STRING SourceString ) ;
-extern   NTSTATUS RtlAppendUnicodeStringToString(PUNICODE_STRING Destination ,
-                                                                                                               PUNICODE_STRING Source ) ;
+NTSTATUS RtlAppendUnicodeStringToString(PUNICODE_STRING Destination, PUNICODE_STRING Source){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else {
+        return (long)0xC0000023;
+    }
+}
   void RtlFreeUnicodeString(PUNICODE_STRING UnicodeString ) ;
   SIZE_T RtlCompareMemory(void const   *Source1 ,
                                                                                         void const   *Source2 ,
