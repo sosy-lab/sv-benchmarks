@@ -2,6 +2,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 
 extern char __VERIFIER_nondet_char(void);
+extern short __VERIFIER_nondet_short(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
@@ -2006,11 +2007,22 @@ LONG InterlockedExchange(PLONG Target , LONG Value ) {
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
-extern   void KeInitializeDpc(PRKDPC Dpc , void (*DeferredRoutine)(struct _KDPC *Dpc ,
+   void KeInitializeDpc(PRKDPC Dpc , void (*DeferredRoutine)(struct _KDPC *Dpc ,
                                                                                                  PVOID DeferredContext ,
                                                                                                  PVOID SystemArgument1 ,
                                                                                                  PVOID SystemArgument2 ) ,
                                                             PVOID DeferredContext ) ;
+void KeInitializeDpc(PRKDPC Dpc , void (*DeferredRoutine)(struct _KDPC *Dpc ,
+                                                                                                 PVOID DeferredContext ,
+                                                                                                 PVOID SystemArgument1 ,
+                                                                                                 PVOID SystemArgument2 ) ,
+                                                            PVOID DeferredContext ) {
+	Dpc->Type = __VERIFIER_nondet_short();
+	Dpc->Number = __VERIFIER_nondet_char();
+	Dpc->Importance = __VERIFIER_nondet_char();
+	Dpc->DeferredRoutine = DeferredRoutine;
+	Dpc->DeferredContext = DeferredContext;
+}
    BOOLEAN KeInsertQueueDpc(PRKDPC Dpc , PVOID SystemArgument1 ,
                                                                 PVOID SystemArgument2 ) ;
 BOOLEAN KeInsertQueueDpc(PRKDPC Dpc , PVOID SystemArgument1 ,
