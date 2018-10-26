@@ -2303,18 +2303,35 @@ POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
 extern   void ObfReferenceObject(PVOID Object ) ;
   void ObfDereferenceObject(PVOID Object ) ;
   NTSTATUS ZwClose(HANDLE Handle ) ;
-extern   NTSTATUS ZwQueryValueKey(HANDLE KeyHandle ,
-                                                                                                PUNICODE_STRING ValueName ,
-                                                                                                KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass ,
-                                                                                                PVOID KeyValueInformation ,
-                                                                                                ULONG Length ,
-                                                                                                PULONG ResultLength ) ;
-extern   NTSTATUS ZwSetValueKey(HANDLE KeyHandle ,
-                                                                                              PUNICODE_STRING ValueName ,
-                                                                                              ULONG TitleIndex ,
-                                                                                              ULONG Type ,
-                                                                                              PVOID Data ,
-                                                                                              ULONG DataSize ) ;
+NTSTATUS ZwQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass, PVOID KeyValueInformation, ULONG Length, PULONG ResultLength){
+    if(__VERIFIER_nondet_int()){
+        *ResultLength = Length;
+        return 0L;
+    } else if (__VERIFIER_nondet_int()){
+        // STATUS_OBJECT_NAME_NOT_FOUND
+        *ResultLength = 0L;
+        return (long)0xC0000034;
+    } else if (__VERIFIER_nondet_int()){
+        // STATUS_BUFFER_OVERFLOW
+        *ResultLength = __VERIFIER_nondet_ulong();
+        return (long)0x80000005;
+    } else if (__VERIFIER_nondet_int()){
+        // STATUS_BUFFER_TOO_SMALL
+        *ResultLength = __VERIFIER_nondet_ulong();
+        return (long)0xC0000023;
+    } else {
+        // STATUS_INVALID_PARAMETER
+        *ResultLength = 0L;
+        return (long)0xC000000D;
+    }
+}
+NTSTATUS ZwSetValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, ULONG TitleIndex, ULONG Type, PVOID Data, ULONG DataSize){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else {
+        return (long)0xC0000034;
+    }
+}
   struct _GUID  const  GUID_PARALLEL_DEVICE ;
   struct _GUID  const  GUID_PARCLASS_DEVICE ;
 NTSTATUS WmiCompleteRequest(PDEVICE_OBJECT DeviceObject, PIRP Irp, NTSTATUS Status, ULONG BufferUsed, CCHAR PriorityBoost){
