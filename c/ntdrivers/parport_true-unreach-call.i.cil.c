@@ -2022,9 +2022,14 @@ extern   void KeInitializeDpc(PRKDPC Dpc , void (*DeferredRoutine)(struct _KDPC 
                                                             PVOID DeferredContext ) ;
 extern   BOOLEAN KeInsertQueueDpc(PRKDPC Dpc , PVOID SystemArgument1 ,
                                                                 PVOID SystemArgument2 ) ;
-extern   BOOLEAN KeSynchronizeExecution(PKINTERRUPT Interrupt ,
+   BOOLEAN KeSynchronizeExecution(PKINTERRUPT Interrupt ,
                                                                       BOOLEAN (*SynchronizeRoutine)(PVOID SynchronizeContext ) ,
                                                                       PVOID SynchronizeContext ) ;
+BOOLEAN KeSynchronizeExecution(PKINTERRUPT Interrupt ,
+                                                                      BOOLEAN (*SynchronizeRoutine)(PVOID SynchronizeContext ) ,
+                                                                      PVOID SynchronizeContext ) {
+	return __VERIFIER_nondet_int();
+}
   void KeInitializeEvent(PRKEVENT Event , EVENT_TYPE Type ,
                                                        BOOLEAN State ) ;
   LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment ,
