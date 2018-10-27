@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Inverse square root computation by Newton's method, from Quake sources.
    See also "Fast Inverse Square root" by Chris Lomont.
 */

@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 struct Velocity_Mode;
 struct PCMode;
 struct DeviceControl;

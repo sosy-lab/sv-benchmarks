@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Assertion can be violated because uninitialized floats can be NaN. 
  */
 

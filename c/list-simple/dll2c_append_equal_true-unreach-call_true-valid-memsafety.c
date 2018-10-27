@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /*
  * Create circular dll of size 2: 1-1
  * Append node with data = 1. Check result: 1-1-1

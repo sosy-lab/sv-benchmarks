@@ -1,7 +1,7 @@
 #define N 100
 #define fun xor
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern int __VERIFIER_nondet_int();
 
 int xor (int x[N])

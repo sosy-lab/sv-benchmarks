@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* This example comes from "Varieties of Static Analyzers: A Comparison 
    with ASTRÉE" by Cousot, Cousot, Feret, Mauborgne, Miné, Monniaux, 
    and Rival, published in TASE 07.

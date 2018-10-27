@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /*
  * DLL circular example:
  * Build circular dll (1-1-1-1-1).

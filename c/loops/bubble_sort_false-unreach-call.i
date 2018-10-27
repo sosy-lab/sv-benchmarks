@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,

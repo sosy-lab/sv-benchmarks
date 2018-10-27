@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /*
  * Create NULL-terminated dll of size 2: 1-1
  * Prepend node with data = 1. Check result: 1-1-1

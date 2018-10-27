@@ -3,7 +3,7 @@ International Conference on Tools and Algorithms for the Construction and Analys
 
 //This program is similar to loops/sum03_true-unreach-call_false-termination.i but uses array index and value
 #define SIZE 10000
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond)
 {

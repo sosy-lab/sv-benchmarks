@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 #define CREATE_INNER(N)                                         \
     __VERIFIER_assert(N != NULL);                               \

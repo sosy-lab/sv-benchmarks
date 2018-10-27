@@ -13,7 +13,7 @@
 #define N 40
 #define fun avg
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern int __VERIFIER_nondet_int();
 
 int avg (int x[N])

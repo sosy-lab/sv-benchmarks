@@ -1,5 +1,5 @@
 int __VERIFIER_nondet_int();
-extern void __VERIFIER_error() __attribute__((noreturn));
+extern void __VERIFIER_error();
 
 // method ids
 int m_Protocol = 1;

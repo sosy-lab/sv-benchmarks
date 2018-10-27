@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "Towards an industrial use of FLUCTUAT on safety-critical 
    avionics software" by Delmas, Goubault, Putot, Souryis, Tekkal,
    and Védrine. Published in FMICS 09.

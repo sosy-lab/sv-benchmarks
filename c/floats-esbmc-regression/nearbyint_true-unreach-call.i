@@ -982,7 +982,7 @@ struct exception
 
 extern int matherr (struct exception *__exc);
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 int main(void) {

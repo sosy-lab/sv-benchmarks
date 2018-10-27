@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);

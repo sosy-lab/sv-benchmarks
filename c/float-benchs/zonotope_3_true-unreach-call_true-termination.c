@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "An Accurate Join for Zonotopes, Preserving Affine 
    Input/Output Relations", by Gougault, Le Gall and Putot, published
    in NSAD 12.

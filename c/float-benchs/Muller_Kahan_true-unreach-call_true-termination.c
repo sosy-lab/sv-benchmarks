@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example proposed by Muller in "Arithmétique des Ordinateurs", Masson, 1989.
    See also: "Static Analysis of Finite precision Computations" by Goubault
    and Putot, published in VMCAI 11.

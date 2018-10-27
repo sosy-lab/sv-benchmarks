@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern void __VERIFIER_assume(int);
 
 extern char __VERIFIER_nondet_char(void);

@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "Robustness analysis of finite precision implementations"
    by Goubault and Putot, extended version of an article published
    at APLAS 13.

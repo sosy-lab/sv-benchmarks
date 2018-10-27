@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();
 

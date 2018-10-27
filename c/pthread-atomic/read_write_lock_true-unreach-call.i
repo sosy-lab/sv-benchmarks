@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;

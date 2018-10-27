@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /*
  * Create NULL-terminated sll of size 2: 1-1
  * Insert node at middle index 1 with data = 1. Check result.

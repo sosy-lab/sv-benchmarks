@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "Some future challenges in the validation of control
    systems" by Goubault, Martel, and Putot, published at ERTS 06
 */

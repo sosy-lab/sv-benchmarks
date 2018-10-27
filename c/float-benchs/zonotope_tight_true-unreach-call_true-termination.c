@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "A Logical Product Approach to Zonotope Intersection", by
    Ghorbal, Goubault, Putot, published in CAV 10.
 */

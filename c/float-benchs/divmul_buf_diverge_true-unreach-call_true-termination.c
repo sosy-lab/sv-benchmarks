@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example inspired from "The Arithmetic-Geometric Progression Abstract 
    Domain" by Feret, published in VMCAI 05.
  */

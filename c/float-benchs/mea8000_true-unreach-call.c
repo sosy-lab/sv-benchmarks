@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Float-based reference emulation of MEA 8000 speech synthesis chip.
    From the MAME / MESS project.
  */

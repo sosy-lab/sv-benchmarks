@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /*
  * Create circular sll of size 2: 1-1
  * Remove all nodes in a forward traversal. Check result: NULL

@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 typedef void (*ctor_fn_t)(void);
 typedef signed char __s8;

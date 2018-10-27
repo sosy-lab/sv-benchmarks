@@ -1,5 +1,5 @@
 extern int __VERIFIER_nondet_int(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 /*
  * This source code is licensed under the GPLv3 license.

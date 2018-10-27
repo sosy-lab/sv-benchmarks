@@ -12,7 +12,7 @@
 
 #define fun sum
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern int __VERIFIER_nondet_int(void);
 
 int N;

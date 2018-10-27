@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Variant of sqrt_Householder but using Newton's iterations
    with quadratic convergence.
  */

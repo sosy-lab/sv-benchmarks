@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /*
  * Create NULL-terminated dll of size 2: 1-1
  * Updates all nodes in a forward traversal. Check result: 2-3

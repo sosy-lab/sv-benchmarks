@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "Numerical Abstract Domains for Digital Filters"  by Feret,
    published in NSAD 05.
 

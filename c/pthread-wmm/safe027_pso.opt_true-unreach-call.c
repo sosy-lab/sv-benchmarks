@@ -1,6 +1,6 @@
 extern void __VERIFIER_assume(int);
 extern void * __VERIFIER_nondet_pointer(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 extern void __VERIFIER_atomic_begin();
 extern void __VERIFIER_atomic_end();

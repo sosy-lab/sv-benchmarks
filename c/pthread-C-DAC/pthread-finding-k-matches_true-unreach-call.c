@@ -22,7 +22,7 @@
 Modifications are made to remove non-standard libary depedencies by Yihao from
 VSL in University of Delaware.
  */
-extern void __VERIFIER_error() __attribute__ ((__noreturn__)); 
+extern void __VERIFIER_error(); 
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 extern int __VERIFIER_nondet_int(void);
 #include <pthread.h>

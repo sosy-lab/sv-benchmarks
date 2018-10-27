@@ -3761,7 +3761,7 @@ extern int lockf (int __fd, int __cmd, __off_t __len) ;
 extern int fdatasync (int __fildes);
 
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 int __VERIFIER_nondet_int(void);
 void ldv_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error();}; return; }
 

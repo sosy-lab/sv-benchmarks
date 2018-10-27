@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 typedef long unsigned int size_t;
 typedef int wchar_t;

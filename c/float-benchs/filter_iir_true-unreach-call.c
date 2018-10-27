@@ -1,4 +1,4 @@
-void __VERIFIER_error() __attribute__ ((__noreturn__));
+void __VERIFIER_error();
 /* Example from "Numerical error minimizing floating-point to fixed-point 
    ANSI C compilation" by Aamodt and Chow, published in MPDSP 99.
  */

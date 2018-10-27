@@ -1307,7 +1307,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_atomic_begin(void);

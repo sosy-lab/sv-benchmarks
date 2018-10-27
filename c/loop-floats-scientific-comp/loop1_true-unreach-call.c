@@ -3,7 +3,7 @@
  * 1/1-x = 1+x+x^2+x^3 .....
  * e^x   = 1+x+x^2/2!+x^3/3! ....
  */
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 

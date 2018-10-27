@@ -1,7 +1,7 @@
 #define N 100000
 #define fun bAnd
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern int __VERIFIER_nondet_int();
 
 int bAnd (int x[N])

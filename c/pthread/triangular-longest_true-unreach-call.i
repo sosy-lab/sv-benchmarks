@@ -654,7 +654,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void __VERIFIER_error();
 int i = 3, j = 6;
 void *t1(void *arg) {
   for (int k = 0; k < 5; k++)

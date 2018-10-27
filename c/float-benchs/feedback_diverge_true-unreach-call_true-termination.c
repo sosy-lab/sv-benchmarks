@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "The ASTRÉE Analyzer" by Cousot, Cousot, Feret, Mauborgne, 
    Miné, Monniaux, and Rival, published in ESOP 05.
  */

@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void __VERIFIER_error();
 extern double __VERIFIER_nondet_double();
 
 typedef int __int32_t;

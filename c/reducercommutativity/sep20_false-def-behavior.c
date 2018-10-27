@@ -13,7 +13,7 @@
 #define N 20
 #define fun sep
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 int sep (int x[N])
 {

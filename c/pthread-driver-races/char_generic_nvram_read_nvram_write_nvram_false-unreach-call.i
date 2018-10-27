@@ -153,7 +153,7 @@ extern ulong __VERIFIER_nondet_ulong(void);
 extern long __VERIFIER_nondet_long(void);
 extern void __VERIFIER_atomic_begin(void);
 extern void __VERIFIER_atomic_end(void);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {

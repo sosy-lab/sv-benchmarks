@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from the Habilitation Report "Static Analysis of Numerical
    Programs and Systems" by Sylvie Putot.
    Inspired from http://www.netlib.org/fdlibm/k_cos.c

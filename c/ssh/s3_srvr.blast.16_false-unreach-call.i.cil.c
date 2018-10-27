@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 extern void *malloc(unsigned int sz );
 extern char __VERIFIER_nondet_char(void);

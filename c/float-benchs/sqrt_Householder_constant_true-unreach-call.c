@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "Static Analysis of the Accuracy in Control Systems: 
    Principles and Experiments" by Goubault Putot, Baufreton, Gassino,
    published in FMICS 07.

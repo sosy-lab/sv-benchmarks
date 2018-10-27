@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /*
  * DLL nullified example:
  * Create NULL-terminated dll (N0-N1-N2-N3-N4), s.t. Ni is a node with nullified data fields.

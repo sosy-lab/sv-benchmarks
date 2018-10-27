@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 extern unsigned short __VERIFIER_nondet_ushort(void);
 void __VERIFIER_assert(int cond) {

@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "Compositional analysis of floating-point linear numerical
    filters" by Monniaux, published in CAV 05.
 */

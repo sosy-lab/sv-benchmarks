@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 extern unsigned int __VERIFIER_nondet_uint(void);
 void __VERIFIER_assert(int cond) {

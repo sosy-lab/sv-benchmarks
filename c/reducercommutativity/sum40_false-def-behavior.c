@@ -13,7 +13,7 @@
 #define N 40
 #define fun sum
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 int sum (int x[N])
 {

@@ -20,7 +20,7 @@
 Modifications are made to remove non-standard libary dependencies by Yihao from
 VSL of University of Delaware.
  */
- extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+ extern void __VERIFIER_error();
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 #include <pthread.h>
 #include <stdlib.h>

@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 extern void __VERIFIER_assume(int);
 typedef long unsigned int size_t;

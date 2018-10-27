@@ -990,7 +990,7 @@ extern int feupdateenv (const fenv_t *__envp) __attribute__ ((__nothrow__ ));
 
 
 extern void __VERIFIER_assume(int);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 double __VERIFIER_nondet_double();

@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void __VERIFIER_error();
 
 typedef int __int32_t;
 typedef unsigned int __uint32_t;

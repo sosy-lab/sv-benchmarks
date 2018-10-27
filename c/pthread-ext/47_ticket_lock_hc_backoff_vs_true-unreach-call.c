@@ -1,6 +1,6 @@
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 
 //Ticket lock with proportional backoff
 //Algorithms for Scalable Synchronization on Shared-Memory Multiprocessors

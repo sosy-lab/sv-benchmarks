@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example inspired from "Abstract Domains for Bit-Level Machine Integer and
    Floating-point Operations" by Miné, published in WING 12.
 */

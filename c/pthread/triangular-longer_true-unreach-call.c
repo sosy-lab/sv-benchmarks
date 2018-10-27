@@ -1,6 +1,6 @@
 #include <pthread.h>
 
-extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern void __VERIFIER_error();
 
 int i = 3, j = 6;
 

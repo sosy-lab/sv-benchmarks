@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error();
 /* Example from "Modular Static Analysis with Zonotopes" by Goubault, Putot
    and Védrine, published in SAS 12.
 */
