@@ -1737,6 +1737,7 @@ int ssl3_accept(SSL *s )
   }
   return (ret);
   ERROR: __VERIFIER_error();
+  return (ret);
 }
 }
 
