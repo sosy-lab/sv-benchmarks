@@ -1457,8 +1457,12 @@ extern void *memset(void * , int  , size_t  ) ;
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-extern   LONG InterlockedIncrement(PLONG Addend ) ;
-extern   LONG InterlockedDecrement(PLONG Addend ) ;
+LONG InterlockedIncrement(PLONG Addend ) {
+    return ++(*Addend);
+}
+LONG InterlockedDecrement(PLONG Addend ) {
+    return --(*Addend);
+}
 #pragma warning(disable:4035)
 #pragma warning(push)
 #pragma warning(disable:4164)
@@ -1603,7 +1607,16 @@ NTSTATUS KbFilter_AddDevice(PDRIVER_OBJECT Driver , PDEVICE_OBJECT PDO ) ;
 NTSTATUS KbFilter_CreateClose(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
 NTSTATUS KbFilter_DispatchPassThrough(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
 NTSTATUS KbFilter_InternIoCtl(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
-extern NTSTATUS KbFilter_IoCtl(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
+NTSTATUS KbFilter_IoCtl(PDEVICE_OBJECT DeviceObject, PIRP Irp){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else if
+(__VERIFIER_nondet_int()){
+        return -1L;
+    } else {
+        return 259L;
+    }
+}
 NTSTATUS KbFilter_PnP(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
 NTSTATUS KbFilter_Power(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
 NTSTATUS KbFilter_InitializationRoutine(PDEVICE_OBJECT DeviceObject , PVOID SynchFuncContext ,

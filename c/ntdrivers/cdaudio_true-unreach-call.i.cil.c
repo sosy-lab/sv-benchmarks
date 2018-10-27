@@ -2654,12 +2654,13 @@ extern void *memset(void * , int  , size_t  ) ;
                                                                                                 PRTL_QUERY_REGISTRY_TABLE QueryTable ,
                                                                                                 PVOID Context ,
                                                                                                 PVOID Environment ) ;
-extern   NTSTATUS RtlWriteRegistryValue(ULONG RelativeTo ,
-                                                                                                      PCWSTR Path ,
-                                                                                                      PCWSTR ValueName ,
-                                                                                                      ULONG ValueType ,
-                                                                                                      PVOID ValueData ,
-                                                                                                      ULONG ValueLength ) ;
+NTSTATUS RtlWriteRegistryValue(ULONG RelativeTo, PCWSTR Path, PCWSTR ValueName, ULONG ValueType, PVOID ValueData, ULONG ValueLength){
+    if(__VERIFIER_nondet_int()){
+        return (long)0x00000000;
+    } else {
+        return (long)0xC000000D;
+    } 
+}
   NTSTATUS RtlDeleteRegistryValue(ULONG RelativeTo ,
                                                                                                 PCWSTR Path ,
                                                                                                 PCWSTR ValueName ) ;
@@ -2679,8 +2680,12 @@ extern   NTSTATUS RtlWriteRegistryValue(ULONG RelativeTo ,
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-extern   LONG InterlockedIncrement(PLONG Addend ) ;
-extern   LONG InterlockedDecrement(PLONG Addend ) ;
+LONG InterlockedIncrement(PLONG Addend ) {
+    return ++(*Addend);
+}
+LONG InterlockedDecrement(PLONG Addend ) {
+    return --(*Addend);
+}
 #pragma warning(disable:4035)
 #pragma warning(push)
 #pragma warning(disable:4164)
@@ -2733,7 +2738,7 @@ extern   LONG InterlockedDecrement(PLONG Addend ) ;
   PVOID MmAllocateContiguousMemory(SIZE_T NumberOfBytes ,
                                                                  PHYSICAL_ADDRESS HighestAcceptableAddress ) ;
   void MmFreeContiguousMemory(PVOID BaseAddress ) ;
-extern   PVOID MmLockPagableDataSection(PVOID AddressWithinSection ) ;
+void MmLockPagableDataSection(PVOID AddressWithinSection){}
   void MmResetDriverPaging(PVOID AddressWithinSection ) ;
   PVOID MmPageEntireDriver(PVOID AddressWithinSection ) ;
   NTSTATUS PsCreateSystemThread(PHANDLE ThreadHandle ,
@@ -2803,10 +2808,15 @@ extern   PVOID MmLockPagableDataSection(PVOID AddressWithinSection ) ;
                                                                   PVOID Context ) ;
   void IoReleaseCancelSpinLock(KIRQL Irql ) ;
   void IoSetHardErrorOrVerifyDevice(PIRP Irp , PDEVICE_OBJECT DeviceObject ) ;
-extern   NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject ,
-                                                                        ULONG DevInstKeyType ,
-                                                                        ACCESS_MASK DesiredAccess ,
-                                                                        PHANDLE DevInstRegKey ) ;
+NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject, ULONG DevInstKeyType, ACCESS_MASK DesiredAccess, PHANDLE DevInstRegKey){
+    if(__VERIFIER_nondet_int()){
+        return (long)0x00000000;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else {
+        return (long)0xC0000010;
+    }
+}
   NTSTATUS IoRegisterDeviceInterface(PDEVICE_OBJECT PhysicalDeviceObject ,
                                                                                                    GUID const   *InterfaceClassGuid ,
                                                                                                    PUNICODE_STRING ReferenceString ,

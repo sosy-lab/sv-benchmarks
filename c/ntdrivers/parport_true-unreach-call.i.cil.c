@@ -1,8 +1,11 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
 
+extern short __VERIFIER_nondet_short(void);
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern void *__VERIFIER_nondet_pointer(void);
 
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
@@ -1957,12 +1960,23 @@ extern void *memmove(void * , void const   * , size_t  ) ;
   NTSTATUS RtlDeleteRegistryValue(ULONG RelativeTo ,
                                                                                                 PCWSTR Path ,
                                                                                                 PCWSTR ValueName ) ;
-extern   NTSTATUS RtlIntegerToUnicodeString(ULONG Value ,
-                                                                                                          ULONG Base ,
-                                                                                                          PUNICODE_STRING String ) ;
-extern   NTSTATUS RtlUnicodeStringToInteger(PUNICODE_STRING String ,
-                                                                                                          ULONG Base ,
-                                                                                                          PULONG Value ) ;
+NTSTATUS RtlIntegerToUnicodeString(ULONG Value, ULONG Base, PUNICODE_STRING String){
+    if(__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else if(String->MaximumLength > 0){
+        return 0L;
+    } else{
+        return (long)0x80000005;
+    }
+}
+NTSTATUS RtlUnicodeStringToInteger(PUNICODE_STRING String, ULONG Base, PULONG Value){
+    if(__VERIFIER_nondet_int()){
+        *Value = __VERIFIER_nondet_ulong();
+        return 0L;
+    } else {
+        return (long)0xC000000D;
+    }
+}
   void RtlInitString(PSTRING DestinationString ,
                                                                                    PCSZ SourceString ) ;
   void RtlInitUnicodeString(PUNICODE_STRING DestinationString ,
@@ -1970,13 +1984,21 @@ extern   NTSTATUS RtlUnicodeStringToInteger(PUNICODE_STRING String ,
   NTSTATUS RtlAnsiStringToUnicodeString(PUNICODE_STRING DestinationString ,
                                                                                                       PANSI_STRING SourceString ,
                                                                                                       BOOLEAN AllocateDestinationString ) ;
-extern   LONG RtlCompareUnicodeString(PUNICODE_STRING String1 ,
-                                                                                                    PUNICODE_STRING String2 ,
-                                                                                                    BOOLEAN CaseInSensitive ) ;
+LONG RtlCompareUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive){
+    if( String1 == String2){
+        return 0L;
+    }
+    return __VERIFIER_nondet_long();
+}
   void RtlCopyUnicodeString(PUNICODE_STRING DestinationString ,
                                                                                           PUNICODE_STRING SourceString ) ;
-extern   NTSTATUS RtlAppendUnicodeStringToString(PUNICODE_STRING Destination ,
-                                                                                                               PUNICODE_STRING Source ) ;
+NTSTATUS RtlAppendUnicodeStringToString(PUNICODE_STRING Destination, PUNICODE_STRING Source){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else {
+        return (long)0xC0000023;
+    }
+}
   void RtlFreeUnicodeString(PUNICODE_STRING UnicodeString ) ;
   SIZE_T RtlCompareMemory(void const   *Source1 ,
                                                                                         void const   *Source2 ,
@@ -1984,12 +2006,26 @@ extern   NTSTATUS RtlAppendUnicodeStringToString(PUNICODE_STRING Destination ,
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-extern   UCHAR READ_PORT_UCHAR(PUCHAR Port ) ;
-extern   void WRITE_PORT_UCHAR(PUCHAR Port , UCHAR Value ) ;
-extern   LONG InterlockedIncrement(PLONG Addend ) ;
-extern   LONG InterlockedDecrement(PLONG Addend ) ;
-extern   LONG InterlockedExchange(PLONG Target ,
-                                                                                                 LONG Value ) ;
+   UCHAR READ_PORT_UCHAR(PUCHAR Port ) ;
+UCHAR READ_PORT_UCHAR(PUCHAR Port ) {
+	return __VERIFIER_nondet_char();
+}
+
+   void WRITE_PORT_UCHAR(PUCHAR Port , UCHAR Value ) ;
+void WRITE_PORT_UCHAR(PUCHAR Port , UCHAR Value ) {
+    return;
+}
+LONG InterlockedIncrement(PLONG Addend ) {
+    return ++(*Addend);
+}
+LONG InterlockedDecrement(PLONG Addend ) {
+    return --(*Addend);
+}
+LONG InterlockedExchange(PLONG Target , LONG Value ) {
+    LONG previous = *Target;
+    *Target = Value;
+    return previous;
+}
 #pragma warning(disable:4035)
 #pragma warning(push)
 #pragma warning(disable:4164)
@@ -2000,16 +2036,36 @@ extern   LONG InterlockedExchange(PLONG Target ,
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
-extern   void KeInitializeDpc(PRKDPC Dpc , void (*DeferredRoutine)(struct _KDPC *Dpc ,
+   void KeInitializeDpc(PRKDPC Dpc , void (*DeferredRoutine)(struct _KDPC *Dpc ,
                                                                                                  PVOID DeferredContext ,
                                                                                                  PVOID SystemArgument1 ,
                                                                                                  PVOID SystemArgument2 ) ,
                                                             PVOID DeferredContext ) ;
-extern   BOOLEAN KeInsertQueueDpc(PRKDPC Dpc , PVOID SystemArgument1 ,
+   BOOLEAN KeInsertQueueDpc(PRKDPC Dpc , PVOID SystemArgument1 ,
                                                                 PVOID SystemArgument2 ) ;
-extern   BOOLEAN KeSynchronizeExecution(PKINTERRUPT Interrupt ,
+void KeInitializeDpc(PRKDPC Dpc , void (*DeferredRoutine)(struct _KDPC *Dpc ,
+                                                                                                 PVOID DeferredContext ,
+                                                                                                 PVOID SystemArgument1 ,
+                                                                                                 PVOID SystemArgument2 ) ,
+                                                            PVOID DeferredContext ) {
+	Dpc->Type = __VERIFIER_nondet_short();
+	Dpc->Number = __VERIFIER_nondet_char();
+	Dpc->Importance = __VERIFIER_nondet_char();
+	Dpc->DeferredRoutine = DeferredRoutine;
+	Dpc->DeferredContext = DeferredContext;
+}
+BOOLEAN KeInsertQueueDpc(PRKDPC Dpc , PVOID SystemArgument1 ,
+                                                                PVOID SystemArgument2 ) {
+	return __VERIFIER_nondet_int();
+}
+   BOOLEAN KeSynchronizeExecution(PKINTERRUPT Interrupt ,
                                                                       BOOLEAN (*SynchronizeRoutine)(PVOID SynchronizeContext ) ,
                                                                       PVOID SynchronizeContext ) ;
+BOOLEAN KeSynchronizeExecution(PKINTERRUPT Interrupt ,
+                                                                      BOOLEAN (*SynchronizeRoutine)(PVOID SynchronizeContext ) ,
+                                                                      PVOID SynchronizeContext ) {
+	return __VERIFIER_nondet_int();
+}
   void KeInitializeEvent(PRKEVENT Event , EVENT_TYPE Type ,
                                                        BOOLEAN State ) ;
   LONG KeSetEvent(PRKEVENT Event , KPRIORITY Increment ,
@@ -2028,7 +2084,10 @@ extern   BOOLEAN KeSynchronizeExecution(PKINTERRUPT Interrupt ,
   void KeInitializeSpinLock(PKSPIN_LOCK SpinLock ) ;
   void KfReleaseSpinLock(PKSPIN_LOCK SpinLock ,
                                                                                         KIRQL NewIrql ) ;
-extern   ULONG KeQueryTimeIncrement(void) ;
+   ULONG KeQueryTimeIncrement(void) ;
+ULONG KeQueryTimeIncrement(void) {
+	return __VERIFIER_nondet_ulong();
+}
   PVOID ExAllocatePoolWithTag(POOL_TYPE PoolType ,
                                                                                             SIZE_T NumberOfBytes ,
                                                                                             ULONG Tag ) ;
@@ -2065,9 +2124,17 @@ extern   ULONG KeQueryTimeIncrement(void) ;
   NTSTATUS PsTerminateSystemThread(NTSTATUS ExitStatus ) ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
-extern   void IoAcquireCancelSpinLock(PKIRQL Irql ) ;
-extern   PVOID IoAllocateErrorLogEntry(PVOID IoObject ,
-                                                                     UCHAR EntrySize ) ;
+   void IoAcquireCancelSpinLock(PKIRQL Irql ) ;
+void IoAcquireCancelSpinLock(PKIRQL Irql ) {
+    return;
+}
+PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
+    void* rtr; 
+    if(__VERIFIER_nondet_int()){
+        rtr = malloc(EntrySize);
+    } 
+    return rtr; 
+}
   PMDL IoAllocateMdl(PVOID VirtualAddress , ULONG Length ,
                                                    BOOLEAN SecondaryBuffer , BOOLEAN ChargeQuota ,
                                                    PIRP Irp ) ;
@@ -2092,17 +2159,17 @@ extern   PVOID IoAllocateErrorLogEntry(PVOID IoObject ,
                                                                                         PIRP Irp ) ;
   void IofCompleteRequest(PIRP Irp ,
                                                                                          CCHAR PriorityBoost ) ;
-extern   NTSTATUS IoConnectInterrupt(PKINTERRUPT *InterruptObject ,
-                                                                   BOOLEAN (*ServiceRoutine)(struct _KINTERRUPT *Interrupt ,
-                                                                                             PVOID ServiceContext ) ,
-                                                                   PVOID ServiceContext ,
-                                                                   PKSPIN_LOCK SpinLock ,
-                                                                   ULONG Vector ,
-                                                                   KIRQL Irql , KIRQL SynchronizeIrql ,
-                                                                   KINTERRUPT_MODE InterruptMode ,
-                                                                   BOOLEAN ShareVector ,
-                                                                   KAFFINITY ProcessorEnableMask ,
-                                                                   BOOLEAN FloatingSave ) ;
+NTSTATUS IoConnectInterrupt(PKINTERRUPT *InterruptObject, BOOLEAN (*ServiceRoutine)(struct _KINTERRUPT *Interrupt, PVOID ServiceContext), PVOID ServiceContext,
+PKSPIN_LOCK SpinLock, ULONG Vector, KIRQL Irql, KIRQL SynchronizeIrql, KINTERRUPT_MODE InterruptMode, BOOLEAN ShareVector, KAFFINITY ProcessorEnableMask, BOOLEAN FloatingSave){
+    if(__VERIFIER_nondet_int()){
+        (*ServiceRoutine)(InterruptObject, ServiceContext);
+        return 0L;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0x00000127;
+    } else {
+        return (long)0xC000016E;
+    }
+}
   NTSTATUS IoCreateDevice(PDRIVER_OBJECT DriverObject ,
                                                         ULONG DeviceExtensionSize ,
                                                         PUNICODE_STRING DeviceName ,
@@ -2113,7 +2180,7 @@ extern   NTSTATUS IoConnectInterrupt(PKINTERRUPT *InterruptObject ,
   void IoDeleteDevice(PDEVICE_OBJECT DeviceObject ) ;
   NTSTATUS IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName ) ;
   void IoDetachDevice(PDEVICE_OBJECT TargetDevice ) ;
-extern   void IoDisconnectInterrupt(PKINTERRUPT InterruptObject ) ;
+
   void IoFreeIrp(PIRP Irp ) ;
   void IoFreeMdl(PMDL Mdl ) ;
   PCONFIGURATION_INFORMATION IoGetConfigurationInformation(void) ;
@@ -2136,49 +2203,73 @@ extern   void IoDisconnectInterrupt(PKINTERRUPT InterruptObject ) ;
                                                                                              PKEY_VALUE_FULL_INFORMATION *PeripheralInformation ) ,
                                                                   PVOID Context ) ;
   void IoReleaseCancelSpinLock(KIRQL Irql ) ;
-extern   NTSTATUS IoReportResourceUsage(PUNICODE_STRING DriverClassName ,
-                                                                      PDRIVER_OBJECT DriverObject ,
-                                                                      PCM_RESOURCE_LIST DriverList ,
-                                                                      ULONG DriverListSize ,
-                                                                      PDEVICE_OBJECT DeviceObject ,
-                                                                      PCM_RESOURCE_LIST DeviceList ,
-                                                                      ULONG DeviceListSize ,
-                                                                      BOOLEAN OverrideConflict ,
-                                                                      PBOOLEAN ConflictDetected ) ;
+NTSTATUS IoReportResourceUsage(PUNICODE_STRING DriverClassName, PDRIVER_OBJECT DriverObject, PCM_RESOURCE_LIST DriverList, ULONG DriverListSize, PDEVICE_OBJECT DeviceObject, PCM_RESOURCE_LIST DeviceList, ULONG DeviceListSize, BOOLEAN OverrideConflict, PBOOLEAN ConflictDetected){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000E;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000296;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000297;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000298;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC00002DD;
+    } else {
+        return (long)0xC0000302;
+    }
+}
   void IoSetHardErrorOrVerifyDevice(PIRP Irp , PDEVICE_OBJECT DeviceObject ) ;
-extern   void IoInitializeRemoveLockEx(PIO_REMOVE_LOCK Lock ,
-                                                                                                     ULONG AllocateTag ,
-                                                                                                     ULONG MaxLockedMinutes ,
-                                                                                                     ULONG HighWatermark ,
-                                                                                                     ULONG RemlockSize ) ;
+void IoInitializeRemoveLockEx(PIO_REMOVE_LOCK Lock, ULONG AllocateTag, ULONG MaxLockedMinutes, ULONG HighWatermark, ULONG RemlockSize) {}
   NTSTATUS IoAcquireRemoveLockEx(PIO_REMOVE_LOCK RemoveLock ,
                                                                                                PVOID Tag ,
                                                                                                PCSTR File ,
                                                                                                ULONG Line ,
                                                                                                ULONG RemlockSize ) ;
-extern   void IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock ,
-                                                                                                  PVOID Tag ,
-                                                                                                  ULONG RemlockSize ) ;
-extern   void IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock ,
-                                                                                                         PVOID Tag ,
-                                                                                                         ULONG RemlockSize ) ;
-extern   void IoWriteErrorLogEntry(PVOID ElEntry ) ;
-extern   NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject ,
-                                                                         ULONG Action ) ;
-extern   NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject ,
-                                                                        ULONG DevInstKeyType ,
-                                                                        ACCESS_MASK DesiredAccess ,
-                                                                        PHANDLE DevInstRegKey ) ;
+void IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize) {}
+void IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize) {}
+void IoWriteErrorLogEntry(PVOID ElEntry){}
+NTSTATUS IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG Action){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000E;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000296;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000297;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC0000298;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC00002DD;
+    } else {
+        return (long)0xC0000302;
+    }
+}
+NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject, ULONG DevInstKeyType, ACCESS_MASK DesiredAccess, PHANDLE DevInstRegKey){
+    if(__VERIFIER_nondet_int()){
+        return (long)0x00000000;
+    } else if (__VERIFIER_nondet_int()){
+        return (long)0xC000000D;
+    } else {
+        return (long)0xC0000010;
+    }
+}
   NTSTATUS IoRegisterDeviceInterface(PDEVICE_OBJECT PhysicalDeviceObject ,
                                                                                                    GUID const   *InterfaceClassGuid ,
                                                                                                    PUNICODE_STRING ReferenceString ,
                                                                                                    PUNICODE_STRING SymbolicLinkName ) ;
   NTSTATUS IoSetDeviceInterfaceState(PUNICODE_STRING SymbolicLinkName ,
                                                                    BOOLEAN Enable ) ;
-extern   void KeStallExecutionProcessor(ULONG MicroSeconds ) ;
+void KeStallExecutionProcessor(ULONG MicroSeconds){}
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-extern   NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
+   NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
                                                                   UCHAR MinorFunction ,
                                                                   POWER_STATE PowerState ,
                                                                   void (*CompletionFunction)(PDEVICE_OBJECT DeviceObject ,
@@ -2188,9 +2279,49 @@ extern   NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
                                                                                              PIO_STATUS_BLOCK IoStatus ) ,
                                                                   PVOID Context ,
                                                                   PIRP *Irp ) ;
-extern   POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
+NTSTATUS PoRequestPowerIrp(PDEVICE_OBJECT DeviceObject ,
+                                                                  UCHAR MinorFunction ,
+                                                                  POWER_STATE PowerState ,
+                                                                  void (*CompletionFunction)(PDEVICE_OBJECT DeviceObject ,
+                                                                                             UCHAR MinorFunction ,
+                                                                                             POWER_STATE PowerState ,
+                                                                                             PVOID Context ,
+                                                                                             PIO_STATUS_BLOCK IoStatus ) ,
+                                                                  PVOID Context ,
+                                                                  PIRP *Irp ) {
+	NTSTATUS rtr = __VERIFIER_nondet_long();
+	__VERIFIER_assume(rtr == 0x00000103 /* STATUS_PENDING */ ||
+			  rtr == 0xC000009A /* STATUS_INSUFFICIENT_RESOURCES */ ||
+			  rtr == 0xC00000F0 /* STATUS_INVALID_PARAMETER_2 */);
+
+	return rtr;
+}
+   POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
                                                                    POWER_STATE_TYPE Type ,
                                                                    POWER_STATE State ) ;
+POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
+                                                                   POWER_STATE_TYPE Type ,
+                                                                   POWER_STATE State ) {
+   static int isFixed = 0;
+   static int isWin98 = 0;
+   if (isFixed == 0)
+   {
+	   isWin98 = __VERIFIER_nondet_int();
+	   isFixed = 1;
+   }
+
+   if (isWin98)
+   {
+       return State;
+   }
+
+   int value = __VERIFIER_nondet_int();
+   __VERIFIER_assume(value >= 0 && value <= 7);
+
+   POWER_STATE pwr;
+   pwr.SystemState = value;
+   return pwr;
+}
   NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject ,
                                                       PIRP Irp ) ;
   void PoStartNextPowerIrp(PIRP Irp ) ;
@@ -2200,25 +2331,49 @@ extern   POWER_STATE PoSetPowerState(PDEVICE_OBJECT DeviceObject ,
                                                                    KPROCESSOR_MODE AccessMode ,
                                                                    PVOID *Object ,
                                                                    POBJECT_HANDLE_INFORMATION HandleInformation ) ;
-extern   void ObfReferenceObject(PVOID Object ) ;
+  void ObfReferenceObject(PVOID Object ) ;
+  void ObfReferenceObject(PVOID Object ) {
+	  return;
+  }
   void ObfDereferenceObject(PVOID Object ) ;
   NTSTATUS ZwClose(HANDLE Handle ) ;
-extern   NTSTATUS ZwQueryValueKey(HANDLE KeyHandle ,
-                                                                                                PUNICODE_STRING ValueName ,
-                                                                                                KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass ,
-                                                                                                PVOID KeyValueInformation ,
-                                                                                                ULONG Length ,
-                                                                                                PULONG ResultLength ) ;
-extern   NTSTATUS ZwSetValueKey(HANDLE KeyHandle ,
-                                                                                              PUNICODE_STRING ValueName ,
-                                                                                              ULONG TitleIndex ,
-                                                                                              ULONG Type ,
-                                                                                              PVOID Data ,
-                                                                                              ULONG DataSize ) ;
+NTSTATUS ZwQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass, PVOID KeyValueInformation, ULONG Length, PULONG ResultLength){
+    if(__VERIFIER_nondet_int()){
+        *ResultLength = Length;
+        return 0L;
+    } else if (__VERIFIER_nondet_int()){
+        // STATUS_OBJECT_NAME_NOT_FOUND
+        *ResultLength = 0L;
+        return (long)0xC0000034;
+    } else if (__VERIFIER_nondet_int()){
+        // STATUS_BUFFER_OVERFLOW
+        *ResultLength = __VERIFIER_nondet_ulong();
+        return (long)0x80000005;
+    } else if (__VERIFIER_nondet_int()){
+        // STATUS_BUFFER_TOO_SMALL
+        *ResultLength = __VERIFIER_nondet_ulong();
+        return (long)0xC0000023;
+    } else {
+        // STATUS_INVALID_PARAMETER
+        *ResultLength = 0L;
+        return (long)0xC000000D;
+    }
+}
+NTSTATUS ZwSetValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, ULONG TitleIndex, ULONG Type, PVOID Data, ULONG DataSize){
+    if(__VERIFIER_nondet_int()){
+        return 0L;
+    } else {
+        return (long)0xC0000034;
+    }
+}
   struct _GUID  const  GUID_PARALLEL_DEVICE ;
   struct _GUID  const  GUID_PARCLASS_DEVICE ;
-extern NTSTATUS WmiCompleteRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp , NTSTATUS Status ,
-                                   ULONG BufferUsed , CCHAR PriorityBoost ) ;
+NTSTATUS WmiCompleteRequest(PDEVICE_OBJECT DeviceObject, PIRP Irp, NTSTATUS Status, ULONG BufferUsed, CCHAR PriorityBoost){
+    if(Status == (long)0xC0000023){
+        return 0L;
+    }
+    return Status; 
+}
 NTSTATUS WmiSystemControl(PWMILIB_CONTEXT WmiLibInfo , PDEVICE_OBJECT DeviceObject ,
                           PIRP Irp , PSYSCTL_IRP_DISPOSITION IrpDisposition ) ;
 void PptCompleteRequest(PIRP Irp , CCHAR PriorityBoost ) ;
@@ -2340,7 +2495,7 @@ NTSTATUS PptDispatchCleanup(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 
   }
   {
-  IoAcquireCancelSpinLock(& cancelIrql);
+/*  IoAcquireCancelSpinLock(& cancelIrql); */ /* INLINED */
 /*   IoReleaseCancelSpinLock(cancelIrql); */ /* INLINED */
   }
   targetExit: 
@@ -3247,7 +3402,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                   return (0L);
                                   switch_41_exp_3: /* CIL Label */ 
                                   {
-                                  IoAcquireCancelSpinLock(& CancelIrql);
+/*                                  IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                   }
                                   if (Irp->Cancel) {
                                     Status = -1073741536L;
@@ -3362,7 +3517,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                       {
                                       IsrInfo = Irp->AssociatedIrp.SystemBuffer;
                                       InterruptInfo = Irp->AssociatedIrp.SystemBuffer;
-                                      IoAcquireCancelSpinLock(& CancelIrql);
+/*                                      IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                       }
                                       if (Extension->InterruptRefCount) {
                                         {
@@ -3377,7 +3532,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                         }
                                         if (Status >= 0L) {
                                           {
-                                          IoAcquireCancelSpinLock(& CancelIrql);
+/*                                          IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                           Extension->InterruptRefCount += 1UL;
 /*                                           IoReleaseCancelSpinLock(CancelIrql); */ /* INLINED */
                                           }
@@ -3426,7 +3581,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                   } else {
                                     {
                                     IsrInfo = Irp->AssociatedIrp.SystemBuffer;
-                                    IoAcquireCancelSpinLock(& CancelIrql);
+/*                                    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                     }
                                     if (Extension->InterruptRefCount) {
                                       {
@@ -3440,7 +3595,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                       if (tmp___1) {
                                         {
                                         Status = 0L;
-                                        IoAcquireCancelSpinLock(& CancelIrql);
+/*                                        IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                         Extension->InterruptRefCount -= 1UL;
                                         }
                                         if (Extension->InterruptRefCount == 0UL) {
@@ -3518,7 +3673,7 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
                                     } else {
                                       {
                                       Status = PptTrySelectDevice(Extension, Irp->AssociatedIrp.SystemBuffer);
-                                      IoAcquireCancelSpinLock(& CancelIrql);
+/*                                      IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
                                       }
                                       if (Status == 259L) {
                                         {
@@ -3981,7 +4136,7 @@ NTSTATUS PptTrySelectDevice(PVOID Context , PVOID TrySelectCommand )
       {
       }
       {
-      IoAcquireCancelSpinLock(& CancelIrql);
+/*      IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
       SyncContext.Count = & Extension->WorkQueueCount;
       }
       if (Extension->InterruptRefCount) {
@@ -6142,7 +6297,7 @@ PDEVICE_RELATIONS PptPnpBuildRemovalRelations(PDEVICE_EXTENSION Extension )
     }
     {
     pDevObj = node->DeviceObject;
-    ObfReferenceObject(pDevObj);
+/*    ObfReferenceObject(pDevObj); */ /* NOOP */
     relations->Objects[i] = pDevObj;
     _EX_ListHead___1 = listHead;
     _EX_Blink___2 = _EX_ListHead___1->Blink;
@@ -7532,7 +7687,7 @@ NTSTATUS PptPnpSurpriseRemoval(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 /*   ExAcquireFastMutex(& extension->ExtensionFastMutex); */ /* INLINED */
   extension->DeviceStateFlags |= 4096UL;
 /*   ExReleaseFastMutex(& extension->ExtensionFastMutex); */ /* INLINED */
-  IoAcquireCancelSpinLock(& cancelIrql);
+/*  IoAcquireCancelSpinLock(& cancelIrql); */ /* INLINED */
 /*   IoReleaseCancelSpinLock(cancelIrql); */ /* INLINED */
   IoSetDeviceInterfaceState(& extension->SymbolicLinkName, 0);
   Irp->IoStatus.__annonCompField4.Status = 0L;
@@ -8056,7 +8211,7 @@ NTSTATUS PptTrySelectLegacyZip(PVOID Context , PVOID TrySelectCommand )
     {
     }
     {
-    IoAcquireCancelSpinLock(& CancelIrql);
+/*    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
     SyncContext.Count = & Extension->WorkQueueCount;
     }
     if (Extension->InterruptRefCount) {
@@ -8561,7 +8716,7 @@ void PptDisconnectInterrupt(PDEVICE_EXTENSION Extension )
 
   {
   {
-  IoDisconnectInterrupt(Extension->InterruptObject);
+  
   }
   return;
 }
@@ -8772,7 +8927,7 @@ BOOLEAN PptTryAllocatePort(PVOID Extension )
     }
   } else {
     {
-    IoAcquireCancelSpinLock(& CancelIrql);
+/*    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
     b = PptTryAllocatePortAtInterruptLevel(DeviceExtension);
 /*     IoReleaseCancelSpinLock(CancelIrql); */ /* INLINED */
     }
@@ -8831,7 +8986,7 @@ void PptFreePort(PVOID Extension )
   }
   {
   SyncContext.Count = & DeviceExtension->WorkQueueCount;
-  IoAcquireCancelSpinLock(& CancelIrql);
+/*  IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
   }
   if (DeviceExtension->InterruptRefCount) {
     {
@@ -8865,7 +9020,7 @@ void PptFreePort(PVOID Extension )
   }
   if (! Allocated) {
     {
-    IoAcquireCancelSpinLock(& CancelIrql);
+/*    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
     InterruptRefCount = DeviceExtension->InterruptRefCount;
 /*     IoReleaseCancelSpinLock(CancelIrql); */ /* INLINED */
     }
@@ -8899,7 +9054,7 @@ ULONG PptQueryNumWaiters(PVOID Extension )
     }
   } else {
     {
-    IoAcquireCancelSpinLock(& CancelIrql);
+/*    IoAcquireCancelSpinLock(& CancelIrql); */ /* INLINED */
     PptSynchronizedRead(& SyncContext);
 /*     IoReleaseCancelSpinLock(CancelIrql); */ /* INLINED */
     }
@@ -8923,7 +9078,11 @@ PVOID PptSetCancelRoutine(PIRP Irp , void (*CancelRoutine)(struct _DEVICE_OBJECT
   return ((void (*)(struct _DEVICE_OBJECT *DeviceObject , struct _IRP *Irp ))((void *)tmp));
 }
 }
-extern void KeQueryTickCount(LARGE_INTEGER *i) ;
+void KeQueryTickCount(LARGE_INTEGER *i) ;
+void KeQueryTickCount(LARGE_INTEGER *i) {
+	(*i).u.LowPart = __VERIFIER_nondet_ulong();
+	(*i).u.HighPart = __VERIFIER_nondet_long();
+}
 BOOLEAN CheckPort(PUCHAR wPortAddr , UCHAR bMask , UCHAR bValue , USHORT usTimeDelay ) 
 { UCHAR dsr ;
   LARGE_INTEGER Wait ;
