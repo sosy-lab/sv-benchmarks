@@ -657,20 +657,22 @@ extern int pthread_atfork (void (*__prepare) (void),
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 int i = 3, j = 6;
 void *t1(void *arg) {
-  for (int k = 0; k < 10; k++)
-    i = (j * (j + 1)) / 2;
+  for (int k = 0; k < 10; k++) {
+    i = j + 1;
+  }
   pthread_exit(((void *)0));
 }
 void *t2(void *arg) {
-  for (int k = 0; k < 10; k++)
-    j = (i * (i + 1)) / 2;
+  for (int k = 0; k < 10; k++) {
+    j = i + 1;
+  }
   pthread_exit(((void *)0));
 }
 int main(int argc, char **argv) {
   pthread_t id1, id2;
   pthread_create(&id1, ((void *)0), t1, ((void *)0));
   pthread_create(&id2, ((void *)0), t2, ((void *)0));
-  if (i >= 276 || j >= 276) {
+  if (i >= (2*10 +6) || j >= (2*10 +6)) {
   ERROR:
     __VERIFIER_error();
   }
