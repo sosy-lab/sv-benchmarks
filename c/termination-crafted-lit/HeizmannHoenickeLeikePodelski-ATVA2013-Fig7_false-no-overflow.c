@@ -14,6 +14,9 @@ int main() {
 		return 0;
 	}
 	int a[a_length];
+	for (int j = 0; j < a_length; j++) {
+		a[j] = __VERIFIER_nondet_int();
+	}
 	int offset = 1;
 	int i = 0;
 	while (i < a_length) {
