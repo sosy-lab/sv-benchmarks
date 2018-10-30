@@ -1,5 +1,5 @@
 format_version: "0.1"
-input_files: cast1_true-assert/src/main/java/
+input_files: cast1/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: true

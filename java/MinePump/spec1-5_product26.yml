@@ -1,5 +1,5 @@
 format_version: "0.1"
-input_files: spec1-5_product26_false-assert/src/main/java/
+input_files: spec1-5_product26/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: false

@@ -1,5 +1,5 @@
 format_version: "0.1"
-input_files: StringMiscellaneous03_false-assert/src/main/java/
+input_files: StringMiscellaneous03/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: false

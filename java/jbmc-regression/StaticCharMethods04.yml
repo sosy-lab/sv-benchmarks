@@ -1,5 +1,5 @@
 format_version: "0.1"
-input_files: StaticCharMethods04_false-assert/src/main/java/
+input_files: StaticCharMethods04/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: false
