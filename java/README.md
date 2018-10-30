@@ -38,10 +38,6 @@ Other properties are currently not defined.
 
 The verification task need to be compilable by putting all `.java` files
 in directories listed as input files on the sourcepath of a Java 8 compiler.
-Makefiles for compiling the sources and assembling them into
-a JAR file can be provided.
-The top-level `Makefile` has a `compile` target for compiling all
-verification tasks.
 
 ## Using the Verification Tasks with Benchexec
 
