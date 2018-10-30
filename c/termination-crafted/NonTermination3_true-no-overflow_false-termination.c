@@ -15,8 +15,8 @@ int main() {
 	}
 
 	while (0 <= i && i < 10 && a[i] >= 0) {
-		i = __VERIFIER_nondet_int();
 		a[i] = 0;
+		i = __VERIFIER_nondet_int();
 	}
 	return 0;
 }
