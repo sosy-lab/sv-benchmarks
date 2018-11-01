@@ -1745,7 +1745,6 @@ extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
-extern PKTHREAD KeGetCurrentThread() ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
   NTSTATUS RtlQueryRegistryValues(ULONG RelativeTo ,
@@ -1772,8 +1771,11 @@ extern PKTHREAD KeGetCurrentThread() ;
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-extern   LONG InterlockedExchange(PLONG Target ,
-                                                                                                 LONG Value ) ;
+LONG InterlockedExchange(PLONG Target , LONG Value ) {
+    LONG previous = *Target;
+    *Target = Value;
+    return previous;
+}
 #pragma warning(disable:4035)
 #pragma warning(push)
 #pragma warning(disable:4164)
@@ -1795,14 +1797,12 @@ extern   LONG InterlockedExchange(PLONG Target ,
   NTSTATUS KeDelayExecutionThread(KPROCESSOR_MODE WaitMode ,
                                                                 BOOLEAN Alertable ,
                                                                 PLARGE_INTEGER Interval ) ;
-extern   KPRIORITY KeSetPriorityThread(PKTHREAD Thread ,
-                                                                     KPRIORITY Priority ) ;
   NTSTATUS KeWaitForSingleObject(PVOID Object , KWAIT_REASON WaitReason ,
                                                                KPROCESSOR_MODE WaitMode ,
                                                                BOOLEAN Alertable ,
                                                                PLARGE_INTEGER Timeout ) ;
   void KeInitializeSpinLock(PKSPIN_LOCK SpinLock ) ;
-extern   KIRQL KfAcquireSpinLock(PKSPIN_LOCK SpinLock ) ;
+/* extern   KIRQL KfAcquireSpinLock(PKSPIN_LOCK SpinLock ) ; */
   void KfReleaseSpinLock(PKSPIN_LOCK SpinLock ,
                                                                                         KIRQL NewIrql ) ;
   PVOID ExAllocatePoolWithTag(POOL_TYPE PoolType ,
@@ -1819,9 +1819,6 @@ extern   KIRQL KfAcquireSpinLock(PKSPIN_LOCK SpinLock ) ;
                                                                                                           PKSPIN_LOCK Lock ) ;
   PLIST_ENTRY ExfInterlockedRemoveHeadList(PLIST_ENTRY ListHead ,
                                                                                                           PKSPIN_LOCK Lock ) ;
-extern   void MmProbeAndLockPages(PMDL MemoryDescriptorList ,
-                                                                KPROCESSOR_MODE AccessMode ,
-                                                                LOCK_OPERATION Operation ) ;
   void MmUnlockPages(PMDL MemoryDescriptorList ) ;
   PVOID MmMapLockedPagesSpecifyCache(PMDL MemoryDescriptorList ,
                                                                    KPROCESSOR_MODE AccessMode ,
@@ -4854,7 +4851,6 @@ void FlAllocateIoBuffer(PDISKETTE_EXTENSION DisketteExtension , ULONG BufferSize
 
   }
   {
-  MmProbeAndLockPages(DisketteExtension->IoBufferMdl, 0, 2);
   }
   {
   }
@@ -4922,8 +4918,6 @@ void FloppyThread(PVOID Context )
   {
   disketteExtension = Context;
   ntStatus = 0L;
-  tmp = KeGetCurrentThread();
-  KeSetPriorityThread(tmp, 16);
   queueWait.QuadPart = -30000000;
   acquireWait.QuadPart = -150000000;
   }
@@ -6778,7 +6772,7 @@ NTSTATUS FlHdbit(PDISKETTE_EXTENSION DisketteExtension )
 }
 }
 NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp ) 
-{ KIRQL oldIrql ;
+{ /* KIRQL oldIrql ; */
   NTSTATUS ntStatus ;
   LONG tmp ;
 
@@ -6796,7 +6790,7 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
   }
   {
 /*   ExReleaseFastMutex(PagingMutex); */ /* INLINED */
-  oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock);
+  /* oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock); */
   InterlockedExchange((LONG *)((PVOID *)(& Irp->CancelRoutine)), (long )((void *)(& FloppyCancelQueuedRequest)));
   }
   if (Irp->Cancel) {
@@ -6851,7 +6845,7 @@ NTSTATUS FloppyQueueRequest(PDISKETTE_EXTENSION DisketteExtension , PIRP Irp )
 }
 void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp ) 
 { PDISKETTE_EXTENSION disketteExtension ;
-  KIRQL oldIrql ;
+  /* KIRQL oldIrql ; */
   PLIST_ENTRY _EX_Blink ;
   PLIST_ENTRY _EX_Flink ;
 
@@ -6860,7 +6854,7 @@ void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   {
   }
   {
-  oldIrql = KfAcquireSpinLock(& disketteExtension->FlCancelSpinLock);
+  /* oldIrql = KfAcquireSpinLock(& disketteExtension->FlCancelSpinLock); */
   Irp->IoStatus.__annonCompField4.Status = -1073741536L;
   myStatus = -1073741536L;
   Irp->IoStatus.Information = 0;
@@ -6894,7 +6888,7 @@ void FloppyCancelQueuedRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 }
 }
 void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension ) 
-{ KIRQL oldIrql ;
+{ /* KIRQL oldIrql ; */
   PLIST_ENTRY headOfList ;
   PIRP currentIrp ;
   PIO_STACK_LOCATION irpSp ;
@@ -6902,7 +6896,7 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
 
   {
   {
-  oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock);
+  /* oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock); */
   }
   {
   while (1) {
@@ -6996,7 +6990,7 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
 
     }
     {
-    oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock);
+    /* oldIrql = KfAcquireSpinLock(& DisketteExtension->FlCancelSpinLock); */
     }
   }
   while_188_break: /* CIL Label */ ;
