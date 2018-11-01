@@ -39,7 +39,7 @@ Other properties are currently not defined.
 The verification task need to be compilable by putting all `.java` files
 in directories listed as input files on the sourcepath of a Java 8 compiler.
 
-## Using the Verification Tasks with Benchexec
+## Using the Verification Tasks with BenchExec
 
 BenchExec will pass the paths
 that are listed as input files in a task-definition file
@@ -53,28 +53,30 @@ it should use regular Java utilities to create these artifacts
 
 ## Rules for Nondeterminism
 
-The arguments to `public static void main(String[] args)` are
-assumed to be nondeterministic under the following constraints:
-`assume(args != null && for all i. 0<=i<args.length =>
-  args[i] != null)`.
+The only admissible source of nondeterminism are the return values of
+the methods defined in the `org.sosy_lab.sv_benchmarks.Verifier`
+class, provided in
+`java/common/org/sosy_lab/sv_benchmarks/Verifier.java` in the
+`sv-benchmarks` repository. In order to make the benchmarks
+compilable, `../common/` needs to be added to the `input_files`
+property of the benchmark's YAML file.
 
-We do not specify custom methods for introducing nondeterminism as
-done in the C categories of SV-COMP (cf. `__VERIFIER_nondet`).
-Instead we use the `java.util.Random` class;  the methods in
-that class are expected to return a nondeterministic value instead of
-a random value, but satisfying the same constraints on their value
-range.
+The methods in `org.sosy_lab.sv_benchmarks.Verifier` call methods
+of the `java.util.Random` class. The rationale is to provide
+straightforward compatibility with verifiers that implement a
+nondeterministic semantics for the `java.util.Random` class, i.e.
+the methods in `java.util.Random` are expected to return a
+nondeterministic value instead of a random value, but satisfying
+the same constraints on their value range.
 
-Moreover, we do not specify a custom `assume` method. It is
-recommended to use `return` or `Runtime.getRuntime().halt(1)` to
-achieve the desired behavior as they do not impact the termination
-behavior of a program. Using `while(true); would make any
-program with assumptions classified non-terminating when a
-potential _Java Termination_ category might be introduced
-in future.
+`org.sosy_lab.sv_benchmarks.Verifier` also provides an `assume`
+method, which is defined as `Runtime.getRuntime().halt(1)`.  It is
+recommended to use `assume` or `return` (if in the entry point method)
+to restrict the nondeterminism as they do not impact the termination
+behavior of a program. For example, using `while(!condition); would
+make any program with such assumptions be classified non-terminating
+when a potential _Java Termination_ category might be introduced in
+future.
 
 Any library methods that make system calls are not allowed in
 verification tasks.
-Exceptions with well-defined behaviors can be explicitly granted if
-they allow a wider range of benchmarks to be included in the
-collection.
