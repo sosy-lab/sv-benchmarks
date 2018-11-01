@@ -2129,11 +2129,10 @@ void IoAcquireCancelSpinLock(PKIRQL Irql ) {
     return;
 }
 PVOID IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize){
-    void* rtr; 
     if(__VERIFIER_nondet_int()){
-        rtr = malloc(EntrySize);
-    } 
-    return rtr; 
+        return (void*)malloc(EntrySize);
+    }
+    return (void*)(char*)(0);
 }
   PMDL IoAllocateMdl(PVOID VirtualAddress , ULONG Length ,
                                                    BOOLEAN SecondaryBuffer , BOOLEAN ChargeQuota ,
