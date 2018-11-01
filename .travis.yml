@@ -30,8 +30,6 @@ addons:
       - g++-5
       - bison
       - flex
-      # for Java
-      - openjdk-8-jdk
 script:
   - ${C_COMPILER} -v --version
   - cd c/ && make -j2 CC=${C_COMPILER}
@@ -41,8 +39,6 @@ matrix:
       script: c/check.py
     - env: NAME="Preprocessing consistency checks"
       script: cd c/ && ./compare.sh -k
-    - env: NAME="Java"
-      script: cd java/ && make
 cache:
   directories:
     - cbmc.git
