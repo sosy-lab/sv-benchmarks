@@ -1,5 +1,7 @@
 format_version: "0.1"
-input_files: exceptions10/
+input_files:
+  - ../common/
+  - exceptions10/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: false

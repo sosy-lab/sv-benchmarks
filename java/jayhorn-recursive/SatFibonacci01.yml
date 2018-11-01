@@ -1,5 +1,7 @@
 format_version: "0.1"
-input_files: SatFibonacci01/
+input_files:
+  - ../common/
+  - SatFibonacci01/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: true
