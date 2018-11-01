@@ -1,4 +1,4 @@
-jayhorn-*/*.zip
-jbmc-*/*.zip
-jpf-*/*.zip
-MinePump/*.zip
+jayhorn-recursive/*.yml
+jbmc-regression/*.yml
+jpf-regression/*.yml
+MinePump/*.yml

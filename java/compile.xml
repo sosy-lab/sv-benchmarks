@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE benchmark PUBLIC "+//IDN sosy-lab.org//DTD BenchExec benchmark 1.9//EN" "https://www.sosy-lab.org/benchexec/benchmark-1.9.dtd">
+<benchmark tool="javac">
+
+  <rundefinition name="standard">
+  </rundefinition>
+
+  <rundefinition name="Werror">
+    <option name="-Werror"/>
+  </rundefinition>
+
+  <option name="-source">1.8</option>
+
+  <tasks name="MinePump">
+    <include>MinePump/*.yml</include>
+  </tasks>
+
+  <tasks name="jbmc-regression">
+    <include>jbmc-regression/*.yml</include>
+  </tasks>
+
+  <tasks name="jpf-regression">
+    <include>jpf-regression/*.yml</include>
+  </tasks>
+
+  <tasks name="jayhorn-recursive">
+    <include>jayhorn-recursive/*.yml</include>
+  </tasks>
+</benchmark>
