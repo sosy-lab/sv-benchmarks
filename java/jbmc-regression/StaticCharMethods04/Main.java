@@ -8,11 +8,9 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      char c = Verifier.nondetChar();
-      assert Character.isLetter(c);
-   }
+public class Main {
+  public static void main(String[] args) {
+    char c = Verifier.nondetChar();
+    assert Character.isLetter(c);
+  }
 }

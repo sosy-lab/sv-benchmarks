@@ -8,11 +8,9 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      StringBuilder buffer = new StringBuilder(Verifier.nondetString());
-      assert buffer.capacity()==69;
-   }
+public class Main {
+  public static void main(String[] args) {
+    StringBuilder buffer = new StringBuilder(Verifier.nondetString());
+    assert buffer.capacity() == 69;
+  }
 }

@@ -8,24 +8,21 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-  public static void main(String[] args)
-   {
-      boolean b = Verifier.nondetBoolean();
-      char[] diff = {'d', 'i', 'f', 'f'};
-      char[] blue = {'b', 'l', 'u', 'e'};
+public class Main {
+  public static void main(String[] args) {
+    boolean b = Verifier.nondetBoolean();
+    char[] diff = {'d', 'i', 'f', 'f'};
+    char[] blue = {'b', 'l', 'u', 'e'};
 
-      StringBuilder buffer = new StringBuilder();
+    StringBuilder buffer = new StringBuilder();
 
-      buffer.append(diff)
-            .append(blue);
+    buffer.append(diff).append(blue);
 
-      String tmp=buffer.toString();
-      System.out.println(tmp);
-      if(b)
-        assert(tmp.equals("diffblue"));
-      else
-        assert(!tmp.equals("diffblue"));
-   }
+    String tmp = buffer.toString();
+    System.out.println(tmp);
+    if (b)
+      assert(tmp.equals("diffblue"));
+    else
+      assert(!tmp.equals("diffblue"));
+  }
 }

@@ -8,12 +8,10 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      char[] charArray = {'d', 'i', 'f', 'f', 'b', 'l', 'u', 'e'};
-      String s3 = new String(charArray);
-      assert s3.equals(Verifier.nondetString());
-   } 
+public class Main {
+  public static void main(String[] args) {
+    char[] charArray = {'d', 'i', 'f', 'f', 'b', 'l', 'u', 'e'};
+    String s3 = new String(charArray);
+    assert s3.equals(Verifier.nondetString());
+  }
 }

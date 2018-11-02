@@ -8,13 +8,11 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      StringBuilder sb = new StringBuilder(Verifier.nondetString());
-      sb.append("Z");
-      String s = sb.toString();
-      assert(s.equals("fg"));
-   }
+public class Main {
+  public static void main(String[] args) {
+    StringBuilder sb = new StringBuilder(Verifier.nondetString());
+    sb.append("Z");
+    String s = sb.toString();
+    assert(s.equals("fg"));
+  }
 }

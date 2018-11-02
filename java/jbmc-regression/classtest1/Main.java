@@ -6,14 +6,7 @@
  *     directory: regression/cbmc-java/classtest1
  * The benchmark was taken from the repo: 24 January 2018
  */
-public class Main
-{
-  static void main(String[] args)
-  {
-    g(Main.class);
-  }
-  static void g(Object c)
-  {
-    assert true;
-  }
+public class Main {
+  static void main(String[] args) { g(Main.class); }
+  static void g(Object c) { assert true; }
 }

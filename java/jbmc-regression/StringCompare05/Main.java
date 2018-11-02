@@ -8,16 +8,14 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String string = Verifier.nondetString();
+public class Main {
+  public static void main(String[] args) {
+    String string = Verifier.nondetString();
 
-      String s1 = new String(string);
-      if (s1 == string)  // false; they are not the same object
-         assert true;
-      else
-         assert false;
-   }
+    String s1 = new String(string);
+    if (s1 == string) // false; they are not the same object
+      assert true;
+    else
+      assert false;
+  }
 }

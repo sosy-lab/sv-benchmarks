@@ -6,25 +6,17 @@
  *     directory: regression/cbmc-java/virtual2
  * The benchmark was taken from the repo: 24 January 2018
  */
-class A
-{
-  public void f(){}
+class A {
+  public void f() {}
 };
 
-class B extends A
-{
-  public void f()
-  {
-    assert false;
-  }
+class B extends A {
+  public void f() { assert false; }
 };
 
-class Main
-{
-  public static void main(String[] args)
-  {
-    A b=new B();
+class Main {
+  public static void main(String[] args) {
+    A b = new B();
     b.f(); // this really calls B.f, not A.f
   }
 }
-

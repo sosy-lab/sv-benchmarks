@@ -9,18 +9,16 @@
 import java.util.StringTokenizer;
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String sentence = Verifier.nondetString();
-      String[] tokens = sentence.split(" ");
- 
-      int i=0;
-      for (String token : tokens)
-      {
-         if (i==3) assert token.equals("genneration");
-         ++i;
-      }
-   }
+public class Main {
+  public static void main(String[] args) {
+    String sentence = Verifier.nondetString();
+    String[] tokens = sentence.split(" ");
+
+    int i = 0;
+    for (String token : tokens) {
+      if (i == 3)
+        assert token.equals("genneration");
+      ++i;
+    }
+  }
 }

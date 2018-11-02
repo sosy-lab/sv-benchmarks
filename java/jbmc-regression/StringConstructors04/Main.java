@@ -8,14 +8,12 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String arg = Verifier.nondetString();
+public class Main {
+  public static void main(String[] args) {
+    String arg = Verifier.nondetString();
 
-      char[] charArray = {'d', 'i', 'f', 'f', 'b', 'l', 'u', 'e'};
-      String s4 = new String(charArray, 4, 4);
-      assert s4.equals(arg);
-   }
+    char[] charArray = {'d', 'i', 'f', 'f', 'b', 'l', 'u', 'e'};
+    String s4 = new String(charArray, 4, 4);
+    assert s4.equals(arg);
+  }
 }

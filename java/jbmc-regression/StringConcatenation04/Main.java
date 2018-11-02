@@ -8,13 +8,11 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String s1 = Verifier.nondetString();
-      String tmp=s1;
-      System.out.printf("s1 after concatenation = %s\n", s1);
-      assert tmp.equals("Happy  at");
-   }
+public class Main {
+  public static void main(String[] args) {
+    String s1 = Verifier.nondetString();
+    String tmp = s1;
+    System.out.printf("s1 after concatenation = %s\n", s1);
+    assert tmp.equals("Happy  at");
+  }
 }

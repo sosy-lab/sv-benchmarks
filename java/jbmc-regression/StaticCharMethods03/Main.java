@@ -8,15 +8,13 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String arg = Verifier.nondetString();
-      if(arg.length() < 1)
-        return;
+public class Main {
+  public static void main(String[] args) {
+    String arg = Verifier.nondetString();
+    if (arg.length() < 1)
+      return;
 
-      char c = arg.charAt(0);
-      assert Character.isDefined(c)==false;
-   }
+    char c = arg.charAt(0);
+    assert Character.isDefined(c) == false;
+  }
 }

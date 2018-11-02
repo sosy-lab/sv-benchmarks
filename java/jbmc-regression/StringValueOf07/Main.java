@@ -8,13 +8,11 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      long longValue = Verifier.nondetLong();
-      System.out.printf("long = %s\n", String.valueOf(longValue));
-      String tmp=String.valueOf(longValue);
-      assert tmp.equals("100000000000");
-   }
+public class Main {
+  public static void main(String[] args) {
+    long longValue = Verifier.nondetLong();
+    System.out.printf("long = %s\n", String.valueOf(longValue));
+    String tmp = String.valueOf(longValue);
+    assert tmp.equals("100000000000");
+  }
 }

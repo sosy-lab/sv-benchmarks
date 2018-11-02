@@ -8,17 +8,12 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-  public static void main(String[] args)
-  {
+public class Main {
+  public static void main(String[] args) {
     boolean b = Verifier.nondetBoolean();
-    boolean result=f(b);
-    assert result==!b;
+    boolean result = f(b);
+    assert result == !b;
   }
 
-  public static boolean f(boolean b)
-  {
-    return !b;
-  }
+  public static boolean f(boolean b) { return !b; }
 }

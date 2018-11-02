@@ -8,25 +8,23 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String address = Verifier.nondetString();
-      String city = Verifier.nondetString();
-      String state = Verifier.nondetString();
-      String zip = Verifier.nondetString();
-      String phone = Verifier.nondetString();
+public class Main {
+  public static void main(String[] args) {
+    String address = Verifier.nondetString();
+    String city = Verifier.nondetString();
+    String state = Verifier.nondetString();
+    String zip = Verifier.nondetString();
+    String phone = Verifier.nondetString();
 
-      if (!ValidateInput02.validateAddress(address))
-         assert false;
-      else if (!ValidateInput02.validateCity(city))
-         System.out.println("Invalid city");
-      else if (!ValidateInput02.validateState(state))
-         System.out.println("Invalid state");
-      else if (!ValidateInput02.validateZip(zip))
-         System.out.println("Invalid zip code");
-      else
-         System.out.println("Valid input.  Thank you.");
-   }
+    if (!ValidateInput02.validateAddress(address))
+      assert false;
+    else if (!ValidateInput02.validateCity(city))
+      System.out.println("Invalid city");
+    else if (!ValidateInput02.validateState(state))
+      System.out.println("Invalid state");
+    else if (!ValidateInput02.validateZip(zip))
+      System.out.println("Invalid zip code");
+    else
+      System.out.println("Valid input.  Thank you.");
+  }
 }

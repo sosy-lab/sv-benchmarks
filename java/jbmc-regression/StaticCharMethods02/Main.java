@@ -8,14 +8,12 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String arg = Verifier.nondetString();
-      if(arg.length() < 1)
-        return;
-      char c = arg.charAt(0);
-      assert Character.toUpperCase(c)!=Character.toLowerCase(c);
-   }
+public class Main {
+  public static void main(String[] args) {
+    String arg = Verifier.nondetString();
+    if (arg.length() < 1)
+      return;
+    char c = arg.charAt(0);
+    assert Character.toUpperCase(c) != Character.toLowerCase(c);
+  }
 }

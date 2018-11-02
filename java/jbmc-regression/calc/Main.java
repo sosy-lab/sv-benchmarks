@@ -8,23 +8,19 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-  void do_stuff(String a, String b)
-  {
-    try{
-        int x=Integer.parseInt(a);
-        int y=Integer.parseInt(b);
-        assert Integer.parseInt(a)!=Integer.parseInt(b) || x==y;
-    } catch(java.lang.NumberFormatException e) {
+public class Main {
+  void do_stuff(String a, String b) {
+    try {
+      int x = Integer.parseInt(a);
+      int y = Integer.parseInt(b);
+      assert Integer.parseInt(a) != Integer.parseInt(b) || x == y;
+    } catch (java.lang.NumberFormatException e) {
     }
   }
 
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) {
     int size = Verifier.nondetInt();
-    if(size < 2)
-    {
+    if (size < 2) {
       System.out.println("need two arguments");
       return;
     }

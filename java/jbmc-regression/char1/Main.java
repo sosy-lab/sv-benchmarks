@@ -10,18 +10,16 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 
 class Main {
 
-  static public void main(String[] args)
-  {
+  static public void main(String[] args) {
     String arg = Verifier.nondetString();
-    if(arg.length() < 1)
+    if (arg.length() < 1)
       return;
-    char my_char=arg.charAt(0);
-    int x=my_char;
-    assert x>=0 && x<='\uffff';
+    char my_char = arg.charAt(0);
+    int x = my_char;
+    assert x >= 0 && x <= '\uffff';
 
-    my_char='\uffff';
+    my_char = '\uffff';
     my_char++;
-    assert my_char==0;
+    assert my_char == 0;
   }
-
 };

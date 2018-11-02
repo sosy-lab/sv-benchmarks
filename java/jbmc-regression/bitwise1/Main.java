@@ -8,13 +8,11 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
+public class Main {
   static char c;
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) {
     c = Verifier.nondetChar();
     int i = (c | 2);
-    assert (i & 3) == 3;
+    assert(i & 3) == 3;
   }
 }

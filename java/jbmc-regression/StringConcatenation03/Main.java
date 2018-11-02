@@ -8,20 +8,17 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String s1 = Verifier.nondetString();
-      String s2 = Verifier.nondetString();
+public class Main {
+  public static void main(String[] args) {
+    String s1 = Verifier.nondetString();
+    String s2 = Verifier.nondetString();
 
-      System.out.printf(
-         "Result of s1.concat(s2) = %s\n", s1.concat(s2));
-      String tmp=s1.concat(s2);
-      assert tmp.equals("Happy at DiffBllue");
+    System.out.printf("Result of s1.concat(s2) = %s\n", s1.concat(s2));
+    String tmp = s1.concat(s2);
+    assert tmp.equals("Happy at DiffBllue");
 
-      tmp=s1;
-      System.out.printf("s1 after concatenation = %s\n", s1);
-      assert tmp.equals("Happy at");
-   }
+    tmp = s1;
+    System.out.printf("s1 after concatenation = %s\n", s1);
+    assert tmp.equals("Happy at");
+  }
 }

@@ -8,13 +8,12 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-  public static void main(String[] args)
-  {
+public class Main {
+  public static void main(String[] args) {
     Object objectRef = Verifier.nondetString();
     String string = Verifier.nondetString();
-    char[] charArray = {'v', 'e', 'r', 'i', 'f', 'i', 'c', 'a', 't', 'i', 'o', 'n'};
+    char[] charArray = {'v', 'e', 'r', 'i', 'f', 'i',
+                        'c', 'a', 't', 'i', 'o', 'n'};
     boolean booleanValue = true;
     char characterValue = 'K';
     int integerValue = 7;
@@ -25,26 +24,27 @@ public class Main
     StringBuilder buffer = new StringBuilder();
 
     buffer.insert(0, objectRef)
-          .insert(0, "-")
-          .insert(0, string)
-          .insert(0, "-")
-          .insert(0, charArray)
-          .insert(0, "-")
-          .insert(0, charArray, 3, 3)
-          .insert(0, "-")
-          .insert(0, booleanValue)
-          .insert(0, "-")
-          .insert(0, characterValue)
-          .insert(0, "-")
-          .insert(0, integerValue)
-          .insert(0, "-")
-          .insert(0, longValue)
-          .insert(0, "-")
-          .insert(0, floatValue)
-          .insert(0, "-")
-          .insert(0, doubleValue);
+        .insert(0, "-")
+        .insert(0, string)
+        .insert(0, "-")
+        .insert(0, charArray)
+        .insert(0, "-")
+        .insert(0, charArray, 3, 3)
+        .insert(0, "-")
+        .insert(0, booleanValue)
+        .insert(0, "-")
+        .insert(0, characterValue)
+        .insert(0, "-")
+        .insert(0, integerValue)
+        .insert(0, "-")
+        .insert(0, longValue)
+        .insert(0, "-")
+        .insert(0, floatValue)
+        .insert(0, "-")
+        .insert(0, doubleValue);
 
-    String tmp=buffer.toString();
-    assert tmp.equals("33.333-2.5-10000000-7-K-true-ifi-verification-test--diffblue");
+    String tmp = buffer.toString();
+    assert tmp.equals(
+        "33.333-2.5-10000000-7-K-true-ifi-verification-test--diffblue");
   }
 }

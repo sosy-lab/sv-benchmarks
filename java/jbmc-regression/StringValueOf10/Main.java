@@ -8,13 +8,11 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String arg = Verifier.nondetString();
-      Object objectRef = arg; // assign string to an Object reference
-      String tmp=String.valueOf(objectRef);
-      assert tmp.equals(arg + "s");
-   }
+public class Main {
+  public static void main(String[] args) {
+    String arg = Verifier.nondetString();
+    Object objectRef = arg; // assign string to an Object reference
+    String tmp = String.valueOf(objectRef);
+    assert tmp.equals(arg + "s");
+  }
 }

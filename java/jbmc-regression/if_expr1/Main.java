@@ -8,15 +8,13 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-class Main
-{
-  public static void main(String[] args)
-  {
+class Main {
+  public static void main(String[] args) {
     int x = Verifier.nondetInt();
-    int y=x==10?11:9;
-    if(x==10)
-      assert y==11;
+    int y = x == 10 ? 11 : 9;
+    if (x == 10)
+      assert y == 11;
     else
-      assert y==9;
+      assert y == 9;
   }
 };

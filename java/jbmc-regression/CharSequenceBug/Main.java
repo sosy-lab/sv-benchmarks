@@ -9,12 +9,12 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
-    public static void main(String[] args) {
-        String s = Verifier.nondetString();
-        CharSequence target = "b";
-        String replaced = "";
-        if (target.length() == 1)
-            replaced = s.replace('b', 'c');
-        assert replaced.indexOf('b') != -1;
-    }
+  public static void main(String[] args) {
+    String s = Verifier.nondetString();
+    CharSequence target = "b";
+    String replaced = "";
+    if (target.length() == 1)
+      replaced = s.replace('b', 'c');
+    assert replaced.indexOf('b') != -1;
+  }
 }

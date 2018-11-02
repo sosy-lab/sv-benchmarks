@@ -6,8 +6,7 @@
  *     directory: regression/cbmc-java/iarith2
  * The benchmark was taken from the repo: 24 January 2018
  */
-class Main
-{
+class Main {
   private static int i() {
     int value = 3;
     value &= 1;
@@ -16,7 +15,7 @@ class Main
     value <<= 2;
     value >>= 1;
     value = -value;
-    value >>>= 1;
+    value >> >= 1;
     return value;
   }
 
@@ -28,7 +27,7 @@ class Main
     value <<= 2L;
     value >>= 1L;
     value = -value;
-    value >>>= 1L;
+    value >> >= 1L;
     return value;
   }
 

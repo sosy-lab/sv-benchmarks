@@ -6,19 +6,14 @@
  *     directory: regression/cbmc-java/NullPointerException1
  * The benchmark was taken from the repo: 24 January 2018
  */
-class Main
-{
-  public static void main(String[] args)
-  {
-    Object o=null;
-    try
-    {
+class Main {
+  public static void main(String[] args) {
+    Object o = null;
+    try {
       o.hashCode();
       // should pass
       assert false;
-    }
-    catch(Exception e)
-    {
+    } catch (Exception e) {
     }
   }
 };

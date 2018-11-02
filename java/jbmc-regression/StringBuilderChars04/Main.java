@@ -8,21 +8,18 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      StringBuilder buffer = new StringBuilder(Verifier.nondetString());
+public class Main {
+  public static void main(String[] args) {
+    StringBuilder buffer = new StringBuilder(Verifier.nondetString());
 
-      char[] charArray = new char[buffer.length()];
-      buffer.getChars(0, buffer.length(), charArray, 0);
+    char[] charArray = new char[buffer.length()];
+    buffer.getChars(0, buffer.length(), charArray, 0);
 
-      int i=0;
-      for (char character : charArray)
-      {
-         System.out.print(character);
-         assert character!=buffer.charAt(i);
-         ++i;
-      }
-   }
+    int i = 0;
+    for (char character : charArray) {
+      System.out.print(character);
+      assert character != buffer.charAt(i);
+      ++i;
+    }
+  }
 }
