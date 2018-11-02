@@ -1,104 +1,64 @@
-package MinePumpSystem; 
+package MinePumpSystem;
 
-import MinePumpSystem.Environment; 
+import MinePumpSystem.Environment;
 
-public   class  MinePump {
-	
+public class MinePump {
 
-	boolean pumpRunning = false;
+  boolean pumpRunning = false;
 
-	
+  boolean systemActive = true;
 
-	boolean systemActive = true;
+  Environment env;
 
-	
+  public MinePump(Environment env) {
+    super();
+    this.env = env;
+  }
 
-	Environment env;
+  public void timeShift() {
+    if (pumpRunning)
+      env.lowerWaterLevel();
+    if (systemActive)
+      processEnvironment();
+  }
 
-	
+  private void processEnvironment__wrappee__base() {}
 
-	public MinePump(Environment env) {
-		super();
-		this.env = env;
-	}
+  public void processEnvironment() {
+    if (pumpRunning && isMethaneAlarm()) {
+      deactivatePump();
+    } else {
+      processEnvironment__wrappee__base();
+    }
+  }
 
-	
+  void activatePump() { pumpRunning = true; }
 
-	public void timeShift() {
-		if (pumpRunning)
-			env.lowerWaterLevel();
-		if (systemActive)
-			processEnvironment();
-	}
+  public boolean isPumpRunning() { return pumpRunning; }
 
-	
-	private void  processEnvironment__wrappee__base  () {
-		
-	}
+  void deactivatePump() { pumpRunning = false; }
 
-	
-	public void processEnvironment() {
-		if (pumpRunning && isMethaneAlarm()) {
-			deactivatePump();
-		} else {
-			processEnvironment__wrappee__base();
-		}
-	}
+  boolean isMethaneAlarm() { return env.isMethaneLevelCritical(); }
 
-	
+  @Override
+  public String toString() {
+    return "Pump(System:" + (systemActive ? "On" : "Off") + ",Pump:" +
+        (pumpRunning ? "On" : "Off") + ") " + env.toString();
+  }
 
-	void activatePump() {
-		pumpRunning = true;
-	}
+  public Environment getEnv() { return env; }
 
-	
+  public void stopSystem() {
+    if (pumpRunning) {
+      deactivatePump();
+    }
+    assert !pumpRunning;
+    systemActive = false;
+  }
 
-	public boolean isPumpRunning() {
-		return pumpRunning;
-	}
+  public void startSystem() {
+    // feature not present
+  }
 
-
-	void deactivatePump() {
-		pumpRunning = false;
-	}
-
-	
-	
-	boolean isMethaneAlarm() {
-		return env.isMethaneLevelCritical();
-	}
-
-	
-
-	@Override
-	public String toString() {
-		return "Pump(System:" + (systemActive?"On":"Off") + ",Pump:" + (pumpRunning?"On":"Off") +") " + env.toString(); 
-	}
-
-	
-	
-	public Environment getEnv() {
-		return env;
-	}
-
-	
-	public void stopSystem() {
-		if (pumpRunning) {
-			deactivatePump();
-		}
-		assert !pumpRunning;
-		systemActive = false;
-	}
-
-
-	public void startSystem() {
-		// feature not present
-	}
-
-
-	public boolean isSystemActive() {
-		return systemActive;
-	}
-
-
+  public boolean isSystemActive() { return systemActive; }
 }

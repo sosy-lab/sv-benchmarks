@@ -1,69 +1,46 @@
-package MinePumpSystem; 
+package MinePumpSystem;
 
-public  class  Environment {
-	
+public class Environment {
 
-	public enum  WaterLevelEnum {
-		low ,  normal ,  high}
+  public enum WaterLevelEnum { low, normal, high }
 
-	
+  private WaterLevelEnum waterLevel = WaterLevelEnum.normal;
 
-	private WaterLevelEnum waterLevel = WaterLevelEnum.normal;
+  private boolean methaneLevelCritical = false;
 
-	
+  void lowerWaterLevel() {
+    switch (waterLevel) {
+    case high:
+      waterLevel = WaterLevelEnum.normal;
+      break;
+    case normal:
+      waterLevel = WaterLevelEnum.low;
+      break;
+    }
+  }
 
-	private boolean methaneLevelCritical = false;
+  public void waterRise() {
+    switch (waterLevel) {
+    case low:
+      waterLevel = WaterLevelEnum.normal;
+      break;
+    case normal:
+      waterLevel = WaterLevelEnum.high;
+      break;
+    }
+  }
 
-	
+  public void changeMethaneLevel() {
+    methaneLevelCritical = !methaneLevelCritical;
+  }
 
-	void lowerWaterLevel() {
-		switch (waterLevel) {
-		case high:
-			waterLevel = WaterLevelEnum.normal;
-			break;
-		case normal:
-			waterLevel = WaterLevelEnum.low;
-			break;
-		}
-	}
+  public boolean isMethaneLevelCritical() { return methaneLevelCritical; }
 
-	
+  @Override
+  public String toString() {
+    return "Env(Water:" + waterLevel + ",Meth:" +
+        (methaneLevelCritical ? "CRIT" : "OK") + ")";
+  }
 
-	public void waterRise() {
-		switch (waterLevel) {
-		case low:
-			waterLevel = WaterLevelEnum.normal;
-			break;
-		case normal:
-			waterLevel = WaterLevelEnum.high;
-			break;
-		}
-	}
-
-	
-
-	public void changeMethaneLevel() {
-		methaneLevelCritical = !methaneLevelCritical;
-	}
-
-	
-
-	public boolean isMethaneLevelCritical() {
-		return methaneLevelCritical;
-	}
-
-	
-
-	@Override
-	public String toString() {
-		return "Env(Water:" + waterLevel + ",Meth:" + (methaneLevelCritical?"CRIT":"OK") + ")";
-	}
-
-	
-	
-	public WaterLevelEnum getWaterLevel() {
-		return waterLevel;
-	}
-
-
+  public WaterLevelEnum getWaterLevel() { return waterLevel; }
 }
