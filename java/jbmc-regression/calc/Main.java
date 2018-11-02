@@ -6,6 +6,8 @@
  *     directory: regression/jbmc-strings-test-gen/calc
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
   void do_stuff(String a, String b)
@@ -20,11 +22,15 @@ public class Main
 
   public static void main(String[] args)
   {
-    if(args.length<2)
+    int size = Verifier.nondetInt();
+    if(size < 2)
     {
       System.out.println("need two arguments");
       return;
     }
+    args = new String[size];
+    args[0] = Verifier.nondetString();
+    args[1] = Verifier.nondetString();
     new Main().do_stuff(args[0], args[1]);
   }
 }

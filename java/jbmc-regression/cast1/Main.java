@@ -6,12 +6,14 @@
  *     directory: regression/cbmc-java/cast1
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 class Main
 {
   public static void main(String[] args)
   {
-    int i = args.length;
-    if(args.length<-128 || args.length>127)
+    int i = Verifier.nondetInt();
+    if(i < -128 || i > 127)
       return;
     byte b = (byte) i;
     assert b == i;

@@ -6,6 +6,8 @@
  *     directory: regression/jbmc-strings-test-gen/charArray
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main {
     public static char[] f(char c[]) {
         if (c != null && c.length > 0) {
@@ -15,9 +17,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        if(args.length<2 || args[1]==null || args[1].length() != 5)
-            return;
-        char[] c = f(args[1].toCharArray());
+        String arg = Verifier.nondetString();
+        char[] c = f(arg.toCharArray());
         String s = new String("HELLO") + new String(c, 0, c.length);
         assert s.charAt(5) == 's';
     }

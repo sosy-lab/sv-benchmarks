@@ -6,14 +6,15 @@
  *     directory: regression/jbmc-strings/StringBuilderChars05
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 1 || args[0] == null)
-        return;
+      String arg = Verifier.nondetString();
 
-      StringBuilder buffer = new StringBuilder(args[0]);
+      StringBuilder buffer = new StringBuilder(arg);
       buffer.setCharAt(0, 'H');
       buffer.setCharAt(6, 'T');
       assert buffer.toString().equals("HiffBllTe Limited");

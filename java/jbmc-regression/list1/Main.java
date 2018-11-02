@@ -6,6 +6,8 @@
  *     directory: regression/cbmc-java/list1
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 class LinkedListEntry
 {
   public LinkedListEntry Next;
@@ -65,7 +67,7 @@ class Utils_nondet
 {
   public static int nondet_int()
   {
-    return 0;
+    return Verifier.nondetInt();
   }
 }
 

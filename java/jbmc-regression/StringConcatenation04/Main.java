@@ -6,14 +6,13 @@
  *     directory: regression/jbmc-strings/StringConcatenation04
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 1 || args[0] == null)
-        return;
-
-      String s1 = args[0];
+      String s1 = Verifier.nondetString();
       String tmp=s1;
       System.out.printf("s1 after concatenation = %s\n", s1);
       assert tmp.equals("Happy  at");

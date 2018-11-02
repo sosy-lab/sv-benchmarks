@@ -1,5 +1,7 @@
 format_version: "0.1"
-input_files: StringBuilderInsertDelete01/
+input_files:
+  - ../common/
+  - StringBuilderInsertDelete01/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: true

@@ -1,5 +1,7 @@
 format_version: "0.1"
-input_files: bitwise1/
+input_files:
+  - ../common/
+  - bitwise1/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: true

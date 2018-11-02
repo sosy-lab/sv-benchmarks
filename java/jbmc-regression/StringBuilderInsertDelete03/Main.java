@@ -6,15 +6,14 @@
  *     directory: regression/jbmc-strings/StringBuilderInsertDelete03
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 1 || args[0] == null || args[1] == null)
-        return;
-
-      Object objectRef = args[0];
-      String string = args[1];
+      Object objectRef = Verifier.nondetString();
+      String string = Verifier.nondetString();
       char[] charArray = {'v', 'e', 'r', 'i', 'f', 'i', 'c', 'a', 't', 'i', 'o', 'n'};
       boolean booleanValue = true;
       char characterValue = 'K';

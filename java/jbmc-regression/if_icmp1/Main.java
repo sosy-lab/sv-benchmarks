@@ -6,6 +6,8 @@
  *     directory: regression/cbmc-java/if_icmp1
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 class Main
 {
   private static void f(int i, int j) {
@@ -32,8 +34,9 @@ class Main
 
   public static void main(String[] args)
   {
-    if(args.length+1 < 0)
+    int i = Verifier.nondetInt();
+    if(i + 1 < 0)
       return;
-    f(args.length, args.length+1);
+    f(i, i + 1);
   }
 }

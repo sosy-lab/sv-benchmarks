@@ -6,14 +6,15 @@
  *     directory: regression/cbmc-java/lookupswitch1
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 class Main
 {
   public static void main(String[] args)
   {
     int i, j;
-    
-    java.util.Random random = new java.util.Random(42);
-    i=random.nextInt();    
+
+    i = Verifier.nondetInt();
 
     switch(i)
     {

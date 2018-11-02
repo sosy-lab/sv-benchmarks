@@ -7,12 +7,13 @@
  * The benchmark was taken from the repo: 24 January 2018
  */
 import java.util.Scanner;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main
 {
    public static void main(String[] args)
    {
-      Scanner scanner = new Scanner(System.in);
+      Scanner scanner = new Scanner(Verifier.nondetString());
 
       int radix = scanner.nextInt();
 
@@ -25,8 +26,8 @@ public class Main
             System.out.println("Enter a digit:");
             int digit = scanner.nextInt();
             System.out.printf("Convert digit to character: %s\n",
-               Character.forDigit(digit, radix));
-	    char tmp=Character.forDigit(digit, radix);
+              Character.forDigit(digit, radix));
+            char tmp=Character.forDigit(digit, radix);
             assert tmp=='t';
             break;
 

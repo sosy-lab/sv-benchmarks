@@ -1,5 +1,7 @@
 format_version: "0.1"
-input_files: ArithmeticException5/
+input_files:
+  - ../common/
+  - ArithmeticException5/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: true

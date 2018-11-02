@@ -6,11 +6,13 @@
  *     directory: regression/cbmc-java/boolean2
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
   public static void main(String[] args)
   {
-    boolean b=args.length > 2;
+    boolean b = Verifier.nondetBoolean();
     boolean result=f(b);
     assert result==!b;
   }

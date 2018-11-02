@@ -6,14 +6,17 @@
  *     directory: regression/jbmc-strings/StringStartEnd03
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 4 || args[0] == null || args[1] == null || args[2] == null || args[3] == null)
-        return;
-
-      String[] strings = {args[0], args[1], args[2], args[3]};
+      String[] strings = new String[4];
+      strings[0] = Verifier.nondetString();
+      strings[1] = Verifier.nondetString();
+      strings[2] = Verifier.nondetString();
+      strings[3] = Verifier.nondetString();
 
       int i=0;
       for (String string : strings)

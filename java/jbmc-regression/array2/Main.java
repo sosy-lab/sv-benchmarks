@@ -6,10 +6,12 @@
  *     directory: regression/cbmc-java/array2
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main {
 
   public static void main(String[] args) {
-    int unknown = args.length;
+    int unknown = Verifier.nondetInt();
     int[] arr;
     if(unknown > 0)
       arr = new int[1];

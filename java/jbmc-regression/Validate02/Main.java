@@ -6,18 +6,17 @@
  *     directory: regression/jbmc-strings/Validate02
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 5 || args[0] == null || args[1] == null || args[2] == null || args[3] == null || args[4] == null)
-        return;
-
-      String address = args[0];
-      String city = args[1];
-      String state = args[2];
-      String zip = args[3];
-      String phone = args[4];
+      String address = Verifier.nondetString();
+      String city = Verifier.nondetString();
+      String state = Verifier.nondetString();
+      String zip = Verifier.nondetString();
+      String phone = Verifier.nondetString();
 
       if (!ValidateInput02.validateAddress(address))
          assert false;

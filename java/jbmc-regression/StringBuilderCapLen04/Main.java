@@ -6,14 +6,13 @@
  *     directory: regression/jbmc-strings/StringBuilderCapLen04
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 1 || args[0] == null)
-        return;
-
-      StringBuilder buffer = new StringBuilder(args[0]);
+      StringBuilder buffer = new StringBuilder(Verifier.nondetString());
       assert buffer.capacity()==69;
    }
 }

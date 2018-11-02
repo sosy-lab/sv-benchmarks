@@ -6,14 +6,17 @@
  *     directory: regression/jbmc-strings/StaticCharMethods06
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 1 || args[0] == null || args[0].length() < 1)
+      String arg = Verifier.nondetString();
+      if(arg.length() < 1)
         return;
 
-      char c = args[0].charAt(0);
+      char c = arg.charAt(0);
       Character c1 = c;
       Character c2 = c;
 
