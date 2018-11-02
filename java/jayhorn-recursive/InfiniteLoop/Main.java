@@ -13,7 +13,7 @@ public class Main {
     int i = 0;
     boolean b = new Random().nextBoolean();
 
-    while(true) {
+    while (true) {
       i++;
       assert(b);
     }
