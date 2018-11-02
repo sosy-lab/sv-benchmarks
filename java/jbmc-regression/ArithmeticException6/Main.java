@@ -6,9 +6,11 @@
  *     directory: regression/cbmc-java/ArithmeticException6
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main {
     public static void  main(String[] args) {
-        int denom = args.length - 5;
+        int denom = Verifier.nondetInt();
         try {
             int j=10/denom;
         }

@@ -6,11 +6,13 @@
  *     directory: regression/cbmc-java/if_expr1
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 class Main
 {
-  static public void main(String[] args) throws java.io.IOException
+  public static void main(String[] args)
   {
-    int x=System.in.read();
+    int x = Verifier.nondetInt();
     int y=x==10?11:9;
     if(x==10)
       assert y==11;

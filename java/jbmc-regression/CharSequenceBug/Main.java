@@ -6,11 +6,11 @@
  *     directory: regression/jbmc-strings-test-gen/CharSequenceBug
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main {
     public static void main(String[] args) {
-        if (args.length < 1)
-            return;
-        String s = args[0];
+        String s = Verifier.nondetString();
         CharSequence target = "b";
         String replaced = "";
         if (target.length() == 1)

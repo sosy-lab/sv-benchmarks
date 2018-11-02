@@ -6,14 +6,13 @@
  *     directory: regression/jbmc-strings/StringIndexMethods04
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
   public static void main(String[] args)
    {
-      if(args.length < 1 || args[0] == null)
-        return;
-
-      String letters = args[0];
+      String letters = Verifier.nondetString();
       assert letters.indexOf("diffblue")==28;
    }
 }

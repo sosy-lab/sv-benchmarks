@@ -6,12 +6,14 @@
  *     directory: regression/cbmc-java/bitwise1
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
   static char c;
   public static void main(String[] args)
   {
-    c=(char)(args.length*2 + 1);
+    c = Verifier.nondetChar();
     int i = (c | 2);
     assert (i & 3) == 3;
   }

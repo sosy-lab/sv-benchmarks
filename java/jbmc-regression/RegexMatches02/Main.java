@@ -8,18 +8,16 @@
  */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 1 || args[0] == null)
-        return;
-
       Pattern expression =
          Pattern.compile("W.*\\d[0-35-9]-\\d\\d-\\d\\d");
 
-      String string1 = args[0];
+      String string1 = Verifier.nondetString();
 
       Matcher matcher = expression.matcher(string1);
 

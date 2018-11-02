@@ -6,12 +6,15 @@
  *     directory: regression/jbmc-strings/StringConcatenation02
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 2 || args[0] == null || args[1] == null)
-        return;
+      args = new String[2];
+      args[0] = Verifier.nondetString();
+      args[1] = Verifier.nondetString();
 
       String s1 = args[0];
       String s2 = args[1];

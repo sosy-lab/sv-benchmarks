@@ -21,7 +21,6 @@ public class Main {
   public static void main(String[] args) {
     try {
       InetAddress address = new InetAddress();
-      int i = args.length;
       String domainName = lookupPtrRecord(reverse(address));
     } catch (Exception e) {
       assert false;

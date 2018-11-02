@@ -7,16 +7,14 @@
  * The benchmark was taken from the repo: 24 January 2018
  */
 import java.util.Arrays;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main
 {
    public static void main(String[] args)
    {
-      if(args.length < 2 || args[0] == null || args[1] == null)
-        return;
-
-      String firstString = args[0];
-      String secondString = args[1];
+      String firstString = Verifier.nondetString();
+      String secondString = Verifier.nondetString();
 
       firstString = firstString.replaceAll("\\*", "^");
 

@@ -7,7 +7,8 @@
  * The benchmark was taken from the repo: 24 January 2018
  */
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.StringReader;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
@@ -17,11 +18,12 @@ public class Main {
         }
 
     public static void main(String[] args) {
+        String arg = Verifier.nondetString();
         String thisLine = null;
         int numLines = 0;
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(args[1]));
+            BufferedReader br = new BufferedReader(new StringReader(arg));
             String line = check(br);
             while ((thisLine = check(br)) != null) {
                 System.out.println(thisLine);

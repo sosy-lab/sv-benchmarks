@@ -6,13 +6,15 @@
  *     directory: regression/cbmc-java/exceptions16
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 class A extends RuntimeException {}
 class B extends A {}
 class C extends B {}
 
 public class Main {
-  static void main (String[] args) {
-    int x = args.length;
+  public static void main (String[] args) {
+    int x = Verifier.nondetInt();
     try {
       x++;
     }

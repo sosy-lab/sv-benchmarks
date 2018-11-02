@@ -6,13 +6,12 @@
  *     directory: regression/cbmc-java/long1
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 class Main
 {
   public static void main(String[] args)
   {
-    java.util.Random random = new java.util.Random(42);
-    
-    //long l=random.nextLong();
     long l=4620693217682128896L;
 
     // conversions

@@ -6,6 +6,8 @@
  *     directory: regression/cbmc-java/aastore_aaload1
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 public class Main
 {
   static class A {
@@ -13,7 +15,9 @@ public class Main
   }
   public static void main(String[] args)
   {
-    int size = args.length;
+    int size = Verifier.nondetInt();
+    if (size < 0)
+      return;
     A[] array = new A[size];
 
     for (int i = 0; i < size; i++) {

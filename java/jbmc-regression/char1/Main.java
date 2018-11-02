@@ -6,13 +6,16 @@
  *     directory: regression/cbmc-java/char1
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
+
 class Main {
 
   static public void main(String[] args)
   {
-    if (args.length == 0 || args[0].length() == 0)
-        return;
-    char my_char=args[0].charAt(0);
+    String arg = Verifier.nondetString();
+    if(arg.length() < 1)
+      return;
+    char my_char=arg.charAt(0);
     int x=my_char;
     assert x>=0 && x<='\uffff';
 
