@@ -1,7 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-void __VERIFIER_atomic_begin();
-void __VERIFIER_atomic_end();
+extern void __VERIFIER_atomic_begin();
+extern void __VERIFIER_atomic_end();
 
 #include <pthread.h>
 

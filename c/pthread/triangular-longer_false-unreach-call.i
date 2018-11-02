@@ -654,8 +654,8 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-void __VERIFIER_atomic_begin();
-void __VERIFIER_atomic_end();
+extern void __VERIFIER_atomic_begin();
+extern void __VERIFIER_atomic_end();
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 int i = 3, j = 6;
 void *t1(void *arg) {
