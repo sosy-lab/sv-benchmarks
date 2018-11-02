@@ -10,51 +10,47 @@
  * Administrator of the National Aeronautics and Space Administration.
  * All rights reserved.
  *
- * Symbolic Pathfinder (jpf-symbc) is licensed under the Apache License, 
+ * Symbolic Pathfinder (jpf-symbc) is licensed under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- * 
- *        http://www.apache.org/licenses/LICENSE-2.0. 
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0.
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and 
+ * See the License for the specific language governing permissions and
  * limitations under the License.
  */
 
-//package gov.nasa.jpf.symbc;
+// package gov.nasa.jpf.symbc;
 
 public class Main {
-  
-  
-  public static void main (String[] args) {
-      int x = args.length > 0 ? args.length : -args.length;
-      int y = 5;
-      Main inst = new Main();
-      assert inst.test(x, y) != x+y;
+
+  public static void main(String[] args) {
+    int x = args.length > 0 ? args.length : -args.length;
+    int y = 5;
+    Main inst = new Main();
+    assert inst.test(x, y) != x + y;
   }
 
- 
-  public int test (int a, int b) { //invokevirtual
-    int result=0;
+  public int test(int a, int b) { // invokevirtual
+    int result = 0;
     System.out.println("Testing ExSymExeResearch");
-    if (a >=0 && a <100 && b>=0 && b <100) {
+    if (a >= 0 && a < 100 && b >= 0 && b < 100) {
       int sum = a + b;
       int diff = a - b;
       int temp;
-      
+
       if (sum > 0)
-          temp = a;
+        temp = a;
       else
-          temp = b;
+        temp = b;
       if (temp < diff)
-          result = temp;
+        result = temp;
       else
-          result = diff;
+        result = diff;
     }
     return result;
-        
   }
 }
-
