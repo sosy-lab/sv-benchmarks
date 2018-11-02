@@ -6,7 +6,7 @@
  *     root directory: benchmarks/recursive
  * The benchmark was taken from the repo: 24 January 2018
  */
-import java.util.Random;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
@@ -21,9 +21,7 @@ public class Main {
   }
 
   static void main(String[] args) {
-    Random rand = new Random(42);
-
-    int x = rand.nextInt();
+    int x = Verifier.nondetInt();
     int result = fibonacci(x);
     if (x != 5 || result == 3) {
       return;

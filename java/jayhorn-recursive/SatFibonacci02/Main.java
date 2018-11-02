@@ -6,8 +6,6 @@
  *     root directory: benchmarks/recursive
  * The benchmark was taken from the repo: 24 January 2018
  */
-import java.util.Random;
-
 public class Main {
 
   static int fibonacci(int n) {
@@ -21,8 +19,6 @@ public class Main {
   }
 
   static void main(String[] args) {
-    Random rand = new Random(42);
-
     int x = 9;
     int result = fibonacci(x);
     if (result == 34) {

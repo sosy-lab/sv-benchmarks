@@ -6,7 +6,7 @@
  *     root directory: benchmarks/recursive
  * The benchmark was taken from the repo: 24 January 2018
  */
-import java.util.Random;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
@@ -25,12 +25,11 @@ public class Main {
   }
 
   public static void main(String[] args) {
-    Random rand = new Random(42);
-    int m = rand.nextInt();
+    int m = Verifier.nondetInt();
     if (m <= 0 || m > 2147483647) {
       return;
     }
-    int n = rand.nextInt();
+    int n = Verifier.nondetInt();
     if (n <= 0 || n > 2147483647) {
       return;
     }
