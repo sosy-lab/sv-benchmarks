@@ -1,5 +1,8 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
+extern void __VERIFIER_atomic_begin();
+extern void __VERIFIER_atomic_end();
+
 #include <pthread.h>
 
 int i=1, j=1;
@@ -11,9 +14,11 @@ t1(void* arg)
 {
   int k = 0;
 
-  for (k = 0; k < NUM; k++)
+  for (k = 0; k < NUM; k++) {
+    __VERIFIER_atomic_begin();
     i+=j;
-
+    __VERIFIER_atomic_end();
+  }
   pthread_exit(NULL);
 }
 
@@ -22,9 +27,11 @@ t2(void* arg)
 {
   int k = 0;
 
-  for (k = 0; k < NUM; k++)
+  for (k = 0; k < NUM; k++) {
+    __VERIFIER_atomic_begin();
     j+=i;
-
+    __VERIFIER_atomic_end();
+  }
   pthread_exit(NULL);
 }
 
@@ -36,7 +43,15 @@ main(int argc, char **argv)
   pthread_create(&id1, NULL, t1, NULL);
   pthread_create(&id2, NULL, t2, NULL);
 
-  if (i > 144 || j > 144) {
+  __VERIFIER_atomic_begin();
+  int condI = i > 144;
+  __VERIFIER_atomic_end();
+
+  __VERIFIER_atomic_begin();
+  int condJ = j > 144;
+  __VERIFIER_atomic_end();
+
+  if (condI || condJ) {
     ERROR: __VERIFIER_error();
   }
 
