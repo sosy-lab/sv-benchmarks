@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-
+void __VERIFIER_atomic_begin();
+void __VERIFIER_atomic_end();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -637,16 +638,22 @@ void *
 t1(void* arg)
 {
   int k = 0;
-  for (k = 0; k < 6; k++)
+  for (k = 0; k < 6; k++) {
+    __VERIFIER_atomic_begin();
     i+=j;
+    __VERIFIER_atomic_end();
+  }
   pthread_exit(((void *)0));
 }
 void *
 t2(void* arg)
 {
   int k = 0;
-  for (k = 0; k < 6; k++)
+  for (k = 0; k < 6; k++) {
+    __VERIFIER_atomic_begin();
     j+=i;
+    __VERIFIER_atomic_end();
+  }
   pthread_exit(((void *)0));
 }
 int
@@ -655,7 +662,13 @@ main(int argc, char **argv)
   pthread_t id1, id2;
   pthread_create(&id1, ((void *)0), t1, ((void *)0));
   pthread_create(&id2, ((void *)0), t2, ((void *)0));
-  if (i > 377 || j > 377) {
+  __VERIFIER_atomic_begin();
+  int condI = i > 377;
+  __VERIFIER_atomic_end();
+  __VERIFIER_atomic_begin();
+  int condJ = j > 377;
+  __VERIFIER_atomic_end();
+  if (condI || condJ) {
     ERROR: __VERIFIER_error();
   }
   return 0;
