@@ -6,34 +6,31 @@
  *     root directory: benchmarks/recursive
  * The benchmark was taken from the repo: 24 January 2018
  */
+import org.sosy_lab.sv_benchmarks.Verifier;
 
-import java.util.Random;
 public class Main {
 
-	
-	public static int addition(int m, int n) {
-	    if (n == 0) {
-	        return m;
-	    }
-	    if (n > 0) {
-	        return addition(m+1, n-1);
-	    }
-	    else{
-	        return addition(m-1, n+1);
-	    }
-	}
-	
-	public static void main(String[] args){
-		Random randomGenerator = new Random();
-		int m = randomGenerator.nextInt(10000);
-		if (m < 0 || m > 2147483647) {
-	        return;
-	    }
-	    int n = randomGenerator.nextInt(10000);
-	    if (n < 0 || n > 2147483647) {
-	        return;
-	    }
-	    int result = addition(m,n);
-	    assert (result == m + n);
-	}
+  public static int addition(int m, int n) {
+    if (n == 0) {
+      return m;
+    }
+    if (n > 0) {
+      return addition(m + 1, n - 1);
+    } else {
+      return addition(m - 1, n + 1);
+    }
+  }
+
+  public static void main(String[] args) {
+    int m = Verifier.nondetInt();
+    if (m < 0 || m >= 10000) {
+      return;
+    }
+    int n = Verifier.nondetInt();
+    if (n < 0 || n >= 10000) {
+      return;
+    }
+    int result = addition(m, n);
+    assert(result == m + n);
+  }
 }

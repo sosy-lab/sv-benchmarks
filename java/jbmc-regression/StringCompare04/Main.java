@@ -8,12 +8,10 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String s1 = new String(Verifier.nondetString());
-      String s2 = Verifier.nondetString();
-      assert s2.compareTo(s1)==13; //false
-   }
+public class Main {
+  public static void main(String[] args) {
+    String s1 = new String(Verifier.nondetString());
+    String s2 = Verifier.nondetString();
+    assert s2.compareTo(s1) == 13; // false
+  }
 }

@@ -8,14 +8,11 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-class Main
-{
-  public static void main(String[] args)
-  {
+class Main {
+  public static void main(String[] args) {
     int i = Verifier.nondetInt();
-    
-    if(i>=1000)
-      assert i>1000 : "i is greater 1000"; // should fail
+
+    if (i >= 1000)
+      assert i > 1000 : "i is greater 1000"; // should fail
   }
 }
-

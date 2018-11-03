@@ -8,13 +8,11 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String arg = Verifier.nondetString();
-      float floatValue = Float.parseFloat(arg);
-      String tmp=String.valueOf(floatValue);
-      assert tmp.equals("2.50");
-   }
+public class Main {
+  public static void main(String[] args) {
+    String arg = Verifier.nondetString();
+    float floatValue = Float.parseFloat(arg);
+    String tmp = String.valueOf(floatValue);
+    assert tmp.equals("2.50");
+  }
 }

@@ -8,17 +8,15 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      args = new String[1];
-      args[0] = Verifier.nondetString();
-      if(args[0].length() < 1)
-        return;
+public class Main {
+  public static void main(String[] args) {
+    args = new String[1];
+    args[0] = Verifier.nondetString();
+    if (args[0].length() < 1)
+      return;
 
-      char characterValue = args[0].charAt(0);
-      String tmp=String.valueOf(characterValue);
-      assert tmp.equals("A");
-   }
+    char characterValue = args[0].charAt(0);
+    String tmp = String.valueOf(characterValue);
+    assert tmp.equals("A");
+  }
 }

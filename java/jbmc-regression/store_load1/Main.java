@@ -6,10 +6,8 @@
  *     directory: regression/cbmc-java/store_load1
  * The benchmark was taken from the repo: 24 January 2018
  */
-class Main
-{
-  public static void main(String[] args)
-  {
+class Main {
+  public static void main(String[] args) {
     if (true) {
       int a0 = 0;
       int a1 = 1;
@@ -60,4 +58,3 @@ class Main
     }
   }
 }
-

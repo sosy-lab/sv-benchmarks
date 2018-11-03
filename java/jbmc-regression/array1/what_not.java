@@ -1,3 +1,1 @@
-class what_not
-{
-};
+class what_not {};

@@ -10,12 +10,11 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
   public static void main(String args[]) {
-      try {
-          int[] a=new int[4];
-          a[Verifier.nondetInt()]=0;
-      }
-      catch (Exception exc) {
-          assert false;
-      }
+    try {
+      int[] a = new int[4];
+      a[Verifier.nondetInt()] = 0;
+    } catch (Exception exc) {
+      assert false;
+    }
   }
 }

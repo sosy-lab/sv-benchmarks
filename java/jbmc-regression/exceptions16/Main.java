@@ -13,19 +13,17 @@ class B extends A {}
 class C extends B {}
 
 public class Main {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int x = Verifier.nondetInt();
     try {
       x++;
-    }
-    catch(A exc) {
+    } catch (A exc) {
       assert false;
     }
 
     try {
       throw new B();
-    }
-    catch(B exc) {
+    } catch (B exc) {
       assert false;
     }
   }

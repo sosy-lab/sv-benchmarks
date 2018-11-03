@@ -8,11 +8,9 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String s1 = Verifier.nondetString();
-      assert s1.length()==24;
-   }
+public class Main {
+  public static void main(String[] args) {
+    String s1 = Verifier.nondetString();
+    assert s1.length() == 24;
+  }
 }

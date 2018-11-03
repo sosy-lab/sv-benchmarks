@@ -1,117 +1,71 @@
-package MinePumpSystem; 
+package MinePumpSystem;
 
-import MinePumpSystem.Environment; 
+import MinePumpSystem.Environment;
 
-public   class  MinePump {
-	
+public class MinePump {
 
-	boolean pumpRunning = false;
+  boolean pumpRunning = false;
 
-	
+  boolean systemActive = true;
 
-	boolean systemActive = true;
+  Environment env;
 
-	
+  public MinePump(Environment env) {
+    super();
+    this.env = env;
+  }
 
-	Environment env;
+  public void timeShift() {
+    if (pumpRunning)
+      env.lowerWaterLevel();
+    if (systemActive)
+      processEnvironment();
+  }
 
-	
+  private void processEnvironment__wrappee__base() {}
 
-	public MinePump(Environment env) {
-		super();
-		this.env = env;
-	}
+  public void processEnvironment() {
+    if (pumpRunning && isLowWaterLevel()) {
+      deactivatePump();
+    } else {
+      processEnvironment__wrappee__base();
+    }
+  }
 
-	
+  private void activatePump__wrappee__lowWaterSensor() { pumpRunning = true; }
 
-	public void timeShift() {
-		if (pumpRunning)
-			env.lowerWaterLevel();
-		if (systemActive)
-			processEnvironment();
-	}
+  void activatePump() {
+    if (!isMethaneAlarm()) {
+      activatePump__wrappee__lowWaterSensor();
+    } else {
+      // System.out.println("Pump not activated due to methane alarm");
+    }
+  }
 
-	
-	private void  processEnvironment__wrappee__base  () {
-		
-	}
+  public boolean isPumpRunning() { return pumpRunning; }
 
-	
+  void deactivatePump() { pumpRunning = false; }
 
-	public void processEnvironment() {
-		if (pumpRunning && isLowWaterLevel()) {
-			deactivatePump();
-		} else {
-			processEnvironment__wrappee__base();
-		}
-	}
+  boolean isMethaneAlarm() { return env.isMethaneLevelCritical(); }
 
-	
+  @Override
+  public String toString() {
+    return "Pump(System:" + (systemActive ? "On" : "Off") + ",Pump:" +
+        (pumpRunning ? "On" : "Off") + ") " + env.toString();
+  }
 
-	private void  activatePump__wrappee__lowWaterSensor  () {
-		pumpRunning = true;
-	}
+  public Environment getEnv() { return env; }
 
-	
-	void activatePump() {
-		if (!isMethaneAlarm()) {
-			activatePump__wrappee__lowWaterSensor();
-		} else {
-			//System.out.println("Pump not activated due to methane alarm");
-		}
-	}
+  boolean isLowWaterLevel() { return !env.isLowWaterSensorDry(); }
 
-	
+  public void startSystem() {
+    assert !pumpRunning;
+    systemActive = true;
+  }
 
-	public boolean isPumpRunning() {
-		return pumpRunning;
-	}
+  public void stopSystem() {
+    // feature not present
+  }
 
-
-	void deactivatePump() {
-		pumpRunning = false;
-	}
-
-	
-	
-	boolean isMethaneAlarm() {
-		return env.isMethaneLevelCritical();
-	}
-
-	
-
-	@Override
-	public String toString() {
-		return "Pump(System:" + (systemActive?"On":"Off") + ",Pump:" + (pumpRunning?"On":"Off") +") " + env.toString(); 
-	}
-
-	
-	
-	public Environment getEnv() {
-		return env;
-	}
-
-	
-	
-	boolean isLowWaterLevel() {
-		return !env.isLowWaterSensorDry();
-	}
-
-	
-	public void startSystem() {
-		assert !pumpRunning;
-		systemActive = true;
-	}
-
-
-	public void stopSystem() {
-		// feature not present
-	}
-
-
-	public boolean isSystemActive() {
-		return systemActive;
-	}
-
-
+  public boolean isSystemActive() { return systemActive; }
 }

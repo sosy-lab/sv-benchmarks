@@ -8,12 +8,10 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      int integerValue = Verifier.nondetInt();
-      String tmp=String.valueOf(integerValue);
-      assert tmp.equals("77");
-   }
+public class Main {
+  public static void main(String[] args) {
+    int integerValue = Verifier.nondetInt();
+    String tmp = String.valueOf(integerValue);
+    assert tmp.equals("77");
+  }
 }

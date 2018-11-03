@@ -9,13 +9,12 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
-    public static void  main(String[] args) {
-        int denom = Verifier.nondetInt();
-        try {
-            int j=10/denom;
-        }
-        catch(ArithmeticException exc) {
-            assert false;
-        }
+  public static void main(String[] args) {
+    int denom = Verifier.nondetInt();
+    try {
+      int j = 10 / denom;
+    } catch (ArithmeticException exc) {
+      assert false;
     }
+  }
 }

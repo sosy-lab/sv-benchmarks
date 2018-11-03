@@ -8,12 +8,10 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String letters = Verifier.nondetString();
-      String tmp=letters.substring(20);
-      assert tmp.equals("erationatdifffblue");
-   }
+public class Main {
+  public static void main(String[] args) {
+    String letters = Verifier.nondetString();
+    String tmp = letters.substring(20);
+    assert tmp.equals("erationatdifffblue");
+  }
 }

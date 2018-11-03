@@ -15,18 +15,16 @@ public class Main {
     try {
       A b = new A();
       throw b;
-    }
-    catch(A exc) {
+    } catch (A exc) {
       assert false;
     }
   }
-  
-  public static void main (String[] args) {
+
+  public static void main(String[] args) {
     try {
       A a = new A();
       foo();
-    }
-    catch(B exc) {
+    } catch (B exc) {
       assert false;
     }
   }

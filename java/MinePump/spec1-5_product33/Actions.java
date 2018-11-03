@@ -1,145 +1,127 @@
-import MinePumpSystem.Environment; 
-import MinePumpSystem.MinePump; 
+import MinePumpSystem.Environment;
+import MinePumpSystem.MinePump;
 
-public  class  Actions {
-	
+public class Actions {
 
-	Environment env;
-	MinePump p;
+  Environment env;
+  MinePump p;
 
-    boolean methAndRunningLastTime = false;
-    boolean switchedOnBeforeTS = false;
-	
-	
-	Actions() {
-		env = new Environment();
-		p = new MinePump(env);
-	}
+  boolean methAndRunningLastTime = false;
+  boolean switchedOnBeforeTS = false;
 
-	
-	
-	void waterRise() {
-		env.waterRise();
-	}
+  Actions() {
+    env = new Environment();
+    p = new MinePump(env);
+  }
 
-	
-	void methaneChange() {
-		env.changeMethaneLevel();
-	}
+  void waterRise() { env.waterRise(); }
 
-		
-	void stopSystem  () {
-	    if(p.isSystemActive())
-		p.stopSystem();
-	}
+  void methaneChange() { env.changeMethaneLevel(); }
 
-	
-	void startSystem  () {
-	    if(!p.isSystemActive())
-		p.startSystem();
-	}
-		
-	void timeShift() {
-	
-	    if(p.isSystemActive())
-	      Specification5_1();
-	
-		p.timeShift();
-		
-		if(p.isSystemActive()) {
-		  Specification1();
-		  Specification2();		
-	      Specification3();
-		  Specification4();
-		  Specification5_2();
-		}
-	}
-	
-	String getSystemState() {
-		return p.toString();
-	}
-	
-	// Specification 1 methan is Critical and pumping leads to Error
-	void Specification1() {			
-	
-	        Environment e = p.getEnv();
-	
-		    boolean b1 = e.isMethaneLevelCritical();
-	        boolean b2 = p.isPumpRunning();
-	     
-			 if ( b1 && b2) {
-			     assert false;   				
-			 }		 			    
+  void stopSystem() {
+    if (p.isSystemActive())
+      p.stopSystem();
+  }
+
+  void startSystem() {
+    if (!p.isSystemActive())
+      p.startSystem();
+  }
+
+  void timeShift() {
+
+    if (p.isSystemActive())
+      Specification5_1();
+
+    p.timeShift();
+
+    if (p.isSystemActive()) {
+      Specification1();
+      Specification2();
+      Specification3();
+      Specification4();
+      Specification5_2();
     }
+  }
 
+  String getSystemState() { return p.toString(); }
 
-	//Specification 2: When the pump is running, and there is methane, then it is in switched off at most 1 timesteps.    
-    void Specification2() {			
-    
-        Environment e = p.getEnv();
+  // Specification 1 methan is Critical and pumping leads to Error
+  void Specification1() {
 
-        boolean b1 = e.isMethaneLevelCritical();
-	    boolean b2 = p.isPumpRunning();
+    Environment e = p.getEnv();
 
-        if (b1 && b2) {
-	        if (methAndRunningLastTime) {			    
-			    assert false;
-		    } else{
-			    methAndRunningLastTime = true;
-		    }
-	    } else {
-		    methAndRunningLastTime = false;
-		}
-    }
-    
-   // Specification 3: When the water is high and there is no methane, then the pump is on. 
-   void Specification3() {
-   
-        
-	    Environment e = p.getEnv();
-   
-        boolean b1 = e.isMethaneLevelCritical();
-	    boolean b2 = p.isPumpRunning();
-	    boolean b3 = e.getWaterLevel() == Environment.WaterLevelEnum.high;
-   
-		if (!b1 && b3 && !b2) {
-		    assert false;
-	    }		 
-    }
-    
-       // Specification 4: the pump is never on when the water level is low
-   void Specification4() {
-   
-        Environment e = p.getEnv();
-      
-	    boolean b2 = p.isPumpRunning();
-	    boolean b3 = e.getWaterLevel() == Environment.WaterLevelEnum.low;
-            
-			 if (b3 && b2) {			 	
-			 	assert false;
-			 }
-		 	 
-    }
-    
-           // Specification 5: The Pump is never switched on when the water is below the highWater sensor.
-   void Specification5_1() {
-            
+    boolean b1 = e.isMethaneLevelCritical();
+    boolean b2 = p.isPumpRunning();
 
-			switchedOnBeforeTS = p.isPumpRunning();
-		
-		 	 
+    if (b1 && b2) {
+      assert false;
     }
-    
-           // Specification 5: The Pump is never switched on when the water is below the highWater sensor.
-   void Specification5_2() {
-    
-        Environment e = p.getEnv();
-       
-        boolean b1 = p.isPumpRunning();
-	    boolean b2 = e.getWaterLevel() != Environment.WaterLevelEnum.high;
-               
-			 if ((b2) && (b1 && !switchedOnBeforeTS)) {			 	
-			 	assert false;
-			 }
+  }
+
+  // Specification 2: When the pump is running, and there is methane, then it is
+  // in switched off at most 1 timesteps.
+  void Specification2() {
+
+    Environment e = p.getEnv();
+
+    boolean b1 = e.isMethaneLevelCritical();
+    boolean b2 = p.isPumpRunning();
+
+    if (b1 && b2) {
+      if (methAndRunningLastTime) {
+        assert false;
+      } else {
+        methAndRunningLastTime = true;
+      }
+    } else {
+      methAndRunningLastTime = false;
     }
+  }
+
+  // Specification 3: When the water is high and there is no methane, then the
+  // pump is on.
+  void Specification3() {
+
+    Environment e = p.getEnv();
+
+    boolean b1 = e.isMethaneLevelCritical();
+    boolean b2 = p.isPumpRunning();
+    boolean b3 = e.getWaterLevel() == Environment.WaterLevelEnum.high;
+
+    if (!b1 && b3 && !b2) {
+      assert false;
+    }
+  }
+
+  // Specification 4: the pump is never on when the water level is low
+  void Specification4() {
+
+    Environment e = p.getEnv();
+
+    boolean b2 = p.isPumpRunning();
+    boolean b3 = e.getWaterLevel() == Environment.WaterLevelEnum.low;
+
+    if (b3 && b2) {
+      assert false;
+    }
+  }
+
+  // Specification 5: The Pump is never switched on when the water is below the
+  // highWater sensor.
+  void Specification5_1() { switchedOnBeforeTS = p.isPumpRunning(); }
+
+  // Specification 5: The Pump is never switched on when the water is below the
+  // highWater sensor.
+  void Specification5_2() {
+
+    Environment e = p.getEnv();
+
+    boolean b1 = p.isPumpRunning();
+    boolean b2 = e.getWaterLevel() != Environment.WaterLevelEnum.high;
+
+    if ((b2) && (b1 && !switchedOnBeforeTS)) {
+      assert false;
+    }
+  }
 }

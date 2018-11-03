@@ -10,68 +10,63 @@
  * Administrator of the National Aeronautics and Space Administration.
  * All rights reserved.
  *
- * Symbolic Pathfinder (jpf-symbc) is licensed under the Apache License, 
+ * Symbolic Pathfinder (jpf-symbc) is licensed under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- * 
- *        http://www.apache.org/licenses/LICENSE-2.0. 
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0.
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and 
+ * See the License for the specific language governing permissions and
  * limitations under the License.
  */
 
-//package gov.nasa.jpf.symbc;
-
+// package gov.nasa.jpf.symbc;
 
 public class Main {
 
-	public static void main(String[] args) {
-		new Main().unboxed(args.length,2);
-		new Main().boxed(args.length,2);
-		new Main().customBoxed(args.length,2);
-	}
+  public static void main(String[] args) {
+    new Main().unboxed(args.length, 2);
+    new Main().boxed(args.length, 2);
+    new Main().customBoxed(args.length, 2);
+  }
 
-	private void unboxed(int i, int j) {
-		if (i == j) {
-			System.out.println("HIT");
-		}
-	}
+  private void unboxed(int i, int j) {
+    if (i == j) {
+      System.out.println("HIT");
+    }
+  }
 
-	private void boxed(int i, int j) {
-		if (new Integer(i).equals(new Integer(j))) {
-			System.out.println("HIT");
-		}
-                else
-                        assert false;
-	}
+  private void boxed(int i, int j) {
+    if (new Integer(i).equals(new Integer(j))) {
+      System.out.println("HIT");
+    } else
+      assert false;
+  }
 
-	private void customBoxed(int i, int j) {
-		if (new MyInteger(i).equals(new MyInteger(j))) {
-			System.out.println("HIT");
-		}
-	}
-
+  private void customBoxed(int i, int j) {
+    if (new MyInteger(i).equals(new MyInteger(j))) {
+      System.out.println("HIT");
+    }
+  }
 }
 
 class MyInteger {
-	int value;
+  int value;
 
-	public MyInteger(int value) {
-		this.value = value;
-	}
+  public MyInteger(int value) { this.value = value; }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (!(obj instanceof MyInteger)) {
-			return false;
-		}
-		MyInteger other = (MyInteger) obj;
-		return this.value == other.value;
-	}
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == this) {
+      return true;
+    }
+    if (!(obj instanceof MyInteger)) {
+      return false;
+    }
+    MyInteger other = (MyInteger)obj;
+    return this.value == other.value;
+  }
 }

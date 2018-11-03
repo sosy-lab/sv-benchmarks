@@ -6,14 +6,14 @@
  *     root directory: benchmarks/recursive
  * The benchmark was taken from the repo: 24 January 2018
  */
-import java.util.Random;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
   public static void main(String[] arg) {
     int i = 0;
-    boolean b = new Random().nextBoolean();
+    boolean b = Verifier.nondetBoolean();
 
-    while(true) {
+    while (true) {
       i++;
       assert(b);
     }

@@ -6,14 +6,12 @@
  *     directory: regression/cbmc-java/const1
  * The benchmark was taken from the repo: 24 January 2018
  */
-class Main
-{
-  public static void main(String[] args)
-  {
+class Main {
+  public static void main(String[] args) {
     assert 0.0f < 1.0f;
     assert 0.0 < 1.0;
     assert 1.0f < 2.0f;
-    assert -1 < 0;
+    assert - 1 < 0;
     assert 1 < 2;
     assert 3 < 4;
     assert 4 < 5;
@@ -22,7 +20,7 @@ class Main
     assert 98.0 < 99.0;
     assert 98.0f < 99.0f;
     assert 98L < 99L;
-    
+
     int i = 0;
     assert i == 0;
     ++i;
@@ -33,4 +31,3 @@ class Main
     assert i == 3;
   }
 }
-

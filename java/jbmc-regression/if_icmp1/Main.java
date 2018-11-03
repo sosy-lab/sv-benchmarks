@@ -8,8 +8,7 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-class Main
-{
+class Main {
   private static void f(int i, int j) {
     if (i == j) {
       assert false;
@@ -32,10 +31,9 @@ class Main
     }
   }
 
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) {
     int i = Verifier.nondetInt();
-    if(i + 1 < 0)
+    if (i + 1 < 0)
       return;
     f(i, i + 1);
   }

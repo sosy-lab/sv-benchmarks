@@ -21,7 +21,5 @@ class Outer implements Interface {
 }
 
 public class Main {
-  public static void main(String[] args) {
-    assert new Outer(new Inner()).b();
-  }
+  public static void main(String[] args) { assert new Outer(new Inner()).b(); }
 }

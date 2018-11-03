@@ -10,74 +10,65 @@
  * Administrator of the National Aeronautics and Space Administration.
  * All rights reserved.
  *
- * Symbolic Pathfinder (jpf-symbc) is licensed under the Apache License, 
+ * Symbolic Pathfinder (jpf-symbc) is licensed under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- * 
- *        http://www.apache.org/licenses/LICENSE-2.0. 
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0.
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and 
+ * See the License for the specific language governing permissions and
  * limitations under the License.
  */
 
-//package gov.nasa.jpf.symbc;
+// package gov.nasa.jpf.symbc;
 
 public class Main {
-	public void test(int x, int y) {
+  public void test(int x, int y) {
 
-		int v = method_a(x, y);
+    int v = method_a(x, y);
 
-		if(v > 0) {
+    if (v > 0) {
 
-			System.out.println("branch taken");
+      System.out.println("branch taken");
 
-			int tmp=method_b(x); //orig method_b(x)
+      int tmp = method_b(x); // orig method_b(x)
 
-			if (tmp == x) //added
+      if (tmp == x) // added
 
-				System.out.println("inner branch taken"); //added
+        System.out.println("inner branch taken"); // added
 
-		}
-                else
-                        assert false;
+    } else
+      assert false;
+  }
 
-	}
+  public int method_a(int x, int y) {
 
+    if (x > 10)
 
+      return x;
 
-	public int method_a(int x, int y) {
+    if (y > 10)
 
-		if(x > 10)
+      return y;
 
-			return x;
+    return 0;
+  }
+  public int method_b(int z) {
 
-		if(y > 10)
+    if (z > 10)
+      return z++;
+    else
+      return z--;
+  }
 
-			return y;
+  public static void main(String[] args) {
 
-		return 0;
+    Main ex = new Main();
 
-	}
-	public int method_b(int z) {
-
-		if(z > 10)
-			return z++;
-		else
-			return z--;
-	}
-
-
-
-	public static void main(String[] args) {
-
-		Main ex = new Main();
-
-		ex.test(args.length,args.length);
-		//test(0,0);
-	}
-
+    ex.test(args.length, args.length);
+    // test(0,0);
+  }
 }
-

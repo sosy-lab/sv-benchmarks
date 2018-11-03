@@ -6,14 +6,11 @@
  *     directory: regression/cbmc-java/if_acmp1
  * The benchmark was taken from the repo: 24 January 2018
  */
-class A {
-}
+class A {}
 
-class B {
-}
+class B {}
 
-class Main
-{
+class Main {
   private static B get_B() {
     B b = new B();
     return b;

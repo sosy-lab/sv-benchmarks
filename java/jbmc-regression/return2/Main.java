@@ -8,13 +8,10 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-class Main
-{
-  public static void main(String[] args)
-  {
+class Main {
+  public static void main(String[] args) {
     int v1 = Verifier.nondetInt();
     int v2 = Verifier.nondetInt();
-    assert v1==v2; // should be able to fail
+    assert v1 == v2; // should be able to fail
   }
 }
-

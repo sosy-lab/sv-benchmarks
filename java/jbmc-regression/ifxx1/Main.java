@@ -6,10 +6,8 @@
  *     directory: regression/cbmc-java/ifxx1
  * The benchmark was taken from the repo: 24 January 2018
  */
-class Main
-{
-  public static void main(String[] args)
-  {
+class Main {
+  public static void main(String[] args) {
     int i = 0;
     if (i != 0) {
       assert false;

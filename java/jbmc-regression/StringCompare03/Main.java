@@ -8,17 +8,15 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String s3 = Verifier.nondetString();
-      String s4 = Verifier.nondetString();
+public class Main {
+  public static void main(String[] args) {
+    String s3 = Verifier.nondetString();
+    String s4 = Verifier.nondetString();
 
-      // test regionMatches (ignore case)
-      if (!s3.regionMatches(true, 0, s4, 0, 5)) //false
-         assert true;
-      else
-         assert false;
-   }
+    // test regionMatches (ignore case)
+    if (!s3.regionMatches(true, 0, s4, 0, 5)) // false
+      assert true;
+    else
+      assert false;
+  }
 }

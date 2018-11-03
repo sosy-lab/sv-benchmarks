@@ -8,13 +8,9 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-  static class A {
-    int value = 0;
-  }
-  public static void main(String[] args)
-  {
+public class Main {
+  static class A { int value = 0; }
+  public static void main(String[] args) {
     int size = Verifier.nondetInt();
     if (size < 0)
       return;

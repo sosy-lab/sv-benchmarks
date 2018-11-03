@@ -6,10 +6,8 @@
  *     directory: regression/cbmc-java/iarith1
  * The benchmark was taken from the repo: 24 January 2018
  */
-class Main
-{
-  public static void main(String[] args)
-  {
+class Main {
+  public static void main(String[] args) {
     int i = 99;
     ++i;
     int tmp = i + 2;
@@ -36,4 +34,3 @@ class Main
     assert l == -32L;
   }
 }
-

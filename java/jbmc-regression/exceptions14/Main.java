@@ -11,22 +11,18 @@ class B extends A {}
 class C extends B {}
 
 public class Main {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     try {
       try {
-	C c = new C();
-	A a = new A();
+        C c = new C();
+        A a = new A();
+      } catch (C exc) {
+        assert false;
+      } catch (B exc) {
+        assert false;
       }
-      catch(C exc) {
-	assert false;
-      }
-      catch(B exc) {
-	assert false;
-      }
-    }
-    catch(A exc) {
+    } catch (A exc) {
       assert false;
     }
-
   }
 }

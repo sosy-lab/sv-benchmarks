@@ -10,14 +10,14 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 
 class Main {
 
-  static public void main(String[] args)
-  {
+  static public void main(String[] args) {
     boolean my_boolean = Verifier.nondetBoolean();
     // Boolean shall be either true or false.
-    if(my_boolean == true) return;
-    if(my_boolean == false) return;
+    if (my_boolean == true)
+      return;
+    if (my_boolean == false)
+      return;
 
     assert false;
   }
-
 };

@@ -8,11 +8,9 @@
  */
 import org.sosy_lab.sv_benchmarks.Verifier;
 
-public class Main
-{
-   public static void main(String[] args)
-   {
-      String letters = Verifier.nondetString();
-      assert letters.lastIndexOf('$')==1;
-   }
+public class Main {
+  public static void main(String[] args) {
+    String letters = Verifier.nondetString();
+    assert letters.lastIndexOf('$') == 1;
+  }
 }

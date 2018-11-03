@@ -6,20 +6,14 @@
  *     directory: regression/cbmc-java/athrow1
  * The benchmark was taken from the repo: 24 January 2018
  */
-class A extends Exception
-{
-}
+class A extends Exception {}
 
-class Main
-{
-  public static void main(String[] args)
-  {
+class Main {
+  public static void main(String[] args) {
     A a = new A();
     try {
       throw a;
-    }
-    catch (Exception e)
-    {
+    } catch (Exception e) {
       assert false;
     }
   }

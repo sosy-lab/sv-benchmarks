@@ -6,15 +6,13 @@
  *     directory: regression/jbmc-strings/SubString01
  * The benchmark was taken from the repo: 24 January 2018
  */
-public class Main
-{
-    public static void main(String[] args)
-    {
-        String letters = "attachfilesbydragginganddroppingthem";
+public class Main {
+  public static void main(String[] args) {
+    String letters = "attachfilesbydragginganddroppingthem";
 
-        String tmp=letters.substring(20);
-        assert tmp.equals("ganddroppingthem");
-        tmp=letters.substring(6, 10);
-        assert tmp.equals("file");
-    }
+    String tmp = letters.substring(20);
+    assert tmp.equals("ganddroppingthem");
+    tmp = letters.substring(6, 10);
+    assert tmp.equals("file");
+  }
 }

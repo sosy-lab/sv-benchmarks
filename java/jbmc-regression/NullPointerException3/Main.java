@@ -7,17 +7,16 @@
  * The benchmark was taken from the repo: 24 January 2018
  */
 class A {
-    int i;
+  int i;
 }
 
 public class Main {
-    public static void main(String[] args) {
-        A a=null;
-        try {
-            int i=a.i;
-        }
-        catch (NullPointerException exc) {
-            assert false;
-        }
+  public static void main(String[] args) {
+    A a = null;
+    try {
+      int i = a.i;
+    } catch (NullPointerException exc) {
+      assert false;
     }
+  }
 }

@@ -14,10 +14,10 @@ public class Main {
 
   public static void main(String[] args) {
     int c = Verifier.nondetInt();
-    if(c!=1) return;
+    if (c != 1)
+      return;
     Main[] a = new Main[c];
-    readback=a[0];
-    assert(readback==null);
+    readback = a[0];
+    assert(readback == null);
   }
-
 }
