@@ -24,12 +24,16 @@
  */
 
 // package gov.nasa.jpf.symbc;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
   public static void main(String[] args) {
-    int x = args.length % 5;
-    int y = args.length % 5;
+    int arg = Verifier.nondetInt();
+    if (arg < 0)
+      return;
+    int x = arg % 5;
+    int y = arg % 5;
     Main inst = new Main();
     inst.test(x, y);
   }

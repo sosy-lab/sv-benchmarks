@@ -24,17 +24,20 @@
  */
 
 // package gov.nasa.jpf.symbc;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
   static int field;
 
   public static void main(String[] args) {
-    int x =
-        3; /* we want to specify in an annotation that this param should be
-              symbolic */
+    int arg = Verifier.nondetInt();
+    if (arg < 0)
+      return;
+    int x = 3; /* we want to specify in an annotation that this param should be
+                  symbolic */
 
     Main inst = new Main();
-    field = args.length % 100;
+    field = arg % 100;
     inst.test(x, field);
     // test(x,x);
   }

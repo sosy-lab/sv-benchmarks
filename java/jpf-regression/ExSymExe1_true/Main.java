@@ -23,13 +23,14 @@
  * limitations under the License.
  */
 
-// ckage gov.nasa.jpf.symbc;
+// package gov.nasa.jpf.symbc;
 
 public class Main {
 
   public static void main(String[] args) {
     int x = 3;
     int y = 5;
+
     Main inst = new Main();
     inst.test(x, y);
   }

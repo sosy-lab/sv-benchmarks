@@ -24,9 +24,10 @@
  */
 
 // package gov.nasa.jpf.symbc;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
-  public static void main(String[] args) { foo(args.length); }
+  public static void main(String[] args) { foo(Verifier.nondetInt()); }
   public static int foo(int i) {
     if (2 * (i + 1) == 10) {
       assert false;

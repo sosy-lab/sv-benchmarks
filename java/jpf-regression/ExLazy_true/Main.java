@@ -24,6 +24,7 @@
  */
 
 // package gov.nasa.jpf.symbc;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
@@ -36,9 +37,9 @@ public class Main {
     }
   }
   public static void main(String[] args) {
-    if (args.length == 0)
+    if (Verifier.nondetInt() == 0)
       test(null, 0);
     else
-      test(null, args.length);
+      test(null, Verifier.nondetInt());
   }
 }
