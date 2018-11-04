@@ -33,7 +33,7 @@ int main()
 
 	for ( i = 0 ; i < n ; i++ ){
           for ( j = 0 ; j < n ; j++ ){
-                __VERIFIER_assert(C[i][j] == A[i][j]);
+                __VERIFIER_assert(C[j][i] == A[i][j]);
           }
     }
 return 0;
