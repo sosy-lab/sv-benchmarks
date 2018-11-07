@@ -24,6 +24,7 @@
  */
 
 // package gov.nasa.jpf.symbc;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
@@ -33,7 +34,7 @@ public class Main {
     n.next = m;
     n.next.next = n;
     Node na = n.swapNode();
-    n.elem = args.length;
+    n.elem = Verifier.nondetInt();
     // Debug.printSymbolicRef(n);
     // Debug.printPC("\nPC");
     // Debug.printHeapPC("Heap PC");
