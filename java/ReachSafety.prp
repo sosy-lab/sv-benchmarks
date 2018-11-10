@@ -1,1 +1,1 @@
-CHECK( init(Main.main()), LTL(G assert) )
+properties/assert.prp
