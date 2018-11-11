@@ -30,7 +30,7 @@ public class Main {
 
   public static void main(String[] args) {
     int x = Verifier.nondetInt();
-    x = x > 0 ? x % 10 : -x % 10;
+    x = x > 0 ? x % 10 : -(x % 10);
 
     Main inst = new Main();
     inst.test(x);

@@ -36,7 +36,7 @@ public class Main {
                   symbolic */
 
     Main inst = new Main();
-    field = Verifier.nondetInt();
+    field = Verifier.nondetShort();
     if (field < 0)
       return;
     inst.test(x, field, field2);

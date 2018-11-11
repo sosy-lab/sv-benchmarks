@@ -31,7 +31,7 @@ public class Main {
   static int field2;
 
   public static void main(String[] args) {
-    int arg = Verifier.nondetInt();
+    int arg = Verifier.nondetShort();
     if (arg < 0)
       return;
     int x = arg;

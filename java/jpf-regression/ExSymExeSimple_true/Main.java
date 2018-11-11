@@ -42,6 +42,8 @@ public class Main {
   }
   public static void main(String[] args) {
     int arg = Verifier.nondetInt();
+    if (arg >= Integer.MAX_VALUE)
+      return;
     Main inst = new Main();
     Node n = new Node();
     n.test(arg, arg + 1);

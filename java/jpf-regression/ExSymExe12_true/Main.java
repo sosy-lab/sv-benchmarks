@@ -36,7 +36,7 @@ public class Main {
 
     Main inst = new Main();
     field = 9;
-    int arg = Verifier.nondetInt();
+    int arg = Verifier.nondetShort();
     if (arg < 0)
       return;
     inst.test(x, arg, field2);
