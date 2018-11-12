@@ -29,7 +29,7 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 public class Main {
 
   public static void main(String[] args) {
-    long x = Verifier.nondetLong();
+    long x = Verifier.nondetInt();
     x = x > 0 ? -x : x;
     long y = 5;
     Main inst = new Main();
