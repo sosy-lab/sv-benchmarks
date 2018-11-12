@@ -23,13 +23,14 @@
  * limitations under the License.
  */
 
-// ckage gov.nasa.jpf.symbc;
+// package gov.nasa.jpf.symbc;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
   public static void main(String[] args) {
-    int x = args.length % 1000;
-    int y = args.length % 50;
+    int x = Verifier.nondetInt() % 1000;
+    int y = Verifier.nondetInt() % 50;
     Main inst = new Main();
     inst.test(x, y);
   }

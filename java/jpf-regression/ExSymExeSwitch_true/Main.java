@@ -24,15 +24,14 @@
  */
 
 // package gov.nasa.jpf.symbc;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
   public static void main(String[] args) {
-    int x =
-        args.length > 0 ? -args.length
-                        : args.length; /* we want to specify in an annotation
-                                          that this param should be symbolic */
-
+    int x = Verifier.nondetInt();
+    if (x > 0)
+      return;
     test(x);
   }
   /* we want to let the user specify that this method should be symbolic */

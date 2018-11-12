@@ -71,6 +71,7 @@ public final class Verifier
   {
     Random random = new Random();
     int size = random.nextInt();
+    assume(size >= 0);
     byte[] bytes = new byte[size];
     random.nextBytes(bytes);
     return new String(bytes);

@@ -24,6 +24,7 @@
  */
 
 // package gov.nasa.jpf.symbc;
+import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
   static class Node {
@@ -40,10 +41,10 @@ public class Main {
     }
   }
   public static void main(String[] args) {
-
+    int arg = Verifier.nondetInt();
     Main inst = new Main();
     Node n = new Node();
-    n.test(args.length, args.length + 1);
+    n.test(arg, arg + 1);
     // Debug.printPC("PC: ");
     System.out.println("*****************");
   }
