@@ -1,5 +1,3 @@
-
-import java.util.Random;
 import MinePumpSystem.Environment;
 import MinePumpSystem.MinePump;
 import org.sosy_lab.sv_benchmarks.Verifier;
