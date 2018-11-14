@@ -11,6 +11,8 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 public class Main {
   public static void main(String[] args) {
     String arg = Verifier.nondetString();
+    if (arg == null)
+      return ;
     CharSequence cs = (CharSequence)arg;
     String s = cs.toString();
     int i = -1;
