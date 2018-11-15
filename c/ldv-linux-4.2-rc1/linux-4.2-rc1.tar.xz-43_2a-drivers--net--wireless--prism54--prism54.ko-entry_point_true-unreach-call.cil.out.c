@@ -9139,7 +9139,7 @@ struct iw_statistics *prism54_get_wireless_stats(struct net_device *ndev )
   if (tmp___0 != 0) {
     memcpy_guard((void *)(& priv->iwstatistics), (void const   *)(& priv->local_iwstatistics),
              32UL);
-    memcpy((void *)(& priv->iwstatistics), (void const   *)(& priv->local_iwstatistics),
+    memmove((void *)(& priv->iwstatistics), (void const   *)(& priv->local_iwstatistics),
              32UL);
     priv->local_iwstatistics.qual.updated = 0U;
     mutex_unlock(& priv->stats_lock);
@@ -13583,7 +13583,7 @@ struct net_device *islpci_setup(struct pci_dev *pdev )
   ndev->ethtool_ops = & islpci_ethtool_ops;
   ndev->addr_len = 6U;
   memcpy_guard((void *)ndev->dev_addr, (void const   *)(& dummy_mac), 6UL);
-  memcpy((void *)ndev->dev_addr, (void const   *)(& dummy_mac), 6UL);
+  memmove((void *)ndev->dev_addr, (void const   *)(& dummy_mac), 6UL);
   ndev->watchdog_timeo = 500;
   tmp___0 = netdev_priv((struct net_device  const  *)ndev);
   priv = (islpci_private *)tmp___0;

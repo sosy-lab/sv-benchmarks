@@ -2853,6 +2853,7 @@ struct usb_os_desc_ext_prop_attribute {
    ssize_t (*store)(struct usb_os_desc_ext_prop * , char const   * , size_t  ) ;
 };
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
@@ -11547,7 +11548,7 @@ static ssize_t interf_grp_compatible_id_show(struct usb_os_desc *desc , char *pa
 
 
   {
-  memcpy((void *)page, (void const   *)desc->ext_compat_id, 8UL);
+  memmove((void *)page, (void const   *)desc->ext_compat_id, 8UL);
   return (8L);
 }
 }
@@ -11587,7 +11588,7 @@ static ssize_t interf_grp_sub_compatible_id_show(struct usb_os_desc *desc , char
 
 
   {
-  memcpy((void *)page, (void const   *)desc->ext_compat_id + 8U, 8UL);
+  memmove((void *)page, (void const   *)desc->ext_compat_id + 8U, 8UL);
   return (8L);
 }
 }

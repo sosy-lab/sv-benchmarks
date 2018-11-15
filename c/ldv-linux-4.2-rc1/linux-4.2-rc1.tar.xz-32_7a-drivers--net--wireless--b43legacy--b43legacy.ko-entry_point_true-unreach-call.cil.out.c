@@ -8305,6 +8305,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 __inline static unsigned long arch_local_save_flags(void) 
@@ -9151,7 +9152,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
 
 
   {
-  memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, 6UL);
+  memmove((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, 6UL);
   return;
 }
 }
@@ -25035,7 +25036,6 @@ void ldv_mutex_unlock_208(struct mutex *ldv_func_arg1 )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-extern void *memmove(void * , void const   * , size_t  ) ;
 int ldv_mutex_trylock_241(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_239(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_242(struct mutex *ldv_func_arg1 ) ;

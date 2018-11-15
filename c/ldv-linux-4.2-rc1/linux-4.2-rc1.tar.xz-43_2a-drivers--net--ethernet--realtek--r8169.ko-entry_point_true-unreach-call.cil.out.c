@@ -6611,6 +6611,7 @@ void *ldv_err_ptr(long error ) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -10328,7 +10329,7 @@ static void rtl8169_update_counters(struct net_device *dev )
   writel(cmd | 8U, (void volatile   *)ioaddr + 16U);
   tmp___2 = rtl_udelay_loop_wait_low(tp, & rtl_counters_cond, 10U, 1000);
   if ((int )tmp___2) {
-    memcpy((void *)(& tp->counters), (void const   *)counters, 64UL);
+    memmove((void *)(& tp->counters), (void const   *)counters, 64UL);
   } else {
 
   }

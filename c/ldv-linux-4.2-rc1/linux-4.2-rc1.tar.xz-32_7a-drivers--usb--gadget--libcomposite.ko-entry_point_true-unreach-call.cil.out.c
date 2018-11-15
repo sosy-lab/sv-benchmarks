@@ -2848,6 +2848,7 @@ struct usb_os_desc_ext_prop_attribute {
 };
 enum hrtimer_restart;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_8(struct mutex *ldv_func_arg1 ) ;
@@ -11924,7 +11925,7 @@ static ssize_t interf_grp_compatible_id_show(struct usb_os_desc *desc , char *pa
 
 
   {
-  memcpy((void *)page, (void const   *)desc->ext_compat_id, 8UL);
+  memmove((void *)page, (void const   *)desc->ext_compat_id, 8UL);
   return (8L);
 }
 }
@@ -11964,7 +11965,7 @@ static ssize_t interf_grp_sub_compatible_id_show(struct usb_os_desc *desc , char
 
 
   {
-  memcpy((void *)page, (void const   *)desc->ext_compat_id + 8U, 8UL);
+  memmove((void *)page, (void const   *)desc->ext_compat_id + 8U, 8UL);
   return (8L);
 }
 }
@@ -11989,7 +11990,7 @@ static ssize_t interf_grp_sub_compatible_id_store(struct usb_os_desc *desc , cha
   } else {
 
   }
-  memcpy((void *)desc->ext_compat_id + 8U, (void const   *)page, (size_t )l);
+  memmove((void *)desc->ext_compat_id + 8U, (void const   *)page, (size_t )l);
   if ((unsigned long )desc->opts_mutex != (unsigned long )((struct mutex *)0)) {
     ldv_mutex_unlock_125(desc->opts_mutex);
   } else {

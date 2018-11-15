@@ -6169,6 +6169,7 @@ __inline static struct task_struct *get_current(void)
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcat(char * , char const   * ) ;
 __inline static bool IS_ERR(void const   *ptr ) ;
@@ -11062,7 +11063,7 @@ static SLMP_INFO *alloc_dev(int adapter_num , int port_num , struct pci_dev *pde
     spinlock_check(& info->netlock);
     __raw_spin_lock_init(& info->netlock.__annonCompField18.rlock, "&(&info->netlock)->rlock",
                          & __key___2);
-    memcpy((void *)(& info->params), (void const   *)(& default_params), 48UL);
+    memmove((void *)(& info->params), (void const   *)(& default_params), 48UL);
     info->idle_mode = 0U;
     info->adapter_num = adapter_num;
     info->port_num = port_num;

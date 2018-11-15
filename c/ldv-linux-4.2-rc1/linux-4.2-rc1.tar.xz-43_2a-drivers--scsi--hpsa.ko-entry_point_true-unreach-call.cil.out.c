@@ -5327,6 +5327,7 @@ void ldv_spin_unlock(void) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -7483,7 +7484,7 @@ static ssize_t lunid_show(struct device *dev , struct device_attribute *attr , c
   } else {
 
   }
-  memcpy((void *)(& lunid), (void const   *)(& hdev->scsi3addr), 8UL);
+  memmove((void *)(& lunid), (void const   *)(& hdev->scsi3addr), 8UL);
   spin_unlock_irqrestore(& h->lock, flags);
   tmp = snprintf(buf, 20UL, "0x%02x%02x%02x%02x%02x%02x%02x%02x\n", (int )lunid[0],
                  (int )lunid[1], (int )lunid[2], (int )lunid[3], (int )lunid[4], (int )lunid[5],
@@ -7514,7 +7515,7 @@ static ssize_t unique_id_show(struct device *dev , struct device_attribute *attr
   } else {
 
   }
-  memcpy((void *)(& sn), (void const   *)(& hdev->device_id), 16UL);
+  memmove((void *)(& sn), (void const   *)(& hdev->device_id), 16UL);
   spin_unlock_irqrestore(& h->lock, flags);
   tmp = snprintf(buf, 34UL, "%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X\n",
                  (int )sn[0], (int )sn[1], (int )sn[2], (int )sn[3], (int )sn[4],
