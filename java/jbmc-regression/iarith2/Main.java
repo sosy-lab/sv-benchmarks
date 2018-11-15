@@ -15,7 +15,7 @@ class Main {
     value <<= 2;
     value >>= 1;
     value = -value;
-    value >> >= 1;
+    value >>>= 1;
     return value;
   }
 
@@ -27,7 +27,7 @@ class Main {
     value <<= 2L;
     value >>= 1L;
     value = -value;
-    value >> >= 1L;
+    value >>>= 1L;
     return value;
   }
 
