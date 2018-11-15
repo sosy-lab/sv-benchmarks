@@ -7842,7 +7842,7 @@ static int opera1_xilinx_load_firmware(struct usb_device *dev , char const   *fi
       reset = 0U;
       fpga_command = 0U;
       memcpy_guard((void *)p, (void const   *)fw->data, fw->size);
-      memcpy((void *)p, (void const   *)fw->data, fw->size);
+      memmove((void *)p, (void const   *)fw->data, fw->size);
       opera1_xilinx_rw(dev, 188, 170, & fpga_command, 1, 1);
       i = 0;
       goto ldv_48410;

@@ -14264,7 +14264,7 @@ static void h5_slip_one_byte(struct sk_buff *skb , u8 c )
   goto ldv_50458;
   case 219: 
   tmp___0 = skb_put(skb, 2U);
-  memcpy((void *)tmp___0, (void const   *)(& esc_esc), 2UL);
+  memmove((void *)tmp___0, (void const   *)(& esc_esc), 2UL);
   goto ldv_50458;
   default: 
   tmp___1 = skb_put(skb, 1U);

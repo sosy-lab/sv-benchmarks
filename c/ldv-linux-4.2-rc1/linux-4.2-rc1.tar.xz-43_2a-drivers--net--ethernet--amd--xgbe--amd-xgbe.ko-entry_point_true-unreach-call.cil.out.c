@@ -24870,7 +24870,7 @@ static int xgbe_dcb_ieee_setpfc(struct net_device *netdev , struct ieee_pfc *pfc
   } else {
 
   }
-  memcpy((void *)pdata->pfc, (void const   *)pfc, 136UL);
+  memmove((void *)pdata->pfc, (void const   *)pfc, 136UL);
   (*(pdata->hw_if.config_dcb_pfc))(pdata);
   return (0);
 }

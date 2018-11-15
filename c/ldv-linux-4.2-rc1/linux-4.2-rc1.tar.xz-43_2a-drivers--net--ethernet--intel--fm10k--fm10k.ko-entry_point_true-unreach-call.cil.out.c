@@ -7203,6 +7203,7 @@ extern int printk(char const   *  , ...) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -15697,10 +15698,10 @@ static int fm10k_sw_init(struct fm10k_intfc *interface , struct pci_device_id  c
   hw->revision_id = pdev->revision;
   hw->subsystem_vendor_id = pdev->subsystem_vendor;
   hw->subsystem_device_id = pdev->subsystem_device;
-  memcpy((void *)(& hw->mac.ops), (void const   *)fi->mac_ops, 176UL);
+  memmove((void *)(& hw->mac.ops), (void const   *)fi->mac_ops, 176UL);
   hw->mac.type = fi->mac;
   if ((unsigned long )fi->iov_ops != (unsigned long )((struct fm10k_iov_ops */* const  */)0)) {
-    memcpy((void *)(& hw->iov.ops), (void const   *)fi->iov_ops, 72UL);
+    memmove((void *)(& hw->iov.ops), (void const   *)fi->iov_ops, 72UL);
   } else {
 
   }
@@ -17809,7 +17810,6 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 }
 extern void list_del(struct list_head * ) ;
-extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static void *ERR_PTR(long error ) ;
 bool ldv_queue_work_on_192(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;

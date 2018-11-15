@@ -3647,6 +3647,7 @@ __inline static void list_splice_tail(struct list_head *list , struct list_head 
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -8882,7 +8883,7 @@ static struct ipmi_smi_msg *smi_from_recv_msg(ipmi_smi_t intf , struct ipmi_recv
   } else {
 
   }
-  memcpy((void *)(& smi_msg->data), (void const   *)recv_msg->msg.data, (size_t )recv_msg->msg.data_len);
+  memmove((void *)(& smi_msg->data), (void const   *)recv_msg->msg.data, (size_t )recv_msg->msg.data_len);
   smi_msg->data_size = (int )recv_msg->msg.data_len;
   smi_msg->msgid = (long )((int )seq << 26) | (seqid & 67108863L);
   return (smi_msg);

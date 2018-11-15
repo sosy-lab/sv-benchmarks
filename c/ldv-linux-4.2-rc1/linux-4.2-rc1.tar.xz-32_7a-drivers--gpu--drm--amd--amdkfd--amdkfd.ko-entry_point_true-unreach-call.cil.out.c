@@ -5260,6 +5260,7 @@ union TCP_WATCH_CNTL_BITS {
 enum hrtimer_restart;
 extern int printk(char const   *  , ...) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_13(struct mutex *ldv_func_arg1 ) ;
 extern void mutex_unlock(struct mutex * ) ;
@@ -9781,7 +9782,7 @@ static int kfd_topology_get_crat_acpi(void *crat_image , size_t *size )
 
   }
   if (*size >= (size_t )crat_table->length && (unsigned long )crat_image != (unsigned long )((void *)0)) {
-    memcpy(crat_image, (void const   *)crat_table, (size_t )crat_table->length);
+    memmove(crat_image, (void const   *)crat_table, (size_t )crat_table->length);
   } else {
 
   }

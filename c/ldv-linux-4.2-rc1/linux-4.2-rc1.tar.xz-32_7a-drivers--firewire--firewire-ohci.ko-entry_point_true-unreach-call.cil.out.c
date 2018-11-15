@@ -6806,7 +6806,7 @@ static void copy_config_rom(__be32 *dest , __be32 const   *src , size_t length )
 
   {
   size = length * 4UL;
-  memcpy((void *)dest, (void const   *)src, size);
+  memmove((void *)dest, (void const   *)src, size);
   if (size <= 1023UL) {
     memset((void *)(dest + length), 0, 1024UL - size);
   } else {
