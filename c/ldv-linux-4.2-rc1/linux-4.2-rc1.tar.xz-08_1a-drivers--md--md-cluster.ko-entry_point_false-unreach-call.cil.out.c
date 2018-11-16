@@ -4216,6 +4216,7 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
@@ -5080,7 +5081,7 @@ static int __sendmsg(struct md_cluster_info *cinfo , struct cluster_msg *cmsg )
   } else {
 
   }
-  memcpy((void *)(cinfo->message_lockres)->lksb.sb_lvbptr, (void const   *)cmsg,
+  memmove((void *)(cinfo->message_lockres)->lksb.sb_lvbptr, (void const   *)cmsg,
            48UL);
   error = dlm_lock_sync(cinfo->message_lockres, 1);
   if (error != 0) {

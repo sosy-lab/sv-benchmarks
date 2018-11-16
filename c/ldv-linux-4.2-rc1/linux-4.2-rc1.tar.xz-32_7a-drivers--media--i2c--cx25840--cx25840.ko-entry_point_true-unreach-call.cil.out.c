@@ -4315,6 +4315,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static u64 div_u64_rem(u64 dividend , u32 divisor , u32 *remainder ) 
 { 
 
@@ -14730,7 +14731,7 @@ static int cx25840_ir_rx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
 
   }
   ldv_mutex_lock_153(& ir_state->rx_params_lock);
-  memcpy((void *)p, (void const   *)(& ir_state->rx_params), 44UL);
+  memmove((void *)p, (void const   *)(& ir_state->rx_params), 44UL);
   ldv_mutex_unlock_154(& ir_state->rx_params_lock);
   return (0);
 }
@@ -14885,7 +14886,7 @@ static int cx25840_ir_tx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
 
   }
   ldv_mutex_lock_159(& ir_state->tx_params_lock);
-  memcpy((void *)p, (void const   *)(& ir_state->tx_params), 44UL);
+  memmove((void *)p, (void const   *)(& ir_state->tx_params), 44UL);
   ldv_mutex_unlock_160(& ir_state->tx_params_lock);
   return (0);
 }

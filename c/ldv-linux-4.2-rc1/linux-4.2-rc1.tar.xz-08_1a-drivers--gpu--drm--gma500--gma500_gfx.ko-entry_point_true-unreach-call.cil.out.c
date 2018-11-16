@@ -10691,6 +10691,7 @@ bool ldv_queue_delayed_work_on_65(int ldv_func_arg1 , struct workqueue_struct *l
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 bool ldv_queue_work_on_75(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
@@ -41143,7 +41144,7 @@ static void hdmi_i2c_read(struct oaktrail_hdmi_dev *hdmi_dev )
   goto ldv_41596;
   ldv_41595: 
   temp = readl((void const volatile   *)hdmi_dev->regs + (unsigned long )((i + 1152) * 4));
-  memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const   *)(& temp),
+  memmove((void *)buf + (unsigned long )(i * 4 + offset), (void const   *)(& temp),
            4UL);
   i = i + 1;
   ldv_41596: ;

@@ -14054,7 +14054,7 @@ struct cmd_ctrl_node *__lbs_cmd_async(struct lbs_private *priv , uint16_t comman
   }
   cmdnode->callback = callback;
   cmdnode->callback_arg = callback_arg;
-  memcpy((void *)cmdnode->cmdbuf, (void const   *)in_cmd, (size_t )in_cmd_size);
+  memmove((void *)cmdnode->cmdbuf, (void const   *)in_cmd, (size_t )in_cmd_size);
   (cmdnode->cmdbuf)->command = command;
   (cmdnode->cmdbuf)->size = (unsigned short )in_cmd_size;
   (cmdnode->cmdbuf)->result = 0U;
