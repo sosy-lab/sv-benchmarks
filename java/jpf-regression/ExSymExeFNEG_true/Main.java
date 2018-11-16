@@ -31,7 +31,8 @@ public class Main {
   public static void main(String[] args) {
     float x = Verifier.nondetFloat();
     Main inst = new Main();
-    inst.test(x);
+    if (x>=0)
+      inst.test(x);
   }
 
   public void test(float x) {
