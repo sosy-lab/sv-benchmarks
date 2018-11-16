@@ -1,0 +1,48 @@
+stages:
+  - checks
+
+sanity-checks:
+  stage: checks
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/sanity-checks:latest
+  script: "c/check.py"
+
+.compile-check: &compile-check
+  stage: checks
+  script:
+    - "${CC} -v --version"
+    - "cd c"
+    - "make -j2"
+
+compile-clang:3.9:
+  <<: *compile-check
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/clang:3.9
+  variables:
+    CC: clang-3.9
+
+compile-gcc:5:
+  <<: *compile-check
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/gcc:5
+  variables:
+    CC: gcc-5
+
+preprocessing-consistency:
+  stage: checks
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/preprocessing-consistency:latest
+  script:
+    - "goto-diff --version"
+    - "cd c"
+    - "./compare.sh -k"
+
+java:
+  stage: checks
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/java:latest
+  script:
+      # unset variables to not leak their content through result files
+    - "unset $(compgen -v CI) $(compgen -v GIT)"
+    - "java/check-compile.sh"
+  artifacts:
+    paths:
+      - "java/results/*logfiles*"
+      - "java/results/*.results.Werror.xml*"
+      - "java/results/*.html"
+    when: always

@@ -3952,6 +3952,7 @@ void ldv_spin_unlock(void) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -5070,7 +5071,7 @@ static ssize_t show_country_codes(struct device *dev , struct device_attribute *
   intf = (struct usb_interface *)__mptr + 0xffffffffffffffd0UL;
   tmp = usb_get_intfdata(intf);
   acm = (struct acm *)tmp;
-  memcpy((void *)buf, (void const   *)acm->country_codes, (size_t )acm->country_code_size);
+  memmove((void *)buf, (void const   *)acm->country_codes, (size_t )acm->country_code_size);
   return ((ssize_t )acm->country_code_size);
 }
 }

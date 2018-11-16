@@ -5951,6 +5951,7 @@ extern int sscanf(char const   * , char const   *  , ...) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -6471,7 +6472,7 @@ static ssize_t pcmcia_store_new_id(struct device_driver *driver , char const   *
   dynid->id.func_id = func_id;
   dynid->id.function = function;
   dynid->id.device_no = device_no;
-  memcpy((void *)(& dynid->id.prod_id_hash), (void const   *)(& prod_id_hash), 16UL);
+  memmove((void *)(& dynid->id.prod_id_hash), (void const   *)(& prod_id_hash), 16UL);
   mutex_lock_nested(& pdrv->dynids.lock, 0U);
   list_add_tail(& dynid->node, & pdrv->dynids.list);
   mutex_unlock(& pdrv->dynids.lock);

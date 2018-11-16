@@ -5976,6 +5976,7 @@ extern unsigned long __per_cpu_offset[8192U] ;
 extern unsigned long this_cpu_off ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern int strcmp(char const   * , char const   * ) ;
@@ -11822,7 +11823,7 @@ static void team_setup_by_port(struct net_device *dev , struct net_device *port_
   dev->hard_header_len = port_dev->hard_header_len;
   dev->addr_len = port_dev->addr_len;
   dev->mtu = port_dev->mtu;
-  memcpy((void *)(& dev->broadcast), (void const   *)(& port_dev->broadcast), (size_t )port_dev->addr_len);
+  memmove((void *)(& dev->broadcast), (void const   *)(& port_dev->broadcast), (size_t )port_dev->addr_len);
   eth_hw_addr_inherit(dev, port_dev);
   return;
 }

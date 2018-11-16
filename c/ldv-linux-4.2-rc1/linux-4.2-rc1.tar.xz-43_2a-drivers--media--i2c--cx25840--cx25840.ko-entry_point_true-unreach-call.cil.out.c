@@ -4287,6 +4287,7 @@ extern int printk(char const   *  , ...) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  );
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -14333,7 +14334,7 @@ static int cx25840_ir_rx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
 
   }
   mutex_lock_nested(& ir_state->rx_params_lock, 0U);
-  memcpy((void *)p, (void const   *)(& ir_state->rx_params), 44UL);
+  memmove((void *)p, (void const   *)(& ir_state->rx_params), 44UL);
   mutex_unlock(& ir_state->rx_params_lock);
   return (0);
 }
@@ -14486,7 +14487,7 @@ static int cx25840_ir_tx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
 
   }
   mutex_lock_nested(& ir_state->tx_params_lock, 0U);
-  memcpy((void *)p, (void const   *)(& ir_state->tx_params), 44UL);
+  memmove((void *)p, (void const   *)(& ir_state->tx_params), 44UL);
   mutex_unlock(& ir_state->tx_params_lock);
   return (0);
 }

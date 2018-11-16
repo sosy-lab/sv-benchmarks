@@ -8738,6 +8738,7 @@ void ldv_spin_unlock(void) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -33611,7 +33612,7 @@ int bfa_nw_ioc_debug_fwsave(struct bfa_ioc *ioc , void *trcdata , int *trclen )
   } else {
 
   }
-  memcpy(trcdata, (void const   *)ioc->dbg_fwsave, (size_t )tlen);
+  memmove(trcdata, (void const   *)ioc->dbg_fwsave, (size_t )tlen);
   *trclen = tlen;
   return (0);
 }

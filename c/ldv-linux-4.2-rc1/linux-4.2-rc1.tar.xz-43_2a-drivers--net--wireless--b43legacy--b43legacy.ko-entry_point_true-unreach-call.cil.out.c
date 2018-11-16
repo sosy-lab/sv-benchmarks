@@ -8260,6 +8260,7 @@ void ldv_spin_unlock(void) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -9117,7 +9118,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
 
 
   {
-  memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, 6UL);
+  memmove((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, 6UL);
   return;
 }
 }
@@ -24840,7 +24841,6 @@ struct sk_buff *ldv_skb_clone_243(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 }
 }
 __inline static long ldv__builtin_expect(long exp , long c ) ;
-extern void *memmove(void * , void const   * , size_t  ) ;
 bool ldv_queue_work_on_263(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;
 bool ldv_queue_work_on_265(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
