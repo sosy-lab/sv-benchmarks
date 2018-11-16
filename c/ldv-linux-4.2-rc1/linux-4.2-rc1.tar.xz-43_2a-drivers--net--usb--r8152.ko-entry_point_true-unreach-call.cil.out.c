@@ -6633,6 +6633,7 @@ void ldv_spin_unlock(void) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -8306,7 +8307,7 @@ static int get_registers(struct r8152 *tp , u16 value , u16 index , u16 size , v
   tmp___0 = __create_pipe(tp->udev, 0U);
   ret = usb_control_msg(tp->udev, tmp___0 | 2147483776U, 5, 192, (int )value, (int )index,
                         tmp, (int )size, 500);
-  memcpy(data, (void const   *)tmp, (size_t )size);
+  memmove(data, (void const   *)tmp, (size_t )size);
   kfree((void const   *)tmp);
   return (ret);
 }

@@ -1,0 +1,12 @@
+# This is a Docker image for running the sanity checks.
+# It should be pushed to registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/sanity-checks
+# and will be used by CI as declared in .gitlab-ci.yml.
+#
+# Commands for updating the image:
+# docker build --pull -t registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/sanity-checks:latest - < .Dockerfile.sanity-checks
+# docker push registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/sanity-checks
+
+FROM python:3
+
+RUN pip3 install \
+  pyyaml

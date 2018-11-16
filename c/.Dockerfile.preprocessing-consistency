@@ -1,0 +1,28 @@
+# This is a Docker image for running the consistency checks for preprocessed C files.
+# It should be pushed to registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/preprocessing-consistency
+# and will be used by CI as declared in .gitlab-ci.yml.
+#
+# Commands for updating the image:
+# docker build --pull -t registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/preprocessing-consistency:latest - < .Dockerfile.preprocessing-consistency
+# docker push registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/preprocessing-consistency
+
+FROM diffblue/cbmc-builder:latest
+
+RUN git clone --depth=1 https://github.com/diffblue/cbmc.git
+
+RUN make -C cbmc/src minisat2-download
+
+# Make sure goto-cc is executable on trusty image
+ENV LINKFLAGS=-static
+
+RUN make -C cbmc/src -j2 goto-diff.dir goto-cc.dir
+
+# Base image needs to be Ubuntu 14.04 because programs were preprocessed with headers from this version
+FROM ubuntu:trusty
+
+RUN apt-get update && apt-get install -y \
+  libc6-dev-i386
+
+COPY --from=0 /cbmc .
+
+ENV PATH="/cbmc/src/goto-cc:/cbmc/src/goto-diff:${PATH}"

@@ -12355,6 +12355,7 @@ bool ldv_queue_delayed_work_on_29(int ldv_func_arg1 , struct workqueue_struct *l
 }
 }
 extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 bool ldv_queue_work_on_39(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                           struct work_struct *ldv_func_arg3 ) ;
 bool ldv_queue_work_on_41(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
@@ -14290,7 +14291,7 @@ static int cx25840_ir_rx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
 
   }
   mutex_lock_nested(& ir_state->rx_params_lock, 0U);
-  memcpy((void *)p, (void const   *)(& ir_state->rx_params), 44UL);
+  memmove((void *)p, (void const   *)(& ir_state->rx_params), 44UL);
   mutex_unlock(& ir_state->rx_params_lock);
   return (0);
 }
@@ -14445,7 +14446,7 @@ static int cx25840_ir_tx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
 
   }
   mutex_lock_nested(& ir_state->tx_params_lock, 0U);
-  memcpy((void *)p, (void const   *)(& ir_state->tx_params), 44UL);
+  memmove((void *)p, (void const   *)(& ir_state->tx_params), 44UL);
   mutex_unlock(& ir_state->tx_params_lock);
   return (0);
 }

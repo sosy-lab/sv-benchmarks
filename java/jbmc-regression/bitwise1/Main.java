@@ -11,7 +11,7 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 public class Main {
   static char c;
   public static void main(String[] args) {
-    c = Verifier.nondetChar();
+    c = (char)(Verifier.nondetInt() * 2 + 1);
     int i = (c | 2);
     assert(i & 3) == 3;
   }
