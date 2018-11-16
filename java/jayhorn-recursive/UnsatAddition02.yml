@@ -4,5 +4,5 @@ input_files:
   - UnsatAddition02/
 properties:
   - property_file: ../properties/assert.prp
-    expected_verdict: false
+    expected_verdict: true
 
