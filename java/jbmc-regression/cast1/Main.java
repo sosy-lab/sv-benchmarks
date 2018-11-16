@@ -18,7 +18,7 @@ class Main {
     short s = (short)i;
     assert s == i;
     char c = (char)i;
-    assert c == i;
+    assert c == (0xffff & i);
     long l = (long)i;
     assert l == i;
     float f = (float)i;
