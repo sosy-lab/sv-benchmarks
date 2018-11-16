@@ -4,7 +4,6 @@ set -e
 
 BLACKLIST="\
   floats-esbmc-regression/trunc_nondet_2_true-unreach-call.i \
-  pthread-atomic/gcd_true-unreach-call_true-termination.i \
   "
 
 KEEP_GOING=0
