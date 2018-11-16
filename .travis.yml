@@ -1,44 +1,23 @@
 language: c
 env:
   matrix:
-    # Note: Can't use CC variable as TravisCI will override it
-    - C_COMPILER=gcc-5
-    - C_COMPILER=clang-3.8
+    - NAME="Sanity checks" DOCKER_IMAGE=sanity-checks COMMAND="c/check.py"
+    - NAME="Preprocessing consistency checks" DOCKER_IMAGE=preprocessing-consistency COMMAND="cd c; ./compare.sh -k"
+    - NAME="gcc-5" DOCKER_IMAGE=gcc:5 COMMAND="gcc-5 -v --version; cd c; make -j2 CC=gcc-5"
+    - NAME="clang-3.9" DOCKER_IMAGE=clang:3.9 COMMAND="clang-3.9 -v --version; cd c; make -j2 CC=clang-3.9"
+    - NAME="java" DOCKER_IMAGE=java COMMAND="java/check-compile.sh"
+
 # Hint to TravisCI that we want to use their container infrastructure
-sudo: false
+sudo: required
+services:
+  - docker
+
 git:
   # a commit-rate of one commit per minute causes errors, because Travis is too slow
   depth: 3
-addons:
-  apt:
-    sources:
-      # For newer gcc
-      - ubuntu-toolchain-r-test
-      # For Clang
-      - llvm-toolchain-precise-3.8
-    packages:
-      # These are needed for compiling with -m32
-      # otherwise including system header files might result in
-      # errors (e.g. ``fatal error: bits/predefs.h: No such file or directory``)
-      - libc6-dev-i386
-      - gcc-5
-      - clang-3.8
-      # for check.py:
-      - python-yaml
-      # for compare.sh
-      - libwww-perl
-      - g++-5
-      - bison
-      - flex
+
+before_install:
+  - docker pull registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/${DOCKER_IMAGE}
+
 script:
-  - ${C_COMPILER} -v --version
-  - cd c/ && make -j2 CC=${C_COMPILER}
-matrix:
-  include:
-    - env: NAME="Sanity checks"
-      script: c/check.py
-    - env: NAME="Preprocessing consistency checks"
-      script: cd c/ && ./compare.sh -k
-cache:
-  directories:
-    - cbmc.git
+  - docker run --volume "$(pwd):$(pwd)" registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/${DOCKER_IMAGE} /bin/sh -c "cd $(pwd); ${COMMAND}"

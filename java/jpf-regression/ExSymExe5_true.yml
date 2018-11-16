@@ -1,4 +1,4 @@
-format_version: "0.1"
+format_version: "1.0"
 input_files:
   - ../common/
   - ExSymExe5_true/
