@@ -3427,7 +3427,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
         }
         if(!(tmp_if_expr$9 == (_Bool)0))
         {
-          const unsigned char *set_control_char_or_die$$1$$2$$2$$__s2 = (const char *)arg;
+          const unsigned char *set_control_char_or_die$$1$$2$$2$$__s2 = (const unsigned char *)arg;
           signed int set_control_char_or_die$$1$$2$$2$$__result;
           set_control_char_or_die$$1$$2$$2$$__result = (signed int)((const char *)"undef")[(signed long int)0] - (signed int)set_control_char_or_die$$1$$2$$2$$__s2[(signed long int)0];
           if(__s2_len > 0ul)
