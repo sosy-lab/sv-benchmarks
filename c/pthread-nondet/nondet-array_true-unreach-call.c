@@ -26,6 +26,6 @@ int main(int argc, char* argv[]) {
   for (i = 0; i < n; i++) {
     sum += a[i];
   }
-  assert(sum < SIZE);
+  assert(sum <= n);
   return 0;
 }
