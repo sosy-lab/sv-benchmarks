@@ -30,7 +30,7 @@ public class Main {
 
   public static void main(String[] args) {
     float x = Verifier.nondetFloat();
-    if (x <= 0.0f) {
+    if (x >= 0.0f && x <= Long.MAX_VALUE / 2) {
       Main inst = new Main();
       inst.test(x);
     }

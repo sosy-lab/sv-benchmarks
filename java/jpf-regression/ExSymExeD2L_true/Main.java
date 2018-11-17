@@ -30,11 +30,10 @@ public class Main {
 
   public static void main(String[] args) {
     double x = Verifier.nondetDouble();
-    if (x < 0.0)
-      return;
-
-    Main inst = new Main();
-    inst.test(x);
+    if (x >= 0.0 && x <= Long.MAX_VALUE / 2) {
+      Main inst = new Main();
+      inst.test(x);
+    }
   }
 
   public void test(double x) {
