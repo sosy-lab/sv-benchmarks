@@ -58,7 +58,12 @@ class Utils_nondet {
 }
 
 class Utils_synthesis {
-  public static int accumulator(int aggregated, int e) { return 0; }
+  public static int accumulator(int aggregated, int e) {
+    if (e % 2 == 0)
+      if (aggregated < e)
+        return e;
+    return aggregated;
+  }
 
   public static boolean predicate(int lhs) { return true; }
 }
