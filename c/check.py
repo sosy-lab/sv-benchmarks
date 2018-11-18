@@ -346,14 +346,6 @@ class SetFileChecks(Checks):
                               for file in glob.iglob(os.path.join(self.base_path, pattern))]
         self.cfg_file = os.path.join(self.base_path, self.category + ".cfg")
 
-    def check_has_property_file(self):
-        name = self.category.split("-")[0] # remove name of sub-category as in "Termination-ProductLines"
-        prp_file = os.path.join(self.base_path, name + ".prp")
-        if not os.path.isfile(prp_file):
-            self.error("missing property file")
-        elif not os.path.islink(prp_file):
-            self.error("property file is not a symlink")
-
     def check_all_patterns_match_files(self):
         for pattern in self.patterns:
             first_match = next(glob.iglob(os.path.join(self.base_path, pattern)), None)
