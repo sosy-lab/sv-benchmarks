@@ -1,2 +1,2 @@
-CHECK( init(main()), FQL(cover EDGES(@CONDITIONEDGE)) )
+COVER( init(main()), FQL(COVER EDGES(@CONDITIONEDGE)) )
 

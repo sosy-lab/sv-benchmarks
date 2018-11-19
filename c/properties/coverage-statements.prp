@@ -1,2 +1,2 @@
-CHECK( init(main()), FQL(cover EDGES(@BASICBLOCKENTRY)) )
+COVER( init(main()), FQL(COVER EDGES(@BASICBLOCKENTRY)) )
 
