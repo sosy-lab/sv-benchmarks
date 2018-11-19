@@ -6,8 +6,8 @@ ldv-linux-3.7.3/*_false-unreach-call*.c
 ldv-linux-3.7.3/*_true-unreach-call*.c
 ldv-commit-tester/*_false-unreach-call*.c
 ldv-commit-tester/*_true-unreach-call*.c
-ldv-consumption/*_false-unreach-call*.c
-ldv-consumption/*_true-unreach-call*.c
+ldv-consumption/*_false-unreach-call*.i
+ldv-consumption/*_true-unreach-call*.i
 ldv-linux-3.12-rc1/*_false-unreach-call*.c
 ldv-linux-3.12-rc1/*_true-unreach-call*.c
 ldv-linux-3.16-rc1/*_false-unreach-call*.c
