@@ -8382,3 +8382,5 @@ void ldv_check_final_state(void)
   return;
 }
 }
+#include "model/linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0_true-unreach-call.env.c"
+#include "model/common.env.c"
