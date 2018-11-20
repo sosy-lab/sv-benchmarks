@@ -1,3 +1,5 @@
+extern int __VERIFIER_nondet_int(void);
+
 typedef long unsigned int size_t;
 typedef int wchar_t;
 
@@ -545,6 +547,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 int main() {
     int* x = __builtin_alloca (sizeof(int));
+    *x = __VERIFIER_nondet_int();
     while (*x != 0) {
         if (-5 <= *x && *x <= 35) {
             if (*x < 0) {
