@@ -14,6 +14,13 @@ try:
 except ImportError:
     yaml = None
 
+LOG_FORMAT = "%(levelname)-7s %(message)s"
+try:
+    import coloredlogs
+    coloredlogs.install(fmt=LOG_FORMAT, level='INFO')
+except ImportError:
+    logging.basicConfig(format=LOG_FORMAT, level='INFO')
+
 README_PATTERN = re.compile('^readme(\.(txt|md))?$', re.I)
 LICENSE_PATTERN = re.compile('^license([-.].*)?(\.(txt|md))?$', re.I)
 BENCHMARK_PATTERN = re.compile('^.*\.(c|i|yml)$')
@@ -457,7 +464,6 @@ def hash_file(filename, hash_alg=hashlib.sha1, block_size_factor=100000):
         return hasher.hexdigest()
 
 def main():
-    logging.basicConfig(format="%(levelname)-7s %(message)s", level='INFO')
     if not yaml:
         logging.warning("Missing python-yaml, not all checks can be executed")
 
