@@ -10,7 +10,7 @@ typedef enum {false, true} bool;
 extern int __VERIFIER_nondet_int(void);
 
 int main() {
-	int x;
+	int x = __VERIFIER_nondet_int();
 	while (x!=0) {
 	    if (-5 <= x && x <= 35) {
 		    if (x < 0) {
