@@ -692,6 +692,6 @@ int main(int argc, char* argv[]) {
   for (i = 0; i < n; i++) {
     sum += a[i];
   }
-  __VERIFIER_assert(sum < 10);
+  __VERIFIER_assert(sum <= 10);
   return 0;
 }
