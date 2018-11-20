@@ -14,6 +14,13 @@ try:
 except ImportError:
     yaml = None
 
+LOG_FORMAT = "%(levelname)-7s %(message)s"
+try:
+    import coloredlogs
+    coloredlogs.install(fmt=LOG_FORMAT, level='INFO')
+except ImportError:
+    logging.basicConfig(format=LOG_FORMAT, level='INFO')
+
 README_PATTERN = re.compile('^readme(\.(txt|md))?$', re.I)
 LICENSE_PATTERN = re.compile('^license([-.].*)?(\.(txt|md))?$', re.I)
 BENCHMARK_PATTERN = re.compile('^.*\.(c|i|yml)$')
@@ -346,14 +353,6 @@ class SetFileChecks(Checks):
                               for file in glob.iglob(os.path.join(self.base_path, pattern))]
         self.cfg_file = os.path.join(self.base_path, self.category + ".cfg")
 
-    def check_has_property_file(self):
-        name = self.category.split("-")[0] # remove name of sub-category as in "Termination-ProductLines"
-        prp_file = os.path.join(self.base_path, name + ".prp")
-        if not os.path.isfile(prp_file):
-            self.error("missing property file")
-        elif not os.path.islink(prp_file):
-            self.error("property file is not a symlink")
-
     def check_all_patterns_match_files(self):
         for pattern in self.patterns:
             first_match = next(glob.iglob(os.path.join(self.base_path, pattern)), None)
@@ -465,7 +464,6 @@ def hash_file(filename, hash_alg=hashlib.sha1, block_size_factor=100000):
         return hasher.hexdigest()
 
 def main():
-    logging.basicConfig(format="%(levelname)-7s %(message)s", level='INFO')
     if not yaml:
         logging.warning("Missing python-yaml, not all checks can be executed")
 
