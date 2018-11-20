@@ -175,7 +175,7 @@ loop-invgen/nested6_true-unreach-call_true-termination.i
 loop-invgen/nested9_true-unreach-call_true-termination.i
 loop-invgen/nest-if3_true-unreach-call_true-termination.i
 loop-invgen/NetBSD_loop_true-unreach-call_true-termination.i
-loop-invgen/string_concat-noarr_true-unreach-call_true-termination.i
+loop-invgen/string_concat-noarr_true-unreach-call_false-termination.i
 loop-lit/afnp2014_true-unreach-call_true-termination.c.i
 loop-lit/cggmp2005_variant_true-unreach-call_true-termination.c.i
 loop-lit/css2003_true-unreach-call_true-termination.c.i
