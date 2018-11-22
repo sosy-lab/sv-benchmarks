@@ -208,6 +208,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   return n;
 }
 
+void sync(void) {}
 // file coreutils/sync.c line 22
 void syslog(int priority, const char *format, ...)
 {
