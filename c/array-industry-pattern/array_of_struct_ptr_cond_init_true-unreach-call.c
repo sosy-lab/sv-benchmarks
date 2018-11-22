@@ -1,6 +1,7 @@
 typedef unsigned int size_t;
 extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 #define SIZE 100000
 struct _S
@@ -11,7 +12,8 @@ struct _S
 typedef struct _S S;
 
 S *a[SIZE];
-extern int user_read();
+int user_read();
+
 int main()
 {
 	int i;
@@ -44,4 +46,9 @@ int main()
 		}
 	}
 	return 0;
+}
+int user_read()
+{
+	int x = __VERIFIER_nondet_int();
+	return x;
 }
