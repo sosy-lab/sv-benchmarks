@@ -89,6 +89,25 @@ static const char *msg_eol = "\n";
 // file libbb/default_error_retval.c line 18
 static unsigned char xfunc_error_retval = (unsigned char)1;
 
+int execvp(const char *file, char * const *argv)
+{
+	int i;
+	/* go through the arguments to "check" that they
+	   are null-terminated */
+	for (i = 0; argv[i] != 0; ++i)
+		;
+
+	if (__VERIFIER_nondet_int()) {
+		*bb_errno = __VERIFIER_nondet_int();
+		__VERIFIER_assume(*bb_errno != 0);
+		return -1;
+	}
+
+	/* exec succeeded, exit the original program
+	 * (use abort because of memory leaks) */
+	abort();
+}
+
 // file libbb/execable.c line 72
 static signed int BB_EXECVP(const char *file, char * const *argv)
 {

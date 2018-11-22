@@ -2268,6 +2268,18 @@ static signed int die_sleep;
 static signed char logmode = (signed char)1;
 static const char *msg_eol = "\n";
 static unsigned char xfunc_error_retval = (unsigned char)1;
+int execvp(const char *file, char * const *argv)
+{
+	int i;
+	for (i = 0; argv[i] != 0; ++i)
+		;
+	if (__VERIFIER_nondet_int()) {
+		*bb_errno = __VERIFIER_nondet_int();
+		__VERIFIER_assume(*bb_errno != 0);
+		return -1;
+	}
+        abort();
+}
 static signed int BB_EXECVP(const char *file, char * const *argv)
 {
   signed int return_value_find_applet_by_name$1;
