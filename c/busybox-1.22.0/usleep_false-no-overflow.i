@@ -2376,6 +2376,14 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 void syslog(int priority, const char *format, ...)
 {
 }
+int usleep(unsigned int usec) {
+	if (__VERIFIER_nondet_uint()) {
+		*bb_errno = __VERIFIER_nondet_int();
+		__VERIFIER_assume(*bb_errno != 0);
+		return -1;
+	}
+	return 0;
+}
 signed int __main(signed int argc, char **argv)
 {
   if(*(1l + argv) == ((char *)((void *)0)))
