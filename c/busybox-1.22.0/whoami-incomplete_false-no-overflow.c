@@ -241,7 +241,7 @@ signed int __main(signed int argc, char **argv)
     bb_show_usage();
 
   unsigned int return_value_geteuid$1;
-  return_value_geteuid$1=geteuid();
+  return_value_geteuid$1=__VERIFIER_nondet_uint();
   char *return_value_xuid2uname$2;
   return_value_xuid2uname$2=xuid2uname(return_value_geteuid$1);
   puts(return_value_xuid2uname$2);
