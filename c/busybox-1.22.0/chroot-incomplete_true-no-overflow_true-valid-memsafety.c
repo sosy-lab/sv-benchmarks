@@ -298,7 +298,7 @@ static const char * get_shell_name(void)
   }
 
   unsigned int return_value_getuid$1;
-  return_value_getuid$1=getuid();
+  return_value_getuid$1=__VERIFIER_nondet_uint();
   pw=bb_internal_getpwuid(return_value_getuid$1);
   if(!(pw == ((struct passwd *)NULL)))
   {
