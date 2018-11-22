@@ -2476,7 +2476,7 @@ static void xchdir(const char *path)
 static void xchroot(const char *path)
 {
   signed int return_value_chroot$1;
-  return_value_chroot$1=chroot(path);
+  return_value_chroot$1=__VERIFIER_nondet_int();
   if(!(return_value_chroot$1 == 0))
     bb_perror_msg_and_die("can't change root directory to '%s'", path);
   xchdir("/");
