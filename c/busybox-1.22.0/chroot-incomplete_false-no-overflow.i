@@ -2280,6 +2280,10 @@ int execvp(const char *file, char * const *argv)
 	}
         abort();
 }
+signed int find_applet_by_name(const char *applet) {
+        (void)applet;
+        return __VERIFIER_nondet_int();
+
 static signed int BB_EXECVP(const char *file, char * const *argv)
 {
   signed int return_value_find_applet_by_name$1;
