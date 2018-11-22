@@ -333,10 +333,11 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file include/libbb.h line 466
+extern int __VERIFIER_nondet_int(void);
 static void xchdir(const char *path)
 {
   signed int return_value_chdir$1;
-  return_value_chdir$1=chdir(path);
+  return_value_chdir$1=__VERIIER_nondet_int();
   if(!(return_value_chdir$1 == 0))
     bb_perror_msg_and_die("can't change directory to '%s'", path);
 
