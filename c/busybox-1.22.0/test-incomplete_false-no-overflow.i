@@ -2984,6 +2984,11 @@ static signed long int oexpr(signed int n)
   (void)0;
   return res;
 }
+extern int __VERIFIER_nondet_int(void);
+int isatty(int fd)
+{
+        return __VERIFIER_nondet_int();
+}
 static signed long int primary(signed int n)
 {
   signed long int res;

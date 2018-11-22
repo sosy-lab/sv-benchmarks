@@ -788,6 +788,12 @@ static signed long int oexpr(signed int n)
   return res;
 }
 
+extern int __VERIFIER_nondet_int(void);
+int isatty(int fd)
+{
+	return __VERIFIER_nondet_int();
+}
+
 // file coreutils/test.c line 765
 static signed long int primary(signed int n)
 {
