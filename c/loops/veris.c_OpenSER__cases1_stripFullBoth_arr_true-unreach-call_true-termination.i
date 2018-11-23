@@ -1,6 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern char __VERIFIER_nondet_char();
-
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -29,7 +28,7 @@ int istrchr(const char *s, int c);
 int istrrchr(const char *s, int c);
 int istrncmp (const char *s1, int start, const char *s2, size_t n);
 int istrstr(const char *haystack, const char *needle);
-char *r_strncpy (char *dest, const char *src, size_t n);
+char *r_strncpy (char *dest, const char *src, size_t n){return strncpy(dest,src,n);}
 char *r_strcpy (char *dest, const char *src);
 char *r_strcat(char *dest, const char *src);
 char *r_strncat(char *dest, const char *src, size_t n);
@@ -77,11 +76,9 @@ static int parse_expression_list(char *str)
 int main ()
 {
   char A [2 + 2 + 4 +1];
-
   for (int i = 0; i < 2 + 2 + 4; i++) {
     A[i] = __VERIFIER_nondet_char();
   }
-
   A[2 + 2 + 4] = 0;
   parse_expression_list (A);
   return 0;

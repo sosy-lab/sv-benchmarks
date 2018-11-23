@@ -68,7 +68,7 @@ int istrstr(const char *haystack, const char *needle);
 
 /* Hackish duplicate functions to enable us to determine which claims
  * are relevant. Oh, the hilarity. */
-char *r_strncpy (char *dest, const char *src, size_t n);
+char *r_strncpy (char *dest, const char *src, size_t n){return strncpy(dest,src,n);}
 char *r_strcpy (char *dest, const char *src);
 char *r_strcat(char *dest, const char *src);
 char *r_strncat(char *dest, const char *src, size_t n);
