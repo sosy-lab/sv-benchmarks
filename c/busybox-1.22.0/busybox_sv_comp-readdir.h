@@ -1,6 +1,6 @@
 struct dirent *readdir(DIR *d)
 {
-    (void)*d;
+    (void)d;
 
     static struct dirent ret;
 

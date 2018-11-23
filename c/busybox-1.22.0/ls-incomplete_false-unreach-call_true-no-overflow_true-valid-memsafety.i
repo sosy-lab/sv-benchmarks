@@ -5282,7 +5282,7 @@ ssize_t readlink(const char *path, char *buf, size_t bufsiz)
 }
 struct dirent *readdir(DIR *d)
 {
-    (void)*d;
+    (void)d;
     static struct dirent ret;
     if (__VERIFIER_nondet_int()) {
         return ((void *)0);
