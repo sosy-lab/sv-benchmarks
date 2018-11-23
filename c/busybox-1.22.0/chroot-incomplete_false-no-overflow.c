@@ -303,7 +303,7 @@ static const char * get_shell_name(void)
   }
 
   unsigned int return_value_getuid$1;
-  return_value_getuid$1=__VERIFIER_nondet_uint();
+  return_value_getuid$1=getuid();
   pw=bb_internal_getpwuid(return_value_getuid$1);
   if(!(pw == ((struct passwd *)NULL)))
   {
@@ -373,6 +373,7 @@ static void xfunc_die(void)
   exit((signed int)xfunc_error_retval);
 }
 
+#include "busybox_sv_comp-getuid.h"
 #include "busybox_sv_comp-execvp.h"
 #include "busybox_sv_comp-getpwnam.h"
 #include "busybox_sv_comp_impl.h"

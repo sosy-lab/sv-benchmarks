@@ -2443,7 +2443,7 @@ static const char * get_shell_name(void)
       return shell;
   }
   unsigned int return_value_getuid$1;
-  return_value_getuid$1=__VERIFIER_nondet_uint();
+  return_value_getuid$1=getuid();
   pw=bb_internal_getpwuid(return_value_getuid$1);
   if(!(pw == ((struct passwd *)((void *)0))))
   {
@@ -2495,6 +2495,10 @@ static void xfunc_die(void)
     sleep((unsigned int)die_sleep);
   }
   exit((signed int)xfunc_error_retval);
+}
+uid_t getuid(void)
+{
+    return __VERIFIER_nondet_uint();
 }
 int execvp(const char *file, char * const *argv)
 {
