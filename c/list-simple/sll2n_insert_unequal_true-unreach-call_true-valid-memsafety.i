@@ -558,13 +558,13 @@ typedef struct node {
   int data;
   struct node* next;
 } *SLL;
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 SLL node_create(int data) {
   SLL temp = (SLL) malloc(sizeof(struct node));
   if(((void *)0) == temp) {
-    exit(1);
+    myexit(1);
   }
   temp->next = ((void *)0);
   temp->data = data;

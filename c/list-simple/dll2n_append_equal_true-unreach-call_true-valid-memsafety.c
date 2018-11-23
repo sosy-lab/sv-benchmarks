@@ -11,14 +11,14 @@ typedef struct node {
   struct node* prev;
 } *DLL;
 
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 
 DLL node_create(int data) {
   DLL temp = (DLL) malloc(sizeof(struct node));
   if(NULL == temp) {
-    exit(1);
+    myexit(1);
   }
   temp->next = NULL;
   temp->prev = NULL;

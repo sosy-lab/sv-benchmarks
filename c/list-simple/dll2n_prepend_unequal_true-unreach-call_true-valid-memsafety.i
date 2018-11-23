@@ -558,13 +558,13 @@ typedef struct node {
   struct node* next;
   struct node* prev;
 } *DLL;
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 DLL node_create(int data) {
   DLL temp = (DLL) malloc(sizeof(struct node));
   if(((void *)0) == temp) {
-    exit(1);
+    myexit(1);
   }
   temp->next = ((void *)0);
   temp->prev = ((void *)0);
@@ -576,7 +576,7 @@ DLL dll_create(int len, int data) {
   while(len > 0) {
     DLL new_head = (DLL) malloc(sizeof(struct node));
     if(((void *)0) == new_head) {
-      exit(1);
+      myexit(1);
     }
     new_head->data = data;
     new_head->next = head;
