@@ -353,7 +353,7 @@ static void xchdir(const char *path)
 static void xchroot(const char *path)
 {
   signed int return_value_chroot$1;
-  return_value_chroot$1=__VERIFIER_nondet_int();
+  return_value_chroot$1=chroot(path);
   if(!(return_value_chroot$1 == 0))
     bb_perror_msg_and_die("can't change root directory to '%s'", path);
 
@@ -374,6 +374,7 @@ static void xfunc_die(void)
   exit((signed int)xfunc_error_retval);
 }
 
+#include "busybox_sv_comp-chroot.h"
 #include "busybox_sv_comp-getuid.h"
 #include "busybox_sv_comp-execvp.h"
 #include "busybox_sv_comp-getpwnam.h"
