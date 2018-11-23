@@ -11,7 +11,7 @@ extern int __VERIFIER_nondet_int();
  */
 #include <stdlib.h>
 
-void exit(int s) {
+void myexit(int s) {
 	_EXIT: goto _EXIT;
 }
 
@@ -23,7 +23,7 @@ typedef struct node {
 int main() {
   /* Build a list of the form 1->2->3->4... */
   List a = (List) malloc(sizeof(struct node));
-  if (a == 0) exit(1);
+  if (a == 0) myexit(1);
   List t;
   List p = a;
 
@@ -31,7 +31,7 @@ int main() {
   while (counter < 10 || __VERIFIER_nondet_int()) {
     p->h = counter;
     t = (List) malloc(sizeof(struct node));
-    if (t == 0) exit(1);
+    if (t == 0) myexit(1);
     p->n = t;
     p = p->n;
     counter++;
