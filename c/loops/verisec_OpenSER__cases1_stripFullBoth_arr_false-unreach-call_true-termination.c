@@ -72,11 +72,7 @@ char *r_strcat(char *dest, const char *src);
 char *r_strncat(char *dest, const char *src, size_t n);
 void *r_memcpy(void *dest, const void *src, size_t n);
 extern char *__VERIFIER_nondet_pointer(void) ;
-char *r_strncpy (char *dest, const char *src, size_t n)
-{
-	char* x=__VERIFIER_nondet_pointer() ;
-	return x;
-}
+char *r_strncpy (char *dest, const char *src, size_t n){return strncpy(dest,src,n);}
 
 #endif
 
