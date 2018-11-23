@@ -1,6 +1,6 @@
 int uname(struct utsname *uts)
 {
-	if (__VERIFIER_nondet_uint()) {
+	if (__VERIFIER_nondet_int()) {
 		return -1;
 	}
 

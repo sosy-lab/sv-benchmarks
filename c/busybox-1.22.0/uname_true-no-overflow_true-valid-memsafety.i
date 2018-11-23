@@ -2964,7 +2964,7 @@ static void * xzalloc(unsigned long int size)
 }
 int uname(struct utsname *uts)
 {
- if (__VERIFIER_nondet_uint()) {
+ if (__VERIFIER_nondet_int()) {
   return -1;
  }
  for (int i = 0; i < sizeof(uts->sysname) - 1; ++i)
