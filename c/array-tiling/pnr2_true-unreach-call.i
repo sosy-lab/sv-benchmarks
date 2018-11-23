@@ -9,7 +9,6 @@ int ReadFromPort()
  int x = __VERIFIER_nondet_int();
  return x;
 }
-
 int SIZE;
 
 int main()
