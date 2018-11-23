@@ -3294,7 +3294,6 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
-extern int __VERIFIER_nondet_int(void);
 int isatty(int fd)
 {
  return __VERIFIER_nondet_int();
