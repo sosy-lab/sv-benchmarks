@@ -558,13 +558,13 @@ typedef struct node {
   struct node* next;
   struct node* prev;
 } *DLL;
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 DLL dll_circular_create(int len, int data) {
   DLL last = (DLL) malloc(sizeof(struct node));
   if(((void *)0) == last){
-    exit(1);
+    myexit(1);
   }
   last->next = last;
   last->prev = last;
@@ -573,7 +573,7 @@ DLL dll_circular_create(int len, int data) {
   while(len > 1) {
     DLL new_head = (DLL) malloc(sizeof(struct node));
     if(((void *)0) == new_head) {
-      exit(1);
+      myexit(1);
     }
     new_head->next = head;
     new_head->data = data;

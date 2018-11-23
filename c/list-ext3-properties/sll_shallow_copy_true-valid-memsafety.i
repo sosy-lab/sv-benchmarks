@@ -555,13 +555,13 @@ extern int getloadavg (double __loadavg[], int __nelem)
 struct node {
   struct node* next;
 };
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 struct node* alloc_node() {
   struct node* temp = (struct node*) malloc(sizeof(struct node));
   if(((void *)0) == temp) {
-    exit(1);
+    myexit(1);
   }
   return temp;
 }

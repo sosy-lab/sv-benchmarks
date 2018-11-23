@@ -12,7 +12,7 @@ typedef struct node {
   struct node* next;
 } *SLL;
 
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 
@@ -21,7 +21,7 @@ SLL sll_create(int len) {
   while(len-- > 0) {
     SLL new_head = (SLL) malloc(sizeof(struct node));
     if(NULL == new_head) {
-      exit(1);
+      myexit(1);
     }
     new_head->next = head;
     head = new_head;
@@ -49,7 +49,7 @@ void sll_destroy(SLL head) {
 void sll_insert(SLL* head, int position) {
   SLL new_node = (SLL) malloc(sizeof(struct node));
   if(NULL == new_node) {
-    exit(1);
+    myexit(1);
   }
   SLL second_to_last = NULL;
   SLL last = *head;
