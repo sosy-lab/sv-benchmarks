@@ -616,7 +616,7 @@ extern int getsubopt (char **__restrict __optionp,
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 typedef struct node {
@@ -628,7 +628,7 @@ int main() {
   List p = 0;
   while (__VERIFIER_nondet_int()) {
     t = (List) malloc(sizeof(struct node));
-    if (t == 0) exit(1);
+    if (t == 0) myexit(1);
     t->h = 1;
     t->n = p;
     p = t;
