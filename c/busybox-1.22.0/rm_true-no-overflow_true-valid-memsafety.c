@@ -1389,4 +1389,5 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+#include "busybox_sv_comp-access.h"
 #include "busybox_sv_comp_impl.h"
