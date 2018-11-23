@@ -12,14 +12,14 @@ typedef struct node {
   int data;
 } *SLL;
 
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 
 SLL sll_circular_create(int len, int data) {
   SLL const last = (SLL) malloc(sizeof(struct node));
   if(NULL == last){
-    exit(1);
+    myexit(1);
   }
   last->next = last;
   last->data = data;
@@ -27,7 +27,7 @@ SLL sll_circular_create(int len, int data) {
   while(len > 1) {
     SLL new_head = (SLL) malloc(sizeof(struct node));
     if(NULL == new_head){
-      exit(1);
+      myexit(1);
     }
     new_head->next = head;
     new_head->data = data;

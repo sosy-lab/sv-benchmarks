@@ -11,14 +11,14 @@ typedef struct node {
   struct node* prev;
 } *DLL;
 
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 
 DLL node_create(int data) {
   DLL temp = (DLL) malloc(sizeof(struct node));
   if(NULL == temp) {
-    exit(1);
+    myexit(1);
   }
   temp->next = NULL;
   temp->prev = NULL;
@@ -31,7 +31,7 @@ DLL dll_create(int len, int data) {
   while(len > 0) {
     DLL new_head = (DLL) malloc(sizeof(struct node));
     if(NULL == new_head) {
-      exit(1);
+      myexit(1);
     }
     new_head->data = data;
     new_head->next = head;

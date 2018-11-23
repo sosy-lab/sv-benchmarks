@@ -8,7 +8,7 @@ extern int __VERIFIER_nondet_int();
  */
 #include <stdlib.h>
 
-void exit(int s) {
+void myexit(int s) {
 	_EXIT: goto _EXIT;
 }
 
@@ -23,7 +23,7 @@ int main() {
   List p = 0;
   while (__VERIFIER_nondet_int()) {
     t = (List) malloc(sizeof(struct node));
-    if (t == 0) exit(1);
+    if (t == 0) myexit(1);
     t->h = 1;
     t->n = p;
     p = t;

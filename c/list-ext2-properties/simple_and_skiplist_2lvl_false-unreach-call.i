@@ -574,7 +574,7 @@ void destroy_sl(struct sl *sl)
  }
  free(sl);
 }
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 typedef struct node {
@@ -583,14 +583,14 @@ typedef struct node {
 } *List;
 int main() {
   List a = (List) malloc(sizeof(struct node));
-  if (a == 0) exit(1);
+  if (a == 0) myexit(1);
   List t;
   List p = a;
   a->h = 2;
   while (__VERIFIER_nondet_int()) {
     p->h = 1;
     t = (List) malloc(sizeof(struct node));
-    if (t == 0) exit(1);
+    if (t == 0) myexit(1);
     p->n = t;
     p = p->n;
   }

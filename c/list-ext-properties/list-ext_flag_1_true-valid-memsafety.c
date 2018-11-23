@@ -10,7 +10,7 @@ extern int __VERIFIER_nondet_int();
 #include <stdlib.h>
 /*  #include "assert.h" */
 
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 
@@ -27,7 +27,7 @@ int main() {
    * with 1,2 depending on some flag
    */
   a = (List) malloc(sizeof(struct node));
-  if (a == 0) exit(1);
+  if (a == 0) myexit(1);
   p = a;
   
   int i = 0;
@@ -44,7 +44,7 @@ int main() {
 
     t = (List) malloc(sizeof(struct node));
     
-    if (t == 0) exit(1);
+    if (t == 0) myexit(1);
 
     p->n = t;
     p = p->n;

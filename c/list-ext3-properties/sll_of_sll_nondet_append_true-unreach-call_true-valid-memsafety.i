@@ -558,7 +558,7 @@ typedef struct node {
   struct node* next;
   struct node* inner;
 } *SLL;
-void exit(int s) {
+void myexit(int s) {
  _EXIT: goto _EXIT;
 }
 SLL sll_create(int len) {
@@ -566,7 +566,7 @@ SLL sll_create(int len) {
   while(len > 0) {
     SLL new_head = (SLL) malloc(sizeof(struct node));
     if(((void *)0) == new_head) {
-      exit(1);
+      myexit(1);
     }
     new_head->next = head;
     head = new_head;
@@ -577,7 +577,7 @@ SLL sll_create(int len) {
 SLL node_create_with_sublist(int sublist_length) {
   SLL new_node = (SLL) malloc(sizeof(struct node));
   if(((void *)0) == new_node) {
-    exit(1);
+    myexit(1);
   }
   new_node->inner = sll_create(sublist_length);
   new_node->next = ((void *)0);
