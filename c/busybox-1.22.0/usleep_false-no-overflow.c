@@ -260,14 +260,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 void syslog(int priority, const char *format, ...)
 {
 }
-int usleep(unsigned int usec) {
-	if (__VERIFIER_nondet_uint()) {
-		*bb_errno = __VERIFIER_nondet_int();
-		__VERIFIER_assume(*bb_errno != 0);
-		return -1;
-	}
-	return 0;
-}
+
 signed int __main(signed int argc, char **argv)
 {
 
@@ -392,4 +385,5 @@ inval:
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
 
+#include "busybox_sv_comp-usleep.h"
 #include "busybox_sv_comp_impl.h"
