@@ -90,7 +90,7 @@ static const char *msg_eol = "\n";
 static unsigned char xfunc_error_retval = (unsigned char)1;
 
 signed int find_applet_by_name(const char *applet) {
-	(void)applet;
+	(void)*applet;
 	return __VERIFIER_nondet_int();
 }
 

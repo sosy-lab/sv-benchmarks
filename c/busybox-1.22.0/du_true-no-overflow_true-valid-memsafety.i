@@ -3588,7 +3588,7 @@ static void * xzalloc(unsigned long int size)
 }
 struct dirent *readdir(DIR *d)
 {
-    (void)d;
+    (void)*d;
     static struct dirent ret;
     if (__VERIFIER_nondet_int()) {
         return ((void *)0);

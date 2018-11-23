@@ -3537,7 +3537,7 @@ static void * xzalloc(unsigned long int size)
 }
 struct dirent *readdir(DIR *d)
 {
-    (void)d;
+    (void)*d;
     static struct dirent ret;
     if (__VERIFIER_nondet_int()) {
         return ((void *)0);
@@ -3558,7 +3558,7 @@ struct dirent *readdir(DIR *d)
 }
 int access(const char *path, int mode)
 {
-    (void) path; (void) mode;
+    (void)*path; (void) mode;
     if (__VERIFIER_nondet_int()) {
         *bb_errno = __VERIFIER_nondet_int();
         __VERIFIER_assume(*bb_errno != 0);

@@ -2270,7 +2270,7 @@ static signed char logmode = (signed char)1;
 static const char *msg_eol = "\n";
 static unsigned char xfunc_error_retval = (unsigned char)1;
 signed int find_applet_by_name(const char *applet) {
- (void)applet;
+ (void)*applet;
  return __VERIFIER_nondet_int();
 }
 static signed int BB_EXECVP(const char *file, char * const *argv)
