@@ -787,7 +787,8 @@ typedef union
     unsigned int __nr_writers_queued;
     int __writer;
     int __shared;
-    unsigned long int __pad1;
+    signed char __rwelision;
+    unsigned char __pad1[7];
     unsigned long int __pad2;
     unsigned int __flags;
   } __data;
@@ -2002,15 +2003,6 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
 void syslog(int priority, const char *format, ...)
 {
 }
-int mkfifo(const char *file, unsigned mode)
-{
-	if (__VERIFIER_nondet_int()) {
-		*bb_errno = __VERIFIER_nondet_int();
-		__VERIFIER_assume(*bb_errno != 0);
-		return -1;
-	}
-        return 0;
-}
 signed int __main(signed int argc, char **argv)
 {
   unsigned int mode;
@@ -2049,6 +2041,15 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   }
   while(tmp_if_expr$1 != (_Bool)0);
   return n;
+}
+int mkfifo(const char *file, unsigned mode)
+{
+ if (__VERIFIER_nondet_int()) {
+  *bb_errno = __VERIFIER_nondet_int();
+  __VERIFIER_assume(*bb_errno != 0);
+  return -1;
+ }
+ return 0;
 }
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {

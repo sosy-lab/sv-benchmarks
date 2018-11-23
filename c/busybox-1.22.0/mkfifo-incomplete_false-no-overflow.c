@@ -214,15 +214,6 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
 void syslog(int priority, const char *format, ...)
 {
 }
-int mkfifo(const char *file, unsigned mode)
-{
-	if (__VERIFIER_nondet_int()) {
-		*bb_errno = __VERIFIER_nondet_int();
-		__VERIFIER_assume(*bb_errno != 0);
-		return -1;
-	}
-	return 0;
-}
 signed int __main(signed int argc, char **argv)
 {
   unsigned int mode;
@@ -273,4 +264,5 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   return n;
 }
 
+#include "busybox_sv_comp-mkfifo.h"
 #include "busybox_sv_comp_impl.h"
