@@ -2,7 +2,8 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int(void);
-int ReadFromPort() {
+int ReadFromPort()
+{
 	int x = __VERIFIER_nondet_int();
 	return x;
 }
