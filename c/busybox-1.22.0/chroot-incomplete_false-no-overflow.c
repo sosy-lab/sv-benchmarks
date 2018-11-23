@@ -342,7 +342,7 @@ extern int __VERIFIER_nondet_int(void);
 static void xchdir(const char *path)
 {
   signed int return_value_chdir$1;
-  return_value_chdir$1=__VERIFIER_nondet_int();
+  return_value_chdir$1=chdir(path);
   if(!(return_value_chdir$1 == 0))
     bb_perror_msg_and_die("can't change directory to '%s'", path);
 
@@ -373,6 +373,7 @@ static void xfunc_die(void)
   exit((signed int)xfunc_error_retval);
 }
 
+#include "busybox_sv_comp-chdir.h"
 #include "busybox_sv_comp-chroot.h"
 #include "busybox_sv_comp-getuid.h"
 #include "busybox_sv_comp-execvp.h"

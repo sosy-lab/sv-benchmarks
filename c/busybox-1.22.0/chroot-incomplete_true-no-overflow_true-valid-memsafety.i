@@ -2474,7 +2474,7 @@ extern int __VERIFIER_nondet_int(void);
 static void xchdir(const char *path)
 {
   signed int return_value_chdir$1;
-  return_value_chdir$1=__VERIFIER_nondet_int();
+  return_value_chdir$1=chdir(path);
   if(!(return_value_chdir$1 == 0))
     bb_perror_msg_and_die("can't change directory to '%s'", path);
 }
@@ -2495,6 +2495,16 @@ static void xfunc_die(void)
     sleep((unsigned int)die_sleep);
   }
   exit((signed int)xfunc_error_retval);
+}
+int chdir(const char *path)
+{
+    (void)*path;
+    if (__VERIFIER_nondet_int()) {
+        *bb_errno = __VERIFIER_nondet_int();
+        __VERIFIER_assume(*bb_errno != 0);
+        return -1;
+    }
+    return 0;
 }
 int chroot(const char *path)
 {
