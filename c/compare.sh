@@ -61,7 +61,12 @@ for f in $SETS ; do
     exit 1
   fi
 
+  i=0
   for ff in $(ls $(grep -v "^#" $f)) ; do
+    i="$(($i+1))"
+    if [ "$((i % 100))" -eq 0 ]; then
+      echo "Processing file $i of category $setf"
+    fi
     orig=$ff
 
     # no original source available
