@@ -2206,7 +2206,10 @@ extern int getutline_r (const struct utmp *__line,
 
 static void bb_error_msg_and_die(const char *s, ...);
 static void bb_verror_msg(const char *s, va_list p, const char *strerr);
-signed int chown_main(signed int, char **);
+signed int chown_main(signed int argc, char **argv) {
+        (void) argc; (void) argv;
+        return __VERIFIER_nondet_int();
+}
 static signed int fflush_all(void);
 static signed long int full_write(signed int fd, const void *buf, unsigned long int len);
 static signed long int safe_write(signed int fd, const void *buf, unsigned long int count);

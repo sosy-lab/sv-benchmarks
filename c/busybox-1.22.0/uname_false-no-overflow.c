@@ -869,7 +869,6 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   while(tmp_if_expr$1 != (_Bool)0);
   return n;
 }
-
 // file coreutils/uname.c line 91
 void syslog(int priority, const char *format, ...)
 {
@@ -1063,4 +1062,5 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+#include "busybox_sv_comp-uname.h"
 #include "busybox_sv_comp_impl.h"

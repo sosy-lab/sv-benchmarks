@@ -301,26 +301,30 @@ typedef struct _IO_FILE FILE;
 extern void setpwent (void);
 extern void endpwent (void);
 extern struct passwd *getpwent (void);
-extern struct passwd *fgetpwent (FILE *__stream);
+extern struct passwd *fgetpwent (FILE *__stream) __attribute__ ((__nonnull__ (1)));
 extern int putpwent (const struct passwd *__restrict __p,
        FILE *__restrict __f);
 extern struct passwd *getpwuid (__uid_t __uid);
-extern struct passwd *getpwnam (const char *__name);
+extern struct passwd *getpwnam (const char *__name) __attribute__ ((__nonnull__ (1)));
 extern int getpwent_r (struct passwd *__restrict __resultbuf,
          char *__restrict __buffer, size_t __buflen,
-         struct passwd **__restrict __result);
+         struct passwd **__restrict __result)
+         __attribute__ ((__nonnull__ (1, 2, 4)));
 extern int getpwuid_r (__uid_t __uid,
          struct passwd *__restrict __resultbuf,
          char *__restrict __buffer, size_t __buflen,
-         struct passwd **__restrict __result);
+         struct passwd **__restrict __result)
+         __attribute__ ((__nonnull__ (2, 3, 5)));
 extern int getpwnam_r (const char *__restrict __name,
          struct passwd *__restrict __resultbuf,
          char *__restrict __buffer, size_t __buflen,
-         struct passwd **__restrict __result);
+         struct passwd **__restrict __result)
+         __attribute__ ((__nonnull__ (1, 2, 3, 5)));
 extern int fgetpwent_r (FILE *__restrict __stream,
    struct passwd *__restrict __resultbuf,
    char *__restrict __buffer, size_t __buflen,
-   struct passwd **__restrict __result);
+   struct passwd **__restrict __result)
+   __attribute__ ((__nonnull__ (1, 2, 3, 5)));
 extern int getpw (__uid_t __uid, char *__buffer);
 
 
@@ -409,6 +413,11 @@ typedef struct
    {
      void *si_addr;
      short int si_addr_lsb;
+     struct
+       {
+  void *_lower;
+  void *_upper;
+       } si_addr_bnd;
    } _sigfault;
  struct
    {
@@ -538,7 +547,6 @@ extern __sighandler_t ssignal (int __sig, __sighandler_t __handler)
 extern int gsignal (int __sig) __attribute__ ((__nothrow__ , __leaf__));
 extern void psignal (int __sig, const char *__s);
 extern void psiginfo (const siginfo_t *__pinfo, const char *__s);
-extern int __sigpause (int __sig_or_mask, int __is_sig);
 extern int sigpause (int __sig) __asm__ ("__xpg_sigpause");
 extern int sigblock (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
 extern int sigsetmask (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
@@ -586,14 +594,6 @@ extern int sigqueue (__pid_t __pid, int __sig, const union sigval __val)
      __attribute__ ((__nothrow__ , __leaf__));
 extern const char *const _sys_siglist[65];
 extern const char *const sys_siglist[65];
-struct sigvec
-  {
-    __sighandler_t sv_handler;
-    int sv_mask;
-    int sv_flags;
-  };
-extern int sigvec (int __sig, const struct sigvec *__vec,
-     struct sigvec *__ovec) __attribute__ ((__nothrow__ , __leaf__));
 struct _fpx_sw_bytes
 {
   __uint32_t magic1;
@@ -843,7 +843,8 @@ typedef union
     unsigned int __nr_writers_queued;
     int __writer;
     int __shared;
-    unsigned long int __pad1;
+    signed char __rwelision;
+    unsigned char __pad1[7];
     unsigned long int __pad2;
     unsigned int __flags;
   } __data;
@@ -2268,6 +2269,10 @@ static signed int die_sleep;
 static signed char logmode = (signed char)1;
 static const char *msg_eol = "\n";
 static unsigned char xfunc_error_retval = (unsigned char)1;
+signed int find_applet_by_name(const char *applet) {
+ (void)*applet;
+ return __VERIFIER_nondet_int();
+}
 static signed int BB_EXECVP(const char *file, char * const *argv)
 {
   signed int return_value_find_applet_by_name$1;
@@ -2465,6 +2470,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   while(tmp_if_expr$1 != (_Bool)0);
   return n;
 }
+extern int __VERIFIER_nondet_int(void);
 static void xchdir(const char *path)
 {
   signed int return_value_chdir$1;
@@ -2489,6 +2495,42 @@ static void xfunc_die(void)
     sleep((unsigned int)die_sleep);
   }
   exit((signed int)xfunc_error_retval);
+}
+int chdir(const char *path)
+{
+    (void)*path;
+    if (__VERIFIER_nondet_int()) {
+        *bb_errno = __VERIFIER_nondet_int();
+        __VERIFIER_assume(*bb_errno != 0);
+        return -1;
+    }
+    return 0;
+}
+int chroot(const char *path)
+{
+    (void)*path;
+    if (__VERIFIER_nondet_int()) {
+        *bb_errno = __VERIFIER_nondet_int();
+        __VERIFIER_assume(*bb_errno != 0);
+        return -1;
+    }
+    return 0;
+}
+uid_t getuid(void)
+{
+    return __VERIFIER_nondet_uint();
+}
+int execvp(const char *file, char * const *argv)
+{
+ int i;
+ for (i = 0; argv[i] != 0; ++i)
+  ;
+ if (__VERIFIER_nondet_int()) {
+  *bb_errno = __VERIFIER_nondet_int();
+  __VERIFIER_assume(*bb_errno != 0);
+  return -1;
+ }
+ abort();
 }
 struct passwd *bb_internal_getpwnam(const char *name)
 {

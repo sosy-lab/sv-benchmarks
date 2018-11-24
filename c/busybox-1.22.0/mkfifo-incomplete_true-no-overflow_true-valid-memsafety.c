@@ -264,4 +264,5 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   return n;
 }
 
+#include "busybox_sv_comp-mkfifo.h"
 #include "busybox_sv_comp_impl.h"

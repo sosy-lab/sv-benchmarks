@@ -260,6 +260,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 void syslog(int priority, const char *format, ...)
 {
 }
+
 signed int __main(signed int argc, char **argv)
 {
 
@@ -384,4 +385,5 @@ inval:
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
 
+#include "busybox_sv_comp-usleep.h"
 #include "busybox_sv_comp_impl.h"

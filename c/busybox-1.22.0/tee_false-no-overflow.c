@@ -937,11 +937,8 @@ signed int __main(signed int argc, char **argv)
   argc = argc - optind;
   argv = argv + (signed long int)optind;
   mode = mode + (signed long int)((signed int)retval & 2);
-  if(!((1 & (signed int)retval) == 0))
-    signal(2, (void (*)(signed int))1);
 
   retval = (char)0;
-  signal(13, (void (*)(signed int))1);
   void *return_value_xzalloc$2;
   return_value_xzalloc$2=xzalloc(sizeof(struct _IO_FILE *) /*8ul*/  * (unsigned long int)(argc + 2));
   files = (struct _IO_FILE **)return_value_xzalloc$2;

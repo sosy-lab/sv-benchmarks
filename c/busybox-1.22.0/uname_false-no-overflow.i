@@ -286,6 +286,11 @@ typedef struct
    {
      void *si_addr;
      short int si_addr_lsb;
+     struct
+       {
+  void *_lower;
+  void *_upper;
+       } si_addr_bnd;
    } _sigfault;
  struct
    {
@@ -415,7 +420,6 @@ extern __sighandler_t ssignal (int __sig, __sighandler_t __handler)
 extern int gsignal (int __sig) __attribute__ ((__nothrow__ , __leaf__));
 extern void psignal (int __sig, const char *__s);
 extern void psiginfo (const siginfo_t *__pinfo, const char *__s);
-extern int __sigpause (int __sig_or_mask, int __is_sig);
 extern int sigpause (int __sig) __asm__ ("__xpg_sigpause");
 extern int sigblock (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
 extern int sigsetmask (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
@@ -463,14 +467,6 @@ extern int sigqueue (__pid_t __pid, int __sig, const union sigval __val)
      __attribute__ ((__nothrow__ , __leaf__));
 extern const char *const _sys_siglist[65];
 extern const char *const sys_siglist[65];
-struct sigvec
-  {
-    __sighandler_t sv_handler;
-    int sv_mask;
-    int sv_flags;
-  };
-extern int sigvec (int __sig, const struct sigvec *__vec,
-     struct sigvec *__ovec) __attribute__ ((__nothrow__ , __leaf__));
 struct _fpx_sw_bytes
 {
   __uint32_t magic1;
@@ -720,7 +716,8 @@ typedef union
     unsigned int __nr_writers_queued;
     int __writer;
     int __shared;
-    unsigned long int __pad1;
+    signed char __rwelision;
+    unsigned char __pad1[7];
     unsigned long int __pad2;
     unsigned int __flags;
   } __data;
@@ -2964,6 +2961,31 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+int uname(struct utsname *uts)
+{
+ if (__VERIFIER_nondet_int()) {
+  return -1;
+ }
+ for (int i = 0; i < sizeof(uts->sysname) - 1; ++i)
+  uts->sysname[i] = __VERIFIER_nondet_char();
+ uts->sysname[sizeof(uts->sysname) - 1] = 0;
+ for (int i = 0; i < sizeof(uts->nodename) - 1; ++i)
+  uts->nodename[i] = __VERIFIER_nondet_char();
+ uts->nodename[sizeof(uts->nodename) - 1] = 0;
+ for (int i = 0; i < sizeof(uts->release) - 1; ++i)
+  uts->release[i] = __VERIFIER_nondet_char();
+ uts->release[sizeof(uts->release) - 1] = 0;
+ for (int i = 0; i < sizeof(uts->version) - 1; ++i)
+  uts->version[i] = __VERIFIER_nondet_char();
+ uts->version[sizeof(uts->version) - 1] = 0;
+ for (int i = 0; i < sizeof(uts->machine) - 1; ++i)
+  uts->machine[i] = __VERIFIER_nondet_char();
+ uts->machine[sizeof(uts->machine) - 1] = 0;
+ for (int i = 0; i < sizeof(uts->domainname) - 1; ++i)
+  uts->domainname[i] = __VERIFIER_nondet_char();
+ uts->domainname[sizeof(uts->domainname) - 1] = 0;
+ return 0;
 }
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {

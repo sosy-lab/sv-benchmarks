@@ -367,6 +367,11 @@ typedef struct
    {
      void *si_addr;
      short int si_addr_lsb;
+     struct
+       {
+  void *_lower;
+  void *_upper;
+       } si_addr_bnd;
    } _sigfault;
  struct
    {
@@ -496,7 +501,6 @@ extern __sighandler_t ssignal (int __sig, __sighandler_t __handler)
 extern int gsignal (int __sig) __attribute__ ((__nothrow__ , __leaf__));
 extern void psignal (int __sig, const char *__s);
 extern void psiginfo (const siginfo_t *__pinfo, const char *__s);
-extern int __sigpause (int __sig_or_mask, int __is_sig);
 extern int sigpause (int __sig) __asm__ ("__xpg_sigpause");
 extern int sigblock (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
 extern int sigsetmask (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
@@ -544,14 +548,6 @@ extern int sigqueue (__pid_t __pid, int __sig, const union sigval __val)
      __attribute__ ((__nothrow__ , __leaf__));
 extern const char *const _sys_siglist[65];
 extern const char *const sys_siglist[65];
-struct sigvec
-  {
-    __sighandler_t sv_handler;
-    int sv_mask;
-    int sv_flags;
-  };
-extern int sigvec (int __sig, const struct sigvec *__vec,
-     struct sigvec *__ovec) __attribute__ ((__nothrow__ , __leaf__));
 struct _fpx_sw_bytes
 {
   __uint32_t magic1;
@@ -801,7 +797,8 @@ typedef union
     unsigned int __nr_writers_queued;
     int __writer;
     int __shared;
-    unsigned long int __pad1;
+    signed char __rwelision;
+    unsigned char __pad1[7];
     unsigned long int __pad2;
     unsigned int __flags;
   } __data;
@@ -2667,6 +2664,27 @@ static unsigned long long int xstrtoull_range_sfx(const char *numstr, signed int
 inval:
   ;
   bb_error_msg_and_die("invalid number '%s'", numstr);
+}
+int nanosleep (const struct timespec *__requested_time,
+               struct timespec *__remaining)
+{
+        if (__VERIFIER_nondet_int()) {
+                __remaining->tv_sec = 0;
+                __remaining->tv_nsec = 0;
+                return 0;
+        } else {
+                long tv_nsec = __VERIFIER_nondet_long();
+                time_t tv_sec = __VERIFIER_nondet_long();
+                __VERIFIER_assume(tv_nsec >= 0 &&
+                                  tv_nsec <= __requested_time->tv_nsec);
+                __VERIFIER_assume(tv_sec >= 0 &&
+                                  tv_sec <= __requested_time->tv_sec);
+                __remaining->tv_sec = __requested_time->tv_sec - tv_sec;
+                __remaining->tv_nsec = __requested_time->tv_nsec - tv_nsec;
+                *bb_errno = __VERIFIER_nondet_int();
+                __VERIFIER_assume(*bb_errno != 0);
+                return -1;
+        }
 }
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {

@@ -89,6 +89,12 @@ static const char *msg_eol = "\n";
 // file libbb/default_error_retval.c line 18
 static unsigned char xfunc_error_retval = (unsigned char)1;
 
+signed int find_applet_by_name(const char *applet) {
+	(void)*applet;
+	return __VERIFIER_nondet_int();
+}
+
+
 // file libbb/execable.c line 72
 static signed int BB_EXECVP(const char *file, char * const *argv)
 {
@@ -333,6 +339,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file include/libbb.h line 466
+extern int __VERIFIER_nondet_int(void);
 static void xchdir(const char *path)
 {
   signed int return_value_chdir$1;
@@ -367,5 +374,9 @@ static void xfunc_die(void)
   exit((signed int)xfunc_error_retval);
 }
 
+#include "busybox_sv_comp-chdir.h"
+#include "busybox_sv_comp-chroot.h"
+#include "busybox_sv_comp-getuid.h"
+#include "busybox_sv_comp-execvp.h"
 #include "busybox_sv_comp-getpwnam.h"
 #include "busybox_sv_comp_impl.h"
