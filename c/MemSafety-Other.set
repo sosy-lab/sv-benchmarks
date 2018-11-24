@@ -1,3 +1,4 @@
+loops/*_false-valid-deref*.c
 loop-acceleration/*_false-valid-deref*.i
 ntdrivers/*_false-valid-deref*.i.cil.c
 ntdrivers-simplified/*_true-valid-memsafety*.cil.c
