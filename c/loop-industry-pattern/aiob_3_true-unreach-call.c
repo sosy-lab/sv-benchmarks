@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern unsigned int __VERIFIER_nondet_uint(void) ;
 struct Velocity_Mode;
 struct PCMode;
 struct DeviceControl;
@@ -122,8 +123,11 @@ INT16* Id_MCDC_87;
 } ;
 typedef long  INT64;
 typedef float  REAL32;
-extern UINT32 Id_MCDC_92(UINT16 Id_MCDC_88, UINT8 Id_MCDC_89, UINT32 Id_MCDC_90, void * Id_MCDC_91);
-extern UINT32 Id_MCDC_92(UINT16 Id_MCDC_88, UINT8 Id_MCDC_89, UINT32 Id_MCDC_93, void * Id_MCDC_91);
+UINT32 Id_MCDC_92(UINT16 Id_MCDC_88, UINT8 Id_MCDC_89, UINT32 Id_MCDC_93, void * Id_MCDC_91)
+{
+	UINT32 x=__VERIFIER_nondet_uint();
+	return x;
+}
 void  Id_MCDC_95(VLMODE* Id_MCDC_94);
 extern FILE* fopen(char  const* Id_MCDC_96, char  const* Id_MCDC_97);
 int  main();
