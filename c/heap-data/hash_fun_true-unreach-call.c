@@ -10,7 +10,7 @@ struct node {
     struct node *next;
 };
 
-int hash_fun();
+int hash_fun() { return __VERIFIER_nondet_int(); }
 
 void append_to_list(struct node **list, int hash) {
     struct node *node = malloc(sizeof(*node));
