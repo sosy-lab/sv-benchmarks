@@ -198,11 +198,11 @@ ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko_true-unreach-call.cil.ou
 ldv-linux-3.0/module_get_put-drivers-gpu-drm-i915-i915.ko_true-unreach-call.cil.out.i.pp.i
 ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko_false-unreach-call.cil.out.i.pp.i
 ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko_false-unreach-call.cil.out.i.pp.i
-ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-08_1a-fs--nfs--nfs.ko-entry_point_false-unreach-call.cil.out.c
-ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-118_1a-drivers--scsi--qla2xxx--qla2xxx.ko-entry_point_false-unreach-call.cil.out.c
-ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-144_2a-drivers--isdn--gigaset--bas_gigaset.ko-entry_point_false-unreach-call.cil.out.c
-ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-144_2a-drivers--media--usb--cx231xx--cx231xx.ko-entry_point_false-unreach-call.cil.out.c
-ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-144_2a-drivers--media--usb--dvb-usb--dvb-usb-dib0700.ko-entry_point_false-unreach-call.cil.out.c
+ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-08_1a-fs--nfs--nfs.ko-entry_point_false-unreach-call.cil.out.i
+ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-118_1a-drivers--scsi--qla2xxx--qla2xxx.ko-entry_point_false-unreach-call.cil.out.i
+ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-144_2a-drivers--isdn--gigaset--bas_gigaset.ko-entry_point_false-unreach-call.cil.out.i
+ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-144_2a-drivers--media--usb--cx231xx--cx231xx.ko-entry_point_false-unreach-call.cil.out.i
+ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-144_2a-drivers--media--usb--dvb-usb--dvb-usb-dib0700.ko-entry_point_false-unreach-call.cil.out.i
 ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--ethernet--qlogic--netxen--netxen_nic.ko-entry_point_true-unreach-call.cil.out.i
 ldv-linux-3.16-rc1/205_9a_array_unsafes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--ethernet--atheros--atlx--atl1.ko-entry_point_true-unreach-call.cil.out.i
 ldv-linux-3.16-rc1/205_9a_array_unsafes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--ethernet--intel--i40evf--i40evf.ko-entry_point_true-unreach-call.cil.out.i

@@ -86,6 +86,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ldv-linux-4.2-rc1", "unexpected subdirectory todo"), # subdirectory with files for futher investigation
     ("ldv-challenges", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-challenges", "unexpected subdirectory todo"), # subdirectory containing files, which requires futher investigation
+    ("ldv-linux-3.12-rc1", "unexpected subdirectory model"), # subdirectory containing models
 
     # historical
     ("ntdrivers", "missing license"),
