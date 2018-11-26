@@ -2967,3 +2967,5 @@ void ldv_spin_lock_check(void)
   return;
 }
 }
+#include "model/linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point_false-unreach-call.cil.out.env.c"
+#include "model/common.env.c"
