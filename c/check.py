@@ -76,6 +76,8 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ldv-sets", "unexpected subdirectory model"), # subdirectory containing models
     ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
     ("ldv-consumption", "unexpected subdirectory model"), # subdirectory containing models
+    ("ldv-linux-3.16-rc1", "unexpected subdirectory model"), # subdirectory containing models
+    ("ldv-linux-3.16-rc1", "unexpected subdirectory todo"), # subdirectory with files, which requires futher investigation
     ("ldv-validator-v0.6", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-linux-3.14", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-linux-3.14", "unexpected subdirectory todo"), # subdirectory contains benchmarks, which need further investigation
