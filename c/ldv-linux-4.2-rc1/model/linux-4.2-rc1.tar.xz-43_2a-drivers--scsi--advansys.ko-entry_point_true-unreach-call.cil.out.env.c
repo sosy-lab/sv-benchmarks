@@ -1,0 +1,458 @@
+// Skip function: __VERIFIER_error
+
+// Skip function: __VERIFIER_nondet_int
+
+// Skip function: __VERIFIER_nondet_pointer
+
+// Skip function: __VERIFIER_nondet_ulong
+
+// Function: __const_udelay
+// with type: void __const_udelay(unsigned long)
+// with return type: void
+void __const_udelay(unsigned long arg0) {
+  // Void type
+  return;
+}
+
+// Function: __pci_register_driver
+// with type: int __pci_register_driver(struct pci_driver *, struct module *, const char *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const char *arg2) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: __phys_addr
+// with type: unsigned long int __phys_addr(unsigned long)
+// with return type: unsigned long int
+unsigned long __VERIFIER_nondet_ulong(void);
+unsigned long int __phys_addr(unsigned long arg0) {
+  // Simple type
+  return __VERIFIER_nondet_ulong();
+}
+
+// Function: __release_region
+// with type: void __release_region(struct resource *, resource_size_t , resource_size_t )
+// with return type: void
+void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
+  // Void type
+  return;
+}
+
+// Function: __request_region
+// with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
+// with return type: (struct resource)*
+void *external_alloc(void);
+struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
+  // Pointer type
+  return (struct resource *)external_alloc();
+}
+
+// Function: _raw_spin_unlock_irqrestore
+// with type: void _raw_spin_unlock_irqrestore(raw_spinlock_t *, unsigned long)
+// with return type: void
+void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
+  // Void type
+  return;
+}
+
+// Function: blk_init_tags
+// with type: struct blk_queue_tag *blk_init_tags(int, int)
+// with return type: (struct blk_queue_tag)*
+void *external_alloc(void);
+struct blk_queue_tag *blk_init_tags(int arg0, int arg1) {
+  // Pointer type
+  return (struct blk_queue_tag *)external_alloc();
+}
+
+// Function: blk_mq_tag_to_rq
+// with type: struct request *blk_mq_tag_to_rq(struct blk_mq_tags *, unsigned int)
+// with return type: (struct request)*
+void *external_alloc(void);
+struct request *blk_mq_tag_to_rq(struct blk_mq_tags *arg0, unsigned int arg1) {
+  // Pointer type
+  return (struct request *)external_alloc();
+}
+
+// Skip function: calloc
+
+// Function: debug_dma_map_page
+// with type: void debug_dma_map_page(struct device *, struct page *, size_t , size_t , int, dma_addr_t , bool )
+// with return type: void
+void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, size_t arg3, int arg4, dma_addr_t arg5, bool arg6) {
+  // Void type
+  return;
+}
+
+// Function: debug_dma_mapping_error
+// with type: void debug_dma_mapping_error(struct device *, dma_addr_t )
+// with return type: void
+void debug_dma_mapping_error(struct device *arg0, dma_addr_t arg1) {
+  // Void type
+  return;
+}
+
+// Function: debug_dma_unmap_page
+// with type: void debug_dma_unmap_page(struct device *, dma_addr_t , size_t , int, bool )
+// with return type: void
+void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
+  // Void type
+  return;
+}
+
+// Function: dev_printk
+// with type: void dev_printk(const char *, const struct device *, const char *, ...)
+// with return type: void
+void dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
+  // Void type
+  return;
+}
+
+// Function: dma_alloc_attrs
+// with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
+// with return type: (void)*
+void *external_alloc(void);
+void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
+  // Pointer type
+  return (void *)external_alloc();
+}
+
+// Function: dma_free_attrs
+// with type: void dma_free_attrs(struct device *, size_t , void *, dma_addr_t , struct dma_attrs *)
+// with return type: void
+void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
+  // Void type
+  return;
+}
+
+// Function: dma_pool_create
+// with type: struct dma_pool *dma_pool_create(const char *, struct device *, size_t , size_t , size_t )
+// with return type: (struct dma_pool)*
+void *external_alloc(void);
+struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
+  // Pointer type
+  return (struct dma_pool *)external_alloc();
+}
+
+// Function: dma_pool_destroy
+// with type: void dma_pool_destroy(struct dma_pool *)
+// with return type: void
+void dma_pool_destroy(struct dma_pool *arg0) {
+  // Void type
+  return;
+}
+
+// Function: dma_pool_free
+// with type: void dma_pool_free(struct dma_pool *, void *, dma_addr_t )
+// with return type: void
+void dma_pool_free(struct dma_pool *arg0, void *arg1, dma_addr_t arg2) {
+  // Void type
+  return;
+}
+
+// Function: free_irq
+// with type: void free_irq(unsigned int, void *)
+// with return type: void
+void free_irq(unsigned int arg0, void *arg1) {
+  // Void type
+  return;
+}
+
+// Function: iounmap
+// with type: void iounmap(volatile void *)
+// with return type: void
+void iounmap(volatile void *arg0) {
+  // Void type
+  return;
+}
+
+// Skip function: kfree
+
+// Function: ldv_check_final_state
+// with type: void ldv_check_final_state()
+// with return type: void
+void ldv_check_final_state() {
+  // Void type
+  return;
+}
+
+// Function: ldv_initialize
+// with type: void ldv_initialize()
+// with return type: void
+void ldv_initialize() {
+  // Void type
+  return;
+}
+
+// Function: ldv_shutdown_2
+// with type: int ldv_shutdown_2()
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int ldv_shutdown_2() {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: ldv_some_page
+// with type: struct page *ldv_some_page()
+// with return type: (struct page)*
+void *external_alloc(void);
+struct page *ldv_some_page() {
+  // Pointer type
+  return (struct page *)external_alloc();
+}
+
+// Skip function: malloc
+
+// Skip function: memcpy
+
+// Skip function: memset
+
+// Function: pci_bus_read_config_byte
+// with type: int pci_bus_read_config_byte(struct pci_bus *, unsigned int, int, u8 *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int pci_bus_read_config_byte(struct pci_bus *arg0, unsigned int arg1, int arg2, u8 *arg3) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: pci_bus_read_config_word
+// with type: int pci_bus_read_config_word(struct pci_bus *, unsigned int, int, u16 *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int pci_bus_read_config_word(struct pci_bus *arg0, unsigned int arg1, int arg2, u16 *arg3) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: pci_bus_write_config_byte
+// with type: int pci_bus_write_config_byte(struct pci_bus *, unsigned int, int, u8 )
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int pci_bus_write_config_byte(struct pci_bus *arg0, unsigned int arg1, int arg2, u8 arg3) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: pci_disable_device
+// with type: void pci_disable_device(struct pci_dev *)
+// with return type: void
+void pci_disable_device(struct pci_dev *arg0) {
+  // Void type
+  return;
+}
+
+// Function: pci_enable_device
+// with type: int pci_enable_device(struct pci_dev *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int pci_enable_device(struct pci_dev *arg0) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: pci_ioremap_bar
+// with type: void *pci_ioremap_bar(struct pci_dev *, int)
+// with return type: (void)*
+void *external_alloc(void);
+void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
+  // Pointer type
+  return (void *)external_alloc();
+}
+
+// Function: pci_release_regions
+// with type: void pci_release_regions(struct pci_dev *)
+// with return type: void
+void pci_release_regions(struct pci_dev *arg0) {
+  // Void type
+  return;
+}
+
+// Function: pci_request_regions
+// with type: int pci_request_regions(struct pci_dev *, const char *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int pci_request_regions(struct pci_dev *arg0, const char *arg1) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: pci_set_master
+// with type: void pci_set_master(struct pci_dev *)
+// with return type: void
+void pci_set_master(struct pci_dev *arg0) {
+  // Void type
+  return;
+}
+
+// Function: pci_unregister_driver
+// with type: void pci_unregister_driver(struct pci_driver *)
+// with return type: void
+void pci_unregister_driver(struct pci_driver *arg0) {
+  // Void type
+  return;
+}
+
+// Function: printk
+// with type: int printk(const char *, ...)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int printk(const char *arg0, ...) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: release_firmware
+// with type: void release_firmware(const struct firmware *)
+// with return type: void
+void release_firmware(const struct firmware *arg0) {
+  // Void type
+  return;
+}
+
+// Function: request_firmware
+// with type: int request_firmware(const struct firmware **, const char *, struct device *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int request_firmware(const struct firmware **arg0, const char *arg1, struct device *arg2) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: request_threaded_irq
+// with type: int request_threaded_irq(unsigned int, irqreturn_t (*)(int, void *), irqreturn_t (*)(int, void *), unsigned long, const char *, void *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), unsigned long arg3, const char *arg4, void *arg5) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: scmd_printk
+// with type: void scmd_printk(const char *, const struct scsi_cmnd *, const char *, ...)
+// with return type: void
+void scmd_printk(const char *arg0, const struct scsi_cmnd *arg1, const char *arg2, ...) {
+  // Void type
+  return;
+}
+
+// Function: scsi_add_host_with_dma
+// with type: int scsi_add_host_with_dma(struct Scsi_Host *, struct device *, struct device *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int scsi_add_host_with_dma(struct Scsi_Host *arg0, struct device *arg1, struct device *arg2) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: scsi_change_queue_depth
+// with type: int scsi_change_queue_depth(struct scsi_device *, int)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: scsi_cmd_get_serial
+// with type: void scsi_cmd_get_serial(struct Scsi_Host *, struct scsi_cmnd *)
+// with return type: void
+void scsi_cmd_get_serial(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
+  // Void type
+  return;
+}
+
+// Function: scsi_dma_map
+// with type: int scsi_dma_map(struct scsi_cmnd *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int scsi_dma_map(struct scsi_cmnd *arg0) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: scsi_dma_unmap
+// with type: void scsi_dma_unmap(struct scsi_cmnd *)
+// with return type: void
+void scsi_dma_unmap(struct scsi_cmnd *arg0) {
+  // Void type
+  return;
+}
+
+// Function: scsi_host_alloc
+// with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
+// with return type: (struct Scsi_Host)*
+void *external_alloc(void);
+struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
+  // Pointer type
+  return (struct Scsi_Host *)external_alloc();
+}
+
+// Function: scsi_host_put
+// with type: void scsi_host_put(struct Scsi_Host *)
+// with return type: void
+void scsi_host_put(struct Scsi_Host *arg0) {
+  // Void type
+  return;
+}
+
+// Function: scsi_remove_host
+// with type: void scsi_remove_host(struct Scsi_Host *)
+// with return type: void
+void scsi_remove_host(struct Scsi_Host *arg0) {
+  // Void type
+  return;
+}
+
+// Function: scsi_scan_host
+// with type: void scsi_scan_host(struct Scsi_Host *)
+// with return type: void
+void scsi_scan_host(struct Scsi_Host *arg0) {
+  // Void type
+  return;
+}
+
+// Function: seq_printf
+// with type: int seq_printf(struct seq_file *, const char *, ...)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int seq_printf(struct seq_file *arg0, const char *arg1, ...) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: seq_putc
+// with type: int seq_putc(struct seq_file *, char)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int seq_putc(struct seq_file *arg0, char arg1) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: seq_puts
+// with type: int seq_puts(struct seq_file *, const char *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int seq_puts(struct seq_file *arg0, const char *arg1) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+
+// Function: sg_next
+// with type: struct scatterlist *sg_next(struct scatterlist *)
+// with return type: (struct scatterlist)*
+void *external_alloc(void);
+struct scatterlist *sg_next(struct scatterlist *arg0) {
+  // Pointer type
+  return (struct scatterlist *)external_alloc();
+}
+
+// Skip function: sprintf
+
+// Skip function: strlen
+
+// Skip function: strncmp
+
