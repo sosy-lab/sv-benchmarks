@@ -647,9 +647,9 @@ ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--target--target_core_mod.ko
 ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--thunderbolt--thunderbolt.ko-entry_point_true-unreach-call.cil.out.c
 ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--usb--host--xhci-hcd.ko-entry_point_true-unreach-call.cil.out.c
 ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--xen--xen-pciback--xen-pciback.ko-entry_point_true-unreach-call.cil.out.c
-ldv-validator-v0.6/linux-stable-1575714-1-150_1a-drivers--net--wireless--b43--b43.ko-entry_point_false-unreach-call.cil.out.c
-ldv-validator-v0.6/linux-stable-4a349aa-1-32_7a-drivers--media--video--tlg2300--poseidon.ko-entry_point_false-unreach-call.cil.out.c
-ldv-validator-v0.6/linux-stable-8a9f335-1-32_7a-drivers--net--wireless--ath--carl9170--carl9170.ko-entry_point_false-unreach-call.cil.out.c
+ldv-validator-v0.6/linux-stable-1575714-1-150_1a-drivers--net--wireless--b43--b43.ko-entry_point_false-unreach-call.cil.out.i
+ldv-validator-v0.6/linux-stable-4a349aa-1-32_7a-drivers--media--video--tlg2300--poseidon.ko-entry_point_false-unreach-call.cil.out.i
+ldv-validator-v0.6/linux-stable-8a9f335-1-32_7a-drivers--net--wireless--ath--carl9170--carl9170.ko-entry_point_false-unreach-call.cil.out.i
 ldv-validator-v0.8/linux-stable-1575714-1-150_1a-drivers--net--wireless--b43--b43.ko-entry_point_ldv-val-v0.8_false-unreach-call.cil.out.c
 ldv-validator-v0.8/linux-stable-4a349aa-1-32_7a-drivers--media--video--tlg2300--poseidon.ko-entry_point_ldv-val-v0.8_false-unreach-call.cil.out.c
 ldv-validator-v0.8/linux-stable-8817633-1-144_2a-drivers--staging--media--easycap--easycap.ko-entry_point_ldv-val-v0.8_false-unreach-call.cil.out.c
