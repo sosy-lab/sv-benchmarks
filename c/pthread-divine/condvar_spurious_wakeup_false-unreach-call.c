@@ -24,6 +24,8 @@ void *thread( void *arg ) {
 
 int main() {
     pthread_t t;
+    pthread_mutex_init(&lock,0);
+    pthread_cond_init(&cond,0);
     pthread_create( &t, NULL, thread, NULL );
     for ( int i = 0; i <= 42; i++ )
         x = i;
