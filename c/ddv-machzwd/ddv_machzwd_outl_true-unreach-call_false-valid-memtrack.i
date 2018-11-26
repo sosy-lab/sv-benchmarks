@@ -2535,53 +2535,6 @@ int pci_dev_present(const struct pci_device_id *ids);
 
 struct pci_dev *pci_get_class (unsigned int class, struct pci_dev *from);
 
-
-
-
-
-
-static inline void *pci_get_drvdata (struct pci_dev *pdev)
-{
-    return dev_get_drvdata(&pdev->dev);
-}
-
-static inline void pci_set_drvdata (struct pci_dev *pdev, void *data)
-{
-    dev_set_drvdata(&pdev->dev, data);
-}
-
-int pci_bus_read_config_byte (struct pci_bus *bus, unsigned int devfn, int where, u8 *val);
-int pci_bus_read_config_word (struct pci_bus *bus, unsigned int devfn, int where, u16 *val);
-int pci_bus_read_config_dword (struct pci_bus *bus, unsigned int devfn, int where, u32 *val);
-int pci_bus_write_config_byte (struct pci_bus *bus, unsigned int devfn, int where, u8 val);
-int pci_bus_write_config_word (struct pci_bus *bus, unsigned int devfn, int where, u16 val);
-int pci_bus_write_config_dword (struct pci_bus *bus, unsigned int devfn, int where, u32 val);
-
-static inline int pci_read_config_byte(struct pci_dev *dev, int where, u8 *val)
-{
- return pci_bus_read_config_byte (dev->bus, dev->devfn, where, val);
-}
-static inline int pci_read_config_word(struct pci_dev *dev, int where, u16 *val)
-{
- return pci_bus_read_config_word (dev->bus, dev->devfn, where, val);
-}
-static inline int pci_read_config_dword(struct pci_dev *dev, int where, u32 *val)
-{
- return pci_bus_read_config_dword (dev->bus, dev->devfn, where, val);
-}
-static inline int pci_write_config_byte(struct pci_dev *dev, int where, u8 val)
-{
- return pci_bus_write_config_byte (dev->bus, dev->devfn, where, val);
-}
-static inline int pci_write_config_word(struct pci_dev *dev, int where, u16 val)
-{
- return pci_bus_write_config_word (dev->bus, dev->devfn, where, val);
-}
-static inline int pci_write_config_dword(struct pci_dev *dev, int where, u32 val)
-{
- return pci_bus_write_config_dword (dev->bus, dev->devfn, where, val);
-}
-
 int pci_set_dma_mask(struct pci_dev *dev, u64 mask);
 void pci_set_master(struct pci_dev *dev);
 
