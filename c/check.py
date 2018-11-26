@@ -76,6 +76,8 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ldv-sets", "unexpected subdirectory model"), # subdirectory containing models
     ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
     ("ldv-consumption", "unexpected subdirectory model"), # subdirectory containing models
+    ("ldv-linux-4.2-rc1", "unexpected subdirectory model"), # subdirectory containing models
+    ("ldv-linux-4.2-rc1", "unexpected subdirectory todo"), # subdirectory with files for futher investigation
 
     # historical
     ("ntdrivers", "missing license"),
