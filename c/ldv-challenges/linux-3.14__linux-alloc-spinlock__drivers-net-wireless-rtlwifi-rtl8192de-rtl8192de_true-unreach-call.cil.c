@@ -39438,3 +39438,5 @@ void ldv_assert_linux_alloc_spinlock__wrong_flags(int expr )
   return;
 }
 }
+#include "model/linux-3.14__linux-alloc-spinlock__drivers-net-wireless-rtlwifi-rtl8192de-rtl8192de_true-unreach-call.cil.env.c"
+#include "model/common.env.c"

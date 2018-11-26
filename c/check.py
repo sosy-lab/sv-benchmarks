@@ -78,6 +78,8 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ldv-consumption", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-linux-3.14", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-linux-3.14", "unexpected subdirectory todo"), # subdirectory contains benchmarks, which need further investigation
+    ("ldv-challenges", "unexpected subdirectory model"), # subdirectory containing models
+    ("ldv-challenges", "unexpected subdirectory todo"), # subdirectory containing files, which requires futher investigation
 
     # historical
     ("ntdrivers", "missing license"),
