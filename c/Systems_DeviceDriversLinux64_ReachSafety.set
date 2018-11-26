@@ -16,9 +16,9 @@ ldv-validator-v0.6/*_false-unreach-call*.c
 ldv-validator-v0.8/*_false-unreach-call*.c
 ldv-linux-4.2-rc1/*_false-unreach-call*.i
 ldv-linux-4.2-rc1/*_true-unreach-call*.i
+ldv-linux-3.14/*_false-unreach-call*.i
+ldv-linux-3.14/*_true-unreach-call*.i
 ldv-challenges/*_false-unreach-call*.i
 ldv-challenges/*_true-unreach-call*.i
-ldv-linux-3.14/*_false-unreach-call*.c
-ldv-linux-3.14/*_true-unreach-call*.c
 ldv-linux-4.0-rc1-mav/*_false-unreach-call*.i
 ldv-linux-4.0-rc1-mav/*_true-unreach-call*.i
