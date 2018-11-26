@@ -58712,3 +58712,5 @@ int ldv_spin_trylock(void)
   }
 }
 }
+#include "model/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--net--ethernet--qlogic--qlcnic--qlcnic.ko-entry_point_true-unreach-call.cil.out.env.c"
+#include "model/common.env.c"
