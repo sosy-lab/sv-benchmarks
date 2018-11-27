@@ -7,4 +7,3 @@ memsafety-ext3/*_false-valid-deref*.c
 memsafety-ext3/*_false-valid-free*.c
 memsafety-ext3/*_true-valid-memsafety*.c
 pthread-memsafety/*_false-valid-deref.i
-pthread-memsafety/*_true-valid-memsafety.i

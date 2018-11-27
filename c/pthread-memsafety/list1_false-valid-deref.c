@@ -43,7 +43,8 @@ int main(int argc, char **argv) {
   pthread_t id1, id2;
   struct item *list = ((void *)0);
   pthread_create(&id1, NULL, build, list);
+  pthread_join(id1, NULL);
   pthread_create(&id2, NULL, delete, list);
-
+  pthread_join(id2, NULL);
   return 0;
 }
