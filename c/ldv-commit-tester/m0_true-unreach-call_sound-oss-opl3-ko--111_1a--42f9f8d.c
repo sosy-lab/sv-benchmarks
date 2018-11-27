@@ -6393,3 +6393,5 @@ void ldv_check_ret_val(int res )
   return;
 }
 }
+#include "model/m0_true-unreach-call_sound-oss-opl3-ko--111_1a--42f9f8d.env.c"
+#include "model/common.env.c"

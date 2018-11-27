@@ -1409,3 +1409,5 @@ void ldv_initialize(void)
   return;
 }
 }
+#include "model/m0_true-unreach-call_drivers-hwmon-s3c-hwmon-ko--130_7a--af3071a.env.c"
+#include "model/common.env.c"
