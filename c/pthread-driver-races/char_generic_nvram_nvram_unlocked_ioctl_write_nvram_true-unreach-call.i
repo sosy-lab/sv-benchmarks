@@ -3064,17 +3064,21 @@ extern void up_read(struct rw_semaphore *sem);
 extern void up_write(struct rw_semaphore *sem);
 extern void downgrade_write(struct rw_semaphore *sem);
 struct pt_regs {
+ unsigned long r15;
+ unsigned long r14;
+ unsigned long r13;
+ unsigned long r12;
+ unsigned long bp;
  unsigned long bx;
+ unsigned long r11;
+ unsigned long r10;
+ unsigned long r9;
+ unsigned long r8;
+ unsigned long ax;
  unsigned long cx;
  unsigned long dx;
  unsigned long si;
  unsigned long di;
- unsigned long bp;
- unsigned long ax;
- unsigned long ds;
- unsigned long es;
- unsigned long fs;
- unsigned long gs;
  unsigned long orig_ax;
  unsigned long ip;
  unsigned long cs;
@@ -6498,6 +6502,174 @@ extern void nvram_sync(void);
 extern ssize_t nvram_get_size(void);
 extern unsigned char nvram_read_byte(int i);
 extern void nvram_write_byte(unsigned char c, int i);
+const unsigned int default_alloc_size = 4;
+void *external_alloc(unsigned int size)
+{
+  char *p = malloc(size);
+  for(unsigned i = 0; i < size; ++i)
+    p[i] = __VERIFIER_nondet_char();
+  return p;
+}
+void __bit_spin_unlock(int arg0, unsigned long *arg1) {
+  return;
+}
+int __VERIFIER_nondet_int(void);
+int __get_user(int arg0, const void *arg1) {
+  return __VERIFIER_nondet_int();
+}
+unsigned int __VERIFIER_nondet_uint(void);
+u32 __iter_div_u64_rem(u64 arg0, u32 arg1, u64 *arg2) {
+  return __VERIFIER_nondet_uint();
+}
+int __VERIFIER_nondet_int(void);
+int __put_user(int arg0, void *arg1) {
+  return __VERIFIER_nondet_int();
+}
+void *external_alloc(unsigned int size);
+struct tty_driver *__tty_alloc_driver(unsigned int arg0, struct module *arg1, unsigned long arg2) {
+  return (struct tty_driver *)external_alloc(sizeof(struct tty_driver));
+}
+int __VERIFIER_nondet_int(void);
+int access_ok(int arg0, const void *arg1, unsigned long arg2) {
+  return __VERIFIER_nondet_int();
+}
+int __VERIFIER_nondet_int(void);
+int atomic_add_unless(atomic_t *arg0, int arg1, int arg2) {
+  return __VERIFIER_nondet_int();
+}
+void barrier() {
+  return;
+}
+bool __VERIFIER_nondet_bool(void);
+bool bit_spin_is_locked(int arg0, unsigned long *arg1) {
+  return __VERIFIER_nondet_bool();
+}
+void bit_spin_lock(int arg0, unsigned long *arg1) {
+  return;
+}
+void clear_bit(long arg0, volatile unsigned long *arg1) {
+  return;
+}
+void cpu_relax() {
+  return;
+}
+void *external_alloc(unsigned int size);
+void __VERIFIER_assume(int);
+struct timespec current_kernel_time() {
+  struct timespec *tmp = (struct timespec*)external_alloc(sizeof(struct timespec));
+  __VERIFIER_assume(tmp != 0);
+  return *tmp;
+}
+void d_instantiate(struct dentry *arg0, struct inode *arg1) {
+  return;
+}
+void *external_alloc(unsigned int size);
+struct dentry *d_instantiate_unique(struct dentry *arg0, struct inode *arg1) {
+  return (struct dentry *)external_alloc(sizeof(struct dentry));
+}
+void d_rehash(struct dentry *arg0) {
+  return;
+}
+void *external_alloc(unsigned int size);
+void *dev_get_drvdata(struct device *arg0) {
+  return (void *)external_alloc(sizeof(default_alloc_size));
+}
+void dev_set_drvdata(struct device *arg0, void *arg1) {
+  return;
+}
+int __VERIFIER_nondet_int(void);
+int ida_get_new_above(struct ida *arg0, int arg1, int *arg2) {
+  return __VERIFIER_nondet_int();
+}
+void *external_alloc(unsigned int size);
+void *idr_find_slowpath(struct idr *arg0, int arg1) {
+  return (void *)external_alloc(sizeof(default_alloc_size));
+}
+void *external_alloc(unsigned int size);
+struct kobject *kobject_get(struct kobject *arg0) {
+  return (struct kobject *)external_alloc(sizeof(struct kobject));
+}
+void kobject_put(struct kobject *arg0) {
+  return;
+}
+bool __VERIFIER_nondet_bool(void);
+bool llist_add_batch(struct llist_node *arg0, struct llist_node *arg1, struct llist_head *arg2) {
+  return __VERIFIER_nondet_bool();
+}
+void local_irq_restore(unsigned long arg0) {
+  return;
+}
+int __VERIFIER_nondet_int(void);
+int misc_deregister(struct miscdevice *arg0) {
+  return __VERIFIER_nondet_int();
+}
+int __VERIFIER_nondet_int(void);
+int misc_register(struct miscdevice *arg0) {
+  return __VERIFIER_nondet_int();
+}
+bool __VERIFIER_nondet_bool(void);
+bool mm_tlb_flush_pending(struct mm_struct *arg0) {
+  return __VERIFIER_nondet_bool();
+}
+long __VERIFIER_nondet_long(void);
+ssize_t nvram_get_size() {
+  return __VERIFIER_nondet_long();
+}
+unsigned char __VERIFIER_nondet_uchar(void);
+unsigned char nvram_read_byte(int arg0) {
+  return __VERIFIER_nondet_uchar();
+}
+void nvram_sync() {
+  return;
+}
+void nvram_write_byte(unsigned char arg0, int arg1) {
+  return;
+}
+unsigned int __VERIFIER_nondet_uint(void);
+dma_addr_t page_to_phys(struct page *arg0) {
+  return __VERIFIER_nondet_uint();
+}
+int __VERIFIER_nondet_int(void);
+int printk(const char *arg0, ...) {
+  return __VERIFIER_nondet_int();
+}
+void *external_alloc(unsigned int size);
+void *rcu_dereference_check(void *arg0, int arg1) {
+  return (void *)external_alloc(sizeof(default_alloc_size));
+}
+void *external_alloc(unsigned int size);
+void *rcu_dereference_raw(void *arg0) {
+  return (void *)external_alloc(sizeof(default_alloc_size));
+}
+void set_normalized_timespec(struct timespec *arg0, time_t arg1, s64 arg2) {
+  return;
+}
+void smp_mb() {
+  return;
+}
+void smp_rmb() {
+  return;
+}
+void *external_alloc(unsigned int size);
+void __VERIFIER_assume(int);
+struct timespec timespec_trunc(struct timespec arg0, unsigned arg1) {
+  struct timespec *tmp = (struct timespec*)external_alloc(sizeof(struct timespec));
+  __VERIFIER_assume(tmp != 0);
+  return *tmp;
+}
+void tty_lock(struct tty_struct *arg0) {
+  return;
+}
+unsigned int __VERIFIER_nondet_uint(void);
+speed_t tty_termios_baud_rate(struct ktermios *arg0) {
+  return __VERIFIER_nondet_uint();
+}
+void tty_unlock(struct tty_struct *arg0) {
+  return;
+}
+void tty_wait_until_sent(struct tty_struct *arg0, long arg1) {
+  return;
+}
 static struct mutex nvram_mutex = { 1, 0 };
 static ssize_t nvram_len;
 loff_t nvram_llseek(struct file *file, loff_t offset, int origin)
