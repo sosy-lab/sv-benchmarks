@@ -90,6 +90,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ldv-commit-tester", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-commit-tester", "unexpected subdirectory todo"), # subdirectory with files for further investigation
     ("ldv-linux-3.12-rc1", "unexpected subdirectory model"), # subdirectory containing models
+    ("ldv-linux-3.7.3", "unexpected subdirectory model"), # subdirectory containing models
 
     # historical
     ("ntdrivers", "missing license"),
