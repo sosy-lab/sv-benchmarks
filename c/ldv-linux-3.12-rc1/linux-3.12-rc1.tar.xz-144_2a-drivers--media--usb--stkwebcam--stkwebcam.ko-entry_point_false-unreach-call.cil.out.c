@@ -9116,3 +9116,5 @@ void ldv_check_final_state(void)
   return;
 }
 }
+#include "model/linux-3.12-rc1.tar.xz-144_2a-drivers--media--usb--stkwebcam--stkwebcam.ko-entry_point_false-unreach-call.cil.out.env.c"
+#include "model/common.env.c"
