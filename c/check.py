@@ -79,6 +79,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ldv-linux-3.16-rc1", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-linux-3.16-rc1", "unexpected subdirectory todo"), # subdirectory with files, which requires futher investigation
     ("ldv-validator-v0.6", "unexpected subdirectory model"), # subdirectory containing models
+    ("ldv-validator-v0.8", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-linux-3.14", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-linux-3.14", "unexpected subdirectory todo"), # subdirectory contains benchmarks, which need further investigation
     ("ldv-linux-4.0-rc1-mav", "unexpected subdirectory model"), # subdirectory containing models

@@ -8926,3 +8926,5 @@ void ldv_turn_off_carrier_detection(void)
   return;
 }
 }
+#include "model/linux-stable-073676f-1-114_1a-drivers--net--b44.ko-entry_point_ldv-val-v0.8_false-unreach-call.cil.out.env.c"
+#include "model/common.env.c"

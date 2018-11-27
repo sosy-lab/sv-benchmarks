@@ -4944,3 +4944,5 @@ void ldv_check_tty(struct tty_struct *tty )
   return;
 }
 }
+#include "model/linux-stable-1dfa93a-1-100_1a-drivers--usb--serial--kobil_sct.ko-entry_point_ldv-val-v0.8_false-unreach-call.cil.out.env.c"
+#include "model/common.env.c"

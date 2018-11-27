@@ -5618,3 +5618,5 @@ void ldv_check_ret_val(int res )
   return;
 }
 }
+#include "model/linux-stable-42f9f8d-1-111_1a-sound--oss--opl3.ko-entry_point_ldv-val-v0.8_false-unreach-call.cil.out.env.c"
+#include "model/common.env.c"
