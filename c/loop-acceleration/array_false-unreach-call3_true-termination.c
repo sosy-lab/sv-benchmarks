@@ -19,7 +19,7 @@ int main(void) {
     A[i] = __VERIFIER_nondet_int();
   }
 
-  for (i = 0; A[i] != 0 && i < N; i++) {
+  for (i = 0; i < N && A[i] != 0; i++) {
   }
 
   __VERIFIER_assert(i <= N / 2);

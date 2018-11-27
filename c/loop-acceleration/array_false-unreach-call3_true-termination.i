@@ -12,7 +12,7 @@ int main(void) {
   for (i = 0; i < 1024; i++) {
     A[i] = __VERIFIER_nondet_int();
   }
-  for (i = 0; A[i] != 0 && i < 1024; i++) {
+  for (i = 0; i < 1024 && A[i] != 0; i++) {
   }
   __VERIFIER_assert(i <= 1024 / 2);
 }
