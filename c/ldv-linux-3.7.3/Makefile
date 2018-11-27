@@ -2,6 +2,8 @@ LEVEL := ../
 
 CC.Arch := 64
 
+IGNORE_DIRS := ./model/
+
 COMMON_WARNINGS := \
 	-Wno-int-conversion \
 	-Wno-incompatible-pointer-types \
