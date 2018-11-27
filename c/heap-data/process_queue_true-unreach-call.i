@@ -559,7 +559,7 @@ struct process_node {
     int time_to_wait;
     struct process_node *next;
 };
-extern void run_process(int id);
+void run_process(int id) { (void)id; }
 void append_to_queue(struct process_node *n, struct process_node **q) {
     n->next = *q;
     *q = n;

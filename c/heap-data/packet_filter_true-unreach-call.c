@@ -32,7 +32,7 @@ Packet receive() {
     return packet;
 }
 
-extern void send(struct packet p);
+void send(struct packet p) { (void)p; }
 
 void append_to_queue(Packet p, Node *q) {
     Node node = malloc(sizeof(*node));

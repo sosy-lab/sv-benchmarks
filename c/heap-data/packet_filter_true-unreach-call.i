@@ -575,7 +575,7 @@ Packet receive() {
     packet.payload = __VERIFIER_nondet_charp();
     return packet;
 }
-extern void send(struct packet p);
+void send(struct packet p) { (void)p; }
 void append_to_queue(Packet p, Node *q) {
     Node node = malloc(sizeof(*node));
     node->packet = p;
