@@ -63,10 +63,6 @@ for f in $SETS ; do
 
   i=0
   for ff in $(ls $(grep -v "^#" $f)) ; do
-    i="$(($i+1))"
-    if [ "$((i % 100))" -eq 0 ]; then
-      echo "Processing file $i of category $setf"
-    fi
     orig=$ff
 
     # no original source available
@@ -94,6 +90,11 @@ for f in $SETS ; do
     if [ ! -s $orig ] ; then
       echo "No original source of $ff found" 1>&2
       exit 1
+    fi
+
+    i="$(($i+1))"
+    if [ "$((i % 10))" -eq 0 ]; then
+      echo "Processing file $i of category $setf"
     fi
 
     goto-cc -m$bits $orig
