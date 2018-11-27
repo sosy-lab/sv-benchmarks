@@ -1070,6 +1070,8 @@ int main(int argc, char **argv) {
   pthread_t id1, id2;
   struct item *list = ((void *)0);
   pthread_create(&id1, ((void *)0), build, list);
+  pthread_join(id1, ((void *)0));
   pthread_create(&id2, ((void *)0), delete, list);
+  pthread_join(id2, ((void *)0));
   return 0;
 }
