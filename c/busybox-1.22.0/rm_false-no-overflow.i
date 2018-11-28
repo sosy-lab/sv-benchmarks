@@ -3545,6 +3545,10 @@ int closedir(DIR *dirp)
   }
   return 0;
 }
+int isatty(int fd)
+{
+ return __VERIFIER_nondet_int();
+}
 struct dirent *readdir(DIR *d)
 {
     (void)d;

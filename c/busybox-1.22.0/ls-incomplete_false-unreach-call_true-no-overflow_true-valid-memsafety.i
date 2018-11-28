@@ -5279,6 +5279,10 @@ struct passwd *bb_internal_getpwuid(uid_t uid)
   (void)uid;
   return bb_internal_getpwnam(0);
 }
+int isatty(int fd)
+{
+ return __VERIFIER_nondet_int();
+}
 ssize_t readlink(const char *path, char *buf, size_t bufsiz)
 {
   (void)*path;
