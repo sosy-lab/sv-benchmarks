@@ -1774,6 +1774,10 @@ signed int __main(signed int argc, char **argv)
   return_value_fflush_all$2=fflush_all();
   return return_value_fflush_all$2;
 }
+long gethostid(void)
+{
+  return __VERIFIER_nondet_long();
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())

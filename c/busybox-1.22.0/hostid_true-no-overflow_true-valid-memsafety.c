@@ -71,4 +71,5 @@ signed int __main(signed int argc, char **argv)
   return return_value_fflush_all$2;
 }
 
+#include "busybox_sv_comp-gethostid.h"
 #include "busybox_sv_comp_impl.h"
