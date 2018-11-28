@@ -3456,6 +3456,10 @@ int lstat(const char *path, struct stat *buf)
 {
   return stat(path, buf);
 }
+mode_t umask(mode_t mask)
+{
+  return __VERIFIER_nondet_uint();
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())
