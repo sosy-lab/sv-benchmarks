@@ -3768,6 +3768,17 @@ unsigned int sleep(unsigned int sec) {
   __VERIFIER_assume(retval <= sec);
   return retval;
 }
+int stime(const time_t *t)
+{
+  (void)*t;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
 char *strptime(const char *s, const char *format, struct tm *result)
 {
   result->tm_sec = __VERIFIER_nondet_int();
