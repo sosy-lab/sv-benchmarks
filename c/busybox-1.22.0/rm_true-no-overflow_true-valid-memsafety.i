@@ -3570,6 +3570,17 @@ struct dirent *readdir(DIR *d)
     ret.d_name[ret.d_reclen] = '\0';
     return &ret;
 }
+int rmdir(const char *pathname)
+{
+  (void)*pathname;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
 int access(const char *path, int mode)
 {
     (void)*path; (void) mode;
