@@ -28,6 +28,7 @@
 #ifdef CONFIG_PPC_PMAC
 #include <asm/machdep.h>
 #endif
+#include <undef_funcs_generic_nvram.h>
 
 #define NVRAM_SIZE	8192
 
