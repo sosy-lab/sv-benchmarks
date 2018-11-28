@@ -5305,6 +5305,18 @@ unsigned int gnu_dev_minor(unsigned long long dev)
   (void)dev;
   return __VERIFIER_nondet_uint();
 }
+DIR* opendir(const char *name)
+{
+  (void)*name;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return 0;
+  }
+  static int d;
+  return (DIR *)&d;
+}
 ssize_t readlink(const char *path, char *buf, size_t bufsiz)
 {
   (void)*path;

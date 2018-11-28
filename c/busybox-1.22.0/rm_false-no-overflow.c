@@ -1391,6 +1391,7 @@ static void * xzalloc(unsigned long int size)
 
 #include "busybox_sv_comp-closedir.h"
 #include "busybox_sv_comp-isatty.h"
+#include "busybox_sv_comp-opendir.h"
 #include "busybox_sv_comp-readdir.h"
 #include "busybox_sv_comp-rmdir.h"
 #include "busybox_sv_comp-access.h"
