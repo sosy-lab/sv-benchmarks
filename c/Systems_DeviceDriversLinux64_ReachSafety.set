@@ -1,7 +1,7 @@
 ldv-linux-3.0/*_false-unreach-call*.i
 ldv-linux-3.0/*_true-unreach-call*.i
-ldv-linux-3.4-simple/*_false-unreach-call*.c
-ldv-linux-3.4-simple/*_true-unreach-call*.c
+ldv-linux-3.4-simple/*_false-unreach-call*.i
+ldv-linux-3.4-simple/*_true-unreach-call*.i
 ldv-linux-3.7.3/*_false-unreach-call*.i
 ldv-linux-3.7.3/*_true-unreach-call*.i
 ldv-commit-tester/*_false-unreach-call*.i

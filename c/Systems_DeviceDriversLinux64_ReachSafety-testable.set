@@ -394,8 +394,8 @@ ldv-linux-3.14/linux-3.14__linux-usb-dev__drivers-net-wireless-b43legacy-b43lega
 ldv-linux-3.14/linux-3.14__linux-usb-dev__drivers-net-wireless-ipw2x00-ipw2100_true-unreach-call.cil.i
 ldv-linux-3.14/linux-3.14__linux-usb-dev__drivers-net-wireless-ipw2x00-ipw2200_true-unreach-call.cil.i
 ldv-linux-3.14/linux-3.14__linux-usb-dev__drivers-net-wireless-mwifiex-mwifiex_true-unreach-call.cil.i
-ldv-linux-3.4-simple/32_7_cilled_false-unreach-call_const_ok_linux-32_1-drivers--gpu--drm--vmwgfx--vmwgfx.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.c
-ldv-linux-3.4-simple/32_7_cilled_false-unreach-call_const_ok_linux-32_1-drivers--media--dvb--dvb-usb--dvb-usb-dib0700.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.c
+ldv-linux-3.4-simple/32_7_cilled_false-unreach-call_const_ok_linux-32_1-drivers--gpu--drm--vmwgfx--vmwgfx.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i
+ldv-linux-3.4-simple/32_7_cilled_false-unreach-call_const_ok_linux-32_1-drivers--media--dvb--dvb-usb--dvb-usb-dib0700.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-linux-3.7.3/main11_false-unreach-call_drivers-usb-core-usbcore-ko--32_7a--linux-3.7.3.i
 ldv-linux-3.7.3/main15_false-unreach-call_drivers-usb-core-usbcore-ko--32_7a--linux-3.7.3.i
 ldv-linux-3.7.3/main17_false-unreach-call_drivers-gpu-drm-vmwgfx-vmwgfx-ko--32_7a--linux-3.5.i
