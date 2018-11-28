@@ -15921,7 +15921,7 @@ void kmem_cache_free(struct kmem_cache *, void *);
 unsigned int kmem_cache_size(struct kmem_cache *);
 void * __attribute__((warn_unused_result)) __krealloc(const void *, size_t, gfp_t);
 void * __attribute__((warn_unused_result)) krealloc(const void *, size_t, gfp_t);
-void kfree(const void *);
+void kfree(void *);
 void kzfree(const void *);
 size_t ksize(const void *);
 struct sock;
