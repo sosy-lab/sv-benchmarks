@@ -3768,6 +3768,39 @@ unsigned int sleep(unsigned int sec) {
   __VERIFIER_assume(retval <= sec);
   return retval;
 }
+int fstat(int fd, struct stat *buf)
+{
+  (void)fd;
+  if (__VERIFIER_nondet_int()) {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  buf->st_dev = (dev_t)__VERIFIER_nondet_ulong();
+  buf->st_ino = (ino_t)__VERIFIER_nondet_ulong();
+  buf->st_mode = (mode_t)__VERIFIER_nondet_ulong();
+  buf->st_nlink = (nlink_t)__VERIFIER_nondet_ulong();
+  buf->st_uid = (uid_t)__VERIFIER_nondet_ulong();
+  buf->st_gid = (gid_t)__VERIFIER_nondet_ulong();
+  buf->st_rdev = (dev_t)__VERIFIER_nondet_ulong();
+  buf->st_size = (off_t)__VERIFIER_nondet_ulong();
+  buf->st_blksize = (blksize_t)__VERIFIER_nondet_ulong();
+  buf->st_blocks = (blkcnt_t)__VERIFIER_nondet_ulong();
+  buf->st_atim.tv_sec = (time_t)__VERIFIER_nondet_ulong();
+  buf->st_mtim.tv_sec = (time_t)__VERIFIER_nondet_ulong();
+  buf->st_ctim.tv_sec = (time_t)__VERIFIER_nondet_ulong();
+  return 0;
+}
+int stat(const char *path, struct stat *buf)
+{
+  (void)*path;
+  int fd = __VERIFIER_nondet_int();
+  return fstat(fd, buf);
+}
+int lstat(const char *path, struct stat *buf)
+{
+  return stat(path, buf);
+}
 int stime(const time_t *t)
 {
   (void)*t;
