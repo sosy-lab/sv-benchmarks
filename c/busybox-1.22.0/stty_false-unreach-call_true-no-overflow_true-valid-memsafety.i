@@ -4421,6 +4421,17 @@ inval:
   ;
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
+int dup2(int oldfd, int newfd)
+{
+  (void)oldfd;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return newfd;
+}
 int fcntl(int fd, int cmd, ...)
 {
   (void)fd; (void)cmd;
