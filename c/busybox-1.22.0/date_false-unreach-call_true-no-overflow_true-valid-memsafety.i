@@ -2373,18 +2373,18 @@ extern int getutid_r (const struct utmp *__id, struct utmp *__buffer,
         struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
 extern int getutline_r (const struct utmp *__line,
    struct utmp *__buffer, struct utmp **__result) __attribute__ ((__nothrow__ , __leaf__));
+
 struct tm *localtime_r(const time_t *timep, struct tm* result)
 {
-   result->tm_sec   = __VERIFIER_nondet_int();
-   result->tm_min   = __VERIFIER_nondet_int();
-   result->tm_hour  = __VERIFIER_nondet_int();
-   result->tm_mday  = __VERIFIER_nondet_int();
-   result->tm_mon   = __VERIFIER_nondet_int();
-   result->tm_year  = __VERIFIER_nondet_int();
-   result->tm_wday  = __VERIFIER_nondet_int();
-   result->tm_yday  = __VERIFIER_nondet_int();
+   result->tm_sec = __VERIFIER_nondet_int();
+   result->tm_min = __VERIFIER_nondet_int();
+   result->tm_hour = __VERIFIER_nondet_int();
+   result->tm_mday = __VERIFIER_nondet_int();
+   result->tm_mon = __VERIFIER_nondet_int();
+   result->tm_year = __VERIFIER_nondet_int();
+   result->tm_wday = __VERIFIER_nondet_int();
+   result->tm_yday = __VERIFIER_nondet_int();
    result->tm_isdst = __VERIFIER_nondet_int();
-
    __VERIFIER_assume(result->tm_sec >= 0 && result->tm_sec <= 60);
    __VERIFIER_assume(result->tm_min >= 0 && result->tm_min < 60);
    __VERIFIER_assume(result->tm_hour >= 0 && result->tm_hour < 24);
@@ -3692,7 +3692,6 @@ int stat(const char *__file, struct stat *__buf)
   __buf->st_mtim.tv_sec = __VERIFIER_nondet_long();
   if (__VERIFIER_nondet_char())
     return -1;
-
   __VERIFIER_assume(__buf->st_mtim.tv_sec >= 0);
   return 0;
 }

@@ -2207,7 +2207,7 @@ extern int getutline_r (const struct utmp *__line,
 static void bb_error_msg_and_die(const char *s, ...);
 static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 signed int chown_main(signed int argc, char **argv) {
-        (void) argc; (void) argv;
+  (void) argc; (void) argv;
         return __VERIFIER_nondet_int();
 }
 static signed int fflush_all(void);

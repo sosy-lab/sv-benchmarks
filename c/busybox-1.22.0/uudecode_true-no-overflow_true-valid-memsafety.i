@@ -3328,7 +3328,7 @@ void syslog(int priority, const char *format, ...)
 }
 int fchmod(int fd, unsigned int mode)
 {
-	(void)fd;(void)mode;
+ (void)fd;(void)mode;
 }
 signed int __main(signed int argc, char **argv)
 {
