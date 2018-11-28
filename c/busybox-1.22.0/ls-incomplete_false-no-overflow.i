@@ -5295,6 +5295,16 @@ struct passwd *bb_internal_getpwuid(uid_t uid)
   (void)uid;
   return bb_internal_getpwnam(0);
 }
+unsigned int gnu_dev_major(unsigned long long dev)
+{
+  (void)dev;
+  return __VERIFIER_nondet_uint();
+}
+unsigned int gnu_dev_minor(unsigned long long dev)
+{
+  (void)dev;
+  return __VERIFIER_nondet_uint();
+}
 ssize_t readlink(const char *path, char *buf, size_t bufsiz)
 {
   (void)*path;

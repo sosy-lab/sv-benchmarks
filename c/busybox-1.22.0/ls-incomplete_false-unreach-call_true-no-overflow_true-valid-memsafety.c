@@ -3516,6 +3516,7 @@ static void * xzalloc(unsigned long int size)
 #include "busybox_sv_comp-getpwnam.h"
 #include "busybox_sv_comp-ioctl.h"
 #include "busybox_sv_comp-isatty.h"
+#include "busybox_sv_comp-makedev.h"
 #include "busybox_sv_comp-readlink.h"
 #include "busybox_sv_comp-readdir.h"
 #include "busybox_sv_comp-sleep.h"
