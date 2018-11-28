@@ -1338,4 +1338,9 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+#include "busybox_sv_comp-chmod.h"
+#include "busybox_sv_comp-mkdir.h"
+#include "busybox_sv_comp-sleep.h"
+#include "busybox_sv_comp-stat.h"
+#include "busybox_sv_comp-umask.h"
 #include "busybox_sv_comp_impl.h"

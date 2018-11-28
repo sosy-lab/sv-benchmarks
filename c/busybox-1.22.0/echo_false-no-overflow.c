@@ -509,5 +509,6 @@ static void * xmalloc(unsigned long int size)
   return ptr;
 }
 
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp-stpcpy.h"
 #include "busybox_sv_comp_impl.h"

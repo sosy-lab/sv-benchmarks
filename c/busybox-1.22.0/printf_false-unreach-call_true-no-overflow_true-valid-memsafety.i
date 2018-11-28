@@ -3302,6 +3302,23 @@ static void * xmalloc(unsigned long int size)
   }
   return ptr;
 }
+int fcntl(int fd, int cmd, ...)
+{
+  (void)fd; (void)cmd;
+  int retval = __VERIFIER_nondet_int();
+  if(retval < 0)
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return retval;
+}
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())

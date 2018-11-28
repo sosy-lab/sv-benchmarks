@@ -2455,6 +2455,11 @@ char *realpath(const char *path, char *resolved_path)
   *(resolved_path + offset) = '\0';
   return resolved_path;
 }
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())

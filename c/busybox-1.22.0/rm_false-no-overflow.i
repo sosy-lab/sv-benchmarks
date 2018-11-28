@@ -3535,6 +3535,32 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+int closedir(DIR *dirp)
+{
+  (void)dirp;
+  if (__VERIFIER_nondet_int()) {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
+int isatty(int fd)
+{
+ return __VERIFIER_nondet_int();
+}
+DIR* opendir(const char *name)
+{
+  (void)*name;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return 0;
+  }
+  static int d;
+  return (DIR *)&d;
+}
 struct dirent *readdir(DIR *d)
 {
     (void)d;
@@ -3556,6 +3582,17 @@ struct dirent *readdir(DIR *d)
     ret.d_name[ret.d_reclen] = '\0';
     return &ret;
 }
+int rmdir(const char *pathname)
+{
+  (void)*pathname;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
 int access(const char *path, int mode)
 {
     (void)*path; (void) mode;
@@ -3565,6 +3602,55 @@ int access(const char *path, int mode)
         return -1;
     }
     return 0;
+}
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
+}
+int fstat(int fd, struct stat *buf)
+{
+  (void)fd;
+  if (__VERIFIER_nondet_int()) {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  buf->st_dev = (dev_t)__VERIFIER_nondet_ulong();
+  buf->st_ino = (ino_t)__VERIFIER_nondet_ulong();
+  buf->st_mode = (mode_t)__VERIFIER_nondet_ulong();
+  buf->st_nlink = (nlink_t)__VERIFIER_nondet_ulong();
+  buf->st_uid = (uid_t)__VERIFIER_nondet_ulong();
+  buf->st_gid = (gid_t)__VERIFIER_nondet_ulong();
+  buf->st_rdev = (dev_t)__VERIFIER_nondet_ulong();
+  buf->st_size = (off_t)__VERIFIER_nondet_ulong();
+  buf->st_blksize = (blksize_t)__VERIFIER_nondet_ulong();
+  buf->st_blocks = (blkcnt_t)__VERIFIER_nondet_ulong();
+  buf->st_atim.tv_sec = (time_t)__VERIFIER_nondet_ulong();
+  buf->st_mtim.tv_sec = (time_t)__VERIFIER_nondet_ulong();
+  buf->st_ctim.tv_sec = (time_t)__VERIFIER_nondet_ulong();
+  return 0;
+}
+int stat(const char *path, struct stat *buf)
+{
+  (void)*path;
+  int fd = __VERIFIER_nondet_int();
+  return fstat(fd, buf);
+}
+int lstat(const char *path, struct stat *buf)
+{
+  return stat(path, buf);
+}
+int unlink(const char *pathname)
+{
+  (void)*pathname;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
 }
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {

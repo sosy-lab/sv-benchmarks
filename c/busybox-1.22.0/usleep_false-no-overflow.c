@@ -385,5 +385,6 @@ inval:
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
 
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp-usleep.h"
 #include "busybox_sv_comp_impl.h"

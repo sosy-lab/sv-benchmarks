@@ -4421,6 +4421,100 @@ inval:
   ;
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
+int dup2(int oldfd, int newfd)
+{
+  (void)oldfd;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return newfd;
+}
+int fcntl(int fd, int cmd, ...)
+{
+  (void)fd; (void)cmd;
+  int retval = __VERIFIER_nondet_int();
+  if(retval < 0)
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return retval;
+}
+int ioctl(int d, unsigned long request, ...)
+{
+  (void)d; (void)request;
+  int retval = __VERIFIER_nondet_int();
+  if(retval < 0)
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return retval;
+}
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
+}
+int tcgetattr(int fd, struct termios *termios_p)
+{
+  (void)*termios_p;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
+int tcsetattr(int fd, int optional_actions, const struct termios *termios_p)
+{
+  (void)*termios_p;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
+int cfsetispeed(struct termios *termios_p, speed_t speed)
+{
+  (void)*termios_p;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
+int cfsetospeed(struct termios *termios_p, speed_t speed)
+{
+  (void)*termios_p;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
+speed_t cfgetispeed(const struct termios *termios_p)
+{
+  (void)*termios_p;
+  return __VERIFIER_nondet_uint();
+}
+speed_t cfgetospeed(const struct termios *termios_p)
+{
+  (void)*termios_p;
+  return __VERIFIER_nondet_uint();
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())

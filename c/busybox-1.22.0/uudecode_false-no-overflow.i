@@ -3328,7 +3328,7 @@ void syslog(int priority, const char *format, ...)
 }
 int fchmod(int fd, unsigned int mode)
 {
-	(void)fd;(void)mode;
+ (void)fd;(void)mode;
 }
 signed int __main(signed int argc, char **argv)
 {
@@ -3694,6 +3694,14 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+int _IO_getc(struct _IO_FILE *stream) {
+  return fgetc(stream);
+}
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
 }
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {

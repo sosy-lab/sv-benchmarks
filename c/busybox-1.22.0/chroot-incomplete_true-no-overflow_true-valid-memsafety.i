@@ -2520,6 +2520,18 @@ uid_t getuid(void)
 {
     return __VERIFIER_nondet_uint();
 }
+uid_t geteuid(void)
+{
+  return __VERIFIER_nondet_uint();
+}
+gid_t getgid(void)
+{
+  return __VERIFIER_nondet_uint();
+}
+gid_t getegid(void)
+{
+  return __VERIFIER_nondet_uint();
+}
 int execvp(const char *file, char * const *argv)
 {
  int i;
@@ -2551,6 +2563,11 @@ struct passwd *bb_internal_getpwuid(uid_t uid)
 {
   (void)uid;
   return bb_internal_getpwnam(0);
+}
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
 }
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {

@@ -378,4 +378,5 @@ static void xfunc_die(void)
 #include "busybox_sv_comp-getuid.h"
 #include "busybox_sv_comp-execvp.h"
 #include "busybox_sv_comp-getpwnam.h"
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp_impl.h"

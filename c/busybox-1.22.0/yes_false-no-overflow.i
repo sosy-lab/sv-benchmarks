@@ -2397,6 +2397,11 @@ signed int __main(signed int argc, char **argv)
   while(return_value_putchar_unlocked$1 != -1);
   bb_perror_nomsg_and_die();
 }
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())

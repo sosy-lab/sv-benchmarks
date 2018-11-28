@@ -2962,6 +2962,11 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
+}
 int uname(struct utsname *uts)
 {
  if (__VERIFIER_nondet_int()) {
