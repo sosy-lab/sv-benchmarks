@@ -347,4 +347,5 @@ static char * xmalloc_realpath(const char *path)
 }
 
 #include "busybox_sv_comp-realpath.h"
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp_impl.h"

@@ -284,4 +284,5 @@ static char * xuid2uname(unsigned int uid)
 }
 
 #include "busybox_sv_comp-getpwnam.h"
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp_impl.h"

@@ -272,4 +272,5 @@ static void xfunc_die(void)
 }
 
 #include "busybox_sv_comp-getlogin_r.h"
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp_impl.h"

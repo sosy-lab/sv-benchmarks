@@ -281,4 +281,5 @@ static void xfunc_die(void)
   exit((signed int)xfunc_error_retval);
 }
 
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp_impl.h"

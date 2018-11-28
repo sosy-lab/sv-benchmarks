@@ -2471,6 +2471,11 @@ inval:
   ;
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
+}
 int usleep(unsigned int usec) {
  if (__VERIFIER_nondet_int()) {
   *bb_errno = __VERIFIER_nondet_int();

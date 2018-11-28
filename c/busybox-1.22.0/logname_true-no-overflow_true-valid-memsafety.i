@@ -2404,6 +2404,11 @@ int getlogin_r(char *buf, size_t bufsize)
     buf[size] = '\0';
     return 0;
 }
+unsigned int sleep(unsigned int sec) {
+  unsigned int retval = __VERIFIER_nondet_uint();
+  __VERIFIER_assume(retval <= sec);
+  return retval;
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())

@@ -1095,4 +1095,5 @@ static void * xzalloc(unsigned long int size)
 
 #include "busybox_sv_comp-readlink.h"
 #include "busybox_sv_comp-realpath.h"
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp_impl.h"

@@ -281,4 +281,5 @@ signed int __main(signed int argc, char **argv)
   bb_perror_nomsg_and_die();
 }
 
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp_impl.h"

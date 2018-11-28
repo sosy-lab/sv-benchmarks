@@ -466,4 +466,5 @@ inval:
 }
 
 #include "busybox_sv_comp-nanosleep.h"
+#include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp_impl.h"
