@@ -3703,6 +3703,20 @@ char *strptime(const char *s, const char *format, struct tm *result)
   __VERIFIER_assume(last_ok <= s_len);
   return (char *)s + last_ok;
 };
+int utimes(const char *filename, const struct timeval times[2])
+{
+  (void)*filename;
+  if (__VERIFIER_nondet_int()) {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
+int lutimes(const char *filename, const struct timeval times[2])
+{
+  return utimes(filename, times);
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())
