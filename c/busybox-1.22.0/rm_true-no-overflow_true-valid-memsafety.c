@@ -1389,6 +1389,7 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+#include "busybox_sv_comp-closedir.h"
 #include "busybox_sv_comp-readdir.h"
 #include "busybox_sv_comp-access.h"
 #include "busybox_sv_comp-sleep.h"

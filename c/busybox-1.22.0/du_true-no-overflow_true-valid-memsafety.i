@@ -3586,6 +3586,16 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+int closedir(DIR *dirp)
+{
+  (void)dirp;
+  if (__VERIFIER_nondet_int()) {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
 struct dirent *readdir(DIR *d)
 {
     (void)d;
