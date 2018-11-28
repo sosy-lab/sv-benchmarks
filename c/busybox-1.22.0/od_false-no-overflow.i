@@ -4925,6 +4925,15 @@ static void * xzalloc(unsigned long int size)
 int _IO_getc(struct _IO_FILE *stream) {
   return fgetc(stream);
 }
+int fseeko(struct _IO_FILE *stream, off_t offset, int whence)
+{
+  if(offset > 9223372036854775807L) {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return fseek(stream, offset, whence);
+}
 unsigned int sleep(unsigned int sec) {
   unsigned int retval = __VERIFIER_nondet_uint();
   __VERIFIER_assume(retval <= sec);
