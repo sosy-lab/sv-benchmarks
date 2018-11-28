@@ -875,7 +875,7 @@ __inline static void platform_set_drvdata(struct platform_device *pdev , void *d
   return;
 }
 }
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

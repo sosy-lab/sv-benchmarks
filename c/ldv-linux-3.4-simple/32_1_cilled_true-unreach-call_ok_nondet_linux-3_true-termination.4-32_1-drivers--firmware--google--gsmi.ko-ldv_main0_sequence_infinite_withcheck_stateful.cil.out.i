@@ -3297,7 +3297,7 @@ extern struct dma_pool *dma_pool_create(char const *name , struct device *dev ,
 extern void dma_pool_destroy(struct dma_pool *pool ) ;
 extern void *dma_pool_alloc(struct dma_pool *pool , gfp_t mem_flags , dma_addr_t *handle ) ;
 extern void dma_pool_free(struct dma_pool *pool , void *vaddr , dma_addr_t addr ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

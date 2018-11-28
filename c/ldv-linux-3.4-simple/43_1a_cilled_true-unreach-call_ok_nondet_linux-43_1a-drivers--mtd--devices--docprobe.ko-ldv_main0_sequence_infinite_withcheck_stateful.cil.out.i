@@ -2075,7 +2075,7 @@ extern void iounmap(void volatile * ) ;
 extern int __request_module(bool , char const * , ...) ;
 extern void *__symbol_get(char const * ) ;
 extern void symbol_put_addr(void * ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;

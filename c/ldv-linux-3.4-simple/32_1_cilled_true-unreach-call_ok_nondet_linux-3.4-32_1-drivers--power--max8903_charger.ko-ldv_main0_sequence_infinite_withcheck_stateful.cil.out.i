@@ -1050,7 +1050,7 @@ extern void free_irq(unsigned int , void * ) ;
 extern struct module __this_module ;
 int init_module(void) ;
 void cleanup_module(void) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

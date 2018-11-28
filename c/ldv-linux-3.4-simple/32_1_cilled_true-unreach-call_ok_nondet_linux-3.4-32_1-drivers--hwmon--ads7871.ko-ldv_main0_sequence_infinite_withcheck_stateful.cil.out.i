@@ -2069,7 +2069,7 @@ void cleanup_module(void) ;
 extern void driver_unregister(struct device_driver *drv ) ;
 extern void *dev_get_drvdata(struct device const *dev ) ;
 extern int dev_set_drvdata(struct device *dev , void *data ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

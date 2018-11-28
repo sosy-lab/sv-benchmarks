@@ -6837,7 +6837,7 @@ __inline static void writel(unsigned int val , void volatile *addr )
   return;
 }
 }
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

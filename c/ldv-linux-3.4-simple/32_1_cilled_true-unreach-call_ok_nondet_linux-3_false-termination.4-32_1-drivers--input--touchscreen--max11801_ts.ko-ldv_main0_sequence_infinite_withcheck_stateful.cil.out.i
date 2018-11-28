@@ -3150,7 +3150,7 @@ __inline static void input_sync(struct input_dev *dev )
 }
 extern void input_set_abs_params(struct input_dev *dev , unsigned int axis , int min ,
                                  int max , int fuzz , int flat ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

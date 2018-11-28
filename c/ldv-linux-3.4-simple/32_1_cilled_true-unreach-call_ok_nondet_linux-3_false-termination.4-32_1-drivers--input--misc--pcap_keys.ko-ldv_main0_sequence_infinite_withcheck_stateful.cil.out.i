@@ -1901,7 +1901,7 @@ __inline static void input_sync(struct input_dev *dev )
 extern int ezx_pcap_read(struct pcap_chip * , u8 , u32 * ) ;
 extern int pcap_to_irq(struct pcap_chip * , int ) ;
 extern int irq_to_pcap(struct pcap_chip * , int ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

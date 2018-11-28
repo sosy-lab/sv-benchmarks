@@ -2078,7 +2078,7 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 extern void *memset(void * , int , size_t ) ;
 extern struct module __this_module ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;

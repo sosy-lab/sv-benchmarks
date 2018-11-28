@@ -1370,7 +1370,7 @@ __inline static void *( __attribute__((__always_inline__)) lowmem_page_address)(
   }
 }
 }
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

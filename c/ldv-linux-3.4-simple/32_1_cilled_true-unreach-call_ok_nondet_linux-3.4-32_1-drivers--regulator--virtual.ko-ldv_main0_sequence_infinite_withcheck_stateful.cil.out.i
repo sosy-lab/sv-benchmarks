@@ -901,7 +901,7 @@ extern int regulator_set_current_limit(struct regulator *regulator , int min_uA 
                                        int max_uA ) ;
 extern int regulator_set_mode(struct regulator *regulator , unsigned int mode ) ;
 extern unsigned int regulator_get_mode(struct regulator *regulator ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

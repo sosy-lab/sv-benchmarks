@@ -6044,7 +6044,7 @@ int init_module(void) ;
 void cleanup_module(void) ;
 extern void *__symbol_get(char const *symbol ) ;
 extern void __symbol_put(char const *symbol ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

@@ -3719,7 +3719,7 @@ extern long interruptible_sleep_on_timeout(wait_queue_head_t * , long ) ;
 extern void prepare_to_wait(wait_queue_head_t * , wait_queue_t * , int ) ;
 extern void finish_wait(wait_queue_head_t * , wait_queue_t * ) ;
 extern int autoremove_wake_function(wait_queue_t * , unsigned int , int , void * ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 extern int __VERIFIER_nondet_int(void);

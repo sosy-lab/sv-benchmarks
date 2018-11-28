@@ -3263,7 +3263,7 @@ __inline static int i2c_adapter_id(struct i2c_adapter *adap )
 }
 }
 extern unsigned long msleep_interruptible(unsigned int msecs ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

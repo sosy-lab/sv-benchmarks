@@ -3205,7 +3205,7 @@ void mutex_unlock(struct mutex *lock ) ;
 int atomic_dec_and_mutex_lock(atomic_t *cnt , struct mutex *lock ) ;
 extern void msleep(unsigned int msecs ) ;
 extern int i2c_transfer(struct i2c_adapter *adap , struct i2c_msg *msgs , int num ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

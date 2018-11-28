@@ -2138,7 +2138,7 @@ extern void i2c_del_driver(struct i2c_driver * ) ;
 extern int mfd_add_devices(struct device *parent , int id , struct mfd_cell *cells ,
                            int n_devs , struct resource *mem_base , int irq_base ) ;
 extern void mfd_remove_devices(struct device *parent ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

@@ -6030,7 +6030,7 @@ __inline static int pm_runtime_put_sync(struct device *dev )
   return (tmp___7);
 }
 }
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
