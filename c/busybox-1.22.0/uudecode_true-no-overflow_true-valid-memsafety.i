@@ -3695,6 +3695,9 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+int _IO_getc(struct _IO_FILE *stream) {
+  return fgetc(stream);
+}
 unsigned int sleep(unsigned int sec) {
   unsigned int retval = __VERIFIER_nondet_uint();
   __VERIFIER_assume(retval <= sec);
