@@ -1226,6 +1226,7 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+#include "busybox_sv_comp-_setjmp.h"
 #include "busybox_sv_comp-getuid.h"
 #include "busybox_sv_comp-isatty.h"
 #include "busybox_sv_comp-sleep.h"

@@ -3294,6 +3294,10 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+int _setjmp(jmp_buf env)
+{
+  return setjmp(env);
+}
 uid_t getuid(void)
 {
     return __VERIFIER_nondet_uint();
