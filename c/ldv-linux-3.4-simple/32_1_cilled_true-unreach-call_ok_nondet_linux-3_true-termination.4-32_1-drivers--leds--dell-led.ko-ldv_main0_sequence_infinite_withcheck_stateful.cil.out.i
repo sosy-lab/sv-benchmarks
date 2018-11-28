@@ -2806,7 +2806,7 @@ int __attribute__((__warn_unused_result__)) mutex_lock_killable(struct mutex *lo
 int mutex_trylock(struct mutex *lock ) ;
 void mutex_unlock(struct mutex *lock ) ;
 int atomic_dec_and_mutex_lock(atomic_t *cnt , struct mutex *lock ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern acpi_status wmi_evaluate_method(char const *guid , u8 instance , u32 method_id ,
                                        struct acpi_buffer const *in , struct acpi_buffer *out ) ;
 extern bool wmi_has_guid(char const *guid ) ;

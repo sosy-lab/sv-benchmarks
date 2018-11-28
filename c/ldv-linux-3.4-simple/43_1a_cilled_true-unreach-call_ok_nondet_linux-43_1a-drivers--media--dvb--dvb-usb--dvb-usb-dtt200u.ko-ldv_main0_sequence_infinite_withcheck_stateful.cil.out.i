@@ -8228,7 +8228,7 @@ int ldv_pskb_expand_head_27(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
 }
 }
 extern void *memcpy(void * , void const * , size_t ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
 extern void msleep(unsigned int ) ;

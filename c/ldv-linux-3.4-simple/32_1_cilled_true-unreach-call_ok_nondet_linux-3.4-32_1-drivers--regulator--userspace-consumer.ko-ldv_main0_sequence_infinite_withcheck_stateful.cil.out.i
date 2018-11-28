@@ -832,7 +832,7 @@ extern int regulator_bulk_get(struct device *dev , int num_consumers , struct re
 extern int regulator_bulk_enable(int num_consumers , struct regulator_bulk_data *consumers ) ;
 extern int regulator_bulk_disable(int num_consumers , struct regulator_bulk_data *consumers ) ;
 extern void regulator_bulk_free(int num_consumers , struct regulator_bulk_data *consumers ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

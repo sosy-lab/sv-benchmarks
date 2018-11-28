@@ -2065,7 +2065,7 @@ __inline static int mtd_is_bitflip(int err )
   return (err == -117);
 }
 }
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

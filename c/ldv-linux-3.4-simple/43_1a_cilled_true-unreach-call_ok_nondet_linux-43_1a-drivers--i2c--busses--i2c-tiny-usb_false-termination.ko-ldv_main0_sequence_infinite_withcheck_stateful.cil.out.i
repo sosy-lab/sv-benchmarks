@@ -3069,7 +3069,7 @@ extern int __dynamic_dev_dbg(struct _ddebug * , struct device const * , char con
                              , ...) ;
 extern int snprintf(char * , size_t , char const * , ...) ;
 extern struct module __this_module ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;

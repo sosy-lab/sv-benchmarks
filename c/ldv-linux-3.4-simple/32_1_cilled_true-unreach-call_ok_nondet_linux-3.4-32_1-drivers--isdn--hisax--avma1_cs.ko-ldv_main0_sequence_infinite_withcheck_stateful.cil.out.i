@@ -2361,7 +2361,7 @@ extern struct kernel_param_ops param_ops_int ;
 extern struct module __this_module ;
 int init_module(void) ;
 void cleanup_module(void) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int pcmcia_register_driver(struct pcmcia_driver *driver ) ;
 extern void pcmcia_unregister_driver(struct pcmcia_driver *driver ) ;
 extern int pcmcia_loop_config(struct pcmcia_device *p_dev , int (*conf_check)(struct pcmcia_device *p_dev ,

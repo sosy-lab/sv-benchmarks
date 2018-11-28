@@ -3302,7 +3302,7 @@ __inline static void *bl_get_data(struct backlight_device *bl_dev )
   return (tmp);
 }
 }
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

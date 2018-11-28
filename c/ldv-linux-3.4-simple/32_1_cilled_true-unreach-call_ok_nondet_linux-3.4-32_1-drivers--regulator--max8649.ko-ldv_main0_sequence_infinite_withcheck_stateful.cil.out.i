@@ -2376,7 +2376,7 @@ extern struct regulator_dev *regulator_register(struct regulator_desc *regulator
                                                 void *driver_data , struct device_node *of_node ) ;
 extern void regulator_unregister(struct regulator_dev *rdev ) ;
 extern void *rdev_get_drvdata(struct regulator_dev *rdev ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

@@ -3484,7 +3484,7 @@ extern int ( dev_set_name)(struct device *dev , char const *name
 extern int __attribute__((__warn_unused_result__)) device_register(struct device *dev ) ;
 extern void device_unregister(struct device *dev ) ;
 extern int dev_set_drvdata(struct device *dev , void *data ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

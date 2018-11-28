@@ -3091,7 +3091,7 @@ __inline static void memset_io(void volatile *addr , unsigned char val , size_t 
 }
 extern void free_percpu(void * ) ;
 extern struct module __this_module ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;

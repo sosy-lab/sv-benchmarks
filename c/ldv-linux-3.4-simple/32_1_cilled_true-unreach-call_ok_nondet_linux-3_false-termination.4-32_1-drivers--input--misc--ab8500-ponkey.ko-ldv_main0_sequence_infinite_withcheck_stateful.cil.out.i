@@ -1890,7 +1890,7 @@ extern int __attribute__((__warn_unused_result__)) request_any_context_irq(unsig
                                                                             char const *name ,
                                                                             void *dev_id ) ;
 extern void free_irq(unsigned int , void * ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

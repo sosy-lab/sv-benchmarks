@@ -3280,7 +3280,7 @@ __inline static void i2c_set_adapdata(struct i2c_adapter *dev , void *data )
 extern int i2c_add_adapter(struct i2c_adapter * ) ;
 extern int i2c_del_adapter(struct i2c_adapter * ) ;
 extern struct kernel_param_ops param_ops_int ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

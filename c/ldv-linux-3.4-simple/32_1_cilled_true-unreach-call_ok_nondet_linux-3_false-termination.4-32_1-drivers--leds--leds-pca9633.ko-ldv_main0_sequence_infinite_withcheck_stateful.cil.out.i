@@ -2141,7 +2141,7 @@ __inline static void i2c_set_clientdata(struct i2c_client *dev , void *data )
 }
 extern int i2c_register_driver(struct module * , struct i2c_driver * ) ;
 extern void i2c_del_driver(struct i2c_driver * ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

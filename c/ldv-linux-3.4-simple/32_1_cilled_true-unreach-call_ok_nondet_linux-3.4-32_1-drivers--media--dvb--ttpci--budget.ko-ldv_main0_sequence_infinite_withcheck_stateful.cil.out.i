@@ -6465,7 +6465,7 @@ extern void __symbol_put(char const *symbol ) ;
 extern void __udelay(unsigned long usecs ) ;
 extern void __const_udelay(unsigned long xloops ) ;
 extern void msleep(unsigned int msecs ) ;
-extern void kfree(void const * ) ;
+extern void kfree(void * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
