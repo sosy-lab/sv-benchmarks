@@ -47,6 +47,9 @@ for f in $SETS ; do
   if [ $setf = ConcurrencySafety-Main ] ; then
     echo "Skipping category $setf (platform-dependent types)"
     continue
+  elif [[ $setf == Systems_DeviceDriversLinux64_ReachSafety* ]] ; then
+    echo "Skipping category $setf (only custom includes, no system headers, checking takes too much time)"
+    continue
   fi
 
   if [ ! -f $setf.cfg ]; then
