@@ -2,7 +2,7 @@ language: c
 env:
   matrix:
     - NAME="Sanity checks" DOCKER_IMAGE=sanity-checks COMMAND="c/check.py"
-    - NAME="Preprocessing consistency checks" DOCKER_IMAGE=preprocessing-consistency COMMAND="cd c; ./compare.sh -k"
+    - NAME="Preprocessing consistency checks" DOCKER_IMAGE=preprocessing-consistency COMMAND="cd c; ./compare.sh --keep-going --skip-large"
     - NAME="gcc-5" DOCKER_IMAGE=gcc:5 COMMAND="gcc-5 -v --version; cd c; make -j2 CC=gcc-5"
     - NAME="clang-3.9" DOCKER_IMAGE=clang:3.9 COMMAND="clang-3.9 -v --version; cd c; make -j2 CC=clang-3.9"
     - NAME="java" DOCKER_IMAGE=java COMMAND="java/check-compile.sh"

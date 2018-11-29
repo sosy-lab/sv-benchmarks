@@ -31,7 +31,7 @@ preprocessing-consistency:
   script:
     - "goto-diff --version"
     - "cd c"
-    - "./compare.sh -k"
+    - "./compare.sh --keep-going --skip-large"
 
 java:
   stage: checks

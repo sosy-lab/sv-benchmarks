@@ -8,12 +8,14 @@ BLACKLIST="\
 
 KEEP_GOING=0
 SHOW_DIFF=0
+SKIP_LARGE=0
 SETS=""
 
 for a in "$@" ; do
   case "$a" in
     --keep-going|-k) KEEP_GOING=1 ;;
     --diff|-v) SHOW_DIFF=1 ;;
+    --skip-large) SKIP_LARGE=1 ;;
     *) SETS+=" $a" ;;
   esac
 done
@@ -47,7 +49,7 @@ for f in $SETS ; do
   if [ $setf = ConcurrencySafety-Main ] ; then
     echo "Skipping category $setf (platform-dependent types)"
     continue
-  elif [[ $setf == Systems_DeviceDriversLinux64_ReachSafety* ]] ; then
+  elif [[ $SKIP_LARGE -eq 1 && $setf == Systems_DeviceDriversLinux64_ReachSafety* ]] ; then
     echo "Skipping category $setf (only custom includes, no system headers, checking takes too much time)"
     continue
   fi
