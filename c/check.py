@@ -36,6 +36,9 @@ IGNORED_DIRECTORIES = set(["properties"])
 UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
 """Directories which expected to contain tasks that are not included in any category"""
 
+EXPECTED_SUBDIRECTORIES = set(["model", "todo"])
+"""Directories that can appear inside directories with tasks but contain other files"""
+
 LINE_DIRECTIVE = re.compile('^#(line| [0-9]+) ')
 PREPROCESSOR_DIRECTIVE = re.compile('^ *#(define|include)')
 
@@ -70,31 +73,8 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "LarrazOliverasRodriguez-CarbonellRubio-2013FMCAD-Fig1-alloca_unknown-termination.c.i has no known verdict"),
 
-    ("ldv-linux-3.14-races", "unexpected subdirectory model"), # subdirectory containing models
     ("ldv-memsafety", "unexpected subdirectory memleaks-notpreprocessed"),
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
-    ("ldv-sets", "unexpected subdirectory model"), # subdirectory containing models
-    ("pthread-driver-races", "unexpected subdirectory model"), # subdirectory containing models/stubs
-    ("ldv-consumption", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-linux-3.16-rc1", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-linux-3.16-rc1", "unexpected subdirectory todo"), # subdirectory with files, which requires futher investigation
-    ("ldv-validator-v0.6", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-validator-v0.8", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-linux-3.14", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-linux-3.14", "unexpected subdirectory todo"), # subdirectory contains benchmarks, which need further investigation
-    ("ldv-linux-4.0-rc1-mav", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-linux-4.2-rc1", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-linux-4.2-rc1", "unexpected subdirectory todo"), # subdirectory with files for futher investigation
-    ("ldv-challenges", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-challenges", "unexpected subdirectory todo"), # subdirectory containing files, which requires futher investigation
-    ("ldv-commit-tester", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-commit-tester", "unexpected subdirectory todo"), # subdirectory with files for further investigation
-    ("ldv-linux-3.12-rc1", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-linux-3.0", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-linux-3.0", "unexpected subdirectory todo"), # subdirectory with files for further investigation
-    ("ldv-linux-3.4-simple", "unexpected subdirectory model"), # subdirectory containing models
-    ("ldv-linux-3.4-simple", "unexpected subdirectory todo"), # subdirectory with files for further investigation
-    ("ldv-linux-3.7.3", "unexpected subdirectory model"), # subdirectory containing models
 
     # historical
     ("ntdrivers", "missing license"),
@@ -235,7 +215,7 @@ class DirectoryChecks(Checks):
 
     def check_has_subdirectories(self):
         for entry in self.content:
-            if os.path.isdir(os.path.join(self.path, entry)):
+            if os.path.isdir(os.path.join(self.path, entry)) and not entry in EXPECTED_SUBDIRECTORIES:
                 self.error("unexpected subdirectory %s", entry)
 
     def check_has_unexpected_file(self):
