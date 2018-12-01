@@ -3567,7 +3567,7 @@ extern int dev_set_drvdata(struct device *dev , void *data ) ;
 extern int ( dev_err)(struct device const *dev , char const *fmt
                                               , ...) ;
 extern void __const_udelay(unsigned long xloops ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -4685,6 +4685,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

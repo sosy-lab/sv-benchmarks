@@ -4190,7 +4190,7 @@ __inline static int signal_pending(struct task_struct *p )
   return ((int )tmp___9);
 }
 }
-extern void kfree(void    * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

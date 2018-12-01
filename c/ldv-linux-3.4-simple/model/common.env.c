@@ -6,6 +6,6 @@ void *external_alloc(void) {
 
 void free(void *);
 
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

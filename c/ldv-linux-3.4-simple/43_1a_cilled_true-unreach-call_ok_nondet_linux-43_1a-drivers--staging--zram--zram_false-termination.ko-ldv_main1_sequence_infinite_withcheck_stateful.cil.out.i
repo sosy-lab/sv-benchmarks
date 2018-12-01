@@ -3393,7 +3393,7 @@ extern void free_pages(unsigned long , unsigned int ) ;
 extern int sysfs_create_group(struct kobject * , struct attribute_group const * ) ;
 extern void sysfs_remove_group(struct kobject * , struct attribute_group const * ) ;
 extern struct module __this_module ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 extern int __VERIFIER_nondet_int(void);
@@ -7720,6 +7720,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

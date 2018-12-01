@@ -6712,7 +6712,7 @@ extern struct kmem_cache *kmem_cache_create(char const * , size_t , size_t , uns
                                             void (*)(void * ) ) ;
 extern void kmem_cache_destroy(struct kmem_cache * ) ;
 extern void kmem_cache_free(struct kmem_cache * , void * ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 void *ldv_kmem_cache_alloc_28(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
@@ -12087,6 +12087,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

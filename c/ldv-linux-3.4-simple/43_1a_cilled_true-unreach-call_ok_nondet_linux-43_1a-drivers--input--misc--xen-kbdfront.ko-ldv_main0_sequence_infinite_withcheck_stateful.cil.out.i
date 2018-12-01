@@ -2084,7 +2084,7 @@ extern struct start_info *xen_start_info ;
 extern unsigned long __get_free_pages(gfp_t , unsigned int ) ;
 extern void free_pages(unsigned long , unsigned int ) ;
 extern struct module __this_module ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
@@ -3903,6 +3903,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

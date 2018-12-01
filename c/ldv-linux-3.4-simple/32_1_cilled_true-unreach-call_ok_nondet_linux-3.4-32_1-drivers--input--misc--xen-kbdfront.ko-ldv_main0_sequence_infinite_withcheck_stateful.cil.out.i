@@ -2180,7 +2180,7 @@ __inline static void input_sync(struct input_dev *dev )
 extern void input_set_capability(struct input_dev *dev , unsigned int type , unsigned int code ) ;
 extern void input_set_abs_params(struct input_dev *dev , unsigned int axis , int min ,
                                  int max , int fuzz , int flat ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -4041,6 +4041,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

@@ -5648,7 +5648,7 @@ __inline static int vring_need_event(__u16 event_idx , __u16 new_idx , __u16 old
 }
 }
 extern int memcpy_fromiovec(unsigned char *kdata , struct iovec *iov , int len ) ;
-extern void kfree(void    * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

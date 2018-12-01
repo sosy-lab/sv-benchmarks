@@ -3212,7 +3212,7 @@ extern struct workqueue_struct *( /* format attribute */  __alloc_workqueue_key)
 extern void destroy_workqueue(struct workqueue_struct *wq ) ;
 extern int queue_work(struct workqueue_struct *wq , struct work_struct *work ) ;
 extern void flush_workqueue(struct workqueue_struct *wq ) ;
-extern void kfree(void    * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

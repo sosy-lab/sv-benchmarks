@@ -1278,7 +1278,7 @@ __inline static void platform_set_drvdata(struct platform_device *pdev , void *d
 extern int usb_set_transceiver(struct usb_phy * ) ;
 void usb_nop_xceiv_register(void) ;
 void usb_nop_xceiv_unregister(void) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -2057,6 +2057,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

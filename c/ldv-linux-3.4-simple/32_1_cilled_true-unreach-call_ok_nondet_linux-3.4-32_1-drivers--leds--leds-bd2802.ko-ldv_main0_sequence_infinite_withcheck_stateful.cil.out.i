@@ -2240,7 +2240,7 @@ __inline static void gpio_set_value(unsigned int gpio , int value )
 extern void __const_udelay(unsigned long xloops ) ;
 extern int led_classdev_register(struct device *parent , struct led_classdev *led_cdev ) ;
 extern void led_classdev_unregister(struct led_classdev *led_cdev ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -7806,6 +7806,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

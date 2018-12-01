@@ -2990,7 +2990,7 @@ extern int sparse_keymap_setup(struct input_dev *dev , struct key_entry const *k
 extern void sparse_keymap_free(struct input_dev *dev ) ;
 extern bool sparse_keymap_report_event(struct input_dev *dev , unsigned int code ,
                                        unsigned int value , bool autorelease ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern acpi_status wmi_install_notify_handler(char const *guid , void (*handler)(u32 value ,
                                                                                    void *context ) ,
                                               void *data ) ;
@@ -3591,6 +3591,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

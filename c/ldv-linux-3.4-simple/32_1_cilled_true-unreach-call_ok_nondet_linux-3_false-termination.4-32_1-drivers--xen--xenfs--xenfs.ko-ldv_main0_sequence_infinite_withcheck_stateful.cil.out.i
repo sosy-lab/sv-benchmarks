@@ -2007,7 +2007,7 @@ long ldv__builtin_expect(long val , long res )
 }
 extern unsigned long __phys_addr(unsigned long ) ;
 extern char *( kasprintf)(gfp_t gfp , char const *fmt , ...) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int remap_pfn_range(struct vm_area_struct * , unsigned long addr , unsigned long pfn ,
                            unsigned long size , pgprotval_t ) ;
 extern struct xenstore_domain_interface *xen_store_interface ;
@@ -2474,6 +2474,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

@@ -3546,7 +3546,7 @@ extern void driver_unregister(struct device_driver *drv ) ;
 extern void *dev_get_drvdata(struct device const *dev ) ;
 extern int dev_set_drvdata(struct device *dev , void *data ) ;
 extern struct module __this_module ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -4865,6 +4865,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

@@ -281,7 +281,7 @@ extern struct kset * __attribute__((__warn_unused_result__)) kset_create_and_add
                                                                                  struct kobject *parent_kobj ) ;
 extern struct kobject *firmware_kobj ;
 extern int kobject_uevent(struct kobject *kobj , enum kobject_action action ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -2334,6 +2334,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

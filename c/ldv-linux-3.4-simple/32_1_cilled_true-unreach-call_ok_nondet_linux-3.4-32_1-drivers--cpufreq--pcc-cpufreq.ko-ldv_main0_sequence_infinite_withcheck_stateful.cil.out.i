@@ -3251,7 +3251,7 @@ __inline static void cpufreq_verify_within_limits(struct cpufreq_policy *policy 
   return;
 }
 }
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern acpi_status acpi_get_handle(acpi_handle parent , acpi_string pathname , acpi_handle *ret_handle ) ;
 extern acpi_status acpi_evaluate_object(acpi_handle object , acpi_string pathname ,
                                         struct acpi_object_list *parameter_objects ,
@@ -5954,6 +5954,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

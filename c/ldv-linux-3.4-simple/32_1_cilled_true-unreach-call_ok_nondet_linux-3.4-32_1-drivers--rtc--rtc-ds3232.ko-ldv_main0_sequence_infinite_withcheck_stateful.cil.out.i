@@ -3097,7 +3097,7 @@ extern void rtc_device_unregister(struct rtc_device *rtc ) ;
 extern void rtc_update_irq(struct rtc_device *rtc , unsigned long num , unsigned long events ) ;
 extern unsigned int bcd2bin(unsigned char val ) __attribute__((__const__)) ;
 extern unsigned char bin2bcd(unsigned int val ) __attribute__((__const__)) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -5383,6 +5383,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

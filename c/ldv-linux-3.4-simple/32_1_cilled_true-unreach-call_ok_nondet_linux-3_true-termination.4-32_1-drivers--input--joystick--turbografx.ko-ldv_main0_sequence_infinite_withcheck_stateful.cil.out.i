@@ -1978,7 +1978,7 @@ int atomic_dec_and_mutex_lock(atomic_t *cnt , struct mutex *lock ) ;
 extern void init_timer_key(struct timer_list *timer , char const *name , struct lock_class_key *key ) ;
 extern int mod_timer(struct timer_list *timer , unsigned long expires ) ;
 extern int del_timer_sync(struct timer_list *timer ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -3689,6 +3689,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

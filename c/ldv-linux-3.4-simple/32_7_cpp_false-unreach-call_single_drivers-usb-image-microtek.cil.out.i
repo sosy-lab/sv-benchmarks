@@ -13912,7 +13912,7 @@ void kmem_cache_free(struct kmem_cache *, void *);
 unsigned int kmem_cache_size(struct kmem_cache *);
 void * __attribute__((warn_unused_result)) __krealloc(const void *, size_t, gfp_t);
 void * __attribute__((warn_unused_result)) krealloc(const void *, size_t, gfp_t);
-void kfree(void *);
+void kfree(const void *);
 void kzfree(const void *);
 size_t ksize(const void *);
 extern void kmemleak_init(void) __attribute__ ((__section__(".ref.text"))) __attribute__((noinline));
@@ -26254,6 +26254,6 @@ void *external_alloc(void) {
   return __VERIFIER_external_alloc();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

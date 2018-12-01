@@ -4489,7 +4489,7 @@ __inline static void memcpy_toio(void volatile   *dst , void    *src , size_t co
 }
 }
 extern struct module __this_module ;
-extern void kfree(void    * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 extern int __VERIFIER_nondet_int(void);
