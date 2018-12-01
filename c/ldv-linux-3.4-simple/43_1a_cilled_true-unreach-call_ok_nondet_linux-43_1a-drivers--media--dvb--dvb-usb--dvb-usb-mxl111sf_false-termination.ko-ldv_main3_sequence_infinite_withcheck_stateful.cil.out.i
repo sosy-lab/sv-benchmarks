@@ -5965,7 +5965,7 @@ int mxl111sf_ctrl_msg(struct dvb_usb_device *d , u8 cmd , u8 *wbuf , int wlen , 
   __cil_tmp34 = (void *)(& sndbuf);
   __cil_tmp35 = __cil_tmp34 + 1U;
   __cil_tmp36 = (void const *)wbuf;
-  __ret = __builtin_memcpy(__cil_tmp35, __cil_tmp36, __len);
+  __ret = memcpy(__cil_tmp35, __cil_tmp36, __len);
   }
   if (wo != 0) {
     {

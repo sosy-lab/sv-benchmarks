@@ -7202,7 +7202,7 @@ static int find_boot_record(struct NFTLrecord *nftl )
     {
     __cil_tmp115 = (void *)mh;
     __cil_tmp116 = (void const *)(& buf);
-    __ret = __builtin_memcpy(__cil_tmp115, __cil_tmp116, __len);
+    __ret = memcpy(__cil_tmp115, __cil_tmp116, __len);
     }
   }
   __cil_tmp117 = (unsigned long )nftl;

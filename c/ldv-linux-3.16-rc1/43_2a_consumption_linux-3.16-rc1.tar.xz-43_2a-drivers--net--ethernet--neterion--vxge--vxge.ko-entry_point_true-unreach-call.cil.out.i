@@ -10229,7 +10229,7 @@ enum vxge_hw_status vxge_hw_device_initialize(struct __vxge_hw_device **devh , s
   if (__len > 63UL) {
     __ret = memcpy((void *)(& hldev->config), (void const *)device_config, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& hldev->config), (void const *)device_config,
+    __ret = memcpy((void *)(& hldev->config), (void const *)device_config,
                              __len);
   }
   hldev->bar0 = attr->bar0;
@@ -10540,7 +10540,7 @@ enum vxge_hw_status vxge_hw_device_stats_get(struct __vxge_hw_device *hldev , st
     __ret = memcpy((void *)hldev->virtual_paths[i].hw_stats_sav, (void const *)hldev->virtual_paths[i].hw_stats,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)hldev->virtual_paths[i].hw_stats_sav, (void const *)hldev->virtual_paths[i].hw_stats,
+    __ret = memcpy((void *)hldev->virtual_paths[i].hw_stats_sav, (void const *)hldev->virtual_paths[i].hw_stats,
                              __len);
   }
   status = __vxge_hw_vpath_stats_get((struct __vxge_hw_virtualpath *)(& hldev->virtual_paths) + (unsigned long )i,
@@ -10557,7 +10557,7 @@ enum vxge_hw_status vxge_hw_device_stats_get(struct __vxge_hw_device *hldev , st
     __ret___0 = memcpy((void *)hw_stats, (void const *)(& hldev->stats.hw_dev_info_stats),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)hw_stats, (void const *)(& hldev->stats.hw_dev_info_stats),
+    __ret___0 = memcpy((void *)hw_stats, (void const *)(& hldev->stats.hw_dev_info_stats),
                                  __len___0);
   }
   return (status);
@@ -10573,7 +10573,7 @@ enum vxge_hw_status vxge_hw_driver_stats_get(struct __vxge_hw_device *hldev , st
     __ret = memcpy((void *)sw_stats, (void const *)(& hldev->stats.sw_dev_info_stats),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)sw_stats, (void const *)(& hldev->stats.sw_dev_info_stats),
+    __ret = memcpy((void *)sw_stats, (void const *)(& hldev->stats.sw_dev_info_stats),
                              __len);
   }
   return (0);
@@ -13271,7 +13271,7 @@ static enum vxge_hw_status vxge_hw_vpath_stats_enable(struct __vxge_hw_vpath_han
     __ret = memcpy((void *)vpath->hw_stats_sav, (void const *)vpath->hw_stats,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)vpath->hw_stats_sav, (void const *)vpath->hw_stats,
+    __ret = memcpy((void *)vpath->hw_stats_sav, (void const *)vpath->hw_stats,
                              __len);
   }
   status = __vxge_hw_vpath_stats_get(vpath, vpath->hw_stats);
@@ -17897,7 +17897,7 @@ static void vxge_ethtool_get_strings(struct net_device *dev , u32 stringset , u8
     __ret = memcpy((void *)data + (unsigned long )stat_size, (void const *)(& ethtool_driver_stats_keys),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)data + (unsigned long )stat_size, (void const *)(& ethtool_driver_stats_keys),
+    __ret = memcpy((void *)data + (unsigned long )stat_size, (void const *)(& ethtool_driver_stats_keys),
                              __len);
   }
   }
@@ -19917,7 +19917,7 @@ static enum vxge_hw_status vxge_rx_1b_compl(struct __vxge_hw_ring *ringh , void 
       printk("%s: %s:%d  skb_up = %p\n", (char *)(& (ring->ndev)->name), "vxge_rx_1b_compl",
              610, skb);
       __len = (size_t )pkt_length;
-      __ret = __builtin_memcpy((void *)skb_up->data, (void const *)skb->data, __len);
+      __ret = memcpy((void *)skb_up->data, (void const *)skb->data, __len);
       vxge_re_pre_post(dtr, ring, rx_priv);
       vxge_post(& dtr_cnt, & first_dtr, dtr, ringh);
       skb = skb_up;
@@ -20163,7 +20163,7 @@ static int vxge_mac_list_add(struct vxge_vpath *vpath , struct macInfo *mac )
   if (__len > 63UL) {
     __ret = memcpy((void *)mac_address, (void const *)(& mac->macaddr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)mac_address, (void const *)(& mac->macaddr),
+    __ret = memcpy((void *)mac_address, (void const *)(& mac->macaddr),
                              __len);
   }
   new_mac_entry->state = mac->state;
@@ -20234,7 +20234,7 @@ static int vxge_learn_mac(struct vxgedev *vdev , u8 *mac_header )
   if (__len > 63UL) {
     __ret = memcpy((void *)mac_address, (void const *)mac_header, __len);
   } else {
-    __ret = __builtin_memcpy((void *)mac_address, (void const *)mac_header, __len);
+    __ret = memcpy((void *)mac_address, (void const *)mac_header, __len);
   }
   vpath_idx = 0;
   goto ldv_53121;
@@ -20257,7 +20257,7 @@ static int vxge_learn_mac(struct vxgedev *vdev , u8 *mac_header )
     __ret___0 = memcpy((void *)(& mac_info.macaddr), (void const *)mac_header,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& mac_info.macaddr), (void const *)mac_header,
+    __ret___0 = memcpy((void *)(& mac_info.macaddr), (void const *)mac_header,
                                  __len___0);
   }
   vpath_idx = 0;
@@ -20642,7 +20642,7 @@ static int vxge_mac_list_del(struct vxge_vpath *vpath , struct macInfo *mac )
   if (__len > 63UL) {
     __ret = memcpy((void *)mac_address, (void const *)(& mac->macaddr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)mac_address, (void const *)(& mac->macaddr),
+    __ret = memcpy((void *)mac_address, (void const *)(& mac->macaddr),
                              __len);
   }
   entry = vpath->mac_addr_list.next;
@@ -20813,7 +20813,7 @@ static void vxge_set_multicast(struct net_device *dev )
       __ret = memcpy((void *)(& mac_info.macaddr), (void const *)mac_address,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& mac_info.macaddr), (void const *)mac_address,
+      __ret = memcpy((void *)(& mac_info.macaddr), (void const *)mac_address,
                                __len);
     }
     tmp___2 = is_multicast_ether_addr((u8 const *)(& mac_info.macaddr));
@@ -20853,7 +20853,7 @@ static void vxge_set_multicast(struct net_device *dev )
       __ret___0 = memcpy((void *)(& mac_info.macaddr), (void const *)(& ha->addr),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& mac_info.macaddr), (void const *)(& ha->addr),
+      __ret___0 = memcpy((void *)(& mac_info.macaddr), (void const *)(& ha->addr),
                                    __len___0);
     }
     vpath_idx = 0;
@@ -20898,7 +20898,7 @@ static void vxge_set_multicast(struct net_device *dev )
       __ret___1 = memcpy((void *)(& mac_info.macaddr), (void const *)mac_address,
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& mac_info.macaddr), (void const *)mac_address,
+      __ret___1 = memcpy((void *)(& mac_info.macaddr), (void const *)mac_address,
                                    __len___1);
     }
     tmp___3 = is_multicast_ether_addr((u8 const *)(& mac_info.macaddr));
@@ -20999,10 +20999,10 @@ static int vxge_set_mac_addr(struct net_device *dev , void *p )
   memset((void *)(& mac_info_old), 0, 20UL);
   printk("%s:%d  Exiting...\n", "vxge_set_mac_addr", 1446);
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)(& mac_info_old.macaddr), (void const *)dev->dev_addr,
+  __ret = memcpy((void *)(& mac_info_old.macaddr), (void const *)dev->dev_addr,
                            __len);
   __len___0 = (size_t )dev->addr_len;
-  __ret___0 = __builtin_memcpy((void *)(& mac_info_new.macaddr), (void const *)(& addr->sa_data),
+  __ret___0 = memcpy((void *)(& mac_info_new.macaddr), (void const *)(& addr->sa_data),
                                __len___0);
   vpath_idx = 0;
   goto ldv_53295;
@@ -21027,7 +21027,7 @@ static int vxge_set_mac_addr(struct net_device *dev , void *p )
   tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
   if (tmp___3 != 0L) {
     __len___1 = (size_t )dev->addr_len;
-    __ret___1 = __builtin_memcpy((void *)dev->dev_addr, (void const *)(& addr->sa_data),
+    __ret___1 = memcpy((void *)dev->dev_addr, (void const *)(& addr->sa_data),
                                  __len___1);
     return (0);
   } else {
@@ -21049,7 +21049,7 @@ static int vxge_set_mac_addr(struct net_device *dev , void *p )
   } else {
   }
   __len___2 = (size_t )dev->addr_len;
-  __ret___2 = __builtin_memcpy((void *)dev->dev_addr, (void const *)(& addr->sa_data),
+  __ret___2 = memcpy((void *)dev->dev_addr, (void const *)(& addr->sa_data),
                                __len___2);
   return ((int )status);
 }
@@ -21168,7 +21168,7 @@ static enum vxge_hw_status vxge_restore_vpath_mac_addr(struct vxge_vpath *vpath 
       __ret = memcpy((void *)(& mac_info.macaddr), (void const *)mac_address,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& mac_info.macaddr), (void const *)mac_address,
+      __ret = memcpy((void *)(& mac_info.macaddr), (void const *)mac_address,
                                __len);
     }
     ((struct vxge_mac_addrs *)entry)->state = 1;
@@ -23267,7 +23267,7 @@ static int vxge_device_register(struct __vxge_hw_device *hldev , struct vxge_con
   if (__len > 63UL) {
     __ret = memcpy((void *)(& vdev->config), (void const *)config, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& vdev->config), (void const *)config, __len);
+    __ret = memcpy((void *)(& vdev->config), (void const *)config, __len);
   }
   vdev->rx_hwts = 0U;
   vdev->titan1 = (unsigned int )(vdev->pdev)->revision == 1U;
@@ -24420,7 +24420,7 @@ static int vxge_probe(struct pci_dev *pdev , struct pci_device_id const *pre )
     __ret = memcpy((void *)(& (vdev->vpaths + (unsigned long )j)->macaddr), (void const *)(& ll_config->device_hw_info.mac_addrs) + (unsigned long )i,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (vdev->vpaths + (unsigned long )j)->macaddr),
+    __ret = memcpy((void *)(& (vdev->vpaths + (unsigned long )j)->macaddr),
                              (void const *)(& ll_config->device_hw_info.mac_addrs) + (unsigned long )i,
                              __len);
   }
@@ -24486,7 +24486,7 @@ static int vxge_probe(struct pci_dev *pdev , struct pci_device_id const *pre )
     __ret___0 = memcpy((void *)(vdev->ndev)->dev_addr, (void const *)(& (vdev->vpaths)->macaddr),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(vdev->ndev)->dev_addr, (void const *)(& (vdev->vpaths)->macaddr),
+    __ret___0 = memcpy((void *)(vdev->ndev)->dev_addr, (void const *)(& (vdev->vpaths)->macaddr),
                                  __len___0);
   }
   i = 0;
@@ -24506,7 +24506,7 @@ static int vxge_probe(struct pci_dev *pdev , struct pci_device_id const *pre )
     __ret___1 = memcpy((void *)macaddr, (void const *)(vdev->ndev)->dev_addr,
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)macaddr, (void const *)(vdev->ndev)->dev_addr,
+    __ret___1 = memcpy((void *)macaddr, (void const *)(vdev->ndev)->dev_addr,
                                  __len___1);
   }
   list_add(& entry->item, & (vdev->vpaths + (unsigned long )i)->mac_addr_list);

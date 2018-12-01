@@ -2726,7 +2726,7 @@ static int verify_eraseblock(int ebnum )
       __cil_tmp115 = __cil_tmp114 - __cil_tmp110;
       __cil_tmp116 = writebuf + __cil_tmp115;
       __cil_tmp117 = (void const *)__cil_tmp116;
-      __ret = __builtin_memcpy(__cil_tmp109, __cil_tmp117, __len);
+      __ret = memcpy(__cil_tmp109, __cil_tmp117, __len);
       __cil_tmp118 = (unsigned long )pgsize;
       __cil_tmp119 = boundary + __cil_tmp118;
       __cil_tmp120 = (size_t )pgsize;

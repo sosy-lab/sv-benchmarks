@@ -4888,7 +4888,7 @@ static int osst_execute(struct osst_request *SRpnt , unsigned char const   *cmd 
   req->cmd_len = (unsigned short )cmd_len;
   memset((void *)req->cmd, 0, 16UL);
   __len = (size_t )req->cmd_len;
-  __ret = __builtin_memcpy((void *)req->cmd, (void const   *)cmd, __len);
+  __ret = memcpy((void *)req->cmd, (void const   *)cmd, __len);
   req->sense = (void *)(& SRpnt->sense);
   req->sense_len = 0U;
   req->timeout = (unsigned int )timeout;
@@ -4976,7 +4976,7 @@ static struct osst_request *osst_do_scsi(struct osst_request *SRpnt , struct oss
   if (__len > 63UL) {
     __ret = memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
+    __ret = memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
   }
   (STp->buffer)->cmdstat.have_sense = 0;
   (STp->buffer)->syscall_result = 0;
@@ -5059,7 +5059,7 @@ static void osst_init_aux(struct osst_tape *STp , int frame_type , int frame_seq
   if (__len > 63UL) {
     __ret = memcpy((void *)(& aux->application_sig), (void const   *)"LIN4", __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& aux->application_sig), (void const   *)"LIN4",
+    __ret = memcpy((void *)(& aux->application_sig), (void const   *)"LIN4",
                              __len);
   }
   aux->hdwr = 0U;
@@ -6859,7 +6859,7 @@ static int osst_write_filler(struct osst_tape *STp , struct osst_request **aSRpn
   if (__len > 63UL) {
     __ret = memcpy((void *)(STp->buffer)->b_data, (void const   *)"Filler", __len);
   } else {
-    __ret = __builtin_memcpy((void *)(STp->buffer)->b_data, (void const   *)"Filler",
+    __ret = memcpy((void *)(STp->buffer)->b_data, (void const   *)"Filler",
                              __len);
   }
   (STp->buffer)->buffer_bytes = 6;
@@ -7022,7 +7022,7 @@ static int osst_write_header(struct osst_tape *STp , struct osst_request **aSRpn
     if (__len > 63UL) {
       __ret = memcpy((void *)(& STp->application_sig), (void const   *)"LIN4", __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& STp->application_sig), (void const   *)"LIN4",
+      __ret = memcpy((void *)(& STp->application_sig), (void const   *)"LIN4",
                                __len);
     }
     STp->linux_media = 1;
@@ -7200,7 +7200,7 @@ static int __osst_analyze_headers(struct osst_tape *STp , struct osst_request **
     __ret = memcpy((void *)(& id_string), (void const   *)(& aux->application_sig),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& id_string), (void const   *)(& aux->application_sig),
+    __ret = memcpy((void *)(& id_string), (void const   *)(& aux->application_sig),
                              __len);
   }
   id_string[4] = 0;
@@ -7228,7 +7228,7 @@ static int __osst_analyze_headers(struct osst_tape *STp , struct osst_request **
       __ret___0 = memcpy((void *)(& STp->application_sig), (void const   *)(& id_string),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& STp->application_sig), (void const   *)(& id_string),
+      __ret___0 = memcpy((void *)(& STp->application_sig), (void const   *)(& id_string),
                                    __len___0);
     }
     STp->linux_media_version = linux_media_version;
@@ -7275,7 +7275,7 @@ static int __osst_analyze_headers(struct osst_tape *STp , struct osst_request **
         __ret___1 = memcpy((void *)(& header->dat_fm_tab.fm_tab_ent), (void const   *)(& header->old_filemark_list),
                              __len___1);
       } else {
-        __ret___1 = __builtin_memcpy((void *)(& header->dat_fm_tab.fm_tab_ent), (void const   *)(& header->old_filemark_list),
+        __ret___1 = memcpy((void *)(& header->dat_fm_tab.fm_tab_ent), (void const   *)(& header->old_filemark_list),
                                      __len___1);
       }
       memset((void *)(& header->old_filemark_list), 0, 16680UL);
@@ -7759,7 +7759,7 @@ static int osst_get_frame_position(struct osst_tape *STp , struct osst_request *
       if (__len > 63UL) {
         __ret = memcpy((void *)(& mysense), (void const   *)(& SRpnt->sense), __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& mysense), (void const   *)(& SRpnt->sense),
+        __ret = memcpy((void *)(& mysense), (void const   *)(& SRpnt->sense),
                                  __len);
       }
       memset((void *)(& scmd), 0, 16UL);
@@ -7774,7 +7774,7 @@ static int osst_get_frame_position(struct osst_tape *STp , struct osst_request *
           __ret___0 = memcpy((void *)(& SRpnt->sense), (void const   *)(& mysense),
                                __len___0);
         } else {
-          __ret___0 = __builtin_memcpy((void *)(& SRpnt->sense), (void const   *)(& mysense),
+          __ret___0 = memcpy((void *)(& SRpnt->sense), (void const   *)(& mysense),
                                        __len___0);
         }
       } else {
@@ -8905,7 +8905,7 @@ static int osst_set_options(struct osst_tape *STp , long options )
     if (__len > 63UL) {
       __ret = memcpy((void *)STm, (void const   *)(& STp->modes), __len);
     } else {
-      __ret = __builtin_memcpy((void *)STm, (void const   *)(& STp->modes), __len);
+      __ret = memcpy((void *)STm, (void const   *)(& STp->modes), __len);
     }
     modes_defined = 1;
   } else {
@@ -10972,7 +10972,7 @@ static int osst_copy_to_buffer(struct osst_buffer *st_bp , unsigned char *ptr )
   __len = (size_t )cnt;
   tmp___1 = sg_page((struct scatterlist *)(& st_bp->sg) + (unsigned long )i);
   tmp___2 = lowmem_page_address((struct page  const  *)tmp___1);
-  __ret = __builtin_memcpy(tmp___2, (void const   *)ptr, __len);
+  __ret = memcpy(tmp___2, (void const   *)ptr, __len);
   do_count = do_count - cnt;
   ptr = ptr + (unsigned long )cnt;
   i = i + 1;
@@ -11011,7 +11011,7 @@ static int osst_copy_from_buffer(struct osst_buffer *st_bp , unsigned char *ptr 
   __len = (size_t )cnt;
   tmp___1 = sg_page((struct scatterlist *)(& st_bp->sg) + (unsigned long )i);
   tmp___2 = lowmem_page_address((struct page  const  *)tmp___1);
-  __ret = __builtin_memcpy((void *)ptr, (void const   *)tmp___2, __len);
+  __ret = memcpy((void *)ptr, (void const   *)tmp___2, __len);
   do_count = do_count - cnt;
   ptr = ptr + (unsigned long )cnt;
   i = i + 1;

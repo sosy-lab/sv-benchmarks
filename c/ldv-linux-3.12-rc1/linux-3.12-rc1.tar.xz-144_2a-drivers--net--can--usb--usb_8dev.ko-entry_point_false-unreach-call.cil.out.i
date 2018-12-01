@@ -5898,7 +5898,7 @@ static int usb_8dev_send_cmd(struct usb_8dev_priv *priv , struct usb_8dev_cmd_ms
   if (__len > 63UL) {
     __ret = memcpy((void *)priv->cmd_msg_buffer, (void const *)out, __len);
   } else {
-    __ret = __builtin_memcpy((void *)priv->cmd_msg_buffer, (void const *)out, __len);
+    __ret = memcpy((void *)priv->cmd_msg_buffer, (void const *)out, __len);
   }
   err = usb_8dev_send_cmd_msg(priv, priv->cmd_msg_buffer, 16);
   if (err < 0) {
@@ -5916,7 +5916,7 @@ static int usb_8dev_send_cmd(struct usb_8dev_priv *priv , struct usb_8dev_cmd_ms
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)in, (void const *)priv->cmd_msg_buffer, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)in, (void const *)priv->cmd_msg_buffer,
+    __ret___0 = memcpy((void *)in, (void const *)priv->cmd_msg_buffer,
                                  __len___0);
   }
   if ((((unsigned int )in->begin != 17U || (unsigned int )in->end != 34U) || num_bytes_read != 16) || (unsigned int )in->opt1 != 0U) {
@@ -5960,7 +5960,7 @@ static int usb_8dev_cmd_open(struct usb_8dev_priv *priv )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& outmsg.data) + 3U, (void const *)(& bebrp), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& outmsg.data) + 3U, (void const *)(& bebrp),
+    __ret = memcpy((void *)(& outmsg.data) + 3U, (void const *)(& bebrp),
                              __len);
   }
   if ((int )ctrlmode & 1) {
@@ -5982,7 +5982,7 @@ static int usb_8dev_cmd_open(struct usb_8dev_priv *priv )
     __ret___0 = memcpy((void *)(& outmsg.data) + 5U, (void const *)(& beflags),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& outmsg.data) + 5U, (void const *)(& beflags),
+    __ret___0 = memcpy((void *)(& outmsg.data) + 5U, (void const *)(& beflags),
                                  __len___0);
   }
   tmp___1 = usb_8dev_send_cmd(priv, & outmsg, & inmsg);
@@ -6220,7 +6220,7 @@ static void usb_8dev_rx_can_msg(struct usb_8dev_priv *priv , struct usb_8dev_rx_
       cf->can_id = cf->can_id | 1073741824U;
     } else {
       __len = (size_t )cf->can_dlc;
-      __ret = __builtin_memcpy((void *)(& cf->data), (void const *)(& msg->data),
+      __ret = memcpy((void *)(& cf->data), (void const *)(& msg->data),
                                __len);
     }
     netif_rx(skb);
@@ -6410,7 +6410,7 @@ static netdev_tx_t usb_8dev_start_xmit(struct sk_buff *skb , struct net_device *
   msg->id = tmp___2;
   msg->dlc = cf->can_dlc;
   __len = (size_t )cf->can_dlc;
-  __ret = __builtin_memcpy((void *)(& msg->data), (void const *)(& cf->data), __len);
+  __ret = memcpy((void *)(& msg->data), (void const *)(& cf->data), __len);
   msg->end = 170U;
   i = 0;
   goto ldv_42202;

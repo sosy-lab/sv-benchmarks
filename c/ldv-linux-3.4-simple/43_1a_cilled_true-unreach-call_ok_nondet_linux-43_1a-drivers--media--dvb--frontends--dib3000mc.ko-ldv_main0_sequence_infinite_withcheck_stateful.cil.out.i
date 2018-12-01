@@ -7332,7 +7332,7 @@ struct dvb_frontend *dib3000mc_attach(struct i2c_adapter *i2c_adap , u8 i2c_addr
     __cil_tmp24 = (struct dvb_frontend_ops *)st;
     __cil_tmp25 = (void *)__cil_tmp24;
     __cil_tmp26 = (void const *)(& dib3000mc_ops);
-    __ret = __builtin_memcpy(__cil_tmp25, __cil_tmp26, __len);
+    __ret = memcpy(__cil_tmp25, __cil_tmp26, __len);
     }
   }
   {

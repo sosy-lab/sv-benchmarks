@@ -11821,7 +11821,7 @@ static unsigned int rh_string(int id , struct usb_hcd const *hcd , u8 *data , un
       }
       {
       __len = (size_t )len;
-      __ret = __builtin_memcpy((void *)data, (void const *)(& langids), __len);
+      __ret = memcpy((void *)data, (void const *)(& langids), __len);
       }
       return (len);
       case_1:
@@ -12146,7 +12146,7 @@ static int rh_call_control(struct usb_hcd *hcd , struct urb *urb )
     {
     urb->actual_length = len;
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)ubuf, (void const *)bufp, __len);
+    __ret = memcpy((void *)ubuf, (void const *)bufp, __len);
     }
     if ((unsigned int )patch_wakeup != 0U) {
       if (len > 7U) {
@@ -12217,7 +12217,7 @@ void usb_hcd_poll_rh_status(struct usb_hcd *hcd )
       hcd->status_urb = (struct urb *)0;
       urb->actual_length = (u32 )length;
       __len = (size_t )length;
-      __ret = __builtin_memcpy(urb->transfer_buffer, (void const *)(& buffer), __len);
+      __ret = memcpy(urb->transfer_buffer, (void const *)(& buffer), __len);
       usb_hcd_unlink_urb_from_ep(hcd, urb);
       spin_unlock(& hcd_root_hub_lock);
       usb_hcd_giveback_urb(hcd, urb, 0);
@@ -12841,7 +12841,7 @@ static int hcd_alloc_coherent(struct usb_bus *bus , gfp_t mem_flags , dma_addr_t
   if ((unsigned int )dir == 1U) {
     {
     __len = size;
-    __ret = __builtin_memcpy((void *)vaddr, (void const *)*vaddr_handle, __len);
+    __ret = memcpy((void *)vaddr, (void const *)*vaddr_handle, __len);
     }
   } else {
   }
@@ -12864,7 +12864,7 @@ static void hcd_free_coherent(struct usb_bus *bus , dma_addr_t *dma_handle , voi
   if ((unsigned int )dir == 2U) {
     {
     __len = size;
-    __ret = __builtin_memcpy((void *)vaddr, (void const *)*vaddr_handle, __len);
+    __ret = memcpy((void *)vaddr, (void const *)*vaddr_handle, __len);
     }
   } else {
   }
@@ -16641,7 +16641,7 @@ char *usb_cache_string(struct usb_device *udev , int index )
       }
       {
       __len = (size_t )len;
-      __ret = __builtin_memcpy((void *)smallbuf, (void const *)buf, __len);
+      __ret = memcpy((void *)smallbuf, (void const *)buf, __len);
       }
     } else {
     }
@@ -16679,7 +16679,7 @@ int usb_get_device_descriptor(struct usb_device *dev , unsigned int size )
   if (ret >= 0) {
     {
     __len = (size_t )size;
-    __ret = __builtin_memcpy((void *)(& dev->descriptor), (void const *)desc, __len);
+    __ret = memcpy((void *)(& dev->descriptor), (void const *)desc, __len);
     }
   } else {
   }
@@ -20019,7 +20019,7 @@ static void usb_parse_ss_endpoint_companion(struct device *ddev , int cfgno , in
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& ep->ss_ep_comp), (void const *)desc, __len);
+    __ret = memcpy((void *)(& ep->ss_ep_comp), (void const *)desc, __len);
     }
   }
   {
@@ -20206,7 +20206,7 @@ static int usb_parse_endpoint(struct device *ddev , int cfgno , int inum , int a
   endpoint = ifp->endpoint + (unsigned long )ifp->desc.bNumEndpoints;
   ifp->desc.bNumEndpoints = (__u8 )((int )ifp->desc.bNumEndpoints + 1);
   __len = (size_t )n;
-  __ret = __builtin_memcpy((void *)(& endpoint->desc), (void const *)d, __len);
+  __ret = memcpy((void *)(& endpoint->desc), (void const *)d, __len);
   INIT_LIST_HEAD(& endpoint->urb_list);
   i = 0;
   j = 255;
@@ -20462,7 +20462,7 @@ static int usb_parse_interface(struct device *ddev , int cfgno , struct usb_host
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& alt->desc), (void const *)d, __len);
+    __ret = memcpy((void *)(& alt->desc), (void const *)d, __len);
     }
   }
   {
@@ -20581,7 +20581,7 @@ static int usb_parse_configuration(struct usb_device *dev , int cfgidx , struct 
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& config->desc), (void const *)buffer, __len);
+    __ret = memcpy((void *)(& config->desc), (void const *)buffer, __len);
     }
   }
   if ((unsigned int )config->desc.bDescriptorType != 2U) {
@@ -23045,7 +23045,7 @@ static ssize_t read_descriptors(struct file *filp , struct kobject *kobj , struc
     {
     n = tmp;
     __len = n;
-    __ret = __builtin_memcpy((void *)buf, (void const *)src + (unsigned long )off,
+    __ret = memcpy((void *)buf, (void const *)src + (unsigned long )off,
                              __len);
     nleft = nleft - n;
     buf = buf + n;
@@ -24176,7 +24176,7 @@ static ssize_t usbdev_read(struct file *file , char *buf , size_t nbytes , loff_
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& temp_desc), (void const *)(& dev->descriptor),
+      __ret = memcpy((void *)(& temp_desc), (void const *)(& dev->descriptor),
                                __len);
       }
     }

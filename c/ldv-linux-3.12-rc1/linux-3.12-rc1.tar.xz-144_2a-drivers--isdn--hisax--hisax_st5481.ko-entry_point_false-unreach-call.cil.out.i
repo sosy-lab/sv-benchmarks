@@ -6760,7 +6760,7 @@ static void usb_in_complete(struct urb *urb )
   ldv_32041: ;
   if (in->mode == 1) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)in->rcvbuf, (void const *)ptr, __len);
+    __ret = memcpy((void *)in->rcvbuf, (void const *)ptr, __len);
     status = len;
     len = 0;
   } else {
@@ -6787,7 +6787,7 @@ static void usb_in_complete(struct urb *urb )
     }
     __len___0 = (size_t )status;
     tmp___1 = skb_put(skb, (unsigned int )status);
-    __ret___0 = __builtin_memcpy((void *)tmp___1, (void const *)in->rcvbuf, __len___0);
+    __ret___0 = memcpy((void *)tmp___1, (void const *)in->rcvbuf, __len___0);
     (*((in->hisax_if)->l1l2))(in->hisax_if, 290, (void *)skb);
   } else
   if (status == -2) {

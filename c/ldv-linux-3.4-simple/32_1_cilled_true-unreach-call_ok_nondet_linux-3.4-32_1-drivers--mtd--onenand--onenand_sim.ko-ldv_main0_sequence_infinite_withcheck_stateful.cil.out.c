@@ -2839,7 +2839,7 @@ static void onenand_data_handle(struct onenand_chip *this , int cmd , int datara
       __cil_tmp61 = *((uint32_t *)__cil_tmp60);
       __len = (size_t )__cil_tmp61;
       __cil_tmp62 = (void const   *)src;
-      __ret = __builtin_memcpy(dest, __cil_tmp62, __len);
+      __ret = memcpy(dest, __cil_tmp62, __len);
       }
       case_19: /* CIL Label */ 
       {
@@ -2861,7 +2861,7 @@ static void onenand_data_handle(struct onenand_chip *this , int cmd , int datara
       __cil_tmp76 = *((uint32_t *)__cil_tmp75);
       __len___0 = (size_t )__cil_tmp76;
       __cil_tmp77 = (void const   *)src;
-      __ret___0 = __builtin_memcpy(dest, __cil_tmp77, __len___0);
+      __ret___0 = memcpy(dest, __cil_tmp77, __len___0);
       }
       goto switch_break;
       case_128: /* CIL Label */ 
@@ -2963,7 +2963,7 @@ static void onenand_data_handle(struct onenand_chip *this , int cmd , int datara
         __cil_tmp123 = dest + off;
         __cil_tmp124 = src + off;
         __cil_tmp125 = (void const   *)__cil_tmp124;
-        __ret___1 = __builtin_memcpy(__cil_tmp123, __cil_tmp125, __len___1);
+        __ret___1 = memcpy(__cil_tmp123, __cil_tmp125, __len___1);
         }
         __Cont: /* CIL Label */ 
         i = i + 1U;
@@ -3031,7 +3031,7 @@ static void onenand_data_handle(struct onenand_chip *this , int cmd , int datara
       __cil_tmp155 = *((uint32_t *)__cil_tmp154);
       __len___2 = (size_t )__cil_tmp155;
       __cil_tmp156 = (void const   *)src;
-      __ret___2 = __builtin_memcpy(dest, __cil_tmp156, __len___2);
+      __ret___2 = memcpy(dest, __cil_tmp156, __len___2);
       }
       goto switch_break;
       case_148: /* CIL Label */ 

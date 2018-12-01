@@ -5185,7 +5185,7 @@ void fill_inquiry_response(struct us_data *us , unsigned char *data , unsigned i
     __cil_tmp49 = *((struct us_unusual_dev **)__cil_tmp48);
     __cil_tmp50 = *((char    **)__cil_tmp49);
     __cil_tmp51 = (void    *)__cil_tmp50;
-    __ret = __builtin_memcpy(__cil_tmp46, __cil_tmp51, __len);
+    __ret = memcpy(__cil_tmp46, __cil_tmp51, __len);
     __cil_tmp52 = (unsigned long )us;
     __cil_tmp53 = __cil_tmp52 + 88;
     __cil_tmp54 = *((struct us_unusual_dev **)__cil_tmp53);
@@ -5219,7 +5219,7 @@ void fill_inquiry_response(struct us_data *us , unsigned char *data , unsigned i
     __cil_tmp70 = __cil_tmp69 + 8;
     __cil_tmp71 = *((char    **)__cil_tmp70);
     __cil_tmp72 = (void    *)__cil_tmp71;
-    __ret___0 = __builtin_memcpy(__cil_tmp65, __cil_tmp72, __len___0);
+    __ret___0 = memcpy(__cil_tmp65, __cil_tmp72, __len___0);
     __cil_tmp73 = data + 32;
     __cil_tmp74 = (int )bcdDevice;
     __cil_tmp75 = __cil_tmp74 >> 12;
@@ -9800,7 +9800,7 @@ unsigned int usb_stor_access_xfer_buf(struct us_data *us , unsigned char *buffer
         __cil_tmp57 = (void *)__cil_tmp56;
         __cil_tmp58 = buffer + cnt;
         __cil_tmp59 = (void    *)__cil_tmp58;
-        __ret = __builtin_memcpy(__cil_tmp57, __cil_tmp59, __len);
+        __ret = memcpy(__cil_tmp57, __cil_tmp59, __len);
         }
       } else {
         {
@@ -9809,7 +9809,7 @@ unsigned int usb_stor_access_xfer_buf(struct us_data *us , unsigned char *buffer
         __cil_tmp61 = (void *)__cil_tmp60;
         __cil_tmp62 = ptr + poff;
         __cil_tmp63 = (void    *)__cil_tmp62;
-        __ret___0 = __builtin_memcpy(__cil_tmp61, __cil_tmp63, __len___0);
+        __ret___0 = memcpy(__cil_tmp61, __cil_tmp63, __len___0);
         }
       }
       }
@@ -12282,7 +12282,7 @@ int usb_stor_Bulk_transport(struct scsi_cmnd *srb , struct us_data *us )
   __cil_tmp106 = __cil_tmp105 + 80;
   __cil_tmp107 = *((unsigned char **)__cil_tmp106);
   __cil_tmp108 = (void    *)__cil_tmp107;
-  __ret = __builtin_memcpy(__cil_tmp104, __cil_tmp108, __len);
+  __ret = memcpy(__cil_tmp104, __cil_tmp108, __len);
   __cil_tmp109 = (unsigned long )us;
   __cil_tmp110 = __cil_tmp109 + 112;
   __cil_tmp111 = *((unsigned int *)__cil_tmp110);
@@ -12602,7 +12602,7 @@ int usb_stor_Bulk_transport(struct scsi_cmnd *srb , struct us_data *us )
         __cil_tmp232 = (unsigned long )(usb_stor_sense_invalidCDB) + __cil_tmp231;
         __cil_tmp233 = (unsigned char *)__cil_tmp232;
         __cil_tmp234 = (void    *)__cil_tmp233;
-        __ret___0 = __builtin_memcpy(__cil_tmp230, __cil_tmp234, __len___0);
+        __ret___0 = memcpy(__cil_tmp230, __cil_tmp234, __len___0);
         }
       }
       return (2);
@@ -14408,7 +14408,7 @@ int ENE_LoadBinCode(struct us_data *us , BYTE flag )
       __cil_tmp30 = (unsigned long )(SM_Init) + __cil_tmp29;
       __cil_tmp31 = (BYTE *)__cil_tmp30;
       __cil_tmp32 = (void    *)__cil_tmp31;
-      __ret = __builtin_memcpy(__cil_tmp28, __cil_tmp32, __len);
+      __ret = memcpy(__cil_tmp28, __cil_tmp32, __len);
       }
     }
     goto switch_break;
@@ -14433,7 +14433,7 @@ int ENE_LoadBinCode(struct us_data *us , BYTE flag )
       __cil_tmp40 = (unsigned long )(SM_Rdwr) + __cil_tmp39;
       __cil_tmp41 = (BYTE *)__cil_tmp40;
       __cil_tmp42 = (void    *)__cil_tmp41;
-      __ret___0 = __builtin_memcpy(__cil_tmp38, __cil_tmp42, __len___0);
+      __ret___0 = memcpy(__cil_tmp38, __cil_tmp42, __len___0);
       }
     }
     goto switch_break;
@@ -20248,7 +20248,7 @@ int Ssfdc_D_ReadRedtData(struct us_data *us , BYTE *redundant )
     {
     __cil_tmp68 = (void *)redundant;
     __cil_tmp69 = (void    *)buf;
-    __ret = __builtin_memcpy(__cil_tmp68, __cil_tmp69, __len);
+    __ret = memcpy(__cil_tmp68, __cil_tmp69, __len);
     }
   }
   {
@@ -21496,7 +21496,7 @@ int _Correct_D_SwECC(BYTE *buf , BYTE *redundant_ecc , BYTE *calculate_ecc___0 )
       {
       __cil_tmp15 = (void *)calculate_ecc___0;
       __cil_tmp16 = (void    *)redundant_ecc;
-      __ret = __builtin_memcpy(__cil_tmp15, __cil_tmp16, __len);
+      __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
       }
     }
   } else {

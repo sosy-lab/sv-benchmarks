@@ -2952,7 +2952,7 @@ static int store_instr(int instr_no , struct sbi_instrument *instr )
     __ret = memcpy((void *)(& devc->i_map) + (unsigned long )instr_no, (void const *)instr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& devc->i_map) + (unsigned long )instr_no, (void const *)instr,
+    __ret = memcpy((void *)(& devc->i_map) + (unsigned long )instr_no, (void const *)instr,
                              __len);
   }
   return (0);

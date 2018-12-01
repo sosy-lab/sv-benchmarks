@@ -10217,7 +10217,7 @@ static int __hif_usb_tx(struct hif_device_usb *hif_dev )
   *tmp___2 = 27006U;
   buf = buf + 4UL;
   __len = (size_t )nskb->len;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)nskb->data, __len);
+  __ret = memcpy((void *)buf, (void const   *)nskb->data, __len);
   tx_buf->len = (unsigned int )((u16 )nskb->len) + 4U;
   if ((int )tx_skb_cnt + -1 > i) {
     tx_buf->offset = (unsigned int )tx_buf->offset + (unsigned int )((u16 )(((int )tx_buf->len + -1) / 4 + 1)) * 4U;
@@ -10487,7 +10487,7 @@ static void ath9k_hif_usb_rx_stream(struct hif_device_usb *hif_dev , struct sk_b
       rx_remain_len = rx_remain_len - hif_dev->rx_pad_len;
       ptr = ptr + (unsigned long )rx_pkt_len;
       __len = (size_t )rx_remain_len;
-      __ret = __builtin_memcpy((void *)ptr, (void const   *)skb->data, __len);
+      __ret = memcpy((void *)ptr, (void const   *)skb->data, __len);
       rx_pkt_len = rx_pkt_len + rx_remain_len;
       hif_dev->rx_remain_len = 0;
       skb_put(remain_skb, (unsigned int )rx_pkt_len);
@@ -10536,7 +10536,7 @@ static void ath9k_hif_usb_rx_stream(struct hif_device_usb *hif_dev , struct sk_b
     skb_reserve(nskb, 32);
     ((hif_dev->htc_handle)->drv_priv)->debug.skbrx_stats.skb_allocated = ((hif_dev->htc_handle)->drv_priv)->debug.skbrx_stats.skb_allocated + 1U;
     __len___0 = (size_t )hif_dev->rx_transfer_len;
-    __ret___0 = __builtin_memcpy((void *)nskb->data, (void const   *)(skb->data + ((unsigned long )chk_idx + 4UL)),
+    __ret___0 = memcpy((void *)nskb->data, (void const   *)(skb->data + ((unsigned long )chk_idx + 4UL)),
                                  __len___0);
     hif_dev->remain_skb = nskb;
     spin_unlock(& hif_dev->rx_lock);
@@ -10551,7 +10551,7 @@ static void ath9k_hif_usb_rx_stream(struct hif_device_usb *hif_dev , struct sk_b
     skb_reserve(nskb, 32);
     ((hif_dev->htc_handle)->drv_priv)->debug.skbrx_stats.skb_allocated = ((hif_dev->htc_handle)->drv_priv)->debug.skbrx_stats.skb_allocated + 1U;
     __len___1 = (size_t )pkt_len;
-    __ret___1 = __builtin_memcpy((void *)nskb->data, (void const   *)(skb->data + ((unsigned long )chk_idx + 4UL)),
+    __ret___1 = memcpy((void *)nskb->data, (void const   *)(skb->data + ((unsigned long )chk_idx + 4UL)),
                                  __len___1);
     skb_put(nskb, (unsigned int )pkt_len);
     tmp___0 = pool_index;
@@ -11064,7 +11064,7 @@ static int ath9k_hif_usb_download_fw(struct hif_device_usb *hif_dev )
   __min2 = 4096UL;
   transfer = (int )(__min1 < __min2 ? __min1 : __min2);
   __len = (size_t )transfer;
-  __ret = __builtin_memcpy((void *)buf, data, __len);
+  __ret = memcpy((void *)buf, data, __len);
   tmp___0 = __create_pipe(hif_dev->udev, 0U);
   err = usb_control_msg(hif_dev->udev, tmp___0 | 2147483648U, 48, 64, (int )((__u16 )(addr >> 8)),
                         0, (void *)buf, (int )((__u16 )transfer), 250);
@@ -12165,7 +12165,7 @@ static void ath9k_wmi_rsp_callback(struct wmi *wmi , struct sk_buff *skb )
   skb_pull(skb, 4U);
   if ((unsigned long )wmi->cmd_rsp_buf != (unsigned long )((u8 *)0U) && wmi->cmd_rsp_len != 0U) {
     __len = (size_t )wmi->cmd_rsp_len;
-    __ret = __builtin_memcpy((void *)wmi->cmd_rsp_buf, (void const   *)skb->data,
+    __ret = memcpy((void *)wmi->cmd_rsp_buf, (void const   *)skb->data,
                              __len);
   } else {
 
@@ -12312,7 +12312,7 @@ int ath9k_wmi_cmd(struct wmi *wmi , enum wmi_cmd_id cmd_id , u8 *cmd_buf , u32 c
     tmp___0 = skb_put(skb, cmd_len);
     data = tmp___0;
     __len = (size_t )cmd_len;
-    __ret = __builtin_memcpy((void *)data, (void const   *)cmd_buf, __len);
+    __ret = memcpy((void *)data, (void const   *)cmd_buf, __len);
   } else {
 
   }
@@ -13135,7 +13135,7 @@ static void ath9k_htc_tx_mgmt(struct ath9k_htc_priv *priv , struct ath9k_htc_vif
   if (__len > 63UL) {
     __ret = memcpy((void *)tx_fhdr, (void const   *)(& mgmt_hdr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)tx_fhdr, (void const   *)(& mgmt_hdr), __len);
+    __ret = memcpy((void *)tx_fhdr, (void const   *)(& mgmt_hdr), __len);
   }
   tx_ctl->epid = (u8 )priv->mgmt_ep;
   return;
@@ -13217,7 +13217,7 @@ static void ath9k_htc_tx_data(struct ath9k_htc_priv *priv , struct ieee80211_vif
   if (__len > 63UL) {
     __ret = memcpy((void *)tx_fhdr, (void const   *)(& tx_hdr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)tx_fhdr, (void const   *)(& tx_hdr), __len);
+    __ret = memcpy((void *)tx_fhdr, (void const   *)(& tx_hdr), __len);
   }
   if ((int )is_cab) {
     priv->debug.tx_stats.cab_queued = priv->debug.tx_stats.cab_queued + 1U;
@@ -13680,7 +13680,7 @@ void ath9k_htc_txstatus(struct ath9k_htc_priv *priv , void *wmi_event )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& tx_pend->txs), (void const   *)__txs, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& tx_pend->txs), (void const   *)__txs, __len);
+      __ret = memcpy((void *)(& tx_pend->txs), (void const   *)__txs, __len);
     }
     spin_lock(& (priv->wmi)->event_lock);
     list_add_tail(& tx_pend->list, & (priv->wmi)->pending_tx_events);
@@ -14084,7 +14084,7 @@ static void rx_status_htc_to_ath(struct ath_rx_status *rx_stats , struct ath_htc
     __ret = memcpy((void *)(& rx_stats->rs_rssi_ctl), (void const   *)(& rxstatus->rs_rssi_ctl),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& rx_stats->rs_rssi_ctl), (void const   *)(& rxstatus->rs_rssi_ctl),
+    __ret = memcpy((void *)(& rx_stats->rs_rssi_ctl), (void const   *)(& rxstatus->rs_rssi_ctl),
                              __len);
   }
   __len___0 = 3UL;
@@ -14092,7 +14092,7 @@ static void rx_status_htc_to_ath(struct ath_rx_status *rx_stats , struct ath_htc
     __ret___0 = memcpy((void *)(& rx_stats->rs_rssi_ext), (void const   *)(& rxstatus->rs_rssi_ext),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& rx_stats->rs_rssi_ext), (void const   *)(& rxstatus->rs_rssi_ext),
+    __ret___0 = memcpy((void *)(& rx_stats->rs_rssi_ext), (void const   *)(& rxstatus->rs_rssi_ext),
                                  __len___0);
   }
   rx_stats->rs_isaggr = rxstatus->rs_isaggr;
@@ -14255,7 +14255,7 @@ void ath9k_rx_tasklet(unsigned long data )
     __ret = memcpy((void *)tmp___2, (void const   *)(& rx_status), __len);
   } else {
     tmp___3 = IEEE80211_SKB_RXCB(rxbuf->skb);
-    __ret = __builtin_memcpy((void *)tmp___3, (void const   *)(& rx_status), __len);
+    __ret = memcpy((void *)tmp___3, (void const   *)(& rx_status), __len);
   }
   skb = rxbuf->skb;
   hdr = (struct ieee80211_hdr *)skb->data;
@@ -14829,7 +14829,7 @@ static void ath9k_htc_set_mac_bssid_mask(struct ath9k_htc_priv *priv , struct ie
     __ret = memcpy((void *)(& common->bssidmask), (void const   *)(& iter_data.mask),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& common->bssidmask), (void const   *)(& iter_data.mask),
+    __ret = memcpy((void *)(& common->bssidmask), (void const   *)(& iter_data.mask),
                              __len);
   }
   if ((unsigned long )iter_data.hw_macaddr != (unsigned long )((u8 const   *)0U)) {
@@ -14838,7 +14838,7 @@ static void ath9k_htc_set_mac_bssid_mask(struct ath9k_htc_priv *priv , struct ie
       __ret___0 = memcpy((void *)(& common->macaddr), (void const   *)iter_data.hw_macaddr,
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& common->macaddr), (void const   *)iter_data.hw_macaddr,
+      __ret___0 = memcpy((void *)(& common->macaddr), (void const   *)iter_data.hw_macaddr,
                                    __len___0);
     }
   } else {
@@ -15046,7 +15046,7 @@ static void __ath9k_htc_remove_monitor_interface(struct ath9k_htc_priv *priv )
     __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
+    __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
                              __len);
   }
   hvif.index = priv->mon_vif_idx;
@@ -15102,7 +15102,7 @@ static int ath9k_htc_add_monitor_interface(struct ath9k_htc_priv *priv )
     __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
+    __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& common->macaddr),
                              __len);
   }
   hvif.opmode = 8U;
@@ -15128,7 +15128,7 @@ static int ath9k_htc_add_monitor_interface(struct ath9k_htc_priv *priv )
     __ret___0 = memcpy((void *)(& tsta.macaddr), (void const   *)(& common->macaddr),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& tsta.macaddr), (void const   *)(& common->macaddr),
+    __ret___0 = memcpy((void *)(& tsta.macaddr), (void const   *)(& common->macaddr),
                                  __len___0);
   }
   tsta.is_vif_sta = 1U;
@@ -15241,7 +15241,7 @@ static int ath9k_htc_add_station(struct ath9k_htc_priv *priv , struct ieee80211_
     if (__len > 63UL) {
       __ret = memcpy((void *)(& tsta.macaddr), (void const   *)(& sta->addr), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& tsta.macaddr), (void const   *)(& sta->addr),
+      __ret = memcpy((void *)(& tsta.macaddr), (void const   *)(& sta->addr),
                                __len);
     }
     __len___0 = 6UL;
@@ -15249,7 +15249,7 @@ static int ath9k_htc_add_station(struct ath9k_htc_priv *priv , struct ieee80211_
       __ret___0 = memcpy((void *)(& tsta.bssid), (void const   *)(& common->curbssid),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& tsta.bssid), (void const   *)(& common->curbssid),
+      __ret___0 = memcpy((void *)(& tsta.bssid), (void const   *)(& common->curbssid),
                                    __len___0);
     }
     ista->index = (u8 )sta_idx;
@@ -15263,7 +15263,7 @@ static int ath9k_htc_add_station(struct ath9k_htc_priv *priv , struct ieee80211_
       __ret___1 = memcpy((void *)(& tsta.macaddr), (void const   *)(& vif->addr),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& tsta.macaddr), (void const   *)(& vif->addr),
+      __ret___1 = memcpy((void *)(& tsta.macaddr), (void const   *)(& vif->addr),
                                    __len___1);
     }
     tsta.is_vif_sta = 1U;
@@ -15993,7 +15993,7 @@ static int ath9k_htc_add_interface(struct ieee80211_hw *hw , struct ieee80211_vi
   if (__len > 63UL) {
     __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr),
+    __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr),
                              __len);
   }
   switch ((unsigned int )vif->type) {
@@ -16107,7 +16107,7 @@ static void ath9k_htc_remove_interface(struct ieee80211_hw *hw , struct ieee8021
   if (__len > 63UL) {
     __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr),
+    __ret = memcpy((void *)(& hvif.myaddr), (void const   *)(& vif->addr),
                              __len);
   }
   hvif.index = avp->index;
@@ -16581,7 +16581,7 @@ static void ath9k_htc_bss_iter(void *data , u8 *mac , struct ieee80211_vif *vif 
       __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
+      __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                                __len);
     }
     set_bit(3L, (unsigned long volatile   *)(& common->op_flags));
@@ -16665,7 +16665,7 @@ static void ath9k_htc_bss_info_changed(struct ieee80211_hw *hw , struct ieee8021
         __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
+        __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                                  __len);
       }
       ath9k_htc_set_bssid(priv);
@@ -17991,7 +17991,7 @@ static void ath9k_htc_send_beacon(struct ath9k_htc_priv *priv , int slot )
   if (__len > 63UL) {
     __ret = memcpy((void *)tx_fhdr, (void const   *)(& beacon_hdr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)tx_fhdr, (void const   *)(& beacon_hdr), __len);
+    __ret = memcpy((void *)tx_fhdr, (void const   *)(& beacon_hdr), __len);
   }
   ret = htc_send(priv->htc, beacon);
   if (ret != 0) {
@@ -18504,7 +18504,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
   }
   return;
@@ -19155,7 +19155,7 @@ static void ath9k_init_misc(struct ath9k_htc_priv *priv )
     __ret = memcpy((void *)(& common->bssidmask), (void const   *)(& ath_bcast_mac),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& common->bssidmask), (void const   *)(& ath_bcast_mac),
+    __ret = memcpy((void *)(& common->bssidmask), (void const   *)(& ath_bcast_mac),
                              __len);
   }
   common->last_rssi = 127;
@@ -21392,7 +21392,7 @@ void ath9k_htc_get_et_strings(struct ieee80211_hw *hw , struct ieee80211_vif *vi
       __ret = memcpy((void *)data, (void const   *)(& ath9k_htc_gstrings_stats),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)data, (void const   *)(& ath9k_htc_gstrings_stats),
+      __ret = memcpy((void *)data, (void const   *)(& ath9k_htc_gstrings_stats),
                                __len);
     }
   } else {

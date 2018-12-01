@@ -3820,7 +3820,7 @@ static int connect_didd(void)
       __ret = memcpy((void *)(& _DAdapter), (void const   *)(& DIDD_Table) + (unsigned long )x,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& _DAdapter), (void const   *)(& DIDD_Table) + (unsigned long )x,
+      __ret = memcpy((void *)(& _DAdapter), (void const   *)(& DIDD_Table) + (unsigned long )x,
                                __len);
     }
     req.didd_notify.e.Req = 0U;
@@ -4553,7 +4553,7 @@ int DbgRegister(char *drvName , char *drvTag , unsigned long dbgMask )
     tmp___0 = (unsigned int )len;
   }
   __len = (unsigned long )tmp___0;
-  __ret = __builtin_memcpy((void *)(& myDriverDebugHandle.drvName), (void const   *)drvName,
+  __ret = memcpy((void *)(& myDriverDebugHandle.drvName), (void const   *)drvName,
                            __len);
   tmp___1 = strlen((char const   *)drvTag);
   len = (int )tmp___1;
@@ -4563,7 +4563,7 @@ int DbgRegister(char *drvName , char *drvTag , unsigned long dbgMask )
     tmp___2 = (unsigned int )len;
   }
   __len___0 = (unsigned long )tmp___2;
-  __ret___0 = __builtin_memcpy((void *)(& myDriverDebugHandle.drvTag), (void const   *)drvTag,
+  __ret___0 = memcpy((void *)(& myDriverDebugHandle.drvTag), (void const   *)drvTag,
                                __len___0);
   (*dprintf)((unsigned char *)"", & myDriverDebugHandle);
   if ((unsigned long )myDriverDebugHandle.dbg_prt != (unsigned long )((void (*)(unsigned short  ,
@@ -4705,7 +4705,7 @@ static int diva_didd_add_descriptor(DESCRIPTOR *d )
       __ret = memcpy((void *)(& HandleTable) + (unsigned long )i, (void const   *)d,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& HandleTable) + (unsigned long )i, (void const   *)d,
+      __ret = memcpy((void *)(& HandleTable) + (unsigned long )i, (void const   *)d,
                                __len);
     }
     Adapters = Adapters + 1U;
@@ -4820,7 +4820,7 @@ static int diva_didd_read_adapter_array(DESCRIPTOR *buffer , int length )
       __ret = memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& HandleTable) + (unsigned long )src,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& HandleTable) + (unsigned long )src,
+      __ret = memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& HandleTable) + (unsigned long )src,
                                __len);
     }
     dst = dst + 1;
@@ -4842,7 +4842,7 @@ static int diva_didd_read_adapter_array(DESCRIPTOR *buffer , int length )
       __ret___0 = memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& MAdapter),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& MAdapter),
+      __ret___0 = memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& MAdapter),
                                    __len___0);
     }
     dst = dst + 1;
@@ -4858,7 +4858,7 @@ static int diva_didd_read_adapter_array(DESCRIPTOR *buffer , int length )
       __ret___1 = memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& DAdapter),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& DAdapter),
+      __ret___1 = memcpy((void *)buffer + (unsigned long )dst, (void const   *)(& DAdapter),
                                    __len___1);
     }
     dst = dst + 1;
@@ -5047,7 +5047,7 @@ static void diva_notify_adapter_change(DESCRIPTOR *d , int removal )
       __ret = memcpy((void *)(& nfy), (void const   *)(& NotificationTable) + (unsigned long )i,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& nfy), (void const   *)(& NotificationTable) + (unsigned long )i,
+      __ret = memcpy((void *)(& nfy), (void const   *)(& NotificationTable) + (unsigned long )i,
                                __len);
     }
     do_notify = 1;

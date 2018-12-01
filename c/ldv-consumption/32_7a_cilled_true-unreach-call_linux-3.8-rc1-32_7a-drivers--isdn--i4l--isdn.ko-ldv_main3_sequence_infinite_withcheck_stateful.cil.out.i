@@ -7232,7 +7232,7 @@ static int isdn_net_open(struct net_device *dev___0 )
         __ret = memcpy((void *)dev___0->dev_addr + 2U, (void const *)(& ifa->ifa_local),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)dev___0->dev_addr + 2U, (void const *)(& ifa->ifa_local),
+        __ret = memcpy((void *)dev___0->dev_addr + 2U, (void const *)(& ifa->ifa_local),
                                  __len);
       }
     } else {
@@ -8931,7 +8931,7 @@ static int isdn_net_rebuild_header(struct sk_buff *skb )
       printk("\fisdn_net: %s don\'t know how to resolve type %d addresses?\n", (char *)(& dev___0->name),
              (int )eth->h_proto);
       __len = (size_t )dev___0->addr_len;
-      __ret = __builtin_memcpy((void *)(& eth->h_source), (void const *)dev___0->dev_addr,
+      __ret = memcpy((void *)(& eth->h_source), (void const *)dev___0->dev_addr,
                                __len);
       return (0);
     } else {
@@ -11222,7 +11222,7 @@ static void isdn_tty_senddown(modem_info *info )
   skb_reserve(skb, skb_res);
   __len = (size_t )buflen;
   tmp___1 = skb_put(skb, (unsigned int )buflen);
-  __ret = __builtin_memcpy((void *)tmp___1, (void const *)info->port.xmit_buf, __len);
+  __ret = memcpy((void *)tmp___1, (void const *)info->port.xmit_buf, __len);
   info->xmit_count = 0;
   if ((info->vonline & 2) != 0) {
     ifmt = 1;
@@ -11260,7 +11260,7 @@ static void isdn_tty_senddown(modem_info *info )
         __ret___0 = memcpy((void *)tmp___3, (void const *)"\001", __len___0);
       } else {
         tmp___4 = skb_push(skb, 2U);
-        __ret___0 = __builtin_memcpy((void *)tmp___4, (void const *)"\001", __len___0);
+        __ret___0 = memcpy((void *)tmp___4, (void const *)"\001", __len___0);
       }
     } else {
       __len___1 = 4UL;
@@ -11269,7 +11269,7 @@ static void isdn_tty_senddown(modem_info *info )
         __ret___1 = memcpy((void *)tmp___5, (void const *)"\001", __len___1);
       } else {
         tmp___6 = skb_push(skb, 4U);
-        __ret___1 = __builtin_memcpy((void *)tmp___6, (void const *)"\001", __len___1);
+        __ret___1 = memcpy((void *)tmp___6, (void const *)"\001", __len___1);
       }
     }
   } else {
@@ -11881,7 +11881,7 @@ static int isdn_tty_write(struct tty_struct *tty , u_char const *buf , int count
     } else {
     }
     __len = (size_t )c;
-    __ret = __builtin_memcpy((void *)info->port.xmit_buf + (unsigned long )info->xmit_count,
+    __ret = memcpy((void *)info->port.xmit_buf + (unsigned long )info->xmit_count,
                              (void const *)buf, __len);
     if (info->vonline != 0) {
       tmp___0 = isdn_tty_handleDLEdown(info, m, c);
@@ -12472,21 +12472,21 @@ static void isdn_tty_modem_reset_regs(modem_info *info , int force )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& m->mdmreg), (void const *)(& m->profile), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& m->mdmreg), (void const *)(& m->profile),
+      __ret = memcpy((void *)(& m->mdmreg), (void const *)(& m->profile),
                                __len);
     }
     __len___0 = 32UL;
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& m->msn), (void const *)(& m->pmsn), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& m->msn), (void const *)(& m->pmsn),
+      __ret___0 = memcpy((void *)(& m->msn), (void const *)(& m->pmsn),
                                    __len___0);
     }
     __len___1 = 255UL;
     if (__len___1 > 63UL) {
       __ret___1 = memcpy((void *)(& m->lmsn), (void const *)(& m->plmsn), __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& m->lmsn), (void const *)(& m->plmsn),
+      __ret___1 = memcpy((void *)(& m->lmsn), (void const *)(& m->plmsn),
                                    __len___1);
     }
     info->xmit_size = (int )m->mdmreg[16] * 16;
@@ -12511,21 +12511,21 @@ static void modem_write_profile(atemu *m )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& m->profile), (void const *)(& m->mdmreg), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& m->profile), (void const *)(& m->mdmreg),
+    __ret = memcpy((void *)(& m->profile), (void const *)(& m->mdmreg),
                              __len);
   }
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& m->pmsn), (void const *)(& m->msn), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& m->pmsn), (void const *)(& m->msn),
+    __ret___0 = memcpy((void *)(& m->pmsn), (void const *)(& m->msn),
                                  __len___0);
   }
   __len___1 = 255UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& m->plmsn), (void const *)(& m->lmsn), __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& m->plmsn), (void const *)(& m->lmsn),
+    __ret___1 = memcpy((void *)(& m->plmsn), (void const *)(& m->lmsn),
                                  __len___1);
   }
   if ((unsigned long )dev->profd != (unsigned long )((struct task_struct *)0)) {
@@ -15269,7 +15269,7 @@ static void SyncHeader(isdn_v110_stream *v )
   ldv_43471: ;
   if (len != 0) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)(& v->decodebuf), (void const *)rbuf, __len);
+    __ret = memcpy((void *)(& v->decodebuf), (void const *)rbuf, __len);
   } else {
   }
   v->decodelen = len;
@@ -15393,7 +15393,7 @@ struct sk_buff *isdn_v110_decode(isdn_v110_stream *v , struct sk_buff *skb )
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& v->decodebuf) + (unsigned long )v->decodelen,
+  __ret = memcpy((void *)(& v->decodebuf) + (unsigned long )v->decodelen,
                            (void const *)rbuf, __len);
   v->decodelen = v->decodelen + len;
   ReSync: ;
@@ -15441,7 +15441,7 @@ struct sk_buff *isdn_v110_decode(isdn_v110_stream *v , struct sk_buff *skb )
   }
   v->decodelen = v->decodelen % (v->nbytes * 10);
   __len___0 = (size_t )v->decodelen;
-  __ret___0 = __builtin_memcpy((void *)(& v->decodebuf), (void const *)(& v->decodebuf) + (unsigned long )(v->nbytes * len),
+  __ret___0 = memcpy((void *)(& v->decodebuf), (void const *)(& v->decodebuf) + (unsigned long )(v->nbytes * len),
                                __len___0);
   tmp___1 = DecodeMatrix(v, v110_buf, len, skb->data);
   skb_trim(skb, (unsigned int )tmp___1);
@@ -15608,7 +15608,7 @@ static struct sk_buff *isdn_v110_sync(isdn_v110_stream *v )
     skb_reserve(skb, v->skbres);
     __len = (size_t )v->framelen;
     tmp___0 = skb_put(skb, (unsigned int )v->framelen);
-    __ret = __builtin_memcpy((void *)tmp___0, (void const *)v->OfflineFrame, __len);
+    __ret = memcpy((void *)tmp___0, (void const *)v->OfflineFrame, __len);
   } else {
   }
   return (skb);
@@ -15631,7 +15631,7 @@ static struct sk_buff *isdn_v110_idle(isdn_v110_stream *v )
     skb_reserve(skb, v->skbres);
     __len = (size_t )v->framelen;
     tmp___0 = skb_put(skb, (unsigned int )v->framelen);
-    __ret = __builtin_memcpy((void *)tmp___0, (void const *)v->OnlineFrame, __len);
+    __ret = memcpy((void *)tmp___0, (void const *)v->OnlineFrame, __len);
   } else {
   }
   return (skb);
@@ -15688,7 +15688,7 @@ struct sk_buff *isdn_v110_encode(isdn_v110_stream *v , struct sk_buff *skb )
   if (skb->len == 0U) {
     __len = (size_t )v->framelen;
     tmp___0 = skb_put(nskb, (unsigned int )v->framelen);
-    __ret = __builtin_memcpy((void *)tmp___0, (void const *)v->OnlineFrame, __len);
+    __ret = memcpy((void *)tmp___0, (void const *)v->OnlineFrame, __len);
     tmp___1 = skb_push(nskb, 4U);
     *((int *)tmp___1) = 0;
     return (nskb);
@@ -16121,7 +16121,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   return;
 }
 }
@@ -18537,7 +18537,7 @@ static int isdn_ioctl(struct file *file , uint cmd , ulong arg )
         __ret = memcpy((void *)(& c.parm.num), (void const *)(& iocpar.iocts.arg),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& c.parm.num), (void const *)(& iocpar.iocts.arg),
+        __ret = memcpy((void *)(& c.parm.num), (void const *)(& iocpar.iocts.arg),
                                  __len);
       }
       ret = isdn_command(& c);
@@ -18546,7 +18546,7 @@ static int isdn_ioctl(struct file *file , uint cmd , ulong arg )
         __ret___0 = memcpy((void *)(& iocpar.iocts.arg), (void const *)(& c.parm.num),
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& iocpar.iocts.arg), (void const *)(& c.parm.num),
+        __ret___0 = memcpy((void *)(& iocpar.iocts.arg), (void const *)(& c.parm.num),
                                      __len___0);
       }
       tmp___69 = copy_to_user(argp, (void const *)(& iocpar.iocts), 40U);
@@ -19868,7 +19868,7 @@ __inline static void skb_copy_from_linear_data_offset(struct sk_buff const *skb 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data + (unsigned long )offset,
+  __ret = memcpy(to, (void const *)skb->data + (unsigned long )offset,
                            __len);
   return;
 }
@@ -20727,7 +20727,7 @@ static int isdn_ppp_fill_rq(unsigned char *buf , int len , int proto , int slot 
   *(nbuf + 2UL) = (u_char )(proto >> 8);
   *(nbuf + 3UL) = (u_char )proto;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)nbuf + 4U, (void const *)buf, __len);
+  __ret = memcpy((void *)nbuf + 4U, (void const *)buf, __len);
   tmp___0 = spinlock_check(& is->buflock);
   flags = _raw_spin_lock_irqsave(tmp___0);
   bf = is->first;
@@ -22355,7 +22355,7 @@ static void isdn_ppp_ccp_xmit_reset(struct ippp_struct *is , int proto , unsigne
   if (len != 0) {
     p = skb_put(skb, (unsigned int )len);
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)p, (void const *)data, __len);
+    __ret = memcpy((void *)p, (void const *)data, __len);
   } else {
   }
   printk("\017Sending CCP Frame:\n");
@@ -22514,7 +22514,7 @@ static void isdn_ppp_ccp_reset_trans(struct ippp_struct *is , struct isdn_ppp_re
         if ((unsigned int )*((unsigned char *)rp + 0UL) != 0U) {
           rs->dlen = (int )rp->dlen;
           __len = (size_t )rp->dlen;
-          __ret = __builtin_memcpy((void *)(& rs->data), (void const *)rp->data,
+          __ret = memcpy((void *)(& rs->data), (void const *)rp->data,
                                    __len);
         } else {
         }

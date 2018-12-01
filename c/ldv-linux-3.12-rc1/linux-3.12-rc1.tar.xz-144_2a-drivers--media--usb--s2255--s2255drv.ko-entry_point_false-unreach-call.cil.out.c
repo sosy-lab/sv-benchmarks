@@ -5653,7 +5653,7 @@ static void s2255_fwchunk_complete(struct urb *urb )
 
     }
     __len = (size_t )len;
-    __ret = __builtin_memcpy(data->pfw_data, (void const   *)(data->fw)->data + (unsigned long )data->fw_loaded,
+    __ret = memcpy(data->pfw_data, (void const   *)(data->fw)->data + (unsigned long )data->fw_loaded,
                              __len);
     tmp = __create_pipe(udev, 2U);
     ldv_usb_fill_bulk_urb_4(data->fw_urb, udev, tmp | 3221225472U, data->pfw_data,
@@ -5797,17 +5797,17 @@ static void s2255_fillbuff(struct s2255_channel *channel , struct s2255_buffer *
     goto ldv_32905;
     case 1497715271U: 
     __len = (size_t )(buf->vb.width * buf->vb.height);
-    __ret = __builtin_memcpy((void *)vbuf, (void const   *)tmpbuf, __len);
+    __ret = memcpy((void *)vbuf, (void const   *)tmpbuf, __len);
     goto ldv_32905;
     case 1195724874U: ;
     case 1196444237U: 
     buf->vb.size = (unsigned long )jpgsize;
     __len___0 = buf->vb.size;
-    __ret___0 = __builtin_memcpy((void *)vbuf, (void const   *)tmpbuf, __len___0);
+    __ret___0 = memcpy((void *)vbuf, (void const   *)tmpbuf, __len___0);
     goto ldv_32905;
     case 1345466932U: 
     __len___1 = (size_t )((buf->vb.width * buf->vb.height) * 2U);
-    __ret___1 = __builtin_memcpy((void *)vbuf, (void const   *)tmpbuf, __len___1);
+    __ret___1 = memcpy((void *)vbuf, (void const   *)tmpbuf, __len___1);
     goto ldv_32905;
     default: 
     printk("\017s2255: unknown format?\n");
@@ -8006,7 +8006,7 @@ static int save_frame(struct s2255_dev *dev , struct s2255_pipeinfo *pipe_info )
   size = channel->pkt_size - 512UL;
   if (frm->cur_size + copy_size < channel->req_image_size) {
     __len = copy_size;
-    __ret = __builtin_memcpy((void *)pdest, (void const   *)psrc, __len);
+    __ret = memcpy((void *)pdest, (void const   *)psrc, __len);
   } else {
 
   }
@@ -8614,7 +8614,7 @@ static void s2255_fwload_start(struct s2255_dev *dev , int reset )
     __ret = memcpy((dev->fw_data)->pfw_data, (void const   *)((dev->fw_data)->fw)->data,
                      __len);
   } else {
-    __ret = __builtin_memcpy((dev->fw_data)->pfw_data, (void const   *)((dev->fw_data)->fw)->data,
+    __ret = memcpy((dev->fw_data)->pfw_data, (void const   *)((dev->fw_data)->fw)->data,
                              __len);
   }
   (dev->fw_data)->fw_loaded = 512;

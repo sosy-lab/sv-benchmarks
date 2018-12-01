@@ -8080,7 +8080,7 @@ static int ezusb_fill_req(struct ezusb_packet *req , u16 length , u16 rid , void
     __cil_tmp41 = __cil_tmp40 + 14;
     __cil_tmp42 = (u8 (*)[0U])__cil_tmp41;
     __cil_tmp43 = (void *)__cil_tmp42;
-    __ret = __builtin_memcpy(__cil_tmp43, data, __len);
+    __ret = memcpy(__cil_tmp43, data, __len);
     }
   } else {
   }
@@ -8345,7 +8345,7 @@ static int ezusb_firmware_download(struct ezusb_priv *upriv , struct ez_usb_fw *
     __cil_tmp29 = *((u8 **)__cil_tmp28);
     __cil_tmp30 = (void *)__cil_tmp29;
     __cil_tmp31 = __cil_tmp30 + __cil_tmp26;
-    __ret = __builtin_memcpy(__cil_tmp25, __cil_tmp31, __len);
+    __ret = memcpy(__cil_tmp25, __cil_tmp31, __len);
     }
   }
   if (variant_offset >= addr) {
@@ -8864,7 +8864,7 @@ static int ezusb_access_ltv(struct ezusb_priv *upriv , struct request_context *c
       __cil_tmp142 = __cil_tmp141 + 14;
       __cil_tmp143 = (u8 (*)[0U])__cil_tmp142;
       __cil_tmp144 = (void *)__cil_tmp143;
-      __ret = __builtin_memcpy(ans_buff, __cil_tmp144, __len);
+      __ret = memcpy(ans_buff, __cil_tmp144, __len);
       }
     } else {
     }
@@ -9311,7 +9311,7 @@ static int ezusb_bap_pread(struct hermes *hw , int bap , void *buf , int len , u
     __cil_tmp38 = (u8 (*)[0U])__cil_tmp37;
     __cil_tmp39 = (void *)__cil_tmp38;
     __cil_tmp40 = __cil_tmp39 + __cil_tmp35;
-    __ret = __builtin_memcpy(buf, __cil_tmp40, __len);
+    __ret = memcpy(buf, __cil_tmp40, __len);
     }
     return (0);
   } else {
@@ -9346,7 +9346,7 @@ static int ezusb_bap_pread(struct hermes *hw , int bap , void *buf , int len , u
       __cil_tmp52 = (u8 (*)[0U])__cil_tmp51;
       __cil_tmp53 = (void *)__cil_tmp52;
       __cil_tmp54 = __cil_tmp53 + __cil_tmp49;
-      __ret___0 = __builtin_memcpy(buf, __cil_tmp54, __len___0);
+      __ret___0 = memcpy(buf, __cil_tmp54, __len___0);
       }
     } else {
       {
@@ -10006,7 +10006,7 @@ static netdev_tx_t ezusb_xmit(struct sk_buff *skb , struct net_device *dev )
   __cil_tmp70 = __cil_tmp69 + 224;
   __cil_tmp71 = *((unsigned char **)__cil_tmp70);
   __cil_tmp72 = (void *)__cil_tmp71;
-  __ret = __builtin_memcpy(__cil_tmp68, __cil_tmp72, __len);
+  __ret = memcpy(__cil_tmp68, __cil_tmp72, __len);
   __cil_tmp73 = (unsigned long )skb;
   __cil_tmp74 = __cil_tmp73 + 104;
   __cil_tmp75 = *((unsigned int *)__cil_tmp74);
@@ -10040,7 +10040,7 @@ static netdev_tx_t ezusb_xmit(struct sk_buff *skb , struct net_device *dev )
       {
       __cil_tmp86 = (void *)buf;
       __cil_tmp87 = (void *)m;
-      __ret___0 = __builtin_memcpy(__cil_tmp86, __cil_tmp87, __len___0);
+      __ret___0 = memcpy(__cil_tmp86, __cil_tmp87, __len___0);
       }
     }
     buf = buf + 8UL;

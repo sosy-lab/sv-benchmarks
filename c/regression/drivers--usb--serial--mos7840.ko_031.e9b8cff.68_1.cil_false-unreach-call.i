@@ -3262,7 +3262,7 @@ struct moschip_port {
    bool read_urb_busy ;
 };
 enum hrtimer_restart;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data *f , int val , int expect ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
@@ -7641,7 +7641,7 @@ static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port ,
   _min2 = 32;
   transfer_size = _min1 < _min2 ? _min1 : _min2;
   __len = transfer_size;
-  __ret = __builtin_memcpy(urb->transfer_buffer, current_position, __len);
+  __ret = memcpy(urb->transfer_buffer, current_position, __len);
   tmp___11 = __create_pipe(serial->dev, port->bulk_out_endpointAddress);
   usb_fill_bulk_urb(urb, serial->dev, (unsigned int )(3 << 30) | tmp___11, urb->transfer_buffer,
                     transfer_size, & mos7840_bulk_out_data_callback, mos7840_port);

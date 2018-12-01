@@ -7063,7 +7063,7 @@ static void lbtf_tx_work(struct work_struct *work )
     __ret = memcpy((void *)(& txpd->tx_dest_addr_high), (void const   *)skb->data + 28U,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& txpd->tx_dest_addr_high), (void const   *)skb->data + 28U,
+    __ret = memcpy((void *)(& txpd->tx_dest_addr_high), (void const   *)skb->data + 28U,
                              __len);
   }
   txpd->tx_packet_length = (unsigned short )len;
@@ -7379,7 +7379,7 @@ static u64 lbtf_op_prepare_multicast(struct ieee80211_hw *hw , struct netdev_hw_
   } else {
     tmp___0 = i;
     i = i + 1;
-    __ret = __builtin_memcpy((void *)(& priv->multicastlist) + (unsigned long )tmp___0,
+    __ret = memcpy((void *)(& priv->multicastlist) + (unsigned long )tmp___0,
                              (void const   *)(& ha->addr), __len);
   }
   __mptr___0 = (struct list_head  const  *)ha->list.next;
@@ -7638,7 +7638,7 @@ int lbtf_rx(struct lbtf_private *priv , struct sk_buff *skb )
     __ret = memcpy((void *)tmp___4, (void const   *)(& stats), __len);
   } else {
     tmp___5 = IEEE80211_SKB_RXCB(skb);
-    __ret = __builtin_memcpy((void *)tmp___5, (void const   *)(& stats), __len);
+    __ret = memcpy((void *)tmp___5, (void const   *)(& stats), __len);
   }
   if ((lbtf_debug & 32768U) != 0U) {
     tmp___6 = preempt_count();
@@ -7717,7 +7717,7 @@ struct lbtf_private *lbtf_add_card(void *card , struct device *dmdev )
     __ret = memcpy((void *)(& priv->channels), (void const   *)(& lbtf_channels),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->channels), (void const   *)(& lbtf_channels),
+    __ret = memcpy((void *)(& priv->channels), (void const   *)(& lbtf_channels),
                              __len);
   }
   __len___0 = 144UL;
@@ -7725,7 +7725,7 @@ struct lbtf_private *lbtf_add_card(void *card , struct device *dmdev )
     __ret___0 = memcpy((void *)(& priv->rates), (void const   *)(& lbtf_rates),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& priv->rates), (void const   *)(& lbtf_rates),
+    __ret___0 = memcpy((void *)(& priv->rates), (void const   *)(& lbtf_rates),
                                  __len___0);
   }
   priv->band.n_bitrates = 12;
@@ -8639,7 +8639,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
   }
   return;
@@ -8676,7 +8676,7 @@ int lbtf_cmd_copyback(struct lbtf_private *priv , unsigned long extra , struct c
   _min2 = resp->size;
   copy_len = (uint16_t )((int )_min1 < (int )_min2 ? _min1 : _min2);
   __len = (size_t )copy_len;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)resp, __len);
+  __ret = memcpy((void *)buf, (void const   *)resp, __len);
   return (0);
 }
 }
@@ -8757,7 +8757,7 @@ int lbtf_update_hw_spec(struct lbtf_private *priv )
     __ret = memcpy((void *)(& cmd.permanentaddr), (void const   *)(& priv->current_addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cmd.permanentaddr), (void const   *)(& priv->current_addr),
+    __ret = memcpy((void *)(& cmd.permanentaddr), (void const   *)(& priv->current_addr),
                              __len);
   }
   __sz = cmd.hdr.size;
@@ -8894,7 +8894,7 @@ int lbtf_beacon_set(struct lbtf_private *priv , struct sk_buff *beacon )
   cmd.hdr.size = (unsigned short )size;
   cmd.len = (unsigned short )beacon->len;
   __len = (size_t )beacon->len;
-  __ret = __builtin_memcpy((void *)(& cmd.beacon), (void const   *)beacon->data, __len);
+  __ret = memcpy((void *)(& cmd.beacon), (void const   *)beacon->data, __len);
   lbtf_cmd_async(priv, 203, & cmd.hdr, size);
   if ((lbtf_debug & 16386U) == 16386U) {
     tmp___1 = preempt_count();
@@ -9148,7 +9148,7 @@ int lbtf_cmd_set_mac_multicast_addr(struct lbtf_private *priv )
 
   }
   __len = (size_t )(priv->nr_of_multicastmacaddr * 6U);
-  __ret = __builtin_memcpy((void *)(& cmd.maclist), (void const   *)(& priv->multicastlist),
+  __ret = memcpy((void *)(& cmd.maclist), (void const   *)(& priv->multicastlist),
                            __len);
   lbtf_cmd_async(priv, 16, & cmd.hdr, 204);
   if ((lbtf_debug & 16386U) == 16386U) {
@@ -9219,7 +9219,7 @@ void lbtf_set_bssid(struct lbtf_private *priv , bool activate , u8 const   *bssi
     if (__len > 63UL) {
       __ret = memcpy((void *)(& cmd.bssid), (void const   *)bssid, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& cmd.bssid), (void const   *)bssid, __len);
+      __ret = memcpy((void *)(& cmd.bssid), (void const   *)bssid, __len);
     }
   } else {
 
@@ -9257,7 +9257,7 @@ int lbtf_set_mac_address(struct lbtf_private *priv , uint8_t *mac_addr )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cmd.macadd), (void const   *)mac_addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cmd.macadd), (void const   *)mac_addr, __len);
+    __ret = memcpy((void *)(& cmd.macadd), (void const   *)mac_addr, __len);
   }
   lbtf_cmd_async(priv, 77, & cmd.hdr, 16);
   if ((lbtf_debug & 16386U) == 16386U) {
@@ -9675,7 +9675,7 @@ static struct cmd_ctrl_node *__lbtf_cmd_async(struct lbtf_private *priv , uint16
   cmdnode->callback = callback;
   cmdnode->callback_arg = callback_arg;
   __len = (size_t )in_cmd_size;
-  __ret = __builtin_memcpy((void *)cmdnode->cmdbuf, (void const   *)in_cmd, __len);
+  __ret = memcpy((void *)cmdnode->cmdbuf, (void const   *)in_cmd, __len);
   priv->seqnum = (u16 )((int )priv->seqnum + 1);
   (cmdnode->cmdbuf)->command = command;
   (cmdnode->cmdbuf)->size = (unsigned short )in_cmd_size;

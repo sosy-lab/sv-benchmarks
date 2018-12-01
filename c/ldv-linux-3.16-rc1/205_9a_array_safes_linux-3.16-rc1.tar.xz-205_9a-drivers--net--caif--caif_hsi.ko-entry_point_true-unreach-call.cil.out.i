@@ -6166,7 +6166,7 @@ static int cfhsi_rx_desc(struct cfhsi_desc *desc , struct cfhsi *cfhsi )
     tmp___1 = skb_put(skb, (unsigned int )len);
     dst = tmp___1;
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)dst, (void const *)pfrm, __len);
+    __ret = memcpy((void *)dst, (void const *)pfrm, __len);
     skb->protocol = 63232U;
     skb_reset_mac_header(skb);
     skb->dev = cfhsi->ndev;
@@ -6326,7 +6326,7 @@ static int cfhsi_rx_pld(struct cfhsi_desc *desc , struct cfhsi *cfhsi )
   tmp___3 = skb_put(skb, (unsigned int )len);
   dst = tmp___3;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)dst, (void const *)pcffrm, __len);
+  __ret = memcpy((void *)dst, (void const *)pcffrm, __len);
   skb->protocol = 63232U;
   skb_reset_mac_header(skb);
   skb->dev = cfhsi->ndev;
@@ -6441,7 +6441,7 @@ static void cfhsi_rx_done(struct cfhsi *cfhsi )
       if (__len > 63UL) {
         __ret = memcpy((void *)rx_buf, (void const *)piggy_desc, __len);
       } else {
-        __ret = __builtin_memcpy((void *)rx_buf, (void const *)piggy_desc, __len);
+        __ret = memcpy((void *)rx_buf, (void const *)piggy_desc, __len);
       }
     } else {
     }

@@ -6973,7 +6973,7 @@ __inline static void skb_copy_to_linear_data_offset(struct sk_buff *skb , int co
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data + (unsigned long )offset, from, __len);
+  __ret = memcpy((void *)skb->data + (unsigned long )offset, from, __len);
   return;
 }
 }
@@ -8419,7 +8419,7 @@ static int ixgb_set_mac(struct net_device *netdev , void *p )
   } else {
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
+  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
                            __len);
   ixgb_rar_set(& adapter->hw, (u8 *)(& addr->sa_data), 0U);
   return (0);
@@ -8478,7 +8478,7 @@ static void ixgb_set_multi(struct net_device *netdev )
     if (__len > 63UL) {
       __ret = memcpy((void *)addr, (void const *)(& ha->addr), __len);
     } else {
-      __ret = __builtin_memcpy((void *)addr, (void const *)(& ha->addr), __len);
+      __ret = memcpy((void *)addr, (void const *)(& ha->addr), __len);
     }
     addr = addr + 6UL;
     __mptr___0 = (struct list_head const *)ha->list.next;
@@ -10011,7 +10011,7 @@ static pci_ers_result_t ixgb_io_slot_reset(struct pci_dev *pdev )
   }
   ixgb_get_ee_mac_addr(& adapter->hw, netdev->dev_addr);
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)(& netdev->perm_addr), (void const *)netdev->dev_addr,
+  __ret = memcpy((void *)(& netdev->perm_addr), (void const *)netdev->dev_addr,
                            __len);
   tmp___4 = is_valid_ether_addr((u8 const *)(& netdev->perm_addr));
   if (tmp___4) {
@@ -13804,7 +13804,7 @@ static int ixgb_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *ee
   } else {
   }
   __len = (size_t )eeprom->len;
-  __ret = __builtin_memcpy((void *)bytes, (void const *)eeprom_buff + ((unsigned long )eeprom->offset & 1UL),
+  __ret = memcpy((void *)bytes, (void const *)eeprom_buff + ((unsigned long )eeprom->offset & 1UL),
                            __len);
   kfree((void const *)eeprom_buff);
   geeprom_error: ;
@@ -13867,7 +13867,7 @@ static int ixgb_set_eeprom(struct net_device *netdev , struct ethtool_eeprom *ee
   } else {
   }
   __len = (size_t )eeprom->len;
-  __ret = __builtin_memcpy(ptr, (void const *)bytes, __len);
+  __ret = memcpy(ptr, (void const *)bytes, __len);
   i = 0U;
   goto ldv_50654;
   ldv_50653:
@@ -14097,7 +14097,7 @@ static void ixgb_get_strings(struct net_device *netdev , u32 stringset , u8 *dat
     __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const *)(& ixgb_gstrings_stats[i].stat_string),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)data + (unsigned long )(i * 32), (void const *)(& ixgb_gstrings_stats[i].stat_string),
+    __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const *)(& ixgb_gstrings_stats[i].stat_string),
                              __len);
   }
   i = i + 1;

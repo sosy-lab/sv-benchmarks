@@ -482,7 +482,7 @@ struct exception_table_entry {
    unsigned long insn ;
    unsigned long fixup ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static void clear_bit(int nr , unsigned long volatile   *addr ) 
 { 
@@ -1229,7 +1229,7 @@ static void cfag12864b_update(struct work_struct *work )
       __ret = memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
+      __ret = memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
                                __len);
     }
   } else {

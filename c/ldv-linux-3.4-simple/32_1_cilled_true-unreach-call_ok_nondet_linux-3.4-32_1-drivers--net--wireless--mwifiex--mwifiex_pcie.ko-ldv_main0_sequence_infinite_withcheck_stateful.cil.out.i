@@ -9731,7 +9731,7 @@ static int mwifiex_pcie_send_data(struct mwifiex_adapter *adapter , struct sk_bu
       __cil_tmp77 = __cil_tmp76 + 224;
       __cil_tmp78 = *((unsigned char **)__cil_tmp77);
       __cil_tmp79 = (void const *)__cil_tmp78;
-      __ret = __builtin_memcpy(__cil_tmp75, __cil_tmp79, __len);
+      __ret = memcpy(__cil_tmp75, __cil_tmp79, __len);
       __cil_tmp80 = (unsigned long )skb_data;
       __cil_tmp81 = __cil_tmp80 + 224;
       payload = *((unsigned char **)__cil_tmp81);
@@ -10264,7 +10264,7 @@ static int mwifiex_pcie_process_recv_data(struct mwifiex_adapter *adapter )
     __cil_tmp89 = *((unsigned char **)__cil_tmp88);
     __cil_tmp90 = __cil_tmp89 + 4;
     __cil_tmp91 = (void const *)__cil_tmp90;
-    __ret = __builtin_memcpy(__cil_tmp86, __cil_tmp91, __len);
+    __ret = memcpy(__cil_tmp86, __cil_tmp91, __len);
     __cil_tmp92 = (unsigned long )card;
     __cil_tmp93 = __cil_tmp92 + 564;
     __cil_tmp94 = (unsigned long )card;
@@ -10906,7 +10906,7 @@ static int mwifiex_pcie_send_cmd(struct mwifiex_adapter *adapter , struct sk_buf
   __cil_tmp85 = __cil_tmp84 + 224;
   __cil_tmp86 = *((unsigned char **)__cil_tmp85);
   __cil_tmp87 = (void const *)__cil_tmp86;
-  __ret = __builtin_memcpy(__cil_tmp83, __cil_tmp87, __len);
+  __ret = memcpy(__cil_tmp83, __cil_tmp87, __len);
   }
   {
   __cil_tmp88 = (unsigned long )card;
@@ -11240,7 +11240,7 @@ static int mwifiex_pcie_process_cmd_complete(struct mwifiex_adapter *adapter )
     __cil_tmp59 = __cil_tmp58 + 224;
     __cil_tmp60 = *((unsigned char **)__cil_tmp59);
     __cil_tmp61 = (void const *)__cil_tmp60;
-    __ret = __builtin_memcpy(__cil_tmp57, __cil_tmp61, __len);
+    __ret = memcpy(__cil_tmp57, __cil_tmp61, __len);
     skb_push(skb, 4U);
     }
   } else {
@@ -11780,7 +11780,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
         __cil_tmp137 = __cil_tmp136 + 224;
         __cil_tmp138 = *((unsigned char **)__cil_tmp137);
         __cil_tmp139 = (void const *)__cil_tmp138;
-        __ret = __builtin_memcpy(__cil_tmp135, __cil_tmp139, __len);
+        __ret = memcpy(__cil_tmp135, __cil_tmp139, __len);
         }
       }
       {
@@ -11844,7 +11844,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
           __cil_tmp164 = *((unsigned char **)__cil_tmp163);
           __cil_tmp165 = __cil_tmp164 + 4;
           __cil_tmp166 = (void const *)__cil_tmp165;
-          __ret___0 = __builtin_memcpy(__cil_tmp161, __cil_tmp166, __len___0);
+          __ret___0 = memcpy(__cil_tmp161, __cil_tmp166, __len___0);
           }
         } else {
         }

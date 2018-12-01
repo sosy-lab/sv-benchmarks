@@ -3360,7 +3360,7 @@ struct dvb_frontend *dvb_dummy_fe_ofdm_attach(void)
     __cil_tmp11 = (struct dvb_frontend_ops *)state;
     __cil_tmp12 = (void *)__cil_tmp11;
     __cil_tmp13 = (void const   *)(& dvb_dummy_fe_ofdm_ops);
-    __ret = __builtin_memcpy(__cil_tmp12, __cil_tmp13, __len);
+    __ret = memcpy(__cil_tmp12, __cil_tmp13, __len);
     }
   }
   __cil_tmp14 = 0 + 760;
@@ -3425,7 +3425,7 @@ struct dvb_frontend *dvb_dummy_fe_qpsk_attach(void)
     __cil_tmp11 = (struct dvb_frontend_ops *)state;
     __cil_tmp12 = (void *)__cil_tmp11;
     __cil_tmp13 = (void const   *)(& dvb_dummy_fe_qpsk_ops);
-    __ret = __builtin_memcpy(__cil_tmp12, __cil_tmp13, __len);
+    __ret = memcpy(__cil_tmp12, __cil_tmp13, __len);
     }
   }
   __cil_tmp14 = 0 + 760;
@@ -3490,7 +3490,7 @@ struct dvb_frontend *dvb_dummy_fe_qam_attach(void)
     __cil_tmp11 = (struct dvb_frontend_ops *)state;
     __cil_tmp12 = (void *)__cil_tmp11;
     __cil_tmp13 = (void const   *)(& dvb_dummy_fe_qam_ops);
-    __ret = __builtin_memcpy(__cil_tmp12, __cil_tmp13, __len);
+    __ret = memcpy(__cil_tmp12, __cil_tmp13, __len);
     }
   }
   __cil_tmp14 = 0 + 760;

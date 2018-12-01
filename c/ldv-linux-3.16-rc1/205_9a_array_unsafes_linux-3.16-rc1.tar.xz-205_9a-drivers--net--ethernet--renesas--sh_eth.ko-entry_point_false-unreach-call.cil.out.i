@@ -7199,7 +7199,7 @@ static void read_mac_address(struct net_device *ndev , unsigned char *mac )
     if (__len > 63UL) {
       __ret = memcpy((void *)ndev->dev_addr, (void const *)mac, __len);
     } else {
-      __ret = __builtin_memcpy((void *)ndev->dev_addr, (void const *)mac, __len);
+      __ret = memcpy((void *)ndev->dev_addr, (void const *)mac, __len);
     }
   } else {
     tmp = sh_eth_read(ndev, 49);
@@ -8394,7 +8394,7 @@ static void sh_eth_get_strings(struct net_device *ndev , u32 stringset , u8 *dat
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const *)(& sh_eth_gstrings_stats), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const *)(& sh_eth_gstrings_stats),
+    __ret = memcpy((void *)data, (void const *)(& sh_eth_gstrings_stats),
                              __len);
   }
   goto ldv_44854;

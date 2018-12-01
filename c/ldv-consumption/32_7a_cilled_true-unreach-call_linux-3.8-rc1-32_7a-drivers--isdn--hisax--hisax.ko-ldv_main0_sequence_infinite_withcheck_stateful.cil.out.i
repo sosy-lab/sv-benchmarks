@@ -6483,7 +6483,7 @@ void VHiSax_putstatus(struct IsdnCardState *cs , char *head , char *fmt , __va_l
   }
   len = len - i;
   __len = (size_t )i;
-  __ret = __builtin_memcpy((void *)cs->status_write, (void const *)p, __len);
+  __ret = memcpy((void *)cs->status_write, (void const *)p, __len);
   cs->status_write = cs->status_write + (unsigned long )i;
   if ((unsigned long )cs->status_write > (unsigned long )cs->status_end) {
     cs->status_write = cs->status_buf;
@@ -6492,7 +6492,7 @@ void VHiSax_putstatus(struct IsdnCardState *cs , char *head , char *fmt , __va_l
   p = p + (unsigned long )i;
   if (len != 0) {
     __len___0 = (size_t )len;
-    __ret___0 = __builtin_memcpy((void *)cs->status_write, (void const *)p, __len___0);
+    __ret___0 = memcpy((void *)cs->status_write, (void const *)p, __len___0);
     cs->status_write = cs->status_write + (unsigned long )len;
   } else {
   }
@@ -6921,7 +6921,7 @@ static void HiSax_shiftcards(int idx )
     __ret = memcpy((void *)(& cards) + (unsigned long )i, (void const *)(& cards) + ((unsigned long )i + 1UL),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cards) + (unsigned long )i, (void const *)(& cards) + ((unsigned long )i + 1UL),
+    __ret = memcpy((void *)(& cards) + (unsigned long )i, (void const *)(& cards) + ((unsigned long )i + 1UL),
                              __len);
   }
   i = i + 1;
@@ -10156,7 +10156,7 @@ static void send_uframe(struct PStack *st , u_char cmd , u_char cr )
   }
   __len = (size_t )i;
   tmp___2 = skb_put(skb, (unsigned int )i);
-  __ret = __builtin_memcpy((void *)tmp___2, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___2, (void const *)(& tmp), __len);
   enqueue_super(st, skb);
   return;
 }
@@ -10368,7 +10368,7 @@ static void tx_ui(struct PStack *st )
   ldv_41216:
   __len = (size_t )i;
   tmp___1 = skb_push(skb, (unsigned int )i);
-  __ret = __builtin_memcpy((void *)tmp___1, (void const *)(& header), __len);
+  __ret = memcpy((void *)tmp___1, (void const *)(& header), __len);
   enqueue_super(st, skb);
   ldv_41217:
   skb = skb_dequeue(& st->l2.ui_queue);
@@ -10766,7 +10766,7 @@ __inline static void enquiry_cr(struct PStack *st , u_char typ , u_char cr , u_c
   }
   __len = (size_t )i;
   tmp___5 = skb_put(skb, (unsigned int )i);
-  __ret = __builtin_memcpy((void *)tmp___5, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___5, (void const *)(& tmp), __len);
   enqueue_super(st, skb);
   return;
 }
@@ -11373,7 +11373,7 @@ static void l2_pull_iqueue(struct FsmInst *fi , int event , void *arg )
   spin_unlock_irqrestore(& l2->lock, flags);
   __len = (size_t )i;
   tmp___8 = skb_push(skb, (unsigned int )i);
-  __ret = __builtin_memcpy((void *)tmp___8, (void const *)(& header), __len);
+  __ret = memcpy((void *)tmp___8, (void const *)(& header), __len);
   (*(st->l2.l2l1))(st, 306, (void *)skb);
   test_and_clear_bit(7, (unsigned long volatile *)(& st->l2.flag));
   tmp___9 = test_and_set_bit(6, (unsigned long volatile *)(& st->l2.flag));
@@ -15404,7 +15404,7 @@ static void lli_deliver_call(struct FsmInst *fi , int event , void *arg )
     __ret = memcpy((void *)(& ic.parm.setup), (void const *)(& (chanp->proc)->para.setup),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ic.parm.setup), (void const *)(& (chanp->proc)->para.setup),
+    __ret = memcpy((void *)(& ic.parm.setup), (void const *)(& (chanp->proc)->para.setup),
                              __len);
   }
   ret = (*((chanp->cs)->iif.statcallb))(& ic);
@@ -15429,7 +15429,7 @@ static void lli_deliver_call(struct FsmInst *fi , int event , void *arg )
       __ret___0 = memcpy((void *)(& chanp->setup), (void const *)(& ic.parm.setup),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& chanp->setup), (void const *)(& ic.parm.setup),
+      __ret___0 = memcpy((void *)(& chanp->setup), (void const *)(& ic.parm.setup),
                                    __len___0);
     }
     (*((chanp->d_st)->lli.l4l3))(chanp->d_st, 888, (void *)chanp->proc);
@@ -16813,7 +16813,7 @@ int HiSax_command(isdn_ctrl *ic )
     __ret = memcpy((void *)(& chanp->setup), (void const *)(& ic->parm.setup),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& chanp->setup), (void const *)(& ic->parm.setup),
+    __ret = memcpy((void *)(& chanp->setup), (void const *)(& ic->parm.setup),
                              __len);
   }
   tmp___0 = strcmp((char const *)(& chanp->setup.eazmsn), "0");
@@ -16843,7 +16843,7 @@ int HiSax_command(isdn_ctrl *ic )
     __ret___0 = memcpy((void *)(& chanp->setup), (void const *)(& ic->parm.setup),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& chanp->setup), (void const *)(& ic->parm.setup),
+    __ret___0 = memcpy((void *)(& chanp->setup), (void const *)(& ic->parm.setup),
                                  __len___0);
   }
   if (chanp->debug & 1) {
@@ -17028,7 +17028,7 @@ int HiSax_command(isdn_ctrl *ic )
     __ret___1 = memcpy((void *)(& chanp->setup), (void const *)(& ic->parm.setup),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& chanp->setup), (void const *)(& ic->parm.setup),
+    __ret___1 = memcpy((void *)(& chanp->setup), (void const *)(& ic->parm.setup),
                                  __len___1);
   }
   FsmEvent(& chanp->fi, 22, 0);
@@ -18231,7 +18231,7 @@ static void l3dss1_message_cause(struct l3_process *pc , u_char mt , u_char caus
   }
   __len = (size_t )l;
   tmp___10 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___10, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___10, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   return;
 }
@@ -18306,7 +18306,7 @@ static void l3dss1_status_send(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___13 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___13, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___13, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   return;
 }
@@ -18381,7 +18381,7 @@ static void l3dss1_msg_without_setup(struct l3_process *pc , u_char pr , void *a
   }
   __len = (size_t )l;
   tmp___10 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___10, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___10, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   dss1_release_l3_process(pc);
   return;
@@ -18905,7 +18905,7 @@ static void l3dss1_msg_with_uus(struct l3_process *pc , u_char cmd )
   }
   __len = (size_t )l;
   tmp___11 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___11, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___11, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   return;
 }
@@ -19582,7 +19582,7 @@ static void l3dss1_setup_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___71 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___71, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___71, (void const *)(& tmp), __len);
   L3DelTimer(& pc->timer);
   L3AddTimer(& pc->timer, 4000, 899);
   newl3state(pc, 1);
@@ -20090,7 +20090,7 @@ static void l3dss1_disconnect_req(struct l3_process *pc , u_char pr , void *arg 
   }
   __len = (size_t )l;
   tmp___15 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___15, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___15, (void const *)(& tmp), __len);
   newl3state(pc, 11);
   l3_msg(pc->st, 544, (void *)skb);
   L3AddTimer(& pc->timer, 30000, 901);
@@ -20203,7 +20203,7 @@ static void l3dss1_reject_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___10 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___10, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___10, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   (*((pc->st)->l3.l3l4))(pc->st, 874, (void *)pc);
   newl3state(pc, 0);
@@ -20715,7 +20715,7 @@ static void l3dss1_redir_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___34 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___34, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___34, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   return;
 }
@@ -20851,7 +20851,7 @@ static int l3dss1_cmd_global(struct PStack *st , isdn_ctrl *ic )
   } else {
   }
   __len = (size_t )ic->parm.isdn_io.datalen;
-  __ret = __builtin_memcpy((void *)p, (void const *)ic->parm.isdn_io.data, __len);
+  __ret = memcpy((void *)p, (void const *)ic->parm.isdn_io.data, __len);
   l = (int )(((unsigned int )((long )p) - (unsigned int )((long )(& temp))) + (unsigned int )ic->parm.isdn_io.datalen);
   if (ic->parm.isdn_io.timeout > 0) {
     pc = dss1_new_l3_process(st, -1);
@@ -20876,7 +20876,7 @@ static int l3dss1_cmd_global(struct PStack *st , isdn_ctrl *ic )
   }
   __len___0 = (size_t )l;
   tmp___16 = skb_put(skb, (unsigned int )l);
-  __ret___0 = __builtin_memcpy((void *)tmp___16, (void const *)(& temp), __len___0);
+  __ret___0 = memcpy((void *)tmp___16, (void const *)(& temp), __len___0);
   if ((unsigned long )pc != (unsigned long )((struct l3_process *)0)) {
     pc->prot.dss1.invoke_id = id___0;
     L3AddTimer(& pc->timer, ic->parm.isdn_io.timeout, 5108);
@@ -21066,7 +21066,7 @@ static void l3dss1_t305(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___10 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___10, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___10, (void const *)(& tmp), __len);
   newl3state(pc, 19);
   l3_msg(pc->st, 544, (void *)skb);
   L3AddTimer(& pc->timer, 4000, 904);
@@ -21330,7 +21330,7 @@ static void l3dss1_suspend_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___11 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___11, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___11, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   newl3state(pc, 15);
   L3AddTimer(& pc->timer, 4000, 921);
@@ -21479,7 +21479,7 @@ static void l3dss1_resume_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___11 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___11, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___11, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   newl3state(pc, 17);
   L3AddTimer(& pc->timer, 4000, 920);
@@ -21692,7 +21692,7 @@ static void l3dss1_global_restart(struct l3_process *pc , u_char pr , void *arg 
   }
   __len = (size_t )l;
   tmp___12 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___12, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___12, (void const *)(& tmp), __len);
   newl3state(pc, 0);
   l3_msg(pc->st, 544, (void *)skb);
   return;
@@ -21888,7 +21888,7 @@ static void global_handler(struct PStack *st , int mt , struct sk_buff *skb )
     }
     __len = (size_t )l;
     tmp___13 = skb_put(skb, (unsigned int )l);
-    __ret = __builtin_memcpy((void *)tmp___13, (void const *)(& tmp), __len);
+    __ret = memcpy((void *)tmp___13, (void const *)(& tmp), __len);
     l3_msg(proc->st, 544, (void *)skb);
   } else {
     if ((st->l3.debug & 4) != 0) {
@@ -22151,7 +22151,7 @@ static void dss1down(struct PStack *st , int pr , void *arg )
         __ret = memcpy((void *)(& proc->para.setup), (void const *)(& chan->setup),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& proc->para.setup), (void const *)(& chan->setup),
+        __ret = memcpy((void *)(& proc->para.setup), (void const *)(& chan->setup),
                                  __len);
       }
       proc->callref = cr;
@@ -22919,7 +22919,7 @@ static void l3ni1_message_plus_chid(struct l3_process *pc , u_char mt )
     __ret = memcpy((void *)tmp___8, (void const *)(& tmp), __len);
   } else {
     tmp___9 = skb_put(skb, 7U);
-    __ret = __builtin_memcpy((void *)tmp___9, (void const *)(& tmp), __len);
+    __ret = memcpy((void *)tmp___9, (void const *)(& tmp), __len);
   }
   l3_msg(pc->st, 544, (void *)skb);
   return;
@@ -22983,7 +22983,7 @@ static void l3ni1_message_cause(struct l3_process *pc , u_char mt , u_char cause
   }
   __len = (size_t )l;
   tmp___10 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___10, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___10, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   return;
 }
@@ -23058,7 +23058,7 @@ static void l3ni1_status_send(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___13 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___13, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___13, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   return;
 }
@@ -23133,7 +23133,7 @@ static void l3ni1_msg_without_setup(struct l3_process *pc , u_char pr , void *ar
   }
   __len = (size_t )l;
   tmp___10 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___10, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___10, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   ni1_release_l3_process(pc);
   return;
@@ -23657,7 +23657,7 @@ static void l3ni1_msg_with_uus(struct l3_process *pc , u_char cmd )
   }
   __len = (size_t )l;
   tmp___11 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___11, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___11, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   return;
 }
@@ -24164,7 +24164,7 @@ static void l3ni1_setup_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___49 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___49, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___49, (void const *)(& tmp), __len);
   L3DelTimer(& pc->timer);
   L3AddTimer(& pc->timer, 4000, 899);
   newl3state(pc, 1);
@@ -24672,7 +24672,7 @@ static void l3ni1_disconnect_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___15 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___15, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___15, (void const *)(& tmp), __len);
   newl3state(pc, 11);
   l3_msg(pc->st, 544, (void *)skb);
   L3AddTimer(& pc->timer, 30000, 901);
@@ -24790,7 +24790,7 @@ static void l3ni1_reject_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___10 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___10, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___10, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   (*((pc->st)->l3.l3l4))(pc->st, 874, (void *)pc);
   newl3state(pc, 0);
@@ -25302,7 +25302,7 @@ static void l3ni1_redir_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___34 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___34, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___34, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   return;
 }
@@ -25438,7 +25438,7 @@ static int l3ni1_cmd_global(struct PStack *st , isdn_ctrl *ic )
   } else {
   }
   __len = (size_t )ic->parm.isdn_io.datalen;
-  __ret = __builtin_memcpy((void *)p, (void const *)ic->parm.isdn_io.data, __len);
+  __ret = memcpy((void *)p, (void const *)ic->parm.isdn_io.data, __len);
   l = (int )(((unsigned int )((long )p) - (unsigned int )((long )(& temp))) + (unsigned int )ic->parm.isdn_io.datalen);
   if (ic->parm.isdn_io.timeout > 0) {
     pc = ni1_new_l3_process(st, -1);
@@ -25463,7 +25463,7 @@ static int l3ni1_cmd_global(struct PStack *st , isdn_ctrl *ic )
   }
   __len___0 = (size_t )l;
   tmp___16 = skb_put(skb, (unsigned int )l);
-  __ret___0 = __builtin_memcpy((void *)tmp___16, (void const *)(& temp), __len___0);
+  __ret___0 = memcpy((void *)tmp___16, (void const *)(& temp), __len___0);
   if ((unsigned long )pc != (unsigned long )((struct l3_process *)0)) {
     pc->prot.ni1.invoke_id = id___0;
     L3AddTimer(& pc->timer, ic->parm.isdn_io.timeout, 5109);
@@ -25653,7 +25653,7 @@ static void l3ni1_t305(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___10 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___10, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___10, (void const *)(& tmp), __len);
   newl3state(pc, 19);
   l3_msg(pc->st, 544, (void *)skb);
   L3AddTimer(& pc->timer, 4000, 904);
@@ -25917,7 +25917,7 @@ static void l3ni1_suspend_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___11 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___11, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___11, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   newl3state(pc, 15);
   L3AddTimer(& pc->timer, 4000, 921);
@@ -26066,7 +26066,7 @@ static void l3ni1_resume_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___11 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___11, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___11, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   newl3state(pc, 17);
   L3AddTimer(& pc->timer, 4000, 920);
@@ -26279,7 +26279,7 @@ static void l3ni1_global_restart(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___12 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___12, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___12, (void const *)(& tmp), __len);
   newl3state(pc, 0);
   l3_msg(pc->st, 544, (void *)skb);
   return;
@@ -26383,7 +26383,7 @@ static void l3ni1_SendSpid(struct l3_process *pc , u_char pr , struct sk_buff *s
   *tmp___5 = (u_char )l;
   __len = (size_t )l;
   tmp___7 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___7, (void const *)pSPID, __len);
+  __ret = memcpy((void *)tmp___7, (void const *)pSPID, __len);
   newl3state(pc, iNewState);
   L3DelTimer(& pc->timer);
   L3AddTimer(& pc->timer, 5000, 928);
@@ -26589,7 +26589,7 @@ static void global_handler___0(struct PStack *st , int mt , struct sk_buff *skb 
     }
     __len = (size_t )l;
     tmp___13 = skb_put(skb, (unsigned int )l);
-    __ret = __builtin_memcpy((void *)tmp___13, (void const *)(& tmp), __len);
+    __ret = memcpy((void *)tmp___13, (void const *)(& tmp), __len);
     l3_msg(proc->st, 544, (void *)skb);
   } else {
     if ((st->l3.debug & 4) != 0) {
@@ -26856,7 +26856,7 @@ static void ni1down(struct PStack *st , int pr , void *arg )
         __ret = memcpy((void *)(& proc->para.setup), (void const *)(& chan->setup),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& proc->para.setup), (void const *)(& chan->setup),
+        __ret = memcpy((void *)(& proc->para.setup), (void const *)(& chan->setup),
                                  __len);
       }
       proc->callref = cr;
@@ -27346,7 +27346,7 @@ static void l3_1tr6_setup_req(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___37 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___37, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___37, (void const *)(& tmp), __len);
   L3DelTimer(& pc->timer);
   L3AddTimer(& pc->timer, 4000, 899);
   newl3state(pc, 1);
@@ -27839,7 +27839,7 @@ static void l3_1tr6_setup_rsp(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___17 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___17, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___17, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   L3DelTimer(& pc->timer);
   L3AddTimer(& pc->timer, 4000, 915);
@@ -27925,7 +27925,7 @@ static void l3_1tr6_disconnect_req(struct l3_process *pc , u_char pr , void *arg
   }
   __len = (size_t )l;
   tmp___8 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___8, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___8, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   L3AddTimer(& pc->timer, 4000, 901);
   return;
@@ -28025,7 +28025,7 @@ static void l3_1tr6_t305(struct l3_process *pc , u_char pr , void *arg )
   }
   __len = (size_t )l;
   tmp___8 = skb_put(skb, (unsigned int )l);
-  __ret = __builtin_memcpy((void *)tmp___8, (void const *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___8, (void const *)(& tmp), __len);
   l3_msg(pc->st, 544, (void *)skb);
   L3AddTimer(& pc->timer, 4000, 904);
   return;
@@ -28295,7 +28295,7 @@ static void down1tr6(struct PStack *st , int pr , void *arg )
         __ret = memcpy((void *)(& proc->para.setup), (void const *)(& chan->setup),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& proc->para.setup), (void const *)(& chan->setup),
+        __ret = memcpy((void *)(& proc->para.setup), (void const *)(& chan->setup),
                                  __len);
       }
       proc->callref = cr;
@@ -28814,7 +28814,7 @@ static void hscx_interrupt(struct IsdnCardState *cs , u_char val , u_char hscx )
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -28835,7 +28835,7 @@ static void hscx_interrupt(struct IsdnCardState *cs , u_char val , u_char hscx )
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -29845,7 +29845,7 @@ void isac_interrupt(struct IsdnCardState *cs , u_char val )
         } else {
           __len = (size_t )count;
           tmp___1 = skb_put(skb, count);
-          __ret = __builtin_memcpy((void *)tmp___1, (void const *)cs->rcvbuf, __len);
+          __ret = memcpy((void *)tmp___1, (void const *)cs->rcvbuf, __len);
           skb_queue_tail(& cs->rq, skb);
         }
       } else {
@@ -30578,7 +30578,7 @@ static void send_arcofi(struct IsdnCardState *cs )
   cs->dc.isac.mon_txp = 0;
   cs->dc.isac.mon_txc = (int )(cs->dc.isac.arcofi_list)->len;
   __len = (size_t )cs->dc.isac.mon_txc;
-  __ret = __builtin_memcpy((void *)cs->dc.isac.mon_tx, (void const *)(& (cs->dc.isac.arcofi_list)->msg),
+  __ret = memcpy((void *)cs->dc.isac.mon_tx, (void const *)(& (cs->dc.isac.arcofi_list)->msg),
                            __len);
   switch ((int )cs->dc.isac.arcofi_bc) {
   case 0: ;
@@ -31738,7 +31738,7 @@ static void hscx_interrupt___0(struct IsdnCardState *cs , u_char val , u_char hs
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -31759,7 +31759,7 @@ static void hscx_interrupt___0(struct IsdnCardState *cs , u_char val , u_char hs
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -32493,7 +32493,7 @@ static void hscx_interrupt___1(struct IsdnCardState *cs , u_char val , u_char hs
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -32514,7 +32514,7 @@ static void hscx_interrupt___1(struct IsdnCardState *cs , u_char val , u_char hs
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -33152,7 +33152,7 @@ static void hscx_interrupt___2(struct IsdnCardState *cs , u_char val , u_char hs
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -33173,7 +33173,7 @@ static void hscx_interrupt___2(struct IsdnCardState *cs , u_char val , u_char hs
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -34020,7 +34020,7 @@ static void HDLC_irq(struct BCState *bcs , u_int stat )
           } else {
             __len = (size_t )bcs->hw.hdlc.rcvidx;
             tmp___0 = skb_put(skb, (unsigned int )bcs->hw.hdlc.rcvidx);
-            __ret = __builtin_memcpy((void *)tmp___0, (void const *)bcs->hw.hdlc.rcvbuf,
+            __ret = memcpy((void *)tmp___0, (void const *)bcs->hw.hdlc.rcvbuf,
                                      __len);
             skb_queue_tail(& bcs->rqueue, skb);
           }
@@ -34643,7 +34643,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   return;
 }
 }
@@ -34925,7 +34925,7 @@ __inline static void receive_chars(struct IsdnCardState *cs , int *status )
     } else {
       __len = (size_t )cs->hw.elsa.rcvcnt;
       tmp___3 = skb_put(skb, cs->hw.elsa.rcvcnt);
-      __ret = __builtin_memcpy((void *)tmp___3, (void const *)cs->hw.elsa.rcvbuf,
+      __ret = memcpy((void *)tmp___3, (void const *)cs->hw.elsa.rcvbuf,
                                __len);
       skb_queue_tail(& (cs->hw.elsa.bcs)->rqueue, skb);
     }
@@ -35091,7 +35091,7 @@ static void modem_write_cmd(struct IsdnCardState *cs , u_char *buf , int len )
   if (256 - fp < count) {
     count = 256 - fp;
     __len = (size_t )count;
-    __ret = __builtin_memcpy((void *)cs->hw.elsa.transbuf + (unsigned long )fp, (void const *)msg,
+    __ret = memcpy((void *)cs->hw.elsa.transbuf + (unsigned long )fp, (void const *)msg,
                              __len);
     cs->hw.elsa.transcnt = cs->hw.elsa.transcnt + (unsigned int )count;
     msg = msg + (unsigned long )count;
@@ -35100,7 +35100,7 @@ static void modem_write_cmd(struct IsdnCardState *cs , u_char *buf , int len )
   } else {
   }
   __len___0 = (size_t )count;
-  __ret___0 = __builtin_memcpy((void *)cs->hw.elsa.transbuf + (unsigned long )fp,
+  __ret___0 = memcpy((void *)cs->hw.elsa.transbuf + (unsigned long )fp,
                                (void const *)msg, __len___0);
   cs->hw.elsa.transcnt = cs->hw.elsa.transcnt + (unsigned int )count;
   if (cs->hw.elsa.transcnt != 0U && ((int )cs->hw.elsa.IER & 2) == 0) {
@@ -35903,7 +35903,7 @@ static void hscx_interrupt___3(struct IsdnCardState *cs , u_char val , u_char hs
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -35924,7 +35924,7 @@ static void hscx_interrupt___3(struct IsdnCardState *cs , u_char val , u_char hs
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -37762,7 +37762,7 @@ static void hscx_interrupt___4(struct IsdnCardState *cs , u_char val , u_char hs
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -37783,7 +37783,7 @@ static void hscx_interrupt___4(struct IsdnCardState *cs , u_char val , u_char hs
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -38280,7 +38280,7 @@ static void Memhscx_interrupt(struct IsdnCardState *cs , u_char val , u_char hsc
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -38301,7 +38301,7 @@ static void Memhscx_interrupt(struct IsdnCardState *cs , u_char val , u_char hsc
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -39549,7 +39549,7 @@ __inline static void dch_int(struct IsdnCardState *cs )
         } else {
           __len = (size_t )count;
           tmp___1 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___1, (void const *)cs->rcvbuf, __len);
+          __ret = memcpy((void *)tmp___1, (void const *)cs->rcvbuf, __len);
           skb_queue_tail(& cs->rq, skb);
         }
       } else {
@@ -39913,7 +39913,7 @@ static void bch_int(struct IsdnCardState *cs , u_char hscx )
         } else {
           __len = (size_t )count;
           tmp___2 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___2, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___2, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -39939,7 +39939,7 @@ static void bch_int(struct IsdnCardState *cs , u_char hscx )
                                __len___0);
         } else {
           tmp___4 = skb_put(skb, 64U);
-          __ret___0 = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret___0 = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                        __len___0);
         }
         skb_queue_tail(& bcs->rqueue, skb);
@@ -40651,7 +40651,7 @@ static void hscx_interrupt___5(struct IsdnCardState *cs , u_char val , u_char hs
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -40672,7 +40672,7 @@ static void hscx_interrupt___5(struct IsdnCardState *cs , u_char val , u_char hs
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -42276,7 +42276,7 @@ static void send_DLE_ETX(struct BCState *bcs )
       __ret = memcpy((void *)tmp, (void const *)(& dleetx), __len);
     } else {
       tmp___0 = skb_put(skb, 2U);
-      __ret = __builtin_memcpy((void *)tmp___0, (void const *)(& dleetx), __len);
+      __ret = memcpy((void *)tmp___0, (void const *)(& dleetx), __len);
     }
     skb_queue_tail(& bcs->rqueue, skb);
     test_and_set_bit(0, (unsigned long volatile *)(& bcs->event));
@@ -42430,7 +42430,7 @@ static void isar_rcv_frame(struct IsdnCardState *cs , struct BCState *bcs )
           } else {
             __len = (size_t )(bcs->hw.isar.rcvidx + -2);
             tmp___1 = skb_put(skb, (unsigned int )(bcs->hw.isar.rcvidx + -2));
-            __ret = __builtin_memcpy((void *)tmp___1, (void const *)bcs->hw.isar.rcvbuf,
+            __ret = memcpy((void *)tmp___1, (void const *)bcs->hw.isar.rcvbuf,
                                      __len);
             skb_queue_tail(& bcs->rqueue, skb);
             test_and_set_bit(0, (unsigned long volatile *)(& bcs->event));
@@ -44115,7 +44115,7 @@ int isar_auxcmd(struct IsdnCardState *cs , isdn_ctrl *ic )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& adr), (void const *)(& ic->parm.num), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& adr), (void const *)(& ic->parm.num), __len);
+    __ret = memcpy((void *)(& adr), (void const *)(& ic->parm.num), __len);
   }
   tmp___2 = isar_load_firmware(cs, (u_char *)adr);
   if (tmp___2 != 0) {
@@ -45403,7 +45403,7 @@ static void got_frame(struct BCState *bcs , int count )
   } else {
     __len = (size_t )count;
     tmp___0 = skb_put(skb, (unsigned int )count);
-    __ret = __builtin_memcpy((void *)tmp___0, (void const *)bcs->hw.tiger.rcvbuf,
+    __ret = memcpy((void *)tmp___0, (void const *)bcs->hw.tiger.rcvbuf,
                              __len);
     skb_queue_tail(& bcs->rqueue, skb);
   }
@@ -46931,7 +46931,7 @@ void icc_interrupt(struct IsdnCardState *cs , u_char val )
         } else {
           __len = (size_t )count;
           tmp___1 = skb_put(skb, count);
-          __ret = __builtin_memcpy((void *)tmp___1, (void const *)cs->rcvbuf, __len);
+          __ret = memcpy((void *)tmp___1, (void const *)cs->rcvbuf, __len);
           skb_queue_tail(& cs->rq, skb);
         }
       } else {
@@ -48027,13 +48027,13 @@ static struct sk_buff *hfcpci_empty_fifo(struct BCState *bcs , bzfifo_type *bz ,
       }
       ptr1 = bdata + ((unsigned long )zp->z2 + 0xfffffffffffffe00UL);
       __len = (size_t )maxlen;
-      __ret = __builtin_memcpy((void *)ptr, (void const *)ptr1, __len);
+      __ret = memcpy((void *)ptr, (void const *)ptr1, __len);
       count = count - maxlen;
       if (count != 0) {
         ptr = ptr + (unsigned long )maxlen;
         ptr1 = bdata;
         __len___0 = (size_t )count;
-        __ret___0 = __builtin_memcpy((void *)ptr, (void const *)ptr1, __len___0);
+        __ret___0 = memcpy((void *)ptr, (void const *)ptr1, __len___0);
       } else {
       }
       bz->za[(int )new_f2].z2 = (unsigned short )new_z2;
@@ -48107,13 +48107,13 @@ static int receive_dmsg(struct IsdnCardState *cs )
       }
       ptr1 = (u_char *)(& df->data) + (unsigned long )zp->z2;
       __len = (size_t )maxlen;
-      __ret = __builtin_memcpy((void *)ptr, (void const *)ptr1, __len);
+      __ret = memcpy((void *)ptr, (void const *)ptr1, __len);
       rcnt = rcnt - maxlen;
       if (rcnt != 0) {
         ptr = ptr + (unsigned long )maxlen;
         ptr1 = (u_char *)(& df->data);
         __len___0 = (size_t )rcnt;
-        __ret___0 = __builtin_memcpy((void *)ptr, (void const *)ptr1, __len___0);
+        __ret___0 = memcpy((void *)ptr, (void const *)ptr1, __len___0);
       } else {
       }
       df->f2 = (u_char )(((int )((signed char )((unsigned int )df->f2 + 1U)) & 15) | 16);
@@ -48189,13 +48189,13 @@ static int hfcpci_empty_fifo_trans(struct BCState *bcs , bzfifo_type *bz , u_cha
     }
     ptr1 = bdata + ((unsigned long )*z2r + 0xfffffffffffffe00UL);
     __len = (size_t )maxlen;
-    __ret = __builtin_memcpy((void *)ptr, (void const *)ptr1, __len);
+    __ret = memcpy((void *)ptr, (void const *)ptr1, __len);
     fcnt = fcnt - maxlen;
     if (fcnt != 0) {
       ptr = ptr + (unsigned long )maxlen;
       ptr1 = bdata;
       __len___0 = (size_t )fcnt;
-      __ret___0 = __builtin_memcpy((void *)ptr, (void const *)ptr1, __len___0);
+      __ret___0 = memcpy((void *)ptr, (void const *)ptr1, __len___0);
     } else {
     }
     skb_queue_tail(& bcs->rqueue, skb);
@@ -48362,13 +48362,13 @@ static void hfcpci_fill_dfifo(struct IsdnCardState *cs )
   } else {
   }
   __len = (size_t )maxlen;
-  __ret = __builtin_memcpy((void *)dst, (void const *)src, __len);
+  __ret = memcpy((void *)dst, (void const *)src, __len);
   count = count - maxlen;
   if (count != 0) {
     dst = (u_char *)(& df->data);
     src = src + (unsigned long )maxlen;
     __len___0 = (size_t )count;
-    __ret___0 = __builtin_memcpy((void *)dst, (void const *)src, __len___0);
+    __ret___0 = memcpy((void *)dst, (void const *)src, __len___0);
   } else {
   }
   df->za[(int )new_f1 & 15].z1 = (unsigned short )new_z1;
@@ -48456,13 +48456,13 @@ static void hfcpci_fill_fifo(struct BCState *bcs )
       } else {
       }
       __len = (size_t )maxlen;
-      __ret = __builtin_memcpy((void *)dst, (void const *)src, __len);
+      __ret = memcpy((void *)dst, (void const *)src, __len);
       count = count - maxlen;
       if (count != 0) {
         dst = bdata;
         src = src + (unsigned long )maxlen;
         __len___0 = (size_t )count;
-        __ret___0 = __builtin_memcpy((void *)dst, (void const *)src, __len___0);
+        __ret___0 = memcpy((void *)dst, (void const *)src, __len___0);
       } else {
       }
       bcs->tx_cnt = (int )((unsigned int )bcs->tx_cnt - (bcs->tx_skb)->len);
@@ -48547,13 +48547,13 @@ static void hfcpci_fill_fifo(struct BCState *bcs )
   } else {
   }
   __len___1 = (size_t )maxlen;
-  __ret___1 = __builtin_memcpy((void *)dst, (void const *)src, __len___1);
+  __ret___1 = memcpy((void *)dst, (void const *)src, __len___1);
   count = count - maxlen;
   if (count != 0) {
     dst = bdata;
     src = src + (unsigned long )maxlen;
     __len___2 = (size_t )count;
-    __ret___2 = __builtin_memcpy((void *)dst, (void const *)src, __len___2);
+    __ret___2 = memcpy((void *)dst, (void const *)src, __len___2);
   } else {
   }
   bcs->tx_cnt = (int )((unsigned int )bcs->tx_cnt - (bcs->tx_skb)->len);
@@ -48757,13 +48757,13 @@ static void receive_emsg(struct IsdnCardState *cs )
       }
       ptr1 = bdata + ((unsigned long )zp->z2 + 0xfffffffffffffe00UL);
       __len = (size_t )maxlen;
-      __ret = __builtin_memcpy((void *)ptr, (void const *)ptr1, __len);
+      __ret = memcpy((void *)ptr, (void const *)ptr1, __len);
       rcnt = rcnt - maxlen;
       if (rcnt != 0) {
         ptr = ptr + (unsigned long )maxlen;
         ptr1 = bdata;
         __len___0 = (size_t )rcnt;
-        __ret___0 = __builtin_memcpy((void *)ptr, (void const *)ptr1, __len___0);
+        __ret___0 = memcpy((void *)ptr, (void const *)ptr1, __len___0);
       } else {
       }
       bz->za[(int )new_f2].z2 = (unsigned short )new_z2;
@@ -52008,7 +52008,7 @@ static void hscx_interrupt___6(struct IsdnCardState *cs , u_char val , u_char hs
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -52029,7 +52029,7 @@ static void hscx_interrupt___6(struct IsdnCardState *cs , u_char val , u_char hs
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -52823,7 +52823,7 @@ static void jade_interrupt(struct IsdnCardState *cs , u_char val , u_char jade )
         } else {
           __len = (size_t )count;
           tmp___2 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___2, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___2, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -52844,7 +52844,7 @@ static void jade_interrupt(struct IsdnCardState *cs , u_char val , u_char jade )
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___4 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -54068,7 +54068,7 @@ static void hscx_interrupt___7(struct IsdnCardState *cs , u_char val , u_char hs
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -54089,7 +54089,7 @@ static void hscx_interrupt___7(struct IsdnCardState *cs , u_char val , u_char hs
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -55104,7 +55104,7 @@ static void hscx_interrupt___8(struct IsdnCardState *cs , u_char val , u_char hs
         } else {
           __len = (size_t )count;
           tmp___4 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
+          __ret = memcpy((void *)tmp___4, (void const *)bcs->hw.hscx.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -55125,7 +55125,7 @@ static void hscx_interrupt___8(struct IsdnCardState *cs , u_char val , u_char hs
       } else {
         __len___0 = (size_t )fifo_size;
         tmp___6 = skb_put(skb, (unsigned int )fifo_size);
-        __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
+        __ret___0 = memcpy((void *)tmp___6, (void const *)bcs->hw.hscx.rcvbuf,
                                      __len___0);
         skb_queue_tail(& bcs->rqueue, skb);
       }
@@ -56422,7 +56422,7 @@ static void W6692B_interrupt(struct IsdnCardState *cs , u_char bchan )
         } else {
           __len = (size_t )count;
           tmp___2 = skb_put(skb, (unsigned int )count);
-          __ret = __builtin_memcpy((void *)tmp___2, (void const *)bcs->hw.w6692.rcvbuf,
+          __ret = memcpy((void *)tmp___2, (void const *)bcs->hw.w6692.rcvbuf,
                                    __len);
           skb_queue_tail(& bcs->rqueue, skb);
         }
@@ -56461,7 +56461,7 @@ static void W6692B_interrupt(struct IsdnCardState *cs , u_char bchan )
                                __len___0);
         } else {
           tmp___4 = skb_put(skb, 64U);
-          __ret___0 = __builtin_memcpy((void *)tmp___4, (void const *)bcs->hw.w6692.rcvbuf,
+          __ret___0 = memcpy((void *)tmp___4, (void const *)bcs->hw.w6692.rcvbuf,
                                        __len___0);
         }
         skb_queue_tail(& bcs->rqueue, skb);
@@ -56622,7 +56622,7 @@ static irqreturn_t W6692_interrupt(int intno , void *dev_id )
         } else {
           __len = (size_t )count;
           tmp___2 = skb_put(skb, count);
-          __ret = __builtin_memcpy((void *)tmp___2, (void const *)cs->rcvbuf, __len);
+          __ret = memcpy((void *)tmp___2, (void const *)cs->rcvbuf, __len);
           skb_queue_tail(& cs->rq, skb);
         }
       } else {
@@ -58262,7 +58262,7 @@ static void Amd7930_empty_Dfifo(struct IsdnCardState *cs , int flag )
           }
           __len = (size_t )cs->rcvidx;
           tmp___2 = skb_put(skb, (unsigned int )cs->rcvidx);
-          __ret = __builtin_memcpy((void *)tmp___2, (void const *)cs->rcvbuf, __len);
+          __ret = memcpy((void *)tmp___2, (void const *)cs->rcvbuf, __len);
           skb_queue_tail(& cs->rq, skb);
         }
       } else {

@@ -3878,7 +3878,7 @@ static void mdc800_usb_irq(struct urb *urb )
           __cil_tmp43 = (char (*)[8U])__cil_tmp42;
           __cil_tmp44 = (void *)__cil_tmp43;
           __cil_tmp45 = (void const   *)b;
-          __ret = __builtin_memcpy(__cil_tmp44, __cil_tmp45, __len);
+          __ret = memcpy(__cil_tmp44, __cil_tmp45, __len);
           }
         }
         data_received = 1;
@@ -4274,7 +4274,7 @@ static void mdc800_usb_download_notify(struct urb *urb )
       __cil_tmp24 = __cil_tmp23 + 104;
       __cil_tmp25 = *((void **)__cil_tmp24);
       __cil_tmp26 = (void const   *)__cil_tmp25;
-      __ret = __builtin_memcpy(__cil_tmp22, __cil_tmp26, __len);
+      __ret = memcpy(__cil_tmp22, __cil_tmp26, __len);
       }
     }
     __cil_tmp27 = (unsigned long )mdc800___0;
@@ -6176,7 +6176,7 @@ static ssize_t mdc800_device_write(struct file *file , char const   *buf , size_
       __cil_tmp111 = __cil_tmp110 + 632;
       __cil_tmp112 = (char (*)[8U])__cil_tmp111;
       __cil_tmp113 = (void const   *)__cil_tmp112;
-      __ret = __builtin_memcpy(__cil_tmp109, __cil_tmp113, __len);
+      __ret = memcpy(__cil_tmp109, __cil_tmp113, __len);
       }
     }
     {
@@ -6396,7 +6396,7 @@ static ssize_t mdc800_device_write(struct file *file , char const   *buf , size_
             __cil_tmp208 = __cil_tmp207 + 152;
             __cil_tmp209 = (char (*)[8U])__cil_tmp208;
             __cil_tmp210 = (void const   *)__cil_tmp209;
-            __ret___1 = __builtin_memcpy(__cil_tmp206, __cil_tmp210, __len___0);
+            __ret___1 = memcpy(__cil_tmp206, __cil_tmp210, __len___0);
             }
           }
           __len___1 = 8UL;
@@ -6424,7 +6424,7 @@ static ssize_t mdc800_device_write(struct file *file , char const   *buf , size_
             __cil_tmp226 = __cil_tmp225 + 152;
             __cil_tmp227 = (char (*)[8U])__cil_tmp226;
             __cil_tmp228 = (void const   *)__cil_tmp227;
-            __ret___2 = __builtin_memcpy(__cil_tmp224, __cil_tmp228, __len___1);
+            __ret___2 = memcpy(__cil_tmp224, __cil_tmp228, __len___1);
             }
           }
           __cil_tmp229 = (unsigned long )mdc800;

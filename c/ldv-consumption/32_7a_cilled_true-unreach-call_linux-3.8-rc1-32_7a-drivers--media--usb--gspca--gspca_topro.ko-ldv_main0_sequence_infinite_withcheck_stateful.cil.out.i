@@ -5077,7 +5077,7 @@ static void jpeg_define(u8 *jpeg_hdr , int height , int width )
   if (__len > 63UL) {
     __ret = memcpy((void *)jpeg_hdr, (void const *)(& jpeg_head), __len);
   } else {
-    __ret = __builtin_memcpy((void *)jpeg_hdr, (void const *)(& jpeg_head), __len);
+    __ret = memcpy((void *)jpeg_hdr, (void const *)(& jpeg_head), __len);
   }
   *(jpeg_hdr + 493UL) = (u8 )(height >> 8);
   *(jpeg_hdr + 494UL) = (u8 )height;
@@ -5254,7 +5254,7 @@ static void bulk_w(struct gspca_dev *gspca_dev , u8 tag , u8 const *data , int l
   count = 31 < length ? 31 : length;
   *(gspca_dev->usb_buf) = tag;
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)gspca_dev->usb_buf + 1U, (void const *)data,
+  __ret = memcpy((void *)gspca_dev->usb_buf + 1U, (void const *)data,
                            __len);
   tmp = __create_pipe(dev, 3U);
   ret = usb_bulk_msg(dev, tmp | 3221225472U, (void *)gspca_dev->usb_buf, count + 1,
@@ -5819,7 +5819,7 @@ static void set_dqt(struct gspca_dev *gspca_dev , u8 q )
       __ret = memcpy((void *)(& sd->jpeg_hdr) + 6U, (void const *)(& DQT) + (unsigned long )q,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& sd->jpeg_hdr) + 6U, (void const *)(& DQT) + (unsigned long )q,
+      __ret = memcpy((void *)(& sd->jpeg_hdr) + 6U, (void const *)(& DQT) + (unsigned long )q,
                                __len);
     }
   }

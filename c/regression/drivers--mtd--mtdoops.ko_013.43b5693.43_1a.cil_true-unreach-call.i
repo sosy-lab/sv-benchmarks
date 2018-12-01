@@ -1691,7 +1691,7 @@ enum __anonenum_94 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 extern int printk(char const   *  , ...) ;
@@ -2250,7 +2250,7 @@ static void mtdoops_console_write(struct console *co , char const   *s , unsigne
 
   }
   __len = (size_t )count;
-  __ret = __builtin_memcpy(cxt->oops_buf + (unsigned long )cxt->writecount, (void const   *)s,
+  __ret = memcpy(cxt->oops_buf + (unsigned long )cxt->writecount, (void const   *)s,
                            __len);
   cxt->writecount = (int )((unsigned int )cxt->writecount + count);
   ldv_spin_unlock();

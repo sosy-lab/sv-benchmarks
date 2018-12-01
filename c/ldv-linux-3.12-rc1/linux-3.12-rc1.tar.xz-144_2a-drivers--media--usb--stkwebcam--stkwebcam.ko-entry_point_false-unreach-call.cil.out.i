@@ -5684,7 +5684,7 @@ static void stk_isoc_handler(struct urb *urb )
   }
   spin_unlock_irqrestore(& dev->spinlock, flags);
   __len = (size_t )framelen;
-  __ret = __builtin_memcpy((void *)fill, (void const *)iso_buf, __len);
+  __ret = memcpy((void *)fill, (void const *)iso_buf, __len);
   tmp___11 = spinlock_check(& dev->spinlock);
   flags = _raw_spin_lock_irqsave(tmp___11);
   fill = fill + (unsigned long )framelen;

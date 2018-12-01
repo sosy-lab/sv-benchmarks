@@ -9665,7 +9665,7 @@ static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port ,
   __cil_tmp101 = __cil_tmp100 + 104;
   __cil_tmp102 = *((void **)__cil_tmp101);
   __cil_tmp103 = (void const *)current_position;
-  __ret = __builtin_memcpy(__cil_tmp102, __cil_tmp103, __len);
+  __ret = memcpy(__cil_tmp102, __cil_tmp103, __len);
   }
   {
   __cil_tmp104 = (unsigned long )serial;

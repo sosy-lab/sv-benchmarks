@@ -6863,7 +6863,7 @@ static int cpia2_queryctrl(struct file *file , void *fh , struct v4l2_queryctrl 
         __cil_tmp25 = (struct v4l2_queryctrl *)__cil_tmp24;
         __cil_tmp26 = __cil_tmp25 + i;
         __cil_tmp27 = (void    *)__cil_tmp26;
-        __ret = __builtin_memcpy(__cil_tmp22, __cil_tmp27, __len);
+        __ret = memcpy(__cil_tmp22, __cil_tmp27, __len);
         }
       }
       goto while_break;
@@ -8239,7 +8239,7 @@ static int cpia2_g_jpegcomp(struct file *file , void *fh , struct v4l2_jpegcompr
     __cil_tmp51 = __cil_tmp50 + __cil_tmp49;
     __cil_tmp52 = (char *)__cil_tmp51;
     __cil_tmp53 = (void    *)__cil_tmp52;
-    __ret = __builtin_memcpy(__cil_tmp47, __cil_tmp53, __len);
+    __ret = memcpy(__cil_tmp47, __cil_tmp53, __len);
     __cil_tmp54 = (unsigned long )parms;
     __cil_tmp55 = __cil_tmp54 + 136;
     __cil_tmp56 = 1 << 7;
@@ -8280,7 +8280,7 @@ static int cpia2_g_jpegcomp(struct file *file , void *fh , struct v4l2_jpegcompr
     __cil_tmp80 = __cil_tmp79 + __cil_tmp78;
     __cil_tmp81 = (char *)__cil_tmp80;
     __cil_tmp82 = (void    *)__cil_tmp81;
-    __ret___0 = __builtin_memcpy(__cil_tmp76, __cil_tmp82, __len___0);
+    __ret___0 = memcpy(__cil_tmp76, __cil_tmp82, __len___0);
     __cil_tmp83 = (unsigned long )parms;
     __cil_tmp84 = __cil_tmp83 + 136;
     __cil_tmp85 = 1 << 6;
@@ -8500,7 +8500,7 @@ static int cpia2_s_jpegcomp(struct file *file , void *fh , struct v4l2_jpegcompr
             __cil_tmp57 = __cil_tmp56 + __cil_tmp55;
             __cil_tmp58 = (char *)__cil_tmp57;
             __cil_tmp59 = (void    *)__cil_tmp58;
-            __ret = __builtin_memcpy(__cil_tmp53, __cil_tmp59, __len);
+            __ret = memcpy(__cil_tmp53, __cil_tmp59, __len);
             }
           } else {
             {
@@ -8598,7 +8598,7 @@ static int cpia2_s_jpegcomp(struct file *file , void *fh , struct v4l2_jpegcompr
         __cil_tmp112 = __cil_tmp111 + __cil_tmp110;
         __cil_tmp113 = (char *)__cil_tmp112;
         __cil_tmp114 = (void    *)__cil_tmp113;
-        __ret___0 = __builtin_memcpy(__cil_tmp108, __cil_tmp114, __len___0);
+        __ret___0 = memcpy(__cil_tmp108, __cil_tmp114, __len___0);
         }
       } else {
         {
@@ -10278,7 +10278,7 @@ int cpia2_register_camera(struct camera_data *cam )
     __cil_tmp17 = *((struct video_device **)__cil_tmp16);
     __cil_tmp18 = (void *)__cil_tmp17;
     __cil_tmp19 = (void    *)(& cpia2_template);
-    __ret = __builtin_memcpy(__cil_tmp18, __cil_tmp19, __len);
+    __ret = memcpy(__cil_tmp18, __cil_tmp19, __len);
     }
   }
   {
@@ -12039,7 +12039,7 @@ static void add_APPn(struct camera_data *cam )
     __cil_tmp131 = __cil_tmp130 + __cil_tmp129;
     __cil_tmp132 = (char *)__cil_tmp131;
     __cil_tmp133 = (void    *)__cil_tmp132;
-    __ret = __builtin_memcpy(__cil_tmp127, __cil_tmp133, __len);
+    __ret = memcpy(__cil_tmp127, __cil_tmp133, __len);
     __cil_tmp134 = (unsigned long )cam;
     __cil_tmp135 = __cil_tmp134 + 368;
     __cil_tmp136 = *((struct framebuf **)__cil_tmp135);
@@ -12346,7 +12346,7 @@ static void add_COM(struct camera_data *cam )
     __cil_tmp127 = __cil_tmp126 + __cil_tmp125;
     __cil_tmp128 = (char *)__cil_tmp127;
     __cil_tmp129 = (void    *)__cil_tmp128;
-    __ret = __builtin_memcpy(__cil_tmp123, __cil_tmp129, __len);
+    __ret = memcpy(__cil_tmp123, __cil_tmp129, __len);
     __cil_tmp130 = (unsigned long )cam;
     __cil_tmp131 = __cil_tmp130 + 368;
     __cil_tmp132 = *((struct framebuf **)__cil_tmp131);
@@ -13528,7 +13528,7 @@ static void cpia2_usb_complete(struct urb *urb )
       __cil_tmp340 = (void *)__cil_tmp339;
       __cil_tmp341 = cdata + data_offset;
       __cil_tmp342 = (void    *)__cil_tmp341;
-      __ret = __builtin_memcpy(__cil_tmp340, __cil_tmp342, __len);
+      __ret = memcpy(__cil_tmp340, __cil_tmp342, __len);
       __cil_tmp343 = (unsigned long )cam;
       __cil_tmp344 = __cil_tmp343 + 368;
       __cil_tmp345 = *((struct framebuf **)__cil_tmp344);
@@ -13569,7 +13569,7 @@ static void cpia2_usb_complete(struct urb *urb )
         __cil_tmp373 = __cil_tmp372 + __cil_tmp366;
         __cil_tmp374 = (void *)__cil_tmp373;
         __cil_tmp375 = (void    *)cdata;
-        __ret___0 = __builtin_memcpy(__cil_tmp374, __cil_tmp375, __len___0);
+        __ret___0 = memcpy(__cil_tmp374, __cil_tmp375, __len___0);
         __cil_tmp376 = (unsigned long )cam;
         __cil_tmp377 = __cil_tmp376 + 368;
         __cil_tmp378 = *((struct framebuf **)__cil_tmp377);
@@ -19069,7 +19069,7 @@ static int apply_vp_patch(struct camera_data *cam )
     __cil_tmp112 = *((u8    *   *)__cil_tmp111);
     __cil_tmp113 = __cil_tmp112 + i;
     __cil_tmp114 = (void    *)__cil_tmp113;
-    __ret = __builtin_memcpy(__cil_tmp107, __cil_tmp114, __len);
+    __ret = memcpy(__cil_tmp107, __cil_tmp114, __len);
     cpia2_send_command(cam, & cmd);
     i = i + 64;
     }

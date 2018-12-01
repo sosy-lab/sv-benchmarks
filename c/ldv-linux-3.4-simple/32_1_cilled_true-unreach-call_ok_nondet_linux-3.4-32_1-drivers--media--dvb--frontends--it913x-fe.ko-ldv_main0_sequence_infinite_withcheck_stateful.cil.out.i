@@ -7471,7 +7471,7 @@ static int it913x_write(struct it913x_fe_state *state , u8 pro , u32 reg , u8 *b
   __cil_tmp57 = (u8 *)__cil_tmp56;
   __cil_tmp58 = (void *)__cil_tmp57;
   __cil_tmp59 = (void const *)buf;
-  __ret = __builtin_memcpy(__cil_tmp58, __cil_tmp59, __len);
+  __ret = memcpy(__cil_tmp58, __cil_tmp59, __len);
   __cil_tmp60 = (unsigned long )state;
   __cil_tmp61 = __cil_tmp60 + 960;
   __cil_tmp62 = *((struct i2c_adapter **)__cil_tmp61);
@@ -11486,7 +11486,7 @@ struct dvb_frontend *it913x_fe_attach(struct i2c_adapter *i2c_adap , u8 i2c_addr
     __cil_tmp41 = (struct dvb_frontend_ops *)state;
     __cil_tmp42 = (void *)__cil_tmp41;
     __cil_tmp43 = (void const *)(& it913x_fe_ofdm_ops);
-    __ret = __builtin_memcpy(__cil_tmp42, __cil_tmp43, __len);
+    __ret = memcpy(__cil_tmp42, __cil_tmp43, __len);
     }
   }
   __cil_tmp44 = 0 + 760;

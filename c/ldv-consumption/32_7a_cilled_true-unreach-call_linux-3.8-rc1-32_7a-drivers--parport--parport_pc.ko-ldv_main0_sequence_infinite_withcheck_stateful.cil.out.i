@@ -5139,7 +5139,7 @@ static size_t parport_pc_fifo_write_block_dma(struct parport *port , void const 
   }
   if (dma_handle == 0ULL) {
     __len = count;
-    __ret = __builtin_memcpy((void *)priv->dma_buf, buf, __len);
+    __ret = memcpy((void *)priv->dma_buf, buf, __len);
   } else {
   }
   dmaflag = claim_dma_lock();
@@ -6580,7 +6580,7 @@ struct parport *parport_pc_probe_port(unsigned long base , unsigned long base_hi
   if (__len > 63UL) {
     __ret = memcpy((void *)ops, (void const *)(& parport_pc_ops), __len);
   } else {
-    __ret = __builtin_memcpy((void *)ops, (void const *)(& parport_pc_ops), __len);
+    __ret = memcpy((void *)ops, (void const *)(& parport_pc_ops), __len);
   }
   priv->ctr = 12U;
   priv->ctr_writable = 239U;

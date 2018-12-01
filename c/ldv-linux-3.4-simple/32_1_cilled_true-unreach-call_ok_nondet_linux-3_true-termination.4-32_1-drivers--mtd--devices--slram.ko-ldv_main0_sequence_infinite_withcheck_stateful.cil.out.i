@@ -3057,7 +3057,7 @@ static int slram_read(struct mtd_info *mtd , loff_t from , size_t len , size_t *
   __cil_tmp13 = *((u_char **)priv);
   __cil_tmp14 = __cil_tmp13 + from;
   __cil_tmp15 = (void const *)__cil_tmp14;
-  __ret = __builtin_memcpy(__cil_tmp12, __cil_tmp15, __len);
+  __ret = memcpy(__cil_tmp12, __cil_tmp15, __len);
   *retlen = len;
   }
   return (0);
@@ -3086,7 +3086,7 @@ static int slram_write(struct mtd_info *mtd , loff_t to , size_t len , size_t *r
   __cil_tmp13 = __cil_tmp12 + to;
   __cil_tmp14 = (void *)__cil_tmp13;
   __cil_tmp15 = (void const *)buf;
-  __ret = __builtin_memcpy(__cil_tmp14, __cil_tmp15, __len);
+  __ret = memcpy(__cil_tmp14, __cil_tmp15, __len);
   *retlen = len;
   }
   return (0);

@@ -5310,7 +5310,7 @@ static void setup_cmd_submit_pdu(struct usbip_header *pdup , struct urb *urb )
       __ret = memcpy((void *)(& pdup->u.cmd_submit.setup), (void const   *)urb->setup_packet,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pdup->u.cmd_submit.setup), (void const   *)urb->setup_packet,
+      __ret = memcpy((void *)(& pdup->u.cmd_submit.setup), (void const   *)urb->setup_packet,
                                __len);
     }
   } else {

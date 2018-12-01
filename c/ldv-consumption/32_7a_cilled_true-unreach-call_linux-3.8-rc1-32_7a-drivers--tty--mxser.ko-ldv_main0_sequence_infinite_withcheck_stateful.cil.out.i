@@ -4734,7 +4734,7 @@ static int mxser_write(struct tty_struct *tty , unsigned char const *buf , int c
   } else {
   }
   __len = (size_t )c;
-  __ret = __builtin_memcpy((void *)info->port.xmit_buf + (unsigned long )info->xmit_head,
+  __ret = memcpy((void *)info->port.xmit_buf + (unsigned long )info->xmit_head,
                            (void const *)buf, __len);
   tmp = spinlock_check(& info->slock);
   flags = _raw_spin_lock_irqsave(tmp);

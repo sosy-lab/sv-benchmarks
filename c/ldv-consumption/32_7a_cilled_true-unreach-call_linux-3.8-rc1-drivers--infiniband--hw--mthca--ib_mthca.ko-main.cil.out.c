@@ -5107,7 +5107,7 @@ static int mthca_init_hca(struct mthca_dev *mdev )
     __ret = memcpy((void *)(& mdev->board_id), (void const   *)(& adapter.board_id),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mdev->board_id), (void const   *)(& adapter.board_id),
+    __ret = memcpy((void *)(& mdev->board_id), (void const   *)(& adapter.board_id),
                              __len);
   }
   return (0);
@@ -11324,7 +11324,7 @@ int mthca_MAD_IFC(struct mthca_dev *dev , int ignore_mkey , int ignore_bkey , in
   if (__len > 63UL) {
     __ret = memcpy(inbox, (void const   *)in_mad, __len);
   } else {
-    __ret = __builtin_memcpy(inbox, (void const   *)in_mad, __len);
+    __ret = memcpy(inbox, (void const   *)in_mad, __len);
   }
   if (ignore_mkey != 0 || (unsigned long )in_wc == (unsigned long )((struct ib_wc *)0)) {
     op_modifier = (u8 )((unsigned int )op_modifier | 1U);
@@ -11476,7 +11476,7 @@ int mthca_MAD_IFC(struct mthca_dev *dev , int ignore_mkey , int ignore_bkey , in
       if (__len___0 > 63UL) {
         __ret___0 = memcpy(inbox + 320UL, (void const   *)in_grh, __len___0);
       } else {
-        __ret___0 = __builtin_memcpy(inbox + 320UL, (void const   *)in_grh, __len___0);
+        __ret___0 = memcpy(inbox + 320UL, (void const   *)in_grh, __len___0);
       }
     } else {
 
@@ -11493,7 +11493,7 @@ int mthca_MAD_IFC(struct mthca_dev *dev , int ignore_mkey , int ignore_bkey , in
     if (__len___1 > 63UL) {
       __ret___1 = memcpy(response_mad, (void const   *)outmailbox->buf, __len___1);
     } else {
-      __ret___1 = __builtin_memcpy(response_mad, (void const   *)outmailbox->buf,
+      __ret___1 = memcpy(response_mad, (void const   *)outmailbox->buf,
                                    __len___1);
     }
   } else {
@@ -14822,7 +14822,7 @@ void mthca_cq_clean(struct mthca_dev *dev , struct mthca_cq *cq , u32 qpn , stru
       __ret = memcpy((void *)tmp___3, (void const   *)cqe, __len);
     } else {
       tmp___4 = get_cqe(cq, (int )((prod_index + (u32 )nfreed) & (u32 )cq->ibcq.cqe));
-      __ret = __builtin_memcpy((void *)tmp___4, (void const   *)cqe, __len);
+      __ret = memcpy((void *)tmp___4, (void const   *)cqe, __len);
     }
   } else {
 
@@ -14900,7 +14900,7 @@ void mthca_cq_resize_copy_cqes(struct mthca_cq *cq )
   } else {
     tmp___5 = get_cqe(cq, cq->ibcq.cqe & i);
     tmp___6 = get_cqe_from_buf(& (cq->resize_buf)->buf, (cq->resize_buf)->cqe & i);
-    __ret = __builtin_memcpy((void *)tmp___6, (void const   *)tmp___5, __len);
+    __ret = memcpy((void *)tmp___6, (void const   *)tmp___5, __len);
   }
   i = i + 1;
   ldv_27466: 
@@ -15865,7 +15865,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }
@@ -17845,7 +17845,7 @@ static void to_ib_ah_attr(struct mthca_dev *dev , struct ib_ah_attr *ib_ah_attr 
       __ret = memcpy((void *)(& ib_ah_attr->grh.dgid.raw), (void const   *)(& path->rgid),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ib_ah_attr->grh.dgid.raw), (void const   *)(& path->rgid),
+      __ret = memcpy((void *)(& ib_ah_attr->grh.dgid.raw), (void const   *)(& path->rgid),
                                __len);
     }
   } else {
@@ -18010,7 +18010,7 @@ static int mthca_path_set(struct mthca_dev *dev , struct ib_ah_attr  const  *ah 
       __ret = memcpy((void *)(& path->rgid), (void const   *)(& ah->grh.dgid.raw),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& path->rgid), (void const   *)(& ah->grh.dgid.raw),
+      __ret = memcpy((void *)(& path->rgid), (void const   *)(& ah->grh.dgid.raw),
                                __len);
     }
   } else {
@@ -19518,7 +19518,7 @@ static void set_arbel_ud_seg(struct mthca_arbel_ud_seg *useg , struct ib_send_wr
     __ret = memcpy((void *)(& useg->av), (void const   *)tmp->av, __len);
   } else {
     tmp___0 = to_mah(wr->wr.ud.ah);
-    __ret = __builtin_memcpy((void *)(& useg->av), (void const   *)tmp___0->av, __len);
+    __ret = memcpy((void *)(& useg->av), (void const   *)tmp___0->av, __len);
   }
   tmp___1 = __fswab32(wr->wr.ud.remote_qpn);
   useg->dqpn = tmp___1;
@@ -20684,7 +20684,7 @@ int mthca_create_ah(struct mthca_dev *dev , struct mthca_pd *pd , struct ib_ah_a
       __ret = memcpy((void *)(& av->dgid), (void const   *)(& ah_attr->grh.dgid.raw),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& av->dgid), (void const   *)(& ah_attr->grh.dgid.raw),
+      __ret = memcpy((void *)(& av->dgid), (void const   *)(& ah_attr->grh.dgid.raw),
                                __len);
     }
   } else {
@@ -20783,7 +20783,7 @@ int mthca_read_ah(struct mthca_dev *dev , struct mthca_ah *ah , struct ib_ud_hea
       __ret = memcpy((void *)(& header->grh.destination_gid.raw), (void const   *)(& (ah->av)->dgid),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& header->grh.destination_gid.raw), (void const   *)(& (ah->av)->dgid),
+      __ret = memcpy((void *)(& header->grh.destination_gid.raw), (void const   *)(& (ah->av)->dgid),
                                __len);
     }
   } else {
@@ -20841,7 +20841,7 @@ int mthca_ah_query(struct ib_ah *ibah , struct ib_ah_attr *attr )
       __ret = memcpy((void *)(& attr->grh.dgid.raw), (void const   *)(& (ah->av)->dgid),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& attr->grh.dgid.raw), (void const   *)(& (ah->av)->dgid),
+      __ret = memcpy((void *)(& attr->grh.dgid.raw), (void const   *)(& (ah->av)->dgid),
                                __len);
     }
   } else {
@@ -21005,7 +21005,7 @@ static int find_mgm(struct mthca_dev *dev , u8 *gid , struct mthca_mailbox *mgm_
   if (__len > 63UL) {
     __ret = memcpy((void *)mgid, (void const   *)gid, __len);
   } else {
-    __ret = __builtin_memcpy((void *)mgid, (void const   *)gid, __len);
+    __ret = memcpy((void *)mgid, (void const   *)gid, __len);
   }
   err = mthca_MGID_HASH(dev, mailbox, hash);
   if (err != 0) {
@@ -21110,7 +21110,7 @@ int mthca_multicast_attach(struct ib_qp *ibqp , union ib_gid *gid , u16 lid )
       if (__len > 63UL) {
         __ret = memcpy((void *)(& mgm->gid), (void const   *)(& gid->raw), __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& mgm->gid), (void const   *)(& gid->raw),
+        __ret = memcpy((void *)(& mgm->gid), (void const   *)(& gid->raw),
                                  __len);
       }
     } else {
@@ -21137,7 +21137,7 @@ int mthca_multicast_attach(struct ib_qp *ibqp , union ib_gid *gid , u16 lid )
       if (__len___0 > 63UL) {
         __ret___0 = memcpy((void *)(& mgm->gid), (void const   *)(& gid->raw), __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& mgm->gid), (void const   *)(& gid->raw),
+        __ret___0 = memcpy((void *)(& mgm->gid), (void const   *)(& gid->raw),
                                      __len___0);
       }
     }
@@ -21690,7 +21690,7 @@ static void node_desc_override(struct ib_device *dev , struct ib_mad *mad )
       __ret = memcpy((void *)(& ((struct ib_smp *)mad)->data), (void const   *)(& dev->node_desc),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ((struct ib_smp *)mad)->data), (void const   *)(& dev->node_desc),
+      __ret = memcpy((void *)(& ((struct ib_smp *)mad)->data), (void const   *)(& dev->node_desc),
                                __len);
     }
     tmp___0 = to_mdev(dev);
@@ -21730,7 +21730,7 @@ static void forward_trap(struct mthca_dev *dev , u8 port_num , struct ib_mad *ma
     if (__len > 63UL) {
       __ret = memcpy(send_buf->mad, (void const   *)mad, __len);
     } else {
-      __ret = __builtin_memcpy(send_buf->mad, (void const   *)mad, __len);
+      __ret = memcpy(send_buf->mad, (void const   *)mad, __len);
     }
     tmp___1 = dev->sm_ah[(int )port_num + -1];
     send_buf->ah = tmp___1;
@@ -22249,7 +22249,7 @@ static int mthca_query_device(struct ib_device *ibdev , struct ib_device_attr *p
     __ret = memcpy((void *)(& props->sys_image_guid), (void const   *)(& out_mad->data) + 4U,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& props->sys_image_guid), (void const   *)(& out_mad->data) + 4U,
+    __ret = memcpy((void *)(& props->sys_image_guid), (void const   *)(& out_mad->data) + 4U,
                              __len);
   }
   props->max_mr_size = 0xffffffffffffffffULL;
@@ -22379,7 +22379,7 @@ static int mthca_modify_device(struct ib_device *ibdev , int mask , struct ib_de
       __ret = memcpy((void *)(& ibdev->node_desc), (void const   *)(& props->node_desc),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ibdev->node_desc), (void const   *)(& props->node_desc),
+      __ret = memcpy((void *)(& ibdev->node_desc), (void const   *)(& props->node_desc),
                                __len);
     }
     tmp___1 = to_mdev(ibdev);
@@ -22516,7 +22516,7 @@ static int mthca_query_gid(struct ib_device *ibdev , u8 port , int index , union
     __ret = memcpy((void *)(& gid->raw), (void const   *)(& out_mad->data) + 8U,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& gid->raw), (void const   *)(& out_mad->data) + 8U,
+    __ret = memcpy((void *)(& gid->raw), (void const   *)(& out_mad->data) + 8U,
                              __len);
   }
   init_query_mad(in_mad);
@@ -22535,7 +22535,7 @@ static int mthca_query_gid(struct ib_device *ibdev , u8 port , int index , union
     __ret___0 = memcpy((void *)(& gid->raw) + 8U, (void const   *)(& out_mad->data) + (unsigned long )((index % 8) * 8),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& gid->raw) + 8U, (void const   *)(& out_mad->data) + (unsigned long )((index % 8) * 8),
+    __ret___0 = memcpy((void *)(& gid->raw) + 8U, (void const   *)(& out_mad->data) + (unsigned long )((index % 8) * 8),
                                  __len___0);
   }
   out: 
@@ -23892,7 +23892,7 @@ static struct ib_fmr *mthca_alloc_fmr(struct ib_pd *pd , int mr_access_flags , s
   if (__len > 63UL) {
     __ret = memcpy((void *)(& fmr->attr), (void const   *)fmr_attr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& fmr->attr), (void const   *)fmr_attr, __len);
+    __ret = memcpy((void *)(& fmr->attr), (void const   *)fmr_attr, __len);
   }
   tmp___1 = convert_access(mr_access_flags);
   tmp___2 = to_mpd(pd);
@@ -24135,7 +24135,7 @@ static int mthca_init_node_data(struct mthca_dev *dev )
     __ret = memcpy((void *)(& dev->ib_dev.node_desc), (void const   *)(& out_mad->data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dev->ib_dev.node_desc), (void const   *)(& out_mad->data),
+    __ret = memcpy((void *)(& dev->ib_dev.node_desc), (void const   *)(& out_mad->data),
                              __len);
   }
   in_mad->attr_id = 4352U;
@@ -24156,7 +24156,7 @@ static int mthca_init_node_data(struct mthca_dev *dev )
     __ret___0 = memcpy((void *)(& dev->ib_dev.node_guid), (void const   *)(& out_mad->data) + 12U,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& dev->ib_dev.node_guid), (void const   *)(& out_mad->data) + 12U,
+    __ret___0 = memcpy((void *)(& dev->ib_dev.node_guid), (void const   *)(& out_mad->data) + 12U,
                                  __len___0);
   }
   out: 

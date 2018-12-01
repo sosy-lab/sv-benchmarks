@@ -4651,7 +4651,7 @@ int tda18271_assign_map_layout(struct dvb_frontend *fe )
     __ret = memcpy((void *)(& priv->std), (void const *)(& tda18271c1_std_map),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->std), (void const *)(& tda18271c1_std_map),
+    __ret = memcpy((void *)(& priv->std), (void const *)(& tda18271c1_std_map),
                              __len);
   }
   goto ldv_24054;
@@ -4662,7 +4662,7 @@ int tda18271_assign_map_layout(struct dvb_frontend *fe )
     __ret___0 = memcpy((void *)(& priv->std), (void const *)(& tda18271c2_std_map),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& priv->std), (void const *)(& tda18271c2_std_map),
+    __ret___0 = memcpy((void *)(& priv->std), (void const *)(& tda18271c2_std_map),
                                  __len___0);
   }
   goto ldv_24054;
@@ -4676,7 +4676,7 @@ int tda18271_assign_map_layout(struct dvb_frontend *fe )
     __ret___1 = memcpy((void *)(& priv->rf_cal_state), (void const *)(& tda18271_rf_band_template),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& priv->rf_cal_state), (void const *)(& tda18271_rf_band_template),
+    __ret___1 = memcpy((void *)(& priv->rf_cal_state), (void const *)(& tda18271_rf_band_template),
                                  __len___1);
   }
   return (ret);
@@ -7235,7 +7235,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret = memcpy((void *)(& std->fm_radio), (void const *)(& map->fm_radio),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& std->fm_radio), (void const *)(& map->fm_radio),
+      __ret = memcpy((void *)(& std->fm_radio), (void const *)(& map->fm_radio),
                                __len);
     }
   } else {
@@ -7251,7 +7251,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___0 = memcpy((void *)(& std->atv_b), (void const *)(& map->atv_b),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& std->atv_b), (void const *)(& map->atv_b),
+      __ret___0 = memcpy((void *)(& std->atv_b), (void const *)(& map->atv_b),
                                    __len___0);
     }
   } else {
@@ -7267,7 +7267,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___1 = memcpy((void *)(& std->atv_dk), (void const *)(& map->atv_dk),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& std->atv_dk), (void const *)(& map->atv_dk),
+      __ret___1 = memcpy((void *)(& std->atv_dk), (void const *)(& map->atv_dk),
                                    __len___1);
     }
   } else {
@@ -7283,7 +7283,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___2 = memcpy((void *)(& std->atv_gh), (void const *)(& map->atv_gh),
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)(& std->atv_gh), (void const *)(& map->atv_gh),
+      __ret___2 = memcpy((void *)(& std->atv_gh), (void const *)(& map->atv_gh),
                                    __len___2);
     }
   } else {
@@ -7299,7 +7299,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___3 = memcpy((void *)(& std->atv_i), (void const *)(& map->atv_i),
                            __len___3);
     } else {
-      __ret___3 = __builtin_memcpy((void *)(& std->atv_i), (void const *)(& map->atv_i),
+      __ret___3 = memcpy((void *)(& std->atv_i), (void const *)(& map->atv_i),
                                    __len___3);
     }
   } else {
@@ -7315,7 +7315,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___4 = memcpy((void *)(& std->atv_l), (void const *)(& map->atv_l),
                            __len___4);
     } else {
-      __ret___4 = __builtin_memcpy((void *)(& std->atv_l), (void const *)(& map->atv_l),
+      __ret___4 = memcpy((void *)(& std->atv_l), (void const *)(& map->atv_l),
                                    __len___4);
     }
   } else {
@@ -7331,7 +7331,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___5 = memcpy((void *)(& std->atv_lc), (void const *)(& map->atv_lc),
                            __len___5);
     } else {
-      __ret___5 = __builtin_memcpy((void *)(& std->atv_lc), (void const *)(& map->atv_lc),
+      __ret___5 = memcpy((void *)(& std->atv_lc), (void const *)(& map->atv_lc),
                                    __len___5);
     }
   } else {
@@ -7347,7 +7347,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___6 = memcpy((void *)(& std->atv_mn), (void const *)(& map->atv_mn),
                            __len___6);
     } else {
-      __ret___6 = __builtin_memcpy((void *)(& std->atv_mn), (void const *)(& map->atv_mn),
+      __ret___6 = memcpy((void *)(& std->atv_mn), (void const *)(& map->atv_mn),
                                    __len___6);
     }
   } else {
@@ -7363,7 +7363,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___7 = memcpy((void *)(& std->atsc_6), (void const *)(& map->atsc_6),
                            __len___7);
     } else {
-      __ret___7 = __builtin_memcpy((void *)(& std->atsc_6), (void const *)(& map->atsc_6),
+      __ret___7 = memcpy((void *)(& std->atsc_6), (void const *)(& map->atsc_6),
                                    __len___7);
     }
   } else {
@@ -7379,7 +7379,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___8 = memcpy((void *)(& std->dvbt_6), (void const *)(& map->dvbt_6),
                            __len___8);
     } else {
-      __ret___8 = __builtin_memcpy((void *)(& std->dvbt_6), (void const *)(& map->dvbt_6),
+      __ret___8 = memcpy((void *)(& std->dvbt_6), (void const *)(& map->dvbt_6),
                                    __len___8);
     }
   } else {
@@ -7395,7 +7395,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___9 = memcpy((void *)(& std->dvbt_7), (void const *)(& map->dvbt_7),
                            __len___9);
     } else {
-      __ret___9 = __builtin_memcpy((void *)(& std->dvbt_7), (void const *)(& map->dvbt_7),
+      __ret___9 = memcpy((void *)(& std->dvbt_7), (void const *)(& map->dvbt_7),
                                    __len___9);
     }
   } else {
@@ -7411,7 +7411,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___10 = memcpy((void *)(& std->dvbt_8), (void const *)(& map->dvbt_8),
                             __len___10);
     } else {
-      __ret___10 = __builtin_memcpy((void *)(& std->dvbt_8), (void const *)(& map->dvbt_8),
+      __ret___10 = memcpy((void *)(& std->dvbt_8), (void const *)(& map->dvbt_8),
                                     __len___10);
     }
   } else {
@@ -7427,7 +7427,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___11 = memcpy((void *)(& std->qam_6), (void const *)(& map->qam_6),
                             __len___11);
     } else {
-      __ret___11 = __builtin_memcpy((void *)(& std->qam_6), (void const *)(& map->qam_6),
+      __ret___11 = memcpy((void *)(& std->qam_6), (void const *)(& map->qam_6),
                                     __len___11);
     }
   } else {
@@ -7443,7 +7443,7 @@ static int tda18271_update_std_map(struct dvb_frontend *fe , struct tda18271_std
       __ret___12 = memcpy((void *)(& std->qam_8), (void const *)(& map->qam_8),
                             __len___12);
     } else {
-      __ret___12 = __builtin_memcpy((void *)(& std->qam_8), (void const *)(& map->qam_8),
+      __ret___12 = memcpy((void *)(& std->qam_8), (void const *)(& map->qam_8),
                                     __len___12);
     }
   } else {
@@ -7720,7 +7720,7 @@ struct dvb_frontend *tda18271_attach(struct dvb_frontend *fe , u8 addr , struct 
     __ret___3 = memcpy((void *)(& fe->ops.tuner_ops), (void const *)(& tda18271_tuner_ops),
                          __len);
   } else {
-    __ret___3 = __builtin_memcpy((void *)(& fe->ops.tuner_ops), (void const *)(& tda18271_tuner_ops),
+    __ret___3 = memcpy((void *)(& fe->ops.tuner_ops), (void const *)(& tda18271_tuner_ops),
                                  __len);
   }
   if ((tda18271_debug & 10) != 0) {

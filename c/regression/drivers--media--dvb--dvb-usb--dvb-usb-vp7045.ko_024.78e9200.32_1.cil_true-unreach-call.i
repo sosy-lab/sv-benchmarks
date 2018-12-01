@@ -4021,7 +4021,7 @@ struct vp7045_fe_state {
    struct dvb_frontend fe ;
    struct dvb_usb_device *d ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern int param_set_short(char const   *val , struct kernel_param *kp ) ;
 extern int param_get_short(char *buffer , struct kernel_param *kp ) ;
@@ -4181,7 +4181,7 @@ int vp7045_usb_op(struct dvb_usb_device *d , u8 cmd , u8 *out , int outlen , u8 
   }
   if ((unsigned long )out != (unsigned long )((void *)0) && outlen > 0) {
     __len = outlen;
-    __ret = __builtin_memcpy(& outbuf[1], out, __len);
+    __ret = memcpy(& outbuf[1], out, __len);
   } else {
 
   }
@@ -4280,7 +4280,7 @@ int vp7045_usb_op(struct dvb_usb_device *d , u8 cmd , u8 *out , int outlen , u8 
   }
   if ((unsigned long )in != (unsigned long )((void *)0) && inlen > 0) {
     __len___0 = inlen;
-    __ret___0 = __builtin_memcpy(in, & inbuf[1], __len___0);
+    __ret___0 = memcpy(in, & inbuf[1], __len___0);
   } else {
 
   }
@@ -4992,7 +4992,7 @@ struct dvb_frontend *vp7045_fe_attach(struct dvb_usb_device *d )
   if (__len >= (size_t )64) {
     __ret = memcpy(& s->fe.ops, & vp7045_fe_ops, __len);
   } else {
-    __ret = __builtin_memcpy(& s->fe.ops, & vp7045_fe_ops, __len);
+    __ret = memcpy(& s->fe.ops, & vp7045_fe_ops, __len);
   }
   s->fe.demodulator_priv = s;
   return (& s->fe);

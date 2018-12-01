@@ -2171,7 +2171,7 @@ static int xtkbd_connect(struct serio *serio , struct serio_driver *drv )
     __cil_tmp31 = (unsigned char (*)[256U])xtkbd;
     __cil_tmp32 = (void *)__cil_tmp31;
     __cil_tmp33 = (void const *)(& xtkbd_keycode);
-    __ret = __builtin_memcpy(__cil_tmp32, __cil_tmp33, __len);
+    __ret = memcpy(__cil_tmp32, __cil_tmp33, __len);
     }
   }
   *((char const **)input_dev) = "XT Keyboard";

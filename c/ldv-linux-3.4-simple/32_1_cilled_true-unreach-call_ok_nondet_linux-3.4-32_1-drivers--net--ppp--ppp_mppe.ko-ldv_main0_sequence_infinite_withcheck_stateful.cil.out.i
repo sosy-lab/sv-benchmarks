@@ -1752,7 +1752,7 @@ static void mppe_rekey(struct ppp_mppe_state *state , int initial_key )
     __cil_tmp67 = __cil_tmp66 + 16;
     __cil_tmp68 = *((unsigned char **)__cil_tmp67);
     __cil_tmp69 = (void const *)__cil_tmp68;
-    __ret = __builtin_memcpy(__cil_tmp65, __cil_tmp69, __len);
+    __ret = memcpy(__cil_tmp65, __cil_tmp69, __len);
     }
   }
   {
@@ -2018,7 +2018,7 @@ static void *mppe_alloc(unsigned char *options , int optlen )
     __cil_tmp62 = (void *)__cil_tmp61;
     __cil_tmp63 = options + 6;
     __cil_tmp64 = (void const *)__cil_tmp63;
-    __ret = __builtin_memcpy(__cil_tmp62, __cil_tmp64, __len);
+    __ret = memcpy(__cil_tmp62, __cil_tmp64, __len);
     }
   }
   __len___0 = 16UL;
@@ -2052,7 +2052,7 @@ static void *mppe_alloc(unsigned char *options , int optlen )
     __cil_tmp86 = __cil_tmp85 + __cil_tmp84;
     __cil_tmp87 = (unsigned char *)__cil_tmp86;
     __cil_tmp88 = (void const *)__cil_tmp87;
-    __ret___0 = __builtin_memcpy(__cil_tmp82, __cil_tmp88, __len___0);
+    __ret___0 = memcpy(__cil_tmp82, __cil_tmp88, __len___0);
     }
   }
   return ((void *)state);

@@ -11579,7 +11579,7 @@ static void get_setup_data(struct mv_udc *udc , u8 ep_num , u8 *buffer_ptr )
     __cil_tmp43 = __cil_tmp42 + 40;
     __cil_tmp44 = (u8 (*)[8U])__cil_tmp43;
     __cil_tmp45 = (void    *)__cil_tmp44;
-    __ret = __builtin_memcpy(__cil_tmp41, __cil_tmp45, __len);
+    __ret = memcpy(__cil_tmp41, __cil_tmp45, __len);
     }
   }
   {

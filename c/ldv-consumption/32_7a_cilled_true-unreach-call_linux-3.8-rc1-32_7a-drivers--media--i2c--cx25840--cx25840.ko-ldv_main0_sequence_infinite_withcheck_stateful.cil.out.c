@@ -10982,7 +10982,7 @@ int cx25840_loadfw(struct i2c_client *client )
   _min2 = size;
   len = _min1 < _min2 ? _min1 : _min2;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& buffer) + 2U, (void const   *)ptr, __len);
+  __ret = memcpy((void *)(& buffer) + 2U, (void const   *)ptr, __len);
   retval = fw_write(client, (u8 const   *)(& buffer), len + 2);
   if (retval < 0) {
     release_firmware(fw);
@@ -12796,7 +12796,7 @@ static int cx25840_ir_rx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
   if (__len > 63UL) {
     __ret = memcpy((void *)p, (void const   *)(& ir_state->rx_params), __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const   *)(& ir_state->rx_params), __len);
+    __ret = memcpy((void *)p, (void const   *)(& ir_state->rx_params), __len);
   }
   ldv_mutex_unlock_83(& ir_state->rx_params_lock);
   return (0);
@@ -12958,7 +12958,7 @@ static int cx25840_ir_tx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
   if (__len > 63UL) {
     __ret = memcpy((void *)p, (void const   *)(& ir_state->tx_params), __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const   *)(& ir_state->tx_params), __len);
+    __ret = memcpy((void *)p, (void const   *)(& ir_state->tx_params), __len);
   }
   ldv_mutex_unlock_89(& ir_state->tx_params_lock);
   return (0);
@@ -13351,7 +13351,7 @@ int cx25840_ir_probe(struct v4l2_subdev *sd )
     __ret = memcpy((void *)(& default_params), (void const   *)(& default_rx_params),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& default_params), (void const   *)(& default_rx_params),
+    __ret = memcpy((void *)(& default_params), (void const   *)(& default_rx_params),
                              __len);
   }
   if ((unsigned long )sd != (unsigned long )((struct v4l2_subdev *)0)) {
@@ -13370,7 +13370,7 @@ int cx25840_ir_probe(struct v4l2_subdev *sd )
     __ret___0 = memcpy((void *)(& default_params), (void const   *)(& default_tx_params),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& default_params), (void const   *)(& default_tx_params),
+    __ret___0 = memcpy((void *)(& default_params), (void const   *)(& default_tx_params),
                                  __len___0);
   }
   if ((unsigned long )sd != (unsigned long )((struct v4l2_subdev *)0)) {

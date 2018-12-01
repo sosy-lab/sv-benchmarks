@@ -6206,7 +6206,7 @@ struct tcm_loop_hba {
    struct se_wwn tl_hba_wwn ;
 };
 typedef int ldv_func_ret_type___0;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -7569,7 +7569,7 @@ static int tcm_loop_queue_status(struct se_cmd *se_cmd )
       __ret = memcpy((void *)sc->sense_buffer, (void const   *)se_cmd->sense_buffer,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)sc->sense_buffer, (void const   *)se_cmd->sense_buffer,
+      __ret = memcpy((void *)sc->sense_buffer, (void const   *)se_cmd->sense_buffer,
                                __len);
     }
     sc->result = 2;

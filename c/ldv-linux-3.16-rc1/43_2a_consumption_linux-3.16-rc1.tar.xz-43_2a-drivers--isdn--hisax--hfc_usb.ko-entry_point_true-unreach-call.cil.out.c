@@ -7802,7 +7802,7 @@ static void tx_iso_complete(struct urb *urb )
 
       }
       __len = (size_t )current_len;
-      __ret = __builtin_memcpy((void *)(& context_iso_urb->buffer) + ((unsigned long )tx_offset + 1UL),
+      __ret = memcpy((void *)(& context_iso_urb->buffer) + ((unsigned long )tx_offset + 1UL),
                                (void const   *)(fifo->skbuff)->data, __len);
       skb_pull(fifo->skbuff, (unsigned int )current_len);
       urb->iso_frame_desc[k].offset = (unsigned int )tx_offset;
@@ -8014,7 +8014,7 @@ static void collect_rx_frame(usb_fifo *fifo , __u8 *data , int len , int finish 
     if ((fifo->skbuff)->len + (unsigned int )len < fifo->max_size) {
       __len = (size_t )len;
       tmp___0 = skb_put(fifo->skbuff, (unsigned int )len);
-      __ret = __builtin_memcpy((void *)tmp___0, (void const   *)data, __len);
+      __ret = memcpy((void *)tmp___0, (void const   *)data, __len);
     } else {
       if ((hfc_debug & 16384) != 0) {
         printk("\017%s: HCF-USB: got frame exceeded fifo->max_size(%d) fifo(%d)\n",
@@ -8653,7 +8653,7 @@ static int hfc_usb_probe(struct usb_interface *intf , struct usb_device_id  cons
     if (__len > 63UL) {
       __ret = memcpy((void *)(& cmptbl), (void const   *)vcf, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& cmptbl), (void const   *)vcf, __len);
+      __ret = memcpy((void *)(& cmptbl), (void const   *)vcf, __len);
     }
     i = 0;
     goto ldv_46913;

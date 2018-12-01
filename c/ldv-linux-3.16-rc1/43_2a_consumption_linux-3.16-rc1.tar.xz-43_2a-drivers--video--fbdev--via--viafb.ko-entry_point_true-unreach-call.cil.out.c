@@ -4525,7 +4525,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }
@@ -7393,7 +7393,7 @@ int via_fb_pci_probe(struct viafb_dev *vdev )
     }
     viaparinfo1 = (struct viafb_par *)viafbinfo1->par;
     __len = (size_t )viafb_par_length;
-    __ret = __builtin_memcpy((void *)viaparinfo1, (void const   *)viaparinfo, __len);
+    __ret = memcpy((void *)viaparinfo1, (void const   *)viaparinfo, __len);
     viaparinfo1->vram_addr = viafb_second_offset;
     viaparinfo1->memsize = viaparinfo->memsize - viafb_second_offset;
     viaparinfo->memsize = viafb_second_offset;
@@ -7408,7 +7408,7 @@ int via_fb_pci_probe(struct viafb_dev *vdev )
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)viafbinfo1, (void const   *)viafbinfo, __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)viafbinfo1, (void const   *)viafbinfo,
+      __ret___0 = memcpy((void *)viafbinfo1, (void const   *)viafbinfo,
                                    __len___0);
     }
     viafbinfo1->par = (void *)viaparinfo1;

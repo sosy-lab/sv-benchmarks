@@ -4091,7 +4091,7 @@ __inline static int ipmi_demangle_device_id(unsigned char const   *data , unsign
       __ret = memcpy((void *)(& id->aux_firmware_revision), (void const   *)data + 11U,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& id->aux_firmware_revision), (void const   *)data + 11U,
+      __ret = memcpy((void *)(& id->aux_firmware_revision), (void const   *)data + 11U,
                                __len);
     }
     id->aux_firmware_revision_set = 1U;
@@ -6189,7 +6189,7 @@ static int decode_dmi(struct dmi_header  const  *dm , struct dmi_ipmi_data *dmi 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& base_addr), (void const   *)data + 8U, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& base_addr), (void const   *)data + 8U, __len);
+    __ret = memcpy((void *)(& base_addr), (void const   *)data + 8U, __len);
   }
   if ((unsigned int )len > 16U) {
     if ((int )base_addr & 1) {
@@ -8917,7 +8917,7 @@ static int start_kcs_transaction(struct si_sm_data *kcs , unsigned char *data , 
   }
   kcs->error_retries = 0U;
   __len = (size_t )size;
-  __ret = __builtin_memcpy((void *)(& kcs->write_data), (void const   *)data, __len);
+  __ret = memcpy((void *)(& kcs->write_data), (void const   *)data, __len);
   kcs->write_count = (int )size;
   kcs->orig_write_count = (int )size;
   kcs->write_pos = 0;
@@ -8941,7 +8941,7 @@ static int get_kcs_result(struct si_sm_data *kcs , unsigned char *data , unsigne
 
   }
   __len = (size_t )kcs->read_pos;
-  __ret = __builtin_memcpy((void *)data, (void const   *)(& kcs->read_data), __len);
+  __ret = memcpy((void *)data, (void const   *)(& kcs->read_data), __len);
   if (length > 2U && kcs->read_pos <= 2) {
     *(data + 2UL) = 255U;
     kcs->read_pos = 3;
@@ -9351,7 +9351,7 @@ static int start_smic_transaction(struct si_sm_data___0 *smic , unsigned char *d
   }
   smic->error_retries = 0U;
   __len = (size_t )size;
-  __ret = __builtin_memcpy((void *)(& smic->write_data), (void const   *)data, __len);
+  __ret = memcpy((void *)(& smic->write_data), (void const   *)data, __len);
   smic->write_count = (int )size;
   smic->orig_write_count = (int )size;
   smic->write_pos = 0;
@@ -9392,7 +9392,7 @@ static int smic_get_result(struct si_sm_data___0 *smic , unsigned char *data , u
 
   }
   __len = (size_t )smic->read_pos;
-  __ret = __builtin_memcpy((void *)data, (void const   *)(& smic->read_data), __len);
+  __ret = memcpy((void *)data, (void const   *)(& smic->read_data), __len);
   if (length > 2U && smic->read_pos <= 2) {
     *(data + 2UL) = 255U;
     smic->read_pos = 3;
@@ -10055,7 +10055,7 @@ static int bt_start_transaction(struct si_sm_data___1 *bt , unsigned char *data 
   bt->seq = (unsigned char )((int )bt->seq + 1);
   bt->write_data[2] = tmp;
   __len = (size_t )(size - 1U);
-  __ret = __builtin_memcpy((void *)(& bt->write_data) + 3U, (void const   *)data + 1U,
+  __ret = memcpy((void *)(& bt->write_data) + 3U, (void const   *)data + 1U,
                            __len);
   bt->write_count = (int )(size + 2U);
   bt->error_retries = 0;
@@ -10089,7 +10089,7 @@ static int bt_get_result(struct si_sm_data___1 *bt , unsigned char *data , unsig
     msg_len = 3;
   } else {
     __len = (size_t )(msg_len + -2);
-    __ret = __builtin_memcpy((void *)data + 2U, (void const   *)(& bt->read_data) + 4U,
+    __ret = memcpy((void *)data + 2U, (void const   *)(& bt->read_data) + 4U,
                              __len);
   }
   if ((bt_debug & 2) != 0) {

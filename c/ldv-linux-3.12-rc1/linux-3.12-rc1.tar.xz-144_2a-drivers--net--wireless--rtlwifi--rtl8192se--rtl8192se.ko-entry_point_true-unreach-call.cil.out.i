@@ -8978,7 +8978,7 @@ static bool _rtl92s_firmware_downloadcode(struct ieee80211_hw *hw , u8 *code_vir
   skb_reserve(skb, (int )extra_descoffset);
   seg_ptr = skb_put(skb, (unsigned int )((int )frag_length - (int )extra_descoffset));
   __len = (size_t )((unsigned int )((int )frag_length - (int )extra_descoffset));
-  __ret = __builtin_memcpy((void *)seg_ptr, (void const *)code_virtual_address + (unsigned long )frag_offset,
+  __ret = memcpy((void *)seg_ptr, (void const *)code_virtual_address + (unsigned long )frag_offset,
                            __len);
   tcb_desc = (struct rtl_tcb_desc *)(& skb->cb);
   tcb_desc->queue_index = 5U;
@@ -9407,7 +9407,7 @@ int rtl92s_download_fw(struct ieee80211_hw *hw )
   } else {
     puc_mappedfile = puc_mappedfile + (unsigned long )fwhdr_size;
     __len = (size_t )pfwheader->img_imem_size;
-    __ret = __builtin_memcpy((void *)(& firmware->fw_imem), (void const *)puc_mappedfile,
+    __ret = memcpy((void *)(& firmware->fw_imem), (void const *)puc_mappedfile,
                              __len);
     firmware->fw_imem_len = pfwheader->img_imem_size;
   }
@@ -9430,7 +9430,7 @@ int rtl92s_download_fw(struct ieee80211_hw *hw )
   } else {
     puc_mappedfile = puc_mappedfile + (unsigned long )firmware->fw_imem_len;
     __len___0 = (size_t )pfwheader->img_sram_size;
-    __ret___0 = __builtin_memcpy((void *)(& firmware->fw_emem), (void const *)puc_mappedfile,
+    __ret___0 = memcpy((void *)(& firmware->fw_emem), (void const *)puc_mappedfile,
                                  __len___0);
     firmware->fw_emem_len = pfwheader->img_sram_size;
   }
@@ -9554,7 +9554,7 @@ static u32 _rtl92s_fill_h2c_cmd(struct sk_buff *skb , u32 h2cbufferlen , u32 cmd
   *((u32 *)(ph2c_buffer + ((unsigned long )totallen + (unsigned long )tx_desclen))) = (*((__le32 *)(ph2c_buffer + ((unsigned long )totallen + (unsigned long )tx_desclen))) & 2164260863U) | (((unsigned int )*cmd_start_seq & 127U) << 24);
   *cmd_start_seq = (u8 )((int )*cmd_start_seq + 1);
   __len = (size_t )*(pcmd_len + (unsigned long )i);
-  __ret = __builtin_memcpy((void *)(ph2c_buffer + (((unsigned long )totallen + (unsigned long )tx_desclen) + 8UL)),
+  __ret = memcpy((void *)(ph2c_buffer + (((unsigned long )totallen + (unsigned long )tx_desclen) + 8UL)),
                            (void const *)*(pcmb_buffer + (unsigned long )i), __len);
   if ((u32 )i < cmd_num - 1U) {
     *((u32 *)ph2c_buffer + (unsigned long )pre_continueoffset) = *((__le32 *)ph2c_buffer + (unsigned long )pre_continueoffset) | 2147483648U;
@@ -11941,7 +11941,7 @@ static void _rtl92se_read_adapter_info(struct ieee80211_hw *hw )
       __ret = memcpy((void *)(& hwinfo), (void const *)(& rtlefuse->efuse_map),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& hwinfo), (void const *)(& rtlefuse->efuse_map),
+      __ret = memcpy((void *)(& hwinfo), (void const *)(& rtlefuse->efuse_map),
                                __len);
     }
   } else {
@@ -17382,7 +17382,7 @@ static void rtl92se_fw_cb(struct firmware const *firmware , void *context )
   }
   pfirmware = (struct rt_firmware *)rtlpriv->rtlhal.pfirmware;
   __len = firmware->size;
-  __ret = __builtin_memcpy((void *)(& pfirmware->sz_fw_tmpbuffer), (void const *)firmware->data,
+  __ret = memcpy((void *)(& pfirmware->sz_fw_tmpbuffer), (void const *)firmware->data,
                            __len);
   pfirmware->sz_fw_tmpbufferlen = (u32 )firmware->size;
   release_firmware(firmware);

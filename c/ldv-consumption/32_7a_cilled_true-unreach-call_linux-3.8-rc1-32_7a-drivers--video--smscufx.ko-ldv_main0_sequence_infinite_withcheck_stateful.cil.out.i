@@ -5234,7 +5234,7 @@ static void ufx_raw_rect(struct ufx_data *dev , u16 *cmd , int x , int y , int w
   line_offset = (int const )((dev->info)->fix.line_length * (__u32 )(y + line));
   byte_offset = x * 2 + line_offset;
   __len = (size_t )(width * 2);
-  __ret = __builtin_memcpy((void *)(cmd + ((size_t )line * packed_line_len + 24UL) / 2UL),
+  __ret = memcpy((void *)(cmd + ((size_t )line * packed_line_len + 24UL) / 2UL),
                            (void const *)((unsigned long )byte_offset + (dev->info)->fix.smem_start),
                            __len);
   line = line + 1;
@@ -5870,7 +5870,7 @@ static int ufx_realloc_framebuffer(struct ufx_data *dev , struct fb_info *info )
     }
     if ((unsigned long )info->screen_base != (unsigned long )((char *)0)) {
       __len = (size_t )old_len;
-      __ret = __builtin_memcpy((void *)new_fb, (void const *)old_fb, __len);
+      __ret = memcpy((void *)new_fb, (void const *)old_fb, __len);
       vfree((void const *)info->screen_base);
     } else {
     }
@@ -6194,7 +6194,7 @@ static int ufx_setup_modes(struct ufx_data *dev , struct fb_info *info , char *d
       fb_edid_to_monspecs((unsigned char *)default_edid, & info->monspecs);
       if (info->monspecs.modedb_len != 0U) {
         __len = default_edid_size;
-        __ret = __builtin_memcpy((void *)edid, (void const *)default_edid, __len);
+        __ret = memcpy((void *)edid, (void const *)default_edid, __len);
         dev->edid = edid;
         dev->edid_size = default_edid_size;
         printk("\vsmscufx: Using default/backup EDID\n");
@@ -6270,7 +6270,7 @@ static int ufx_setup_modes(struct ufx_data *dev , struct fb_info *info , char *d
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& info->fix), (void const *)(& ufx_fix), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& info->fix), (void const *)(& ufx_fix),
+      __ret___0 = memcpy((void *)(& info->fix), (void const *)(& ufx_fix),
                                    __len___0);
     }
     info->fix.line_length = info->var.xres * (info->var.bits_per_pixel / 8U);

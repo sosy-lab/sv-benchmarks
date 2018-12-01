@@ -3231,7 +3231,7 @@ enum __anonenum_101 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
@@ -7464,7 +7464,7 @@ static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port ,
   _min2 = 32;
   transfer_size = _min1 < _min2 ? _min1 : _min2;
   __len = (size_t )transfer_size;
-  __ret = __builtin_memcpy(urb->transfer_buffer, (void const   *)current_position,
+  __ret = memcpy(urb->transfer_buffer, (void const   *)current_position,
                            __len);
   tmp___3 = __create_pipe(serial->dev, (unsigned int )port->bulk_out_endpointAddress);
   usb_fill_bulk_urb(urb, serial->dev, tmp___3 | 3221225472U, urb->transfer_buffer,

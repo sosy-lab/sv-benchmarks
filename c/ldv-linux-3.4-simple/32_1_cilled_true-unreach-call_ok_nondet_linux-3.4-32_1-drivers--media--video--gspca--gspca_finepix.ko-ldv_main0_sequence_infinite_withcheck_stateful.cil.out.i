@@ -3666,7 +3666,7 @@ static int command(struct gspca_dev *gspca_dev , int order )
     __cil_tmp24 = (unsigned long )(order_values) + __cil_tmp23;
     __cil_tmp25 = (u8 *)__cil_tmp24;
     __cil_tmp26 = (void const *)__cil_tmp25;
-    __ret = __builtin_memcpy(__cil_tmp20, __cil_tmp26, __len);
+    __ret = memcpy(__cil_tmp20, __cil_tmp26, __len);
     }
   }
   {

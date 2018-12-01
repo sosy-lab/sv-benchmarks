@@ -10738,7 +10738,7 @@ static void parse_device_mapping(struct drm_psb_private *dev_priv , struct bdb_h
   if (__len > 63UL) {
     __ret = memcpy((void *)child_dev_ptr, (void const *)p_child, __len);
   } else {
-    __ret = __builtin_memcpy((void *)child_dev_ptr, (void const *)p_child, __len);
+    __ret = memcpy((void *)child_dev_ptr, (void const *)p_child, __len);
   }
   ldv_39847:
   i = i + 1;
@@ -16154,7 +16154,7 @@ int gma_crtc_cursor_set(struct drm_crtc *crtc , struct drm_file *file_priv , uin
     if (__len > 63UL) {
       __ret = memcpy(tmp_dst, (void const *)tmp_src, __len);
     } else {
-      __ret = __builtin_memcpy(tmp_dst, (void const *)tmp_src, __len);
+      __ret = memcpy(tmp_dst, (void const *)tmp_src, __len);
     }
     kunmap(*(gt->pages + (unsigned long )i));
     tmp_dst = tmp_dst + 4096UL;
@@ -19822,7 +19822,7 @@ static bool psb_intel_sdvo_set_tv_format(struct psb_intel_sdvo *psb_intel_sdvo )
   _min1 = 6UL;
   _min2 = 4UL;
   __len = _min1 < _min2 ? _min1 : _min2;
-  __ret = __builtin_memcpy((void *)(& format), (void const *)(& format_map), __len);
+  __ret = memcpy((void *)(& format), (void const *)(& format_map), __len);
   tmp = psb_intel_sdvo_set_value(psb_intel_sdvo, 41, (void const *)(& format), 6);
   return (tmp);
 }
@@ -20593,7 +20593,7 @@ static void psb_intel_sdvo_get_tv_modes(struct drm_connector *connector )
   _min1 = 4UL;
   _min2 = 3UL;
   __len = _min1 < _min2 ? _min1 : _min2;
-  __ret = __builtin_memcpy((void *)(& tv_res), (void const *)(& format_map), __len);
+  __ret = memcpy((void *)(& tv_res), (void const *)(& format_map), __len);
   tmp___0 = psb_intel_sdvo_set_target_output(psb_intel_sdvo, (int )psb_intel_sdvo->attached_output);
   if (tmp___0) {
     tmp___1 = 0;
@@ -21668,7 +21668,7 @@ static bool psb_intel_sdvo_output_setup(struct psb_intel_sdvo *psb_intel_sdvo , 
       __ret = memcpy((void *)(& bytes), (void const *)(& psb_intel_sdvo->caps.output_flags),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& bytes), (void const *)(& psb_intel_sdvo->caps.output_flags),
+      __ret = memcpy((void *)(& bytes), (void const *)(& psb_intel_sdvo->caps.output_flags),
                                __len);
     }
     tmp___15 = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
@@ -21727,7 +21727,7 @@ static bool psb_intel_sdvo_tv_create_property(struct psb_intel_sdvo *psb_intel_s
   _min1 = 4UL;
   _min2 = 6UL;
   __len = _min1 < _min2 ? _min1 : _min2;
-  __ret = __builtin_memcpy((void *)(& format_map), (void const *)(& format), __len);
+  __ret = memcpy((void *)(& format_map), (void const *)(& format), __len);
   if (format_map == 0U) {
     return (0);
   } else {
@@ -24355,7 +24355,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile *src , size_t
   void *__ret ;
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const *)src, __len);
+  __ret = memcpy(dst, (void const *)src, __len);
   return;
 }
 }
@@ -27143,7 +27143,7 @@ static bool cdv_intel_find_dp_pll(struct gma_limit_t const *limit , struct drm_c
   if (__len > 63UL) {
     __ret = memcpy((void *)best_clock, (void const *)(& clock), __len);
   } else {
-    __ret = __builtin_memcpy((void *)best_clock, (void const *)(& clock), __len);
+    __ret = memcpy((void *)best_clock, (void const *)(& clock), __len);
   }
   return (1);
 }
@@ -30389,7 +30389,7 @@ static int cdv_intel_dp_aux_native_write(struct gma_encoder *encoder , uint16_t 
   msg[2] = (uint8_t )address;
   msg[3] = (unsigned int )((uint8_t )send_bytes) + 255U;
   __len = (size_t )send_bytes;
-  __ret = __builtin_memcpy((void *)(& msg) + 4U, (void const *)send, __len);
+  __ret = memcpy((void *)(& msg) + 4U, (void const *)send, __len);
   msg_bytes = send_bytes + 4;
   ldv_40019:
   ret = cdv_intel_dp_aux_ch(encoder, (uint8_t *)(& msg), msg_bytes, & ack, 1);
@@ -30452,7 +30452,7 @@ static int cdv_intel_dp_aux_native_read(struct gma_encoder *encoder , uint16_t a
   ack = (uint8_t )((int )reply[0] >> 4);
   if (((int )ack & 3) == 0) {
     __len = (size_t )(ret + -1);
-    __ret = __builtin_memcpy((void *)recv, (void const *)(& reply) + 1U, __len);
+    __ret = memcpy((void *)recv, (void const *)(& reply) + 1U, __len);
     return (ret + -1);
   } else
   if (((int )ack & 3) == 2) {
@@ -33253,7 +33253,7 @@ static int oaktrail_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mod
   if (__len > 63UL) {
     __ret = memcpy((void *)(& gma_crtc->saved_mode), (void const *)mode, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& gma_crtc->saved_mode), (void const *)mode,
+    __ret = memcpy((void *)(& gma_crtc->saved_mode), (void const *)mode,
                              __len);
   }
   __len___0 = 208UL;
@@ -33261,7 +33261,7 @@ static int oaktrail_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mod
     __ret___0 = memcpy((void *)(& gma_crtc->saved_adjusted_mode), (void const *)adjusted_mode,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& gma_crtc->saved_adjusted_mode), (void const *)adjusted_mode,
+    __ret___0 = memcpy((void *)(& gma_crtc->saved_adjusted_mode), (void const *)adjusted_mode,
                                  __len___0);
   }
   __mptr___0 = (struct list_head const *)mode_config->connector_list.next;
@@ -35622,7 +35622,7 @@ static void hdmi_i2c_read(struct oaktrail_hdmi_dev *hdmi_dev )
     __ret = memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const *)(& temp),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const *)(& temp),
+    __ret = memcpy((void *)buf + (unsigned long )(i * 4 + offset), (void const *)(& temp),
                              __len);
   }
   i = i + 1;

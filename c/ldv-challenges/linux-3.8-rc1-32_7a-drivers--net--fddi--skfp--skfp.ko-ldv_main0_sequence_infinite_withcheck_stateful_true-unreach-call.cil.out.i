@@ -6238,7 +6238,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const *f
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data, from, __len);
+  __ret = memcpy((void *)skb->data, from, __len);
   return;
 }
 }
@@ -6633,7 +6633,7 @@ static int skfp_driver_init(struct net_device *dev )
     __ret = memcpy((void *)dev->dev_addr, (void const *)(& smc->hw.fddi_canon_addr.a),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)dev->dev_addr, (void const *)(& smc->hw.fddi_canon_addr.a),
+    __ret = memcpy((void *)dev->dev_addr, (void const *)(& smc->hw.fddi_canon_addr.a),
                              __len);
   }
   smt_reset_defaults(smc, 0);
@@ -6687,7 +6687,7 @@ static int skfp_open(struct net_device *dev )
     __ret = memcpy((void *)dev->dev_addr, (void const *)(& smc->hw.fddi_canon_addr.a),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)dev->dev_addr, (void const *)(& smc->hw.fddi_canon_addr.a),
+    __ret = memcpy((void *)dev->dev_addr, (void const *)(& smc->hw.fddi_canon_addr.a),
                              __len);
   }
   init_smt(smc, 0);
@@ -6927,7 +6927,7 @@ static int skfp_ctl_set_mac_address(struct net_device *dev , void *addr )
     __ret = memcpy((void *)dev->dev_addr, (void const *)(& p_sockaddr->sa_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)dev->dev_addr, (void const *)(& p_sockaddr->sa_data),
+    __ret = memcpy((void *)dev->dev_addr, (void const *)(& p_sockaddr->sa_data),
                              __len);
   }
   tmp___0 = spinlock_check(& bp->DriverLock);
@@ -7183,7 +7183,7 @@ static void CheckSourceAddress(unsigned char *frame , unsigned char *hw_addr )
   if (__len > 63UL) {
     __ret = memcpy((void *)frame + 7U, (void const *)hw_addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)frame + 7U, (void const *)hw_addr, __len);
+    __ret = memcpy((void *)frame + 7U, (void const *)hw_addr, __len);
   }
   *(frame + 8UL) = (int )*(frame + 8UL) | (int )SRBit;
   return;
@@ -9182,7 +9182,7 @@ void process_receive(struct s_smc *smc )
     ldv_40730:
     n = (int )r->rxd_rbctrl & 65535;
     __len = (size_t )n;
-    __ret = __builtin_memcpy((void *)data, (void const *)r->rxd_virt, __len);
+    __ret = memcpy((void *)data, (void const *)r->rxd_virt, __len);
     data = data + (unsigned long )n;
     r = r->rxd_next;
     i = i - 1;
@@ -9411,7 +9411,7 @@ void hwm_tx_frag(struct s_smc *smc , char *virt , u_long phys , int len , int fr
     }
     if ((unsigned long )smc->os.hwm.tx_mb != (unsigned long )((Mbuf *)0)) {
       __len = (size_t )len;
-      __ret = __builtin_memcpy((void *)smc->os.hwm.tx_data, (void const *)virt,
+      __ret = memcpy((void *)smc->os.hwm.tx_data, (void const *)virt,
                                __len);
       smc->os.hwm.tx_data = smc->os.hwm.tx_data + (unsigned long )len;
       if ((frame_status & 8) != 0) {
@@ -10129,7 +10129,7 @@ static void directed_beacon(struct s_smc *smc )
     __ret = memcpy((void *)(& a) + 1U, (void const *)(& smc->mib.m[0].fddiMACUpstreamNbr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& a) + 1U, (void const *)(& smc->mib.m[0].fddiMACUpstreamNbr),
+    __ret = memcpy((void *)(& a) + 1U, (void const *)(& smc->mib.m[0].fddiMACUpstreamNbr),
                              __len);
   }
   k = 10000U;
@@ -11585,7 +11585,7 @@ static void smt_send_rdf(struct s_smc *smc , Mbuf *rej , int fc , int reason , i
   rdf->refused.ref_fc = (u_int )fc;
   smt_swap_para(sm, frame_len, 0);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& rdf->refused.ref_header), (void const *)sm,
+  __ret = memcpy((void *)(& rdf->refused.ref_header), (void const *)sm,
                            __len);
   len = (int )((unsigned int )len - 32U);
   mb->m_len = mb->m_len + (u_int )len;
@@ -12108,7 +12108,7 @@ static void smt_fill_manufacturer(struct s_smc *smc , struct smp_p_manufacturer 
     __ret = memcpy((void *)(& man->mf_data), (void const *)(& smc->mib.fddiSMTManufacturerData),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& man->mf_data), (void const *)(& smc->mib.fddiSMTManufacturerData),
+    __ret = memcpy((void *)(& man->mf_data), (void const *)(& smc->mib.fddiSMTManufacturerData),
                              __len);
   }
   return;
@@ -12126,7 +12126,7 @@ static void smt_fill_user(struct s_smc *smc , struct smp_p_user *user )
     __ret = memcpy((void *)(& user->us_data), (void const *)(& smc->mib.fddiSMTUserData),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& user->us_data), (void const *)(& smc->mib.fddiSMTUserData),
+    __ret = memcpy((void *)(& user->us_data), (void const *)(& smc->mib.fddiSMTUserData),
                              __len);
   }
   return;
@@ -12145,7 +12145,7 @@ static void smt_fill_setcount(struct s_smc *smc , struct smt_p_setcount *setcoun
     __ret = memcpy((void *)(& setcount->timestamp), (void const *)(& smc->mib.fddiSMTSetCount.timestamp),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& setcount->timestamp), (void const *)(& smc->mib.fddiSMTSetCount.timestamp),
+    __ret = memcpy((void *)(& setcount->timestamp), (void const *)(& smc->mib.fddiSMTSetCount.timestamp),
                              __len);
   }
   return;
@@ -13102,7 +13102,7 @@ int cem_build_path(struct s_smc *smc , char *to , int path_index )
   }
   ldv_40505:
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)to, (void const *)path, __len);
+  __ret = memcpy((void *)to, (void const *)path, __len);
   return (len);
 }
 }
@@ -15800,7 +15800,7 @@ void smt_add_para(struct s_smc *smc , struct s_pcon *pcon , u_short para , int i
     __ret = memcpy((void *)(& sp___8->p4053_requestedpaths), (void const *)(& mib_p->fddiPORTRequestedPaths),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& sp___8->p4053_requestedpaths), (void const *)(& mib_p->fddiPORTRequestedPaths),
+    __ret = memcpy((void *)(& sp___8->p4053_requestedpaths), (void const *)(& mib_p->fddiPORTRequestedPaths),
                              __len);
   }
   sp___8->p4053_mytype = mib_p->fddiPORTMy_Type;
@@ -15963,7 +15963,7 @@ void smt_add_para(struct s_smc *smc , struct s_pcon *pcon , u_short para , int i
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)to + 2U, (void const *)from, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)to + 2U, (void const *)from, __len___0);
+    __ret___0 = memcpy((void *)to + 2U, (void const *)from, __len___0);
   }
   to = to + 8UL;
   from = from + 8UL;
@@ -15978,7 +15978,7 @@ void smt_add_para(struct s_smc *smc , struct s_pcon *pcon , u_short para , int i
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)to, (void const *)from, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)to, (void const *)from, __len___1);
+    __ret___1 = memcpy((void *)to, (void const *)from, __len___1);
   }
   to = to + 8UL;
   from = from + 8UL;
@@ -15993,7 +15993,7 @@ void smt_add_para(struct s_smc *smc , struct s_pcon *pcon , u_short para , int i
   if (__len___2 > 63UL) {
     __ret___2 = memcpy((void *)to, (void const *)from, __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)to, (void const *)from, __len___2);
+    __ret___2 = memcpy((void *)to, (void const *)from, __len___2);
   }
   to = to + 32UL;
   from = from + 32UL;
@@ -16286,7 +16286,7 @@ static int smt_set_para(struct s_smc *smc , struct smt_para *pa , int index , in
     if (__len > 63UL) {
       __ret = memcpy((void *)to, (void const *)from + 2U, __len);
     } else {
-      __ret = __builtin_memcpy((void *)to, (void const *)from + 2U, __len);
+      __ret = memcpy((void *)to, (void const *)from + 2U, __len);
     }
   } else {
   }
@@ -16304,7 +16304,7 @@ static int smt_set_para(struct s_smc *smc , struct smt_para *pa , int index , in
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)to, (void const *)from, __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)to, (void const *)from, __len___0);
+      __ret___0 = memcpy((void *)to, (void const *)from, __len___0);
     }
   } else {
   }
@@ -16322,7 +16322,7 @@ static int smt_set_para(struct s_smc *smc , struct smt_para *pa , int index , in
     if (__len___1 > 63UL) {
       __ret___1 = memcpy((void *)to, (void const *)from, __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)to, (void const *)from, __len___1);
+      __ret___1 = memcpy((void *)to, (void const *)from, __len___1);
     }
   } else {
   }
@@ -16340,7 +16340,7 @@ static int smt_set_para(struct s_smc *smc , struct smt_para *pa , int index , in
     if (__len___2 > 63UL) {
       __ret___2 = memcpy((void *)to, (void const *)from, __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)to, (void const *)from, __len___2);
+      __ret___2 = memcpy((void *)to, (void const *)from, __len___2);
     }
   } else {
   }
@@ -16646,7 +16646,7 @@ static int smt_set_para(struct s_smc *smc , struct smt_para *pa , int index , in
       __ret___3 = memcpy((void *)(& mib_p->fddiPORTRequestedPaths), (void const *)(& long_val),
                            __len___3);
     } else {
-      __ret___3 = __builtin_memcpy((void *)(& mib_p->fddiPORTRequestedPaths), (void const *)(& long_val),
+      __ret___3 = memcpy((void *)(& mib_p->fddiPORTRequestedPaths), (void const *)(& long_val),
                                    __len___3);
     }
   } else {
@@ -17536,7 +17536,7 @@ static void smt_init_mib(struct s_smc *smc , int level )
     __ret = memcpy((void *)(& mib->fddiSMTManufacturerData), (void const *)(& man_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mib->fddiSMTManufacturerData), (void const *)(& man_data),
+    __ret = memcpy((void *)(& mib->fddiSMTManufacturerData), (void const *)(& man_data),
                              __len);
   }
   if (level == 0) {
@@ -19150,7 +19150,7 @@ int ess_raf_received_pack(struct s_smc *smc , Mbuf *mb , struct smt_header *sm ,
     db->m_len = mb->m_len;
     db->m_off = mb->m_off;
     __len = (size_t )((int )db->m_len);
-    __ret = __builtin_memcpy((void *)(& db->m_data) + (unsigned long )db->m_off, (void const *)sm,
+    __ret = memcpy((void *)(& db->m_data) + (unsigned long )db->m_off, (void const *)sm,
                              __len);
     smt_send_frame(smc, db, 65, 0);
     return (fs);

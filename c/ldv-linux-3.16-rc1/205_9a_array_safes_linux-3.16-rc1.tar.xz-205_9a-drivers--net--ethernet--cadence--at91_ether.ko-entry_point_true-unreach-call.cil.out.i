@@ -6176,7 +6176,7 @@ static void at91ether_rx(struct net_device *dev )
     skb_reserve(skb, 2);
     __len = (size_t )pktlen;
     tmp___1 = skb_put(skb, pktlen);
-    __ret = __builtin_memcpy((void *)tmp___1, (void const *)p_recv, __len);
+    __ret = memcpy((void *)tmp___1, (void const *)p_recv, __len);
     skb->protocol = eth_type_trans(skb, dev);
     lp->stats.rx_packets = lp->stats.rx_packets + 1UL;
     lp->stats.rx_bytes = lp->stats.rx_bytes + (unsigned long )pktlen;
@@ -6355,7 +6355,7 @@ static int at91ether_probe(struct platform_device *pdev )
     if (__len > 63UL) {
       __ret = memcpy((void *)(lp->dev)->dev_addr, (void const *)mac, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(lp->dev)->dev_addr, (void const *)mac, __len);
+      __ret = memcpy((void *)(lp->dev)->dev_addr, (void const *)mac, __len);
     }
   } else {
     macb_get_hwaddr(lp);

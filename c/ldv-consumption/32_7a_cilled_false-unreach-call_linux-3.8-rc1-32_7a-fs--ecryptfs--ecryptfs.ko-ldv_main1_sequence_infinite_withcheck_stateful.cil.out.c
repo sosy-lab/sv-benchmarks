@@ -6489,7 +6489,7 @@ static int ecryptfs_setattr(struct dentry *dentry , struct iattr *ia )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& lower_ia), (void const   *)ia, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& lower_ia), (void const   *)ia, __len);
+    __ret = memcpy((void *)(& lower_ia), (void const   *)ia, __len);
   }
   if ((ia->ia_valid & 8192U) != 0U) {
     lower_ia.ia_file = ecryptfs_file_to_lower(ia->ia_file);
@@ -10017,7 +10017,7 @@ int ecryptfs_write(struct inode *ecryptfs_inode , char *data , loff_t offset , s
   }
   if (pos >= offset) {
     __len = num_bytes;
-    __ret = __builtin_memcpy((void *)(ecryptfs_page_virt + start_offset_in_page),
+    __ret = memcpy((void *)(ecryptfs_page_virt + start_offset_in_page),
                              (void const   *)data + (unsigned long )data_offset, __len);
     data_offset = (loff_t )((unsigned long long )data_offset + (unsigned long long )num_bytes);
   } else {
@@ -10860,7 +10860,7 @@ int ecryptfs_derive_iv(char *iv , struct ecryptfs_crypt_stat *crypt_stat , loff_
 
   }
   __len = crypt_stat->iv_bytes;
-  __ret = __builtin_memcpy((void *)(& src), (void const   *)(& crypt_stat->root_iv),
+  __ret = memcpy((void *)(& src), (void const   *)(& crypt_stat->root_iv),
                            __len);
   memset((void *)(& src) + crypt_stat->iv_bytes, 0, 16UL);
   snprintf((char *)(& src) + crypt_stat->iv_bytes, 16UL, "%lld", offset);
@@ -10880,7 +10880,7 @@ int ecryptfs_derive_iv(char *iv , struct ecryptfs_crypt_stat *crypt_stat , loff_
 
   }
   __len___0 = crypt_stat->iv_bytes;
-  __ret___0 = __builtin_memcpy((void *)iv, (void const   *)(& dst), __len___0);
+  __ret___0 = memcpy((void *)iv, (void const   *)(& dst), __len___0);
   tmp___1 = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
   if (tmp___1 != 0L) {
     __ecryptfs_printk("\017%s: derived iv:\n", "ecryptfs_derive_iv");
@@ -11572,7 +11572,7 @@ int ecryptfs_compute_root_iv(struct ecryptfs_crypt_stat *crypt_stat )
 
   }
   __len = crypt_stat->iv_bytes;
-  __ret = __builtin_memcpy((void *)(& crypt_stat->root_iv), (void const   *)(& dst),
+  __ret = memcpy((void *)(& crypt_stat->root_iv), (void const   *)(& dst),
                            __len);
   out: ;
   if (rc != 0) {
@@ -11726,7 +11726,7 @@ int ecryptfs_new_file_context(struct inode *ecryptfs_inode )
   tmp___1 = strlen((char const   *)(& mount_crypt_stat->global_default_cipher_name));
   cipher_name_len = (int )tmp___1;
   __len = (size_t )cipher_name_len;
-  __ret = __builtin_memcpy((void *)(& crypt_stat->cipher), (void const   *)(& mount_crypt_stat->global_default_cipher_name),
+  __ret = memcpy((void *)(& crypt_stat->cipher), (void const   *)(& mount_crypt_stat->global_default_cipher_name),
                            __len);
   crypt_stat->cipher[cipher_name_len] = 0U;
   crypt_stat->key_size = mount_crypt_stat->global_default_cipher_key_size;
@@ -12449,7 +12449,7 @@ static int ecryptfs_copy_filename(char **copied_name , size_t *copied_name_size 
 
   }
   __len = name_size;
-  __ret = __builtin_memcpy((void *)*copied_name, (void const   *)name, __len);
+  __ret = memcpy((void *)*copied_name, (void const   *)name, __len);
   *(*copied_name + name_size) = 0;
   *copied_name_size = name_size;
   out: ;
@@ -12773,7 +12773,7 @@ void ecryptfs_encode_for_filename(unsigned char *dst , size_t *dst_size , unsign
       __ret = memcpy((void *)(& last_block), (void const   *)(src + (src_size + 0xfffffffffffffffdUL)),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& last_block), (void const   *)(src + (src_size + 0xfffffffffffffffdUL)),
+      __ret = memcpy((void *)(& last_block), (void const   *)(src + (src_size + 0xfffffffffffffffdUL)),
                                __len);
     }
   } else {
@@ -12967,7 +12967,7 @@ int ecryptfs_encrypt_and_encode_filename(char **encoded_name , size_t *encoded_n
         __ret = memcpy((void *)*encoded_name, (void const   *)"ECRYPTFS_FNEK_ENCRYPTED.",
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)*encoded_name, (void const   *)"ECRYPTFS_FNEK_ENCRYPTED.",
+        __ret = memcpy((void *)*encoded_name, (void const   *)"ECRYPTFS_FNEK_ENCRYPTED.",
                                  __len);
       }
       ecryptfs_encode_for_filename((unsigned char *)*encoded_name + 24U, & encoded_name_no_prefix_size,
@@ -13678,7 +13678,7 @@ static int write_tag_64_packet(char *signature , struct ecryptfs_session_key *se
   if (__len > 63UL) {
     __ret = memcpy((void *)(message + i), (void const   *)signature, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(message + i), (void const   *)signature, __len);
+    __ret = memcpy((void *)(message + i), (void const   *)signature, __len);
   }
   i = i + 16UL;
   rc = ecryptfs_write_packet_length(message + i, (size_t )session_key->encrypted_key_size,
@@ -13692,7 +13692,7 @@ static int write_tag_64_packet(char *signature , struct ecryptfs_session_key *se
   }
   i = i + packet_size_len;
   __len___0 = (size_t )session_key->encrypted_key_size;
-  __ret___0 = __builtin_memcpy((void *)(message + i), (void const   *)(& session_key->encrypted_key),
+  __ret___0 = memcpy((void *)(message + i), (void const   *)(& session_key->encrypted_key),
                                __len___0);
   i = (size_t )session_key->encrypted_key_size + i;
   *packet_len = i;
@@ -13788,7 +13788,7 @@ static int parse_tag_65_packet(struct ecryptfs_session_key *session_key , u8 *ci
 
   }
   __len = (size_t )session_key->decrypted_key_size;
-  __ret = __builtin_memcpy((void *)(& session_key->decrypted_key), (void const   *)(data + i),
+  __ret = memcpy((void *)(& session_key->decrypted_key), (void const   *)(data + i),
                            __len);
   i = (size_t )session_key->decrypted_key_size + i;
   tmp___2 = i;
@@ -13870,7 +13870,7 @@ static int write_tag_66_packet(char *signature , u8 cipher_code , struct ecryptf
   if (__len > 63UL) {
     __ret = memcpy((void *)(message + i), (void const   *)signature, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(message + i), (void const   *)signature, __len);
+    __ret = memcpy((void *)(message + i), (void const   *)signature, __len);
   }
   i = i + 16UL;
   rc = ecryptfs_write_packet_length(message + i, crypt_stat->key_size + 3UL, & packet_size_len);
@@ -13886,7 +13886,7 @@ static int write_tag_66_packet(char *signature , u8 cipher_code , struct ecryptf
   i = i + 1UL;
   *(message + tmp___1) = (char )cipher_code;
   __len___0 = crypt_stat->key_size;
-  __ret___0 = __builtin_memcpy((void *)(message + i), (void const   *)(& crypt_stat->key),
+  __ret___0 = memcpy((void *)(message + i), (void const   *)(& crypt_stat->key),
                                __len___0);
   i = crypt_stat->key_size + i;
   j = 0UL;
@@ -13981,7 +13981,7 @@ static int parse_tag_67_packet(struct ecryptfs_key_record *key_rec , struct ecry
 
   }
   __len = key_rec->enc_key_size;
-  __ret = __builtin_memcpy((void *)(& key_rec->enc_key), (void const   *)(data + i),
+  __ret = memcpy((void *)(& key_rec->enc_key), (void const   *)(data + i),
                            __len);
   out: ;
   return (rc);
@@ -14343,7 +14343,7 @@ int ecryptfs_write_tag_70_packet(char *dest , size_t *remaining_bytes , size_t *
     if (__len > 63UL) {
       __ret = memcpy((void *)(& s->hash), (void const   *)(& s->tmp_hash), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& s->hash), (void const   *)(& s->tmp_hash),
+      __ret = memcpy((void *)(& s->hash), (void const   *)(& s->tmp_hash),
                                __len);
     }
   } else {
@@ -14362,7 +14362,7 @@ int ecryptfs_write_tag_70_packet(char *dest , size_t *remaining_bytes , size_t *
 
   }
   __len___0 = filename_size;
-  __ret___0 = __builtin_memcpy((void *)(s->block_aligned_filename + s->num_rand_bytes),
+  __ret___0 = memcpy((void *)(s->block_aligned_filename + s->num_rand_bytes),
                                (void const   *)filename, __len___0);
   rc = virt_to_scatterlist((void const   *)s->block_aligned_filename, (int )s->block_aligned_filename_size,
                            (struct scatterlist *)(& s->src_sg), 2);
@@ -14623,7 +14623,7 @@ int ecryptfs_parse_tag_70_packet(char **filename , size_t *filename_size , size_
 
   }
   __len = *filename_size;
-  __ret = __builtin_memcpy((void *)*filename, (void const   *)(s->decrypted_filename + s->i),
+  __ret = memcpy((void *)*filename, (void const   *)(s->decrypted_filename + s->i),
                            __len);
   *(*filename + *filename_size) = 0;
   out_free_unlock: 
@@ -14725,7 +14725,7 @@ static int decrypt_pki_encrypted_session_key(struct ecryptfs_auth_tok *auth_tok 
   }
   auth_tok->session_key.flags = auth_tok->session_key.flags | 4U;
   __len = (size_t )auth_tok->session_key.decrypted_key_size;
-  __ret = __builtin_memcpy((void *)(& crypt_stat->key), (void const   *)(& auth_tok->session_key.decrypted_key),
+  __ret = memcpy((void *)(& crypt_stat->key), (void const   *)(& auth_tok->session_key.decrypted_key),
                            __len);
   crypt_stat->key_size = (size_t )auth_tok->session_key.decrypted_key_size;
   rc = ecryptfs_cipher_code_to_string((char *)(& crypt_stat->cipher), (int )cipher_code);
@@ -14878,7 +14878,7 @@ static int parse_tag_1_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 
   }
   __len = body_size - 10UL;
-  __ret = __builtin_memcpy((void *)(& (*new_auth_tok)->session_key.encrypted_key),
+  __ret = memcpy((void *)(& (*new_auth_tok)->session_key.encrypted_key),
                            (void const   *)(data + *packet_size), __len);
   *packet_size = *packet_size + (size_t )(*new_auth_tok)->session_key.encrypted_key_size;
   (*new_auth_tok)->session_key.flags = (*new_auth_tok)->session_key.flags & 4294967291U;
@@ -15038,14 +15038,14 @@ static int parse_tag_3_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
     __ret = memcpy((void *)(& (*new_auth_tok)->token.password.salt), (void const   *)(data + *packet_size),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (*new_auth_tok)->token.password.salt), (void const   *)(data + *packet_size),
+    __ret = memcpy((void *)(& (*new_auth_tok)->token.password.salt), (void const   *)(data + *packet_size),
                              __len);
   }
   *packet_size = *packet_size + 8UL;
   (*new_auth_tok)->token.password.hash_iterations = (((unsigned int )*(data + *packet_size) & 15U) + 16U) << (((int )*(data + *packet_size) >> 4) + 6);
   *packet_size = *packet_size + 1UL;
   __len___0 = (size_t )(*new_auth_tok)->session_key.encrypted_key_size;
-  __ret___0 = __builtin_memcpy((void *)(& (*new_auth_tok)->session_key.encrypted_key),
+  __ret___0 = memcpy((void *)(& (*new_auth_tok)->session_key.encrypted_key),
                                (void const   *)(data + *packet_size), __len___0);
   *packet_size = *packet_size + (size_t )(*new_auth_tok)->session_key.encrypted_key_size;
   (*new_auth_tok)->session_key.flags = (*new_auth_tok)->session_key.flags & 4294967291U;
@@ -15164,7 +15164,7 @@ static int parse_tag_11_packet(unsigned char *data , unsigned char *contents , s
   }
   *packet_size = *packet_size + 12UL;
   __len = *tag_11_contents_size;
-  __ret = __builtin_memcpy((void *)contents, (void const   *)(data + *packet_size),
+  __ret = memcpy((void *)contents, (void const   *)(data + *packet_size),
                            __len);
   *packet_size = *packet_size + *tag_11_contents_size;
   out: ;
@@ -15315,7 +15315,7 @@ static int decrypt_passphrase_encrypted_session_key(struct ecryptfs_auth_tok *au
   }
   auth_tok->session_key.flags = auth_tok->session_key.flags | 4U;
   __len = (size_t )auth_tok->session_key.decrypted_key_size;
-  __ret = __builtin_memcpy((void *)(& crypt_stat->key), (void const   *)(& auth_tok->session_key.decrypted_key),
+  __ret = memcpy((void *)(& crypt_stat->key), (void const   *)(& auth_tok->session_key.decrypted_key),
                            __len);
   crypt_stat->flags = crypt_stat->flags | 64U;
   tmp___3 = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
@@ -15497,7 +15497,7 @@ int ecryptfs_parse_packet_set(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
       __ret = memcpy((void *)(& candidate_auth_tok->token.private_key), (void const   *)(& matching_auth_tok->token.private_key),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& candidate_auth_tok->token.private_key),
+      __ret = memcpy((void *)(& candidate_auth_tok->token.private_key),
                                (void const   *)(& matching_auth_tok->token.private_key),
                                __len);
     }
@@ -15511,7 +15511,7 @@ int ecryptfs_parse_packet_set(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
       __ret___0 = memcpy((void *)(& candidate_auth_tok->token.password), (void const   *)(& matching_auth_tok->token.password),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& candidate_auth_tok->token.password),
+      __ret___0 = memcpy((void *)(& candidate_auth_tok->token.password),
                                    (void const   *)(& matching_auth_tok->token.password),
                                    __len___0);
     }
@@ -15669,7 +15669,7 @@ static int write_tag_1_packet(char *dest , size_t *remaining_bytes , struct key 
 
   if (encrypted_session_key_valid != 0UL) {
     __len = (size_t )auth_tok->session_key.encrypted_key_size;
-    __ret = __builtin_memcpy((void *)(& key_rec->enc_key), (void const   *)(& auth_tok->session_key.encrypted_key),
+    __ret = memcpy((void *)(& key_rec->enc_key), (void const   *)(& auth_tok->session_key.encrypted_key),
                              __len);
     up_write(& auth_tok_key->sem);
     key_put(auth_tok_key);
@@ -15725,7 +15725,7 @@ static int write_tag_1_packet(char *dest , size_t *remaining_bytes , struct key 
     __ret___0 = memcpy((void *)(dest + *packet_size), (void const   *)(& key_rec->sig),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(dest + *packet_size), (void const   *)(& key_rec->sig),
+    __ret___0 = memcpy((void *)(dest + *packet_size), (void const   *)(& key_rec->sig),
                                  __len___0);
   }
   *packet_size = *packet_size + 8UL;
@@ -15733,7 +15733,7 @@ static int write_tag_1_packet(char *dest , size_t *remaining_bytes , struct key 
   *packet_size = *packet_size + 1UL;
   *(dest + tmp___1) = 1;
   __len___1 = key_rec->enc_key_size;
-  __ret___1 = __builtin_memcpy((void *)(dest + *packet_size), (void const   *)(& key_rec->enc_key),
+  __ret___1 = memcpy((void *)(dest + *packet_size), (void const   *)(& key_rec->enc_key),
                                __len___1);
   *packet_size = *packet_size + key_rec->enc_key_size;
   out: ;
@@ -15795,14 +15795,14 @@ static int write_tag_11_packet(char *dest , size_t *remaining_bytes , char *cont
     __ret = memcpy((void *)(dest + *packet_length), (void const   *)"_CONSOLE",
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(dest + *packet_length), (void const   *)"_CONSOLE",
+    __ret = memcpy((void *)(dest + *packet_length), (void const   *)"_CONSOLE",
                              __len);
   }
   *packet_length = *packet_length + 8UL;
   memset((void *)(dest + *packet_length), 0, 4UL);
   *packet_length = *packet_length + 4UL;
   __len___0 = contents_length;
-  __ret___0 = __builtin_memcpy((void *)(dest + *packet_length), (void const   *)contents,
+  __ret___0 = memcpy((void *)(dest + *packet_length), (void const   *)contents,
                                __len___0);
   *packet_length = *packet_length + contents_length;
   out: ;
@@ -15917,7 +15917,7 @@ static int write_tag_3_packet(char *dest , size_t *remaining_bytes , struct ecry
     __ecryptfs_printk("\017%s: encrypted_session_key_valid != 0; using auth_tok->session_key.encrypted_key, where key_rec->enc_key_size = [%zd]\n",
                       "write_tag_3_packet", key_rec->enc_key_size);
     __len = key_rec->enc_key_size;
-    __ret = __builtin_memcpy((void *)(& key_rec->enc_key), (void const   *)(& auth_tok->session_key.encrypted_key),
+    __ret = memcpy((void *)(& key_rec->enc_key), (void const   *)(& auth_tok->session_key.encrypted_key),
                              __len);
     goto encrypted_session_key_set;
   } else {
@@ -15927,7 +15927,7 @@ static int write_tag_3_packet(char *dest , size_t *remaining_bytes , struct ecry
     __ecryptfs_printk("\017%s: Using previously generated session key encryption key of size [%d]\n",
                       "write_tag_3_packet", auth_tok->token.password.session_key_encryption_key_bytes);
     __len___0 = crypt_stat->key_size;
-    __ret___0 = __builtin_memcpy((void *)(& session_key_encryption_key), (void const   *)(& auth_tok->token.password.session_key_encryption_key),
+    __ret___0 = memcpy((void *)(& session_key_encryption_key), (void const   *)(& auth_tok->token.password.session_key_encryption_key),
                                  __len___0);
     __ecryptfs_printk("\017%s: Cached session key encryption key:\n", "write_tag_3_packet");
     if (ecryptfs_verbosity > 0) {
@@ -16043,7 +16043,7 @@ static int write_tag_3_packet(char *dest , size_t *remaining_bytes , struct ecry
     __ret___1 = memcpy((void *)(dest + *packet_size), (void const   *)(& auth_tok->token.password.salt),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(dest + *packet_size), (void const   *)(& auth_tok->token.password.salt),
+    __ret___1 = memcpy((void *)(dest + *packet_size), (void const   *)(& auth_tok->token.password.salt),
                                  __len___1);
   }
   *packet_size = *packet_size + 8UL;
@@ -16051,7 +16051,7 @@ static int write_tag_3_packet(char *dest , size_t *remaining_bytes , struct ecry
   *packet_size = *packet_size + 1UL;
   *(dest + tmp___8) = 96;
   __len___2 = key_rec->enc_key_size;
-  __ret___2 = __builtin_memcpy((void *)(dest + *packet_size), (void const   *)(& key_rec->enc_key),
+  __ret___2 = memcpy((void *)(dest + *packet_size), (void const   *)(& key_rec->enc_key),
                                __len___2);
   *packet_size = *packet_size + key_rec->enc_key_size;
   out: ;
@@ -16195,7 +16195,7 @@ int ecryptfs_add_keysig(struct ecryptfs_crypt_stat *crypt_stat , char *sig )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& new_key_sig->keysig), (void const   *)sig, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& new_key_sig->keysig), (void const   *)sig,
+    __ret = memcpy((void *)(& new_key_sig->keysig), (void const   *)sig,
                              __len);
   }
   new_key_sig->keysig[16] = 0;
@@ -16227,7 +16227,7 @@ int ecryptfs_add_global_auth_tok(struct ecryptfs_mount_crypt_stat *mount_crypt_s
   if (__len > 63UL) {
     __ret = memcpy((void *)(& new_auth_tok->sig), (void const   *)sig, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& new_auth_tok->sig), (void const   *)sig, __len);
+    __ret = memcpy((void *)(& new_auth_tok->sig), (void const   *)sig, __len);
   }
   new_auth_tok->flags = global_auth_tok_flags;
   new_auth_tok->sig[16] = 0U;
@@ -16896,7 +16896,7 @@ int ecryptfs_process_response(struct ecryptfs_daemon *daemon , struct ecryptfs_m
 
   }
   __len = msg_size;
-  __ret = __builtin_memcpy((void *)msg_ctx->msg, (void const   *)msg, __len);
+  __ret = memcpy((void *)msg_ctx->msg, (void const   *)msg, __len);
   msg_ctx->state = 3U;
   wake_up_process(msg_ctx->task);
   rc = 0;
@@ -17785,7 +17785,7 @@ int ecryptfs_send_miscdev(char *data , size_t data_size , struct ecryptfs_msg_ct
   (msg_ctx->msg)->data_len = (u32 )data_size;
   msg_ctx->type = msg_type;
   __len = data_size;
-  __ret = __builtin_memcpy((void *)(& (msg_ctx->msg)->data), (void const   *)data,
+  __ret = memcpy((void *)(& (msg_ctx->msg)->data), (void const   *)data,
                            __len);
   msg_ctx->msg_size = data_size + 8UL;
   list_add_tail(& msg_ctx->daemon_out_list, & daemon->msg_ctx_out_queue);
@@ -18144,7 +18144,7 @@ static ssize_t ecryptfs_miscdev_write(struct file *file , char const   *buf , si
   if (__len > 63UL) {
     __ret = memcpy((void *)(& counter_nbo), (void const   *)data + 1U, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& counter_nbo), (void const   *)data + 1U, __len);
+    __ret = memcpy((void *)(& counter_nbo), (void const   *)data + 1U, __len);
   }
   tmp___5 = __fswab32(counter_nbo);
   seq = tmp___5;
@@ -19084,7 +19084,7 @@ void ecryptfs_dump_auth_tok(struct ecryptfs_auth_tok *auth_tok )
       __ret = memcpy((void *)(& sig), (void const   *)(& auth_tok->token.password.signature),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& sig), (void const   *)(& auth_tok->token.password.signature),
+      __ret = memcpy((void *)(& sig), (void const   *)(& auth_tok->token.password.signature),
                                __len);
     }
     sig[16] = 0;

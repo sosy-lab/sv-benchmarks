@@ -6481,7 +6481,7 @@ __inline static void memcpy_le32(void *dst , void const *src , unsigned int len 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(dst, src, __len);
+  __ret = memcpy(dst, src, __len);
   return;
 }
 }
@@ -6603,7 +6603,7 @@ static int load_firmware(struct snd_cs46xx *chip , struct dsp_module_desc **modu
     __ret = memcpy((void *)(& entry->symbol_name), (void const *)fwdat + (unsigned long )fwlen,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& entry->symbol_name), (void const *)fwdat + (unsigned long )fwlen,
+    __ret = memcpy((void *)(& entry->symbol_name), (void const *)fwdat + (unsigned long )fwlen,
                              __len);
   }
   fwlen = fwlen + 25U;
@@ -7007,7 +7007,7 @@ static void snd_cs46xx_pb_trans_copy(struct snd_pcm_substream *substream , struc
   runtime = substream->runtime;
   cpcm = (struct snd_cs46xx_pcm *)runtime->private_data;
   __len = bytes;
-  __ret = __builtin_memcpy((void *)cpcm->hw_buf.area + (unsigned long )rec->hw_data,
+  __ret = memcpy((void *)cpcm->hw_buf.area + (unsigned long )rec->hw_data,
                            (void const *)runtime->dma_area + (unsigned long )rec->sw_data,
                            __len);
   return;
@@ -7035,7 +7035,7 @@ static void snd_cs46xx_cp_trans_copy(struct snd_pcm_substream *substream , struc
   chip = (struct snd_cs46xx *)substream->private_data;
   runtime = substream->runtime;
   __len = bytes;
-  __ret = __builtin_memcpy((void *)runtime->dma_area + (unsigned long )rec->sw_data,
+  __ret = memcpy((void *)runtime->dma_area + (unsigned long )rec->sw_data,
                            (void const *)chip->capt.hw_buf.area + (unsigned long )rec->hw_data,
                            __len);
   return;

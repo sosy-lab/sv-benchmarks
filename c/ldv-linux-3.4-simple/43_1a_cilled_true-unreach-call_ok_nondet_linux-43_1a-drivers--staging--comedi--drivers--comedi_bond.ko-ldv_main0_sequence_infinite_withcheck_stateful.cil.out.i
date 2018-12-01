@@ -2027,7 +2027,7 @@ static void *Realloc(void const *oldmem , size_t newlen , size_t oldlen )
       }
       {
       __len = tmp___0;
-      __ret = __builtin_memcpy(newmem, oldmem, __len);
+      __ret = memcpy(newmem, oldmem, __len);
       }
     } else {
     }

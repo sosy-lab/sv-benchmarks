@@ -5869,7 +5869,7 @@ void gspca_frame_add(struct gspca_dev *gspca_dev , enum gspca_packet_type packet
       packet_type = 0;
     } else {
       __len = (size_t )len;
-      __ret = __builtin_memcpy((void *)gspca_dev->image + (unsigned long )gspca_dev->image_len,
+      __ret = memcpy((void *)gspca_dev->image + (unsigned long )gspca_dev->image_len,
                                (void const *)data, __len);
       gspca_dev->image_len = gspca_dev->image_len + (u32 )len;
     }
@@ -7072,7 +7072,7 @@ static int vidioc_querybuf(struct file *file , void *priv , struct v4l2_buffer *
   if (__len > 63UL) {
     __ret = memcpy((void *)v4l2_buf, (void const *)(& frame->v4l2_buf), __len);
   } else {
-    __ret = __builtin_memcpy((void *)v4l2_buf, (void const *)(& frame->v4l2_buf),
+    __ret = memcpy((void *)v4l2_buf, (void const *)(& frame->v4l2_buf),
                              __len);
   }
   return (0);
@@ -7490,7 +7490,7 @@ static int vidioc_dqbuf(struct file *file , void *priv , struct v4l2_buffer *v4l
   if (__len > 63UL) {
     __ret___0 = memcpy((void *)v4l2_buf, (void const *)(& frame->v4l2_buf), __len);
   } else {
-    __ret___0 = __builtin_memcpy((void *)v4l2_buf, (void const *)(& frame->v4l2_buf),
+    __ret___0 = memcpy((void *)v4l2_buf, (void const *)(& frame->v4l2_buf),
                                  __len);
   }
   if (gspca_debug > 3) {

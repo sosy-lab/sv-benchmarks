@@ -4549,7 +4549,7 @@ static int datafab_determine_lun(struct us_data *us , struct datafab_info *info 
     {
     __cil_tmp35 = (void *)command;
     __cil_tmp36 = (void const *)(& scommand);
-    __ret = __builtin_memcpy(__cil_tmp35, __cil_tmp36, __len);
+    __ret = memcpy(__cil_tmp35, __cil_tmp36, __len);
     }
   }
   {
@@ -4767,7 +4767,7 @@ static int datafab_id_device(struct us_data *us , struct datafab_info *info )
     {
     __cil_tmp37 = (void *)command;
     __cil_tmp38 = (void const *)(& scommand);
-    __ret = __builtin_memcpy(__cil_tmp37, __cil_tmp38, __len);
+    __ret = memcpy(__cil_tmp37, __cil_tmp38, __len);
     }
   }
   {
@@ -5308,7 +5308,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp151 = (void *)ptr;
         __cil_tmp152 = __cil_tmp151 + __cil_tmp150;
         __cil_tmp153 = (void const *)(& rw_err_page);
-        __ret = __builtin_memcpy(__cil_tmp152, __cil_tmp153, __len);
+        __ret = memcpy(__cil_tmp152, __cil_tmp153, __len);
         }
       }
       i = i + 12U;
@@ -5329,7 +5329,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp159 = (void *)ptr;
         __cil_tmp160 = __cil_tmp159 + __cil_tmp158;
         __cil_tmp161 = (void const *)(& cache_page);
-        __ret___0 = __builtin_memcpy(__cil_tmp160, __cil_tmp161, __len___0);
+        __ret___0 = memcpy(__cil_tmp160, __cil_tmp161, __len___0);
         }
       }
       i = i + 12U;
@@ -5350,7 +5350,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp167 = (void *)ptr;
         __cil_tmp168 = __cil_tmp167 + __cil_tmp166;
         __cil_tmp169 = (void const *)(& rbac_page);
-        __ret___1 = __builtin_memcpy(__cil_tmp168, __cil_tmp169, __len___1);
+        __ret___1 = memcpy(__cil_tmp168, __cil_tmp169, __len___1);
         }
       }
       i = i + 12U;
@@ -5371,7 +5371,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp175 = (void *)ptr;
         __cil_tmp176 = __cil_tmp175 + __cil_tmp174;
         __cil_tmp177 = (void const *)(& timer_page);
-        __ret___2 = __builtin_memcpy(__cil_tmp176, __cil_tmp177, __len___2);
+        __ret___2 = memcpy(__cil_tmp176, __cil_tmp177, __len___2);
         }
       }
       i = i + 8U;
@@ -5392,7 +5392,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp183 = (void *)ptr;
         __cil_tmp184 = __cil_tmp183 + __cil_tmp182;
         __cil_tmp185 = (void const *)(& timer_page);
-        __ret___3 = __builtin_memcpy(__cil_tmp184, __cil_tmp185, __len___3);
+        __ret___3 = memcpy(__cil_tmp184, __cil_tmp185, __len___3);
         }
       }
       i = i + 8U;
@@ -5411,7 +5411,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp191 = (void *)ptr;
         __cil_tmp192 = __cil_tmp191 + __cil_tmp190;
         __cil_tmp193 = (void const *)(& rbac_page);
-        __ret___4 = __builtin_memcpy(__cil_tmp192, __cil_tmp193, __len___4);
+        __ret___4 = memcpy(__cil_tmp192, __cil_tmp193, __len___4);
         }
       }
       i = i + 12U;
@@ -5430,7 +5430,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp199 = (void *)ptr;
         __cil_tmp200 = __cil_tmp199 + __cil_tmp198;
         __cil_tmp201 = (void const *)(& cache_page);
-        __ret___5 = __builtin_memcpy(__cil_tmp200, __cil_tmp201, __len___5);
+        __ret___5 = memcpy(__cil_tmp200, __cil_tmp201, __len___5);
         }
       }
       i = i + 12U;
@@ -5449,7 +5449,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp207 = (void *)ptr;
         __cil_tmp208 = __cil_tmp207 + __cil_tmp206;
         __cil_tmp209 = (void const *)(& rw_err_page);
-        __ret___6 = __builtin_memcpy(__cil_tmp208, __cil_tmp209, __len___6);
+        __ret___6 = memcpy(__cil_tmp208, __cil_tmp209, __len___6);
         }
       }
       i = i + 12U;
@@ -5982,7 +5982,7 @@ static int datafab_transport(struct scsi_cmnd *srb , struct us_data *us )
       {
       __cil_tmp70 = (void *)ptr;
       __cil_tmp71 = (void const *)(& inquiry_reply);
-      __ret = __builtin_memcpy(__cil_tmp70, __cil_tmp71, __len);
+      __ret = memcpy(__cil_tmp70, __cil_tmp71, __len);
       }
     }
     {

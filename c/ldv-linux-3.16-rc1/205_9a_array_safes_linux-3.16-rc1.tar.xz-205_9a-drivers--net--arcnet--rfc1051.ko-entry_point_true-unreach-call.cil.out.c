@@ -5497,7 +5497,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
   if (__len > 63UL) {
     __ret = memcpy((void *)pkt, (void const   *)pkthdr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)pkt, (void const   *)pkthdr, __len);
+    __ret = memcpy((void *)pkt, (void const   *)pkthdr, __len);
   }
   if ((unsigned int )length > 16U) {
     (*(lp->hw.copy_from_card))(dev, bufnum, (int )((unsigned int )ofs + 16U), (void *)(& pkt->soft.raw) + 16U,

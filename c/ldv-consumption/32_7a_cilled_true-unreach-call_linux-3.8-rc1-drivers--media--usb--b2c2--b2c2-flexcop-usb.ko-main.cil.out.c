@@ -7145,7 +7145,7 @@ static void flexcop_usb_process_frame(struct flexcop_usb *fc_usb , u8 *buffer , 
   }
   if (fc_usb->tmp_buffer_length > 0) {
     __len = (size_t )buffer_length;
-    __ret = __builtin_memcpy((void *)(& fc_usb->tmp_buffer) + (unsigned long )fc_usb->tmp_buffer_length,
+    __ret = memcpy((void *)(& fc_usb->tmp_buffer) + (unsigned long )fc_usb->tmp_buffer_length,
                              (void const   *)buffer, __len);
     fc_usb->tmp_buffer_length = fc_usb->tmp_buffer_length + buffer_length;
     b = (u8 *)(& fc_usb->tmp_buffer);
@@ -7197,7 +7197,7 @@ static void flexcop_usb_process_frame(struct flexcop_usb *fc_usb , u8 *buffer , 
   ldv_43962: ;
   if (l > 0) {
     __len___0 = (size_t )l;
-    __ret___0 = __builtin_memcpy((void *)(& fc_usb->tmp_buffer), (void const   *)b,
+    __ret___0 = memcpy((void *)(& fc_usb->tmp_buffer), (void const   *)b,
                                  __len___0);
   } else {
 

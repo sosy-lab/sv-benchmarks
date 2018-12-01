@@ -9303,7 +9303,7 @@ static int xhci_reserve_bandwidth(struct xhci_hcd *xhci , struct xhci_virt_devic
     __ret = __memcpy((void *)(& ep_bw_info) + (unsigned long )i, (void const   *)(& virt_dev->eps[i].bw_info),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ep_bw_info) + (unsigned long )i, (void const   *)(& virt_dev->eps[i].bw_info),
+    __ret = memcpy((void *)(& ep_bw_info) + (unsigned long )i, (void const   *)(& virt_dev->eps[i].bw_info),
                              __len);
   }
   if ((ctrl_ctx->drop_flags & (__le32 )(1 << (i + 1))) != 0U) {
@@ -9366,7 +9366,7 @@ static int xhci_reserve_bandwidth(struct xhci_hcd *xhci , struct xhci_virt_devic
     __ret___0 = __memcpy((void *)(& virt_dev->eps[i].bw_info), (void const   *)(& ep_bw_info) + (unsigned long )i,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& virt_dev->eps[i].bw_info), (void const   *)(& ep_bw_info) + (unsigned long )i,
+    __ret___0 = memcpy((void *)(& virt_dev->eps[i].bw_info), (void const   *)(& ep_bw_info) + (unsigned long )i,
                                  __len___0);
   }
   if ((ctrl_ctx->drop_flags & (__le32 )(1 << (i + 1))) != 0U) {
@@ -23614,7 +23614,7 @@ int xhci_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   if (__len > 63UL) {
     __ret = __memcpy((void *)buf, (void const   *)(& usb_bos_descriptor), __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& usb_bos_descriptor),
+    __ret = memcpy((void *)buf, (void const   *)(& usb_bos_descriptor),
                              __len);
   }
   if ((xhci->quirks & 2048U) != 0U) {

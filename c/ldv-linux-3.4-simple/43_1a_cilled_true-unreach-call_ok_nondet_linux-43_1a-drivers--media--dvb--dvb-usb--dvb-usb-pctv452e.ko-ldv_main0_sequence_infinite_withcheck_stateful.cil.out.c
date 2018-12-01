@@ -6738,7 +6738,7 @@ static int tt3650_ci_msg(struct dvb_usb_device *d , u8 cmd , u8 *data , unsigned
   __cil_tmp52 = (void *)(& buf);
   __cil_tmp53 = __cil_tmp52 + 4U;
   __cil_tmp54 = (void const   *)data;
-  __ret = __builtin_memcpy(__cil_tmp53, __cil_tmp54, __len);
+  __ret = memcpy(__cil_tmp53, __cil_tmp54, __len);
   }
   if (read_len != 0U) {
     rlen = 64U;
@@ -6792,7 +6792,7 @@ static int tt3650_ci_msg(struct dvb_usb_device *d , u8 cmd , u8 *data , unsigned
   __cil_tmp74 = (void *)data;
   __cil_tmp75 = (void const   *)(& buf);
   __cil_tmp76 = __cil_tmp75 + 4U;
-  __ret___0 = __builtin_memcpy(__cil_tmp74, __cil_tmp76, __len___0);
+  __ret___0 = memcpy(__cil_tmp74, __cil_tmp76, __len___0);
   }
   return (0);
   failed: 
@@ -7594,7 +7594,7 @@ static int pctv452e_i2c_msg(struct dvb_usb_device *d , u8 addr , u8 const   *snd
   __cil_tmp48 = (void *)(& buf);
   __cil_tmp49 = __cil_tmp48 + 7U;
   __cil_tmp50 = (void const   *)snd_buf;
-  __ret = __builtin_memcpy(__cil_tmp49, __cil_tmp50, __len);
+  __ret = memcpy(__cil_tmp49, __cil_tmp50, __len);
   __cil_tmp51 = (u8 *)(& buf);
   __cil_tmp52 = (u16 )snd_len;
   __cil_tmp53 = (unsigned int )__cil_tmp52;
@@ -7663,7 +7663,7 @@ static int pctv452e_i2c_msg(struct dvb_usb_device *d , u8 addr , u8 const   *snd
   __cil_tmp78 = (void *)rcv_buf;
   __cil_tmp79 = (void const   *)(& buf);
   __cil_tmp80 = __cil_tmp79 + 7U;
-  __ret___0 = __builtin_memcpy(__cil_tmp78, __cil_tmp80, __len___0);
+  __ret___0 = memcpy(__cil_tmp78, __cil_tmp80, __len___0);
   }
   return ((int )rcv_len);
   failed: 

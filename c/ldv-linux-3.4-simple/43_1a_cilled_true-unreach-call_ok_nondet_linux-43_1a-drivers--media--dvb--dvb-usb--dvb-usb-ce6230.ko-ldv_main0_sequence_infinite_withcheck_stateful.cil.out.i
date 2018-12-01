@@ -6115,7 +6115,7 @@ static int ce6230_rw_udev(struct usb_device *udev , struct req_t *req )
     __cil_tmp38 = __cil_tmp37 + 8;
     __cil_tmp39 = *((u8 **)__cil_tmp38);
     __cil_tmp40 = (void const *)__cil_tmp39;
-    __ret = __builtin_memcpy(__cil_tmp36, __cil_tmp40, __len);
+    __ret = memcpy(__cil_tmp36, __cil_tmp40, __len);
     tmp___0 = __create_pipe(udev, 0U);
     pipe = tmp___0 | 2147483648U;
     }
@@ -6276,7 +6276,7 @@ static int ce6230_rw_udev(struct usb_device *udev , struct req_t *req )
       __cil_tmp107 = *((u8 **)__cil_tmp106);
       __cil_tmp108 = (void *)__cil_tmp107;
       __cil_tmp109 = (void const *)buf;
-      __ret___0 = __builtin_memcpy(__cil_tmp108, __cil_tmp109, __len___0);
+      __ret___0 = memcpy(__cil_tmp108, __cil_tmp109, __len___0);
       }
     } else {
     }

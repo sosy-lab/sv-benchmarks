@@ -9307,7 +9307,7 @@ static int tcm_loop_queue_status(struct se_cmd *se_cmd )
           __cil_tmp54 = __cil_tmp53 + 64;
           __cil_tmp55 = *((void **)__cil_tmp54);
           __cil_tmp56 = (void const *)__cil_tmp55;
-          __ret = __builtin_memcpy(__cil_tmp52, __cil_tmp56, __len);
+          __ret = memcpy(__cil_tmp52, __cil_tmp56, __len);
           }
         }
         {

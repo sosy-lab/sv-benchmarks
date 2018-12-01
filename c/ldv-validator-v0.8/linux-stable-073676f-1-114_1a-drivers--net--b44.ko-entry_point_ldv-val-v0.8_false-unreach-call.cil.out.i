@@ -3831,7 +3831,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   return;
 }
 }
@@ -3843,7 +3843,7 @@ __inline static void skb_copy_from_linear_data_offset(struct sk_buff const *skb 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data + (unsigned long )offset,
+  __ret = memcpy(to, (void const *)skb->data + (unsigned long )offset,
                            __len);
   return;
 }
@@ -6122,7 +6122,7 @@ static int b44_set_mac_addr(struct net_device *dev , void *p )
   } else {
   }
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)dev->dev_addr, (void const *)(& addr->sa_data),
+  __ret = memcpy((void *)dev->dev_addr, (void const *)(& addr->sa_data),
                            __len);
   spin_lock_irq(& bp->lock);
   tmp___2 = br32((struct b44 const *)bp, 1024UL);
@@ -6819,7 +6819,7 @@ static void b44_get_strings(struct net_device *dev , u32 stringset , u8 *data )
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const *)(& b44_gstrings), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const *)(& b44_gstrings), __len);
+    __ret = memcpy((void *)data, (void const *)(& b44_gstrings), __len);
   }
   goto ldv_30634;
   }
@@ -6957,7 +6957,7 @@ static int b44_get_invariants(struct b44 *bp )
   if (__len > 63UL) {
     __ret = memcpy((void *)(bp->dev)->dev_addr, (void const *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(bp->dev)->dev_addr, (void const *)addr, __len);
+    __ret = memcpy((void *)(bp->dev)->dev_addr, (void const *)addr, __len);
   }
   tmp = is_valid_ether_addr((u8 const *)(bp->dev)->dev_addr);
   if (tmp == 0) {
@@ -6966,7 +6966,7 @@ static int b44_get_invariants(struct b44 *bp )
   } else {
   }
   __len___0 = (size_t )(bp->dev)->addr_len;
-  __ret___0 = __builtin_memcpy((void *)(& (bp->dev)->perm_addr), (void const *)(bp->dev)->dev_addr,
+  __ret___0 = memcpy((void *)(& (bp->dev)->perm_addr), (void const *)(bp->dev)->dev_addr,
                                __len___0);
   bp->imask = 16907392U;
   if ((unsigned int )(bp->sdev)->id.revision > 6U) {

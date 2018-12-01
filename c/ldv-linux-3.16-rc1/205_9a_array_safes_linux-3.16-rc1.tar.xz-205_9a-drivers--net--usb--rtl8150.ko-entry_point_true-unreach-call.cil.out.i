@@ -6107,7 +6107,7 @@ __inline static void set_ethernet_addr(rtl8150_t *dev )
     __ret = memcpy((void *)(dev->netdev)->dev_addr, (void const *)(& node_id),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(dev->netdev)->dev_addr, (void const *)(& node_id),
+    __ret = memcpy((void *)(dev->netdev)->dev_addr, (void const *)(& node_id),
                              __len);
   }
   return;
@@ -6133,7 +6133,7 @@ static int rtl8150_set_mac_address(struct net_device *netdev , void *p )
   } else {
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
+  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
                            __len);
   descriptor.modname = "rtl8150";
   descriptor.function = "rtl8150_set_mac_address";

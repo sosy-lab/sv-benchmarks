@@ -6617,7 +6617,7 @@ static int sddr55_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp134 = __cil_tmp133 + 72;
       __cil_tmp135 = (unsigned char (*)[18U])__cil_tmp134;
       __cil_tmp136 = (void const *)__cil_tmp135;
-      __ret = __builtin_memcpy(__cil_tmp132, __cil_tmp136, __len);
+      __ret = memcpy(__cil_tmp132, __cil_tmp136, __len);
       }
     }
     {
@@ -6660,7 +6660,7 @@ static int sddr55_transport(struct scsi_cmnd *srb , struct us_data *us )
       {
       __cil_tmp153 = (void *)ptr;
       __cil_tmp154 = (void const *)(& inquiry_response);
-      __ret___0 = __builtin_memcpy(__cil_tmp153, __cil_tmp154, __len___0);
+      __ret___0 = memcpy(__cil_tmp153, __cil_tmp154, __len___0);
       }
     }
     {
@@ -6829,7 +6829,7 @@ static int sddr55_transport(struct scsi_cmnd *srb , struct us_data *us )
       {
       __cil_tmp238 = (void *)ptr;
       __cil_tmp239 = (void const *)(& mode_page_01);
-      __ret___1 = __builtin_memcpy(__cil_tmp238, __cil_tmp239, __len___1);
+      __ret___1 = memcpy(__cil_tmp238, __cil_tmp239, __len___1);
       }
     }
     {

@@ -5015,7 +5015,7 @@ struct dvb_frontend *max2165_attach(struct dvb_frontend *fe , struct i2c_adapter
     __cil_tmp32 = (struct dvb_tuner_ops *)__cil_tmp31;
     __cil_tmp33 = (void *)__cil_tmp32;
     __cil_tmp34 = (void const   *)(& max2165_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp33, __cil_tmp34, __len);
+    __ret = memcpy(__cil_tmp33, __cil_tmp34, __len);
     }
   }
   {

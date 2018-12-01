@@ -7456,7 +7456,7 @@ int dlm_rem_lkb_callback(struct dlm_ls *ls , struct dlm_lkb *lkb , struct dlm_ca
   if (__len > 63UL) {
     __ret = memcpy((void *)cb, (void const *)(& lkb->lkb_callbacks), __len);
   } else {
-    __ret = __builtin_memcpy((void *)cb, (void const *)(& lkb->lkb_callbacks), __len);
+    __ret = memcpy((void *)cb, (void const *)(& lkb->lkb_callbacks), __len);
   }
   memset((void *)(& lkb->lkb_callbacks), 0, 24UL);
   i = 1;
@@ -7472,7 +7472,7 @@ int dlm_rem_lkb_callback(struct dlm_ls *ls , struct dlm_lkb *lkb , struct dlm_ca
                          (void const *)(& lkb->lkb_callbacks) + (unsigned long )i,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& lkb->lkb_callbacks) + ((unsigned long )i + 0xffffffffffffffffUL),
+    __ret___0 = memcpy((void *)(& lkb->lkb_callbacks) + ((unsigned long )i + 0xffffffffffffffffUL),
                                  (void const *)(& lkb->lkb_callbacks) + (unsigned long )i,
                                  __len___0);
   }
@@ -7505,7 +7505,7 @@ int dlm_rem_lkb_callback(struct dlm_ls *ls , struct dlm_lkb *lkb , struct dlm_ca
     if (__len___1 > 63UL) {
       __ret___1 = memcpy((void *)(& lkb->lkb_last_cast), (void const *)cb, __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& lkb->lkb_last_cast), (void const *)cb,
+      __ret___1 = memcpy((void *)(& lkb->lkb_last_cast), (void const *)cb,
                                    __len___1);
     }
     lkb->lkb_last_cast_time = ktime_get();
@@ -7516,7 +7516,7 @@ int dlm_rem_lkb_callback(struct dlm_ls *ls , struct dlm_lkb *lkb , struct dlm_ca
     if (__len___2 > 63UL) {
       __ret___2 = memcpy((void *)(& lkb->lkb_last_bast), (void const *)cb, __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)(& lkb->lkb_last_bast), (void const *)cb,
+      __ret___2 = memcpy((void *)(& lkb->lkb_last_bast), (void const *)cb,
                                    __len___2);
     }
     lkb->lkb_last_bast_time = ktime_get();
@@ -8374,7 +8374,7 @@ static struct config_group *make_cluster(struct config_group *g , char const *na
     __ret = memcpy((void *)(& cl->cl_cluster_name), (void const *)(& dlm_config.ci_cluster_name),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cl->cl_cluster_name), (void const *)(& dlm_config.ci_cluster_name),
+    __ret = memcpy((void *)(& cl->cl_cluster_name), (void const *)(& dlm_config.ci_cluster_name),
                              __len);
   }
   space_list = & sps->ss_group;
@@ -8822,7 +8822,7 @@ static ssize_t comm_addr_write(struct dlm_comm *cm , char const *buf , size_t le
   } else {
   }
   __len = len;
-  __ret = __builtin_memcpy((void *)addr, (void const *)buf, __len);
+  __ret = memcpy((void *)addr, (void const *)buf, __len);
   rv = dlm_lowcomms_addr(cm->nodeid, addr, (int )len);
   if (rv != 0) {
     kfree((void const *)addr);
@@ -9156,7 +9156,7 @@ int dlm_our_addr(struct __kernel_sockaddr_storage *addr , int num )
   if (__len > 63UL) {
     __ret = memcpy((void *)addr, (void const *)local_comm->addr[num], __len);
   } else {
-    __ret = __builtin_memcpy((void *)addr, (void const *)local_comm->addr[num],
+    __ret = memcpy((void *)addr, (void const *)local_comm->addr[num],
                              __len);
   }
   return (0);
@@ -10922,7 +10922,7 @@ int dlm_recover_directory(struct dlm_ls *ls )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& v), (void const *)b, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& v), (void const *)b, __len);
+    __ret = memcpy((void *)(& v), (void const *)b, __len);
   }
   tmp___2 = __fswab16((int )v);
   namelen = tmp___2;
@@ -10978,7 +10978,7 @@ int dlm_recover_directory(struct dlm_ls *ls )
   }
   last_len = (int )namelen;
   __len___0 = (size_t )namelen;
-  __ret___0 = __builtin_memcpy((void *)last_name, (void const *)b, __len___0);
+  __ret___0 = memcpy((void *)last_name, (void const *)b, __len___0);
   b = b + (unsigned long )namelen;
   left = left - (int )namelen;
   count = count + 1U;
@@ -11115,7 +11115,7 @@ void dlm_copy_master_names(struct dlm_ls *ls , char *inbuf , int inlen , char *o
       __ret = memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& be_namelen),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& be_namelen),
+      __ret = memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& be_namelen),
                                __len);
     }
     offset = (int )((unsigned int )offset + 2U);
@@ -11130,12 +11130,12 @@ void dlm_copy_master_names(struct dlm_ls *ls , char *inbuf , int inlen , char *o
     __ret___0 = memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& be_namelen),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& be_namelen),
+    __ret___0 = memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& be_namelen),
                                  __len___0);
   }
   offset = (int )((unsigned int )offset + 2U);
   __len___1 = (size_t )r->res_length;
-  __ret___1 = __builtin_memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& r->res_name),
+  __ret___1 = memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& r->res_name),
                                __len___1);
   offset = r->res_length + offset;
   ls->ls_recover_dir_sent_res = ls->ls_recover_dir_sent_res + 1U;
@@ -11153,7 +11153,7 @@ void dlm_copy_master_names(struct dlm_ls *ls , char *inbuf , int inlen , char *o
       __ret___2 = memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& be_namelen),
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& be_namelen),
+      __ret___2 = memcpy((void *)outbuf + (unsigned long )offset, (void const *)(& be_namelen),
                                    __len___2);
     }
     offset = (int )((unsigned int )offset + 2U);
@@ -12068,7 +12068,7 @@ static int get_rsb_struct(struct dlm_ls *ls , char *name , int len , struct dlm_
   r->res_ls = ls;
   r->res_length = len;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& r->res_name), (void const *)name, __len);
+  __ret = memcpy((void *)(& r->res_name), (void const *)name, __len);
   __mutex_init(& r->res_mutex, "&r->res_mutex", & __key);
   INIT_LIST_HEAD(& r->res_lookup);
   INIT_LIST_HEAD(& r->res_grantqueue);
@@ -12089,7 +12089,7 @@ static int rsb_cmp(struct dlm_rsb *r , char const *name , int nlen )
   {
   memset((void *)(& maxname), 0, 64UL);
   __len = (size_t )nlen;
-  __ret = __builtin_memcpy((void *)(& maxname), (void const *)name, __len);
+  __ret = memcpy((void *)(& maxname), (void const *)name, __len);
   tmp = memcmp((void const *)(& r->res_name), (void const *)(& maxname), 64UL);
   return (tmp);
 }
@@ -13642,7 +13642,7 @@ static void shrink_bucket(struct dlm_ls *ls , int b )
         __ret = memcpy((void *)ls->ls_remove_names[remote_count], (void const *)(& r->res_name),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)ls->ls_remove_names[remote_count], (void const *)(& r->res_name),
+        __ret = memcpy((void *)ls->ls_remove_names[remote_count], (void const *)(& r->res_name),
                                  __len);
       }
       remote_count = remote_count + 1;
@@ -13735,7 +13735,7 @@ static void shrink_bucket(struct dlm_ls *ls , int b )
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& ls->ls_remove_name), (void const *)name, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& ls->ls_remove_name), (void const *)name,
+    __ret___0 = memcpy((void *)(& ls->ls_remove_name), (void const *)name,
                                  __len___0);
   }
   spin_unlock(& ls->ls_remove_spin);
@@ -14014,7 +14014,7 @@ static void set_lvb_lock(struct dlm_rsb *r , struct dlm_lkb *lkb )
     } else {
     }
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)lkb->lkb_lvbptr, (void const *)r->res_lvbptr,
+    __ret = memcpy((void *)lkb->lkb_lvbptr, (void const *)r->res_lvbptr,
                              __len);
     lkb->lkb_lvbseq = r->res_lvbseq;
   } else
@@ -14041,7 +14041,7 @@ static void set_lvb_lock(struct dlm_rsb *r , struct dlm_lkb *lkb )
     } else {
     }
     __len___0 = (size_t )len;
-    __ret___0 = __builtin_memcpy((void *)r->res_lvbptr, (void const *)lkb->lkb_lvbptr,
+    __ret___0 = memcpy((void *)r->res_lvbptr, (void const *)lkb->lkb_lvbptr,
                                  __len___0);
     r->res_lvbseq = r->res_lvbseq + 1U;
     lkb->lkb_lvbseq = r->res_lvbseq;
@@ -14087,7 +14087,7 @@ static void set_lvb_unlock(struct dlm_rsb *r , struct dlm_lkb *lkb )
   } else {
   }
   __len = (size_t )(r->res_ls)->ls_lvblen;
-  __ret = __builtin_memcpy((void *)r->res_lvbptr, (void const *)lkb->lkb_lvbptr,
+  __ret = memcpy((void *)r->res_lvbptr, (void const *)lkb->lkb_lvbptr,
                            __len);
   r->res_lvbseq = r->res_lvbseq + 1U;
   rsb_clear_flag(r, 1);
@@ -14119,7 +14119,7 @@ static void set_lvb_lock_pc(struct dlm_rsb *r , struct dlm_lkb *lkb , struct dlm
     } else {
     }
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)lkb->lkb_lvbptr, (void const *)(& ms->m_extra),
+    __ret = memcpy((void *)lkb->lkb_lvbptr, (void const *)(& ms->m_extra),
                              __len);
     lkb->lkb_lvbseq = ms->m_lvbseq;
   } else {
@@ -15685,7 +15685,7 @@ static void send_args(struct dlm_rsb *r , struct dlm_lkb *lkb , struct dlm_messa
   case 1U: ;
   case 11U:
   __len = (size_t )r->res_length;
-  __ret = __builtin_memcpy((void *)(& ms->m_extra), (void const *)(& r->res_name),
+  __ret = memcpy((void *)(& ms->m_extra), (void const *)(& r->res_name),
                            __len);
   goto ldv_22044;
   case 2U: ;
@@ -15698,7 +15698,7 @@ static void send_args(struct dlm_rsb *r , struct dlm_lkb *lkb , struct dlm_messa
   } else {
   }
   __len___0 = (size_t )(r->res_ls)->ls_lvblen;
-  __ret___0 = __builtin_memcpy((void *)(& ms->m_extra), (void const *)lkb->lkb_lvbptr,
+  __ret___0 = memcpy((void *)(& ms->m_extra), (void const *)lkb->lkb_lvbptr,
                                __len___0);
   goto ldv_22044;
   }
@@ -15869,7 +15869,7 @@ static int send_remove(struct dlm_rsb *r )
   } else {
   }
   __len = (size_t )r->res_length;
-  __ret = __builtin_memcpy((void *)(& ms->m_extra), (void const *)(& r->res_name),
+  __ret = memcpy((void *)(& ms->m_extra), (void const *)(& r->res_name),
                            __len);
   ms->m_hash = r->res_hash;
   error = send_message(mh, ms);
@@ -16002,7 +16002,7 @@ static int receive_lvb(struct dlm_ls *ls , struct dlm_lkb *lkb , struct dlm_mess
     } else {
     }
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)lkb->lkb_lvbptr, (void const *)(& ms->m_extra),
+    __ret = memcpy((void *)lkb->lkb_lvbptr, (void const *)(& ms->m_extra),
                              __len);
   } else {
   }
@@ -16156,7 +16156,7 @@ static void send_repeat_remove(struct dlm_ls *ls , char *ms_name , int len )
   {
   memset((void *)(& name), 0, 65UL);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& name), (void const *)ms_name, __len);
+  __ret = memcpy((void *)(& name), (void const *)ms_name, __len);
   hash = jhash((void const *)(& name), (u32 )len, 0U);
   b = (ls->ls_rsbtbl_size - 1U) & hash;
   dir_nodeid = dlm_hash2nodeid(ls, hash);
@@ -16186,7 +16186,7 @@ static void send_repeat_remove(struct dlm_ls *ls , char *ms_name , int len )
     __ret___0 = memcpy((void *)(& ls->ls_remove_name), (void const *)(& name),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& ls->ls_remove_name), (void const *)(& name),
+    __ret___0 = memcpy((void *)(& ls->ls_remove_name), (void const *)(& name),
                                  __len___0);
   }
   spin_unlock(& ls->ls_remove_spin);
@@ -16198,7 +16198,7 @@ static void send_repeat_remove(struct dlm_ls *ls , char *ms_name , int len )
   } else {
   }
   __len___1 = (size_t )len;
-  __ret___1 = __builtin_memcpy((void *)(& ms->m_extra), (void const *)(& name),
+  __ret___1 = memcpy((void *)(& ms->m_extra), (void const *)(& name),
                                __len___1);
   ms->m_hash = hash;
   send_message(mh, ms);
@@ -16563,7 +16563,7 @@ static void receive_remove(struct dlm_ls *ls , struct dlm_message *ms )
   }
   memset((void *)(& name), 0, 65UL);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& name), (void const *)(& ms->m_extra), __len);
+  __ret = memcpy((void *)(& name), (void const *)(& ms->m_extra), __len);
   hash = jhash((void const *)(& name), (u32 )len, 0U);
   b = (ls->ls_rsbtbl_size - 1U) & hash;
   spin_lock(& (ls->ls_rsbtbl + (unsigned long )b)->lock);
@@ -17947,7 +17947,7 @@ static int receive_rcom_lock_args(struct dlm_ls *ls , struct dlm_lkb *lkb , stru
     } else {
     }
     __len = (size_t )lvblen;
-    __ret = __builtin_memcpy((void *)lkb->lkb_lvbptr, (void const *)(& rl->rl_lvb),
+    __ret = memcpy((void *)lkb->lkb_lvbptr, (void const *)(& rl->rl_lvb),
                              __len);
   } else {
   }
@@ -18207,7 +18207,7 @@ int dlm_user_convert(struct dlm_ls *ls , struct dlm_user_args *ua_tmp , int mode
     if (__len > 63UL) {
       __ret = memcpy((void *)ua->lksb.sb_lvbptr, (void const *)lvb_in, __len);
     } else {
-      __ret = __builtin_memcpy((void *)ua->lksb.sb_lvbptr, (void const *)lvb_in,
+      __ret = memcpy((void *)ua->lksb.sb_lvbptr, (void const *)lvb_in,
                                __len);
     }
   } else {
@@ -18260,7 +18260,7 @@ int dlm_user_unlock(struct dlm_ls *ls , struct dlm_user_args *ua_tmp , uint32_t 
     if (__len > 63UL) {
       __ret = memcpy((void *)ua->lksb.sb_lvbptr, (void const *)lvb_in, __len);
     } else {
-      __ret = __builtin_memcpy((void *)ua->lksb.sb_lvbptr, (void const *)lvb_in,
+      __ret = memcpy((void *)ua->lksb.sb_lvbptr, (void const *)lvb_in,
                                __len);
     }
   } else {
@@ -19519,7 +19519,7 @@ static int new_lockspace(char const *name , char const *cluster , uint32_t flags
   } else {
   }
   __len = (size_t )namelen;
-  __ret = __builtin_memcpy((void *)(& ls->ls_name), (void const *)name, __len);
+  __ret = memcpy((void *)(& ls->ls_name), (void const *)name, __len);
   ls->ls_namelen = namelen;
   ls->ls_lvblen = lvblen;
   ls->ls_count = 0;
@@ -22270,11 +22270,11 @@ static void copy_from_cb(void *dst , void const *base , unsigned int offset , un
   } else {
   }
   __len = (size_t )copy;
-  __ret = __builtin_memcpy(dst, base + (unsigned long )offset, __len);
+  __ret = memcpy(dst, base + (unsigned long )offset, __len);
   len = len - copy;
   if (len != 0U) {
     __len___0 = (size_t )len;
-    __ret___0 = __builtin_memcpy(dst + (unsigned long )copy, base, __len___0);
+    __ret___0 = memcpy(dst + (unsigned long )copy, base, __len___0);
   } else {
   }
   return;
@@ -22666,7 +22666,7 @@ static void fill_data(struct dlm_lock_data *data , struct dlm_lkb *lkb )
     data->lockspace_id = (r->res_ls)->ls_global_id;
     data->resource_namelen = r->res_length;
     __len = (size_t )r->res_length;
-    __ret = __builtin_memcpy((void *)(& data->resource_name), (void const *)(& r->res_name),
+    __ret = memcpy((void *)(& data->resource_name), (void const *)(& r->res_name),
                              __len);
   } else {
   }
@@ -23304,7 +23304,7 @@ static int nodeid_to_addr(int nodeid , struct __kernel_sockaddr_storage *sas_out
       __ret = memcpy((void *)(& sas), (void const *)na->addr[na->curr_addr_index],
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& sas), (void const *)na->addr[na->curr_addr_index],
+      __ret = memcpy((void *)(& sas), (void const *)na->addr[na->curr_addr_index],
                                __len);
     }
   } else {
@@ -23323,7 +23323,7 @@ static int nodeid_to_addr(int nodeid , struct __kernel_sockaddr_storage *sas_out
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)sas_out, (void const *)(& sas), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)sas_out, (void const *)(& sas), __len___0);
+      __ret___0 = memcpy((void *)sas_out, (void const *)(& sas), __len___0);
     }
   } else {
   }
@@ -23416,7 +23416,7 @@ int dlm_lowcomms_addr(int nodeid , struct __kernel_sockaddr_storage *addr , int 
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)new_addr, (void const *)addr, __len);
+  __ret = memcpy((void *)new_addr, (void const *)addr, __len);
   spin_lock(& dlm_node_addrs_spin);
   na = find_node_addr(nodeid);
   if ((unsigned long )na == (unsigned long )((struct dlm_node_addr *)0)) {
@@ -23707,7 +23707,7 @@ static void retry_failed_sctp_send(struct connection *recv_con , struct sctp_sen
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)retry_buf, (void const *)buf + 48U, __len);
+  __ret = memcpy((void *)retry_buf, (void const *)buf + 48U, __len);
   dlm_lowcomms_commit_buffer((void *)mh);
   if (con->sctp_assoc != 0) {
     tmp___0 = test_and_set_bit(2L, (unsigned long volatile *)(& con->flags));
@@ -24316,7 +24316,7 @@ static void tcp_connect_to_sock(struct connection *con )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& src_addr), (void const *)dlm_local_addr[0], __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& src_addr), (void const *)dlm_local_addr[0],
+    __ret = memcpy((void *)(& src_addr), (void const *)dlm_local_addr[0],
                              __len);
   }
   make_sockaddr(& src_addr, 0, & addr_len);
@@ -24446,7 +24446,7 @@ static void init_local(void)
   if (__len > 63UL) {
     __ret = memcpy((void *)addr, (void const *)(& sas), __len);
   } else {
-    __ret = __builtin_memcpy((void *)addr, (void const *)(& sas), __len);
+    __ret = memcpy((void *)addr, (void const *)(& sas), __len);
   }
   tmp___1 = dlm_local_count;
   dlm_local_count = dlm_local_count + 1;
@@ -24548,7 +24548,7 @@ static int sctp_listen_for_all(void)
   if (__len > 63UL) {
     __ret = memcpy((void *)(& localaddr), (void const *)dlm_local_addr[i], __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& localaddr), (void const *)dlm_local_addr[i],
+    __ret = memcpy((void *)(& localaddr), (void const *)dlm_local_addr[i],
                              __len);
   }
   make_sockaddr(& localaddr, (int )((uint16_t )dlm_config.ci_tcp_port), & addr_len);
@@ -25800,7 +25800,7 @@ static ssize_t dev_read(struct file *file , char *u , size_t count , loff_t *ppo
     if (__len > 63UL) {
       __ret = memcpy((void *)(& info), (void const *)(& op->info), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& info), (void const *)(& op->info), __len);
+      __ret = memcpy((void *)(& info), (void const *)(& op->info), __len);
     }
   } else {
   }
@@ -25863,7 +25863,7 @@ static ssize_t dev_write(struct file *file , char const *u , size_t count , loff
     if (__len > 63UL) {
       __ret = memcpy((void *)(& op->info), (void const *)(& info), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& op->info), (void const *)(& info), __len);
+      __ret = memcpy((void *)(& op->info), (void const *)(& info), __len);
     }
     if ((unsigned long )xop->callback != (unsigned long )((void *)0)) {
       do_callback = 1;
@@ -26349,7 +26349,7 @@ static void receive_sync_reply(struct dlm_ls *ls , struct dlm_rcom *rc_in )
   } else {
   }
   __len = (size_t )rc_in->rc_header.h_length;
-  __ret = __builtin_memcpy((void *)ls->ls_recover_buf, (void const *)rc_in, __len);
+  __ret = memcpy((void *)ls->ls_recover_buf, (void const *)rc_in, __len);
   set_bit(5L, (unsigned long volatile *)(& ls->ls_flags));
   clear_bit(6L, (unsigned long volatile *)(& ls->ls_flags));
   __wake_up(& ls->ls_wait_general, 3U, 1, (void *)0);
@@ -26374,7 +26374,7 @@ int dlm_rcom_names(struct dlm_ls *ls , int nodeid , char *last_name , int last_l
   } else {
   }
   __len = (size_t )last_len;
-  __ret = __builtin_memcpy((void *)(& rc->rc_buf), (void const *)last_name, __len);
+  __ret = memcpy((void *)(& rc->rc_buf), (void const *)last_name, __len);
   allow_sync_reply(ls, & rc->rc_id);
   memset((void *)ls->ls_recover_buf, 0, (size_t )dlm_config.ci_buffer_size);
   send_rcom(ls, mh, rc);
@@ -26425,7 +26425,7 @@ int dlm_send_rcom_lookup(struct dlm_rsb *r , int dir_nodeid )
   } else {
   }
   __len = (size_t )r->res_length;
-  __ret = __builtin_memcpy((void *)(& rc->rc_buf), (void const *)(& r->res_name),
+  __ret = memcpy((void *)(& rc->rc_buf), (void const *)(& r->res_name),
                            __len);
   rc->rc_id = (uint64_t )((unsigned long )r->res_id);
   send_rcom(ls, mh, rc);
@@ -26449,7 +26449,7 @@ int dlm_send_rcom_lookup_dump(struct dlm_rsb *r , int to_nodeid )
   } else {
   }
   __len = (size_t )r->res_length;
-  __ret = __builtin_memcpy((void *)(& rc->rc_buf), (void const *)(& r->res_name),
+  __ret = memcpy((void *)(& rc->rc_buf), (void const *)(& r->res_name),
                            __len);
   rc->rc_id = 4294967295ULL;
   send_rcom(ls, mh, rc);
@@ -26527,11 +26527,11 @@ static void pack_rcom_lock(struct dlm_rsb *r , struct dlm_lkb *lkb , struct rcom
   }
   rl->rl_namelen = (unsigned short )r->res_length;
   __len = (size_t )r->res_length;
-  __ret = __builtin_memcpy((void *)(& rl->rl_name), (void const *)(& r->res_name),
+  __ret = memcpy((void *)(& rl->rl_name), (void const *)(& r->res_name),
                            __len);
   if ((unsigned long )lkb->lkb_lvbptr != (unsigned long )((char *)0)) {
     __len___0 = (size_t )(r->res_ls)->ls_lvblen;
-    __ret___0 = __builtin_memcpy((void *)(& rl->rl_lvb), (void const *)lkb->lkb_lvbptr,
+    __ret___0 = memcpy((void *)(& rl->rl_lvb), (void const *)lkb->lkb_lvbptr,
                                  __len___0);
   } else {
   }
@@ -26586,7 +26586,7 @@ static void receive_rcom_lock(struct dlm_ls *ls , struct dlm_rcom *rc_in )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& rc->rc_buf), (void const *)(& rc_in->rc_buf), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& rc->rc_buf), (void const *)(& rc_in->rc_buf),
+    __ret = memcpy((void *)(& rc->rc_buf), (void const *)(& rc_in->rc_buf),
                              __len);
   }
   rc->rc_id = rc_in->rc_id;
@@ -27774,13 +27774,13 @@ static void recover_lvb(struct dlm_rsb *r )
   if (big_lock_exists != 0) {
     r->res_lvbseq = lkb->lkb_lvbseq;
     __len = (size_t )lvblen;
-    __ret = __builtin_memcpy((void *)r->res_lvbptr, (void const *)lkb->lkb_lvbptr,
+    __ret = memcpy((void *)r->res_lvbptr, (void const *)lkb->lkb_lvbptr,
                              __len);
   } else
   if ((unsigned long )high_lkb != (unsigned long )((struct dlm_lkb *)0)) {
     r->res_lvbseq = high_lkb->lkb_lvbseq;
     __len___0 = (size_t )lvblen;
-    __ret___0 = __builtin_memcpy((void *)r->res_lvbptr, (void const *)high_lkb->lkb_lvbptr,
+    __ret___0 = memcpy((void *)r->res_lvbptr, (void const *)high_lkb->lkb_lvbptr,
                                  __len___0);
   } else {
     r->res_lvbseq = 0U;
@@ -28460,7 +28460,7 @@ void dlm_add_requestqueue(struct dlm_ls *ls , int nodeid , struct dlm_message *m
   e->recover_seq = (uint32_t )ls->ls_recover_seq;
   e->nodeid = nodeid;
   __len = (size_t )ms->m_header.h_length;
-  __ret = __builtin_memcpy((void *)(& e->request), (void const *)ms, __len);
+  __ret = memcpy((void *)(& e->request), (void const *)ms, __len);
   mutex_lock_nested(& ls->ls_requestqueue_mutex, 0U);
   list_add_tail(& e->list, & ls->ls_requestqueue);
   mutex_unlock(& ls->ls_requestqueue_mutex);
@@ -28729,7 +28729,7 @@ static void compat_input(struct dlm_write_request *kb , struct dlm_write_request
     kb->i.lspace.flags = kb32->i.lspace.flags;
     kb->i.lspace.minor = kb32->i.lspace.minor;
     __len = (size_t )namelen;
-    __ret = __builtin_memcpy((void *)(& kb->i.lspace.name), (void const *)(& kb32->i.lspace.name),
+    __ret = memcpy((void *)(& kb->i.lspace.name), (void const *)(& kb32->i.lspace.name),
                              __len);
   } else
   if ((unsigned int )kb->cmd == 6U) {
@@ -28753,11 +28753,11 @@ static void compat_input(struct dlm_write_request *kb , struct dlm_write_request
       __ret___0 = memcpy((void *)(& kb->i.lock.lvb), (void const *)(& kb32->i.lock.lvb),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& kb->i.lock.lvb), (void const *)(& kb32->i.lock.lvb),
+      __ret___0 = memcpy((void *)(& kb->i.lock.lvb), (void const *)(& kb32->i.lock.lvb),
                                    __len___0);
     }
     __len___1 = (size_t )namelen;
-    __ret___1 = __builtin_memcpy((void *)(& kb->i.lock.name), (void const *)(& kb32->i.lock.name),
+    __ret___1 = memcpy((void *)(& kb->i.lock.name), (void const *)(& kb32->i.lock.name),
                                  __len___1);
   }
   return;
@@ -29355,7 +29355,7 @@ static int copy_result_to_user(struct dlm_user_args *ua , int compat , uint32_t 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& result.lksb), (void const *)(& ua->lksb), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& result.lksb), (void const *)(& ua->lksb),
+    __ret = memcpy((void *)(& result.lksb), (void const *)(& ua->lksb),
                              __len);
   }
   result.user_lksb = ua->user_lksb;

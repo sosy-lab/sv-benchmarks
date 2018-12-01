@@ -6040,7 +6040,7 @@ static int cisco_ioctl(struct net_device *dev , struct ifreq *ifr )
   }
   __len = size;
   tmp___7 = state(hdlc);
-  __ret = __builtin_memcpy((void *)(& tmp___7->settings), (void const *)(& new_settings),
+  __ret = memcpy((void *)(& tmp___7->settings), (void const *)(& new_settings),
                            __len);
   tmp___8 = state(hdlc);
   spinlock_check(& tmp___8->lock);

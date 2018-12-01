@@ -7554,7 +7554,7 @@ int tm6000_read_write_usb(struct tm6000_core *dev , u8 req_type , u8 req , u16 v
     tmp___1 = __create_pipe(dev->udev, 0U);
     pipe = tmp___1 | 2147483648U;
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)data, (void const *)buf, __len);
+    __ret = memcpy((void *)data, (void const *)buf, __len);
   }
   if ((tm6000_debug & 8) != 0) {
     printk("\017(dev %p, pipe %08x): ", dev->udev, pipe);
@@ -7589,7 +7589,7 @@ int tm6000_read_write_usb(struct tm6000_core *dev , u8 req_type , u8 req , u16 v
                         (void *)data, (int )len, 1250);
   if ((int )((signed char )req_type) < 0) {
     __len___0 = (size_t )len;
-    __ret___0 = __builtin_memcpy((void *)buf, (void const *)data, __len___0);
+    __ret___0 = memcpy((void *)buf, (void const *)data, __len___0);
   } else {
   }
   if ((tm6000_debug & 8) != 0) {
@@ -9550,7 +9550,7 @@ static int copy_streams(u8 *data , unsigned long len , struct urb *urb )
       header = (unsigned long )dev->isoc_ctl.tmp_buf;
       if (4 - dev->isoc_ctl.tmp_buf_len > 0) {
         __len = (size_t )(4 - dev->isoc_ctl.tmp_buf_len);
-        __ret = __builtin_memcpy((void *)(& header) + (unsigned long )dev->isoc_ctl.tmp_buf_len,
+        __ret = memcpy((void *)(& header) + (unsigned long )dev->isoc_ctl.tmp_buf_len,
                                  (void const *)ptr, __len);
         ptr = ptr + (unsigned long )(4 - dev->isoc_ctl.tmp_buf_len);
       } else {
@@ -9560,7 +9560,7 @@ static int copy_streams(u8 *data , unsigned long len , struct urb *urb )
       if ((unsigned long )(ptr + 3UL) >= (unsigned long )endp) {
         dev->isoc_ctl.tmp_buf_len = (int )((unsigned int )((long )endp) - (unsigned int )((long )ptr));
         __len___0 = (size_t )dev->isoc_ctl.tmp_buf_len;
-        __ret___0 = __builtin_memcpy((void *)(& dev->isoc_ctl.tmp_buf), (void const *)ptr,
+        __ret___0 = memcpy((void *)(& dev->isoc_ctl.tmp_buf), (void const *)ptr,
                                      __len___0);
         return (rc);
       } else {
@@ -9656,7 +9656,7 @@ static int copy_streams(u8 *data , unsigned long len , struct urb *urb )
     case 1: ;
     if ((unsigned long )vbuf != (unsigned long )((struct tm6000_buffer *)0)) {
       __len___1 = (size_t )cpysize;
-      __ret___1 = __builtin_memcpy((void *)voutp + (unsigned long )pos, (void const *)ptr,
+      __ret___1 = memcpy((void *)voutp + (unsigned long )pos, (void const *)ptr,
                                    __len___1);
     } else {
     }
@@ -9755,7 +9755,7 @@ static int copy_multiplexed(u8 *ptr , unsigned long len , struct urb *urb )
   }
   cpysize = (unsigned int )tmp___0;
   __len = (size_t )cpysize;
-  __ret = __builtin_memcpy((void *)outp + (unsigned long )pos, (void const *)ptr,
+  __ret = memcpy((void *)outp + (unsigned long )pos, (void const *)ptr,
                            __len);
   pos = pos + cpysize;
   ptr = ptr + (unsigned long )cpysize;
@@ -10656,7 +10656,7 @@ static int vidioc_queryctrl(struct file *file , void *priv , struct v4l2_queryct
       __ret = memcpy((void *)qc, (void const *)(& tm6000_qctrl) + (unsigned long )i,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)qc, (void const *)(& tm6000_qctrl) + (unsigned long )i,
+      __ret = memcpy((void *)qc, (void const *)(& tm6000_qctrl) + (unsigned long )i,
                                __len);
     }
     return (0);

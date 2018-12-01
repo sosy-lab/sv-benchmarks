@@ -1063,7 +1063,7 @@ static int ram_read(struct mtd_info *mtd , loff_t from , size_t len , size_t *re
   __cil_tmp11 = *((void **)__cil_tmp10);
   __cil_tmp12 = __cil_tmp11 + from;
   __cil_tmp13 = (void const *)__cil_tmp12;
-  __ret = __builtin_memcpy(__cil_tmp8, __cil_tmp13, __len);
+  __ret = memcpy(__cil_tmp8, __cil_tmp13, __len);
   *retlen = len;
   }
   return (0);
@@ -1090,7 +1090,7 @@ static int ram_write(struct mtd_info *mtd , loff_t to , size_t len , size_t *ret
   __cil_tmp12 = __cil_tmp11 + to;
   __cil_tmp13 = (void *)__cil_tmp12;
   __cil_tmp14 = (void const *)buf;
-  __ret = __builtin_memcpy(__cil_tmp13, __cil_tmp14, __len);
+  __ret = memcpy(__cil_tmp13, __cil_tmp14, __len);
   *retlen = len;
   }
   return (0);

@@ -6636,7 +6636,7 @@ static int dibusb_i2c_msg(struct dvb_usb_device *d , u8 addr , u8 *wbuf , u16 wl
   __cil_tmp33 = sndbuf + 2;
   __cil_tmp34 = (void *)__cil_tmp33;
   __cil_tmp35 = (void const *)wbuf;
-  __ret = __builtin_memcpy(__cil_tmp34, __cil_tmp35, __len);
+  __ret = memcpy(__cil_tmp34, __cil_tmp35, __len);
   }
   if (! wo) {
     __cil_tmp36 = (int )wlen;

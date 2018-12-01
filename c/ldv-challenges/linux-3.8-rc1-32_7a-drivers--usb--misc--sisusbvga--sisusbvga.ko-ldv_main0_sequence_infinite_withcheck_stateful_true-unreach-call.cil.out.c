@@ -4538,7 +4538,7 @@ static int sisusb_send_bulk_msg(struct sisusb_usb_data *sisusb , int ep , int le
   } else
   if (fromkern != 0) {
     __len = (size_t )passsize;
-    __ret = __builtin_memcpy((void *)buffer, (void const   *)kernbuffer, __len);
+    __ret = memcpy((void *)buffer, (void const   *)kernbuffer, __len);
     kernbuffer = kernbuffer + (unsigned long )passsize;
   } else {
 
@@ -4681,7 +4681,7 @@ static int sisusb_recv_bulk_msg(struct sisusb_usb_data *sisusb , int ep , int le
       userbuffer = userbuffer + (unsigned long )thispass;
     } else {
       __len = (size_t )thispass;
-      __ret = __builtin_memcpy(kernbuffer, (void const   *)buffer, __len);
+      __ret = memcpy(kernbuffer, (void const   *)buffer, __len);
       kernbuffer = kernbuffer + (unsigned long )thispass;
     }
   } else {
@@ -7423,7 +7423,7 @@ int sisusb_reset_text_mode(struct sisusb_usb_data *sisusb , int init )
     __ret = memcpy((void *)tempbuf + (unsigned long )(i * 32), myfont->data + (unsigned long )(i * 16),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)tempbuf + (unsigned long )(i * 32), myfont->data + (unsigned long )(i * 16),
+    __ret = memcpy((void *)tempbuf + (unsigned long )(i * 32), myfont->data + (unsigned long )(i * 16),
                              __len);
   }
   i = i + 1;
@@ -11336,7 +11336,7 @@ static int sisusbcon_switch(struct vc_data *c )
   _min2 = (int )(((unsigned int )sisusb->scrbuf + sisusb->scrbuf_size) - (unsigned int )c->vc_origin);
   length = _min1 < _min2 ? _min1 : _min2;
   __len = (size_t )length;
-  __ret = __builtin_memcpy((void *)c->vc_origin, (void const   *)c->vc_screenbuf,
+  __ret = memcpy((void *)c->vc_origin, (void const   *)c->vc_screenbuf,
                            __len);
   sisusb_copy_memory(sisusb, (char *)c->vc_origin, (u32 )(sisusb->vrambase + (c->vc_origin - sisusb->scrbuf)),
                      length, (size_t *)(& written));
@@ -11372,7 +11372,7 @@ static void sisusbcon_save_screen(struct vc_data *c )
   _min2 = (int )(((unsigned int )sisusb->scrbuf + sisusb->scrbuf_size) - (unsigned int )c->vc_origin);
   length = _min1 < _min2 ? _min1 : _min2;
   __len = (size_t )length;
-  __ret = __builtin_memcpy((void *)c->vc_screenbuf, (void const   *)c->vc_origin,
+  __ret = memcpy((void *)c->vc_screenbuf, (void const   *)c->vc_origin,
                            __len);
   ldv_mutex_unlock_85(& sisusb->lock);
   return;
@@ -11771,7 +11771,7 @@ static int sisusbcon_scroll(struct vc_data *c , int t , int b , int dir , int li
   case 1: ;
   if (c->vc_scr_end + (unsigned long )delta >= sisusb->scrbuf + (unsigned long )sisusb->scrbuf_size) {
     __len = (size_t )(c->vc_screenbuf_size - delta);
-    __ret = __builtin_memcpy((void *)sisusb->scrbuf, (void const   *)((unsigned long )delta + oldorigin),
+    __ret = memcpy((void *)sisusb->scrbuf, (void const   *)((unsigned long )delta + oldorigin),
                              __len);
     c->vc_origin = sisusb->scrbuf;
     sisusb->con_rolled_over = (int )((unsigned int )oldorigin - (unsigned int )sisusb->scrbuf);
@@ -12212,7 +12212,7 @@ static int sisusbcon_font_set(struct vc_data *c , struct console_font *font , un
   }
   if ((unsigned long )sisusb->font_backup != (unsigned long )((char *)0)) {
     __len = (size_t )(charcount * 32U);
-    __ret = __builtin_memcpy((void *)sisusb->font_backup, (void const   *)font->data,
+    __ret = memcpy((void *)sisusb->font_backup, (void const   *)font->data,
                              __len);
     sisusb->font_backup_size = (int )charcount;
     sisusb->font_backup_height = (int )font->height;
@@ -12257,7 +12257,7 @@ static int sisusbcon_font_get(struct vc_data *c , struct console_font *font )
   if (__len > 63UL) {
     __ret = memcpy((void *)font->data, (void const   *)sisusb->font_backup, __len);
   } else {
-    __ret = __builtin_memcpy((void *)font->data, (void const   *)sisusb->font_backup,
+    __ret = memcpy((void *)font->data, (void const   *)sisusb->font_backup,
                              __len);
   }
   ldv_mutex_unlock_107(& sisusb->lock);

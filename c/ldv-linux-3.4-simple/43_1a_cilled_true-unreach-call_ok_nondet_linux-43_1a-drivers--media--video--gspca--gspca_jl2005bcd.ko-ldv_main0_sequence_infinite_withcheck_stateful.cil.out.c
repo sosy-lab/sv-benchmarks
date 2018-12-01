@@ -3635,7 +3635,7 @@ static int jl2005c_write2(struct gspca_dev *gspca_dev , unsigned char *command )
     __cil_tmp14 = *((__u8 **)__cil_tmp13);
     __cil_tmp15 = (void *)__cil_tmp14;
     __cil_tmp16 = (void const   *)command;
-    __ret = __builtin_memcpy(__cil_tmp15, __cil_tmp16, __len);
+    __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
     }
   }
   {

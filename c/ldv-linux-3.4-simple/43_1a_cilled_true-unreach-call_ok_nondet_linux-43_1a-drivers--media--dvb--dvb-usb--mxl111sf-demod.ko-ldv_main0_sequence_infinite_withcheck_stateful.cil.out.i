@@ -7719,7 +7719,7 @@ struct dvb_frontend *mxl111sf_demod_attach(struct mxl111sf_state *mxl_state , st
     __cil_tmp21 = (struct dvb_frontend_ops *)__cil_tmp20;
     __cil_tmp22 = (void *)__cil_tmp21;
     __cil_tmp23 = (void const *)(& mxl111sf_demod_ops);
-    __ret = __builtin_memcpy(__cil_tmp22, __cil_tmp23, __len);
+    __ret = memcpy(__cil_tmp22, __cil_tmp23, __len);
     }
   }
   __cil_tmp24 = 16 + 760;

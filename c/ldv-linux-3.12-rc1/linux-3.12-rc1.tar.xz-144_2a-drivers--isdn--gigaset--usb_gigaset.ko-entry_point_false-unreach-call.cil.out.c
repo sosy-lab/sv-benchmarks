@@ -5738,7 +5738,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -6421,7 +6421,7 @@ static int gigaset_brkchars(struct cardstate *cs , unsigned char const   *buf )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& (cs->hw.usb)->bchars), (void const   *)buf, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (cs->hw.usb)->bchars), (void const   *)buf,
+    __ret = memcpy((void *)(& (cs->hw.usb)->bchars), (void const   *)buf,
                              __len);
   }
   tmp = __create_pipe(udev, 0U);

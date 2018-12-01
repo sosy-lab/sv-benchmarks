@@ -5785,7 +5785,7 @@ static int ath6kl_usb_submit_ctrl_out(struct ath6kl_usb *ar_usb , u8 req , u16 v
     __len = (size_t )size;
     __cil_tmp17 = (void *)buf;
     __cil_tmp18 = (void const   *)data;
-    __ret = __builtin_memcpy(__cil_tmp17, __cil_tmp18, __len);
+    __ret = memcpy(__cil_tmp17, __cil_tmp18, __len);
     }
   } else {
 
@@ -5907,7 +5907,7 @@ static int ath6kl_usb_submit_ctrl_in(struct ath6kl_usb *ar_usb , u8 req , u16 va
   {
   __len = (size_t )size;
   __cil_tmp32 = (void const   *)buf;
-  __ret = __builtin_memcpy(data, __cil_tmp32, __len);
+  __ret = memcpy(data, __cil_tmp32, __len);
   __cil_tmp33 = (void const   *)buf;
   kfree(__cil_tmp33);
   }

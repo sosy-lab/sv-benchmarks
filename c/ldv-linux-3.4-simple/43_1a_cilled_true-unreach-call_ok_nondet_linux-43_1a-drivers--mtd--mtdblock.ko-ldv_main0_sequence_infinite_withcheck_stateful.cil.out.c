@@ -3618,7 +3618,7 @@ static int do_cached_write(struct mtdblk_dev *mtdblk , unsigned long pos , int l
     __cil_tmp79 = (void *)__cil_tmp78;
     __cil_tmp80 = __cil_tmp79 + __cil_tmp75;
     __cil_tmp81 = (void const   *)buf;
-    __ret = __builtin_memcpy(__cil_tmp80, __cil_tmp81, __len);
+    __ret = memcpy(__cil_tmp80, __cil_tmp81, __len);
     __cil_tmp82 = (unsigned long )mtdblk;
     __cil_tmp83 = __cil_tmp82 + 548;
     *((enum ldv_17573 *)__cil_tmp83) = (enum ldv_17573 )2;
@@ -3794,7 +3794,7 @@ static int do_cached_read(struct mtdblk_dev *mtdblk , unsigned long pos , int le
       __cil_tmp55 = *((unsigned char **)__cil_tmp54);
       __cil_tmp56 = (void const   *)__cil_tmp55;
       __cil_tmp57 = __cil_tmp56 + __cil_tmp52;
-      __ret = __builtin_memcpy(__cil_tmp51, __cil_tmp57, __len);
+      __ret = memcpy(__cil_tmp51, __cil_tmp57, __len);
       }
     } else {
       goto _L;

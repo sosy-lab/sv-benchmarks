@@ -5579,7 +5579,7 @@ static int cpia2_g_jpegcomp(struct file *file , void *fh , struct v4l2_jpegcompr
   parms->APP_len = cam->APP_len;
   if (cam->APP_len > 0) {
     __len = (size_t )cam->APP_len;
-    __ret = __builtin_memcpy((void *)(& parms->APP_data), (void const *)(& cam->APP_data),
+    __ret = memcpy((void *)(& parms->APP_data), (void const *)(& cam->APP_data),
                              __len);
     parms->jpeg_markers = parms->jpeg_markers | 128U;
   } else {
@@ -5587,7 +5587,7 @@ static int cpia2_g_jpegcomp(struct file *file , void *fh , struct v4l2_jpegcompr
   parms->COM_len = cam->COM_len;
   if (cam->COM_len > 0) {
     __len___0 = (size_t )cam->COM_len;
-    __ret___0 = __builtin_memcpy((void *)(& parms->COM_data), (void const *)(& cam->COM_data),
+    __ret___0 = memcpy((void *)(& parms->COM_data), (void const *)(& cam->COM_data),
                                  __len___0);
     parms->jpeg_markers = parms->jpeg_markers | 64U;
   } else {
@@ -5611,7 +5611,7 @@ static int cpia2_s_jpegcomp(struct file *file , void *fh , struct v4l2_jpegcompr
       cam->APPn = parms->APPn;
       cam->APP_len = parms->APP_len;
       __len = (size_t )parms->APP_len;
-      __ret = __builtin_memcpy((void *)(& cam->APP_data), (void const *)(& parms->APP_data),
+      __ret = memcpy((void *)(& cam->APP_data), (void const *)(& parms->APP_data),
                                __len);
     } else {
       printk("\016cpia2: Bad APPn Params n=%d len=%d\n", parms->APPn, parms->APP_len);
@@ -5624,7 +5624,7 @@ static int cpia2_s_jpegcomp(struct file *file , void *fh , struct v4l2_jpegcompr
     if ((int )parms->COM_len > 0 && (unsigned int )parms->COM_len <= 60U) {
       cam->COM_len = parms->COM_len;
       __len___0 = (size_t )parms->COM_len;
-      __ret___0 = __builtin_memcpy((void *)(& cam->COM_data), (void const *)(& parms->COM_data),
+      __ret___0 = memcpy((void *)(& cam->COM_data), (void const *)(& parms->COM_data),
                                    __len___0);
     } else {
       printk("\016cpia2: Bad COM_len=%d\n", parms->COM_len);
@@ -7104,7 +7104,7 @@ static void add_APPn(struct camera_data *cam )
     (cam->workbuff)->length = (cam->workbuff)->length + 1;
     *((cam->workbuff)->data + (unsigned long )tmp___2) = (unsigned int )((u8 )cam->APP_len) + 2U;
     __len = (size_t )cam->APP_len;
-    __ret = __builtin_memcpy((void *)(cam->workbuff)->data + (unsigned long )(cam->workbuff)->length,
+    __ret = memcpy((void *)(cam->workbuff)->data + (unsigned long )(cam->workbuff)->length,
                              (void const *)(& cam->APP_data), __len);
     (cam->workbuff)->length = (cam->workbuff)->length + cam->APP_len;
   } else {
@@ -7134,7 +7134,7 @@ static void add_COM(struct camera_data *cam )
     (cam->workbuff)->length = (cam->workbuff)->length + 1;
     *((cam->workbuff)->data + (unsigned long )tmp___2) = (unsigned int )((u8 )cam->COM_len) + 2U;
     __len = (size_t )cam->COM_len;
-    __ret = __builtin_memcpy((void *)(cam->workbuff)->data + (unsigned long )(cam->workbuff)->length,
+    __ret = memcpy((void *)(cam->workbuff)->data + (unsigned long )(cam->workbuff)->length,
                              (void const *)(& cam->COM_data), __len);
     (cam->workbuff)->length = (cam->workbuff)->length + cam->COM_len;
   } else {
@@ -7290,14 +7290,14 @@ static void cpia2_usb_complete(struct urb *urb )
     add_APPn(cam);
     add_COM(cam);
     __len = (size_t )(n - data_offset);
-    __ret = __builtin_memcpy((void *)(cam->workbuff)->data + (unsigned long )(cam->workbuff)->length,
+    __ret = memcpy((void *)(cam->workbuff)->data + (unsigned long )(cam->workbuff)->length,
                              (void const *)cdata + (unsigned long )data_offset,
                              __len);
     (cam->workbuff)->length = (cam->workbuff)->length + (n - data_offset);
   } else
   if ((cam->workbuff)->length > 0) {
     __len___0 = (size_t )n;
-    __ret___0 = __builtin_memcpy((void *)(cam->workbuff)->data + (unsigned long )(cam->workbuff)->length,
+    __ret___0 = memcpy((void *)(cam->workbuff)->data + (unsigned long )(cam->workbuff)->length,
                                  (void const *)cdata, __len___0);
     (cam->workbuff)->length = (cam->workbuff)->length + n;
   } else {
@@ -8954,7 +8954,7 @@ static int apply_vp_patch(struct camera_data *cam )
   }
   cmd.reg_count = (u8 )tmp;
   __len = (size_t )cmd.reg_count;
-  __ret = __builtin_memcpy((void *)(& cmd.buffer.block_data), (void const *)fw->data + (unsigned long )i,
+  __ret = memcpy((void *)(& cmd.buffer.block_data), (void const *)fw->data + (unsigned long )i,
                            __len);
   cpia2_send_command(cam, & cmd);
   i = i + 64;

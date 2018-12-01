@@ -3180,7 +3180,7 @@ struct spcp8x5_private {
    u8 line_status ;
    u8 termios_initialized ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
 extern void __bad_percpu_size(void) ;
@@ -4155,14 +4155,14 @@ static unsigned int put_ringbuf(struct ringbuf *pb , char const   *buf , unsigne
   ______f___3.ldv_807.miss_hit[______r___3] = ______f___3.ldv_807.miss_hit[______r___3] + 1UL;
   if (______r___3 != 0) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)pb->buf_put, (void const   *)buf, __len);
+    __ret = memcpy((void *)pb->buf_put, (void const   *)buf, __len);
     __len___0 = (size_t )(count - len);
-    __ret___0 = __builtin_memcpy((void *)pb->buf_buf, (void const   *)buf + (unsigned long )len,
+    __ret___0 = memcpy((void *)pb->buf_buf, (void const   *)buf + (unsigned long )len,
                                  __len___0);
     pb->buf_put = pb->buf_buf + ((unsigned long )count - (unsigned long )len);
   } else {
     __len___1 = (size_t )count;
-    __ret___1 = __builtin_memcpy((void *)pb->buf_put, (void const   *)buf, __len___1);
+    __ret___1 = memcpy((void *)pb->buf_put, (void const   *)buf, __len___1);
     ______f___2.func = "put_ringbuf";
     ______f___2.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/spcp8x5.c.prepared";
     ______f___2.line = 253U;
@@ -4247,14 +4247,14 @@ static unsigned int get_ringbuf(struct ringbuf *pb , char *buf , unsigned int co
   ______f___3.ldv_807.miss_hit[______r___3] = ______f___3.ldv_807.miss_hit[______r___3] + 1UL;
   if (______r___3 != 0) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)pb->buf_get, __len);
+    __ret = memcpy((void *)buf, (void const   *)pb->buf_get, __len);
     __len___0 = (size_t )(count - len);
-    __ret___0 = __builtin_memcpy((void *)buf + (unsigned long )len, (void const   *)pb->buf_buf,
+    __ret___0 = memcpy((void *)buf + (unsigned long )len, (void const   *)pb->buf_buf,
                                  __len___0);
     pb->buf_get = pb->buf_buf + ((unsigned long )count - (unsigned long )len);
   } else {
     __len___1 = (size_t )count;
-    __ret___1 = __builtin_memcpy((void *)buf, (void const   *)pb->buf_get, __len___1);
+    __ret___1 = memcpy((void *)buf, (void const   *)pb->buf_get, __len___1);
     ______f___2.func = "get_ringbuf";
     ______f___2.file = "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/usb/serial/spcp8x5.c.prepared";
     ______f___2.line = 284U;

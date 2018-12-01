@@ -7581,7 +7581,7 @@ __inline static void MWIFIEX_SKB_PACB(struct sk_buff *skb , struct mwifiex_dma_m
   if (__len > 63UL) {
     __ret = memcpy((void *)mapping, (void const *)(& skb->cb), __len);
   } else {
-    __ret = __builtin_memcpy((void *)mapping, (void const *)(& skb->cb), __len);
+    __ret = memcpy((void *)mapping, (void const *)(& skb->cb), __len);
   }
   return;
 }
@@ -7794,7 +7794,7 @@ static int mwifiex_map_pci_memory(struct mwifiex_adapter *adapter , struct sk_bu
   if (__len > 63UL) {
     __ret = memcpy((void *)(& skb->cb), (void const *)(& mapping), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& skb->cb), (void const *)(& mapping), __len);
+    __ret = memcpy((void *)(& skb->cb), (void const *)(& mapping), __len);
   }
   return (0);
 }
@@ -9593,7 +9593,7 @@ static int mwifiex_pcie_process_cmd_complete(struct mwifiex_adapter *adapter )
     __min1 = 2048U;
     __min2 = skb->len;
     __len = (size_t )(__min1 < __min2 ? __min1 : __min2);
-    __ret = __builtin_memcpy((void *)(& adapter->upld_buf), (void const *)skb->data,
+    __ret = memcpy((void *)(& adapter->upld_buf), (void const *)skb->data,
                              __len);
     skb_push(skb, 4U);
     tmp___3 = mwifiex_map_pci_memory(adapter, skb, 2312UL, 2);
@@ -9759,7 +9759,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& data_len), (void const *)skb_cmd->data, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& data_len), (void const *)skb_cmd->data,
+      __ret = memcpy((void *)(& data_len), (void const *)skb_cmd->data,
                                __len);
     }
     evt_len = data_len;
@@ -9778,7 +9778,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
     }
     if ((unsigned int )evt_len != 0U && (unsigned int )evt_len <= 2047U) {
       __len___0 = (size_t )((int )evt_len + -4);
-      __ret___0 = __builtin_memcpy((void *)(& adapter->event_body), (void const *)skb_cmd->data + 4U,
+      __ret___0 = memcpy((void *)(& adapter->event_body), (void const *)skb_cmd->data + 4U,
                                    __len___0);
     } else {
     }

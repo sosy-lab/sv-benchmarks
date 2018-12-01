@@ -7728,7 +7728,7 @@ static int usbat_flash_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp35 = (unsigned long )(inquiry_response) + __cil_tmp34;
       __cil_tmp36 = (unsigned char *)__cil_tmp35;
       __cil_tmp37 = (void const *)__cil_tmp36;
-      __ret = __builtin_memcpy(__cil_tmp33, __cil_tmp37, __len);
+      __ret = memcpy(__cil_tmp33, __cil_tmp37, __len);
       }
     }
     {

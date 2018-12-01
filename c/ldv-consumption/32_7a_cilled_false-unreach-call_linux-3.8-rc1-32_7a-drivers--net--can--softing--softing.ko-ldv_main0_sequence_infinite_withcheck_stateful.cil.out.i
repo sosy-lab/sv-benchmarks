@@ -4919,7 +4919,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile *src , size_t
   void *__ret ;
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const *)src, __len);
+  __ret = memcpy(dst, (void const *)src, __len);
   return;
 }
 }
@@ -4929,7 +4929,7 @@ __inline static void memcpy_toio(void volatile *dst , void const *src , size_t c
   void *__ret ;
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }
@@ -5304,7 +5304,7 @@ static netdev_tx_t softing_netdev_start_xmit(struct sk_buff *skb , struct net_de
   }
   if ((cf->can_id & 1073741824U) == 0U) {
     __len = (size_t )cf->can_dlc;
-    __ret = __builtin_memcpy((void *)ptr, (void const *)(& cf->data), __len);
+    __ret = memcpy((void *)ptr, (void const *)(& cf->data), __len);
   } else {
   }
   memcpy_toio((void volatile *)card->dpram + (unsigned long )(((int )fifo_wr + 64) * 16),
@@ -5368,7 +5368,7 @@ int softing_netdev_rx(struct net_device *netdev , struct can_frame const *msg ,
   if (__len > 63UL) {
     __ret = memcpy((void *)cf, (void const *)msg, __len);
   } else {
-    __ret = __builtin_memcpy((void *)cf, (void const *)msg, __len);
+    __ret = memcpy((void *)cf, (void const *)msg, __len);
   }
   skb->tstamp = ktime;
   tmp = netif_rx(skb);
@@ -5545,7 +5545,7 @@ static int softing_handle_1(struct softing *card )
       if (__len > 63UL) {
         __ret = memcpy((void *)(& msg.data), (void const *)ptr, __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& msg.data), (void const *)ptr, __len);
+        __ret = memcpy((void *)(& msg.data), (void const *)ptr, __len);
       }
     } else {
     }
@@ -6029,7 +6029,7 @@ static struct net_device *softing_netdev_create(struct softing *card , uint16_t 
     __ret = memcpy((void *)(& priv->btr_const), (void const *)(& softing_btr_const),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->btr_const), (void const *)(& softing_btr_const),
+    __ret = memcpy((void *)(& priv->btr_const), (void const *)(& softing_btr_const),
                              __len);
   }
   priv->btr_const.brp_max = (card->pdat)->max_brp;

@@ -6560,7 +6560,7 @@ __inline static struct sk_buff *_alloc_mISDN_skb(u_int prim , u_int id , u_int l
   if (len != 0U) {
     __len = (size_t )len;
     tmp___1 = skb_put(skb, len);
-    __ret = __builtin_memcpy((void *)tmp___1, (void const *)dp, __len);
+    __ret = memcpy((void *)tmp___1, (void const *)dp, __len);
   } else {
   }
   hh = (struct mISDNhead *)(& skb->cb);
@@ -7674,7 +7674,7 @@ static void hfcsusb_rx_frame(struct usb_fifo *fifo , __u8 *data , unsigned int l
   }
   __len = (size_t )len;
   tmp___1 = skb_put(rx_skb, len);
-  __ret = __builtin_memcpy((void *)tmp___1, (void const *)data, __len);
+  __ret = memcpy((void *)tmp___1, (void const *)data, __len);
   if (hdlc != 0) {
     if (finish != 0) {
       if (rx_skb->len > 3U && (unsigned int )*(rx_skb->data + (unsigned long )(rx_skb->len - 1U)) == 0U) {
@@ -8111,7 +8111,7 @@ static void tx_iso_complete(struct urb *urb )
         memset((void *)p, (int )(fifo->bch)->fill[0], (size_t )current_len);
       } else {
         __len = (size_t )current_len;
-        __ret = __builtin_memcpy((void *)p, (void const *)tx_skb->data + (unsigned long )*tx_idx,
+        __ret = memcpy((void *)p, (void const *)tx_skb->data + (unsigned long )*tx_idx,
                                  __len);
         *tx_idx = *tx_idx + current_len;
       }
@@ -8872,7 +8872,7 @@ static int hfcsusb_probe(struct usb_interface *intf , struct usb_device_id const
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cmptbl), (void const *)vcf, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cmptbl), (void const *)vcf, __len);
+    __ret = memcpy((void *)(& cmptbl), (void const *)vcf, __len);
   }
   i = 0;
   goto ldv_47134;

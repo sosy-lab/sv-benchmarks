@@ -3368,7 +3368,7 @@ static int cyttsp_spi_xfer(struct cyttsp *ts , u8 op , u8 reg , u8 *buf , int le
     __cil_tmp40 = (void *)wr_buf;
     __cil_tmp41 = __cil_tmp40 + 4U;
     __cil_tmp42 = (void const *)buf;
-    __ret = __builtin_memcpy(__cil_tmp41, __cil_tmp42, __len);
+    __ret = memcpy(__cil_tmp41, __cil_tmp42, __len);
     }
   } else {
   }

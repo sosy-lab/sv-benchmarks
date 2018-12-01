@@ -5515,7 +5515,7 @@ static int whiteheat_write(struct tty_struct *tty , struct usb_serial_port *port
     }
     {
     __len = (size_t )bytes;
-    __ret = __builtin_memcpy(urb->transfer_buffer, (void const *)(buf + sent), __len);
+    __ret = memcpy(urb->transfer_buffer, (void const *)(buf + sent), __len);
     usb_serial_debug_data(debug, & port->dev, "whiteheat_write", bytes, (unsigned char const *)urb->transfer_buffer);
     urb->dev = serial->dev;
     urb->transfer_buffer_length = (u32 )bytes;
@@ -6201,7 +6201,7 @@ static void command_port_read_callback(struct urb *urb )
   if ((int )*(data + 0) == 10) {
     {
     __len = (size_t )(urb->actual_length - 1U);
-    __ret = __builtin_memcpy((void *)(command_info->result_buffer), (void const *)(data + 1),
+    __ret = memcpy((void *)(command_info->result_buffer), (void const *)(data + 1),
                              __len);
     command_info->command_finished = (__u8 )16;
     __wake_up(& command_info->wait_command, 3U, 1, (void *)0);
@@ -6467,7 +6467,7 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
   transfer_buffer = (__u8 *)(command_port->write_urb)->transfer_buffer;
   *(transfer_buffer + 0) = command;
   __len = (size_t )datasize;
-  __ret = __builtin_memcpy((void *)(transfer_buffer + 1), (void const *)data, __len);
+  __ret = memcpy((void *)(transfer_buffer + 1), (void const *)data, __len);
   (command_port->write_urb)->transfer_buffer_length = (u32 )((int )datasize + 1);
   (command_port->write_urb)->dev = (port->serial)->dev;
   retval = usb_submit_urb(command_port->write_urb, 16U);
@@ -6626,7 +6626,7 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
         }
       } else {
         {
-        __ret___1 = __builtin_memcpy((void *)(& info->mcr), (void const *)(command_info->result_buffer),
+        __ret___1 = memcpy((void *)(& info->mcr), (void const *)(command_info->result_buffer),
                                      __len___0);
         }
       }

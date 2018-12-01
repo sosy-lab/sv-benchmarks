@@ -2684,7 +2684,7 @@ enum __anonenum_81 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 __inline static void __set_bit(int nr , void volatile   *addr ) 
 { 
 
@@ -3033,7 +3033,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
       __ret = memcpy((void *)(& remote->data.buffer), (void const   *)remote->in_buffer,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& remote->data.buffer), (void const   *)remote->in_buffer,
+      __ret = memcpy((void *)(& remote->data.buffer), (void const   *)remote->in_buffer,
                                __len);
     }
     remote->data.len = 8;
@@ -3051,7 +3051,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
     __ret___0 = memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
                          (void const   *)remote->in_buffer, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
+    __ret___0 = memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
                                  (void const   *)remote->in_buffer, __len___0);
   }
   remote->data.len = remote->data.len + 8;
@@ -3105,7 +3105,7 @@ static void keyspan_check_data(struct usb_keyspan *remote )
     __ret___1 = memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
                          (void const   *)remote->in_buffer, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
+    __ret___1 = memcpy((void *)(& remote->data.buffer) + (unsigned long )remote->data.len,
                                  (void const   *)remote->in_buffer, __len___1);
   }
   remote->data.len = remote->data.len + 8;
@@ -3426,7 +3426,7 @@ static int keyspan_probe(struct usb_interface *interface , struct usb_device_id 
     __ret = memcpy((void *)(& remote->keymap), (void const   *)(& keyspan_key_table),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& remote->keymap), (void const   *)(& keyspan_key_table),
+    __ret = memcpy((void *)(& remote->keymap), (void const   *)(& keyspan_key_table),
                              __len);
   }
   input_dev->name = (char const   *)(& remote->name);

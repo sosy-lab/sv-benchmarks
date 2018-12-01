@@ -5092,7 +5092,7 @@ static int abyss_attach(struct pci_dev *pdev , struct pci_device_id const *ent )
     __cil_tmp83 = (unsigned char (*)[19U])__cil_tmp82;
     __cil_tmp84 = (void *)__cil_tmp83;
     __cil_tmp85 = (void const *)"Madge PCI 16/4 Mk2";
-    __ret = __builtin_memcpy(__cil_tmp84, __cil_tmp85, __len);
+    __ret = memcpy(__cil_tmp84, __cil_tmp85, __len);
     }
   }
   {

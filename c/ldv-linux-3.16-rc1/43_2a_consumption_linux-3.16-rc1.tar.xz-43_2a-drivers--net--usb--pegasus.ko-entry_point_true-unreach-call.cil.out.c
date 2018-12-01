@@ -5777,7 +5777,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -6801,7 +6801,7 @@ static void set_ethernet_addr(pegasus_t *pegasus )
     __ret = memcpy((void *)(pegasus->net)->dev_addr, (void const   *)(& node_id),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(pegasus->net)->dev_addr, (void const   *)(& node_id),
+    __ret = memcpy((void *)(pegasus->net)->dev_addr, (void const   *)(& node_id),
                              __len);
   }
   return;
@@ -6903,7 +6903,7 @@ static int enable_net_traffic(struct net_device *dev , struct usb_device *usb )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pegasus->eth_regs), (void const   *)(& data), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pegasus->eth_regs), (void const   *)(& data),
+    __ret = memcpy((void *)(& pegasus->eth_regs), (void const   *)(& data),
                              __len);
   }
   ret = set_registers(pegasus, 0, 3, (void *)(& data));

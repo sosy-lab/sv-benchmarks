@@ -7531,7 +7531,7 @@ static void unix_get_secdata(struct scm_cookie *scm , struct sk_buff *skb )
     __ret = memcpy((void *)(& ((struct unix_skb_parms *)(& skb->cb))->secid), (void const *)(& scm->secid),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ((struct unix_skb_parms *)(& skb->cb))->secid),
+    __ret = memcpy((void *)(& ((struct unix_skb_parms *)(& skb->cb))->secid),
                              (void const *)(& scm->secid), __len);
   }
   return;
@@ -8494,7 +8494,7 @@ static int unix_bind(struct socket *sock , struct sockaddr *uaddr , int addr_len
   } else {
   }
   __len = (size_t )addr_len;
-  __ret = __builtin_memcpy((void *)(& addr->name), (void const *)sunaddr, __len);
+  __ret = memcpy((void *)(& addr->name), (void const *)sunaddr, __len);
   addr->len = addr_len;
   addr->hash = (unsigned int )sk->sk_type ^ hash;
   atomic_set(& addr->refcnt, 1);
@@ -9000,7 +9000,7 @@ static int unix_getname(struct socket *sock , struct sockaddr *uaddr , int *uadd
     addr = u->addr;
     *uaddr_len = addr->len;
     __len = (size_t )*uaddr_len;
-    __ret = __builtin_memcpy((void *)sunaddr, (void const *)(& addr->name), __len);
+    __ret = memcpy((void *)sunaddr, (void const *)(& addr->name), __len);
   }
   spin_unlock(& ((struct unix_sock *)sk)->lock);
   sock_put(sk);
@@ -9569,7 +9569,7 @@ static void unix_copy_addr(struct msghdr *msg , struct sock *sk )
   if ((unsigned long )u->addr != (unsigned long )((struct unix_address *)0)) {
     msg->msg_namelen = (u->addr)->len;
     __len = (size_t )(u->addr)->len;
-    __ret = __builtin_memcpy(msg->msg_name, (void const *)(& (u->addr)->name), __len);
+    __ret = memcpy(msg->msg_name, (void const *)(& (u->addr)->name), __len);
   } else {
   }
   return;

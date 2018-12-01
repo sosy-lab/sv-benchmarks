@@ -7151,7 +7151,7 @@ static int ttusb_dec_send_command(struct ttusb_dec *dec , u8 const command , int
   if (params) {
     {
     __len = (size_t )param_length;
-    __ret = __builtin_memcpy((void *)(b + 4), (void const *)params, __len);
+    __ret = memcpy((void *)(b + 4), (void const *)params, __len);
     }
   } else {
 
@@ -7247,7 +7247,7 @@ static int ttusb_dec_send_command(struct ttusb_dec *dec , u8 const command , int
       if ((int )*(b + 3) > 0) {
         {
         __len___0 = (size_t )*(b + 3);
-        __ret___0 = __builtin_memcpy((void *)cmd_result, (void const *)(b + 4),
+        __ret___0 = memcpy((void *)cmd_result, (void const *)(b + 4),
                                      __len___0);
         }
       } else {
@@ -7306,7 +7306,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
         }
       } else {
         {
-        __ret = __builtin_memcpy((void *)(& tmp___7), (void const *)(c), __len);
+        __ret = memcpy((void *)(& tmp___7), (void const *)(c), __len);
         }
       }
       {
@@ -7324,7 +7324,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
         }
       } else {
         {
-        __ret___0 = __builtin_memcpy((void *)(& tmp___7), (void const *)(& c[4]),
+        __ret___0 = memcpy((void *)(& tmp___7), (void const *)(& c[4]),
                                      __len___0);
         }
       }
@@ -7343,7 +7343,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
         }
       } else {
         {
-        __ret___1 = __builtin_memcpy((void *)(& tmp___7), (void const *)(& c[8]),
+        __ret___1 = memcpy((void *)(& tmp___7), (void const *)(& c[8]),
                                      __len___1);
         }
       }
@@ -7436,7 +7436,7 @@ static void ttusb_dec_set_pids(struct ttusb_dec *dec )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& b[0]), (void const *)(& pcr), __len);
+    __ret = memcpy((void *)(& b[0]), (void const *)(& pcr), __len);
     }
   }
   __len___0 = (size_t )2;
@@ -7446,7 +7446,7 @@ static void ttusb_dec_set_pids(struct ttusb_dec *dec )
     }
   } else {
     {
-    __ret___0 = __builtin_memcpy((void *)(& b[2]), (void const *)(& audio), __len___0);
+    __ret___0 = memcpy((void *)(& b[2]), (void const *)(& audio), __len___0);
     }
   }
   __len___1 = (size_t )2;
@@ -7456,7 +7456,7 @@ static void ttusb_dec_set_pids(struct ttusb_dec *dec )
     }
   } else {
     {
-    __ret___1 = __builtin_memcpy((void *)(& b[4]), (void const *)(& video), __len___1);
+    __ret___1 = memcpy((void *)(& b[4]), (void const *)(& video), __len___1);
     }
   }
   {
@@ -7529,7 +7529,7 @@ static void ttusb_dec_process_pva(struct ttusb_dec *dec , u8 *pva , int length )
         if (dec->v_pes_postbytes == prebytes) {
           {
           __len = (size_t )prebytes;
-          __ret = __builtin_memcpy((void *)(& dec->v_pes[dec->v_pes_length]), (void const *)(pva + 12),
+          __ret = memcpy((void *)(& dec->v_pes[dec->v_pes_length]), (void const *)(pva + 12),
                                    __len);
           dvb_filter_pes2ts(& dec->v_pes2ts, dec->v_pes, dec->v_pes_length + prebytes,
                             1);
@@ -7550,7 +7550,7 @@ static void ttusb_dec_process_pva(struct ttusb_dec *dec , u8 *pva , int length )
         dec->v_pes[12] = (u8 )((((int )*(pva + 10) & 127) << 1) | (((int )*(pva + 11) & 192) >> 7));
         dec->v_pes[13] = (u8 )(1 | (((int )*(pva + 11) & 127) << 1));
         __len___0 = (size_t )((length - 12) - prebytes);
-        __ret___0 = __builtin_memcpy((void *)(& dec->v_pes[14]), (void const *)(pva + (12 + prebytes)),
+        __ret___0 = memcpy((void *)(& dec->v_pes[14]), (void const *)(pva + (12 + prebytes)),
                                      __len___0);
         dec->v_pes_length = ((14 + length) - 12) - prebytes;
         }
@@ -7559,7 +7559,7 @@ static void ttusb_dec_process_pva(struct ttusb_dec *dec , u8 *pva , int length )
         dec->v_pes[7] = (u8 )0;
         dec->v_pes[8] = (u8 )0;
         __len___1 = (size_t )(length - 8);
-        __ret___1 = __builtin_memcpy((void *)(& dec->v_pes[9]), (void const *)(pva + 8),
+        __ret___1 = memcpy((void *)(& dec->v_pes[9]), (void const *)(pva + 8),
                                      __len___1);
         dec->v_pes_length = (9 + length) - 8;
         }
@@ -7590,7 +7590,7 @@ static void ttusb_dec_process_pva(struct ttusb_dec *dec , u8 *pva , int length )
         }
       } else {
         {
-        __ret___2 = __builtin_memcpy((void *)(& dec->v_pes[4]), (void const *)(& v_pes_payload_length),
+        __ret___2 = memcpy((void *)(& dec->v_pes[4]), (void const *)(& v_pes_payload_length),
                                      __len___2);
         }
       }
@@ -7962,7 +7962,7 @@ static void ttusb_dec_process_urb_frame(struct ttusb_dec *dec , u8 *b , int leng
         if (length >= remainder) {
           {
           __len = (size_t )remainder;
-          __ret = __builtin_memcpy((void *)(dec->packet + dec->packet_length), (void const *)b,
+          __ret = memcpy((void *)(dec->packet + dec->packet_length), (void const *)b,
                                    __len);
           dec->packet_length = dec->packet_length + remainder;
           b = b + remainder;
@@ -7972,7 +7972,7 @@ static void ttusb_dec_process_urb_frame(struct ttusb_dec *dec , u8 *b , int leng
         } else {
           {
           __len___0 = (size_t )length;
-          __ret___0 = __builtin_memcpy((void *)(& dec->packet[dec->packet_length]),
+          __ret___0 = memcpy((void *)(& dec->packet[dec->packet_length]),
                                        (void const *)b, __len___0);
           dec->packet_length = dec->packet_length + length;
           length = 0;
@@ -8115,7 +8115,7 @@ static void ttusb_dec_process_urb(struct urb *urb )
       if (frame) {
         {
         __len = (size_t )length;
-        __ret = __builtin_memcpy((void *)(frame->data), (void const *)b, __len);
+        __ret = memcpy((void *)(frame->data), (void const *)b, __len);
         frame->length = length;
         }
         {
@@ -8672,7 +8672,7 @@ static int ttusb_dec_start_sec_feed(struct dvb_demux_feed *dvbdmxfeed )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& b0[0]), (void const *)(& pid), __len);
+    __ret = memcpy((void *)(& b0[0]), (void const *)(& pid), __len);
     }
   }
   __len___0 = (size_t )1;
@@ -8682,7 +8682,7 @@ static int ttusb_dec_start_sec_feed(struct dvb_demux_feed *dvbdmxfeed )
     }
   } else {
     {
-    __ret___0 = __builtin_memcpy((void *)(& b0[4]), (void const *)(& x), __len___0);
+    __ret___0 = memcpy((void *)(& b0[4]), (void const *)(& x), __len___0);
     }
   }
   __len___1 = (size_t )1;
@@ -8693,7 +8693,7 @@ static int ttusb_dec_start_sec_feed(struct dvb_demux_feed *dvbdmxfeed )
     }
   } else {
     {
-    __ret___1 = __builtin_memcpy((void *)(& b0[5]), (void const *)(& (dvbdmxfeed->filter)->filter.filter_value[0]),
+    __ret___1 = memcpy((void *)(& b0[5]), (void const *)(& (dvbdmxfeed->filter)->filter.filter_value[0]),
                                  __len___1);
     }
   }
@@ -9321,7 +9321,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& tmp___7), (void const *)(firmware + 56),
+    __ret = memcpy((void *)(& tmp___7), (void const *)(firmware + 56),
                              __len);
     }
   }
@@ -9346,7 +9346,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
     }
   } else {
     {
-    __ret___0 = __builtin_memcpy((void *)(idstring), (void const *)(firmware + 36),
+    __ret___0 = memcpy((void *)(idstring), (void const *)(firmware + 36),
                                  __len___0);
     }
   }
@@ -9363,7 +9363,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
     }
   } else {
     {
-    __ret___1 = __builtin_memcpy((void *)(b0), (void const *)(& firmware_size_nl),
+    __ret___1 = memcpy((void *)(b0), (void const *)(& firmware_size_nl),
                                  __len___1);
     }
   }
@@ -9381,7 +9381,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
     }
   } else {
     {
-    __ret___2 = __builtin_memcpy((void *)(& b0[6]), (void const *)(& firmware_csum_ns),
+    __ret___2 = memcpy((void *)(& b0[6]), (void const *)(& firmware_csum_ns),
                                  __len___2);
     }
   }
@@ -9434,7 +9434,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
     *(b + (j + 2)) = (u8 )240;
     *(b + (j + 3)) = (u8 )size;
     __len___3 = (size_t )size;
-    __ret___3 = __builtin_memcpy((void *)(b + (j + 4)), (void const *)(firmware + i),
+    __ret___3 = memcpy((void *)(b + (j + 4)), (void const *)(firmware + i),
                                  __len___3);
     j = j + 64;
     }

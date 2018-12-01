@@ -5707,7 +5707,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -7503,7 +7503,7 @@ static int ks8842_set_mac(struct net_device *netdev , void *p )
 
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const   *)mac, __len);
+  __ret = memcpy((void *)netdev->dev_addr, (void const   *)mac, __len);
   ks8842_write_mac_addr(adapter, (u8 *)mac);
   return (0);
 }
@@ -7694,7 +7694,7 @@ static int ks8842_probe(struct platform_device *pdev )
     ldv_42366: ;
     if ((unsigned int )netdev->addr_len > i) {
       __len = (size_t )netdev->addr_len;
-      __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const   *)(& pdata->macaddr),
+      __ret = memcpy((void *)netdev->dev_addr, (void const   *)(& pdata->macaddr),
                                __len);
     } else {
 

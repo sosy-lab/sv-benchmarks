@@ -5753,7 +5753,7 @@ static int genelink_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
   if ((unsigned long )gl_skb != (unsigned long )((struct sk_buff *)0)) {
     __len = (size_t )size;
     tmp___2 = skb_put(gl_skb, size);
-    __ret = __builtin_memcpy((void *)tmp___2, (void const *)(& packet->packet_data),
+    __ret = memcpy((void *)tmp___2, (void const *)(& packet->packet_data),
                              __len);
     usbnet_skb_return(dev, gl_skb);
   } else {

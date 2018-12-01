@@ -6568,7 +6568,7 @@ u16 capi20_get_version(u32 contr , struct capi_version *verp )
         __cil_tmp19 = __cil_tmp18 + 176;
         __cil_tmp20 = (capi_version *)__cil_tmp19;
         __cil_tmp21 = (void    *)__cil_tmp20;
-        __ret = __builtin_memcpy(__cil_tmp17, __cil_tmp21, __len);
+        __ret = memcpy(__cil_tmp17, __cil_tmp21, __len);
         }
       }
       ret = (u16 )0;
@@ -6741,7 +6741,7 @@ u16 capi20_get_profile(u32 contr , struct capi_profile *profp )
         __cil_tmp19 = __cil_tmp18 + 192;
         __cil_tmp20 = (capi_profile *)__cil_tmp19;
         __cil_tmp21 = (void    *)__cil_tmp20;
-        __ret = __builtin_memcpy(__cil_tmp17, __cil_tmp21, __len);
+        __ret = memcpy(__cil_tmp17, __cil_tmp21, __len);
         }
       }
       ret = (u16 )0;
@@ -9395,7 +9395,7 @@ static void pars_2_message(_cmsg *cmsg )
         __cil_tmp129 = (u8 *)cmsg;
         __cil_tmp130 = __cil_tmp129 + __cil_tmp128;
         __cil_tmp131 = (void    *)__cil_tmp130;
-        __ret = __builtin_memcpy(__cil_tmp116, __cil_tmp131, __len);
+        __ret = memcpy(__cil_tmp116, __cil_tmp131, __len);
         }
       }
       __cil_tmp132 = (unsigned long )cmsg;
@@ -9508,7 +9508,7 @@ static void pars_2_message(_cmsg *cmsg )
           __cil_tmp227 = (_cstruct *)__cil_tmp226;
           __cil_tmp228 = *__cil_tmp227;
           __cil_tmp229 = (void    *)__cil_tmp228;
-          __ret___0 = __builtin_memcpy(__cil_tmp212, __cil_tmp229, __len___0);
+          __ret___0 = memcpy(__cil_tmp212, __cil_tmp229, __len___0);
           __cil_tmp230 = (unsigned long )cmsg;
           __cil_tmp231 = __cil_tmp230 + 288;
           __cil_tmp232 = (unsigned long )cmsg;
@@ -9569,7 +9569,7 @@ static void pars_2_message(_cmsg *cmsg )
           __cil_tmp281 = __cil_tmp280 + __cil_tmp277;
           __cil_tmp282 = (void *)__cil_tmp281;
           __cil_tmp283 = (void    *)s;
-          __ret___1 = __builtin_memcpy(__cil_tmp282, __cil_tmp283, __len___1);
+          __ret___1 = memcpy(__cil_tmp282, __cil_tmp283, __len___1);
           __cil_tmp284 = (unsigned long )cmsg;
           __cil_tmp285 = __cil_tmp284 + 288;
           __cil_tmp286 = s + 1;
@@ -10265,7 +10265,7 @@ static void message_2_pars(_cmsg *cmsg )
         __cil_tmp123 = *((__u8 **)__cil_tmp122);
         __cil_tmp124 = __cil_tmp123 + __cil_tmp120;
         __cil_tmp125 = (void    *)__cil_tmp124;
-        __ret = __builtin_memcpy(__cil_tmp117, __cil_tmp125, __len);
+        __ret = memcpy(__cil_tmp117, __cil_tmp125, __len);
         }
       }
       __cil_tmp126 = (unsigned long )cmsg;
@@ -10809,7 +10809,7 @@ static _cdebbuf *bufprint(_cdebbuf *cdb , char *fmt  , ...)
     __cil_tmp35 = (void *)nb;
     __cil_tmp36 = *((u_char **)cdb);
     __cil_tmp37 = (void    *)__cil_tmp36;
-    __ret = __builtin_memcpy(__cil_tmp35, __cil_tmp37, __len);
+    __ret = memcpy(__cil_tmp35, __cil_tmp37, __len);
     __cil_tmp38 = *((u_char **)cdb);
     __cil_tmp39 = (void    *)__cil_tmp38;
     kfree(__cil_tmp39);

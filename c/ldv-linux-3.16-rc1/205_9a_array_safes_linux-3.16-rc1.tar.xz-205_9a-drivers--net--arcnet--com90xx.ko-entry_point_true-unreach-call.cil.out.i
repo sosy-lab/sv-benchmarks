@@ -5152,7 +5152,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile *src , size_t
   void *__ret ;
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const *)src, __len);
+  __ret = memcpy(dst, (void const *)src, __len);
   return;
 }
 }
@@ -5162,7 +5162,7 @@ __inline static void memcpy_toio(void volatile *dst , void const *src , size_t c
   void *__ret ;
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }

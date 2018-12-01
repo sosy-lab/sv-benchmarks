@@ -7165,7 +7165,7 @@ static struct sk_buff *rsi_prepare_skb(struct rsi_common *common , u8 *buffer , 
   payload_offset = (unsigned int )extended_desc + 16U;
   skb_put(skb, pkt_len);
   __len = (size_t )skb->len;
-  __ret = __builtin_memcpy((void *)skb->data, (void const *)buffer + (unsigned long )payload_offset,
+  __ret = memcpy((void *)skb->data, (void const *)buffer + (unsigned long )payload_offset,
                            __len);
   info = IEEE80211_SKB_CB(skb);
   rx_params = (struct skb_info *)(& info->ldv_45444.driver_data);
@@ -7973,7 +7973,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const *)addr,
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const *)addr,
                              __len);
   }
   return;
@@ -8090,7 +8090,7 @@ static void rsi_register_rates_channels(struct rsi_hw *adapter , int band )
     if (__len > 63UL) {
       __ret = memcpy(channels, (void const *)(& rsi_2ghz_channels), __len);
     } else {
-      __ret = __builtin_memcpy(channels, (void const *)(& rsi_2ghz_channels), __len);
+      __ret = memcpy(channels, (void const *)(& rsi_2ghz_channels), __len);
     }
     sbands->band = 0;
     sbands->n_channels = 14;
@@ -8102,7 +8102,7 @@ static void rsi_register_rates_channels(struct rsi_hw *adapter , int band )
     if (__len___0 > 63UL) {
       __ret___0 = memcpy(channels, (void const *)(& rsi_5ghz_channels), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy(channels, (void const *)(& rsi_5ghz_channels),
+      __ret___0 = memcpy(channels, (void const *)(& rsi_5ghz_channels),
                                    __len___0);
     }
     sbands->band = 1;
@@ -8360,7 +8360,7 @@ static int rsi_mac80211_conf_tx(struct ieee80211_hw *hw , struct ieee80211_vif *
     __ret = memcpy((void *)(& common->edca_params) + (unsigned long )idx, (void const *)params,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& common->edca_params) + (unsigned long )idx,
+    __ret = memcpy((void *)(& common->edca_params) + (unsigned long )idx,
                              (void const *)params, __len);
   }
   mutex_unlock(& common->mutex);
@@ -9331,7 +9331,7 @@ static int rsi_load_radio_caps(struct rsi_common *common )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& common->rate_pwr), (void const *)(& gc), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& common->rate_pwr), (void const *)(& gc),
+    __ret = memcpy((void *)(& common->rate_pwr), (void const *)(& gc),
                              __len);
   }
   ii = 0U;
@@ -9390,7 +9390,7 @@ static int rsi_mgmt_pkt_to_core(struct rsi_common *common , u8 *msg , s32 msg_le
     tmp = skb_put(skb, (unsigned int )msg_len);
     buffer = (char *)tmp;
     __len = (size_t )msg_len;
-    __ret = __builtin_memcpy((void *)buffer, (void const *)(msg + ((unsigned long )pad_bytes + 16UL)),
+    __ret = memcpy((void *)buffer, (void const *)(msg + ((unsigned long )pad_bytes + 16UL)),
                              __len);
     pkt_recv = (u8 )*buffer;
     info = IEEE80211_SKB_CB(skb);
@@ -9557,7 +9557,7 @@ int rsi_set_vap_capabilities(struct rsi_common *common , enum opmode mode )
     __ret = memcpy((void *)(& vap_caps->mac_addr), (void const *)(& common->mac_addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& vap_caps->mac_addr), (void const *)(& common->mac_addr),
+    __ret = memcpy((void *)(& vap_caps->mac_addr), (void const *)(& common->mac_addr),
                              __len);
   }
   vap_caps->keep_alive_period = 90U;
@@ -9631,18 +9631,18 @@ int rsi_hal_load_key(struct rsi_common *common , u8 *data , u16 key_len , u8 key
   set_key->desc_word[4] = key_descriptor;
   if (cipher == 1027073U || cipher == 1027077U) {
     __len = (size_t )((int )key_len * 2);
-    __ret = __builtin_memcpy((void *)(& set_key->key) + ((unsigned long )key_id + 1UL),
+    __ret = memcpy((void *)(& set_key->key) + ((unsigned long )key_id + 1UL),
                              (void const *)data, __len);
   } else {
     __len___0 = (size_t )key_len;
-    __ret___0 = __builtin_memcpy((void *)(& set_key->key), (void const *)data, __len___0);
+    __ret___0 = memcpy((void *)(& set_key->key), (void const *)data, __len___0);
   }
   __len___1 = 8UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& set_key->tx_mic_key), (void const *)data + 16U,
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& set_key->tx_mic_key), (void const *)data + 16U,
+    __ret___1 = memcpy((void *)(& set_key->tx_mic_key), (void const *)data + 16U,
                                  __len___1);
   }
   __len___2 = 8UL;
@@ -9650,7 +9650,7 @@ int rsi_hal_load_key(struct rsi_common *common , u8 *data , u16 key_len , u8 key
     __ret___2 = memcpy((void *)(& set_key->rx_mic_key), (void const *)data + 24U,
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& set_key->rx_mic_key), (void const *)data + 24U,
+    __ret___2 = memcpy((void *)(& set_key->rx_mic_key), (void const *)data + 24U,
                                  __len___2);
   }
   skb_put(skb, 160U);
@@ -9684,7 +9684,7 @@ static int rsi_load_bootup_params(struct rsi_common *common )
       __ret = memcpy((void *)(& boot_params->bootup_params), (void const *)(& boot_params_40),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& boot_params->bootup_params), (void const *)(& boot_params_40),
+      __ret = memcpy((void *)(& boot_params->bootup_params), (void const *)(& boot_params_40),
                                __len);
     }
     rsi_dbg(8U, "%s: Packet 40MHZ <=== %d\n", "rsi_load_bootup_params", 117);
@@ -9695,7 +9695,7 @@ static int rsi_load_bootup_params(struct rsi_common *common )
       __ret___0 = memcpy((void *)(& boot_params->bootup_params), (void const *)(& boot_params_20),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& boot_params->bootup_params), (void const *)(& boot_params_20),
+      __ret___0 = memcpy((void *)(& boot_params->bootup_params), (void const *)(& boot_params_20),
                                    __len___0);
     }
     if (boot_params_20.valid != 448U) {
@@ -10102,7 +10102,7 @@ static int rsi_handle_ta_confirm_type(struct rsi_common *common , u8 *msg )
         __ret = memcpy((void *)(& common->mac_addr), (void const *)msg + (unsigned long )offset,
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& common->mac_addr), (void const *)msg + (unsigned long )offset,
+        __ret = memcpy((void *)(& common->mac_addr), (void const *)msg + (unsigned long )offset,
                                  __len);
       }
       __len___0 = 8UL;
@@ -10110,7 +10110,7 @@ static int rsi_handle_ta_confirm_type(struct rsi_common *common , u8 *msg )
         __ret___0 = memcpy((void *)(& common->fw_ver), (void const *)(msg + ((unsigned long )offset + 6UL)),
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& common->fw_ver), (void const *)(msg + ((unsigned long )offset + 6UL)),
+        __ret___0 = memcpy((void *)(& common->fw_ver), (void const *)(msg + ((unsigned long )offset + 6UL)),
                                      __len___0);
       }
     } else {

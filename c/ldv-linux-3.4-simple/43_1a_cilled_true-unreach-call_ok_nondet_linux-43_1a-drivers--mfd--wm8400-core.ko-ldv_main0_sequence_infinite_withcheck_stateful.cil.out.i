@@ -2499,7 +2499,7 @@ static int wm8400_read(struct wm8400 *wm8400 , u8 reg , int num_regs , u16 *dest
   __cil_tmp33 = (u16 (*)[85U])__cil_tmp32;
   __cil_tmp34 = (void const *)__cil_tmp33;
   __cil_tmp35 = __cil_tmp34 + __cil_tmp30;
-  __ret = __builtin_memcpy(__cil_tmp29, __cil_tmp35, __len);
+  __ret = memcpy(__cil_tmp29, __cil_tmp35, __len);
   }
   return (0);
 }

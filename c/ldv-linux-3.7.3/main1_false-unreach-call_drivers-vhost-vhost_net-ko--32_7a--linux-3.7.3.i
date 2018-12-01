@@ -5642,6 +5642,7 @@ extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
+extern void *memcpy(void * , void const * , size_t ) ;
 long ldv_is_err(const void *ptr)
 {
   return ((unsigned long)ptr > ((unsigned long)-4095));
@@ -6887,7 +6888,7 @@ static long vhost_set_memory(struct vhost_dev *d , struct vhost_memory *m )
   } else {
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)newmem, (void const *)(& mem), __len);
+  __ret = memcpy((void *)newmem, (void const *)(& mem), __len);
   tmp___1 = copy_from_user((void *)(& newmem->regions), (void const *)(& m->regions),
                            (unsigned long )mem.nregions * 32UL);
   if (tmp___1 != 0UL) {

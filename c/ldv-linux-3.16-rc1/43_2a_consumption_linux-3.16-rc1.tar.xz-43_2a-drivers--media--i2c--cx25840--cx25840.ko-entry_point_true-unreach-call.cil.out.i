@@ -11503,7 +11503,7 @@ int cx25840_loadfw(struct i2c_client *client )
   _min2 = size;
   len = _min1 < _min2 ? _min1 : _min2;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& buffer) + 2U, (void const *)ptr, __len);
+  __ret = memcpy((void *)(& buffer) + 2U, (void const *)ptr, __len);
   retval = fw_write(client, (u8 const *)(& buffer), len + 2);
   if (retval < 0) {
     release_firmware(fw);
@@ -12984,7 +12984,7 @@ static int cx25840_ir_rx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
   if (__len > 63UL) {
     __ret = memcpy((void *)p, (void const *)(& ir_state->rx_params), __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const *)(& ir_state->rx_params), __len);
+    __ret = memcpy((void *)p, (void const *)(& ir_state->rx_params), __len);
   }
   mutex_unlock(& ir_state->rx_params_lock);
   return (0);
@@ -13132,7 +13132,7 @@ static int cx25840_ir_tx_g_parameters(struct v4l2_subdev *sd , struct v4l2_subde
   if (__len > 63UL) {
     __ret = memcpy((void *)p, (void const *)(& ir_state->tx_params), __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const *)(& ir_state->tx_params), __len);
+    __ret = memcpy((void *)p, (void const *)(& ir_state->tx_params), __len);
   }
   mutex_unlock(& ir_state->tx_params_lock);
   return (0);

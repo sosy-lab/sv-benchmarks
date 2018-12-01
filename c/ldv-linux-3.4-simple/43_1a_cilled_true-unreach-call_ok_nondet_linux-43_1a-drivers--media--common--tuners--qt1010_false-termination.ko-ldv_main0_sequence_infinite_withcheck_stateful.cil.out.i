@@ -6706,7 +6706,7 @@ struct dvb_frontend *qt1010_attach(struct dvb_frontend *fe , struct i2c_adapter 
     __cil_tmp52 = (struct dvb_tuner_ops *)__cil_tmp51;
     __cil_tmp53 = (void *)__cil_tmp52;
     __cil_tmp54 = (void const *)(& qt1010_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp53, __cil_tmp54, __len);
+    __ret = memcpy(__cil_tmp53, __cil_tmp54, __len);
     }
   }
   __cil_tmp55 = (unsigned long )fe;

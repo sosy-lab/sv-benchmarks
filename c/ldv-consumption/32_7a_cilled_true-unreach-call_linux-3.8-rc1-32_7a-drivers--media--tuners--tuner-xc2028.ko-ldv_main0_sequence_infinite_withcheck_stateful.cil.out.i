@@ -3883,7 +3883,7 @@ static int load_all_firmwares(struct dvb_frontend *fe , struct firmware const *f
   if (__len > 63UL) {
     __ret = memcpy((void *)(& name), (void const *)p, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& name), (void const *)p, __len);
+    __ret = memcpy((void *)(& name), (void const *)p, __len);
   }
   name[32UL] = 0;
   p = p + 32UL;
@@ -3999,7 +3999,7 @@ static int load_all_firmwares(struct dvb_frontend *fe , struct firmware const *f
   } else {
   }
   __len___0 = (size_t )size;
-  __ret___0 = __builtin_memcpy((void *)(priv->firm + (unsigned long )n)->ptr, (void const *)p,
+  __ret___0 = memcpy((void *)(priv->firm + (unsigned long )n)->ptr, (void const *)p,
                                __len___0);
   (priv->firm + (unsigned long )n)->type = type;
   (priv->firm + (unsigned long )n)->id = id;
@@ -4410,7 +4410,7 @@ static int load_firmware(struct dvb_frontend *fe , unsigned int type , v4l2_std_
   ldv_25017:
   len = (int )size < priv->ctrl.max_len + -1 ? (int )size : priv->ctrl.max_len + -1;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& buf) + 1U, (void const *)p, __len);
+  __ret = memcpy((void *)(& buf) + 1U, (void const *)p, __len);
   _rc = tuner_i2c_xfer_send(& priv->i2c_props, (char *)(& buf), len + 1);
   if (len + 1 != _rc) {
     if ((unsigned long )priv->i2c_props.adap != (unsigned long )((struct i2c_adapter *)0)) {
@@ -4952,7 +4952,7 @@ static int check_firmware(struct dvb_frontend *fe , unsigned int type , v4l2_std
   if (__len > 63UL) {
     __ret = memcpy((void *)(& priv->cur_fw), (void const *)(& new_fw), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->cur_fw), (void const *)(& new_fw),
+    __ret = memcpy((void *)(& priv->cur_fw), (void const *)(& new_fw),
                              __len);
   }
   priv->cur_fw.type = priv->cur_fw.type | 1U;
@@ -5737,7 +5737,7 @@ static int xc2028_set_config(struct dvb_frontend *fe , void *priv_cfg )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& priv->ctrl), (void const *)p, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->ctrl), (void const *)p, __len);
+    __ret = memcpy((void *)(& priv->ctrl), (void const *)p, __len);
   }
   if ((unsigned long )p->fname != (unsigned long )((char *)0)) {
     priv->ctrl.fname = kstrdup((char const *)p->fname, 208U);
@@ -5900,7 +5900,7 @@ struct dvb_frontend *xc2028_attach(struct dvb_frontend *fe , struct xc2028_confi
     __ret___0 = memcpy((void *)(& fe->ops.tuner_ops), (void const *)(& xc2028_dvb_tuner_ops),
                          __len);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& fe->ops.tuner_ops), (void const *)(& xc2028_dvb_tuner_ops),
+    __ret___0 = memcpy((void *)(& fe->ops.tuner_ops), (void const *)(& xc2028_dvb_tuner_ops),
                                  __len);
   }
   if ((unsigned long )priv->i2c_props.adap != (unsigned long )((struct i2c_adapter *)0)) {

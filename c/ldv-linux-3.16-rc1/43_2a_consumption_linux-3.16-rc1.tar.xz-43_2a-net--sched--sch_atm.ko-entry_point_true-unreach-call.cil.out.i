@@ -6962,14 +6962,14 @@ static int atm_tc_change(struct Qdisc *sch , u32 classid , u32 parent , struct n
   flow->hdr_len = hdr_len;
   if ((unsigned long )hdr != (unsigned long )((void *)0)) {
     __len = (size_t )hdr_len;
-    __ret = __builtin_memcpy((void *)(& flow->hdr), (void const *)hdr, __len);
+    __ret = memcpy((void *)(& flow->hdr), (void const *)hdr, __len);
   } else {
     __len___0 = 8UL;
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& flow->hdr), (void const *)(& llc_oui_ip),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& flow->hdr), (void const *)(& llc_oui_ip),
+      __ret___0 = memcpy((void *)(& flow->hdr), (void const *)(& llc_oui_ip),
                                    __len___0);
     }
   }
@@ -7334,7 +7334,7 @@ static void sch_atm_dequeue(unsigned long data )
   ((struct atm_skb_data *)(& skb->cb))->vcc = flow->vcc;
   __len = (size_t )flow->hdr_len;
   tmp___9 = skb_push(skb, (unsigned int )flow->hdr_len);
-  __ret = __builtin_memcpy((void *)tmp___9, (void const *)(& flow->hdr), __len);
+  __ret = memcpy((void *)tmp___9, (void const *)(& flow->hdr), __len);
   tmp___10 = sk_atm(flow->vcc);
   atomic_add((int )skb->truesize, & tmp___10->sk_wmem_alloc);
   (*((flow->vcc)->send))(flow->vcc, skb);

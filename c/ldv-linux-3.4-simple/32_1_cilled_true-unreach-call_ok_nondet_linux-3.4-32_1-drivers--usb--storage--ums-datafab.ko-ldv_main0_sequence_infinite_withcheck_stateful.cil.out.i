@@ -4763,7 +4763,7 @@ static int datafab_determine_lun(struct us_data *us , struct datafab_info *info 
     __cil_tmp20 = (unsigned long )(scommand) + __cil_tmp19;
     __cil_tmp21 = (unsigned char *)__cil_tmp20;
     __cil_tmp22 = (void const *)__cil_tmp21;
-    __ret = __builtin_memcpy(__cil_tmp18, __cil_tmp22, __len);
+    __ret = memcpy(__cil_tmp18, __cil_tmp22, __len);
     }
   }
   {
@@ -4942,7 +4942,7 @@ static int datafab_id_device(struct us_data *us , struct datafab_info *info )
     __cil_tmp22 = (unsigned long )(scommand___0) + __cil_tmp21;
     __cil_tmp23 = (unsigned char *)__cil_tmp22;
     __cil_tmp24 = (void const *)__cil_tmp23;
-    __ret = __builtin_memcpy(__cil_tmp20, __cil_tmp24, __len);
+    __ret = memcpy(__cil_tmp20, __cil_tmp24, __len);
     }
   }
   {
@@ -5328,7 +5328,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp64 = (unsigned long )(rw_err_page) + __cil_tmp63;
         __cil_tmp65 = (unsigned char *)__cil_tmp64;
         __cil_tmp66 = (void const *)__cil_tmp65;
-        __ret = __builtin_memcpy(__cil_tmp62, __cil_tmp66, __len);
+        __ret = memcpy(__cil_tmp62, __cil_tmp66, __len);
         }
       }
       __cil_tmp67 = (unsigned long )i;
@@ -5355,7 +5355,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp78 = (unsigned long )(cache_page) + __cil_tmp77;
         __cil_tmp79 = (unsigned char *)__cil_tmp78;
         __cil_tmp80 = (void const *)__cil_tmp79;
-        __ret___0 = __builtin_memcpy(__cil_tmp76, __cil_tmp80, __len___0);
+        __ret___0 = memcpy(__cil_tmp76, __cil_tmp80, __len___0);
         }
       }
       __cil_tmp81 = (unsigned long )i;
@@ -5382,7 +5382,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp92 = (unsigned long )(rbac_page) + __cil_tmp91;
         __cil_tmp93 = (unsigned char *)__cil_tmp92;
         __cil_tmp94 = (void const *)__cil_tmp93;
-        __ret___1 = __builtin_memcpy(__cil_tmp90, __cil_tmp94, __len___1);
+        __ret___1 = memcpy(__cil_tmp90, __cil_tmp94, __len___1);
         }
       }
       __cil_tmp95 = (unsigned long )i;
@@ -5409,7 +5409,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp106 = (unsigned long )(timer_page) + __cil_tmp105;
         __cil_tmp107 = (unsigned char *)__cil_tmp106;
         __cil_tmp108 = (void const *)__cil_tmp107;
-        __ret___2 = __builtin_memcpy(__cil_tmp104, __cil_tmp108, __len___2);
+        __ret___2 = memcpy(__cil_tmp104, __cil_tmp108, __len___2);
         }
       }
       __cil_tmp109 = (unsigned long )i;
@@ -5436,7 +5436,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp120 = (unsigned long )(timer_page) + __cil_tmp119;
         __cil_tmp121 = (unsigned char *)__cil_tmp120;
         __cil_tmp122 = (void const *)__cil_tmp121;
-        __ret___3 = __builtin_memcpy(__cil_tmp118, __cil_tmp122, __len___3);
+        __ret___3 = memcpy(__cil_tmp118, __cil_tmp122, __len___3);
         }
       }
       __cil_tmp123 = (unsigned long )i;
@@ -5461,7 +5461,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp134 = (unsigned long )(rbac_page) + __cil_tmp133;
         __cil_tmp135 = (unsigned char *)__cil_tmp134;
         __cil_tmp136 = (void const *)__cil_tmp135;
-        __ret___4 = __builtin_memcpy(__cil_tmp132, __cil_tmp136, __len___4);
+        __ret___4 = memcpy(__cil_tmp132, __cil_tmp136, __len___4);
         }
       }
       __cil_tmp137 = (unsigned long )i;
@@ -5486,7 +5486,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp148 = (unsigned long )(cache_page) + __cil_tmp147;
         __cil_tmp149 = (unsigned char *)__cil_tmp148;
         __cil_tmp150 = (void const *)__cil_tmp149;
-        __ret___5 = __builtin_memcpy(__cil_tmp146, __cil_tmp150, __len___5);
+        __ret___5 = memcpy(__cil_tmp146, __cil_tmp150, __len___5);
         }
       }
       __cil_tmp151 = (unsigned long )i;
@@ -5511,7 +5511,7 @@ static int datafab_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb 
         __cil_tmp162 = (unsigned long )(rw_err_page) + __cil_tmp161;
         __cil_tmp163 = (unsigned char *)__cil_tmp162;
         __cil_tmp164 = (void const *)__cil_tmp163;
-        __ret___6 = __builtin_memcpy(__cil_tmp160, __cil_tmp164, __len___6);
+        __ret___6 = memcpy(__cil_tmp160, __cil_tmp164, __len___6);
         }
       }
       __cil_tmp165 = (unsigned long )i;
@@ -6025,7 +6025,7 @@ static int datafab_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp53 = (unsigned long )(inquiry_reply) + __cil_tmp52;
       __cil_tmp54 = (unsigned char *)__cil_tmp53;
       __cil_tmp55 = (void const *)__cil_tmp54;
-      __ret = __builtin_memcpy(__cil_tmp51, __cil_tmp55, __len);
+      __ret = memcpy(__cil_tmp51, __cil_tmp55, __len);
       }
     }
     {

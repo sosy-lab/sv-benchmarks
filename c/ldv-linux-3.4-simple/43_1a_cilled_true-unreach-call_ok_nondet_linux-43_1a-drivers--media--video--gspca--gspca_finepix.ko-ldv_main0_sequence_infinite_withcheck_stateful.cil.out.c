@@ -3783,7 +3783,7 @@ static int command(struct gspca_dev *gspca_dev , int order )
     __cil_tmp115 = (unsigned long )order;
     __cil_tmp116 = (void const   *)(& order_values);
     __cil_tmp117 = __cil_tmp116 + __cil_tmp115;
-    __ret = __builtin_memcpy(__cil_tmp114, __cil_tmp117, __len);
+    __ret = memcpy(__cil_tmp114, __cil_tmp117, __len);
     }
   }
   {

@@ -3800,7 +3800,7 @@ struct attribute_group *sm_create_sysfs_attributes(struct sm_ftl *ftl )
   }
   {
   __len = (size_t )vendor_len;
-  __ret = __builtin_memcpy((void *)vendor, (void const *)(ftl->cis_buffer + 89),
+  __ret = memcpy((void *)vendor, (void const *)(ftl->cis_buffer + 89),
                            __len);
   *(vendor + vendor_len) = (char)0;
   tmp___9 = kzalloc(sizeof(struct sm_sysfs_attribute ), 208U);
@@ -5430,7 +5430,7 @@ void sm_cache_put(struct sm_ftl *ftl , char *buffer , int boffset )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(ftl->cache_data + boffset), (void const *)buffer,
+    __ret = memcpy((void *)(ftl->cache_data + boffset), (void const *)buffer,
                              __len);
     }
   }
@@ -5461,7 +5461,7 @@ int sm_cache_get(struct sm_ftl *ftl , char *buffer , int boffset )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)buffer, (void const *)(ftl->cache_data + boffset),
+    __ret = memcpy((void *)buffer, (void const *)(ftl->cache_data + boffset),
                              __len);
     }
   }

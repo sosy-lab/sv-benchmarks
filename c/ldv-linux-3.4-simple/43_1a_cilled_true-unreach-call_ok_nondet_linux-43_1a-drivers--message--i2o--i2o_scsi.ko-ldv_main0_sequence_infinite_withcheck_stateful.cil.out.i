@@ -4059,7 +4059,7 @@ __inline static void memcpy_toio(void volatile *dst , void const *src , size_t c
   {
   __len = count;
   __cil_tmp6 = (void *)dst;
-  __ret = __builtin_memcpy(__cil_tmp6, src, __len);
+  __ret = memcpy(__cil_tmp6, src, __len);
   }
   return;
 }
@@ -5433,7 +5433,7 @@ static int i2o_scsi_reply(struct i2o_controller *c , u32 m , struct i2o_message 
     __cil_tmp41 = (u32 (*)[0U])__cil_tmp40;
     __cil_tmp42 = (void const *)__cil_tmp41;
     __cil_tmp43 = __cil_tmp42 + 3U;
-    __ret = __builtin_memcpy(__cil_tmp38, __cil_tmp43, __len);
+    __ret = memcpy(__cil_tmp38, __cil_tmp43, __len);
     }
   } else {
   }
@@ -5948,7 +5948,7 @@ static int i2o_scsi_queuecommand_lck(struct scsi_cmnd *SCpnt , void (*done)(stru
     __cil_tmp90 = __cil_tmp89 + 80;
     __cil_tmp91 = *((unsigned char **)__cil_tmp90);
     __cil_tmp92 = (void const *)__cil_tmp91;
-    __ret = __builtin_memcpy(__cil_tmp88, __cil_tmp92, __len);
+    __ret = memcpy(__cil_tmp88, __cil_tmp92, __len);
     }
   }
   __cil_tmp93 = & mptr;

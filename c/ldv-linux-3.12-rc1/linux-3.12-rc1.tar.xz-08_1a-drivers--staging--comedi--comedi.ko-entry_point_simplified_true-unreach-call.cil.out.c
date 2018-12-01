@@ -10916,7 +10916,7 @@ void comedi_buf_memcpy_to(struct comedi_async *async , unsigned int offset , voi
     block_size = num_bytes;
   }
   __len = (size_t )block_size;
-  __ret = __builtin_memcpy(async->prealloc_buf + (unsigned long )write_ptr, data,
+  __ret = memcpy(async->prealloc_buf + (unsigned long )write_ptr, data,
                            __len);
   data = data + (unsigned long )block_size;
   num_bytes = num_bytes - block_size;
@@ -10956,7 +10956,7 @@ void comedi_buf_memcpy_from(struct comedi_async *async , unsigned int offset , v
     block_size = nbytes;
   }
   __len = (size_t )block_size;
-  __ret = __builtin_memcpy(dest, (void const   *)src, __len);
+  __ret = memcpy(dest, (void const   *)src, __len);
   nbytes = nbytes - block_size;
   dest = dest + (unsigned long )block_size;
   read_ptr = 0U;

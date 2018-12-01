@@ -2954,7 +2954,7 @@ enum lock_usage_bit {
     LOCK_ENABLED_HARDIRQS_READ = 8,
     LOCK_USAGE_STATES = 9
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -3586,7 +3586,7 @@ static int acpi_pcc_init_input(struct pcc_acpi *pcc )
     __ret = memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
+    __ret = memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
                              __len);
   }
   i = 0;

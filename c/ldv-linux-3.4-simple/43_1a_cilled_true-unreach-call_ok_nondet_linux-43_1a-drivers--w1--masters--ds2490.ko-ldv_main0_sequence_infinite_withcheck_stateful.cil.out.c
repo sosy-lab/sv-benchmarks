@@ -3497,7 +3497,7 @@ static int ds_recv_status_nodump(struct ds_device *dev , struct ds_status *st , 
       {
       __cil_tmp36 = (void *)st;
       __cil_tmp37 = (void const   *)buf;
-      __ret = __builtin_memcpy(__cil_tmp36, __cil_tmp37, __len);
+      __ret = memcpy(__cil_tmp36, __cil_tmp37, __len);
       }
     }
   } else {

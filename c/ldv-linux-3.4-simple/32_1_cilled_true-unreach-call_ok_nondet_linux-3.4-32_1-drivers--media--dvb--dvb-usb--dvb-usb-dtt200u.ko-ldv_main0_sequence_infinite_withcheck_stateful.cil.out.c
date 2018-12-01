@@ -9107,7 +9107,7 @@ static int dtt200u_fe_get_frontend(struct dvb_frontend *fe )
     __cil_tmp18 = __cil_tmp17 + 12;
     __cil_tmp19 = (struct dtv_frontend_properties *)__cil_tmp18;
     __cil_tmp20 = (void const   *)__cil_tmp19;
-    __ret = __builtin_memcpy(__cil_tmp16, __cil_tmp20, __len);
+    __ret = memcpy(__cil_tmp16, __cil_tmp20, __len);
     }
   }
   return (0);
@@ -9214,7 +9214,7 @@ struct dvb_frontend *dtt200u_fe_attach(struct dvb_usb_device *d )
     __cil_tmp19 = (struct dvb_frontend_ops *)__cil_tmp18;
     __cil_tmp20 = (void *)__cil_tmp19;
     __cil_tmp21 = (void const   *)(& dtt200u_fe_ops);
-    __ret = __builtin_memcpy(__cil_tmp20, __cil_tmp21, __len);
+    __ret = memcpy(__cil_tmp20, __cil_tmp21, __len);
     }
   }
   __cil_tmp22 = 152 + 760;

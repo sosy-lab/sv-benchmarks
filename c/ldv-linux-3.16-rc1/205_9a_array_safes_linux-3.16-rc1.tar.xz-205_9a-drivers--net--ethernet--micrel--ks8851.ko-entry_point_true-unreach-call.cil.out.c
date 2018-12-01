@@ -6242,10 +6242,10 @@ static void ks8851_rdreg(struct ks8851_net *ks , unsigned int op , u8 *rxb , uns
     tmp___0 = ks8851_rx_1msg(ks);
     if ((int )tmp___0) {
       __len = (size_t )rxl;
-      __ret = __builtin_memcpy((void *)rxb, (void const   *)trx + 2U, __len);
+      __ret = memcpy((void *)rxb, (void const   *)trx + 2U, __len);
     } else {
       __len___0 = (size_t )rxl;
-      __ret___0 = __builtin_memcpy((void *)rxb, (void const   *)trx, __len___0);
+      __ret___0 = memcpy((void *)rxb, (void const   *)trx, __len___0);
     }
   }
   return;
@@ -7113,7 +7113,7 @@ static void ks8851_set_rx_mode(struct net_device *dev )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& ks->rxctrl), (void const   *)(& rxctrl), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ks->rxctrl), (void const   *)(& rxctrl),
+      __ret = memcpy((void *)(& ks->rxctrl), (void const   *)(& rxctrl),
                                __len);
     }
     schedule_work(& ks->rxctrl_work);
@@ -7157,7 +7157,7 @@ static int ks8851_set_mac_address(struct net_device *dev , void *addr )
   if (__len > 63UL) {
     __ret = memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data), __len);
   } else {
-    __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data),
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data),
                              __len);
   }
   tmp___2 = ks8851_write_mac_addr(dev);

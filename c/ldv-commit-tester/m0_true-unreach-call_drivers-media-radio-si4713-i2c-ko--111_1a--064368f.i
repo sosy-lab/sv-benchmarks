@@ -4115,7 +4115,7 @@ static int si4713_send_command(struct si4713_device *sdev , u8 const command , u
   }
   data1[0] = command;
   __len = (size_t )argn;
-  __ret = __builtin_memcpy((void *)(& data1) + 1U, (void const *)args, __len);
+  __ret = memcpy((void *)(& data1) + 1U, (void const *)args, __len);
   err = i2c_master_send((struct i2c_client const *)client, (char const *)(& data1),
                         (int )argn + 1);
   if ((int )argn + 1 != err) {
@@ -5064,7 +5064,7 @@ static int si4713_setup(struct si4713_device *sdev )
   if (__len > 63UL) {
     __ret = memcpy((void *)tmp, (void const *)sdev, __len);
   } else {
-    __ret = __builtin_memcpy((void *)tmp, (void const *)sdev, __len);
+    __ret = memcpy((void *)tmp, (void const *)sdev, __len);
   }
   mutex_unlock(& sdev->mutex);
   ctrl.id = 10160386U;

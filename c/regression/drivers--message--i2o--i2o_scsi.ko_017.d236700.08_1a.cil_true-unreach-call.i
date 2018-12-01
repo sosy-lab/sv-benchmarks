@@ -3740,7 +3740,7 @@ struct i2o_scsi_host {
    unsigned int lun ;
    struct i2o_device *channel[0U] ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 void __builtin_prefetch(void const   *  , ...) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
@@ -3797,7 +3797,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }
@@ -4310,7 +4310,7 @@ static int i2o_scsi_reply(struct i2o_controller *c , u32 m , struct i2o_message 
     _min1 = 96;
     _min2 = 40;
     __len = (size_t )(_min1 < _min2 ? _min1 : _min2);
-    __ret = __builtin_memcpy((void *)cmd->sense_buffer, (void const   *)(& msg->body) + 3U,
+    __ret = memcpy((void *)cmd->sense_buffer, (void const   *)(& msg->body) + 3U,
                              __len);
   } else {
 
@@ -4489,7 +4489,7 @@ static int i2o_scsi_queuecommand(struct scsi_cmnd *SCpnt , void (*done)(struct s
   if (__len > 63UL) {
     __ret = memcpy((void *)mptr, (void const   *)SCpnt->cmnd, __len);
   } else {
-    __ret = __builtin_memcpy((void *)mptr, (void const   *)SCpnt->cmnd, __len);
+    __ret = memcpy((void *)mptr, (void const   *)SCpnt->cmnd, __len);
   }
   mptr = mptr + 4UL;
   if (sgl_offset != 1U) {

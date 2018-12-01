@@ -6176,7 +6176,7 @@ int avc_recv(struct firedtv *fdtv , void *data , size_t length )
   } else {
   }
   __len = length;
-  __ret = __builtin_memcpy((void *)(& fdtv->avc_data), (void const *)data, __len);
+  __ret = memcpy((void *)(& fdtv->avc_data), (void const *)data, __len);
   fdtv->avc_data_length = (int )length;
   wake:
   fdtv->avc_reply_received = 1;
@@ -6999,7 +6999,7 @@ int avc_ca_app_info(struct firedtv *fdtv , char *app_info , unsigned int *len )
   *(app_info + 3UL) = (char )((unsigned int )r->operand[pos + 4] + 6U);
   *(app_info + 4UL) = 1;
   __len = (size_t )((int )r->operand[pos + 4] + 5);
-  __ret = __builtin_memcpy((void *)app_info + 5U, (void const *)(& r->operand) + (unsigned long )pos,
+  __ret = memcpy((void *)app_info + 5U, (void const *)(& r->operand) + (unsigned long )pos,
                            __len);
   *len = (unsigned int )((int )*(app_info + 3UL) + 4);
   out:
@@ -7169,7 +7169,7 @@ int avc_ca_pmt(struct firedtv *fdtv , char *msg , int length )
     } else {
     }
     __len = (size_t )program_info_length;
-    __ret = __builtin_memcpy((void *)(& c->operand) + (unsigned long )write_pos, (void const *)msg + (unsigned long )read_pos,
+    __ret = memcpy((void *)(& c->operand) + (unsigned long )write_pos, (void const *)msg + (unsigned long )read_pos,
                              __len);
     read_pos = read_pos + program_info_length;
     write_pos = write_pos + program_info_length;
@@ -7214,7 +7214,7 @@ int avc_ca_pmt(struct firedtv *fdtv , char *msg , int length )
     } else {
     }
     __len___0 = (size_t )es_info_length;
-    __ret___0 = __builtin_memcpy((void *)(& c->operand) + (unsigned long )write_pos,
+    __ret___0 = memcpy((void *)(& c->operand) + (unsigned long )write_pos,
                                  (void const *)msg + (unsigned long )read_pos, __len___0);
     read_pos = read_pos + es_info_length;
     write_pos = write_pos + es_info_length;
@@ -7342,7 +7342,7 @@ int avc_ca_get_mmi(struct firedtv *fdtv , char *mmi_object , unsigned int *len )
   *len = (unsigned int )tmp;
   __len = (size_t )*len;
   tmp___1 = get_ca_object_pos(r);
-  __ret = __builtin_memcpy((void *)mmi_object, (void const *)(& r->operand) + (unsigned long )tmp___1,
+  __ret = memcpy((void *)mmi_object, (void const *)(& r->operand) + (unsigned long )tmp___1,
                            __len);
   out:
   ldv_mutex_unlock_35(& fdtv->avc_mutex);

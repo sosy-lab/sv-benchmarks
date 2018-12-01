@@ -7789,7 +7789,7 @@ struct dvb_frontend *cinergyt2_fe_attach(struct dvb_usb_device *d )
     __cil_tmp14 = (struct dvb_frontend_ops *)s;
     __cil_tmp15 = (void *)__cil_tmp14;
     __cil_tmp16 = (void const   *)(& cinergyt2_fe_ops);
-    __ret = __builtin_memcpy(__cil_tmp15, __cil_tmp16, __len);
+    __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
     }
   }
   __cil_tmp17 = 0 + 760;

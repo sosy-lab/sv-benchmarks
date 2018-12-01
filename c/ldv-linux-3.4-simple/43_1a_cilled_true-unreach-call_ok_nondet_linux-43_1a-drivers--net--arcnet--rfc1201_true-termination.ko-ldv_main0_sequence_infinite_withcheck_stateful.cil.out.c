@@ -5428,7 +5428,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
       {
       __cil_tmp121 = (void *)pkt;
       __cil_tmp122 = (void const   *)pkthdr;
-      __ret = __builtin_memcpy(__cil_tmp121, __cil_tmp122, __len);
+      __ret = memcpy(__cil_tmp121, __cil_tmp122, __len);
       }
     }
     {
@@ -5840,7 +5840,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
         {
         __cil_tmp360 = (void *)pkt;
         __cil_tmp361 = (void const   *)pkthdr;
-        __ret___0 = __builtin_memcpy(__cil_tmp360, __cil_tmp361, __len___0);
+        __ret___0 = memcpy(__cil_tmp360, __cil_tmp361, __len___0);
         }
       }
       {

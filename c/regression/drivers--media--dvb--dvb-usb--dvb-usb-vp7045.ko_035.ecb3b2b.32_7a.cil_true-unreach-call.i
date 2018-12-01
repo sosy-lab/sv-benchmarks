@@ -5541,7 +5541,7 @@ struct vp7045_fe_state {
    struct dvb_frontend fe ;
    struct dvb_usb_device *d ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_2(struct mutex *ldv_func_arg1 ) ;
@@ -5625,7 +5625,7 @@ int vp7045_usb_op(struct dvb_usb_device *d , u8 cmd , u8 *out , int outlen , u8 
   }
   if ((unsigned long )out != (unsigned long )((u8 *)0) && outlen > 0) {
     __len = (size_t )outlen;
-    __ret = __builtin_memcpy((void *)buf + 1U, (void const   *)out, __len);
+    __ret = memcpy((void *)buf + 1U, (void const   *)out, __len);
   } else {
 
   }
@@ -5704,7 +5704,7 @@ int vp7045_usb_op(struct dvb_usb_device *d , u8 cmd , u8 *out , int outlen , u8 
   }
   if ((unsigned long )in != (unsigned long )((u8 *)0) && inlen > 0) {
     __len___0 = (size_t )inlen;
-    __ret___0 = __builtin_memcpy((void *)in, (void const   *)buf + 1U, __len___0);
+    __ret___0 = memcpy((void *)in, (void const   *)buf + 1U, __len___0);
   } else {
 
   }
@@ -6348,7 +6348,7 @@ struct dvb_frontend *vp7045_fe_attach(struct dvb_usb_device *d )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops),
+    __ret = memcpy((void *)(& s->fe.ops), (void const   *)(& vp7045_fe_ops),
                              __len);
   }
   s->fe.demodulator_priv = (void *)s;

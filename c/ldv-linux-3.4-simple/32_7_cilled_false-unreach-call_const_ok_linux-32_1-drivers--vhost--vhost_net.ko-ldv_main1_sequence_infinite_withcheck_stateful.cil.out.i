@@ -9825,7 +9825,7 @@ static long vhost_set_memory(struct vhost_dev *d , struct vhost_memory *m )
   __len = size;
   __cil_tmp29 = (void *)newmem;
   __cil_tmp30 = (void *)(& mem);
-  __ret = __builtin_memcpy(__cil_tmp29, __cil_tmp30, __len);
+  __ret = memcpy(__cil_tmp29, __cil_tmp30, __len);
   __cil_tmp31 = 0 * 32UL;
   __cil_tmp32 = 8 + __cil_tmp31;
   __cil_tmp33 = (unsigned long )newmem;

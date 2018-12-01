@@ -7259,7 +7259,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -7694,7 +7694,7 @@ static int mwifiex_usb_recv(struct mwifiex_adapter *adapter , struct sk_buff *sk
 
   }
   __len = (size_t )skb->len;
-  __ret = __builtin_memcpy((void *)(& adapter->event_body), (void const   *)skb->data + 4U,
+  __ret = memcpy((void *)(& adapter->event_body), (void const   *)skb->data + 4U,
                            __len);
   adapter->event_received = 1U;
   adapter->event_skb = skb;
@@ -8857,14 +8857,14 @@ static int mwifiex_prog_fw_w_helper(struct mwifiex_adapter *adapter , struct mwi
       __ret = memcpy((void *)(& fwdata->fw_hdr), (void const   *)firmware + (unsigned long )tlen,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& fwdata->fw_hdr), (void const   *)firmware + (unsigned long )tlen,
+      __ret = memcpy((void *)(& fwdata->fw_hdr), (void const   *)firmware + (unsigned long )tlen,
                                __len);
     }
     dlen = fwdata->fw_hdr.data_len;
     dnld_cmd = fwdata->fw_hdr.dnld_cmd;
     tlen = tlen + 16U;
     __len___0 = (size_t )dlen;
-    __ret___0 = __builtin_memcpy((void *)(& fwdata->data), (void const   *)firmware + (unsigned long )tlen,
+    __ret___0 = memcpy((void *)(& fwdata->data), (void const   *)firmware + (unsigned long )tlen,
                                  __len___0);
     fwdata->seq_num = fw_seqnum;
     tlen = tlen + dlen;
@@ -8895,7 +8895,7 @@ static int mwifiex_prog_fw_w_helper(struct mwifiex_adapter *adapter , struct mwi
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& sync_fw), (void const   *)recv_buff, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& sync_fw), (void const   *)recv_buff, __len___1);
+    __ret___1 = memcpy((void *)(& sync_fw), (void const   *)recv_buff, __len___1);
   }
   if ((unsigned int )check_winner != 0U) {
     if ((int )sync_fw.cmd < 0) {

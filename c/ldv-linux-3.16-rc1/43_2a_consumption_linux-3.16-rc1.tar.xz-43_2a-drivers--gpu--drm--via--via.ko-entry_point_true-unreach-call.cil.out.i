@@ -6547,7 +6547,7 @@ static int via_dispatch_cmdbuffer(struct drm_device *dev , drm_via_cmdbuffer_t *
   } else {
   }
   __len = cmd->size;
-  __ret = __builtin_memcpy((void *)vb, (void const *)(& dev_priv->pci_buf), __len);
+  __ret = memcpy((void *)vb, (void const *)(& dev_priv->pci_buf), __len);
   dev_priv->dma_low = dev_priv->dma_low + (unsigned int )cmd->size;
   if (cmd->size <= 255UL) {
     via_pad_cache(dev_priv, (int )((256UL - cmd->size) >> 3));

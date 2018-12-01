@@ -5144,7 +5144,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp64 = (unsigned long )(rw_err_page) + __cil_tmp63;
       __cil_tmp65 = (unsigned char *)__cil_tmp64;
       __cil_tmp66 = (void const   *)__cil_tmp65;
-      __ret = __builtin_memcpy(__cil_tmp62, __cil_tmp66, __len);
+      __ret = memcpy(__cil_tmp62, __cil_tmp66, __len);
       }
     }
     __cil_tmp67 = (unsigned long )i;
@@ -5171,7 +5171,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp78 = (unsigned long )(cache_page) + __cil_tmp77;
       __cil_tmp79 = (unsigned char *)__cil_tmp78;
       __cil_tmp80 = (void const   *)__cil_tmp79;
-      __ret___0 = __builtin_memcpy(__cil_tmp76, __cil_tmp80, __len___0);
+      __ret___0 = memcpy(__cil_tmp76, __cil_tmp80, __len___0);
       }
     }
     __cil_tmp81 = (unsigned long )i;
@@ -5198,7 +5198,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp92 = (unsigned long )(rbac_page) + __cil_tmp91;
       __cil_tmp93 = (unsigned char *)__cil_tmp92;
       __cil_tmp94 = (void const   *)__cil_tmp93;
-      __ret___1 = __builtin_memcpy(__cil_tmp90, __cil_tmp94, __len___1);
+      __ret___1 = memcpy(__cil_tmp90, __cil_tmp94, __len___1);
       }
     }
     __cil_tmp95 = (unsigned long )i;
@@ -5225,7 +5225,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp106 = (unsigned long )(timer_page) + __cil_tmp105;
       __cil_tmp107 = (unsigned char *)__cil_tmp106;
       __cil_tmp108 = (void const   *)__cil_tmp107;
-      __ret___2 = __builtin_memcpy(__cil_tmp104, __cil_tmp108, __len___2);
+      __ret___2 = memcpy(__cil_tmp104, __cil_tmp108, __len___2);
       }
     }
     __cil_tmp109 = (unsigned long )i;
@@ -5252,7 +5252,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp120 = (unsigned long )(timer_page) + __cil_tmp119;
       __cil_tmp121 = (unsigned char *)__cil_tmp120;
       __cil_tmp122 = (void const   *)__cil_tmp121;
-      __ret___3 = __builtin_memcpy(__cil_tmp118, __cil_tmp122, __len___3);
+      __ret___3 = memcpy(__cil_tmp118, __cil_tmp122, __len___3);
       }
     }
     __cil_tmp123 = (unsigned long )i;
@@ -5277,7 +5277,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp134 = (unsigned long )(rbac_page) + __cil_tmp133;
       __cil_tmp135 = (unsigned char *)__cil_tmp134;
       __cil_tmp136 = (void const   *)__cil_tmp135;
-      __ret___4 = __builtin_memcpy(__cil_tmp132, __cil_tmp136, __len___4);
+      __ret___4 = memcpy(__cil_tmp132, __cil_tmp136, __len___4);
       }
     }
     __cil_tmp137 = (unsigned long )i;
@@ -5302,7 +5302,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp148 = (unsigned long )(cache_page) + __cil_tmp147;
       __cil_tmp149 = (unsigned char *)__cil_tmp148;
       __cil_tmp150 = (void const   *)__cil_tmp149;
-      __ret___5 = __builtin_memcpy(__cil_tmp146, __cil_tmp150, __len___5);
+      __ret___5 = memcpy(__cil_tmp146, __cil_tmp150, __len___5);
       }
     }
     __cil_tmp151 = (unsigned long )i;
@@ -5327,7 +5327,7 @@ static int jumpshot_handle_mode_sense(struct us_data *us , struct scsi_cmnd *srb
       __cil_tmp162 = (unsigned long )(rw_err_page) + __cil_tmp161;
       __cil_tmp163 = (unsigned char *)__cil_tmp162;
       __cil_tmp164 = (void const   *)__cil_tmp163;
-      __ret___6 = __builtin_memcpy(__cil_tmp160, __cil_tmp164, __len___6);
+      __ret___6 = memcpy(__cil_tmp160, __cil_tmp164, __len___6);
       }
     }
     __cil_tmp165 = (unsigned long )i;
@@ -5830,7 +5830,7 @@ static int jumpshot_transport(struct scsi_cmnd *srb , struct us_data *us )
       __cil_tmp47 = (unsigned long )(inquiry_response) + __cil_tmp46;
       __cil_tmp48 = (unsigned char *)__cil_tmp47;
       __cil_tmp49 = (void const   *)__cil_tmp48;
-      __ret = __builtin_memcpy(__cil_tmp45, __cil_tmp49, __len);
+      __ret = memcpy(__cil_tmp45, __cil_tmp49, __len);
       }
     }
     {

@@ -3406,7 +3406,7 @@ static int WriteRegs(struct tda_state *state , u8 SubAddr , u8 *Regs , u16 nRegs
   __cil_tmp15 = data + 1;
   __cil_tmp16 = (void *)__cil_tmp15;
   __cil_tmp17 = (void const *)Regs;
-  __ret = __builtin_memcpy(__cil_tmp16, __cil_tmp17, __len);
+  __ret = memcpy(__cil_tmp16, __cil_tmp17, __len);
   __cil_tmp18 = *((struct i2c_adapter **)state);
   __cil_tmp19 = (unsigned long )state;
   __cil_tmp20 = __cil_tmp19 + 8;
@@ -7298,7 +7298,7 @@ static int FixedContentsI2CUpdate(struct tda_state *state )
     __cil_tmp22 = (unsigned long )(InitRegs) + __cil_tmp21;
     __cil_tmp23 = (u8 *)__cil_tmp22;
     __cil_tmp24 = (void const *)__cil_tmp23;
-    __ret = __builtin_memcpy(__cil_tmp20, __cil_tmp24, __len);
+    __ret = memcpy(__cil_tmp20, __cil_tmp24, __len);
     }
   }
   {
@@ -9205,7 +9205,7 @@ struct dvb_frontend *tda18271c2dd_attach(struct dvb_frontend *fe , struct i2c_ad
     __cil_tmp22 = (struct dvb_tuner_ops *)__cil_tmp21;
     __cil_tmp23 = (void *)__cil_tmp22;
     __cil_tmp24 = (void const *)(& tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp23, __cil_tmp24, __len);
+    __ret = memcpy(__cil_tmp23, __cil_tmp24, __len);
     }
   }
   {

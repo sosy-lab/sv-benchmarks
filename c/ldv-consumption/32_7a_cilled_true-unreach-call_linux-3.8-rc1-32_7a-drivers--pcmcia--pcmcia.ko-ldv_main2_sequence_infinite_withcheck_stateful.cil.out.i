@@ -5545,7 +5545,7 @@ static ssize_t pcmcia_store_new_id(struct device_driver *driver , char const *bu
     __ret = memcpy((void *)(& dynid->id.prod_id_hash), (void const *)(& prod_id_hash),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dynid->id.prod_id_hash), (void const *)(& prod_id_hash),
+    __ret = memcpy((void *)(& dynid->id.prod_id_hash), (void const *)(& prod_id_hash),
                              __len);
   }
   ldv_mutex_lock_8(& pdrv->dynids.lock);
@@ -10393,7 +10393,7 @@ static int read_cis_cache(struct pcmcia_socket *s , int attr , u_int addr , size
   if ((unsigned long )s->fake_cis != (unsigned long )((u8 *)0)) {
     if (s->fake_cis_len >= (size_t )addr + len) {
       __len = len;
-      __ret = __builtin_memcpy(ptr, (void const *)s->fake_cis + (unsigned long )addr,
+      __ret = memcpy(ptr, (void const *)s->fake_cis + (unsigned long )addr,
                                __len);
     } else {
       memset(ptr, 255, len);
@@ -10409,7 +10409,7 @@ static int read_cis_cache(struct pcmcia_socket *s , int attr , u_int addr , size
   ldv_24718: ;
   if ((cis->addr == addr && (size_t )cis->len == len) && cis->attr == (unsigned int )attr) {
     __len___0 = len;
-    __ret___0 = __builtin_memcpy(ptr, (void const *)(& cis->cache), __len___0);
+    __ret___0 = memcpy(ptr, (void const *)(& cis->cache), __len___0);
     ldv_mutex_unlock_210(& s->ops_mutex);
     return (0);
   } else {
@@ -10430,7 +10430,7 @@ static int read_cis_cache(struct pcmcia_socket *s , int attr , u_int addr , size
       cis->len = (unsigned int )len;
       cis->attr = (unsigned int )attr;
       __len___1 = len;
-      __ret___1 = __builtin_memcpy((void *)(& cis->cache), (void const *)ptr, __len___1);
+      __ret___1 = memcpy((void *)(& cis->cache), (void const *)ptr, __len___1);
       list_add(& cis->node, & s->cis_cache);
     } else {
     }
@@ -10575,7 +10575,7 @@ int pcmcia_replace_cis(struct pcmcia_socket *s , u8 const *data , size_t const l
   }
   s->fake_cis_len = len;
   __len = len;
-  __ret = __builtin_memcpy((void *)s->fake_cis, (void const *)data, __len);
+  __ret = memcpy((void *)s->fake_cis, (void const *)data, __len);
   _dev_info((struct device const *)(& s->dev), "Using replacement CIS\n");
   ldv_mutex_unlock_219(& s->ops_mutex);
   return (0);
@@ -12822,7 +12822,7 @@ static int pcmcia_do_get_tuple(struct pcmcia_device *p_dev , tuple_t *tuple , vo
   if ((unsigned long )*(get->buf) != (unsigned long )((cisdata_t *)0)) {
     get->len = (size_t )tuple->TupleDataLen;
     __len = (size_t )tuple->TupleDataLen;
-    __ret = __builtin_memcpy((void *)*(get->buf), (void const *)tuple->TupleData,
+    __ret = memcpy((void *)*(get->buf), (void const *)tuple->TupleData,
                              __len);
   } else {
     descriptor.modname = "pcmcia";

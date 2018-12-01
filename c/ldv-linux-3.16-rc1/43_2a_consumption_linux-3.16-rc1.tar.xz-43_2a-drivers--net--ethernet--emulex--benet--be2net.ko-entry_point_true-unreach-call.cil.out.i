@@ -10057,7 +10057,7 @@ __inline static void be_vf_eth_addr_generate(struct be_adapter *adapter , u8 *ma
   if (__len > 63UL) {
     __ret = memcpy((void *)mac, (void const *)(adapter->netdev)->dev_addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)mac, (void const *)(adapter->netdev)->dev_addr,
+    __ret = memcpy((void *)mac, (void const *)(adapter->netdev)->dev_addr,
                              __len);
   }
   return;
@@ -10583,7 +10583,7 @@ static int be_mac_addr_set(struct net_device *netdev , void *p )
   } else {
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
+  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
                            __len);
   _dev_info((struct device const *)dev, "MAC address changed to %pM\n", (u8 *)(& mac));
   return (0);
@@ -11934,7 +11934,7 @@ static int be_set_vf_mac(struct net_device *netdev , int vf , u8 *mac )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& vf_cfg->mac_addr), (void const *)mac, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& vf_cfg->mac_addr), (void const *)mac,
+      __ret = memcpy((void *)(& vf_cfg->mac_addr), (void const *)mac,
                                __len);
     }
   }
@@ -11969,7 +11969,7 @@ static int be_get_vf_config(struct net_device *netdev , int vf , struct ifla_vf_
   if (__len > 63UL) {
     __ret = memcpy((void *)(& vi->mac), (void const *)(& vf_cfg->mac_addr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& vi->mac), (void const *)(& vf_cfg->mac_addr),
+    __ret = memcpy((void *)(& vi->mac), (void const *)(& vf_cfg->mac_addr),
                              __len);
   }
   vi->linkstate = (adapter->vf_cfg + (unsigned long )vf)->plink_tracking;
@@ -12346,14 +12346,14 @@ static void skb_fill_rx_data(struct be_rx_obj *rxo , struct sk_buff *skb , struc
   skb->len = (unsigned int )curr_frag_len;
   if ((unsigned int )curr_frag_len <= 64U) {
     __len = (size_t )curr_frag_len;
-    __ret = __builtin_memcpy((void *)skb->data, (void const *)start, __len);
+    __ret = memcpy((void *)skb->data, (void const *)start, __len);
     put_page(page_info->page);
     skb->data_len = 0U;
     skb->tail = skb->tail + (sk_buff_data_t )curr_frag_len;
   } else {
     hdr_len = 14U;
     __len___0 = (size_t )hdr_len;
-    __ret___0 = __builtin_memcpy((void *)skb->data, (void const *)start, __len___0);
+    __ret___0 = memcpy((void *)skb->data, (void const *)start, __len___0);
     tmp___0 = skb_end_pointer((struct sk_buff const *)skb);
     ((struct skb_shared_info *)tmp___0)->nr_frags = 1U;
     skb_frag_set_page(skb, 0, page_info->page);
@@ -14316,7 +14316,7 @@ static int be_rx_qs_create(struct be_adapter *adapter )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& rss->rss_hkey), (void const *)(& rss_hkey), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& rss->rss_hkey), (void const *)(& rss_hkey),
+    __ret = memcpy((void *)(& rss->rss_hkey), (void const *)(& rss_hkey),
                              __len);
   }
   i = 0;
@@ -14478,7 +14478,7 @@ static int be_vf_eth_addr_config(struct be_adapter *adapter )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& vf_cfg->mac_addr), (void const *)(& mac), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& vf_cfg->mac_addr), (void const *)(& mac),
+      __ret = memcpy((void *)(& vf_cfg->mac_addr), (void const *)(& mac),
                                __len);
     }
   }
@@ -14516,7 +14516,7 @@ static int be_vfs_mac_query(struct be_adapter *adapter )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& vf_cfg->mac_addr), (void const *)(& mac), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& vf_cfg->mac_addr), (void const *)(& mac),
+    __ret = memcpy((void *)(& vf_cfg->mac_addr), (void const *)(& mac),
                              __len);
   }
   vf = vf + 1;
@@ -15089,7 +15089,7 @@ static int be_mac_setup(struct be_adapter *adapter )
       __ret = memcpy((void *)(adapter->netdev)->dev_addr, (void const *)(& mac),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(adapter->netdev)->dev_addr, (void const *)(& mac),
+      __ret = memcpy((void *)(adapter->netdev)->dev_addr, (void const *)(& mac),
                                __len);
     }
     __len___0 = 6UL;
@@ -15097,7 +15097,7 @@ static int be_mac_setup(struct be_adapter *adapter )
       __ret___0 = memcpy((void *)(& (adapter->netdev)->perm_addr), (void const *)(& mac),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& (adapter->netdev)->perm_addr), (void const *)(& mac),
+      __ret___0 = memcpy((void *)(& (adapter->netdev)->perm_addr), (void const *)(& mac),
                                    __len___0);
     }
   } else {
@@ -15106,7 +15106,7 @@ static int be_mac_setup(struct be_adapter *adapter )
       __ret___1 = memcpy((void *)(& mac), (void const *)(adapter->netdev)->dev_addr,
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& mac), (void const *)(adapter->netdev)->dev_addr,
+      __ret___1 = memcpy((void *)(& mac), (void const *)(adapter->netdev)->dev_addr,
                                    __len___1);
     }
   }
@@ -15482,7 +15482,7 @@ static int be_flash(struct be_adapter *adapter , u8 const *img , struct be_dma_m
     flash_op = 2U;
   }
   __len = (size_t )num_bytes;
-  __ret = __builtin_memcpy((void *)(& req->data_buf), (void const *)img, __len);
+  __ret = memcpy((void *)(& req->data_buf), (void const *)img, __len);
   img = img + (unsigned long )num_bytes;
   status = be_cmd_write_flashrom(adapter, flash_cmd, (u32 )optype, flash_op, num_bytes);
   if ((status > 0 && ((unsigned int )status & 65535U) == 2U) && optype == 99) {
@@ -15872,7 +15872,7 @@ static int lancer_fw_download(struct be_adapter *adapter , struct firmware const
   __min2 = 32768U;
   chunk_size = __min1 < __min2 ? __min1 : __min2;
   __len = (size_t )chunk_size;
-  __ret = __builtin_memcpy((void *)dest_image_ptr, (void const *)data_ptr, __len);
+  __ret = memcpy((void *)dest_image_ptr, (void const *)data_ptr, __len);
   status = lancer_cmd_write_object(adapter, & flash_cmd, chunk_size, offset, "/prg",
                                    & data_written, & change_status, & add_status);
   if (status != 0) {
@@ -19431,7 +19431,7 @@ static struct be_mcc_wrb *be_cmd_copy(struct be_adapter *adapter , struct be_mcc
   if (__len > 63UL) {
     __ret = memcpy((void *)dest_wrb, (void const *)wrb, __len);
   } else {
-    __ret = __builtin_memcpy((void *)dest_wrb, (void const *)wrb, __len);
+    __ret = memcpy((void *)dest_wrb, (void const *)wrb, __len);
   }
   if ((int )wrb->embedded & 1) {
     tmp___0 = embedded_payload(wrb);
@@ -19470,7 +19470,7 @@ static int be_cmd_notify_wait(struct be_adapter *adapter , struct be_mcc_wrb *wr
     if (__len > 63UL) {
       __ret = memcpy((void *)wrb, (void const *)dest_wrb, __len);
     } else {
-      __ret = __builtin_memcpy((void *)wrb, (void const *)dest_wrb, __len);
+      __ret = memcpy((void *)wrb, (void const *)dest_wrb, __len);
     }
   } else {
   }
@@ -19675,7 +19675,7 @@ int be_cmd_mac_addr_query(struct be_adapter *adapter , u8 *mac_addr , bool perma
     if (__len > 63UL) {
       __ret = memcpy((void *)mac_addr, (void const *)(& resp->mac.addr), __len);
     } else {
-      __ret = __builtin_memcpy((void *)mac_addr, (void const *)(& resp->mac.addr),
+      __ret = memcpy((void *)mac_addr, (void const *)(& resp->mac.addr),
                                __len);
     }
   } else {
@@ -19713,7 +19713,7 @@ int be_cmd_pmac_add(struct be_adapter *adapter , u8 *mac_addr , u32 if_id , u32 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& req->mac_address), (void const *)mac_addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& req->mac_address), (void const *)mac_addr,
+    __ret = memcpy((void *)(& req->mac_address), (void const *)mac_addr,
                              __len);
   }
   status = be_mcc_notify_wait(adapter);
@@ -20992,7 +20992,7 @@ void be_cmd_get_regs(struct be_adapter *adapter , u32 buf_len , void *buf )
   if (status == 0) {
     resp = (struct be_cmd_resp_get_fat *)get_fat_cmd.va;
     __len = (size_t )resp->read_log_length;
-    __ret = __builtin_memcpy(buf + (unsigned long )offset, (void const *)(& resp->data_buffer),
+    __ret = memcpy(buf + (unsigned long )offset, (void const *)(& resp->data_buffer),
                              __len);
   } else {
     dev_err((struct device const *)(& (adapter->pdev)->dev), "FAT Table Retrieve error\n");
@@ -21108,7 +21108,7 @@ int be_cmd_vlan_config(struct be_adapter *adapter , u32 if_id , u16 *vtag_array 
   req->untagged = (adapter->res.if_cap_flags & 32U) != 0U;
   req->num_vlan = (u8 )num;
   __len = (unsigned long )req->num_vlan * 2UL;
-  __ret = __builtin_memcpy((void *)(& req->normal_vlan), (void const *)vtag_array,
+  __ret = memcpy((void *)(& req->normal_vlan), (void const *)vtag_array,
                            __len);
   status = be_mcc_notify_wait(adapter);
   err:
@@ -21183,7 +21183,7 @@ int be_cmd_rx_filter(struct be_adapter *adapter , u32 flags , u32 value )
     } else {
       tmp___2 = i;
       i = i + 1;
-      __ret = __builtin_memcpy((void *)(& req->mcast_mac[tmp___2].byte), (void const *)(& ha->addr),
+      __ret = memcpy((void *)(& req->mcast_mac[tmp___2].byte), (void const *)(& ha->addr),
                                __len);
     }
     __mptr___0 = (struct list_head const *)ha->list.next;
@@ -21395,12 +21395,12 @@ int be_cmd_rss_config(struct be_adapter *adapter , u8 *rsstable , u32 rss_hash_o
   } else {
   }
   __len = (size_t )table_size;
-  __ret = __builtin_memcpy((void *)(& req->cpu_table), (void const *)rsstable, __len);
+  __ret = memcpy((void *)(& req->cpu_table), (void const *)rsstable, __len);
   __len___0 = 40UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& req->hash), (void const *)rss_hkey, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& req->hash), (void const *)rss_hkey,
+    __ret___0 = memcpy((void *)(& req->hash), (void const *)rss_hkey,
                                  __len___0);
   }
   swap_dws((void *)(& req->hash), 40);
@@ -21648,7 +21648,7 @@ int be_cmd_get_flash_crc(struct be_adapter *adapter , u8 *flashed_crc , u16 opty
     if (__len > 63UL) {
       __ret = memcpy((void *)flashed_crc, (void const *)(& req->crc), __len);
     } else {
-      __ret = __builtin_memcpy((void *)flashed_crc, (void const *)(& req->crc),
+      __ret = memcpy((void *)flashed_crc, (void const *)(& req->crc),
                                __len);
     }
   } else {
@@ -21679,7 +21679,7 @@ int be_cmd_enable_magic_wol(struct be_adapter *adapter , u8 *mac , struct be_dma
   if (__len > 63UL) {
     __ret = memcpy((void *)(& req->magic_mac), (void const *)mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& req->magic_mac), (void const *)mac, __len);
+    __ret = memcpy((void *)(& req->magic_mac), (void const *)mac, __len);
   }
   status = be_mcc_notify_wait(adapter);
   err:
@@ -22135,7 +22135,7 @@ int be_cmd_get_mac_from_list(struct be_adapter *adapter , u8 *mac , bool *pmac_i
         __ret = memcpy((void *)mac, (void const *)(& resp->macid_macaddr.mac_addr_id.macaddr),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)mac, (void const *)(& resp->macid_macaddr.mac_addr_id.macaddr),
+        __ret = memcpy((void *)mac, (void const *)(& resp->macid_macaddr.mac_addr_id.macaddr),
                                  __len);
       }
       goto out;
@@ -22166,7 +22166,7 @@ int be_cmd_get_mac_from_list(struct be_adapter *adapter , u8 *mac , bool *pmac_i
       __ret___0 = memcpy((void *)mac, (void const *)(& resp->macaddr_list[0].mac_addr_id.macaddr),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)mac, (void const *)(& resp->macaddr_list[0].mac_addr_id.macaddr),
+      __ret___0 = memcpy((void *)mac, (void const *)(& resp->macaddr_list[0].mac_addr_id.macaddr),
                                    __len___0);
     }
   } else {
@@ -22249,7 +22249,7 @@ int be_cmd_set_mac_list(struct be_adapter *adapter , u8 *mac_array , u8 mac_coun
   req->mac_count = mac_count;
   if ((unsigned int )mac_count != 0U) {
     __len = (size_t )((int )mac_count * 6);
-    __ret = __builtin_memcpy((void *)(& req->mac), (void const *)mac_array, __len);
+    __ret = memcpy((void *)(& req->mac), (void const *)mac_array, __len);
   } else {
   }
   status = be_mcc_notify_wait(adapter);
@@ -22611,7 +22611,7 @@ int be_cmd_set_ext_fat_capabilites(struct be_adapter *adapter , struct be_dma_me
   if (__len > 63UL) {
     __ret = memcpy((void *)(& req->set_params), (void const *)configs, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& req->set_params), (void const *)configs,
+    __ret = memcpy((void *)(& req->set_params), (void const *)configs,
                              __len);
   }
   be_wrb_cmd_hdr_prepare(& req->hdr, 1, 126, (int )cmd->size, wrb, cmd);
@@ -22948,7 +22948,7 @@ int be_cmd_set_profile_config(struct be_adapter *adapter , void *desc , int size
   req->hdr.domain = domain;
   req->desc_count = 1U;
   __len = (size_t )size;
-  __ret = __builtin_memcpy((void *)(& req->desc), (void const *)desc, __len);
+  __ret = memcpy((void *)(& req->desc), (void const *)desc, __len);
   status = be_mcc_notify_wait(adapter);
   err:
   spin_unlock_bh(& adapter->mcc_lock);
@@ -23342,7 +23342,7 @@ int be_roce_mcc_cmd(void *netdev_handle , void *wrb_payload , int wrb_payload_si
   be_wrb_cmd_hdr_prepare(req, (int )hdr->subsystem, (int )hdr->opcode, wrb_payload_size,
                          wrb, (struct be_dma_mem *)0);
   __len = (size_t )wrb_payload_size;
-  __ret = __builtin_memcpy((void *)req, (void const *)wrb_payload, __len);
+  __ret = memcpy((void *)req, (void const *)wrb_payload, __len);
   swap_dws((void *)req, wrb_payload_size);
   status = be_mcc_notify_wait(adapter);
   if ((unsigned long )cmd_status != (unsigned long )((u16 *)0U)) {
@@ -23354,7 +23354,7 @@ int be_roce_mcc_cmd(void *netdev_handle , void *wrb_payload , int wrb_payload_si
   } else {
   }
   __len___0 = (unsigned long )resp->response_length + 16UL;
-  __ret___0 = __builtin_memcpy(wrb_payload, (void const *)resp, __len___0);
+  __ret___0 = memcpy(wrb_payload, (void const *)resp, __len___0);
   swap_dws(wrb_payload, (int )(resp->response_length + 16U));
   err:
   spin_unlock_bh(& adapter->mcc_lock);
@@ -23755,7 +23755,7 @@ static int lancer_cmd_read_file(struct be_adapter *adapter , u8 *file_name , u32
                                   (char const *)file_name, & read_len, & eof, & addn_status);
   if (status == 0) {
     __len = (size_t )read_len;
-    __ret = __builtin_memcpy(buf + (unsigned long )total_read_len, (void const *)read_cmd.va,
+    __ret = memcpy(buf + (unsigned long )total_read_len, (void const *)read_cmd.va,
                              __len);
     total_read_len = total_read_len + read_len;
     eof = eof & 2147483648U;
@@ -24024,7 +24024,7 @@ static void be_get_stat_strings(struct net_device *netdev , uint32_t stringset ,
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const *)(& et_stats[i].desc), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const *)(& et_stats[i].desc), __len);
+    __ret = memcpy((void *)data, (void const *)(& et_stats[i].desc), __len);
   }
   data = data + 32UL;
   i = i + 1;
@@ -24083,7 +24083,7 @@ static void be_get_stat_strings(struct net_device *netdev , uint32_t stringset ,
     __ret___0 = memcpy((void *)data, (void const *)(& et_self_tests) + (unsigned long )i,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)data, (void const *)(& et_self_tests) + (unsigned long )i,
+    __ret___0 = memcpy((void *)data, (void const *)(& et_self_tests) + (unsigned long )i,
                                  __len___0);
   }
   data = data + 32UL;
@@ -24666,7 +24666,7 @@ static int be_read_eeprom(struct net_device *netdev , struct ethtool_eeprom *eep
   if (status == 0) {
     resp = (struct be_cmd_resp_seeprom_read *)eeprom_cmd.va;
     __len = (size_t )eeprom->len;
-    __ret = __builtin_memcpy((void *)data, (void const *)(& resp->seeprom_data) + (unsigned long )eeprom->offset,
+    __ret = memcpy((void *)data, (void const *)(& resp->seeprom_data) + (unsigned long )eeprom->offset,
                              __len);
   } else {
   }
@@ -25012,7 +25012,7 @@ static int be_get_rxfh(struct net_device *netdev , u32 *indir , u8 *hkey )
     if (__len > 63UL) {
       __ret = memcpy((void *)hkey, (void const *)(& rss->rss_hkey), __len);
     } else {
-      __ret = __builtin_memcpy((void *)hkey, (void const *)(& rss->rss_hkey), __len);
+      __ret = memcpy((void *)hkey, (void const *)(& rss->rss_hkey), __len);
     }
   } else {
   }
@@ -25058,7 +25058,7 @@ static int be_set_rxfh(struct net_device *netdev , u32 const *indir , u8 const *
       __ret = memcpy((void *)(& rsstable), (void const *)(& adapter->rss_info.rsstable),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& rsstable), (void const *)(& adapter->rss_info.rsstable),
+      __ret = memcpy((void *)(& rsstable), (void const *)(& adapter->rss_info.rsstable),
                                __len);
     }
   }
@@ -25078,7 +25078,7 @@ static int be_set_rxfh(struct net_device *netdev , u32 const *indir , u8 const *
     __ret___0 = memcpy((void *)(& adapter->rss_info.rss_hkey), (void const *)hkey,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& adapter->rss_info.rss_hkey), (void const *)hkey,
+    __ret___0 = memcpy((void *)(& adapter->rss_info.rss_hkey), (void const *)hkey,
                                  __len___0);
   }
   __len___1 = 128UL;
@@ -25086,7 +25086,7 @@ static int be_set_rxfh(struct net_device *netdev , u32 const *indir , u8 const *
     __ret___1 = memcpy((void *)(& adapter->rss_info.rsstable), (void const *)(& rsstable),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& adapter->rss_info.rsstable), (void const *)(& rsstable),
+    __ret___1 = memcpy((void *)(& adapter->rss_info.rsstable), (void const *)(& rsstable),
                                  __len___1);
   }
   return (0);
@@ -25642,7 +25642,7 @@ static void _be_roce_dev_add(struct be_adapter *adapter )
     __ret = memcpy((void *)(& dev_info.mac_addr), (void const *)(adapter->netdev)->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dev_info.mac_addr), (void const *)(adapter->netdev)->dev_addr,
+    __ret = memcpy((void *)(& dev_info.mac_addr), (void const *)(adapter->netdev)->dev_addr,
                              __len);
   }
   dev_info.dev_family = adapter->sli_family;

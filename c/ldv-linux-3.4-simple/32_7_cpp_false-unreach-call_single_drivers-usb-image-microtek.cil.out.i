@@ -2136,7 +2136,7 @@ static inline __attribute__((no_instrument_function)) void bitmap_copy(unsigned 
   *dst = *src;
  else {
   int len = (((nbits) + (8 * sizeof(long)) - 1) / (8 * sizeof(long))) * sizeof(unsigned long);
-  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = __builtin_memcpy((dst), (src), __len); __ret; });
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = memcpy((dst), (src), __len); __ret; });
  }
 }
 static inline __attribute__((no_instrument_function)) int bitmap_and(unsigned long *dst, const unsigned long *src1,
@@ -7729,12 +7729,12 @@ memset_io(volatile void *addr, unsigned char val, size_t count)
 static inline __attribute__((no_instrument_function)) void
 memcpy_fromio(void *dst, const volatile void *src, size_t count)
 {
- ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy((dst), ((const void *)src), __len); else __ret = __builtin_memcpy((dst), ((const void *)src), __len); __ret; });
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy((dst), ((const void *)src), __len); else __ret = memcpy((dst), ((const void *)src), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void
 memcpy_toio(volatile void *dst, const void *src, size_t count)
 {
- ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy(((void *)dst), (src), __len); else __ret = __builtin_memcpy(((void *)dst), (src), __len); __ret; });
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy(((void *)dst), (src), __len); else __ret = memcpy(((void *)dst), (src), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void flush_write_buffers(void)
 {
@@ -10912,9 +10912,9 @@ void do_schedule_next_timer(struct siginfo *info);
 static inline __attribute__((no_instrument_function)) void copy_siginfo(struct siginfo *to, struct siginfo *from)
 {
  if (from->si_code < 0)
-  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
+  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
  else
-  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
+  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
 }
 extern int copy_siginfo_to_user(struct siginfo *to, struct siginfo *from);
 struct task_struct;
@@ -20032,7 +20032,7 @@ static inline __attribute__((no_instrument_function)) void pmdp_set_wrprotect(st
 }
 static inline __attribute__((no_instrument_function)) void clone_pgd_range(pgd_t *dst, pgd_t *src, int count)
 {
-       ({ size_t __len = (count * sizeof(pgd_t)); void *__ret; if (__builtin_constant_p(count * sizeof(pgd_t)) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = __builtin_memcpy((dst), (src), __len); __ret; });
+       ({ size_t __len = (count * sizeof(pgd_t)); void *__ret; if (__builtin_constant_p(count * sizeof(pgd_t)) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = memcpy((dst), (src), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void pte_clear_not_present_full(struct mm_struct *mm,
            unsigned long address,

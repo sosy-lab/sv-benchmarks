@@ -6159,12 +6159,12 @@ static struct sk_buff *cdc_mbim_process_dgram(struct usbnet *dev , u8 *buf , siz
                      __len);
   } else {
     tmp___2 = eth_hdr((struct sk_buff const *)skb);
-    __ret = __builtin_memcpy((void *)(& tmp___2->h_dest), (void const *)(dev->net)->dev_addr,
+    __ret = memcpy((void *)(& tmp___2->h_dest), (void const *)(dev->net)->dev_addr,
                              __len);
   }
   __len___0 = len;
   tmp___4 = skb_put(skb, (unsigned int )len);
-  __ret___0 = __builtin_memcpy((void *)tmp___4, (void const *)buf, __len___0);
+  __ret___0 = memcpy((void *)tmp___4, (void const *)buf, __len___0);
   if ((unsigned int )tci != 0U) {
     vlan_put_tag(skb, 129, (int )tci);
   } else {

@@ -13386,7 +13386,7 @@ void ldv_mutex_unlock_48(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 __inline static __u32 __arch_swab32(__u32 val ) 
 { 
 
@@ -14611,7 +14611,7 @@ __inline static int bitstream_get_bits(struct bitstream *bs , u64 *out , int bit
   n = ((bs->cur.bit + (unsigned int )bits) + 7U) >> 3;
   if (n != 0U) {
     __len = (size_t )(n - 1U);
-    __ret = __builtin_memcpy((void *)(& val), (void const   *)bs->cur.b + 1U, __len);
+    __ret = memcpy((void *)(& val), (void const   *)bs->cur.b + 1U, __len);
     val = val << (int )(8U - bs->cur.bit);
   } else {
 
@@ -15479,7 +15479,7 @@ static struct socket *drbd_try_connect(struct drbd_conf *mdev )
   __min1 = (mdev->net_conf)->my_addr_len;
   __min2 = 28;
   __len = (size_t )(__min1 < __min2 ? __min1 : __min2);
-  __ret = __builtin_memcpy((void *)(& src_in6), (void const   *)(& (mdev->net_conf)->my_addr),
+  __ret = memcpy((void *)(& src_in6), (void const   *)(& (mdev->net_conf)->my_addr),
                            __len);
   if ((unsigned int )((struct sockaddr *)(& (mdev->net_conf)->my_addr))->sa_family == 10U) {
     src_in6.sin6_port = 0U;
@@ -20350,7 +20350,7 @@ static int receive_bitmap(struct drbd_conf *mdev , struct p_header *h )
     if (__len > 63UL) {
       __ret = memcpy((void *)p, (void const   *)h, __len);
     } else {
-      __ret = __builtin_memcpy((void *)p, (void const   *)h, __len);
+      __ret = memcpy((void *)p, (void const   *)h, __len);
     }
     tmp___9 = drbd_recv(mdev, (void *)(& p->head.payload), (size_t )h->length);
     if (tmp___9 != (int )h->length) {
@@ -25279,7 +25279,7 @@ int drbd_md_sync_page_io(struct drbd_conf *mdev , struct drbd_backing_dev *bdev 
       if (__len > 63UL) {
         __ret = memcpy(hp + (unsigned long )(offset * 512), (void const   *)p, __len);
       } else {
-        __ret = __builtin_memcpy(hp + (unsigned long )(offset * 512), (void const   *)p,
+        __ret = memcpy(hp + (unsigned long )(offset * 512), (void const   *)p,
                                  __len);
       }
     } else {
@@ -25332,7 +25332,7 @@ int drbd_md_sync_page_io(struct drbd_conf *mdev , struct drbd_backing_dev *bdev 
       __ret___0 = memcpy(p___0, (void const   *)hp___0 + (unsigned long )(offset * 512),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy(p___0, (void const   *)hp___0 + (unsigned long )(offset * 512),
+      __ret___0 = memcpy(p___0, (void const   *)hp___0 + (unsigned long )(offset * 512),
                                    __len___0);
     }
   } else {
@@ -34793,7 +34793,7 @@ __inline static void bitmap_copy(unsigned long *dst , unsigned long const   *src
   {
   len = (int )((unsigned int )(((unsigned long )nbits + 63UL) / 64UL) * 8U);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)dst, (void const   *)src, __len);
+  __ret = memcpy((void *)dst, (void const   *)src, __len);
   return;
 }
 }
@@ -35617,7 +35617,7 @@ static int disk_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , s
   __min1 = (size_t )dlen;
   __min2 = 128UL;
   __len = __min1 < __min2 ? __min1 : __min2;
-  __ret = __builtin_memcpy((void *)(& arg->backing_dev), (void const   *)tags, __len);
+  __ret = memcpy((void *)(& arg->backing_dev), (void const   *)tags, __len);
   goto ldv_42711;
   case 4: ;
   if (dlen > 128) {
@@ -35633,7 +35633,7 @@ static int disk_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , s
   __min1___0 = (size_t )dlen;
   __min2___0 = 128UL;
   __len___0 = __min1___0 < __min2___0 ? __min1___0 : __min2___0;
-  __ret___0 = __builtin_memcpy((void *)(& arg->meta_dev), (void const   *)tags, __len___0);
+  __ret___0 = memcpy((void *)(& arg->meta_dev), (void const   *)tags, __len___0);
   goto ldv_42711;
   case 5: 
   tmp___5 = get_unaligned_le32((void const   *)tags);
@@ -35771,7 +35771,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
   __min1 = (size_t )dlen;
   __min2 = 128UL;
   __len = __min1 < __min2 ? __min1 : __min2;
-  __ret = __builtin_memcpy((void *)(& arg->my_addr), (void const   *)tags, __len);
+  __ret = memcpy((void *)(& arg->my_addr), (void const   *)tags, __len);
   goto ldv_42781;
   case 9: ;
   if (dlen > 128) {
@@ -35787,7 +35787,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
   __min1___0 = (size_t )dlen;
   __min2___0 = 128UL;
   __len___0 = __min1___0 < __min2___0 ? __min1___0 : __min2___0;
-  __ret___0 = __builtin_memcpy((void *)(& arg->peer_addr), (void const   *)tags, __len___0);
+  __ret___0 = memcpy((void *)(& arg->peer_addr), (void const   *)tags, __len___0);
   goto ldv_42781;
   case 10: ;
   if (dlen > 64) {
@@ -35803,7 +35803,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
   __min1___1 = (size_t )dlen;
   __min2___1 = 64UL;
   __len___1 = __min1___1 < __min2___1 ? __min1___1 : __min2___1;
-  __ret___1 = __builtin_memcpy((void *)(& arg->shared_secret), (void const   *)tags,
+  __ret___1 = memcpy((void *)(& arg->shared_secret), (void const   *)tags,
                                __len___1);
   goto ldv_42781;
   case 11: ;
@@ -35820,7 +35820,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
   __min1___2 = (size_t )dlen;
   __min2___2 = 64UL;
   __len___2 = __min1___2 < __min2___2 ? __min1___2 : __min2___2;
-  __ret___2 = __builtin_memcpy((void *)(& arg->cram_hmac_alg), (void const   *)tags,
+  __ret___2 = memcpy((void *)(& arg->cram_hmac_alg), (void const   *)tags,
                                __len___2);
   goto ldv_42781;
   case 44: ;
@@ -35837,7 +35837,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
   __min1___3 = (size_t )dlen;
   __min2___3 = 64UL;
   __len___3 = __min1___3 < __min2___3 ? __min1___3 : __min2___3;
-  __ret___3 = __builtin_memcpy((void *)(& arg->integrity_alg), (void const   *)tags,
+  __ret___3 = memcpy((void *)(& arg->integrity_alg), (void const   *)tags,
                                __len___3);
   goto ldv_42781;
   case 14: 
@@ -36089,7 +36089,7 @@ static int syncer_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags ,
   __min1 = (size_t )dlen;
   __min2 = 64UL;
   __len = __min1 < __min2 ? __min1 : __min2;
-  __ret = __builtin_memcpy((void *)(& arg->verify_alg), (void const   *)tags, __len);
+  __ret = memcpy((void *)(& arg->verify_alg), (void const   *)tags, __len);
   goto ldv_42894;
   case 51: ;
   if (dlen > 32) {
@@ -36105,7 +36105,7 @@ static int syncer_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags ,
   __min1___0 = (size_t )dlen;
   __min2___0 = 32UL;
   __len___0 = __min1___0 < __min2___0 ? __min1___0 : __min2___0;
-  __ret___0 = __builtin_memcpy((void *)(& arg->cpu_mask), (void const   *)tags, __len___0);
+  __ret___0 = memcpy((void *)(& arg->cpu_mask), (void const   *)tags, __len___0);
   goto ldv_42894;
   case 64: ;
   if (dlen > 64) {
@@ -36121,7 +36121,7 @@ static int syncer_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags ,
   __min1___1 = (size_t )dlen;
   __min2___1 = 64UL;
   __len___1 = __min1___1 < __min2___1 ? __min1___1 : __min2___1;
-  __ret___1 = __builtin_memcpy((void *)(& arg->csums_alg), (void const   *)tags, __len___1);
+  __ret___1 = memcpy((void *)(& arg->csums_alg), (void const   *)tags, __len___1);
   goto ldv_42894;
   case 65: 
   arg->use_rle = (int )((signed char )*((char *)tags)) != 0;
@@ -36419,7 +36419,7 @@ static unsigned short *disk_conf_to_tags(struct drbd_conf *mdev , struct disk_co
   }
   ldv_43323: 
   __len = (size_t )arg->backing_dev_len;
-  __ret = __builtin_memcpy((void *)tags, (void const   *)(& arg->backing_dev), __len);
+  __ret = memcpy((void *)tags, (void const   *)(& arg->backing_dev), __len);
   tags = tags + (unsigned long )arg->backing_dev_len;
   tmp___3 = tags;
   tags = tags + 1;
@@ -36464,7 +36464,7 @@ static unsigned short *disk_conf_to_tags(struct drbd_conf *mdev , struct disk_co
   }
   ldv_43340: 
   __len___0 = (size_t )arg->meta_dev_len;
-  __ret___0 = __builtin_memcpy((void *)tags, (void const   *)(& arg->meta_dev), __len___0);
+  __ret___0 = memcpy((void *)tags, (void const   *)(& arg->meta_dev), __len___0);
   tags = tags + (unsigned long )arg->meta_dev_len;
   tmp___5 = tags;
   tags = tags + 1;
@@ -37120,7 +37120,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   }
   ldv_43529: 
   __len = (size_t )arg->my_addr_len;
-  __ret = __builtin_memcpy((void *)tags, (void const   *)(& arg->my_addr), __len);
+  __ret = memcpy((void *)tags, (void const   *)(& arg->my_addr), __len);
   tags = tags + (unsigned long )arg->my_addr_len;
   tmp___1 = tags;
   tags = tags + 1;
@@ -37165,7 +37165,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   }
   ldv_43546: 
   __len___0 = (size_t )arg->peer_addr_len;
-  __ret___0 = __builtin_memcpy((void *)tags, (void const   *)(& arg->peer_addr), __len___0);
+  __ret___0 = memcpy((void *)tags, (void const   *)(& arg->peer_addr), __len___0);
   tags = tags + (unsigned long )arg->peer_addr_len;
   tmp___3 = tags;
   tags = tags + 1;
@@ -37210,7 +37210,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   }
   ldv_43563: 
   __len___1 = (size_t )arg->shared_secret_len;
-  __ret___1 = __builtin_memcpy((void *)tags, (void const   *)(& arg->shared_secret),
+  __ret___1 = memcpy((void *)tags, (void const   *)(& arg->shared_secret),
                                __len___1);
   tags = tags + (unsigned long )arg->shared_secret_len;
   tmp___5 = tags;
@@ -37256,7 +37256,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   }
   ldv_43580: 
   __len___2 = (size_t )arg->cram_hmac_alg_len;
-  __ret___2 = __builtin_memcpy((void *)tags, (void const   *)(& arg->cram_hmac_alg),
+  __ret___2 = memcpy((void *)tags, (void const   *)(& arg->cram_hmac_alg),
                                __len___2);
   tags = tags + (unsigned long )arg->cram_hmac_alg_len;
   tmp___7 = tags;
@@ -37302,7 +37302,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   }
   ldv_43597: 
   __len___3 = (size_t )arg->integrity_alg_len;
-  __ret___3 = __builtin_memcpy((void *)tags, (void const   *)(& arg->integrity_alg),
+  __ret___3 = memcpy((void *)tags, (void const   *)(& arg->integrity_alg),
                                __len___3);
   tags = tags + (unsigned long )arg->integrity_alg_len;
   tmp___9 = tags;
@@ -39087,7 +39087,7 @@ static unsigned short *syncer_conf_to_tags(struct drbd_conf *mdev , struct synce
   }
   ldv_44250: 
   __len = (size_t )arg->verify_alg_len;
-  __ret = __builtin_memcpy((void *)tags, (void const   *)(& arg->verify_alg), __len);
+  __ret = memcpy((void *)tags, (void const   *)(& arg->verify_alg), __len);
   tags = tags + (unsigned long )arg->verify_alg_len;
   tmp___15 = tags;
   tags = tags + 1;
@@ -39132,7 +39132,7 @@ static unsigned short *syncer_conf_to_tags(struct drbd_conf *mdev , struct synce
   }
   ldv_44267: 
   __len___0 = (size_t )arg->cpu_mask_len;
-  __ret___0 = __builtin_memcpy((void *)tags, (void const   *)(& arg->cpu_mask), __len___0);
+  __ret___0 = memcpy((void *)tags, (void const   *)(& arg->cpu_mask), __len___0);
   tags = tags + (unsigned long )arg->cpu_mask_len;
   tmp___17 = tags;
   tags = tags + 1;
@@ -39177,7 +39177,7 @@ static unsigned short *syncer_conf_to_tags(struct drbd_conf *mdev , struct synce
   }
   ldv_44284: 
   __len___1 = (size_t )arg->csums_alg_len;
-  __ret___1 = __builtin_memcpy((void *)tags, (void const   *)(& arg->csums_alg), __len___1);
+  __ret___1 = memcpy((void *)tags, (void const   *)(& arg->csums_alg), __len___1);
   tags = tags + (unsigned long )arg->csums_alg_len;
   tmp___19 = tags;
   tags = tags + 1;
@@ -41541,7 +41541,7 @@ static int drbd_nl_syncer_conf(struct drbd_conf *mdev , struct drbd_nl_cfg_req *
     if (__len > 63UL) {
       __ret = memcpy((void *)(& sc), (void const   *)(& mdev->sync_conf), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& sc), (void const   *)(& mdev->sync_conf),
+      __ret = memcpy((void *)(& sc), (void const   *)(& mdev->sync_conf),
                                __len);
     }
   }
@@ -42432,7 +42432,7 @@ static unsigned short *__tl_add_blob(unsigned short *tl , enum drbd_tags tag , v
   }
   ldv_45229: 
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)tl, data, __len);
+  __ret = memcpy((void *)tl, data, __len);
   tl = tl + (unsigned long )len;
   if (nul_terminated != 0) {
     *((char *)tl + 0xffffffffffffffffUL) = 0;
@@ -42798,7 +42798,7 @@ void drbd_bcast_ee(struct drbd_conf *mdev , char const   *reason , int const   d
   __min2 = 4096U;
   l = __min1 < __min2 ? __min1 : __min2;
   __len = (size_t )l;
-  __ret = __builtin_memcpy((void *)tl, (void const   *)d, __len);
+  __ret = memcpy((void *)tl, (void const   *)d, __len);
   pagefault_enable___0();
   tl = tl + (unsigned long )l;
   len = len - l;

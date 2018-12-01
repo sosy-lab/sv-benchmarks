@@ -6413,7 +6413,7 @@ static int rp_write(struct tty_struct *tty , unsigned char const   *buf , int co
   }
   b = buf;
   __len = (size_t )c;
-  __ret = __builtin_memcpy((void *)info->xmit_buf + (unsigned long )info->xmit_head,
+  __ret = memcpy((void *)info->xmit_buf + (unsigned long )info->xmit_head,
                            (void const   *)b, __len);
   ldv_spin_lock();
   info->xmit_head = (info->xmit_head + c) & 4095;

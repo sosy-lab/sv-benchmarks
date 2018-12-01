@@ -6951,13 +6951,13 @@ static int if_usb_send_fw_pkt(struct if_usb_card *cardp )
     __ret = memcpy((void *)(& fwdata->hdr), (void const   *)firmware + (unsigned long )cardp->totalbytes,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& fwdata->hdr), (void const   *)firmware + (unsigned long )cardp->totalbytes,
+    __ret = memcpy((void *)(& fwdata->hdr), (void const   *)firmware + (unsigned long )cardp->totalbytes,
                              __len);
   }
   cardp->fwlastblksent = cardp->totalbytes;
   cardp->totalbytes = cardp->totalbytes + 16U;
   __len___0 = (size_t )fwdata->hdr.datalength;
-  __ret___0 = __builtin_memcpy((void *)(& fwdata->data), (void const   *)firmware + (unsigned long )cardp->totalbytes,
+  __ret___0 = memcpy((void *)(& fwdata->data), (void const   *)firmware + (unsigned long )cardp->totalbytes,
                                __len___0);
   cardp->fwseqnum = cardp->fwseqnum + 1U;
   fwdata->seqnum = cardp->fwseqnum;
@@ -7178,7 +7178,7 @@ static void if_usb_receive_fwload(struct urb *urb )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& bootcmdresp), (void const   *)skb->data + 2U, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& bootcmdresp), (void const   *)skb->data + 2U,
+      __ret = memcpy((void *)(& bootcmdresp), (void const   *)skb->data + 2U,
                                __len);
     }
     if ((unsigned int )(cardp->udev)->descriptor.bcdDevice <= 12549U) {
@@ -7356,7 +7356,7 @@ __inline static void process_cmdrequest(int recvlength , uint8_t *recvbuff , str
   }
   priv->resp_len[(int )i] = (u32 )(recvlength + -4);
   __len = (size_t )priv->resp_len[(int )i];
-  __ret = __builtin_memcpy((void *)(& priv->resp_buf) + (unsigned long )i, (void const   *)recvbuff + 4U,
+  __ret = memcpy((void *)(& priv->resp_buf) + (unsigned long )i, (void const   *)recvbuff + 4U,
                            __len);
   kfree_skb(skb);
   lbs_notify_command_response(priv, (int )i);
@@ -7531,7 +7531,7 @@ static int if_usb_host_to_card(struct lbs_private *priv , uint8_t type , uint8_t
     priv->dnld_sent = 1U;
   }
   __len = (size_t )nb;
-  __ret = __builtin_memcpy(cardp->ep_out_buf + 4UL, (void const   *)payload, __len);
+  __ret = memcpy(cardp->ep_out_buf + 4UL, (void const   *)payload, __len);
   tmp___3 = usb_tx_block(cardp, (uint8_t *)cardp->ep_out_buf, (int )((unsigned int )nb + 4U));
   return (tmp___3);
 }

@@ -7561,7 +7561,7 @@ static int bdx_set_mac(struct net_device *ndev , void *p )
   priv = (struct bdx_priv *)tmp;
   addr = (struct sockaddr *)p;
   __len = (size_t )ndev->addr_len;
-  __ret = __builtin_memcpy((void *)ndev->dev_addr, (void const *)(& addr->sa_data),
+  __ret = memcpy((void *)ndev->dev_addr, (void const *)(& addr->sa_data),
                            __len);
   bdx_restore_mac(ndev, priv);
   return (0);
@@ -7961,7 +7961,7 @@ static void bdx_rx_alloc_skbs(struct bdx_priv *priv , struct rxf_fifo *f )
     f->m.wptr = (u32 )delta;
     if (delta > 0) {
       __len = (size_t )delta;
-      __ret = __builtin_memcpy((void *)f->m.va, (void const *)f->m.va + (unsigned long )f->m.memsz,
+      __ret = memcpy((void *)f->m.va, (void const *)f->m.va + (unsigned long )f->m.memsz,
                                __len);
     } else {
     }
@@ -8022,7 +8022,7 @@ static void bdx_recycle_skb(struct bdx_priv *priv , struct rxd_desc *rxdd )
     f->m.wptr = (u32 )delta;
     if (delta > 0) {
       __len = (size_t )delta;
-      __ret = __builtin_memcpy((void *)f->m.va, (void const *)f->m.va + (unsigned long )f->m.memsz,
+      __ret = memcpy((void *)f->m.va, (void const *)f->m.va + (unsigned long )f->m.memsz,
                                __len);
     } else {
     }
@@ -8097,7 +8097,7 @@ static int bdx_rx_receive(struct bdx_priv *priv , struct rxd_fifo *f , int budge
     f->m.rptr = (u32 )tmp_len;
     if (tmp_len > 0) {
       __len = (size_t )tmp_len;
-      __ret = __builtin_memcpy((void *)f->m.va + (unsigned long )f->m.memsz, (void const *)f->m.va,
+      __ret = memcpy((void *)f->m.va + (unsigned long )f->m.memsz, (void const *)f->m.va,
                                __len);
     } else {
     }
@@ -8122,7 +8122,7 @@ static int bdx_rx_receive(struct bdx_priv *priv , struct rxd_fifo *f , int budge
       pci_dma_sync_single_for_cpu(priv->pdev, dm->dma, (size_t )rxf_fifo->m.pktsz,
                                   2);
       __len___0 = (size_t )len;
-      __ret___0 = __builtin_memcpy((void *)skb2->data, (void const *)skb->data,
+      __ret___0 = memcpy((void *)skb2->data, (void const *)skb->data,
                                    __len___0);
       bdx_recycle_skb(priv, rxdd);
       skb = skb2;
@@ -8534,7 +8534,7 @@ static netdev_tx_t bdx_tx_transmit(struct sk_buff *skb , struct net_device *ndev
       } else {
       }
       __len = (size_t )len;
-      __ret = __builtin_memcpy((void *)f->m.va, (void const *)f->m.va + (unsigned long )f->m.memsz,
+      __ret = memcpy((void *)f->m.va, (void const *)f->m.va + (unsigned long )f->m.memsz,
                                __len);
     } else {
     }
@@ -8761,16 +8761,16 @@ static void bdx_tx_push_desc(struct bdx_priv *priv , void *data , int size )
   }
   if (i > size) {
     __len = (size_t )size;
-    __ret = __builtin_memcpy((void *)f->m.va + (unsigned long )f->m.wptr, (void const *)data,
+    __ret = memcpy((void *)f->m.va + (unsigned long )f->m.wptr, (void const *)data,
                              __len);
     f->m.wptr = f->m.wptr + (u32 )size;
   } else {
     __len___0 = (size_t )i;
-    __ret___0 = __builtin_memcpy((void *)f->m.va + (unsigned long )f->m.wptr, (void const *)data,
+    __ret___0 = memcpy((void *)f->m.va + (unsigned long )f->m.wptr, (void const *)data,
                                  __len___0);
     f->m.wptr = (u32 )(size - i);
     __len___1 = (size_t )f->m.wptr;
-    __ret___1 = __builtin_memcpy((void *)f->m.va, (void const *)data + (unsigned long )i,
+    __ret___1 = memcpy((void *)f->m.va, (void const *)data + (unsigned long )i,
                                  __len___1);
   }
   writel(f->m.wptr & 32760U, (void volatile *)priv->pBdxRegs + (unsigned long )f->m.reg_WPTR);
@@ -9284,7 +9284,7 @@ static void bdx_get_strings(struct net_device *netdev , u32 stringset , u8 *data
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const *)(& bdx_stat_names), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const *)(& bdx_stat_names), __len);
+    __ret = memcpy((void *)data, (void const *)(& bdx_stat_names), __len);
   }
   goto ldv_46166;
   }
@@ -9329,7 +9329,7 @@ static void bdx_get_ethtool_stats(struct net_device *netdev , struct ethtool_sta
     if (__len > 63UL) {
       __ret = memcpy((void *)data, (void const *)(& priv->hw_stats), __len);
     } else {
-      __ret = __builtin_memcpy((void *)data, (void const *)(& priv->hw_stats), __len);
+      __ret = memcpy((void *)data, (void const *)(& priv->hw_stats), __len);
     }
   } else {
   }

@@ -5809,7 +5809,7 @@ static int pkt_generic_packet(struct pktcdvd_device *pd , struct packet_command 
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)rq->cmd, (void const *)(& cgc->cmd), __len);
+    __ret = memcpy((void *)rq->cmd, (void const *)(& cgc->cmd), __len);
     }
   }
   rq->timeout = 15000U;
@@ -6187,7 +6187,7 @@ static void pkt_copy_bio_data(struct bio *src_bio , int seg , int offs , struct 
   }
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(vto, (void const *)vfrom, __len);
+  __ret = memcpy(vto, (void const *)vfrom, __len);
   __kunmap_atomic(vfrom);
   seg = seg + 1;
   offs = 0;
@@ -6236,7 +6236,7 @@ static void pkt_make_local_copy(struct packet_data *pkt , struct bio_vec *bvec )
       }
     } else {
       {
-      __ret = __builtin_memcpy(vto, (void const *)vfrom, __len);
+      __ret = memcpy(vto, (void const *)vfrom, __len);
       }
     }
     {

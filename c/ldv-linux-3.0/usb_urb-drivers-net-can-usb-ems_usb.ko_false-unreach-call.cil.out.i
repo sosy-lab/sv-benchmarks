@@ -5772,7 +5772,7 @@ static int ems_usb_command_msg(struct ems_usb *dev , struct ems_cpc_msg *msg )
   {
   {
   __len = (size_t )((int )msg->length + 11);
-  __ret = __builtin_memcpy((void *)(dev->tx_msg_buffer + 4), (void const *)msg,
+  __ret = memcpy((void *)(dev->tx_msg_buffer + 4), (void const *)msg,
                            __len);
   memset((void *)(dev->tx_msg_buffer + 0), 0, (size_t )4);
   tmp___7 = __create_pipe(dev->udev, 2U);

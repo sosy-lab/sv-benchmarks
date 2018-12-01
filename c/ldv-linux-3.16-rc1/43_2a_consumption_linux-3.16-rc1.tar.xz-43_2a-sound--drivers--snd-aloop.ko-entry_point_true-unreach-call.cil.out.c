@@ -4702,7 +4702,7 @@ static void copy_play_buf(struct loopback_pcm *play , struct loopback_pcm *capt 
 
   }
   __len = (size_t )size;
-  __ret = __builtin_memcpy((void *)dst + (unsigned long )dst_off, (void const   *)src + (unsigned long )src_off,
+  __ret = memcpy((void *)dst + (unsigned long )dst_off, (void const   *)src + (unsigned long )src_off,
                            __len);
   capt->silent_size = 0U;
   bytes = bytes - size;

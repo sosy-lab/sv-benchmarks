@@ -7531,7 +7531,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
   }
   return;
@@ -7908,7 +7908,7 @@ static void rtl8187_iowrite_async(struct rtl8187_priv *priv , __le16 addr , void
   dr->wIndex = 0U;
   dr->wLength = len;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)data, __len);
+  __ret = memcpy((void *)buf, (void const   *)data, __len);
   tmp___0 = __create_pipe(priv->udev, 0U);
   usb_fill_control_urb(urb, priv->udev, tmp___0 | 2147483648U, (unsigned char *)dr,
                        (void *)buf, (int )len, & rtl8187_iowrite_async_cb, (void *)buf);
@@ -8241,7 +8241,7 @@ static void rtl8187_rx_cb(struct urb *urb )
     __ret = memcpy((void *)tmp___3, (void const   *)(& rx_status), __len);
   } else {
     tmp___4 = IEEE80211_SKB_RXCB(skb);
-    __ret = __builtin_memcpy((void *)tmp___4, (void const   *)(& rx_status), __len);
+    __ret = memcpy((void *)tmp___4, (void const   *)(& rx_status), __len);
   }
   ieee80211_rx_irqsafe(dev, skb);
   skb = ldv_dev_alloc_skb_15(2500U);
@@ -9509,7 +9509,7 @@ static int rtl8187_probe(struct usb_interface *intf , struct usb_device_id  cons
     __ret = memcpy((void *)(& priv->channels), (void const   *)(& rtl818x_channels),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->channels), (void const   *)(& rtl818x_channels),
+    __ret = memcpy((void *)(& priv->channels), (void const   *)(& rtl818x_channels),
                              __len);
   }
   __len___0 = 144UL;
@@ -9517,7 +9517,7 @@ static int rtl8187_probe(struct usb_interface *intf , struct usb_device_id  cons
     __ret___0 = memcpy((void *)(& priv->rates), (void const   *)(& rtl818x_rates),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& priv->rates), (void const   *)(& rtl818x_rates),
+    __ret___0 = memcpy((void *)(& priv->rates), (void const   *)(& rtl818x_rates),
                                  __len___0);
   }
   priv->map = (struct rtl818x_csr *)65280;

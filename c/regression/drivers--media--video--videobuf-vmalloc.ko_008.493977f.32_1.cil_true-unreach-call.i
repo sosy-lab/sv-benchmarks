@@ -2170,7 +2170,7 @@ struct videbuf_vmalloc_memory {
    void *vmalloc ;
    struct vm_area_struct *vma ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern void *memcpy(void *to , void const   *from , size_t len ) ;
@@ -2621,7 +2621,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
     if (__len >= (size_t )64) {
       __ret = memcpy(mem->vma, vma, __len);
     } else {
-      __ret = __builtin_memcpy(mem->vma, vma, __len);
+      __ret = memcpy(mem->vma, vma, __len);
     }
   } else {
 

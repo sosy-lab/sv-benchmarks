@@ -5998,7 +5998,7 @@ static int digitv_ctrl_msg(struct dvb_usb_device *d , u8 cmd , u8 vv , u8 *wbuf 
     __cil_tmp29 = (void *)(& sndbuf);
     __cil_tmp30 = __cil_tmp29 + 3U;
     __cil_tmp31 = (void const   *)wbuf;
-    __ret = __builtin_memcpy(__cil_tmp30, __cil_tmp31, __len);
+    __ret = memcpy(__cil_tmp30, __cil_tmp31, __len);
     __cil_tmp32 = (u8 *)(& sndbuf);
     __cil_tmp33 = (u16 )7;
     dvb_usb_generic_write(d, __cil_tmp32, __cil_tmp33);
@@ -6014,7 +6014,7 @@ static int digitv_ctrl_msg(struct dvb_usb_device *d , u8 cmd , u8 vv , u8 *wbuf 
     __cil_tmp38 = (void *)rbuf;
     __cil_tmp39 = (void const   *)(& rcvbuf);
     __cil_tmp40 = __cil_tmp39 + 3U;
-    __ret___0 = __builtin_memcpy(__cil_tmp38, __cil_tmp40, __len___0);
+    __ret___0 = memcpy(__cil_tmp38, __cil_tmp40, __len___0);
     }
   }
   return (0);

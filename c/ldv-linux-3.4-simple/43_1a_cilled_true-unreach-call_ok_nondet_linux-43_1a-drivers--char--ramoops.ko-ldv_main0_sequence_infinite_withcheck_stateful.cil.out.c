@@ -1119,13 +1119,13 @@ static void ramoops_do_dump(struct kmsg_dumper *dumper , enum kmsg_dump_reason r
   __cil_tmp71 = (void *)buf;
   __cil_tmp72 = s1 + s1_start;
   __cil_tmp73 = (void const   *)__cil_tmp72;
-  __ret = __builtin_memcpy(__cil_tmp71, __cil_tmp73, __len);
+  __ret = memcpy(__cil_tmp71, __cil_tmp73, __len);
   __len___0 = l2_cpy;
   __cil_tmp74 = buf + l1_cpy;
   __cil_tmp75 = (void *)__cil_tmp74;
   __cil_tmp76 = s2 + s2_start;
   __cil_tmp77 = (void const   *)__cil_tmp76;
-  __ret___0 = __builtin_memcpy(__cil_tmp75, __cil_tmp77, __len___0);
+  __ret___0 = memcpy(__cil_tmp75, __cil_tmp77, __len___0);
   __cil_tmp78 = (unsigned long )cxt;
   __cil_tmp79 = __cil_tmp78 + 68;
   __cil_tmp80 = (unsigned long )cxt;

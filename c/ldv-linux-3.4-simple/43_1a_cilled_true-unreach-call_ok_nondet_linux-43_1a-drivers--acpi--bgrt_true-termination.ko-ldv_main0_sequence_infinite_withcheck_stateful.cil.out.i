@@ -2729,7 +2729,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile *src , size_t
   {
   __len = count;
   __cil_tmp6 = (void const *)src;
-  __ret = __builtin_memcpy(dst, __cil_tmp6, __len);
+  __ret = memcpy(dst, __cil_tmp6, __len);
   }
   return;
 }

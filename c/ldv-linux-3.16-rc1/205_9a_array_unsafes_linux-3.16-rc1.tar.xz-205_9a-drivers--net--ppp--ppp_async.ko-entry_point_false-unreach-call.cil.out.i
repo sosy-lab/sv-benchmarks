@@ -6309,7 +6309,7 @@ static int ppp_async_ioctl(struct ppp_channel *chan , unsigned int cmd , unsigne
   if (__len > 63UL) {
     __ret = memcpy((void *)(& ap->xaccm), (void const *)(& accm), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ap->xaccm), (void const *)(& accm), __len);
+    __ret = memcpy((void *)(& ap->xaccm), (void const *)(& accm), __len);
   }
   err = 0;
   goto ldv_42690;
@@ -6887,7 +6887,7 @@ static void ppp_async_input(struct asyncppp *ap , unsigned char const *buf , cha
     } else {
       sp = skb_put(skb, (unsigned int )n);
       __len = (size_t )n;
-      __ret = __builtin_memcpy((void *)sp, (void const *)buf, __len);
+      __ret = memcpy((void *)sp, (void const *)buf, __len);
       if ((ap->state & 2U) != 0U) {
         *sp = (unsigned int )*sp ^ 32U;
         ap->state = ap->state & 4294967293U;

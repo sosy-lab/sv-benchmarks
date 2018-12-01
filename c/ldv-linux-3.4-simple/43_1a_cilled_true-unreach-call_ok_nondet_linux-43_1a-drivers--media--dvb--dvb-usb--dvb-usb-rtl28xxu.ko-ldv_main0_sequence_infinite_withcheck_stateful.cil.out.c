@@ -6135,7 +6135,7 @@ static int rtl28xxu_ctrl_msg(struct dvb_usb_device *d , struct rtl28xxu_req *req
     __cil_tmp32 = __cil_tmp31 + 8;
     __cil_tmp33 = *((u8 **)__cil_tmp32);
     __cil_tmp34 = (void const   *)__cil_tmp33;
-    __ret = __builtin_memcpy(__cil_tmp30, __cil_tmp34, __len);
+    __ret = memcpy(__cil_tmp30, __cil_tmp34, __len);
     requesttype = (u8 )64U;
     __cil_tmp35 = (unsigned long )d;
     __cil_tmp36 = __cil_tmp35 + 3560;
@@ -6312,7 +6312,7 @@ static int rtl28xxu_ctrl_msg(struct dvb_usb_device *d , struct rtl28xxu_req *req
       __cil_tmp118 = *((u8 **)__cil_tmp117);
       __cil_tmp119 = (void *)__cil_tmp118;
       __cil_tmp120 = (void const   *)buf;
-      __ret___0 = __builtin_memcpy(__cil_tmp119, __cil_tmp120, __len___0);
+      __ret___0 = memcpy(__cil_tmp119, __cil_tmp120, __len___0);
       }
     } else {
 

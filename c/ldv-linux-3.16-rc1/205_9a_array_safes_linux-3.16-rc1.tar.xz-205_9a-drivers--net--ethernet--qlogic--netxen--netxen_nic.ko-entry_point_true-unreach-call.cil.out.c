@@ -8022,7 +8022,7 @@ static int netxen_send_cmd_descs(struct netxen_adapter *adapter , struct cmd_des
     __ret = memcpy((void *)tx_ring->desc_head + (unsigned long )producer, (void const   *)cmd_desc_arr + (unsigned long )i,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)tx_ring->desc_head + (unsigned long )producer,
+    __ret = memcpy((void *)tx_ring->desc_head + (unsigned long )producer,
                              (void const   *)cmd_desc_arr + (unsigned long )i, __len);
   }
   producer = (producer + 1U) & (tx_ring->num_desc - 1U);
@@ -8058,7 +8058,7 @@ static int nx_p3_sre_macaddr_change(struct netxen_adapter *adapter , u8 *addr , 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mac_req->mac_addr), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mac_req->mac_addr), (void const   *)addr,
+    __ret = memcpy((void *)(& mac_req->mac_addr), (void const   *)addr,
                              __len);
   }
   tmp = netxen_send_cmd_descs(adapter, (struct cmd_desc_type0 *)(& req), 1);
@@ -8107,7 +8107,7 @@ static int nx_p3_nic_add_mac(struct netxen_adapter *adapter , u8 const   *addr ,
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cur->mac_addr), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cur->mac_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& cur->mac_addr), (void const   *)addr, __len);
   }
   list_add_tail(& cur->list, & adapter->mac_list);
   tmp___1 = nx_p3_sre_macaddr_change(adapter, (u8 *)(& cur->mac_addr), 1U);
@@ -8271,7 +8271,7 @@ int netxen_config_intr_coalesce(struct netxen_adapter *adapter )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& word), (void const   *)(& adapter->coal), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& word), (void const   *)(& adapter->coal),
+    __ret = memcpy((void *)(& word), (void const   *)(& adapter->coal),
                              __len);
   }
   i = 0;
@@ -8409,7 +8409,7 @@ int netxen_config_ipaddr(struct netxen_adapter *adapter , __be32 ip , int cmd )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& req.words) + 1U, (void const   *)(& ip), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& req.words) + 1U, (void const   *)(& ip), __len);
+    __ret = memcpy((void *)(& req.words) + 1U, (void const   *)(& ip), __len);
   }
   rv = netxen_send_cmd_descs(adapter, (struct cmd_desc_type0 *)(& req), 1);
   if (rv != 0) {
@@ -8550,7 +8550,7 @@ static int netxen_get_flash_block(struct netxen_adapter *adapter , int base , in
     }
     local = (unsigned int )v;
     __len = (size_t )((long )((char *)buf + (unsigned long )size) - (long )ptr32);
-    __ret = __builtin_memcpy((void *)ptr32, (void const   *)(& local), __len);
+    __ret = memcpy((void *)ptr32, (void const   *)(& local), __len);
   } else {
 
   }
@@ -10355,7 +10355,7 @@ static int netxen_parse_md_template(struct netxen_adapter *adapter )
   num_of_entries = (int )template_hdr->num_of_entries;
   entry = (struct netxen_minidump_entry *)template_buff + (unsigned long )template_hdr->first_entry_offset;
   __len = (size_t )adapter->mdump.md_template_size;
-  __ret = __builtin_memcpy((void *)dump_buff, (void const   *)template_buff, __len);
+  __ret = memcpy((void *)dump_buff, (void const   *)template_buff, __len);
   dump_buff = dump_buff + (unsigned long )adapter->mdump.md_template_size;
   if (template_hdr->entry_type == 99U) {
     sane_start = 1;
@@ -11417,7 +11417,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -11430,7 +11430,7 @@ __inline static void skb_copy_from_linear_data_offset(struct sk_buff  const  *sk
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data + (unsigned long )offset,
+  __ret = memcpy(to, (void const   *)skb->data + (unsigned long )offset,
                            __len);
   return;
 }
@@ -12872,7 +12872,7 @@ static int netxen_read_mac_addr(struct netxen_adapter *adapter )
 
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)(& adapter->mac_addr), (void const   *)netdev->dev_addr,
+  __ret = memcpy((void *)(& adapter->mac_addr), (void const   *)netdev->dev_addr,
                            __len);
   tmp___1 = is_valid_ether_addr((u8 const   *)netdev->dev_addr);
   if (tmp___1) {
@@ -12925,10 +12925,10 @@ static int netxen_nic_set_mac(struct net_device *netdev , void *p )
 
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)(& adapter->mac_addr), (void const   *)(& addr->sa_data),
+  __ret = memcpy((void *)(& adapter->mac_addr), (void const   *)(& addr->sa_data),
                            __len);
   __len___0 = (size_t )netdev->addr_len;
-  __ret___0 = __builtin_memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data),
+  __ret___0 = memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data),
                                __len___0);
   (*(adapter->macaddr_set))(adapter, (u8 *)(& addr->sa_data));
   tmp___3 = netif_running((struct net_device  const  *)netdev);
@@ -16008,11 +16008,11 @@ static ssize_t netxen_sysfs_read_crb(struct file *filp , struct kobject *kobj , 
   if ((unsigned int )adapter->ahw.revision_id > 47U && ((unsigned long long )offset <= 75499519ULL && (unsigned long long )offset > 75497471ULL)) {
     netxen_pci_camqm_read_2M(adapter, (u64 )offset, & qmdata);
     __len = size;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& qmdata), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& qmdata), __len);
   } else {
     data = (*(adapter->crb_read))(adapter, (ulong )offset);
     __len___0 = size;
-    __ret___0 = __builtin_memcpy((void *)buf, (void const   *)(& data), __len___0);
+    __ret___0 = memcpy((void *)buf, (void const   *)(& data), __len___0);
   }
   return ((ssize_t )size);
 }
@@ -16045,11 +16045,11 @@ static ssize_t netxen_sysfs_write_crb(struct file *filp , struct kobject *kobj ,
   }
   if ((unsigned int )adapter->ahw.revision_id > 47U && ((unsigned long long )offset <= 75499519ULL && (unsigned long long )offset > 75497471ULL)) {
     __len = size;
-    __ret = __builtin_memcpy((void *)(& qmdata), (void const   *)buf, __len);
+    __ret = memcpy((void *)(& qmdata), (void const   *)buf, __len);
     netxen_pci_camqm_write_2M(adapter, (u64 )offset, qmdata);
   } else {
     __len___0 = size;
-    __ret___0 = __builtin_memcpy((void *)(& data), (void const   *)buf, __len___0);
+    __ret___0 = memcpy((void *)(& data), (void const   *)buf, __len___0);
     (*(adapter->crb_write))(adapter, (ulong )offset, data);
   }
   return ((ssize_t )size);
@@ -16105,7 +16105,7 @@ static ssize_t netxen_sysfs_read_mem(struct file *filp , struct kobject *kobj , 
 
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)(& data), __len);
+  __ret = memcpy((void *)buf, (void const   *)(& data), __len);
   return ((ssize_t )size);
 }
 }
@@ -16134,7 +16134,7 @@ static ssize_t netxen_sysfs_write_mem(struct file *filp , struct kobject *kobj ,
 
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)(& data), (void const   *)buf, __len);
+  __ret = memcpy((void *)(& data), (void const   *)buf, __len);
   tmp___0 = (*(adapter->pci_mem_write))(adapter, (u64 )offset, data);
   if (tmp___0 != 0) {
     return (-5L);
@@ -16283,7 +16283,7 @@ static ssize_t netxen_sysfs_read_dimm(struct file *filp , struct kobject *kobj ,
   if (__len > 63UL) {
     __ret = memcpy((void *)buf, (void const   *)(& dimm), __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& dimm), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& dimm), __len);
   }
   return (8L);
 }
@@ -21853,7 +21853,7 @@ static void netxen_nic_get_strings(struct net_device *dev , u32 stringset , u8 *
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const   *)(& netxen_nic_gstrings_test), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const   *)(& netxen_nic_gstrings_test),
+    __ret = memcpy((void *)data, (void const   *)(& netxen_nic_gstrings_test),
                              __len);
   }
   goto ldv_49137;
@@ -21866,7 +21866,7 @@ static void netxen_nic_get_strings(struct net_device *dev , u32 stringset , u8 *
     __ret___0 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& netxen_nic_gstrings_stats[index].stat_string),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& netxen_nic_gstrings_stats[index].stat_string),
+    __ret___0 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& netxen_nic_gstrings_stats[index].stat_string),
                                  __len___0);
   }
   index = index + 1;
@@ -22184,7 +22184,7 @@ static int netxen_get_dump_data(struct net_device *netdev , struct ethtool_dump 
 
   }
   __len = (size_t )mdump->md_capture_size;
-  __ret = __builtin_memcpy(buffer + (unsigned long )copy_sz, (void const   *)mdump->md_capture_buff + (unsigned long )mdump->md_template_size,
+  __ret = memcpy(buffer + (unsigned long )copy_sz, (void const   *)mdump->md_capture_buff + (unsigned long )mdump->md_template_size,
                            __len);
   dump->len = mdump->md_capture_size + (u32 )copy_sz;
   dump->flag = (__u32 )mdump->md_capture_mask;
@@ -22680,7 +22680,7 @@ static int netxen_get_minidump_template(struct netxen_adapter *adapter )
   netxen_issue_cmd(adapter, & cmd);
   if (cmd.rsp.cmd == 0U && cmd.rsp.arg2 == size) {
     __len = (size_t )size;
-    __ret = __builtin_memcpy(adapter->mdump.md_template, (void const   *)addr, __len);
+    __ret = memcpy(adapter->mdump.md_template, (void const   *)addr, __len);
   } else {
     dev_err((struct device  const  *)(& (adapter->pdev)->dev), "Failed to get minidump template, err_code : %d, requested_size : %d, actual_size : %d\n ",
             cmd.rsp.cmd, size, cmd.rsp.arg2);

@@ -10605,7 +10605,7 @@ static void read_bulk_callback(struct urb *urb )
     }
     *((unsigned short *)skb->data) = (unsigned short )pLeader->Status;
     __len = (size_t )pLeader->PLength;
-    __ret = __builtin_memcpy((void *)skb->data + 2U, (void const *)urb->transfer_buffer + 8U,
+    __ret = memcpy((void *)skb->data + 2U, (void const *)urb->transfer_buffer + 8U,
                              __len);
     skb->len = (unsigned int )pLeader->PLength + 2U;
     spin_lock(& Adapter->control_queue_lock);
@@ -10636,7 +10636,7 @@ static void read_bulk_callback(struct urb *urb )
     }
     skb_reserve(skb, 34);
     __len___0 = (size_t )pLeader->PLength;
-    __ret___0 = __builtin_memcpy((void *)skb->data + 14U, (void const *)urb->transfer_buffer + 8U,
+    __ret___0 = memcpy((void *)skb->data + 14U, (void const *)urb->transfer_buffer + 8U,
                                  __len___0);
     skb->dev = Adapter->dev;
     skb_put(skb, (unsigned int )((int )pLeader->PLength + 14));
@@ -10668,7 +10668,7 @@ static void read_bulk_callback(struct urb *urb )
           __ret___1 = memcpy((void *)skb->data, (void const *)(skb->dev)->dev_addr,
                                __len___1);
         } else {
-          __ret___1 = __builtin_memcpy((void *)skb->data, (void const *)(skb->dev)->dev_addr,
+          __ret___1 = memcpy((void *)skb->data, (void const *)(skb->dev)->dev_addr,
                                        __len___1);
         }
         __len___2 = 6UL;
@@ -10676,7 +10676,7 @@ static void read_bulk_callback(struct urb *urb )
           __ret___2 = memcpy((void *)skb->data + 6U, (void const *)(skb->dev)->dev_addr,
                                __len___2);
         } else {
-          __ret___2 = __builtin_memcpy((void *)skb->data + 6U, (void const *)(skb->dev)->dev_addr,
+          __ret___2 = memcpy((void *)skb->data + 6U, (void const *)(skb->dev)->dev_addr,
                                        __len___2);
         }
         *(skb->data + 11UL) = (unsigned char )((int )*(skb->data + 11UL) + 1);
@@ -12246,7 +12246,7 @@ static int TransmitTcb(struct bcm_interface_adapter *psIntfAdapter , struct bcm_
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy(urb->transfer_buffer, (void const *)data, __len);
+  __ret = memcpy(urb->transfer_buffer, (void const *)data, __len);
   urb->transfer_buffer_length = (u32 )len;
   if ((((unsigned long )psIntfAdapter->psAdapter != (unsigned long )((struct bcm_mini_adapter *)0) && (psIntfAdapter->psAdapter)->stDebugState.debug_level > 6U) && ((psIntfAdapter->psAdapter)->stDebugState.type & 2U) != 0U) && ((psIntfAdapter->psAdapter)->stDebugState.subtype[2] & 2U) != 0U) {
     descriptor___2.modname = "bcm_wimax";
@@ -12734,7 +12734,7 @@ __inline static VOID CopyIpAddrToClassifier(struct bcm_classifier_rule *pstClass
     goto ldv_51798;
     ldv_51797:
     __len = (size_t )nSizeOfIPAddressInBytes;
-    __ret = __builtin_memcpy((void *)ptrClassifierIpAddress + (unsigned long )((UINT )i * nSizeOfIPAddressInBytes),
+    __ret = memcpy((void *)ptrClassifierIpAddress + (unsigned long )((UINT )i * nSizeOfIPAddressInBytes),
                              (void const *)pu8IpAddressMaskSrc + (unsigned long )(((UINT )i * nSizeOfIPAddressInBytes) * 2U),
                              __len);
     if (! bIpVersion6) {
@@ -12782,7 +12782,7 @@ __inline static VOID CopyIpAddrToClassifier(struct bcm_classifier_rule *pstClass
     u8IpAddressLen = (int )u8IpAddressLen - (int )((B_UINT8 )nSizeOfIPAddressInBytes);
     if ((UINT )u8IpAddressLen >= nSizeOfIPAddressInBytes) {
       __len___0 = (size_t )nSizeOfIPAddressInBytes;
-      __ret___0 = __builtin_memcpy((void *)ptrClassifierIpMask + (unsigned long )((UINT )i * nSizeOfIPAddressInBytes),
+      __ret___0 = memcpy((void *)ptrClassifierIpMask + (unsigned long )((UINT )i * nSizeOfIPAddressInBytes),
                                    (void const *)(pu8IpAddressMaskSrc + ((unsigned long )nSizeOfIPAddressInBytes + (unsigned long )(((UINT )i * nSizeOfIPAddressInBytes) * 2U))),
                                    __len___0);
       if (! bIpVersion6) {
@@ -13151,7 +13151,7 @@ __inline static VOID CopyClassifierRuleToSF(struct bcm_mini_adapter *Adapter , s
       __ret = memcpy((void *)(& pstClassifierEntry->au8EThCSSrcMAC), (void const *)(& pack_class_rule->u8EthernetSourceMACAddress),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pstClassifierEntry->au8EThCSSrcMAC), (void const *)(& pack_class_rule->u8EthernetSourceMACAddress),
+      __ret = memcpy((void *)(& pstClassifierEntry->au8EThCSSrcMAC), (void const *)(& pack_class_rule->u8EthernetSourceMACAddress),
                                __len);
     }
     __len___0 = 6UL;
@@ -13159,7 +13159,7 @@ __inline static VOID CopyClassifierRuleToSF(struct bcm_mini_adapter *Adapter , s
       __ret___0 = memcpy((void *)(& pstClassifierEntry->au8EThCSSrcMACMask), (void const *)(& pack_class_rule->u8EthernetSourceMACAddress) + 6U,
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& pstClassifierEntry->au8EThCSSrcMACMask),
+      __ret___0 = memcpy((void *)(& pstClassifierEntry->au8EThCSSrcMACMask),
                                    (void const *)(& pack_class_rule->u8EthernetSourceMACAddress) + 6U,
                                    __len___0);
     }
@@ -13169,7 +13169,7 @@ __inline static VOID CopyClassifierRuleToSF(struct bcm_mini_adapter *Adapter , s
       __ret___1 = memcpy((void *)(& pstClassifierEntry->au8EThCSDestMAC), (void const *)(& pack_class_rule->u8EthernetDestMacAddress),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& pstClassifierEntry->au8EThCSDestMAC),
+      __ret___1 = memcpy((void *)(& pstClassifierEntry->au8EThCSDestMAC),
                                    (void const *)(& pack_class_rule->u8EthernetDestMacAddress),
                                    __len___1);
     }
@@ -13178,7 +13178,7 @@ __inline static VOID CopyClassifierRuleToSF(struct bcm_mini_adapter *Adapter , s
       __ret___2 = memcpy((void *)(& pstClassifierEntry->au8EThCSDestMACMask), (void const *)(& pack_class_rule->u8EthernetDestMacAddress) + 6U,
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)(& pstClassifierEntry->au8EThCSDestMACMask),
+      __ret___2 = memcpy((void *)(& pstClassifierEntry->au8EThCSDestMACMask),
                                    (void const *)(& pack_class_rule->u8EthernetDestMacAddress) + 6U,
                                    __len___2);
     }
@@ -13188,7 +13188,7 @@ __inline static VOID CopyClassifierRuleToSF(struct bcm_mini_adapter *Adapter , s
       __ret___3 = memcpy((void *)(& pstClassifierEntry->au8EthCSEtherType), (void const *)(& pack_class_rule->u8Ethertype),
                            __len___3);
     } else {
-      __ret___3 = __builtin_memcpy((void *)(& pstClassifierEntry->au8EthCSEtherType),
+      __ret___3 = memcpy((void *)(& pstClassifierEntry->au8EthCSEtherType),
                                    (void const *)(& pack_class_rule->u8Ethertype),
                                    __len___3);
     }
@@ -13197,7 +13197,7 @@ __inline static VOID CopyClassifierRuleToSF(struct bcm_mini_adapter *Adapter , s
       __ret___4 = memcpy((void *)(& pstClassifierEntry->usUserPriority), (void const *)(& pack_class_rule->u16UserPriority),
                            __len___4);
     } else {
-      __ret___4 = __builtin_memcpy((void *)(& pstClassifierEntry->usUserPriority),
+      __ret___4 = memcpy((void *)(& pstClassifierEntry->usUserPriority),
                                    (void const *)(& pack_class_rule->u16UserPriority),
                                    __len___4);
     }
@@ -13480,7 +13480,7 @@ static VOID CopyToAdapter(struct bcm_mini_adapter *Adapter , struct bcm_connect_
   }
   if ((unsigned int )psfLocalSet->u8ServiceClassNameLength != 0U && (unsigned int )psfLocalSet->u8ServiceClassNameLength <= 31U) {
     __len = (size_t )psfLocalSet->u8ServiceClassNameLength;
-    __ret = __builtin_memcpy((void *)(& curr_packinfo->ucServiceClassName), (void const *)(& psfLocalSet->u8ServiceClassName),
+    __ret = memcpy((void *)(& curr_packinfo->ucServiceClassName), (void const *)(& psfLocalSet->u8ServiceClassName),
                              __len);
   } else {
   }
@@ -17443,7 +17443,7 @@ unsigned long StoreCmControlResponseMessage(struct bcm_mini_adapter *Adapter , v
     if (__len > 63UL) {
       __ret = memcpy(pvBuffer, (void const *)(& AddRequest), __len);
     } else {
-      __ret = __builtin_memcpy(pvBuffer, (void const *)(& AddRequest), __len);
+      __ret = memcpy(pvBuffer, (void const *)(& AddRequest), __len);
     }
     kfree((void const *)pstAddIndication);
     return (1UL);
@@ -18402,7 +18402,7 @@ bool CmControlResponseMessage(struct bcm_mini_adapter *Adapter , void *pvBuffer 
         __ret = memcpy(pvBuffer + 1U, (void const *)(& psfLocalSet->u32SFID),
                          __len);
       } else {
-        __ret = __builtin_memcpy(pvBuffer + 1U, (void const *)(& psfLocalSet->u32SFID),
+        __ret = memcpy(pvBuffer + 1U, (void const *)(& psfLocalSet->u32SFID),
                                  __len);
       }
       if ((unsigned int )pstAddIndication->sfActiveSet.bValid == 1U) {
@@ -18934,7 +18934,7 @@ static void apply_phs_rule_to_all_classifiers(struct bcm_mini_adapter *Adapter ,
         __ret = memcpy((void *)(& sPhsRule->u8PHSF), (void const *)(& cPhsRule->u8PHSF),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& sPhsRule->u8PHSF), (void const *)(& cPhsRule->u8PHSF),
+        __ret = memcpy((void *)(& sPhsRule->u8PHSF), (void const *)(& cPhsRule->u8PHSF),
                                  __len);
       }
       __len___0 = 255UL;
@@ -18942,7 +18942,7 @@ static void apply_phs_rule_to_all_classifiers(struct bcm_mini_adapter *Adapter ,
         __ret___0 = memcpy((void *)(& sPhsRule->u8PHSM), (void const *)(& cPhsRule->u8PHSM),
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& sPhsRule->u8PHSM), (void const *)(& cPhsRule->u8PHSM),
+        __ret___0 = memcpy((void *)(& sPhsRule->u8PHSM), (void const *)(& cPhsRule->u8PHSM),
                                      __len___0);
       }
       sPhsRule->u8RefCnt = 0U;
@@ -18959,7 +18959,7 @@ static void apply_phs_rule_to_all_classifiers(struct bcm_mini_adapter *Adapter ,
           __ret___1 = memcpy((void *)(& curr_classifier->sPhsRule), (void const *)sPhsRule,
                                __len___1);
         } else {
-          __ret___1 = __builtin_memcpy((void *)(& curr_classifier->sPhsRule), (void const *)sPhsRule,
+          __ret___1 = memcpy((void *)(& curr_classifier->sPhsRule), (void const *)sPhsRule,
                                        __len___1);
         }
       } else {
@@ -18983,7 +18983,7 @@ static void apply_phs_rule_to_all_classifiers(struct bcm_mini_adapter *Adapter ,
       __ret___2 = memcpy((void *)(& sPhsRule->u8PHSF), (void const *)(& cPhsRule->u8PHSF),
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)(& sPhsRule->u8PHSF), (void const *)(& cPhsRule->u8PHSF),
+      __ret___2 = memcpy((void *)(& sPhsRule->u8PHSF), (void const *)(& cPhsRule->u8PHSF),
                                    __len___2);
     }
     __len___3 = 255UL;
@@ -18991,7 +18991,7 @@ static void apply_phs_rule_to_all_classifiers(struct bcm_mini_adapter *Adapter ,
       __ret___3 = memcpy((void *)(& sPhsRule->u8PHSM), (void const *)(& cPhsRule->u8PHSM),
                            __len___3);
     } else {
-      __ret___3 = __builtin_memcpy((void *)(& sPhsRule->u8PHSM), (void const *)(& cPhsRule->u8PHSM),
+      __ret___3 = memcpy((void *)(& sPhsRule->u8PHSM), (void const *)(& cPhsRule->u8PHSM),
                                    __len___3);
     }
     sPhsRule->u8RefCnt = 0U;
@@ -22713,7 +22713,7 @@ INT SetupNextSend(struct bcm_mini_adapter *Adapter , struct sk_buff *Packet , US
     if (__len > 63UL) {
       __ret = memcpy((void *)Packet->data, (void const *)(& Leader), __len);
     } else {
-      __ret = __builtin_memcpy((void *)Packet->data, (void const *)(& Leader), __len);
+      __ret = memcpy((void *)Packet->data, (void const *)(& Leader), __len);
     }
   } else {
     Leader.PLength = (unsigned int )((USHORT )Packet->len) - 14U;
@@ -22723,7 +22723,7 @@ INT SetupNextSend(struct bcm_mini_adapter *Adapter , struct sk_buff *Packet , US
       __ret___0 = memcpy((void *)tmp___5, (void const *)(& Leader), __len___0);
     } else {
       tmp___6 = skb_pull(Packet, 6U);
-      __ret___0 = __builtin_memcpy((void *)tmp___6, (void const *)(& Leader), __len___0);
+      __ret___0 = memcpy((void *)tmp___6, (void const *)(& Leader), __len___0);
     }
   }
   status = (*(Adapter->interface_transmit))(Adapter->pvInterfaceAdapter, (PVOID )Packet->data,
@@ -24666,7 +24666,7 @@ int ddr_init(struct bcm_mini_adapter *Adapter )
       __ret = memcpy((void *)(& asT3B_DDRSetting133MHz), (void const *)(& asDPLL_266MHZ),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& asT3B_DDRSetting133MHz), (void const *)(& asDPLL_266MHZ),
+      __ret = memcpy((void *)(& asT3B_DDRSetting133MHz), (void const *)(& asDPLL_266MHZ),
                                __len);
     }
     psDDRSetting = (struct bcm_ddr_setting *)(& asT3B_DDRSetting133MHz);
@@ -26014,7 +26014,7 @@ static VOID UpdateTokenCount(struct bcm_mini_adapter *Adapter )
         __ret = memcpy((void *)(& Adapter->PackInfo[i].stLastUpdateTokenAt), (void const *)(& tv),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& Adapter->PackInfo[i].stLastUpdateTokenAt),
+        __ret = memcpy((void *)(& Adapter->PackInfo[i].stLastUpdateTokenAt),
                                  (void const *)(& tv), __len);
       }
       Adapter->PackInfo[i].liLastUpdateTokenAt = (LARGE_INTEGER )liCurrentTime;
@@ -27967,7 +27967,7 @@ INT CopyBufferToControlPacket(struct bcm_mini_adapter *Adapter , void *ioBuffer 
   }
   *((struct bcm_leader *)ctrl_buff) = *pLeader;
   __len = (size_t )pLeader->PLength;
-  __ret___3 = __builtin_memcpy((void *)ctrl_buff + 8U, (void const *)ioBuffer + 8U,
+  __ret___3 = memcpy((void *)ctrl_buff + 8U, (void const *)ioBuffer + 8U,
                                __len);
   if ((((unsigned long )Adapter != (unsigned long )((struct bcm_mini_adapter *)0) && Adapter->stDebugState.debug_level > 6U) && (Adapter->stDebugState.type & 2U) != 0U) && (Adapter->stDebugState.subtype[2] & 8U) != 0U) {
     descriptor___32.modname = "bcm_wimax";
@@ -28373,7 +28373,7 @@ VOID LinkControlResponseMessage(struct bcm_mini_adapter *Adapter , PUCHAR pucBuf
       __ret = memcpy((void *)(Adapter->dev)->dev_addr, (void const *)puMacAddr,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(Adapter->dev)->dev_addr, (void const *)puMacAddr,
+      __ret = memcpy((void *)(Adapter->dev)->dev_addr, (void const *)puMacAddr,
                                __len);
     }
   } else {
@@ -30383,7 +30383,7 @@ static int bcm_parse_target_params(struct bcm_mini_adapter *Adapter )
   if (__len > 63UL) {
     __ret = memcpy((void *)Adapter->pstargetparams, (void const *)buff, __len);
   } else {
-    __ret = __builtin_memcpy((void *)Adapter->pstargetparams, (void const *)buff,
+    __ret = memcpy((void *)Adapter->pstargetparams, (void const *)buff,
                              __len);
   }
   kfree((void const *)buff);
@@ -31079,7 +31079,7 @@ void AddFragIPClsEntry(struct bcm_mini_adapter *Adapter , struct bcm_fragmented_
       __ret = memcpy((void *)(& Adapter->astFragmentedPktClassifierTable) + (unsigned long )uiIndex,
                        (void const *)psFragPktInfo, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& Adapter->astFragmentedPktClassifierTable) + (unsigned long )uiIndex,
+      __ret = memcpy((void *)(& Adapter->astFragmentedPktClassifierTable) + (unsigned long )uiIndex,
                                (void const *)psFragPktInfo, __len);
     }
     goto ldv_52397;
@@ -35962,7 +35962,7 @@ int ProcessGetHostMibs(struct bcm_mini_adapter *Adapter , struct bcm_host_stats_
                        (void const *)(& Adapter->astClassifierTable) + (unsigned long )nClassifierIndex,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pstHostMibs->astClassifierTable) + (unsigned long )nClassifierIndex,
+      __ret = memcpy((void *)(& pstHostMibs->astClassifierTable) + (unsigned long )nClassifierIndex,
                                (void const *)(& Adapter->astClassifierTable) + (unsigned long )nClassifierIndex,
                                __len);
     }
@@ -35984,7 +35984,7 @@ int ProcessGetHostMibs(struct bcm_mini_adapter *Adapter , struct bcm_host_stats_
                            (void const *)(& Adapter->PackInfo) + (unsigned long )nSfIndex,
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& pstHostMibs->astSFtable) + (unsigned long )nSfIndex,
+      __ret___0 = memcpy((void *)(& pstHostMibs->astSFtable) + (unsigned long )nSfIndex,
                                    (void const *)(& Adapter->PackInfo) + (unsigned long )nSfIndex,
                                    __len___0);
     }
@@ -36010,7 +36010,7 @@ int ProcessGetHostMibs(struct bcm_mini_adapter *Adapter , struct bcm_host_stats_
       __ret___1 = memcpy((void *)(& pstHostMibs->astPhsRulesTable[nPhsTableIndex].u8PHSI),
                            (void const *)(& pstPhsRule->u8PHSI), __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& pstHostMibs->astPhsRulesTable[nPhsTableIndex].u8PHSI),
+      __ret___1 = memcpy((void *)(& pstHostMibs->astPhsRulesTable[nPhsTableIndex].u8PHSI),
                                    (void const *)(& pstPhsRule->u8PHSI), __len___1);
     }
     nPhsTableIndex = nPhsTableIndex + 1U;
@@ -36042,7 +36042,7 @@ int ProcessGetHostMibs(struct bcm_mini_adapter *Adapter , struct bcm_host_stats_
     __ret___2 = memcpy((void *)(& pstHostMibs->stHostInfo.aTxPktSizeHist), (void const *)(& Adapter->aTxPktSizeHist),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& pstHostMibs->stHostInfo.aTxPktSizeHist),
+    __ret___2 = memcpy((void *)(& pstHostMibs->stHostInfo.aTxPktSizeHist),
                                  (void const *)(& Adapter->aTxPktSizeHist), __len___2);
   }
   __len___3 = 48UL;
@@ -36050,7 +36050,7 @@ int ProcessGetHostMibs(struct bcm_mini_adapter *Adapter , struct bcm_host_stats_
     __ret___3 = memcpy((void *)(& pstHostMibs->stHostInfo.aRxPktSizeHist), (void const *)(& Adapter->aRxPktSizeHist),
                          __len___3);
   } else {
-    __ret___3 = __builtin_memcpy((void *)(& pstHostMibs->stHostInfo.aRxPktSizeHist),
+    __ret___3 = memcpy((void *)(& pstHostMibs->stHostInfo.aRxPktSizeHist),
                                  (void const *)(& Adapter->aRxPktSizeHist), __len___3);
   }
   return (0);
@@ -36066,7 +36066,7 @@ void GetDroppedAppCntrlPktMibs(struct bcm_host_stats_mibs *pstHostMibs , struct 
     __ret = memcpy((void *)(& pstHostMibs->stDroppedAppCntrlMsgs), (void const *)(& pTarang->stDroppedAppCntrlMsgs),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pstHostMibs->stDroppedAppCntrlMsgs), (void const *)(& pTarang->stDroppedAppCntrlMsgs),
+    __ret = memcpy((void *)(& pstHostMibs->stDroppedAppCntrlMsgs), (void const *)(& pTarang->stDroppedAppCntrlMsgs),
                              __len);
   }
   return;
@@ -36493,10 +36493,10 @@ int PHSTransmit(struct bcm_mini_adapter *Adapter , struct sk_buff **pPacket , US
         }
         numBytesCompressed = (unPhsOldHdrSize - unPHSNewPktHeaderLen) - 1U;
         __len = (size_t )(unPHSNewPktHeaderLen + 1U);
-        __ret = __builtin_memcpy((void *)pucPHSPktHdrInBuf + (unsigned long )numBytesCompressed,
+        __ret = memcpy((void *)pucPHSPktHdrInBuf + (unsigned long )numBytesCompressed,
                                  (void const *)pucPHSPktHdrOutBuf, __len);
         __len___0 = (size_t )BytesToRemove;
-        __ret___0 = __builtin_memcpy((void *)Packet->data + (unsigned long )numBytesCompressed,
+        __ret___0 = memcpy((void *)Packet->data + (unsigned long )numBytesCompressed,
                                      (void const *)Packet->data, __len___0);
         skb_pull(Packet, numBytesCompressed);
         return (0);
@@ -36627,7 +36627,7 @@ int PHSReceive(struct bcm_mini_adapter *Adapter , USHORT usVcid , struct sk_buff
     } else {
     }
     __len = (size_t )nStandardPktHdrLen;
-    __ret = __builtin_memcpy((void *)packet->data, (void const *)(& Adapter->ucaPHSPktRestoreBuf),
+    __ret = memcpy((void *)packet->data, (void const *)(& Adapter->ucaPHSPktRestoreBuf),
                              __len);
   }
   return (0);
@@ -37749,7 +37749,7 @@ static UINT CreateClassiferToPHSRuleMapping(B_UINT16 uiVcid , B_UINT16 uiClsId ,
         __ret = memcpy((void *)(& (pstClassifierEntry->pstPhsRule)->u8PHSF), (void const *)(& psPhsRule->u8PHSF),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& (pstClassifierEntry->pstPhsRule)->u8PHSF),
+        __ret = memcpy((void *)(& (pstClassifierEntry->pstPhsRule)->u8PHSF),
                                  (void const *)(& psPhsRule->u8PHSF), __len);
       }
     } else {
@@ -37764,7 +37764,7 @@ static UINT CreateClassiferToPHSRuleMapping(B_UINT16 uiVcid , B_UINT16 uiClsId ,
         __ret___0 = memcpy((void *)(& (pstClassifierEntry->pstPhsRule)->u8PHSM),
                              (void const *)(& psPhsRule->u8PHSM), __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& (pstClassifierEntry->pstPhsRule)->u8PHSM),
+        __ret___0 = memcpy((void *)(& (pstClassifierEntry->pstPhsRule)->u8PHSM),
                                      (void const *)(& psPhsRule->u8PHSM), __len___0);
       }
     } else {
@@ -37891,7 +37891,7 @@ static UINT CreateClassifierPHSRule(B_UINT16 uiClsId , struct bcm_phs_classifier
       __ret = memcpy((void *)psClassifierRules->pstPhsRule, (void const *)psPhsRule,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)psClassifierRules->pstPhsRule, (void const *)psPhsRule,
+      __ret = memcpy((void *)psClassifierRules->pstPhsRule, (void const *)psPhsRule,
                                __len);
     }
   } else {
@@ -37977,7 +37977,7 @@ static UINT UpdateClassifierPHSRule(B_UINT16 uiClsId , struct bcm_phs_classifier
       __ret = memcpy((void *)pstClassifierEntry->pstPhsRule, (void const *)psPhsRule,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)pstClassifierEntry->pstPhsRule, (void const *)psPhsRule,
+      __ret = memcpy((void *)pstClassifierEntry->pstPhsRule, (void const *)psPhsRule,
                                __len);
     }
   } else {
@@ -40765,7 +40765,7 @@ INT ReadBeceemEEPROM(struct bcm_mini_adapter *Adapter , unsigned int uiOffset , 
     __ret = memcpy((void *)pBuffer, (void const *)(& uiData) + (unsigned long )uiByteOffset,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)pBuffer, (void const *)(& uiData) + (unsigned long )uiByteOffset,
+    __ret = memcpy((void *)pBuffer, (void const *)(& uiData) + (unsigned long )uiByteOffset,
                              __len);
   }
   return (0);
@@ -40785,7 +40785,7 @@ INT ReadMacAddressFromNVM(struct bcm_mini_adapter *Adapter )
       __ret = memcpy((void *)(Adapter->dev)->dev_addr, (void const *)(& puMacAddr),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(Adapter->dev)->dev_addr, (void const *)(& puMacAddr),
+      __ret = memcpy((void *)(Adapter->dev)->dev_addr, (void const *)(& puMacAddr),
                                __len);
     }
   } else {
@@ -40847,14 +40847,14 @@ INT BeceemEEPROMBulkRead(struct bcm_mini_adapter *Adapter , PUINT pBuffer , unsi
     ReadBeceemEEPROMBulk(Adapter, uiTempOffset, (unsigned int *)(& uiData), 4U);
     if (16U - uiExtraBytes <= uiBytesRemaining) {
       __len = (size_t )(16U - uiExtraBytes);
-      __ret = __builtin_memcpy((void *)pBuffer, (void const *)(& uiData) + (unsigned long )uiExtraBytes,
+      __ret = memcpy((void *)pBuffer, (void const *)(& uiData) + (unsigned long )uiExtraBytes,
                                __len);
       uiBytesRemaining = (uiExtraBytes + uiBytesRemaining) - 16U;
       uiIndex = (uiIndex - uiExtraBytes) + 16U;
       uiOffset = (uiOffset - uiExtraBytes) + 16U;
     } else {
       __len___0 = (size_t )uiBytesRemaining;
-      __ret___0 = __builtin_memcpy((void *)pBuffer, (void const *)(& uiData) + (unsigned long )uiExtraBytes,
+      __ret___0 = memcpy((void *)pBuffer, (void const *)(& uiData) + (unsigned long )uiExtraBytes,
                                    __len___0);
       uiIndex = uiIndex + uiBytesRemaining;
       uiOffset = uiOffset + uiBytesRemaining;
@@ -40877,7 +40877,7 @@ INT BeceemEEPROMBulkRead(struct bcm_mini_adapter *Adapter , PUINT pBuffer , unsi
         __ret___1 = memcpy((void *)pcBuff + (unsigned long )uiIndex, (void const *)(& uiData),
                              __len___1);
       } else {
-        __ret___1 = __builtin_memcpy((void *)pcBuff + (unsigned long )uiIndex, (void const *)(& uiData),
+        __ret___1 = memcpy((void *)pcBuff + (unsigned long )uiIndex, (void const *)(& uiData),
                                      __len___1);
       }
       uiOffset = uiOffset + 16U;
@@ -40910,7 +40910,7 @@ INT BeceemEEPROMBulkRead(struct bcm_mini_adapter *Adapter , PUINT pBuffer , unsi
         __ret___2 = memcpy((void *)pcBuff + (unsigned long )uiIndex, (void const *)(& uiData),
                              __len___2);
       } else {
-        __ret___2 = __builtin_memcpy((void *)pcBuff + (unsigned long )uiIndex, (void const *)(& uiData),
+        __ret___2 = memcpy((void *)pcBuff + (unsigned long )uiIndex, (void const *)(& uiData),
                                      __len___2);
       }
       uiOffset = uiOffset + 4U;
@@ -40940,7 +40940,7 @@ INT BeceemEEPROMBulkRead(struct bcm_mini_adapter *Adapter , PUINT pBuffer , unsi
     tmp___5 = ReadBeceemEEPROM(Adapter, uiOffset, (UINT *)(& uiData));
     if (tmp___5 == 0) {
       __len___3 = (size_t )uiBytesRemaining;
-      __ret___3 = __builtin_memcpy((void *)pCharBuff, (void const *)(& uiData),
+      __ret___3 = memcpy((void *)pCharBuff, (void const *)(& uiData),
                                    __len___3);
       uiBytesRemaining = 0U;
     } else {
@@ -41625,13 +41625,13 @@ static int BeceemFlashBulkWrite(struct bcm_mini_adapter *Adapter , PUINT pBuffer
   ulStatus = BcmFlashUnProtectBlock(Adapter, uiSectAlignAddr, Adapter->uiSectorSize);
   if (uiNumSectTobeRead > 1U) {
     __len = (size_t )(uiSectBoundary - (uiSectAlignAddr + uiCurrSectOffsetAddr));
-    __ret = __builtin_memcpy((void *)pTempBuff + (unsigned long )uiCurrSectOffsetAddr,
+    __ret = memcpy((void *)pTempBuff + (unsigned long )uiCurrSectOffsetAddr,
                              (void const *)pcBuffer, __len);
     pcBuffer = pcBuffer + (unsigned long )(uiSectBoundary - (uiSectAlignAddr + uiCurrSectOffsetAddr));
     uiNumBytes = ((uiSectAlignAddr + uiCurrSectOffsetAddr) - uiSectBoundary) + uiNumBytes;
   } else {
     __len___0 = (size_t )uiNumBytes;
-    __ret___0 = __builtin_memcpy((void *)pTempBuff + (unsigned long )uiCurrSectOffsetAddr,
+    __ret___0 = memcpy((void *)pTempBuff + (unsigned long )uiCurrSectOffsetAddr,
                                  (void const *)pcBuffer, __len___0);
   }
   tmp___7 = IsFlash2x(Adapter);
@@ -41848,13 +41848,13 @@ static int BeceemFlashBulkWriteStatus(struct bcm_mini_adapter *Adapter , PUINT p
   ulStatus = BcmFlashUnProtectBlock(Adapter, uiOffsetFromSectStart, Adapter->uiSectorSize);
   if (uiNumSectTobeRead > 1U) {
     __len = (size_t )(uiSectBoundary - (uiSectAlignAddr + uiCurrSectOffsetAddr));
-    __ret = __builtin_memcpy((void *)pTempBuff + (unsigned long )uiCurrSectOffsetAddr,
+    __ret = memcpy((void *)pTempBuff + (unsigned long )uiCurrSectOffsetAddr,
                              (void const *)pcBuffer, __len);
     pcBuffer = pcBuffer + (unsigned long )(uiSectBoundary - (uiSectAlignAddr + uiCurrSectOffsetAddr));
     uiNumBytes = ((uiSectAlignAddr + uiCurrSectOffsetAddr) - uiSectBoundary) + uiNumBytes;
   } else {
     __len___0 = (size_t )uiNumBytes;
-    __ret___0 = __builtin_memcpy((void *)pTempBuff + (unsigned long )uiCurrSectOffsetAddr,
+    __ret___0 = memcpy((void *)pTempBuff + (unsigned long )uiCurrSectOffsetAddr,
                                  (void const *)pcBuffer, __len___0);
   }
   tmp___7 = IsFlash2x(Adapter);
@@ -42112,7 +42112,7 @@ static int BeceemEEPROMReadBackandVerify(struct bcm_mini_adapter *Adapter , PUIN
   } else {
     uiData = 0U;
     __len = (size_t )uiNumBytes;
-    __ret = __builtin_memcpy((void *)(& uiData), (void const *)pBuffer + (unsigned long )uiIndex * 4UL,
+    __ret = memcpy((void *)(& uiData), (void const *)pBuffer + (unsigned long )uiIndex * 4UL,
                              __len);
     BeceemEEPROMBulkRead(Adapter, & uiRdbk, uiOffset, 4U);
     tmp___4 = memcmp((void const *)(& uiData), (void const *)(& uiRdbk), (size_t )uiNumBytes);
@@ -42288,7 +42288,7 @@ INT BeceemEEPROMBulkWrite(struct bcm_mini_adapter *Adapter , PUCHAR pBuffer , un
     BeceemEEPROMBulkRead(Adapter, (unsigned int *)(& uiData), uiTempOffset, 16U);
     if (16U - uiExtraBytes <= uiBytesToCopy) {
       __len = (size_t )(16U - uiExtraBytes);
-      __ret = __builtin_memcpy((void *)(& uiData) + (unsigned long )uiExtraBytes,
+      __ret = memcpy((void *)(& uiData) + (unsigned long )uiExtraBytes,
                                (void const *)pBuffer, __len);
       tmp___0 = BeceemEEPROMWritePage(Adapter, (unsigned int *)(& uiData), uiTempOffset);
       if (tmp___0 == -1) {
@@ -42300,7 +42300,7 @@ INT BeceemEEPROMBulkWrite(struct bcm_mini_adapter *Adapter , PUCHAR pBuffer , un
       uiOffset = (uiOffset - uiExtraBytes) + 16U;
     } else {
       __len___0 = (size_t )uiBytesToCopy;
-      __ret___0 = __builtin_memcpy((void *)(& uiData) + (unsigned long )uiExtraBytes,
+      __ret___0 = memcpy((void *)(& uiData) + (unsigned long )uiExtraBytes,
                                    (void const *)pBuffer, __len___0);
       tmp___1 = BeceemEEPROMWritePage(Adapter, (unsigned int *)(& uiData), uiTempOffset);
       if (tmp___1 == -1) {
@@ -42332,7 +42332,7 @@ INT BeceemEEPROMBulkWrite(struct bcm_mini_adapter *Adapter , PUCHAR pBuffer , un
   } else {
     BeceemEEPROMBulkRead(Adapter, (unsigned int *)(& uiData), uiOffset, 16U);
     __len___1 = (size_t )uiBytesToCopy;
-    __ret___1 = __builtin_memcpy((void *)(& uiData), (void const *)pBuffer + (unsigned long )uiIndex,
+    __ret___1 = memcpy((void *)(& uiData), (void const *)pBuffer + (unsigned long )uiIndex,
                                  __len___1);
     tmp___3 = BeceemEEPROMWritePage(Adapter, (unsigned int *)(& uiData), uiOffset);
     if (tmp___3 == -1) {
@@ -45473,7 +45473,7 @@ INT BcmCopyISO(struct bcm_mini_adapter *Adapter , struct bcm_flash2x_copy_sectio
         __ret = memcpy((void *)(& SigBuff), (void const *)Buff + (unsigned long )sigOffset,
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& SigBuff), (void const *)Buff + (unsigned long )sigOffset,
+        __ret = memcpy((void *)(& SigBuff), (void const *)Buff + (unsigned long )sigOffset,
                                  __len);
       }
       i = 0U;
@@ -45598,7 +45598,7 @@ INT BcmCopyISO(struct bcm_mini_adapter *Adapter , struct bcm_flash2x_copy_sectio
         __ret___0 = memcpy((void *)(& SigBuff), (void const *)Buff + (unsigned long )sigOffset,
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& SigBuff), (void const *)Buff + (unsigned long )sigOffset,
+        __ret___0 = memcpy((void *)(& SigBuff), (void const *)Buff + (unsigned long )sigOffset,
                                      __len___0);
       }
       i = 0U;
@@ -46158,7 +46158,7 @@ static int SaveHeaderIfPresent(struct bcm_mini_adapter *Adapter , PUCHAR pBuff ,
     } else {
     }
     __len = (size_t )HeaderSizeToProtect;
-    __ret = __builtin_memcpy((void *)pBuff + (unsigned long )offsetToProtect, (void const *)pTempBuff,
+    __ret = memcpy((void *)pBuff + (unsigned long )offsetToProtect, (void const *)pTempBuff,
                              __len);
     kfree((void const *)pTempBuff);
   } else {

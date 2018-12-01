@@ -13736,7 +13736,7 @@ static void stmmac_get_strings(struct net_device *dev , u32 stringset , u8 *data
     if (__len > 63UL) {
       __ret = memcpy((void *)p, (void const *)(& stmmac_mmc[i].stat_string), __len);
     } else {
-      __ret = __builtin_memcpy((void *)p, (void const *)(& stmmac_mmc[i].stat_string),
+      __ret = memcpy((void *)p, (void const *)(& stmmac_mmc[i].stat_string),
                                __len);
     }
     p = p + 32UL;
@@ -13756,7 +13756,7 @@ static void stmmac_get_strings(struct net_device *dev , u32 stringset , u8 *data
     __ret___0 = memcpy((void *)p, (void const *)(& stmmac_gstrings_stats[i].stat_string),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)p, (void const *)(& stmmac_gstrings_stats[i].stat_string),
+    __ret___0 = memcpy((void *)p, (void const *)(& stmmac_gstrings_stats[i].stat_string),
                                  __len___0);
   }
   p = p + 32UL;
@@ -21500,7 +21500,7 @@ static int stmmac_pltfr_probe(struct platform_device *pdev )
     if (__len > 63UL) {
       __ret = memcpy((void *)(priv->dev)->dev_addr, (void const *)mac, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(priv->dev)->dev_addr, (void const *)mac,
+      __ret = memcpy((void *)(priv->dev)->dev_addr, (void const *)mac,
                                __len);
     }
   } else {

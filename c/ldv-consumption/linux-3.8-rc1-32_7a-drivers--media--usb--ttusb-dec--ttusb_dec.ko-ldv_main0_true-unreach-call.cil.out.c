@@ -6733,7 +6733,7 @@ static int ttusb_dec_send_command(struct ttusb_dec *dec , u8 const   command , i
   *(b + 3UL) = (u8 )param_length;
   if ((unsigned long )params != (unsigned long )((u8 const   *)0)) {
     __len = (size_t )param_length;
-    __ret = __builtin_memcpy((void *)b + 4U, (void const   *)params, __len);
+    __ret = memcpy((void *)b + 4U, (void const   *)params, __len);
   } else {
 
   }
@@ -6798,7 +6798,7 @@ static int ttusb_dec_send_command(struct ttusb_dec *dec , u8 const   command , i
     }
     if ((unsigned long )cmd_result != (unsigned long )((u8 *)0) && (unsigned int )*(b + 3UL) != 0U) {
       __len___0 = (size_t )*(b + 3UL);
-      __ret___0 = __builtin_memcpy((void *)cmd_result, (void const   *)b + 4U, __len___0);
+      __ret___0 = memcpy((void *)cmd_result, (void const   *)b + 4U, __len___0);
     } else {
 
     }
@@ -6843,7 +6843,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
       if (__len > 63UL) {
         __ret = memcpy((void *)(& tmp), (void const   *)(& c), __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& tmp), (void const   *)(& c), __len);
+        __ret = memcpy((void *)(& tmp), (void const   *)(& c), __len);
       }
       tmp___0 = __fswab32(tmp);
       *mode = tmp___0;
@@ -6855,7 +6855,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
       if (__len___0 > 63UL) {
         __ret___0 = memcpy((void *)(& tmp), (void const   *)(& c) + 4U, __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& tmp), (void const   *)(& c) + 4U,
+        __ret___0 = memcpy((void *)(& tmp), (void const   *)(& c) + 4U,
                                      __len___0);
       }
       tmp___1 = __fswab32(tmp);
@@ -6868,7 +6868,7 @@ static int ttusb_dec_get_stb_state(struct ttusb_dec *dec , unsigned int *mode , 
       if (__len___1 > 63UL) {
         __ret___1 = memcpy((void *)(& tmp), (void const   *)(& c) + 8U, __len___1);
       } else {
-        __ret___1 = __builtin_memcpy((void *)(& tmp), (void const   *)(& c) + 8U,
+        __ret___1 = memcpy((void *)(& tmp), (void const   *)(& c) + 8U,
                                      __len___1);
       }
       tmp___2 = __fswab32(tmp);
@@ -6948,19 +6948,19 @@ static void ttusb_dec_set_pids(struct ttusb_dec *dec )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& b), (void const   *)(& pcr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& b), (void const   *)(& pcr), __len);
+    __ret = memcpy((void *)(& b), (void const   *)(& pcr), __len);
   }
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& b) + 2U, (void const   *)(& audio), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& b) + 2U, (void const   *)(& audio), __len___0);
+    __ret___0 = memcpy((void *)(& b) + 2U, (void const   *)(& audio), __len___0);
   }
   __len___1 = 2UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& b) + 4U, (void const   *)(& video), __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& b) + 4U, (void const   *)(& video), __len___1);
+    __ret___1 = memcpy((void *)(& b) + 4U, (void const   *)(& video), __len___1);
   }
   ttusb_dec_send_command(dec, 80, 12, (u8 const   *)(& b), 0, 0);
   dvb_filter_pes2ts_init(& dec->a_pes2ts, (int )dec->pid[0], & ttusb_dec_audio_pes2ts_cb,
@@ -7014,7 +7014,7 @@ static void ttusb_dec_process_pva(struct ttusb_dec *dec , u8 *pva , int length )
   }
   if (dec->v_pes_postbytes > 0 && dec->v_pes_postbytes == prebytes) {
     __len = (size_t )prebytes;
-    __ret = __builtin_memcpy((void *)(& dec->v_pes) + (unsigned long )dec->v_pes_length,
+    __ret = memcpy((void *)(& dec->v_pes) + (unsigned long )dec->v_pes_length,
                              (void const   *)pva + 12U, __len);
     dvb_filter_pes2ts(& dec->v_pes2ts, (unsigned char *)(& dec->v_pes), dec->v_pes_length + prebytes,
                       1);
@@ -7030,14 +7030,14 @@ static void ttusb_dec_process_pva(struct ttusb_dec *dec , u8 *pva , int length )
     dec->v_pes[12] = (u8 )((int )((signed char )((int )*(pva + 10UL) << 1)) | (int )((signed char )((int )*(pva + 11UL) >> 7)));
     dec->v_pes[13] = (u8 )((int )((signed char )((int )*(pva + 11UL) << 1)) | 1);
     __len___0 = (size_t )((length + -12) - prebytes);
-    __ret___0 = __builtin_memcpy((void *)(& dec->v_pes) + 14U, (void const   *)pva + (unsigned long )(prebytes + 12),
+    __ret___0 = memcpy((void *)(& dec->v_pes) + 14U, (void const   *)pva + (unsigned long )(prebytes + 12),
                                  __len___0);
     dec->v_pes_length = (length + 2) - prebytes;
   } else {
     dec->v_pes[7] = 0U;
     dec->v_pes[8] = 0U;
     __len___1 = (size_t )(length + -8);
-    __ret___1 = __builtin_memcpy((void *)(& dec->v_pes) + 9U, (void const   *)pva + 8U,
+    __ret___1 = memcpy((void *)(& dec->v_pes) + 9U, (void const   *)pva + 8U,
                                  __len___1);
     dec->v_pes_length = length + 1;
   }
@@ -7054,7 +7054,7 @@ static void ttusb_dec_process_pva(struct ttusb_dec *dec , u8 *pva , int length )
     __ret___2 = memcpy((void *)(& dec->v_pes) + 4U, (void const   *)(& v_pes_payload_length),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& dec->v_pes) + 4U, (void const   *)(& v_pes_payload_length),
+    __ret___2 = memcpy((void *)(& dec->v_pes) + 4U, (void const   *)(& v_pes_payload_length),
                                  __len___2);
   }
   if (postbytes == 0) {
@@ -7314,7 +7314,7 @@ static void ttusb_dec_process_urb_frame(struct ttusb_dec *dec , u8 *b , int leng
   remainder = dec->packet_payload_length - dec->packet_length;
   if (length >= remainder) {
     __len = (size_t )remainder;
-    __ret = __builtin_memcpy((void *)(& dec->packet) + (unsigned long )dec->packet_length,
+    __ret = memcpy((void *)(& dec->packet) + (unsigned long )dec->packet_length,
                              (void const   *)b, __len);
     dec->packet_length = dec->packet_length + remainder;
     b = b + (unsigned long )remainder;
@@ -7322,7 +7322,7 @@ static void ttusb_dec_process_urb_frame(struct ttusb_dec *dec , u8 *b , int leng
     dec->packet_state = dec->packet_state + 1;
   } else {
     __len___0 = (size_t )length;
-    __ret___0 = __builtin_memcpy((void *)(& dec->packet) + (unsigned long )dec->packet_length,
+    __ret___0 = memcpy((void *)(& dec->packet) + (unsigned long )dec->packet_length,
                                  (void const   *)b, __len___0);
     dec->packet_length = dec->packet_length + length;
     length = 0;
@@ -7419,7 +7419,7 @@ static void ttusb_dec_process_urb(struct urb *urb )
     frame = (struct urb_frame *)tmp___0;
     if ((unsigned long )frame != (unsigned long )((struct urb_frame *)0)) {
       __len = (size_t )length;
-      __ret = __builtin_memcpy((void *)(& frame->data), (void const   *)b, __len);
+      __ret = memcpy((void *)(& frame->data), (void const   *)b, __len);
       frame->length = length;
       tmp = spinlock_check(& dec->urb_frame_list_lock);
       flags = _raw_spin_lock_irqsave(tmp);
@@ -7833,20 +7833,20 @@ static int ttusb_dec_start_sec_feed(struct dvb_demux_feed *dvbdmxfeed )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& b0), (void const   *)(& pid), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& b0), (void const   *)(& pid), __len);
+    __ret = memcpy((void *)(& b0), (void const   *)(& pid), __len);
   }
   __len___0 = 1UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& b0) + 4U, (void const   *)(& x), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& b0) + 4U, (void const   *)(& x), __len___0);
+    __ret___0 = memcpy((void *)(& b0) + 4U, (void const   *)(& x), __len___0);
   }
   __len___1 = 1UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& b0) + 5U, (void const   *)(& (dvbdmxfeed->filter)->filter.filter_value),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& b0) + 5U, (void const   *)(& (dvbdmxfeed->filter)->filter.filter_value),
+    __ret___1 = memcpy((void *)(& b0) + 5U, (void const   *)(& (dvbdmxfeed->filter)->filter.filter_value),
                                  __len___1);
   }
   result = ttusb_dec_send_command(dec, 96, 29, (u8 const   *)(& b0), & c_length, (u8 *)(& c));
@@ -8269,7 +8269,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& tmp), (void const   *)firmware + 56U, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& tmp), (void const   *)firmware + 56U, __len);
+    __ret = memcpy((void *)(& tmp), (void const   *)firmware + 56U, __len);
   }
   tmp___2 = __fswab32(tmp);
   crc32_check = tmp___2;
@@ -8285,7 +8285,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& idstring), (void const   *)firmware + 36U, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& idstring), (void const   *)firmware + 36U,
+    __ret___0 = memcpy((void *)(& idstring), (void const   *)firmware + 36U,
                                  __len___0);
   }
   idstring[20] = 0;
@@ -8296,7 +8296,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& b0), (void const   *)(& firmware_size_nl), __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& b0), (void const   *)(& firmware_size_nl),
+    __ret___1 = memcpy((void *)(& b0), (void const   *)(& firmware_size_nl),
                                  __len___1);
   }
   tmp___4 = crc16(65535, firmware, firmware_size);
@@ -8308,7 +8308,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
     __ret___2 = memcpy((void *)(& b0) + 6U, (void const   *)(& firmware_csum_ns),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& b0) + 6U, (void const   *)(& firmware_csum_ns),
+    __ret___2 = memcpy((void *)(& b0) + 6U, (void const   *)(& firmware_csum_ns),
                                  __len___2);
   }
   result = ttusb_dec_send_command(dec, 65, 10, (u8 const   *)(& b0), 0, 0);
@@ -8344,7 +8344,7 @@ static int ttusb_dec_boot_dsp(struct ttusb_dec *dec )
   *(b + ((unsigned long )j + 2UL)) = 240U;
   *(b + ((unsigned long )j + 3UL)) = (u8 )size;
   __len___3 = (size_t )size;
-  __ret___3 = __builtin_memcpy((void *)(b + ((unsigned long )j + 4UL)), (void const   *)firmware + (unsigned long )i,
+  __ret___3 = memcpy((void *)(b + ((unsigned long )j + 4UL)), (void const   *)firmware + (unsigned long )i,
                                __len___3);
   j = j + 64;
   if (j > 4095) {

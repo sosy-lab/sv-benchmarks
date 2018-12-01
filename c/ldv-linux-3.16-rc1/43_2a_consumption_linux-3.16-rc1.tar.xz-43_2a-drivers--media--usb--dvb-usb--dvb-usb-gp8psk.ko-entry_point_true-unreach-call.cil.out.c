@@ -7170,7 +7170,7 @@ static int gp8psk_load_bcm4500fw(struct dvb_usb_device *d )
 
   }
   __len = (size_t )buflen;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)ptr, __len);
+  __ret = memcpy((void *)buf, (void const   *)ptr, __len);
   tmp___1 = dvb_usb_generic_write(d, buf, (int )buflen);
   if (tmp___1 != 0) {
     printk("\vgp8psk: failed to load bcm4500 firmware.\n");
@@ -8169,7 +8169,7 @@ struct dvb_frontend *gp8psk_fe_attach(struct dvb_usb_device *d )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& s->fe.ops), (void const   *)(& gp8psk_fe_ops), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& s->fe.ops), (void const   *)(& gp8psk_fe_ops),
+    __ret = memcpy((void *)(& s->fe.ops), (void const   *)(& gp8psk_fe_ops),
                              __len);
   }
   s->fe.demodulator_priv = (void *)s;

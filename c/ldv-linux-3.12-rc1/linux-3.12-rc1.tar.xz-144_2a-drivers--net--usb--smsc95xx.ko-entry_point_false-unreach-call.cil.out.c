@@ -6687,7 +6687,7 @@ static void smsc95xx_status(struct usbnet *dev , struct urb *urb )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& intdata), (void const   *)urb->transfer_buffer, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& intdata), (void const   *)urb->transfer_buffer,
+    __ret = memcpy((void *)(& intdata), (void const   *)urb->transfer_buffer,
                              __len);
   }
   if ((dev->msg_enable & 4) != 0) {
@@ -8464,7 +8464,7 @@ static int smsc95xx_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& header), (void const   *)skb->data, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& header), (void const   *)skb->data, __len);
+    __ret = memcpy((void *)(& header), (void const   *)skb->data, __len);
   }
   skb_pull(skb, 4U);
   packet = skb->data;
@@ -8661,7 +8661,7 @@ static struct sk_buff *smsc95xx_tx_fixup(struct usbnet *dev , struct sk_buff *sk
       if (__len > 63UL) {
         __ret = memcpy((void *)skb->data, (void const   *)(& csum_preamble), __len);
       } else {
-        __ret = __builtin_memcpy((void *)skb->data, (void const   *)(& csum_preamble),
+        __ret = memcpy((void *)skb->data, (void const   *)(& csum_preamble),
                                  __len);
       }
     }
@@ -8679,7 +8679,7 @@ static struct sk_buff *smsc95xx_tx_fixup(struct usbnet *dev , struct sk_buff *sk
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)skb->data, (void const   *)(& tx_cmd_b), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)skb->data, (void const   *)(& tx_cmd_b),
+    __ret___0 = memcpy((void *)skb->data, (void const   *)(& tx_cmd_b),
                                  __len___0);
   }
   skb_push(skb, 4U);
@@ -8688,7 +8688,7 @@ static struct sk_buff *smsc95xx_tx_fixup(struct usbnet *dev , struct sk_buff *sk
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)skb->data, (void const   *)(& tx_cmd_a), __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)skb->data, (void const   *)(& tx_cmd_a),
+    __ret___1 = memcpy((void *)skb->data, (void const   *)(& tx_cmd_a),
                                  __len___1);
   }
   return (skb);

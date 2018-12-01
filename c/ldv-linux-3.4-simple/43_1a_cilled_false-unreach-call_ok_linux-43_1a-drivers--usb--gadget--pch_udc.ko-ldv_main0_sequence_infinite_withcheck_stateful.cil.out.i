@@ -4511,7 +4511,7 @@ static void complete_req(struct pch_udc_ep *ep , struct pch_udc_request *req , i
         __cil_tmp114 = __cil_tmp113 + 136;
         __cil_tmp115 = *((void **)__cil_tmp114);
         __cil_tmp116 = (void *)__cil_tmp115;
-        __ret = __builtin_memcpy(__cil_tmp112, __cil_tmp116, __len);
+        __ret = memcpy(__cil_tmp112, __cil_tmp116, __len);
         }
       }
       }
@@ -6174,7 +6174,7 @@ static int pch_udc_pcd_queue(struct usb_ep *usbep , struct usb_request *usbreq ,
             __cil_tmp125 = *((void **)__cil_tmp124);
             __cil_tmp126 = *((void **)usbreq);
             __cil_tmp127 = (void *)__cil_tmp126;
-            __ret = __builtin_memcpy(__cil_tmp125, __cil_tmp127, __len);
+            __ret = memcpy(__cil_tmp125, __cil_tmp127, __len);
             __cil_tmp128 = (unsigned long )req;
             __cil_tmp129 = __cil_tmp128 + 144;
             __cil_tmp130 = (unsigned long )dev;

@@ -6373,7 +6373,7 @@ static void cdc_ncm_get_strings(struct net_device *netdev , u32 stringset , u8 *
     __ret = memcpy((void *)p, (void const *)(& cdc_ncm_gstrings_stats[i].stat_string),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const *)(& cdc_ncm_gstrings_stats[i].stat_string),
+    __ret = memcpy((void *)p, (void const *)(& cdc_ncm_gstrings_stats[i].stat_string),
                              __len);
   }
   p = p + 32UL;
@@ -7982,7 +7982,7 @@ struct sk_buff *cdc_ncm_fill_tx_frame(struct usbnet *dev , struct sk_buff *skb ,
   ndp16->wLength = (unsigned int )ndplen + 4U;
   __len = (size_t )skb->len;
   tmp___3 = skb_put(skb_out, skb->len);
-  __ret = __builtin_memcpy((void *)tmp___3, (void const *)skb->data, __len);
+  __ret = memcpy((void *)tmp___3, (void const *)skb->data, __len);
   ctx->tx_curr_frame_payload = ctx->tx_curr_frame_payload + skb->len;
   dev_kfree_skb_any(skb);
   skb = (struct sk_buff *)0;
@@ -8451,7 +8451,7 @@ int cdc_ncm_rx_fixup(struct usbnet *dev , struct sk_buff *skb_in )
     }
     __len = (size_t )len;
     tmp___2 = skb_put(skb, (unsigned int )len);
-    __ret = __builtin_memcpy((void *)tmp___2, (void const *)skb_in->data + (unsigned long )offset,
+    __ret = memcpy((void *)tmp___2, (void const *)skb_in->data + (unsigned long )offset,
                              __len);
     usbnet_skb_return(dev, skb);
     payload = payload + (u32 )len;

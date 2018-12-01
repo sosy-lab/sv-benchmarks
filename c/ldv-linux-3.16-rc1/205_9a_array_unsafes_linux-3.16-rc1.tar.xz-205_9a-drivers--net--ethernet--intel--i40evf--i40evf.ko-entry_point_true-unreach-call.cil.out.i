@@ -11761,7 +11761,7 @@ static void i40evf_get_strings(struct net_device *netdev , u32 sset , u8 *data )
       __ret = memcpy((void *)p, (void const *)(& i40evf_gstrings_stats[i].stat_string),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)p, (void const *)(& i40evf_gstrings_stats[i].stat_string),
+      __ret = memcpy((void *)p, (void const *)(& i40evf_gstrings_stats[i].stat_string),
                                __len);
     }
     p = p + 32UL;
@@ -12805,7 +12805,7 @@ int i40evf_get_vf_config(struct i40evf_adapter *adapter )
   _min1 = event.msg_size;
   _min2 = len;
   __len = (size_t )((int )_min1 < (int )_min2 ? _min1 : _min2);
-  __ret = __builtin_memcpy((void *)adapter->vf_res, (void const *)event.msg_buf,
+  __ret = memcpy((void *)adapter->vf_res, (void const *)event.msg_buf,
                            __len);
   i40e_vf_parse_hw_config(hw, adapter->vf_res);
   out_alloc:
@@ -16544,7 +16544,7 @@ void i40e_vf_parse_hw_config(struct i40e_hw *hw , struct i40e_virtchnl_vf_resour
       __ret = memcpy((void *)(& hw->mac.perm_addr), (void const *)(& vsi_res->default_mac_addr),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& hw->mac.perm_addr), (void const *)(& vsi_res->default_mac_addr),
+      __ret = memcpy((void *)(& hw->mac.perm_addr), (void const *)(& vsi_res->default_mac_addr),
                                __len);
     }
     __len___0 = 6UL;
@@ -16552,7 +16552,7 @@ void i40e_vf_parse_hw_config(struct i40e_hw *hw , struct i40e_virtchnl_vf_resour
       __ret___0 = memcpy((void *)(& hw->mac.addr), (void const *)(& vsi_res->default_mac_addr),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& hw->mac.addr), (void const *)(& vsi_res->default_mac_addr),
+      __ret___0 = memcpy((void *)(& hw->mac.addr), (void const *)(& vsi_res->default_mac_addr),
                                    __len___0);
     }
   } else {
@@ -17190,7 +17190,7 @@ i40e_status i40evf_asq_send_command(struct i40e_hw *hw , struct i40e_aq_desc *de
   if ((unsigned long )buff != (unsigned long )((void *)0)) {
     dma_buff = hw->aq.asq.r.asq_bi + (unsigned long )hw->aq.asq.next_to_use;
     __len = (size_t )buff_size;
-    __ret = __builtin_memcpy(dma_buff->va, (void const *)buff, __len);
+    __ret = memcpy(dma_buff->va, (void const *)buff, __len);
     desc_on_ring->datalen = buff_size;
     desc_on_ring->params.external.addr_high = (unsigned int )(dma_buff->pa >> 32ULL);
     desc_on_ring->params.external.addr_low = (unsigned int )dma_buff->pa;
@@ -17229,7 +17229,7 @@ i40e_status i40evf_asq_send_command(struct i40e_hw *hw , struct i40e_aq_desc *de
     *desc = *desc_on_ring;
     if ((unsigned long )buff != (unsigned long )((void *)0)) {
       __len___0 = (size_t )buff_size;
-      __ret___0 = __builtin_memcpy(buff, (void const *)dma_buff->va, __len___0);
+      __ret___0 = memcpy(buff, (void const *)dma_buff->va, __len___0);
     } else {
     }
     retval = desc->retval;
@@ -17319,7 +17319,7 @@ i40e_status i40evf_clean_arq_element(struct i40e_hw *hw , struct i40e_arq_event_
     e->msg_size = (u16 )((int )_min1 < (int )_min2 ? _min1 : _min2);
     if ((unsigned long )e->msg_buf != (unsigned long )((u8 *)0U) && (unsigned int )e->msg_size != 0U) {
       __len = (size_t )e->msg_size;
-      __ret = __builtin_memcpy((void *)e->msg_buf, (void const *)(hw->aq.arq.r.arq_bi + (unsigned long )desc_idx)->va,
+      __ret = memcpy((void *)e->msg_buf, (void const *)(hw->aq.arq.r.arq_bi + (unsigned long )desc_idx)->va,
                                __len);
     } else {
     }

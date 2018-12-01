@@ -7129,7 +7129,7 @@ static int iuu_bulk_write(struct usb_serial_port *port )
   __cil_tmp34 = __cil_tmp33 + 80;
   __cil_tmp35 = *((u8 **)__cil_tmp34);
   __cil_tmp36 = (void const   *)__cil_tmp35;
-  __ret = __builtin_memcpy(__cil_tmp32, __cil_tmp36, __len);
+  __ret = memcpy(__cil_tmp32, __cil_tmp36, __len);
   __cil_tmp37 = (unsigned long )priv;
   __cil_tmp38 = __cil_tmp37 + 88;
   buf_len = *((int *)__cil_tmp38);
@@ -7737,7 +7737,7 @@ static int iuu_uart_write(struct tty_struct *tty , struct usb_serial_port *port 
   __cil_tmp21 = __cil_tmp20 + __cil_tmp17;
   __cil_tmp22 = (void *)__cil_tmp21;
   __cil_tmp23 = (void const   *)buf;
-  __ret = __builtin_memcpy(__cil_tmp22, __cil_tmp23, __len);
+  __ret = memcpy(__cil_tmp22, __cil_tmp23, __len);
   __cil_tmp24 = (unsigned long )priv;
   __cil_tmp25 = __cil_tmp24 + 88;
   __cil_tmp26 = (unsigned long )priv;

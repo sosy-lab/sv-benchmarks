@@ -4300,7 +4300,7 @@ struct ems_usb {
    unsigned int free_slots ;
    struct ems_cpc_msg active_params ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr ) 
@@ -5828,7 +5828,7 @@ static int ems_usb_command_msg(struct ems_usb *dev , struct ems_cpc_msg *msg )
 
   {
   __len = (int )msg->length + 11;
-  __ret = __builtin_memcpy(dev->tx_msg_buffer + 4, msg, __len);
+  __ret = memcpy(dev->tx_msg_buffer + 4, msg, __len);
   memset(dev->tx_msg_buffer + 0, 0, 4);
   tmp = __create_pipe(dev->udev, 2);
   tmp___0 = usb_bulk_msg(dev->udev, (unsigned int )(3 << 30) | tmp, dev->tx_msg_buffer + 0,

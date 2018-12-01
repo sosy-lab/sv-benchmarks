@@ -8473,7 +8473,7 @@ static int xgmac_set_mac_address(struct net_device *dev , void *p )
 
   }
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
+  __ret = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
                            __len);
   xgmac_set_mac_addr(ioaddr, dev->dev_addr, 0);
   return (0);
@@ -8662,7 +8662,7 @@ static void xgmac_get_strings(struct net_device *dev , u32 stringset , u8 *data 
     __ret = memcpy((void *)p, (void const   *)(& xgmac_gstrings_stats[i].stat_string),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const   *)(& xgmac_gstrings_stats[i].stat_string),
+    __ret = memcpy((void *)p, (void const   *)(& xgmac_gstrings_stats[i].stat_string),
                              __len);
   }
   p = p + 32UL;

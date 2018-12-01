@@ -6836,7 +6836,7 @@ int vp3054_i2c_probe(struct cx8802_dev *dev )
     __cil_tmp23 = (struct i2c_algo_bit_data *)__cil_tmp22;
     __cil_tmp24 = (void *)__cil_tmp23;
     __cil_tmp25 = (void const   *)(& vp3054_i2c_algo_template);
-    __ret = __builtin_memcpy(__cil_tmp24, __cil_tmp25, __len);
+    __ret = memcpy(__cil_tmp24, __cil_tmp25, __len);
     }
   }
   {

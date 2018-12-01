@@ -3644,13 +3644,13 @@ static void mtdoops_do_dump(struct kmsg_dumper *dumper , enum kmsg_dump_reason r
   __cil_tmp38 = (void *)dst;
   __cil_tmp39 = s1 + s1_start;
   __cil_tmp40 = (void const *)__cil_tmp39;
-  __ret = __builtin_memcpy(__cil_tmp38, __cil_tmp40, __len);
+  __ret = memcpy(__cil_tmp38, __cil_tmp40, __len);
   __len___0 = l2_cpy;
   __cil_tmp41 = dst + l1_cpy;
   __cil_tmp42 = (void *)__cil_tmp41;
   __cil_tmp43 = s2 + s2_start;
   __cil_tmp44 = (void const *)__cil_tmp43;
-  __ret___0 = __builtin_memcpy(__cil_tmp42, __cil_tmp44, __len___0);
+  __ret___0 = memcpy(__cil_tmp42, __cil_tmp44, __len___0);
   }
   {
   __cil_tmp45 = (unsigned int )reason;

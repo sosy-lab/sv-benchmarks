@@ -7589,7 +7589,7 @@ static int dib0700_i2c_xfer_new(struct i2c_adapter *adap , struct i2c_msg *msg ,
     st->buf[2] = (u8 )(((int )((signed char )((int )en_start << 7)) | (int )((signed char )((int )en_stop << 6))) | ((int )((signed char )(msg + (unsigned long )i)->len) & 63));
     st->buf[3] = (u8 )((int )((signed char )((int )gen_mode << 6)) | ((int )((signed char )((int )bus_mode << 4)) & 48));
     __len = (size_t )(msg + (unsigned long )i)->len;
-    __ret = __builtin_memcpy((void *)(& st->buf) + 4U, (void const   *)(msg + (unsigned long )i)->buf,
+    __ret = memcpy((void *)(& st->buf) + 4U, (void const   *)(msg + (unsigned long )i)->buf,
                              __len);
     if ((dvb_usb_dib0700_debug & 8) != 0) {
       printk(">>> ");
@@ -7682,7 +7682,7 @@ static int dib0700_i2c_xfer_legacy(struct i2c_adapter *adap , struct i2c_msg *ms
   ldv_45171: 
   st->buf[1] = (int )((u8 )(msg + (unsigned long )i)->addr) << 1U;
   __len = (size_t )(msg + (unsigned long )i)->len;
-  __ret = __builtin_memcpy((void *)(& st->buf) + 2U, (void const   *)(msg + (unsigned long )i)->buf,
+  __ret = memcpy((void *)(& st->buf) + 2U, (void const   *)(msg + (unsigned long )i)->buf,
                            __len);
   if (i + 1 < num && (int )(msg + ((unsigned long )i + 1UL))->flags & 1) {
     st->buf[0] = 2U;
@@ -7972,7 +7972,7 @@ int dib0700_download_firmware(struct usb_device *udev , struct firmware  const  
   *(buf + 2UL) = (u8 )hx.addr;
   *(buf + 3UL) = hx.type;
   __len = (size_t )hx.len;
-  __ret = __builtin_memcpy((void *)buf + 4U, (void const   *)(& hx.data), __len);
+  __ret = memcpy((void *)buf + 4U, (void const   *)(& hx.data), __len);
   *(buf + (unsigned long )((int )hx.len + 4)) = hx.chk;
   tmp___0 = __create_pipe(udev, 1U);
   ret = usb_bulk_msg(udev, tmp___0 | 3221225472U, (void *)buf, (int )hx.len + 5, & act_len,

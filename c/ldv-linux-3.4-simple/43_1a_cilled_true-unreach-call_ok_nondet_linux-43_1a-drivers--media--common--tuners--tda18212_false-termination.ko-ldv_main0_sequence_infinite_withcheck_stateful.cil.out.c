@@ -3284,7 +3284,7 @@ static int tda18212_wr_regs(struct tda18212_priv *priv , u8 reg , u8 *val , int 
   __cil_tmp33 = (void *)(& buf);
   __cil_tmp34 = __cil_tmp33 + 1U;
   __cil_tmp35 = (void const   *)val;
-  __ret = __builtin_memcpy(__cil_tmp34, __cil_tmp35, __len);
+  __ret = memcpy(__cil_tmp34, __cil_tmp35, __len);
   __cil_tmp36 = (unsigned long )priv;
   __cil_tmp37 = __cil_tmp36 + 8;
   __cil_tmp38 = *((struct i2c_adapter **)__cil_tmp37);
@@ -3404,7 +3404,7 @@ static int tda18212_rd_regs(struct tda18212_priv *priv , u8 reg , u8 *val , int 
     __len = (size_t )len;
     __cil_tmp45 = (void *)val;
     __cil_tmp46 = (void const   *)(& buf);
-    __ret = __builtin_memcpy(__cil_tmp45, __cil_tmp46, __len);
+    __ret = memcpy(__cil_tmp45, __cil_tmp46, __len);
     ret = 0;
     }
   } else {
@@ -4404,7 +4404,7 @@ struct dvb_frontend *tda18212_attach(struct dvb_frontend *fe , struct i2c_adapte
     __cil_tmp59 = (struct dvb_tuner_ops *)__cil_tmp58;
     __cil_tmp60 = (void *)__cil_tmp59;
     __cil_tmp61 = (void const   *)(& tda18212_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp60, __cil_tmp61, __len);
+    __ret = memcpy(__cil_tmp60, __cil_tmp61, __len);
     }
   }
   return (fe);

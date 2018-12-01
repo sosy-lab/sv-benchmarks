@@ -3465,7 +3465,7 @@ int usb_descriptor_fillbuf(void *buf , unsigned int buflen , struct usb_descript
 
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)dest, (void const   *)*src, __len);
+  __ret = memcpy((void *)dest, (void const   *)*src, __len);
   buflen = buflen - len;
   dest = dest + (unsigned long )len;
   src = src + 1;
@@ -3550,7 +3550,7 @@ struct usb_descriptor_header **usb_copy_descriptors(struct usb_descriptor_header
   goto ldv_22490;
   ldv_22489: 
   __len = (size_t )(*src)->bLength;
-  __ret = __builtin_memcpy(mem, (void const   *)*src, __len);
+  __ret = memcpy(mem, (void const   *)*src, __len);
   *tmp = (struct usb_descriptor_header *)mem;
   tmp = tmp + 1;
   mem = mem + (unsigned long )(*src)->bLength;
@@ -4896,7 +4896,7 @@ static int printer_setup(struct usb_gadget *gadget , struct usb_ctrlrequest  con
   _min2 = 18U;
   value = (int )_min1 < (int )_min2 ? (int )_min1 : (int )_min2;
   __len = (size_t )value;
-  __ret = __builtin_memcpy(req->buf, (void const   *)(& device_desc), __len);
+  __ret = memcpy(req->buf, (void const   *)(& device_desc), __len);
   goto ldv_22975;
   case 6: ;
   if ((unsigned int )*((unsigned char *)gadget + 36UL) == 0U) {
@@ -4908,7 +4908,7 @@ static int printer_setup(struct usb_gadget *gadget , struct usb_ctrlrequest  con
   _min2___0 = 10U;
   value = (int )_min1___0 < (int )_min2___0 ? (int )_min1___0 : (int )_min2___0;
   __len___0 = (size_t )value;
-  __ret___0 = __builtin_memcpy(req->buf, (void const   *)(& dev_qualifier), __len___0);
+  __ret___0 = memcpy(req->buf, (void const   *)(& dev_qualifier), __len___0);
   goto ldv_22975;
   case 7: ;
   if ((unsigned int )*((unsigned char *)gadget + 36UL) == 0U) {
@@ -5001,7 +5001,7 @@ static int printer_setup(struct usb_gadget *gadget , struct usb_ctrlrequest  con
   }
   value = ((int )pnp_string[0] << 8) | (int )pnp_string[1];
   __len___1 = (size_t )value;
-  __ret___1 = __builtin_memcpy(req->buf, (void const   *)(& pnp_string), __len___1);
+  __ret___1 = memcpy(req->buf, (void const   *)(& pnp_string), __len___1);
   printk("<7>%s: 1284 PNP String: %x %s\n", (char *)"Printer Gadget", value, (char *)(& pnp_string) + 2UL);
   goto ldv_23007;
   case 1: ;

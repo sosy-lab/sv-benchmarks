@@ -6385,7 +6385,7 @@ int mxl111sf_ctrl_msg(struct dvb_usb_device *d , u8 cmd , u8 *wbuf , int wlen , 
   memset((void *)(& sndbuf), 0, (size_t )(wlen + 1));
   *(sndbuf + 0) = cmd;
   __len = (size_t )wlen;
-  __ret = __builtin_memcpy((void *)(& sndbuf) + 1U, (void const   *)wbuf, __len);
+  __ret = memcpy((void *)(& sndbuf) + 1U, (void const   *)wbuf, __len);
   if (wo != 0) {
     tmp___1 = dvb_usbv2_generic_write(d, (u8 *)(& sndbuf), (int )((unsigned int )((u16 )wlen) + 1U));
     ret = tmp___1;

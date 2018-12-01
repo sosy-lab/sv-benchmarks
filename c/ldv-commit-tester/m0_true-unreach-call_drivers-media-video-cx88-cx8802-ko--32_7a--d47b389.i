@@ -5891,7 +5891,7 @@ int cx8802_register_driver(struct cx8802_driver *drv )
   if (__len > 63UL) {
     __ret = memcpy((void *)driver, (void const *)drv, __len);
   } else {
-    __ret = __builtin_memcpy((void *)driver, (void const *)drv, __len);
+    __ret = memcpy((void *)driver, (void const *)drv, __len);
   }
   err = (*(drv->probe))(driver);
   if (err == 0) {

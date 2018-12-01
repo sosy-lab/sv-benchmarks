@@ -6355,7 +6355,7 @@ static void vivi_fillbuff(struct vivi_dev *dev , struct vivi_buffer *buf )
     __cil_tmp43 = (u8 *)__cil_tmp42;
     __cil_tmp44 = __cil_tmp43 + __cil_tmp38;
     __cil_tmp45 = (void *)__cil_tmp44;
-    __ret = __builtin_memcpy(__cil_tmp33, __cil_tmp45, __len);
+    __ret = memcpy(__cil_tmp33, __cil_tmp45, __len);
     h = h + 1;
     }
   }

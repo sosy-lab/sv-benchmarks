@@ -7402,7 +7402,7 @@ static struct ScsiReqBlk *msgin_qtag(struct AdapterCtlBlk *acb , struct DeviceCt
 
   }
   __len = (size_t )acb->msg_len;
-  __ret = __builtin_memcpy((void *)(& srb->msgin_buf), (void const   *)(& (dcb->active_srb)->msgin_buf),
+  __ret = memcpy((void *)(& srb->msgin_buf), (void const   *)(& (dcb->active_srb)->msgin_buf),
                            __len);
   srb->state = (u16 )((int )srb->state | (int )(dcb->active_srb)->state);
   srb->state = (u16 )((unsigned int )srb->state | 256U);
@@ -7520,7 +7520,7 @@ static void msgin_set_sync(struct AdapterCtlBlk *acb , struct ScsiReqBlk *srb )
       __ret = memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
+      __ret = memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
                                __len);
     }
     srb->msg_count = 5U;
@@ -7584,7 +7584,7 @@ static void msgin_set_wide(struct AdapterCtlBlk *acb , struct ScsiReqBlk *srb )
       __ret = memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
+      __ret = memcpy((void *)(& srb->msgout_buf), (void const   *)(& srb->msgin_buf),
                                __len);
     }
     srb->msg_count = 4U;

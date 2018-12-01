@@ -7662,7 +7662,7 @@ static int ath6kl_usb_submit_ctrl_in(struct ath6kl_usb *ar_usb , u8 req , u16 va
   } else {
   }
   __len = (size_t )size;
-  __ret = __builtin_memcpy(data, (void const *)buf, __len);
+  __ret = memcpy(data, (void const *)buf, __len);
   kfree((void const *)buf);
   return (0);
 }

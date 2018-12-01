@@ -4253,7 +4253,7 @@ static void handle_uncompressed_page(struct zram *zram , struct bio_vec *bvec , 
   __cil_tmp25 = (void *)__cil_tmp24;
   __cil_tmp26 = cmem + offset;
   __cil_tmp27 = (void const   *)__cil_tmp26;
-  __ret = __builtin_memcpy(__cil_tmp25, __cil_tmp27, __len);
+  __ret = memcpy(__cil_tmp25, __cil_tmp27, __len);
   }
   {
   while (1) {
@@ -4555,7 +4555,7 @@ static int zram_bvec_read(struct zram *zram , struct bio_vec *bvec , u32 index ,
     __cil_tmp76 = (void *)__cil_tmp75;
     __cil_tmp77 = uncmem + offset;
     __cil_tmp78 = (void const   *)__cil_tmp77;
-    __ret = __builtin_memcpy(__cil_tmp76, __cil_tmp78, __len);
+    __ret = memcpy(__cil_tmp76, __cil_tmp78, __len);
     __cil_tmp79 = (void const   *)uncmem;
     kfree(__cil_tmp79);
     }
@@ -4741,7 +4741,7 @@ static int zram_read_before_write(struct zram *zram , char *mem , u32 index )
       {
       __cil_tmp37 = (void *)mem;
       __cil_tmp38 = (void const   *)cmem;
-      __ret = __builtin_memcpy(__cil_tmp37, __cil_tmp38, __len);
+      __ret = memcpy(__cil_tmp37, __cil_tmp38, __len);
       }
     }
     {
@@ -5030,7 +5030,7 @@ static int zram_bvec_write(struct zram *zram , struct bio_vec *bvec , u32 index 
     __cil_tmp58 = *((unsigned int *)__cil_tmp57);
     __cil_tmp59 = user_mem + __cil_tmp58;
     __cil_tmp60 = (void const   *)__cil_tmp59;
-    __ret = __builtin_memcpy(__cil_tmp55, __cil_tmp60, __len);
+    __ret = memcpy(__cil_tmp55, __cil_tmp60, __len);
     }
   } else {
     uncmem = user_mem;
@@ -5200,7 +5200,7 @@ static int zram_bvec_write(struct zram *zram , struct bio_vec *bvec , u32 index 
   __len___0 = *__cil_tmp104;
   __cil_tmp105 = (void *)cmem;
   __cil_tmp106 = (void const   *)src;
-  __ret___0 = __builtin_memcpy(__cil_tmp105, __cil_tmp106, __len___0);
+  __ret___0 = memcpy(__cil_tmp105, __cil_tmp106, __len___0);
   __cil_tmp107 = (enum zram_pageflags )0;
   tmp___21 = zram_test_flag(zram, index, __cil_tmp107);
   }

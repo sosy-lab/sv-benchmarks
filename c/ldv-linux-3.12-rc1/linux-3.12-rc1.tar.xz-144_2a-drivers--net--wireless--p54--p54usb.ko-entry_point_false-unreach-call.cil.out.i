@@ -7122,7 +7122,7 @@ static int p54u_upload_firmware_3887(struct ieee80211_hw *dev )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& hdr->signature), (void const *)"x2  ", __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& hdr->signature), (void const *)"x2  ", __len);
+    __ret = memcpy((void *)(& hdr->signature), (void const *)"x2  ", __len);
   }
   hdr->fw_load_addr = 131072U;
   hdr->fw_length = (unsigned int )(priv->fw)->size;
@@ -7531,7 +7531,7 @@ static int p54u_upload_firmware_net2280(struct ieee80211_hw *dev )
   _min2 = 512U;
   block_len = _min1 < _min2 ? _min1 : _min2;
   __len = (size_t )block_len;
-  __ret = __builtin_memcpy(buf, (void const *)data, __len);
+  __ret = memcpy(buf, (void const *)data, __len);
   err = p54u_bulk_msg(priv, 1U, buf, (size_t )block_len);
   if (err != 0) {
     dev_err((struct device const *)(& (priv->udev)->dev), "(p54usb) firmware block upload failed\n");

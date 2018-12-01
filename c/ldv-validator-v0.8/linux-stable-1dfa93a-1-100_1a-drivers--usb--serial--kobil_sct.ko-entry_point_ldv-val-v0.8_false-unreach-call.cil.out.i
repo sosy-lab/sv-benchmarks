@@ -3930,7 +3930,7 @@ static int kobil_write(struct tty_struct *tty , struct usb_serial_port *port , u
   } else {
   }
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)(& priv->buf) + (unsigned long )priv->filled, (void const *)buf,
+  __ret = memcpy((void *)(& priv->buf) + (unsigned long )priv->filled, (void const *)buf,
                            __len);
   usb_serial_debug_data(debug, & port->dev, "kobil_write", count, (unsigned char const *)(& priv->buf) + (unsigned long )priv->filled);
   priv->filled = priv->filled + count;
@@ -3944,7 +3944,7 @@ static int kobil_write(struct tty_struct *tty , struct usb_serial_port *port , u
     ldv_26829:
     length = 8 < todo ? 8 : todo;
     __len___0 = (size_t )length;
-    __ret___0 = __builtin_memcpy((port->write_urb)->transfer_buffer, (void const *)(& priv->buf) + (unsigned long )priv->cur_pos,
+    __ret___0 = memcpy((port->write_urb)->transfer_buffer, (void const *)(& priv->buf) + (unsigned long )priv->cur_pos,
                                  __len___0);
     tmp___0 = __create_pipe((port->serial)->dev, (unsigned int )priv->write_int_endpoint_address);
     usb_fill_int_urb(port->write_urb, (port->serial)->dev, tmp___0 | 1073741824U,

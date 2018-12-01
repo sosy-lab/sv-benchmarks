@@ -4694,11 +4694,11 @@ static unsigned int pdc_data_xfer_vlb(struct ata_device *dev , unsigned char *bu
       if (rw == 0) {
         pad = ioread32(ap->ioaddr.data_addr);
         __len = (size_t )slop;
-        __ret = __builtin_memcpy((void *)(buf + ((unsigned long )buflen - (unsigned long )slop)),
+        __ret = memcpy((void *)(buf + ((unsigned long )buflen - (unsigned long )slop)),
                                  (void const *)(& pad), __len);
       } else {
         __len___0 = (size_t )slop;
-        __ret___0 = __builtin_memcpy((void *)(& pad), (void const *)(buf + ((unsigned long )buflen - (unsigned long )slop)),
+        __ret___0 = memcpy((void *)(& pad), (void const *)(buf + ((unsigned long )buflen - (unsigned long )slop)),
                                      __len___0);
         iowrite32(pad, ap->ioaddr.data_addr);
       }
@@ -5262,13 +5262,13 @@ static unsigned int vlb32_data_xfer(struct ata_device *adev , unsigned char *buf
     if (tmp != 0L) {
       if (rw == 1) {
         __len = (size_t )slop;
-        __ret = __builtin_memcpy((void *)(& pad), (void const *)(buf + ((unsigned long )buflen - (unsigned long )slop)),
+        __ret = memcpy((void *)(& pad), (void const *)(buf + ((unsigned long )buflen - (unsigned long )slop)),
                                  __len);
         iowrite32(pad, ap->ioaddr.data_addr);
       } else {
         pad = ioread32(ap->ioaddr.data_addr);
         __len___0 = (size_t )slop;
-        __ret___0 = __builtin_memcpy((void *)(buf + ((unsigned long )buflen - (unsigned long )slop)),
+        __ret___0 = memcpy((void *)(buf + ((unsigned long )buflen - (unsigned long )slop)),
                                      (void const *)(& pad), __len___0);
       }
     } else {

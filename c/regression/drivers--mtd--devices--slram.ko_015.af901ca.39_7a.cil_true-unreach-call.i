@@ -2675,7 +2675,7 @@ struct slram_mtd_list {
 };
 typedef struct slram_mtd_list slram_mtd_list_t;
 typedef int ldv_func_ret_type___1;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern unsigned long simple_strtoul(char const   * , char ** , unsigned int  ) ;
 extern int printk(char const   *  , ...) ;
@@ -3090,7 +3090,7 @@ static int slram_read(struct mtd_info *mtd , loff_t from , size_t len , size_t *
 
   }
   __len = len;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)priv->start + (unsigned long )from,
+  __ret = memcpy((void *)buf, (void const   *)priv->start + (unsigned long )from,
                            __len);
   *retlen = len;
   return (0);
@@ -3111,7 +3111,7 @@ static int slram_write(struct mtd_info *mtd , loff_t to , size_t len , size_t *r
 
   }
   __len = len;
-  __ret = __builtin_memcpy((void *)priv->start + (unsigned long )to, (void const   *)buf,
+  __ret = memcpy((void *)priv->start + (unsigned long )to, (void const   *)buf,
                            __len);
   *retlen = len;
   return (0);

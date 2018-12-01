@@ -7405,7 +7405,7 @@ static int tgt_uspace_send_event(u32 type , struct tgt_event *p )
   if (__len > 63UL) {
     __ret = memcpy((void *)ev, (void const   *)p, __len);
   } else {
-    __ret = __builtin_memcpy((void *)ev, (void const   *)p, __len);
+    __ret = memcpy((void *)ev, (void const   *)p, __len);
   }
   ev->hdr.type = (uint16_t )type;
   __asm__  volatile   ("mfence": : : "memory");
@@ -7436,14 +7436,14 @@ int scsi_tgt_uspace_send_cmd(struct scsi_cmnd *cmd , u64 itn_id , struct scsi_lu
   if (__len > 63UL) {
     __ret = memcpy((void *)(& ev.p.cmd_req.scb), (void const   *)cmd->cmnd, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ev.p.cmd_req.scb), (void const   *)cmd->cmnd,
+    __ret = memcpy((void *)(& ev.p.cmd_req.scb), (void const   *)cmd->cmnd,
                              __len);
   }
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& ev.p.cmd_req.lun), (void const   *)lun, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& ev.p.cmd_req.lun), (void const   *)lun,
+    __ret___0 = memcpy((void *)(& ev.p.cmd_req.lun), (void const   *)lun,
                                  __len___0);
   }
   ev.p.cmd_req.attribute = (int )cmd->tag;
@@ -7499,7 +7499,7 @@ int scsi_tgt_uspace_send_tsk_mgmt(int host_no , u64 itn_id , int function , u64 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& ev.p.tsk_mgmt_req.lun), (void const   *)scsilun, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ev.p.tsk_mgmt_req.lun), (void const   *)scsilun,
+    __ret = memcpy((void *)(& ev.p.tsk_mgmt_req.lun), (void const   *)scsilun,
                              __len);
   }
   ev.p.tsk_mgmt_req.mid = (unsigned long long )data;

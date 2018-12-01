@@ -10890,7 +10890,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
     __ret = memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret = memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
                              __len);
   }
   idx = 0U;
@@ -10913,7 +10913,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
     __ret___0 = memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret___0 = memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
                                  __len___0);
   }
   idx = 0U;
@@ -10936,7 +10936,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
     __ret___1 = memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret___1 = memcpy((void *)(& boxcontent) + 1U, (void const   *)cmdbuffer + (unsigned long )buf_index,
                                  __len___1);
   }
   idx = 0U;
@@ -10959,7 +10959,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
     __ret___2 = memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret___2 = memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
                                  __len___2);
   }
   __len___3 = 2UL;
@@ -10967,7 +10967,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
     __ret___3 = memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
                          __len___3);
   } else {
-    __ret___3 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
+    __ret___3 = memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
                                  __len___3);
   }
   idx = 0U;
@@ -11002,7 +11002,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
     __ret___4 = memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
                          __len___4);
   } else {
-    __ret___4 = __builtin_memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
+    __ret___4 = memcpy((void *)(& boxextcontent), (void const   *)cmdbuffer + (unsigned long )buf_index,
                                  __len___4);
   }
   __len___5 = 3UL;
@@ -11010,7 +11010,7 @@ static void _rtl92d_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
     __ret___5 = memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
                          __len___5);
   } else {
-    __ret___5 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
+    __ret___5 = memcpy((void *)(& boxcontent) + 1U, (void const   *)(cmdbuffer + ((unsigned long )buf_index + 2UL)),
                                  __len___5);
   }
   idx = 0U;
@@ -11112,7 +11112,7 @@ void rtl92d_fill_h2c_cmd(struct ieee80211_hw *hw , u8 element_id , u32 cmd_len ,
   {
   memset((void *)(& tmp_cmdbuf), 0, 8UL);
   __len = (size_t )cmd_len;
-  __ret = __builtin_memcpy((void *)(& tmp_cmdbuf), (void const   *)cmdbuffer, __len);
+  __ret = memcpy((void *)(& tmp_cmdbuf), (void const   *)cmdbuffer, __len);
   _rtl92d_fill_h2c_command(hw, (int )element_id, cmd_len, (u8 *)(& tmp_cmdbuf));
   return;
 }
@@ -11463,7 +11463,7 @@ void rtl92d_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
   if (__len > 63UL) {
     __ret = memcpy((void *)p_pspoll + 4U, (void const   *)(& mac->bssid), __len);
   } else {
-    __ret = __builtin_memcpy((void *)p_pspoll + 4U, (void const   *)(& mac->bssid),
+    __ret = memcpy((void *)p_pspoll + 4U, (void const   *)(& mac->bssid),
                              __len);
   }
   __len___0 = 6UL;
@@ -11471,7 +11471,7 @@ void rtl92d_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
     __ret___0 = memcpy((void *)p_pspoll + 10U, (void const   *)(& mac->mac_addr),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)p_pspoll + 10U, (void const   *)(& mac->mac_addr),
+    __ret___0 = memcpy((void *)p_pspoll + 10U, (void const   *)(& mac->mac_addr),
                                  __len___0);
   }
   *((u8 *)(& u1RsvdPageLoc) + 1UL) = 2U;
@@ -11554,7 +11554,7 @@ void rtl92d_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
   } else {
     __len___1 = (size_t )totalpacketlen;
     tmp___8 = skb_put(skb, totalpacketlen);
-    __ret___1 = __builtin_memcpy((void *)tmp___8, (void const   *)(& reserved_page_packet),
+    __ret___1 = memcpy((void *)tmp___8, (void const   *)(& reserved_page_packet),
                                  __len___1);
     rtstatus = _rtl92d_cmd_send_packet(hw, skb);
     if ((int )rtstatus) {
@@ -14361,7 +14361,7 @@ static void _rtl92de_read_adapter_info(struct ieee80211_hw *hw )
       __ret = memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
+      __ret = memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
                                __len);
     }
   } else

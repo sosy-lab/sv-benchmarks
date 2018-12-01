@@ -2409,7 +2409,7 @@ struct net_local {
    spinlock_t lock ;
    void *tmspriv ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern void *memcpy(void *to , void const   *from , size_t len ) ;
@@ -2709,7 +2709,7 @@ static int abyss_attach(struct pci_dev *pdev , struct pci_device_id  const  *ent
   if (__len >= (size_t )64) {
     __ret = memcpy(tp->ProductID, "Madge PCI 16/4 Mk2", __len);
   } else {
-    __ret = __builtin_memcpy(tp->ProductID, "Madge PCI 16/4 Mk2", __len);
+    __ret = memcpy(tp->ProductID, "Madge PCI 16/4 Mk2", __len);
   }
   dev->open = & abyss_open;
   dev->stop = & abyss_close;

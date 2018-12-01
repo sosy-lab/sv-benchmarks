@@ -9611,7 +9611,7 @@ static int efx_probe_port(struct efx_nic *efx )
     __ret = memcpy((void *)(efx->net_dev)->dev_addr, (void const *)(& (efx->net_dev)->perm_addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(efx->net_dev)->dev_addr, (void const *)(& (efx->net_dev)->perm_addr),
+    __ret = memcpy((void *)(efx->net_dev)->dev_addr, (void const *)(& (efx->net_dev)->perm_addr),
                              __len);
   }
   return (0);
@@ -11354,7 +11354,7 @@ static int efx_set_mac_address(struct net_device *net_dev , void *data )
   } else {
   }
   __len = (size_t )net_dev->addr_len;
-  __ret = __builtin_memcpy((void *)net_dev->dev_addr, (void const *)new_addr, __len);
+  __ret = memcpy((void *)net_dev->dev_addr, (void const *)new_addr, __len);
   efx_sriov_mac_address_changed(efx);
   ldv_mutex_lock_26(& efx->mac_lock);
   (*((efx->type)->reconfigure_mac))(efx);
@@ -17633,7 +17633,7 @@ int falcon_spi_cmd(struct efx_nic *efx , struct efx_spi_device const *spi , unsi
   }
   if ((unsigned long )in != (unsigned long )((void const *)0)) {
     __len = len;
-    __ret = __builtin_memcpy((void *)(& reg), in, __len);
+    __ret = memcpy((void *)(& reg), in, __len);
     efx_writeo(efx, & reg, 288U);
   } else {
   }
@@ -17648,7 +17648,7 @@ int falcon_spi_cmd(struct efx_nic *efx , struct efx_spi_device const *spi , unsi
   if ((unsigned long )out != (unsigned long )((void *)0)) {
     efx_reado(efx, & reg, 288U);
     __len___0 = len;
-    __ret___0 = __builtin_memcpy(out, (void const *)(& reg), __len___0);
+    __ret___0 = memcpy(out, (void const *)(& reg), __len___0);
   } else {
   }
   return (0);
@@ -18560,7 +18560,7 @@ static int falcon_read_nvram(struct efx_nic *efx , struct falcon_nvconfig *nvcon
     if (__len > 63UL) {
       __ret = memcpy((void *)nvconfig_out, (void const *)nvconfig, __len);
     } else {
-      __ret = __builtin_memcpy((void *)nvconfig_out, (void const *)nvconfig, __len);
+      __ret = memcpy((void *)nvconfig_out, (void const *)nvconfig, __len);
     }
   } else {
   }
@@ -18996,7 +18996,7 @@ static int falcon_probe_nvconfig(struct efx_nic *efx )
     __ret = memcpy((void *)(& (efx->net_dev)->perm_addr), (void const *)(& nvconfig->mac_address),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (efx->net_dev)->perm_addr), (void const *)(& nvconfig->mac_address),
+    __ret = memcpy((void *)(& (efx->net_dev)->perm_addr), (void const *)(& nvconfig->mac_address),
                              __len);
   }
   if ((efx->msg_enable & 2U) != 0U) {
@@ -19411,7 +19411,7 @@ static int falcon_init_nic(struct efx_nic *efx )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key),
+      __ret = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key),
                                __len);
     }
     efx_writeo(efx, & temp, 2144U);
@@ -20449,7 +20449,7 @@ static int siena_init_nic(struct efx_nic *efx )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key),
+    __ret = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key),
                              __len);
   }
   efx_writeo(efx, & temp, 2144U);
@@ -20457,7 +20457,7 @@ static int siena_init_nic(struct efx_nic *efx )
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key),
+    __ret___0 = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key),
                                  __len___0);
   }
   efx_writeo(efx, & temp, 2256U);
@@ -20466,7 +20466,7 @@ static int siena_init_nic(struct efx_nic *efx )
     __ret___1 = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key) + 16U,
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key) + 16U,
+    __ret___1 = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key) + 16U,
                                  __len___1);
   }
   efx_writeo(efx, & temp, 2272U);
@@ -20477,7 +20477,7 @@ static int siena_init_nic(struct efx_nic *efx )
     __ret___2 = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key) + 32U,
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key) + 32U,
+    __ret___2 = memcpy((void *)(& temp), (void const *)(& efx->rx_hash_key) + 32U,
                                  __len___2);
   }
   efx_writeo(efx, & temp, 2288U);
@@ -22283,7 +22283,7 @@ static int tso_start_new_packet(struct efx_tx_queue *tx_queue , struct sk_buff c
   }
   tsoh_th = (struct tcphdr *)header + (unsigned long )st->tcp_off;
   __len = (size_t )st->header_len;
-  __ret = __builtin_memcpy((void *)header, (void const *)skb->data, __len);
+  __ret = memcpy((void *)header, (void const *)skb->data, __len);
   tmp = __fswab32(st->seqnum);
   tsoh_th->seq = tmp;
   tmp___0 = skb_end_pointer(skb);
@@ -23023,7 +23023,7 @@ static void efx_recycle_rx_buffer(struct efx_channel *channel , struct efx_rx_bu
   if (__len > 63UL) {
     __ret = memcpy((void *)new_buf, (void const *)rx_buf, __len);
   } else {
-    __ret = __builtin_memcpy((void *)new_buf, (void const *)rx_buf, __len);
+    __ret = memcpy((void *)new_buf, (void const *)rx_buf, __len);
   }
   rx_buf->u.page = 0;
   rx_queue->added_count = rx_queue->added_count + 1;
@@ -25071,7 +25071,7 @@ static void falcon_reconfigure_xmac_core(struct efx_nic *efx )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& reg), (void const *)(efx->net_dev)->dev_addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& reg), (void const *)(efx->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& reg), (void const *)(efx->net_dev)->dev_addr,
                              __len);
   }
   efx_writeo(efx, & reg, 4608U);
@@ -25080,7 +25080,7 @@ static void falcon_reconfigure_xmac_core(struct efx_nic *efx )
     __ret___0 = memcpy((void *)(& reg), (void const *)(efx->net_dev)->dev_addr + 4U,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& reg), (void const *)(efx->net_dev)->dev_addr + 4U,
+    __ret___0 = memcpy((void *)(& reg), (void const *)(efx->net_dev)->dev_addr + 4U,
                                  __len___0);
   }
   efx_writeo(efx, & reg, 4624U);
@@ -25379,7 +25379,7 @@ int efx_mcdi_set_mac(struct efx_nic *efx )
     __ret = memcpy((void *)(& cmdbytes) + 8U, (void const *)(efx->net_dev)->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cmdbytes) + 8U, (void const *)(efx->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& cmdbytes) + 8U, (void const *)(efx->net_dev)->dev_addr,
                              __len);
   }
   ((efx_dword_t *)(& cmdbytes))->u32[0] = (((efx->net_dev)->mtu + 29U) & 4294967288U) + 16U;
@@ -26217,7 +26217,7 @@ static void efx_iterate_state(struct efx_nic *efx )
     __ret = memcpy((void *)(& payload->header.h_dest), (void const *)net_dev->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& payload->header.h_dest), (void const *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& payload->header.h_dest), (void const *)net_dev->dev_addr,
                              __len);
   }
   __len___0 = 6UL;
@@ -26225,7 +26225,7 @@ static void efx_iterate_state(struct efx_nic *efx )
     __ret___0 = memcpy((void *)(& payload->header.h_source), (void const *)(& payload_source),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& payload->header.h_source), (void const *)(& payload_source),
+    __ret___0 = memcpy((void *)(& payload->header.h_source), (void const *)(& payload_source),
                                  __len___0);
   }
   payload->header.h_proto = 8U;
@@ -26246,7 +26246,7 @@ static void efx_iterate_state(struct efx_nic *efx )
     __ret___1 = memcpy((void *)(& payload->msg), (void const *)(& payload_msg),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& payload->msg), (void const *)(& payload_msg),
+    __ret___1 = memcpy((void *)(& payload->msg), (void const *)(& payload_msg),
                                  __len___1);
   }
   atomic_set(& state->rx_good, 0);
@@ -26286,7 +26286,7 @@ static int efx_begin_loopback(struct efx_tx_queue *tx_queue )
   if (__len > 63UL) {
     __ret = memcpy((void *)payload, (void const *)(& state->payload), __len);
   } else {
-    __ret = __builtin_memcpy((void *)payload, (void const *)(& state->payload),
+    __ret = memcpy((void *)payload, (void const *)(& state->payload),
                              __len);
   }
   tmp___0 = __fswab32((__u32 )((i << 2) | 2130706433));
@@ -28003,7 +28003,7 @@ static int efx_ethtool_get_class_rule(struct efx_nic *efx , struct ethtool_rx_fl
       __ret = memcpy((void *)(& mac_mask->h_dest), (void const *)(& mac_addr_mc_mask),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& mac_mask->h_dest), (void const *)(& mac_addr_mc_mask),
+      __ret = memcpy((void *)(& mac_mask->h_dest), (void const *)(& mac_addr_mc_mask),
                                __len);
     }
     if ((unsigned int )*((unsigned char *)(& spec) + 0UL) == 9U) {
@@ -28012,7 +28012,7 @@ static int efx_ethtool_get_class_rule(struct efx_nic *efx , struct ethtool_rx_fl
         __ret___0 = memcpy((void *)(& mac_entry->h_dest), (void const *)(& mac_addr_mc_mask),
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& mac_entry->h_dest), (void const *)(& mac_addr_mc_mask),
+        __ret___0 = memcpy((void *)(& mac_entry->h_dest), (void const *)(& mac_addr_mc_mask),
                                      __len___0);
       }
     } else {
@@ -28314,7 +28314,7 @@ static int efx_ethtool_get_rxfh_indir(struct net_device *net_dev , u32 *indir )
   if (__len > 63UL) {
     __ret = memcpy((void *)indir, (void const *)(& efx->rx_indir_table), __len);
   } else {
-    __ret = __builtin_memcpy((void *)indir, (void const *)(& efx->rx_indir_table),
+    __ret = memcpy((void *)indir, (void const *)(& efx->rx_indir_table),
                              __len);
   }
   return (0);
@@ -28333,7 +28333,7 @@ static int efx_ethtool_set_rxfh_indir(struct net_device *net_dev , u32 const *in
   if (__len > 63UL) {
     __ret = memcpy((void *)(& efx->rx_indir_table), (void const *)indir, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& efx->rx_indir_table), (void const *)indir,
+    __ret = memcpy((void *)(& efx->rx_indir_table), (void const *)indir,
                              __len);
   }
   efx_nic_push_rx_indir_table(efx);
@@ -32651,7 +32651,7 @@ int efx_mcdi_get_board_cfg(struct efx_nic *efx , u8 *mac_address , u16 *fw_subty
     if (__len > 63UL) {
       __ret = memcpy((void *)mac_address, (void const *)(& outbuf) + offset, __len);
     } else {
-      __ret = __builtin_memcpy((void *)mac_address, (void const *)(& outbuf) + offset,
+      __ret = memcpy((void *)mac_address, (void const *)(& outbuf) + offset,
                                __len);
     }
   } else {
@@ -32827,7 +32827,7 @@ int efx_mcdi_nvram_read(struct efx_nic *efx , unsigned int type , loff_t offset 
   } else {
   }
   __len = length;
-  __ret = __builtin_memcpy((void *)buffer, (void const *)(& outbuf), __len);
+  __ret = memcpy((void *)buffer, (void const *)(& outbuf), __len);
   return (0);
   fail: ;
   if ((efx->msg_enable & 8192U) != 0U) {
@@ -32850,7 +32850,7 @@ int efx_mcdi_nvram_write(struct efx_nic *efx , unsigned int type , loff_t offset
   ((efx_dword_t *)(& inbuf) + 4U)->u32[0] = (unsigned int )offset;
   ((efx_dword_t *)(& inbuf) + 8U)->u32[0] = (unsigned int )length;
   __len = length;
-  __ret = __builtin_memcpy((void *)(& inbuf) + 12U, (void const *)buffer, __len);
+  __ret = memcpy((void *)(& inbuf) + 12U, (void const *)buffer, __len);
   rc = efx_mcdi_rpc(efx, 58U, (u8 const *)(& inbuf), (length + 15UL) & 0xfffffffffffffffcUL,
                     0, 0UL, 0);
   if (rc != 0) {
@@ -33143,7 +33143,7 @@ static int efx_mcdi_wol_filter_set(struct efx_nic *efx , u32 type , u8 const *ma
   if (__len > 63UL) {
     __ret = memcpy((void *)(& inbuf) + 8U, (void const *)mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& inbuf) + 8U, (void const *)mac, __len);
+    __ret = memcpy((void *)(& inbuf) + 8U, (void const *)mac, __len);
   }
   rc = efx_mcdi_rpc(efx, 50U, (u8 const *)(& inbuf), 192UL, (u8 *)(& outbuf), 4UL,
                     & outlen);
@@ -33415,7 +33415,7 @@ static int efx_mcdi_get_phy_cfg(struct efx_nic *efx , struct efx_mcdi_phy_data *
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cfg->name), (void const *)(& outbuf) + 24U, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cfg->name), (void const *)(& outbuf) + 24U,
+    __ret = memcpy((void *)(& cfg->name), (void const *)(& outbuf) + 24U,
                              __len);
   }
   cfg->media = ((efx_dword_t *)(& outbuf) + 44U)->u32[0];
@@ -33425,7 +33425,7 @@ static int efx_mcdi_get_phy_cfg(struct efx_nic *efx , struct efx_mcdi_phy_data *
     __ret___0 = memcpy((void *)(& cfg->revision), (void const *)(& outbuf) + 52U,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& cfg->revision), (void const *)(& outbuf) + 52U,
+    __ret___0 = memcpy((void *)(& cfg->revision), (void const *)(& outbuf) + 52U,
                                  __len___0);
   }
   return (0);
@@ -34254,7 +34254,7 @@ static int efx_mcdi_phy_get_module_eeprom(struct efx_nic *efx , struct ethtool_e
   payload_len = payload_len - page_off;
   to_copy = space_remaining < payload_len ? space_remaining : payload_len;
   __len = (size_t )to_copy;
-  __ret = __builtin_memcpy((void *)user_data, (void const *)(& outbuf) + ((unsigned long )page_off + 4UL),
+  __ret = memcpy((void *)user_data, (void const *)(& outbuf) + ((unsigned long )page_off + 4UL),
                            __len);
   space_remaining = space_remaining - to_copy;
   user_data = user_data + (unsigned long )to_copy;
@@ -35296,7 +35296,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   return;
 }
 }
@@ -38160,7 +38160,7 @@ static int efx_sriov_memcpy(struct efx_nic *efx , struct efx_memcpy_req *req , u
     from_lo = used;
     from_hi = 0U;
     __len = (size_t )req->length;
-    __ret = __builtin_memcpy((void *)inbuf + (unsigned long )used, (void const *)req->from_buf,
+    __ret = memcpy((void *)inbuf + (unsigned long )used, (void const *)req->from_buf,
                              __len);
     used = req->length + used;
   }
@@ -38585,7 +38585,7 @@ static int efx_vfdi_init_evq(struct efx_vf *vf )
   efx_writeo_table(efx, & reg, 16121856U, abs_evq);
   if (vf_evq == 0U) {
     __len = (unsigned long )buf_count * 8UL;
-    __ret = __builtin_memcpy((void *)(& vf->evq0_addrs), (void const *)(& req->u.init_evq.addr),
+    __ret = memcpy((void *)(& vf->evq0_addrs), (void const *)(& req->u.init_evq.addr),
                              __len);
     vf->evq0_count = buf_count;
   } else {
@@ -39023,7 +39023,7 @@ static int efx_vfdi_set_status_page(struct efx_vf *vf )
     vf->peer_page_addrs = (u64 *)tmp___0;
     if ((unsigned long )vf->peer_page_addrs != (unsigned long )((u64 *)0)) {
       __len = (size_t )(page_count___0 * 8ULL);
-      __ret = __builtin_memcpy((void *)vf->peer_page_addrs, (void const *)(& req->u.set_status_page.peer_page_addr),
+      __ret = memcpy((void *)vf->peer_page_addrs, (void const *)(& req->u.set_status_page.peer_page_addr),
                                __len);
       vf->peer_page_count = (unsigned int )page_count___0;
     } else {
@@ -39198,7 +39198,7 @@ static void efx_sriov_reset_vf(struct efx_vf *vf , struct efx_buffer *buffer )
     __ret = memcpy(buffer->addr + (unsigned long )pos, (void const *)(& event),
                      __len);
   } else {
-    __ret = __builtin_memcpy(buffer->addr + (unsigned long )pos, (void const *)(& event),
+    __ret = memcpy(buffer->addr + (unsigned long )pos, (void const *)(& event),
                              __len);
   }
   pos = pos + 8U;
@@ -39417,7 +39417,7 @@ static void efx_sriov_peer_work(struct work_struct *data )
     __ret = memcpy((void *)(& peer->mac_addr), (void const *)(& local_addr->addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& peer->mac_addr), (void const *)(& local_addr->addr),
+    __ret = memcpy((void *)(& peer->mac_addr), (void const *)(& local_addr->addr),
                              __len);
   }
   peer->tci = 0U;
@@ -39722,7 +39722,7 @@ int efx_sriov_init(struct efx_nic *efx )
     __ret = memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const *)net_dev->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const *)net_dev->dev_addr,
                              __len);
   }
   efx->vf_init_count = efx->vf_count;
@@ -39905,7 +39905,7 @@ void efx_sriov_mac_address_changed(struct efx_nic *efx )
     __ret = memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const *)(efx->net_dev)->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const *)(efx->net_dev)->dev_addr,
+    __ret = memcpy((void *)(& vfdi_status->peers[0].mac_addr), (void const *)(efx->net_dev)->dev_addr,
                              __len);
   }
   queue_work(vfdi_workqueue, & efx->peer_work);
@@ -40090,7 +40090,7 @@ int efx_sriov_set_vf_mac(struct net_device *net_dev , int vf_i , u8 *mac )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& vf->addr.mac_addr), (void const *)mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& vf->addr.mac_addr), (void const *)mac, __len);
+    __ret = memcpy((void *)(& vf->addr.mac_addr), (void const *)mac, __len);
   }
   __efx_sriov_update_vf_addr(vf);
   ldv_mutex_unlock_466(& vf->status_lock);
@@ -40169,7 +40169,7 @@ int efx_sriov_get_vf_config(struct net_device *net_dev , int vf_i , struct ifla_
     __ret = memcpy((void *)(& ivi->mac), (void const *)(& vf->addr.mac_addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ivi->mac), (void const *)(& vf->addr.mac_addr),
+    __ret = memcpy((void *)(& ivi->mac), (void const *)(& vf->addr.mac_addr),
                              __len);
   }
   ivi->tx_rate = 0U;

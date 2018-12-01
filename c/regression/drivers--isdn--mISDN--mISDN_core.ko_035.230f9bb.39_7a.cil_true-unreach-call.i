@@ -5957,7 +5957,7 @@ int ldv___ldv_spin_trylock_61(spinlock_t *ldv_func_arg1 )
   return (ldv_func_res);
 }
 }
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 __inline static void __set_bit(int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -6553,7 +6553,7 @@ static int mISDN_sock_recvmsg(struct kiocb *iocb , struct socket *sock , struct 
     __ret = memcpy((void *)tmp, (void const   *)(& skb->cb), __len);
   } else {
     tmp___0 = skb_push(skb, 8U);
-    __ret = __builtin_memcpy((void *)tmp___0, (void const   *)(& skb->cb), __len);
+    __ret = memcpy((void *)tmp___0, (void const   *)(& skb->cb), __len);
   }
   err = skb_copy_datagram_iovec((struct sk_buff  const  *)skb, 0, msg->msg_iov, copied);
   mISDN_sock_cmsg(sk, msg, skb);
@@ -6621,7 +6621,7 @@ static int mISDN_sock_sendmsg(struct kiocb *iocb , struct socket *sock , struct 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& skb->cb), (void const   *)skb->data, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& skb->cb), (void const   *)skb->data, __len);
+    __ret = memcpy((void *)(& skb->cb), (void const   *)skb->data, __len);
   }
   skb_pull(skb, 8U);
   if ((unsigned int )msg->msg_namelen > 5U) {
@@ -6969,7 +6969,7 @@ static int data_sock_ioctl(struct socket *sock , unsigned int cmd , unsigned lon
       __ret = memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
+      __ret = memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
                                __len);
     }
     di.nrbchan = dev->nrbchan;
@@ -7452,7 +7452,7 @@ static int base_sock_ioctl(struct socket *sock , unsigned int cmd , unsigned lon
       __ret = memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
+      __ret = memcpy((void *)(& di.channelmap), (void const   *)(& dev->channelmap),
                                __len);
     }
     di.nrbchan = dev->nrbchan;
@@ -8807,7 +8807,7 @@ __inline static struct sk_buff *_alloc_mISDN_skb(u_int prim , u_int id , u_int l
   if (len != 0U) {
     __len = (size_t )len;
     tmp___1 = skb_put(skb, len);
-    __ret = __builtin_memcpy((void *)tmp___1, (void const   *)dp, __len);
+    __ret = memcpy((void *)tmp___1, (void const   *)dp, __len);
   } else {
 
   }
@@ -12294,7 +12294,7 @@ static void l2up_create(struct layer2 *l2 , u_int prim , int len , void *arg )
   if (len != 0) {
     __len = (size_t )len;
     tmp___0 = skb_put(skb, (unsigned int )len);
-    __ret = __builtin_memcpy((void *)tmp___0, (void const   *)arg, __len);
+    __ret = memcpy((void *)tmp___0, (void const   *)arg, __len);
   } else {
 
   }
@@ -12381,7 +12381,7 @@ static int l2down_create(struct layer2 *l2 , u_int prim , u_int id , int len , v
   if (len != 0) {
     __len = (size_t )len;
     tmp___0 = skb_put(skb, (unsigned int )len);
-    __ret = __builtin_memcpy((void *)tmp___0, (void const   *)arg, __len);
+    __ret = memcpy((void *)tmp___0, (void const   *)arg, __len);
   } else {
 
   }
@@ -13046,7 +13046,7 @@ static void send_uframe(struct layer2 *l2 , struct sk_buff *skb , u_char cmd , u
   }
   __len = (size_t )i;
   tmp___2 = skb_put(skb, (unsigned int )i);
-  __ret = __builtin_memcpy((void *)tmp___2, (void const   *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___2, (void const   *)(& tmp), __len);
   enqueue_super(l2, skb);
   return;
 }
@@ -13290,7 +13290,7 @@ static void tx_ui(struct layer2 *l2 )
   ldv_32915: 
   __len = (size_t )i;
   tmp___2 = skb_push(skb, (unsigned int )i);
-  __ret = __builtin_memcpy((void *)tmp___2, (void const   *)(& header), __len);
+  __ret = memcpy((void *)tmp___2, (void const   *)(& header), __len);
   enqueue_ui(l2, skb);
   ldv_32916: 
   skb = skb_dequeue(& l2->ui_queue);
@@ -13779,7 +13779,7 @@ static void enquiry_cr(struct layer2 *l2 , u_char typ , u_char cr , u_char pf )
   }
   __len = (size_t )i;
   tmp___5 = skb_put(skb, (unsigned int )i);
-  __ret = __builtin_memcpy((void *)tmp___5, (void const   *)(& tmp), __len);
+  __ret = memcpy((void *)tmp___5, (void const   *)(& tmp), __len);
   enqueue_super(l2, skb);
   return;
 }
@@ -14395,7 +14395,7 @@ static void l2_pull_iqueue(struct FsmInst *fi , int event , void *arg )
   if (p1 >= i) {
     __len = (size_t )i;
     tmp___7 = skb_push(nskb, i);
-    __ret = __builtin_memcpy((void *)tmp___7, (void const   *)(& header), __len);
+    __ret = memcpy((void *)tmp___7, (void const   *)(& header), __len);
   } else {
     printk("<4>isdnl2 pull_iqueue skb header(%d/%d) too short\n", i, p1);
     oskb = nskb;
@@ -14409,10 +14409,10 @@ static void l2_pull_iqueue(struct FsmInst *fi , int event , void *arg )
     }
     __len___0 = (size_t )i;
     tmp___9 = skb_put(nskb, i);
-    __ret___0 = __builtin_memcpy((void *)tmp___9, (void const   *)(& header), __len___0);
+    __ret___0 = memcpy((void *)tmp___9, (void const   *)(& header), __len___0);
     __len___1 = (size_t )oskb->len;
     tmp___11 = skb_put(nskb, oskb->len);
-    __ret___1 = __builtin_memcpy((void *)tmp___11, (void const   *)oskb->data, __len___1);
+    __ret___1 = memcpy((void *)tmp___11, (void const   *)oskb->data, __len___1);
     consume_skb(oskb);
   }
   tmp___12 = l2_newid(l2);
@@ -16125,7 +16125,7 @@ static void teiup_create(struct manager *mgr , u_int prim , int len , void *arg 
   if (len != 0) {
     __len = (size_t )len;
     tmp___0 = skb_put(skb, (unsigned int )len);
-    __ret = __builtin_memcpy((void *)tmp___0, (void const   *)arg, __len);
+    __ret = memcpy((void *)tmp___0, (void const   *)arg, __len);
   } else {
 
   }

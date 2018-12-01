@@ -4116,7 +4116,7 @@ struct dvb_frontend *stb6000_attach(struct dvb_frontend *fe , int addr , struct 
     __cil_tmp79 = (struct dvb_tuner_ops *)__cil_tmp78;
     __cil_tmp80 = (void *)__cil_tmp79;
     __cil_tmp81 = (void const   *)(& stb6000_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp80, __cil_tmp81, __len);
+    __ret = memcpy(__cil_tmp80, __cil_tmp81, __len);
     }
   }
   __cil_tmp82 = (unsigned long )fe;

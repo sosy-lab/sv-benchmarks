@@ -5772,7 +5772,7 @@ static netdev_tx_t __ei_start_xmit(struct sk_buff *skb , struct net_device *dev 
   if (skb->len <= 59U) {
     memset((void *)(& buf), 0, 60UL);
     __len = (size_t )skb->len;
-    __ret = __builtin_memcpy((void *)(& buf), (void const *)data, __len);
+    __ret = memcpy((void *)(& buf), (void const *)data, __len);
     send_length = 60;
     data = (char *)(& buf);
   } else {

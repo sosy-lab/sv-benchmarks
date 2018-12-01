@@ -7142,7 +7142,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const *f
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data, from, __len);
+  __ret = memcpy((void *)skb->data, from, __len);
   return;
 }
 }
@@ -8375,11 +8375,11 @@ static int ql_get_8000_flash_params(struct ql_adapter *qdev )
   }
   if ((unsigned int )qdev->flash.flash_params_8000.data_type1 == 2U) {
     __len = (size_t )(qdev->ndev)->addr_len;
-    __ret = __builtin_memcpy((void *)(& mac_addr), (void const *)(& qdev->flash.flash_params_8000.mac_addr1),
+    __ret = memcpy((void *)(& mac_addr), (void const *)(& qdev->flash.flash_params_8000.mac_addr1),
                              __len);
   } else {
     __len___0 = (size_t )(qdev->ndev)->addr_len;
-    __ret___0 = __builtin_memcpy((void *)(& mac_addr), (void const *)(& qdev->flash.flash_params_8000.mac_addr),
+    __ret___0 = memcpy((void *)(& mac_addr), (void const *)(& qdev->flash.flash_params_8000.mac_addr),
                                  __len___0);
   }
   tmp___0 = is_valid_ether_addr((u8 const *)(& mac_addr));
@@ -8398,7 +8398,7 @@ static int ql_get_8000_flash_params(struct ql_adapter *qdev )
   } else {
   }
   __len___1 = (size_t )(qdev->ndev)->addr_len;
-  __ret___1 = __builtin_memcpy((void *)(qdev->ndev)->dev_addr, (void const *)(& mac_addr),
+  __ret___1 = memcpy((void *)(qdev->ndev)->dev_addr, (void const *)(& mac_addr),
                                __len___1);
   exit:
   ql_sem_unlock(qdev, 50331648U);
@@ -8472,7 +8472,7 @@ static int ql_get_8012_flash_params(struct ql_adapter *qdev )
   } else {
   }
   __len = (size_t )(qdev->ndev)->addr_len;
-  __ret = __builtin_memcpy((void *)(qdev->ndev)->dev_addr, (void const *)(& qdev->flash.flash_params_8012.mac_addr),
+  __ret = memcpy((void *)(qdev->ndev)->dev_addr, (void const *)(& qdev->flash.flash_params_8012.mac_addr),
                            __len);
   exit:
   ql_sem_unlock(qdev, 50331648U);
@@ -9214,7 +9214,7 @@ static void ql_process_mac_rx_page(struct ql_adapter *qdev , struct rx_ring *rx_
     __ret = memcpy((void *)tmp___0, (void const *)addr, __len);
   } else {
     tmp___1 = skb_put(skb, 14U);
-    __ret = __builtin_memcpy((void *)tmp___1, (void const *)addr, __len);
+    __ret = memcpy((void *)tmp___1, (void const *)addr, __len);
   }
   if ((qdev->msg_enable & 2048U) != 0U) {
     netdev_printk("\017", (struct net_device const *)qdev->ndev, "%d bytes of headers and data in large. Chain page to new skb and pull tail.\n",
@@ -9305,7 +9305,7 @@ static void ql_process_mac_rx_skb(struct ql_adapter *qdev , struct rx_ring *rx_r
   skb_reserve(new_skb, 0);
   __len = (size_t )length;
   tmp___1 = skb_put(new_skb, length);
-  __ret = __builtin_memcpy((void *)tmp___1, (void const *)skb->data, __len);
+  __ret = memcpy((void *)tmp___1, (void const *)skb->data, __len);
   skb = new_skb;
   tmp___2 = constant_test_bit(9U, (unsigned long const volatile *)(& qdev->flags));
   if (tmp___2 != 0) {
@@ -9455,7 +9455,7 @@ static struct sk_buff *ql_build_rx_skb(struct ql_adapter *qdev , struct rx_ring 
                                   2);
       __len = (size_t )length;
       tmp___1 = skb_put(skb, length);
-      __ret = __builtin_memcpy((void *)tmp___1, (void const *)(sbq_desc->p.skb)->data,
+      __ret = memcpy((void *)tmp___1, (void const *)(sbq_desc->p.skb)->data,
                                __len);
       pci_dma_sync_single_for_device(qdev->pdev, sbq_desc->mapaddr, (size_t )sbq_desc->maplen,
                                      2);
@@ -11697,7 +11697,7 @@ static int ql_start_rss(struct ql_adapter *qdev )
     __ret = memcpy((void *)(& ricb->ipv6_hash_key), (void const *)(& init_hash_seed),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ricb->ipv6_hash_key), (void const *)(& init_hash_seed),
+    __ret = memcpy((void *)(& ricb->ipv6_hash_key), (void const *)(& init_hash_seed),
                              __len);
   }
   __len___0 = 16UL;
@@ -11705,7 +11705,7 @@ static int ql_start_rss(struct ql_adapter *qdev )
     __ret___0 = memcpy((void *)(& ricb->ipv4_hash_key), (void const *)(& init_hash_seed),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& ricb->ipv4_hash_key), (void const *)(& init_hash_seed),
+    __ret___0 = memcpy((void *)(& ricb->ipv4_hash_key), (void const *)(& init_hash_seed),
                                  __len___0);
   }
   status = ql_write_cfg(qdev, (void *)ricb, 1084, 4U, 0);
@@ -12742,10 +12742,10 @@ static int qlge_set_mac_address(struct net_device *ndev , void *p )
   } else {
   }
   __len = (size_t )ndev->addr_len;
-  __ret = __builtin_memcpy((void *)ndev->dev_addr, (void const *)(& addr->sa_data),
+  __ret = memcpy((void *)ndev->dev_addr, (void const *)(& addr->sa_data),
                            __len);
   __len___0 = (size_t )ndev->addr_len;
-  __ret___0 = __builtin_memcpy((void *)(& qdev->current_mac_addr), (void const *)ndev->dev_addr,
+  __ret___0 = memcpy((void *)(& qdev->current_mac_addr), (void const *)ndev->dev_addr,
                                __len___0);
   status = ql_sem_spinlock(qdev, 12582912U);
   if (status != 0) {
@@ -13051,10 +13051,10 @@ static int ql_init_device(struct pci_dev *pdev , struct net_device *ndev , int c
   } else {
   }
   __len = (size_t )ndev->addr_len;
-  __ret = __builtin_memcpy((void *)(& ndev->perm_addr), (void const *)ndev->dev_addr,
+  __ret = memcpy((void *)(& ndev->perm_addr), (void const *)ndev->dev_addr,
                            __len);
   __len___0 = (size_t )ndev->addr_len;
-  __ret___0 = __builtin_memcpy((void *)(& qdev->current_mac_addr), (void const *)ndev->dev_addr,
+  __ret___0 = memcpy((void *)(& qdev->current_mac_addr), (void const *)ndev->dev_addr,
                                __len___0);
   qdev->tx_ring_size = 256;
   qdev->rx_ring_size = 256;
@@ -15132,7 +15132,7 @@ static void ql_build_coredump_seg_header(struct mpi_coredump_segment_header *seg
   if (__len > 63UL) {
     __ret = memcpy((void *)(& seg_hdr->description), (void const *)desc, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& seg_hdr->description), (void const *)desc,
+    __ret = memcpy((void *)(& seg_hdr->description), (void const *)desc,
                              __len);
   }
   return;
@@ -15172,7 +15172,7 @@ int ql_core_dump(struct ql_adapter *qdev , struct ql_mpi_coredump *mpi_coredump 
     __ret = memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const *)"MPI Coredump",
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mpi_coredump->mpi_global_header.idString),
+    __ret = memcpy((void *)(& mpi_coredump->mpi_global_header.idString),
                              (void const *)"MPI Coredump", __len);
   }
   ql_build_coredump_seg_header(& mpi_coredump->nic_regs_seg_hdr, 16U, 288U, (u8 *)"NIC1 Registers");
@@ -15494,7 +15494,7 @@ void ql_gen_reg_dump(struct ql_adapter *qdev , struct ql_reg_dump *mpi_coredump 
     __ret = memcpy((void *)(& mpi_coredump->mpi_global_header.idString), (void const *)"MPI Coredump",
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mpi_coredump->mpi_global_header.idString),
+    __ret = memcpy((void *)(& mpi_coredump->mpi_global_header.idString),
                              (void const *)"MPI Coredump", __len);
   }
   ql_build_coredump_seg_header(& mpi_coredump->misc_nic_seg_hdr, 30U, 48U, (u8 *)"MISC NIC INFO");
@@ -16485,7 +16485,7 @@ int ql_dump_risc_ram_area(struct ql_adapter *qdev , void *buf , u32 ram_addr , i
   status = ql_mb_dump_ram(qdev, buf_dma, ram_addr, (u32 )word_count);
   if (status == 0) {
     __len = (unsigned long )word_count * 4UL;
-    __ret = __builtin_memcpy(buf, (void const *)my_buf, __len);
+    __ret = memcpy(buf, (void const *)my_buf, __len);
   } else {
   }
   pci_free_consistent(qdev->pdev, (unsigned long )word_count * 4UL, (void *)my_buf,
@@ -17546,7 +17546,7 @@ static void ql_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
   if (__len > 63UL) {
     __ret = memcpy((void *)buf, (void const *)(& ql_gstrings_test), __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf, (void const *)(& ql_gstrings_test), __len);
+    __ret = memcpy((void *)buf, (void const *)(& ql_gstrings_test), __len);
   }
   goto ldv_47681;
   case 1:
@@ -17558,7 +17558,7 @@ static void ql_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
     __ret___0 = memcpy((void *)buf + (unsigned long )(index * 32), (void const *)(& ql_gstrings_stats[index].stat_string),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)buf + (unsigned long )(index * 32), (void const *)(& ql_gstrings_stats[index].stat_string),
+    __ret___0 = memcpy((void *)buf + (unsigned long )(index * 32), (void const *)(& ql_gstrings_stats[index].stat_string),
                                  __len___0);
   }
   index = index + 1;

@@ -5251,10 +5251,10 @@ static int vfio_default_config_read(struct vfio_pci_device *vdev , int pos , int
   {
   virt = 0U;
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
+  __ret = memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
                            __len);
   __len___0 = (size_t )count;
-  __ret___0 = __builtin_memcpy((void *)(& virt), (void const   *)perm->virt + (unsigned long )offset,
+  __ret___0 = memcpy((void *)(& virt), (void const   *)perm->virt + (unsigned long )offset,
                                __len___0);
   if (4294967295U >> (4 - count) * 8 != virt) {
     pdev = vdev->pdev;
@@ -5293,7 +5293,7 @@ static int vfio_default_config_write(struct vfio_pci_device *vdev , int pos , in
   virt = 0U;
   write = 0U;
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)(& write), (void const   *)perm->write + (unsigned long )offset,
+  __ret = memcpy((void *)(& write), (void const   *)perm->write + (unsigned long )offset,
                            __len);
   if (write == 0U) {
     return (count);
@@ -5301,17 +5301,17 @@ static int vfio_default_config_write(struct vfio_pci_device *vdev , int pos , in
 
   }
   __len___0 = (size_t )count;
-  __ret___0 = __builtin_memcpy((void *)(& virt), (void const   *)perm->virt + (unsigned long )offset,
+  __ret___0 = memcpy((void *)(& virt), (void const   *)perm->virt + (unsigned long )offset,
                                __len___0);
   if ((write & virt) != 0U) {
     virt_val = 0U;
     __len___1 = (size_t )count;
-    __ret___1 = __builtin_memcpy((void *)(& virt_val), (void const   *)vdev->vconfig + (unsigned long )pos,
+    __ret___1 = memcpy((void *)(& virt_val), (void const   *)vdev->vconfig + (unsigned long )pos,
                                  __len___1);
     virt_val = ~ (write & virt) & virt_val;
     virt_val = ((write & virt) & val) | virt_val;
     __len___2 = (size_t )count;
-    __ret___2 = __builtin_memcpy((void *)vdev->vconfig + (unsigned long )pos, (void const   *)(& virt_val),
+    __ret___2 = memcpy((void *)vdev->vconfig + (unsigned long )pos, (void const   *)(& virt_val),
                                  __len___2);
   } else {
 
@@ -5364,7 +5364,7 @@ static int vfio_direct_config_read(struct vfio_pci_device *vdev , int pos , int 
   if (pos > 255) {
     if (offset <= 3) {
       __len = (size_t )count;
-      __ret = __builtin_memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
+      __ret = memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
                                __len);
     } else
     if (pos > 63) {
@@ -5377,7 +5377,7 @@ static int vfio_direct_config_read(struct vfio_pci_device *vdev , int pos , int 
           tmp___0 = _min2;
         }
         __len___0 = (size_t )tmp___0;
-        __ret___0 = __builtin_memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
+        __ret___0 = memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
                                      __len___0);
       } else
       if (offset == 1) {
@@ -5386,7 +5386,7 @@ static int vfio_direct_config_read(struct vfio_pci_device *vdev , int pos , int 
           __ret___1 = memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
                                __len___1);
         } else {
-          __ret___1 = __builtin_memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
+          __ret___1 = memcpy((void *)val, (void const   *)vdev->vconfig + (unsigned long )pos,
                                        __len___1);
         }
       } else {

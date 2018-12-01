@@ -7597,7 +7597,7 @@ static netdev_tx_t hso_net_start_xmit(struct sk_buff *skb , struct net_device *n
 
   }
   __len = (size_t )skb->len;
-  __ret = __builtin_memcpy(odev->mux_bulk_tx_buf, (void const   *)skb->data, __len);
+  __ret = memcpy(odev->mux_bulk_tx_buf, (void const   *)skb->data, __len);
   if (debug & 1) {
     printk("\016[%d:%s]: len: %d/%d\n", 844, "hso_net_start_xmit", skb->len, 2048);
   } else {
@@ -7677,7 +7677,7 @@ static void packetizeRx(struct hso_net *odev , unsigned char *ip_pkt , unsigned 
   case 0U: 
   temp_bytes = (unsigned short )(count < (unsigned int )odev->rx_buf_missing ? count : (unsigned int )odev->rx_buf_missing);
   __len = (size_t )temp_bytes;
-  __ret = __builtin_memcpy((void *)(& odev->rx_ip_hdr) + (unsigned long )odev->rx_buf_size,
+  __ret = memcpy((void *)(& odev->rx_ip_hdr) + (unsigned long )odev->rx_buf_size,
                            (void const   *)ip_pkt + (unsigned long )buffer_offset,
                            __len);
   odev->rx_buf_size = (int )odev->rx_buf_size + (int )temp_bytes;
@@ -7713,7 +7713,7 @@ static void packetizeRx(struct hso_net *odev , unsigned char *ip_pkt , unsigned 
       __ret___0 = memcpy((void *)tmp_rx_buf, (void const   *)(& odev->rx_ip_hdr),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)tmp_rx_buf, (void const   *)(& odev->rx_ip_hdr),
+      __ret___0 = memcpy((void *)tmp_rx_buf, (void const   *)(& odev->rx_ip_hdr),
                                    __len___0);
     }
     odev->rx_buf_size = 20U;
@@ -7727,7 +7727,7 @@ static void packetizeRx(struct hso_net *odev , unsigned char *ip_pkt , unsigned 
   temp_bytes = (unsigned short )(count < (unsigned int )odev->rx_buf_missing ? count : (unsigned int )odev->rx_buf_missing);
   tmp_rx_buf = skb_put(odev->skb_rx_buf, (unsigned int )temp_bytes);
   __len___1 = (size_t )temp_bytes;
-  __ret___1 = __builtin_memcpy((void *)tmp_rx_buf, (void const   *)ip_pkt + (unsigned long )buffer_offset,
+  __ret___1 = memcpy((void *)tmp_rx_buf, (void const   *)ip_pkt + (unsigned long )buffer_offset,
                                __len___1);
   odev->rx_buf_missing = (int )odev->rx_buf_missing - (int )temp_bytes;
   count = count - (unsigned int )temp_bytes;
@@ -8261,7 +8261,7 @@ static int hso_serial_write(struct tty_struct *tty , unsigned char const   *buf 
 
   }
   __len = (size_t )tx_bytes;
-  __ret = __builtin_memcpy((void *)serial->tx_buffer + (unsigned long )serial->tx_buffer_count,
+  __ret = memcpy((void *)serial->tx_buffer + (unsigned long )serial->tx_buffer_count,
                            (void const   *)buf, __len);
   serial->tx_buffer_count = (int )serial->tx_buffer_count + (int )((u16 )tx_bytes);
   out: 
@@ -8491,7 +8491,7 @@ static int hso_wait_modem_status(struct hso_serial *serial , unsigned long arg )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cprev), (void const   *)(& tiocmget->icount), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cprev), (void const   *)(& tiocmget->icount),
+    __ret = memcpy((void *)(& cprev), (void const   *)(& tiocmget->icount),
                              __len);
   }
   spin_unlock_irq(& serial->serial_lock);
@@ -8502,7 +8502,7 @@ static int hso_wait_modem_status(struct hso_serial *serial , unsigned long arg )
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount),
+    __ret___0 = memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount),
                                  __len___0);
   }
   spin_unlock_irq(& serial->serial_lock);
@@ -8578,7 +8578,7 @@ static int hso_get_count(struct tty_struct *tty , struct serial_icounter_struct 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount),
+    __ret = memcpy((void *)(& cnow), (void const   *)(& tiocmget->icount),
                              __len);
   }
   spin_unlock_irq(& serial->serial_lock);

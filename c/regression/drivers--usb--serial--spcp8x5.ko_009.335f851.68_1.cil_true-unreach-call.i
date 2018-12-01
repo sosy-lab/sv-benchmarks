@@ -3212,7 +3212,7 @@ struct spcp8x5_private {
    u8 termios_initialized ;
 };
 enum hrtimer_restart;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data *f , int val , int expect ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
@@ -4492,13 +4492,13 @@ static unsigned int put_ringbuf(struct ringbuf *pb , char const   *buf , unsigne
   ______f___862.__annonCompField3.miss_hit[______r___6] = ______f___862.__annonCompField3.miss_hit[______r___6] + 1UL;
   if (______r___6) {
     __len = len;
-    __ret = __builtin_memcpy(pb->buf_put, buf, __len);
+    __ret = memcpy(pb->buf_put, buf, __len);
     __len___0 = count - len;
-    __ret___0 = __builtin_memcpy(pb->buf_buf, buf + len, __len___0);
+    __ret___0 = memcpy(pb->buf_buf, buf + len, __len___0);
     pb->buf_put = (pb->buf_buf + count) - len;
   } else {
     __len___1 = count;
-    __ret___1 = __builtin_memcpy(pb->buf_put, buf, __len___1);
+    __ret___1 = memcpy(pb->buf_put, buf, __len___1);
     ______r___5 = ! (! (count < len));
     ______f___861.__annonCompField3.miss_hit[______r___5] = ______f___861.__annonCompField3.miss_hit[______r___5] + 1UL;
     if (______r___5) {
@@ -4569,13 +4569,13 @@ static unsigned int get_ringbuf(struct ringbuf *pb , char *buf , unsigned int co
   ______f___870.__annonCompField3.miss_hit[______r___6] = ______f___870.__annonCompField3.miss_hit[______r___6] + 1UL;
   if (______r___6) {
     __len = len;
-    __ret = __builtin_memcpy(buf, pb->buf_get, __len);
+    __ret = memcpy(buf, pb->buf_get, __len);
     __len___0 = count - len;
-    __ret___0 = __builtin_memcpy(buf + len, pb->buf_buf, __len___0);
+    __ret___0 = memcpy(buf + len, pb->buf_buf, __len___0);
     pb->buf_get = (pb->buf_buf + count) - len;
   } else {
     __len___1 = count;
-    __ret___1 = __builtin_memcpy(buf, pb->buf_get, __len___1);
+    __ret___1 = memcpy(buf, pb->buf_get, __len___1);
     ______r___5 = ! (! (count < len));
     ______f___869.__annonCompField3.miss_hit[______r___5] = ______f___869.__annonCompField3.miss_hit[______r___5] + 1UL;
     if (______r___5) {

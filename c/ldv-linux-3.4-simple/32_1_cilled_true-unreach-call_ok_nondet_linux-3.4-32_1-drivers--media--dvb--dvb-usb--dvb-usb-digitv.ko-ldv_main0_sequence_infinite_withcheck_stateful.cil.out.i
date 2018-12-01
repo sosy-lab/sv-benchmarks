@@ -6243,7 +6243,7 @@ static int digitv_ctrl_msg(struct dvb_usb_device *d , u8 cmd , u8 vv , u8 *wbuf 
     __cil_tmp39 = (u8 *)__cil_tmp38;
     __cil_tmp40 = (void *)__cil_tmp39;
     __cil_tmp41 = (void const *)wbuf;
-    __ret = __builtin_memcpy(__cil_tmp40, __cil_tmp41, __len);
+    __ret = memcpy(__cil_tmp40, __cil_tmp41, __len);
     __cil_tmp42 = 0 * 1UL;
     __cil_tmp43 = (unsigned long )(sndbuf) + __cil_tmp42;
     __cil_tmp44 = (u8 *)__cil_tmp43;
@@ -6267,7 +6267,7 @@ static int digitv_ctrl_msg(struct dvb_usb_device *d , u8 cmd , u8 vv , u8 *wbuf 
     __cil_tmp56 = (unsigned long )(rcvbuf) + __cil_tmp55;
     __cil_tmp57 = (u8 *)__cil_tmp56;
     __cil_tmp58 = (void const *)__cil_tmp57;
-    __ret___0 = __builtin_memcpy(__cil_tmp54, __cil_tmp58, __len___0);
+    __ret___0 = memcpy(__cil_tmp54, __cil_tmp58, __len___0);
     }
   }
   return (0);

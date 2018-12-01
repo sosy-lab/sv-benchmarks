@@ -7721,7 +7721,7 @@ static int ezusb_fill_req(struct ezusb_packet *req , u16 length , u16 rid , void
   req->hermes_rid = rid;
   if ((unsigned long )data != (unsigned long )((void const   *)0)) {
     __len = (size_t )length;
-    __ret = __builtin_memcpy((void *)(& req->data), data, __len);
+    __ret = memcpy((void *)(& req->data), data, __len);
   } else {
 
   }
@@ -7841,7 +7841,7 @@ static int ezusb_firmware_download(struct ezusb_priv *upriv , struct ez_usb_fw *
     __ret = memcpy((void *)fw_buffer, (void const   *)fw->code + (unsigned long )addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)fw_buffer, (void const   *)fw->code + (unsigned long )addr,
+    __ret = memcpy((void *)fw_buffer, (void const   *)fw->code + (unsigned long )addr,
                              __len);
   }
   if (variant_offset >= addr && addr + 64 > variant_offset) {
@@ -7998,7 +7998,7 @@ static int ezusb_access_ltv(struct ezusb_priv *upriv , struct request_context *c
       _min1 = exp_len;
       _min2 = ans_size;
       __len = (size_t )(_min1 < _min2 ? _min1 : _min2);
-      __ret = __builtin_memcpy(ans_buff, (void const   *)(& ans->data), __len);
+      __ret = memcpy(ans_buff, (void const   *)(& ans->data), __len);
     } else {
 
     }
@@ -8177,7 +8177,7 @@ static int ezusb_bap_pread(struct hermes *hw , int bap , void *buf , int len , u
 
     }
     __len = (size_t )len;
-    __ret = __builtin_memcpy(buf, (void const   *)(& ans->data) + (unsigned long )offset,
+    __ret = memcpy(buf, (void const   *)(& ans->data) + (unsigned long )offset,
                              __len);
     return (0);
   } else {
@@ -8191,7 +8191,7 @@ static int ezusb_bap_pread(struct hermes *hw , int bap , void *buf , int len , u
 
     }
     __len___0 = (size_t )len;
-    __ret___0 = __builtin_memcpy(buf, (void const   *)(& ans->data) + ((unsigned long )offset + 0xfffffffffffffffcUL),
+    __ret___0 = memcpy(buf, (void const   *)(& ans->data) + ((unsigned long )offset + 0xfffffffffffffffcUL),
                                  __len___0);
   } else {
     printk("\vorinoco_usb: Unexpected fid 0x%04x\n", (int )id);
@@ -8438,7 +8438,7 @@ static netdev_tx_t ezusb_xmit(struct sk_buff *skb , struct net_device *dev )
   *tx_cntl = (unsigned short )tx_control;
   buf = buf + 2UL;
   __len = (size_t )skb->len;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)skb->data, __len);
+  __ret = memcpy((void *)buf, (void const   *)skb->data, __len);
   buf = buf + (unsigned long )skb->len;
   if ((tx_control & 16) != 0) {
     m = (u8 *)(& mic);
@@ -8451,7 +8451,7 @@ static netdev_tx_t ezusb_xmit(struct sk_buff *skb , struct net_device *dev )
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)buf, (void const   *)m, __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)buf, (void const   *)m, __len___0);
+      __ret___0 = memcpy((void *)buf, (void const   *)m, __len___0);
     }
     buf = buf + 8UL;
   } else {

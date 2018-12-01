@@ -17275,7 +17275,7 @@ bool intel_init_bios(struct drm_device *dev )
   return (0);
 }
 }
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int i2c_transfer(struct i2c_adapter * , struct i2c_msg * , int  ) ;
 struct drm_connector *intel_sdvo_find(struct drm_device *dev , int sdvoB ) ;
@@ -18364,7 +18364,7 @@ void intel_sdvo_init(struct drm_device *dev , int output_device )
       __ret = memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
+      __ret = memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
                                __len);
     }
     if (drm_debug != 0U) {

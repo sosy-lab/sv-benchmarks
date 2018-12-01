@@ -7724,7 +7724,7 @@ struct dvb_frontend *tda9887_attach(struct dvb_frontend *fe , struct i2c_adapter
     __cil_tmp142 = (struct analog_demod_ops *)__cil_tmp141;
     __cil_tmp143 = (void *)__cil_tmp142;
     __cil_tmp144 = (void const   *)(& tda9887_ops);
-    __ret___0 = __builtin_memcpy(__cil_tmp143, __cil_tmp144, __len);
+    __ret___0 = memcpy(__cil_tmp143, __cil_tmp144, __len);
     }
   }
   return (fe);

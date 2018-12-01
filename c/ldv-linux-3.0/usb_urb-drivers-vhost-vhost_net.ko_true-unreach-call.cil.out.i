@@ -7547,7 +7547,7 @@ static long vhost_set_memory(struct vhost_dev *d , struct vhost_memory *m )
   }
   {
   __len = size;
-  __ret = __builtin_memcpy((void *)newmem, (void const *)(& mem), __len);
+  __ret = memcpy((void *)newmem, (void const *)(& mem), __len);
   tmp___14 = (unsigned long )copy_from_user((void *)(newmem->regions), (void const *)(m->regions),
                                             (unsigned long )mem.nregions * sizeof(m->regions[0]));
   tmp___9 = tmp___14;

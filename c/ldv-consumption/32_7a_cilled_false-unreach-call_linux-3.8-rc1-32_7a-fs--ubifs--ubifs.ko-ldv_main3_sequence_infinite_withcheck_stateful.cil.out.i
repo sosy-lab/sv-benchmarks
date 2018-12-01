@@ -5307,7 +5307,7 @@ static void pack_inode(struct ubifs_info *c , struct ubifs_ino_node *ino , struc
   zero_ino_node_unused(ino);
   if (last_reference == 0) {
     __len = (size_t )ui->data_len;
-    __ret = __builtin_memcpy((void *)(& ino->data), (void const *)ui->data, __len);
+    __ret = memcpy((void *)(& ino->data), (void const *)ui->data, __len);
     data_len = ui->data_len;
   } else {
   }
@@ -5434,7 +5434,7 @@ int ubifs_jnl_update(struct ubifs_info *c , struct inode const *dir , struct qst
   dent->type = (__u8 )tmp___9;
   dent->nlen = (unsigned short )nm->ldv_7607.ldv_7605.len;
   __len = (size_t )nm->ldv_7607.ldv_7605.len;
-  __ret = __builtin_memcpy((void *)(& dent->name), (void const *)nm->name, __len);
+  __ret = memcpy((void *)(& dent->name), (void const *)nm->name, __len);
   dent->name[nm->ldv_7607.ldv_7605.len] = 0U;
   zero_dent_node_unused(dent);
   ubifs_prep_grp_node(c, (void *)dent, dlen, 0);
@@ -5938,7 +5938,7 @@ int ubifs_jnl_rename(struct ubifs_info *c , struct inode const *old_dir , struct
   dent->type = (__u8 )tmp___19;
   dent->nlen = (unsigned short )new_dentry->d_name.ldv_7607.ldv_7605.len;
   __len = (size_t )new_dentry->d_name.ldv_7607.ldv_7605.len;
-  __ret = __builtin_memcpy((void *)(& dent->name), (void const *)new_dentry->d_name.name,
+  __ret = memcpy((void *)(& dent->name), (void const *)new_dentry->d_name.name,
                            __len);
   dent->name[new_dentry->d_name.ldv_7607.ldv_7605.len] = 0U;
   zero_dent_node_unused(dent);
@@ -5951,7 +5951,7 @@ int ubifs_jnl_rename(struct ubifs_info *c , struct inode const *old_dir , struct
   dent2->type = 0U;
   dent2->nlen = (unsigned short )old_dentry->d_name.ldv_7607.ldv_7605.len;
   __len___0 = (size_t )old_dentry->d_name.ldv_7607.ldv_7605.len;
-  __ret___0 = __builtin_memcpy((void *)(& dent2->name), (void const *)old_dentry->d_name.name,
+  __ret___0 = memcpy((void *)(& dent2->name), (void const *)old_dentry->d_name.name,
                                __len___0);
   dent2->name[old_dentry->d_name.ldv_7607.ldv_7605.len] = 0U;
   zero_dent_node_unused(dent2);
@@ -6416,7 +6416,7 @@ int ubifs_jnl_delete_xattr(struct ubifs_info *c , struct inode const *host , str
   xent->type = (__u8 )tmp___9;
   xent->nlen = (unsigned short )nm->ldv_7607.ldv_7605.len;
   __len = (size_t )nm->ldv_7607.ldv_7605.len;
-  __ret = __builtin_memcpy((void *)(& xent->name), (void const *)nm->name, __len);
+  __ret = memcpy((void *)(& xent->name), (void const *)nm->name, __len);
   xent->name[nm->ldv_7607.ldv_7605.len] = 0U;
   zero_dent_node_unused(xent);
   ubifs_prep_grp_node(c, (void *)xent, xlen, 0);
@@ -10940,7 +10940,7 @@ static int ubifs_symlink(struct inode *dir , struct dentry *dentry , char const 
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy(ui->data, (void const *)symname, __len);
+  __ret = memcpy(ui->data, (void const *)symname, __len);
   *((char *)ui->data + (unsigned long )len) = 0;
   ui->data_len = len;
   tmp___5 = ubifs_inode((struct inode const *)inode);
@@ -12155,7 +12155,7 @@ struct inode *ubifs_iget(struct super_block *sb , unsigned long inum )
     } else {
     }
     __len = (size_t )ui->data_len;
-    __ret = __builtin_memcpy(ui->data, (void const *)(& ino->data), __len);
+    __ret = memcpy(ui->data, (void const *)(& ino->data), __len);
     *((char *)ui->data + (unsigned long )ui->data_len) = 0;
   } else
   if (ui->data_len != 0) {
@@ -12187,7 +12187,7 @@ struct inode *ubifs_iget(struct super_block *sb , unsigned long inum )
   } else {
   }
   __len___0 = (size_t )ui->data_len;
-  __ret___0 = __builtin_memcpy(ui->data, (void const *)(& ino->data), __len___0);
+  __ret___0 = memcpy(ui->data, (void const *)(& ino->data), __len___0);
   *((char *)ui->data + (unsigned long )ui->data_len) = 0;
   goto ldv_28711;
   case 24576: ;
@@ -12209,7 +12209,7 @@ struct inode *ubifs_iget(struct super_block *sb , unsigned long inum )
     goto out_invalid;
   }
   __len___1 = (size_t )ui->data_len;
-  __ret___1 = __builtin_memcpy(ui->data, (void const *)(& ino->data), __len___1);
+  __ret___1 = memcpy(ui->data, (void const *)(& ino->data), __len___1);
   inode->i_op = & ubifs_file_inode_operations;
   init_special_inode(inode, (int )inode->i_mode, rdev);
   goto ldv_28711;
@@ -15327,7 +15327,7 @@ __inline static uint32_t key_test_hash(char const *str , int len )
   __min2 = 4U;
   len = (int )(__min1 < __min2 ? __min1 : __min2);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& a), (void const *)str, __len);
+  __ret = memcpy((void *)(& a), (void const *)str, __len);
   tmp = key_mask_hash(a);
   return (tmp);
 }
@@ -15980,7 +15980,7 @@ int ubifs_read_superblock(struct ubifs_info *c )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& c->uuid), (void const *)(& sup->uuid), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& c->uuid), (void const *)(& sup->uuid), __len);
+    __ret = memcpy((void *)(& c->uuid), (void const *)(& sup->uuid), __len);
   }
   c->big_lpt = (sup_flags & 2) != 0;
   c->space_fixup = (sup_flags & 4) != 0;
@@ -17669,7 +17669,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
   }
   if (wbuf->avail >= aligned_len) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy(wbuf->buf + (unsigned long )wbuf->used, (void const *)buf,
+    __ret = memcpy(wbuf->buf + (unsigned long )wbuf->used, (void const *)buf,
                              __len);
     if (wbuf->avail == aligned_len) {
       descriptor___0.modname = "ubifs";
@@ -17729,7 +17729,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     } else {
     }
     __len___0 = (size_t )wbuf->avail;
-    __ret___0 = __builtin_memcpy(wbuf->buf + (unsigned long )wbuf->used, (void const *)buf,
+    __ret___0 = memcpy(wbuf->buf + (unsigned long )wbuf->used, (void const *)buf,
                                  __len___0);
     err = ubifs_leb_write(c, wbuf->lnum, (void const *)wbuf->buf, wbuf->offs, wbuf->size);
     if (err != 0) {
@@ -17797,7 +17797,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
   spin_lock(& wbuf->lock);
   if (aligned_len != 0) {
     __len___1 = (size_t )len;
-    __ret___1 = __builtin_memcpy(wbuf->buf, (void const *)buf + (unsigned long )written,
+    __ret___1 = memcpy(wbuf->buf, (void const *)buf + (unsigned long )written,
                                  __len___1);
   } else {
   }
@@ -18089,7 +18089,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
   } else {
   }
   __len = (size_t )(len - rlen);
-  __ret = __builtin_memcpy(buf + (unsigned long )rlen, (void const *)(wbuf->buf + (((unsigned long )offs + (unsigned long )rlen) - (unsigned long )wbuf->offs)),
+  __ret = memcpy(buf + (unsigned long )rlen, (void const *)(wbuf->buf + (((unsigned long )offs + (unsigned long )rlen) - (unsigned long )wbuf->offs)),
                            __len);
   spin_unlock(& wbuf->lock);
   if (rlen > 0) {
@@ -18919,7 +18919,7 @@ static struct ubifs_znode *copy_znode(struct ubifs_info *c , struct ubifs_znode 
   } else {
   }
   __len = (size_t )c->max_znode_sz;
-  __ret = __builtin_memcpy((void *)zn, (void const *)znode, __len);
+  __ret = memcpy((void *)zn, (void const *)znode, __len);
   zn->cnext = 0;
   __set_bit(0, (unsigned long volatile *)(& zn->flags));
   __clear_bit(1, (unsigned long volatile *)(& zn->flags));
@@ -19160,7 +19160,7 @@ static int tnc_read_node_nm(struct ubifs_info *c , struct ubifs_zbranch *zbr , v
     } else {
     }
     __len = (size_t )zbr->len;
-    __ret = __builtin_memcpy(node, (void const *)zbr->ldv_26076.leaf, __len);
+    __ret = memcpy(node, (void const *)zbr->ldv_26076.leaf, __len);
     return (0);
   } else {
   }
@@ -20936,7 +20936,7 @@ static int read_wbuf(struct ubifs_wbuf *wbuf , void *buf , int len , int lnum , 
   } else {
   }
   __len = (size_t )(len - rlen);
-  __ret = __builtin_memcpy(buf + (unsigned long )rlen, (void const *)(wbuf->buf + (((unsigned long )offs + (unsigned long )rlen) - (unsigned long )wbuf->offs)),
+  __ret = memcpy(buf + (unsigned long )rlen, (void const *)(wbuf->buf + (((unsigned long )offs + (unsigned long )rlen) - (unsigned long )wbuf->offs)),
                            __len);
   spin_unlock(& wbuf->lock);
   if (rlen > 0) {
@@ -23683,7 +23683,7 @@ static int scan_for_master(struct ubifs_info *c )
     } else {
     }
     __len = (size_t )snod->len;
-    __ret = __builtin_memcpy((void *)c->mst_node, (void const *)snod->node, __len);
+    __ret = memcpy((void *)c->mst_node, (void const *)snod->node, __len);
     offs = snod->offs;
   } else {
   }
@@ -25230,7 +25230,7 @@ static int insert_dent(struct ubifs_info *c , int lnum , int offs , int len , un
   key_copy((struct ubifs_info const *)c, (union ubifs_key const *)key, & r->key);
   r->ldv_27507.nm.ldv_7607.ldv_7605.len = (u32 )nlen;
   __len = (size_t )nlen;
-  __ret = __builtin_memcpy((void *)nbuf, (void const *)name, __len);
+  __ret = memcpy((void *)nbuf, (void const *)name, __len);
   *(nbuf + (unsigned long )nlen) = 0;
   r->ldv_27507.nm.name = (unsigned char const *)nbuf;
   list_add_tail(& r->list, & c->replay_list);
@@ -26846,7 +26846,7 @@ static int add_node(struct ubifs_info *c , void *buf , int *lnum , int *offs , v
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy(buf + (unsigned long )*offs, (void const *)node, __len);
+  __ret = memcpy(buf + (unsigned long )*offs, (void const *)node, __len);
   *offs = *offs + ((len + 7) & -8);
   return (0);
 }
@@ -33121,7 +33121,7 @@ int ubifs_find_dirty_leb(struct ubifs_info *c , struct ubifs_lprops *ret_lp , in
   if (__len > 63UL) {
     __ret = memcpy((void *)ret_lp, (void const *)lp, __len);
   } else {
-    __ret = __builtin_memcpy((void *)ret_lp, (void const *)lp, __len);
+    __ret = memcpy((void *)ret_lp, (void const *)lp, __len);
   }
   out:
   ubifs_release_lprops___2(c);
@@ -33691,7 +33691,7 @@ int ubifs_save_dirty_idx_lnums(struct ubifs_info *c )
   ubifs_get_lprops___2(c);
   c->dirty_idx.cnt = c->lpt_heap[1].cnt;
   __len = (unsigned long )c->dirty_idx.cnt * 8UL;
-  __ret = __builtin_memcpy((void *)c->dirty_idx.arr, (void const *)c->lpt_heap[1].arr,
+  __ret = memcpy((void *)c->dirty_idx.arr, (void const *)c->lpt_heap[1].arr,
                            __len);
   sort((void *)c->dirty_idx.arr, (size_t )c->dirty_idx.cnt, 8UL, (int (*)(void const * ,
                                                                           void const * ))(& cmp_dirty_idx),
@@ -35233,7 +35233,7 @@ int ubifs_tnc_start_commit(struct ubifs_info *c , struct ubifs_zbranch *zroot )
   if (__len > 63UL) {
     __ret = memcpy((void *)zroot, (void const *)(& c->zroot), __len);
   } else {
-    __ret = __builtin_memcpy((void *)zroot, (void const *)(& c->zroot), __len);
+    __ret = memcpy((void *)zroot, (void const *)(& c->zroot), __len);
   }
   err = ubifs_save_dirty_idx_lnums(c);
   if (err != 0) {
@@ -35849,7 +35849,7 @@ void ubifs_compress(void const *in_buf , int in_len , void *out_buf , int *out_l
   return;
   no_compr:
   __len = (size_t )in_len;
-  __ret = __builtin_memcpy(out_buf, in_buf, __len);
+  __ret = memcpy(out_buf, in_buf, __len);
   *out_len = in_len;
   *compr_type = 0;
   return;
@@ -35897,7 +35897,7 @@ int ubifs_decompress(void const *in_buf , int in_len , void *out_buf , int *out_
   }
   if (compr_type == 0) {
     __len = (size_t )in_len;
-    __ret = __builtin_memcpy(out_buf, in_buf, __len);
+    __ret = memcpy(out_buf, in_buf, __len);
     *out_len = in_len;
     return (0);
   } else {
@@ -38232,7 +38232,7 @@ static struct ubifs_nnode *dirty_cow_nnode(struct ubifs_info *c , struct ubifs_n
   if (__len > 63UL) {
     __ret = memcpy((void *)n, (void const *)nnode, __len);
   } else {
-    __ret = __builtin_memcpy((void *)n, (void const *)nnode, __len);
+    __ret = memcpy((void *)n, (void const *)nnode, __len);
   }
   n->cnext = 0;
   __set_bit(0, (unsigned long volatile *)(& n->flags));
@@ -38309,7 +38309,7 @@ static struct ubifs_pnode *dirty_cow_pnode(struct ubifs_info *c , struct ubifs_p
   if (__len > 63UL) {
     __ret = memcpy((void *)p, (void const *)pnode, __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const *)pnode, __len);
+    __ret = memcpy((void *)p, (void const *)pnode, __len);
   }
   p->cnext = 0;
   __set_bit(0, (unsigned long volatile *)(& p->flags));
@@ -40553,7 +40553,7 @@ void ubifs_get_lp_stats(struct ubifs_info *c , struct ubifs_lp_stats *lst )
   if (__len > 63UL) {
     __ret = memcpy((void *)lst, (void const *)(& c->lst), __len);
   } else {
-    __ret = __builtin_memcpy((void *)lst, (void const *)(& c->lst), __len);
+    __ret = memcpy((void *)lst, (void const *)(& c->lst), __len);
   }
   spin_unlock(& c->space_lock);
   return;
@@ -40674,7 +40674,7 @@ int ubifs_read_one_lp(struct ubifs_info *c , int lnum , struct ubifs_lprops *lp 
   if (__len > 63UL) {
     __ret = memcpy((void *)lp, (void const *)lpp, __len);
   } else {
-    __ret = __builtin_memcpy((void *)lp, (void const *)lpp, __len);
+    __ret = memcpy((void *)lp, (void const *)lpp, __len);
   }
   out:
   ubifs_release_lprops___3(c);
@@ -41991,7 +41991,7 @@ int ubifs_recover_master_node(struct ubifs_info *c )
   if (__len > 63UL) {
     __ret = memcpy((void *)c->mst_node, (void const *)mst, __len);
   } else {
-    __ret = __builtin_memcpy((void *)c->mst_node, (void const *)mst, __len);
+    __ret = memcpy((void *)c->mst_node, (void const *)mst, __len);
   }
   if ((unsigned int )*((unsigned char *)c + 4080UL) != 0U) {
     tmp___4 = kmalloc((size_t )sz, 208U);
@@ -42006,7 +42006,7 @@ int ubifs_recover_master_node(struct ubifs_info *c )
       __ret___0 = memcpy((void *)c->rcvrd_mst_node, (void const *)c->mst_node,
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)c->rcvrd_mst_node, (void const *)c->mst_node,
+      __ret___0 = memcpy((void *)c->rcvrd_mst_node, (void const *)c->mst_node,
                                    __len___0);
     }
     (c->mst_node)->flags = (c->mst_node)->flags | 1U;
@@ -46062,7 +46062,7 @@ int ubifs_lpt_start_commit(struct ubifs_info *c )
   } else {
   }
   __len = (unsigned long )c->lpt_lebs * 12UL;
-  __ret = __builtin_memcpy((void *)c->ltab_cmt, (void const *)c->ltab, __len);
+  __ret = memcpy((void *)c->ltab_cmt, (void const *)c->ltab, __len);
   c->lpt_drty_flgs = c->lpt_drty_flgs & -4;
   out:
   ldv_mutex_unlock_672(& c->lp_mutex);
@@ -48540,7 +48540,7 @@ ssize_t ubifs_getxattr(struct dentry *dentry , char const *name , void *buf , si
     } else {
     }
     __len = (size_t )ui->data_len;
-    __ret = __builtin_memcpy(buf, (void const *)ui->data, __len);
+    __ret = memcpy(buf, (void const *)ui->data, __len);
   } else {
   }
   err = ui->data_len;
@@ -48631,14 +48631,14 @@ ssize_t ubifs_listxattr(struct dentry *dentry , char *buffer , size_t size )
   }
   if (type != 1) {
     __len = (size_t )(nm.ldv_7607.ldv_7605.len + 1U);
-    __ret = __builtin_memcpy((void *)buffer + (unsigned long )written, (void const *)nm.name,
+    __ret = memcpy((void *)buffer + (unsigned long )written, (void const *)nm.name,
                              __len);
     written = (int )((nm.ldv_7607.ldv_7605.len + (u32 )written) + 1U);
   } else {
     tmp___5 = capable(21);
     if ((int )tmp___5) {
       __len = (size_t )(nm.ldv_7607.ldv_7605.len + 1U);
-      __ret = __builtin_memcpy((void *)buffer + (unsigned long )written, (void const *)nm.name,
+      __ret = memcpy((void *)buffer + (unsigned long )written, (void const *)nm.name,
                                __len);
       written = (int )((nm.ldv_7607.ldv_7605.len + (u32 )written) + 1U);
     } else {
@@ -50266,14 +50266,14 @@ void dbg_save_space_info(struct ubifs_info *c )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& d->saved_lst), (void const *)(& c->lst), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& d->saved_lst), (void const *)(& c->lst),
+    __ret = memcpy((void *)(& d->saved_lst), (void const *)(& c->lst),
                              __len);
   }
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& d->saved_bi), (void const *)(& c->bi), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& d->saved_bi), (void const *)(& c->bi),
+    __ret___0 = memcpy((void *)(& d->saved_bi), (void const *)(& c->bi),
                                  __len___0);
   }
   d->saved_idx_gc_cnt = c->idx_gc_cnt;

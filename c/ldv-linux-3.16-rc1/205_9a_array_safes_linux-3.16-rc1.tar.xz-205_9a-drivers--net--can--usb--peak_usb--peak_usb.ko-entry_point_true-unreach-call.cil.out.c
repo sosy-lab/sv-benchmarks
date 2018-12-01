@@ -7785,7 +7785,7 @@ static int pcan_usb_send_cmd(struct peak_usb_device *dev , u8 f , u8 n , u8 *p )
     if (__len > 63UL) {
       __ret = memcpy((void *)dev->cmd_buf + 2U, (void const   *)p, __len);
     } else {
-      __ret = __builtin_memcpy((void *)dev->cmd_buf + 2U, (void const   *)p, __len);
+      __ret = memcpy((void *)dev->cmd_buf + 2U, (void const   *)p, __len);
     }
   } else {
 
@@ -7834,7 +7834,7 @@ static int pcan_usb_wait_rsp(struct peak_usb_device *dev , u8 f , u8 n , u8 *p )
     if (__len > 63UL) {
       __ret = memcpy((void *)p, (void const   *)dev->cmd_buf + 2U, __len);
     } else {
-      __ret = __builtin_memcpy((void *)p, (void const   *)dev->cmd_buf + 2U, __len);
+      __ret = memcpy((void *)p, (void const   *)dev->cmd_buf + 2U, __len);
     }
   } else {
 
@@ -8075,7 +8075,7 @@ static int pcan_usb_get_serial(struct peak_usb_device *dev , u32 *serial_number 
     if (__len > 63UL) {
       __ret = memcpy((void *)(& tmp32), (void const   *)(& args), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& tmp32), (void const   *)(& args), __len);
+      __ret = memcpy((void *)(& tmp32), (void const   *)(& args), __len);
     }
     *serial_number = tmp32;
   } else {
@@ -8119,7 +8119,7 @@ static int pcan_usb_update_ts(struct pcan_usb_msg_context *mc )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
+    __ret = memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
   }
   mc->ts16 = tmp16;
   if ((unsigned int )mc->rec_idx != 0U) {
@@ -8149,7 +8149,7 @@ static int pcan_usb_decode_ts(struct pcan_usb_msg_context *mc , u8 first_packet 
     if (__len > 63UL) {
       __ret = memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
+      __ret = memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len);
     }
     mc->ptr = mc->ptr + 2UL;
     mc->ts16 = tmp16;
@@ -8436,7 +8436,7 @@ static int pcan_usb_decode_data(struct pcan_usb_msg_context *mc , u8 status_len 
     if (__len > 63UL) {
       __ret = memcpy((void *)(& tmp32), (void const   *)mc->ptr, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& tmp32), (void const   *)mc->ptr, __len);
+      __ret = memcpy((void *)(& tmp32), (void const   *)mc->ptr, __len);
     }
     mc->ptr = mc->ptr + 4UL;
     cf->can_id = (tmp32 >> 3) | 2147483648U;
@@ -8450,7 +8450,7 @@ static int pcan_usb_decode_data(struct pcan_usb_msg_context *mc , u8 status_len 
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len___0);
+      __ret___0 = memcpy((void *)(& tmp16), (void const   *)mc->ptr, __len___0);
     }
     mc->ptr = mc->ptr + 2UL;
     cf->can_id = (canid_t )((int )tmp16 >> 5);
@@ -8474,7 +8474,7 @@ static int pcan_usb_decode_data(struct pcan_usb_msg_context *mc , u8 status_len 
 
     }
     __len___1 = (size_t )cf->can_dlc;
-    __ret___1 = __builtin_memcpy((void *)(& cf->data), (void const   *)mc->ptr, __len___1);
+    __ret___1 = memcpy((void *)(& cf->data), (void const   *)mc->ptr, __len___1);
     mc->ptr = mc->ptr + (unsigned long )rec_len;
   }
   peak_usb_get_ts_tv(& (mc->pdev)->time_ref, (u32 )mc->ts16, & tv);
@@ -8588,7 +8588,7 @@ static int pcan_usb_encode_msg(struct peak_usb_device *dev , struct sk_buff *skb
       __ret = memcpy((void *)pc, (void const   *)(& tmp32), __len);
     } else {
       pc = pc + 1;
-      __ret = __builtin_memcpy((void *)pc, (void const   *)(& tmp32), __len);
+      __ret = memcpy((void *)pc, (void const   *)(& tmp32), __len);
     }
     pc = pc + 4UL;
   } else {
@@ -8599,13 +8599,13 @@ static int pcan_usb_encode_msg(struct peak_usb_device *dev , struct sk_buff *skb
       __ret___0 = memcpy((void *)pc, (void const   *)(& tmp16), __len___0);
     } else {
       pc = pc + 1;
-      __ret___0 = __builtin_memcpy((void *)pc, (void const   *)(& tmp16), __len___0);
+      __ret___0 = memcpy((void *)pc, (void const   *)(& tmp16), __len___0);
     }
     pc = pc + 2UL;
   }
   if ((cf->can_id & 1073741824U) == 0U) {
     __len___1 = (size_t )cf->can_dlc;
-    __ret___1 = __builtin_memcpy((void *)pc, (void const   *)(& cf->data), __len___1);
+    __ret___1 = memcpy((void *)pc, (void const   *)(& cf->data), __len___1);
     pc = pc + (unsigned long )cf->can_dlc;
   } else {
 
@@ -9125,7 +9125,7 @@ static int pcan_msg_add_rec(struct pcan_usb_pro_msg *pm , u8 id  , ...)
   pc = pc + 4UL;
   __len = (size_t )i;
   ldv__builtin_va_arg(ap, sizeof(int *), (void *)(& tmp___12));
-  __ret = __builtin_memcpy((void *)pc, (void const   *)tmp___12, __len);
+  __ret = memcpy((void *)pc, (void const   *)tmp___12, __len);
   pc = pc + (unsigned long )i;
   goto ldv_43195;
   case 2: ;
@@ -9574,7 +9574,7 @@ static int pcan_usb_pro_handle_canmsg(struct pcan_usb_pro_interface *usb_if , st
     can_frame->can_id = can_frame->can_id | 1073741824U;
   } else {
     __len = (size_t )can_frame->can_dlc;
-    __ret = __builtin_memcpy((void *)(& can_frame->data), (void const   *)(& rx->data),
+    __ret = memcpy((void *)(& can_frame->data), (void const   *)(& rx->data),
                              __len);
   }
   peak_usb_get_ts_tv(& usb_if->time_ref, rx->ts32, & tv);

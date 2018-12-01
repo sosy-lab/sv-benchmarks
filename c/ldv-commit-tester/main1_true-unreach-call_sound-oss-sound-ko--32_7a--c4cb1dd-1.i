@@ -2976,7 +2976,7 @@ int sound_install_audiodrv(int vers , char *name , struct audio_driver *driver ,
   } else {
   }
   __len = (size_t )driver_size;
-  __ret = __builtin_memcpy((void *)d, (void const *)driver, __len);
+  __ret = memcpy((void *)d, (void const *)driver, __len);
   op->d = d;
   strlcpy((char *)(& op->name), (char const *)name, 128UL);
   op->flags = flags;
@@ -3025,7 +3025,7 @@ int sound_install_mixer(int vers , char *name , struct mixer_operations *driver 
   }
   memset((void *)op, 0, 112UL);
   __len = (size_t )driver_size;
-  __ret = __builtin_memcpy((void *)op, (void const *)driver, __len);
+  __ret = memcpy((void *)op, (void const *)driver, __len);
   strlcpy((char *)(& op->name), (char const *)name, 64UL);
   op->devc = devc;
   mixer_devs[n] = op;
@@ -10108,7 +10108,7 @@ void seq_copy_to_input(unsigned char *event_rec , int len )
   tmp = spinlock_check(& lock___0);
   flags = _raw_spin_lock_irqsave(tmp);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)iqueue + (unsigned long )((int )iqtail * 8), (void const *)event_rec,
+  __ret = memcpy((void *)iqueue + (unsigned long )((int )iqtail * 8), (void const *)event_rec,
                            __len);
   iqlen = iqlen + (int volatile )1;
   iqtail = ((int )iqtail + 1) % 1024;
@@ -10334,7 +10334,7 @@ static int seq_queue(unsigned char *note , char nonblock )
     __ret = memcpy((void *)queue + (unsigned long )((int )qtail * 8), (void const *)note,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)queue + (unsigned long )((int )qtail * 8), (void const *)note,
+    __ret = memcpy((void *)queue + (unsigned long )((int )qtail * 8), (void const *)note,
                              __len);
   }
   qtail = ((int )qtail + 1) % 1024;
@@ -11880,7 +11880,7 @@ int sequencer_ioctl(int dev , struct file *file , unsigned int cmd , void *arg )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& inf), (void const *)(synth_devs[dev])->info, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& inf), (void const *)(synth_devs[dev])->info,
+    __ret = memcpy((void *)(& inf), (void const *)(synth_devs[dev])->info,
                              __len);
   }
   strlcpy((char *)(& inf.name), (char const *)(synth_devs[dev])->id, 30UL);

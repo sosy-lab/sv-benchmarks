@@ -6516,7 +6516,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const   *)src, __len);
+  __ret = memcpy(dst, (void const   *)src, __len);
   return;
 }
 }
@@ -6527,7 +6527,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }
@@ -7308,7 +7308,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -13272,7 +13272,7 @@ static void sky2_get_strings(struct net_device *dev , u32 stringset , u8 *data )
     __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& sky2_stats[i].name),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& sky2_stats[i].name),
+    __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& sky2_stats[i].name),
                              __len);
   }
   i = i + 1;
@@ -13322,7 +13322,7 @@ static int sky2_set_mac_address(struct net_device *dev , void *p )
   if (__len > 63UL) {
     __ret = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data), __len);
   } else {
-    __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
                              __len);
   }
   memcpy_toio((void volatile   *)(hw->regs + ((unsigned long )(port * 8U) + 256UL)),
@@ -13941,7 +13941,7 @@ static int sky2_vpd_read(struct sky2_hw *hw , int cap , void *data , u16 offset 
   _min1 = 4UL;
   _min2 = length;
   __len = _min1 < _min2 ? _min1 : _min2;
-  __ret = __builtin_memcpy(data, (void const   *)(& val), __len);
+  __ret = memcpy(data, (void const   *)(& val), __len);
   offset = (unsigned int )offset + 4U;
   data = data + 4UL;
   length = length - 4UL;
@@ -14540,7 +14540,7 @@ static struct net_device *sky2_init_netdev(struct sky2_hw *hw , unsigned int por
     if (__len > 63UL) {
       __ret = memcpy((void *)dev->dev_addr, iap, __len);
     } else {
-      __ret = __builtin_memcpy((void *)dev->dev_addr, iap, __len);
+      __ret = memcpy((void *)dev->dev_addr, iap, __len);
     }
   } else {
     memcpy_fromio((void *)dev->dev_addr, (void const volatile   *)(hw->regs + ((unsigned long )(port * 8U) + 256UL)),

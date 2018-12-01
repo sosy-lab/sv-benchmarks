@@ -9232,7 +9232,7 @@ static int ip_vs_conn_seq_show(struct seq_file *seq , void *v )
       pe_data[0] = 32;
       len = strlen((char const *)(cp->pe)->name);
       __len = len;
-      __ret = __builtin_memcpy((void *)(& pe_data) + 1U, (void const *)(cp->pe)->name,
+      __ret = memcpy((void *)(& pe_data) + 1U, (void const *)(cp->pe)->name,
                                __len);
       pe_data[len + 1UL] = 32;
       len = len + 2UL;
@@ -10149,7 +10149,7 @@ __inline static void ipv6_addr_prefix(struct in6_addr *pfx , struct in6_addr con
   b = plen & 7;
   memset((void *)(& pfx->in6_u.u6_addr8), 0, 16UL);
   __len = (size_t )o;
-  __ret = __builtin_memcpy((void *)(& pfx->in6_u.u6_addr8), (void const *)addr,
+  __ret = memcpy((void *)(& pfx->in6_u.u6_addr8), (void const *)addr,
                            __len);
   if (b != 0) {
     pfx->in6_u.u6_addr8[o] = (__u8 )((int )((signed char )addr->in6_u.u6_addr8[o]) & (int )((signed char )(65280 >> b)));
@@ -15758,7 +15758,7 @@ static int proc_do_sync_threshold(ctl_table *table , int write , void *buffer , 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& val), (void const *)valp, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& val), (void const *)valp, __len);
+    __ret = memcpy((void *)(& val), (void const *)valp, __len);
   }
   rc = proc_dointvec(table, write, buffer, lenp, ppos);
   if (write != 0 && ((*valp < 0 || *(valp + 1UL) < 0) || (*valp >= *(valp + 1UL) && *(valp + 1UL) != 0))) {
@@ -15766,7 +15766,7 @@ static int proc_do_sync_threshold(ctl_table *table , int write , void *buffer , 
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)valp, (void const *)(& val), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)valp, (void const *)(& val), __len___0);
+      __ret___0 = memcpy((void *)valp, (void const *)(& val), __len___0);
     }
   } else {
   }
@@ -23554,7 +23554,7 @@ static void ip_vs_sync_conn_v0(struct net *net , struct ip_vs_conn *cp , int pkt
     if (__len > 63UL) {
       __ret = memcpy((void *)opt, (void const *)(& cp->in_seq), __len);
     } else {
-      __ret = __builtin_memcpy((void *)opt, (void const *)(& cp->in_seq), __len);
+      __ret = memcpy((void *)opt, (void const *)(& cp->in_seq), __len);
     }
   } else {
   }
@@ -23761,7 +23761,7 @@ void ip_vs_sync_conn(struct net *net , struct ip_vs_conn *cp , int pkts )
     p = p + 1;
     *tmp___13 = cp->pe_data_len;
     __len = (size_t )cp->pe_data_len;
-    __ret = __builtin_memcpy((void *)p, (void const *)cp->pe_data, __len);
+    __ret = memcpy((void *)p, (void const *)cp->pe_data, __len);
     p = p + (unsigned long )cp->pe_data_len;
     if (pe_name_len != 0U) {
       tmp___14 = p;
@@ -23771,7 +23771,7 @@ void ip_vs_sync_conn(struct net *net , struct ip_vs_conn *cp , int pkts )
       p = p + 1;
       *tmp___15 = (__u8 )pe_name_len;
       __len___0 = (size_t )pe_name_len;
-      __ret___0 = __builtin_memcpy((void *)p, (void const *)(cp->pe)->name, __len___0);
+      __ret___0 = memcpy((void *)p, (void const *)(cp->pe)->name, __len___0);
       p = p + (unsigned long )pe_name_len;
     } else {
     }
@@ -23817,7 +23817,7 @@ __inline static int ip_vs_conn_fill_param_sync(struct net *net , int af , union 
   if (pe_data_len != 0U) {
     if (pe_name_len != 0U) {
       __len = (size_t )pe_name_len;
-      __ret = __builtin_memcpy((void *)(& buff), (void const *)pe_name, __len);
+      __ret = memcpy((void *)(& buff), (void const *)pe_name, __len);
       buff[pe_name_len] = 0;
       tmp = __ip_vs_pe_getbyname((char const *)(& buff));
       p->pe = (struct ip_vs_pe const *)tmp;
@@ -23930,7 +23930,7 @@ static void ip_vs_proc_conn(struct net *net , struct ip_vs_conn_param *param , u
     if (__len > 63UL) {
       __ret = memcpy((void *)(& cp->in_seq), (void const *)opt, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& cp->in_seq), (void const *)opt, __len);
+      __ret = memcpy((void *)(& cp->in_seq), (void const *)opt, __len);
     }
   } else {
   }
@@ -24567,7 +24567,7 @@ static int join_mcast_group(struct sock *sk , struct in_addr *addr , char *ifnam
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mreq.imr_multiaddr), (void const *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mreq.imr_multiaddr), (void const *)addr,
+    __ret = memcpy((void *)(& mreq.imr_multiaddr), (void const *)addr,
                              __len);
   }
   dev = __dev_get_by_name(net, (char const *)ifname);

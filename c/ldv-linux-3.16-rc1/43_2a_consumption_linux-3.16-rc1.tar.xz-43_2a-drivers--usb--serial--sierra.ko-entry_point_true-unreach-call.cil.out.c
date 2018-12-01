@@ -4997,7 +4997,7 @@ static int sierra_write(struct tty_struct *tty , struct usb_serial_port *port , 
 
   }
   __len = writesize;
-  __ret = __builtin_memcpy((void *)buffer, (void const   *)buf, __len);
+  __ret = memcpy((void *)buffer, (void const   *)buf, __len);
   usb_serial_debug_data(& port->dev, "sierra_write", (int )writesize, (unsigned char const   *)buffer);
   tmp___6 = __create_pipe(serial->dev, (unsigned int )port->bulk_out_endpointAddress);
   usb_fill_bulk_urb(urb, serial->dev, tmp___6 | 3221225472U, (void *)buffer, (int )writesize,

@@ -5206,7 +5206,7 @@ static int qt_get_device(struct usb_serial *serial , struct qt_get_device_data *
       {
       __cil_tmp23 = (void *)device_data;
       __cil_tmp24 = (void const   *)transfer_buffer;
-      __ret = __builtin_memcpy(__cil_tmp23, __cil_tmp24, __len);
+      __ret = memcpy(__cil_tmp23, __cil_tmp24, __len);
       }
     }
   } else {
@@ -7878,7 +7878,7 @@ static int qt_write(struct tty_struct *tty , struct usb_serial_port *port , unsi
     __cil_tmp47 = __cil_tmp46 + 104;
     __cil_tmp48 = *((void **)__cil_tmp47);
     __cil_tmp49 = (void const   *)buf;
-    __ret = __builtin_memcpy(__cil_tmp48, __cil_tmp49, __len);
+    __ret = memcpy(__cil_tmp48, __cil_tmp49, __len);
     __cil_tmp50 = *((struct usb_device **)serial);
     __cil_tmp51 = (unsigned long )port;
     __cil_tmp52 = __cil_tmp51 + 1040;

@@ -5711,7 +5711,7 @@ void tulip_parse_eeprom(struct net_device *dev )
         __ret = memcpy((void *)ee_data + 26U, (void const *)(& eeprom_fixups[i].newtable),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)ee_data + 26U, (void const *)(& eeprom_fixups[i].newtable),
+        __ret = memcpy((void *)ee_data + 26U, (void const *)(& eeprom_fixups[i].newtable),
                                  __len);
       }
       printk("\016%s: Old format EEPROM on \'%s\' board.  Using substitute media control info\n",
@@ -6372,7 +6372,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const *f
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data, from, __len);
+  __ret = memcpy((void *)skb->data, from, __len);
   return;
 }
 }

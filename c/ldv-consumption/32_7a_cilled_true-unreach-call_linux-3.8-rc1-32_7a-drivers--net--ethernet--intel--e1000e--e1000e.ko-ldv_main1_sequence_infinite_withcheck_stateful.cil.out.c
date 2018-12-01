@@ -25090,7 +25090,7 @@ static int e1000_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
 
   }
   __len = (size_t )eeprom->len;
-  __ret = __builtin_memcpy((void *)bytes, (void const   *)eeprom_buff + ((unsigned long )eeprom->offset & 1UL),
+  __ret = memcpy((void *)bytes, (void const   *)eeprom_buff + ((unsigned long )eeprom->offset & 1UL),
                            __len);
   kfree((void const   *)eeprom_buff);
   return (ret_val);
@@ -25171,7 +25171,7 @@ static int e1000_set_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
 
   }
   __len = (size_t )eeprom->len;
-  __ret = __builtin_memcpy(ptr, (void const   *)bytes, __len);
+  __ret = memcpy(ptr, (void const   *)bytes, __len);
   i = 0U;
   goto ldv_41127;
   ldv_41126: 
@@ -25356,7 +25356,7 @@ static int e1000_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
   e1000e_down(adapter);
   if ((int )set_tx) {
     __len = (size_t )size;
-    __ret = __builtin_memcpy((void *)temp_tx, (void const   *)adapter->tx_ring, __len);
+    __ret = memcpy((void *)temp_tx, (void const   *)adapter->tx_ring, __len);
     temp_tx->count = (unsigned int )new_tx_count;
     err = e1000e_setup_tx_resources(temp_tx);
     if (err != 0) {
@@ -25369,7 +25369,7 @@ static int e1000_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
   }
   if ((int )set_rx) {
     __len___0 = (size_t )size;
-    __ret___0 = __builtin_memcpy((void *)temp_rx, (void const   *)adapter->rx_ring,
+    __ret___0 = memcpy((void *)temp_rx, (void const   *)adapter->rx_ring,
                                  __len___0);
     temp_rx->count = (unsigned int )new_rx_count;
     err = e1000e_setup_rx_resources(temp_rx);
@@ -25384,7 +25384,7 @@ static int e1000_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
   if ((int )set_tx) {
     e1000e_free_tx_resources(adapter->tx_ring);
     __len___1 = (size_t )size;
-    __ret___1 = __builtin_memcpy((void *)adapter->tx_ring, (void const   *)temp_tx,
+    __ret___1 = memcpy((void *)adapter->tx_ring, (void const   *)temp_tx,
                                  __len___1);
     adapter->tx_ring_count = new_tx_count;
   } else {
@@ -25393,7 +25393,7 @@ static int e1000_set_ringparam(struct net_device *netdev , struct ethtool_ringpa
   if ((int )set_rx) {
     e1000e_free_rx_resources(adapter->rx_ring);
     __len___2 = (size_t )size;
-    __ret___2 = __builtin_memcpy((void *)adapter->rx_ring, (void const   *)temp_rx,
+    __ret___2 = memcpy((void *)adapter->rx_ring, (void const   *)temp_rx,
                                  __len___2);
     adapter->rx_ring_count = new_rx_count;
   } else {
@@ -27137,7 +27137,7 @@ static void e1000_get_strings(struct net_device *netdev , u32 stringset , u8 *da
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const   *)(& e1000_gstrings_test), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const   *)(& e1000_gstrings_test),
+    __ret = memcpy((void *)data, (void const   *)(& e1000_gstrings_test),
                              __len);
   }
   goto ldv_41503;
@@ -27150,7 +27150,7 @@ static void e1000_get_strings(struct net_device *netdev , u32 stringset , u8 *da
     __ret___0 = memcpy((void *)p, (void const   *)(& e1000_gstrings_stats[i].stat_string),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)p, (void const   *)(& e1000_gstrings_stats[i].stat_string),
+    __ret___0 = memcpy((void *)p, (void const   *)(& e1000_gstrings_stats[i].stat_string),
                                  __len___0);
   }
   p = p + 32UL;
@@ -28457,7 +28457,7 @@ __inline static void skb_copy_to_linear_data_offset(struct sk_buff *skb , int co
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data + (unsigned long )offset, from, __len);
+  __ret = memcpy((void *)skb->data + (unsigned long )offset, from, __len);
   return;
 }
 }
@@ -30461,7 +30461,7 @@ static bool e1000_clean_rx_irq_ps(struct e1000_ring *rx_ring , int *work_done , 
     vaddr = (u8 *)tmp___3;
     __len = (size_t )l1;
     tmp___5 = skb_tail_pointer((struct sk_buff  const  *)skb);
-    __ret = __builtin_memcpy((void *)tmp___5, (void const   *)vaddr, __len);
+    __ret = memcpy((void *)tmp___5, (void const   *)vaddr, __len);
     __kunmap_atomic((void *)vaddr);
     dma_sync_single_for_device___0(& pdev->dev, ps_page->dma, 4096UL, 2);
     if ((adapter->flags2 & 1U) == 0U) {
@@ -30694,7 +30694,7 @@ static bool e1000_clean_jumbo_rx_irq(struct e1000_ring *rx_ring , int *work_done
       vaddr = (u8 *)tmp___5;
       __len = (size_t )length;
       tmp___7 = skb_tail_pointer((struct sk_buff  const  *)skb);
-      __ret = __builtin_memcpy((void *)tmp___7, (void const   *)vaddr, __len);
+      __ret = memcpy((void *)tmp___7, (void const   *)vaddr, __len);
       __kunmap_atomic((void *)vaddr);
       skb_put(skb, length);
     } else {
@@ -31291,7 +31291,7 @@ static int e1000_request_msix(struct e1000_adapter *adapter )
       __ret = memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
+      __ret = memcpy((void *)(& (adapter->rx_ring)->name), (void const   *)(& netdev->name),
                                __len);
     }
   }
@@ -31314,7 +31314,7 @@ static int e1000_request_msix(struct e1000_adapter *adapter )
       __ret___0 = memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
+      __ret___0 = memcpy((void *)(& (adapter->tx_ring)->name), (void const   *)(& netdev->name),
                                    __len___0);
     }
   }
@@ -32572,7 +32572,7 @@ static int e1000e_write_mc_addr_list(struct net_device *netdev )
   } else {
     tmp___2 = i;
     i = i + 1;
-    __ret = __builtin_memcpy((void *)mta_list + (unsigned long )(tmp___2 * 6), (void const   *)(& ha->addr),
+    __ret = memcpy((void *)mta_list + (unsigned long )(tmp___2 * 6), (void const   *)(& ha->addr),
                              __len);
   }
   __mptr___0 = (struct list_head  const  *)ha->list.next;
@@ -33459,10 +33459,10 @@ static int e1000_set_mac(struct net_device *netdev , void *p )
 
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data),
+  __ret = memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data),
                            __len);
   __len___0 = (size_t )netdev->addr_len;
-  __ret___0 = __builtin_memcpy((void *)(& adapter->hw.mac.addr), (void const   *)(& addr->sa_data),
+  __ret___0 = memcpy((void *)(& adapter->hw.mac.addr), (void const   *)(& addr->sa_data),
                                __len___0);
   (*(hw->mac.ops.rar_set))(& adapter->hw, (u8 *)(& adapter->hw.mac.addr), 0U);
   if ((adapter->flags & 2097152U) != 0U) {
@@ -36135,21 +36135,21 @@ static int e1000_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& hw->mac.ops), (void const   *)ei->mac_ops, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& hw->mac.ops), (void const   *)ei->mac_ops,
+    __ret = memcpy((void *)(& hw->mac.ops), (void const   *)ei->mac_ops,
                              __len);
   }
   __len___0 = 64UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& hw->nvm.ops), (void const   *)ei->nvm_ops, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& hw->nvm.ops), (void const   *)ei->nvm_ops,
+    __ret___0 = memcpy((void *)(& hw->nvm.ops), (void const   *)ei->nvm_ops,
                                  __len___0);
   }
   __len___1 = 176UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& hw->phy.ops), (void const   *)ei->phy_ops, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& hw->phy.ops), (void const   *)ei->phy_ops,
+    __ret___1 = memcpy((void *)(& hw->phy.ops), (void const   *)ei->phy_ops,
                                  __len___1);
   }
   err = (*(ei->get_variants))(adapter);
@@ -36233,10 +36233,10 @@ static int e1000_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
 
   }
   __len___2 = (size_t )netdev->addr_len;
-  __ret___2 = __builtin_memcpy((void *)netdev->dev_addr, (void const   *)(& adapter->hw.mac.addr),
+  __ret___2 = memcpy((void *)netdev->dev_addr, (void const   *)(& adapter->hw.mac.addr),
                                __len___2);
   __len___3 = (size_t )netdev->addr_len;
-  __ret___3 = __builtin_memcpy((void *)(& netdev->perm_addr), (void const   *)(& adapter->hw.mac.addr),
+  __ret___3 = memcpy((void *)(& netdev->perm_addr), (void const   *)(& adapter->hw.mac.addr),
                                __len___3);
   tmp___7 = is_valid_ether_addr((u8 const   *)(& netdev->perm_addr));
   if (tmp___7) {

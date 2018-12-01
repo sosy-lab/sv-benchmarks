@@ -4711,7 +4711,7 @@ void sn9c102_attach_sensor(struct sn9c102_device *cam , struct sn9c102_sensor co
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cam->sensor), (void const *)sensor, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cam->sensor), (void const *)sensor, __len);
+    __ret = memcpy((void *)(& cam->sensor), (void const *)sensor, __len);
   }
   return;
 }
@@ -5996,7 +5996,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
   if (__len > 63UL) {
     __ret = memcpy((void *)pos, (void const *)(& jpeg_header), __len);
   } else {
-    __ret = __builtin_memcpy((void *)pos, (void const *)(& jpeg_header), __len);
+    __ret = memcpy((void *)pos, (void const *)(& jpeg_header), __len);
   }
   *(pos + 6UL) = 0U;
   *(pos + 71U) = 1U;
@@ -6006,7 +6006,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
       __ret___0 = memcpy((void *)pos + 7U, (void const *)(& SN9C102_Y_QTABLE0),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)pos + 7U, (void const *)(& SN9C102_Y_QTABLE0),
+      __ret___0 = memcpy((void *)pos + 7U, (void const *)(& SN9C102_Y_QTABLE0),
                                    __len___0);
     }
     __len___1 = 64UL;
@@ -6014,7 +6014,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
       __ret___1 = memcpy((void *)pos + 72U, (void const *)(& SN9C102_UV_QTABLE0),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)pos + 72U, (void const *)(& SN9C102_UV_QTABLE0),
+      __ret___1 = memcpy((void *)pos + 72U, (void const *)(& SN9C102_UV_QTABLE0),
                                    __len___1);
     }
   } else
@@ -6024,7 +6024,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
       __ret___2 = memcpy((void *)pos + 7U, (void const *)(& SN9C102_Y_QTABLE1),
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)pos + 7U, (void const *)(& SN9C102_Y_QTABLE1),
+      __ret___2 = memcpy((void *)pos + 7U, (void const *)(& SN9C102_Y_QTABLE1),
                                    __len___2);
     }
     __len___3 = 64UL;
@@ -6032,7 +6032,7 @@ static void sn9c102_write_jpegheader(struct sn9c102_device *cam , struct sn9c102
       __ret___3 = memcpy((void *)pos + 72U, (void const *)(& SN9C102_UV_QTABLE1),
                            __len___3);
     } else {
-      __ret___3 = __builtin_memcpy((void *)pos + 72U, (void const *)(& SN9C102_UV_QTABLE1),
+      __ret___3 = memcpy((void *)pos + 72U, (void const *)(& SN9C102_UV_QTABLE1),
                                    __len___3);
     }
   } else {
@@ -6166,7 +6166,7 @@ static void sn9c102_urb_complete(struct urb *urb )
       } else {
       }
       __len = (size_t )img;
-      __ret = __builtin_memcpy((*f)->bufmem + (unsigned long )(*f)->buf.bytesused,
+      __ret = memcpy((*f)->bufmem + (unsigned long )(*f)->buf.bytesused,
                                (void const *)pos, __len);
       if ((*f)->buf.bytesused == 0U) {
         v4l2_get_timestamp(& (*f)->buf.timestamp);
@@ -6189,7 +6189,7 @@ static void sn9c102_urb_complete(struct urb *urb )
         }
         spin_unlock(& cam->queue_lock);
         __len___0 = soflen;
-        __ret___0 = __builtin_memcpy((void *)(& cam->sysfs.frame_header), (void const *)(& cam->sof.header),
+        __ret___0 = memcpy((void *)(& cam->sysfs.frame_header), (void const *)(& cam->sof.header),
                                      __len___0);
         if ((unsigned int )debug > 2U) {
           _dev_info((struct device const *)(& (cam->usbdev)->dev), "[%s:%d] Video frame captured: %lu bytes\n",
@@ -7030,7 +7030,7 @@ static ssize_t sn9c102_show_frame_header(struct device *cd , struct device_attri
   }
   count = 62L;
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)buf, (void const *)(& cam->sysfs.frame_header),
+  __ret = memcpy((void *)buf, (void const *)(& cam->sysfs.frame_header),
                            __len);
   if ((unsigned int )debug > 2U) {
     _dev_info((struct device const *)(& (cam->usbdev)->dev), "[%s:%d] Frame header, read bytes: %zd\n",
@@ -7478,7 +7478,7 @@ static int sn9c102_init(struct sn9c102_device *cam )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& s->_qctrl), (void const *)(& s->qctrl), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& s->_qctrl), (void const *)(& s->qctrl),
+      __ret = memcpy((void *)(& s->_qctrl), (void const *)(& s->qctrl),
                                __len);
     }
     __len___0 = 16UL;
@@ -7486,7 +7486,7 @@ static int sn9c102_init(struct sn9c102_device *cam )
       __ret___0 = memcpy((void *)(& s->_rect), (void const *)(& s->cropcap.defrect),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& s->_rect), (void const *)(& s->cropcap.defrect),
+      __ret___0 = memcpy((void *)(& s->_rect), (void const *)(& s->cropcap.defrect),
                                    __len___0);
     }
     cam->state = (enum sn9c102_dev_state )((unsigned int )cam->state | 1U);
@@ -8337,7 +8337,7 @@ static int sn9c102_vidioc_query_ctrl(struct sn9c102_device *cam , void *arg )
       __ret = memcpy((void *)(& qc), (void const *)(& s->qctrl) + (unsigned long )i,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& qc), (void const *)(& s->qctrl) + (unsigned long )i,
+      __ret = memcpy((void *)(& qc), (void const *)(& s->qctrl) + (unsigned long )i,
                                __len);
     }
     tmp___0 = copy_to_user(arg, (void const *)(& qc), 68U);
@@ -8499,7 +8499,7 @@ static int sn9c102_vidioc_g_crop(struct sn9c102_device *cam , void *arg )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& crop.c), (void const *)(& s->_rect), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& crop.c), (void const *)(& s->_rect), __len);
+    __ret = memcpy((void *)(& crop.c), (void const *)(& s->_rect), __len);
   }
   tmp = copy_to_user(arg, (void const *)(& crop), 20U);
   if (tmp != 0) {
@@ -8649,7 +8649,7 @@ static int sn9c102_vidioc_s_crop(struct sn9c102_device *cam , void *arg )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& s->_rect), (void const *)rect, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& s->_rect), (void const *)rect, __len);
+    __ret = memcpy((void *)(& s->_rect), (void const *)rect, __len);
   }
   if ((unsigned int )cam->module_param.force_munmap != 0U || (unsigned int )cam->io == 1U) {
     tmp___9 = sn9c102_request_buffers(cam, nbuffers, cam->io);
@@ -8801,7 +8801,7 @@ static int sn9c102_vidioc_g_fmt(struct sn9c102_device *cam , void *arg )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& format.fmt.pix), (void const *)pfmt, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& format.fmt.pix), (void const *)pfmt, __len);
+    __ret = memcpy((void *)(& format.fmt.pix), (void const *)pfmt, __len);
   }
   tmp___0 = copy_to_user(arg, (void const *)(& format), 208U);
   if (tmp___0 != 0) {
@@ -8867,7 +8867,7 @@ static int sn9c102_vidioc_try_s_fmt(struct sn9c102_device *cam , unsigned int cm
   if (__len > 63UL) {
     __ret = memcpy((void *)(& rect), (void const *)(& s->_rect), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& rect), (void const *)(& s->_rect), __len);
+    __ret = memcpy((void *)(& rect), (void const *)(& s->_rect), __len);
   }
   a = (u32 )(rect.width * rect.height);
   b = pix->width * pix->height;
@@ -9001,13 +9001,13 @@ static int sn9c102_vidioc_try_s_fmt(struct sn9c102_device *cam , unsigned int cm
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)pfmt, (void const *)pix, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)pfmt, (void const *)pix, __len___0);
+    __ret___0 = memcpy((void *)pfmt, (void const *)pix, __len___0);
   }
   __len___1 = 16UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& s->_rect), (void const *)(& rect), __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& s->_rect), (void const *)(& rect), __len___1);
+    __ret___1 = memcpy((void *)(& s->_rect), (void const *)(& rect), __len___1);
   }
   if ((unsigned int )cam->module_param.force_munmap != 0U || (unsigned int )cam->io == 1U) {
     tmp___13 = sn9c102_request_buffers(cam, nbuffers, cam->io);

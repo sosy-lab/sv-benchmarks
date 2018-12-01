@@ -4209,7 +4209,7 @@ static void handle_uncompressed_page(struct zram *zram , struct bio_vec *bvec , 
   __cil_tmp28 = (unsigned long )offset;
   __cil_tmp29 = (void const   *)cmem;
   __cil_tmp30 = __cil_tmp29 + __cil_tmp28;
-  __ret = __builtin_memcpy(__cil_tmp27, __cil_tmp30, __len);
+  __ret = memcpy(__cil_tmp27, __cil_tmp30, __len);
   __cil_tmp31 = (void *)cmem;
   __kunmap_atomic(__cil_tmp31);
   __cil_tmp32 = (void *)user_mem;
@@ -4490,7 +4490,7 @@ static int zram_bvec_read(struct zram *zram , struct bio_vec *bvec , u32 index ,
     __cil_tmp87 = (unsigned long )offset;
     __cil_tmp88 = (void const   *)uncmem;
     __cil_tmp89 = __cil_tmp88 + __cil_tmp87;
-    __ret = __builtin_memcpy(__cil_tmp86, __cil_tmp89, __len);
+    __ret = memcpy(__cil_tmp86, __cil_tmp89, __len);
     __cil_tmp90 = (void const   *)uncmem;
     kfree(__cil_tmp90);
     }
@@ -4655,7 +4655,7 @@ static int zram_read_before_write(struct zram *zram , char *mem , u32 index )
       {
       __cil_tmp40 = (void *)mem;
       __cil_tmp41 = (void const   *)cmem;
-      __ret = __builtin_memcpy(__cil_tmp40, __cil_tmp41, __len);
+      __ret = memcpy(__cil_tmp40, __cil_tmp41, __len);
       }
     }
     {
@@ -4951,7 +4951,7 @@ static int zram_bvec_write(struct zram *zram , struct bio_vec *bvec , u32 index 
     __cil_tmp65 = (unsigned long )__cil_tmp64;
     __cil_tmp66 = (void const   *)user_mem;
     __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-    __ret = __builtin_memcpy(__cil_tmp61, __cil_tmp67, __len);
+    __ret = memcpy(__cil_tmp61, __cil_tmp67, __len);
     }
   } else {
     uncmem = user_mem;
@@ -5101,7 +5101,7 @@ static int zram_bvec_write(struct zram *zram , struct bio_vec *bvec , u32 index 
   __len___0 = *__cil_tmp109;
   __cil_tmp110 = (void *)cmem;
   __cil_tmp111 = (void const   *)src;
-  __ret___0 = __builtin_memcpy(__cil_tmp110, __cil_tmp111, __len___0);
+  __ret___0 = memcpy(__cil_tmp110, __cil_tmp111, __len___0);
   __cil_tmp112 = (enum zram_pageflags )0;
   tmp___13 = zram_test_flag(zram, index, __cil_tmp112);
   __cil_tmp113 = tmp___13 != 0;

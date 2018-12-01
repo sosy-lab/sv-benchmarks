@@ -3512,7 +3512,7 @@ static irqreturn_t w8001_interrupt(struct serio *serio , unsigned char data , un
       __cil_tmp117 = __cil_tmp116 + 132;
       __cil_tmp118 = (unsigned char (*)[11U])__cil_tmp117;
       __cil_tmp119 = (void const *)__cil_tmp118;
-      __ret = __builtin_memcpy(__cil_tmp115, __cil_tmp119, __len);
+      __ret = memcpy(__cil_tmp115, __cil_tmp119, __len);
       }
     }
     {

@@ -8793,7 +8793,7 @@ static int mwifiex_decode_rx_packet(struct mwifiex_adapter *adapter , struct sk_
     __min1 = 2048U;
     __min2 = skb->len;
     __len = (size_t )(__min1 < __min2 ? __min1 : __min2);
-    __ret = __builtin_memcpy((void *)cmd_buf, (void const *)skb->data, __len);
+    __ret = memcpy((void *)cmd_buf, (void const *)skb->data, __len);
     dev_kfree_skb_any(skb);
   } else {
     adapter->cmd_resp_received = 1U;
@@ -8815,7 +8815,7 @@ static int mwifiex_decode_rx_packet(struct mwifiex_adapter *adapter , struct sk_
   adapter->event_cause = *((__le32 *)skb->data);
   if (skb->len != 0U && skb->len <= 2047U) {
     __len___0 = (size_t )skb->len;
-    __ret___0 = __builtin_memcpy((void *)(& adapter->event_body), (void const *)skb->data + 4U,
+    __ret___0 = memcpy((void *)(& adapter->event_body), (void const *)skb->data + 4U,
                                  __len___0);
   } else {
   }
@@ -9040,7 +9040,7 @@ static int mwifiex_sdio_card_to_host_mp_aggr(struct mwifiex_adapter *adapter , s
     skb_deaggr = *(card->mpa_rx.skb_arr + (unsigned long )pind);
     if (pkt_type == 0U && *(card->mpa_rx.len_arr + (unsigned long )pind) >= pkt_len) {
       __len = (size_t )pkt_len;
-      __ret = __builtin_memcpy((void *)skb_deaggr->data, (void const *)curr_ptr,
+      __ret = memcpy((void *)skb_deaggr->data, (void const *)curr_ptr,
                                __len);
       skb_trim(skb_deaggr, pkt_len);
       mwifiex_decode_rx_packet(adapter, skb_deaggr, pkt_type);

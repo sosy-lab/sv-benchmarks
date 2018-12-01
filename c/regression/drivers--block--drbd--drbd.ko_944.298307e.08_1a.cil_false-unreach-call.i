@@ -14780,7 +14780,7 @@ int drbd_worker(struct drbd_thread *thi )
   return (0);
 }
 }
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 __inline static __u32 __arch_swab32(__u32 val ) 
 { 
 
@@ -15522,7 +15522,7 @@ __inline static int bitstream_get_bits(struct bitstream *bs , u64 *out , int bit
   n = ((bs->cur.bit + (unsigned int )bits) + 7U) >> 3;
   if (n != 0U) {
     __len = (size_t )(n - 1U);
-    __ret = __builtin_memcpy((void *)(& val), (void const   *)bs->cur.b + 1U, __len);
+    __ret = memcpy((void *)(& val), (void const   *)bs->cur.b + 1U, __len);
     val = val << (int )(8U - bs->cur.bit);
   } else {
 
@@ -16434,7 +16434,7 @@ static struct socket *drbd_try_connect(struct drbd_tconn *tconn )
   __min2 = 28;
   my_addr_len = __min1 < __min2 ? __min1 : __min2;
   __len = (size_t )my_addr_len;
-  __ret = __builtin_memcpy((void *)(& src_in6), (void const   *)(& tconn->my_addr),
+  __ret = memcpy((void *)(& src_in6), (void const   *)(& tconn->my_addr),
                            __len);
   if ((unsigned int )((struct sockaddr *)(& tconn->my_addr))->sa_family == 10U) {
     src_in6.sin6_port = 0U;
@@ -16445,7 +16445,7 @@ static struct socket *drbd_try_connect(struct drbd_tconn *tconn )
   __min2___0 = 28;
   peer_addr_len = __min1___0 < __min2___0 ? __min1___0 : __min2___0;
   __len___0 = (size_t )peer_addr_len;
-  __ret___0 = __builtin_memcpy((void *)(& peer_in6), (void const   *)(& tconn->peer_addr),
+  __ret___0 = memcpy((void *)(& peer_in6), (void const   *)(& tconn->peer_addr),
                                __len___0);
   what = "sock_create_kern";
   err = sock_create_kern((int )((struct sockaddr *)(& src_in6))->sa_family, 1, 6,
@@ -16578,7 +16578,7 @@ static int prepare_listen_socket(struct drbd_tconn *tconn , struct accept_wait_d
   __min2 = 28;
   my_addr_len = __min1 < __min2 ? __min1 : __min2;
   __len = (size_t )my_addr_len;
-  __ret = __builtin_memcpy((void *)(& my_addr), (void const   *)(& tconn->my_addr),
+  __ret = memcpy((void *)(& my_addr), (void const   *)(& tconn->my_addr),
                            __len);
   what = "sock_create_kern";
   err = sock_create_kern((int )((struct sockaddr *)(& my_addr))->sa_family, 1, 6,
@@ -22417,7 +22417,7 @@ static int drbd_do_auth(struct drbd_tconn *tconn )
   tmp___1 = strlen((char const   *)(& nc->shared_secret));
   key_len = (unsigned int )tmp___1;
   __len = (size_t )key_len;
-  __ret = __builtin_memcpy((void *)(& secret), (void const   *)(& nc->shared_secret),
+  __ret = memcpy((void *)(& secret), (void const   *)(& nc->shared_secret),
                            __len);
   rcu_read_unlock();
   desc.tfm = tconn->cram_hmac_tfm;
@@ -28022,7 +28022,7 @@ __inline static void bitmap_copy(unsigned long *dst , unsigned long const   *src
   {
   len = (int )((unsigned int )(((unsigned long )nbits + 63UL) / 64UL) * 8U);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)dst, (void const   *)src, __len);
+  __ret = memcpy((void *)dst, (void const   *)src, __len);
   return;
 }
 }
@@ -39918,11 +39918,11 @@ int drbd_adm_connect(struct sk_buff *skb , struct genl_info *info )
   tconn->my_addr_len = nla_len((struct nlattr  const  *)adm_ctx.my_addr);
   __len = (size_t )tconn->my_addr_len;
   tmp___9 = nla_data((struct nlattr  const  *)adm_ctx.my_addr);
-  __ret = __builtin_memcpy((void *)(& tconn->my_addr), (void const   *)tmp___9, __len);
+  __ret = memcpy((void *)(& tconn->my_addr), (void const   *)tmp___9, __len);
   tconn->peer_addr_len = nla_len((struct nlattr  const  *)adm_ctx.peer_addr);
   __len___0 = (size_t )tconn->peer_addr_len;
   tmp___11 = nla_data((struct nlattr  const  *)adm_ctx.peer_addr);
-  __ret___0 = __builtin_memcpy((void *)(& tconn->peer_addr), (void const   *)tmp___11,
+  __ret___0 = memcpy((void *)(& tconn->peer_addr), (void const   *)tmp___11,
                                __len___0);
   mutex_unlock(& tconn->conf_update);
   rcu_read_lock();

@@ -3136,7 +3136,7 @@ static void aem_msg_handler(struct ipmi_recv_msg *msg , void *user_msg_data )
     }
     data->rx_msg_len = rx_len;
     __len = (size_t )data->rx_msg_len;
-    __ret = __builtin_memcpy(data->rx_msg_data, (void const *)msg->msg.data + 1U,
+    __ret = memcpy(data->rx_msg_data, (void const *)msg->msg.data + 1U,
                              __len);
   } else {
     data->rx_msg_len = 0U;
