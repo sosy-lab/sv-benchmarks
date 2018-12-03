@@ -1865,5 +1865,6 @@ static void * xzalloc(unsigned long int size)
 }
 
 #include "busybox_sv_comp-_IO_getc.h"
+#include "busybox_sv_comp-fileno.h"
 #include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp_impl.h"
