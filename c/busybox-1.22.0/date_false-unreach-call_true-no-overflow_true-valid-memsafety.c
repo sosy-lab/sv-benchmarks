@@ -1765,5 +1765,6 @@ static void * xzalloc(unsigned long int size)
 }
 
 #include "busybox_sv_comp-sleep.h"
+#include "busybox_sv_comp-strchrnul.h"
 #include "busybox_sv_comp-strptime.h"
 #include "busybox_sv_comp_impl.h"

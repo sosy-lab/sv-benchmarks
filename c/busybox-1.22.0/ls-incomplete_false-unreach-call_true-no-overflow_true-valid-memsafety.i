@@ -5387,6 +5387,14 @@ int lstat(const char *path, struct stat *buf)
 {
   return stat(path, buf);
 }
+char *strchrnul(const char *s, int c)
+{
+  char *result = strchr(s, c);
+  if(result == ((void *)0))
+    return (char *)s + strlen(s);
+  else
+    return result;
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())

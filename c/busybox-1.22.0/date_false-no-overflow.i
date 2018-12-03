@@ -3812,6 +3812,14 @@ int stime(const time_t *t)
   }
   return 0;
 }
+char *strchrnul(const char *s, int c)
+{
+  char *result = strchr(s, c);
+  if(result == ((void *)0))
+    return (char *)s + strlen(s);
+  else
+    return result;
+}
 char *strptime(const char *s, const char *format, struct tm *result)
 {
   result->tm_sec = __VERIFIER_nondet_int();
