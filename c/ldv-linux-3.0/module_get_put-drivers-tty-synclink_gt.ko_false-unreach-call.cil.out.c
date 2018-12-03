@@ -8356,7 +8356,7 @@ static void hdlcdev_rx(struct slgt_info *info , char *buf , int size )
   {
   __len = (size_t )size;
   tmp___1 = skb_put(skb, (unsigned int )size);
-  __ret = __builtin_memcpy((void *)tmp___1, (void const *)buf, __len);
+  __ret = memcpy((void *)tmp___1, (void const *)buf, __len);
   skb->protocol = hdlc_type_trans(skb, dev);
   dev->stats.rx_packets = dev->stats.rx_packets + 1UL;
   dev->stats.rx_bytes = dev->stats.rx_bytes + (unsigned long )size;
@@ -10041,7 +10041,7 @@ static int set_params(struct slgt_info *info , MGSL_PARAMS *new_params )
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& info->params), (void const *)(& tmp_params),
+      __ret = memcpy((void *)(& info->params), (void const *)(& tmp_params),
                                __len);
       }
     }
@@ -12429,7 +12429,7 @@ static struct slgt_info *alloc_dev(int adapter_num , int port_num , struct pci_d
         }
       } else {
         {
-        __ret = __builtin_memcpy((void *)(& info->params), (void const *)(& default_params),
+        __ret = memcpy((void *)(& info->params), (void const *)(& default_params),
                                  __len);
         }
       }
@@ -12519,7 +12519,7 @@ static void device_init(int adapter_num , struct pci_dev *pdev )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& (port_array[i])->port_array), (void const *)(& port_array),
+    __ret = memcpy((void *)(& (port_array[i])->port_array), (void const *)(& port_array),
                              __len);
     }
   }
@@ -14237,7 +14237,7 @@ static bool rx_get_frame(struct slgt_info *info )
       {
       partial_count = tmp___1;
       __len = (size_t )partial_count;
-      __ret = __builtin_memcpy((void *)p, (void const *)(info->rbufs + (unsigned long )i)->buf,
+      __ret = memcpy((void *)p, (void const *)(info->rbufs + (unsigned long )i)->buf,
                                __len);
       p = p + (unsigned long )partial_count;
       copy_count = copy_count - partial_count;
@@ -14496,7 +14496,7 @@ static bool tx_load(struct slgt_info *info , char const *buf , unsigned int size
   }
   {
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)d->buf, (void const *)buf, __len);
+  __ret = memcpy((void *)d->buf, (void const *)buf, __len);
   size = size - (unsigned int )count;
   buf = buf + (unsigned long )count;
   }
@@ -14745,7 +14745,7 @@ static int loopback_test(struct slgt_info *info )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& params), (void const *)(& info->params),
+    __ret = memcpy((void *)(& params), (void const *)(& info->params),
                              __len);
     }
   }
@@ -14825,7 +14825,7 @@ static int loopback_test(struct slgt_info *info )
     }
   } else {
     {
-    __ret___0 = __builtin_memcpy((void *)(& info->params), (void const *)(& params),
+    __ret___0 = memcpy((void *)(& info->params), (void const *)(& params),
                                  __len___0);
     }
   }

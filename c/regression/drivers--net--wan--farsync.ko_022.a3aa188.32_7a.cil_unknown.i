@@ -3975,7 +3975,7 @@ struct fst_card_info {
    int dma_txpos ;
    int dma_rxpos ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -5345,7 +5345,7 @@ static void fst_rx_dma_complete(struct fst_card_info *card , struct fst_port_inf
   pi = port->index;
   __len = (size_t )len;
   tmp___0 = skb_put(skb, (unsigned int )len);
-  __ret = __builtin_memcpy((void *)tmp___0, (void const   *)card->rx_dma_handle_host,
+  __ret = memcpy((void *)tmp___0, (void const   *)card->rx_dma_handle_host,
                            __len);
   writeb(128, (void volatile   *)card->mem + (8192UL + (((unsigned long )pi * 8UL + (unsigned long )rxp) * 8UL + 3UL)));
   dev->stats.rx_packets = dev->stats.rx_packets + 1UL;
@@ -5816,7 +5816,7 @@ static void do_bottom_half_tx(struct fst_card_info *card )
       dev->trans_start = jiffies;
     } else {
       __len = (size_t )skb->len;
-      __ret = __builtin_memcpy(card->tx_dma_handle_host, (void const   *)skb->data,
+      __ret = memcpy(card->tx_dma_handle_host, (void const   *)skb->data,
                                __len);
       card->dma_port_tx = port;
       card->dma_len_tx = (int )skb->len;

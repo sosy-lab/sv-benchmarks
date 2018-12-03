@@ -4207,7 +4207,7 @@ static ssize_t vfd_write(struct file *file , char const *buf , size_t n_bytes ,
   }
   {
   __len = n_bytes;
-  __ret = __builtin_memcpy((void *)(context->tx.data_buf), (void const *)data_buf,
+  __ret = memcpy((void *)(context->tx.data_buf), (void const *)data_buf,
                            __len);
   i = (int )n_bytes;
   }
@@ -4253,7 +4253,7 @@ static ssize_t vfd_write(struct file *file , char const *buf , size_t n_bytes ,
       }
     } else {
       {
-      __ret___0 = __builtin_memcpy((void *)(context->usb_tx_buf), (void const *)(context->tx.data_buf + offset),
+      __ret___0 = memcpy((void *)(context->usb_tx_buf), (void const *)(context->tx.data_buf + offset),
                                    __len___0);
       }
     }
@@ -4289,7 +4289,7 @@ static ssize_t vfd_write(struct file *file , char const *buf , size_t n_bytes ,
       }
     } else {
       {
-      __ret___1 = __builtin_memcpy((void *)(context->usb_tx_buf), (void const *)(& vfd_packet6),
+      __ret___1 = memcpy((void *)(context->usb_tx_buf), (void const *)(& vfd_packet6),
                                    __len___1);
       }
     }

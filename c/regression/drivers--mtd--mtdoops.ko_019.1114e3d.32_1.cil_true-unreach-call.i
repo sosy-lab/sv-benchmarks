@@ -1861,7 +1861,7 @@ struct mtdoops_context {
    int ready ;
    int writecount ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr ) 
 { 
@@ -2632,7 +2632,7 @@ static void mtdoops_console_write(struct console *co , char const   *s , unsigne
 
   }
   __len = count;
-  __ret = __builtin_memcpy(cxt->oops_buf + cxt->writecount, s, __len);
+  __ret = memcpy(cxt->oops_buf + cxt->writecount, s, __len);
   cxt->writecount = (unsigned int )cxt->writecount + count;
   while (1) {
     _spin_unlock_irqrestore(& cxt->writecount_lock, flags);

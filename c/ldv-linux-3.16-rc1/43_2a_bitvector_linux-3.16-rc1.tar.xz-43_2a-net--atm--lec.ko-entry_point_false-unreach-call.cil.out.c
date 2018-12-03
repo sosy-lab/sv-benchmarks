@@ -6760,7 +6760,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const   
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data, from, __len);
+  __ret = memcpy((void *)skb->data, from, __len);
   return;
 }
 }
@@ -8051,7 +8051,7 @@ static int send_to_lecd(struct lec_priv *priv , atmlec_msg_type type , unsigned 
       __ret = memcpy((void *)(& mesg->content.normal.atm_addr), (void const   *)atm_addr,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& mesg->content.normal.atm_addr), (void const   *)atm_addr,
+      __ret = memcpy((void *)(& mesg->content.normal.atm_addr), (void const   *)atm_addr,
                                __len);
     }
   } else {
@@ -10081,7 +10081,7 @@ static void lec_arp_update(struct lec_priv *priv , unsigned char const   *mac_ad
         if (__len > 63UL) {
           __ret = memcpy((void *)(& tmp->atm_addr), (void const   *)atm_addr, __len);
         } else {
-          __ret = __builtin_memcpy((void *)(& tmp->atm_addr), (void const   *)atm_addr,
+          __ret = memcpy((void *)(& tmp->atm_addr), (void const   *)atm_addr,
                                    __len);
         }
         tmp->vcc = entry->vcc;
@@ -10153,7 +10153,7 @@ static void lec_arp_update(struct lec_priv *priv , unsigned char const   *mac_ad
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& entry->atm_addr), (void const   *)atm_addr, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& entry->atm_addr), (void const   *)atm_addr,
+    __ret___0 = memcpy((void *)(& entry->atm_addr), (void const   *)atm_addr,
                                  __len___0);
   }
   ldv_del_timer_47(& entry->timer);
@@ -10305,7 +10305,7 @@ static void lec_vcc_added(struct lec_priv *priv , struct atmlec_ioc  const  *ioc
       __ret = memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
+      __ret = memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
                                __len);
     }
     entry->recv_vcc = vcc;
@@ -10347,7 +10347,7 @@ static void lec_vcc_added(struct lec_priv *priv , struct atmlec_ioc  const  *ioc
       __ret___0 = memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
+      __ret___0 = memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
                                    __len___0);
     }
     memset((void *)(& entry->mac_addr), 0, 6UL);
@@ -10495,7 +10495,7 @@ static void lec_vcc_added(struct lec_priv *priv , struct atmlec_ioc  const  *ioc
     __ret___1 = memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
+    __ret___1 = memcpy((void *)(& entry->atm_addr), (void const   *)(& ioc_data->atm_addr),
                                  __len___1);
   }
   memset((void *)(& entry->mac_addr), 0, 6UL);
@@ -10746,7 +10746,7 @@ static int lec_mcast_make(struct lec_priv *priv , struct atm_vcc *vcc )
     __ret = memcpy((void *)(& to_add->atm_addr), (void const   *)(& vcc->remote.sas_addr.prv),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& to_add->atm_addr), (void const   *)(& vcc->remote.sas_addr.prv),
+    __ret = memcpy((void *)(& to_add->atm_addr), (void const   *)(& vcc->remote.sas_addr.prv),
                              __len);
   }
   to_add->status = 5U;

@@ -4624,7 +4624,7 @@ static int mimd_to_kioc(mimd_t *umimd , mraid_mmadp_t *adp , uioc_t *kioc )
     __cil_tmp141 = (unsigned long )(& mimd) + 32;
     __cil_tmp142 = (uint8_t (*)[18U])__cil_tmp141;
     __cil_tmp143 = (void    *)__cil_tmp142;
-    __ret = __builtin_memcpy(__cil_tmp140, __cil_tmp143, __len);
+    __ret = memcpy(__cil_tmp140, __cil_tmp143, __len);
     }
   }
   {

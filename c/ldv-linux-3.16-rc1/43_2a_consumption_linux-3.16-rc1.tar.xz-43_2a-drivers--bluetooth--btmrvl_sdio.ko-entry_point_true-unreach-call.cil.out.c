@@ -6369,6 +6369,7 @@ static int btmrvl_sdio_verify_fw_download(struct btmrvl_sdio_card *card , int po
   return (-110);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int btmrvl_sdio_download_helper(struct btmrvl_sdio_card *card ) 
 { 
   struct firmware  const  *fw_helper ;
@@ -6449,7 +6450,7 @@ static int btmrvl_sdio_download_helper(struct btmrvl_sdio_card *card )
   *(helperbuf + 2UL) = (u8 )((tx_len & 16711680U) >> 16);
   *(helperbuf + 3UL) = (u8 )(tx_len >> 24);
   __len = (size_t )tx_len;
-  __ret = __builtin_memcpy((void *)helperbuf + 4U, (void const   *)helper + (unsigned long )hlprblknow,
+  __ret = memcpy((void *)helperbuf + 4U, (void const   *)helper + (unsigned long )hlprblknow,
                            __len);
   ret = sdio_writesb(card->func, card->ioport, (void *)helperbuf, 128);
   if (ret < 0) {
@@ -6638,7 +6639,7 @@ static int btmrvl_sdio_download_fw_w_helper(struct btmrvl_sdio_card *card )
     }
     tx_blocks = (((int )blksz_dl + txlen) + -1) / (int )blksz_dl;
     __len = (size_t )txlen;
-    __ret = __builtin_memcpy((void *)fwbuf, (void const   *)firmware + (unsigned long )offset,
+    __ret = memcpy((void *)fwbuf, (void const   *)firmware + (unsigned long )offset,
                              __len);
   }
   ret = sdio_writesb(card->func, card->ioport, (void *)fwbuf, (int )blksz_dl * tx_blocks);
@@ -7180,7 +7181,7 @@ static int btmrvl_sdio_host_to_card(struct btmrvl_private *priv , u8 *payload , 
     }
     buf = (u8 *)(((unsigned long )tmpbuf + 7UL) & 0xfffffffffffffff8UL);
     __len = (size_t )nb;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)payload, __len);
+    __ret = memcpy((void *)buf, (void const   *)payload, __len);
   } else {
 
   }

@@ -3044,7 +3044,7 @@ static void *einj_get_parameter_address(void)
           __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
           __cil_tmp38 = (u64 *)__cil_tmp37;
           __cil_tmp39 = (void const   *)__cil_tmp38;
-          __ret = __builtin_memcpy(__cil_tmp34, __cil_tmp39, __len);
+          __ret = memcpy(__cil_tmp34, __cil_tmp39, __len);
           }
         }
       } else {
@@ -3094,7 +3094,7 @@ static void *einj_get_parameter_address(void)
           __cil_tmp59 = __cil_tmp58 + __cil_tmp57;
           __cil_tmp60 = (u64 *)__cil_tmp59;
           __cil_tmp61 = (void const   *)__cil_tmp60;
-          __ret___0 = __builtin_memcpy(__cil_tmp56, __cil_tmp61, __len___0);
+          __ret___0 = memcpy(__cil_tmp56, __cil_tmp61, __len___0);
           }
         }
       } else {

@@ -5775,7 +5775,7 @@ enum fc001x_xtal_freq {
 } ;
 typedef int ldv_func_ret_type___0;
 typedef int ldv_func_ret_type___4;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
 extern int mutex_trylock(struct mutex * ) ;
 int ldv_mutex_trylock_2(struct mutex *ldv_func_arg1 ) ;
@@ -5878,7 +5878,7 @@ static int rtl28xxu_ctrl_msg(struct dvb_usb_device *d , struct rtl28xxu_req *req
   }
   if (((int )req->index & 16) != 0) {
     __len = (size_t )req->size;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)req->data, __len);
+    __ret = memcpy((void *)buf, (void const   *)req->data, __len);
     requesttype = 64U;
     tmp___0 = __create_pipe(d->udev, 0U);
     pipe = tmp___0 | 2147483648U;
@@ -5936,7 +5936,7 @@ static int rtl28xxu_ctrl_msg(struct dvb_usb_device *d , struct rtl28xxu_req *req
   }
   if (ret == 0 && (unsigned int )requesttype == 192U) {
     __len___0 = (size_t )req->size;
-    __ret___0 = __builtin_memcpy((void *)req->data, (void const   *)buf, __len___0);
+    __ret___0 = memcpy((void *)req->data, (void const   *)buf, __len___0);
   } else {
 
   }

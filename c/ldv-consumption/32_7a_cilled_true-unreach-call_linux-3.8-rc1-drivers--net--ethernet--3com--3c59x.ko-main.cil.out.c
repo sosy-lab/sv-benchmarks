@@ -6708,7 +6708,7 @@ static int vortex_probe1(struct device *gendev , void *ioaddr , int irq , int ch
   }
   ldv_41102: 
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)(& dev->perm_addr), (void const   *)dev->dev_addr,
+  __ret = memcpy((void *)(& dev->perm_addr), (void const   *)dev->dev_addr,
                            __len);
   if (print_info != 0) {
     printk(" %pM", dev->dev_addr);
@@ -9406,7 +9406,7 @@ static int boomerang_rx(struct net_device *dev )
         pci_dma_sync_single_for_cpu(tmp___5, dma, 1536UL, 2);
         __len = (size_t )pkt_len;
         tmp___7 = skb_put(skb, (unsigned int )pkt_len);
-        __ret = __builtin_memcpy((void *)tmp___7, (void const   *)(vp->rx_skbuff[entry])->data,
+        __ret = memcpy((void *)tmp___7, (void const   *)(vp->rx_skbuff[entry])->data,
                                  __len);
         if ((unsigned long )vp->gendev != (unsigned long )((struct device *)0)) {
           if ((unsigned long )(vp->gendev)->bus == (unsigned long )(& pci_bus_type)) {
@@ -10015,7 +10015,7 @@ static void vortex_get_strings(struct net_device *dev , u32 stringset , u8 *data
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const   *)(& ethtool_stats_keys), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const   *)(& ethtool_stats_keys),
+    __ret = memcpy((void *)data, (void const   *)(& ethtool_stats_keys),
                              __len);
   }
   goto ldv_41561;

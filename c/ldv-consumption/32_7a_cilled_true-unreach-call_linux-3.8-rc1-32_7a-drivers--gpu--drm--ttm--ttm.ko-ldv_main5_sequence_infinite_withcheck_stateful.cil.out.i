@@ -8151,13 +8151,14 @@ extern unsigned int ioread32(void * ) ;
 extern void iowrite32(u32 , void * ) ;
 extern void *vmap(struct page ** , unsigned int , unsigned long , pgprot_t ) ;
 extern void vunmap(void const * ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void memcpy_fromio(void *dst , void const volatile *src , size_t count )
 {
   size_t __len ;
   void *__ret ;
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const *)src, __len);
+  __ret = memcpy(dst, (void const *)src, __len);
   return;
 }
 }
@@ -8167,7 +8168,7 @@ __inline static void memcpy_toio(void volatile *dst , void const *src , size_t c
   void *__ret ;
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }

@@ -3257,7 +3257,7 @@ struct urb {
    void (*complete)(struct urb * ) ;
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -3984,7 +3984,7 @@ static int acpi_pcc_init_input(struct pcc_acpi *pcc )
   if (__len >= (size_t )64) {
     __ret = memcpy(pcc->keymap, initial_keymap, __len);
   } else {
-    __ret = __builtin_memcpy(pcc->keymap, initial_keymap, __len);
+    __ret = memcpy(pcc->keymap, initial_keymap, __len);
   }
   i = 0;
   while (1) {

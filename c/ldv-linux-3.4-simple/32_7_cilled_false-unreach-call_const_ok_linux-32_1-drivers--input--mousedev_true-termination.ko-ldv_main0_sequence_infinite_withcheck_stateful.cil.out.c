@@ -7452,6 +7452,7 @@ static ssize_t mousedev_write(struct file *file , char    *buffer , size_t count
   return ((ssize_t )count);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static ssize_t mousedev_read(struct file *file , char *buffer , size_t count , loff_t *ppos ) 
 { struct mousedev_client *client ;
   struct mousedev *mousedev ;
@@ -7814,7 +7815,7 @@ static ssize_t mousedev_read(struct file *file , char *buffer , size_t count , l
   __cil_tmp105 = __cil_tmp104 + __cil_tmp99;
   __cil_tmp106 = __cil_tmp105 - __cil_tmp95;
   __cil_tmp107 = (void    *)__cil_tmp106;
-  __ret___0 = __builtin_memcpy(__cil_tmp91, __cil_tmp107, __len);
+  __ret___0 = memcpy(__cil_tmp91, __cil_tmp107, __len);
   __cil_tmp108 = (unsigned long )client;
   __cil_tmp109 = __cil_tmp108 + 463;
   __cil_tmp110 = (unsigned long )client;

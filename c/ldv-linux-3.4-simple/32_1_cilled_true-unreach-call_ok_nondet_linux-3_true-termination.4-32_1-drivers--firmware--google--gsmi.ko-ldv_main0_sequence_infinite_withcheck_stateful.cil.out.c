@@ -4100,7 +4100,7 @@ static efi_status_t gsmi_get_variable(efi_char16_t *name , efi_guid_t *vendor , 
     __cil_tmp116 = (efi_guid_t *)__cil_tmp115;
     __cil_tmp117 = (void *)__cil_tmp116;
     __cil_tmp118 = (void const   *)vendor;
-    __ret = __builtin_memcpy(__cil_tmp117, __cil_tmp118, __len);
+    __ret = memcpy(__cil_tmp117, __cil_tmp118, __len);
     }
   }
   {
@@ -4120,7 +4120,7 @@ static efi_status_t gsmi_get_variable(efi_char16_t *name , efi_guid_t *vendor , 
   __cil_tmp130 = *((u8 **)__cil_tmp129);
   __cil_tmp131 = (void *)__cil_tmp130;
   __cil_tmp132 = (void const   *)name;
-  __ret___0 = __builtin_memcpy(__cil_tmp131, __cil_tmp132, __len___0);
+  __ret___0 = memcpy(__cil_tmp131, __cil_tmp132, __len___0);
   __cil_tmp133 = (unsigned long )(& gsmi_dev) + 16;
   __cil_tmp134 = *((struct gsmi_buf **)__cil_tmp133);
   __cil_tmp135 = *((u8 **)__cil_tmp134);
@@ -4159,7 +4159,7 @@ static efi_status_t gsmi_get_variable(efi_char16_t *name , efi_guid_t *vendor , 
     __cil_tmp158 = *((u8 **)__cil_tmp157);
     __cil_tmp159 = (void *)__cil_tmp158;
     __cil_tmp160 = (void const   *)(& param);
-    __ret___1 = __builtin_memcpy(__cil_tmp159, __cil_tmp160, __len___1);
+    __ret___1 = memcpy(__cil_tmp159, __cil_tmp160, __len___1);
     }
   }
   {
@@ -4195,7 +4195,7 @@ static efi_status_t gsmi_get_variable(efi_char16_t *name , efi_guid_t *vendor , 
       __cil_tmp172 = *((struct gsmi_buf **)__cil_tmp171);
       __cil_tmp173 = *((u8 **)__cil_tmp172);
       __cil_tmp174 = (void const   *)__cil_tmp173;
-      __ret___2 = __builtin_memcpy(__cil_tmp170, __cil_tmp174, __len___2);
+      __ret___2 = memcpy(__cil_tmp170, __cil_tmp174, __len___2);
       }
     }
     __min1 = *data_size;
@@ -4226,7 +4226,7 @@ static efi_status_t gsmi_get_variable(efi_char16_t *name , efi_guid_t *vendor , 
     __cil_tmp182 = *((struct gsmi_buf **)__cil_tmp181);
     __cil_tmp183 = *((u8 **)__cil_tmp182);
     __cil_tmp184 = (void const   *)__cil_tmp183;
-    __ret___3 = __builtin_memcpy(data, __cil_tmp184, __len___3);
+    __ret___3 = memcpy(data, __cil_tmp184, __len___3);
     *attr = (u32 )7;
     }
   }
@@ -4526,7 +4526,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
     __cil_tmp94 = (u8 (*)[16])__cil_tmp93;
     __cil_tmp95 = (void *)__cil_tmp94;
     __cil_tmp96 = (void const   *)vendor;
-    __ret = __builtin_memcpy(__cil_tmp95, __cil_tmp96, __len);
+    __ret = memcpy(__cil_tmp95, __cil_tmp96, __len);
     }
   }
   {
@@ -4536,7 +4536,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
   __cil_tmp99 = *((u8 **)__cil_tmp98);
   __cil_tmp100 = (void *)__cil_tmp99;
   __cil_tmp101 = (void const   *)name;
-  __ret___0 = __builtin_memcpy(__cil_tmp100, __cil_tmp101, __len___0);
+  __ret___0 = memcpy(__cil_tmp100, __cil_tmp101, __len___0);
   __cil_tmp102 = (unsigned long )(& gsmi_dev) + 24;
   __cil_tmp103 = *((struct gsmi_buf **)__cil_tmp102);
   __cil_tmp104 = *((u8 **)__cil_tmp103);
@@ -4565,7 +4565,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
     __cil_tmp118 = *((u8 **)__cil_tmp117);
     __cil_tmp119 = (void *)__cil_tmp118;
     __cil_tmp120 = (void const   *)(& param);
-    __ret___1 = __builtin_memcpy(__cil_tmp119, __cil_tmp120, __len___1);
+    __ret___1 = memcpy(__cil_tmp119, __cil_tmp120, __len___1);
     }
   }
   {
@@ -4601,7 +4601,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
       __cil_tmp132 = *((struct gsmi_buf **)__cil_tmp131);
       __cil_tmp133 = *((u8 **)__cil_tmp132);
       __cil_tmp134 = (void const   *)__cil_tmp133;
-      __ret___2 = __builtin_memcpy(__cil_tmp130, __cil_tmp134, __len___2);
+      __ret___2 = memcpy(__cil_tmp130, __cil_tmp134, __len___2);
       }
     }
     __len___3 = (size_t )1024;
@@ -4621,7 +4621,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
       __cil_tmp142 = *((struct gsmi_buf **)__cil_tmp141);
       __cil_tmp143 = *((u8 **)__cil_tmp142);
       __cil_tmp144 = (void const   *)__cil_tmp143;
-      __ret___3 = __builtin_memcpy(__cil_tmp140, __cil_tmp144, __len___3);
+      __ret___3 = memcpy(__cil_tmp140, __cil_tmp144, __len___3);
       }
     }
     {
@@ -4643,7 +4643,7 @@ static efi_status_t gsmi_get_next_variable(unsigned long *name_size , efi_char16
       __cil_tmp150 = & param;
       __cil_tmp151 = (u8 (*)[16])__cil_tmp150;
       __cil_tmp152 = (void const   *)__cil_tmp151;
-      __ret___4 = __builtin_memcpy(__cil_tmp149, __cil_tmp152, __len___4);
+      __ret___4 = memcpy(__cil_tmp149, __cil_tmp152, __len___4);
       }
     }
     ret = (efi_status_t )0;
@@ -4958,7 +4958,7 @@ static efi_status_t gsmi_set_variable(efi_char16_t *name , efi_guid_t *vendor , 
     __cil_tmp107 = (efi_guid_t *)__cil_tmp106;
     __cil_tmp108 = (void *)__cil_tmp107;
     __cil_tmp109 = (void const   *)vendor;
-    __ret = __builtin_memcpy(__cil_tmp108, __cil_tmp109, __len);
+    __ret = memcpy(__cil_tmp108, __cil_tmp109, __len);
     }
   }
   {
@@ -4978,7 +4978,7 @@ static efi_status_t gsmi_set_variable(efi_char16_t *name , efi_guid_t *vendor , 
   __cil_tmp121 = *((u8 **)__cil_tmp120);
   __cil_tmp122 = (void *)__cil_tmp121;
   __cil_tmp123 = (void const   *)name;
-  __ret___0 = __builtin_memcpy(__cil_tmp122, __cil_tmp123, __len___0);
+  __ret___0 = memcpy(__cil_tmp122, __cil_tmp123, __len___0);
   __cil_tmp124 = (unsigned long )(& gsmi_dev) + 16;
   __cil_tmp125 = *((struct gsmi_buf **)__cil_tmp124);
   __cil_tmp126 = *((u8 **)__cil_tmp125);
@@ -4995,7 +4995,7 @@ static efi_status_t gsmi_set_variable(efi_char16_t *name , efi_guid_t *vendor , 
   __cil_tmp135 = *((u8 **)__cil_tmp134);
   __cil_tmp136 = (void *)__cil_tmp135;
   __cil_tmp137 = (void const   *)data;
-  __ret___1 = __builtin_memcpy(__cil_tmp136, __cil_tmp137, __len___1);
+  __ret___1 = memcpy(__cil_tmp136, __cil_tmp137, __len___1);
   __cil_tmp138 = (unsigned long )(& gsmi_dev) + 24;
   __cil_tmp139 = *((struct gsmi_buf **)__cil_tmp138);
   __cil_tmp140 = *((u8 **)__cil_tmp139);
@@ -5024,7 +5024,7 @@ static efi_status_t gsmi_set_variable(efi_char16_t *name , efi_guid_t *vendor , 
     __cil_tmp154 = *((u8 **)__cil_tmp153);
     __cil_tmp155 = (void *)__cil_tmp154;
     __cil_tmp156 = (void const   *)(& param);
-    __ret___2 = __builtin_memcpy(__cil_tmp155, __cil_tmp156, __len___2);
+    __ret___2 = memcpy(__cil_tmp155, __cil_tmp156, __len___2);
     }
   }
   {
@@ -5194,7 +5194,7 @@ static ssize_t eventlog_write(struct file *filp , struct kobject *kobj , struct 
   __cil_tmp48 = *((u8 **)__cil_tmp47);
   __cil_tmp49 = (void *)__cil_tmp48;
   __cil_tmp50 = (void const   *)buf;
-  __ret = __builtin_memcpy(__cil_tmp49, __cil_tmp50, __len);
+  __ret = memcpy(__cil_tmp49, __cil_tmp50, __len);
   __cil_tmp51 = (unsigned long )(& gsmi_dev) + 24;
   __cil_tmp52 = *((struct gsmi_buf **)__cil_tmp51);
   __cil_tmp53 = *((u8 **)__cil_tmp52);
@@ -5223,7 +5223,7 @@ static ssize_t eventlog_write(struct file *filp , struct kobject *kobj , struct 
     __cil_tmp67 = *((u8 **)__cil_tmp66);
     __cil_tmp68 = (void *)__cil_tmp67;
     __cil_tmp69 = (void const   *)(& param);
-    __ret___0 = __builtin_memcpy(__cil_tmp68, __cil_tmp69, __len___0);
+    __ret___0 = memcpy(__cil_tmp68, __cil_tmp69, __len___0);
     }
   }
   {
@@ -5367,7 +5367,7 @@ static ssize_t gsmi_clear_eventlog_store(struct kobject *kobj , struct kobj_attr
     __cil_tmp38 = *((u8 **)__cil_tmp37);
     __cil_tmp39 = (void *)__cil_tmp38;
     __cil_tmp40 = (void const   *)(& param);
-    __ret = __builtin_memcpy(__cil_tmp39, __cil_tmp40, __len);
+    __ret = memcpy(__cil_tmp39, __cil_tmp40, __len);
     }
   }
   {
@@ -5598,7 +5598,7 @@ static int gsmi_shutdown_reason(int reason )
     __cil_tmp38 = *((u8 **)__cil_tmp37);
     __cil_tmp39 = (void *)__cil_tmp38;
     __cil_tmp40 = (void const   *)(& entry);
-    __ret = __builtin_memcpy(__cil_tmp39, __cil_tmp40, __len);
+    __ret = memcpy(__cil_tmp39, __cil_tmp40, __len);
     }
   }
   {
@@ -5636,7 +5636,7 @@ static int gsmi_shutdown_reason(int reason )
     __cil_tmp62 = *((u8 **)__cil_tmp61);
     __cil_tmp63 = (void *)__cil_tmp62;
     __cil_tmp64 = (void const   *)(& param);
-    __ret___0 = __builtin_memcpy(__cil_tmp63, __cil_tmp64, __len___0);
+    __ret___0 = memcpy(__cil_tmp63, __cil_tmp64, __len___0);
     }
   }
   {
@@ -5752,7 +5752,7 @@ static u32 hash_oem_table_id(char *s )
     {
     __cil_tmp8 = (void *)(& input);
     __cil_tmp9 = (void const   *)s;
-    __ret = __builtin_memcpy(__cil_tmp8, __cil_tmp9, __len);
+    __ret = memcpy(__cil_tmp8, __cil_tmp9, __len);
     }
   }
   {

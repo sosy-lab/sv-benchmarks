@@ -6330,6 +6330,7 @@ __inline static void finish_buffer(struct em28xx *dev , struct em28xx_buffer *bu
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void em28xx_copy_video(struct em28xx *dev , struct em28xx_buffer *buf , unsigned char *usb_buf ,
                               unsigned long len ) 
 { 
@@ -6389,7 +6390,7 @@ static void em28xx_copy_video(struct em28xx *dev , struct em28xx_buffer *buf , u
 
   }
   __len = (size_t )lencopy;
-  __ret = __builtin_memcpy(startwrite, (void const   *)startread, __len);
+  __ret = memcpy(startwrite, (void const   *)startread, __len);
   remain = remain - lencopy;
   goto ldv_34853;
   ldv_34852: ;
@@ -6422,7 +6423,7 @@ static void em28xx_copy_video(struct em28xx *dev , struct em28xx_buffer *buf , u
 
   }
   __len___0 = (size_t )lencopy;
-  __ret___0 = __builtin_memcpy(startwrite, (void const   *)startread, __len___0);
+  __ret___0 = memcpy(startwrite, (void const   *)startread, __len___0);
   remain = remain - lencopy;
   ldv_34853: ;
   if (remain > 0) {
@@ -6455,7 +6456,7 @@ static void em28xx_copy_vbi(struct em28xx *dev , struct em28xx_buffer *buf , uns
 
   }
   __len = len;
-  __ret = __builtin_memcpy((void *)buf->vb_buf + (unsigned long )offset, (void const   *)usb_buf,
+  __ret = memcpy((void *)buf->vb_buf + (unsigned long )offset, (void const   *)usb_buf,
                            __len);
   buf->pos = buf->pos + (unsigned int )len;
   return;
@@ -14260,7 +14261,7 @@ int em28xx_read_reg_req_len(struct em28xx *dev , u8 req , u16 reg , char *buf , 
   }
   if (len != 0) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& dev->urb_buf), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& dev->urb_buf), __len);
   } else {
 
   }
@@ -14353,7 +14354,7 @@ int em28xx_write_regs_req(struct em28xx *dev , u8 req , u16 reg , char *buf , in
   }
   ldv_mutex_lock_79(& dev->ctrl_urb_lock);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& dev->urb_buf), (void const   *)buf, __len);
+  __ret = memcpy((void *)(& dev->urb_buf), (void const   *)buf, __len);
   ret = usb_control_msg(dev->udev, (unsigned int )pipe, (int )req, 64, 0, (int )reg,
                         (void *)(& dev->urb_buf), (int )((__u16 )len), 250);
   ldv_mutex_unlock_80(& dev->ctrl_urb_lock);

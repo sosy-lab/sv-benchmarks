@@ -4226,12 +4226,12 @@ static int transfer_none(struct loop_device *lo , int cmd , struct page *raw_pag
   if (cmd == 0) {
     {
     __len = (size_t )size;
-    __ret = __builtin_memcpy((void *)loop_buf, (void const *)raw_buf, __len);
+    __ret = memcpy((void *)loop_buf, (void const *)raw_buf, __len);
     }
   } else {
     {
     __len___0 = (size_t )size;
-    __ret___0 = __builtin_memcpy((void *)raw_buf, (void const *)loop_buf, __len___0);
+    __ret___0 = memcpy((void *)raw_buf, (void const *)loop_buf, __len___0);
     }
   }
   {
@@ -5958,7 +5958,7 @@ static int loop_set_status(struct loop_device *lo , struct loop_info64 const *in
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& lo->lo_file_name), (void const *)(& info->lo_file_name),
+    __ret = memcpy((void *)(& lo->lo_file_name), (void const *)(& info->lo_file_name),
                              __len);
     }
   }
@@ -5970,7 +5970,7 @@ static int loop_set_status(struct loop_device *lo , struct loop_info64 const *in
     }
   } else {
     {
-    __ret___0 = __builtin_memcpy((void *)(& lo->lo_crypt_name), (void const *)(& info->lo_crypt_name),
+    __ret___0 = memcpy((void *)(& lo->lo_crypt_name), (void const *)(& info->lo_crypt_name),
                                  __len___0);
     }
   }
@@ -5994,7 +5994,7 @@ static int loop_set_status(struct loop_device *lo , struct loop_info64 const *in
   if ((unsigned int )info->lo_encrypt_key_size != 0U) {
     {
     __len___1 = (size_t )info->lo_encrypt_key_size;
-    __ret___1 = __builtin_memcpy((void *)(& lo->lo_encrypt_key), (void const *)(& info->lo_encrypt_key),
+    __ret___1 = memcpy((void *)(& lo->lo_encrypt_key), (void const *)(& info->lo_encrypt_key),
                                  __len___1);
     lo->lo_key_owner = uid;
     }
@@ -6057,7 +6057,7 @@ static int loop_get_status(struct loop_device *lo , struct loop_info64 *info )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& info->lo_file_name), (void const *)(& lo->lo_file_name),
+    __ret = memcpy((void *)(& info->lo_file_name), (void const *)(& lo->lo_file_name),
                              __len);
     }
   }
@@ -6069,7 +6069,7 @@ static int loop_get_status(struct loop_device *lo , struct loop_info64 *info )
     }
   } else {
     {
-    __ret___0 = __builtin_memcpy((void *)(& info->lo_crypt_name), (void const *)(& lo->lo_crypt_name),
+    __ret___0 = memcpy((void *)(& info->lo_crypt_name), (void const *)(& lo->lo_crypt_name),
                                  __len___0);
     }
   }
@@ -6086,7 +6086,7 @@ static int loop_get_status(struct loop_device *lo , struct loop_info64 *info )
       {
       info->lo_encrypt_key_size = (__u32 )lo->lo_encrypt_key_size;
       __len___1 = (size_t )lo->lo_encrypt_key_size;
-      __ret___1 = __builtin_memcpy((void *)(& info->lo_encrypt_key), (void const *)(& lo->lo_encrypt_key),
+      __ret___1 = memcpy((void *)(& info->lo_encrypt_key), (void const *)(& lo->lo_encrypt_key),
                                    __len___1);
       }
     } else {
@@ -6130,7 +6130,7 @@ static void loop_info64_from_old(struct loop_info const *info , struct loop_info
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& info64->lo_crypt_name), (void const *)(& info->lo_name),
+      __ret = memcpy((void *)(& info64->lo_crypt_name), (void const *)(& info->lo_name),
                                __len);
       }
     }
@@ -6143,7 +6143,7 @@ static void loop_info64_from_old(struct loop_info const *info , struct loop_info
       }
     } else {
       {
-      __ret___0 = __builtin_memcpy((void *)(& info64->lo_file_name), (void const *)(& info->lo_name),
+      __ret___0 = memcpy((void *)(& info64->lo_file_name), (void const *)(& info->lo_name),
                                    __len___0);
       }
     }
@@ -6156,7 +6156,7 @@ static void loop_info64_from_old(struct loop_info const *info , struct loop_info
     }
   } else {
     {
-    __ret___1 = __builtin_memcpy((void *)(& info64->lo_encrypt_key), (void const *)(& info->lo_encrypt_key),
+    __ret___1 = memcpy((void *)(& info64->lo_encrypt_key), (void const *)(& info->lo_encrypt_key),
                                  __len___1);
     }
   }
@@ -6194,7 +6194,7 @@ static int loop_info64_to_old(struct loop_info64 const *info64 , struct loop_inf
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& info->lo_name), (void const *)(& info64->lo_crypt_name),
+      __ret = memcpy((void *)(& info->lo_name), (void const *)(& info64->lo_crypt_name),
                                __len);
       }
     }
@@ -6207,7 +6207,7 @@ static int loop_info64_to_old(struct loop_info64 const *info64 , struct loop_inf
       }
     } else {
       {
-      __ret___0 = __builtin_memcpy((void *)(& info->lo_name), (void const *)(& info64->lo_file_name),
+      __ret___0 = memcpy((void *)(& info->lo_name), (void const *)(& info64->lo_file_name),
                                    __len___0);
       }
     }
@@ -6220,7 +6220,7 @@ static int loop_info64_to_old(struct loop_info64 const *info64 , struct loop_inf
     }
   } else {
     {
-    __ret___1 = __builtin_memcpy((void *)(& info->lo_encrypt_key), (void const *)(& info64->lo_encrypt_key),
+    __ret___1 = memcpy((void *)(& info->lo_encrypt_key), (void const *)(& info64->lo_encrypt_key),
                                  __len___1);
     }
   }
@@ -6559,7 +6559,7 @@ static int loop_info64_from_compat(struct compat_loop_info const *arg , struct l
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& info64->lo_crypt_name), (void const *)(& info.lo_name),
+      __ret = memcpy((void *)(& info64->lo_crypt_name), (void const *)(& info.lo_name),
                                __len);
       }
     }
@@ -6572,7 +6572,7 @@ static int loop_info64_from_compat(struct compat_loop_info const *arg , struct l
       }
     } else {
       {
-      __ret___0 = __builtin_memcpy((void *)(& info64->lo_file_name), (void const *)(& info.lo_name),
+      __ret___0 = memcpy((void *)(& info64->lo_file_name), (void const *)(& info.lo_name),
                                    __len___0);
       }
     }
@@ -6585,7 +6585,7 @@ static int loop_info64_from_compat(struct compat_loop_info const *arg , struct l
     }
   } else {
     {
-    __ret___1 = __builtin_memcpy((void *)(& info64->lo_encrypt_key), (void const *)(& info.lo_encrypt_key),
+    __ret___1 = memcpy((void *)(& info64->lo_encrypt_key), (void const *)(& info.lo_encrypt_key),
                                  __len___1);
     }
   }
@@ -6625,7 +6625,7 @@ static int loop_info64_to_compat(struct loop_info64 const *info64 , struct compa
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& info.lo_name), (void const *)(& info64->lo_crypt_name),
+      __ret = memcpy((void *)(& info.lo_name), (void const *)(& info64->lo_crypt_name),
                                __len);
       }
     }
@@ -6638,7 +6638,7 @@ static int loop_info64_to_compat(struct loop_info64 const *info64 , struct compa
       }
     } else {
       {
-      __ret___0 = __builtin_memcpy((void *)(& info.lo_name), (void const *)(& info64->lo_file_name),
+      __ret___0 = memcpy((void *)(& info.lo_name), (void const *)(& info64->lo_file_name),
                                    __len___0);
       }
     }
@@ -6651,7 +6651,7 @@ static int loop_info64_to_compat(struct loop_info64 const *info64 , struct compa
     }
   } else {
     {
-    __ret___1 = __builtin_memcpy((void *)(& info.lo_encrypt_key), (void const *)(& info64->lo_encrypt_key),
+    __ret___1 = memcpy((void *)(& info.lo_encrypt_key), (void const *)(& info64->lo_encrypt_key),
                                  __len___1);
     }
   }

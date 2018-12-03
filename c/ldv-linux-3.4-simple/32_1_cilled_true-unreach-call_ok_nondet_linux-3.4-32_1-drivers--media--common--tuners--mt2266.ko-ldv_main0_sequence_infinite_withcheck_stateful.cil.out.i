@@ -4395,7 +4395,7 @@ struct dvb_frontend *mt2266_attach(struct dvb_frontend *fe , struct i2c_adapter 
     __cil_tmp37 = (struct dvb_tuner_ops *)__cil_tmp36;
     __cil_tmp38 = (void *)__cil_tmp37;
     __cil_tmp39 = (void const *)(& mt2266_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp38, __cil_tmp39, __len);
+    __ret = memcpy(__cil_tmp38, __cil_tmp39, __len);
     }
   }
   {

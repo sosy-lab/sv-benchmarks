@@ -5302,7 +5302,7 @@ static void znet_set_multicast_list(struct net_device *dev )
   if (__len > 63UL) {
     __ret = memcpy((void *)znet->tx_cur, (void const   *)cfblk, __len);
   } else {
-    __ret = __builtin_memcpy((void *)znet->tx_cur, (void const   *)cfblk, __len);
+    __ret = memcpy((void *)znet->tx_cur, (void const   *)cfblk, __len);
   }
   znet->tx_cur = znet->tx_cur + 8UL;
   outb(18, (int )ioaddr);
@@ -5631,15 +5631,15 @@ static netdev_tx_t znet_send_packet(struct sk_buff *skb , struct net_device *dev
   if ((unsigned long )(znet->tx_cur + ((unsigned long )rnd_len + 1UL)) > (unsigned long )znet->tx_end) {
     semi_cnt = (int )(((long )znet->tx_end - (long )znet->tx_cur) / 2L << 1);
     __len = (size_t )semi_cnt;
-    __ret = __builtin_memcpy((void *)znet->tx_cur, (void const   *)buf, __len);
+    __ret = memcpy((void *)znet->tx_cur, (void const   *)buf, __len);
     rnd_len = (int )rnd_len - (int )((ushort )(semi_cnt >> 1));
     __len___0 = (size_t )((int )length - semi_cnt);
-    __ret___0 = __builtin_memcpy((void *)znet->tx_start, (void const   *)buf + (unsigned long )semi_cnt,
+    __ret___0 = memcpy((void *)znet->tx_start, (void const   *)buf + (unsigned long )semi_cnt,
                                  __len___0);
     znet->tx_cur = znet->tx_start + (unsigned long )rnd_len;
   } else {
     __len___1 = (size_t )skb->len;
-    __ret___1 = __builtin_memcpy((void *)znet->tx_cur, (void const   *)buf, __len___1);
+    __ret___1 = memcpy((void *)znet->tx_cur, (void const   *)buf, __len___1);
     znet->tx_cur = znet->tx_cur + (unsigned long )rnd_len;
   }
   tmp___5 = znet->tx_cur;
@@ -5828,7 +5828,7 @@ static void znet_rx(struct net_device *dev )
     if (__len > 63UL) {
       __ret = memcpy((void *)znet->rx_end, (void const   *)znet->rx_start, __len);
     } else {
-      __ret = __builtin_memcpy((void *)znet->rx_end, (void const   *)znet->rx_start,
+      __ret = memcpy((void *)znet->rx_end, (void const   *)znet->rx_start,
                                __len);
     }
     cur_frame_end_offset = (short )((unsigned int )((unsigned short )cur_frame_end_offset) + 4096U);
@@ -5931,16 +5931,16 @@ static void znet_rx(struct net_device *dev )
       semi_cnt = (int )(((long )znet->rx_end - (long )znet->rx_cur) / 2L << 1);
       __len___0 = (size_t )semi_cnt;
       tmp___6 = skb_put(skb, (unsigned int )semi_cnt);
-      __ret___0 = __builtin_memcpy((void *)tmp___6, (void const   *)znet->rx_cur,
+      __ret___0 = memcpy((void *)tmp___6, (void const   *)znet->rx_cur,
                                    __len___0);
       __len___1 = (size_t )(pkt_len - semi_cnt);
       tmp___8 = skb_put(skb, (unsigned int )(pkt_len - semi_cnt));
-      __ret___1 = __builtin_memcpy((void *)tmp___8, (void const   *)znet->rx_start,
+      __ret___1 = memcpy((void *)tmp___8, (void const   *)znet->rx_start,
                                    __len___1);
     } else {
       __len___2 = (size_t )pkt_len;
       tmp___10 = skb_put(skb, (unsigned int )pkt_len);
-      __ret___2 = __builtin_memcpy((void *)tmp___10, (void const   *)znet->rx_cur,
+      __ret___2 = memcpy((void *)tmp___10, (void const   *)znet->rx_cur,
                                    __len___2);
       if (znet_debug > 6U) {
         packet = (unsigned int *)skb->data;
@@ -6094,7 +6094,7 @@ static void hardware_init(struct net_device *dev )
   if (__len > 63UL) {
     __ret = memcpy((void *)znet->tx_cur, (void const   *)dev->dev_addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)znet->tx_cur, (void const   *)dev->dev_addr,
+    __ret = memcpy((void *)znet->tx_cur, (void const   *)dev->dev_addr,
                              __len);
   }
   znet->tx_cur = znet->tx_cur + 3UL;

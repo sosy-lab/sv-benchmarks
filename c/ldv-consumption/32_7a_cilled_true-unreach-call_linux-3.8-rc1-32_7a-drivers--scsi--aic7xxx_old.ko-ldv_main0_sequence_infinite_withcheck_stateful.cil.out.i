@@ -8459,7 +8459,7 @@ static void aic7xxx_handle_seqint(struct aic7xxx_host *p , unsigned char intstat
         __ret = memcpy((void *)scb->sense_cmd, (void const *)(& generic_sense),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)scb->sense_cmd, (void const *)(& generic_sense),
+        __ret = memcpy((void *)scb->sense_cmd, (void const *)(& generic_sense),
                                  __len);
       }
       *(scb->sense_cmd + 1UL) = (int )((unsigned char )(cmd->device)->lun) << 5U;
@@ -12154,7 +12154,7 @@ static void aic7xxx_load_seeprom(struct aic7xxx_host *p , unsigned char *sxfrctl
     if (__len > 63UL) {
       __ret = memcpy((void *)(& p->sc), (void const *)sc, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& p->sc), (void const *)sc, __len);
+      __ret = memcpy((void *)(& p->sc), (void const *)sc, __len);
     }
   }
   p->discenable = 0U;
@@ -14768,7 +14768,7 @@ int aic7xxx_proc_info(struct Scsi_Host *HBAptr , char *buffer , char **start , o
     __min2 = (int )((unsigned int )size - (unsigned int )offset);
     length = __min1 < __min2 ? __min1 : __min2;
     __len = (size_t )length;
-    __ret = __builtin_memcpy((void *)buffer, (void const *)aic7xxx_buffer + (unsigned long )offset,
+    __ret = memcpy((void *)buffer, (void const *)aic7xxx_buffer + (unsigned long )offset,
                              __len);
   }
   return (length);

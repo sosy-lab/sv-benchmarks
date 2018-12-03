@@ -10740,7 +10740,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
   }
   return;
@@ -12375,14 +12375,14 @@ int zd_mac_rx(struct ieee80211_hw *hw , u8 const   *buffer , unsigned int length
   }
   __len = (size_t )length;
   tmp___6 = skb_put(skb, length);
-  __ret = __builtin_memcpy((void *)tmp___6, (void const   *)buffer, __len);
+  __ret = memcpy((void *)tmp___6, (void const   *)buffer, __len);
   __len___0 = 40UL;
   if (__len___0 > 63UL) {
     tmp___7 = IEEE80211_SKB_RXCB(skb);
     __ret___0 = memcpy((void *)tmp___7, (void const   *)(& stats), __len___0);
   } else {
     tmp___8 = IEEE80211_SKB_RXCB(skb);
-    __ret___0 = __builtin_memcpy((void *)tmp___8, (void const   *)(& stats), __len___0);
+    __ret___0 = memcpy((void *)tmp___8, (void const   *)(& stats), __len___0);
   }
   ieee80211_rx_irqsafe(hw, skb);
   return (0);
@@ -12726,14 +12726,14 @@ struct ieee80211_hw *zd_mac_alloc_hw(struct usb_interface *intf )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mac->channels), (void const   *)(& zd_channels), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mac->channels), (void const   *)(& zd_channels),
+    __ret = memcpy((void *)(& mac->channels), (void const   *)(& zd_channels),
                              __len);
   }
   __len___0 = 144UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& mac->rates), (void const   *)(& zd_rates), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& mac->rates), (void const   *)(& zd_rates),
+    __ret___0 = memcpy((void *)(& mac->rates), (void const   *)(& zd_rates),
                                  __len___0);
   }
   mac->band.n_bitrates = 12;
@@ -17127,7 +17127,7 @@ static int upload_code(struct usb_device *udev , u8 const   *data , size_t size 
   dev_printk("\017", (struct device  const  *)(& udev->dev), "%s() transfer size %zu\n",
              "upload_code", transfer_size);
   __len = transfer_size;
-  __ret = __builtin_memcpy((void *)p, (void const   *)data, __len);
+  __ret = memcpy((void *)p, (void const   *)data, __len);
   tmp___0 = __create_pipe(udev, 0U);
   r = usb_control_msg(udev, tmp___0 | 2147483648U, 48, 64, (int )code_offset, 0, (void *)p,
                       (int )((__u16 )transfer_size), 1000);
@@ -17344,7 +17344,7 @@ int zd_usb_read_fw(struct zd_usb *usb , zd_addr_t addr , u8 *data , u16 len )
   }
   r = 0;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)data, (void const   *)buf, __len);
+  __ret = memcpy((void *)data, (void const   *)buf, __len);
   exit: 
   kfree((void const   *)buf);
   return (r);
@@ -17429,7 +17429,7 @@ __inline static void handle_regs_int(struct urb *urb )
       __ret = memcpy((void *)(& mac->intr_buffer), (void const   *)urb->transfer_buffer,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& mac->intr_buffer), (void const   *)urb->transfer_buffer,
+      __ret = memcpy((void *)(& mac->intr_buffer), (void const   *)urb->transfer_buffer,
                                __len);
     }
     spin_unlock(& mac->lock);
@@ -17445,7 +17445,7 @@ __inline static void handle_regs_int(struct urb *urb )
 
       }
       __len___0 = (size_t )len;
-      __ret___0 = __builtin_memcpy((void *)(& intr->read_regs.buffer), (void const   *)urb->transfer_buffer,
+      __ret___0 = memcpy((void *)(& intr->read_regs.buffer), (void const   *)urb->transfer_buffer,
                                    __len___0);
       tmp___4 = check_read_regs(usb, intr->read_regs.req, intr->read_regs.req_count);
       if (tmp___4) {
@@ -17844,7 +17844,7 @@ static void rx_urb_complete(struct urb *urb )
     }
     spin_lock(& rx->lock);
     __len = (size_t )length;
-    __ret = __builtin_memcpy((void *)(& rx->fragment), (void const   *)buffer, __len);
+    __ret = memcpy((void *)(& rx->fragment), (void const   *)buffer, __len);
     rx->fragment_length = length;
     spin_unlock(& rx->lock);
     goto resubmit;
@@ -17875,7 +17875,7 @@ static void rx_urb_complete(struct urb *urb )
     dev_printk("\017", (struct device  const  *)(& (urb->dev)->dev), "%s() *** second fragment ***\n",
                "rx_urb_complete");
     __len___0 = (size_t )length;
-    __ret___0 = __builtin_memcpy((void *)(& rx->fragment) + (unsigned long )rx->fragment_length,
+    __ret___0 = memcpy((void *)(& rx->fragment) + (unsigned long )rx->fragment_length,
                                  (void const   *)buffer, __len___0);
     handle_rx_packet(usb, (u8 const   *)(& rx->fragment), rx->fragment_length + length);
     rx->fragment_length = 0U;

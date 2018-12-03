@@ -5410,7 +5410,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
     if (__len > 63UL) {
       __ret = memcpy((void *)pkt, (void const *)pkthdr, __len);
     } else {
-      __ret = __builtin_memcpy((void *)pkt, (void const *)pkthdr, __len);
+      __ret = memcpy((void *)pkt, (void const *)pkthdr, __len);
     }
     if ((unsigned int )length > 16U) {
       (*(lp->hw.copy_from_card))(dev, bufnum, (int )((unsigned int )ofs + 16U), (void *)(& pkt->soft.raw) + 16U,
@@ -5509,7 +5509,7 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
       if (__len___0 > 63UL) {
         __ret___0 = memcpy((void *)pkt, (void const *)pkthdr, __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)pkt, (void const *)pkthdr, __len___0);
+        __ret___0 = memcpy((void *)pkt, (void const *)pkthdr, __len___0);
       }
       skb_put(skb, 8U);
       soft->split_flag = 0U;

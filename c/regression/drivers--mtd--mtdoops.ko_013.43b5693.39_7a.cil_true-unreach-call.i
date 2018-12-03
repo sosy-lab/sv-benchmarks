@@ -1687,7 +1687,7 @@ struct mtdoops_context {
    int writecount ;
 };
 typedef int ldv_func_ret_type___1;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
 extern int oops_in_progress ;
 extern void *memset(void * , int  , size_t  ) ;
@@ -2261,7 +2261,7 @@ static void mtdoops_console_write(struct console *co , char const   *s , unsigne
 
   }
   __len = (size_t )count;
-  __ret = __builtin_memcpy(cxt->oops_buf + (unsigned long )cxt->writecount, (void const   *)s,
+  __ret = memcpy(cxt->oops_buf + (unsigned long )cxt->writecount, (void const   *)s,
                            __len);
   cxt->writecount = (int )((unsigned int )cxt->writecount + count);
   ldv___ldv_spin_unlock_13(& cxt->writecount_lock);

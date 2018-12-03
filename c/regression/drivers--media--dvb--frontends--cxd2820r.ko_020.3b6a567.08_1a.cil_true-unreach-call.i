@@ -3096,7 +3096,7 @@ struct reg_val_mask {
 };
 enum hrtimer_restart;
 enum hrtimer_restart;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 void *__builtin_alloca(unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
@@ -3202,7 +3202,7 @@ static int cxd2820r_wr_regs_i2c(struct cxd2820r_priv *priv , u8 i2c , u8 reg , u
   msg[0].buf = (__u8 *)(& buf);
   *(buf + 0) = reg;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& buf) + 1U, (void const   *)val, __len);
+  __ret = memcpy((void *)(& buf) + 1U, (void const   *)val, __len);
   ret = i2c_transfer(priv->i2c, (struct i2c_msg *)(& msg), 1);
   if (ret == 1) {
     ret = 0;
@@ -3240,7 +3240,7 @@ static int cxd2820r_rd_regs_i2c(struct cxd2820r_priv *priv , u8 i2c , u8 reg , u
   ret = i2c_transfer(priv->i2c, (struct i2c_msg *)(& msg), 2);
   if (ret == 2) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)val, (void const   *)(& buf), __len);
+    __ret = memcpy((void *)val, (void const   *)(& buf), __len);
     ret = 0;
   } else {
     printk("<4>cxd2820r: i2c rd failed ret:%d reg:%02x len:%d\n", ret, (int )reg,
@@ -3453,7 +3453,7 @@ int cxd2820r_gpio(struct dvb_frontend *fe )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& priv->gpio), (void const   *)gpio, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->gpio), (void const   *)gpio, __len);
+    __ret = memcpy((void *)(& priv->gpio), (void const   *)gpio, __len);
   }
   return (ret);
   error: ;
@@ -4090,7 +4090,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
   if (__len > 63UL) {
     __ret = memcpy((void *)(& priv->cfg), (void const   *)cfg, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->cfg), (void const   *)cfg, __len);
+    __ret = memcpy((void *)(& priv->cfg), (void const   *)cfg, __len);
   }
   tmp___1 = 255U;
   priv->bank[1] = tmp___1;
@@ -4111,7 +4111,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     __ret___0 = memcpy((void *)(& priv->fe.ops), (void const   *)(& cxd2820r_ops),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& priv->fe.ops), (void const   *)(& cxd2820r_ops),
+    __ret___0 = memcpy((void *)(& priv->fe.ops), (void const   *)(& cxd2820r_ops),
                                  __len___0);
   }
   priv->fe.demodulator_priv = (void *)priv;

@@ -4356,7 +4356,7 @@ static void __add_offloaded_reg_to_fifo(struct vub300_mmc_host *vub300 , struct 
     __ret = memcpy((void *)(& vub300->fn[(int )func].reg) + ((unsigned long )r & 15UL),
                      (void const   *)register_access, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& vub300->fn[(int )func].reg) + ((unsigned long )r & 15UL),
+    __ret = memcpy((void *)(& vub300->fn[(int )func].reg) + ((unsigned long )r & 15UL),
                              (void const   *)register_access, __len);
   }
   vub300->fn[(int )func].offload_count = (unsigned int )vub300->fn[(int )func].offload_count + 1U;
@@ -5200,7 +5200,7 @@ static void __download_offload_pseudocode(struct vub300_mmc_host *vub300 , struc
     xfer_buffer = (u8 *)tmp___4;
     if ((unsigned long )xfer_buffer != (unsigned long )((u8 *)0)) {
       __len = (size_t )interrupt_size;
-      __ret = __builtin_memcpy((void *)xfer_buffer, (void const   *)data, __len);
+      __ret = memcpy((void *)xfer_buffer, (void const   *)data, __len);
       memset((void *)xfer_buffer + (unsigned long )interrupt_size, 0, (size_t )((int )xfer_length - (int )interrupt_size));
       size = size - (int )interrupt_size;
       data = data + (unsigned long )interrupt_size;
@@ -5243,7 +5243,7 @@ static void __download_offload_pseudocode(struct vub300_mmc_host *vub300 , struc
     xfer_buffer___0 = (u8 *)tmp___9;
     if ((unsigned long )xfer_buffer___0 != (unsigned long )((u8 *)0)) {
       __len___0 = (size_t )ts;
-      __ret___0 = __builtin_memcpy((void *)xfer_buffer___0, (void const   *)data,
+      __ret___0 = memcpy((void *)xfer_buffer___0, (void const   *)data,
                                    __len___0);
       memset((void *)xfer_buffer___0 + (unsigned long )ts, 0, (size_t )((int )xfer_length___0 - (int )ts));
       size = size - (int )ts;

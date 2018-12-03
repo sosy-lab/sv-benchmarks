@@ -8380,7 +8380,7 @@ __inline static void __read_once_size(void const volatile *p , void *res , int s
   goto ldv_880;
   default:
   __asm__ volatile ("": : : "memory");
-  __builtin_memcpy(res, (void const *)p, (unsigned long )size);
+  memcpy(res, (void const *)p, (unsigned long )size);
   __asm__ volatile ("": : : "memory");
   }
   ldv_880: ;

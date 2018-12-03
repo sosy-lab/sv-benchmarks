@@ -5991,6 +5991,7 @@ static void cfv_release_used_buf(struct virtqueue *vq_tx )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static struct sk_buff *cfv_alloc_and_copy_skb(int *err , struct cfv_info *cfv , u8 *frm ,
                                               u32 frm_len )
 {
@@ -6020,7 +6021,7 @@ static struct sk_buff *cfv_alloc_and_copy_skb(int *err , struct cfv_info *cfv , 
   skb_reserve(skb, (int )((u32 )cfv->rx_hr + pad_len));
   __len = (size_t )cfpkt_len;
   tmp___0 = skb_put(skb, cfpkt_len);
-  __ret = __builtin_memcpy((void *)tmp___0, (void const *)frm + (unsigned long )cfv->rx_hr,
+  __ret = memcpy((void *)tmp___0, (void const *)frm + (unsigned long )cfv->rx_hr,
                            __len);
   return (skb);
 }

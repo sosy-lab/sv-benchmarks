@@ -2437,7 +2437,7 @@ static inline __attribute__((no_instrument_function)) void bitmap_copy(unsigned 
   *dst = *src;
  else {
   int len = (((nbits) + (8 * sizeof(long)) - 1) / (8 * sizeof(long))) * sizeof(unsigned long);
-  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = __builtin_memcpy((dst), (src), __len); __ret; });
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = memcpy((dst), (src), __len); __ret; });
  }
 }
 static inline __attribute__((no_instrument_function)) int bitmap_and(unsigned long *dst, const unsigned long *src1,
@@ -7485,12 +7485,12 @@ memset_io(volatile void *addr, unsigned char val, size_t count)
 static inline __attribute__((no_instrument_function)) void
 memcpy_fromio(void *dst, const volatile void *src, size_t count)
 {
- ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy((dst), ((const void *)src), __len); else __ret = __builtin_memcpy((dst), ((const void *)src), __len); __ret; });
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy((dst), ((const void *)src), __len); else __ret = memcpy((dst), ((const void *)src), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void
 memcpy_toio(volatile void *dst, const void *src, size_t count)
 {
- ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy(((void *)dst), (src), __len); else __ret = __builtin_memcpy(((void *)dst), (src), __len); __ret; });
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy(((void *)dst), (src), __len); else __ret = memcpy(((void *)dst), (src), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void flush_write_buffers(void)
 {
@@ -14501,9 +14501,9 @@ void do_schedule_next_timer(struct siginfo *info);
 static inline __attribute__((no_instrument_function)) void copy_siginfo(struct siginfo *to, struct siginfo *from)
 {
  if (from->si_code < 0)
-  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
+  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
  else
-  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
+  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
 }
 extern int copy_siginfo_to_user(struct siginfo *to, struct siginfo *from);
 struct task_struct;
@@ -19039,7 +19039,7 @@ static inline __attribute__((no_instrument_function)) void pmdp_set_wrprotect(st
 }
 static inline __attribute__((no_instrument_function)) void clone_pgd_range(pgd_t *dst, pgd_t *src, int count)
 {
-       ({ size_t __len = (count * sizeof(pgd_t)); void *__ret; if (__builtin_constant_p(count * sizeof(pgd_t)) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = __builtin_memcpy((dst), (src), __len); __ret; });
+       ({ size_t __len = (count * sizeof(pgd_t)); void *__ret; if (__builtin_constant_p(count * sizeof(pgd_t)) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = memcpy((dst), (src), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void pte_clear_not_present_full(struct mm_struct *mm,
            unsigned long address,
@@ -23225,26 +23225,26 @@ static inline __attribute__((no_instrument_function)) void skb_copy_from_linear_
           void *to,
           const unsigned int len)
 {
- ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data), __len); else __ret = __builtin_memcpy((to), (skb->data), __len); __ret; });
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data), __len); else __ret = memcpy((to), (skb->data), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void skb_copy_from_linear_data_offset(const struct sk_buff *skb,
           const int offset, void *to,
           const unsigned int len)
 {
- ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data + offset), __len); else __ret = __builtin_memcpy((to), (skb->data + offset), __len); __ret; });
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data + offset), __len); else __ret = memcpy((to), (skb->data + offset), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void skb_copy_to_linear_data(struct sk_buff *skb,
         const void *from,
         const unsigned int len)
 {
- ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data), (from), __len); else __ret = __builtin_memcpy((skb->data), (from), __len); __ret; });
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data), (from), __len); else __ret = memcpy((skb->data), (from), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void skb_copy_to_linear_data_offset(struct sk_buff *skb,
         const int offset,
         const void *from,
         const unsigned int len)
 {
- ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data + offset), (from), __len); else __ret = __builtin_memcpy((skb->data + offset), (from), __len); __ret; });
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data + offset), (from), __len); else __ret = memcpy((skb->data + offset), (from), __len); __ret; });
 }
 extern void skb_init(void);
 static inline __attribute__((no_instrument_function)) ktime_t skb_get_ktime(const struct sk_buff *skb)
@@ -33057,7 +33057,7 @@ static inline __attribute__((no_instrument_function)) void SET_IEEE80211_DEV(str
 }
 static inline __attribute__((no_instrument_function)) void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw, u8 *addr)
 {
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((hw->wiphy->perm_addr), (addr), __len); else __ret = __builtin_memcpy((hw->wiphy->perm_addr), (addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((hw->wiphy->perm_addr), (addr), __len); else __ret = memcpy((hw->wiphy->perm_addr), (addr), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) struct ieee80211_rate *
 ieee80211_get_tx_rate(const struct ieee80211_hw *hw,
@@ -34738,7 +34738,7 @@ static int p54u_upload_firmware_3887(struct ieee80211_hw *dev)
  data = priv->fw->data;
  remains = priv->fw->size;
  hdr = (struct x2_header *)(buf + strlen(p54u_firmware_upload_3887));
- ({ size_t __len = (4); void *__ret; if (__builtin_constant_p(4) && __len >= 64) __ret = memcpy((hdr->signature), ("x2  "), __len); else __ret = __builtin_memcpy((hdr->signature), ("x2  "), __len); __ret; });
+ ({ size_t __len = (4); void *__ret; if (__builtin_constant_p(4) && __len >= 64) __ret = memcpy((hdr->signature), ("x2  "), __len); else __ret = memcpy((hdr->signature), ("x2  "), __len); __ret; });
  hdr->fw_load_addr = (( __le32)(__u32)(0x20000));
  hdr->fw_length = (( __le32)(__u32)(priv->fw->size));
  hdr->crc = (( __le32)(__u32)(~crc32_le(~0, (void *)&hdr->fw_load_addr, sizeof(u32)*2)))
@@ -34897,7 +34897,7 @@ static int p54u_upload_firmware_net2280(struct ieee80211_hw *dev)
  offset = 0x20000;
  while (remains) {
   unsigned int block_len = ({ typeof(remains) _min1 = (remains); typeof((unsigned int)512) _min2 = ((unsigned int)512); (void) (&_min1 == &_min2); _min1 < _min2 ? _min1 : _min2; });
-  ({ size_t __len = (block_len); void *__ret; if (__builtin_constant_p(block_len) && __len >= 64) __ret = memcpy((buf), (data), __len); else __ret = __builtin_memcpy((buf), (data), __len); __ret; });
+  ({ size_t __len = (block_len); void *__ret; if (__builtin_constant_p(block_len) && __len >= 64) __ret = memcpy((buf), (data), __len); else __ret = memcpy((buf), (data), __len); __ret; });
   err = p54u_bulk_msg(priv, P54U_PIPE_DATA, buf, block_len);
   if (err) {
    dev_err(&priv->udev->dev, "(p54usb) firmware block "

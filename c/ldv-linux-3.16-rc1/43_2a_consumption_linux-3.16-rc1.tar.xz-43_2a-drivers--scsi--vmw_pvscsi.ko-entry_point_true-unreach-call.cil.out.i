@@ -5954,6 +5954,7 @@ static void pvscsi_process_completion_ring(struct pvscsi_adapter *adapter )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int pvscsi_queue_ring(struct pvscsi_adapter *adapter , struct pvscsi_ctx *ctx ,
                              struct scsi_cmnd *cmd )
 {
@@ -6088,7 +6089,7 @@ static int pvscsi_queue_ring(struct pvscsi_adapter *adapter , struct pvscsi_ctx 
   ldv_36211:
   e->vcpuHint = (u8 )pscr_ret__;
   __len = (size_t )e->cdbLen;
-  __ret = __builtin_memcpy((void *)(& e->cdb), (void const *)cmd->cmnd, __len);
+  __ret = memcpy((void *)(& e->cdb), (void const *)cmd->cmnd, __len);
   e->tag = 32U;
   if ((unsigned int )*((unsigned char *)sdev + 329UL) != 0U && ((unsigned int )cmd->tag == 33U || (unsigned int )cmd->tag == 34U)) {
     e->tag = cmd->tag;

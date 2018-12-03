@@ -5030,6 +5030,7 @@ static void sdhci_set_adma_desc(u8 *desc , u32 addr , int len , unsigned int cmd
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data )
 {
   int direction ;
@@ -5105,7 +5106,7 @@ static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data 
       }
       ldv__builtin_expect(__ret_warn_on != 0, 0L);
       __len = (size_t )offset;
-      __ret = __builtin_memcpy((void *)align, (void const *)buffer, __len);
+      __ret = memcpy((void *)align, (void const *)buffer, __len);
       sdhci_kunmap_atomic((void *)buffer, & flags);
     } else {
     }
@@ -5230,7 +5231,7 @@ static void sdhci_adma_table_post(struct sdhci_host *host , struct mmc_data *dat
       }
       ldv__builtin_expect(__ret_warn_on != 0, 0L);
       __len = (size_t )size;
-      __ret = __builtin_memcpy((void *)buffer, (void const *)align, __len);
+      __ret = memcpy((void *)buffer, (void const *)align, __len);
       sdhci_kunmap_atomic((void *)buffer, & flags);
       align = align + 4UL;
     } else {

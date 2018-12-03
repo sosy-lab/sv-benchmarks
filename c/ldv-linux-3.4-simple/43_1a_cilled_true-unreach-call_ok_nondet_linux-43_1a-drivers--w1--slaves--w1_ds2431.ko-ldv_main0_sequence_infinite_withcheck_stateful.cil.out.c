@@ -1317,6 +1317,7 @@ static int w1_f2d_write(struct w1_slave *sl , int addr , int len , u8 const   *d
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static ssize_t w1_f2d_write_bin(struct file *filp , struct kobject *kobj , struct bin_attribute *bin_attr ,
                                 char *buf , loff_t off , size_t count ) 
 { struct w1_slave *sl ;
@@ -1412,7 +1413,7 @@ static ssize_t w1_f2d_write_bin(struct file *filp , struct kobject *kobj , struc
       __cil_tmp30 = (void *)(& tmp___0);
       __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
       __cil_tmp32 = (void const   *)buf;
-      __ret = __builtin_memcpy(__cil_tmp31, __cil_tmp32, __len);
+      __ret = memcpy(__cil_tmp31, __cil_tmp32, __len);
       __cil_tmp33 = addr & -8;
       __cil_tmp34 = (u8 const   *)(& tmp___0);
       tmp___2 = w1_f2d_write(sl, __cil_tmp33, 8, __cil_tmp34);

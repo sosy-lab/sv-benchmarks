@@ -3160,6 +3160,7 @@ __inline static void __iio_free_sw_ring_buffer(struct iio_sw_ring_buffer *ring )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int iio_store_to_sw_ring(struct iio_sw_ring_buffer *ring , unsigned char *data ,
                                 s64 timestamp ) 
 { int ret ;
@@ -3364,7 +3365,7 @@ static int iio_store_to_sw_ring(struct iio_sw_ring_buffer *ring , unsigned char 
   __cil_tmp42 = *((unsigned char **)__cil_tmp41);
   __cil_tmp43 = (void *)__cil_tmp42;
   __cil_tmp44 = (void const   *)data;
-  __ret = __builtin_memcpy(__cil_tmp43, __cil_tmp44, __len);
+  __ret = memcpy(__cil_tmp43, __cil_tmp44, __len);
   __asm__  volatile   ("": : : "memory");
   __asm__  volatile   ("": : : "memory");
   __cil_tmp45 = 0 + 4;
@@ -3843,7 +3844,7 @@ static int iio_read_first_n_sw_rb(struct iio_buffer *r , size_t n , char *buf )
     __len = (size_t )max_copied;
     __cil_tmp97 = (void *)data;
     __cil_tmp98 = (void const   *)initial_read_p;
-    __ret = __builtin_memcpy(__cil_tmp97, __cil_tmp98, __len);
+    __ret = memcpy(__cil_tmp97, __cil_tmp98, __len);
     __cil_tmp99 = bytes_to_rip - max_copied;
     __len___0 = (size_t )__cil_tmp99;
     __cil_tmp100 = data + max_copied;
@@ -3852,7 +3853,7 @@ static int iio_read_first_n_sw_rb(struct iio_buffer *r , size_t n , char *buf )
     __cil_tmp103 = __cil_tmp102 + 160;
     __cil_tmp104 = *((unsigned char **)__cil_tmp103);
     __cil_tmp105 = (void const   *)__cil_tmp104;
-    __ret___0 = __builtin_memcpy(__cil_tmp101, __cil_tmp105, __len___0);
+    __ret___0 = memcpy(__cil_tmp101, __cil_tmp105, __len___0);
     __cil_tmp106 = (unsigned long )ring;
     __cil_tmp107 = __cil_tmp106 + 160;
     __cil_tmp108 = *((unsigned char **)__cil_tmp107);
@@ -3864,7 +3865,7 @@ static int iio_read_first_n_sw_rb(struct iio_buffer *r , size_t n , char *buf )
     __len___1 = (size_t )bytes_to_rip;
     __cil_tmp110 = (void *)data;
     __cil_tmp111 = (void const   *)initial_read_p;
-    __ret___1 = __builtin_memcpy(__cil_tmp110, __cil_tmp111, __len___1);
+    __ret___1 = memcpy(__cil_tmp110, __cil_tmp111, __len___1);
     end_read_p = initial_read_p + bytes_to_rip;
     }
   }

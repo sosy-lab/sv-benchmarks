@@ -5785,7 +5785,7 @@ static int mega_query_adapter(adapter_t *adapter )
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& adapter->fw_version), (void const *)(& adapter->product_info.fw_version),
+      __ret = memcpy((void *)(& adapter->fw_version), (void const *)(& adapter->product_info.fw_version),
                                __len);
       }
     }
@@ -5798,7 +5798,7 @@ static int mega_query_adapter(adapter_t *adapter )
       }
     } else {
       {
-      __ret___0 = __builtin_memcpy((void *)(& adapter->bios_version), (void const *)(& adapter->product_info.bios_version),
+      __ret___0 = memcpy((void *)(& adapter->bios_version), (void const *)(& adapter->product_info.bios_version),
                                    __len___0);
       }
     }
@@ -6179,7 +6179,7 @@ static scb_t *mega_build_cmd(adapter_t *adapter , Scsi_Cmnd *cmd , int *busy )
         pthru->logdrv = (u8 )ldrv_num;
         pthru->cdblen = (u8 )cmd->cmd_len;
         __len = (size_t )cmd->cmd_len;
-        __ret = __builtin_memcpy((void *)(& pthru->cdb), (void const *)cmd->cmnd,
+        __ret = memcpy((void *)(& pthru->cdb), (void const *)cmd->cmnd,
                                  __len);
         }
         if (adapter->has_64bit_addr != 0) {
@@ -6360,7 +6360,7 @@ static mega_passthru *mega_prepare_passthru(adapter_t *adapter , scb_t *scb , Sc
   pthru->cdblen = (u8 )cmd->cmd_len;
   pthru->logdrv = (u8 )(cmd->device)->lun;
   __len = (size_t )cmd->cmd_len;
-  __ret = __builtin_memcpy((void *)(& pthru->cdb), (void const *)cmd->cmnd, __len);
+  __ret = memcpy((void *)(& pthru->cdb), (void const *)cmd->cmnd, __len);
   scb->dma_direction = 0U;
   }
   if ((int )*(cmd->cmnd) == 18) {
@@ -6428,7 +6428,7 @@ static mega_ext_passthru *mega_prepare_extpassthru(adapter_t *adapter , scb_t *s
   epthru->cdblen = (u8 )cmd->cmd_len;
   epthru->logdrv = (u8 )(cmd->device)->lun;
   __len = (size_t )cmd->cmd_len;
-  __ret = __builtin_memcpy((void *)(& epthru->cdb), (void const *)cmd->cmnd, __len);
+  __ret = memcpy((void *)(& epthru->cdb), (void const *)cmd->cmnd, __len);
   scb->dma_direction = 0U;
   }
   if ((int )*(cmd->cmnd) == 18) {
@@ -6551,7 +6551,7 @@ static int issue_scb(adapter_t *adapter , scb_t *scb )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& mbox->m_out), (void const *)(& scb->raw_mbox),
+    __ret = memcpy((void *)(& mbox->m_out), (void const *)(& scb->raw_mbox),
                              __len);
     }
   }
@@ -6652,7 +6652,7 @@ static int issue_scb_block(adapter_t *adapter , u_char *raw_mbox )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)mbox, (void const *)raw_mbox, __len);
+    __ret = memcpy((void *)mbox, (void const *)raw_mbox, __len);
     }
   }
   mbox->m_out.cmdid = (u8 volatile )254U;
@@ -6828,7 +6828,7 @@ static irqreturn_t megaraid_isr_iomapped(int irq , void *devp )
   status = (u8 )(adapter->mbox)->m_in.status;
   atomic_sub((int )nstatus, & adapter->pend_cmds);
   __len = (size_t )nstatus;
-  __ret = __builtin_memcpy((void *)(& completed), (void const *)(& (adapter->mbox)->m_in.completed),
+  __ret = memcpy((void *)(& completed), (void const *)(& (adapter->mbox)->m_in.completed),
                            __len);
   outb_p((unsigned char)8, (int )adapter->base);
   mega_cmd_done(adapter, (u8 *)(& completed), (int )nstatus, (int )status);
@@ -6903,7 +6903,7 @@ static irqreturn_t megaraid_isr_memmapped(int irq , void *devp )
   status = (u8 )(adapter->mbox)->m_in.status;
   atomic_sub((int )nstatus, & adapter->pend_cmds);
   __len = (size_t )nstatus;
-  __ret = __builtin_memcpy((void *)(& completed), (void const *)(& (adapter->mbox)->m_in.completed),
+  __ret = memcpy((void *)(& completed), (void const *)(& (adapter->mbox)->m_in.completed),
                            __len);
   writel(2U, (void volatile *)adapter->mmio_base + 32U);
   handled = 1;
@@ -7082,7 +7082,7 @@ static void mega_cmd_done(adapter_t *adapter , u8 *completed , int nstatus , int
           }
         } else {
           {
-          __ret = __builtin_memcpy((void *)cmd->sense_buffer, (void const *)(& pthru->reqsensearea),
+          __ret = memcpy((void *)cmd->sense_buffer, (void const *)(& pthru->reqsensearea),
                                    __len);
           }
         }
@@ -7097,7 +7097,7 @@ static void mega_cmd_done(adapter_t *adapter , u8 *completed , int nstatus , int
           }
         } else {
           {
-          __ret___0 = __builtin_memcpy((void *)cmd->sense_buffer, (void const *)(& epthru->reqsensearea),
+          __ret___0 = memcpy((void *)cmd->sense_buffer, (void const *)(& epthru->reqsensearea),
                                        __len___0);
           }
         }
@@ -7594,7 +7594,7 @@ __inline static int make_local_pdev(adapter_t *adapter , struct pci_dev **pdev )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)*pdev, (void const *)adapter->dev, __len);
+    __ret = memcpy((void *)*pdev, (void const *)adapter->dev, __len);
     }
   }
   {
@@ -9392,7 +9392,7 @@ static int megadev_ioctl(struct file *filep , unsigned int cmd , unsigned long a
           }
         } else {
           {
-          __ret = __builtin_memcpy((void *)(& mc), (void const *)(& uioc.__ua.__raw_mbox),
+          __ret = memcpy((void *)(& mc), (void const *)(& uioc.__ua.__raw_mbox),
                                    __len);
           }
         }
@@ -9570,7 +9570,7 @@ static int mega_m_to_n(void *arg , nitioctl_t *uioc )
         }
       } else {
         {
-        __ret = __builtin_memcpy((void *)(& uioc->__ua.__raw_mbox), (void const *)(& uioc_mimd.mbox),
+        __ret = memcpy((void *)(& uioc->__ua.__raw_mbox), (void const *)(& uioc_mimd.mbox),
                                  __len);
         }
       }
@@ -9597,7 +9597,7 @@ static int mega_m_to_n(void *arg , nitioctl_t *uioc )
         }
       } else {
         {
-        __ret___0 = __builtin_memcpy((void *)(& uioc->__ua.__raw_mbox), (void const *)(& uioc_mimd.mbox),
+        __ret___0 = memcpy((void *)(& uioc->__ua.__raw_mbox), (void const *)(& uioc_mimd.mbox),
                                      __len___0);
         }
       }
@@ -10331,7 +10331,7 @@ static int mega_internal_command(adapter_t *adapter , megacmd_t *mc , mega_passt
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& scb->raw_mbox), (void const *)mc, __len);
+    __ret = memcpy((void *)(& scb->raw_mbox), (void const *)mc, __len);
     }
   }
   if ((unsigned int )mc->cmd == 3U) {

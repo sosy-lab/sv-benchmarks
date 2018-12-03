@@ -4945,7 +4945,7 @@ ssize_t msg_set(enum msg_index_t index , char *text , size_t length )
     newstr = (char *)tmp;
     if ((unsigned long )newstr != (unsigned long )((char *)0)) {
       __len = length;
-      __ret = __builtin_memcpy((void *)newstr, (void const *)text, __len);
+      __ret = memcpy((void *)newstr, (void const *)text, __len);
       *(newstr + length) = 0;
       if ((unsigned int )index > 42U && (unsigned int )index <= 51U) {
         tmp___0 = fmt_validate(speakup_default_msgs[(unsigned int )index], newstr);
@@ -5035,7 +5035,7 @@ void initialize_msgs(void)
     __ret = memcpy((void *)(& speakup_msgs), (void const *)(& speakup_default_msgs),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& speakup_msgs), (void const *)(& speakup_default_msgs),
+    __ret = memcpy((void *)(& speakup_msgs), (void const *)(& speakup_default_msgs),
                              __len);
   }
   return;
@@ -7554,7 +7554,7 @@ int set_key_info(u_char const *key_info , u_char *k_buffer )
   our_keys[0] = shift_table;
   cp1 = cp1 + 64UL;
   __len = (size_t )(key_data_len + 3);
-  __ret = __builtin_memcpy((void *)cp1, (void const *)cp, __len);
+  __ret = memcpy((void *)cp1, (void const *)cp, __len);
   cp1 = cp1 + 2UL;
   i = 1;
   goto ldv_29717;
@@ -7648,7 +7648,7 @@ void reset_default_chars(void)
   if (__len > 63UL) {
     __ret = memcpy((void *)(& characters), (void const *)(& default_chars), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& characters), (void const *)(& default_chars),
+    __ret = memcpy((void *)(& characters), (void const *)(& default_chars),
                              __len);
   }
   return;
@@ -7664,7 +7664,7 @@ void reset_default_chartab(void)
     __ret = memcpy((void *)(& spk_chartab), (void const *)(& default_chartab),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& spk_chartab), (void const *)(& default_chartab),
+    __ret = memcpy((void *)(& spk_chartab), (void const *)(& default_chartab),
                              __len);
   }
   return;

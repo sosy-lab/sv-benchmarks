@@ -6460,7 +6460,7 @@ static void jme_load_macaddr(struct net_device *netdev )
   if (__len > 63UL) {
     __ret = memcpy((void *)netdev->dev_addr, (void const *)(& macaddr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& macaddr),
+    __ret = memcpy((void *)netdev->dev_addr, (void const *)(& macaddr),
                              __len);
   }
   spin_unlock_bh(& jme->macaddr_lock);
@@ -8608,7 +8608,7 @@ static int jme_set_macaddr(struct net_device *netdev , void *p )
   }
   spin_lock_bh(& jme->macaddr_lock);
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
+  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
                            __len);
   jme_set_unicastaddr(netdev);
   spin_unlock_bh(& jme->macaddr_lock);

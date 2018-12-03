@@ -7568,7 +7568,7 @@ static int usbat_flash_transport(struct scsi_cmnd *srb , struct us_data *us )
       {
       __cil_tmp46 = (void *)ptr;
       __cil_tmp47 = (void const   *)(& inquiry_response);
-      __ret = __builtin_memcpy(__cil_tmp46, __cil_tmp47, __len);
+      __ret = memcpy(__cil_tmp46, __cil_tmp47, __len);
       }
     }
     {

@@ -3470,6 +3470,7 @@ extern void kfree(void const   * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
+extern void *memcpy(void * , void const   * , size_t  ) ;
 long ldv_is_err(const void *ptr)
 {
 		return ((unsigned long)ptr > ((unsigned long)-4095));
@@ -4225,7 +4226,7 @@ static int stv090x_write_regs(struct stv090x_state *state , unsigned int reg , u
   *(buf + 0) = (u8 )(reg >> 8);
   *(buf + 1) = (u8 )reg;
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)(& buf) + 2U, (void const   *)data, __len);
+  __ret = memcpy((void *)(& buf) + 2U, (void const   *)data, __len);
   tmp___0 = ldv__builtin_expect(*(state->verbose) > 3U, 0L);
   if (tmp___0 != 0L) {
     printk("\017%s [0x%04x]:", "stv090x_write_regs", reg);

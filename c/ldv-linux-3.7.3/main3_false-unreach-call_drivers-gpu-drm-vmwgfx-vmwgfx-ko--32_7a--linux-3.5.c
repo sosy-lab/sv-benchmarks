@@ -6294,6 +6294,7 @@ struct __anonstruct_294 {
 };
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void might_fault(void) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
@@ -7974,7 +7975,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 
   }
   __len = (size_t )command_size;
-  __ret = __builtin_memcpy(cmd, (void const   *)kernel_commands, __len);
+  __ret = memcpy(cmd, (void const   *)kernel_commands, __len);
   vmw_fifo_commit(dev_priv, command_size);
   vmw_query_bo_switch_commit(dev_priv, sw_context);
   ret = vmw_execbuf_fence_commands(file_priv, dev_priv, & fence, (unsigned long )user_fence_rep != (unsigned long )((struct drm_vmw_fence_rep *)0) ? & handle : 0);
@@ -8515,7 +8516,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
   if (__len > 63UL) {
     __ret = memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
   } else {
-    __ret = __builtin_memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
+    __ret = memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
   }
   cmd = cmd + 2UL;
   tmp___2 = cmd;
@@ -8525,7 +8526,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)cmd, (void const   *)(& remap_cmd), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)cmd, (void const   *)(& remap_cmd), __len___0);
+    __ret___0 = memcpy((void *)cmd, (void const   *)(& remap_cmd), __len___0);
   }
   cmd = cmd + 4UL;
   i = 0U;
@@ -8578,7 +8579,7 @@ static void vmw_gmr2_unbind(struct vmw_private *dev_priv , int gmr_id )
   if (__len > 63UL) {
     __ret = memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
   } else {
-    __ret = __builtin_memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
+    __ret = memcpy((void *)cmd, (void const   *)(& define_cmd), __len);
   }
   vmw_fifo_commit(dev_priv, define_size);
   return;
@@ -9392,7 +9393,7 @@ int vmw_cursor_update_image(struct vmw_private *dev_priv , u32 *image , u32 widt
   }
   memset((void *)cmd, 0, 24UL);
   __len = (size_t )image_size;
-  __ret = __builtin_memcpy((void *)cmd + 1U, (void const   *)image, __len);
+  __ret = memcpy((void *)cmd + 1U, (void const   *)image, __len);
   cmd->cmd = 22U;
   cmd->cursor.id = 0U;
   cmd->cursor.width = width;
@@ -9631,7 +9632,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
     if (__len > 63UL) {
       __ret = memcpy((void *)srf->snooper.image, (void const   *)virtual, __len);
     } else {
-      __ret = __builtin_memcpy((void *)srf->snooper.image, (void const   *)virtual,
+      __ret = memcpy((void *)srf->snooper.image, (void const   *)virtual,
                                __len);
     }
   } else {
@@ -9639,7 +9640,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
     goto ldv_39422;
     ldv_39421: 
     __len___0 = (size_t )(box->w * 4U);
-    __ret___0 = __builtin_memcpy((void *)srf->snooper.image + (unsigned long )(i * 64),
+    __ret___0 = memcpy((void *)srf->snooper.image + (unsigned long )(i * 64),
                                  (void const   *)virtual + (unsigned long )(cmd->dma.guest.pitch * (uint32 )i),
                                  __len___0);
     i = i + 1;
@@ -15248,7 +15249,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const   *)src, __len);
+  __ret = memcpy(dst, (void const   *)src, __len);
   return;
 }
 }
@@ -17423,7 +17424,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
     __ret = memcpy((void *)(& srf->mip_levels), (void const   *)(& req->mip_levels),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& srf->mip_levels), (void const   *)(& req->mip_levels),
+    __ret = memcpy((void *)(& srf->mip_levels), (void const   *)(& req->mip_levels),
                              __len);
   }
   srf->num_sizes = num_sizes;
@@ -17608,7 +17609,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
     __ret = memcpy((void *)(& rep->mip_levels), (void const   *)(& srf->mip_levels),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& rep->mip_levels), (void const   *)(& srf->mip_levels),
+    __ret = memcpy((void *)(& rep->mip_levels), (void const   *)(& srf->mip_levels),
                              __len);
   }
   user_sizes = (struct drm_vmw_size *)rep->size_addr;
@@ -18945,7 +18946,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }

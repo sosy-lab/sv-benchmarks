@@ -3340,7 +3340,7 @@ static int write_pccard(struct cxd *ci , u16 address , u8 *data , u8 n )
     __cil_tmp36 = __cil_tmp35 + 1;
     __cil_tmp37 = (void *)__cil_tmp36;
     __cil_tmp38 = (void const   *)data;
-    __ret = __builtin_memcpy(__cil_tmp37, __cil_tmp38, __len);
+    __ret = memcpy(__cil_tmp37, __cil_tmp38, __len);
     __cil_tmp39 = (unsigned long )ci;
     __cil_tmp40 = __cil_tmp39 + 88;
     __cil_tmp41 = *((struct i2c_adapter **)__cil_tmp40);
@@ -5027,7 +5027,7 @@ struct dvb_ca_en50221 *cxd2099_attach(struct cxd2099_cfg *cfg , void *priv , str
     __cil_tmp31 = (struct cxd2099_cfg *)__cil_tmp30;
     __cil_tmp32 = (void *)__cil_tmp31;
     __cil_tmp33 = (void const   *)cfg;
-    __ret = __builtin_memcpy(__cil_tmp32, __cil_tmp33, __len);
+    __ret = memcpy(__cil_tmp32, __cil_tmp33, __len);
     }
   }
   __cil_tmp34 = (unsigned long )ci;
@@ -5055,7 +5055,7 @@ struct dvb_ca_en50221 *cxd2099_attach(struct cxd2099_cfg *cfg , void *priv , str
     __cil_tmp45 = (struct dvb_ca_en50221 *)ci;
     __cil_tmp46 = (void *)__cil_tmp45;
     __cil_tmp47 = (void const   *)(& en_templ);
-    __ret___0 = __builtin_memcpy(__cil_tmp46, __cil_tmp47, __len___0);
+    __ret___0 = memcpy(__cil_tmp46, __cil_tmp47, __len___0);
     }
   }
   {

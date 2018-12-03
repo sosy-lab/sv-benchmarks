@@ -4288,7 +4288,7 @@ static int mimd_to_kioc(mimd_t *umimd , mraid_mmadp_t *adp , uioc_t *kioc )
   if (__len > 63UL) {
     __ret = memcpy((void *)mbox, (void const   *)(& mimd.mbox), __len);
   } else {
-    __ret = __builtin_memcpy((void *)mbox, (void const   *)(& mimd.mbox), __len);
+    __ret = memcpy((void *)mbox, (void const   *)(& mimd.mbox), __len);
   }
   if ((unsigned int )mbox->cmd != 3U) {
     mbox->xferaddr = (unsigned int )kioc->buf_paddr;

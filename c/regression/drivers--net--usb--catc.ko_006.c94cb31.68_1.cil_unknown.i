@@ -4063,7 +4063,7 @@ struct catc {
    atomic_t recq_sz ;
 };
 enum hrtimer_restart;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -4284,7 +4284,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = len;
-  __ret = __builtin_memcpy(to, skb->data, __len);
+  __ret = memcpy(to, skb->data, __len);
   return;
 }
 }
@@ -4296,7 +4296,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const   
 
   {
   __len = len;
-  __ret = __builtin_memcpy(skb->data, from, __len);
+  __ret = memcpy(skb->data, from, __len);
   return;
 }
 }
@@ -4949,7 +4949,7 @@ static void catc_ctrl_run(struct catc *catc )
   urb->dev = usbdev;
   if ((! q->dir && q->buf) && q->len) {
     __len = q->len;
-    __ret = __builtin_memcpy(catc->ctrl_buf, q->buf, __len);
+    __ret = memcpy(catc->ctrl_buf, q->buf, __len);
   } else {
 
   }
@@ -4989,7 +4989,7 @@ static void catc_ctrl_done(struct urb *urb )
   if (q->dir) {
     if (q->buf && q->len) {
       __len = q->len;
-      __ret = __builtin_memcpy(q->buf, catc->ctrl_buf, __len);
+      __ret = memcpy(q->buf, catc->ctrl_buf, __len);
     } else {
       q->buf = catc->ctrl_buf;
     }

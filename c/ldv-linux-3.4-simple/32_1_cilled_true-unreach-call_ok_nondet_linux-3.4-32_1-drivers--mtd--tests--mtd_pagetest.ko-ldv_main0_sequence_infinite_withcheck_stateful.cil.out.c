@@ -2349,6 +2349,7 @@ static int write_eraseblock(int ebnum )
   return (err);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int verify_eraseblock(int ebnum ) 
 { uint32_t j ;
   size_t read ;
@@ -2788,7 +2789,7 @@ static int verify_eraseblock(int ebnum )
       __cil_tmp104 = writebuf + __cil_tmp103;
       __cil_tmp105 = __cil_tmp104 - pgsize;
       __cil_tmp106 = (void const   *)__cil_tmp105;
-      __ret = __builtin_memcpy(__cil_tmp100, __cil_tmp106, __len);
+      __ret = memcpy(__cil_tmp100, __cil_tmp106, __len);
       __cil_tmp107 = boundary + pgsize;
       __cil_tmp108 = (size_t )pgsize;
       set_random_data(__cil_tmp107, __cil_tmp108);

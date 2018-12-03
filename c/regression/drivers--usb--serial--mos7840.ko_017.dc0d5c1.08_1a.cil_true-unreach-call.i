@@ -2969,7 +2969,7 @@ struct moschip_port {
    struct urb *write_urb_pool[16U] ;
    char busy[16U] ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(int nr , void const volatile   *addr ) 
 { 
@@ -4899,7 +4899,7 @@ static int mos7840_write(struct usb_serial_port *port , unsigned char const   *d
   _y = 32;
   transfer_size = _x < _y ? _x : _y;
   __len = (size_t )transfer_size;
-  __ret = __builtin_memcpy(urb->transfer_buffer, (void const   *)current_position,
+  __ret = memcpy(urb->transfer_buffer, (void const   *)current_position,
                            __len);
   tmp___1 = __create_pipe(serial->dev, (unsigned int )port->bulk_out_endpointAddress);
   usb_fill_bulk_urb(urb, serial->dev, tmp___1 | 3221225472U, urb->transfer_buffer,

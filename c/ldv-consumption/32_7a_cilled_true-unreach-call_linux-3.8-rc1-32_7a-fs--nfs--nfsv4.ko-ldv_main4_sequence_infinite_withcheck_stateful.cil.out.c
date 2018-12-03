@@ -8936,7 +8936,7 @@ __inline static void nfs_copy_fh(struct nfs_fh *target , struct nfs_fh  const  *
   {
   target->size = source->size;
   __len = (size_t )source->size;
-  __ret = __builtin_memcpy((void *)(& target->data), (void const   *)(& source->data),
+  __ret = memcpy((void *)(& target->data), (void const   *)(& source->data),
                            __len);
   return;
 }
@@ -9287,7 +9287,7 @@ __inline static void nfs4_stateid_copy(nfs4_stateid *dst , nfs4_stateid const   
   if (__len > 63UL) {
     __ret = memcpy((void *)dst, (void const   *)src, __len);
   } else {
-    __ret = __builtin_memcpy((void *)dst, (void const   *)src, __len);
+    __ret = memcpy((void *)dst, (void const   *)src, __len);
   }
   return;
 }
@@ -9823,7 +9823,7 @@ static void nfs4_setup_readdir(u64 cookie , __be32 *verifier , struct dentry *de
     if (__len > 63UL) {
       __ret = memcpy((void *)(& readdir->verifier), (void const   *)verifier, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& readdir->verifier), (void const   *)verifier,
+      __ret = memcpy((void *)(& readdir->verifier), (void const   *)verifier,
                                __len);
     }
     return;
@@ -9857,7 +9857,7 @@ static void nfs4_setup_readdir(u64 cookie , __be32 *verifier , struct dentry *de
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)p, (void const   *)".", __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)p, (void const   *)".", __len___0);
+      __ret___0 = memcpy((void *)p, (void const   *)".", __len___0);
     }
     p = p + 1;
     tmp___4 = p;
@@ -9890,7 +9890,7 @@ static void nfs4_setup_readdir(u64 cookie , __be32 *verifier , struct dentry *de
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)p, (void const   *)"..", __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)p, (void const   *)"..", __len___1);
+    __ret___1 = memcpy((void *)p, (void const   *)"..", __len___1);
   }
   p = p + 1;
   tmp___12 = p;
@@ -10599,7 +10599,7 @@ static struct nfs4_opendata *nfs4_opendata_alloc(struct dentry *dentry , struct 
     if (__len > 63UL) {
       __ret = memcpy((void *)(& p->attrs), (void const   *)attrs, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& p->attrs), (void const   *)attrs, __len);
+      __ret = memcpy((void *)(& p->attrs), (void const   *)attrs, __len);
     }
     verf[0] = (__be32 )jiffies;
     tmp___3 = get_current();
@@ -10609,7 +10609,7 @@ static struct nfs4_opendata *nfs4_opendata_alloc(struct dentry *dentry , struct 
       __ret___0 = memcpy((void *)(& p->o_arg.u.ldv_45036.verifier.data), (void const   *)(& verf),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& p->o_arg.u.ldv_45036.verifier.data),
+      __ret___0 = memcpy((void *)(& p->o_arg.u.ldv_45036.verifier.data),
                                    (void const   *)(& verf), __len___0);
     }
   } else {
@@ -12953,7 +12953,7 @@ static int _nfs4_server_capabilities(struct nfs_server *server , struct nfs_fh *
       __ret = memcpy((void *)(& server->attr_bitmask), (void const   *)(& res.attr_bitmask),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& server->attr_bitmask), (void const   *)(& res.attr_bitmask),
+      __ret = memcpy((void *)(& server->attr_bitmask), (void const   *)(& res.attr_bitmask),
                                __len);
     }
     server->caps = server->caps & 4294950961U;
@@ -13017,7 +13017,7 @@ static int _nfs4_server_capabilities(struct nfs_server *server , struct nfs_fh *
       __ret___0 = memcpy((void *)(& server->cache_consistency_bitmask), (void const   *)(& res.attr_bitmask),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& server->cache_consistency_bitmask),
+      __ret___0 = memcpy((void *)(& server->cache_consistency_bitmask),
                                    (void const   *)(& res.attr_bitmask), __len___0);
     }
     server->cache_consistency_bitmask[0] = server->cache_consistency_bitmask[0] & 24U;
@@ -13258,7 +13258,7 @@ static int nfs4_proc_get_root(struct nfs_server *server , struct nfs_fh *mntfh ,
         __ret = memcpy((void *)(& server->fsid), (void const   *)(& fattr->fsid),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& server->fsid), (void const   *)(& fattr->fsid),
+        __ret = memcpy((void *)(& server->fsid), (void const   *)(& fattr->fsid),
                                  __len);
       }
     } else {
@@ -13326,7 +13326,7 @@ static int nfs4_get_referral(struct rpc_clnt *client , struct inode *dir , struc
   if (__len > 63UL) {
     __ret = memcpy((void *)fattr, (void const   *)(& locations->fattr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)fattr, (void const   *)(& locations->fattr),
+    __ret = memcpy((void *)fattr, (void const   *)(& locations->fattr),
                              __len);
   }
   memset((void *)fhandle, 0, 130UL);
@@ -14408,7 +14408,7 @@ static int _nfs4_proc_readdir(struct dentry *dentry , struct rpc_cred *cred , u6
                        __len);
     } else {
       tmp___6 = NFS_I((struct inode  const  *)dir);
-      __ret = __builtin_memcpy((void *)(& tmp___6->cookieverf), (void const   *)(& res.verifier.data),
+      __ret = memcpy((void *)(& tmp___6->cookieverf), (void const   *)(& res.verifier.data),
                                __len);
     }
     status = (int )(args.pgbase + (unsigned int )status);
@@ -15126,7 +15126,7 @@ static int buf_to_pages_noslab(void const   *buf , size_t buflen , struct page *
   }
   __len = len;
   tmp___0 = lowmem_page_address((struct page  const  *)newpage);
-  __ret = __builtin_memcpy(tmp___0, buf, __len);
+  __ret = memcpy(tmp___0, buf, __len);
   buf = buf + len;
   buflen = buflen - len;
   tmp___1 = pages;
@@ -15216,7 +15216,7 @@ __inline static ssize_t nfs4_read_cached_acl(struct inode *inode , char *buf , s
 
   }
   __len = acl->len;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)(& acl->data), __len);
+  __ret = memcpy((void *)buf, (void const   *)(& acl->data), __len);
   out_len: 
   ret = (int )acl->len;
   out: 
@@ -15688,7 +15688,7 @@ static void nfs4_init_boot_verifier(struct nfs_client  const  *clp , nfs4_verifi
   if (__len > 63UL) {
     __ret = memcpy((void *)(& bootverf->data), (void const   *)(& verf), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& bootverf->data), (void const   *)(& verf),
+    __ret = memcpy((void *)(& bootverf->data), (void const   *)(& verf),
                              __len);
   }
   return;
@@ -16357,7 +16357,7 @@ static struct nfs4_unlockdata *nfs4_alloc_unlockdata(struct file_lock *fl , stru
   if (__len > 63UL) {
     __ret = memcpy((void *)(& p->fl), (void const   *)fl, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& p->fl), (void const   *)fl, __len);
+    __ret = memcpy((void *)(& p->fl), (void const   *)fl, __len);
   }
   tmp___0 = NFS_SERVER((struct inode  const  *)inode);
   p->server = (struct nfs_server  const  *)tmp___0;
@@ -16606,7 +16606,7 @@ static struct nfs4_lockdata *nfs4_alloc_lockdata(struct file_lock *fl , struct n
   if (__len > 63UL) {
     __ret = memcpy((void *)(& p->fl), (void const   *)fl, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& p->fl), (void const   *)fl, __len);
+    __ret = memcpy((void *)(& p->fl), (void const   *)fl, __len);
   }
   return (p);
   out_free_seqid: 
@@ -17406,7 +17406,7 @@ static size_t nfs4_xattr_list_nfs4_acl(struct dentry *dentry , char *list , size
   }
   if ((unsigned long )list != (unsigned long )((char *)0) && len <= list_len) {
     __len = len;
-    __ret = __builtin_memcpy((void *)list, (void const   *)"system.nfs4_acl", __len);
+    __ret = memcpy((void *)list, (void const   *)"system.nfs4_acl", __len);
   } else {
 
   }
@@ -20705,7 +20705,7 @@ __inline static __be32 *xdr_decode_opaque_fixed(__be32 *p , void *ptr , unsigned
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(ptr, (void const   *)p, __len);
+  __ret = memcpy(ptr, (void const   *)p, __len);
   return (p + (unsigned long )((len + 3U) >> 2));
 }
 }
@@ -21984,7 +21984,7 @@ static void encode_readdir(struct xdr_stream *xdr , struct nfs4_readdir_arg  con
     __ret = memcpy((void *)(& verf), (void const   *)(& readdir->verifier.data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& verf), (void const   *)(& readdir->verifier.data),
+    __ret = memcpy((void *)(& verf), (void const   *)(& readdir->verifier.data),
                              __len);
   }
   tmp___7 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
@@ -24645,7 +24645,7 @@ static int decode_attr_filehandle(struct xdr_stream *xdr , uint32_t *bitmap , st
     }
     if ((unsigned long )fh != (unsigned long )((struct nfs_fh *)0)) {
       __len = (size_t )len;
-      __ret = __builtin_memcpy((void *)(& fh->data), (void const   *)p, __len);
+      __ret = memcpy((void *)(& fh->data), (void const   *)p, __len);
       fh->size = (unsigned short )len;
     } else {
 
@@ -26248,7 +26248,7 @@ static int decode_opaque_fixed(struct xdr_stream *xdr , void *buf , size_t len )
   tmp = ldv__builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
   if (tmp != 0L) {
     __len = len;
-    __ret = __builtin_memcpy(buf, (void const   *)p, __len);
+    __ret = memcpy(buf, (void const   *)p, __len);
     return (0);
   } else {
 
@@ -27231,7 +27231,7 @@ static int decode_getfh(struct xdr_stream *xdr , struct nfs_fh *fh )
 
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& fh->data), (void const   *)p, __len);
+  __ret = memcpy((void *)(& fh->data), (void const   *)p, __len);
   return (0);
   out_overflow: 
   print_overflow_msg("decode_getfh", (struct xdr_stream  const  *)xdr);
@@ -27737,7 +27737,7 @@ static int decode_readdir(struct xdr_stream *xdr , struct rpc_rqst *req , struct
     __ret = memcpy((void *)(& verf), (void const   *)(& readdir->verifier.data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& verf), (void const   *)(& readdir->verifier.data),
+    __ret = memcpy((void *)(& verf), (void const   *)(& readdir->verifier.data),
                              __len);
   }
   tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
@@ -28041,7 +28041,7 @@ static int decode_setclientid(struct xdr_stream *xdr , struct nfs4_setclientid_r
     if (__len > 63UL) {
       __ret = memcpy((void *)(& res->confirm.data), (void const   *)p, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& res->confirm.data), (void const   *)p, __len);
+      __ret = memcpy((void *)(& res->confirm.data), (void const   *)p, __len);
     }
   } else
   if (nfserr == 10017) {
@@ -28178,7 +28178,7 @@ static int decode_secinfo_gss(struct xdr_stream *xdr , struct nfs4_secinfo_flavo
 
   }
   __len = (size_t )flavor->gss.sec_oid4.len;
-  __ret = __builtin_memcpy((void *)(& flavor->gss.sec_oid4.data), (void const   *)p,
+  __ret = memcpy((void *)(& flavor->gss.sec_oid4.data), (void const   *)p,
                            __len);
   p = xdr_inline_decode(xdr, 8UL);
   tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
@@ -28389,7 +28389,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 
   }
   __len = (size_t )dummy;
-  __ret = __builtin_memcpy((void *)(& (res->server_owner)->major_id), (void const   *)dummy_str,
+  __ret = memcpy((void *)(& (res->server_owner)->major_id), (void const   *)dummy_str,
                            __len);
   (res->server_owner)->major_id_sz = dummy;
   status = decode_opaque_inline(xdr, & dummy, & dummy_str);
@@ -28406,7 +28406,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 
   }
   __len___0 = (size_t )dummy;
-  __ret___0 = __builtin_memcpy((void *)(& (res->server_scope)->server_scope), (void const   *)dummy_str,
+  __ret___0 = memcpy((void *)(& (res->server_scope)->server_scope), (void const   *)dummy_str,
                                __len___0);
   (res->server_scope)->server_scope_sz = dummy;
   p = xdr_inline_decode(xdr, 4UL);
@@ -28434,7 +28434,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 
     }
     __len___1 = (size_t )dummy;
-    __ret___1 = __builtin_memcpy((void *)(& (res->impl_id)->domain), (void const   *)dummy_str,
+    __ret___1 = memcpy((void *)(& (res->impl_id)->domain), (void const   *)dummy_str,
                                  __len___1);
     status = decode_opaque_inline(xdr, & dummy, & dummy_str);
     tmp___12 = ldv__builtin_expect(status != 0, 0L);
@@ -28450,7 +28450,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 
     }
     __len___2 = (size_t )dummy;
-    __ret___2 = __builtin_memcpy((void *)(& (res->impl_id)->name), (void const   *)dummy_str,
+    __ret___2 = memcpy((void *)(& (res->impl_id)->name), (void const   *)dummy_str,
                                  __len___2);
     p = xdr_inline_decode(xdr, 12UL);
     tmp___14 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
@@ -38601,7 +38601,7 @@ static int nfs_map_string_to_numeric(char const   *name , size_t namelen , __u32
 
   }
   __len = namelen;
-  __ret = __builtin_memcpy((void *)(& buf), (void const   *)name, __len);
+  __ret = memcpy((void *)(& buf), (void const   *)name, __len);
   buf[namelen] = 0;
   tmp___0 = kstrtoul((char const   *)(& buf), 0U, & val);
   if (tmp___0 != 0) {
@@ -38716,13 +38716,13 @@ static ssize_t nfs_idmap_get_desc(char const   *name , size_t namelen , char con
   }
   cp = *desc;
   __len = typelen;
-  __ret = __builtin_memcpy((void *)cp, (void const   *)type, __len);
+  __ret = memcpy((void *)cp, (void const   *)type, __len);
   cp = cp + typelen;
   tmp___0 = cp;
   cp = cp + 1;
   *tmp___0 = 58;
   __len___0 = namelen;
-  __ret___0 = __builtin_memcpy((void *)cp, (void const   *)name, __len___0);
+  __ret___0 = memcpy((void *)cp, (void const   *)name, __len___0);
   cp = cp + namelen;
   *cp = 0;
   return ((ssize_t )desclen);
@@ -38806,7 +38806,7 @@ static ssize_t nfs_idmap_request_key(struct key_type *key_type , char const   *n
   ret = (ssize_t )payload->datalen;
   if (ret > 0L && (unsigned long )ret <= data_size) {
     __len = (size_t )ret;
-    __ret = __builtin_memcpy(data, (void const   *)(& payload->data), __len);
+    __ret = memcpy(data, (void const   *)(& payload->data), __len);
   } else {
     ret = -22L;
   }
@@ -40899,7 +40899,7 @@ static __be32 decode_fh(struct xdr_stream *xdr , struct nfs_fh *fh )
 
   }
   __len = (size_t )fh->size;
-  __ret = __builtin_memcpy((void *)(& fh->data), (void const   *)p, __len);
+  __ret = memcpy((void *)(& fh->data), (void const   *)p, __len);
   memset((void *)(& fh->data) + (unsigned long )fh->size, 0, 128UL - (unsigned long )fh->size);
   return (0U);
 }
@@ -40970,7 +40970,7 @@ static __be32 decode_stateid___0(struct xdr_stream *xdr , nfs4_stateid *stateid 
   if (__len > 63UL) {
     __ret = memcpy((void *)stateid, (void const   *)p, __len);
   } else {
-    __ret = __builtin_memcpy((void *)stateid, (void const   *)p, __len);
+    __ret = memcpy((void *)stateid, (void const   *)p, __len);
   }
   return (0U);
 }
@@ -41378,7 +41378,7 @@ static __be32 decode_devicenotify_args(struct svc_rqst *rqstp , struct xdr_strea
   if (__len > 63UL) {
     __ret = memcpy((void *)(& dev->cbd_dev_id.data), (void const   *)p, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dev->cbd_dev_id.data), (void const   *)p,
+    __ret = memcpy((void *)(& dev->cbd_dev_id.data), (void const   *)p,
                              __len);
   }
   p = p + 4UL;
@@ -41448,7 +41448,7 @@ static __be32 decode_sessionid___0(struct xdr_stream *xdr , struct nfs4_sessioni
 
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& sid->data), (void const   *)p, __len);
+  __ret = memcpy((void *)(& sid->data), (void const   *)p, __len);
   return (0U);
 }
 }
@@ -42043,7 +42043,7 @@ static __be32 encode_sessionid(struct xdr_stream *xdr , struct nfs4_sessionid  c
 
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)p, (void const   *)sid, __len);
+  __ret = memcpy((void *)p, (void const   *)sid, __len);
   return (0U);
 }
 }
@@ -43491,7 +43491,7 @@ __be32 nfs4_callback_sequence(struct cb_sequenceargs *args , struct cb_sequencer
     __ret = memcpy((void *)(& res->csr_sessionid), (void const   *)(& args->csa_sessionid),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& res->csr_sessionid), (void const   *)(& args->csa_sessionid),
+    __ret = memcpy((void *)(& res->csr_sessionid), (void const   *)(& args->csa_sessionid),
                              __len);
   }
   res->csr_sequenceid = args->csa_sequenceid;
@@ -43836,7 +43836,7 @@ __inline static char *nfs4_pathname_string(struct nfs4_pathname  const  *pathnam
   }
   end = end + - ((unsigned long )component->len);
   __len = (size_t )component->len;
-  __ret = __builtin_memcpy((void *)end, (void const   *)component->data, __len);
+  __ret = memcpy((void *)end, (void const   *)component->data, __len);
   end = end - 1;
   *end = 47;
   ldv_48199: 
@@ -44150,7 +44150,7 @@ static struct vfsmount *try_location(struct nfs_clone_mount *mountdata , char *p
   }
   rpc_set_port(mountdata->addr, 2049);
   __len = (size_t )buf->len;
-  __ret = __builtin_memcpy((void *)page2, (void const   *)buf->data, __len);
+  __ret = memcpy((void *)page2, (void const   *)buf->data, __len);
   *(page2 + (unsigned long )buf->len) = 0;
   mountdata->hostname = page2;
   snprintf(page, 4096UL, "%s:%s", mountdata->hostname, mountdata->mnt_path);
@@ -44544,7 +44544,7 @@ int nfs4_get_rootfh(struct nfs_server *server , struct nfs_fh *mntfh )
     __ret = memcpy((void *)(& server->fsid), (void const   *)(& (fsinfo.fattr)->fsid),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& server->fsid), (void const   *)(& (fsinfo.fattr)->fsid),
+    __ret = memcpy((void *)(& server->fsid), (void const   *)(& (fsinfo.fattr)->fsid),
                              __len);
   }
   out: 

@@ -6105,7 +6105,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -7088,7 +7088,7 @@ static int islpci_mgt_transmit(struct net_device *ndev , int operation , unsigne
   p = p + 12UL;
   if ((unsigned long )data != (unsigned long )((void *)0)) {
     __len = (size_t )length;
-    __ret = __builtin_memcpy(p, (void const   *)data, __len);
+    __ret = memcpy(p, (void const   *)data, __len);
   } else {
     memset(p, 0, (size_t )length);
   }
@@ -7196,7 +7196,7 @@ int islpci_mgt_receive(struct net_device *ndev )
   }
   frame->ndev = ndev;
   __len = (size_t )size;
-  __ret = __builtin_memcpy((void *)(& frame->buf), (void const   *)header, __len);
+  __ret = memcpy((void *)(& frame->buf), (void const   *)header, __len);
   frame->header = (pimfor_header_t *)(& frame->buf);
   frame->data = (void *)(& frame->buf) + 12U;
   if ((unsigned int )header->operation == 4U) {
@@ -7857,10 +7857,10 @@ __inline static char *iwe_stream_add_event(struct iw_request_info *info , char *
     if (__len > 63UL) {
       __ret = memcpy((void *)stream, (void const   *)iwe, __len);
     } else {
-      __ret = __builtin_memcpy((void *)stream, (void const   *)iwe, __len);
+      __ret = memcpy((void *)stream, (void const   *)iwe, __len);
     }
     __len___0 = (size_t )(event_len - lcp_len);
-    __ret___0 = __builtin_memcpy((void *)stream + (unsigned long )lcp_len, (void const   *)(& iwe->u),
+    __ret___0 = memcpy((void *)stream + (unsigned long )lcp_len, (void const   *)(& iwe->u),
                                  __len___0);
     stream = stream + (unsigned long )event_len;
   } else {
@@ -7901,18 +7901,18 @@ __inline static char *iwe_stream_add_point(struct iw_request_info *info , char *
     if (__len > 63UL) {
       __ret = memcpy((void *)stream, (void const   *)iwe, __len);
     } else {
-      __ret = __builtin_memcpy((void *)stream, (void const   *)iwe, __len);
+      __ret = memcpy((void *)stream, (void const   *)iwe, __len);
     }
     __len___0 = 4UL;
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)stream + (unsigned long )lcp_len, (void const   *)(& iwe->u) + 8U,
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)stream + (unsigned long )lcp_len, (void const   *)(& iwe->u) + 8U,
+      __ret___0 = memcpy((void *)stream + (unsigned long )lcp_len, (void const   *)(& iwe->u) + 8U,
                                    __len___0);
     }
     __len___1 = (size_t )iwe->u.data.length;
-    __ret___1 = __builtin_memcpy((void *)stream + (unsigned long )point_len, (void const   *)extra,
+    __ret___1 = memcpy((void *)stream + (unsigned long )point_len, (void const   *)extra,
                                  __len___1);
     stream = stream + (unsigned long )event_len;
   } else {
@@ -7941,11 +7941,11 @@ __inline static char *iwe_stream_add_value(struct iw_request_info *info , char *
                              1L);
   if (tmp___0 != 0L) {
     __len = (size_t )event_len;
-    __ret = __builtin_memcpy((void *)value, (void const   *)(& iwe->u), __len);
+    __ret = memcpy((void *)value, (void const   *)(& iwe->u), __len);
     value = value + (unsigned long )event_len;
     iwe->len = (int )((__u16 )((long )value)) - (int )((__u16 )((long )event));
     __len___0 = (size_t )lcp_len;
-    __ret___0 = __builtin_memcpy((void *)event, (void const   *)iwe, __len___0);
+    __ret___0 = memcpy((void *)event, (void const   *)iwe, __len___0);
   } else {
 
   }
@@ -8093,7 +8093,7 @@ void prism54_update_stats(struct work_struct *work )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& bss.address), (void const   *)data, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& bss.address), (void const   *)data, __len);
+    __ret = memcpy((void *)(& bss.address), (void const   *)data, __len);
   }
   kfree((void const   *)data);
   j = mgt_get_request(priv, 126, 0, (void *)(& bss), & r);
@@ -8128,7 +8128,7 @@ struct iw_statistics *prism54_get_wireless_stats(struct net_device *ndev )
       __ret = memcpy((void *)(& priv->iwstatistics), (void const   *)(& priv->local_iwstatistics),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& priv->iwstatistics), (void const   *)(& priv->local_iwstatistics),
+      __ret = memcpy((void *)(& priv->iwstatistics), (void const   *)(& priv->local_iwstatistics),
                                __len);
     }
     priv->local_iwstatistics.qual.updated = 0U;
@@ -8482,7 +8482,7 @@ static int prism54_set_wap(struct net_device *ndev , struct iw_request_info *inf
   if (__len > 63UL) {
     __ret = memcpy((void *)(& bssid), (void const   *)(& awrq->sa_data), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& bssid), (void const   *)(& awrq->sa_data),
+    __ret = memcpy((void *)(& bssid), (void const   *)(& awrq->sa_data),
                              __len);
   }
   rvalue = mgt_set_request(priv, 7, 0, (void *)(& bssid));
@@ -8507,7 +8507,7 @@ static int prism54_get_wap(struct net_device *ndev , struct iw_request_info *inf
   if (__len > 63UL) {
     __ret = memcpy((void *)(& awrq->sa_data), (void const   *)r.ptr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& awrq->sa_data), (void const   *)r.ptr, __len);
+    __ret = memcpy((void *)(& awrq->sa_data), (void const   *)r.ptr, __len);
   }
   awrq->sa_family = 1U;
   kfree((void const   *)r.ptr);
@@ -8551,7 +8551,7 @@ static char *prism54_translate_bss(struct net_device *ndev , struct iw_request_i
     __ret = memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const   *)(& bss->address),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const   *)(& bss->address),
+    __ret = memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const   *)(& bss->address),
                              __len);
   }
   iwe.u.ap_addr.sa_family = 1U;
@@ -8716,7 +8716,7 @@ static int prism54_set_essid(struct net_device *ndev , struct iw_request_info *i
     }
     essid.length = (u8 )dwrq->length;
     __len = (size_t )dwrq->length;
-    __ret = __builtin_memcpy((void *)(& essid.octets), (void const   *)extra, __len);
+    __ret = memcpy((void *)(& essid.octets), (void const   *)extra, __len);
   } else {
     essid.length = 0U;
   }
@@ -8759,7 +8759,7 @@ static int prism54_get_essid(struct net_device *ndev , struct iw_request_info *i
   }
   essid->octets[(int )dwrq->length] = 0;
   __len = (size_t )dwrq->length;
-  __ret = __builtin_memcpy((void *)extra, (void const   *)(& essid->octets), __len);
+  __ret = memcpy((void *)extra, (void const   *)(& essid->octets), __len);
   kfree((void const   *)essid);
   return (rvalue);
 }
@@ -8783,7 +8783,7 @@ static int prism54_set_nick(struct net_device *ndev , struct iw_request_info *in
   down_write(& priv->mib_sem);
   memset((void *)(& priv->nickname), 0, 33UL);
   __len = (size_t )dwrq->length;
-  __ret = __builtin_memcpy((void *)(& priv->nickname), (void const   *)extra, __len);
+  __ret = memcpy((void *)(& priv->nickname), (void const   *)extra, __len);
   up_write(& priv->mib_sem);
   return (0);
 }
@@ -8805,7 +8805,7 @@ static int prism54_get_nick(struct net_device *ndev , struct iw_request_info *in
   tmp___0 = strlen((char const   *)(& priv->nickname));
   dwrq->length = (__u16 )tmp___0;
   __len = (size_t )dwrq->length;
-  __ret = __builtin_memcpy((void *)extra, (void const   *)(& priv->nickname), __len);
+  __ret = memcpy((void *)extra, (void const   *)(& priv->nickname), __len);
   up_read(& priv->mib_sem);
   return (0);
 }
@@ -9144,7 +9144,7 @@ static int prism54_set_encode(struct net_device *ndev , struct iw_request_info *
       }
       memset((void *)(& key.key), 0, 32UL);
       __len = (size_t )dwrq->length;
-      __ret = __builtin_memcpy((void *)(& key.key), (void const   *)extra, __len);
+      __ret = memcpy((void *)(& key.key), (void const   *)extra, __len);
       if (index < 0 || index > 3) {
         index = current_index;
       } else {
@@ -9257,7 +9257,7 @@ static int prism54_get_encode(struct net_device *ndev , struct iw_request_info *
   key = (struct obj_key *)r.ptr;
   dwrq->length = (__u16 )key->length;
   __len = (size_t )dwrq->length;
-  __ret = __builtin_memcpy((void *)extra, (void const   *)(& key->key), __len);
+  __ret = memcpy((void *)extra, (void const   *)(& key->key), __len);
   kfree((void const   *)key);
   dwrq->flags = (unsigned int )dwrq->flags | ((unsigned int )((__u16 )devindex) + 1U);
   return (rvalue);
@@ -9333,7 +9333,7 @@ static int prism54_set_genie(struct net_device *ndev , struct iw_request_info *i
 
   }
   __len = (size_t )data->length;
-  __ret = __builtin_memcpy((void *)(& priv->wpa_ie), (void const   *)extra, __len);
+  __ret = memcpy((void *)(& priv->wpa_ie), (void const   *)extra, __len);
   priv->wpa_ie_len = (size_t )data->length;
   alen = (int )((unsigned int )priv->wpa_ie_len + 6U);
   tmp___0 = kzalloc((size_t )alen, 208U);
@@ -9347,7 +9347,7 @@ static int prism54_set_genie(struct net_device *ndev , struct iw_request_info *i
   attach->id = -1;
   attach->size = (short )priv->wpa_ie_len;
   __len___0 = priv->wpa_ie_len;
-  __ret___0 = __builtin_memcpy((void *)(& attach->data), (void const   *)extra, __len___0);
+  __ret___0 = memcpy((void *)(& attach->data), (void const   *)extra, __len___0);
   ret = mgt_set_varlen(priv, 122, (void *)attach, (int )priv->wpa_ie_len);
   if (ret == 0) {
     attach->type = 32;
@@ -9390,7 +9390,7 @@ static int prism54_get_genie(struct net_device *ndev , struct iw_request_info *i
   }
   data->length = (__u16 )len;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)extra, (void const   *)(& priv->wpa_ie), __len);
+  __ret = memcpy((void *)extra, (void const   *)(& priv->wpa_ie), __len);
   return (0);
 }
 }
@@ -9747,7 +9747,7 @@ static int prism54_set_encodeext(struct net_device *ndev , struct iw_request_inf
     if ((unsigned int )key.length != 0U) {
       memset((void *)(& key.key), 0, 32UL);
       __len = (size_t )ext->key_len;
-      __ret = __builtin_memcpy((void *)(& key.key), (void const   *)(& ext->key),
+      __ret = memcpy((void *)(& key.key), (void const   *)(& ext->key),
                                __len);
       ret = mgt_set_request(priv, 24, idx, (void *)(& key));
       if (ret < 0) {
@@ -9887,7 +9887,7 @@ static int prism54_get_encodeext(struct net_device *ndev , struct iw_request_inf
 
     }
     __len = (size_t )key->length;
-    __ret = __builtin_memcpy((void *)(& ext->key), (void const   *)(& key->key), __len);
+    __ret = memcpy((void *)(& ext->key), (void const   *)(& key->key), __len);
     ext->key_len = (__u16 )key->length;
     switch ((int )key->type) {
     case 1: 
@@ -10060,7 +10060,7 @@ static int prism54_add_mac(struct net_device *ndev , struct iw_request_info *inf
   if (__len > 63UL) {
     __ret = memcpy((void *)(& entry->addr), (void const   *)(& addr->sa_data), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& entry->addr), (void const   *)(& addr->sa_data),
+    __ret = memcpy((void *)(& entry->addr), (void const   *)(& addr->sa_data),
                              __len);
   }
   tmp___1 = mutex_lock_interruptible_nested(& acl->lock, 0U);
@@ -10165,7 +10165,7 @@ static int prism54_get_mac(struct net_device *ndev , struct iw_request_info *inf
   if (__len > 63UL) {
     __ret = memcpy((void *)(& dst->sa_data), (void const   *)(& entry->addr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dst->sa_data), (void const   *)(& entry->addr),
+    __ret = memcpy((void *)(& dst->sa_data), (void const   *)(& entry->addr),
                              __len);
   }
   dst->sa_family = 1U;
@@ -10342,7 +10342,7 @@ static int prism54_kick_mac(struct net_device *ndev , struct iw_request_info *in
     __ret = memcpy((void *)(& mlme->address), (void const   *)(& addr->sa_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mlme->address), (void const   *)(& addr->sa_data),
+    __ret = memcpy((void *)(& mlme->address), (void const   *)(& addr->sa_data),
                              __len);
   }
   mlme->id = 65535U;
@@ -10529,7 +10529,7 @@ static void prism54_wpa_bss_ie_add(islpci_private *priv , u8 *bssid , u8 *wpa_ie
       if (__len > 63UL) {
         __ret = memcpy((void *)(& bss->bssid), (void const   *)bssid, __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& bss->bssid), (void const   *)bssid, __len);
+        __ret = memcpy((void *)(& bss->bssid), (void const   *)bssid, __len);
       }
       list_add(& bss->list, & priv->bss_wpa_list);
     } else {
@@ -10540,7 +10540,7 @@ static void prism54_wpa_bss_ie_add(islpci_private *priv , u8 *bssid , u8 *wpa_ie
   }
   if ((unsigned long )bss != (unsigned long )((struct islpci_bss_wpa_ie *)0)) {
     __len___0 = wpa_ie_len;
-    __ret___0 = __builtin_memcpy((void *)(& bss->wpa_ie), (void const   *)wpa_ie,
+    __ret___0 = memcpy((void *)(& bss->wpa_ie), (void const   *)wpa_ie,
                                  __len___0);
     bss->wpa_ie_len = wpa_ie_len;
     bss->last_update = jiffies;
@@ -10607,7 +10607,7 @@ static size_t prism54_wpa_bss_ie_get(islpci_private *priv , u8 *bssid , u8 *wpa_
   if ((unsigned long )bss != (unsigned long )((struct islpci_bss_wpa_ie *)0)) {
     len = bss->wpa_ie_len;
     __len = len;
-    __ret = __builtin_memcpy((void *)wpa_ie, (void const   *)(& bss->wpa_ie), __len);
+    __ret = memcpy((void *)wpa_ie, (void const   *)(& bss->wpa_ie), __len);
   } else {
 
   }
@@ -10833,7 +10833,7 @@ static int prism54_process_trap_helper(islpci_private *priv , enum oid_num_t oid
     __ret = memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
+    __ret = memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
                              __len);
   }
   printk("\017Authenticate from: address:\t%pM\n", (u8 *)(& mlmeex->address));
@@ -10880,7 +10880,7 @@ static int prism54_process_trap_helper(islpci_private *priv , enum oid_num_t oid
     __ret___0 = memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
+    __ret___0 = memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
                                  __len___0);
   }
   confirm->id = ((struct obj_mlmeex *)mlme)->id;
@@ -10897,7 +10897,7 @@ static int prism54_process_trap_helper(islpci_private *priv , enum oid_num_t oid
   }
   confirm->size = (u16 )wpa_ie_len;
   __len___1 = (size_t )wpa_ie_len;
-  __ret___1 = __builtin_memcpy((void *)(& confirm->data), (void const   *)(& wpa_ie),
+  __ret___1 = memcpy((void *)(& confirm->data), (void const   *)(& wpa_ie),
                                __len___1);
   mgt_set_varlen(priv, oid, (void *)confirm, wpa_ie_len);
   kfree((void const   *)confirm);
@@ -10923,7 +10923,7 @@ static int prism54_process_trap_helper(islpci_private *priv , enum oid_num_t oid
     __ret___2 = memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
+    __ret___2 = memcpy((void *)(& confirm->address), (void const   *)(& mlmeex->address),
                                  __len___2);
   }
   confirm->id = mlmeex->id;
@@ -10940,7 +10940,7 @@ static int prism54_process_trap_helper(islpci_private *priv , enum oid_num_t oid
   }
   confirm->size = (u16 )wpa_ie_len;
   __len___3 = (size_t )wpa_ie_len;
-  __ret___3 = __builtin_memcpy((void *)(& confirm->data), (void const   *)(& wpa_ie),
+  __ret___3 = memcpy((void *)(& confirm->data), (void const   *)(& wpa_ie),
                                __len___3);
   mgt_set_varlen(priv, oid, (void *)confirm, wpa_ie_len);
   kfree((void const   *)confirm);
@@ -11000,7 +11000,7 @@ int prism54_set_mac_address(struct net_device *ndev , void *addr )
       __ret = memcpy((void *)(priv->ndev)->dev_addr, (void const   *)(& ((struct sockaddr *)addr)->sa_data),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(priv->ndev)->dev_addr, (void const   *)(& ((struct sockaddr *)addr)->sa_data),
+      __ret = memcpy((void *)(priv->ndev)->dev_addr, (void const   *)(& ((struct sockaddr *)addr)->sa_data),
                                __len);
     }
   } else {
@@ -11155,7 +11155,7 @@ static int prism54_debug_get_oid(struct net_device *ndev , struct iw_request_inf
     if (ret == 0) {
       data->length = (__u16 )(response->header)->length;
       __len = (size_t )data->length;
-      __ret = __builtin_memcpy((void *)extra, (void const   *)response->data, __len);
+      __ret = memcpy((void *)extra, (void const   *)response->data, __len);
       islpci_mgt_release(response);
       printk("%s: len: %i\n", (char *)(& ndev->name), (int )data->length);
     } else {
@@ -12562,7 +12562,7 @@ struct net_device *islpci_setup(struct pci_dev *pdev )
   if (__len > 63UL) {
     __ret = memcpy((void *)ndev->dev_addr, (void const   *)(& dummy_mac), __len);
   } else {
-    __ret = __builtin_memcpy((void *)ndev->dev_addr, (void const   *)(& dummy_mac),
+    __ret = memcpy((void *)ndev->dev_addr, (void const   *)(& dummy_mac),
                              __len);
   }
   ndev->watchdog_timeo = 500;
@@ -14380,7 +14380,7 @@ int mgt_set_request(islpci_private *priv , enum oid_num_t n , int extra , void *
   if ((unsigned long )cache != (unsigned long )((void *)0)) {
     if (ret == 0 && (unsigned long )data != (unsigned long )((void *)0)) {
       __len = (size_t )dlen;
-      __ret = __builtin_memcpy(cache, (void const   *)_data___0, __len);
+      __ret = memcpy(cache, (void const   *)_data___0, __len);
     } else {
 
     }
@@ -14547,7 +14547,7 @@ int mgt_get_request(islpci_private *priv , enum oid_num_t n , int extra , void *
       memset(res->ptr, 0, (size_t )reslen);
     } else {
       __len = (size_t )reslen;
-      __ret = __builtin_memcpy(res->ptr, (void const   *)_res, __len);
+      __ret = memcpy(res->ptr, (void const   *)_res, __len);
       mgt_le_to_cpu((int )isl_oid[(unsigned int )n].flags & 127, res->ptr);
     }
   }
@@ -14667,7 +14667,7 @@ void mgt_set(islpci_private *priv , enum oid_num_t n , void *data )
 
   }
   __len = (size_t )isl_oid[(unsigned int )n].size;
-  __ret = __builtin_memcpy(*(priv->mib + (unsigned long )n), (void const   *)data,
+  __ret = memcpy(*(priv->mib + (unsigned long )n), (void const   *)data,
                            __len);
   mgt_cpu_to_le((int )isl_oid[(unsigned int )n].flags & 127, *(priv->mib + (unsigned long )n));
   return;
@@ -14711,7 +14711,7 @@ void mgt_get(islpci_private *priv , enum oid_num_t n , void *res )
 
   }
   __len = (size_t )isl_oid[(unsigned int )n].size;
-  __ret = __builtin_memcpy(res, (void const   *)*(priv->mib + (unsigned long )n),
+  __ret = memcpy(res, (void const   *)*(priv->mib + (unsigned long )n),
                            __len);
   mgt_le_to_cpu((int )isl_oid[(unsigned int )n].flags & 127, res);
   return;
@@ -14739,7 +14739,7 @@ static int mgt_update_addr(islpci_private *priv )
       __ret = memcpy((void *)(priv->ndev)->dev_addr, (void const   *)res->data,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(priv->ndev)->dev_addr, (void const   *)res->data,
+      __ret = memcpy((void *)(priv->ndev)->dev_addr, (void const   *)res->data,
                                __len);
     }
   } else {

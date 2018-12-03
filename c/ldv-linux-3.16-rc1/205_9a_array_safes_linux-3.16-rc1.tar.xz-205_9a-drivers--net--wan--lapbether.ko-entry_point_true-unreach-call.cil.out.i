@@ -6946,6 +6946,7 @@ static void lapbeth_disconnected(struct net_device *dev , int reason )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int lapbeth_set_mac_address(struct net_device *dev , void *addr )
 {
   struct sockaddr *sa ;
@@ -6954,7 +6955,7 @@ static int lapbeth_set_mac_address(struct net_device *dev , void *addr )
   {
   sa = (struct sockaddr *)addr;
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)dev->dev_addr, (void const *)(& sa->sa_data),
+  __ret = memcpy((void *)dev->dev_addr, (void const *)(& sa->sa_data),
                            __len);
   return (0);
 }

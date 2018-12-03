@@ -3569,7 +3569,7 @@ static int ds_recv_status_nodump(struct ds_device *dev , struct ds_status *st , 
       {
       __cil_tmp39 = (void *)st;
       __cil_tmp40 = (void const   *)buf;
-      __ret = __builtin_memcpy(__cil_tmp39, __cil_tmp40, __len);
+      __ret = memcpy(__cil_tmp39, __cil_tmp40, __len);
       }
     }
   } else {

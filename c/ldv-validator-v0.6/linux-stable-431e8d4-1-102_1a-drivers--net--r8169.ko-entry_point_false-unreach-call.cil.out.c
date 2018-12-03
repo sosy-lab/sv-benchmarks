@@ -5117,7 +5117,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const   *)src, __len);
+  __ret = memcpy(dst, (void const   *)src, __len);
   return;
 }
 }
@@ -5646,7 +5646,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -7120,7 +7120,7 @@ static void rtl8169_update_counters(struct net_device *dev )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& tp->counters), (void const   *)counters, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& tp->counters), (void const   *)counters,
+      __ret = memcpy((void *)(& tp->counters), (void const   *)counters,
                                __len);
     }
     goto ldv_37525;
@@ -7192,7 +7192,7 @@ static void rtl8169_get_strings(struct net_device *dev , u32 stringset , u8 *dat
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const   *)(& rtl8169_gstrings), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const   *)(& rtl8169_gstrings), __len);
+    __ret = memcpy((void *)data, (void const   *)(& rtl8169_gstrings), __len);
   }
   goto ldv_37543;
   }
@@ -9909,7 +9909,7 @@ static int rtl_set_mac_address(struct net_device *dev , void *p )
 
   }
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
+  __ret = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
                            __len);
   rtl_rar_set(tp, dev->dev_addr);
   return (0);
@@ -10360,7 +10360,7 @@ static int rtl8169_init_one(struct pci_dev *pdev , struct pci_device_id  const  
 
   }
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)(& dev->perm_addr), (void const   *)dev->dev_addr,
+  __ret = memcpy((void *)(& dev->perm_addr), (void const   *)dev->dev_addr,
                            __len);
   ldv_state_variable_7 = 1;
   dev->watchdog_timeo = 1500;

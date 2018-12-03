@@ -2319,6 +2319,7 @@ static void ibmpex_bmc_gone(int iface )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void ibmpex_msg_handler(struct ipmi_recv_msg *msg , void *user_msg_data ) 
 { 
   struct ibmpex_bmc_data *data ;
@@ -2344,7 +2345,7 @@ static void ibmpex_msg_handler(struct ipmi_recv_msg *msg , void *user_msg_data )
   if ((unsigned int )msg->msg.data_len > 1U) {
     data->rx_msg_len = (unsigned long )((int )msg->msg.data_len + -1);
     __len = data->rx_msg_len;
-    __ret = __builtin_memcpy((void *)(& data->rx_msg_data), (void const   *)msg->msg.data + 1U,
+    __ret = memcpy((void *)(& data->rx_msg_data), (void const   *)msg->msg.data + 1U,
                              __len);
   } else {
     data->rx_msg_len = 0UL;

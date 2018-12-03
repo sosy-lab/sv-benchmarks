@@ -4505,7 +4505,7 @@ struct dvb_frontend *mt2060_attach(struct dvb_frontend *fe , struct i2c_adapter 
     __cil_tmp46 = (struct dvb_tuner_ops *)__cil_tmp45;
     __cil_tmp47 = (void *)__cil_tmp46;
     __cil_tmp48 = (void const   *)(& mt2060_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp47, __cil_tmp48, __len);
+    __ret = memcpy(__cil_tmp47, __cil_tmp48, __len);
     }
   }
   {

@@ -2353,6 +2353,7 @@ __inline static void i2c_set_clientdata(struct i2c_client *dev , void *data )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int i2c_register_driver(struct module * , struct i2c_driver * ) ;
 extern void i2c_del_driver(struct i2c_driver * ) ;
 extern int mfd_add_devices(struct device *parent , int id , struct mfd_cell *cells ,
@@ -2579,7 +2580,7 @@ static int wm8400_read(struct wm8400 *wm8400 , u8 reg , int num_regs , u16 *dest
   __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
   __cil_tmp36 = (u16 *)__cil_tmp35;
   __cil_tmp37 = (void const   *)__cil_tmp36;
-  __ret = __builtin_memcpy(__cil_tmp31, __cil_tmp37, __len);
+  __ret = memcpy(__cil_tmp31, __cil_tmp37, __len);
   }
   return (0);
 }

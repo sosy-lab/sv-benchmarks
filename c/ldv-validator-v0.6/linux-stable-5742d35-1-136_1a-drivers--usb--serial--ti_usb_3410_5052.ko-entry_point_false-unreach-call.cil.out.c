@@ -6450,6 +6450,7 @@ static int ti_do_download(struct usb_device *dev , int pipe , u8 *buffer , int s
   return (status);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int ti_download_firmware(struct ti_device *tdev ) 
 { 
   int status ;
@@ -6535,7 +6536,7 @@ static int ti_download_firmware(struct ti_device *tdev )
   buffer = (__u8 *)tmp___0;
   if ((unsigned long )buffer != (unsigned long )((__u8 *)0U)) {
     __len = fw_p->size;
-    __ret = __builtin_memcpy((void *)buffer, (void const   *)fw_p->data, __len);
+    __ret = memcpy((void *)buffer, (void const   *)fw_p->data, __len);
     memset((void *)(buffer + fw_p->size), 255, (unsigned long )buffer_size - (unsigned long )fw_p->size);
     status = ti_do_download(dev, (int )pipe, buffer, (int )fw_p->size);
     kfree((void const   *)buffer);

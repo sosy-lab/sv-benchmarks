@@ -9169,7 +9169,7 @@ static int sbp_fetch_command(struct sbp_target_request *req )
   __min1 = cmd_len;
   __min2 = 12;
   __len = (size_t )(__min1 < __min2 ? __min1 : __min2);
-  __ret = __builtin_memcpy(req->cmd_buf, (void const *)(& req->orb.command_block),
+  __ret = memcpy(req->cmd_buf, (void const *)(& req->orb.command_block),
                            __len);
   if ((unsigned int )cmd_len > 12U) {
     descriptor.modname = "sbp_target";
@@ -10205,7 +10205,7 @@ static int sbp_update_unit_directory(struct sbp_tport *tport )
     __ret = memcpy((void *)data + (unsigned long )idx, (void const *)(& sbp_unit_directory_template),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)data + (unsigned long )idx, (void const *)(& sbp_unit_directory_template),
+    __ret = memcpy((void *)data + (unsigned long )idx, (void const *)(& sbp_unit_directory_template),
                              __len);
   }
   idx = (int )((unsigned int )idx + 6U);

@@ -3002,7 +3002,7 @@ static inline __attribute__((no_instrument_function)) void bitmap_copy(unsigned 
   *dst = *src;
  else {
   int len = (((nbits) + (8 * sizeof(long)) - 1) / (8 * sizeof(long))) * sizeof(unsigned long);
-  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = __builtin_memcpy((dst), (src), __len); __ret; });
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = memcpy((dst), (src), __len); __ret; });
  }
 }
 
@@ -10004,13 +10004,13 @@ memset_io(volatile void *addr, unsigned char val, size_t count)
 static inline __attribute__((no_instrument_function)) void
 memcpy_fromio(void *dst, const volatile void *src, size_t count)
 {
- ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy((dst), ((const void *)src), __len); else __ret = __builtin_memcpy((dst), ((const void *)src), __len); __ret; });
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy((dst), ((const void *)src), __len); else __ret = memcpy((dst), ((const void *)src), __len); __ret; });
 }
 
 static inline __attribute__((no_instrument_function)) void
 memcpy_toio(volatile void *dst, const void *src, size_t count)
 {
- ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy(((void *)dst), (src), __len); else __ret = __builtin_memcpy(((void *)dst), (src), __len); __ret; });
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy(((void *)dst), (src), __len); else __ret = memcpy(((void *)dst), (src), __len); __ret; });
 }
 static inline __attribute__((no_instrument_function)) void flush_write_buffers(void)
 {
@@ -18260,10 +18260,10 @@ void do_schedule_next_timer(struct siginfo *info);
 static inline __attribute__((no_instrument_function)) void copy_siginfo(struct siginfo *to, struct siginfo *from)
 {
  if (from->si_code < 0)
-  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
+  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
  else
 
-  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = __builtin_memcpy((to), (from), __len); __ret; });
+  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
 }
 
 
@@ -24403,7 +24403,7 @@ static inline __attribute__((no_instrument_function)) void pmdp_set_wrprotect(st
 }
 static inline __attribute__((no_instrument_function)) void clone_pgd_range(pgd_t *dst, pgd_t *src, int count)
 {
-       ({ size_t __len = (count * sizeof(pgd_t)); void *__ret; if (__builtin_constant_p(count * sizeof(pgd_t)) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = __builtin_memcpy((dst), (src), __len); __ret; });
+       ({ size_t __len = (count * sizeof(pgd_t)); void *__ret; if (__builtin_constant_p(count * sizeof(pgd_t)) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = memcpy((dst), (src), __len); __ret; });
 }
 
 
@@ -30195,21 +30195,21 @@ static inline __attribute__((no_instrument_function)) void skb_copy_from_linear_
           void *to,
           const unsigned int len)
 {
- ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data), __len); else __ret = __builtin_memcpy((to), (skb->data), __len); __ret; });
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data), __len); else __ret = memcpy((to), (skb->data), __len); __ret; });
 }
 
 static inline __attribute__((no_instrument_function)) void skb_copy_from_linear_data_offset(const struct sk_buff *skb,
           const int offset, void *to,
           const unsigned int len)
 {
- ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data + offset), __len); else __ret = __builtin_memcpy((to), (skb->data + offset), __len); __ret; });
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data + offset), __len); else __ret = memcpy((to), (skb->data + offset), __len); __ret; });
 }
 
 static inline __attribute__((no_instrument_function)) void skb_copy_to_linear_data(struct sk_buff *skb,
         const void *from,
         const unsigned int len)
 {
- ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data), (from), __len); else __ret = __builtin_memcpy((skb->data), (from), __len); __ret; });
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data), (from), __len); else __ret = memcpy((skb->data), (from), __len); __ret; });
 }
 
 static inline __attribute__((no_instrument_function)) void skb_copy_to_linear_data_offset(struct sk_buff *skb,
@@ -30217,7 +30217,7 @@ static inline __attribute__((no_instrument_function)) void skb_copy_to_linear_da
         const void *from,
         const unsigned int len)
 {
- ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data + offset), (from), __len); else __ret = __builtin_memcpy((skb->data + offset), (from), __len); __ret; });
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data + offset), (from), __len); else __ret = memcpy((skb->data + offset), (from), __len); __ret; });
 }
 
 extern void skb_init(void);
@@ -45643,7 +45643,7 @@ static inline __attribute__((no_instrument_function)) void SET_IEEE80211_DEV(str
 
 static inline __attribute__((no_instrument_function)) void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw, u8 *addr)
 {
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((hw->wiphy->perm_addr), (addr), __len); else __ret = __builtin_memcpy((hw->wiphy->perm_addr), (addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((hw->wiphy->perm_addr), (addr), __len); else __ret = memcpy((hw->wiphy->perm_addr), (addr), __len); __ret; });
 }
 
 static inline __attribute__((no_instrument_function)) struct ieee80211_rate *
@@ -46781,7 +46781,7 @@ static int mwl8k_load_fw_image(struct mwl8k_priv *priv,
  while (length) {
   int block_size = length > 256 ? 256 : length;
 
-  ({ size_t __len = (block_size); void *__ret; if (__builtin_constant_p(block_size) && __len >= 64) __ret = memcpy((cmd->payload), (data + done), __len); else __ret = __builtin_memcpy((cmd->payload), (data + done), __len); __ret; });
+  ({ size_t __len = (block_size); void *__ret; if (__builtin_constant_p(block_size) && __len >= 64) __ret = memcpy((cmd->payload), (data + done), __len); else __ret = memcpy((cmd->payload), (data + done), __len); __ret; });
   cmd->length = (( __le16)(__u16)(block_size));
 
   rc = mwl8k_send_fw_load_cmd(priv, cmd,
@@ -46847,7 +46847,7 @@ static int mwl8k_feed_fw_image(struct mwl8k_priv *priv,
   }
 
   prev_block_size = block_size;
-  ({ size_t __len = (block_size); void *__ret; if (__builtin_constant_p(block_size) && __len >= 64) __ret = memcpy((buffer), (data + done), __len); else __ret = __builtin_memcpy((buffer), (data + done), __len); __ret; });
+  ({ size_t __len = (block_size); void *__ret; if (__builtin_constant_p(block_size) && __len >= 64) __ret = memcpy((buffer), (data + done), __len); else __ret = memcpy((buffer), (data + done), __len); __ret; });
 
   rc = mwl8k_send_fw_load_cmd(priv, buffer, block_size);
   if (rc)
@@ -47470,7 +47470,7 @@ static int rxq_process(struct ieee80211_hw *hw, int index, int limit)
 
   skb_put(skb, pkt_len);
   mwl8k_remove_dma_header(skb, qos);
-  ({ size_t __len = (sizeof(status)); void *__ret; if (__builtin_constant_p(sizeof(status)) && __len >= 64) __ret = memcpy((IEEE80211_SKB_RXCB(skb)), (&status), __len); else __ret = __builtin_memcpy((IEEE80211_SKB_RXCB(skb)), (&status), __len); __ret; });
+  ({ size_t __len = (sizeof(status)); void *__ret; if (__builtin_constant_p(sizeof(status)) && __len >= 64) __ret = memcpy((IEEE80211_SKB_RXCB(skb)), (&status), __len); else __ret = memcpy((IEEE80211_SKB_RXCB(skb)), (&status), __len); __ret; });
   ieee80211_rx_irqsafe(hw, skb);
 
   processed++;
@@ -48215,10 +48215,10 @@ static void mwl8k_setup_2ghz_band(struct ieee80211_hw *hw)
  struct mwl8k_priv *priv = hw->priv;
 
  ;
- ({ size_t __len = (sizeof(mwl8k_channels_24)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_channels_24)) && __len >= 64) __ret = memcpy((priv->channels_24), (mwl8k_channels_24), __len); else __ret = __builtin_memcpy((priv->channels_24), (mwl8k_channels_24), __len); __ret; });
+ ({ size_t __len = (sizeof(mwl8k_channels_24)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_channels_24)) && __len >= 64) __ret = memcpy((priv->channels_24), (mwl8k_channels_24), __len); else __ret = memcpy((priv->channels_24), (mwl8k_channels_24), __len); __ret; });
 
  ;
- ({ size_t __len = (sizeof(mwl8k_rates_24)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_rates_24)) && __len >= 64) __ret = memcpy((priv->rates_24), (mwl8k_rates_24), __len); else __ret = __builtin_memcpy((priv->rates_24), (mwl8k_rates_24), __len); __ret; });
+ ({ size_t __len = (sizeof(mwl8k_rates_24)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_rates_24)) && __len >= 64) __ret = memcpy((priv->rates_24), (mwl8k_rates_24), __len); else __ret = memcpy((priv->rates_24), (mwl8k_rates_24), __len); __ret; });
 
  priv->band_24.band = IEEE80211_BAND_2GHZ;
  priv->band_24.channels = priv->channels_24;
@@ -48234,10 +48234,10 @@ static void mwl8k_setup_5ghz_band(struct ieee80211_hw *hw)
  struct mwl8k_priv *priv = hw->priv;
 
  ;
- ({ size_t __len = (sizeof(mwl8k_channels_50)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_channels_50)) && __len >= 64) __ret = memcpy((priv->channels_50), (mwl8k_channels_50), __len); else __ret = __builtin_memcpy((priv->channels_50), (mwl8k_channels_50), __len); __ret; });
+ ({ size_t __len = (sizeof(mwl8k_channels_50)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_channels_50)) && __len >= 64) __ret = memcpy((priv->channels_50), (mwl8k_channels_50), __len); else __ret = memcpy((priv->channels_50), (mwl8k_channels_50), __len); __ret; });
 
  ;
- ({ size_t __len = (sizeof(mwl8k_rates_50)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_rates_50)) && __len >= 64) __ret = memcpy((priv->rates_50), (mwl8k_rates_50), __len); else __ret = __builtin_memcpy((priv->rates_50), (mwl8k_rates_50), __len); __ret; });
+ ({ size_t __len = (sizeof(mwl8k_rates_50)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_rates_50)) && __len >= 64) __ret = memcpy((priv->rates_50), (mwl8k_rates_50), __len); else __ret = memcpy((priv->rates_50), (mwl8k_rates_50), __len); __ret; });
 
  priv->band_50.band = IEEE80211_BAND_5GHZ;
  priv->band_50.channels = priv->channels_50;
@@ -48584,7 +48584,7 @@ __mwl8k_cmd_mac_multicast_adr(struct ieee80211_hw *hw, int allmulti,
   cmd->action |= (( __le16)(__u16)(0x0002));
   cmd->numaddr = (( __le16)(__u16)(mc_count));
   for (ha = ({ const typeof( ((typeof(*ha) *)0)->list ) *__mptr = ((&(mc_list)->list)->next); (typeof(*ha) *)( (char *)__mptr - __builtin_offsetof(typeof(*ha),list) );}); &ha->list != (&(mc_list)->list); ha = ({ const typeof( ((typeof(*ha) *)0)->list ) *__mptr = (ha->list.next); (typeof(*ha) *)( (char *)__mptr - __builtin_offsetof(typeof(*ha),list) );})) {
-   ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->addr[i]), (ha->addr), __len); else __ret = __builtin_memcpy((cmd->addr[i]), (ha->addr), __len); __ret; });
+   ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->addr[i]), (ha->addr), __len); else __ret = memcpy((cmd->addr[i]), (ha->addr), __len); __ret; });
   }
  }
 
@@ -48840,7 +48840,7 @@ static int mwl8k_cmd_set_beacon(struct ieee80211_hw *hw,
  cmd->header.code = (( __le16)(__u16)(0x0100));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd) + len));
  cmd->beacon_len = (( __le16)(__u16)(len));
- ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((cmd->beacon), (beacon), __len); else __ret = __builtin_memcpy((cmd->beacon), (beacon), __len); __ret; });
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((cmd->beacon), (beacon), __len); else __ret = memcpy((cmd->beacon), (beacon), __len); __ret; });
 
  rc = mwl8k_post_pervif_cmd(hw, vif, &cmd->header);
  kfree(cmd);
@@ -48895,7 +48895,7 @@ mwl8k_cmd_set_post_scan(struct ieee80211_hw *hw, const __u8 *mac)
  cmd->header.code = (( __le16)(__u16)(0x0108));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
  cmd->isibss = 0;
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->bssid), (mac), __len); else __ret = __builtin_memcpy((cmd->bssid), (mac), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->bssid), (mac), __len); else __ret = memcpy((cmd->bssid), (mac), __len); __ret; });
 
  rc = mwl8k_post_cmd(hw, &cmd->header);
  kfree(cmd);
@@ -48988,7 +48988,7 @@ mwl8k_cmd_set_aid(struct ieee80211_hw *hw,
  cmd->header.code = (( __le16)(__u16)(0x010d));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
  cmd->aid = (( __le16)(__u16)(vif->bss_conf.aid));
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->bssid), (vif->bss_conf.bssid), __len); else __ret = __builtin_memcpy((cmd->bssid), (vif->bss_conf.bssid), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->bssid), (vif->bss_conf.bssid), __len); else __ret = memcpy((cmd->bssid), (vif->bss_conf.bssid), __len); __ret; });
 
  if (vif->bss_conf.use_cts_prot) {
   prot_mode = 0x07;
@@ -49042,7 +49042,7 @@ mwl8k_cmd_set_rate(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
  cmd->header.code = (( __le16)(__u16)(0x0110));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
  legacy_rate_mask_to_array(cmd->legacy_rates, legacy_rate_mask);
- ({ size_t __len = (16); void *__ret; if (__builtin_constant_p(16) && __len >= 64) __ret = memcpy((cmd->mcs_set), (mcs_rates), __len); else __ret = __builtin_memcpy((cmd->mcs_set), (mcs_rates), __len); __ret; });
+ ({ size_t __len = (16); void *__ret; if (__builtin_constant_p(16) && __len >= 64) __ret = memcpy((cmd->mcs_set), (mcs_rates), __len); else __ret = memcpy((cmd->mcs_set), (mcs_rates), __len); __ret; });
 
  rc = mwl8k_post_cmd(hw, &cmd->header);
  kfree(cmd);
@@ -49083,7 +49083,7 @@ static int mwl8k_cmd_finalize_join(struct ieee80211_hw *hw, void *frame,
  else if (payload_len > 128)
   payload_len = 128;
 
- ({ size_t __len = (payload_len); void *__ret; if (__builtin_constant_p(payload_len) && __len >= 64) __ret = memcpy((cmd->beacon_data), (&payload->u.beacon), __len); else __ret = __builtin_memcpy((cmd->beacon_data), (&payload->u.beacon), __len); __ret; });
+ ({ size_t __len = (payload_len); void *__ret; if (__builtin_constant_p(payload_len) && __len >= 64) __ret = memcpy((cmd->beacon_data), (&payload->u.beacon), __len); else __ret = memcpy((cmd->beacon_data), (&payload->u.beacon), __len); __ret; });
 
  rc = mwl8k_post_cmd(hw, &cmd->header);
  kfree(cmd);
@@ -49448,9 +49448,9 @@ static int mwl8k_cmd_update_mac_addr(struct ieee80211_hw *hw,
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
  if (priv->ap_fw) {
   cmd->mbss.mac_type = (( __le16)(__u16)(mac_type));
-  ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mbss.mac_addr), (mac), __len); else __ret = __builtin_memcpy((cmd->mbss.mac_addr), (mac), __len); __ret; });
+  ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mbss.mac_addr), (mac), __len); else __ret = memcpy((cmd->mbss.mac_addr), (mac), __len); __ret; });
  } else {
-  ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (mac), __len); else __ret = __builtin_memcpy((cmd->mac_addr), (mac), __len); __ret; });
+  ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (mac), __len); else __ret = memcpy((cmd->mac_addr), (mac), __len); __ret; });
  }
 
  rc = mwl8k_post_pervif_cmd(hw, vif, &cmd->header);
@@ -49647,7 +49647,7 @@ mwl8k_check_ba(struct ieee80211_hw *hw, struct mwl8k_ampdu_stream *stream)
  cmd->action = (( __le32)(__u32)(MWL8K_BA_CHECK));
 
  cmd->create_params.queue_id = stream->idx;
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((&cmd->create_params.peer_mac_addr[0]), (stream->sta->addr), __len); else __ret = __builtin_memcpy((&cmd->create_params.peer_mac_addr[0]), (stream->sta->addr), __len); __ret; })
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((&cmd->create_params.peer_mac_addr[0]), (stream->sta->addr), __len); else __ret = memcpy((&cmd->create_params.peer_mac_addr[0]), (stream->sta->addr), __len); __ret; })
                  ;
  cmd->create_params.tid = stream->tid;
 
@@ -49683,7 +49683,7 @@ mwl8k_create_ba(struct ieee80211_hw *hw, struct mwl8k_ampdu_stream *stream,
  cmd->create_params.window_size = (( __le32)(__u32)((u32)buf_size));
  cmd->create_params.queue_id = stream->idx;
 
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->create_params.peer_mac_addr), (stream->sta->addr), __len); else __ret = __builtin_memcpy((cmd->create_params.peer_mac_addr), (stream->sta->addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->create_params.peer_mac_addr), (stream->sta->addr), __len); else __ret = memcpy((cmd->create_params.peer_mac_addr), (stream->sta->addr), __len); __ret; });
  cmd->create_params.tid = stream->tid;
  cmd->create_params.curr_seq_no = (( __le16)(__u16)(0));
  cmd->create_params.reset_seq_no_flag = 1;
@@ -49771,7 +49771,7 @@ static int mwl8k_cmd_set_new_stn_add(struct ieee80211_hw *hw,
  cmd->header.code = (( __le16)(__u16)(0x1111));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
  cmd->aid = (( __le16)(__u16)(sta->aid));
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (sta->addr), __len); else __ret = __builtin_memcpy((cmd->mac_addr), (sta->addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (sta->addr), __len); else __ret = memcpy((cmd->mac_addr), (sta->addr), __len); __ret; });
  cmd->stn_id = (( __le16)(__u16)(sta->aid));
  cmd->action = (( __le16)(__u16)(0));
  if (hw->conf.channel->band == IEEE80211_BAND_2GHZ)
@@ -49808,7 +49808,7 @@ static int mwl8k_cmd_set_new_stn_add_self(struct ieee80211_hw *hw,
 
  cmd->header.code = (( __le16)(__u16)(0x1111));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (vif->addr), __len); else __ret = __builtin_memcpy((cmd->mac_addr), (vif->addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (vif->addr), __len); else __ret = memcpy((cmd->mac_addr), (vif->addr), __len); __ret; });
 
  rc = mwl8k_post_pervif_cmd(hw, vif, &cmd->header);
  kfree(cmd);
@@ -49828,7 +49828,7 @@ static int mwl8k_cmd_set_new_stn_del(struct ieee80211_hw *hw,
 
  cmd->header.code = (( __le16)(__u16)(0x1111));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (addr), __len); else __ret = __builtin_memcpy((cmd->mac_addr), (addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (addr), __len); else __ret = memcpy((cmd->mac_addr), (addr), __len); __ret; });
  cmd->action = (( __le16)(__u16)(2));
 
  rc = mwl8k_post_pervif_cmd(hw, vif, &cmd->header);
@@ -49906,7 +49906,7 @@ static int mwl8k_cmd_update_encryption_enable(struct ieee80211_hw *hw,
  cmd->header.code = (( __le16)(__u16)(0x1122));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
  cmd->action = (( __le32)(__u32)(MWL8K_ENCR_ENABLE));
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (addr), __len); else __ret = __builtin_memcpy((cmd->mac_addr), (addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (addr), __len); else __ret = memcpy((cmd->mac_addr), (addr), __len); __ret; });
  cmd->encr_type = encr_type;
 
  rc = mwl8k_post_pervif_cmd(hw, vif, &cmd->header);
@@ -49925,7 +49925,7 @@ static int mwl8k_encryption_set_cmd_info(struct mwl8k_cmd_set_key *cmd,
                                                ;
  cmd->key_id = (( __le32)(__u32)(key->keyidx));
  cmd->key_len = (( __le16)(__u16)(key->keylen));
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (addr), __len); else __ret = __builtin_memcpy((cmd->mac_addr), (addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (addr), __len); else __ret = memcpy((cmd->mac_addr), (addr), __len); __ret; });
 
  switch (key->cipher) {
  case 0x000FAC01:
@@ -49987,7 +49987,7 @@ static int mwl8k_cmd_encryption_set_key(struct ieee80211_hw *hw,
  case 0x000FAC01:
  case 0x000FAC05:
   if (!mwl8k_vif->wep_key_conf[idx].enabled) {
-   ({ size_t __len = (sizeof(*key) + key->keylen); void *__ret; if (__builtin_constant_p(sizeof(*key) + key->keylen) && __len >= 64) __ret = memcpy((mwl8k_vif->wep_key_conf[idx].key), (key), __len); else __ret = __builtin_memcpy((mwl8k_vif->wep_key_conf[idx].key), (key), __len); __ret; })
+   ({ size_t __len = (sizeof(*key) + key->keylen); void *__ret; if (__builtin_constant_p(sizeof(*key) + key->keylen) && __len >= 64) __ret = memcpy((mwl8k_vif->wep_key_conf[idx].key), (key), __len); else __ret = memcpy((mwl8k_vif->wep_key_conf[idx].key), (key), __len); __ret; })
                                  ;
    mwl8k_vif->wep_key_conf[idx].enabled = 1;
   }
@@ -50006,7 +50006,7 @@ static int mwl8k_cmd_encryption_set_key(struct ieee80211_hw *hw,
   goto done;
  }
 
- ({ size_t __len = (keymlen); void *__ret; if (__builtin_constant_p(keymlen) && __len >= 64) __ret = memcpy((cmd->key_material), (key->key), __len); else __ret = __builtin_memcpy((cmd->key_material), (key->key), __len); __ret; });
+ ({ size_t __len = (keymlen); void *__ret; if (__builtin_constant_p(keymlen) && __len >= 64) __ret = memcpy((cmd->key_material), (key->key), __len); else __ret = memcpy((cmd->key_material), (key->key), __len); __ret; });
  cmd->action = (( __le32)(__u32)(action));
 
  rc = mwl8k_post_pervif_cmd(hw, vif, &cmd->header);
@@ -50168,7 +50168,7 @@ static int mwl8k_cmd_update_stadb_add(struct ieee80211_hw *hw,
  cmd->header.code = (( __le16)(__u16)(0x1123));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
  cmd->action = (( __le32)(__u32)(1));
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->peer_addr), (sta->addr), __len); else __ret = __builtin_memcpy((cmd->peer_addr), (sta->addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->peer_addr), (sta->addr), __len); else __ret = memcpy((cmd->peer_addr), (sta->addr), __len); __ret; });
 
  p = &cmd->peer_info;
  p->peer_type = 2;
@@ -50182,7 +50182,7 @@ static int mwl8k_cmd_update_stadb_add(struct ieee80211_hw *hw,
  else
   rates = sta->supp_rates[IEEE80211_BAND_5GHZ] << 5;
  legacy_rate_mask_to_array(p->legacy_rates, rates);
- ({ size_t __len = (16); void *__ret; if (__builtin_constant_p(16) && __len >= 64) __ret = memcpy((p->ht_rates), (sta->ht_cap.mcs.rx_mask), __len); else __ret = __builtin_memcpy((p->ht_rates), (sta->ht_cap.mcs.rx_mask), __len); __ret; });
+ ({ size_t __len = (16); void *__ret; if (__builtin_constant_p(16) && __len >= 64) __ret = memcpy((p->ht_rates), (sta->ht_cap.mcs.rx_mask), __len); else __ret = memcpy((p->ht_rates), (sta->ht_cap.mcs.rx_mask), __len); __ret; });
  p->interop = 1;
  p->amsdu_enabled = 0;
 
@@ -50205,7 +50205,7 @@ static int mwl8k_cmd_update_stadb_del(struct ieee80211_hw *hw,
  cmd->header.code = (( __le16)(__u16)(0x1123));
  cmd->header.length = (( __le16)(__u16)(sizeof(*cmd)));
  cmd->action = (( __le32)(__u32)(2));
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->peer_addr), (addr), __len); else __ret = __builtin_memcpy((cmd->peer_addr), (addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->peer_addr), (addr), __len); else __ret = memcpy((cmd->peer_addr), (addr), __len); __ret; });
 
  rc = mwl8k_post_cmd(hw, &cmd->header);
  kfree(cmd);
@@ -50476,7 +50476,7 @@ static int mwl8k_add_interface(struct ieee80211_hw *hw,
  mwl8k_vif->vif = vif;
  mwl8k_vif->macid = macid;
  mwl8k_vif->seqno = 0;
- ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((mwl8k_vif->bssid), (vif->addr), __len); else __ret = __builtin_memcpy((mwl8k_vif->bssid), (vif->addr), __len); __ret; });
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((mwl8k_vif->bssid), (vif->addr), __len); else __ret = memcpy((mwl8k_vif->bssid), (vif->addr), __len); __ret; });
  mwl8k_vif->is_hw_crypto_enabled = false;
 
 
@@ -50654,7 +50654,7 @@ mwl8k_bss_info_changed_sta(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
    ap_legacy_rates =
     ap->supp_rates[IEEE80211_BAND_5GHZ] << 5;
   }
-  ({ size_t __len = (16); void *__ret; if (__builtin_constant_p(16) && __len >= 64) __ret = memcpy((ap_mcs_rates), (ap->ht_cap.mcs.rx_mask), __len); else __ret = __builtin_memcpy((ap_mcs_rates), (ap->ht_cap.mcs.rx_mask), __len); __ret; });
+  ({ size_t __len = (16); void *__ret; if (__builtin_constant_p(16) && __len >= 64) __ret = memcpy((ap_mcs_rates), (ap->ht_cap.mcs.rx_mask), __len); else __ret = memcpy((ap_mcs_rates), (ap->ht_cap.mcs.rx_mask), __len); __ret; });
 
   rcu_read_unlock();
  }
@@ -50696,7 +50696,7 @@ mwl8k_bss_info_changed_sta(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 
 
 
-  ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((priv->capture_bssid), (vif->bss_conf.bssid), __len); else __ret = __builtin_memcpy((priv->capture_bssid), (vif->bss_conf.bssid), __len); __ret; });
+  ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((priv->capture_bssid), (vif->bss_conf.bssid), __len); else __ret = memcpy((priv->capture_bssid), (vif->bss_conf.bssid), __len); __ret; });
   priv->capture_beacon = true;
  }
 
@@ -50956,7 +50956,7 @@ static int mwl8k_conf_tx(struct ieee80211_hw *hw,
  rc = mwl8k_fw_lock(hw);
  if (!rc) {
   do { if (ldv__builtin_expect(!!(queue > 4 - 1), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10860/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/mwl8k.c.common.c"), "i" (5027), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0);
-  ({ size_t __len = (sizeof(*params)); void *__ret; if (__builtin_constant_p(sizeof(*params)) && __len >= 64) __ret = memcpy((&priv->wmm_params[queue]), (params), __len); else __ret = __builtin_memcpy((&priv->wmm_params[queue]), (params), __len); __ret; });
+  ({ size_t __len = (sizeof(*params)); void *__ret; if (__builtin_constant_p(sizeof(*params)) && __len >= 64) __ret = memcpy((&priv->wmm_params[queue]), (params), __len); else __ret = memcpy((&priv->wmm_params[queue]), (params), __len); __ret; });
 
   if (!priv->wmm_enabled)
    rc = mwl8k_cmd_set_wmm_mode(hw, 1);

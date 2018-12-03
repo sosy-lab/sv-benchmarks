@@ -11440,7 +11440,7 @@ static int tw2865_setup(struct solo_dev *solo_dev , u8 dev_addr )
       __ret = memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_pal_template),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_pal_template),
+      __ret = memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_pal_template),
                                __len);
     }
   } else {
@@ -11449,7 +11449,7 @@ static int tw2865_setup(struct solo_dev *solo_dev , u8 dev_addr )
       __ret___0 = memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_ntsc_template),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_ntsc_template),
+      __ret___0 = memcpy((void *)(& tbl_tw2865_common), (void const   *)(& tbl_tw2865_ntsc_template),
                                    __len___0);
     }
   }
@@ -11521,7 +11521,7 @@ static int tw2864_setup(struct solo_dev *solo_dev , u8 dev_addr )
       __ret = memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_pal_template),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_pal_template),
+      __ret = memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_pal_template),
                                __len);
     }
   } else {
@@ -11530,7 +11530,7 @@ static int tw2864_setup(struct solo_dev *solo_dev , u8 dev_addr )
       __ret___0 = memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_ntsc_template),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_ntsc_template),
+      __ret___0 = memcpy((void *)(& tbl_tw2864_common), (void const   *)(& tbl_tw2864_ntsc_template),
                                    __len___0);
     }
   }
@@ -14191,7 +14191,7 @@ void solo_update_mode(struct solo_enc_dev *solo_enc )
     }
   }
   __len = (size_t )vop_len;
-  __ret = __builtin_memcpy((void *)(& solo_enc->vop), (void const   *)vop, __len);
+  __ret = memcpy((void *)(& solo_enc->vop), (void const   *)vop, __len);
   if (solo_dev->type == 0) {
     fps = (unsigned int )((u16 )solo_dev->fps) * 1000U;
     interval = (unsigned int )((u16 )solo_enc->interval) * 1000U;
@@ -14216,7 +14216,7 @@ void solo_update_mode(struct solo_enc_dev *solo_enc )
                          __len___0);
   } else {
     tmp___0 = solo_g_jpeg_qp(solo_dev, (unsigned int )solo_enc->ch);
-    __ret___0 = __builtin_memcpy((void *)vop + 17U, (void const   *)(& jpeg_dqt) + (unsigned long )tmp___0,
+    __ret___0 = memcpy((void *)vop + 17U, (void const   *)(& jpeg_dqt) + (unsigned long )tmp___0,
                                  __len___0);
   }
   return;
@@ -15703,7 +15703,7 @@ static struct solo_enc_dev *solo_enc_alloc(struct solo_dev *solo_dev , u8 ch , u
                        & __key___1);
   solo_enc->jpeg_len = 608;
   __len = (size_t )solo_enc->jpeg_len;
-  __ret = __builtin_memcpy((void *)(& solo_enc->jpeg_header), (void const   *)(& jpeg_header),
+  __ret = memcpy((void *)(& solo_enc->jpeg_header), (void const   *)(& jpeg_header),
                            __len);
   solo_enc->desc_nelts = 32;
   tmp___2 = pci_alloc_consistent(solo_dev->pdev, (unsigned long )solo_enc->desc_nelts * 16UL,

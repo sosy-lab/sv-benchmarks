@@ -1501,7 +1501,7 @@ enum __anonenum_81 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
 extern int oops_in_progress ;
 extern void __bad_pda_field(void) ;
@@ -1995,7 +1995,7 @@ static void mtdoops_console_write(struct console *co , char const   *s , unsigne
 
   }
   __len = (size_t )count;
-  __ret = __builtin_memcpy(cxt->oops_buf + (unsigned long )cxt->writecount, (void const   *)s,
+  __ret = memcpy(cxt->oops_buf + (unsigned long )cxt->writecount, (void const   *)s,
                            __len);
   cxt->writecount = (int )((unsigned int )cxt->writecount + count);
   return;

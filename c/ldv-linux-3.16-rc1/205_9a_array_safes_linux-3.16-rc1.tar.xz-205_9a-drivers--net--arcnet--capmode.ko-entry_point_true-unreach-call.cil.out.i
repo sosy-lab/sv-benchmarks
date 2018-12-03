@@ -5265,7 +5265,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   return;
 }
 }
@@ -5443,13 +5443,13 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
   if (__len > 63UL) {
     __ret = memcpy((void *)pktbuf, (void const *)pkthdrbuf, __len);
   } else {
-    __ret = __builtin_memcpy((void *)pktbuf, (void const *)pkthdrbuf, __len);
+    __ret = memcpy((void *)pktbuf, (void const *)pkthdrbuf, __len);
   }
   __len___0 = 15UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)pktbuf + 9U, (void const *)pkthdrbuf + 5U, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)pktbuf + 9U, (void const *)pkthdrbuf + 5U,
+    __ret___0 = memcpy((void *)pktbuf + 9U, (void const *)pkthdrbuf + 5U,
                                  __len___0);
   }
   if ((unsigned int )length > 16U) {

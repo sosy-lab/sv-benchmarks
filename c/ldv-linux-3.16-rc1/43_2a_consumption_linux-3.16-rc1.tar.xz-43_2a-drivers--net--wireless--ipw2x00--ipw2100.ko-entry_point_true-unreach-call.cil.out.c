@@ -8191,7 +8191,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -9398,7 +9398,7 @@ static int ipw2100_hw_send_command(struct ipw2100_priv *priv , struct host_comma
     __ret = memcpy((void *)(& (packet->info.c_struct.cmd)->host_command_params_reg),
                      (void const   *)(& cmd->host_command_parameters), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (packet->info.c_struct.cmd)->host_command_params_reg),
+    __ret = memcpy((void *)(& (packet->info.c_struct.cmd)->host_command_params_reg),
                              (void const   *)(& cmd->host_command_parameters), __len);
   }
   list_del(element);
@@ -11606,7 +11606,7 @@ static int ipw2100_wdev_init(struct net_device *dev )
     __ret = memcpy((void *)(& (wdev->wiphy)->perm_addr), (void const   *)(& priv->mac_addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (wdev->wiphy)->perm_addr), (void const   *)(& priv->mac_addr),
+    __ret = memcpy((void *)(& (wdev->wiphy)->perm_addr), (void const   *)(& priv->mac_addr),
                              __len);
   }
   if ((unsigned int )((unsigned char )geo->bg_channels) != 0U) {
@@ -11816,7 +11816,7 @@ static void isr_indicate_associated(struct ipw2100_priv *priv , u32 status )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& bssid), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& bssid),
+    __ret = memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& bssid),
                              __len);
   }
   switch (txrate) {
@@ -11860,7 +11860,7 @@ static void isr_indicate_associated(struct ipw2100_priv *priv , u32 status )
     _min2 = 32U;
     priv->essid_len = (u8 )((int )_min1 < (int )_min2 ? (int )_min1 : (int )_min2);
     __len___0 = (size_t )priv->essid_len;
-    __ret___0 = __builtin_memcpy((void *)(& priv->essid), (void const   *)(& essid),
+    __ret___0 = memcpy((void *)(& priv->essid), (void const   *)(& essid),
                                  __len___0);
   } else {
 
@@ -11870,7 +11870,7 @@ static void isr_indicate_associated(struct ipw2100_priv *priv , u32 status )
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& priv->bssid), (void const   *)(& bssid), __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& priv->bssid), (void const   *)(& bssid),
+    __ret___1 = memcpy((void *)(& priv->bssid), (void const   *)(& bssid),
                                  __len___1);
   }
   priv->status = priv->status | 512UL;
@@ -12017,7 +12017,7 @@ static int ipw2100_set_essid(struct ipw2100_priv *priv , char *essid , int lengt
   }
   if (ssid_len != 0) {
     __len = (size_t )ssid_len;
-    __ret = __builtin_memcpy((void *)(& cmd.host_command_parameters), (void const   *)essid,
+    __ret = memcpy((void *)(& cmd.host_command_parameters), (void const   *)essid,
                              __len);
   } else {
 
@@ -12053,7 +12053,7 @@ static int ipw2100_set_essid(struct ipw2100_priv *priv , char *essid , int lengt
   if (err == 0) {
     memset((void *)(& priv->essid) + (unsigned long )ssid_len, 0, (size_t )(32 - ssid_len));
     __len___0 = (size_t )ssid_len;
-    __ret___0 = __builtin_memcpy((void *)(& priv->essid), (void const   *)essid, __len___0);
+    __ret___0 = memcpy((void *)(& priv->essid), (void const   *)essid, __len___0);
     priv->essid_len = (u8 )ssid_len;
   } else {
 
@@ -13213,7 +13213,7 @@ static void ipw2100_tx_send_data(struct ipw2100_priv *priv )
       __ret = memcpy((void *)(& ipw_hdr->src_addr), (void const   *)(& hdr->addr2),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ipw_hdr->src_addr), (void const   *)(& hdr->addr2),
+      __ret = memcpy((void *)(& ipw_hdr->src_addr), (void const   *)(& hdr->addr2),
                                __len);
     }
     __len___0 = 6UL;
@@ -13221,7 +13221,7 @@ static void ipw2100_tx_send_data(struct ipw2100_priv *priv )
       __ret___0 = memcpy((void *)(& ipw_hdr->dst_addr), (void const   *)(& hdr->addr3),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& ipw_hdr->dst_addr), (void const   *)(& hdr->addr3),
+      __ret___0 = memcpy((void *)(& ipw_hdr->dst_addr), (void const   *)(& hdr->addr3),
                                    __len___0);
     }
   } else
@@ -13231,7 +13231,7 @@ static void ipw2100_tx_send_data(struct ipw2100_priv *priv )
       __ret___1 = memcpy((void *)(& ipw_hdr->src_addr), (void const   *)(& hdr->addr2),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& ipw_hdr->src_addr), (void const   *)(& hdr->addr2),
+      __ret___1 = memcpy((void *)(& ipw_hdr->src_addr), (void const   *)(& hdr->addr2),
                                    __len___1);
     }
     __len___2 = 6UL;
@@ -13239,7 +13239,7 @@ static void ipw2100_tx_send_data(struct ipw2100_priv *priv )
       __ret___2 = memcpy((void *)(& ipw_hdr->dst_addr), (void const   *)(& hdr->addr1),
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)(& ipw_hdr->dst_addr), (void const   *)(& hdr->addr1),
+      __ret___2 = memcpy((void *)(& ipw_hdr->dst_addr), (void const   *)(& hdr->addr1),
                                    __len___2);
     }
   } else {
@@ -15581,7 +15581,7 @@ static int ipw2100_read_mac_address(struct ipw2100_priv *priv )
     __ret = memcpy((void *)(priv->net_dev)->dev_addr, (void const   *)(& addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(priv->net_dev)->dev_addr, (void const   *)(& addr),
+    __ret = memcpy((void *)(priv->net_dev)->dev_addr, (void const   *)(& addr),
                              __len);
   }
   if ((ipw2100_debug_level & 4U) != 0U) {
@@ -15736,7 +15736,7 @@ static int ipw2100_set_mac_address(struct ipw2100_priv *priv , int batch_mode )
       __ret = memcpy((void *)(& cmd.host_command_parameters), (void const   *)(& priv->mac_addr),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& cmd.host_command_parameters), (void const   *)(& priv->mac_addr),
+      __ret = memcpy((void *)(& cmd.host_command_parameters), (void const   *)(& priv->mac_addr),
                                __len);
     }
     __len___0 = 6UL;
@@ -15744,7 +15744,7 @@ static int ipw2100_set_mac_address(struct ipw2100_priv *priv , int batch_mode )
       __ret___0 = memcpy((void *)(priv->net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(priv->net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
+      __ret___0 = memcpy((void *)(priv->net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
                                    __len___0);
     }
   } else {
@@ -15753,7 +15753,7 @@ static int ipw2100_set_mac_address(struct ipw2100_priv *priv , int batch_mode )
       __ret___1 = memcpy((void *)(& cmd.host_command_parameters), (void const   *)(priv->net_dev)->dev_addr,
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& cmd.host_command_parameters), (void const   *)(priv->net_dev)->dev_addr,
+      __ret___1 = memcpy((void *)(& cmd.host_command_parameters), (void const   *)(priv->net_dev)->dev_addr,
                                    __len___1);
     }
   }
@@ -17023,7 +17023,7 @@ static int ipw2100_set_mandatory_bssid(struct ipw2100_priv *priv , u8 *bssid , i
       __ret = memcpy((void *)(& cmd.host_command_parameters), (void const   *)bssid,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& cmd.host_command_parameters), (void const   *)bssid,
+      __ret = memcpy((void *)(& cmd.host_command_parameters), (void const   *)bssid,
                                __len);
     }
   } else {
@@ -17176,7 +17176,7 @@ static int ipw2100_disassociate_bssid(struct ipw2100_priv *priv )
     __ret = memcpy((void *)(& cmd.host_command_parameters), (void const   *)(& priv->bssid),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cmd.host_command_parameters), (void const   *)(& priv->bssid),
+    __ret = memcpy((void *)(& cmd.host_command_parameters), (void const   *)(& priv->bssid),
                              __len);
   }
   err = ipw2100_hw_send_command(priv, & cmd);
@@ -17323,7 +17323,7 @@ static int ipw2100_set_wpa_ie(struct ipw2100_priv *priv , struct ipw2100_wpa_ass
     __ret = memcpy((void *)(& cmd.host_command_parameters), (void const   *)wpa_frame,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cmd.host_command_parameters), (void const   *)wpa_frame,
+    __ret = memcpy((void *)(& cmd.host_command_parameters), (void const   *)wpa_frame,
                              __len);
   }
   err = ipw2100_hw_send_command(priv, & cmd);
@@ -18125,7 +18125,7 @@ static int ipw2100_set_key(struct ipw2100_priv *priv , int idx , char *key , int
   wep_key->len = (u8 )keylen;
   if (keylen != 0) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)(& wep_key->key), (void const   *)key, __len);
+    __ret = memcpy((void *)(& wep_key->key), (void const   *)key, __len);
     memset((void *)(& wep_key->key) + (unsigned long )len, 0, (size_t )(keylen - len));
   } else {
 
@@ -18397,7 +18397,7 @@ static void shim__set_security(struct net_device *dev , struct libipw_security *
       (priv->ieee)->sec.flags = (u16 )((int )((short )(priv->ieee)->sec.flags) & ~ ((int )((short )(1 << i))));
     } else {
       __len = (size_t )sec->key_sizes[i];
-      __ret = __builtin_memcpy((void *)(& (priv->ieee)->sec.keys) + (unsigned long )i,
+      __ret = memcpy((void *)(& (priv->ieee)->sec.keys) + (unsigned long )i,
                                (void const   *)(& sec->keys) + (unsigned long )i,
                                __len);
     }
@@ -18663,7 +18663,7 @@ static int ipw2100_set_address(struct net_device *dev , void *p )
     __ret = memcpy((void *)(& priv->mac_addr), (void const   *)(& addr->sa_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->mac_addr), (void const   *)(& addr->sa_data),
+    __ret = memcpy((void *)(& priv->mac_addr), (void const   *)(& addr->sa_data),
                              __len);
   }
   err = ipw2100_set_mac_address(priv, 0);
@@ -19000,7 +19000,7 @@ static void ipw2100_wpa_assoc_frame(struct ipw2100_priv *priv , char *wpa_ie , i
   {
   frame.fixed_ie_mask = 0U;
   __len = (size_t )wpa_ie_len;
-  __ret = __builtin_memcpy((void *)(& frame.var_ie), (void const   *)wpa_ie, __len);
+  __ret = memcpy((void *)(& frame.var_ie), (void const   *)wpa_ie, __len);
   frame.var_ie_len = (u32 )wpa_ie_len;
   ipw2100_wpa_enable(priv, 1);
   ipw2100_set_wpa_ie(priv, & frame, 0);
@@ -20202,7 +20202,7 @@ static int ipw2100_wx_set_wap(struct net_device *dev , struct iw_request_info *i
     __ret = memcpy((void *)(& priv->mandatory_bssid_mac), (void const   *)(& wrqu->ap_addr.sa_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->mandatory_bssid_mac), (void const   *)(& wrqu->ap_addr.sa_data),
+    __ret = memcpy((void *)(& priv->mandatory_bssid_mac), (void const   *)(& wrqu->ap_addr.sa_data),
                              __len);
   }
   err = ipw2100_set_mandatory_bssid(priv, (u8 *)(& wrqu->ap_addr.sa_data), 0);
@@ -20238,7 +20238,7 @@ static int ipw2100_wx_get_wap(struct net_device *dev , struct iw_request_info *i
       __ret = memcpy((void *)(& wrqu->ap_addr.sa_data), (void const   *)(& priv->bssid),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& wrqu->ap_addr.sa_data), (void const   *)(& priv->bssid),
+      __ret = memcpy((void *)(& wrqu->ap_addr.sa_data), (void const   *)(& priv->bssid),
                                __len);
     }
   } else {
@@ -20342,7 +20342,7 @@ static int ipw2100_wx_set_essid(struct net_device *dev , struct iw_request_info 
   }
   priv->essid_len = (u8 )length;
   __len = (size_t )priv->essid_len;
-  __ret = __builtin_memcpy((void *)(& priv->essid), (void const   *)essid, __len);
+  __ret = memcpy((void *)(& priv->essid), (void const   *)essid, __len);
   err = ipw2100_set_essid(priv, essid, length, 0);
   done: 
   mutex_unlock(& priv->action_mutex);
@@ -20375,7 +20375,7 @@ static int ipw2100_wx_get_essid(struct net_device *dev , struct iw_request_info 
 
     }
     __len = (size_t )priv->essid_len;
-    __ret = __builtin_memcpy((void *)extra, (void const   *)(& priv->essid), __len);
+    __ret = memcpy((void *)extra, (void const   *)(& priv->essid), __len);
     wrqu->essid.length = (__u16 )priv->essid_len;
     wrqu->essid.flags = 1U;
   } else {
@@ -20417,7 +20417,7 @@ static int ipw2100_wx_set_nick(struct net_device *dev , struct iw_request_info *
   wrqu->data.length = (__u16 )(__min1 < __min2 ? __min1 : __min2);
   memset((void *)(& priv->nick), 0, 33UL);
   __len = (size_t )wrqu->data.length;
-  __ret = __builtin_memcpy((void *)(& priv->nick), (void const   *)extra, __len);
+  __ret = memcpy((void *)(& priv->nick), (void const   *)extra, __len);
   if ((ipw2100_debug_level & 8U) != 0U) {
     tmp___0 = preempt_count();
     printk("\017ipw2100: %c %s ", ((unsigned long )tmp___0 & 2096896UL) != 0UL ? 73 : 85,
@@ -20445,7 +20445,7 @@ static int ipw2100_wx_get_nick(struct net_device *dev , struct iw_request_info *
   tmp___0 = strlen((char const   *)(& priv->nick));
   wrqu->data.length = (__u16 )tmp___0;
   __len = (size_t )wrqu->data.length;
-  __ret = __builtin_memcpy((void *)extra, (void const   *)(& priv->nick), __len);
+  __ret = memcpy((void *)extra, (void const   *)(& priv->nick), __len);
   wrqu->data.flags = 1U;
   if ((ipw2100_debug_level & 8U) != 0U) {
     tmp___1 = preempt_count();
@@ -21193,7 +21193,7 @@ static int ipw2100_wx_get_genie(struct net_device *dev , struct iw_request_info 
   }
   wrqu->data.length = (__u16 )ieee->wpa_ie_len;
   __len = ieee->wpa_ie_len;
-  __ret = __builtin_memcpy((void *)extra, (void const   *)ieee->wpa_ie, __len);
+  __ret = memcpy((void *)extra, (void const   *)ieee->wpa_ie, __len);
   return (0);
 }
 }
@@ -22029,7 +22029,7 @@ static void ipw2100_wx_event_work(struct work_struct *work )
         __ret = memcpy((void *)(& wrqu.ap_addr.sa_data), (void const   *)(& priv->bssid),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& wrqu.ap_addr.sa_data), (void const   *)(& priv->bssid),
+        __ret = memcpy((void *)(& wrqu.ap_addr.sa_data), (void const   *)(& priv->bssid),
                                  __len);
       }
       __len___0 = 6UL;
@@ -22037,7 +22037,7 @@ static void ipw2100_wx_event_work(struct work_struct *work )
         __ret___0 = memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
+        __ret___0 = memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
                                      __len___0);
       }
       priv->status = priv->status & 0xfffffffffffffdffUL;

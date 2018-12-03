@@ -3922,6 +3922,7 @@ struct driver_attribute {
    ssize_t (*show)(struct device_driver * , char * ) ;
    ssize_t (*store)(struct device_driver * , char const   * , size_t  ) ;
 };
+extern void *memcpy(void * , void const   * , size_t  ) ;
 typedef struct device *ldv_func_ret_type___6;
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 __inline static void __read_once_size(void const volatile   *p , void *res , int size ) 
@@ -3944,7 +3945,7 @@ __inline static void __read_once_size(void const volatile   *p , void *res , int
   goto ldv_880;
   default: 
   __asm__  volatile   ("": : : "memory");
-  __builtin_memcpy(res, (void const   *)p, (unsigned long )size);
+  memcpy(res, (void const   *)p, (unsigned long )size);
   __asm__  volatile   ("": : : "memory");
   }
   ldv_880: ;

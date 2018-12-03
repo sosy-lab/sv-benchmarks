@@ -6277,6 +6277,7 @@ int dibusb2_0_power_ctrl(struct dvb_usb_device *d , int onoff )
   }
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int dibusb_i2c_msg(struct dvb_usb_device *d , u8 addr , u8 *wbuf , u16 wlen ,
                           u8 *rbuf , u16 rlen )
 { u8 *sndbuf ;
@@ -6399,7 +6400,7 @@ static int dibusb_i2c_msg(struct dvb_usb_device *d , u8 addr , u8 *wbuf , u16 wl
   __cil_tmp43 = (void *)(& sndbuf);
   __cil_tmp44 = __cil_tmp43 + 2U;
   __cil_tmp45 = (void const *)wbuf;
-  __ret = __builtin_memcpy(__cil_tmp44, __cil_tmp45, __len);
+  __ret = memcpy(__cil_tmp44, __cil_tmp45, __len);
   }
   if (wo == 0) {
     __cil_tmp46 = (int )wlen;

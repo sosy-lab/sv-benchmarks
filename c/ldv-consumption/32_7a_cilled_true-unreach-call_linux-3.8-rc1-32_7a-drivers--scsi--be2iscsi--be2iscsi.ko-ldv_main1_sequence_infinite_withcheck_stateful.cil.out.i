@@ -8470,7 +8470,7 @@ int beiscsi_get_macaddr(char *buf , struct beiscsi_hba *phba )
     __ret = memcpy((void *)(& phba->mac_address), (void const *)(& resp.mac_address),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& phba->mac_address), (void const *)(& resp.mac_address),
+    __ret = memcpy((void *)(& phba->mac_address), (void const *)(& resp.mac_address),
                              __len);
   }
   tmp___1 = sysfs_format_mac(buf, (unsigned char const *)(& phba->mac_address),
@@ -11161,7 +11161,7 @@ static void be_complete_io(struct beiscsi_conn *beiscsi_conn , struct iscsi_task
     __min1 = sense_len;
     __min2 = 96U;
     __len = (size_t )((int )__min1 < (int )__min2 ? __min1 : __min2);
-    __ret = __builtin_memcpy((void *)(task->sc)->sense_buffer, (void const *)sense,
+    __ret = memcpy((void *)(task->sc)->sense_buffer, (void const *)sense,
                              __len);
   } else {
   }
@@ -11905,7 +11905,7 @@ static unsigned int hwi_fwd_async_msg(struct beiscsi_conn *beiscsi_conn , struct
     } else {
     }
     __len = (size_t )buf_len;
-    __ret = __builtin_memcpy(pfirst_buffer + (unsigned long )offset, (void const *)pasync_handle->pbuffer,
+    __ret = memcpy(pfirst_buffer + (unsigned long )offset, (void const *)pasync_handle->pbuffer,
                              __len);
     offset = offset + buf_len;
   }
@@ -12811,7 +12811,7 @@ static int beiscsi_alloc_mem(struct beiscsi_hba *phba )
   } else {
   }
   __len = (unsigned long )j * 24UL;
-  __ret = __builtin_memcpy((void *)mem_descr->mem_array, (void const *)mem_arr_orig,
+  __ret = memcpy((void *)mem_descr->mem_array, (void const *)mem_arr_orig,
                            __len);
   mem_descr = mem_descr + 1;
   i = i + 1U;
@@ -14594,7 +14594,7 @@ static int beiscsi_get_boot_info(struct beiscsi_hba *phba )
     __ret = memcpy((void *)(& phba->boot_sess), (void const *)(& session_resp->session_info),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& phba->boot_sess), (void const *)(& session_resp->session_info),
+    __ret = memcpy((void *)(& phba->boot_sess), (void const *)(& session_resp->session_info),
                              __len);
   }
   ret = 0;
@@ -16927,7 +16927,7 @@ int mgmt_open_connection(struct beiscsi_hba *phba , struct sockaddr *dst_addr , 
       __ret = memcpy((void *)(& req->ip_address.addr), (void const *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& req->ip_address.addr), (void const *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
+      __ret = memcpy((void *)(& req->ip_address.addr), (void const *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
                                __len);
     }
     tmp___1 = __fswab16((int )daddr_in6->sin6_port);
@@ -16939,7 +16939,7 @@ int mgmt_open_connection(struct beiscsi_hba *phba , struct sockaddr *dst_addr , 
       __ret___0 = memcpy((void *)(& beiscsi_ep->dst6_addr), (void const *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& beiscsi_ep->dst6_addr), (void const *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
+      __ret___0 = memcpy((void *)(& beiscsi_ep->dst6_addr), (void const *)(& daddr_in6->sin6_addr.in6_u.u6_addr8),
                                    __len___0);
     }
     beiscsi_ep->ip_type = 16U;
@@ -17068,7 +17068,7 @@ static int mgmt_exec_nonemb_cmd(struct beiscsi_hba *phba , struct be_dma_mem *no
   }
   if ((unsigned long )resp_buf != (unsigned long )((void *)0)) {
     __len = (size_t )resp_buf_len;
-    __ret = __builtin_memcpy(resp_buf, (void const *)nonemb_cmd->va, __len);
+    __ret = memcpy(resp_buf, (void const *)nonemb_cmd->va, __len);
   } else {
   }
   free_cmd:
@@ -17131,20 +17131,20 @@ static int mgmt_static_ip_modify(struct beiscsi_hba *phba , struct be_cmd_get_if
   req->ip_params.ip_record.ip_addr.ip_type = (u8 )ip_type;
   if (ip_action == 1U) {
     __len = (size_t )ip_param->len;
-    __ret = __builtin_memcpy((void *)(& req->ip_params.ip_record.ip_addr.addr), (void const *)(& ip_param->value),
+    __ret = memcpy((void *)(& req->ip_params.ip_record.ip_addr.addr), (void const *)(& ip_param->value),
                              __len);
     if ((unsigned long )subnet_param != (unsigned long )((struct iscsi_iface_param_info *)0)) {
       __len___0 = (size_t )subnet_param->len;
-      __ret___0 = __builtin_memcpy((void *)(& req->ip_params.ip_record.ip_addr.subnet_mask),
+      __ret___0 = memcpy((void *)(& req->ip_params.ip_record.ip_addr.subnet_mask),
                                    (void const *)(& subnet_param->value), __len___0);
     } else {
     }
   } else {
     __len___1 = (size_t )ip_param->len;
-    __ret___1 = __builtin_memcpy((void *)(& req->ip_params.ip_record.ip_addr.addr),
+    __ret___1 = memcpy((void *)(& req->ip_params.ip_record.ip_addr.addr),
                                  (void const *)(& if_info->ip_addr.addr), __len___1);
     __len___2 = (size_t )ip_param->len;
-    __ret___2 = __builtin_memcpy((void *)(& req->ip_params.ip_record.ip_addr.subnet_mask),
+    __ret___2 = memcpy((void *)(& req->ip_params.ip_record.ip_addr.subnet_mask),
                                  (void const *)(& if_info->ip_addr.subnet_mask),
                                  __len___2);
   }
@@ -17180,7 +17180,7 @@ static int mgmt_modify_gateway(struct beiscsi_hba *phba , uint8_t *gt_addr , uin
   req->action = gtway_action;
   req->ip_addr.ip_type = 1U;
   __len = (size_t )param_len;
-  __ret = __builtin_memcpy((void *)(& req->ip_addr.addr), (void const *)gt_addr,
+  __ret = memcpy((void *)(& req->ip_addr.addr), (void const *)gt_addr,
                            __len);
   tmp = mgmt_exec_nonemb_cmd(phba, & nonemb_cmd, 0, 0);
   return (tmp);

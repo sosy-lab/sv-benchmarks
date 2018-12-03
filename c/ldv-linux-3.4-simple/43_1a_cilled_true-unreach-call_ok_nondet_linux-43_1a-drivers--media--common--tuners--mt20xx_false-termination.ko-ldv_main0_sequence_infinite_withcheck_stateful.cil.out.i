@@ -5634,7 +5634,7 @@ static int mt2032_init(struct dvb_frontend *fe )
     __cil_tmp161 = (struct dvb_tuner_ops *)__cil_tmp160;
     __cil_tmp162 = (void *)__cil_tmp161;
     __cil_tmp163 = (void const *)(& mt2032_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp162, __cil_tmp163, __len);
+    __ret = memcpy(__cil_tmp162, __cil_tmp163, __len);
     }
   }
   return (1);
@@ -6711,7 +6711,7 @@ static int mt2050_init(struct dvb_frontend *fe )
     __cil_tmp61 = (struct dvb_tuner_ops *)__cil_tmp60;
     __cil_tmp62 = (void *)__cil_tmp61;
     __cil_tmp63 = (void const *)(& mt2050_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp62, __cil_tmp63, __len);
+    __ret = memcpy(__cil_tmp62, __cil_tmp63, __len);
     }
   }
   return (0);

@@ -6345,6 +6345,7 @@ __inline static int kvaser_usb_send_msg(struct kvaser_usb const *dev , struct kv
   return (tmp___0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int kvaser_usb_wait_msg(struct kvaser_usb const *dev , u8 id , struct kvaser_msg *msg )
 {
   struct kvaser_msg *tmp ;
@@ -6387,7 +6388,7 @@ static int kvaser_usb_wait_msg(struct kvaser_usb const *dev , u8 id , struct kva
   }
   if ((int )tmp->id == (int )id) {
     __len = (size_t )tmp->len;
-    __ret = __builtin_memcpy((void *)msg, (void const *)tmp, __len);
+    __ret = memcpy((void *)msg, (void const *)tmp, __len);
     goto end;
   } else {
   }
@@ -6870,7 +6871,7 @@ static void kvaser_usb_rx_can_msg(struct kvaser_usb const *dev , struct kvaser_m
       cf->can_id = cf->can_id | 1073741824U;
     } else {
       __len = (size_t )cf->can_dlc;
-      __ret = __builtin_memcpy((void *)(& cf->data), (void const *)(& msg->u.log_message.data),
+      __ret = memcpy((void *)(& cf->data), (void const *)(& msg->u.log_message.data),
                                __len);
     }
   } else {
@@ -6888,7 +6889,7 @@ static void kvaser_usb_rx_can_msg(struct kvaser_usb const *dev , struct kvaser_m
       cf->can_id = cf->can_id | 1073741824U;
     } else {
       __len___0 = (size_t )cf->can_dlc;
-      __ret___0 = __builtin_memcpy((void *)(& cf->data), (void const *)(& msg->u.rx_can.msg) + 6U,
+      __ret___0 = memcpy((void *)(& cf->data), (void const *)(& msg->u.rx_can.msg) + 6U,
                                    __len___0);
     }
   }
@@ -7427,7 +7428,7 @@ static netdev_tx_t kvaser_usb_start_xmit(struct sk_buff *skb , struct net_device
   }
   msg->u.tx_can.msg[5] = cf->can_dlc;
   __len = (size_t )cf->can_dlc;
-  __ret = __builtin_memcpy((void *)(& msg->u.tx_can.msg) + 6U, (void const *)(& cf->data),
+  __ret = memcpy((void *)(& msg->u.tx_can.msg) + 6U, (void const *)(& cf->data),
                            __len);
   if ((cf->can_id & 1073741824U) != 0U) {
     msg->u.tx_can.flags = (u8 )((unsigned int )msg->u.tx_can.flags | 16U);

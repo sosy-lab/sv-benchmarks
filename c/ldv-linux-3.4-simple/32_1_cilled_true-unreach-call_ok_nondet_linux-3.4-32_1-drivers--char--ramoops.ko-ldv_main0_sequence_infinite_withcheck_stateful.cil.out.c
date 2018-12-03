@@ -985,6 +985,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static ulong record_size  =    4096UL;
 static char const   __param_str_record_size[12]  = 
   {      (char const   )'r',      (char const   )'e',      (char const   )'c',      (char const   )'o', 
@@ -1350,13 +1351,13 @@ static void ramoops_do_dump(struct kmsg_dumper *dumper , enum kmsg_dump_reason r
   __cil_tmp84 = (void *)buf;
   __cil_tmp85 = s1 + s1_start;
   __cil_tmp86 = (void const   *)__cil_tmp85;
-  __ret = __builtin_memcpy(__cil_tmp84, __cil_tmp86, __len);
+  __ret = memcpy(__cil_tmp84, __cil_tmp86, __len);
   __len___0 = l2_cpy;
   __cil_tmp87 = buf + l1_cpy;
   __cil_tmp88 = (void *)__cil_tmp87;
   __cil_tmp89 = s2 + s2_start;
   __cil_tmp90 = (void const   *)__cil_tmp89;
-  __ret___0 = __builtin_memcpy(__cil_tmp88, __cil_tmp90, __len___0);
+  __ret___0 = memcpy(__cil_tmp88, __cil_tmp90, __len___0);
   __cil_tmp91 = (unsigned long )cxt;
   __cil_tmp92 = __cil_tmp91 + 68;
   __cil_tmp93 = (unsigned long )cxt;

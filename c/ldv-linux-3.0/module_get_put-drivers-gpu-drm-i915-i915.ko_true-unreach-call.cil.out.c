@@ -13822,7 +13822,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile *src , size_t
   {
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const *)src, __len);
+  __ret = memcpy(dst, (void const *)src, __len);
   }
   return;
 }
@@ -23069,7 +23069,7 @@ __inline static void memcpy_toio(void volatile *dst , void const *src , size_t c
   {
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   }
   return;
 }
@@ -24944,7 +24944,7 @@ __inline static void slow_shmem_copy(struct page *dst_page , int dst_offset , st
   tmp___0 = kmap(src_page);
   src_vaddr = (char *)tmp___0;
   __len = (size_t )length;
-  __ret = __builtin_memcpy((void *)dst_vaddr + (unsigned long )dst_offset, (void const *)src_vaddr + (unsigned long )src_offset,
+  __ret = memcpy((void *)dst_vaddr + (unsigned long )dst_offset, (void const *)src_vaddr + (unsigned long )src_offset,
                            __len);
   kunmap(src_page);
   kunmap(dst_page);
@@ -25001,13 +25001,13 @@ __inline static void slow_shmem_bit17_copy(struct page *gpu_page , int gpu_offse
   if (is_read != 0) {
     {
     __len = (size_t )this_length;
-    __ret = __builtin_memcpy((void *)cpu_vaddr + (unsigned long )cpu_offset, (void const *)gpu_vaddr + (unsigned long )swizzled_gpu_offset,
+    __ret = memcpy((void *)cpu_vaddr + (unsigned long )cpu_offset, (void const *)gpu_vaddr + (unsigned long )swizzled_gpu_offset,
                              __len);
     }
   } else {
     {
     __len___0 = (size_t )this_length;
-    __ret___0 = __builtin_memcpy((void *)gpu_vaddr + (unsigned long )swizzled_gpu_offset,
+    __ret___0 = memcpy((void *)gpu_vaddr + (unsigned long )swizzled_gpu_offset,
                                  (void const *)cpu_vaddr + (unsigned long )cpu_offset,
                                  __len___0);
     }
@@ -31019,7 +31019,7 @@ void i915_gem_detach_phys_object(struct drm_device *dev , struct drm_i915_gem_ob
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)dst, (void const *)(vaddr + (unsigned long )i * 4096UL),
+      __ret = memcpy((void *)dst, (void const *)(vaddr + (unsigned long )i * 4096UL),
                                __len);
       }
     }
@@ -31132,7 +31132,7 @@ int i915_gem_attach_phys_object(struct drm_device *dev , struct drm_i915_gem_obj
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)dst, (void const *)src, __len);
+    __ret = memcpy((void *)dst, (void const *)src, __len);
     }
   }
   {
@@ -34810,7 +34810,7 @@ static void i915_gem_swizzle_page(struct page *page )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& temp), (void const *)vaddr + (unsigned long )i,
+    __ret = memcpy((void *)(& temp), (void const *)vaddr + (unsigned long )i,
                              __len);
     }
   }
@@ -34822,7 +34822,7 @@ static void i915_gem_swizzle_page(struct page *page )
     }
   } else {
     {
-    __ret___0 = __builtin_memcpy((void *)vaddr + (unsigned long )i, (void const *)(vaddr + ((unsigned long )i + 64UL)),
+    __ret___0 = memcpy((void *)vaddr + (unsigned long )i, (void const *)(vaddr + ((unsigned long )i + 64UL)),
                                  __len___0);
     }
   }
@@ -34834,7 +34834,7 @@ static void i915_gem_swizzle_page(struct page *page )
     }
   } else {
     {
-    __ret___1 = __builtin_memcpy((void *)(vaddr + ((unsigned long )i + 64UL)), (void const *)(& temp),
+    __ret___1 = memcpy((void *)(vaddr + ((unsigned long )i + 64UL)), (void const *)(& temp),
                                  __len___1);
     }
   }
@@ -36393,7 +36393,7 @@ static bool intel_find_pll_ironlake_dp(intel_limit_t const *limit , struct drm_c
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)best_clock, (void const *)(& clock), __len);
+    __ret = memcpy((void *)best_clock, (void const *)(& clock), __len);
     }
   }
   return ((bool )1);
@@ -36430,7 +36430,7 @@ static bool intel_find_pll_g4x_dp(intel_limit_t const *limit , struct drm_crtc *
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)best_clock, (void const *)(& clock), __len);
+    __ret = memcpy((void *)best_clock, (void const *)(& clock), __len);
     }
   }
   return ((bool )1);
@@ -54380,7 +54380,7 @@ static void parse_device_mapping(struct drm_i915_private *dev_priv , struct bdb_
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)child_dev_ptr, (void const *)p_child, __len);
+    __ret = memcpy((void *)child_dev_ptr, (void const *)p_child, __len);
     }
   }
   ldv_37203:
@@ -55243,7 +55243,7 @@ static int intel_dp_aux_native_write(struct intel_dp *intel_dp , uint16_t addres
   msg[2] = (uint8_t )address;
   msg[3] = (uint8_t )((unsigned int )((uint8_t )send_bytes) + 255U);
   __len = (size_t )send_bytes;
-  __ret = __builtin_memcpy((void *)(& msg) + 4U, (void const *)send, __len);
+  __ret = memcpy((void *)(& msg) + 4U, (void const *)send, __len);
   msg_bytes = send_bytes + 4;
   }
   ldv_37723:
@@ -55318,7 +55318,7 @@ static int intel_dp_aux_native_read(struct intel_dp *intel_dp , uint16_t address
   if (((int )ack & 48) == 0) {
     {
     __len = (size_t )(ret + -1);
-    __ret = __builtin_memcpy((void *)recv, (void const *)(& reply) + 1U, __len);
+    __ret = memcpy((void *)recv, (void const *)(& reply) + 1U, __len);
     }
     return (ret + -1);
   } else
@@ -60053,7 +60053,7 @@ static bool intel_sdvo_set_tv_format(struct intel_sdvo *intel_sdvo )
   }
   {
   __len = tmp;
-  __ret = __builtin_memcpy((void *)(& format), (void const *)(& format_map), __len);
+  __ret = memcpy((void *)(& format), (void const *)(& format_map), __len);
   tmp___0 = intel_sdvo_set_value(intel_sdvo, (u8 )41, (void const *)(& format),
                                  6);
   }
@@ -61116,7 +61116,7 @@ static void intel_sdvo_get_tv_modes(struct drm_connector *connector )
   }
   {
   __len = tmp___0;
-  __ret = __builtin_memcpy((void *)(& tv_res), (void const *)(& format_map), __len);
+  __ret = memcpy((void *)(& tv_res), (void const *)(& format_map), __len);
   tmp___1 = intel_sdvo_set_target_output(intel_sdvo, (u16 )((int )intel_sdvo->attached_output));
   }
   if (tmp___1) {
@@ -62502,7 +62502,7 @@ static bool intel_sdvo_output_setup(struct intel_sdvo *intel_sdvo , uint16_t fla
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& bytes), (void const *)(& intel_sdvo->caps.output_flags),
+      __ret = memcpy((void *)(& bytes), (void const *)(& intel_sdvo->caps.output_flags),
                                __len);
       }
     }
@@ -62580,7 +62580,7 @@ static bool intel_sdvo_tv_create_property(struct intel_sdvo *intel_sdvo , struct
   }
   {
   __len = tmp___3;
-  __ret = __builtin_memcpy((void *)(& format_map), (void const *)(& format), __len);
+  __ret = memcpy((void *)(& format_map), (void const *)(& format), __len);
   }
   if (format_map == 0U) {
     return ((bool )0);
@@ -70668,7 +70668,7 @@ static void update_polyphase_filter(struct overlay_registers *regs )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& regs->Y_HCOEFS), (void const *)(& y_static_hcoeffs),
+    __ret = memcpy((void *)(& regs->Y_HCOEFS), (void const *)(& y_static_hcoeffs),
                              __len);
     }
   }
@@ -70680,7 +70680,7 @@ static void update_polyphase_filter(struct overlay_registers *regs )
     }
   } else {
     {
-    __ret___0 = __builtin_memcpy((void *)(& regs->UV_HCOEFS), (void const *)(& uv_static_hcoeffs),
+    __ret___0 = memcpy((void *)(& regs->UV_HCOEFS), (void const *)(& uv_static_hcoeffs),
                                  __len___0);
     }
   }

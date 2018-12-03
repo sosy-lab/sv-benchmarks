@@ -6627,7 +6627,7 @@ static int timblogiw_probe(struct platform_device *pdev )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& lw->pdata), (void const   *)pdata, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& lw->pdata), (void const   *)pdata, __len);
+    __ret = memcpy((void *)(& lw->pdata), (void const   *)pdata, __len);
   }
   __mutex_init(& lw->lock, "&lw->lock", & __key);
   lw->video_dev = timblogiw_template;

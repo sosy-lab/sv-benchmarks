@@ -2540,7 +2540,7 @@ enum lock_usage_bit {
     LOCK_ENABLED_HARDIRQS_READ = 8,
     LOCK_USAGE_STATES = 9
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
@@ -2904,7 +2904,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct vm_area_stru
     if (__len > 63UL) {
       __ret = memcpy((void *)mem->vma, (void const   *)vma, __len);
     } else {
-      __ret = __builtin_memcpy((void *)mem->vma, (void const   *)vma, __len);
+      __ret = memcpy((void *)mem->vma, (void const   *)vma, __len);
     }
   } else {
 

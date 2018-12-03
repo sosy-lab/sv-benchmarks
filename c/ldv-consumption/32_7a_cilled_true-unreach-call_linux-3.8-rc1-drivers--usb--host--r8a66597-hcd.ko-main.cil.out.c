@@ -3682,6 +3682,7 @@ __inline static u16 r8a66597_read(struct r8a66597 *r8a66597 , unsigned long offs
   return ((u16 )tmp);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void r8a66597_read_fifo(struct r8a66597 *r8a66597 , unsigned long offset ,
                                         u16 *buf , int len ) 
 { void *fifoaddr ;
@@ -3700,7 +3701,7 @@ __inline static void r8a66597_read_fifo(struct r8a66597 *r8a66597 , unsigned lon
       tmp___0 = ioread32(fifoaddr);
       tmp = (unsigned long )tmp___0;
       __len = (size_t )len & 3UL;
-      __ret = __builtin_memcpy((void *)buf + count * 4UL, (void const   *)(& tmp),
+      __ret = memcpy((void *)buf + count * 4UL, (void const   *)(& tmp),
                                __len);
     } else {
 

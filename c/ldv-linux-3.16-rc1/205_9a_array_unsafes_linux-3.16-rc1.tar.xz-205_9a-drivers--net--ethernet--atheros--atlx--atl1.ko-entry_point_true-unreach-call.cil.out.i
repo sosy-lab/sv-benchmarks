@@ -7568,10 +7568,10 @@ static int atl1_set_mac(struct net_device *netdev , void *p )
   } else {
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
+  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
                            __len);
   __len___0 = (size_t )netdev->addr_len;
-  __ret___0 = __builtin_memcpy((void *)(& adapter->hw.mac_addr), (void const *)(& addr->sa_data),
+  __ret___0 = memcpy((void *)(& adapter->hw.mac_addr), (void const *)(& addr->sa_data),
                                __len___0);
   atl1_set_mac_addr(& adapter->hw);
   return (0);
@@ -8122,7 +8122,7 @@ static int atl1_get_permanent_address(struct atl1_hw *hw )
         __ret = memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
+        __ret = memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
                                  __len);
       }
       return (0);
@@ -8171,7 +8171,7 @@ static int atl1_get_permanent_address(struct atl1_hw *hw )
       __ret___0 = memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
+      __ret___0 = memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
                                    __len___0);
     }
     return (0);
@@ -8190,7 +8190,7 @@ static int atl1_get_permanent_address(struct atl1_hw *hw )
       __ret___1 = memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
+      __ret___1 = memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
                                    __len___1);
     }
     return (0);
@@ -10013,7 +10013,7 @@ static void atl1_tx_queue(struct atl1_adapter *adapter , u16 count , struct tx_p
     if (__len > 63UL) {
       __ret = memcpy((void *)tpd, (void const *)ptpd, __len);
     } else {
-      __ret = __builtin_memcpy((void *)tpd, (void const *)ptpd, __len);
+      __ret = memcpy((void *)tpd, (void const *)ptpd, __len);
     }
   } else {
   }
@@ -10771,7 +10771,7 @@ static int atl1_probe(struct pci_dev *pdev , struct pci_device_id const *ent )
   } else {
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& adapter->hw.mac_addr),
+  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& adapter->hw.mac_addr),
                            __len);
   tmp___5 = is_valid_ether_addr((u8 const *)netdev->dev_addr);
   if (tmp___5) {
@@ -10860,7 +10860,7 @@ static void atl1_remove(struct pci_dev *pdev )
       __ret = memcpy((void *)(& adapter->hw.mac_addr), (void const *)(& adapter->hw.perm_mac_addr),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& adapter->hw.mac_addr), (void const *)(& adapter->hw.perm_mac_addr),
+      __ret = memcpy((void *)(& adapter->hw.mac_addr), (void const *)(& adapter->hw.perm_mac_addr),
                                __len);
     }
     atl1_set_mac_addr(& adapter->hw);
@@ -11450,7 +11450,7 @@ static void atl1_get_strings(struct net_device *netdev , u32 stringset , u8 *dat
     __ret = memcpy((void *)p, (void const *)(& atl1_gstrings_stats[i].stat_string),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const *)(& atl1_gstrings_stats[i].stat_string),
+    __ret = memcpy((void *)p, (void const *)(& atl1_gstrings_stats[i].stat_string),
                              __len);
   }
   p = p + 32UL;

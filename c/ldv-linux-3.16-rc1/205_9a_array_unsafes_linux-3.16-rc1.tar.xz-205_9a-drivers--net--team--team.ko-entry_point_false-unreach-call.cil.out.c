@@ -7698,7 +7698,7 @@ static int __set_port_dev_addr(struct net_device *port_dev , unsigned char const
 
   {
   __len = (size_t )port_dev->addr_len;
-  __ret = __builtin_memcpy((void *)(& addr.sa_data), (void const   *)dev_addr, __len);
+  __ret = memcpy((void *)(& addr.sa_data), (void const   *)dev_addr, __len);
   addr.sa_family = port_dev->type;
   tmp = dev_set_mac_address(port_dev, & addr);
   return (tmp);
@@ -8654,7 +8654,7 @@ static int __team_change_mode(struct team *team , struct team_mode  const  *new_
   if (__len > 63UL) {
     __ret = memcpy((void *)(& team->ops), (void const   *)new_mode->ops, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& team->ops), (void const   *)new_mode->ops,
+    __ret = memcpy((void *)(& team->ops), (void const   *)new_mode->ops,
                              __len);
   }
   team_adjust_ops(team);
@@ -9805,7 +9805,7 @@ static int team_port_add(struct team *team , struct net_device *port_dev )
 
   }
   __len = (size_t )port_dev->addr_len;
-  __ret = __builtin_memcpy((void *)(& port->orig.dev_addr), (void const   *)port_dev->dev_addr,
+  __ret = memcpy((void *)(& port->orig.dev_addr), (void const   *)port_dev->dev_addr,
                            __len);
   err = team_port_enter(team, port);
   if (err != 0) {
@@ -10816,7 +10816,7 @@ static int team_set_mac_address(struct net_device *dev , void *p )
 
   }
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
+  __ret = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
                            __len);
   rcu_read_lock();
   __ptr = team->port_list.next;
@@ -11308,7 +11308,7 @@ static void team_setup_by_port(struct net_device *dev , struct net_device *port_
   dev->addr_len = port_dev->addr_len;
   dev->mtu = port_dev->mtu;
   __len = (size_t )port_dev->addr_len;
-  __ret = __builtin_memcpy((void *)(& dev->broadcast), (void const   *)(& port_dev->broadcast),
+  __ret = memcpy((void *)(& dev->broadcast), (void const   *)(& port_dev->broadcast),
                            __len);
   eth_hw_addr_inherit(dev, port_dev);
   return;

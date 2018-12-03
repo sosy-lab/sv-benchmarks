@@ -3530,7 +3530,7 @@ struct moschip_port {
    char busy[16U] ;
    bool read_urb_busy ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
@@ -5488,7 +5488,7 @@ static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port ,
   _min2 = 32;
   transfer_size = _min1 < _min2 ? _min1 : _min2;
   __len = (size_t )transfer_size;
-  __ret = __builtin_memcpy(urb->transfer_buffer, (void const   *)current_position,
+  __ret = memcpy(urb->transfer_buffer, (void const   *)current_position,
                            __len);
   if ((unsigned int )serial->num_ports == 2U && ((int )port->number - (int )(port->serial)->minor) & 1) {
     tmp___2 = __create_pipe(serial->dev, (unsigned int )((int )port->bulk_out_endpointAddress + 2));

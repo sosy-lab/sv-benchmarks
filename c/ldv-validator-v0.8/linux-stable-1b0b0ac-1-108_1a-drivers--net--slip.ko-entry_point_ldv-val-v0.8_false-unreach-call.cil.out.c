@@ -5520,6 +5520,7 @@ static void sl_free_bufs(struct slip *sl )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int sl_realloc_bufs(struct slip *sl , int mtu ) 
 { 
   int err ;
@@ -5656,7 +5657,7 @@ static int sl_realloc_bufs(struct slip *sl , int mtu )
   if (sl->xleft != 0) {
     if (sl->xleft <= len) {
       __len = (size_t )sl->xleft;
-      __ret = __builtin_memcpy((void *)sl->xbuff, (void const   *)sl->xhead, __len);
+      __ret = memcpy((void *)sl->xbuff, (void const   *)sl->xhead, __len);
     } else {
       sl->xleft = 0;
       dev->stats.tx_dropped = dev->stats.tx_dropped + 1UL;
@@ -5668,7 +5669,7 @@ static int sl_realloc_bufs(struct slip *sl , int mtu )
   if (sl->rcount != 0) {
     if (sl->rcount <= len) {
       __len___0 = (size_t )sl->rcount;
-      __ret___0 = __builtin_memcpy((void *)sl->rbuff, (void const   *)rbuff, __len___0);
+      __ret___0 = memcpy((void *)sl->rbuff, (void const   *)rbuff, __len___0);
     } else {
       sl->rcount = 0;
       dev->stats.rx_over_errors = dev->stats.rx_over_errors + 1UL;
@@ -5777,7 +5778,7 @@ static void sl_bump(struct slip *sl )
   skb->dev = dev;
   __len = (size_t )count;
   tmp___1 = skb_put(skb, (unsigned int )count);
-  __ret = __builtin_memcpy((void *)tmp___1, (void const   *)sl->rbuff, __len);
+  __ret = memcpy((void *)tmp___1, (void const   *)sl->rbuff, __len);
   skb_reset_mac_header(skb);
   skb->protocol = 8U;
   netif_rx(skb);

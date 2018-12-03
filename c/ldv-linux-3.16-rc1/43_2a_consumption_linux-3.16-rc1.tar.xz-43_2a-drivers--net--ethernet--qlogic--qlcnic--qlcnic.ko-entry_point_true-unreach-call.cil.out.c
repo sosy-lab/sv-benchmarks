@@ -8690,7 +8690,7 @@ static int qlcnic_send_cmd_descs(struct qlcnic_adapter *adapter , struct cmd_des
     __ret = memcpy((void *)tx_ring->desc_head + (unsigned long )producer, (void const   *)cmd_desc,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)tx_ring->desc_head + (unsigned long )producer,
+    __ret = memcpy((void *)tx_ring->desc_head + (unsigned long )producer,
                              (void const   *)cmd_desc, __len);
   }
   producer = (producer + 1U) & (tx_ring->num_desc - 1U);
@@ -8728,7 +8728,7 @@ int qlcnic_82xx_sre_macaddr_change(struct qlcnic_adapter *adapter , u8 *addr , u
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mac_req->mac_addr), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mac_req->mac_addr), (void const   *)addr,
+    __ret = memcpy((void *)(& mac_req->mac_addr), (void const   *)addr,
                              __len);
   }
   vlan_req = (struct qlcnic_vlan_req *)(& req.words) + 1U;
@@ -8818,7 +8818,7 @@ int qlcnic_nic_add_mac(struct qlcnic_adapter *adapter , u8 const   *addr , u16 v
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cur->mac_addr), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cur->mac_addr), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& cur->mac_addr), (void const   *)addr, __len);
   }
   tmp___1 = qlcnic_sre_macaddr_change(adapter, (u8 *)(& cur->mac_addr), (int )vlan,
                                       1);
@@ -9266,7 +9266,7 @@ int qlcnic_82xx_read_phys_port_id(struct qlcnic_adapter *adapter )
     __ret = memcpy((void *)(& (adapter->ahw)->phys_port_id), (void const   *)(& mac),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (adapter->ahw)->phys_port_id), (void const   *)(& mac),
+    __ret = memcpy((void *)(& (adapter->ahw)->phys_port_id), (void const   *)(& mac),
                              __len);
   }
   adapter->flags = adapter->flags | 262144U;
@@ -10255,12 +10255,12 @@ void qlcnic_82xx_read_crb(struct qlcnic_adapter *adapter , char *buf , loff_t of
   if ((unsigned long long )offset <= 75499519ULL && (unsigned long long )offset > 75497471ULL) {
     qlcnic_pci_camqm_read_2M(adapter, (u64 )offset, & qmdata);
     __len = size;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& qmdata), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& qmdata), __len);
   } else {
     tmp = (*(((adapter->ahw)->hw_ops)->read_reg))(adapter, (ulong )offset, & err);
     data = (u32 )tmp;
     __len___0 = size;
-    __ret___0 = __builtin_memcpy((void *)buf, (void const   *)(& data), __len___0);
+    __ret___0 = memcpy((void *)buf, (void const   *)(& data), __len___0);
   }
   return;
 }
@@ -10278,11 +10278,11 @@ void qlcnic_82xx_write_crb(struct qlcnic_adapter *adapter , char *buf , loff_t o
   {
   if ((unsigned long long )offset <= 75499519ULL && (unsigned long long )offset > 75497471ULL) {
     __len = size;
-    __ret = __builtin_memcpy((void *)(& qmdata), (void const   *)buf, __len);
+    __ret = memcpy((void *)(& qmdata), (void const   *)buf, __len);
     qlcnic_pci_camqm_write_2M(adapter, (u64 )offset, qmdata);
   } else {
     __len___0 = size;
-    __ret___0 = __builtin_memcpy((void *)(& data), (void const   *)buf, __len___0);
+    __ret___0 = memcpy((void *)(& data), (void const   *)buf, __len___0);
     (*(((adapter->ahw)->hw_ops)->write_reg))(adapter, (ulong )offset, data);
   }
   return;
@@ -12767,11 +12767,11 @@ int qlcnic_read_mac_addr(struct qlcnic_adapter *adapter )
   if (__len > 63UL) {
     __ret = memcpy((void *)netdev->dev_addr, (void const   *)(& mac_addr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const   *)(& mac_addr),
+    __ret = memcpy((void *)netdev->dev_addr, (void const   *)(& mac_addr),
                              __len);
   }
   __len___0 = (size_t )netdev->addr_len;
-  __ret___0 = __builtin_memcpy((void *)(& adapter->mac_addr), (void const   *)netdev->dev_addr,
+  __ret___0 = memcpy((void *)(& adapter->mac_addr), (void const   *)netdev->dev_addr,
                                __len___0);
   tmp = is_valid_ether_addr((u8 const   *)netdev->dev_addr);
   if (tmp) {
@@ -12877,10 +12877,10 @@ static int qlcnic_set_mac(struct net_device *netdev , void *p )
   }
   qlcnic_delete_adapter_mac(adapter);
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)(& adapter->mac_addr), (void const   *)(& addr->sa_data),
+  __ret = memcpy((void *)(& adapter->mac_addr), (void const   *)(& addr->sa_data),
                            __len);
   __len___0 = (size_t )netdev->addr_len;
-  __ret___0 = __builtin_memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data),
+  __ret___0 = memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data),
                                __len___0);
   qlcnic_set_multi(adapter->netdev);
   tmp___5 = constant_test_bit(1L, (unsigned long const volatile   *)(& adapter->state));
@@ -13080,7 +13080,7 @@ static int qlcnic_get_phys_port_id(struct net_device *netdev , struct netdev_phy
   }
   ppid->id_len = 6U;
   __len = (size_t )ppid->id_len;
-  __ret = __builtin_memcpy((void *)(& ppid->id), (void const   *)(& ahw->phys_port_id),
+  __ret = memcpy((void *)(& ppid->id), (void const   *)(& ahw->phys_port_id),
                            __len);
   return (0);
 }
@@ -13814,7 +13814,7 @@ int qlcnic_init_pci_info(struct qlcnic_adapter *adapter )
     __ret = memcpy((void *)(& (adapter->npars + (unsigned long )j)->mac), (void const   *)(& (pci_info + (unsigned long )i)->mac),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (adapter->npars + (unsigned long )j)->mac),
+    __ret = memcpy((void *)(& (adapter->npars + (unsigned long )j)->mac),
                              (void const   *)(& (pci_info + (unsigned long )i)->mac),
                              __len);
   }
@@ -22273,7 +22273,7 @@ static int qlcnic_get_flt_entry(struct qlcnic_adapter *adapter , u8 region , str
     __ret = memcpy((void *)region_entry, (void const   *)flt_entry + (unsigned long )i,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)region_entry, (void const   *)flt_entry + (unsigned long )i,
+    __ret = memcpy((void *)region_entry, (void const   *)flt_entry + (unsigned long )i,
                              __len);
   }
   err_out: 
@@ -25028,19 +25028,19 @@ static void qlcnic_create_loopback_buff(unsigned char *data , u8 *mac )
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const   *)mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const   *)mac, __len);
+    __ret = memcpy((void *)data, (void const   *)mac, __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)data + 6U, (void const   *)mac, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)data + 6U, (void const   *)mac, __len___0);
+    __ret___0 = memcpy((void *)data + 6U, (void const   *)mac, __len___0);
   }
   __len___1 = 4UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)data + 12U, (void const   *)(& random_data), __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)data + 12U, (void const   *)(& random_data),
+    __ret___1 = memcpy((void *)data + 12U, (void const   *)(& random_data),
                                  __len___1);
   }
   return;
@@ -25319,7 +25319,7 @@ static void qlcnic_get_strings(struct net_device *dev , u32 stringset , u8 *data
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const   *)(& qlcnic_gstrings_test), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const   *)(& qlcnic_gstrings_test),
+    __ret = memcpy((void *)data, (void const   *)(& qlcnic_gstrings_test),
                              __len);
   }
   goto ldv_51182;
@@ -25355,7 +25355,7 @@ static void qlcnic_get_strings(struct net_device *dev , u32 stringset , u8 *data
     __ret___0 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_gstrings_stats[index].stat_string),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_gstrings_stats[index].stat_string),
+    __ret___0 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_gstrings_stats[index].stat_string),
                                  __len___0);
   }
   index = index + 1;
@@ -25376,7 +25376,7 @@ static void qlcnic_get_strings(struct net_device *dev , u32 stringset , u8 *data
       __ret___1 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_tx_stats_strings) + (unsigned long )i,
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_tx_stats_strings) + (unsigned long )i,
+      __ret___1 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_tx_stats_strings) + (unsigned long )i,
                                    __len___1);
     }
     i = i + 1;
@@ -25396,7 +25396,7 @@ static void qlcnic_get_strings(struct net_device *dev , u32 stringset , u8 *data
       __ret___2 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_mac_stats_strings) + (unsigned long )i,
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_mac_stats_strings) + (unsigned long )i,
+      __ret___2 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_mac_stats_strings) + (unsigned long )i,
                                    __len___2);
     }
     i = i + 1;
@@ -25416,7 +25416,7 @@ static void qlcnic_get_strings(struct net_device *dev , u32 stringset , u8 *data
       __ret___3 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_rx_stats_strings) + (unsigned long )i,
                            __len___3);
     } else {
-      __ret___3 = __builtin_memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_rx_stats_strings) + (unsigned long )i,
+      __ret___3 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_rx_stats_strings) + (unsigned long )i,
                                    __len___3);
     }
     i = i + 1;
@@ -25439,7 +25439,7 @@ static void qlcnic_get_strings(struct net_device *dev , u32 stringset , u8 *data
       __ret___4 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_mac_stats_strings) + (unsigned long )i,
                            __len___4);
     } else {
-      __ret___4 = __builtin_memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_mac_stats_strings) + (unsigned long )i,
+      __ret___4 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_83xx_mac_stats_strings) + (unsigned long )i,
                                    __len___4);
     }
     i = i + 1;
@@ -25466,7 +25466,7 @@ static void qlcnic_get_strings(struct net_device *dev , u32 stringset , u8 *data
     __ret___5 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_device_gstrings_stats) + (unsigned long )i,
                          __len___5);
   } else {
-    __ret___5 = __builtin_memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_device_gstrings_stats) + (unsigned long )i,
+    __ret___5 = memcpy((void *)data + (unsigned long )(index * 32), (void const   *)(& qlcnic_device_gstrings_stats) + (unsigned long )i,
                                  __len___5);
   }
   index = index + 1;
@@ -26258,7 +26258,7 @@ static int qlcnic_get_dump_data(struct net_device *netdev , struct ethtool_dump 
 
   }
   __len = (size_t )fw_dump->size;
-  __ret = __builtin_memcpy(buffer + (unsigned long )copy_sz, (void const   *)fw_dump->data,
+  __ret = memcpy(buffer + (unsigned long )copy_sz, (void const   *)fw_dump->data,
                            __len);
   dump->len = fw_dump->size + (u32 )copy_sz;
   dump->flag = fw_dump->cap_mask;
@@ -27633,20 +27633,20 @@ int qlcnic_fw_cmd_set_drv_version(struct qlcnic_adapter *adapter , u32 fw_cmd )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& arg1), (void const   *)(& drv_string), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& arg1), (void const   *)(& drv_string), __len);
+    __ret = memcpy((void *)(& arg1), (void const   *)(& drv_string), __len);
   }
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& arg2), (void const   *)(& drv_string) + 4U, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& arg2), (void const   *)(& drv_string) + 4U,
+    __ret___0 = memcpy((void *)(& arg2), (void const   *)(& drv_string) + 4U,
                                  __len___0);
   }
   __len___1 = 4UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& arg3), (void const   *)(& drv_string) + 8U, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& arg3), (void const   *)(& drv_string) + 8U,
+    __ret___1 = memcpy((void *)(& arg3), (void const   *)(& drv_string) + 8U,
                                  __len___1);
   }
   *(cmd.req.arg + 1UL) = arg1;
@@ -28717,7 +28717,7 @@ int qlcnic_82xx_get_pci_info(struct qlcnic_adapter *adapter , struct qlcnic_pci_
     if (__len > 63UL) {
       __ret = memcpy((void *)(& pci_info->mac), (void const   *)(& npar->mac), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pci_info->mac), (void const   *)(& npar->mac),
+      __ret = memcpy((void *)(& pci_info->mac), (void const   *)(& npar->mac),
                                __len);
     }
     ldv_51145: 
@@ -29856,7 +29856,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -29869,7 +29869,7 @@ __inline static void skb_copy_from_linear_data_offset(struct sk_buff  const  *sk
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data + (unsigned long )offset,
+  __ret = memcpy(to, (void const   *)skb->data + (unsigned long )offset,
                            __len);
   return;
 }
@@ -30345,7 +30345,7 @@ static void qlcnic_add_lb_filter(struct qlcnic_adapter *adapter , struct sk_buff
   if (__len > 63UL) {
     __ret = memcpy((void *)(& src_addr), (void const   *)(& phdr->h_source), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& src_addr), (void const   *)(& phdr->h_source),
+    __ret = memcpy((void *)(& src_addr), (void const   *)(& phdr->h_source),
                              __len);
   }
   tmp___1 = qlcnic_mac_hash(src_addr, (int )vlan_id);
@@ -30381,7 +30381,7 @@ static void qlcnic_add_lb_filter(struct qlcnic_adapter *adapter , struct sk_buff
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& fil->faddr), (void const   *)(& src_addr), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& fil->faddr), (void const   *)(& src_addr),
+      __ret___0 = memcpy((void *)(& fil->faddr), (void const   *)(& src_addr),
                                    __len___0);
     }
     fil->vlan_id = vlan_id;
@@ -30449,7 +30449,7 @@ void qlcnic_82xx_change_filter(struct qlcnic_adapter *adapter , u64 *uaddr , u16
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mac_req->mac_addr), (void const   *)uaddr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mac_req->mac_addr), (void const   *)uaddr,
+    __ret = memcpy((void *)(& mac_req->mac_addr), (void const   *)uaddr,
                              __len);
   }
   vlan_req = (struct qlcnic_vlan_req *)(& req->words) + 1U;
@@ -30521,7 +30521,7 @@ static void qlcnic_send_filter(struct qlcnic_adapter *adapter , struct cmd_desc_
   if (__len > 63UL) {
     __ret = memcpy((void *)(& src_addr), (void const   *)(& phdr->h_source), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& src_addr), (void const   *)(& phdr->h_source),
+    __ret = memcpy((void *)(& src_addr), (void const   *)(& phdr->h_source),
                              __len);
   }
   hval = qlcnic_mac_hash(src_addr, (int )vlan_id);
@@ -30586,7 +30586,7 @@ static void qlcnic_send_filter(struct qlcnic_adapter *adapter , struct cmd_desc_
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& fil->faddr), (void const   *)(& src_addr), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& fil->faddr), (void const   *)(& src_addr),
+    __ret___0 = memcpy((void *)(& fil->faddr), (void const   *)(& src_addr),
                                  __len___0);
   }
   spin_lock(& adapter->mac_learn_lock);
@@ -30801,7 +30801,7 @@ static int qlcnic_tx_pkt(struct qlcnic_adapter *adapter , struct cmd_desc_type0 
       __ret = memcpy((void *)(& first_desc->eth_addr), (void const   *)skb->data,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& first_desc->eth_addr), (void const   *)skb->data,
+      __ret = memcpy((void *)(& first_desc->eth_addr), (void const   *)skb->data,
                                __len);
     }
   } else {
@@ -33788,7 +33788,7 @@ static int qlcnic_82xx_store_beacon(struct qlcnic_adapter *adapter , char const 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& beacon), (void const   *)buf, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& beacon), (void const   *)buf, __len);
+    __ret = memcpy((void *)(& beacon), (void const   *)buf, __len);
   }
   err = qlcnic_validate_beacon(adapter, (int )beacon, & b_state, & b_rate);
   if (err != 0) {
@@ -34030,7 +34030,7 @@ static ssize_t qlcnic_sysfs_read_mem(struct file *filp , struct kobject *kobj , 
 
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)(& data), __len);
+  __ret = memcpy((void *)buf, (void const   *)(& data), __len);
   return ((ssize_t )size);
 }
 }
@@ -34059,7 +34059,7 @@ static ssize_t qlcnic_sysfs_write_mem(struct file *filp , struct kobject *kobj ,
 
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)(& data), (void const   *)buf, __len);
+  __ret = memcpy((void *)(& data), (void const   *)buf, __len);
   tmp___0 = qlcnic_pci_mem_write_2M(adapter, (u64 )offset, data);
   if (tmp___0 != 0) {
     return (-5L);
@@ -34842,7 +34842,7 @@ static ssize_t qlcnic_sysfs_get_port_stats(struct file *file , struct kobject *k
 
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)(& port_stats), __len);
+  __ret = memcpy((void *)buf, (void const   *)(& port_stats), __len);
   return ((ssize_t )size);
 }
 }
@@ -34895,7 +34895,7 @@ static ssize_t qlcnic_sysfs_get_esw_stats(struct file *file , struct kobject *ko
 
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)(& esw_stats), __len);
+  __ret = memcpy((void *)buf, (void const   *)(& esw_stats), __len);
   return ((ssize_t )size);
 }
 }
@@ -35035,7 +35035,7 @@ static ssize_t qlcnic_sysfs_read_pci_config(struct file *file , struct kobject *
     __ret = memcpy((void *)(& (pci_cfg + (unsigned long )i)->def_mac_addr), (void const   *)(& (pci_info + (unsigned long )i)->mac),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (pci_cfg + (unsigned long )i)->def_mac_addr),
+    __ret = memcpy((void *)(& (pci_cfg + (unsigned long )i)->def_mac_addr),
                              (void const   *)(& (pci_info + (unsigned long )i)->mac),
                              __len);
   }
@@ -35111,7 +35111,7 @@ static ssize_t qlcnic_83xx_sysfs_flash_read_handler(struct file *filp , struct k
   }
   qlcnic_83xx_unlock_flash(adapter);
   __len = size;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)p_read_buf, __len);
+  __ret = memcpy((void *)buf, (void const   *)p_read_buf, __len);
   kfree((void const   *)p_read_buf);
   return ((ssize_t )size);
 }
@@ -35138,7 +35138,7 @@ static int qlcnic_83xx_sysfs_flash_bulk_write(struct qlcnic_adapter *adapter , c
 
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)p_cache, (void const   *)buf, __len);
+  __ret = memcpy((void *)p_cache, (void const   *)buf, __len);
   p_src = p_cache;
   count = (int )(size / 4UL);
   tmp___0 = qlcnic_83xx_lock_flash(adapter);
@@ -35232,7 +35232,7 @@ static int qlcnic_83xx_sysfs_flash_write(struct qlcnic_adapter *adapter , char *
 
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)p_cache, (void const   *)buf, __len);
+  __ret = memcpy((void *)p_cache, (void const   *)buf, __len);
   p_src = p_cache;
   count = (int )(size / 4UL);
   tmp___0 = qlcnic_83xx_lock_flash(adapter);
@@ -37732,7 +37732,7 @@ static u32 qlcnic_read_memory_pexdma(struct qlcnic_adapter *adapter , struct __m
 
   }
   __len = (size_t )size;
-  __ret = __builtin_memcpy((void *)buffer, (void const   *)dma_buffer, __len);
+  __ret = memcpy((void *)buffer, (void const   *)dma_buffer, __len);
   buffer = buffer + (unsigned long )(size / 4U);
   read_size = read_size + size;
   ldv_53232: ;
@@ -39583,7 +39583,7 @@ void qlcnic_83xx_read_crb(struct qlcnic_adapter *adapter , char *buf , loff_t of
 
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)(& data), __len);
+  __ret = memcpy((void *)buf, (void const   *)(& data), __len);
   return;
 }
 }
@@ -39596,7 +39596,7 @@ void qlcnic_83xx_write_crb(struct qlcnic_adapter *adapter , char *buf , loff_t o
 
   {
   __len = size;
-  __ret = __builtin_memcpy((void *)(& data), (void const   *)buf, __len);
+  __ret = memcpy((void *)(& data), (void const   *)buf, __len);
   qlcnic_83xx_wrt_reg_indirect(adapter, (ulong )((unsigned int )offset), data);
   return;
 }
@@ -40193,7 +40193,7 @@ static int qlcnic_83xx_add_rings(struct qlcnic_adapter *adapter )
   sds_mbx.intrpt_val = 0U;
   buf = cmd.req.arg + (unsigned long )index;
   __len = (size_t )sds_mbx_size;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)(& sds_mbx), __len);
+  __ret = memcpy((void *)buf, (void const   *)(& sds_mbx), __len);
   index = (int )((unsigned int )((unsigned long )sds_mbx_size / 4UL) + (unsigned int )index);
   i = i + 1;
   ldv_51835: ;
@@ -40382,7 +40382,7 @@ int qlcnic_83xx_create_rx_ctx(struct qlcnic_adapter *adapter )
   sds_mbx.intrpt_val = 0U;
   buf = cmd.req.arg + (unsigned long )index;
   __len = (size_t )sds_mbx_size;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)(& sds_mbx), __len);
+  __ret = memcpy((void *)buf, (void const   *)(& sds_mbx), __len);
   index = (int )((unsigned int )((unsigned long )sds_mbx_size / 4UL) + (unsigned int )index);
   i = i + 1;
   ldv_51874: ;
@@ -40407,7 +40407,7 @@ int qlcnic_83xx_create_rx_ctx(struct qlcnic_adapter *adapter )
   rds_mbx.jmb_ring_len = (u16 )rds->num_desc;
   buf = cmd.req.arg + (unsigned long )index;
   __len___0 = (size_t )rds_mbx_size;
-  __ret___0 = __builtin_memcpy((void *)buf, (void const   *)(& rds_mbx), __len___0);
+  __ret___0 = memcpy((void *)buf, (void const   *)(& rds_mbx), __len___0);
   err = (*((ahw->hw_ops)->mbx_cmd))(adapter, & cmd);
   if (err != 0) {
     dev_err((struct device  const  *)(& (adapter->pdev)->dev), "Failed to create Rx ctx in firmware%d\n",
@@ -40580,7 +40580,7 @@ int qlcnic_83xx_create_tx_ctx(struct qlcnic_adapter *adapter , struct qlcnic_hos
   if (__len > 63UL) {
     __ret = memcpy((void *)buf, (void const   *)(& mbx), __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& mbx), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& mbx), __len);
   }
   err = qlcnic_issue_cmd(adapter, & cmd);
   if (err != 0) {
@@ -41461,7 +41461,7 @@ void qlcnic_83xx_config_ipaddr(struct qlcnic_adapter *adapter , __be32 ip , int 
   if (__len > 63UL) {
     __ret = memcpy((void *)cmd.req.arg + 2U, (void const   *)(& temp_ip), __len);
   } else {
-    __ret = __builtin_memcpy((void *)cmd.req.arg + 2U, (void const   *)(& temp_ip),
+    __ret = memcpy((void *)cmd.req.arg + 2U, (void const   *)(& temp_ip),
                              __len);
   }
   err = qlcnic_issue_cmd(adapter, & cmd);
@@ -41537,7 +41537,7 @@ int qlcnic_83xx_config_rss(struct qlcnic_adapter *adapter , int enable )
   if (__len > 63UL) {
     __ret = memcpy((void *)cmd.req.arg + 4U, (void const   *)(& key), __len);
   } else {
-    __ret = __builtin_memcpy((void *)cmd.req.arg + 4U, (void const   *)(& key), __len);
+    __ret = memcpy((void *)cmd.req.arg + 4U, (void const   *)(& key), __len);
   }
   err = qlcnic_issue_cmd(adapter, & cmd);
   if (err != 0) {
@@ -41630,7 +41630,7 @@ int qlcnic_83xx_sre_macaddr_change(struct qlcnic_adapter *adapter , u8 *addr , u
   if (__len > 63UL) {
     __ret = memcpy((void *)buf, (void const   *)(& mv), __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& mv), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& mv), __len);
   }
   err = qlcnic_issue_cmd(adapter, cmd);
   if (err == 0) {
@@ -41655,7 +41655,7 @@ void qlcnic_83xx_change_l2_filter(struct qlcnic_adapter *adapter , u64 *addr , u
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mac), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mac), (void const   *)addr, __len);
+    __ret = memcpy((void *)(& mac), (void const   *)addr, __len);
   }
   qlcnic_83xx_sre_macaddr_change(adapter, (u8 *)(& mac), (int )vlan_id, 1);
   return;
@@ -41677,13 +41677,13 @@ static void qlcnic_83xx_configure_mac(struct qlcnic_adapter *adapter , u8 *mac ,
   if (__len > 63UL) {
     __ret = memcpy((void *)cmd->req.arg + 2U, (void const   *)mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)cmd->req.arg + 2U, (void const   *)mac, __len);
+    __ret = memcpy((void *)cmd->req.arg + 2U, (void const   *)mac, __len);
   }
   __len___0 = 2UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)cmd->req.arg + 3U, (void const   *)mac + 4U, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)cmd->req.arg + 3U, (void const   *)mac + 4U,
+    __ret___0 = memcpy((void *)cmd->req.arg + 3U, (void const   *)mac + 4U,
                                  __len___0);
   }
   goto ldv_52126;
@@ -42057,7 +42057,7 @@ int qlcnic_83xx_get_nic_info(struct qlcnic_adapter *adapter , struct qlcnic_info
     __ret = memcpy((void *)(& ahw->extra_capability), (void const   *)cmd.rsp.arg + 16U,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ahw->extra_capability), (void const   *)cmd.rsp.arg + 16U,
+    __ret = memcpy((void *)(& ahw->extra_capability), (void const   *)cmd.rsp.arg + 16U,
                              __len);
   }
   out: 
@@ -42155,7 +42155,7 @@ int qlcnic_83xx_get_pci_info(struct qlcnic_adapter *adapter , struct qlcnic_pci_
       __ret = memcpy((void *)(& pci_info->mac), (void const   *)cmd.rsp.arg + (unsigned long )i,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pci_info->mac), (void const   *)cmd.rsp.arg + (unsigned long )i,
+      __ret = memcpy((void *)(& pci_info->mac), (void const   *)cmd.rsp.arg + (unsigned long )i,
                                __len);
     }
     i = i + 1;
@@ -42164,7 +42164,7 @@ int qlcnic_83xx_get_pci_info(struct qlcnic_adapter *adapter , struct qlcnic_pci_
       __ret___0 = memcpy((void *)(& pci_info->mac) + 4U, (void const   *)cmd.rsp.arg + (unsigned long )i,
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& pci_info->mac) + 4U, (void const   *)cmd.rsp.arg + (unsigned long )i,
+      __ret___0 = memcpy((void *)(& pci_info->mac) + 4U, (void const   *)cmd.rsp.arg + (unsigned long )i,
                                    __len___0);
     }
     i = i + 3;
@@ -54712,7 +54712,7 @@ static int qlcnic_sriov_cfg_vf_def_mac(struct qlcnic_adapter *adapter , struct q
   if (__len > 63UL) {
     __ret = memcpy((void *)buf, (void const   *)(& mv), __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& mv), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& mv), __len);
   }
   err = qlcnic_issue_cmd(adapter, cmd);
   if (err == 0) {
@@ -56040,7 +56040,7 @@ int qlcnic_sriov_set_vf_mac(struct net_device *netdev , int vf , u8 *mac )
 
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)curr_mac, (void const   *)mac, __len);
+  __ret = memcpy((void *)curr_mac, (void const   *)mac, __len);
   netdev_info((struct net_device  const  *)netdev, "MAC Address %pM  is configured for VF %d\n",
               mac, vf);
   return (0);
@@ -56268,7 +56268,7 @@ int qlcnic_sriov_get_vf_config(struct net_device *netdev , int vf , struct ifla_
   if (__len > 63UL) {
     __ret = memcpy((void *)(& ivi->mac), (void const   *)(& vp->mac), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ivi->mac), (void const   *)(& vp->mac), __len);
+    __ret = memcpy((void *)(& ivi->mac), (void const   *)(& vp->mac), __len);
   }
   ivi->vlan = qlcnic_sriov_get_vf_vlan(adapter, vp, vf);
   ivi->qos = (__u32 )vp->qos;
@@ -56825,7 +56825,7 @@ static int __qlcnic_dcb_query_hw_capability(struct qlcnic_dcb *dcb , char *buf )
       if (__len > 63UL) {
         __ret = memcpy((void *)buf, (void const   *)(& mbx_out), __len);
       } else {
-        __ret = __builtin_memcpy((void *)buf, (void const   *)(& mbx_out), __len);
+        __ret = memcpy((void *)buf, (void const   *)(& mbx_out), __len);
       }
     } else {
 
@@ -56976,7 +56976,7 @@ static int qlcnic_82xx_dcb_query_cee_param(struct qlcnic_dcb *dcb , char *buf , 
 
   if ((unsigned long )buf != (unsigned long )((char *)0)) {
     __len = (size_t )size;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& rsp), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& rsp), __len);
   } else {
 
   }
@@ -57140,7 +57140,7 @@ static int qlcnic_83xx_dcb_query_cee_param(struct qlcnic_dcb *dcb , char *buf , 
   if (__len > 63UL) {
     __ret = memcpy((void *)buf, (void const   *)(& mbx_out), __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& mbx_out), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& mbx_out), __len);
   }
   p = (char *)__ret;
   k = 2;
@@ -57189,7 +57189,7 @@ static int qlcnic_83xx_dcb_query_cee_param(struct qlcnic_dcb *dcb , char *buf , 
   }
   size = 64;
   __len___0 = (size_t )size;
-  __ret___0 = __builtin_memcpy((void *)p, (void const   *)(& each->hdr_prio_pfc_map),
+  __ret___0 = memcpy((void *)p, (void const   *)(& each->hdr_prio_pfc_map),
                                __len___0);
   p = p + (unsigned long )size;
   if (j == 0) {
@@ -57445,7 +57445,7 @@ static void qlcnic_dcb_get_perm_hw_addr(struct net_device *netdev , u8 *addr )
 
   {
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)addr, (void const   *)(& netdev->perm_addr), __len);
+  __ret = memcpy((void *)addr, (void const   *)(& netdev->perm_addr), __len);
   return;
 }
 }

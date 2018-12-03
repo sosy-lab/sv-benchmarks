@@ -5955,6 +5955,7 @@ static void cisco_stop(struct net_device *dev )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static struct hdlc_proto proto =
      {0, 0, & cisco_start, & cisco_stop, 0, & cisco_ioctl, & cisco_type_trans, & cisco_rx,
     0, & __this_module, 0};
@@ -6040,7 +6041,7 @@ static int cisco_ioctl(struct net_device *dev , struct ifreq *ifr )
   }
   __len = size;
   tmp___7 = state(hdlc);
-  __ret = __builtin_memcpy((void *)(& tmp___7->settings), (void const *)(& new_settings),
+  __ret = memcpy((void *)(& tmp___7->settings), (void const *)(& new_settings),
                            __len);
   tmp___8 = state(hdlc);
   spinlock_check(& tmp___8->lock);

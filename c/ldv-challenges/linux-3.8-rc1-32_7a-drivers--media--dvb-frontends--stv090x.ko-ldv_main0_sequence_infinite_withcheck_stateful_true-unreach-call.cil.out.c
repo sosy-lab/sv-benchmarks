@@ -4166,6 +4166,7 @@ static int stv090x_read_reg(struct stv090x_state *state , unsigned int reg )
   return ((int )buf);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int stv090x_write_regs(struct stv090x_state *state , unsigned int reg , u8 *data ,
                               u32 count ) 
 { 
@@ -4192,7 +4193,7 @@ static int stv090x_write_regs(struct stv090x_state *state , unsigned int reg , u
   *(buf + 0) = (u8 )(reg >> 8);
   *(buf + 1) = (u8 )reg;
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)(& buf) + 2U, (void const   *)data, __len);
+  __ret = memcpy((void *)(& buf) + 2U, (void const   *)data, __len);
   tmp___0 = ldv__builtin_expect(*(state->verbose) > 3U, 0L);
   if (tmp___0 != 0L) {
     printk("\017%s [0x%04x]:", "stv090x_write_regs", reg);

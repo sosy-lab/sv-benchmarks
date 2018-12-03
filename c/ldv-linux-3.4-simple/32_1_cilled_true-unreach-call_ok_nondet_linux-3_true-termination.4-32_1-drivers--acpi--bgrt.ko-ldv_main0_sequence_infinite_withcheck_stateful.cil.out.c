@@ -2754,6 +2754,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
   return (tmp);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void iounmap(void volatile   *addr ) ;
 __inline static void memcpy_fromio(void *dst , void const volatile   *src , size_t count )  __attribute__((__no_instrument_function__)) ;
 __inline static void memcpy_fromio(void *dst , void const volatile   *src , size_t count ) 
@@ -2765,7 +2766,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
   {
   __len = count;
   __cil_tmp6 = (void const   *)src;
-  __ret = __builtin_memcpy(dst, __cil_tmp6, __len);
+  __ret = memcpy(dst, __cil_tmp6, __len);
   }
   return;
 }

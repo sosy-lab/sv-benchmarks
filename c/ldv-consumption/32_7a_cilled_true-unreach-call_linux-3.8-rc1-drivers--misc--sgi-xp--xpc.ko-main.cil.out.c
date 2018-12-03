@@ -9824,6 +9824,7 @@ static void xpc_handle_notify_mq_ack_uv(struct xpc_channel *ch , struct xpc_noti
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void xpc_handle_notify_mq_msg_uv(struct xpc_partition *part , struct xpc_notify_mq_msg_uv *msg ) 
 { struct xpc_partition_uv *part_uv ;
   struct xpc_channel *ch ;
@@ -9887,7 +9888,7 @@ static void xpc_handle_notify_mq_msg_uv(struct xpc_partition *part , struct xpc_
 
   }
   __len = (size_t )msg->hdr.size;
-  __ret = __builtin_memcpy((void *)msg_slot, (void const   *)msg, __len);
+  __ret = memcpy((void *)msg_slot, (void const   *)msg, __len);
   xpc_put_fifo_entry_uv(& ch_uv->recv_msg_list, & msg_slot->hdr.u.next);
   if ((ch->flags & 512U) != 0U) {
     tmp___2 = atomic_read((atomic_t const   *)(& ch->kthreads_idle));
@@ -10036,7 +10037,7 @@ static enum xp_retval xpc_send_payload_uv(struct xpc_channel *ch , u32 flags , v
   msg->hdr.size = (u8 )msg_size;
   msg->hdr.msg_slot_number = msg_slot->msg_slot_number;
   __len = (size_t )payload_size;
-  __ret = __builtin_memcpy((void *)(& msg->payload), (void const   *)payload, __len);
+  __ret = memcpy((void *)(& msg->payload), (void const   *)payload, __len);
   ret = xpc_send_gru_msg((struct gru_message_queue_desc *)ch->sn.uv.cached_notify_gru_mq_desc,
                          (void *)msg, msg_size);
   if ((unsigned int )ret == 0U) {

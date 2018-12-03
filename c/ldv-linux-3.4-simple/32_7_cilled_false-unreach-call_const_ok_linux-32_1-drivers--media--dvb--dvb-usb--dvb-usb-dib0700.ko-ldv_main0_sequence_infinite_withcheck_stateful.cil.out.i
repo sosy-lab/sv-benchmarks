@@ -7556,6 +7556,7 @@ static int dib0700_set_usb_xfer_len(struct dvb_usb_device *d , u16 nb_ts_packets
   return (ret);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int dib0700_i2c_xfer_new(struct i2c_adapter *adap , struct i2c_msg *msg , int num )
 { struct dvb_usb_device *d ;
   void *tmp___7 ;
@@ -8065,7 +8066,7 @@ static int dib0700_i2c_xfer_new(struct i2c_adapter *adap , struct i2c_msg *msg ,
       __cil_tmp166 = __cil_tmp165 + 8;
       __cil_tmp167 = *((__u8 **)__cil_tmp166);
       __cil_tmp168 = (void *)__cil_tmp167;
-      __ret = __builtin_memcpy(__cil_tmp163, __cil_tmp168, __len);
+      __ret = memcpy(__cil_tmp163, __cil_tmp168, __len);
       }
       {
       while (1) {
@@ -8403,7 +8404,7 @@ static int dib0700_i2c_xfer_legacy(struct i2c_adapter *adap , struct i2c_msg *ms
     __cil_tmp44 = __cil_tmp43 + 8;
     __cil_tmp45 = *((__u8 **)__cil_tmp44);
     __cil_tmp46 = (void *)__cil_tmp45;
-    __ret = __builtin_memcpy(__cil_tmp41, __cil_tmp46, __len);
+    __ret = memcpy(__cil_tmp41, __cil_tmp46, __len);
     }
     {
     __cil_tmp47 = i + 1;
@@ -9572,7 +9573,7 @@ int dib0700_download_firmware(struct usb_device *udev , struct firmware *fw )
     __cil_tmp47 = (unsigned long )(& hx) + __cil_tmp46;
     __cil_tmp48 = (u8 *)__cil_tmp47;
     __cil_tmp49 = (void *)__cil_tmp48;
-    __ret = __builtin_memcpy(__cil_tmp44, __cil_tmp49, __len);
+    __ret = memcpy(__cil_tmp44, __cil_tmp49, __len);
     __cil_tmp50 = & hx;
     __cil_tmp51 = *((u8 *)__cil_tmp50);
     __cil_tmp52 = (int )__cil_tmp51;

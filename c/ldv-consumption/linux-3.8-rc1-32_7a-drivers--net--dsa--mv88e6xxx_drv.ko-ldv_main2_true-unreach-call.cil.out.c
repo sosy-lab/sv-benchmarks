@@ -5415,7 +5415,7 @@ void mv88e6xxx_get_strings(struct dsa_switch *ds , int nr_stats , struct mv88e6x
     __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& (stats + (unsigned long )i)->string),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& (stats + (unsigned long )i)->string),
+    __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const   *)(& (stats + (unsigned long )i)->string),
                              __len);
   }
   i = i + 1;

@@ -5481,6 +5481,7 @@ __inline static void skb_reserve(struct sk_buff *skb , int len )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static struct sk_buff *ldv_netdev_alloc_skb_18(struct net_device *dev , unsigned int length ) ;
 __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void *to ,
                                                unsigned int const len )
@@ -5489,7 +5490,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   return;
 }
 }
@@ -5500,7 +5501,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const *f
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data, from, __len);
+  __ret = memcpy((void *)skb->data, from, __len);
   return;
 }
 }

@@ -5573,14 +5573,14 @@ static void ppp_tx_cp(struct net_device *dev , u16 pid , u8 code , u8 id , unsig
   if (magic_len != 0U) {
     __len = (size_t )magic_len;
     tmp___2 = skb_put(skb, magic_len);
-    __ret = __builtin_memcpy((void *)tmp___2, (void const   *)(& magic), __len);
+    __ret = memcpy((void *)tmp___2, (void const   *)(& magic), __len);
   } else {
 
   }
   if (len != 0U) {
     __len___0 = (size_t )len;
     tmp___4 = skb_put(skb, len);
-    __ret___0 = __builtin_memcpy((void *)tmp___4, data, __len___0);
+    __ret___0 = memcpy((void *)tmp___4, data, __len___0);
   } else {
 
   }
@@ -5813,7 +5813,7 @@ static void ppp_cp_parse_cr(struct net_device *dev , u16 pid , u8 id , unsigned 
         __ret = memcpy((void *)out + (unsigned long )nak_len, (void const   *)(& valid_accm),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)out + (unsigned long )nak_len, (void const   *)(& valid_accm),
+        __ret = memcpy((void *)out + (unsigned long )nak_len, (void const   *)(& valid_accm),
                                  __len);
       }
       nak_len = nak_len + 6U;
@@ -5835,7 +5835,7 @@ static void ppp_cp_parse_cr(struct net_device *dev , u16 pid , u8 id , unsigned 
 
   }
   __len___0 = (size_t )*(opt + 1UL);
-  __ret___0 = __builtin_memcpy((void *)out + (unsigned long )rej_len, (void const   *)opt,
+  __ret___0 = memcpy((void *)out + (unsigned long )rej_len, (void const   *)opt,
                                __len___0);
   rej_len = (unsigned int )*(opt + 1UL) + rej_len;
   ldv_42780: 

@@ -5616,6 +5616,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
   return ((unsigned int )(dev->devnum << 8) | (endpoint << 15));
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int usbnet_probe(struct usb_interface * , struct usb_device_id const * ) ;
 extern int usbnet_suspend(struct usb_interface * , pm_message_t ) ;
 extern int usbnet_resume(struct usb_interface * ) ;
@@ -5654,7 +5655,7 @@ static int cx82310_cmd(struct usbnet *dev , enum cx82310_cmd cmd , bool reply , 
     __min1 = wlen;
     __min2 = 60;
     __len = (size_t )(__min1 < __min2 ? __min1 : __min2);
-    __ret = __builtin_memcpy((void *)buf + 4U, (void const *)wdata, __len);
+    __ret = memcpy((void *)buf + 4U, (void const *)wdata, __len);
   } else {
   }
   tmp___0 = __create_pipe(udev, 1U);
@@ -5714,7 +5715,7 @@ static int cx82310_cmd(struct usbnet *dev , enum cx82310_cmd cmd , bool reply , 
       __min1___0 = rlen;
       __min2___0 = 60;
       __len___0 = (size_t )(__min1___0 < __min2___0 ? __min1___0 : __min2___0);
-      __ret___0 = __builtin_memcpy((void *)rdata, (void const *)buf + 4U, __len___0);
+      __ret___0 = memcpy((void *)rdata, (void const *)buf + 4U, __len___0);
     } else {
     }
   } else {
@@ -5812,9 +5813,9 @@ static int cx82310_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
     }
     skb_put(skb2, (unsigned int )len);
     __len = dev->data[0];
-    __ret = __builtin_memcpy((void *)skb2->data, (void const *)dev->data[2], __len);
+    __ret = memcpy((void *)skb2->data, (void const *)dev->data[2], __len);
     __len___0 = dev->data[1];
-    __ret___0 = __builtin_memcpy((void *)(skb2->data + dev->data[0]), (void const *)skb->data,
+    __ret___0 = memcpy((void *)(skb2->data + dev->data[0]), (void const *)skb->data,
                                  __len___0);
     usbnet_skb_return(dev, skb2);
     skb_pull(skb, ((unsigned int )dev->data[1] + 1U) & 4294967294U);
@@ -5844,7 +5845,7 @@ static int cx82310_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
     dev->data[0] = (unsigned long )skb->len;
     dev->data[1] = (unsigned long )((unsigned int )len - skb->len);
     __len___1 = dev->data[0];
-    __ret___1 = __builtin_memcpy((void *)dev->data[2], (void const *)skb->data,
+    __ret___1 = memcpy((void *)dev->data[2], (void const *)skb->data,
                                  __len___1);
     skb_pull(skb, skb->len);
     goto ldv_43228;
@@ -5857,7 +5858,7 @@ static int cx82310_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
   }
   skb_put(skb2, (unsigned int )len);
   __len___2 = (size_t )len;
-  __ret___2 = __builtin_memcpy((void *)skb2->data, (void const *)skb->data, __len___2);
+  __ret___2 = memcpy((void *)skb2->data, (void const *)skb->data, __len___2);
   usbnet_skb_return(dev, skb2);
   skb_pull(skb, (unsigned int )(len + 1) & 4294967294U);
   ldv_43236: ;

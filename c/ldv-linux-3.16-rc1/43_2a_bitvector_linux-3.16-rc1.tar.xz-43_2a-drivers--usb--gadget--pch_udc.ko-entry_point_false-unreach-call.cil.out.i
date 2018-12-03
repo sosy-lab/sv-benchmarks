@@ -3348,6 +3348,7 @@ static void pch_vbus_gpio_free(struct pch_udc_dev *dev )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void complete_req(struct pch_udc_ep *ep , struct pch_udc_request *req , int status )
 {
   struct pch_udc_dev *dev ;
@@ -3381,7 +3382,7 @@ static void complete_req(struct pch_udc_ep *ep , struct pch_udc_request *req , i
         dma_unmap_single_attrs(& (dev->pdev)->dev, req->dma, (size_t )req->req.length,
                                2, (struct dma_attrs *)0);
         __len = (size_t )req->req.length;
-        __ret = __builtin_memcpy(req->req.buf, (void const *)req->buf, __len);
+        __ret = memcpy(req->req.buf, (void const *)req->buf, __len);
       }
       kfree((void const *)req->buf);
       req->dma = 0xffffffffffffffffULL;
@@ -3775,7 +3776,7 @@ static int pch_udc_pcd_queue(struct usb_ep *usbep , struct usb_request *usbreq ,
       }
       if ((unsigned int )*((unsigned char *)ep + 128UL) != 0U) {
         __len = (size_t )usbreq->length;
-        __ret = __builtin_memcpy(req->buf, (void const *)usbreq->buf, __len);
+        __ret = memcpy(req->buf, (void const *)usbreq->buf, __len);
         req->dma = dma_map_single_attrs(& (dev->pdev)->dev, req->buf, (size_t )usbreq->length,
                                         1, (struct dma_attrs *)0);
       } else {

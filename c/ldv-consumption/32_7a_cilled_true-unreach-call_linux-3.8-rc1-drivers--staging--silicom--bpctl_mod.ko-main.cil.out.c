@@ -5298,7 +5298,7 @@ static int bp_device_event(struct notifier_block *unused , unsigned long event ,
     if (__len > 63UL) {
       __ret = memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info),
+      __ret = memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info),
                                __len);
     }
     buf = (char *)(& cbuf);
@@ -11710,7 +11710,7 @@ static void if_scan_init(void)
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info),
+    __ret = memcpy((void *)(& cbuf), (void const   *)(& drvinfo.bus_info),
                              __len);
   }
   buf = (char *)(& cbuf);

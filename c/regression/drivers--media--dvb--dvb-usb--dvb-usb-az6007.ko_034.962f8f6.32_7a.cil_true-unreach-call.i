@@ -5725,7 +5725,7 @@ typedef int ldv_func_ret_type___0;
 typedef int ldv_func_ret_type___4;
 typedef int ldv_func_ret_type___6;
 typedef int ldv_func_ret_type___22;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
@@ -6497,7 +6497,7 @@ static int az6007_read_mac_addr(struct dvb_usb_device *d , u8 *mac )
   if (__len > 63UL) {
     __ret = memcpy((void *)mac, (void const   *)(& st->data), __len);
   } else {
-    __ret = __builtin_memcpy((void *)mac, (void const   *)(& st->data), __len);
+    __ret = memcpy((void *)mac, (void const   *)(& st->data), __len);
   }
   if (ret > 0) {
     if (dvb_usb_az6007_debug & 1) {

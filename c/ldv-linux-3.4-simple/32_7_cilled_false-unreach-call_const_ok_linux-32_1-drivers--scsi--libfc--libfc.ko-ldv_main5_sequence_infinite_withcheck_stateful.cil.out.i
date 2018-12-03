@@ -5814,7 +5814,7 @@ u32 fc_copy_buffer_to_sglist(void *buf , size_t len , struct scatterlist *sg , u
     __cil_tmp75 = __cil_tmp74 + __cil_tmp73;
     __cil_tmp76 = (void *)__cil_tmp75;
     __cil_tmp77 = (void *)buf;
-    __ret = __builtin_memcpy(__cil_tmp76, __cil_tmp77, __len);
+    __ret = memcpy(__cil_tmp76, __cil_tmp77, __len);
     }
     {
     while (1) {
@@ -6141,7 +6141,7 @@ void fc_fill_hdr(struct fc_frame *fp , struct fc_frame *in_fp , enum fc_rctl r_c
     __cil_tmp84 = __cil_tmp83 + __cil_tmp82;
     __cil_tmp85 = (__u8 *)__cil_tmp84;
     __cil_tmp86 = (void *)__cil_tmp85;
-    __ret = __builtin_memcpy(__cil_tmp80, __cil_tmp86, __len);
+    __ret = memcpy(__cil_tmp80, __cil_tmp86, __len);
     }
   }
   __len___0 = 3UL;
@@ -6175,7 +6175,7 @@ void fc_fill_hdr(struct fc_frame *fp , struct fc_frame *in_fp , enum fc_rctl r_c
     __cil_tmp108 = __cil_tmp107 + __cil_tmp106;
     __cil_tmp109 = (__u8 *)__cil_tmp108;
     __cil_tmp110 = (void *)__cil_tmp109;
-    __ret___0 = __builtin_memcpy(__cil_tmp104, __cil_tmp110, __len___0);
+    __ret___0 = memcpy(__cil_tmp104, __cil_tmp110, __len___0);
     }
   }
   {
@@ -9405,7 +9405,7 @@ static int fc_disc_gpn_ft_parse(struct fc_disc *disc , void *buf , size_t len )
     __cil_tmp67 = __cil_tmp66 + tlen;
     __cil_tmp68 = (void *)__cil_tmp67;
     __cil_tmp69 = (void *)bp;
-    __ret = __builtin_memcpy(__cil_tmp68, __cil_tmp69, __len);
+    __ret = memcpy(__cil_tmp68, __cil_tmp69, __len);
     bp = bp - tlen;
     len = len + tlen;
     plen = plen + tlen;
@@ -9554,7 +9554,7 @@ static int fc_disc_gpn_ft_parse(struct fc_disc *disc , void *buf , size_t len )
           __cil_tmp120 = (struct fc_gpn_ft_resp *)__cil_tmp119;
           __cil_tmp121 = (void *)__cil_tmp120;
           __cil_tmp122 = (void *)np;
-          __ret___0 = __builtin_memcpy(__cil_tmp121, __cil_tmp122, __len___0);
+          __ret___0 = memcpy(__cil_tmp121, __cil_tmp122, __len___0);
           }
         } else {
         }
@@ -16041,7 +16041,7 @@ static void fc_exch_send_ba_rjt(struct fc_frame *rx_fp , enum fc_ba_rjt_reason r
     __cil_tmp54 = __cil_tmp53 + __cil_tmp52;
     __cil_tmp55 = (__u8 *)__cil_tmp54;
     __cil_tmp56 = (void *)__cil_tmp55;
-    __ret = __builtin_memcpy(__cil_tmp50, __cil_tmp56, __len);
+    __ret = memcpy(__cil_tmp50, __cil_tmp56, __len);
     }
   }
   __len___0 = (size_t )3;
@@ -16075,7 +16075,7 @@ static void fc_exch_send_ba_rjt(struct fc_frame *rx_fp , enum fc_ba_rjt_reason r
     __cil_tmp78 = __cil_tmp77 + __cil_tmp76;
     __cil_tmp79 = (__u8 *)__cil_tmp78;
     __cil_tmp80 = (void *)__cil_tmp79;
-    __ret___0 = __builtin_memcpy(__cil_tmp74, __cil_tmp80, __len___0);
+    __ret___0 = memcpy(__cil_tmp74, __cil_tmp80, __len___0);
     }
   }
   {
@@ -19203,7 +19203,7 @@ static void fc_exch_els_rec(struct fc_frame *rfp )
     __cil_tmp94 = __cil_tmp93 + __cil_tmp92;
     __cil_tmp95 = (__u8 *)__cil_tmp94;
     __cil_tmp96 = (void *)__cil_tmp95;
-    __ret = __builtin_memcpy(__cil_tmp90, __cil_tmp96, __len);
+    __ret = memcpy(__cil_tmp90, __cil_tmp96, __len);
     }
   }
   {
@@ -24057,7 +24057,7 @@ __inline static int fc_ct_ms_fill(struct fc_lport *lport , u32 fc_id , struct fc
         __cil_tmp426 = __cil_tmp425 + __cil_tmp419;
         __cil_tmp427 = (u8 *)__cil_tmp426;
         __cil_tmp428 = (void *)__cil_tmp427;
-        __ret = __builtin_memcpy(__cil_tmp417, __cil_tmp428, __len);
+        __ret = memcpy(__cil_tmp417, __cil_tmp428, __len);
         }
       }
       {
@@ -27759,7 +27759,7 @@ static void fc_lport_recv_echo_req(struct fc_lport *lport , struct fc_frame *in_
     dp = fc_frame_payload_get(__cil_tmp35, __cil_tmp36);
     __len = (size_t )len;
     __cil_tmp37 = (void *)pp;
-    __ret = __builtin_memcpy(dp, __cil_tmp37, __len);
+    __ret = memcpy(dp, __cil_tmp37, __len);
     __cil_tmp38 = (__be32 *)dp;
     __cil_tmp39 = 2 << 24;
     __cil_tmp40 = (__u32 )__cil_tmp39;
@@ -28033,7 +28033,7 @@ static void fc_lport_recv_rnid_req(struct fc_lport *lport , struct fc_frame *in_
           __cil_tmp82 = __cil_tmp81 + 820;
           __cil_tmp83 = (struct fc_els_rnid_gen *)__cil_tmp82;
           __cil_tmp84 = (void *)__cil_tmp83;
-          __ret = __builtin_memcpy(__cil_tmp80, __cil_tmp84, __len);
+          __ret = memcpy(__cil_tmp80, __cil_tmp84, __len);
           }
         }
       } else {
@@ -47942,7 +47942,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
       __cil_tmp387 = (char *)page_addr;
       __cil_tmp388 = __cil_tmp387 + __cil_tmp386;
       __cil_tmp389 = (void *)__cil_tmp388;
-      __ret = __builtin_memcpy(data, __cil_tmp389, __len);
+      __ret = memcpy(data, __cil_tmp389, __len);
       }
       {
       while (1) {
@@ -49120,7 +49120,7 @@ static void fc_fcp_resp(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
         __cil_tmp89 = (char *)fc_rp_info;
         __cil_tmp90 = __cil_tmp89 + respl;
         __cil_tmp91 = (void *)__cil_tmp90;
-        __ret = __builtin_memcpy(__cil_tmp88, __cil_tmp91, __len);
+        __ret = memcpy(__cil_tmp88, __cil_tmp91, __len);
         }
       } else {
       }
@@ -50196,7 +50196,7 @@ static int fc_fcp_pkt_send(struct fc_lport *lport , struct fc_fcp_pkt *fsp )
   __cil_tmp64 = __cil_tmp63 + 80;
   __cil_tmp65 = *((unsigned char **)__cil_tmp64);
   __cil_tmp66 = (void *)__cil_tmp65;
-  __ret = __builtin_memcpy(__cil_tmp59, __cil_tmp66, __len);
+  __ret = memcpy(__cil_tmp59, __cil_tmp66, __len);
   }
   {
   while (1) {
@@ -50425,7 +50425,7 @@ static int fc_fcp_cmd_send(struct fc_lport *lport , struct fc_fcp_pkt *fsp , voi
   __cil_tmp18 = __cil_tmp17 + 88;
   __cil_tmp19 = (struct fcp_cmnd *)__cil_tmp18;
   __cil_tmp20 = (void *)__cil_tmp19;
-  __ret = __builtin_memcpy(tmp___9, __cil_tmp20, __len);
+  __ret = memcpy(tmp___9, __cil_tmp20, __len);
   __cil_tmp21 = 0 * 1UL;
   __cil_tmp22 = 40 + __cil_tmp21;
   __cil_tmp23 = 0 + __cil_tmp22;

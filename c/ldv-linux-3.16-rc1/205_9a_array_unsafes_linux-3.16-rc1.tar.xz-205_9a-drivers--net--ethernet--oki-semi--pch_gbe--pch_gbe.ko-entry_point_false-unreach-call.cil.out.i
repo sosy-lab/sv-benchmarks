@@ -7398,7 +7398,7 @@ static void pch_gbe_get_strings(struct net_device *netdev , u32 stringset , u8 *
     __ret = memcpy((void *)p, (void const *)(& pch_gbe_gstrings_stats[i].string),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const *)(& pch_gbe_gstrings_stats[i].string),
+    __ret = memcpy((void *)p, (void const *)(& pch_gbe_gstrings_stats[i].string),
                              __len);
   }
   p = p + 32UL;
@@ -9966,7 +9966,7 @@ static int pch_ptp_match(struct sk_buff *skb , u16 uid_hi , u32 uid_lo , u16 seq
   if (__len > 63UL) {
     __ret = memcpy((void *)(& lo), (void const *)hi + 1U, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& lo), (void const *)hi + 1U, __len);
+    __ret = memcpy((void *)(& lo), (void const *)hi + 1U, __len);
   }
   return (((int )*hi == (int )uid_hi && uid_lo == lo) && (int )*id == (int )seqid);
 }
@@ -11316,13 +11316,13 @@ static void pch_gbe_tx_queue(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   if (__len > 63UL) {
     __ret = memcpy((void *)tmp_skb->data, (void const *)skb->data, __len);
   } else {
-    __ret = __builtin_memcpy((void *)tmp_skb->data, (void const *)skb->data, __len);
+    __ret = memcpy((void *)tmp_skb->data, (void const *)skb->data, __len);
   }
   *(tmp_skb->data + 14UL) = 0U;
   *(tmp_skb->data + 15UL) = 0U;
   tmp_skb->len = skb->len;
   __len___0 = (size_t )(skb->len - 14U);
-  __ret___0 = __builtin_memcpy((void *)tmp_skb->data + 16U, (void const *)skb->data + 14U,
+  __ret___0 = memcpy((void *)tmp_skb->data + 16U, (void const *)skb->data + 14U,
                                __len___0);
   buffer_info->length = (u16 )tmp_skb->len;
   buffer_info->dma = dma_map_single_attrs(& (adapter->pdev)->dev, (void *)tmp_skb->data,
@@ -12092,7 +12092,7 @@ static bool pch_gbe_clean_rx(struct pch_gbe_adapter *adapter , struct pch_gbe_rx
         } else {
         }
         __len = (size_t )length;
-        __ret = __builtin_memcpy((void *)skb->data, (void const *)buffer_info->rx_buffer,
+        __ret = memcpy((void *)skb->data, (void const *)buffer_info->rx_buffer,
                                  __len);
         adapter->stats.rx_bytes = adapter->stats.rx_bytes + length;
         adapter->stats.rx_packets = adapter->stats.rx_packets + 1U;
@@ -12731,7 +12731,7 @@ static void pch_gbe_set_multi(struct net_device *netdev )
   } else {
     tmp___3 = i;
     i = i + 1;
-    __ret = __builtin_memcpy((void *)mta_list + (unsigned long )(tmp___3 * 6), (void const *)(& ha->addr),
+    __ret = memcpy((void *)mta_list + (unsigned long )(tmp___3 * 6), (void const *)(& ha->addr),
                              __len);
   }
   __mptr___0 = (struct list_head const *)ha->list.next;
@@ -12796,10 +12796,10 @@ static int pch_gbe_set_mac(struct net_device *netdev , void *addr )
     ret_val = -99;
   } else {
     __len = (size_t )netdev->addr_len;
-    __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& skaddr->sa_data),
+    __ret = memcpy((void *)netdev->dev_addr, (void const *)(& skaddr->sa_data),
                              __len);
     __len___0 = (size_t )netdev->addr_len;
-    __ret___0 = __builtin_memcpy((void *)(& adapter->hw.mac.addr), (void const *)(& skaddr->sa_data),
+    __ret___0 = memcpy((void *)(& adapter->hw.mac.addr), (void const *)(& skaddr->sa_data),
                                  __len___0);
     pch_gbe_mac_mar_set(& adapter->hw, (u8 *)(& adapter->hw.mac.addr), 0U);
     ret_val = 0;
@@ -13385,7 +13385,7 @@ static int pch_gbe_probe(struct pci_dev *pdev , struct pci_device_id const *pci_
   } else {
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& adapter->hw.mac.addr),
+  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& adapter->hw.mac.addr),
                            __len);
   tmp___4 = is_valid_ether_addr((u8 const *)netdev->dev_addr);
   if (tmp___4) {

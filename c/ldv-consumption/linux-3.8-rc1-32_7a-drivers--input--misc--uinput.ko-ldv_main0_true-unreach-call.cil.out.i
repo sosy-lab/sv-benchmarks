@@ -4264,7 +4264,7 @@ static int uinput_ff_upload_to_user(char *buffer , struct uinput_ff_upload const
       __ret = memcpy((void *)(& ff_up_compat.effect), (void const *)(& ff_up->effect),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ff_up_compat.effect), (void const *)(& ff_up->effect),
+      __ret = memcpy((void *)(& ff_up_compat.effect), (void const *)(& ff_up->effect),
                                __len);
     }
     __len___0 = 44UL;
@@ -4272,7 +4272,7 @@ static int uinput_ff_upload_to_user(char *buffer , struct uinput_ff_upload const
       __ret___0 = memcpy((void *)(& ff_up_compat.old), (void const *)(& ff_up->old),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& ff_up_compat.old), (void const *)(& ff_up->old),
+      __ret___0 = memcpy((void *)(& ff_up_compat.old), (void const *)(& ff_up->old),
                                    __len___0);
     }
     tmp = copy_to_user((void *)buffer, (void const *)(& ff_up_compat), 96U);
@@ -4315,7 +4315,7 @@ static int uinput_ff_upload_from_user(char const *buffer , struct uinput_ff_uplo
       __ret = memcpy((void *)(& ff_up->effect), (void const *)(& ff_up_compat.effect),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ff_up->effect), (void const *)(& ff_up_compat.effect),
+      __ret = memcpy((void *)(& ff_up->effect), (void const *)(& ff_up_compat.effect),
                                __len);
     }
     __len___0 = 44UL;
@@ -4323,7 +4323,7 @@ static int uinput_ff_upload_from_user(char const *buffer , struct uinput_ff_uplo
       __ret___0 = memcpy((void *)(& ff_up->old), (void const *)(& ff_up_compat.old),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& ff_up->old), (void const *)(& ff_up_compat.old),
+      __ret___0 = memcpy((void *)(& ff_up->old), (void const *)(& ff_up_compat.old),
                                    __len___0);
     }
   } else {

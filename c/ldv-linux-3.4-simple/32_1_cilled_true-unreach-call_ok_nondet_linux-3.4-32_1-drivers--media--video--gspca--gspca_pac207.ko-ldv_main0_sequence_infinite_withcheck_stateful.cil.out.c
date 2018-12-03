@@ -3786,6 +3786,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
   }
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int gspca_dev_probe(struct usb_interface *intf , struct usb_device_id  const  *id ,
                            struct sd_desc  const  *sd_desc , int dev_size , struct module *module ) ;
 extern void gspca_disconnect(struct usb_interface *intf ) ;
@@ -3899,7 +3900,7 @@ static int pac207_write_regs(struct gspca_dev *gspca_dev , u16 index , u8 const 
   __cil_tmp14 = *((__u8 **)__cil_tmp13);
   __cil_tmp15 = (void *)__cil_tmp14;
   __cil_tmp16 = (void const   *)buffer;
-  __ret = __builtin_memcpy(__cil_tmp15, __cil_tmp16, __len);
+  __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
   tmp___7 = __create_pipe(udev, 0U);
   __cil_tmp17 = 2 << 30;
   __cil_tmp18 = (unsigned int )__cil_tmp17;

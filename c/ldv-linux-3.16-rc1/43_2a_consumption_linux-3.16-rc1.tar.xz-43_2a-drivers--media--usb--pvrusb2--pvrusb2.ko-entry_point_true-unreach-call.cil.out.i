@@ -9067,7 +9067,7 @@ static int pvr2_i2c_write(struct pvr2_hdw *hdw , u8 i2c_addr , u8 *data , u16 le
   hdw->cmd_buffer[2] = (unsigned char )length;
   if ((unsigned int )length != 0U) {
     __len = (size_t )length;
-    __ret = __builtin_memcpy((void *)(& hdw->cmd_buffer) + 3U, (void const *)data,
+    __ret = memcpy((void *)(& hdw->cmd_buffer) + 3U, (void const *)data,
                              __len);
   } else {
   }
@@ -9133,7 +9133,7 @@ static int pvr2_i2c_read(struct pvr2_hdw *hdw , u8 i2c_addr , u8 *data , u16 dle
   hdw->cmd_buffer[3] = i2c_addr;
   if ((unsigned int )dlen != 0U) {
     __len = (size_t )dlen;
-    __ret = __builtin_memcpy((void *)(& hdw->cmd_buffer) + 4U, (void const *)data,
+    __ret = memcpy((void *)(& hdw->cmd_buffer) + 4U, (void const *)data,
                              __len);
   } else {
   }
@@ -9159,7 +9159,7 @@ static int pvr2_i2c_read(struct pvr2_hdw *hdw , u8 i2c_addr , u8 *data , u16 dle
       memset((void *)res, 0, (size_t )rlen);
     } else {
       __len___0 = (size_t )rlen;
-      __ret___0 = __builtin_memcpy((void *)res, (void const *)(& hdw->cmd_buffer) + 1U,
+      __ret___0 = memcpy((void *)res, (void const *)(& hdw->cmd_buffer) + 1U,
                                    __len___0);
     }
   } else {
@@ -13816,7 +13816,7 @@ static int pvr2_upload_firmware1(struct pvr2_hdw *hdw )
     __ret = memcpy(fw_ptr, (void const *)fw_entry->data + (unsigned long )address,
                      __len);
   } else {
-    __ret = __builtin_memcpy(fw_ptr, (void const *)fw_entry->data + (unsigned long )address,
+    __ret = memcpy(fw_ptr, (void const *)fw_entry->data + (unsigned long )address,
                              __len);
   }
   tmp___1 = usb_control_msg(hdw->usb_dev, pipe, 160, 64, (int )address, 0, fw_ptr,
@@ -13992,7 +13992,7 @@ int pvr2_upload_firmware2(struct pvr2_hdw *hdw )
   } else {
   }
   __len = (size_t )bcnt;
-  __ret = __builtin_memcpy(fw_ptr, (void const *)fw_entry->data + (unsigned long )fw_done,
+  __ret = memcpy(fw_ptr, (void const *)fw_entry->data + (unsigned long )fw_done,
                            __len);
   icnt = 0U;
   goto ldv_50755;
@@ -15225,7 +15225,7 @@ struct pvr2_hdw *pvr2_hdw_create(struct usb_interface *intf , struct usb_device_
       __ret = memcpy((void *)(& hdw->std_info_avail), (void const *)cptr->info,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& hdw->std_info_avail), (void const *)cptr->info,
+      __ret = memcpy((void *)(& hdw->std_info_avail), (void const *)cptr->info,
                                __len);
     }
     cptr->info = (struct pvr2_ctl_info const *)(& hdw->std_info_avail);
@@ -15240,7 +15240,7 @@ struct pvr2_hdw *pvr2_hdw_create(struct usb_interface *intf , struct usb_device_
       __ret___0 = memcpy((void *)(& hdw->std_info_cur), (void const *)cptr->info,
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& hdw->std_info_cur), (void const *)cptr->info,
+      __ret___0 = memcpy((void *)(& hdw->std_info_cur), (void const *)cptr->info,
                                    __len___0);
     }
     cptr->info = (struct pvr2_ctl_info const *)(& hdw->std_info_cur);
@@ -15255,7 +15255,7 @@ struct pvr2_hdw *pvr2_hdw_create(struct usb_interface *intf , struct usb_device_
       __ret___1 = memcpy((void *)(& hdw->std_info_detect), (void const *)cptr->info,
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& hdw->std_info_detect), (void const *)cptr->info,
+      __ret___1 = memcpy((void *)(& hdw->std_info_detect), (void const *)cptr->info,
                                    __len___1);
     }
     cptr->info = (struct pvr2_ctl_info const *)(& hdw->std_info_detect);
@@ -16343,7 +16343,7 @@ int pvr2_hdw_get_cropcap(struct pvr2_hdw *hdw , struct v4l2_cropcap *pp )
     if (__len > 63UL) {
       __ret = memcpy((void *)pp, (void const *)(& hdw->cropcap_info), __len);
     } else {
-      __ret = __builtin_memcpy((void *)pp, (void const *)(& hdw->cropcap_info),
+      __ret = memcpy((void *)pp, (void const *)(& hdw->cropcap_info),
                                __len);
     }
   } else {
@@ -16368,7 +16368,7 @@ int pvr2_hdw_get_tuner_status(struct pvr2_hdw *hdw , struct v4l2_tuner *vtp )
   if (__len > 63UL) {
     __ret = memcpy((void *)vtp, (void const *)(& hdw->tuner_signal_info), __len);
   } else {
-    __ret = __builtin_memcpy((void *)vtp, (void const *)(& hdw->tuner_signal_info),
+    __ret = memcpy((void *)vtp, (void const *)(& hdw->tuner_signal_info),
                              __len);
   }
   hdw->big_lock_held = 0;
@@ -16649,7 +16649,7 @@ int pvr2_hdw_cpufw_get(struct pvr2_hdw *hdw , unsigned int offs , char *buf , un
   } else {
   }
   __len = (size_t )cnt;
-  __ret = __builtin_memcpy((void *)buf, (void const *)hdw->fw_buffer + (unsigned long )offs,
+  __ret = memcpy((void *)buf, (void const *)hdw->fw_buffer + (unsigned long )offs,
                            __len);
   if ((pvrusb2_debug & 32768) != 0) {
     printk("\016pvrusb2: Read firmware data offs=%d cnt=%d\n", offs, cnt);
@@ -19179,7 +19179,7 @@ static int pvr2_querycap(struct file *file , void *priv , struct v4l2_capability
   if (__len > 63UL) {
     __ret = memcpy((void *)cap, (void const *)(& pvr_capability), __len);
   } else {
-    __ret = __builtin_memcpy((void *)cap, (void const *)(& pvr_capability), __len);
+    __ret = memcpy((void *)cap, (void const *)(& pvr_capability), __len);
   }
   tmp = pvr2_hdw_get_bus_info(hdw);
   strlcpy((char *)(& cap->bus_info), tmp, 32UL);
@@ -19516,7 +19516,7 @@ static int pvr2_enum_fmt_vid_cap(struct file *file , void *priv , struct v4l2_fm
   if (__len > 63UL) {
     __ret = memcpy((void *)fd, (void const *)(& pvr_fmtdesc), __len);
   } else {
-    __ret = __builtin_memcpy((void *)fd, (void const *)(& pvr_fmtdesc), __len);
+    __ret = memcpy((void *)fd, (void const *)(& pvr_fmtdesc), __len);
   }
   return (0);
 }
@@ -19537,7 +19537,7 @@ static int pvr2_g_fmt_vid_cap(struct file *file , void *priv , struct v4l2_forma
   if (__len > 63UL) {
     __ret = memcpy((void *)vf, (void const *)(& pvr_format), __len);
   } else {
-    __ret = __builtin_memcpy((void *)vf, (void const *)(& pvr_format), __len);
+    __ret = memcpy((void *)vf, (void const *)(& pvr_format), __len);
   }
   val = 0;
   tmp = pvr2_hdw_get_ctrl_by_id(hdw, 7U);
@@ -19600,7 +19600,7 @@ static int pvr2_try_fmt_vid_cap(struct file *file , void *priv , struct v4l2_for
   if (__len > 63UL) {
     __ret = memcpy((void *)vf, (void const *)(& pvr_format), __len);
   } else {
-    __ret = __builtin_memcpy((void *)vf, (void const *)(& pvr_format), __len);
+    __ret = memcpy((void *)vf, (void const *)(& pvr_format), __len);
   }
   vf->fmt.pix.width = (__u32 )w;
   vf->fmt.pix.height = (__u32 )h;
@@ -22137,7 +22137,7 @@ static int parse_token(char const *ptr , unsigned int len , int *valptr , char c
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& buf), (void const *)ptr, __len);
+  __ret = memcpy((void *)(& buf), (void const *)ptr, __len);
   buf[len] = 0;
   tmp___1 = simple_strtol((char const *)(& buf), & p2, 0U);
   *valptr = (int )tmp___1;
@@ -22207,7 +22207,7 @@ static int parse_mtoken(char const *ptr , unsigned int len , int *valptr , char 
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& buf), (void const *)ptr, __len);
+  __ret = memcpy((void *)(& buf), (void const *)ptr, __len);
   buf[len] = 0;
   tmp___1 = simple_strtol((char const *)(& buf), & p2, 0U);
   *valptr = (int )tmp___1;
@@ -22822,7 +22822,7 @@ static int pvr2_std_fill(struct v4l2_standard *std , v4l2_std_id id )
   if (__len > 63UL) {
     __ret = memcpy((void *)std, (void const *)template, __len);
   } else {
-    __ret = __builtin_memcpy((void *)std, (void const *)template, __len);
+    __ret = memcpy((void *)std, (void const *)template, __len);
   }
   std->index = (__u32 )idx;
   std->id = id;
@@ -24876,7 +24876,7 @@ static int pvr2_stream_buffer_count(struct pvr2_stream *sp , unsigned int cnt )
       }
       if (sp->buffer_slot_count != 0U) {
         __len = (unsigned long )sp->buffer_slot_count * 8UL;
-        __ret = __builtin_memcpy((void *)nb, (void const *)sp->buffers, __len);
+        __ret = memcpy((void *)nb, (void const *)sp->buffers, __len);
         kfree((void const *)sp->buffers);
       } else {
       }
@@ -25550,7 +25550,7 @@ void pvr2_ioread_set_sync_key(struct pvr2_ioread *cp , char const *sync_key_ptr 
   } else {
   }
   __len = (size_t )cp->sync_key_len;
-  __ret = __builtin_memcpy((void *)cp->sync_key_ptr, (void const *)sync_key_ptr,
+  __ret = memcpy((void *)cp->sync_key_ptr, (void const *)sync_key_ptr,
                            __len);
   return;
 }

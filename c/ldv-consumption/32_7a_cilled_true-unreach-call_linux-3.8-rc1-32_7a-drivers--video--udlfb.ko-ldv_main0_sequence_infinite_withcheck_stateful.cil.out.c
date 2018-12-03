@@ -4865,7 +4865,7 @@ static int dlfb_render_hline(struct dlfb_data *dev , struct urb **urb_ptr , char
     back_start = back_start + (unsigned long )offset;
     line_start = line_start + (unsigned long )offset;
     __len = (size_t )byte_width;
-    __ret = __builtin_memcpy((void *)back_start, (void const   *)line_start, __len);
+    __ret = memcpy((void *)back_start, (void const   *)line_start, __len);
   } else {
 
   }
@@ -5612,7 +5612,7 @@ static int dlfb_realloc_framebuffer(struct dlfb_data *dev , struct fb_info *info
     }
     if ((unsigned long )info->screen_base != (unsigned long )((char *)0)) {
       __len = (size_t )old_len;
-      __ret = __builtin_memcpy((void *)new_fb, (void const   *)old_fb, __len);
+      __ret = memcpy((void *)new_fb, (void const   *)old_fb, __len);
       vfree((void const   *)info->screen_base);
     } else {
 
@@ -5726,7 +5726,7 @@ static int dlfb_setup_modes(struct dlfb_data *dev , struct fb_info *info , char 
       fb_edid_to_monspecs((unsigned char *)default_edid, & info->monspecs);
       if (info->monspecs.modedb_len != 0U) {
         __len = default_edid_size;
-        __ret = __builtin_memcpy((void *)edid, (void const   *)default_edid, __len);
+        __ret = memcpy((void *)edid, (void const   *)default_edid, __len);
         dev->edid = edid;
         dev->edid_size = default_edid_size;
         printk("\vudlfb: Using default/backup EDID\n");
@@ -5813,7 +5813,7 @@ static int dlfb_setup_modes(struct dlfb_data *dev , struct fb_info *info , char 
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& info->fix), (void const   *)(& dlfb_fix), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& info->fix), (void const   *)(& dlfb_fix),
+      __ret___0 = memcpy((void *)(& info->fix), (void const   *)(& dlfb_fix),
                                    __len___0);
     }
     info->fix.line_length = info->var.xres * (info->var.bits_per_pixel / 8U);
@@ -5941,7 +5941,7 @@ static ssize_t edid_show(struct file *filp , struct kobject *kobj , struct bin_a
   }
   printk("\016udlfb: sysfs edid copy %p to %p, %d bytes\n", dev->edid, buf, (int )count);
   __len = count;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)dev->edid, __len);
+  __ret = memcpy((void *)buf, (void const   *)dev->edid, __len);
   return ((ssize_t )count);
 }
 }

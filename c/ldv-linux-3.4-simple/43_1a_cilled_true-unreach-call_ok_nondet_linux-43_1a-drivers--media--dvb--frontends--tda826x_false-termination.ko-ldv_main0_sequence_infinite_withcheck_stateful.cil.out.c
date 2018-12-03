@@ -3943,7 +3943,7 @@ struct dvb_frontend *tda826x_attach(struct dvb_frontend *fe , int addr , struct 
     __cil_tmp84 = (struct dvb_tuner_ops *)__cil_tmp83;
     __cil_tmp85 = (void *)__cil_tmp84;
     __cil_tmp86 = (void const   *)(& tda826x_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp85, __cil_tmp86, __len);
+    __ret = memcpy(__cil_tmp85, __cil_tmp86, __len);
     }
   }
   __cil_tmp87 = (unsigned long )fe;

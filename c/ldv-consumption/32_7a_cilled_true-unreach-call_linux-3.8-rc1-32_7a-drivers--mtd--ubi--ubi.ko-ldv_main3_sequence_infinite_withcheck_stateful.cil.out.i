@@ -3708,7 +3708,7 @@ int ubi_change_vtbl_record(struct ubi_device *ubi , int idx , struct ubi_vtbl_re
     __ret = memcpy((void *)ubi->vtbl + (unsigned long )idx, (void const *)vtbl_rec,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)ubi->vtbl + (unsigned long )idx, (void const *)vtbl_rec,
+    __ret = memcpy((void *)ubi->vtbl + (unsigned long )idx, (void const *)vtbl_rec,
                              __len);
   }
   i = 0;
@@ -3764,7 +3764,7 @@ int ubi_vtbl_rename_volumes(struct ubi_device *ubi , struct list_head *rename_li
     if (__len > 63UL) {
       __ret = memcpy((void *)vtbl_rec, (void const *)(& empty_vtbl_record), __len);
     } else {
-      __ret = __builtin_memcpy((void *)vtbl_rec, (void const *)(& empty_vtbl_record),
+      __ret = memcpy((void *)vtbl_rec, (void const *)(& empty_vtbl_record),
                                __len);
     }
     goto ldv_23401;
@@ -3773,7 +3773,7 @@ int ubi_vtbl_rename_volumes(struct ubi_device *ubi , struct list_head *rename_li
   tmp = __fswab16((int )((__u16 )re->new_name_len));
   vtbl_rec->name_len = tmp;
   __len___0 = (size_t )re->new_name_len;
-  __ret___0 = __builtin_memcpy((void *)(& vtbl_rec->name), (void const *)(& re->new_name),
+  __ret___0 = memcpy((void *)(& vtbl_rec->name), (void const *)(& re->new_name),
                                __len___0);
   memset((void *)(& vtbl_rec->name) + (unsigned long )re->new_name_len, 0, (size_t )(128 - re->new_name_len));
   crc = crc32_le(4294967295U, (unsigned char const *)vtbl_rec, 168UL);
@@ -4230,7 +4230,7 @@ static struct ubi_vtbl_record *create_empty_lvol(struct ubi_device *ubi , struct
     __ret = memcpy((void *)vtbl + (unsigned long )i, (void const *)(& empty_vtbl_record),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)vtbl + (unsigned long )i, (void const *)(& empty_vtbl_record),
+    __ret = memcpy((void *)vtbl + (unsigned long )i, (void const *)(& empty_vtbl_record),
                              __len);
   }
   i = i + 1;
@@ -4312,7 +4312,7 @@ static int init_volumes(struct ubi_device *ubi , struct ubi_attach_info const *a
   vol->name_len = (int )tmp___4;
   vol->usable_leb_size = ubi->leb_size - vol->data_pad;
   __len = (size_t )vol->name_len;
-  __ret = __builtin_memcpy((void *)(& vol->name), (void const *)(& (vtbl + (unsigned long )i)->name),
+  __ret = memcpy((void *)(& vol->name), (void const *)(& (vtbl + (unsigned long )i)->name),
                            __len);
   vol->name[vol->name_len] = 0;
   vol->vol_id = i;
@@ -4380,7 +4380,7 @@ static int init_volumes(struct ubi_device *ubi , struct ubi_attach_info const *a
   vol->vol_type = 3;
   vol->name_len = 13;
   __len___0 = (size_t )(vol->name_len + 1);
-  __ret___0 = __builtin_memcpy((void *)(& vol->name), (void const *)"layout volume",
+  __ret___0 = memcpy((void *)(& vol->name), (void const *)"layout volume",
                                __len___0);
   vol->usable_leb_size = ubi->leb_size;
   vol->used_ebs = vol->reserved_pebs;
@@ -5060,7 +5060,7 @@ int ubi_create_volume(struct ubi_device *ubi , struct ubi_mkvol_req *req )
   vol->vol_type = (int )req->vol_type;
   vol->name_len = (int )req->name_len;
   __len = (size_t )vol->name_len;
-  __ret = __builtin_memcpy((void *)(& vol->name), (void const *)(& req->name), __len);
+  __ret = memcpy((void *)(& vol->name), (void const *)(& req->name), __len);
   vol->ubi = ubi;
   err = ubi_wl_flush(ubi, vol_id, -1);
   if (err != 0) {
@@ -5137,7 +5137,7 @@ int ubi_create_volume(struct ubi_device *ubi , struct ubi_mkvol_req *req )
     vtbl_rec.vol_type = 2U;
   }
   __len___0 = (size_t )vol->name_len;
-  __ret___0 = __builtin_memcpy((void *)(& vtbl_rec.name), (void const *)(& vol->name),
+  __ret___0 = memcpy((void *)(& vtbl_rec.name), (void const *)(& vol->name),
                                __len___0);
   err = ubi_change_vtbl_record(ubi, vol_id, & vtbl_rec);
   if (err != 0) {
@@ -5484,7 +5484,7 @@ int ubi_rename_volumes(struct ubi_device *ubi , struct list_head *rename_list )
     spin_lock(& ubi->volumes_lock);
     vol->name_len = re->new_name_len;
     __len = (size_t )(re->new_name_len + 1);
-    __ret = __builtin_memcpy((void *)(& vol->name), (void const *)(& re->new_name),
+    __ret = memcpy((void *)(& vol->name), (void const *)(& re->new_name),
                              __len);
     spin_unlock(& ubi->volumes_lock);
     ubi_volume_notify(ubi, vol, 3);
@@ -9202,7 +9202,7 @@ static int rename_volumes(struct ubi_device *ubi , struct ubi_rnvol_req *req )
   }
   re->new_name_len = name_len;
   __len = (size_t )name_len;
-  __ret = __builtin_memcpy((void *)(& re->new_name), (void const *)name, __len);
+  __ret = memcpy((void *)(& re->new_name), (void const *)name, __len);
   list_add_tail(& re->list, & rename_list);
   descriptor.modname = "ubi";
   descriptor.function = "rename_volumes";
@@ -11654,7 +11654,7 @@ static int recover_peb(struct ubi_device *ubi , int pnum , int vol_id , int lnum
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy(ubi->peb_buf + (unsigned long )offset, buf, __len);
+  __ret = memcpy(ubi->peb_buf + (unsigned long )offset, buf, __len);
   err = ubi_io_write_data(ubi, (void const *)ubi->peb_buf, new_pnum, 0, data_size);
   if (err != 0) {
     ldv_mutex_unlock_159(& ubi->buf_mutex);
@@ -20580,7 +20580,7 @@ void ubi_dump_mkvol_req(struct ubi_mkvol_req const *req )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& nm), (void const *)(& req->name), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& nm), (void const *)(& req->name), __len);
+    __ret = memcpy((void *)(& nm), (void const *)(& req->name), __len);
   }
   nm[16] = 0;
   printk("\v\t1st 16 characters of name: %s\n", (char *)(& nm));

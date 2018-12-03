@@ -10521,7 +10521,7 @@ int rtw_sitesurvey_cmd23a(struct rtw_adapter *padapter , struct cfg80211_ssid *s
         __ret = memcpy((void *)(& psurveyPara->ssid) + (unsigned long )i, (void const *)ssid + (unsigned long )i,
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& psurveyPara->ssid) + (unsigned long )i,
+        __ret = memcpy((void *)(& psurveyPara->ssid) + (unsigned long )i,
                                  (void const *)ssid + (unsigned long )i, __len);
       }
       psurveyPara->ssid_num = (u8 )((int )psurveyPara->ssid_num + 1);
@@ -10545,7 +10545,7 @@ int rtw_sitesurvey_cmd23a(struct rtw_adapter *padapter , struct cfg80211_ssid *s
         __ret___0 = memcpy((void *)(& psurveyPara->ch) + (unsigned long )i___0,
                              (void const *)ch + (unsigned long )i___0, __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& psurveyPara->ch) + (unsigned long )i___0,
+        __ret___0 = memcpy((void *)(& psurveyPara->ch) + (unsigned long )i___0,
                                      (void const *)ch + (unsigned long )i___0, __len___0);
       }
       psurveyPara->ch_num = (u8 )((int )psurveyPara->ch_num + 1);
@@ -10725,13 +10725,13 @@ int rtw_joinbss_cmd23a(struct rtw_adapter *padapter , struct wlan_network *pnetw
   memset((void *)psecnetwork, 0, 863UL);
   tmp___2 = get_wlan_bssid_ex_sz(& pnetwork->network);
   __len = (size_t )tmp___2;
-  __ret = __builtin_memcpy((void *)psecnetwork, (void const *)(& pnetwork->network),
+  __ret = memcpy((void *)psecnetwork, (void const *)(& pnetwork->network),
                            __len);
   auth = (u8 *)(& psecuritypriv->authenticator_ie);
   psecuritypriv->authenticator_ie[0] = (unsigned char )psecnetwork->IELength;
   if (psecnetwork->IELength - 12U <= 254U) {
     __len___0 = (size_t )(psecnetwork->IELength - 12U);
-    __ret___0 = __builtin_memcpy((void *)(& psecuritypriv->authenticator_ie) + 1U,
+    __ret___0 = memcpy((void *)(& psecuritypriv->authenticator_ie) + 1U,
                                  (void const *)(& psecnetwork->IEs) + 12U, __len___0);
   } else {
     __len___1 = 255UL;
@@ -10739,7 +10739,7 @@ int rtw_joinbss_cmd23a(struct rtw_adapter *padapter , struct wlan_network *pnetw
       __ret___1 = memcpy((void *)(& psecuritypriv->authenticator_ie) + 1U, (void const *)(& psecnetwork->IEs) + 12U,
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& psecuritypriv->authenticator_ie) + 1U,
+      __ret___1 = memcpy((void *)(& psecuritypriv->authenticator_ie) + 1U,
                                    (void const *)(& psecnetwork->IEs) + 12U, __len___1);
     }
   }
@@ -10966,7 +10966,7 @@ int rtw_setstakey_cmd23a(struct rtw_adapter *padapter , u8 *psta , u8 unicast_ke
       __ret = memcpy((void *)(& psetstakey_para->key), (void const *)(& sta->dot118021x_UncstKey),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& psetstakey_para->key), (void const *)(& sta->dot118021x_UncstKey),
+      __ret = memcpy((void *)(& psetstakey_para->key), (void const *)(& sta->dot118021x_UncstKey),
                                __len);
     }
   } else {
@@ -10976,7 +10976,7 @@ int rtw_setstakey_cmd23a(struct rtw_adapter *padapter , u8 *psta , u8 unicast_ke
       __ret___0 = memcpy((void *)(& psetstakey_para->key), (void const *)(& psecuritypriv->dot118021XGrpKey[idx].skey),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& psetstakey_para->key), (void const *)(& psecuritypriv->dot118021XGrpKey[idx].skey),
+      __ret___0 = memcpy((void *)(& psetstakey_para->key), (void const *)(& psecuritypriv->dot118021XGrpKey[idx].skey),
                                    __len___0);
     }
   }
@@ -11858,11 +11858,11 @@ void rtw_createbss_cmd23a_callback(struct rtw_adapter *padapter , struct cmd_obj
     }
     pnetwork->Length = get_wlan_bssid_ex_sz(pnetwork);
     __len = (size_t )pnetwork->Length;
-    __ret = __builtin_memcpy((void *)(& pwlan->network), (void const *)pnetwork,
+    __ret = memcpy((void *)(& pwlan->network), (void const *)pnetwork,
                              __len);
     tmp___0 = get_wlan_bssid_ex_sz(pnetwork);
     __len___0 = (size_t )tmp___0;
-    __ret___0 = __builtin_memcpy((void *)(& tgt_network->network), (void const *)pnetwork,
+    __ret___0 = memcpy((void *)(& tgt_network->network), (void const *)pnetwork,
                                  __len___0);
     clr_fwstate(pmlmepriv, 128);
     spin_unlock_bh(& pmlmepriv->scanned_queue.lock);
@@ -12962,7 +12962,7 @@ int rtw_do_join23a(struct rtw_adapter *padapter )
           __ret = memcpy((void *)(& pdev_network->Ssid), (void const *)(& pmlmepriv->assoc_ssid),
                            __len);
         } else {
-          __ret = __builtin_memcpy((void *)(& pdev_network->Ssid), (void const *)(& pmlmepriv->assoc_ssid),
+          __ret = memcpy((void *)(& pdev_network->Ssid), (void const *)(& pmlmepriv->assoc_ssid),
                                    __len);
         }
         rtw_update_registrypriv_dev_network23a(padapter);
@@ -13167,7 +13167,7 @@ int rtw_set_802_11_ssid23a(struct rtw_adapter *padapter , struct cfg80211_ssid *
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pmlmepriv->assoc_ssid), (void const *)ssid, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pmlmepriv->assoc_ssid), (void const *)ssid,
+    __ret = memcpy((void *)(& pmlmepriv->assoc_ssid), (void const *)ssid,
                              __len);
   }
   pmlmepriv->assoc_by_bssid = 0U;
@@ -13354,7 +13354,7 @@ u16 rtw_get_cur_max_rate23a(struct rtw_adapter *adapter )
         __ret = memcpy((void *)(& mcs_rate), (void const *)(& pht_capie->mcs),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& mcs_rate), (void const *)(& pht_capie->mcs),
+        __ret = memcpy((void *)(& mcs_rate), (void const *)(& pht_capie->mcs),
                                  __len);
       }
       bw_40MHz = (u8 )((unsigned int )pmlmeext->cur_bwmode != 0U && ((unsigned int )pmlmeinfo->HT_info.infos[0] & 4U) != 0U);
@@ -13733,7 +13733,7 @@ u8 *rtw_set_fixed_ie23a(unsigned char *pbuf , unsigned int len , unsigned char *
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)pbuf, (void const *)source, __len);
+  __ret = memcpy((void *)pbuf, (void const *)source, __len);
   *frlen = *frlen + len;
   return (pbuf + (unsigned long )len);
 }
@@ -13747,7 +13747,7 @@ u8 *rtw_set_ie23a(u8 *pbuf , int index , uint len , u8 const *source , uint *frl
   *(pbuf + 1UL) = (unsigned char )len;
   if (len != 0U) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)pbuf + 2U, (void const *)source, __len);
+    __ret = memcpy((void *)pbuf + 2U, (void const *)source, __len);
   } else {
   }
   *frlen = (*frlen + len) + 2U;
@@ -13817,7 +13817,7 @@ u8 *rtw_get_ie23a_ex(u8 *in_ie , uint in_len , u8 eid , u8 *oui , u8 oui_len , u
         target_ie = in_ie + (unsigned long )cnt;
         if ((unsigned long )ie != (unsigned long )((u8 *)0U)) {
           __len = (size_t )((int )*(in_ie + (unsigned long )(cnt + 1U)) + 2);
-          __ret = __builtin_memcpy((void *)ie, (void const *)in_ie + (unsigned long )cnt,
+          __ret = memcpy((void *)ie, (void const *)in_ie + (unsigned long )cnt,
                                    __len);
         } else {
         }
@@ -13883,9 +13883,9 @@ int rtw_ies_remove_ie23a(u8 *ies , uint *ies_len , uint offset , u8 eid , u8 *ou
     remain_ies = target_ie + (unsigned long )target_ielen;
     remain_len = ((uint )((long )start) - (uint )((long )remain_ies)) + search_len;
     __len = (size_t )remain_len;
-    __ret = __builtin_memcpy((void *)(& buf), (void const *)remain_ies, __len);
+    __ret = memcpy((void *)(& buf), (void const *)remain_ies, __len);
     __len___0 = (size_t )remain_len;
-    __ret___0 = __builtin_memcpy((void *)target_ie, (void const *)(& buf), __len___0);
+    __ret___0 = memcpy((void *)target_ie, (void const *)(& buf), __len___0);
     *ies_len = *ies_len - target_ielen;
     ret = 1;
     start = target_ie;
@@ -13917,7 +13917,7 @@ void rtw_set_supported_rate23a(u8 *SupportedRates , uint mode )
   if (__len > 63UL) {
     __ret = memcpy((void *)SupportedRates, (void const *)(& WIFI_CCKRATES), __len);
   } else {
-    __ret = __builtin_memcpy((void *)SupportedRates, (void const *)(& WIFI_CCKRATES),
+    __ret = memcpy((void *)SupportedRates, (void const *)(& WIFI_CCKRATES),
                              __len);
   }
   goto ldv_51552;
@@ -13930,7 +13930,7 @@ void rtw_set_supported_rate23a(u8 *SupportedRates , uint mode )
     __ret___0 = memcpy((void *)SupportedRates, (void const *)(& WIFI_OFDMRATES),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)SupportedRates, (void const *)(& WIFI_OFDMRATES),
+    __ret___0 = memcpy((void *)SupportedRates, (void const *)(& WIFI_OFDMRATES),
                                  __len___0);
   }
   goto ldv_51552;
@@ -13943,7 +13943,7 @@ void rtw_set_supported_rate23a(u8 *SupportedRates , uint mode )
     __ret___1 = memcpy((void *)SupportedRates, (void const *)(& WIFI_CCKRATES),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)SupportedRates, (void const *)(& WIFI_CCKRATES),
+    __ret___1 = memcpy((void *)SupportedRates, (void const *)(& WIFI_CCKRATES),
                                  __len___1);
   }
   __len___2 = 8UL;
@@ -13951,7 +13951,7 @@ void rtw_set_supported_rate23a(u8 *SupportedRates , uint mode )
     __ret___2 = memcpy((void *)SupportedRates + 4U, (void const *)(& WIFI_OFDMRATES),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)SupportedRates + 4U, (void const *)(& WIFI_OFDMRATES),
+    __ret___2 = memcpy((void *)SupportedRates + 4U, (void const *)(& WIFI_OFDMRATES),
                                  __len___2);
   }
   goto ldv_51552;
@@ -14348,7 +14348,7 @@ int rtw_get_sec_ie23a(u8 *in_ie , uint in_len , u8 *rsn_ie , u16 *rsn_len , u8 *
       }
       if ((unsigned long )wpa_ie != (unsigned long )((u8 *)0U)) {
         __len = (size_t )((int )*(in_ie + (unsigned long )(cnt + 1U)) + 2);
-        __ret = __builtin_memcpy((void *)wpa_ie, (void const *)in_ie + (unsigned long )cnt,
+        __ret = memcpy((void *)wpa_ie, (void const *)in_ie + (unsigned long )cnt,
                                  __len);
         i = 0U;
         goto ldv_51639;
@@ -14386,7 +14386,7 @@ int rtw_get_sec_ie23a(u8 *in_ie , uint in_len , u8 *rsn_ie , u16 *rsn_len , u8 *
     }
     if ((unsigned long )rsn_ie != (unsigned long )((u8 *)0U)) {
       __len___0 = (size_t )((int )*(in_ie + (unsigned long )(cnt + 1U)) + 2);
-      __ret___0 = __builtin_memcpy((void *)rsn_ie, (void const *)in_ie + (unsigned long )cnt,
+      __ret___0 = memcpy((void *)rsn_ie, (void const *)in_ie + (unsigned long )cnt,
                                    __len___0);
       i = 0U;
       goto ldv_51645;
@@ -14455,7 +14455,7 @@ u8 *rtw_get_wps_ie23a(u8 *in_ie , uint in_len , u8 *wps_ie , uint *wps_ielen )
       wpsie_ptr = in_ie + (unsigned long )cnt;
       if ((unsigned long )wps_ie != (unsigned long )((u8 *)0U)) {
         __len = (size_t )((int )*(in_ie + (unsigned long )(cnt + 1U)) + 2);
-        __ret = __builtin_memcpy((void *)wps_ie, (void const *)in_ie + (unsigned long )cnt,
+        __ret = memcpy((void *)wps_ie, (void const *)in_ie + (unsigned long )cnt,
                                  __len);
       } else {
       }
@@ -14526,7 +14526,7 @@ u8 *rtw_get_wps_attr23a(u8 *wps_ie , uint wps_ielen , u16 target_attr_id , u8 *b
     target_attr_ptr = attr_ptr;
     if ((unsigned long )buf_attr != (unsigned long )((u8 *)0U)) {
       __len = (size_t )attr_len;
-      __ret = __builtin_memcpy((void *)buf_attr, (void const *)attr_ptr, __len);
+      __ret = memcpy((void *)buf_attr, (void const *)attr_ptr, __len);
     } else {
     }
     if ((unsigned long )len_attr != (unsigned long )((u32 *)0U)) {
@@ -14563,7 +14563,7 @@ u8 *rtw_get_wps_attr_content23a(u8 *wps_ie , uint wps_ielen , u16 target_attr_id
   if ((unsigned long )attr_ptr != (unsigned long )((u8 *)0U) && attr_len != 0U) {
     if ((unsigned long )buf_content != (unsigned long )((u8 *)0U)) {
       __len = (size_t )(attr_len - 4U);
-      __ret = __builtin_memcpy((void *)buf_content, (void const *)attr_ptr + 4U,
+      __ret = memcpy((void *)buf_content, (void const *)attr_ptr + 4U,
                                __len);
     } else {
     }
@@ -19218,7 +19218,7 @@ static void _rtw_roaming(struct rtw_adapter *padapter , struct wlan_network *tgt
       __ret = memcpy((void *)(& pmlmepriv->assoc_ssid), (void const *)(& pnetwork->network.Ssid),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pmlmepriv->assoc_ssid), (void const *)(& pnetwork->network.Ssid),
+      __ret = memcpy((void *)(& pmlmepriv->assoc_ssid), (void const *)(& pnetwork->network.Ssid),
                                __len);
     }
     pmlmepriv->assoc_by_bssid = 0U;
@@ -19283,7 +19283,7 @@ u16 rtw_get_capability23a(struct wlan_bssid_ex *bss )
     __ret = memcpy((void *)(& val), (void const *)tmp, __len);
   } else {
     tmp___0 = rtw_get_capability23a_from_ie((u8 *)(& bss->IEs));
-    __ret = __builtin_memcpy((void *)(& val), (void const *)tmp___0, __len);
+    __ret = memcpy((void *)(& val), (void const *)tmp___0, __len);
   }
   return (val);
 }
@@ -19470,7 +19470,7 @@ void update_network23a(struct wlan_bssid_ex *dst , struct wlan_bssid_ex *src , s
   if ((int )update_ie) {
     tmp___1 = get_wlan_bssid_ex_sz(src);
     __len = (size_t )tmp___1;
-    __ret = __builtin_memcpy((void *)dst, (void const *)src, __len);
+    __ret = memcpy((void *)dst, (void const *)src, __len);
   } else {
   }
   dst->PhyInfo.SignalStrength = ss_final;
@@ -19572,7 +19572,7 @@ void rtw_update_scanned_network23a(struct rtw_adapter *adapter , struct wlan_bss
     bssid_ex_sz = get_wlan_bssid_ex_sz(target);
     target->Length = bssid_ex_sz;
     __len = (size_t )bssid_ex_sz;
-    __ret = __builtin_memcpy((void *)(& pnetwork->network), (void const *)target,
+    __ret = memcpy((void *)(& pnetwork->network), (void const *)target,
                              __len);
     pnetwork->fixed = 0;
     pnetwork->last_scanned = jiffies;
@@ -19714,7 +19714,7 @@ void rtw_survey_event_cb23a(struct rtw_adapter *adapter , u8 const *pbuf )
         __ret = memcpy((void *)(& pmlmepriv->cur_network.network.IEs), (void const *)(& pnetwork->IEs),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& pmlmepriv->cur_network.network.IEs), (void const *)(& pnetwork->IEs),
+        __ret = memcpy((void *)(& pmlmepriv->cur_network.network.IEs), (void const *)(& pnetwork->IEs),
                                  __len);
       }
       spin_lock_bh(& pmlmepriv->scanned_queue.lock);
@@ -19725,7 +19725,7 @@ void rtw_survey_event_cb23a(struct rtw_adapter *adapter , u8 const *pbuf )
           __ret___0 = memcpy((void *)(& ibss_wlan->network.IEs), (void const *)(& pnetwork->IEs),
                                __len___0);
         } else {
-          __ret___0 = __builtin_memcpy((void *)(& ibss_wlan->network.IEs), (void const *)(& pnetwork->IEs),
+          __ret___0 = memcpy((void *)(& ibss_wlan->network.IEs), (void const *)(& pnetwork->IEs),
                                        __len___0);
         }
         spin_unlock_bh(& pmlmepriv->scanned_queue.lock);
@@ -19836,7 +19836,7 @@ void rtw_surveydone_event_callback23a(struct rtw_adapter *adapter , u8 const *pb
             __ret = memcpy((void *)(& pdev_network->Ssid), (void const *)(& pmlmepriv->assoc_ssid),
                              __len);
           } else {
-            __ret = __builtin_memcpy((void *)(& pdev_network->Ssid), (void const *)(& pmlmepriv->assoc_ssid),
+            __ret = memcpy((void *)(& pdev_network->Ssid), (void const *)(& pmlmepriv->assoc_ssid),
                                      __len);
           }
           rtw_update_registrypriv_dev_network23a(adapter);
@@ -20253,7 +20253,7 @@ static void rtw_joinbss_update_network23a(struct rtw_adapter *padapter , struct 
   } else {
   }
   __len = (size_t )pnetwork->network.Length;
-  __ret = __builtin_memcpy((void *)(& cur_network->network), (void const *)(& pnetwork->network),
+  __ret = memcpy((void *)(& cur_network->network), (void const *)(& pnetwork->network),
                            __len);
   cur_network->network.IELength = ptarget_wlan->network.IELength;
   __len___0 = 768UL;
@@ -20261,7 +20261,7 @@ static void rtw_joinbss_update_network23a(struct rtw_adapter *padapter , struct 
     __ret___0 = memcpy((void *)(& cur_network->network.IEs), (void const *)(& ptarget_wlan->network.IEs),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& cur_network->network.IEs), (void const *)(& ptarget_wlan->network.IEs),
+    __ret___0 = memcpy((void *)(& cur_network->network.IEs), (void const *)(& ptarget_wlan->network.IEs),
                                  __len___0);
   }
   cur_network->aid = pnetwork->join_res;
@@ -20701,7 +20701,7 @@ void rtw_stadel_event_callback23a(struct rtw_adapter *adapter , u8 const *pbuf )
         pibss = (u8 *)(& adapter->registrypriv.dev_network.MacAddress);
         tmp___1 = get_wlan_bssid_ex_sz(& tgt_network->network);
         __len = (size_t )tmp___1;
-        __ret = __builtin_memcpy((void *)pdev_network, (void const *)(& tgt_network->network),
+        __ret = memcpy((void *)pdev_network, (void const *)(& tgt_network->network),
                                  __len);
         memset((void *)(& pdev_network->Ssid), 0, 33UL);
         __len___0 = 33UL;
@@ -20709,7 +20709,7 @@ void rtw_stadel_event_callback23a(struct rtw_adapter *adapter , u8 const *pbuf )
           __ret___0 = memcpy((void *)(& pdev_network->Ssid), (void const *)(& pmlmepriv->assoc_ssid),
                                __len___0);
         } else {
-          __ret___0 = __builtin_memcpy((void *)(& pdev_network->Ssid), (void const *)(& pmlmepriv->assoc_ssid),
+          __ret___0 = memcpy((void *)(& pdev_network->Ssid), (void const *)(& pmlmepriv->assoc_ssid),
                                        __len___0);
         }
         rtw_update_registrypriv_dev_network23a(adapter);
@@ -21182,26 +21182,26 @@ int rtw_set_key23a(struct rtw_adapter *adapter , struct security_priv *psecurity
   case 1027073U:
   keylen = 5U;
   __len = (size_t )keylen;
-  __ret = __builtin_memcpy((void *)(& psetkeyparm->key), (void const *)(& psecuritypriv->wep_key[keyid].key),
+  __ret = memcpy((void *)(& psetkeyparm->key), (void const *)(& psecuritypriv->wep_key[keyid].key),
                            __len);
   goto ldv_54768;
   case 1027077U:
   keylen = 13U;
   __len___0 = (size_t )keylen;
-  __ret___0 = __builtin_memcpy((void *)(& psetkeyparm->key), (void const *)(& psecuritypriv->wep_key[keyid].key),
+  __ret___0 = memcpy((void *)(& psetkeyparm->key), (void const *)(& psecuritypriv->wep_key[keyid].key),
                                __len___0);
   goto ldv_54768;
   case 1027074U:
   keylen = 16U;
   __len___1 = (size_t )keylen;
-  __ret___1 = __builtin_memcpy((void *)(& psetkeyparm->key), (void const *)(& psecuritypriv->dot118021XGrpKey) + (unsigned long )keyid,
+  __ret___1 = memcpy((void *)(& psetkeyparm->key), (void const *)(& psecuritypriv->dot118021XGrpKey) + (unsigned long )keyid,
                                __len___1);
   psetkeyparm->grpkey = 1U;
   goto ldv_54768;
   case 1027076U:
   keylen = 16U;
   __len___2 = (size_t )keylen;
-  __ret___2 = __builtin_memcpy((void *)(& psetkeyparm->key), (void const *)(& psecuritypriv->dot118021XGrpKey) + (unsigned long )keyid,
+  __ret___2 = memcpy((void *)(& psetkeyparm->key), (void const *)(& psecuritypriv->dot118021XGrpKey) + (unsigned long )keyid,
                                __len___2);
   psetkeyparm->grpkey = 1U;
   goto ldv_54768;
@@ -21316,7 +21316,7 @@ static int rtw_append_pmkid(struct rtw_adapter *Adapter , int iEntry , u8 *ie , 
       __ret = memcpy((void *)ie + (unsigned long )ie_len, (void const *)(& psecuritypriv->PMKIDList[iEntry].PMKID),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)ie + (unsigned long )ie_len, (void const *)(& psecuritypriv->PMKIDList[iEntry].PMKID),
+      __ret = memcpy((void *)ie + (unsigned long )ie_len, (void const *)(& psecuritypriv->PMKIDList[iEntry].PMKID),
                                __len);
     }
     ie_len = ie_len + 16U;
@@ -21359,7 +21359,7 @@ int rtw_restruct_sec_ie23a(struct rtw_adapter *adapter , u8 *in_ie , u8 *out_ie 
   if (__len > 63UL) {
     __ret = memcpy((void *)out_ie, (void const *)in_ie, __len);
   } else {
-    __ret = __builtin_memcpy((void *)out_ie, (void const *)in_ie, __len);
+    __ret = memcpy((void *)out_ie, (void const *)in_ie, __len);
   }
   ielength = 12U;
   if (ndisauthmode == 3U || ndisauthmode == 4U) {
@@ -21373,13 +21373,13 @@ int rtw_restruct_sec_ie23a(struct rtw_adapter *adapter , u8 *in_ie , u8 *out_ie 
   tmp = check_fwstate(pmlmepriv, 256);
   if ((int )tmp) {
     __len___0 = (size_t )psecuritypriv->wps_ie_len;
-    __ret___0 = __builtin_memcpy((void *)out_ie + (unsigned long )ielength, (void const *)(& psecuritypriv->wps_ie),
+    __ret___0 = memcpy((void *)out_ie + (unsigned long )ielength, (void const *)(& psecuritypriv->wps_ie),
                                  __len___0);
     ielength = (uint )psecuritypriv->wps_ie_len + ielength;
   } else
   if ((unsigned int )authmode == 221U || (unsigned int )authmode == 48U) {
     __len___1 = (size_t )((int )psecuritypriv->supplicant_ie[1] + 2);
-    __ret___1 = __builtin_memcpy((void *)out_ie + (unsigned long )ielength, (void const *)(& psecuritypriv->supplicant_ie),
+    __ret___1 = memcpy((void *)out_ie + (unsigned long )ielength, (void const *)(& psecuritypriv->supplicant_ie),
                                  __len___1);
     ielength = ((uint )psecuritypriv->supplicant_ie[1] + ielength) + 2U;
   } else {
@@ -21417,7 +21417,7 @@ void rtw_init_registrypriv_dev_network23a(struct rtw_adapter *adapter )
     __ret = memcpy((void *)(& pdev_network->Ssid), (void const *)(& pregistrypriv->ssid),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pdev_network->Ssid), (void const *)(& pregistrypriv->ssid),
+    __ret = memcpy((void *)(& pdev_network->Ssid), (void const *)(& pregistrypriv->ssid),
                              __len);
   }
   pdev_network->BeaconPeriod = 100U;
@@ -23365,7 +23365,7 @@ static void init_mlme_ext_priv23a_value(struct rtw_adapter *padapter )
     __ret = memcpy((void *)(& pmlmeext->datarate), (void const *)(& mixed_datarate),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pmlmeext->datarate), (void const *)(& mixed_datarate),
+    __ret = memcpy((void *)(& pmlmeext->datarate), (void const *)(& mixed_datarate),
                              __len);
   }
   __len___0 = 13UL;
@@ -23373,7 +23373,7 @@ static void init_mlme_ext_priv23a_value(struct rtw_adapter *padapter )
     __ret___0 = memcpy((void *)(& pmlmeext->basicrate), (void const *)(& mixed_basicrate),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& pmlmeext->basicrate), (void const *)(& mixed_basicrate),
+    __ret___0 = memcpy((void *)(& pmlmeext->basicrate), (void const *)(& mixed_basicrate),
                                  __len___0);
   }
   if ((unsigned int )pmlmeext->cur_channel > 14U) {
@@ -24286,7 +24286,7 @@ static int OnAuth23a(struct rtw_adapter *padapter , struct recv_frame *precv_fra
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pstat->hwaddr), (void const *)sa, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pstat->hwaddr), (void const *)sa, __len);
+    __ret = memcpy((void *)(& pstat->hwaddr), (void const *)sa, __len);
   }
   issue_auth(padapter, pstat, (int )((unsigned short )status));
   return (0);
@@ -24369,7 +24369,7 @@ static int OnAuth23aClient23a(struct rtw_adapter *padapter , struct recv_frame *
       } else {
       }
       __len = (size_t )*(p + 1UL);
-      __ret = __builtin_memcpy((void *)(& pmlmeinfo->chg_txt), (void const *)p + 2U,
+      __ret = memcpy((void *)(& pmlmeinfo->chg_txt), (void const *)p + 2U,
                                __len);
       pmlmeinfo->auth_seq = 3U;
       issue_auth(padapter, (struct sta_info *)0, 0);
@@ -24733,13 +24733,13 @@ static int OnAssocReq23a(struct rtw_adapter *padapter , struct recv_frame *precv
     goto OnAssocReq23aFail;
   } else {
     __len = (size_t )*(p + 1UL);
-    __ret = __builtin_memcpy((void *)(& supportRate), (void const *)p + 2U, __len);
+    __ret = memcpy((void *)(& supportRate), (void const *)p + 2U, __len);
     supportRateNum = (int )*(p + 1UL);
     p = cfg80211_find_ie(50, pos, left);
     if ((unsigned long )p != (unsigned long )((u8 const *)0U)) {
       if ((unsigned int )supportRateNum <= 16U) {
         __len___0 = (size_t )*(p + 1UL);
-        __ret___0 = __builtin_memcpy((void *)(& supportRate) + (unsigned long )supportRateNum,
+        __ret___0 = memcpy((void *)(& supportRate) + (unsigned long )supportRateNum,
                                      (void const *)p + 2U, __len___0);
         supportRateNum = (int )*(p + 1UL) + supportRateNum;
       } else {
@@ -24749,7 +24749,7 @@ static int OnAssocReq23a(struct rtw_adapter *padapter , struct recv_frame *precv
   }
   pstat->bssratelen = (u32 )supportRateNum;
   __len___1 = (size_t )supportRateNum;
-  __ret___1 = __builtin_memcpy((void *)(& pstat->bssrateset), (void const *)(& supportRate),
+  __ret___1 = memcpy((void *)(& pstat->bssrateset), (void const *)(& supportRate),
                                __len___1);
   Update23aTblForSoftAP((u8 *)(& pstat->bssrateset), pstat->bssratelen);
   pstat->dot8021xalg = 0;
@@ -24871,7 +24871,7 @@ static int OnAssocReq23a(struct rtw_adapter *padapter , struct recv_frame *precv
     }
     if (copy_len > 0) {
       __len___2 = (size_t )copy_len;
-      __ret___2 = __builtin_memcpy((void *)(& pstat->wpa_ie), (void const *)wpa_ie + 0xfffffffffffffffeUL,
+      __ret___2 = memcpy((void *)(& pstat->wpa_ie), (void const *)wpa_ie + 0xfffffffffffffffeUL,
                                    __len___2);
     } else {
     }
@@ -24946,7 +24946,7 @@ static int OnAssocReq23a(struct rtw_adapter *padapter , struct recv_frame *precv
       __ret___3 = memcpy((void *)(& pstat->htpriv.ht_cap), (void const *)p + 2U,
                            __len___3);
     } else {
-      __ret___3 = __builtin_memcpy((void *)(& pstat->htpriv.ht_cap), (void const *)p + 2U,
+      __ret___3 = memcpy((void *)(& pstat->htpriv.ht_cap), (void const *)p + 2U,
                                    __len___3);
     }
   } else {
@@ -25193,7 +25193,7 @@ static int OnAssocRsp23a(struct rtw_adapter *padapter , struct recv_frame *precv
     pmlmepriv->assoc_rsp = (u8 *)tmp___4;
     if ((unsigned long )pmlmepriv->assoc_rsp != (unsigned long )((u8 *)0U)) {
       __len = (size_t )pkt_len;
-      __ret = __builtin_memcpy((void *)pmlmepriv->assoc_rsp, (void const *)pframe,
+      __ret = memcpy((void *)pmlmepriv->assoc_rsp, (void const *)pframe,
                                __len);
       pmlmepriv->assoc_rsp_len = (u32 )pkt_len;
     } else {
@@ -25457,7 +25457,7 @@ static int OnAction23a_back23a(struct rtw_adapter *padapter , struct recv_frame 
       __ret = memcpy((void *)(& pmlmeinfo->ADDBA_req), (void const *)(& mgmt->u.action.u.addba_req.dialog_token),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pmlmeinfo->ADDBA_req), (void const *)(& mgmt->u.action.u.addba_req.dialog_token),
+      __ret = memcpy((void *)(& pmlmeinfo->ADDBA_req), (void const *)(& mgmt->u.action.u.addba_req.dialog_token),
                                __len);
     }
     process_addba_req23a(padapter, (u8 *)(& pmlmeinfo->ADDBA_req), addr);
@@ -25899,7 +25899,7 @@ static int update_hidden_ssid(u8 *ies , u32 ies_len , u8 hidden_ssid_mode )
     remain_len = ((u32 )((long )ies) - (u32 )((long )next_ie)) + ies_len;
     *(ssid_ie + 1UL) = 0U;
     __len = (size_t )remain_len;
-    __ret = __builtin_memcpy((void *)ssid_ie + 2U, (void const *)next_ie, __len);
+    __ret = memcpy((void *)ssid_ie + 2U, (void const *)next_ie, __len);
     len_diff = len_diff - ssid_len_ori;
     goto ldv_55002;
     case 2:
@@ -25991,7 +25991,7 @@ void issue_beacon23a(struct rtw_adapter *padapter , int timeout_ms )
   pattrib->pktlen = 24U;
   if ((pmlmeinfo->state & 3U) == 3U) {
     __len = (size_t )cur_network->IELength;
-    __ret = __builtin_memcpy((void *)pframe, (void const *)(& cur_network->IEs),
+    __ret = memcpy((void *)pframe, (void const *)(& cur_network->IEs),
                              __len);
     len_diff = update_hidden_ssid(pframe + 12U, cur_network->IELength - 12U, (int )pmlmeinfo->hidden_ssid_mode);
     pframe = pframe + (unsigned long )(cur_network->IELength + (u32 )len_diff);
@@ -26018,7 +26018,7 @@ void issue_beacon23a(struct rtw_adapter *padapter , int timeout_ms )
     __ret___0 = memcpy((void *)pframe, (void const *)tmp___1, __len___0);
   } else {
     tmp___2 = rtw_get_beacon_interval23a_from_ie((u8 *)(& cur_network->IEs));
-    __ret___0 = __builtin_memcpy((void *)pframe, (void const *)tmp___2, __len___0);
+    __ret___0 = memcpy((void *)pframe, (void const *)tmp___2, __len___0);
   }
   pframe = pframe + 2UL;
   pattrib->pktlen = pattrib->pktlen + 2U;
@@ -26028,7 +26028,7 @@ void issue_beacon23a(struct rtw_adapter *padapter , int timeout_ms )
     __ret___1 = memcpy((void *)pframe, (void const *)tmp___3, __len___1);
   } else {
     tmp___4 = rtw_get_capability23a_from_ie((u8 *)(& cur_network->IEs));
-    __ret___1 = __builtin_memcpy((void *)pframe, (void const *)tmp___4, __len___1);
+    __ret___1 = memcpy((void *)pframe, (void const *)tmp___4, __len___1);
   }
   pframe = pframe + 2UL;
   pattrib->pktlen = pattrib->pktlen + 2U;
@@ -26175,14 +26175,14 @@ static void issue_probersp(struct rtw_adapter *padapter , unsigned char *da , u8
       premainder_ie = pwps_ie + (unsigned long )wps_ielen;
       remainder_ielen = (cur_network->IELength - wps_offset) - wps_ielen;
       __len = (size_t )wps_offset;
-      __ret = __builtin_memcpy((void *)pframe, (void const *)(& cur_network->IEs),
+      __ret = memcpy((void *)pframe, (void const *)(& cur_network->IEs),
                                __len);
       pframe = pframe + (unsigned long )wps_offset;
       pattrib->pktlen = pattrib->pktlen + wps_offset;
       wps_ielen = (unsigned int )*(pmlmepriv->wps_probe_resp_ie + 1UL);
       if ((wps_offset + wps_ielen) + 2U <= 768U) {
         __len___0 = (size_t )(wps_ielen + 2U);
-        __ret___0 = __builtin_memcpy((void *)pframe, (void const *)pmlmepriv->wps_probe_resp_ie,
+        __ret___0 = memcpy((void *)pframe, (void const *)pmlmepriv->wps_probe_resp_ie,
                                      __len___0);
         pframe = pframe + (unsigned long )(wps_ielen + 2U);
         pattrib->pktlen = (pattrib->pktlen + wps_ielen) + 2U;
@@ -26190,7 +26190,7 @@ static void issue_probersp(struct rtw_adapter *padapter , unsigned char *da , u8
       }
       if (((wps_offset + wps_ielen) + remainder_ielen) + 2U <= 768U) {
         __len___1 = (size_t )remainder_ielen;
-        __ret___1 = __builtin_memcpy((void *)pframe, (void const *)premainder_ie,
+        __ret___1 = memcpy((void *)pframe, (void const *)premainder_ie,
                                      __len___1);
         pframe = pframe + (unsigned long )remainder_ielen;
         pattrib->pktlen = pattrib->pktlen + remainder_ielen;
@@ -26198,7 +26198,7 @@ static void issue_probersp(struct rtw_adapter *padapter , unsigned char *da , u8
       }
     } else {
       __len___2 = (size_t )cur_network->IELength;
-      __ret___2 = __builtin_memcpy((void *)pframe, (void const *)(& cur_network->IEs),
+      __ret___2 = memcpy((void *)pframe, (void const *)(& cur_network->IEs),
                                    __len___2);
       pframe = pframe + (unsigned long )cur_network->IELength;
       pattrib->pktlen = pattrib->pktlen + cur_network->IELength;
@@ -26219,14 +26219,14 @@ static void issue_probersp(struct rtw_adapter *padapter , unsigned char *da , u8
       } else {
       }
       __len___3 = (size_t )remainder_ielen___0;
-      __ret___3 = __builtin_memcpy((void *)(& buf), (void const *)remainder_ie,
+      __ret___3 = memcpy((void *)(& buf), (void const *)remainder_ie,
                                    __len___3);
       __len___4 = (size_t )remainder_ielen___0;
-      __ret___4 = __builtin_memcpy((void *)remainder_ie + (unsigned long )ssid_ielen_diff,
+      __ret___4 = memcpy((void *)remainder_ie + (unsigned long )ssid_ielen_diff,
                                    (void const *)(& buf), __len___4);
       *(ssid_ie + 1UL) = cur_network->Ssid.ssid_len;
       __len___5 = (size_t )cur_network->Ssid.ssid_len;
-      __ret___5 = __builtin_memcpy((void *)ssid_ie + 2U, (void const *)(& cur_network->Ssid.ssid),
+      __ret___5 = memcpy((void *)ssid_ie + 2U, (void const *)(& cur_network->Ssid.ssid),
                                    __len___5);
       pframe = pframe + (unsigned long )ssid_ielen_diff;
       pattrib->pktlen = pattrib->pktlen + (u32 )ssid_ielen_diff;
@@ -26241,7 +26241,7 @@ static void issue_probersp(struct rtw_adapter *padapter , unsigned char *da , u8
       __ret___6 = memcpy((void *)pframe, (void const *)tmp___0, __len___6);
     } else {
       tmp___1 = rtw_get_beacon_interval23a_from_ie((u8 *)(& cur_network->IEs));
-      __ret___6 = __builtin_memcpy((void *)pframe, (void const *)tmp___1, __len___6);
+      __ret___6 = memcpy((void *)pframe, (void const *)tmp___1, __len___6);
     }
     pframe = pframe + 2UL;
     pattrib->pktlen = pattrib->pktlen + 2U;
@@ -26251,7 +26251,7 @@ static void issue_probersp(struct rtw_adapter *padapter , unsigned char *da , u8
       __ret___7 = memcpy((void *)pframe, (void const *)tmp___2, __len___7);
     } else {
       tmp___3 = rtw_get_capability23a_from_ie((u8 *)(& cur_network->IEs));
-      __ret___7 = __builtin_memcpy((void *)pframe, (void const *)tmp___3, __len___7);
+      __ret___7 = memcpy((void *)pframe, (void const *)tmp___3, __len___7);
     }
     pframe = pframe + 2UL;
     pattrib->pktlen = pattrib->pktlen + 2U;
@@ -26373,7 +26373,7 @@ static int _issue_probereq(struct rtw_adapter *padapter , struct cfg80211_ssid *
   }
   if (pmlmepriv->wps_probe_req_ie_len != 0U && (unsigned long )pmlmepriv->wps_probe_req_ie != (unsigned long )((u8 *)0U)) {
     __len = (size_t )pmlmepriv->wps_probe_req_ie_len;
-    __ret = __builtin_memcpy((void *)pframe, (void const *)pmlmepriv->wps_probe_req_ie,
+    __ret = memcpy((void *)pframe, (void const *)pmlmepriv->wps_probe_req_ie,
                              __len);
     pframe = pframe + (unsigned long )pmlmepriv->wps_probe_req_ie_len;
     pattrib->pktlen = pattrib->pktlen + pmlmepriv->wps_probe_req_ie_len;
@@ -26690,7 +26690,7 @@ static void issue_assocrsp(struct rtw_adapter *padapter , unsigned short status 
     p = cfg80211_find_ie(45, (u8 const *)ie + 12U, (int )(pnetwork->IELength - 12U));
     if ((unsigned long )p != (unsigned long )((u8 const *)0U) && (unsigned int )((unsigned char )*(p + 1UL)) != 0U) {
       __len = (size_t )((int )*(p + 1UL) + 2);
-      __ret = __builtin_memcpy((void *)pframe, (void const *)p, __len);
+      __ret = memcpy((void *)pframe, (void const *)p, __len);
       pframe = pframe + ((unsigned long )*(p + 1UL) + 2UL);
       pattrib->pktlen = (pattrib->pktlen + (u32 )*(p + 1UL)) + 2U;
     } else {
@@ -26698,7 +26698,7 @@ static void issue_assocrsp(struct rtw_adapter *padapter , unsigned short status 
     p = cfg80211_find_ie(61, (u8 const *)ie + 12U, (int )(pnetwork->IELength - 12U));
     if ((unsigned long )p != (unsigned long )((u8 const *)0U) && (unsigned int )((unsigned char )*(p + 1UL)) != 0U) {
       __len___0 = (size_t )((int )*(p + 1UL) + 2);
-      __ret___0 = __builtin_memcpy((void *)pframe, (void const *)p, __len___0);
+      __ret___0 = memcpy((void *)pframe, (void const *)p, __len___0);
       pframe = pframe + ((unsigned long )*(p + 1UL) + 2UL);
       pattrib->pktlen = (pattrib->pktlen + (u32 )*(p + 1UL)) + 2U;
     } else {
@@ -26725,7 +26725,7 @@ static void issue_assocrsp(struct rtw_adapter *padapter , unsigned short status 
       tmp___8 = memcmp((void const *)p + 2U, (void const *)(& WMM_PARA_IE), 6UL);
       if (tmp___8 == 0) {
         __len___1 = (size_t )(ie_len + 2);
-        __ret___1 = __builtin_memcpy((void *)pframe, (void const *)p, __len___1);
+        __ret___1 = memcpy((void *)pframe, (void const *)p, __len___1);
         pframe = pframe + ((unsigned long )ie_len + 2UL);
         pattrib->pktlen = (pattrib->pktlen + (u32 )ie_len) + 2U;
         goto ldv_55184;
@@ -26749,7 +26749,7 @@ static void issue_assocrsp(struct rtw_adapter *padapter , unsigned short status 
   }
   if ((unsigned long )pmlmepriv->wps_assoc_resp_ie != (unsigned long )((u8 *)0U) && pmlmepriv->wps_assoc_resp_ie_len != 0U) {
     __len___2 = (size_t )pmlmepriv->wps_assoc_resp_ie_len;
-    __ret___2 = __builtin_memcpy((void *)pframe, (void const *)pmlmepriv->wps_assoc_resp_ie,
+    __ret___2 = memcpy((void *)pframe, (void const *)pmlmepriv->wps_assoc_resp_ie,
                                  __len___2);
     pframe = pframe + (unsigned long )pmlmepriv->wps_assoc_resp_ie_len;
     pattrib->pktlen = pattrib->pktlen + pmlmepriv->wps_assoc_resp_ie_len;
@@ -26855,7 +26855,7 @@ static void issue_assocreq(struct rtw_adapter *padapter )
     __ret = memcpy((void *)pframe, (void const *)tmp___2, __len);
   } else {
     tmp___3 = rtw_get_capability23a_from_ie((u8 *)(& pmlmeinfo->network.IEs));
-    __ret = __builtin_memcpy((void *)pframe, (void const *)tmp___3, __len);
+    __ret = memcpy((void *)pframe, (void const *)tmp___3, __len);
   }
   pframe = pframe + 2UL;
   pattrib->pktlen = pattrib->pktlen + 2U;
@@ -26973,7 +26973,7 @@ static void issue_assocreq(struct rtw_adapter *padapter )
           __ret___0 = memcpy((void *)(& pmlmeinfo->HT_caps), (void const *)p + 2U,
                                __len___0);
         } else {
-          __ret___0 = __builtin_memcpy((void *)(& pmlmeinfo->HT_caps), (void const *)p + 2U,
+          __ret___0 = memcpy((void *)(& pmlmeinfo->HT_caps), (void const *)p + 2U,
                                        __len___0);
         }
         if ((unsigned int )pregpriv->cbw40_enable == 0U) {
@@ -26994,7 +26994,7 @@ static void issue_assocreq(struct rtw_adapter *padapter )
           __ret___1 = memcpy((void *)(& pmlmeinfo->HT_caps.u.HT_cap_element.MCS_rate),
                                (void const *)(& MCS_rate_1R23A), __len___1);
         } else {
-          __ret___1 = __builtin_memcpy((void *)(& pmlmeinfo->HT_caps.u.HT_cap_element.MCS_rate),
+          __ret___1 = memcpy((void *)(& pmlmeinfo->HT_caps.u.HT_cap_element.MCS_rate),
                                        (void const *)(& MCS_rate_1R23A), __len___1);
         }
         goto ldv_55235;
@@ -27014,7 +27014,7 @@ static void issue_assocreq(struct rtw_adapter *padapter )
           __ret___2 = memcpy((void *)(& pmlmeinfo->HT_caps.u.HT_cap_element.MCS_rate),
                                (void const *)(& MCS_rate_2R23A), __len___2);
         } else {
-          __ret___2 = __builtin_memcpy((void *)(& pmlmeinfo->HT_caps.u.HT_cap_element.MCS_rate),
+          __ret___2 = memcpy((void *)(& pmlmeinfo->HT_caps.u.HT_cap_element.MCS_rate),
                                        (void const *)(& MCS_rate_2R23A), __len___2);
         }
         goto ldv_55235;
@@ -27100,7 +27100,7 @@ static void issue_assocreq(struct rtw_adapter *padapter )
     pmlmepriv->assoc_req = (u8 *)tmp___21;
     if ((unsigned long )pmlmepriv->assoc_req != (unsigned long )((u8 *)0U)) {
       __len___3 = (size_t )pattrib->pktlen;
-      __ret___3 = __builtin_memcpy((void *)pmlmepriv->assoc_req, (void const *)pwlanhdr,
+      __ret___3 = memcpy((void *)pmlmepriv->assoc_req, (void const *)pwlanhdr,
                                    __len___3);
       pmlmepriv->assoc_req_len = pattrib->pktlen;
     } else {
@@ -28278,7 +28278,7 @@ int collect_bss_info23a(struct rtw_adapter *padapter , struct recv_frame *precv_
   bssid->Length = length + 95U;
   bssid->IELength = length;
   __len = (size_t )bssid->IELength;
-  __ret = __builtin_memcpy((void *)(& bssid->IEs), (void const *)(& mgmt->u), __len);
+  __ret = memcpy((void *)(& bssid->IEs), (void const *)(& mgmt->u), __len);
   bssid->Rssi = (long )precv_frame->attrib.phy_info.RecvSignalPower;
   bssid->PhyInfo.SignalQuality = precv_frame->attrib.phy_info.SignalQuality;
   bssid->PhyInfo.SignalStrength = precv_frame->attrib.phy_info.SignalStrength;
@@ -28302,7 +28302,7 @@ int collect_bss_info23a(struct rtw_adapter *padapter , struct recv_frame *precv_
   } else {
   }
   __len___0 = (size_t )*(p + 1UL);
-  __ret___0 = __builtin_memcpy((void *)(& bssid->Ssid.ssid), (void const *)p + 2U,
+  __ret___0 = memcpy((void *)(& bssid->Ssid.ssid), (void const *)p + 2U,
                                __len___0);
   bssid->Ssid.ssid_len = *(p + 1UL);
   memset((void *)(& bssid->SupportedRates), 0, 16UL);
@@ -28320,7 +28320,7 @@ int collect_bss_info23a(struct rtw_adapter *padapter , struct recv_frame *precv_
     } else {
     }
     __len___1 = (size_t )*(p + 1UL);
-    __ret___1 = __builtin_memcpy((void *)(& bssid->SupportedRates), (void const *)p + 2U,
+    __ret___1 = memcpy((void *)(& bssid->SupportedRates), (void const *)p + 2U,
                                  __len___1);
     i = (int )*(p + 1UL);
   } else {
@@ -28338,7 +28338,7 @@ int collect_bss_info23a(struct rtw_adapter *padapter , struct recv_frame *precv_
     } else {
     }
     __len___2 = (size_t )*(p + 1UL);
-    __ret___2 = __builtin_memcpy((void *)(& bssid->SupportedRates) + (unsigned long )i,
+    __ret___2 = memcpy((void *)(& bssid->SupportedRates) + (unsigned long )i,
                                  (void const *)p + 2U, __len___2);
   } else {
   }
@@ -28627,7 +28627,7 @@ static void process_80211d(struct rtw_adapter *padapter , struct wlan_bssid_ex *
     if (__len > 63UL) {
       __ret = memcpy((void *)(& country), (void const *)p, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& country), (void const *)p, __len);
+      __ret = memcpy((void *)(& country), (void const *)p, __len);
     }
     country[3] = 0U;
     p = p + 3UL;
@@ -28674,7 +28674,7 @@ static void process_80211d(struct rtw_adapter *padapter , struct wlan_bssid_ex *
       __ret___0 = memcpy((void *)(& chplan_sta), (void const *)(& pmlmeext->channel_set),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& chplan_sta), (void const *)(& pmlmeext->channel_set),
+      __ret___0 = memcpy((void *)(& chplan_sta), (void const *)(& pmlmeext->channel_set),
                                    __len___0);
     }
     memset((void *)(& pmlmeext->channel_set), 0, 304UL);
@@ -29017,7 +29017,7 @@ void report_join_res23a(struct rtw_adapter *padapter , int res )
     __ret = memcpy((void *)(& pjoinbss_evt->network.network), (void const *)(& pmlmeinfo->network),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pjoinbss_evt->network.network), (void const *)(& pmlmeinfo->network),
+    __ret = memcpy((void *)(& pjoinbss_evt->network.network), (void const *)(& pmlmeinfo->network),
                              __len);
   }
   tmp___2 = res;
@@ -29082,7 +29082,7 @@ void report_del_sta_event23a(struct rtw_adapter *padapter , unsigned char *MacAd
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pdel_sta_evt->rsvd), (void const *)(& reason), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pdel_sta_evt->rsvd), (void const *)(& reason),
+    __ret = memcpy((void *)(& pdel_sta_evt->rsvd), (void const *)(& reason),
                              __len);
   }
   psta = rtw_get_stainfo23a(& padapter->stapriv, (u8 const *)MacAddr);
@@ -29726,7 +29726,7 @@ int createbss_hdl23a(struct rtw_adapter *padapter , u8 const *pbuf )
     if (__len > 63UL) {
       __ret = memcpy((void *)pnetwork, (void const *)pparm, __len);
     } else {
-      __ret = __builtin_memcpy((void *)pnetwork, (void const *)pparm, __len);
+      __ret = memcpy((void *)pnetwork, (void const *)pparm, __len);
     }
     start_create_ibss(padapter);
   } else {
@@ -29783,7 +29783,7 @@ int join_cmd_hdl23a(struct rtw_adapter *padapter , u8 const *pbuf )
   if (__len > 63UL) {
     __ret = memcpy((void *)pnetwork, (void const *)pbuf, __len);
   } else {
-    __ret = __builtin_memcpy((void *)pnetwork, (void const *)pbuf, __len);
+    __ret = memcpy((void *)pnetwork, (void const *)pbuf, __len);
   }
   bcn_fixed_size = 12;
   i = (u32 )bcn_fixed_size;
@@ -29911,7 +29911,7 @@ static int rtw_scan_ch_decision(struct rtw_adapter *padapter , struct rtw_ieee80
         __ret = memcpy((void *)out + (unsigned long )j, (void const *)in + (unsigned long )i,
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)out + (unsigned long )j, (void const *)in + (unsigned long )i,
+        __ret = memcpy((void *)out + (unsigned long )j, (void const *)in + (unsigned long )i,
                                  __len);
       }
       if ((unsigned int )pmlmeext->channel_set[set_idx].ScanType == 0U) {
@@ -29983,7 +29983,7 @@ static int rtw_scan_ch_decision(struct rtw_adapter *padapter , struct rtw_ieee80
       } else {
         tmp___0 = scan_ch_num;
         scan_ch_num = scan_ch_num + 1;
-        __ret___0 = __builtin_memcpy((void *)out + (unsigned long )tmp___0, (void const *)out + (unsigned long )i,
+        __ret___0 = memcpy((void *)out + (unsigned long )tmp___0, (void const *)out + (unsigned long )i,
                                      __len___0);
       }
     } else {
@@ -30031,7 +30031,7 @@ int sitesurvey_cmd_hdl23a(struct rtw_adapter *padapter , u8 const *pbuf )
         __ret = memcpy((void *)(& pmlmeext->sitesurvey_res.ssid[i].ssid), (void const *)(& pparm->ssid[i].ssid),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& pmlmeext->sitesurvey_res.ssid[i].ssid),
+        __ret = memcpy((void *)(& pmlmeext->sitesurvey_res.ssid[i].ssid),
                                  (void const *)(& pparm->ssid[i].ssid), __len);
       }
       pmlmeext->sitesurvey_res.ssid[i].ssid_len = pparm->ssid[i].ssid_len;
@@ -30277,7 +30277,7 @@ int set_tx_beacon_cmd23a(struct rtw_adapter *padapter )
     __ret = memcpy((void *)(& ptxBeacon_parm->network), (void const *)(& pmlmeinfo->network),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ptxBeacon_parm->network), (void const *)(& pmlmeinfo->network),
+    __ret = memcpy((void *)(& ptxBeacon_parm->network), (void const *)(& pmlmeinfo->network),
                              __len);
   }
   len_diff = update_hidden_ssid((u8 *)(& ptxBeacon_parm->network.IEs) + 12UL, ptxBeacon_parm->network.IELength - 12U,
@@ -34848,7 +34848,7 @@ static int wlanhdr_to_ethhdr(struct recv_frame *precvframe )
     if (__len > 63UL) {
       __ret = memcpy((void *)ptr, (void const *)skb->head, __len);
     } else {
-      __ret = __builtin_memcpy((void *)ptr, (void const *)skb->head, __len);
+      __ret = memcpy((void *)ptr, (void const *)skb->head, __len);
     }
     ptr = ptr + 24UL;
   } else {
@@ -34864,7 +34864,7 @@ static int wlanhdr_to_ethhdr(struct recv_frame *precvframe )
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)ptr + 12U, (void const *)(& len), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)ptr + 12U, (void const *)(& len), __len___0);
+      __ret___0 = memcpy((void *)ptr + 12U, (void const *)(& len), __len___0);
     }
   } else {
   }
@@ -34927,7 +34927,7 @@ struct recv_frame *recvframe_defrag(struct rtw_adapter *adapter , struct rtw_que
   skb_trim(skb, skb->len - (unsigned int )prframe->attrib.icv_len);
   __len = (size_t )(pnfhdr->pkt)->len;
   tmp___0 = skb_tail_pointer((struct sk_buff const *)skb);
-  __ret = __builtin_memcpy((void *)tmp___0, (void const *)(pnfhdr->pkt)->data, __len);
+  __ret = memcpy((void *)tmp___0, (void const *)(pnfhdr->pkt)->data, __len);
   skb_put(skb, (pnfhdr->pkt)->len);
   prframe->attrib.icv_len = pnfhdr->attrib.icv_len;
   plist = ptmp;
@@ -36236,10 +36236,10 @@ void rtw_wep_encrypt23a(struct rtw_adapter *padapter , struct xmit_frame *pxmitf
   if (__len > 63UL) {
     __ret = memcpy((void *)(& wepkey), (void const *)iv, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& wepkey), (void const *)iv, __len);
+    __ret = memcpy((void *)(& wepkey), (void const *)iv, __len);
   }
   __len___0 = (size_t )keylength;
-  __ret___0 = __builtin_memcpy((void *)(& wepkey) + 3U, (void const *)(& psecuritypriv->wep_key[index].key),
+  __ret___0 = memcpy((void *)(& wepkey) + 3U, (void const *)(& psecuritypriv->wep_key[index].key),
                                __len___0);
   payload = pframe + ((unsigned long )pattrib->iv_len + (unsigned long )pattrib->hdrlen);
   if (curfragnum + 1 == (int )pattrib->nr_frags) {
@@ -36302,10 +36302,10 @@ void rtw_wep_decrypt23a(struct rtw_adapter *padapter , struct recv_frame *precvf
   if (__len > 63UL) {
     __ret = memcpy((void *)(& wepkey), (void const *)iv, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& wepkey), (void const *)iv, __len);
+    __ret = memcpy((void *)(& wepkey), (void const *)iv, __len);
   }
   __len___0 = (size_t )keylength;
-  __ret___0 = __builtin_memcpy((void *)(& wepkey) + 3U, (void const *)(& psecuritypriv->wep_key[(int )keyindex].key),
+  __ret___0 = memcpy((void *)(& wepkey) + 3U, (void const *)(& psecuritypriv->wep_key[(int )keyindex].key),
                                __len___0);
   length = (int )((skb->len - (unsigned int )prxattrib->hdrlen) - (unsigned int )prxattrib->iv_len);
   payload = pframe + ((unsigned long )prxattrib->iv_len + (unsigned long )prxattrib->hdrlen);
@@ -37874,7 +37874,7 @@ static int aes_decipher(u8 *key , uint hdrlen , u8 *pframe , uint plen )
   }
   if ((hdrlen + plen) + 8U <= 2048U) {
     __len = (size_t )((hdrlen + plen) + 8U);
-    __ret = __builtin_memcpy((void *)(& message), (void const *)pframe, __len);
+    __ret = memcpy((void *)(& message), (void const *)pframe, __len);
   } else {
   }
   pn_vector[0] = *(pframe + (unsigned long )hdrlen);
@@ -39098,7 +39098,7 @@ struct sta_info *rtw_alloc_stainfo23a(struct sta_priv *pstapriv , u8 *hwaddr , g
   if (__len > 63UL) {
     __ret = memcpy((void *)(& psta->hwaddr), (void const *)hwaddr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& psta->hwaddr), (void const *)hwaddr, __len);
+    __ret = memcpy((void *)(& psta->hwaddr), (void const *)hwaddr, __len);
   }
   tmp___0 = wifi_mac_hash((u8 const *)hwaddr);
   index = (s32 )tmp___0;
@@ -39128,7 +39128,7 @@ struct sta_info *rtw_alloc_stainfo23a(struct sta_priv *pstapriv , u8 *hwaddr , g
     __ret___0 = memcpy((void *)(& psta->sta_recvpriv.rxcache.tid_rxseq) + (unsigned long )i,
                          (void const *)(& wRxSeqInitialValue), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& psta->sta_recvpriv.rxcache.tid_rxseq) + (unsigned long )i,
+    __ret___0 = memcpy((void *)(& psta->sta_recvpriv.rxcache.tid_rxseq) + (unsigned long )i,
                                  (void const *)(& wRxSeqInitialValue), __len___0);
   }
   i = i + 1;
@@ -40616,7 +40616,7 @@ static int xmitframe_addmic(struct rtw_adapter *padapter , struct xmit_frame *px
       if (__len > 63UL) {
         __ret = memcpy((void *)payload, (void const *)(& mic), __len);
       } else {
-        __ret = __builtin_memcpy((void *)payload, (void const *)(& mic), __len);
+        __ret = memcpy((void *)payload, (void const *)(& mic), __len);
       }
       pattrib->last_txcmdsz = pattrib->last_txcmdsz + 8U;
       if (GlobalDebugLevel23A > 6U) {
@@ -41126,7 +41126,7 @@ s32 rtw_xmitframe_coalesce23a(struct rtw_adapter *padapter , struct sk_buff *skb
     } else {
     }
     __len = (size_t )pattrib->iv_len;
-    __ret = __builtin_memcpy((void *)pframe, (void const *)(& pattrib->iv), __len);
+    __ret = memcpy((void *)pframe, (void const *)(& pattrib->iv), __len);
     if (GlobalDebugLevel23A > 5U) {
       printk("\016%s [0x%08x,%d]", (char *)"RTL8723AU: ", 1U, 6);
       printk("\016rtw_xmiaframe_coalesce23a: keyid =%d pattrib->iv[3]=%.2x pframe =%.2x %.2x %.2x %.2x\n",
@@ -41158,13 +41158,13 @@ s32 rtw_xmitframe_coalesce23a(struct rtw_adapter *padapter , struct sk_buff *skb
     mem_sz = __min1___0 < __min2___0 ? __min1___0 : __min2___0;
   }
   __len___0 = (size_t )mem_sz;
-  __ret___0 = __builtin_memcpy((void *)pframe, (void const *)pdata, __len___0);
+  __ret___0 = memcpy((void *)pframe, (void const *)pdata, __len___0);
   pframe = pframe + (unsigned long )mem_sz;
   pdata = pdata + (unsigned long )mem_sz;
   data_len = data_len - mem_sz;
   if ((unsigned int )pattrib->icv_len != 0U && (unsigned int )pattrib->bswenc != 0U) {
     __len___1 = (size_t )pattrib->icv_len;
-    __ret___1 = __builtin_memcpy((void *)pframe, (void const *)(& pattrib->icv),
+    __ret___1 = memcpy((void *)pframe, (void const *)(& pattrib->icv),
                                  __len___1);
     pframe = pframe + (unsigned long )pattrib->icv_len;
   } else {
@@ -41184,7 +41184,7 @@ s32 rtw_xmitframe_coalesce23a(struct rtw_adapter *padapter , struct sk_buff *skb
   hdr->frame_control = (__le16 )((unsigned int )hdr->frame_control | 1024U);
   mem_start = (u8 *)((unsigned long )hw_hdr_offset + (((unsigned long )pframe + 3UL) & 0xfffffffffffffffcUL));
   __len___2 = (size_t )pattrib->hdrlen;
-  __ret___2 = __builtin_memcpy((void *)mem_start, (void const *)pbuf_start + (unsigned long )hw_hdr_offset,
+  __ret___2 = memcpy((void *)mem_start, (void const *)pbuf_start + (unsigned long )hw_hdr_offset,
                                __len___2);
   goto ldv_51873;
   ldv_51869:
@@ -42949,7 +42949,7 @@ void get_rate_set23a(struct rtw_adapter *padapter , unsigned char *pbssrate , in
   tmp = ratetbl2rateset(padapter, (unsigned char *)(& supportedrates));
   *bssrate_len = (int )tmp;
   __len = (size_t )*bssrate_len;
-  __ret = __builtin_memcpy((void *)pbssrate, (void const *)(& supportedrates), __len);
+  __ret = memcpy((void *)pbssrate, (void const *)(& supportedrates), __len);
   return;
 }
 }
@@ -43106,7 +43106,7 @@ u16 get_beacon_interval23a(struct wlan_bssid_ex *bss )
     __ret = memcpy((void *)(& val), (void const *)tmp, __len);
   } else {
     tmp___0 = rtw_get_beacon_interval23a_from_ie((u8 *)(& bss->IEs));
-    __ret = __builtin_memcpy((void *)(& val), (void const *)tmp___0, __len);
+    __ret = memcpy((void *)(& val), (void const *)tmp___0, __len);
   }
   return (val);
 }
@@ -43278,7 +43278,7 @@ int WMM_param_handler23a(struct rtw_adapter *padapter , u8 *p )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pmlmeinfo->WMM_param), (void const *)p + 8U, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pmlmeinfo->WMM_param), (void const *)p + 8U,
+    __ret = memcpy((void *)(& pmlmeinfo->WMM_param), (void const *)p + 8U,
                              __len);
   }
   return (1);
@@ -43605,7 +43605,7 @@ void HT_info_handler23a(struct rtw_adapter *padapter , u8 *p )
   }
   pmlmeinfo->HT_info_enable = 1U;
   __len = (size_t )*(p + 1UL);
-  __ret = __builtin_memcpy((void *)(& pmlmeinfo->HT_info), (void const *)p + 2U,
+  __ret = memcpy((void *)(& pmlmeinfo->HT_info), (void const *)p + 2U,
                            __len);
   return;
 }
@@ -43651,7 +43651,7 @@ void ERP_IE_handler23a(struct rtw_adapter *padapter , u8 *p )
   }
   pmlmeinfo->ERP_enable = 1U;
   __len = (size_t )*(p + 1UL);
-  __ret = __builtin_memcpy((void *)(& pmlmeinfo->ERP_IE), (void const *)p + 2U,
+  __ret = memcpy((void *)(& pmlmeinfo->ERP_IE), (void const *)p + 2U,
                            __len);
   return;
 }
@@ -43792,7 +43792,7 @@ int rtw_check_bcn_info23a(struct rtw_adapter *Adapter , struct ieee80211_mgmt *m
   bssid->Length = (u32 )len + 95U;
   bssid->IELength = (u32 )len;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& bssid->IEs), (void const *)(& mgmt->u), __len);
+  __ret = memcpy((void *)(& bssid->IEs), (void const *)(& mgmt->u), __len);
   ie_offset = 12;
   pie = (u8 *)(& bssid->IEs) + (unsigned long )ie_offset;
   pie_len = (int )(pkt_len - (u32 )ie_offset);
@@ -43859,7 +43859,7 @@ int rtw_check_bcn_info23a(struct rtw_adapter *Adapter , struct ieee80211_mgmt *m
   p = cfg80211_find_ie(0, (u8 const *)pie, pie_len);
   if ((unsigned long )p != (unsigned long )((u8 const *)0U) && (unsigned int )((unsigned char )*(p + 1UL)) != 0U) {
     __len___0 = (size_t )*(p + 1UL);
-    __ret___0 = __builtin_memcpy((void *)(& bssid->Ssid.ssid), (void const *)p + 2U,
+    __ret___0 = memcpy((void *)(& bssid->Ssid.ssid), (void const *)p + 2U,
                                  __len___0);
     bssid->Ssid.ssid_len = *(p + 1UL);
   } else {
@@ -44401,7 +44401,7 @@ void update_tx_basic_rate23a(struct rtw_adapter *padapter , u8 wirelessmode )
       __ret = memcpy((void *)(& supported_rates), (void const *)(& rtw_basic_rate_cck),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& supported_rates), (void const *)(& rtw_basic_rate_cck),
+      __ret = memcpy((void *)(& supported_rates), (void const *)(& rtw_basic_rate_cck),
                                __len);
     }
   } else
@@ -44411,7 +44411,7 @@ void update_tx_basic_rate23a(struct rtw_adapter *padapter , u8 wirelessmode )
       __ret___0 = memcpy((void *)(& supported_rates), (void const *)(& rtw_basic_rate_mix),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& supported_rates), (void const *)(& rtw_basic_rate_mix),
+      __ret___0 = memcpy((void *)(& supported_rates), (void const *)(& rtw_basic_rate_mix),
                                    __len___0);
     }
   } else {
@@ -44420,7 +44420,7 @@ void update_tx_basic_rate23a(struct rtw_adapter *padapter , u8 wirelessmode )
       __ret___1 = memcpy((void *)(& supported_rates), (void const *)(& rtw_basic_rate_ofdm),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& supported_rates), (void const *)(& rtw_basic_rate_ofdm),
+      __ret___1 = memcpy((void *)(& supported_rates), (void const *)(& rtw_basic_rate_ofdm),
                                    __len___1);
     }
   }
@@ -44748,7 +44748,7 @@ void update_bmc_sta_support_rate23a(struct rtw_adapter *padapter , u32 mac_id )
       __ret = memcpy((void *)(& pmlmeinfo->FW_sta_info[mac_id].SupportedRates),
                        (void const *)(& rtw_basic_rate_cck), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pmlmeinfo->FW_sta_info[mac_id].SupportedRates),
+      __ret = memcpy((void *)(& pmlmeinfo->FW_sta_info[mac_id].SupportedRates),
                                (void const *)(& rtw_basic_rate_cck), __len);
     }
   } else {
@@ -44757,7 +44757,7 @@ void update_bmc_sta_support_rate23a(struct rtw_adapter *padapter , u32 mac_id )
       __ret___0 = memcpy((void *)(& pmlmeinfo->FW_sta_info[mac_id].SupportedRates),
                            (void const *)(& rtw_basic_rate_ofdm), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& pmlmeinfo->FW_sta_info[mac_id].SupportedRates),
+      __ret___0 = memcpy((void *)(& pmlmeinfo->FW_sta_info[mac_id].SupportedRates),
                                    (void const *)(& rtw_basic_rate_ofdm), __len___0);
     }
   }
@@ -44785,13 +44785,13 @@ int update_sta_support_rate23a(struct rtw_adapter *padapter , u8 *pvar_ie , uint
   } else {
   }
   __len = (size_t )*(p + 1UL);
-  __ret = __builtin_memcpy((void *)(& pmlmeinfo->FW_sta_info[cam_idx].SupportedRates),
+  __ret = memcpy((void *)(& pmlmeinfo->FW_sta_info[cam_idx].SupportedRates),
                            (void const *)p + 2U, __len);
   supportRateNum = (int )*(p + 1UL);
   p = cfg80211_find_ie(50, (u8 const *)pvar_ie, (int )var_ie_len);
   if ((unsigned long )p != (unsigned long )((u8 const *)0U)) {
     __len___0 = (size_t )*(p + 1UL);
-    __ret___0 = __builtin_memcpy((void *)(& pmlmeinfo->FW_sta_info[cam_idx].SupportedRates) + (unsigned long )supportRateNum,
+    __ret___0 = memcpy((void *)(& pmlmeinfo->FW_sta_info[cam_idx].SupportedRates) + (unsigned long )supportRateNum,
                                  (void const *)p + 2U, __len___0);
   } else {
   }
@@ -53749,18 +53749,18 @@ s32 FillH2CCmd(struct rtw_adapter *padapter , u8 ElementID , u32 CmdLen , u8 *pC
   }
   if (CmdLen <= 3U) {
     __len = (size_t )CmdLen;
-    __ret = __builtin_memcpy((void *)(& h2c_cmd) + 1U, (void const *)pCmdBuffer,
+    __ret = memcpy((void *)(& h2c_cmd) + 1U, (void const *)pCmdBuffer,
                              __len);
   } else {
     __len___0 = 2UL;
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& h2c_cmd_ex), (void const *)pCmdBuffer, __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& h2c_cmd_ex), (void const *)pCmdBuffer,
+      __ret___0 = memcpy((void *)(& h2c_cmd_ex), (void const *)pCmdBuffer,
                                    __len___0);
     }
     __len___1 = (size_t )(CmdLen - 2U);
-    __ret___1 = __builtin_memcpy((void *)(& h2c_cmd) + 1U, (void const *)pCmdBuffer + 2U,
+    __ret___1 = memcpy((void *)(& h2c_cmd) + 1U, (void const *)pCmdBuffer + 2U,
                                  __len___1);
     *((u8 *)(& h2c_cmd)) = (u8 )((unsigned int )*((u8 *)(& h2c_cmd)) | 128U);
   }
@@ -53817,7 +53817,7 @@ int rtl8723a_set_raid_cmd(struct rtw_adapter *padapter , u32 mask , u8 arg )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& buf), (void const *)(& mask), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& buf), (void const *)(& mask), __len);
+    __ret = memcpy((void *)(& buf), (void const *)(& mask), __len);
   }
   buf[4] = arg;
   FillH2CCmd(padapter, 6, 5U, (u8 *)(& buf));
@@ -53932,7 +53932,7 @@ static void ConstructBeacon(struct rtw_adapter *padapter , u8 *pframe , u32 *pLe
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pwlanhdr->addr1), (void const *)(& bc_addr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pwlanhdr->addr1), (void const *)(& bc_addr),
+    __ret = memcpy((void *)(& pwlanhdr->addr1), (void const *)(& bc_addr),
                              __len);
   }
   __len___0 = 6UL;
@@ -53941,7 +53941,7 @@ static void ConstructBeacon(struct rtw_adapter *padapter , u8 *pframe , u32 *pLe
     __ret___0 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp, __len___0);
   } else {
     tmp___0 = myid(& padapter->eeprompriv);
-    __ret___0 = __builtin_memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___0,
+    __ret___0 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___0,
                                  __len___0);
   }
   __len___1 = 6UL;
@@ -53950,7 +53950,7 @@ static void ConstructBeacon(struct rtw_adapter *padapter , u8 *pframe , u32 *pLe
     __ret___1 = memcpy((void *)(& pwlanhdr->addr3), (void const *)tmp___1, __len___1);
   } else {
     tmp___2 = get_my_bssid23a(cur_network);
-    __ret___1 = __builtin_memcpy((void *)(& pwlanhdr->addr3), (void const *)tmp___2,
+    __ret___1 = memcpy((void *)(& pwlanhdr->addr3), (void const *)tmp___2,
                                  __len___1);
   }
   pwlanhdr->seq_ctrl = 0U;
@@ -53964,7 +53964,7 @@ static void ConstructBeacon(struct rtw_adapter *padapter , u8 *pframe , u32 *pLe
     __ret___2 = memcpy((void *)pframe, (void const *)tmp___3, __len___2);
   } else {
     tmp___4 = rtw_get_beacon_interval23a_from_ie((u8 *)(& cur_network->IEs));
-    __ret___2 = __builtin_memcpy((void *)pframe, (void const *)tmp___4, __len___2);
+    __ret___2 = memcpy((void *)pframe, (void const *)tmp___4, __len___2);
   }
   pframe = pframe + 2UL;
   pktlen = pktlen + 2U;
@@ -53974,7 +53974,7 @@ static void ConstructBeacon(struct rtw_adapter *padapter , u8 *pframe , u32 *pLe
     __ret___3 = memcpy((void *)pframe, (void const *)tmp___5, __len___3);
   } else {
     tmp___6 = rtw_get_capability23a_from_ie((u8 *)(& cur_network->IEs));
-    __ret___3 = __builtin_memcpy((void *)pframe, (void const *)tmp___6, __len___3);
+    __ret___3 = memcpy((void *)pframe, (void const *)tmp___6, __len___3);
   }
   pframe = pframe + 2UL;
   pktlen = pktlen + 2U;
@@ -53982,7 +53982,7 @@ static void ConstructBeacon(struct rtw_adapter *padapter , u8 *pframe , u32 *pLe
     bcn_fixed_size = 12;
     pktlen = (cur_network->IELength - (u32 )bcn_fixed_size) + pktlen;
     __len___4 = (size_t )pktlen;
-    __ret___4 = __builtin_memcpy((void *)pframe, (void const *)(& cur_network->IEs) + (unsigned long )bcn_fixed_size,
+    __ret___4 = memcpy((void *)pframe, (void const *)(& cur_network->IEs) + (unsigned long )bcn_fixed_size,
                                  __len___4);
     goto _ConstructBeacon;
   } else {
@@ -54042,7 +54042,7 @@ static void ConstructPSPoll(struct rtw_adapter *padapter , u8 *pframe , u32 *pLe
     __ret = memcpy((void *)(& pwlanhdr->addr1), (void const *)tmp, __len);
   } else {
     tmp___0 = get_my_bssid23a(& pmlmeinfo->network);
-    __ret = __builtin_memcpy((void *)(& pwlanhdr->addr1), (void const *)tmp___0,
+    __ret = memcpy((void *)(& pwlanhdr->addr1), (void const *)tmp___0,
                              __len);
   }
   __len___0 = 6UL;
@@ -54051,7 +54051,7 @@ static void ConstructPSPoll(struct rtw_adapter *padapter , u8 *pframe , u32 *pLe
     __ret___0 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___1, __len___0);
   } else {
     tmp___2 = myid(& padapter->eeprompriv);
-    __ret___0 = __builtin_memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___2,
+    __ret___0 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___2,
                                  __len___0);
   }
   *pLength = 16U;
@@ -54121,7 +54121,7 @@ static void ConstructNullFunctionData(struct rtw_adapter *padapter , u8 *pframe 
     __ret = memcpy((void *)(& pwlanhdr->addr1), (void const *)tmp, __len);
   } else {
     tmp___0 = get_my_bssid23a(& pmlmeinfo->network);
-    __ret = __builtin_memcpy((void *)(& pwlanhdr->addr1), (void const *)tmp___0,
+    __ret = memcpy((void *)(& pwlanhdr->addr1), (void const *)tmp___0,
                              __len);
   }
   __len___0 = 6UL;
@@ -54130,14 +54130,14 @@ static void ConstructNullFunctionData(struct rtw_adapter *padapter , u8 *pframe 
     __ret___0 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___1, __len___0);
   } else {
     tmp___2 = myid(& padapter->eeprompriv);
-    __ret___0 = __builtin_memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___2,
+    __ret___0 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___2,
                                  __len___0);
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& pwlanhdr->addr3), (void const *)StaAddr, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& pwlanhdr->addr3), (void const *)StaAddr,
+    __ret___1 = memcpy((void *)(& pwlanhdr->addr3), (void const *)StaAddr,
                                  __len___1);
   }
   goto ldv_54429;
@@ -54148,7 +54148,7 @@ static void ConstructNullFunctionData(struct rtw_adapter *padapter , u8 *pframe 
   if (__len___2 > 63UL) {
     __ret___2 = memcpy((void *)(& pwlanhdr->addr1), (void const *)StaAddr, __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& pwlanhdr->addr1), (void const *)StaAddr,
+    __ret___2 = memcpy((void *)(& pwlanhdr->addr1), (void const *)StaAddr,
                                  __len___2);
   }
   __len___3 = 6UL;
@@ -54157,7 +54157,7 @@ static void ConstructNullFunctionData(struct rtw_adapter *padapter , u8 *pframe 
     __ret___3 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___3, __len___3);
   } else {
     tmp___4 = get_my_bssid23a(& pmlmeinfo->network);
-    __ret___3 = __builtin_memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___4,
+    __ret___3 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___4,
                                  __len___3);
   }
   __len___4 = 6UL;
@@ -54166,7 +54166,7 @@ static void ConstructNullFunctionData(struct rtw_adapter *padapter , u8 *pframe 
     __ret___4 = memcpy((void *)(& pwlanhdr->addr3), (void const *)tmp___5, __len___4);
   } else {
     tmp___6 = myid(& padapter->eeprompriv);
-    __ret___4 = __builtin_memcpy((void *)(& pwlanhdr->addr3), (void const *)tmp___6,
+    __ret___4 = memcpy((void *)(& pwlanhdr->addr3), (void const *)tmp___6,
                                  __len___4);
   }
   goto ldv_54429;
@@ -54176,7 +54176,7 @@ static void ConstructNullFunctionData(struct rtw_adapter *padapter , u8 *pframe 
   if (__len___5 > 63UL) {
     __ret___5 = memcpy((void *)(& pwlanhdr->addr1), (void const *)StaAddr, __len___5);
   } else {
-    __ret___5 = __builtin_memcpy((void *)(& pwlanhdr->addr1), (void const *)StaAddr,
+    __ret___5 = memcpy((void *)(& pwlanhdr->addr1), (void const *)StaAddr,
                                  __len___5);
   }
   __len___6 = 6UL;
@@ -54185,7 +54185,7 @@ static void ConstructNullFunctionData(struct rtw_adapter *padapter , u8 *pframe 
     __ret___6 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___7, __len___6);
   } else {
     tmp___8 = myid(& padapter->eeprompriv);
-    __ret___6 = __builtin_memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___8,
+    __ret___6 = memcpy((void *)(& pwlanhdr->addr2), (void const *)tmp___8,
                                  __len___6);
   }
   __len___7 = 6UL;
@@ -54194,7 +54194,7 @@ static void ConstructNullFunctionData(struct rtw_adapter *padapter , u8 *pframe 
     __ret___7 = memcpy((void *)(& pwlanhdr->addr3), (void const *)tmp___9, __len___7);
   } else {
     tmp___10 = get_my_bssid23a(& pmlmeinfo->network);
-    __ret___7 = __builtin_memcpy((void *)(& pwlanhdr->addr3), (void const *)tmp___10,
+    __ret___7 = memcpy((void *)(& pwlanhdr->addr3), (void const *)tmp___10,
                                  __len___7);
   }
   goto ldv_54429;
@@ -54248,21 +54248,21 @@ static void ConstructProbeRsp(struct rtw_adapter *padapter , u8 *pframe , u32 *p
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pwlanhdr->addr1), (void const *)StaAddr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pwlanhdr->addr1), (void const *)StaAddr,
+    __ret = memcpy((void *)(& pwlanhdr->addr1), (void const *)StaAddr,
                              __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& pwlanhdr->addr2), (void const *)mac, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& pwlanhdr->addr2), (void const *)mac,
+    __ret___0 = memcpy((void *)(& pwlanhdr->addr2), (void const *)mac,
                                  __len___0);
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& pwlanhdr->addr3), (void const *)bssid, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& pwlanhdr->addr3), (void const *)bssid,
+    __ret___1 = memcpy((void *)(& pwlanhdr->addr3), (void const *)bssid,
                                  __len___1);
   }
   pktlen = 24U;
@@ -54272,7 +54272,7 @@ static void ConstructProbeRsp(struct rtw_adapter *padapter , u8 *pframe , u32 *p
   } else {
   }
   __len___2 = (size_t )cur_network->IELength;
-  __ret___2 = __builtin_memcpy((void *)pframe, (void const *)(& cur_network->IEs),
+  __ret___2 = memcpy((void *)pframe, (void const *)(& cur_network->IEs),
                                __len___2);
   pframe = pframe + (unsigned long )cur_network->IELength;
   pktlen = cur_network->IELength + pktlen;
@@ -54401,7 +54401,7 @@ static void SetFwRsvdPagePkt(struct rtw_adapter *padapter , bool bDLFinished )
   pattrib->last_txcmdsz = tmp___4;
   pattrib->pktlen = tmp___4;
   __len = (size_t )TotalPacketLen;
-  __ret = __builtin_memcpy((void *)pmgntframe->buf_addr, (void const *)ReservedPagePacket,
+  __ret = memcpy((void *)pmgntframe->buf_addr, (void const *)ReservedPagePacket,
                            __len);
   rtl8723au_mgnt_xmit(padapter, pmgntframe);
   if (GlobalDebugLevel23A > 3U) {
@@ -54541,7 +54541,7 @@ static void SetFwRsvdPagePkt_BTCoex(struct rtw_adapter *padapter )
   pattrib->last_txcmdsz = tmp___0;
   pattrib->pktlen = tmp___0;
   __len = (size_t )TotalPacketLen;
-  __ret = __builtin_memcpy((void *)pmgntframe->buf_addr, (void const *)ReservedPagePacket,
+  __ret = memcpy((void *)pmgntframe->buf_addr, (void const *)ReservedPagePacket,
                            __len);
   rtl8723au_mgnt_xmit(padapter, pmgntframe);
   if (GlobalDebugLevel23A > 3U) {
@@ -56932,7 +56932,7 @@ void Hal_InitPGData(struct rtw_adapter *padapter , u8 *PROMContent )
         __ret = memcpy((void *)PROMContent, (void const *)(& pEEPROM->efuse_eeprom_data),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)PROMContent, (void const *)(& pEEPROM->efuse_eeprom_data),
+        __ret = memcpy((void *)PROMContent, (void const *)(& pEEPROM->efuse_eeprom_data),
                                  __len);
       }
     } else {
@@ -56952,7 +56952,7 @@ void Hal_InitPGData(struct rtw_adapter *padapter , u8 *PROMContent )
       __ret___0 = memcpy((void *)PROMContent, (void const *)(& pEEPROM->efuse_eeprom_data),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)PROMContent, (void const *)(& pEEPROM->efuse_eeprom_data),
+      __ret___0 = memcpy((void *)PROMContent, (void const *)(& pEEPROM->efuse_eeprom_data),
                                    __len___0);
     }
   }
@@ -62358,7 +62358,7 @@ static void Hal_EfuseParseMACAddr_8723AU(struct rtw_adapter *padapter , u8 *hwin
       __ret = memcpy((void *)(& pEEPROM->mac_addr), (void const *)hwinfo + 198U,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pEEPROM->mac_addr), (void const *)hwinfo + 198U,
+      __ret = memcpy((void *)(& pEEPROM->mac_addr), (void const *)hwinfo + 198U,
                                __len);
     }
   }
@@ -62980,7 +62980,7 @@ static int usbctrl_vendorreq(struct rtw_adapter *padapter , u8 request , u16 val
     pipe = tmp___0 | 2147483648U;
     reqtype = 64U;
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)pIo_buf, (void const *)pdata, __len);
+    __ret = memcpy((void *)pIo_buf, (void const *)pdata, __len);
   }
   status = usb_control_msg(udev, pipe, (int )request, (int )reqtype, (int )value,
                            (int )index, (void *)pIo_buf, (int )len, 500);
@@ -62988,7 +62988,7 @@ static int usbctrl_vendorreq(struct rtw_adapter *padapter , u8 request , u16 val
     rtw_reset_continual_urb_error(pdvobjpriv);
     if ((unsigned int )requesttype == 1U) {
       __len___0 = (size_t )len;
-      __ret___0 = __builtin_memcpy(pdata, (void const *)pIo_buf, __len___0);
+      __ret___0 = memcpy(pdata, (void const *)pIo_buf, __len___0);
     } else {
     }
   } else {
@@ -63009,7 +63009,7 @@ static int usbctrl_vendorreq(struct rtw_adapter *padapter , u8 request , u16 val
     if (status > 0) {
       if ((unsigned int )requesttype == 1U) {
         __len___1 = (size_t )len;
-        __ret___1 = __builtin_memcpy(pdata, (void const *)pIo_buf, __len___1);
+        __ret___1 = memcpy(pdata, (void const *)pIo_buf, __len___1);
       } else {
       }
     } else {
@@ -63188,7 +63188,7 @@ int rtl8723au_writeN(struct rtw_adapter *padapter , u32 addr , u32 length , u8 *
   wvalue = (unsigned short )addr;
   len = (u16 )length;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& buf), (void const *)pdata, __len);
+  __ret = memcpy((void *)(& buf), (void const *)pdata, __len);
   ret = usbctrl_vendorreq(padapter, (int )request, (int )wvalue, (int )index, (void *)(& buf),
                           (int )len, (int )requesttype);
   return (ret);
@@ -63214,7 +63214,7 @@ static bool InterruptRecognized8723AU(struct rtw_adapter *Adapter , void *pConte
     __ret = memcpy((void *)(& pHalData->IntArray), (void const *)buffer + 48U,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pHalData->IntArray), (void const *)buffer + 48U,
+    __ret = memcpy((void *)(& pHalData->IntArray), (void const *)buffer + 48U,
                              __len);
   }
   pHalData->IntArray[0] = pHalData->IntArray[0] & pHalData->IntrMask[0];
@@ -63223,7 +63223,7 @@ static bool InterruptRecognized8723AU(struct rtw_adapter *Adapter , void *pConte
     __ret___0 = memcpy((void *)(& pHalData->IntArray) + 1U, (void const *)buffer + 52U,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& pHalData->IntArray) + 1U, (void const *)buffer + 52U,
+    __ret___0 = memcpy((void *)(& pHalData->IntArray) + 1U, (void const *)buffer + 52U,
                                  __len___0);
   }
   pHalData->IntArray[1] = pHalData->IntArray[1] & pHalData->IntrMask[1];
@@ -63231,7 +63231,7 @@ static bool InterruptRecognized8723AU(struct rtw_adapter *Adapter , void *pConte
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& report.state), (void const *)buffer + 16U, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& report.state), (void const *)buffer + 16U,
+    __ret___1 = memcpy((void *)(& report.state), (void const *)buffer + 16U,
                                  __len___1);
   }
   return ((bool )((pHalData->IntArray[0] & pHalData->IntrMask[0]) != 0U || (pHalData->IntArray[1] & pHalData->IntrMask[1]) != 0U));
@@ -63299,7 +63299,7 @@ static void usb_read_interrupt_complete(struct urb *purb )
           __ret = memcpy((void *)(& c2w->u.buf), (void const *)purb->transfer_buffer,
                            __len);
         } else {
-          __ret = __builtin_memcpy((void *)(& c2w->u.buf), (void const *)purb->transfer_buffer,
+          __ret = memcpy((void *)(& c2w->u.buf), (void const *)purb->transfer_buffer,
                                    __len);
         }
         tmp___0 = queue_work(padapter->evtpriv.wq, & c2w->work);
@@ -63495,7 +63495,7 @@ static int recvbuf2recvframe(struct rtw_adapter *padapter , struct sk_buff *pskb
     skb_reserve(pkt_copy, (int )(8U - ((unsigned int )((long )pkt_copy->data) & 7U)));
     skb_reserve(pkt_copy, (int )shift_sz);
     __len = (size_t )skb_len;
-    __ret = __builtin_memcpy((void *)pkt_copy->data, (void const *)(pbuf + (((unsigned long )pattrib->shift_sz + (unsigned long )pattrib->drvinfo_sz) + 24UL)),
+    __ret = memcpy((void *)pkt_copy->data, (void const *)(pbuf + (((unsigned long )pattrib->shift_sz + (unsigned long )pattrib->drvinfo_sz) + 24UL)),
                              __len);
     skb_put(pkt_copy, skb_len);
   } else {
@@ -64249,7 +64249,7 @@ static void rtw_2g_channels_init(struct ieee80211_channel *channels )
   if (__len > 63UL) {
     __ret = memcpy((void *)channels, (void const *)(& rtw_2ghz_channels), __len);
   } else {
-    __ret = __builtin_memcpy((void *)channels, (void const *)(& rtw_2ghz_channels),
+    __ret = memcpy((void *)channels, (void const *)(& rtw_2ghz_channels),
                              __len);
   }
   return;
@@ -64264,7 +64264,7 @@ static void rtw_5g_channels_init(struct ieee80211_channel *channels )
   if (__len > 63UL) {
     __ret = memcpy((void *)channels, (void const *)(& rtw_5ghz_a_channels), __len);
   } else {
-    __ret = __builtin_memcpy((void *)channels, (void const *)(& rtw_5ghz_a_channels),
+    __ret = memcpy((void *)channels, (void const *)(& rtw_5ghz_a_channels),
                              __len);
   }
   return;
@@ -64279,7 +64279,7 @@ static void rtw_2g_rates_init(struct ieee80211_rate *rates )
   if (__len > 63UL) {
     __ret = memcpy((void *)rates, (void const *)(& rtw_rates), __len);
   } else {
-    __ret = __builtin_memcpy((void *)rates, (void const *)(& rtw_rates), __len);
+    __ret = memcpy((void *)rates, (void const *)(& rtw_rates), __len);
   }
   return;
 }
@@ -64293,7 +64293,7 @@ static void rtw_5g_rates_init(struct ieee80211_rate *rates )
   if (__len > 63UL) {
     __ret = memcpy((void *)rates, (void const *)(& rtw_rates) + 4U, __len);
   } else {
-    __ret = __builtin_memcpy((void *)rates, (void const *)(& rtw_rates) + 4U, __len);
+    __ret = memcpy((void *)rates, (void const *)(& rtw_rates) + 4U, __len);
   }
   return;
 }
@@ -64446,7 +64446,7 @@ static int rtw_cfg80211_inform_bss(struct rtw_adapter *padapter , struct wlan_ne
   pbuf = pbuf + 24UL;
   len = 24UL;
   __len = (size_t )pnetwork->network.IELength;
-  __ret = __builtin_memcpy((void *)pbuf, (void const *)(& pnetwork->network.IEs),
+  __ret = memcpy((void *)pbuf, (void const *)(& pnetwork->network.IEs),
                            __len);
   len = (size_t )pnetwork->network.IELength + len;
   bss = cfg80211_inform_bss_frame(wiphy, notify_channel, (struct ieee80211_mgmt *)(& buf),
@@ -64599,7 +64599,7 @@ static int set_pairwise_key(struct rtw_adapter *padapter , struct sta_info *psta
     __ret = memcpy((void *)(& psetstakey_para->key), (void const *)(& psta->dot118021x_UncstKey),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& psetstakey_para->key), (void const *)(& psta->dot118021x_UncstKey),
+    __ret = memcpy((void *)(& psetstakey_para->key), (void const *)(& psta->dot118021x_UncstKey),
                              __len);
   }
   res = rtw_enqueue_cmd23a(pcmdpriv, ph2c);
@@ -64666,7 +64666,7 @@ static int set_group_key(struct rtw_adapter *padapter , u8 *key , u32 alg , u8 k
   }
   ldv_51540:
   __len = (size_t )keylen;
-  __ret = __builtin_memcpy((void *)(& psetkeyparm->key), (void const *)key, __len);
+  __ret = memcpy((void *)(& psetkeyparm->key), (void const *)key, __len);
   pcmd->cmdcode = 20U;
   pcmd->parmbuf = (u8 *)psetkeyparm;
   pcmd->cmdsz = 24U;
@@ -64834,7 +64834,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
     } else {
     }
     __len = (size_t )wep_key_len;
-    __ret = __builtin_memcpy((void *)(& psecuritypriv->wep_key[(int )wep_key_idx].key),
+    __ret = memcpy((void *)(& psecuritypriv->wep_key[(int )wep_key_idx].key),
                              (void const *)(& param->u.crypt.key), __len);
     psecuritypriv->wep_key[(int )wep_key_idx].keylen = wep_key_len;
     set_wep_key(padapter, (u8 *)(& param->u.crypt.key), (int )wep_key_len, (int )wep_key_idx);
@@ -64852,7 +64852,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
           } else {
           }
           __len___0 = (unsigned int )param->u.crypt.key_len <= 16U ? (size_t )param->u.crypt.key_len : 16UL;
-          __ret___0 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
+          __ret___0 = memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
                                        (void const *)(& param->u.crypt.key), __len___0);
           psecuritypriv->dot118021XGrpPrivacy = 1027073U;
           if ((unsigned int )param->u.crypt.key_len == 13U) {
@@ -64868,14 +64868,14 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
             }
             psecuritypriv->dot118021XGrpPrivacy = 1027074U;
             __len___1 = (unsigned int )param->u.crypt.key_len <= 16U ? (size_t )param->u.crypt.key_len : 16UL;
-            __ret___1 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
+            __ret___1 = memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
                                          (void const *)(& param->u.crypt.key), __len___1);
             __len___2 = 8UL;
             if (__len___2 > 63UL) {
               __ret___2 = memcpy((void *)(& psecuritypriv->dot118021XGrptxmickey[(int )param->u.crypt.idx].skey),
                                    (void const *)(& param->u.crypt.key) + 16U, __len___2);
             } else {
-              __ret___2 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrptxmickey[(int )param->u.crypt.idx].skey),
+              __ret___2 = memcpy((void *)(& psecuritypriv->dot118021XGrptxmickey[(int )param->u.crypt.idx].skey),
                                            (void const *)(& param->u.crypt.key) + 16U,
                                            __len___2);
             }
@@ -64884,7 +64884,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
               __ret___3 = memcpy((void *)(& psecuritypriv->dot118021XGrprxmickey[(int )param->u.crypt.idx].skey),
                                    (void const *)(& param->u.crypt.key) + 24U, __len___3);
             } else {
-              __ret___3 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrprxmickey[(int )param->u.crypt.idx].skey),
+              __ret___3 = memcpy((void *)(& psecuritypriv->dot118021XGrprxmickey[(int )param->u.crypt.idx].skey),
                                            (void const *)(& param->u.crypt.key) + 24U,
                                            __len___3);
             }
@@ -64898,7 +64898,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
               }
               psecuritypriv->dot118021XGrpPrivacy = 1027076U;
               __len___4 = (unsigned int )param->u.crypt.key_len <= 16U ? (size_t )param->u.crypt.key_len : 16UL;
-              __ret___4 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
+              __ret___4 = memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
                                            (void const *)(& param->u.crypt.key),
                                            __len___4);
             } else {
@@ -64933,7 +64933,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
     if ((int )tmp___13) {
       if ((unsigned int )param->u.crypt.set_tx == 1U) {
         __len___5 = (unsigned int )param->u.crypt.key_len <= 16U ? (size_t )param->u.crypt.key_len : 16UL;
-        __ret___5 = __builtin_memcpy((void *)(& psta->dot118021x_UncstKey.skey), (void const *)(& param->u.crypt.key),
+        __ret___5 = memcpy((void *)(& psta->dot118021x_UncstKey.skey), (void const *)(& param->u.crypt.key),
                                      __len___5);
         tmp___9 = strcmp((char const *)(& param->u.crypt.alg), "WEP");
         if (tmp___9 == 0) {
@@ -64959,7 +64959,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
               __ret___6 = memcpy((void *)(& psta->dot11tkiptxmickey.skey), (void const *)(& param->u.crypt.key) + 16U,
                                    __len___6);
             } else {
-              __ret___6 = __builtin_memcpy((void *)(& psta->dot11tkiptxmickey.skey),
+              __ret___6 = memcpy((void *)(& psta->dot11tkiptxmickey.skey),
                                            (void const *)(& param->u.crypt.key) + 16U,
                                            __len___6);
             }
@@ -64968,7 +64968,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
               __ret___7 = memcpy((void *)(& psta->dot11tkiprxmickey.skey), (void const *)(& param->u.crypt.key) + 24U,
                                    __len___7);
             } else {
-              __ret___7 = __builtin_memcpy((void *)(& psta->dot11tkiprxmickey.skey),
+              __ret___7 = memcpy((void *)(& psta->dot11tkiprxmickey.skey),
                                            (void const *)(& param->u.crypt.key) + 24U,
                                            __len___7);
             }
@@ -64997,7 +64997,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
         tmp___12 = strcmp((char const *)(& param->u.crypt.alg), "WEP");
         if (tmp___12 == 0) {
           __len___8 = (unsigned int )param->u.crypt.key_len <= 16U ? (size_t )param->u.crypt.key_len : 16UL;
-          __ret___8 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
+          __ret___8 = memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
                                        (void const *)(& param->u.crypt.key), __len___8);
           psecuritypriv->dot118021XGrpPrivacy = 1027073U;
           if ((unsigned int )param->u.crypt.key_len == 13U) {
@@ -65009,7 +65009,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
           if (tmp___11 == 0) {
             psecuritypriv->dot118021XGrpPrivacy = 1027074U;
             __len___9 = (unsigned int )param->u.crypt.key_len <= 16U ? (size_t )param->u.crypt.key_len : 16UL;
-            __ret___9 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
+            __ret___9 = memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
                                          (void const *)(& param->u.crypt.key), __len___9);
             __len___10 = 8UL;
             if (__len___10 > 63UL) {
@@ -65017,7 +65017,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
                                     (void const *)(& param->u.crypt.key) + 16U,
                                     __len___10);
             } else {
-              __ret___10 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrptxmickey[(int )param->u.crypt.idx].skey),
+              __ret___10 = memcpy((void *)(& psecuritypriv->dot118021XGrptxmickey[(int )param->u.crypt.idx].skey),
                                             (void const *)(& param->u.crypt.key) + 16U,
                                             __len___10);
             }
@@ -65027,7 +65027,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
                                     (void const *)(& param->u.crypt.key) + 24U,
                                     __len___11);
             } else {
-              __ret___11 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrprxmickey[(int )param->u.crypt.idx].skey),
+              __ret___11 = memcpy((void *)(& psecuritypriv->dot118021XGrprxmickey[(int )param->u.crypt.idx].skey),
                                             (void const *)(& param->u.crypt.key) + 24U,
                                             __len___11);
             }
@@ -65037,7 +65037,7 @@ static int rtw_cfg80211_ap_set_encryption(struct net_device *dev , struct ieee_p
             if (tmp___10 == 0) {
               psecuritypriv->dot118021XGrpPrivacy = 1027076U;
               __len___12 = (unsigned int )param->u.crypt.key_len <= 16U ? (size_t )param->u.crypt.key_len : 16UL;
-              __ret___12 = __builtin_memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
+              __ret___12 = memcpy((void *)(& psecuritypriv->dot118021XGrpKey[(int )param->u.crypt.idx].skey),
                                             (void const *)(& param->u.crypt.key),
                                             __len___12);
             } else {
@@ -65159,7 +65159,7 @@ static int rtw_cfg80211_set_encryption(struct net_device *dev , struct ieee_para
     } else {
     }
     __len = (size_t )wep_key_len;
-    __ret = __builtin_memcpy((void *)(& psecuritypriv->wep_key[wep_key_idx].key),
+    __ret = memcpy((void *)(& psecuritypriv->wep_key[wep_key_idx].key),
                              (void const *)(& param->u.crypt.key), __len);
     psecuritypriv->wep_key[wep_key_idx].keylen = wep_key_len;
     rtw_set_key23a(padapter, psecuritypriv, (int )wep_key_idx, 0);
@@ -65193,7 +65193,7 @@ static int rtw_cfg80211_set_encryption(struct net_device *dev , struct ieee_para
           } else {
           }
           __len___0 = (unsigned int )param->u.crypt.key_len <= 16U ? (size_t )param->u.crypt.key_len : 16UL;
-          __ret___0 = __builtin_memcpy((void *)(& psta->dot118021x_UncstKey.skey),
+          __ret___0 = memcpy((void *)(& psta->dot118021x_UncstKey.skey),
                                        (void const *)(& param->u.crypt.key), __len___0);
           tmp___4 = strcmp((char const *)(& param->u.crypt.alg), "TKIP");
           if (tmp___4 == 0) {
@@ -65202,7 +65202,7 @@ static int rtw_cfg80211_set_encryption(struct net_device *dev , struct ieee_para
               __ret___1 = memcpy((void *)(& psta->dot11tkiptxmickey.skey), (void const *)(& param->u.crypt.key) + 16U,
                                    __len___1);
             } else {
-              __ret___1 = __builtin_memcpy((void *)(& psta->dot11tkiptxmickey.skey),
+              __ret___1 = memcpy((void *)(& psta->dot11tkiptxmickey.skey),
                                            (void const *)(& param->u.crypt.key) + 16U,
                                            __len___1);
             }
@@ -65211,7 +65211,7 @@ static int rtw_cfg80211_set_encryption(struct net_device *dev , struct ieee_para
               __ret___2 = memcpy((void *)(& psta->dot11tkiprxmickey.skey), (void const *)(& param->u.crypt.key) + 24U,
                                    __len___2);
             } else {
-              __ret___2 = __builtin_memcpy((void *)(& psta->dot11tkiprxmickey.skey),
+              __ret___2 = memcpy((void *)(& psta->dot11tkiprxmickey.skey),
                                            (void const *)(& param->u.crypt.key) + 24U,
                                            __len___2);
             }
@@ -65225,14 +65225,14 @@ static int rtw_cfg80211_set_encryption(struct net_device *dev , struct ieee_para
           rtw_setstakey_cmd23a(padapter, (u8 *)psta, 1);
         } else {
           __len___3 = (unsigned int )param->u.crypt.key_len <= 16U ? (size_t )param->u.crypt.key_len : 16UL;
-          __ret___3 = __builtin_memcpy((void *)(& padapter->securitypriv.dot118021XGrpKey[(int )param->u.crypt.idx].skey),
+          __ret___3 = memcpy((void *)(& padapter->securitypriv.dot118021XGrpKey[(int )param->u.crypt.idx].skey),
                                        (void const *)(& param->u.crypt.key), __len___3);
           __len___4 = 8UL;
           if (__len___4 > 63UL) {
             __ret___4 = memcpy((void *)(& padapter->securitypriv.dot118021XGrptxmickey[(int )param->u.crypt.idx].skey),
                                  (void const *)(& param->u.crypt.key) + 16U, __len___4);
           } else {
-            __ret___4 = __builtin_memcpy((void *)(& padapter->securitypriv.dot118021XGrptxmickey[(int )param->u.crypt.idx].skey),
+            __ret___4 = memcpy((void *)(& padapter->securitypriv.dot118021XGrptxmickey[(int )param->u.crypt.idx].skey),
                                          (void const *)(& param->u.crypt.key) + 16U,
                                          __len___4);
           }
@@ -65241,7 +65241,7 @@ static int rtw_cfg80211_set_encryption(struct net_device *dev , struct ieee_para
             __ret___5 = memcpy((void *)(& padapter->securitypriv.dot118021XGrprxmickey[(int )param->u.crypt.idx].skey),
                                  (void const *)(& param->u.crypt.key) + 24U, __len___5);
           } else {
-            __ret___5 = __builtin_memcpy((void *)(& padapter->securitypriv.dot118021XGrprxmickey[(int )param->u.crypt.idx].skey),
+            __ret___5 = memcpy((void *)(& padapter->securitypriv.dot118021XGrprxmickey[(int )param->u.crypt.idx].skey),
                                          (void const *)(& param->u.crypt.key) + 24U,
                                          __len___5);
           }
@@ -65375,14 +65375,14 @@ static int cfg80211_rtw_add_key(struct wiphy *wiphy , struct net_device *ndev , 
   param->u.crypt.idx = key_index;
   if (params->seq_len != 0 && (unsigned long )params->seq != (unsigned long )((u8 const *)0U)) {
     __len = (size_t )params->seq_len;
-    __ret = __builtin_memcpy((void *)(& param->u.crypt.seq), (void const *)params->seq,
+    __ret = memcpy((void *)(& param->u.crypt.seq), (void const *)params->seq,
                              __len);
   } else {
   }
   if (params->key_len != 0 && (unsigned long )params->key != (unsigned long )((u8 const *)0U)) {
     param->u.crypt.key_len = (u16 )params->key_len;
     __len___0 = (size_t )params->key_len;
-    __ret___0 = __builtin_memcpy((void *)(& param->u.crypt.key), (void const *)params->key,
+    __ret___0 = memcpy((void *)(& param->u.crypt.key), (void const *)params->key,
                                  __len___0);
   } else {
   }
@@ -65949,7 +65949,7 @@ static int cfg80211_rtw_scan(struct wiphy *wiphy , struct cfg80211_scan_request 
   } else {
   }
   __len = (size_t )(ssids + (unsigned long )i)->ssid_len;
-  __ret = __builtin_memcpy((void *)(& ssid[i].ssid), (void const *)(& (ssids + (unsigned long )i)->ssid),
+  __ret = memcpy((void *)(& ssid[i].ssid), (void const *)(& (ssids + (unsigned long )i)->ssid),
                            __len);
   ssid[i].ssid_len = (ssids + (unsigned long )i)->ssid_len;
   i = i + 1;
@@ -65985,13 +65985,13 @@ static int cfg80211_rtw_scan(struct wiphy *wiphy , struct cfg80211_scan_request 
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& ch) + 1U, (void const *)(& ch), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& ch) + 1U, (void const *)(& ch), __len___0);
+      __ret___0 = memcpy((void *)(& ch) + 1U, (void const *)(& ch), __len___0);
     }
     __len___1 = 8UL;
     if (__len___1 > 63UL) {
       __ret___1 = memcpy((void *)(& ch) + 2U, (void const *)(& ch), __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& ch) + 2U, (void const *)(& ch), __len___1);
+      __ret___1 = memcpy((void *)(& ch) + 2U, (void const *)(& ch), __len___1);
     }
     tmp___5 = rtw_sitesurvey_cmd23a(padapter, (struct cfg80211_ssid *)(& ssid), 9,
                                     (struct rtw_ieee80211_channel *)(& ch), 3);
@@ -66252,7 +66252,7 @@ static int rtw_cfg80211_set_wpa_ie(struct rtw_adapter *padapter , u8 const *pie 
       padapter->securitypriv.dot11AuthAlgrthm = 2U;
       padapter->securitypriv.ndisauthtype = 4U;
       __len = (size_t )((int )*(pwpa + 1UL) + 2);
-      __ret = __builtin_memcpy((void *)(& padapter->securitypriv.supplicant_ie), (void const *)pwpa,
+      __ret = memcpy((void *)(& padapter->securitypriv.supplicant_ie), (void const *)pwpa,
                                __len);
       if (GlobalDebugLevel23A > 3U) {
         printk("\016RTL8723AU: got wpa_ie, wpa_ielen:%u\n", (int )*(pwpa + 1UL));
@@ -66270,7 +66270,7 @@ static int rtw_cfg80211_set_wpa_ie(struct rtw_adapter *padapter , u8 const *pie 
       padapter->securitypriv.dot11AuthAlgrthm = 2U;
       padapter->securitypriv.ndisauthtype = 7U;
       __len___0 = (size_t )((int )*(pwpa2 + 1UL) + 2);
-      __ret___0 = __builtin_memcpy((void *)(& padapter->securitypriv.supplicant_ie),
+      __ret___0 = memcpy((void *)(& padapter->securitypriv.supplicant_ie),
                                    (void const *)pwpa2, __len___0);
       if (GlobalDebugLevel23A > 3U) {
         printk("\016RTL8723AU: got wpa2_ie, wpa2_ielen:%u\n", (int )*(pwpa2 + 1UL));
@@ -66342,7 +66342,7 @@ static int rtw_cfg80211_set_wpa_ie(struct rtw_adapter *padapter , u8 const *pie 
     }
     padapter->securitypriv.wps_ie_len = (int )(512U < wps_ielen ? 512U : wps_ielen);
     __len___1 = (size_t )padapter->securitypriv.wps_ie_len;
-    __ret___1 = __builtin_memcpy((void *)(& padapter->securitypriv.wps_ie), (void const *)wps_ie,
+    __ret___1 = memcpy((void *)(& padapter->securitypriv.wps_ie), (void const *)wps_ie,
                                  __len___1);
     set_fwstate(& padapter->mlmepriv, 256);
   } else {
@@ -66425,7 +66425,7 @@ static int rtw_cfg80211_add_wep(struct rtw_adapter *padapter , struct rtw_wep_ke
     __ret = memcpy((void *)(& psecuritypriv->wep_key) + (unsigned long )keyid, (void const *)wep,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& psecuritypriv->wep_key) + (unsigned long )keyid,
+    __ret = memcpy((void *)(& psecuritypriv->wep_key) + (unsigned long )keyid,
                              (void const *)wep, __len);
   }
   psecuritypriv->dot11PrivacyKeyIndex = (u32 )keyid;
@@ -66530,7 +66530,7 @@ static int cfg80211_rtw_connect(struct wiphy *wiphy , struct net_device *ndev , 
   memset((void *)(& ndis_ssid), 0, 33UL);
   ndis_ssid.ssid_len = (u8 )sme->ssid_len;
   __len = sme->ssid_len;
-  __ret = __builtin_memcpy((void *)(& ndis_ssid.ssid), (void const *)sme->ssid,
+  __ret = memcpy((void *)(& ndis_ssid.ssid), (void const *)sme->ssid,
                            __len);
   if (GlobalDebugLevel23A > 3U) {
     printk("\016RTL8723AU: ssid =%s, len =%zu\n", (u8 *)(& ndis_ssid.ssid), sme->ssid_len);
@@ -66607,7 +66607,7 @@ static int cfg80211_rtw_connect(struct wiphy *wiphy , struct net_device *ndev , 
       }
       ndis_ssid.ssid_len = pnetwork->network.Ssid.ssid_len;
       __len___0 = (size_t )pnetwork->network.Ssid.ssid_len;
-      __ret___0 = __builtin_memcpy((void *)(& ndis_ssid.ssid), (void const *)(& pnetwork->network.Ssid.ssid),
+      __ret___0 = memcpy((void *)(& ndis_ssid.ssid), (void const *)(& pnetwork->network.Ssid.ssid),
                                    __len___0);
       matched = 1U;
       goto ldv_51965;
@@ -66709,7 +66709,7 @@ static int cfg80211_rtw_connect(struct wiphy *wiphy , struct net_device *ndev , 
       padapter->securitypriv.dot118021XGrpPrivacy = 1027073U;
     }
     __len___1 = (size_t )wep_key.keylen;
-    __ret___1 = __builtin_memcpy((void *)(& wep_key.key), (void const *)sme->key,
+    __ret___1 = memcpy((void *)(& wep_key.key), (void const *)sme->key,
                                  __len___1);
     tmp___10 = rtw_cfg80211_add_wep(padapter, & wep_key, (int )wep_key_idx);
     if (tmp___10 != 1) {
@@ -66881,7 +66881,7 @@ static int cfg80211_rtw_set_pmksa(struct wiphy *wiphy , struct net_device *netde
       __ret = memcpy((void *)(& psecuritypriv->PMKIDList[(int )index].PMKID), (void const *)pmksa->pmkid,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& psecuritypriv->PMKIDList[(int )index].PMKID),
+      __ret = memcpy((void *)(& psecuritypriv->PMKIDList[(int )index].PMKID),
                                (void const *)pmksa->pmkid, __len);
     }
     psecuritypriv->PMKIDList[(int )index].bUsed = 1U;
@@ -66910,7 +66910,7 @@ static int cfg80211_rtw_set_pmksa(struct wiphy *wiphy , struct net_device *netde
       __ret___0 = memcpy((void *)(& psecuritypriv->PMKIDList[(int )psecuritypriv->PMKIDIndex].PMKID),
                            (void const *)pmksa->pmkid, __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& psecuritypriv->PMKIDList[(int )psecuritypriv->PMKIDIndex].PMKID),
+      __ret___0 = memcpy((void *)(& psecuritypriv->PMKIDList[(int )psecuritypriv->PMKIDIndex].PMKID),
                                    (void const *)pmksa->pmkid, __len___0);
     }
     psecuritypriv->PMKIDList[(int )psecuritypriv->PMKIDIndex].bUsed = 1U;
@@ -67184,7 +67184,7 @@ static int rtw_cfg80211_monitor_if_xmit_entry(struct sk_buff *skb , struct net_d
       __ret = memcpy((void *)(& dst_mac_addr), (void const *)(& dot11_hdr->addr1),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& dst_mac_addr), (void const *)(& dot11_hdr->addr1),
+      __ret = memcpy((void *)(& dst_mac_addr), (void const *)(& dot11_hdr->addr1),
                                __len);
     }
     __len___0 = 6UL;
@@ -67192,7 +67192,7 @@ static int rtw_cfg80211_monitor_if_xmit_entry(struct sk_buff *skb , struct net_d
       __ret___0 = memcpy((void *)(& src_mac_addr), (void const *)(& dot11_hdr->addr2),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& src_mac_addr), (void const *)(& dot11_hdr->addr2),
+      __ret___0 = memcpy((void *)(& src_mac_addr), (void const *)(& dot11_hdr->addr2),
                                    __len___0);
     }
     skb_pull(skb, (unsigned int )(((dot11_hdr_len + qos_len) + snap_len) + -12));
@@ -67245,7 +67245,7 @@ static int rtw_cfg80211_monitor_if_xmit_entry(struct sk_buff *skb , struct net_d
       memset((void *)pmgntframe->buf_addr, 0, 104UL);
       pframe = pmgntframe->buf_addr + 40U;
       __len___1 = (size_t )len;
-      __ret___1 = __builtin_memcpy((void *)pframe, (void const *)skb->data, __len___1);
+      __ret___1 = memcpy((void *)pframe, (void const *)skb->data, __len___1);
       pattrib->pktlen = len;
       pmlmeext->mgnt_seq = (u16 )((int )dot11_hdr->seq_ctrl >> 4);
       pattrib->seqnum = pmlmeext->mgnt_seq;
@@ -67360,7 +67360,7 @@ static int rtw_cfg80211_add_monitor_if(struct rtw_adapter *padapter , char *name
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pwdev_priv->ifname_mon), (void const *)name, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pwdev_priv->ifname_mon), (void const *)name,
+    __ret = memcpy((void *)(& pwdev_priv->ifname_mon), (void const *)name,
                              __len);
   }
   out: ;
@@ -67517,9 +67517,9 @@ static int rtw_add_beacon(struct rtw_adapter *adapter , u8 const *head , size_t 
   } else {
   }
   __len = head_len - 24UL;
-  __ret = __builtin_memcpy((void *)pbuf, (void const *)head + 24U, __len);
+  __ret = memcpy((void *)pbuf, (void const *)head + 24U, __len);
   __len___0 = tail_len;
-  __ret___0 = __builtin_memcpy((void *)(pbuf + (head_len + 0xffffffffffffffe8UL)),
+  __ret___0 = memcpy((void *)(pbuf + (head_len + 0xffffffffffffffe8UL)),
                                (void const *)tail, __len___0);
   len = ((uint )head_len + (uint )tail_len) - 24U;
   tmp___2 = rtw_get_wps_ie23a(pbuf + 12UL, len - 12U, (u8 *)0U, & wps_ielen);
@@ -67569,11 +67569,11 @@ static int cfg80211_rtw_start_ap(struct wiphy *wiphy , struct net_device *ndev ,
     pbss_network = & adapter->mlmepriv.cur_network.network;
     pbss_network_ext = & adapter->mlmeextpriv.mlmext_info.network;
     __len = settings->ssid_len;
-    __ret = __builtin_memcpy((void *)(& pbss_network->Ssid.ssid), (void const *)settings->ssid,
+    __ret = memcpy((void *)(& pbss_network->Ssid.ssid), (void const *)settings->ssid,
                              __len);
     pbss_network->Ssid.ssid_len = (u8 )settings->ssid_len;
     __len___0 = settings->ssid_len;
-    __ret___0 = __builtin_memcpy((void *)(& pbss_network_ext->Ssid.ssid), (void const *)settings->ssid,
+    __ret___0 = memcpy((void *)(& pbss_network_ext->Ssid.ssid), (void const *)settings->ssid,
                                  __len___0);
     pbss_network_ext->Ssid.ssid_len = (u8 )settings->ssid_len;
   } else {
@@ -67854,7 +67854,7 @@ static int _cfg80211_rtw_mgmt_tx(struct rtw_adapter *padapter , u8 tx_ch , u8 co
   memset((void *)pmgntframe->buf_addr, 0, 104UL);
   pframe = pmgntframe->buf_addr + 40U;
   __len = len;
-  __ret = __builtin_memcpy((void *)pframe, (void const *)buf, __len);
+  __ret = memcpy((void *)pframe, (void const *)buf, __len);
   pattrib->pktlen = (u32 )len;
   pwlanhdr = (struct ieee80211_hdr *)pframe;
   pmlmeext->mgnt_seq = (u16 )((int )pwlanhdr->seq_ctrl >> 4);
@@ -69186,7 +69186,7 @@ void rtw_reset_securitypriv23a(struct rtw_adapter *adapter )
       __ret = memcpy((void *)(& backupPMKIDList), (void const *)(& adapter->securitypriv.PMKIDList),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& backupPMKIDList), (void const *)(& adapter->securitypriv.PMKIDList),
+      __ret = memcpy((void *)(& backupPMKIDList), (void const *)(& adapter->securitypriv.PMKIDList),
                                __len);
     }
     backupPMKIDIndex = adapter->securitypriv.PMKIDIndex;
@@ -69198,7 +69198,7 @@ void rtw_reset_securitypriv23a(struct rtw_adapter *adapter )
       __ret___0 = memcpy((void *)(& adapter->securitypriv.PMKIDList), (void const *)(& backupPMKIDList),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& adapter->securitypriv.PMKIDList), (void const *)(& backupPMKIDList),
+      __ret___0 = memcpy((void *)(& adapter->securitypriv.PMKIDList), (void const *)(& backupPMKIDList),
                                    __len___0);
     }
     adapter->securitypriv.PMKIDIndex = backupPMKIDIndex;
@@ -69527,7 +69527,7 @@ static int loadparam(struct rtw_adapter *padapter , struct net_device *pnetdev )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& registry_par->ssid.ssid), (void const *)"ANY", __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& registry_par->ssid.ssid), (void const *)"ANY",
+    __ret = memcpy((void *)(& registry_par->ssid.ssid), (void const *)"ANY",
                              __len);
   }
   registry_par->ssid.ssid_len = 3U;
@@ -74201,7 +74201,7 @@ static u8 bthci_GetAssocInfo(struct rtw_adapter *padapter , u8 EntryNum )
   } else {
   }
   __len = (size_t )((int )TotalLen - (int )BaseMemoryShift);
-  __ret = __builtin_memcpy((void *)(& tempBuf), (void const *)pBTInfo->BtAsocEntry[(int )EntryNum].AmpAsocCmdData.AMPAssocfragment + (unsigned long )BaseMemoryShift,
+  __ret = memcpy((void *)(& tempBuf), (void const *)pBTInfo->BtAsocEntry[(int )EntryNum].AmpAsocCmdData.AMPAssocfragment + (unsigned long )BaseMemoryShift,
                            __len);
   if (BTCoexDbgLevel == 1U) {
     ptr = (u8 *)(& tempBuf);
@@ -74265,7 +74265,7 @@ static u8 bthci_GetAssocInfo(struct rtw_adapter *padapter , u8 EntryNum )
     __ret___0 = memcpy((void *)(& pBTInfo->BtAsocEntry[(int )EntryNum].BTRemoteMACAddr),
                          (void const *)(& pAmpAsoc->Data), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& pBTInfo->BtAsocEntry[(int )EntryNum].BTRemoteMACAddr),
+    __ret___0 = memcpy((void *)(& pBTInfo->BtAsocEntry[(int )EntryNum].BTRemoteMACAddr),
                                  (void const *)(& pAmpAsoc->Data), __len___0);
   }
   if (BTCoexDbgLevel == 1U) {
@@ -74293,7 +74293,7 @@ static u8 bthci_GetAssocInfo(struct rtw_adapter *padapter , u8 EntryNum )
   }
   pBtHciInfo->BtPreChnlListLen = pAmpAsoc->Length;
   __len___1 = (size_t )pBtHciInfo->BtPreChnlListLen;
-  __ret___1 = __builtin_memcpy((void *)(& pBtHciInfo->BTPreChnllist), (void const *)(& pAmpAsoc->Data),
+  __ret___1 = memcpy((void *)(& pBtHciInfo->BTPreChnllist), (void const *)(& pAmpAsoc->Data),
                                __len___1);
   if (BTCoexDbgLevel == 1U) {
     ptr___2 = (u8 *)(& pBtHciInfo->BTPreChnllist);
@@ -74324,7 +74324,7 @@ static u8 bthci_GetAssocInfo(struct rtw_adapter *padapter , u8 EntryNum )
   }
   pBtHciInfo->BTConnectChnlListLen = pAmpAsoc->Length;
   __len___2 = (size_t )pBtHciInfo->BTConnectChnlListLen;
-  __ret___2 = __builtin_memcpy((void *)(& pBtHciInfo->BTConnectChnllist), (void const *)(& pAmpAsoc->Data),
+  __ret___2 = memcpy((void *)(& pBtHciInfo->BTConnectChnllist), (void const *)(& pAmpAsoc->Data),
                                __len___2);
   goto ldv_54455;
   case 4: ;
@@ -74525,7 +74525,7 @@ static u16 bthci_AssocMACAddr(struct rtw_adapter *padapter , void *pbuf )
     __ret = memcpy((void *)(& pAssoStrc->Data), (void const *)(& padapter->eeprompriv.mac_addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pAssoStrc->Data), (void const *)(& padapter->eeprompriv.mac_addr),
+    __ret = memcpy((void *)(& pAssoStrc->Data), (void const *)(& padapter->eeprompriv.mac_addr),
                              __len);
   }
   if (BTCoexDbgLevel == 1U) {
@@ -74624,7 +74624,7 @@ static u16 bthci_AssocPreferredChannelList(struct rtw_adapter *padapter , void *
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pAssoStrc->Data), (void const *)(& ctrString), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pAssoStrc->Data), (void const *)(& ctrString),
+    __ret = memcpy((void *)(& pAssoStrc->Data), (void const *)(& ctrString),
                              __len);
   }
   pReg->reXId = 201U;
@@ -75547,14 +75547,14 @@ static enum hci_status bthci_BuildPhysicalLink(struct rtw_adapter *padapter , st
   pBTInfo->BtAsocEntry[(int )EntryNum].PhyLinkCmdData.BtAMPKeyLen = *((u8 *)(& pHciCmd->Data) + 1UL);
   pBTInfo->BtAsocEntry[(int )EntryNum].PhyLinkCmdData.BtAMPKeyType = *((u8 *)(& pHciCmd->Data) + 2UL);
   __len = (size_t )pBTInfo->BtAsocEntry[(int )EntryNum].PhyLinkCmdData.BtAMPKeyLen;
-  __ret = __builtin_memcpy((void *)(& pBTInfo->BtAsocEntry[(int )EntryNum].PhyLinkCmdData.BtAMPKey),
+  __ret = memcpy((void *)(& pBTInfo->BtAsocEntry[(int )EntryNum].PhyLinkCmdData.BtAMPKey),
                            (void const *)(& pHciCmd->Data) + 3U, __len);
   __len___0 = 32UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& pBTInfo->BtAsocEntry[(int )EntryNum].PMK), (void const *)(& pBTInfo->BtAsocEntry[(int )EntryNum].PhyLinkCmdData.BtAMPKey),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& pBTInfo->BtAsocEntry[(int )EntryNum].PMK),
+    __ret___0 = memcpy((void *)(& pBTInfo->BtAsocEntry[(int )EntryNum].PMK),
                                  (void const *)(& pBTInfo->BtAsocEntry[(int )EntryNum].PhyLinkCmdData.BtAMPKey),
                                  __len___0);
   }
@@ -75665,7 +75665,7 @@ static void bthci_BuildLogicalLink(struct rtw_adapter *padapter , struct packet_
     __ret = memcpy((void *)(& TxFlowSpec), (void const *)(& pHciCmd->Data) + 1U,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& TxFlowSpec), (void const *)(& pHciCmd->Data) + 1U,
+    __ret = memcpy((void *)(& TxFlowSpec), (void const *)(& pHciCmd->Data) + 1U,
                              __len);
   }
   __len___0 = 16UL;
@@ -75673,7 +75673,7 @@ static void bthci_BuildLogicalLink(struct rtw_adapter *padapter , struct packet_
     __ret___0 = memcpy((void *)(& RxFlowSpec), (void const *)(& pHciCmd->Data) + 17U,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& RxFlowSpec), (void const *)(& pHciCmd->Data) + 17U,
+    __ret___0 = memcpy((void *)(& RxFlowSpec), (void const *)(& pHciCmd->Data) + 17U,
                                  __len___0);
   }
   MaxSDUSize = (u32 )TxFlowSpec.MaximumSDUSize;
@@ -75760,7 +75760,7 @@ static void bthci_BuildLogicalLink(struct rtw_adapter *padapter , struct packet_
           __ret___1 = memcpy((void *)(& pBTinfo->BtAsocEntry[(int )EntryNum].LogLinkCmdData[(int )i].Tx_Flow_Spec),
                                (void const *)(& TxFlowSpec), __len___1);
         } else {
-          __ret___1 = __builtin_memcpy((void *)(& pBTinfo->BtAsocEntry[(int )EntryNum].LogLinkCmdData[(int )i].Tx_Flow_Spec),
+          __ret___1 = memcpy((void *)(& pBTinfo->BtAsocEntry[(int )EntryNum].LogLinkCmdData[(int )i].Tx_Flow_Spec),
                                        (void const *)(& TxFlowSpec), __len___1);
         }
         __len___2 = 16UL;
@@ -75768,7 +75768,7 @@ static void bthci_BuildLogicalLink(struct rtw_adapter *padapter , struct packet_
           __ret___2 = memcpy((void *)(& pBTinfo->BtAsocEntry[(int )EntryNum].LogLinkCmdData[(int )i].Rx_Flow_Spec),
                                (void const *)(& RxFlowSpec), __len___2);
         } else {
-          __ret___2 = __builtin_memcpy((void *)(& pBTinfo->BtAsocEntry[(int )EntryNum].LogLinkCmdData[(int )i].Rx_Flow_Spec),
+          __ret___2 = memcpy((void *)(& pBTinfo->BtAsocEntry[(int )EntryNum].LogLinkCmdData[(int )i].Rx_Flow_Spec),
                                        (void const *)(& RxFlowSpec), __len___2);
         }
         pBTinfo->BtAsocEntry[(int )EntryNum].LogLinkCmdData[(int )i].bLLCompleteEventIsSet = 0U;
@@ -75884,7 +75884,7 @@ static void bthci_StartBeaconAndConnect(struct rtw_adapter *padapter , struct pa
   length = (unsigned int )pBTInfo->BtAsocEntry[(int )pBtMgnt->CurrentConnectEntryNum].BTSsid.Length <= 63U ? (u32 )pBTInfo->BtAsocEntry[(int )pBtMgnt->CurrentConnectEntryNum].BTSsid.Length : 63U;
   memset((void *)(& buffer), 0, 64UL);
   __len = (size_t )length;
-  __ret = __builtin_memcpy((void *)(& buffer), (void const *)pBTInfo->BtAsocEntry[(int )pBtMgnt->CurrentConnectEntryNum].BTSsid.Octet,
+  __ret = memcpy((void *)(& buffer), (void const *)pBTInfo->BtAsocEntry[(int )pBtMgnt->CurrentConnectEntryNum].BTSsid.Octet,
                            __len);
   __i = 0U;
   goto ldv_54812;
@@ -76158,12 +76158,12 @@ static enum hci_status bthci_CmdWriteRemoteAMPAssoc(struct rtw_adapter *padapter
       __ret = memcpy(pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.AMPAssocfragment + (unsigned long )pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.LenSoFar,
                        (void const *)(& pHciCmd->Data) + 5U, __len);
     } else {
-      __ret = __builtin_memcpy(pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.AMPAssocfragment + (unsigned long )pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.LenSoFar,
+      __ret = memcpy(pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.AMPAssocfragment + (unsigned long )pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.LenSoFar,
                                (void const *)(& pHciCmd->Data) + 5U, __len);
     }
   } else {
     __len___0 = (size_t )pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.AMPAssocRemLen;
-    __ret___0 = __builtin_memcpy(pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.AMPAssocfragment + (unsigned long )pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.LenSoFar,
+    __ret___0 = memcpy(pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.AMPAssocfragment + (unsigned long )pBTInfo->BtAsocEntry[(int )CurrentAssocNum].AmpAsocCmdData.LenSoFar,
                                  (void const *)(& pHciCmd->Data) + 5U, __len___0);
     if (BTCoexDbgLevel == 1U) {
       ptr___0 = (u8 *)(& pHciCmd->Data) + 5UL;
@@ -78006,7 +78006,7 @@ static enum hci_status bthci_CmdFlowSpecModify(struct rtw_adapter *padapter , st
       __ret = memcpy((void *)(& pBTinfo->BtAsocEntry[(int )j].LogLinkCmdData[(int )i].Tx_Flow_Spec),
                        (void const *)(& pHciCmd->Data) + 2U, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& pBTinfo->BtAsocEntry[(int )j].LogLinkCmdData[(int )i].Tx_Flow_Spec),
+      __ret = memcpy((void *)(& pBTinfo->BtAsocEntry[(int )j].LogLinkCmdData[(int )i].Tx_Flow_Spec),
                                (void const *)(& pHciCmd->Data) + 2U, __len);
     }
     __len___0 = 16UL;
@@ -78014,7 +78014,7 @@ static enum hci_status bthci_CmdFlowSpecModify(struct rtw_adapter *padapter , st
       __ret___0 = memcpy((void *)(& pBTinfo->BtAsocEntry[(int )j].LogLinkCmdData[(int )i].Rx_Flow_Spec),
                            (void const *)(& pHciCmd->Data) + 18U, __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& pBTinfo->BtAsocEntry[(int )j].LogLinkCmdData[(int )i].Rx_Flow_Spec),
+      __ret___0 = memcpy((void *)(& pBTinfo->BtAsocEntry[(int )j].LogLinkCmdData[(int )i].Rx_Flow_Spec),
                                    (void const *)(& pHciCmd->Data) + 18U, __len___0);
     }
     bthci_CheckLogLinkBehavior(padapter, pBTinfo->BtAsocEntry[(int )j].LogLinkCmdData[(int )i].Tx_Flow_Spec);
@@ -89521,7 +89521,7 @@ static void update_BCNTIM(struct rtw_adapter *padapter )
     pbackup_remainder_ie = (u8 *)tmp;
     if ((unsigned long )pbackup_remainder_ie != (unsigned long )((u8 *)0U) && (unsigned long )premainder_ie != (unsigned long )((u8 *)0U)) {
       __len = (size_t )remainder_ielen;
-      __ret = __builtin_memcpy((void *)pbackup_remainder_ie, (void const *)premainder_ie,
+      __ret = memcpy((void *)pbackup_remainder_ie, (void const *)premainder_ie,
                                __len);
     } else {
     }
@@ -89563,7 +89563,7 @@ static void update_BCNTIM(struct rtw_adapter *padapter )
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)dst_ie, (void const *)(& tim_bitmap_le), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)dst_ie, (void const *)(& tim_bitmap_le),
+      __ret___0 = memcpy((void *)dst_ie, (void const *)(& tim_bitmap_le),
                                    __len___0);
     }
     dst_ie = dst_ie + 2UL;
@@ -89571,7 +89571,7 @@ static void update_BCNTIM(struct rtw_adapter *padapter )
   }
   if ((unsigned long )pbackup_remainder_ie != (unsigned long )((u8 *)0U)) {
     __len___1 = (size_t )remainder_ielen;
-    __ret___1 = __builtin_memcpy((void *)dst_ie, (void const *)pbackup_remainder_ie,
+    __ret___1 = memcpy((void *)dst_ie, (void const *)pbackup_remainder_ie,
                                  __len___1);
     kfree((void const *)pbackup_remainder_ie);
   } else {
@@ -89980,7 +89980,7 @@ static void update_bmc_sta(struct rtw_adapter *padapter )
                                         supportRateNum, 1);
     network_type = (unsigned char )tmp___1;
     __len = (size_t )supportRateNum;
-    __ret = __builtin_memcpy((void *)(& psta->bssrateset), (void const *)(& pcur_network->SupportedRates),
+    __ret = memcpy((void *)(& psta->bssrateset), (void const *)(& pcur_network->SupportedRates),
                              __len);
     psta->bssratelen = (u32 )supportRateNum;
     i = 0;
@@ -90228,7 +90228,7 @@ static void start_bss_network(struct rtw_adapter *padapter , u8 *pbuf )
   tmp___0 = rtw_get_capability23a(pnetwork);
   update_capinfo23a(padapter, (int )tmp___0);
   __len = (size_t )pnetwork->Length;
-  __ret = __builtin_memcpy((void *)pnetwork_mlmeext, (void const *)pnetwork, __len);
+  __ret = memcpy((void *)pnetwork_mlmeext, (void const *)pnetwork, __len);
   if ((unsigned int )pmlmeext->bstart_bss != 0U) {
     update_beacon23a(padapter, 5, (u8 *)0U, 0);
     tmp___1 = send_beacon23a(padapter);
@@ -90331,7 +90331,7 @@ int rtw_check_beacon_data23a(struct rtw_adapter *padapter , u8 *pbuf , unsigned 
   pbss_network->IELength = len;
   memset((void *)ie, 0, 768UL);
   __len = (size_t )pbss_network->IELength;
-  __ret = __builtin_memcpy((void *)ie, (void const *)pbuf, __len);
+  __ret = memcpy((void *)ie, (void const *)pbuf, __len);
   if ((unsigned int )pbss_network->ifmode != 3U && (unsigned int )pbss_network->ifmode != 9U) {
     return (0);
   } else {
@@ -90344,7 +90344,7 @@ int rtw_check_beacon_data23a(struct rtw_adapter *padapter , u8 *pbuf , unsigned 
                          __len___0);
   } else {
     tmp___2 = myid(& padapter->eeprompriv);
-    __ret___0 = __builtin_memcpy((void *)(& pbss_network->MacAddress), (void const *)tmp___2,
+    __ret___0 = memcpy((void *)(& pbss_network->MacAddress), (void const *)tmp___2,
                                  __len___0);
   }
   pbeacon = rtw_get_beacon_interval23a_from_ie(ie);
@@ -90354,7 +90354,7 @@ int rtw_check_beacon_data23a(struct rtw_adapter *padapter , u8 *pbuf , unsigned 
   if ((unsigned long )p != (unsigned long )((u8 *)0U) && ie_len != 0U) {
     memset((void *)(& pbss_network->Ssid), 0, 33UL);
     __len___1 = (size_t )ie_len;
-    __ret___1 = __builtin_memcpy((void *)(& pbss_network->Ssid.ssid), (void const *)p + 2U,
+    __ret___1 = memcpy((void *)(& pbss_network->Ssid.ssid), (void const *)p + 2U,
                                  __len___1);
     pbss_network->Ssid.ssid_len = (u8 )ie_len;
   } else {
@@ -90370,7 +90370,7 @@ int rtw_check_beacon_data23a(struct rtw_adapter *padapter , u8 *pbuf , unsigned 
   p = rtw_get_ie23a(ie + 12UL, 1, (int *)(& ie_len), (int )(pbss_network->IELength - 12U));
   if ((unsigned long )p != (unsigned long )((u8 *)0U)) {
     __len___2 = (size_t )ie_len;
-    __ret___2 = __builtin_memcpy((void *)(& supportRate), (void const *)p + 2U,
+    __ret___2 = memcpy((void *)(& supportRate), (void const *)p + 2U,
                                  __len___2);
     supportRateNum = (int )ie_len;
   } else {
@@ -90378,7 +90378,7 @@ int rtw_check_beacon_data23a(struct rtw_adapter *padapter , u8 *pbuf , unsigned 
   p = rtw_get_ie23a(ie + 12UL, 50, (int *)(& ie_len), (int )(pbss_network->IELength - 12U));
   if ((unsigned long )p != (unsigned long )((u8 *)0U)) {
     __len___3 = (size_t )ie_len;
-    __ret___3 = __builtin_memcpy((void *)(& supportRate) + (unsigned long )supportRateNum,
+    __ret___3 = memcpy((void *)(& supportRate) + (unsigned long )supportRateNum,
                                  (void const *)p + 2U, __len___3);
     supportRateNum = (int )((uint )supportRateNum + ie_len);
   } else {
@@ -90498,7 +90498,7 @@ int rtw_check_beacon_data23a(struct rtw_adapter *padapter , u8 *pbuf , unsigned 
     } else {
     }
     __len___4 = (size_t )ie_len;
-    __ret___4 = __builtin_memcpy((void *)(& pmlmepriv->htpriv.ht_cap), (void const *)p + 2U,
+    __ret___4 = memcpy((void *)(& pmlmepriv->htpriv.ht_cap), (void const *)p + 2U,
                                  __len___4);
   } else {
   }
@@ -90628,7 +90628,7 @@ int rtw_acl_add_sta23a(struct rtw_adapter *padapter , u8 *addr )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& paclnode->addr), (void const *)addr, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& paclnode->addr), (void const *)addr, __len);
+      __ret = memcpy((void *)(& paclnode->addr), (void const *)addr, __len);
     }
     paclnode->valid = 1U;
     tmp___0 = get_list_head(pacl_node_q);
@@ -90865,7 +90865,7 @@ static void update_bcn_wps_ie(struct rtw_adapter *padapter )
     pbackup_remainder_ie = (u8 *)tmp;
     if ((unsigned long )pbackup_remainder_ie != (unsigned long )((u8 *)0U)) {
       __len = (size_t )remainder_ielen;
-      __ret = __builtin_memcpy((void *)pbackup_remainder_ie, (void const *)premainder_ie,
+      __ret = memcpy((void *)pbackup_remainder_ie, (void const *)premainder_ie,
                                __len);
     } else {
     }
@@ -90874,11 +90874,11 @@ static void update_bcn_wps_ie(struct rtw_adapter *padapter )
   wps_ielen = (unsigned int )*(pwps_ie_src + 1UL);
   if (((wps_offset + wps_ielen) + remainder_ielen) + 2U <= 768U) {
     __len___0 = (size_t )(wps_ielen + 2U);
-    __ret___0 = __builtin_memcpy((void *)pwps_ie, (void const *)pwps_ie_src, __len___0);
+    __ret___0 = memcpy((void *)pwps_ie, (void const *)pwps_ie_src, __len___0);
     pwps_ie = pwps_ie + (unsigned long )(wps_ielen + 2U);
     if ((unsigned long )pbackup_remainder_ie != (unsigned long )((u8 *)0U)) {
       __len___1 = (size_t )remainder_ielen;
-      __ret___1 = __builtin_memcpy((void *)pwps_ie, (void const *)pbackup_remainder_ie,
+      __ret___1 = memcpy((void *)pwps_ie, (void const *)pbackup_remainder_ie,
                                    __len___1);
     } else {
     }

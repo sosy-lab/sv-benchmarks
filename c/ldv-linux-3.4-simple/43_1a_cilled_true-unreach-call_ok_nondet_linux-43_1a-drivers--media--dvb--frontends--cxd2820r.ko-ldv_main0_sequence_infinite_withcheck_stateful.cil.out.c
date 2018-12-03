@@ -3266,7 +3266,7 @@ static int cxd2820r_wr_regs_i2c(struct cxd2820r_priv *priv , u8 i2c , u8 reg , u
   __cil_tmp32 = (void *)(& buf);
   __cil_tmp33 = __cil_tmp32 + 1U;
   __cil_tmp34 = (void const   *)val;
-  __ret = __builtin_memcpy(__cil_tmp33, __cil_tmp34, __len);
+  __ret = memcpy(__cil_tmp33, __cil_tmp34, __len);
   __cil_tmp35 = *((struct i2c_adapter **)priv);
   __cil_tmp36 = (struct i2c_msg *)(& msg);
   ret = i2c_transfer(__cil_tmp35, __cil_tmp36, 1);
@@ -3373,7 +3373,7 @@ static int cxd2820r_rd_regs_i2c(struct cxd2820r_priv *priv , u8 i2c , u8 reg , u
     __len = (size_t )len;
     __cil_tmp40 = (void *)val;
     __cil_tmp41 = (void const   *)(& buf);
-    __ret = __builtin_memcpy(__cil_tmp40, __cil_tmp41, __len);
+    __ret = memcpy(__cil_tmp40, __cil_tmp41, __len);
     ret = 0;
     }
   } else {
@@ -4044,7 +4044,7 @@ int cxd2820r_gpio(struct dvb_frontend *fe )
     __cil_tmp106 = (u8 (*)[3U])__cil_tmp105;
     __cil_tmp107 = (void *)__cil_tmp106;
     __cil_tmp108 = (void const   *)gpio;
-    __ret = __builtin_memcpy(__cil_tmp107, __cil_tmp108, __len);
+    __ret = memcpy(__cil_tmp107, __cil_tmp108, __len);
     }
   }
   return (ret);
@@ -5349,7 +5349,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     __cil_tmp22 = (struct cxd2820r_config *)__cil_tmp21;
     __cil_tmp23 = (void *)__cil_tmp22;
     __cil_tmp24 = (void const   *)cfg;
-    __ret = __builtin_memcpy(__cil_tmp23, __cil_tmp24, __len);
+    __ret = memcpy(__cil_tmp23, __cil_tmp24, __len);
     }
   }
   {
@@ -5411,7 +5411,7 @@ struct dvb_frontend *cxd2820r_attach(struct cxd2820r_config  const  *cfg , struc
     __cil_tmp48 = (struct dvb_frontend_ops *)__cil_tmp47;
     __cil_tmp49 = (void *)__cil_tmp48;
     __cil_tmp50 = (void const   *)(& cxd2820r_ops);
-    __ret___0 = __builtin_memcpy(__cil_tmp49, __cil_tmp50, __len___0);
+    __ret___0 = memcpy(__cil_tmp49, __cil_tmp50, __len___0);
     }
   }
   __cil_tmp51 = 8 + 760;

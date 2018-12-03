@@ -6917,7 +6917,7 @@ static int pciserial_init_one(struct pci_dev *dev , struct pci_device_id  const 
     if (__len > 63UL) {
       __ret = memcpy((void *)(& tmp), (void const   *)board, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& tmp), (void const   *)board, __len);
+      __ret = memcpy((void *)(& tmp), (void const   *)board, __len);
     }
     board = (struct pciserial_board  const  *)(& tmp);
     rc = serial_pci_guess_board(dev, & tmp);
@@ -6931,7 +6931,7 @@ static int pciserial_init_one(struct pci_dev *dev , struct pci_device_id  const 
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& tmp), (void const   *)(& pci_boards), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& tmp), (void const   *)(& pci_boards),
+      __ret___0 = memcpy((void *)(& tmp), (void const   *)(& pci_boards),
                                    __len___0);
     }
     rc = serial_pci_guess_board(dev, & tmp);

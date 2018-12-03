@@ -2749,7 +2749,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }
@@ -4832,7 +4832,7 @@ int i2o_driver_dispatch(struct i2o_controller *c , u32 m )
     evt->tcntxt = msg->u.s.tcntxt;
     evt->event_indicator = msg->body[0];
     __len = (size_t )((int )size * 4);
-    __ret = __builtin_memcpy((void *)(& evt->data), (void const   *)(& msg->body) + 1U,
+    __ret = memcpy((void *)(& evt->data), (void const   *)(& msg->body) + 1U,
                              __len);
     __mptr = (struct list_head  const  *)c->devices.next;
     dev = (struct i2o_device *)__mptr + 0xffffffffffffffd0UL;
@@ -5733,7 +5733,7 @@ int i2o_device_parse_lct(struct i2o_controller *c )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& entry->identity_tag), (void const   *)dlct, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& entry->identity_tag), (void const   *)dlct,
+    __ret = memcpy((void *)(& entry->identity_tag), (void const   *)dlct,
                              __len);
   }
   dlct = dlct + 2UL;
@@ -5867,7 +5867,7 @@ int i2o_parm_issue(struct i2o_device *i2o_dev , int cmd , void *oplist , int opl
   i = i + 1;
   msg->body[tmp___3] = (unsigned int )(oplen | 1275068416);
   __len = (size_t )oplen;
-  __ret = __builtin_memcpy((void *)(& msg->body) + (unsigned long )i, (void const   *)oplist,
+  __ret = memcpy((void *)(& msg->body) + (unsigned long )i, (void const   *)oplist,
                            __len);
   i = (oplen / 4 + (((unsigned int )oplen & 3U) != 0U)) + i;
   tmp___4 = i;
@@ -5884,7 +5884,7 @@ int i2o_parm_issue(struct i2o_device *i2o_dev , int cmd , void *oplist , int opl
 
   }
   __len___0 = res.len;
-  __ret___0 = __builtin_memcpy(reslist, (void const   *)res.virt, __len___0);
+  __ret___0 = memcpy(reslist, (void const   *)res.virt, __len___0);
   i2o_dma_free(dev, & res);
   return (rc);
 }
@@ -5912,7 +5912,7 @@ int i2o_parm_field_get(struct i2o_device *i2o_dev , int group , int field , void
   }
   rc = i2o_parm_issue(i2o_dev, 6, (void *)(& opblk), 12, (void *)resblk, buflen + 8);
   __len = (size_t )buflen;
-  __ret = __builtin_memcpy(buf, (void const   *)resblk + 8U, __len);
+  __ret = memcpy(buf, (void const   *)resblk + 8U, __len);
   kfree((void const   *)resblk);
   return (rc);
 }
@@ -5947,7 +5947,7 @@ int i2o_parm_table_get(struct i2o_device *dev , int oper , int group , int field
   *(opblk + 3UL) = (u16 )group;
   *(opblk + 4UL) = (u16 )fieldcount;
   __len = (size_t )ibuflen;
-  __ret = __builtin_memcpy((void *)opblk + 5U, (void const   *)ibuf, __len);
+  __ret = memcpy((void *)opblk + 5U, (void const   *)ibuf, __len);
   size = i2o_parm_issue(dev, 6, (void *)opblk, size, resblk, reslen);
   kfree((void const   *)opblk);
   if (size > reslen) {

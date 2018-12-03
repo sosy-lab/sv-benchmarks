@@ -5476,7 +5476,7 @@ static int sis900_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
                              __len);
     }
   }
@@ -5539,7 +5539,7 @@ static int sis630e_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
                              __len);
     }
   }
@@ -5588,7 +5588,7 @@ static int sis635_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
+    __ret = memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
                              __len);
     }
   }
@@ -5642,7 +5642,7 @@ static int sis96x_get_mac_addr(struct pci_dev *pci_dev , struct net_device *net_
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
+      __ret = memcpy((void *)(& net_dev->perm_addr), (void const *)net_dev->dev_addr,
                                __len);
       }
     }

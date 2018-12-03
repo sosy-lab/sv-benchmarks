@@ -7951,7 +7951,7 @@ static void em28xx_copy_video(struct em28xx *dev , struct em28xx_dmaqueue *dma_q
 
   }
   __len = (size_t )lencopy;
-  __ret = __builtin_memcpy(startwrite, (void const   *)startread, __len);
+  __ret = memcpy(startwrite, (void const   *)startread, __len);
   remain = remain - lencopy;
   goto ldv_46323;
   ldv_46322: 
@@ -7980,7 +7980,7 @@ static void em28xx_copy_video(struct em28xx *dev , struct em28xx_dmaqueue *dma_q
 
   }
   __len___0 = (size_t )lencopy;
-  __ret___0 = __builtin_memcpy(startwrite, (void const   *)startread, __len___0);
+  __ret___0 = memcpy(startwrite, (void const   *)startread, __len___0);
   remain = remain - lencopy;
   ldv_46323: ;
   if (remain > 0) {
@@ -8064,7 +8064,7 @@ static void em28xx_copy_vbi(struct em28xx *dev , struct em28xx_dmaqueue *dma_q ,
 
   }
   __len = len;
-  __ret = __builtin_memcpy(startwrite, (void const   *)startread, __len);
+  __ret = memcpy(startwrite, (void const   *)startread, __len);
   dma_q->pos = (int )((unsigned int )dma_q->pos + (unsigned int )len);
   return;
 }
@@ -8986,7 +8986,7 @@ static int ac97_queryctrl(struct v4l2_queryctrl *qc )
       __ret = memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
+      __ret = memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
                                __len);
     }
     return (0);
@@ -10896,7 +10896,7 @@ static int radio_queryctrl(struct file *file , void *priv , struct v4l2_queryctr
       __ret = memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
+      __ret = memcpy((void *)qc, (void const   *)(& ac97_qctrl) + (unsigned long )i,
                                __len);
     }
     return (0);
@@ -17085,7 +17085,7 @@ int em28xx_read_reg_req_len(struct em28xx *dev , u8 req , u16 reg , char *buf , 
   }
   if (len != 0) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(& dev->urb_buf), __len);
+    __ret = memcpy((void *)buf, (void const   *)(& dev->urb_buf), __len);
   } else {
 
   }
@@ -17176,7 +17176,7 @@ int em28xx_write_regs_req(struct em28xx *dev , u8 req , u16 reg , char *buf , in
   }
   ldv_mutex_lock_109(& dev->ctrl_urb_lock);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& dev->urb_buf), (void const   *)buf, __len);
+  __ret = memcpy((void *)(& dev->urb_buf), (void const   *)buf, __len);
   ret = usb_control_msg(dev->udev, (unsigned int )pipe, (int )req, 64, 0, (int )reg,
                         (void *)(& dev->urb_buf), (int )((__u16 )len), 250);
   ldv_mutex_unlock_110(& dev->ctrl_urb_lock);

@@ -4413,7 +4413,7 @@ static ssize_t show_country_codes(struct device *dev , struct device_attribute *
   tmp = ldv_usb_get_intfdata_3(intf);
   acm = (struct acm *)tmp;
   __len = (size_t )acm->country_code_size;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)acm->country_codes, __len);
+  __ret = memcpy((void *)buf, (void const   *)acm->country_codes, __len);
   return ((ssize_t )acm->country_code_size);
 }
 }
@@ -5112,7 +5112,7 @@ static int acm_tty_write(struct tty_struct *tty , unsigned char const   *buf , i
   }
   count = (int )(acm->writesize < (unsigned int )count ? acm->writesize : (unsigned int )count);
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)wb->buf, (void const   *)buf, __len);
+  __ret = memcpy((void *)wb->buf, (void const   *)buf, __len);
   wb->len = count;
   usb_autopm_get_interface_async(acm->control);
   if (acm->susp_count != 0U) {
@@ -5401,7 +5401,7 @@ static void acm_tty_set_termios(struct tty_struct *tty , struct ktermios *termio
     if (__len > 63UL) {
       __ret = memcpy((void *)(& acm->line), (void const   *)(& newline), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& acm->line), (void const   *)(& newline),
+      __ret = memcpy((void *)(& acm->line), (void const   *)(& newline),
                                __len);
     }
     descriptor.modname = "cdc_acm";
@@ -6123,7 +6123,7 @@ static int acm_probe(struct usb_interface *intf , struct usb_device_id  const  *
     }
     acm->country_code_size = (unsigned int )((int )cfd->bLength + -4);
     __len = (size_t )((int )cfd->bLength + -4);
-    __ret = __builtin_memcpy((void *)acm->country_codes, (void const   *)(& cfd->wCountyCode0),
+    __ret = memcpy((void *)acm->country_codes, (void const   *)(& cfd->wCountyCode0),
                              __len);
     acm->country_rel_date = (unsigned int )cfd->iCountryCodeRelDate;
     i = device_create_file(& intf->dev, (struct device_attribute  const  *)(& dev_attr_wCountryCodes));

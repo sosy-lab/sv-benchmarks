@@ -1704,7 +1704,7 @@ static int ff_eeprom_read(struct fmc_device *fmc , uint32_t offset , void *buf ,
   } else {
   }
   __len = size;
-  __ret = __builtin_memcpy(buf, (void const *)fmc->eeprom + (unsigned long )offset,
+  __ret = memcpy(buf, (void const *)fmc->eeprom + (unsigned long )offset,
                            __len);
   return ((int )size);
 }
@@ -1726,7 +1726,7 @@ static int ff_eeprom_write(struct fmc_device *fmc , uint32_t offset , void const
   _dev_info((struct device const *)(& fmc->dev), "write_eeprom: offset %i, size %zi\n",
             (int )offset, size);
   __len = size;
-  __ret = __builtin_memcpy((void *)fmc->eeprom + (unsigned long )offset, buf, __len);
+  __ret = memcpy((void *)fmc->eeprom + (unsigned long )offset, buf, __len);
   schedule_delayed_work(& ff_work, 500UL);
   return ((int )size);
 }
@@ -1975,7 +1975,7 @@ static int ff_init(void)
     __ret = memcpy((void *)(& ff_eeimg) + (unsigned long )i, (void const *)(& ff_eeimg),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ff_eeimg) + (unsigned long )i, (void const *)(& ff_eeimg),
+    __ret = memcpy((void *)(& ff_eeimg) + (unsigned long )i, (void const *)(& ff_eeimg),
                              __len);
   }
   i = i + 1;
@@ -2012,7 +2012,7 @@ static int ff_init(void)
     __min2 = 8192UL;
     len = (int )(__min1 < __min2 ? __min1 : __min2);
     __len___0 = (size_t )len;
-    __ret___0 = __builtin_memcpy((void *)(& ff_eeimg) + (unsigned long )i, (void const *)fw->data,
+    __ret___0 = memcpy((void *)(& ff_eeimg) + (unsigned long )i, (void const *)fw->data,
                                  __len___0);
     release_firmware(fw);
     _dev_info((struct device const *)(& ff->dev), "Mezzanine %i: eeprom \"%s\"\n",

@@ -5720,6 +5720,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
   return ((unsigned int )(dev->devnum << 8) | (endpoint << 15));
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int usbnet_probe(struct usb_interface * , struct usb_device_id  const  * ) ;
 extern int usbnet_suspend(struct usb_interface * , pm_message_t  ) ;
 extern int usbnet_resume(struct usb_interface * ) ;
@@ -5795,7 +5796,7 @@ static int genelink_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
   if ((unsigned long )gl_skb != (unsigned long )((struct sk_buff *)0)) {
     __len = (size_t )size;
     tmp___2 = skb_put(gl_skb, size);
-    __ret = __builtin_memcpy((void *)tmp___2, (void const   *)(& packet->packet_data),
+    __ret = memcpy((void *)tmp___2, (void const   *)(& packet->packet_data),
                              __len);
     usbnet_skb_return(dev, gl_skb);
   } else {

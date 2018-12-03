@@ -4853,7 +4853,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const   *)src, __len);
+  __ret = memcpy(dst, (void const   *)src, __len);
   return;
 }
 }
@@ -4864,7 +4864,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }
@@ -5781,7 +5781,7 @@ static void adpt_inquiry(adpt_hba *pHba )
   if (__len > 63UL) {
     __ret = memcpy((void *)mptr, (void const   *)(& scb), __len);
   } else {
-    __ret = __builtin_memcpy((void *)mptr, (void const   *)(& scb), __len);
+    __ret = memcpy((void *)mptr, (void const   *)(& scb), __len);
   }
   mptr = mptr + 4UL;
   tmp___1 = mptr;
@@ -5829,7 +5829,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __ret___0 = memcpy((void *)(& pHba->detail), (void const   *)"Vendor: Adaptec ",
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& pHba->detail), (void const   *)"Vendor: Adaptec ",
+      __ret___0 = memcpy((void *)(& pHba->detail), (void const   *)"Vendor: Adaptec ",
                                    __len___0);
     }
     __len___1 = 8UL;
@@ -5837,7 +5837,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __ret___1 = memcpy((void *)(& pHba->detail) + 16U, (void const   *)" Model: ",
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& pHba->detail) + 16U, (void const   *)" Model: ",
+      __ret___1 = memcpy((void *)(& pHba->detail) + 16U, (void const   *)" Model: ",
                                    __len___1);
     }
     __len___2 = 16UL;
@@ -5845,7 +5845,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __ret___2 = memcpy((void *)(& pHba->detail) + 24U, (void const   *)buf + 16U,
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)(& pHba->detail) + 24U, (void const   *)buf + 16U,
+      __ret___2 = memcpy((void *)(& pHba->detail) + 24U, (void const   *)buf + 16U,
                                    __len___2);
     }
     __len___3 = 4UL;
@@ -5853,7 +5853,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __ret___3 = memcpy((void *)(& pHba->detail) + 40U, (void const   *)" FW: ",
                            __len___3);
     } else {
-      __ret___3 = __builtin_memcpy((void *)(& pHba->detail) + 40U, (void const   *)" FW: ",
+      __ret___3 = memcpy((void *)(& pHba->detail) + 40U, (void const   *)" FW: ",
                                    __len___3);
     }
     __len___4 = 4UL;
@@ -5861,7 +5861,7 @@ static void adpt_inquiry(adpt_hba *pHba )
       __ret___4 = memcpy((void *)(& pHba->detail) + 44U, (void const   *)buf + 32U,
                            __len___4);
     } else {
-      __ret___4 = __builtin_memcpy((void *)(& pHba->detail) + 44U, (void const   *)buf + 32U,
+      __ret___4 = memcpy((void *)(& pHba->detail) + 44U, (void const   *)buf + 32U,
                                    __len___4);
     }
     pHba->detail[48] = 0;
@@ -7292,7 +7292,7 @@ static int adpt_i2o_parse_lct(adpt_hba *pHba )
     __ret = memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
+    __ret = memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
                              __len);
   }
   d->flags = 0U;
@@ -8254,7 +8254,7 @@ static s32 adpt_scsi_to_i2o(adpt_hba *pHba , struct scsi_cmnd *cmd , struct adpt
   mptr = (u32 *)(& msg) + 7UL;
   memset((void *)mptr, 0, 16UL);
   __len = (size_t )cmd->cmd_len;
-  __ret = __builtin_memcpy((void *)mptr, (void const   *)cmd->cmnd, __len);
+  __ret = memcpy((void *)mptr, (void const   *)cmd->cmnd, __len);
   mptr = mptr + 4UL;
   tmp = mptr;
   mptr = mptr + 1;
@@ -8644,7 +8644,7 @@ static s32 adpt_i2o_reparse_lct(adpt_hba *pHba )
         __ret = memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
+        __ret = memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
                                  __len);
       }
       d->flags = 0U;
@@ -8725,7 +8725,7 @@ static s32 adpt_i2o_reparse_lct(adpt_hba *pHba )
           __ret___0 = memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
                                __len___0);
         } else {
-          __ret___0 = __builtin_memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
+          __ret___0 = memcpy((void *)(& d->lct_data), (void const   *)(& lct->lct_entry) + (unsigned long )i,
                                        __len___0);
         }
         if ((unsigned long )pDev->pScsi_dev != (unsigned long )((struct scsi_device *)0)) {
@@ -9486,7 +9486,7 @@ static int adpt_i2o_query_scalar(adpt_hba *pHba , int tid , int group , int fiel
   if (__len > 63UL) {
     __ret = memcpy((void *)opblk_va, (void const   *)(& opblk), __len);
   } else {
-    __ret = __builtin_memcpy((void *)opblk_va, (void const   *)(& opblk), __len);
+    __ret = memcpy((void *)opblk_va, (void const   *)(& opblk), __len);
   }
   size = adpt_i2o_issue_params(6, pHba, tid, (void *)opblk_va, opblk_pa, 12, (void *)resblk_va,
                                resblk_pa, buflen + 8);
@@ -9506,7 +9506,7 @@ static int adpt_i2o_query_scalar(adpt_hba *pHba , int tid , int group , int fiel
 
   }
   __len___0 = (size_t )buflen;
-  __ret___0 = __builtin_memcpy(buf, (void const   *)resblk_va + 8U, __len___0);
+  __ret___0 = memcpy(buf, (void const   *)resblk_va + 8U, __len___0);
   dma_free_attrs(& (pHba->pDev)->dev, (unsigned long )(buflen + 8), (void *)resblk_va,
                  resblk_pa, (struct dma_attrs *)0);
   if (size < 0) {

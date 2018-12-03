@@ -7810,7 +7810,7 @@ struct rfd *nic_rx_pkts(struct et131x_adapter *etdev )
     etdev->net_stats.rx_bytes = etdev->net_stats.rx_bytes + (unsigned long )rfd->len;
     __len = (size_t )rfd->len;
     tmp___3 = skb_put(skb, rfd->len);
-    __ret = __builtin_memcpy((void *)tmp___3, (void const *)(rx_local->fbr[(int )rindex])->virt[(int )bindex],
+    __ret = memcpy((void *)tmp___3, (void const *)(rx_local->fbr[(int )rindex])->virt[(int )bindex],
                              __len);
     skb->dev = etdev->netdev;
     skb->protocol = eth_type_trans(skb, etdev->netdev);
@@ -8854,7 +8854,7 @@ static int nic_send_packet(struct et131x_adapter *etdev , struct tcb *tcb )
   }
   {
   __len = (unsigned long )thiscopy * 16UL;
-  __ret = __builtin_memcpy((void *)(etdev->tx_ring.tx_desc_ring + ((unsigned long )etdev->tx_ring.send_idx & 1023UL)),
+  __ret = memcpy((void *)(etdev->tx_ring.tx_desc_ring + ((unsigned long )etdev->tx_ring.send_idx & 1023UL)),
                            (void const *)(& desc), __len);
   add_10bit(& etdev->tx_ring.send_idx, (int )thiscopy);
   }
@@ -8871,7 +8871,7 @@ static int nic_send_packet(struct et131x_adapter *etdev , struct tcb *tcb )
   if (remainder != 0U) {
     {
     __len___0 = (unsigned long )remainder * 16UL;
-    __ret___0 = __builtin_memcpy((void *)etdev->tx_ring.tx_desc_ring, (void const *)(& desc) + (unsigned long )thiscopy,
+    __ret___0 = memcpy((void *)etdev->tx_ring.tx_desc_ring, (void const *)(& desc) + (unsigned long )thiscopy,
                                  __len___0);
     add_10bit(& etdev->tx_ring.send_idx, (int )remainder);
     }
@@ -9299,7 +9299,7 @@ void et131x_hwaddr_init(struct et131x_adapter *adapter )
                 }
               } else {
                 {
-                __ret = __builtin_memcpy((void *)(& adapter->rom_addr), (void const *)(& adapter->addr),
+                __ret = memcpy((void *)(& adapter->rom_addr), (void const *)(& adapter->addr),
                                          __len);
                 }
               }
@@ -9328,7 +9328,7 @@ void et131x_hwaddr_init(struct et131x_adapter *adapter )
       }
     } else {
       {
-      __ret___0 = __builtin_memcpy((void *)(& adapter->addr), (void const *)(& adapter->rom_addr),
+      __ret___0 = memcpy((void *)(& adapter->addr), (void const *)(& adapter->rom_addr),
                                    __len___0);
       }
     }
@@ -9477,7 +9477,7 @@ static int et131x_pci_init(struct et131x_adapter *adapter , struct pci_dev *pdev
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& adapter->addr), (void const *)(& adapter->rom_addr),
+    __ret = memcpy((void *)(& adapter->addr), (void const *)(& adapter->rom_addr),
                              __len);
     }
   }
@@ -9810,7 +9810,7 @@ static struct et131x_adapter *et131x_adapter_init(struct net_device *netdev , st
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)(& etdev->addr), (void const *)(& default_mac),
+    __ret = memcpy((void *)(& etdev->addr), (void const *)(& default_mac),
                              __len);
     }
   }
@@ -9978,7 +9978,7 @@ static int et131x_pci_setup(struct pci_dev *pdev , struct pci_device_id const *e
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& adapter->addr),
+    __ret = memcpy((void *)netdev->dev_addr, (void const *)(& adapter->addr),
                              __len);
     }
   }
@@ -10968,7 +10968,7 @@ void et131x_multicast(struct net_device *netdev )
     {
     tmp___2 = i;
     i = i + 1;
-    __ret = __builtin_memcpy((void *)(& adapter->MCList) + (unsigned long )tmp___2,
+    __ret = memcpy((void *)(& adapter->MCList) + (unsigned long )tmp___2,
                              (void const *)(& ha->addr), __len);
     }
   }
@@ -11131,7 +11131,7 @@ int et131x_change_mtu(struct net_device *netdev , int new_mtu )
     }
   } else {
     {
-    __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& adapter->addr),
+    __ret = memcpy((void *)netdev->dev_addr, (void const *)(& adapter->addr),
                              __len);
     }
   }
@@ -11190,7 +11190,7 @@ int et131x_set_mac_addr(struct net_device *netdev , void *new_mac )
   et131x_handle_send_interrupt(adapter);
   et131x_handle_recv_interrupt(adapter);
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)(& address->sa_data),
+  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& address->sa_data),
                            __len);
   printk("<6>%s: Setting MAC address to %pM\n", (char *)(& netdev->name), netdev->dev_addr);
   et131x_adapter_memory_free(adapter);

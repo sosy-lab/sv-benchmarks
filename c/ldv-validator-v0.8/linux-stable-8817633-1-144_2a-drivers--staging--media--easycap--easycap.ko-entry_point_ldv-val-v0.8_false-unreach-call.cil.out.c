@@ -7944,7 +7944,7 @@ static int redaub(struct easycap *peasycap , void *pad , void *pex , int much , 
   case 2: ;
   if (! decimatepixel) {
     __len = (unsigned long )much;
-    __ret = __builtin_memcpy(pad, (void const   *)pex, __len);
+    __ret = memcpy(pad, (void const   *)pex, __len);
     if (! byteswaporder) {
       return (0);
     } else {
@@ -9209,7 +9209,7 @@ static void easycap_complete(struct urb *purb )
 
         }
         __len = (size_t )much;
-        __ret = __builtin_memcpy(pfield_buffer->pto, (void const   *)pu, __len);
+        __ret = memcpy(pfield_buffer->pto, (void const   *)pu, __len);
         pu = pu + (unsigned long )much;
         pfield_buffer->pto = pfield_buffer->pto + (unsigned long )much;
         more = more - much;
@@ -13965,7 +13965,7 @@ int adjust_format(struct easycap *peasycap , u32 width , u32 height , u32 pixelf
   if (__len > 63UL) {
     __ret = memcpy((void *)pc, (void const   *)(& uc), __len);
   } else {
-    __ret = __builtin_memcpy((void *)pc, (void const   *)(& uc), __len);
+    __ret = memcpy((void *)pc, (void const   *)(& uc), __len);
   }
   bf[4] = 0;
   mask = (unsigned int )((u16 )easycap_standard[peasycap->standard_offset].mask) & 255U;
@@ -15315,7 +15315,7 @@ long easycap_unlocked_ioctl(struct file *file , unsigned int cmd , unsigned long
       __ret = memcpy((void *)(& v4l2_queryctrl), (void const   *)(& easycap_control) + (unsigned long )i1,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& v4l2_queryctrl), (void const   *)(& easycap_control) + (unsigned long )i1,
+      __ret = memcpy((void *)(& v4l2_queryctrl), (void const   *)(& easycap_control) + (unsigned long )i1,
                                __len);
     }
     goto ldv_32735;
@@ -15916,7 +15916,7 @@ long easycap_unlocked_ioctl(struct file *file , unsigned int cmd , unsigned long
     __ret___0 = memcpy((void *)(& pv4l2_format->fmt.pix), (void const   *)(& easycap_format[peasycap->format_offset].v4l2_format.fmt.pix),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& pv4l2_format->fmt.pix), (void const   *)(& easycap_format[peasycap->format_offset].v4l2_format.fmt.pix),
+    __ret___0 = memcpy((void *)(& pv4l2_format->fmt.pix), (void const   *)(& easycap_format[peasycap->format_offset].v4l2_format.fmt.pix),
                                  __len___0);
   }
   if (easycap_debug > 7) {
@@ -15989,7 +15989,7 @@ long easycap_unlocked_ioctl(struct file *file , unsigned int cmd , unsigned long
     __ret___1 = memcpy((void *)(& v4l2_format.fmt.pix), (void const   *)(& easycap_format[best_format].v4l2_format.fmt.pix),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& v4l2_format.fmt.pix), (void const   *)(& easycap_format[best_format].v4l2_format.fmt.pix),
+    __ret___1 = memcpy((void *)(& v4l2_format.fmt.pix), (void const   *)(& easycap_format[best_format].v4l2_format.fmt.pix),
                                  __len___1);
   }
   if (easycap_debug > 7) {
@@ -16145,7 +16145,7 @@ long easycap_unlocked_ioctl(struct file *file , unsigned int cmd , unsigned long
     __ret___2 = memcpy((void *)(& v4l2_standard), (void const   *)(& peasycap_standard->v4l2_standard),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& v4l2_standard), (void const   *)(& peasycap_standard->v4l2_standard),
+    __ret___2 = memcpy((void *)(& v4l2_standard), (void const   *)(& peasycap_standard->v4l2_standard),
                                  __len___2);
   }
   v4l2_standard.index = index___5;
@@ -17526,7 +17526,7 @@ void easycap_testcard(struct easycap *peasycap , int field )
   pfield_buffer = (struct data_buffer *)(& peasycap->field_buffer) + ((unsigned long )k + (unsigned long )m);
   p2 = (unsigned char *)pfield_buffer->pgo + (unsigned long )n;
   __len = (size_t )much;
-  __ret = __builtin_memcpy((void *)p2, (void const   *)p1, __len);
+  __ret = memcpy((void *)p2, (void const   *)p1, __len);
   p1 = p1 + (unsigned long )much;
   n = n + much;
   more = more - much;
@@ -17963,7 +17963,7 @@ void easycap_alsa_complete(struct urb *purb )
 
     }
     __len = (size_t )much;
-    __ret = __builtin_memcpy((void *)prt->dma_area + (unsigned long )peasycap->dma_fill,
+    __ret = memcpy((void *)prt->dma_area + (unsigned long )peasycap->dma_fill,
                              (void const   *)p1, __len);
     p1 = p1 + (unsigned long )much;
     more = more - much;

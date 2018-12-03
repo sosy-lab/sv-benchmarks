@@ -4667,7 +4667,7 @@ static int nexio_init(struct usbtouch_usb *usbtouch )
   if (__len > 63UL) {
     __ret = memcpy((void *)buf, (void const *)(& nexio_init_pkt), __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf, (void const *)(& nexio_init_pkt), __len);
+    __ret = memcpy((void *)buf, (void const *)(& nexio_init_pkt), __len);
   }
   tmp___4 = __create_pipe(dev, (unsigned int )output_ep);
   ret = usb_bulk_msg(dev, tmp___4 | 3221225472U, (void *)buf, 4, & actual_len, 5000);
@@ -4947,7 +4947,7 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
       } else {
       }
       __len = (size_t )append;
-      __ret = __builtin_memcpy((void *)usbtouch->buffer + (unsigned long )usbtouch->buf_len,
+      __ret = memcpy((void *)usbtouch->buffer + (unsigned long )usbtouch->buf_len,
                                (void const *)pkt, __len);
       usbtouch->buf_len = usbtouch->buf_len + append;
       pkt_len = (*((usbtouch->type)->get_pkt_len))(usbtouch->buffer, usbtouch->buf_len);
@@ -4963,7 +4963,7 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
     } else {
     }
     __len___0 = (size_t )tmp;
-    __ret___0 = __builtin_memcpy((void *)usbtouch->buffer + (unsigned long )usbtouch->buf_len,
+    __ret___0 = memcpy((void *)usbtouch->buffer + (unsigned long )usbtouch->buf_len,
                                  (void const *)pkt, __len___0);
     usbtouch_process_pkt(usbtouch, usbtouch->buffer, pkt_len);
     buffer = pkt + (unsigned long )tmp;
@@ -4989,14 +4989,14 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
       usbtouch_process_pkt(usbtouch, buffer + (unsigned long )pos, pkt_len);
     } else {
       __len___1 = (size_t )(buf_len - pos);
-      __ret___1 = __builtin_memcpy((void *)usbtouch->buffer, (void const *)buffer + (unsigned long )pos,
+      __ret___1 = memcpy((void *)usbtouch->buffer, (void const *)buffer + (unsigned long )pos,
                                    __len___1);
       usbtouch->buf_len = buf_len - pos;
       return;
     }
   } else {
     __len___1 = (size_t )(buf_len - pos);
-    __ret___1 = __builtin_memcpy((void *)usbtouch->buffer, (void const *)buffer + (unsigned long )pos,
+    __ret___1 = memcpy((void *)usbtouch->buffer, (void const *)buffer + (unsigned long )pos,
                                  __len___1);
     usbtouch->buf_len = buf_len - pos;
     return;

@@ -5830,6 +5830,7 @@ static void __ei_tx_timeout(struct net_device *dev )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static netdev_tx_t __ei_start_xmit(struct sk_buff *skb , struct net_device *dev ) 
 { 
   unsigned long e8390_base ;
@@ -5859,7 +5860,7 @@ static netdev_tx_t __ei_start_xmit(struct sk_buff *skb , struct net_device *dev 
   if (skb->len <= 59U) {
     memset((void *)(& buf), 0, 60UL);
     __len = (size_t )skb->len;
-    __ret = __builtin_memcpy((void *)(& buf), (void const   *)data, __len);
+    __ret = memcpy((void *)(& buf), (void const   *)data, __len);
     send_length = 60;
     data = (char *)(& buf);
   } else {

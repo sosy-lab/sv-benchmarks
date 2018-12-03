@@ -5240,7 +5240,7 @@ __inline static void memcpy_toio(void volatile *dst , void const *src , size_t c
   void *__ret ;
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }
@@ -6294,7 +6294,7 @@ static int gdth_set_asc_info(struct Scsi_Host *host , char *buffer , int length 
     if (__len > 63UL) {
       __ret = memcpy((void *)pcpar, (void const *)(& ha->cpar), __len);
     } else {
-      __ret = __builtin_memcpy((void *)pcpar, (void const *)(& ha->cpar), __len);
+      __ret = memcpy((void *)pcpar, (void const *)(& ha->cpar), __len);
     }
     gdtcmd.Service = 9U;
     gdtcmd.OpCode = 5U;
@@ -8367,7 +8367,7 @@ static int gdth_search_drives(gdth_ha_str *ha )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& ha->binfo), (void const *)ha->pscratch, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ha->binfo), (void const *)ha->pscratch,
+      __ret = memcpy((void *)(& ha->binfo), (void const *)ha->pscratch,
                                __len);
     }
     tmp___2 = gdth_internal_cmd(ha, 9, 5, 21U, 65535ULL, 4ULL);
@@ -9097,7 +9097,7 @@ static void gdth_copy_internal_data(gdth_ha_str *ha , Scsi_Cmnd *scp , char *buf
     tmp___3 = kmap_atomic(tmp___2, 5);
     address = (char *)tmp___3 + (unsigned long )sl->offset;
     __len = (size_t )cpnow;
-    __ret = __builtin_memcpy((void *)address, (void const *)buffer, __len);
+    __ret = memcpy((void *)address, (void const *)buffer, __len);
     tmp___4 = sg_page(sl);
     flush_dcache_page(tmp___4);
     pagefault_enable();
@@ -9328,7 +9328,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
       if (__len > 63UL) {
         __ret = memcpy((void *)(& no), (void const *)scp->cmnd + 2U, __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& no), (void const *)scp->cmnd + 2U, __len);
+        __ret = memcpy((void *)(& no), (void const *)scp->cmnd + 2U, __len);
       }
       tmp___0 = __fswab64(no);
       blockno = tmp___0;
@@ -9336,7 +9336,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
       if (__len___0 > 63UL) {
         __ret___0 = memcpy((void *)(& cnt), (void const *)scp->cmnd + 10U, __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& cnt), (void const *)scp->cmnd + 10U,
+        __ret___0 = memcpy((void *)(& cnt), (void const *)scp->cmnd + 10U,
                                      __len___0);
       }
       tmp___1 = __fswab32(cnt);
@@ -9347,7 +9347,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
       if (__len___1 > 63UL) {
         __ret___1 = memcpy((void *)(& no), (void const *)scp->cmnd + 2U, __len___1);
       } else {
-        __ret___1 = __builtin_memcpy((void *)(& no), (void const *)scp->cmnd + 2U,
+        __ret___1 = memcpy((void *)(& no), (void const *)scp->cmnd + 2U,
                                      __len___1);
       }
       tmp___2 = __fswab32((unsigned int )no);
@@ -9356,7 +9356,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
       if (__len___2 > 63UL) {
         __ret___2 = memcpy((void *)(& cnt), (void const *)scp->cmnd + 7U, __len___2);
       } else {
-        __ret___2 = __builtin_memcpy((void *)(& cnt), (void const *)scp->cmnd + 7U,
+        __ret___2 = memcpy((void *)(& cnt), (void const *)scp->cmnd + 7U,
                                      __len___2);
       }
       tmp___3 = __fswab16((int )((unsigned short )cnt));
@@ -9366,7 +9366,7 @@ static int gdth_fill_cache_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u16 hdrive )
       if (__len___3 > 63UL) {
         __ret___3 = memcpy((void *)(& no), (void const *)scp->cmnd, __len___3);
       } else {
-        __ret___3 = __builtin_memcpy((void *)(& no), (void const *)scp->cmnd, __len___3);
+        __ret___3 = memcpy((void *)(& no), (void const *)scp->cmnd, __len___3);
       }
       tmp___4 = __fswab32((unsigned int )no);
       blockno = (u64 )tmp___4 & 2097151ULL;
@@ -9527,7 +9527,7 @@ static int gdth_fill_raw_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u8 b )
         __ret = memcpy((void *)(& cmdp->u.raw64.cmd), (void const *)scp->cmnd,
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& cmdp->u.raw64.cmd), (void const *)scp->cmnd,
+        __ret = memcpy((void *)(& cmdp->u.raw64.cmd), (void const *)scp->cmnd,
                                  __len);
       }
       cmdp->u.raw64.sg_ranz = 0U;
@@ -9550,7 +9550,7 @@ static int gdth_fill_raw_cmd(gdth_ha_str *ha , Scsi_Cmnd *scp , u8 b )
         __ret___0 = memcpy((void *)(& cmdp->u.raw.cmd), (void const *)scp->cmnd,
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& cmdp->u.raw.cmd), (void const *)scp->cmnd,
+        __ret___0 = memcpy((void *)(& cmdp->u.raw.cmd), (void const *)scp->cmnd,
                                      __len___0);
       }
       cmdp->u.raw.sg_ranz = 0U;
@@ -9790,7 +9790,7 @@ static int gdth_read_event(gdth_ha_str *ha , int handle , gdth_evt_str *estr )
     if (__len > 63UL) {
       __ret = memcpy((void *)estr, (void const *)e, __len);
     } else {
-      __ret = __builtin_memcpy((void *)estr, (void const *)e, __len);
+      __ret = memcpy((void *)estr, (void const *)e, __len);
     }
   } else {
   }
@@ -9840,7 +9840,7 @@ static void gdth_readapp_event(gdth_ha_str *ha , u8 application , gdth_evt_str *
     if (__len > 63UL) {
       __ret = memcpy((void *)estr, (void const *)e, __len);
     } else {
-      __ret = __builtin_memcpy((void *)estr, (void const *)e, __len);
+      __ret = memcpy((void *)estr, (void const *)e, __len);
     }
   } else {
     estr->event_source = 0U;
@@ -11198,7 +11198,7 @@ static int ioc_general(void *arg , char *cmnd )
           __ret = memcpy((void *)(& cmd), (void const *)(& gen.command.u.raw.cmd),
                            __len);
         } else {
-          __ret = __builtin_memcpy((void *)(& cmd), (void const *)(& gen.command.u.raw.cmd),
+          __ret = memcpy((void *)(& cmd), (void const *)(& gen.command.u.raw.cmd),
                                    __len);
         }
         __len___0 = 16UL;
@@ -11206,7 +11206,7 @@ static int ioc_general(void *arg , char *cmnd )
           __ret___0 = memcpy((void *)(& gen.command.u.raw64.cmd), (void const *)(& cmd),
                                __len___0);
         } else {
-          __ret___0 = __builtin_memcpy((void *)(& gen.command.u.raw64.cmd), (void const *)(& cmd),
+          __ret___0 = memcpy((void *)(& gen.command.u.raw64.cmd), (void const *)(& cmd),
                                        __len___0);
         }
         gen.command.u.raw64.clen = gen.command.u.raw.clen;

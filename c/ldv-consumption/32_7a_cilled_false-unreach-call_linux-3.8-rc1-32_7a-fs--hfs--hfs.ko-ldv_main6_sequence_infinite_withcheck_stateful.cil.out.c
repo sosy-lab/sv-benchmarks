@@ -4895,7 +4895,7 @@ void hfs_bnode_read(struct hfs_bnode *node , void *buf , int off , int len )
   page = node->page[0];
   __len = (size_t )len;
   tmp___0 = kmap(page);
-  __ret = __builtin_memcpy(buf, (void const   *)tmp___0 + (unsigned long )off, __len);
+  __ret = memcpy(buf, (void const   *)tmp___0 + (unsigned long )off, __len);
   kunmap(page);
   return;
 }
@@ -4950,7 +4950,7 @@ void hfs_bnode_write(struct hfs_bnode *node , void *buf , int off , int len )
   page = node->page[0];
   __len = (size_t )len;
   tmp___0 = kmap(page);
-  __ret = __builtin_memcpy(tmp___0 + (unsigned long )off, (void const   *)buf, __len);
+  __ret = memcpy(tmp___0 + (unsigned long )off, (void const   *)buf, __len);
   kunmap(page);
   set_page_dirty(page);
   return;
@@ -5017,7 +5017,7 @@ void hfs_bnode_copy(struct hfs_bnode *dst_node , int dst , struct hfs_bnode *src
   __len = (size_t )len;
   tmp___1 = kmap(src_page);
   tmp___2 = kmap(dst_page);
-  __ret = __builtin_memcpy(tmp___2 + (unsigned long )dst, (void const   *)tmp___1 + (unsigned long )src,
+  __ret = memcpy(tmp___2 + (unsigned long )dst, (void const   *)tmp___1 + (unsigned long )src,
                            __len);
   kunmap(src_page);
   kunmap(dst_page);
@@ -7354,7 +7354,7 @@ int hfs_cat_find_brec(struct super_block *sb , u32 cnid , struct hfs_find_data *
 
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& (fd->search_key)->cat.CName.name), (void const   *)(& rec.thread.CName.name),
+  __ret = memcpy((void *)(& (fd->search_key)->cat.CName.name), (void const   *)(& rec.thread.CName.name),
                            __len);
   tmp___0 = hfs_brec_find(fd);
   return (tmp___0);
@@ -7851,7 +7851,7 @@ static int hfs_readdir(struct file *filp , void *dirent , int (*filldir)(void * 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& rd->key), (void const   *)(& fd.key), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& rd->key), (void const   *)(& fd.key), __len);
+    __ret = memcpy((void *)(& rd->key), (void const   *)(& fd.key), __len);
   }
   out: 
   hfs_find_exit(& fd);
@@ -9769,7 +9769,7 @@ void hfs_inode_read_fork(struct inode *inode , struct hfs_extent *ext , __be32 _
                      (void const   *)ext, __len);
   } else {
     __mptr___0 = (struct inode  const  *)inode;
-    __ret = __builtin_memcpy((void *)(& ((struct hfs_inode_info *)__mptr___0 + 0xfffffffffffffed0UL)->first_extents),
+    __ret = memcpy((void *)(& ((struct hfs_inode_info *)__mptr___0 + 0xfffffffffffffed0UL)->first_extents),
                              (void const   *)ext, __len);
   }
   count = 0U;
@@ -10003,7 +10003,7 @@ void hfs_inode_write_fork(struct inode *inode , struct hfs_extent *ext , __be32 
                      __len);
   } else {
     __mptr___0 = (struct inode  const  *)inode;
-    __ret = __builtin_memcpy((void *)ext, (void const   *)(& ((struct hfs_inode_info *)__mptr___0 + 0xfffffffffffffed0UL)->first_extents),
+    __ret = memcpy((void *)ext, (void const   *)(& ((struct hfs_inode_info *)__mptr___0 + 0xfffffffffffffed0UL)->first_extents),
                              __len);
   }
   if ((unsigned long )log_size != (unsigned long )((__be32 *)0)) {
@@ -10693,7 +10693,7 @@ int hfs_setxattr(struct dentry *dentry , char const   *name , void const   *valu
       if (__len > 63UL) {
         __ret = memcpy((void *)(& file->UsrWds.fdType), value, __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& file->UsrWds.fdType), value, __len);
+        __ret = memcpy((void *)(& file->UsrWds.fdType), value, __len);
       }
     } else {
       res = -34;
@@ -10706,7 +10706,7 @@ int hfs_setxattr(struct dentry *dentry , char const   *name , void const   *valu
         if (__len___0 > 63UL) {
           __ret___0 = memcpy((void *)(& file->UsrWds.fdCreator), value, __len___0);
         } else {
-          __ret___0 = __builtin_memcpy((void *)(& file->UsrWds.fdCreator), value,
+          __ret___0 = memcpy((void *)(& file->UsrWds.fdCreator), value,
                                        __len___0);
         }
       } else {
@@ -10787,7 +10787,7 @@ ssize_t hfs_getxattr(struct dentry *dentry , char const   *name , void *value , 
       if (__len > 63UL) {
         __ret = memcpy(value, (void const   *)(& file->UsrWds.fdType), __len);
       } else {
-        __ret = __builtin_memcpy(value, (void const   *)(& file->UsrWds.fdType), __len);
+        __ret = memcpy(value, (void const   *)(& file->UsrWds.fdType), __len);
       }
       res = 4L;
     } else {
@@ -10802,7 +10802,7 @@ ssize_t hfs_getxattr(struct dentry *dentry , char const   *name , void *value , 
           __ret___0 = memcpy(value, (void const   *)(& file->UsrWds.fdCreator),
                                __len___0);
         } else {
-          __ret___0 = __builtin_memcpy(value, (void const   *)(& file->UsrWds.fdCreator),
+          __ret___0 = memcpy(value, (void const   *)(& file->UsrWds.fdCreator),
                                        __len___0);
         }
         res = 4L;
@@ -11273,7 +11273,7 @@ int hfs_mdb_get(struct super_block *sb )
   _min2___0 = size;
   len = _min1___0 < _min2___0 ? _min1___0 : _min2___0;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)ptr, (void const   *)bh->b_data + (unsigned long )off2,
+  __ret = memcpy((void *)ptr, (void const   *)bh->b_data + (unsigned long )off2,
                            __len);
   brelse(bh);
   ptr = ptr + (unsigned long )len;
@@ -11404,7 +11404,7 @@ void hfs_mdb_commit(struct super_block *sb )
       __ret = memcpy((void *)((struct hfs_sb_info *)sb->s_fs_info)->alt_mdb, (void const   *)((struct hfs_sb_info *)sb->s_fs_info)->mdb,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)((struct hfs_sb_info *)sb->s_fs_info)->alt_mdb,
+      __ret = memcpy((void *)((struct hfs_sb_info *)sb->s_fs_info)->alt_mdb,
                                (void const   *)((struct hfs_sb_info *)sb->s_fs_info)->mdb,
                                __len);
     }
@@ -11438,7 +11438,7 @@ void hfs_mdb_commit(struct super_block *sb )
     len = _min1 < _min2 ? _min1 : _min2;
     lock_buffer(bh);
     __len___0 = (size_t )len;
-    __ret___0 = __builtin_memcpy((void *)bh->b_data + (unsigned long )off, (void const   *)ptr,
+    __ret___0 = memcpy((void *)bh->b_data + (unsigned long )off, (void const   *)ptr,
                                  __len___0);
     unlock_buffer(bh);
     mark_buffer_dirty(bh);
@@ -12349,7 +12349,7 @@ __inline static int match_fourchar(substring_t *arg , u32 *result )
   if (__len > 63UL) {
     __ret = memcpy((void *)result, (void const   *)arg->from, __len);
   } else {
-    __ret = __builtin_memcpy((void *)result, (void const   *)arg->from, __len);
+    __ret = memcpy((void *)result, (void const   *)arg->from, __len);
   }
   return (0);
 }

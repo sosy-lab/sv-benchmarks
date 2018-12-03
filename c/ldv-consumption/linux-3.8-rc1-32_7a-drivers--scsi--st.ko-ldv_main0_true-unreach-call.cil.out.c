@@ -4890,7 +4890,7 @@ static int st_scsi_execute(struct st_request *SRpnt , unsigned char const   *cmd
   req->cmd_len = (unsigned short )scsi_command_size_tbl[((int )((unsigned char )*cmd) >> 5) & 7];
   memset((void *)req->cmd, 0, 16UL);
   __len = (size_t )req->cmd_len;
-  __ret = __builtin_memcpy((void *)req->cmd, (void const   *)cmd, __len);
+  __ret = memcpy((void *)req->cmd, (void const   *)cmd, __len);
   req->sense = (void *)(& SRpnt->sense);
   req->sense_len = 0U;
   req->timeout = (unsigned int )timeout;
@@ -4961,7 +4961,7 @@ static struct st_request *st_do_scsi(struct st_request *SRpnt , struct scsi_tape
   if (__len > 63UL) {
     __ret = memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
+    __ret = memcpy((void *)(& SRpnt->cmd), (void const   *)cmd, __len);
   }
   (STp->buffer)->cmdstat.have_sense = 0;
   (STp->buffer)->syscall_result = 0;
@@ -6877,7 +6877,7 @@ static int st_set_options(struct scsi_tape *STp , long options )
     if (__len > 63UL) {
       __ret = memcpy((void *)STm, (void const   *)(& STp->modes), __len);
     } else {
-      __ret = __builtin_memcpy((void *)STm, (void const   *)(& STp->modes), __len);
+      __ret = memcpy((void *)STm, (void const   *)(& STp->modes), __len);
     }
     STm->cdevs[0] = cd0;
     STm->cdevs[1] = cd1;

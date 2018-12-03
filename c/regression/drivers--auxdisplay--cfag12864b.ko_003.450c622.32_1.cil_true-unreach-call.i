@@ -440,7 +440,7 @@ struct exception_table_entry {
    unsigned long insn ;
    unsigned long fixup ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 __inline static void ( __attribute__((__always_inline__)) clear_bit)(int nr , void volatile   *addr ) 
 { 
 
@@ -905,7 +905,7 @@ static void cfag12864b_update(struct work_struct *work )
     if (__len >= (size_t )64) {
       __ret = memcpy(cfag12864b_cache, cfag12864b_buffer, __len);
     } else {
-      __ret = __builtin_memcpy(cfag12864b_cache, cfag12864b_buffer, __len);
+      __ret = memcpy(cfag12864b_cache, cfag12864b_buffer, __len);
     }
   } else {
 

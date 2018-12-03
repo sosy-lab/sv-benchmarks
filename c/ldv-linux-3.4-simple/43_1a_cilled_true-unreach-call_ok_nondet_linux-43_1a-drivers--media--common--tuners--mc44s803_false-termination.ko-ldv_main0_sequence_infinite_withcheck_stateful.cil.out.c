@@ -4093,7 +4093,7 @@ struct dvb_frontend *mc44s803_attach(struct dvb_frontend *fe , struct i2c_adapte
     __cil_tmp47 = (struct dvb_tuner_ops *)__cil_tmp46;
     __cil_tmp48 = (void *)__cil_tmp47;
     __cil_tmp49 = (void const   *)(& mc44s803_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp48, __cil_tmp49, __len);
+    __ret = memcpy(__cil_tmp48, __cil_tmp49, __len);
     }
   }
   __cil_tmp50 = (unsigned long )fe;

@@ -6421,6 +6421,7 @@ __inline static dma_addr_t skb_frag_dma_map(struct device *dev , skb_frag_t cons
   return (tmp___0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , void *to ,
                                                unsigned int const   len ) 
 { 
@@ -6429,7 +6430,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -10100,7 +10101,7 @@ static int gem_set_mac_address(struct net_device *dev , void *addr )
 
   }
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& macaddr->sa_data),
+  __ret = memcpy((void *)dev->dev_addr, (void const   *)(& macaddr->sa_data),
                            __len);
   tmp___2 = netif_running((struct net_device  const  *)dev);
   if (tmp___2) {

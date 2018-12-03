@@ -10456,7 +10456,7 @@ static void _rtl8723be_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
   case 2U: ;
   case 3U:
   __len = (size_t )cmd_len;
-  __ret = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + (unsigned long )buf_index,
+  __ret = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + (unsigned long )buf_index,
                            __len);
   idx = 0U;
   goto ldv_51223;
@@ -10474,14 +10474,14 @@ static void _rtl8723be_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
   case 6U: ;
   case 7U:
   __len___0 = (size_t )(cmd_len - 3U);
-  __ret___0 = __builtin_memcpy((void *)(& boxextcontent), (void const *)(p_cmdbuffer + ((unsigned long )buf_index + 3UL)),
+  __ret___0 = memcpy((void *)(& boxextcontent), (void const *)(p_cmdbuffer + ((unsigned long )buf_index + 3UL)),
                                __len___0);
   __len___1 = 3UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + (unsigned long )buf_index,
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + (unsigned long )buf_index,
+    __ret___1 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + (unsigned long )buf_index,
                                  __len___1);
   }
   idx = 0U;
@@ -10585,7 +10585,7 @@ void rtl8723be_fill_h2c_cmd(struct ieee80211_hw *hw , u8 element_id , u32 cmd_le
   }
   memset((void *)(& tmp_cmdbuf), 0, 8UL);
   __len = (size_t )cmd_len;
-  __ret = __builtin_memcpy((void *)(& tmp_cmdbuf), (void const *)p_cmdbuffer, __len);
+  __ret = memcpy((void *)(& tmp_cmdbuf), (void const *)p_cmdbuffer, __len);
   _rtl8723be_fill_h2c_command(hw, (int )element_id, cmd_len, (u8 *)(& tmp_cmdbuf));
   return;
 }
@@ -10984,7 +10984,7 @@ void rtl8723be_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
   if (__len > 63UL) {
     __ret = memcpy((void *)p_pspoll + 4U, (void const *)(& mac->bssid), __len);
   } else {
-    __ret = __builtin_memcpy((void *)p_pspoll + 4U, (void const *)(& mac->bssid),
+    __ret = memcpy((void *)p_pspoll + 4U, (void const *)(& mac->bssid),
                              __len);
   }
   __len___0 = 6UL;
@@ -10992,7 +10992,7 @@ void rtl8723be_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
     __ret___0 = memcpy((void *)p_pspoll + 10U, (void const *)(& mac->mac_addr),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)p_pspoll + 10U, (void const *)(& mac->mac_addr),
+    __ret___0 = memcpy((void *)p_pspoll + 10U, (void const *)(& mac->mac_addr),
                                  __len___0);
   }
   *((u8 *)(& u1rsvdpageloc) + 1UL) = 2U;
@@ -11090,7 +11090,7 @@ void rtl8723be_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
   skb = ldv_dev_alloc_skb_25(totalpacketlen);
   __len___1 = (size_t )totalpacketlen;
   tmp___11 = skb_put(skb, totalpacketlen);
-  __ret___1 = __builtin_memcpy((void *)tmp___11, (void const *)(& reserved_page_packet),
+  __ret___1 = memcpy((void *)tmp___11, (void const *)(& reserved_page_packet),
                                __len___1);
   rtstatus = _rtl8723be_cmd_send_packet(hw, skb);
   if ((int )rtstatus) {
@@ -14323,7 +14323,7 @@ static void _rtl8723be_read_adapter_info(struct ieee80211_hw *hw , bool pseudo_t
       __ret = memcpy((void *)(& hwinfo), (void const *)(& rtlefuse->efuse_map),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& hwinfo), (void const *)(& rtlefuse->efuse_map),
+      __ret = memcpy((void *)(& hwinfo), (void const *)(& rtlefuse->efuse_map),
                                __len);
     }
   } else
@@ -23228,7 +23228,7 @@ static void _rtl8723be_translate_rx_signal_stuff(struct ieee80211_hw *hw , struc
   if (__len > 63UL) {
     __ret = memcpy((void *)(& pstatus->psaddr), (void const *)psaddr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pstatus->psaddr), (void const *)psaddr,
+    __ret = memcpy((void *)(& pstatus->psaddr), (void const *)psaddr,
                              __len);
   }
   if ((unsigned int )type != 4U) {

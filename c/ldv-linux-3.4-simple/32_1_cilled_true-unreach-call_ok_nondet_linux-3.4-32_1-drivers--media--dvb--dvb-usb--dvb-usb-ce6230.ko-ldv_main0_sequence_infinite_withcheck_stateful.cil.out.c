@@ -6091,6 +6091,7 @@ __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size 
   return (tmp___10);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int dvb_usb_device_init(struct usb_interface * , struct dvb_usb_device_properties * ,
                                struct module * , struct dvb_usb_device ** , short *adapter_nums ) ;
 extern void dvb_usb_device_exit(struct usb_interface * ) ;
@@ -6342,7 +6343,7 @@ static int ce6230_rw_udev(struct usb_device *udev , struct req_t *req )
     __cil_tmp39 = __cil_tmp38 + 8;
     __cil_tmp40 = *((u8 **)__cil_tmp39);
     __cil_tmp41 = (void const   *)__cil_tmp40;
-    __ret = __builtin_memcpy(__cil_tmp37, __cil_tmp41, __len);
+    __ret = memcpy(__cil_tmp37, __cil_tmp41, __len);
     tmp___8 = __create_pipe(udev, 0U);
     __cil_tmp42 = 2 << 30;
     __cil_tmp43 = (unsigned int )__cil_tmp42;
@@ -6545,7 +6546,7 @@ static int ce6230_rw_udev(struct usb_device *udev , struct req_t *req )
       __cil_tmp100 = *((u8 **)__cil_tmp99);
       __cil_tmp101 = (void *)__cil_tmp100;
       __cil_tmp102 = (void const   *)buf;
-      __ret___0 = __builtin_memcpy(__cil_tmp101, __cil_tmp102, __len___0);
+      __ret___0 = memcpy(__cil_tmp101, __cil_tmp102, __len___0);
       }
     } else {
 

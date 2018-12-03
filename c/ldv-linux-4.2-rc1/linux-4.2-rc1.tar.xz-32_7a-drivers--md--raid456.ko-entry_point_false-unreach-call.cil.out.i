@@ -4650,6 +4650,7 @@ struct raid5_plug_cb {
    struct list_head list ;
    struct list_head temp_inactive_list[8U] ;
 };
+extern void *memcpy(void * , void const   * , size_t  ) ;
 typedef bool ldv_func_ret_type;
 typedef bool ldv_func_ret_type___0;
 typedef bool ldv_func_ret_type___1;
@@ -4685,7 +4686,7 @@ __inline static void __read_once_size(void const volatile *p , void *res , int s
   goto ldv_880;
   default:
   __asm__ volatile ("": : : "memory");
-  __builtin_memcpy(res, (void const *)p, (unsigned long )size);
+  memcpy(res, (void const *)p, (unsigned long )size);
   __asm__ volatile ("": : : "memory");
   }
   ldv_880: ;

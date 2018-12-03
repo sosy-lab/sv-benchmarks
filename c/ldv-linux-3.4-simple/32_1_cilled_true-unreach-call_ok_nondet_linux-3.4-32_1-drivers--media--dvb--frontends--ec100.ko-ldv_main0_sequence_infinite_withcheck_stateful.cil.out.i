@@ -4075,7 +4075,7 @@ struct dvb_frontend *ec100_attach(struct ec100_config const *config , struct i2c
     __cil_tmp22 = (struct ec100_config *)__cil_tmp21;
     __cil_tmp23 = (void *)__cil_tmp22;
     __cil_tmp24 = (void const *)config;
-    __ret = __builtin_memcpy(__cil_tmp23, __cil_tmp24, __len);
+    __ret = memcpy(__cil_tmp23, __cil_tmp24, __len);
     }
   }
   {
@@ -4112,7 +4112,7 @@ struct dvb_frontend *ec100_attach(struct ec100_config const *config , struct i2c
     __cil_tmp36 = (struct dvb_frontend_ops *)__cil_tmp35;
     __cil_tmp37 = (void *)__cil_tmp36;
     __cil_tmp38 = (void const *)(& ec100_ops);
-    __ret___0 = __builtin_memcpy(__cil_tmp37, __cil_tmp38, __len___0);
+    __ret___0 = memcpy(__cil_tmp37, __cil_tmp38, __len___0);
     }
   }
   __cil_tmp39 = 8 + 760;

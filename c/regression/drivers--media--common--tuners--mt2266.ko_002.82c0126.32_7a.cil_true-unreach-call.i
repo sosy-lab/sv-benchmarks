@@ -3114,7 +3114,7 @@ struct mt2266_priv {
    u8 band ;
 };
 typedef int ldv_func_ret_type___0;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern int printk(char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int mutex_trylock(struct mutex * ) ;
@@ -3555,7 +3555,7 @@ struct dvb_frontend *mt2266_attach(struct dvb_frontend *fe , struct i2c_adapter 
     __ret = memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& mt2266_tuner_ops),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& mt2266_tuner_ops),
+    __ret = memcpy((void *)(& fe->ops.tuner_ops), (void const   *)(& mt2266_tuner_ops),
                              __len);
   }
   fe->tuner_priv = (void *)priv;

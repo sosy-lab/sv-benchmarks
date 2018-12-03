@@ -5873,7 +5873,7 @@ static int pvc_ioctl(struct net_device *dev , struct ifreq *ifr , int cmd )
       __ret = memcpy((void *)(& info.master), (void const *)(& (pvc->frad)->name),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& info.master), (void const *)(& (pvc->frad)->name),
+      __ret = memcpy((void *)(& info.master), (void const *)(& (pvc->frad)->name),
                                __len);
     }
     tmp = copy_to_user((void *)ifr->ifr_ifru.ifru_settings.ifs_ifsu.fr_pvc_info, (void const *)(& info),
@@ -7122,7 +7122,7 @@ static int fr_ioctl(struct net_device *dev , struct ifreq *ifr )
   }
   __len = size;
   tmp___10 = state(hdlc);
-  __ret = __builtin_memcpy((void *)(& tmp___10->settings), (void const *)(& new_settings),
+  __ret = memcpy((void *)(& tmp___10->settings), (void const *)(& new_settings),
                            __len);
   dev->type = 770U;
   return (0);

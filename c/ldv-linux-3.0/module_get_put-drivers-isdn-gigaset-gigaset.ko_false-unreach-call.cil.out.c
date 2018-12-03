@@ -6212,7 +6212,7 @@ int gigaset_fill_inbuf(struct inbuf_t *inbuf , unsigned char const *src , unsign
   }
   {
   __len = (size_t )n;
-  __ret = __builtin_memcpy((void *)(& inbuf->data) + (unsigned long )tail, (void const *)src,
+  __ret = memcpy((void *)(& inbuf->data) + (unsigned long )tail, (void const *)src,
                            __len);
   bytesleft = bytesleft - n;
   tail = (tail + n) & 8191U;
@@ -7691,7 +7691,7 @@ static int if_version(struct cardstate *cs , unsigned int *arg )
         }
       } else {
         {
-        __ret = __builtin_memcpy((void *)arg, (void const *)(& version), __len);
+        __ret = memcpy((void *)arg, (void const *)(& version), __len);
         }
       }
       return (0);
@@ -7703,7 +7703,7 @@ static int if_version(struct cardstate *cs , unsigned int *arg )
         }
       } else {
         {
-        __ret___0 = __builtin_memcpy((void *)arg, (void const *)(& compat), __len___0);
+        __ret___0 = memcpy((void *)arg, (void const *)(& compat), __len___0);
         }
       }
       return (0);
@@ -8479,7 +8479,7 @@ static int if_write(struct tty_struct *tty , unsigned char const *buf , int coun
   }
   {
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)(& cb->buf), (void const *)buf, __len);
+  __ret = memcpy((void *)(& cb->buf), (void const *)buf, __len);
   cb->len = count;
   cb->offset = 0;
   cb->next = (struct cmdbuf_t *)0;
@@ -11320,7 +11320,7 @@ static void do_action(int action , struct cardstate *cs , struct bc_state *bcs ,
           }
         } else {
           {
-          __ret = __builtin_memcpy((void *)(& cb->buf), (void const *)"+++", __len);
+          __ret = memcpy((void *)(& cb->buf), (void const *)"+++", __len);
           }
         }
         {
@@ -11742,7 +11742,7 @@ static void do_action(int action , struct cardstate *cs , struct bc_state *bcs ,
           }
         } else {
           {
-          __ret___0 = __builtin_memcpy(ev->arg, (void const *)(& cs->fwver), __len___0);
+          __ret___0 = memcpy(ev->arg, (void const *)(& cs->fwver), __len___0);
           }
         }
         cs->cmd_result = 0;
@@ -13512,7 +13512,7 @@ static struct sk_buff *HDLC_Encode(struct sk_buff *skb )
   __len = (size_t )skb->mac_len;
   tmp___4 = skb_mac_header((struct sk_buff const *)skb);
   tmp___5 = skb_mac_header((struct sk_buff const *)hdlc_skb);
-  __ret = __builtin_memcpy((void *)tmp___5, (void const *)tmp___4, __len);
+  __ret = memcpy((void *)tmp___5, (void const *)tmp___4, __len);
   hdlc_skb->mac_len = skb->mac_len;
   tmp___6 = skb_put(hdlc_skb, 1U);
   *tmp___6 = (unsigned char)126;
@@ -13618,7 +13618,7 @@ static struct sk_buff *iraw_encode(struct sk_buff *skb )
   __len = (size_t )skb->mac_len;
   tmp___1 = skb_mac_header((struct sk_buff const *)skb);
   tmp___2 = skb_mac_header((struct sk_buff const *)iraw_skb);
-  __ret = __builtin_memcpy((void *)tmp___2, (void const *)tmp___1, __len);
+  __ret = memcpy((void *)tmp___2, (void const *)tmp___1, __len);
   iraw_skb->mac_len = skb->mac_len;
   cp = skb->data;
   len = (int )skb->len;
@@ -14697,7 +14697,7 @@ int gigaset_isdn_icall(struct at_state_t *at_state )
     iif->cdpty_buf[0] = (u8 )((unsigned int )((u8 )i) + 1U);
     iif->cdpty_buf[1] = (u8 )128U;
     __len = (size_t )i;
-    __ret = __builtin_memcpy((void *)(& iif->cdpty_buf) + 2U, (void const *)at_state->str_var[1],
+    __ret = memcpy((void *)(& iif->cdpty_buf) + 2U, (void const *)at_state->str_var[1],
                              __len);
     iif->hcmsg.CalledPartyNumber = (_cstruct )(& iif->cdpty_buf);
     msgsize = (unsigned int )*(iif->hcmsg.CalledPartyNumber) + msgsize;
@@ -14724,7 +14724,7 @@ int gigaset_isdn_icall(struct at_state_t *at_state )
     iif->cgpty_buf[1] = (u8 )0U;
     iif->cgpty_buf[2] = (u8 )128U;
     __len___0 = (size_t )i;
-    __ret___0 = __builtin_memcpy((void *)(& iif->cgpty_buf) + 3U, (void const *)at_state->str_var[0],
+    __ret___0 = memcpy((void *)(& iif->cgpty_buf) + 3U, (void const *)at_state->str_var[0],
                                  __len___0);
     iif->hcmsg.CallingPartyNumber = (_cstruct )(& iif->cgpty_buf);
     msgsize = (unsigned int )*(iif->hcmsg.CallingPartyNumber) + msgsize;

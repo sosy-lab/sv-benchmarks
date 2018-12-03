@@ -8551,6 +8551,7 @@ static void ppp_push(struct ppp *ppp )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static bool mp_protocol_compress = (bool )1;
 static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
 { int len ;
@@ -8819,7 +8820,7 @@ static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
   }
   {
   __len = (size_t )flen;
-  __ret = __builtin_memcpy((void *)q + (unsigned long )hdrlen, (void const *)p,
+  __ret = memcpy((void *)q + (unsigned long )hdrlen, (void const *)p,
                            __len);
   chan = pch->chan;
   tmp___0 = skb_queue_empty((struct sk_buff_head const *)(& pch->file.xq));

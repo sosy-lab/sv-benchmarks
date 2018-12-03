@@ -3318,7 +3318,7 @@ struct i2o_scsi_host {
    unsigned int lun ;
    struct i2o_device *channel[0U] ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 void __builtin_prefetch(void const   *  , ...) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
@@ -4028,7 +4028,7 @@ static int i2o_scsi_reply(struct i2o_controller *c , u32 m , struct i2o_message 
     _x = 96;
     _y = 40;
     __len = (size_t )(_x < _y ? _x : _y);
-    __ret = __builtin_memcpy((void *)(& cmd->sense_buffer), (void const   *)(& msg->body) + 3U,
+    __ret = memcpy((void *)(& cmd->sense_buffer), (void const   *)(& msg->body) + 3U,
                              __len);
   } else {
 
@@ -4209,7 +4209,7 @@ static int i2o_scsi_queuecommand(struct scsi_cmnd *SCpnt , void (*done)(struct s
   if (__len > 63UL) {
     __ret = memcpy((void *)mptr, (void const   *)(& SCpnt->cmnd), __len);
   } else {
-    __ret = __builtin_memcpy((void *)mptr, (void const   *)(& SCpnt->cmnd), __len);
+    __ret = memcpy((void *)mptr, (void const   *)(& SCpnt->cmnd), __len);
   }
   mptr = mptr + 4UL;
   if (sgl_offset != 1U) {

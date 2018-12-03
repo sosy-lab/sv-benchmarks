@@ -3008,7 +3008,7 @@ enum __anonenum_104 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern void ftrace_likely_update(struct ftrace_branch_data * , int  , int  ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
@@ -3879,7 +3879,7 @@ static int acpi_pcc_init_input(struct pcc_acpi *pcc )
     __ret = memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
+    __ret = memcpy((void *)(& pcc->keymap), (void const   *)(& initial_keymap),
                              __len);
   }
   i = 0;

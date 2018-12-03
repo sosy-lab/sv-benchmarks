@@ -5912,6 +5912,7 @@ __inline static void *i2c_get_adapdata(struct i2c_adapter  const  *dev )
   return (tmp);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern struct sk_buff *skb_clone(struct sk_buff * , gfp_t  ) ;
 struct sk_buff *ldv_skb_clone_22(struct sk_buff *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 extern struct sk_buff *skb_copy(struct sk_buff  const  * , gfp_t  ) ;
@@ -6093,7 +6094,7 @@ static int ttusb2_msg(struct dvb_usb_device *d , u8 cmd , u8 *wbuf , int wlen , 
   __cil_tmp42 = (void *)s;
   __cil_tmp43 = __cil_tmp42 + 4U;
   __cil_tmp44 = (void const   *)wbuf;
-  __ret = __builtin_memcpy(__cil_tmp43, __cil_tmp44, __len);
+  __ret = memcpy(__cil_tmp43, __cil_tmp44, __len);
   __cil_tmp45 = (u16 )wlen;
   __cil_tmp46 = (unsigned int )__cil_tmp45;
   __cil_tmp47 = __cil_tmp46 + 4U;
@@ -6210,7 +6211,7 @@ static int ttusb2_msg(struct dvb_usb_device *d , u8 cmd , u8 *wbuf , int wlen , 
     __cil_tmp91 = (void *)rbuf;
     __cil_tmp92 = (void const   *)r;
     __cil_tmp93 = __cil_tmp92 + 4U;
-    __ret___0 = __builtin_memcpy(__cil_tmp91, __cil_tmp93, __len___0);
+    __ret___0 = memcpy(__cil_tmp91, __cil_tmp93, __len___0);
     }
   } else {
 
@@ -6252,7 +6253,7 @@ static int tt3650_ci_msg(struct dvb_usb_device *d , u8 cmd , u8 *data , unsigned
     __len = (size_t )read_len;
     __cil_tmp15 = (void *)data;
     __cil_tmp16 = (void const   *)(& rx);
-    __ret = __builtin_memcpy(__cil_tmp15, __cil_tmp16, __len);
+    __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
     }
   } else {
 
@@ -7260,7 +7261,7 @@ static int ttusb2_i2c_xfer(struct i2c_adapter *adap , struct i2c_msg *msg , int 
   __cil_tmp89 = __cil_tmp88 + 8;
   __cil_tmp90 = *((__u8 **)__cil_tmp89);
   __cil_tmp91 = (void const   *)__cil_tmp90;
-  __ret = __builtin_memcpy(__cil_tmp85, __cil_tmp91, __len);
+  __ret = memcpy(__cil_tmp85, __cil_tmp91, __len);
   __cil_tmp92 = (u8 )49;
   __cil_tmp93 = (u8 *)(& obuf);
   __cil_tmp94 = 1 * 1UL;
@@ -7302,7 +7303,7 @@ static int ttusb2_i2c_xfer(struct i2c_adapter *adap , struct i2c_msg *msg , int 
     __cil_tmp117 = (void *)__cil_tmp116;
     __cil_tmp118 = (void const   *)(& ibuf);
     __cil_tmp119 = __cil_tmp118 + 3U;
-    __ret___0 = __builtin_memcpy(__cil_tmp117, __cil_tmp119, __len___0);
+    __ret___0 = memcpy(__cil_tmp117, __cil_tmp119, __len___0);
     i = i + 1;
     }
   } else
@@ -7322,7 +7323,7 @@ static int ttusb2_i2c_xfer(struct i2c_adapter *adap , struct i2c_msg *msg , int 
     __cil_tmp130 = (void *)__cil_tmp129;
     __cil_tmp131 = (void const   *)(& ibuf);
     __cil_tmp132 = __cil_tmp131 + 3U;
-    __ret___1 = __builtin_memcpy(__cil_tmp130, __cil_tmp132, __len___1);
+    __ret___1 = memcpy(__cil_tmp130, __cil_tmp132, __len___1);
     }
   } else {
 

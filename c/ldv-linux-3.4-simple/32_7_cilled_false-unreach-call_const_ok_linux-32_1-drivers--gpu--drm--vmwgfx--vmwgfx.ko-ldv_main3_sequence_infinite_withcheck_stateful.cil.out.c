@@ -10748,7 +10748,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
   {
   __len = (size_t )command_size;
   __cil_tmp136 = (void    *)kernel_commands;
-  __ret = __builtin_memcpy(cmd, __cil_tmp136, __len);
+  __ret = memcpy(cmd, __cil_tmp136, __len);
   vmw_fifo_commit(dev_priv, command_size);
   vmw_query_bo_switch_commit(dev_priv, sw_context);
   }
@@ -11819,7 +11819,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
     {
     __cil_tmp43 = (void *)cmd;
     __cil_tmp44 = (void    *)(& define_cmd);
-    __ret = __builtin_memcpy(__cil_tmp43, __cil_tmp44, __len);
+    __ret = memcpy(__cil_tmp43, __cil_tmp44, __len);
     }
   }
   __cil_tmp45 = 8UL / 4UL;
@@ -11838,7 +11838,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
     {
     __cil_tmp48 = (void *)cmd;
     __cil_tmp49 = (void    *)(& remap_cmd);
-    __ret___0 = __builtin_memcpy(__cil_tmp48, __cil_tmp49, __len___0);
+    __ret___0 = memcpy(__cil_tmp48, __cil_tmp49, __len___0);
     }
   }
   __cil_tmp50 = 16UL / 4UL;
@@ -11951,7 +11951,7 @@ static void vmw_gmr2_unbind(struct vmw_private *dev_priv , int gmr_id )
     {
     __cil_tmp23 = (void *)cmd;
     __cil_tmp24 = (void    *)(& define_cmd);
-    __ret = __builtin_memcpy(__cil_tmp23, __cil_tmp24, __len);
+    __ret = memcpy(__cil_tmp23, __cil_tmp24, __len);
     }
   }
   {
@@ -13284,7 +13284,7 @@ int vmw_cursor_update_image(struct vmw_private *dev_priv , u32 *image , u32 widt
   __cil_tmp25 = cmd + 1;
   __cil_tmp26 = (void *)__cil_tmp25;
   __cil_tmp27 = (void    *)image;
-  __ret = __builtin_memcpy(__cil_tmp26, __cil_tmp27, __len);
+  __ret = memcpy(__cil_tmp26, __cil_tmp27, __len);
   *((u32 *)cmd) = (__u32 )22;
   __cil_tmp28 = (unsigned long )cmd;
   __cil_tmp29 = __cil_tmp28 + 4;
@@ -14871,7 +14871,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
         __cil_tmp396 = *((uint32_t **)__cil_tmp395);
         __cil_tmp397 = (void *)__cil_tmp396;
         __cil_tmp398 = (void    *)virtual;
-        __ret = __builtin_memcpy(__cil_tmp397, __cil_tmp398, __len);
+        __ret = memcpy(__cil_tmp397, __cil_tmp398, __len);
         }
       }
     } else {
@@ -14917,7 +14917,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
       __cil_tmp420 = __cil_tmp419 * __cil_tmp418;
       __cil_tmp421 = virtual + __cil_tmp420;
       __cil_tmp422 = (void    *)__cil_tmp421;
-      __ret___0 = __builtin_memcpy(__cil_tmp413, __cil_tmp422, __len___0);
+      __ret___0 = memcpy(__cil_tmp413, __cil_tmp422, __len___0);
       i = i + 1;
       }
     }
@@ -30482,7 +30482,7 @@ __inline static void memcpy_fromio(void *dst , void  volatile   *src , size_t co
   {
   __len = count;
   __cil_tmp6 = (void    *)src;
-  __ret = __builtin_memcpy(dst, __cil_tmp6, __len);
+  __ret = memcpy(dst, __cil_tmp6, __len);
   }
   return;
 }
@@ -36188,7 +36188,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
     __cil_tmp132 = __cil_tmp131 + __cil_tmp130;
     __cil_tmp133 = (uint32_t *)__cil_tmp132;
     __cil_tmp134 = (void    *)__cil_tmp133;
-    __ret = __builtin_memcpy(__cil_tmp128, __cil_tmp134, __len);
+    __ret = memcpy(__cil_tmp128, __cil_tmp134, __len);
     }
   }
   {
@@ -36806,7 +36806,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
     __cil_tmp89 = __cil_tmp88 + __cil_tmp87;
     __cil_tmp90 = (uint32_t *)__cil_tmp89;
     __cil_tmp91 = (void    *)__cil_tmp90;
-    __ret = __builtin_memcpy(__cil_tmp85, __cil_tmp91, __len);
+    __ret = memcpy(__cil_tmp85, __cil_tmp91, __len);
     }
   }
   __cil_tmp92 = (unsigned long )rep;
@@ -39295,7 +39295,7 @@ __inline static void memcpy_toio(void volatile   *dst , void    *src , size_t co
   {
   __len = count;
   __cil_tmp6 = (void *)dst;
-  __ret = __builtin_memcpy(__cil_tmp6, src, __len);
+  __ret = memcpy(__cil_tmp6, src, __len);
   }
   return;
 }

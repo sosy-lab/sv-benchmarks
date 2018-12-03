@@ -7145,6 +7145,7 @@ static int smsc9420_ethtool_get_eeprom_len(struct net_device *dev )
   return (11);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int smsc9420_ethtool_get_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom ,
                                        u8 *data )
 {
@@ -7183,7 +7184,7 @@ static int smsc9420_ethtool_get_eeprom(struct net_device *dev , struct ethtool_e
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)data, (void const *)(& eeprom_data) + (unsigned long )eeprom->offset,
+  __ret = memcpy((void *)data, (void const *)(& eeprom_data) + (unsigned long )eeprom->offset,
                            __len);
   eeprom->magic = 37920U;
   eeprom->len = (__u32 )len;

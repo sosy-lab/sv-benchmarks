@@ -5403,6 +5403,7 @@ static struct s3c_hsotg_ep *ep_from_windex(struct s3c_hsotg *hsotg , u32 windex 
   return (ep);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int s3c_hsotg_send_reply(struct s3c_hsotg *hsotg , struct s3c_hsotg_ep *ep ,
                                 void *buff , int length ) 
 { 
@@ -5441,7 +5442,7 @@ static int s3c_hsotg_send_reply(struct s3c_hsotg *hsotg , struct s3c_hsotg_ep *e
   req->complete = & s3c_hsotg_complete_oursetup;
   if (length != 0) {
     __len = (size_t )length;
-    __ret = __builtin_memcpy(req->buf, (void const   *)buff, __len);
+    __ret = memcpy(req->buf, (void const   *)buff, __len);
   } else {
     ep->sent_zlp = 1U;
   }

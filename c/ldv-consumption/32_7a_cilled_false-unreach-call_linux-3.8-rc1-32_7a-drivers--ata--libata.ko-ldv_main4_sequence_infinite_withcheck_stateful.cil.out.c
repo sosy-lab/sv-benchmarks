@@ -7563,7 +7563,7 @@ unsigned int ata_exec_internal_sg(struct ata_device *dev , struct ata_taskfile *
     if (__len > 63UL) {
       __ret = memcpy((void *)(& qc->cdb), (void const   *)cdb, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& qc->cdb), (void const   *)cdb, __len);
+      __ret = memcpy((void *)(& qc->cdb), (void const   *)cdb, __len);
     }
   } else {
 
@@ -9116,7 +9116,7 @@ int ata_timing_compute(struct ata_device *adev , unsigned short speed , struct a
   if (__len > 63UL) {
     __ret = memcpy((void *)t, (void const   *)s, __len);
   } else {
-    __ret = __builtin_memcpy((void *)t, (void const   *)s, __len);
+    __ret = memcpy((void *)t, (void const   *)s, __len);
   }
   if (((int )*(id + 53UL) & 2) != 0) {
     memset((void *)(& p), 0, 20UL);
@@ -10158,7 +10158,7 @@ int ata_dev_reread_id(struct ata_device *dev , unsigned int readid_flags )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& dev->ldv_38497.id), (void const   *)id, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dev->ldv_38497.id), (void const   *)id, __len);
+    __ret = memcpy((void *)(& dev->ldv_38497.id), (void const   *)id, __len);
   }
   return (0);
 }
@@ -16532,13 +16532,13 @@ static unsigned int ata_scsiop_inq_std(struct ata_scsi_args *args , u8 *rbuf )
   if (__len > 63UL) {
     __ret = memcpy((void *)rbuf, (void const   *)(& hdr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)rbuf, (void const   *)(& hdr), __len);
+    __ret = memcpy((void *)rbuf, (void const   *)(& hdr), __len);
   }
   __len___0 = 8UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)rbuf + 8U, (void const   *)"ATA     ", __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)rbuf + 8U, (void const   *)"ATA     ", __len___0);
+    __ret___0 = memcpy((void *)rbuf + 8U, (void const   *)"ATA     ", __len___0);
   }
   ata_id_string((u16 const   *)args->id, rbuf + 16U, 27U, 16U);
   ata_id_string((u16 const   *)args->id, rbuf + 32U, 23U, 4U);
@@ -16547,7 +16547,7 @@ static unsigned int ata_scsiop_inq_std(struct ata_scsi_args *args , u8 *rbuf )
     if (__len___1 > 63UL) {
       __ret___1 = memcpy((void *)rbuf + 32U, (void const   *)"n/a ", __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)rbuf + 32U, (void const   *)"n/a ", __len___1);
+      __ret___1 = memcpy((void *)rbuf + 32U, (void const   *)"n/a ", __len___1);
     }
   } else {
 
@@ -16556,7 +16556,7 @@ static unsigned int ata_scsiop_inq_std(struct ata_scsi_args *args , u8 *rbuf )
   if (__len___2 > 63UL) {
     __ret___2 = memcpy((void *)rbuf + 59U, (void const   *)(& versions), __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)rbuf + 59U, (void const   *)(& versions),
+    __ret___2 = memcpy((void *)rbuf + 59U, (void const   *)(& versions),
                                  __len___2);
   }
   return (0U);
@@ -16581,7 +16581,7 @@ static unsigned int ata_scsiop_inq_00(struct ata_scsi_args *args , u8 *rbuf )
   if (__len > 63UL) {
     __ret = memcpy((void *)rbuf + 4U, (void const   *)(& pages), __len);
   } else {
-    __ret = __builtin_memcpy((void *)rbuf + 4U, (void const   *)(& pages), __len);
+    __ret = memcpy((void *)rbuf + 4U, (void const   *)(& pages), __len);
   }
   return (0U);
 }
@@ -16601,7 +16601,7 @@ static unsigned int ata_scsiop_inq_80(struct ata_scsi_args *args , u8 *rbuf )
   if (__len > 63UL) {
     __ret = memcpy((void *)rbuf, (void const   *)(& hdr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)rbuf, (void const   *)(& hdr), __len);
+    __ret = memcpy((void *)rbuf, (void const   *)(& hdr), __len);
   }
   ata_id_string((u16 const   *)args->id, rbuf + 4U, 10U, 20U);
   return (0U);
@@ -16633,7 +16633,7 @@ static unsigned int ata_scsiop_inq_83(struct ata_scsi_args *args , u8 *rbuf )
     __ret = memcpy((void *)rbuf + (unsigned long )num, (void const   *)"ATA     ",
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)rbuf + (unsigned long )num, (void const   *)"ATA     ",
+    __ret = memcpy((void *)rbuf + (unsigned long )num, (void const   *)"ATA     ",
                              __len);
   }
   num = num + 8;
@@ -16677,20 +16677,20 @@ static unsigned int ata_scsiop_inq_89(struct ata_scsi_args *args , u8 *rbuf )
   if (__len > 63UL) {
     __ret = memcpy((void *)rbuf + 8U, (void const   *)"linux   ", __len);
   } else {
-    __ret = __builtin_memcpy((void *)rbuf + 8U, (void const   *)"linux   ", __len);
+    __ret = memcpy((void *)rbuf + 8U, (void const   *)"linux   ", __len);
   }
   __len___0 = 16UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)rbuf + 16U, (void const   *)"libata          ", __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)rbuf + 16U, (void const   *)"libata          ",
+    __ret___0 = memcpy((void *)rbuf + 16U, (void const   *)"libata          ",
                                  __len___0);
   }
   __len___1 = 4UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)rbuf + 32U, (void const   *)"3.00", __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)rbuf + 32U, (void const   *)"3.00", __len___1);
+    __ret___1 = memcpy((void *)rbuf + 32U, (void const   *)"3.00", __len___1);
   }
   ata_id_string((u16 const   *)args->id, rbuf + 32U, 23U, 4U);
   tf.command = 64U;
@@ -16703,7 +16703,7 @@ static unsigned int ata_scsiop_inq_89(struct ata_scsi_args *args , u8 *rbuf )
   if (__len___2 > 63UL) {
     __ret___2 = memcpy((void *)rbuf + 60U, (void const   *)args->id, __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)rbuf + 60U, (void const   *)args->id, __len___2);
+    __ret___2 = memcpy((void *)rbuf + 60U, (void const   *)args->id, __len___2);
   }
   return (0U);
 }
@@ -16782,12 +16782,12 @@ static void modecpy(u8 *dest , u8 const   *src , int n , bool changeable )
     if (__len > 63UL) {
       __ret = memcpy((void *)dest, (void const   *)src, __len);
     } else {
-      __ret = __builtin_memcpy((void *)dest, (void const   *)src, __len);
+      __ret = memcpy((void *)dest, (void const   *)src, __len);
     }
     memset((void *)dest + 2U, 0, (size_t )(n + -2));
   } else {
     __len___0 = (size_t )n;
-    __ret___0 = __builtin_memcpy((void *)dest, (void const   *)src, __len___0);
+    __ret___0 = memcpy((void *)dest, (void const   *)src, __len___0);
   }
   return;
 }
@@ -16993,7 +16993,7 @@ static unsigned int ata_scsiop_mode_sense(struct ata_scsi_args *args , u8 *rbuf 
       if (__len > 63UL) {
         __ret = memcpy((void *)rbuf + 4U, (void const   *)(& sat_blk_desc), __len);
       } else {
-        __ret = __builtin_memcpy((void *)rbuf + 4U, (void const   *)(& sat_blk_desc),
+        __ret = memcpy((void *)rbuf + 4U, (void const   *)(& sat_blk_desc),
                                  __len);
       }
     } else {
@@ -17011,7 +17011,7 @@ static unsigned int ata_scsiop_mode_sense(struct ata_scsi_args *args , u8 *rbuf 
         __ret___0 = memcpy((void *)rbuf + 8U, (void const   *)(& sat_blk_desc),
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)rbuf + 8U, (void const   *)(& sat_blk_desc),
+        __ret___0 = memcpy((void *)rbuf + 8U, (void const   *)(& sat_blk_desc),
                                      __len___0);
       }
     } else {
@@ -17271,7 +17271,7 @@ static unsigned int atapi_xlat(struct ata_queued_cmd *qc )
   using_pio = nodata == 0 && (dev->flags & 4096UL) != 0UL;
   memset((void *)(& qc->cdb), 0, (size_t )dev->cdb_len);
   __len = (size_t )scmd->cmd_len;
-  __ret = __builtin_memcpy((void *)(& qc->cdb), (void const   *)scmd->cmnd, __len);
+  __ret = memcpy((void *)(& qc->cdb), (void const   *)scmd->cmnd, __len);
   qc->complete_fn = & atapi_qc_complete;
   qc->tf.flags = qc->tf.flags | 6UL;
   if ((unsigned int )scmd->sc_data_direction == 1U) {
@@ -20853,7 +20853,7 @@ void ata_eh_analyze_ncq_error(struct ata_link *link )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& qc->result_tf), (void const   *)(& tf), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& qc->result_tf), (void const   *)(& tf), __len);
+    __ret = memcpy((void *)(& qc->result_tf), (void const   *)(& tf), __len);
   }
   qc->result_tf.flags = 19UL;
   qc->err_mask = qc->err_mask | 1025U;
@@ -26033,10 +26033,10 @@ unsigned int ata_sff_data_xfer32(struct ata_device *dev , unsigned char *buf , u
         ioread32_rep(data_addr, (void *)(& pad), 1UL);
       }
       __len = (size_t )slop;
-      __ret = __builtin_memcpy((void *)buf, (void const   *)(& pad), __len);
+      __ret = memcpy((void *)buf, (void const   *)(& pad), __len);
     } else {
       __len___0 = (size_t )slop;
-      __ret___0 = __builtin_memcpy((void *)(& pad), (void const   *)buf, __len___0);
+      __ret___0 = memcpy((void *)(& pad), (void const   *)buf, __len___0);
       if (slop <= 2) {
         iowrite16_rep(data_addr, (void const   *)(& pad), 1UL);
       } else {
@@ -29749,7 +29749,7 @@ static int sata_pmp_revalidate(struct ata_device *dev , unsigned int new_class )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& dev->ldv_38497.gscr), (void const   *)gscr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dev->ldv_38497.gscr), (void const   *)gscr,
+    __ret = memcpy((void *)(& dev->ldv_38497.gscr), (void const   *)gscr,
                              __len);
   }
   rc = sata_pmp_configure(dev, 0);
@@ -30681,7 +30681,7 @@ int ata_acpi_gtm(struct ata_port *ap , struct ata_acpi_gtm *gtm )
   if (__len > 63UL) {
     __ret = memcpy((void *)gtm, (void const   *)out_obj->buffer.pointer, __len);
   } else {
-    __ret = __builtin_memcpy((void *)gtm, (void const   *)out_obj->buffer.pointer,
+    __ret = memcpy((void *)gtm, (void const   *)out_obj->buffer.pointer,
                              __len);
   }
   rc = 0;

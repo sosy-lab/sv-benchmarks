@@ -5558,6 +5558,7 @@ __inline static struct sk_buff *mI_alloc_skb(unsigned int len , gfp_t gfp_mask )
   return (skb);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static struct sk_buff *_alloc_mISDN_skb(u_int prim , u_int id___0 , u_int len ,
                                                  void *dp , gfp_t gfp_mask )
 { struct sk_buff *skb ;
@@ -5576,7 +5577,7 @@ __inline static struct sk_buff *_alloc_mISDN_skb(u_int prim , u_int id___0 , u_i
   if (len != 0U) {
     __len = (size_t )len;
     tmp___1 = skb_put(skb, len);
-    __ret = __builtin_memcpy((void *)tmp___1, (void const *)dp, __len);
+    __ret = memcpy((void *)tmp___1, (void const *)dp, __len);
   } else {
   }
   hh = (struct mISDNhead *)(& skb->cb);
@@ -5733,7 +5734,7 @@ static int l1oip_socket_send(struct l1oip *hc , u8 localcodec , u8 channel , u32
       len = l1oip_law_to_4bit(buf, len, p, & hc->chan[(int )channel].codecstate);
     } else {
       __len = (size_t )len;
-      __ret = __builtin_memcpy((void *)p, (void const *)buf, __len);
+      __ret = memcpy((void *)p, (void const *)buf, __len);
     }
   } else {
   }
@@ -5826,7 +5827,7 @@ static void l1oip_socket_recv(struct l1oip *hc , u8 remotecodec , u8 channel , u
     len = l1oip_4bit_to_law(buf, len, p);
   } else {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)p, (void const *)buf, __len);
+    __ret = memcpy((void *)p, (void const *)buf, __len);
   }
   if ((unsigned long )dch != (unsigned long )((struct dchannel *)0) && len > 1) {
     dch->rx_skb = nskb;

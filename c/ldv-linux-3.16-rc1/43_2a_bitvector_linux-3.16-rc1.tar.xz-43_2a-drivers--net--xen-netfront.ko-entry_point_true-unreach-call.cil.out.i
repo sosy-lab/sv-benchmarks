@@ -8249,7 +8249,7 @@ static int xennet_get_extras(struct netfront_queue *queue , struct xen_netif_ext
         __ret = memcpy((void *)(extras + ((unsigned long )extra->type + 0xffffffffffffffffUL)),
                          (void const *)extra, __len);
       } else {
-        __ret = __builtin_memcpy((void *)(extras + ((unsigned long )extra->type + 0xffffffffffffffffUL)),
+        __ret = memcpy((void *)(extras + ((unsigned long )extra->type + 0xffffffffffffffffUL)),
                                  (void const *)extra, __len);
       }
     }
@@ -8621,7 +8621,7 @@ static int xennet_poll(struct napi_struct *napi , int budget )
     __ret = memcpy((void *)rx, (void const *)(& (queue->rx.sring)->ring[(queue->rx.nr_ents - 1U) & i].rsp),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)rx, (void const *)(& (queue->rx.sring)->ring[(queue->rx.nr_ents - 1U) & i].rsp),
+    __ret = memcpy((void *)rx, (void const *)(& (queue->rx.sring)->ring[(queue->rx.nr_ents - 1U) & i].rsp),
                              __len);
   }
   memset((void *)extras, 0, 8UL);
@@ -10046,7 +10046,7 @@ static void xennet_get_strings(struct net_device *dev , u32 stringset , u8 *data
     __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const *)(& xennet_stats[i].name),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)data + (unsigned long )(i * 32), (void const *)(& xennet_stats[i].name),
+    __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const *)(& xennet_stats[i].name),
                              __len);
   }
   i = i + 1;

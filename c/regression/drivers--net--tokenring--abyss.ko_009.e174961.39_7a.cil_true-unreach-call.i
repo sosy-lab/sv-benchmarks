@@ -3255,7 +3255,7 @@ struct net_local {
 };
 typedef int ldv_func_ret_type___1;
 typedef int ldv_func_ret_type___19;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
@@ -3555,7 +3555,7 @@ static int abyss_attach(struct pci_dev *pdev , struct pci_device_id  const  *ent
     __ret = memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
+    __ret = memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
                              __len);
   }
   dev->open = & abyss_open;

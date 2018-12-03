@@ -1453,7 +1453,7 @@ struct mtdoops_context {
    int ready ;
    int writecount ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 extern int oops_in_progress ;
 extern  __attribute__((__noreturn__)) void __bad_pda_field(void) ;
@@ -1946,7 +1946,7 @@ static void mtdoops_console_write(struct console *co , char const   *s , unsigne
 
   }
   __len = count;
-  __ret = __builtin_memcpy(cxt->oops_buf + cxt->writecount, s, __len);
+  __ret = memcpy(cxt->oops_buf + cxt->writecount, s, __len);
   cxt->writecount = (unsigned int )cxt->writecount + count;
   return;
 }

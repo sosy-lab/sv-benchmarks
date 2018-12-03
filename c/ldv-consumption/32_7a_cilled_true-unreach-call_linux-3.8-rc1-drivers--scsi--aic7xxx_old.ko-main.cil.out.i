@@ -8595,7 +8595,7 @@ static void aic7xxx_handle_seqint(struct aic7xxx_host *p , unsigned char intstat
         __ret = memcpy((void *)scb->sense_cmd, (void const *)(& generic_sense),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)scb->sense_cmd, (void const *)(& generic_sense),
+        __ret = memcpy((void *)scb->sense_cmd, (void const *)(& generic_sense),
                                  __len);
       }
       *(scb->sense_cmd + 1UL) = (int )((unsigned char )(cmd->device)->lun) << 5U;
@@ -12481,7 +12481,7 @@ static void aic7xxx_load_seeprom(struct aic7xxx_host *p , unsigned char *sxfrctl
     if (__len > 63UL) {
       __ret = memcpy((void *)(& p->sc), (void const *)sc, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& p->sc), (void const *)sc, __len);
+      __ret = memcpy((void *)(& p->sc), (void const *)sc, __len);
     }
   }
   p->discenable = 0U;
@@ -13727,7 +13727,7 @@ static void aic7xxx_buildscb(struct aic7xxx_host *p , struct scsi_cmnd *cmd , st
   hscb->target_channel_lun = ((unsigned int )((int )((unsigned char )(cmd->device)->id) << 4U) | (((unsigned int )((unsigned char )(cmd->device)->channel) & 1U) << 3U)) | ((unsigned int )((unsigned char )(cmd->device)->lun) & 7U);
   hscb->SCSI_cmd_length = (unsigned char )cmd->cmd_len;
   __len = (size_t )cmd->cmd_len;
-  __ret = __builtin_memcpy((void *)scb->cmnd, (void const *)cmd->cmnd, __len);
+  __ret = memcpy((void *)scb->cmnd, (void const *)cmd->cmnd, __len);
   hscb->SCSI_cmd_pointer = (unsigned int )((long )scb->cmnd) + (unsigned int )(scb->scb_dma)->dma_offset;
   use_sg = scsi_dma_map(cmd);
   tmp = ldv__builtin_expect(use_sg < 0, 0L);
@@ -15406,7 +15406,7 @@ int aic7xxx_proc_info(struct Scsi_Host *HBAptr , char *buffer , char **start , o
     }
     length = tmp___64;
     __len = (size_t )length;
-    __ret = __builtin_memcpy((void *)buffer, (void const *)aic7xxx_buffer + (unsigned long )offset,
+    __ret = memcpy((void *)buffer, (void const *)aic7xxx_buffer + (unsigned long )offset,
                              __len);
   }
   return (length);

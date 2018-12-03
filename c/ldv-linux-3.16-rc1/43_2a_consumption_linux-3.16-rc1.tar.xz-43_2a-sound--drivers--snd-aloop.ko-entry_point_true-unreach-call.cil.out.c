@@ -4640,6 +4640,7 @@ static void clear_capture_buf(struct loopback_pcm *dpcm , unsigned int bytes )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void copy_play_buf(struct loopback_pcm *play , struct loopback_pcm *capt ,
                           unsigned int bytes ) 
 { 
@@ -4702,7 +4703,7 @@ static void copy_play_buf(struct loopback_pcm *play , struct loopback_pcm *capt 
 
   }
   __len = (size_t )size;
-  __ret = __builtin_memcpy((void *)dst + (unsigned long )dst_off, (void const   *)src + (unsigned long )src_off,
+  __ret = memcpy((void *)dst + (unsigned long )dst_off, (void const   *)src + (unsigned long )src_off,
                            __len);
   capt->silent_size = 0U;
   bytes = bytes - size;

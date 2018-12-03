@@ -1012,7 +1012,7 @@ static void cfag12864b_update(struct work_struct *work )
       __cil_tmp69 = & cfag12864b_buffer;
       __cil_tmp70 = *__cil_tmp69;
       __cil_tmp71 = (void const *)__cil_tmp70;
-      __ret = __builtin_memcpy(__cil_tmp68, __cil_tmp71, __len);
+      __ret = memcpy(__cil_tmp68, __cil_tmp71, __len);
       }
     }
   } else {

@@ -5533,7 +5533,7 @@ static int metadata_ll_load_ie(struct ll_disk *ll , dm_block_t index , struct di
     __ret = memcpy((void *)ie, (void const   *)(& ll->mi_le.index) + (unsigned long )index,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)ie, (void const   *)(& ll->mi_le.index) + (unsigned long )index,
+    __ret = memcpy((void *)ie, (void const   *)(& ll->mi_le.index) + (unsigned long )index,
                              __len);
   }
   return (0);
@@ -5551,7 +5551,7 @@ static int metadata_ll_save_ie(struct ll_disk *ll , dm_block_t index , struct di
     __ret = memcpy((void *)(& ll->mi_le.index) + (unsigned long )index, (void const   *)ie,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ll->mi_le.index) + (unsigned long )index,
+    __ret = memcpy((void *)(& ll->mi_le.index) + (unsigned long )index,
                              (void const   *)ie, __len);
   }
   return (0);
@@ -5580,7 +5580,7 @@ static int metadata_ll_init_index(struct ll_disk *ll )
     __ret = memcpy(tmp, (void const   *)(& ll->mi_le), __len);
   } else {
     tmp___0 = dm_block_data(b);
-    __ret = __builtin_memcpy(tmp___0, (void const   *)(& ll->mi_le), __len);
+    __ret = memcpy(tmp___0, (void const   *)(& ll->mi_le), __len);
   }
   ll->bitmap_root = dm_block_location(b);
   tmp___1 = dm_tm_unlock(ll->tm, b);
@@ -5610,7 +5610,7 @@ static int metadata_ll_open(struct ll_disk *ll )
     __ret = memcpy((void *)(& ll->mi_le), (void const   *)tmp, __len);
   } else {
     tmp___0 = dm_block_data(block);
-    __ret = __builtin_memcpy((void *)(& ll->mi_le), (void const   *)tmp___0, __len);
+    __ret = memcpy((void *)(& ll->mi_le), (void const   *)tmp___0, __len);
   }
   tmp___1 = dm_tm_unlock(ll->tm, block);
   return (tmp___1);
@@ -5648,7 +5648,7 @@ static int metadata_ll_commit(struct ll_disk *ll )
     __ret = memcpy(tmp, (void const   *)(& ll->mi_le), __len);
   } else {
     tmp___0 = dm_block_data(b);
-    __ret = __builtin_memcpy(tmp___0, (void const   *)(& ll->mi_le), __len);
+    __ret = memcpy(tmp___0, (void const   *)(& ll->mi_le), __len);
   }
   ll->bitmap_root = dm_block_location(b);
   tmp___1 = dm_tm_unlock(ll->tm, b);
@@ -6215,7 +6215,7 @@ static int sm_disk_commit(struct dm_space_map *sm )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& smd->old_ll), (void const   *)(& smd->ll), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& smd->old_ll), (void const   *)(& smd->ll),
+    __ret = memcpy((void *)(& smd->old_ll), (void const   *)(& smd->ll),
                              __len);
   }
   smd->begin = 0ULL;
@@ -6262,7 +6262,7 @@ static int sm_disk_copy_root(struct dm_space_map *sm , void *where_le , size_t m
   if (__len > 63UL) {
     __ret = memcpy(where_le, (void const   *)(& root_le), __len);
   } else {
-    __ret = __builtin_memcpy(where_le, (void const   *)(& root_le), __len);
+    __ret = memcpy(where_le, (void const   *)(& root_le), __len);
   }
   return (0);
 }
@@ -6297,7 +6297,7 @@ struct dm_space_map *dm_sm_disk_create(struct dm_transaction_manager *tm , dm_bl
   if (__len > 63UL) {
     __ret = memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
+    __ret = memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
   }
   r = sm_ll_new_disk(& smd->ll, tm);
   if (r != 0) {
@@ -6350,7 +6350,7 @@ struct dm_space_map *dm_sm_disk_open(struct dm_transaction_manager *tm , void *r
   if (__len > 63UL) {
     __ret = memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
+    __ret = memcpy((void *)(& smd->sm), (void const   *)(& ops), __len);
   }
   r = sm_ll_open_disk(& smd->ll, tm, root_le, len);
   if (r != 0) {
@@ -6963,7 +6963,7 @@ static int sm_metadata_commit(struct dm_space_map *sm )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll),
+    __ret = memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll),
                              __len);
   }
   smm->begin = 0ULL;
@@ -7004,7 +7004,7 @@ static int sm_metadata_copy_root(struct dm_space_map *sm , void *where_le , size
   if (__len > 63UL) {
     __ret = memcpy(where_le, (void const   *)(& root_le), __len);
   } else {
-    __ret = __builtin_memcpy(where_le, (void const   *)(& root_le), __len);
+    __ret = memcpy(where_le, (void const   *)(& root_le), __len);
   }
   return (0);
 }
@@ -7182,7 +7182,7 @@ struct dm_space_map *dm_sm_metadata_init(void)
   if (__len > 63UL) {
     __ret = memcpy((void *)(& smm->sm), (void const   *)(& ops___0), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& smm->sm), (void const   *)(& ops___0), __len);
+    __ret = memcpy((void *)(& smm->sm), (void const   *)(& ops___0), __len);
   }
   return (& smm->sm);
 }
@@ -7212,7 +7212,7 @@ int dm_sm_metadata_create(struct dm_space_map *sm , struct dm_transaction_manage
   if (__len > 63UL) {
     __ret = memcpy((void *)(& smm->sm), (void const   *)(& bootstrap_ops), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& smm->sm), (void const   *)(& bootstrap_ops),
+    __ret = memcpy((void *)(& smm->sm), (void const   *)(& bootstrap_ops),
                              __len);
   }
   r = sm_ll_new_metadata(& smm->ll, tm);
@@ -7231,7 +7231,7 @@ int dm_sm_metadata_create(struct dm_space_map *sm , struct dm_transaction_manage
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& smm->sm), (void const   *)(& ops___0), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& smm->sm), (void const   *)(& ops___0),
+    __ret___0 = memcpy((void *)(& smm->sm), (void const   *)(& ops___0),
                                  __len___0);
   }
   i = superblock;
@@ -7281,7 +7281,7 @@ int dm_sm_metadata_open(struct dm_space_map *sm , struct dm_transaction_manager 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll),
+    __ret = memcpy((void *)(& smm->old_ll), (void const   *)(& smm->ll),
                              __len);
   }
   return (0);
@@ -7908,7 +7908,7 @@ static int __shadow_block(struct dm_transaction_manager *tm , dm_block_t orig , 
   __len = (size_t )tmp;
   tmp___2 = dm_block_data(orig_block);
   tmp___3 = dm_block_data(*result);
-  __ret = __builtin_memcpy(tmp___3, (void const   *)tmp___2, __len);
+  __ret = memcpy(tmp___3, (void const   *)tmp___2, __len);
   dm_bm_unlock(orig_block);
   return (r);
 }
@@ -8248,7 +8248,7 @@ static void memcpy_disk(void *dest , void const   *src , size_t len )
 
   {
   __len = len;
-  __ret = __builtin_memcpy(dest, src, __len);
+  __ret = memcpy(dest, src, __len);
   return;
 }
 }
@@ -8667,7 +8667,7 @@ static int btree_lookup_raw(struct ro_spine *s , dm_block_t block , uint64_t key
   __len = value_size;
   tmp___6 = ro_node(s);
   tmp___7 = value_ptr(tmp___6, (uint32_t )i);
-  __ret = __builtin_memcpy(v, (void const   *)tmp___7, __len);
+  __ret = memcpy(v, (void const   *)tmp___7, __len);
   return (0);
 }
 }
@@ -8767,13 +8767,13 @@ static int btree_split_sibling(struct shadow_spine *s , dm_block_t root , unsign
   rn->header.max_entries = ln->header.max_entries;
   rn->header.value_size = ln->header.value_size;
   __len = (unsigned long )nr_right * 8UL;
-  __ret = __builtin_memcpy((void *)(& rn->keys), (void const   *)(& ln->keys) + (unsigned long )nr_left,
+  __ret = memcpy((void *)(& rn->keys), (void const   *)(& ln->keys) + (unsigned long )nr_left,
                            __len);
   size = (int )ln->header.flags & 1 ? 8UL : (unsigned long )(s->info)->value_type.size;
   __len___0 = (size_t )nr_right * size;
   tmp___3 = value_ptr(ln, nr_left);
   tmp___4 = value_ptr(rn, 0U);
-  __ret___0 = __builtin_memcpy(tmp___4, (void const   *)tmp___3, __len___0);
+  __ret___0 = memcpy(tmp___4, (void const   *)tmp___3, __len___0);
   parent = shadow_parent(s);
   tmp___5 = dm_block_data(parent);
   pn = (struct btree_node *)tmp___5;
@@ -8861,19 +8861,19 @@ static int btree_split_beneath(struct shadow_spine *s , uint64_t key )
   rn->header.max_entries = pn->header.max_entries;
   rn->header.value_size = pn->header.value_size;
   __len = (unsigned long )nr_left * 8UL;
-  __ret = __builtin_memcpy((void *)(& ln->keys), (void const   *)(& pn->keys), __len);
+  __ret = memcpy((void *)(& ln->keys), (void const   *)(& pn->keys), __len);
   __len___0 = (unsigned long )nr_right * 8UL;
-  __ret___0 = __builtin_memcpy((void *)(& rn->keys), (void const   *)(& pn->keys) + (unsigned long )nr_left,
+  __ret___0 = memcpy((void *)(& rn->keys), (void const   *)(& pn->keys) + (unsigned long )nr_left,
                                __len___0);
   size = (int )pn->header.flags & 1 ? 8UL : (unsigned long )(s->info)->value_type.size;
   __len___1 = (size_t )nr_left * size;
   tmp___4 = value_ptr(pn, 0U);
   tmp___5 = value_ptr(ln, 0U);
-  __ret___1 = __builtin_memcpy(tmp___5, (void const   *)tmp___4, __len___1);
+  __ret___1 = memcpy(tmp___5, (void const   *)tmp___4, __len___1);
   __len___2 = (size_t )nr_right * size;
   tmp___8 = value_ptr(pn, nr_left);
   tmp___9 = value_ptr(rn, 0U);
-  __ret___2 = __builtin_memcpy(tmp___9, (void const   *)tmp___8, __len___2);
+  __ret___2 = memcpy(tmp___9, (void const   *)tmp___8, __len___2);
   pn->header.flags = 1U;
   pn->header.nr_entries = 2U;
   tmp___10 = dm_tm_get_bm((s->info)->tm);
@@ -9454,11 +9454,11 @@ static void node_copy(struct btree_node *left , struct btree_node *right , int s
     __len = (unsigned long )shift___0 * 8UL;
     tmp___3 = key_ptr(right, 0U);
     tmp___4 = key_ptr(left, nr_left);
-    __ret = __builtin_memcpy((void *)tmp___4, (void const   *)tmp___3, __len);
+    __ret = memcpy((void *)tmp___4, (void const   *)tmp___3, __len);
     __len___0 = (size_t )((uint32_t )shift___0 * value_size);
     tmp___7 = value_ptr(right, 0U);
     tmp___8 = value_ptr(left, nr_left);
-    __ret___0 = __builtin_memcpy(tmp___8, (void const   *)tmp___7, __len___0);
+    __ret___0 = memcpy(tmp___8, (void const   *)tmp___7, __len___0);
   } else {
     tmp___9 = ldv__builtin_expect((__le32 )shift___0 > right->header.max_entries, 0L);
     if (tmp___9 != 0L) {
@@ -9472,11 +9472,11 @@ static void node_copy(struct btree_node *left , struct btree_node *right , int s
     __len___1 = (unsigned long )shift___0 * 8UL;
     tmp___12 = key_ptr(left, nr_left - (uint32_t )shift___0);
     tmp___13 = key_ptr(right, 0U);
-    __ret___1 = __builtin_memcpy((void *)tmp___13, (void const   *)tmp___12, __len___1);
+    __ret___1 = memcpy((void *)tmp___13, (void const   *)tmp___12, __len___1);
     __len___2 = (size_t )((uint32_t )shift___0 * value_size);
     tmp___16 = value_ptr(left, nr_left - (uint32_t )shift___0);
     tmp___17 = value_ptr(right, 0U);
-    __ret___2 = __builtin_memcpy(tmp___17, (void const   *)tmp___16, __len___2);
+    __ret___2 = memcpy(tmp___17, (void const   *)tmp___16, __len___2);
   }
   return;
 }
@@ -9987,7 +9987,7 @@ static int rebalance_children(struct shadow_spine *s , struct dm_btree_info *inf
     tmp___3 = dm_bm_block_size(tmp___2);
     __len = (size_t )tmp___3;
     tmp___5 = dm_block_data(child);
-    __ret = __builtin_memcpy((void *)n, (void const   *)tmp___5, __len);
+    __ret = memcpy((void *)n, (void const   *)tmp___5, __len);
     r = dm_tm_unlock(info->tm, child);
     if (r != 0) {
       return (r);
@@ -10092,7 +10092,7 @@ static int remove_raw(struct shadow_spine *s , struct dm_btree_info *info , stru
       tmp___4 = shadow_parent(s);
       tmp___5 = dm_block_data(tmp___4);
       tmp___6 = value_ptr((struct btree_node *)tmp___5, (uint32_t )i);
-      __ret = __builtin_memcpy(tmp___6, (void const   *)(& location), __len);
+      __ret = memcpy(tmp___6, (void const   *)(& location), __len);
     }
   } else {
 

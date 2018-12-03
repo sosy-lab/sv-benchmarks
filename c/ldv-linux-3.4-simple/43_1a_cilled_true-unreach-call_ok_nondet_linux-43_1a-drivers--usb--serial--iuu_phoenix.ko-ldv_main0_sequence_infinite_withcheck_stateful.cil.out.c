@@ -6748,6 +6748,7 @@ static void read_buf_callback(struct urb *urb )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int iuu_bulk_write(struct usb_serial_port *port ) 
 { struct iuu_private *priv ;
   void *tmp ;
@@ -6887,7 +6888,7 @@ static int iuu_bulk_write(struct usb_serial_port *port )
   __cil_tmp32 = __cil_tmp31 + 176;
   __cil_tmp33 = *((u8 **)__cil_tmp32);
   __cil_tmp34 = (void const   *)__cil_tmp33;
-  __ret = __builtin_memcpy(__cil_tmp30, __cil_tmp34, __len);
+  __ret = memcpy(__cil_tmp30, __cil_tmp34, __len);
   __cil_tmp35 = (unsigned long )priv;
   __cil_tmp36 = __cil_tmp35 + 184;
   buf_len = *((int *)__cil_tmp36);
@@ -7414,7 +7415,7 @@ static int iuu_uart_write(struct tty_struct *tty , struct usb_serial_port *port 
   __cil_tmp20 = (void *)__cil_tmp19;
   __cil_tmp21 = __cil_tmp20 + __cil_tmp16;
   __cil_tmp22 = (void const   *)buf;
-  __ret = __builtin_memcpy(__cil_tmp21, __cil_tmp22, __len);
+  __ret = memcpy(__cil_tmp21, __cil_tmp22, __len);
   __cil_tmp23 = (unsigned long )priv;
   __cil_tmp24 = __cil_tmp23 + 184;
   __cil_tmp25 = (unsigned long )priv;

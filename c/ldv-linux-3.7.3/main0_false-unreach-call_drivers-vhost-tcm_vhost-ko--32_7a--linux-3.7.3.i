@@ -8603,7 +8603,7 @@ static long vhost_set_memory(struct vhost_dev *d , struct vhost_memory *m )
   } else {
   }
   __len = size;
-  __ret = __builtin_memcpy((void *)newmem, (void const *)(& mem), __len);
+  __ret = memcpy((void *)newmem, (void const *)(& mem), __len);
   tmp___1 = copy_from_user((void *)(& newmem->regions), (void const *)(& m->regions),
                            (unsigned long )mem.nregions * 32UL);
   if (tmp___1 != 0UL) {
@@ -11183,7 +11183,7 @@ static void vhost_scsi_complete_cmd_work(struct vhost_work *work )
   v_rsp.status = se_cmd->scsi_status;
   v_rsp.sense_len = (u32 )se_cmd->scsi_sense_length;
   __len = (size_t )v_rsp.sense_len;
-  __ret = __builtin_memcpy((void *)(& v_rsp.sense), (void const *)(& tv_cmd->tvc_sense_buf),
+  __ret = memcpy((void *)(& v_rsp.sense), (void const *)(& tv_cmd->tvc_sense_buf),
                            __len);
   ret = copy_to_user((void *)tv_cmd->tvc_resp, (void const *)(& v_rsp), 108U);
   tmp___0 = ldv__builtin_expect(ret == 0, 1L);
@@ -11714,7 +11714,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& tv_cmd->tvc_cdb), (void const *)(& v_req.cdb), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& tv_cmd->tvc_cdb), (void const *)(& v_req.cdb),
+    __ret = memcpy((void *)(& tv_cmd->tvc_cdb), (void const *)(& v_req.cdb),
                              __len);
   }
   tmp___20 = scsi_command_size((unsigned char const *)(& tv_cmd->tvc_cdb));
@@ -12021,7 +12021,7 @@ static int vhost_scsi_release(struct inode *inode , struct file *f )
       __ret = memcpy((void *)(& backend.vhost_wwpn), (void const *)(& ((s->vs_tpg)->tport)->tport_name),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& backend.vhost_wwpn), (void const *)(& ((s->vs_tpg)->tport)->tport_name),
+      __ret = memcpy((void *)(& backend.vhost_wwpn), (void const *)(& ((s->vs_tpg)->tport)->tport_name),
                                __len);
     }
     backend.vhost_tpgt = (s->vs_tpg)->tport_tpgt;

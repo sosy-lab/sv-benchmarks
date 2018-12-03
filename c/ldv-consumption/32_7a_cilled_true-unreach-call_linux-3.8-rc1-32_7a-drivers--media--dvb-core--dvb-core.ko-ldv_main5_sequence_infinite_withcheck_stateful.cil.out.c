@@ -6147,7 +6147,7 @@ int dvb_register_device(struct dvb_adapter *adap , struct dvb_device **pdvbdev ,
   if (__len > 63UL) {
     __ret = memcpy((void *)dvbdev, (void const   *)template, __len);
   } else {
-    __ret = __builtin_memcpy((void *)dvbdev, (void const   *)template, __len);
+    __ret = memcpy((void *)dvbdev, (void const   *)template, __len);
   }
   dvbdev->type = type;
   dvbdev->id = (u32 )id;
@@ -6159,7 +6159,7 @@ int dvb_register_device(struct dvb_adapter *adap , struct dvb_device **pdvbdev ,
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)dvbdevfops, (void const   *)template->fops, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)dvbdevfops, (void const   *)template->fops,
+    __ret___0 = memcpy((void *)dvbdevfops, (void const   *)template->fops,
                                  __len___0);
   }
   dvbdevfops->owner = adap->module;
@@ -8009,7 +8009,7 @@ static int dvb_dmxdev_filter_start(struct dmxdev_filter *filter )
     __ret = memcpy((void *)(& (*secfilter)->filter_value) + 3U, (void const   *)(& para->filter.filter) + 1U,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (*secfilter)->filter_value) + 3U, (void const   *)(& para->filter.filter) + 1U,
+    __ret = memcpy((void *)(& (*secfilter)->filter_value) + 3U, (void const   *)(& para->filter.filter) + 1U,
                              __len);
   }
   __len___0 = 15UL;
@@ -8017,7 +8017,7 @@ static int dvb_dmxdev_filter_start(struct dmxdev_filter *filter )
     __ret___0 = memcpy((void *)(& (*secfilter)->filter_mask) + 3U, (void const   *)(& para->filter.mask) + 1U,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& (*secfilter)->filter_mask) + 3U, (void const   *)(& para->filter.mask) + 1U,
+    __ret___0 = memcpy((void *)(& (*secfilter)->filter_mask) + 3U, (void const   *)(& para->filter.mask) + 1U,
                                  __len___0);
   }
   __len___1 = 15UL;
@@ -8025,7 +8025,7 @@ static int dvb_dmxdev_filter_start(struct dmxdev_filter *filter )
     __ret___1 = memcpy((void *)(& (*secfilter)->filter_mode) + 3U, (void const   *)(& para->filter.mode) + 1U,
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& (*secfilter)->filter_mode) + 3U, (void const   *)(& para->filter.mode) + 1U,
+    __ret___1 = memcpy((void *)(& (*secfilter)->filter_mode) + 3U, (void const   *)(& para->filter.mode) + 1U,
                                  __len___1);
   }
   (*secfilter)->filter_value[0] = para->filter.filter[0];
@@ -8279,7 +8279,7 @@ static int dvb_dmxdev_filter_set(struct dmxdev *dmxdev , struct dmxdev_filter *d
     __ret = memcpy((void *)(& dmxdevfilter->params.sec), (void const   *)params,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dmxdevfilter->params.sec), (void const   *)params,
+    __ret = memcpy((void *)(& dmxdevfilter->params.sec), (void const   *)params,
                              __len);
   }
   invert_mode(& dmxdevfilter->params.sec.filter);
@@ -8314,7 +8314,7 @@ static int dvb_dmxdev_pes_filter_set(struct dmxdev *dmxdev , struct dmxdev_filte
   if (__len > 63UL) {
     __ret = memcpy((void *)(& dmxdevfilter->params), (void const   *)params, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dmxdevfilter->params), (void const   *)params,
+    __ret = memcpy((void *)(& dmxdevfilter->params), (void const   *)params,
                              __len);
   }
   INIT_LIST_HEAD(& dmxdevfilter->feed.ts);
@@ -9773,7 +9773,7 @@ static void dvb_dmx_memcopy(struct dvb_demux_feed *f , u8 *d , u8 const   *s , s
 
   {
   __len = len;
-  __ret = __builtin_memcpy((void *)d, (void const   *)s, __len);
+  __ret = memcpy((void *)d, (void const   *)s, __len);
   return;
 }
 }
@@ -10310,7 +10310,7 @@ __inline static void _dvb_dmx_swfilter(struct dvb_demux *demux , u8 const   *buf
     j = (int )pktsize - i;
     if ((size_t )j > count) {
       __len = count;
-      __ret = __builtin_memcpy((void *)(& demux->tsbuf) + (unsigned long )i, (void const   *)buf,
+      __ret = memcpy((void *)(& demux->tsbuf) + (unsigned long )i, (void const   *)buf,
                                __len);
       demux->tsbufp = (int )((unsigned int )demux->tsbufp + (unsigned int )count);
       goto bailout;
@@ -10318,7 +10318,7 @@ __inline static void _dvb_dmx_swfilter(struct dvb_demux *demux , u8 const   *buf
 
     }
     __len___0 = (size_t )j;
-    __ret___0 = __builtin_memcpy((void *)(& demux->tsbuf) + (unsigned long )i, (void const   *)buf,
+    __ret___0 = memcpy((void *)(& demux->tsbuf) + (unsigned long )i, (void const   *)buf,
                                  __len___0);
     if ((unsigned int )demux->tsbuf[0] == 71U) {
       dvb_dmx_swfilter_packet(demux, (u8 const   *)(& demux->tsbuf));
@@ -10348,7 +10348,7 @@ __inline static void _dvb_dmx_swfilter(struct dvb_demux *demux , u8 const   *buf
     if (__len___1 > 63UL) {
       __ret___1 = memcpy((void *)(& demux->tsbuf), (void const   *)q, __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& demux->tsbuf), (void const   *)q, __len___1);
+      __ret___1 = memcpy((void *)(& demux->tsbuf), (void const   *)q, __len___1);
     }
     demux->tsbuf[0] = 71U;
     q = (u8 const   *)(& demux->tsbuf);
@@ -10362,7 +10362,7 @@ __inline static void _dvb_dmx_swfilter(struct dvb_demux *demux , u8 const   *buf
   i = (int )((unsigned int )count - (unsigned int )p);
   if (i != 0) {
     __len___2 = (size_t )i;
-    __ret___2 = __builtin_memcpy((void *)(& demux->tsbuf), (void const   *)buf + (unsigned long )p,
+    __ret___2 = memcpy((void *)(& demux->tsbuf), (void const   *)buf + (unsigned long )p,
                                  __len___2);
     demux->tsbufp = i;
     if ((int )pktsize == 204 && (unsigned int )demux->tsbuf[0] == 184U) {
@@ -11234,7 +11234,7 @@ static int dvbdmx_get_pes_pids(struct dmx_demux *demux , u16 *pids )
   if (__len > 63UL) {
     __ret = memcpy((void *)pids, (void const   *)(& dvbdemux->pids), __len);
   } else {
-    __ret = __builtin_memcpy((void *)pids, (void const   *)(& dvbdemux->pids), __len);
+    __ret = memcpy((void *)pids, (void const   *)(& dvbdemux->pids), __len);
   }
   return (0);
 }
@@ -12091,7 +12091,7 @@ int dvb_filter_pes2ts(struct dvb_filter_pes2ts *p2ts , unsigned char *pes , int 
   if (__len > 63UL) {
     __ret = memcpy((void *)buf + 4U, (void const   *)pes, __len);
   } else {
-    __ret = __builtin_memcpy((void *)buf + 4U, (void const   *)pes, __len);
+    __ret = memcpy((void *)buf + 4U, (void const   *)pes, __len);
   }
   ret = (*(p2ts->cb))(p2ts->priv, buf);
   if (ret != 0) {
@@ -12130,7 +12130,7 @@ int dvb_filter_pes2ts(struct dvb_filter_pes2ts *p2ts , unsigned char *pes , int 
   }
   *(buf + 4UL) = (unsigned char )rest;
   __len___0 = (size_t )len;
-  __ret___0 = __builtin_memcpy((void *)(buf + ((unsigned long )rest + 5UL)), (void const   *)pes,
+  __ret___0 = memcpy((void *)(buf + ((unsigned long )rest + 5UL)), (void const   *)pes,
                                __len___0);
   tmp___1 = (*(p2ts->cb))(p2ts->priv, buf);
   return (tmp___1);
@@ -12879,7 +12879,7 @@ static int dvb_ca_en50221_read_data(struct dvb_ca_private *ca , int slot , u8 *e
                              (u8 *)(& buf), (size_t )bytes_read);
   } else {
     __len = (size_t )bytes_read;
-    __ret = __builtin_memcpy((void *)ebuf, (void const   *)(& buf), __len);
+    __ret = memcpy((void *)ebuf, (void const   *)(& buf), __len);
   }
   if (dvb_ca_en50221_debug != 0) {
     printk("Received CA packet for slot %i connection id 0x%x last_frag:%i size:0x%x\n",
@@ -17477,7 +17477,7 @@ static int dvb_frontend_ioctl_legacy(struct file *file , unsigned int cmd , void
   if (__len > 63UL) {
     __ret = memcpy((void *)info, (void const   *)(& fe->ops.info), __len);
   } else {
-    __ret = __builtin_memcpy((void *)info, (void const   *)(& fe->ops.info), __len);
+    __ret = memcpy((void *)info, (void const   *)(& fe->ops.info), __len);
   }
   dvb_frontend_get_frequency_limits(fe, & info->frequency_min, & info->frequency_max);
   tmp = dvbv3_type((u32 )c->delivery_system);
@@ -17654,7 +17654,7 @@ static int dvb_frontend_ioctl_legacy(struct file *file , unsigned int cmd , void
       if (__len___0 > 63UL) {
         __ret___0 = memcpy((void *)(& tv), (void const   *)(& nexttime), __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& tv), (void const   *)(& nexttime),
+        __ret___0 = memcpy((void *)(& tv), (void const   *)(& nexttime),
                                      __len___0);
       }
     } else {
@@ -18822,7 +18822,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -19348,7 +19348,7 @@ static void dvb_net_ule(struct net_device *dev , u8 const   *buf , size_t buf_le
   how_much = (u8 )(_min1 < _min2 ? _min1 : _min2);
   __len = (size_t )how_much;
   tmp___1 = skb_put(priv->ule_skb, (unsigned int )how_much);
-  __ret = __builtin_memcpy((void *)tmp___1, (void const   *)from_where, __len);
+  __ret = memcpy((void *)tmp___1, (void const   *)from_where, __len);
   priv->ule_sndu_remain = priv->ule_sndu_remain - (int )how_much;
   ts_remain = (int )ts_remain - (int )how_much;
   from_where = from_where + (unsigned long )how_much;
@@ -19473,7 +19473,7 @@ static void dvb_net_ule(struct net_device *dev , u8 const   *buf , size_t buf_le
             __ret___0 = memcpy((void *)(& ethh->h_dest), (void const   *)(& dest_addr),
                                  __len___0);
           } else {
-            __ret___0 = __builtin_memcpy((void *)(& ethh->h_dest), (void const   *)(& dest_addr),
+            __ret___0 = memcpy((void *)(& ethh->h_dest), (void const   *)(& dest_addr),
                                          __len___0);
           }
           memset((void *)(& ethh->h_source), 0, 6UL);
@@ -19614,7 +19614,7 @@ static void dvb_net_sec(struct net_device *dev , u8 const   *pkt , int pkt_len )
   tmp___0 = skb_put(skb, (unsigned int )((pkt_len + -2) - snap));
   eth = tmp___0;
   __len = (size_t )((pkt_len + -16) - snap);
-  __ret = __builtin_memcpy((void *)eth + 14U, (void const   *)(pkt + ((unsigned long )snap + 12UL)),
+  __ret = memcpy((void *)eth + 14U, (void const   *)(pkt + ((unsigned long )snap + 12UL)),
                            __len);
   *eth = *(pkt + 11UL);
   *(eth + 1UL) = *(pkt + 10UL);
@@ -19991,7 +19991,7 @@ static int dvb_set_mc_filter(struct net_device *dev , unsigned char *addr )
     __ret = memcpy((void *)(& priv->multi_macs) + (unsigned long )priv->multi_num,
                      (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& priv->multi_macs) + (unsigned long )priv->multi_num,
+    __ret = memcpy((void *)(& priv->multi_macs) + (unsigned long )priv->multi_num,
                              (void const   *)addr, __len);
   }
   priv->multi_num = priv->multi_num + 1;
@@ -20107,7 +20107,7 @@ static int dvb_net_set_mac(struct net_device *dev , void *p )
   priv = (struct dvb_net_priv *)tmp;
   addr = (struct sockaddr *)p;
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
+  __ret = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
                            __len);
   tmp___0 = netif_running((struct net_device  const  *)dev);
   if ((int )tmp___0) {
@@ -20240,7 +20240,7 @@ static int dvb_net_add_if(struct dvb_net *dvbnet , u16 pid , u8 feedtype )
     __ret = memcpy((void *)net->dev_addr, (void const   *)(& ((dvbnet->dvbdev)->adapter)->proposed_mac),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)net->dev_addr, (void const   *)(& ((dvbnet->dvbdev)->adapter)->proposed_mac),
+    __ret = memcpy((void *)net->dev_addr, (void const   *)(& ((dvbnet->dvbdev)->adapter)->proposed_mac),
                              __len);
   }
   dvbnet->device[if_num] = net;
@@ -20959,7 +20959,7 @@ void dvb_ringbuffer_read(struct dvb_ringbuffer *rbuf , u8 *buf , size_t len )
   split = (unsigned long )rbuf->pread + len > (unsigned long )rbuf->size ? (size_t )(rbuf->size - rbuf->pread) : 0UL;
   if (split != 0UL) {
     __len = split;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)rbuf->data + (unsigned long )rbuf->pread,
+    __ret = memcpy((void *)buf, (void const   *)rbuf->data + (unsigned long )rbuf->pread,
                              __len);
     buf = buf + split;
     todo = todo - split;
@@ -20968,7 +20968,7 @@ void dvb_ringbuffer_read(struct dvb_ringbuffer *rbuf , u8 *buf , size_t len )
 
   }
   __len___0 = todo;
-  __ret___0 = __builtin_memcpy((void *)buf, (void const   *)rbuf->data + (unsigned long )rbuf->pread,
+  __ret___0 = memcpy((void *)buf, (void const   *)rbuf->data + (unsigned long )rbuf->pread,
                                __len___0);
   rbuf->pread = (ssize_t )(((unsigned long )rbuf->pread + todo) % (unsigned long )rbuf->size);
   return;
@@ -20988,7 +20988,7 @@ ssize_t dvb_ringbuffer_write(struct dvb_ringbuffer *rbuf , u8 const   *buf , siz
   split = (unsigned long )rbuf->pwrite + len > (unsigned long )rbuf->size ? (size_t )(rbuf->size - rbuf->pwrite) : 0UL;
   if (split != 0UL) {
     __len = split;
-    __ret = __builtin_memcpy((void *)rbuf->data + (unsigned long )rbuf->pwrite, (void const   *)buf,
+    __ret = memcpy((void *)rbuf->data + (unsigned long )rbuf->pwrite, (void const   *)buf,
                              __len);
     buf = buf + split;
     todo = todo - split;
@@ -20997,7 +20997,7 @@ ssize_t dvb_ringbuffer_write(struct dvb_ringbuffer *rbuf , u8 const   *buf , siz
 
   }
   __len___0 = todo;
-  __ret___0 = __builtin_memcpy((void *)rbuf->data + (unsigned long )rbuf->pwrite,
+  __ret___0 = memcpy((void *)rbuf->data + (unsigned long )rbuf->pwrite,
                                (void const   *)buf, __len___0);
   rbuf->pwrite = (ssize_t )(((unsigned long )rbuf->pwrite + todo) % (unsigned long )rbuf->size);
   return ((ssize_t )len);
@@ -21103,7 +21103,7 @@ ssize_t dvb_ringbuffer_pkt_read(struct dvb_ringbuffer *rbuf , size_t idx , int o
   split = idx + len > (unsigned long )rbuf->size ? (unsigned long )rbuf->size - idx : 0UL;
   if (split != 0UL) {
     __len = split;
-    __ret = __builtin_memcpy((void *)buf, (void const   *)(rbuf->data + idx), __len);
+    __ret = memcpy((void *)buf, (void const   *)(rbuf->data + idx), __len);
     buf = buf + split;
     todo = todo - split;
     idx = 0UL;
@@ -21111,7 +21111,7 @@ ssize_t dvb_ringbuffer_pkt_read(struct dvb_ringbuffer *rbuf , size_t idx , int o
 
   }
   __len___0 = todo;
-  __ret___0 = __builtin_memcpy((void *)buf, (void const   *)(rbuf->data + idx), __len___0);
+  __ret___0 = memcpy((void *)buf, (void const   *)(rbuf->data + idx), __len___0);
   return ((ssize_t )len);
 }
 }

@@ -1104,6 +1104,7 @@ static int w1_f23_refresh_block(struct w1_slave *sl , struct w1_f23_data *data ,
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static ssize_t w1_f23_read_bin(struct file *filp , struct kobject *kobj , struct bin_attribute *bin_attr ,
                                char *buf , loff_t off , size_t count )
 { struct w1_slave *sl ;
@@ -1203,7 +1204,7 @@ static ssize_t w1_f23_read_bin(struct file *filp , struct kobject *kobj , struct
   __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
   __cil_tmp36 = (u8 *)__cil_tmp35;
   __cil_tmp37 = (void const *)__cil_tmp36;
-  __ret = __builtin_memcpy(__cil_tmp31, __cil_tmp37, __len);
+  __ret = memcpy(__cil_tmp31, __cil_tmp37, __len);
   }
   out_up:
   {

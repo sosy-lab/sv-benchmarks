@@ -1977,7 +1977,7 @@ static int max8903_probe(struct platform_device *pdev )
     __cil_tmp48 = (struct max8903_pdata *)data;
     __cil_tmp49 = (void *)__cil_tmp48;
     __cil_tmp50 = (void const *)pdata;
-    __ret = __builtin_memcpy(__cil_tmp49, __cil_tmp50, __len);
+    __ret = memcpy(__cil_tmp49, __cil_tmp50, __len);
     }
   }
   {

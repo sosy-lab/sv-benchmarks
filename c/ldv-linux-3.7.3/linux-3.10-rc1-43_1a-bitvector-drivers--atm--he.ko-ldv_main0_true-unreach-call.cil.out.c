@@ -5819,6 +5819,7 @@ void *ldv_kmem_cache_alloc_17(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
+extern void *memcpy(void * , void const   * , size_t  ) ;
 long ldv_is_err(const void *ptr)
 {
 		return ((unsigned long)ptr > ((unsigned long)-4095));
@@ -8135,7 +8136,7 @@ static int he_service_rbrq(struct he_dev *he_dev , int group )
   ldv_44451: 
   __len = heb->len;
   tmp___0 = skb_put(skb, (unsigned int )heb->len);
-  __ret = __builtin_memcpy((void *)tmp___0, (void const   *)(& heb->data), __len);
+  __ret = memcpy((void *)tmp___0, (void const   *)(& heb->data), __len);
   __mptr___0 = (struct list_head  const  *)heb->entry.next;
   heb = (struct he_buff *)__mptr___0;
   ldv_44452: ;

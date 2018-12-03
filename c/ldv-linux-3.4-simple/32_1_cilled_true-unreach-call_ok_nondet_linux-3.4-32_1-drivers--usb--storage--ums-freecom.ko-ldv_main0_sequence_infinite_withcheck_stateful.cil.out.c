@@ -4283,7 +4283,7 @@ static int freecom_transport(struct scsi_cmnd *srb , struct us_data *us )
     __cil_tmp45 = __cil_tmp44 + 80;
     __cil_tmp46 = *((unsigned char **)__cil_tmp45);
     __cil_tmp47 = (void const   *)__cil_tmp46;
-    __ret = __builtin_memcpy(__cil_tmp43, __cil_tmp47, __len);
+    __ret = memcpy(__cil_tmp43, __cil_tmp47, __len);
     }
   }
   {

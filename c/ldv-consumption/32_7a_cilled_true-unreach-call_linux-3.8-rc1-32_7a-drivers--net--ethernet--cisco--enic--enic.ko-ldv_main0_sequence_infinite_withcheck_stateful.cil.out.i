@@ -7996,7 +7996,7 @@ static void enic_get_strings(struct net_device *netdev , u32 stringset , u8 *dat
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const *)(& enic_tx_stats[i].name), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const *)(& enic_tx_stats[i].name),
+    __ret = memcpy((void *)data, (void const *)(& enic_tx_stats[i].name),
                              __len);
   }
   data = data + 32UL;
@@ -8014,7 +8014,7 @@ static void enic_get_strings(struct net_device *netdev , u32 stringset , u8 *dat
     __ret___0 = memcpy((void *)data, (void const *)(& enic_rx_stats[i].name),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)data, (void const *)(& enic_rx_stats[i].name),
+    __ret___0 = memcpy((void *)data, (void const *)(& enic_rx_stats[i].name),
                                  __len___0);
   }
   data = data + 32UL;
@@ -8882,7 +8882,7 @@ static int enic_set_mac_addr(struct net_device *netdev , char *addr )
     }
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const *)addr, __len);
+  __ret = memcpy((void *)netdev->dev_addr, (void const *)addr, __len);
   netdev->addr_assign_type = (unsigned int )netdev->addr_assign_type & 254U;
   return (0);
 }
@@ -8999,7 +8999,7 @@ static void enic_update_multicast_addr_list(struct enic *enic )
   } else {
     tmp___0 = i;
     i = i + 1U;
-    __ret = __builtin_memcpy((void *)(& mc_addr) + (unsigned long )tmp___0, (void const *)(& ha->addr),
+    __ret = memcpy((void *)(& mc_addr) + (unsigned long )tmp___0, (void const *)(& ha->addr),
                              __len);
   }
   __mptr___0 = (struct list_head const *)ha->list.next;
@@ -9075,7 +9075,7 @@ static void enic_update_multicast_addr_list(struct enic *enic )
     __ret___0 = memcpy((void *)(& enic->mc_addr) + (unsigned long )i, (void const *)(& mc_addr) + (unsigned long )i,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& enic->mc_addr) + (unsigned long )i, (void const *)(& mc_addr) + (unsigned long )i,
+    __ret___0 = memcpy((void *)(& enic->mc_addr) + (unsigned long )i, (void const *)(& mc_addr) + (unsigned long )i,
                                  __len___0);
   }
   i = i + 1U;
@@ -9133,7 +9133,7 @@ static void enic_update_unicast_addr_list(struct enic *enic )
   } else {
     tmp___0 = i;
     i = i + 1U;
-    __ret = __builtin_memcpy((void *)(& uc_addr) + (unsigned long )tmp___0, (void const *)(& ha->addr),
+    __ret = memcpy((void *)(& uc_addr) + (unsigned long )tmp___0, (void const *)(& ha->addr),
                              __len);
   }
   __mptr___0 = (struct list_head const *)ha->list.next;
@@ -9209,7 +9209,7 @@ static void enic_update_unicast_addr_list(struct enic *enic )
     __ret___0 = memcpy((void *)(& enic->uc_addr) + (unsigned long )i, (void const *)(& uc_addr) + (unsigned long )i,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& enic->uc_addr) + (unsigned long )i, (void const *)(& uc_addr) + (unsigned long )i,
+    __ret___0 = memcpy((void *)(& enic->uc_addr) + (unsigned long )i, (void const *)(& uc_addr) + (unsigned long )i,
                                  __len___0);
   }
   i = i + 1U;
@@ -9306,7 +9306,7 @@ static int enic_set_vf_mac(struct net_device *netdev , int vf , u8 *mac )
         if (__len > 63UL) {
           __ret = memcpy((void *)(& pp->vf_mac), (void const *)mac, __len);
         } else {
-          __ret = __builtin_memcpy((void *)(& pp->vf_mac), (void const *)mac, __len);
+          __ret = memcpy((void *)(& pp->vf_mac), (void const *)mac, __len);
         }
         return (0);
       } else {
@@ -9386,7 +9386,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
   if (__len > 63UL) {
     __ret = memcpy((void *)(& prev_pp), (void const *)pp, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& prev_pp), (void const *)pp, __len);
+    __ret = memcpy((void *)(& prev_pp), (void const *)pp, __len);
   }
   memset((void *)pp, 0, 92UL);
   pp->set = pp->set | 2U;
@@ -9399,7 +9399,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
       __ret___0 = memcpy((void *)(& pp->name), (void const *)tmp___1, __len___0);
     } else {
       tmp___2 = nla_data((struct nlattr const *)*(port + 2UL));
-      __ret___0 = __builtin_memcpy((void *)(& pp->name), (void const *)tmp___2,
+      __ret___0 = memcpy((void *)(& pp->name), (void const *)tmp___2,
                                    __len___0);
     }
   } else {
@@ -9413,7 +9413,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
                            __len___1);
     } else {
       tmp___4 = nla_data((struct nlattr const *)*(port + 4UL));
-      __ret___1 = __builtin_memcpy((void *)(& pp->instance_uuid), (void const *)tmp___4,
+      __ret___1 = memcpy((void *)(& pp->instance_uuid), (void const *)tmp___4,
                                    __len___1);
     }
   } else {
@@ -9426,7 +9426,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
       __ret___2 = memcpy((void *)(& pp->host_uuid), (void const *)tmp___5, __len___2);
     } else {
       tmp___6 = nla_data((struct nlattr const *)*(port + 5UL));
-      __ret___2 = __builtin_memcpy((void *)(& pp->host_uuid), (void const *)tmp___6,
+      __ret___2 = memcpy((void *)(& pp->host_uuid), (void const *)tmp___6,
                                    __len___2);
     }
   } else {
@@ -9444,7 +9444,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
         __ret___3 = memcpy((void *)(& pp->mac_addr), (void const *)(& prev_pp.vf_mac),
                              __len___3);
       } else {
-        __ret___3 = __builtin_memcpy((void *)(& pp->mac_addr), (void const *)(& prev_pp.vf_mac),
+        __ret___3 = memcpy((void *)(& pp->mac_addr), (void const *)(& prev_pp.vf_mac),
                                      __len___3);
       }
     } else {
@@ -9472,7 +9472,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
       if (__len___4 > 63UL) {
         __ret___4 = memcpy((void *)pp, (void const *)(& prev_pp), __len___4);
       } else {
-        __ret___4 = __builtin_memcpy((void *)pp, (void const *)(& prev_pp), __len___4);
+        __ret___4 = memcpy((void *)pp, (void const *)(& prev_pp), __len___4);
       }
       tmp___11 = enic_dev_status_to_errno(err);
       return (tmp___11);
@@ -9486,7 +9486,7 @@ static int enic_set_vf_port(struct net_device *netdev , int vf , struct nlattr *
       if (__len___5 > 63UL) {
         __ret___5 = memcpy((void *)pp, (void const *)(& prev_pp), __len___5);
       } else {
-        __ret___5 = __builtin_memcpy((void *)pp, (void const *)(& prev_pp), __len___5);
+        __ret___5 = memcpy((void *)pp, (void const *)(& prev_pp), __len___5);
       }
     } else {
       memset((void *)pp, 0, 92UL);
@@ -10585,7 +10585,7 @@ static int enic_set_rsskey(struct enic *enic )
   if (__len > 63UL) {
     __ret = memcpy((void *)rss_key_buf_va, (void const *)(& rss_key), __len);
   } else {
-    __ret = __builtin_memcpy((void *)rss_key_buf_va, (void const *)(& rss_key),
+    __ret = memcpy((void *)rss_key_buf_va, (void const *)(& rss_key),
                              __len);
   }
   spin_lock(& enic->devcmd_lock);
@@ -14652,7 +14652,7 @@ static int vnic_dev_notify_ready(struct vnic_dev *vdev )
   ldv_22397:
   csum = 0U;
   __len = (size_t )vdev->notify_sz;
-  __ret = __builtin_memcpy((void *)(& vdev->notify_copy), (void const *)vdev->notify,
+  __ret = memcpy((void *)(& vdev->notify_copy), (void const *)vdev->notify,
                            __len);
   words = (u32 *)(& vdev->notify_copy);
   i = 1U;
@@ -14907,7 +14907,7 @@ int vnic_dev_init_prov2(struct vnic_dev *vdev , u8 *buf , u32 len )
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy(prov_buf, (void const *)buf, __len);
+  __ret = memcpy(prov_buf, (void const *)buf, __len);
   a0 = prov_pa;
   ret = vnic_dev_cmd(vdev, 1073758255, & a0, & a1, wait);
   pci_free_consistent(vdev->pdev, (size_t )len, prov_buf, prov_pa);
@@ -15358,7 +15358,7 @@ struct vic_provinfo *vic_provinfo_alloc(gfp_t flags , u8 const *oui , u8 const t
   if (__len > 63UL) {
     __ret = memcpy((void *)(& vp->oui), (void const *)oui, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& vp->oui), (void const *)oui, __len);
+    __ret = memcpy((void *)(& vp->oui), (void const *)oui, __len);
   }
   vp->type = type;
   vp->length = 67108864U;
@@ -15402,7 +15402,7 @@ int vic_provinfo_add_tlv(struct vic_provinfo *vp , u16 type , u16 length , void 
   tmp___2 = __fswab16((int )length);
   tlv->length = tmp___2;
   __len = (size_t )length;
-  __ret = __builtin_memcpy((void *)(& tlv->value), value, __len);
+  __ret = memcpy((void *)(& tlv->value), value, __len);
   tmp___3 = __fswab32(vp->num_tlvs);
   tmp___4 = __fswab32(tmp___3 + 1U);
   vp->num_tlvs = tmp___4;

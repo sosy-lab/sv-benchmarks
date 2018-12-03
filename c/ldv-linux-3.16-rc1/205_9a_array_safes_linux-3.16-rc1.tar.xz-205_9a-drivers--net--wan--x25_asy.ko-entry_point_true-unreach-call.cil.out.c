@@ -5825,6 +5825,7 @@ static void x25_asy_free(struct x25_asy *sl )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int x25_asy_change_mtu(struct net_device *dev , int newmtu ) 
 { 
   struct x25_asy *sl ;
@@ -5883,7 +5884,7 @@ static int x25_asy_change_mtu(struct net_device *dev , int newmtu )
   if (sl->xleft != 0) {
     if (sl->xleft <= len) {
       __len = (size_t )sl->xleft;
-      __ret___0 = __builtin_memcpy((void *)sl->xbuff, (void const   *)sl->xhead, __len);
+      __ret___0 = memcpy((void *)sl->xbuff, (void const   *)sl->xhead, __len);
     } else {
       sl->xleft = 0;
       dev->stats.tx_dropped = dev->stats.tx_dropped + 1UL;
@@ -5918,7 +5919,7 @@ static int x25_asy_change_mtu(struct net_device *dev , int newmtu )
   if (sl->rcount != 0) {
     if (sl->rcount <= len) {
       __len___0 = (size_t )sl->rcount;
-      __ret___2 = __builtin_memcpy((void *)sl->rbuff, (void const   *)rbuff, __len___0);
+      __ret___2 = memcpy((void *)sl->rbuff, (void const   *)rbuff, __len___0);
     } else {
       sl->rcount = 0;
       dev->stats.rx_over_errors = dev->stats.rx_over_errors + 1UL;
@@ -5978,7 +5979,7 @@ static void x25_asy_bump(struct x25_asy *sl )
   skb_push(skb, 1U);
   __len = (size_t )count;
   tmp___0 = skb_put(skb, (unsigned int )count);
-  __ret = __builtin_memcpy((void *)tmp___0, (void const   *)sl->rbuff, __len);
+  __ret = memcpy((void *)tmp___0, (void const   *)sl->rbuff, __len);
   skb->protocol = x25_type_trans(skb, sl->dev);
   err = lapb_data_received(skb->dev, skb);
   if (err != 0) {

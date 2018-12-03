@@ -3269,6 +3269,7 @@ __inline static void spi_message_add_tail(struct spi_transfer *t , struct spi_me
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int spi_setup(struct spi_device *spi ) ;
 extern int spi_sync(struct spi_device *spi , struct spi_message *message ) ;
 static int cyttsp_spi_xfer(struct cyttsp *ts , u8 op , u8 reg , u8 *buf , int length ) ;
@@ -3458,7 +3459,7 @@ static int cyttsp_spi_xfer(struct cyttsp *ts , u8 op , u8 reg , u8 *buf , int le
     __cil_tmp40 = wr_buf + 4;
     __cil_tmp41 = (void *)__cil_tmp40;
     __cil_tmp42 = (void const *)buf;
-    __ret = __builtin_memcpy(__cil_tmp41, __cil_tmp42, __len);
+    __ret = memcpy(__cil_tmp41, __cil_tmp42, __len);
     }
   } else {
   }

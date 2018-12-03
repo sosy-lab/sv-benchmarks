@@ -2933,7 +2933,7 @@ __inline static map_word map_word_load(struct map_info *map , void *ptr )
             __cil_tmp60 = (unsigned long )(& r) + __cil_tmp59;
             __cil_tmp61 = (unsigned long *)__cil_tmp60;
             __cil_tmp62 = (void *)__cil_tmp61;
-            __ret = __builtin_memcpy(__cil_tmp62, ptr, __len);
+            __ret = memcpy(__cil_tmp62, ptr, __len);
             }
           } else {
           }
@@ -3006,7 +3006,7 @@ __inline static map_word map_word_load_partial(struct map_info *map , map_word o
     __cil_tmp14 = dest + start;
     __cil_tmp15 = (void *)__cil_tmp14;
     __cil_tmp16 = (void *)buf;
-    __ret = __builtin_memcpy(__cil_tmp15, __cil_tmp16, __len);
+    __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
     }
   } else {
     i = start;
@@ -4298,7 +4298,7 @@ static void fixup_convert_atmel_pri(struct mtd_info *mtd )
     {
     __cil_tmp32 = (void *)(& atmel_pri);
     __cil_tmp33 = (void *)extp;
-    __ret = __builtin_memcpy(__cil_tmp32, __cil_tmp33, __len);
+    __ret = memcpy(__cil_tmp32, __cil_tmp33, __len);
     }
   }
   {
@@ -6984,7 +6984,7 @@ static int cfi_intelext_partition_fixup(struct mtd_info *mtd , struct cfi_privat
             {
             __cil_tmp150 = (void *)newcfi;
             __cil_tmp151 = (void *)cfi;
-            __ret = __builtin_memcpy(__cil_tmp150, __cil_tmp151, __len);
+            __ret = memcpy(__cil_tmp150, __cil_tmp151, __len);
             }
           }
           __cil_tmp152 = (unsigned long )newcfi;

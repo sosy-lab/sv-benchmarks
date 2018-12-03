@@ -8025,6 +8025,7 @@ __inline static void mux_init(struct oprofile_operations *ops )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void mux_clone(int cpu )
 {
   int tmp ;
@@ -8045,7 +8046,7 @@ static void mux_clone(int cpu )
   __asm__ ("": "=r" (__ptr___1): "0" (& cpu_msrs));
   __vpp_verify___2 = 0;
   __asm__ ("": "=r" (__ptr___2): "0" (& cpu_msrs));
-  __ret = __builtin_memcpy((void *)((struct op_msrs *)(__per_cpu_offset[cpu] + __ptr___2))->multiplex,
+  __ret = memcpy((void *)((struct op_msrs *)(__per_cpu_offset[cpu] + __ptr___2))->multiplex,
                            (void const *)((struct op_msrs *)(__per_cpu_offset[0] + __ptr___1))->multiplex,
                            __len);
   return;
@@ -8411,7 +8412,7 @@ static int nmi_setup(void)
   __asm__ ("": "=r" (__ptr___2): "0" (& cpu_msrs));
   __vpp_verify___3 = 0;
   __asm__ ("": "=r" (__ptr___3): "0" (& cpu_msrs));
-  __ret = __builtin_memcpy((void *)((struct op_msrs *)(__per_cpu_offset[cpu] + __ptr___3))->counters,
+  __ret = memcpy((void *)((struct op_msrs *)(__per_cpu_offset[cpu] + __ptr___3))->counters,
                            (void const *)((struct op_msrs *)(__per_cpu_offset[0] + __ptr___2))->counters,
                            __len);
   __len___0 = (unsigned long )model->num_controls * 16UL;
@@ -8419,7 +8420,7 @@ static int nmi_setup(void)
   __asm__ ("": "=r" (__ptr___6): "0" (& cpu_msrs));
   __vpp_verify___7 = 0;
   __asm__ ("": "=r" (__ptr___7): "0" (& cpu_msrs));
-  __ret___0 = __builtin_memcpy((void *)((struct op_msrs *)(__per_cpu_offset[cpu] + __ptr___7))->controls,
+  __ret___0 = memcpy((void *)((struct op_msrs *)(__per_cpu_offset[cpu] + __ptr___7))->controls,
                                (void const *)((struct op_msrs *)(__per_cpu_offset[0] + __ptr___6))->controls,
                                __len___0);
   mux_clone(cpu);

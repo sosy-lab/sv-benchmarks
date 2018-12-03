@@ -5879,7 +5879,7 @@ static void rx_complete(struct urb *req )
       } else {
         tmp___5 = lowmem_page_address((struct page  const  *)page);
         tmp___6 = skb_put(skb, 1U);
-        __ret = __builtin_memcpy((void *)tmp___6, (void const   *)tmp___5, __len);
+        __ret = memcpy((void *)tmp___6, (void const   *)tmp___5, __len);
       }
       tmp___7 = skb_end_pointer((struct sk_buff  const  *)skb);
       skb_add_rx_frag(skb, (int )((struct skb_shared_info *)tmp___7)->nr_frags, page,

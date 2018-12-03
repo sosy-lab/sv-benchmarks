@@ -2298,7 +2298,7 @@ enum __anonenum_84 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
@@ -3198,7 +3198,7 @@ static void fst_rx_dma_complete(struct fst_card_info *card , struct fst_port_inf
   pi = port->index;
   __len = (size_t )len;
   tmp___1 = skb_put(skb, (unsigned int )len);
-  __ret = __builtin_memcpy((void *)tmp___1, (void const   *)card->rx_dma_handle_host,
+  __ret = memcpy((void *)tmp___1, (void const   *)card->rx_dma_handle_host,
                            __len);
   __writeb(128, (void volatile   *)card->mem + (8192UL + (((unsigned long )pi * 8UL + (unsigned long )rxp) * 8UL + 3UL)));
   stats->rx_packets = stats->rx_packets + 1UL;
@@ -3665,7 +3665,7 @@ static void do_bottom_half_tx(struct fst_card_info *card )
       dev->trans_start = jiffies;
     } else {
       __len = (size_t )skb->len;
-      __ret = __builtin_memcpy(card->tx_dma_handle_host, (void const   *)skb->data,
+      __ret = memcpy(card->tx_dma_handle_host, (void const   *)skb->data,
                                __len);
       card->dma_port_tx = port;
       card->dma_len_tx = (int )skb->len;

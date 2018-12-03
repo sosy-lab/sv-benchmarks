@@ -7715,7 +7715,7 @@ static int get_registers(struct r8152 *tp , u16 value , u16 index , u16 size , v
   ret = usb_control_msg(tp->udev, tmp___0 | 2147483776U, 5, 192, (int )value, (int )index,
                         tmp, (int )size, 500);
   __len = (size_t )size;
-  __ret = __builtin_memcpy(data, (void const   *)tmp, __len);
+  __ret = memcpy(data, (void const   *)tmp, __len);
   kfree((void const   *)tmp);
   return (ret);
 }
@@ -8208,9 +8208,9 @@ __inline static void set_ethernet_addr(struct r8152 *tp )
 
     }
     __len = (size_t )dev->addr_len;
-    __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& node_id), __len);
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& node_id), __len);
     __len___0 = (size_t )dev->addr_len;
-    __ret___0 = __builtin_memcpy((void *)(& dev->perm_addr), (void const   *)dev->dev_addr,
+    __ret___0 = memcpy((void *)(& dev->perm_addr), (void const   *)dev->dev_addr,
                                  __len___0);
   }
   return;
@@ -8242,7 +8242,7 @@ static int rtl8152_set_mac_address(struct net_device *netdev , void *p )
 
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data),
+  __ret = memcpy((void *)netdev->dev_addr, (void const   *)(& addr->sa_data),
                            __len);
   ocp_write_byte(tp, 256, 59420, 192U);
   pla_ocp_write(tp, 49152, 63, 8, (void *)(& addr->sa_data));
@@ -9286,7 +9286,7 @@ static void rx_bottom(struct r8152 *tp )
   tmp___1 = r8152_rx_csum(tp, rx_desc);
   skb->ip_summed = tmp___1;
   __len = (size_t )pkt_len;
-  __ret = __builtin_memcpy((void *)skb->data, (void const   *)rx_data, __len);
+  __ret = memcpy((void *)skb->data, (void const   *)rx_data, __len);
   skb_put(skb, pkt_len);
   skb->protocol = eth_type_trans(skb, netdev);
   netif_receive_skb(skb);
@@ -11735,7 +11735,7 @@ static void rtl8152_get_strings(struct net_device *dev , u32 stringset , u8 *dat
   if (__len > 63UL) {
     __ret = memcpy((void *)data, (void const   *)(& rtl8152_gstrings), __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const   *)(& rtl8152_gstrings), __len);
+    __ret = memcpy((void *)data, (void const   *)(& rtl8152_gstrings), __len);
   }
   goto ldv_50568;
   }

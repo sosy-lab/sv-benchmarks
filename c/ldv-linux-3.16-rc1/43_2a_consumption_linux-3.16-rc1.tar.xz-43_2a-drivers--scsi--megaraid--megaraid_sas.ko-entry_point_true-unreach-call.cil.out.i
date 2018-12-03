@@ -7631,7 +7631,7 @@ static int megasas_build_dcdb(struct megasas_instance *instance , struct scsi_cm
   pthru->flags = flags;
   pthru->data_xfer_len = scsi_bufflen(scp);
   __len = (size_t )scp->cmd_len;
-  __ret = __builtin_memcpy((void *)(& pthru->cdb), (void const *)scp->cmnd, __len);
+  __ret = memcpy((void *)(& pthru->cdb), (void const *)scp->cmnd, __len);
   if ((int )((signed char )(scp->device)->type) == 1) {
     if ((scp->request)->timeout > 16383999U) {
       pthru->timeout = 65535U;
@@ -8264,7 +8264,7 @@ static int megasas_get_ld_vf_affiliation(struct megasas_instance *instance , int
           __ret = memcpy((void *)instance->vf_affiliation_111, (void const *)new_affiliation_111,
                            __len);
         } else {
-          __ret = __builtin_memcpy((void *)instance->vf_affiliation_111, (void const *)new_affiliation_111,
+          __ret = memcpy((void *)instance->vf_affiliation_111, (void const *)new_affiliation_111,
                                    __len);
         }
         retval = 1;
@@ -8294,7 +8294,7 @@ static int megasas_get_ld_vf_affiliation(struct megasas_instance *instance , int
       if ((int )savedmap->policy[(int )thisVf] != (int )newmap->policy[(int )thisVf]) {
         printk("\fmegasas: SR-IOV: Got new LD/VF affiliation for scsi%d.\n", (instance->host)->host_no);
         __len___0 = (size_t )new_affiliation->size;
-        __ret___0 = __builtin_memcpy((void *)instance->vf_affiliation, (void const *)new_affiliation,
+        __ret___0 = memcpy((void *)instance->vf_affiliation, (void const *)new_affiliation,
                                      __len___0);
         retval = 1;
         goto out;
@@ -8837,7 +8837,7 @@ void megasas_complete_cmd(struct megasas_instance *instance , struct megasas_cmd
   if ((unsigned int )hdr->scsi_status == 2U) {
     memset((void *)(cmd->scmd)->sense_buffer, 0, 96UL);
     __len = (size_t )hdr->sense_len;
-    __ret = __builtin_memcpy((void *)(cmd->scmd)->sense_buffer, (void const *)cmd->sense,
+    __ret = memcpy((void *)(cmd->scmd)->sense_buffer, (void const *)cmd->sense,
                              __len);
     (cmd->scmd)->result = (cmd->scmd)->result | 134217728;
   } else {
@@ -9566,7 +9566,7 @@ static int megasas_get_pd_list(struct megasas_instance *instance )
       __ret = memcpy((void *)(& instance->pd_list), (void const *)(& instance->local_pd_list),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& instance->pd_list), (void const *)(& instance->local_pd_list),
+      __ret = memcpy((void *)(& instance->pd_list), (void const *)(& instance->local_pd_list),
                                __len);
     }
   } else {
@@ -9770,7 +9770,7 @@ static int megasas_get_ctrl_info(struct megasas_instance *instance , struct mega
     if (__len > 63UL) {
       __ret = memcpy((void *)ctrl_info, (void const *)ci, __len);
     } else {
-      __ret = __builtin_memcpy((void *)ctrl_info, (void const *)ci, __len);
+      __ret = memcpy((void *)ctrl_info, (void const *)ci, __len);
     }
   } else {
     ret = -1;
@@ -11262,7 +11262,7 @@ static int megasas_mgmt_fw_ioctl(struct megasas_instance *instance , struct mega
   if (__len > 63UL) {
     __ret = memcpy((void *)cmd->frame, (void const *)(& ioc->frame.raw), __len);
   } else {
-    __ret = __builtin_memcpy((void *)cmd->frame, (void const *)(& ioc->frame.raw),
+    __ret = memcpy((void *)cmd->frame, (void const *)(& ioc->frame.raw),
                              __len);
   }
   (cmd->frame)->hdr.context = cmd->index;
@@ -14807,7 +14807,7 @@ void map_cmd_status(struct megasas_cmd_fusion *cmd , u8 status , u8 ext_status )
       __ret = memcpy((void *)(cmd->scmd)->sense_buffer, (void const *)cmd->sense,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(cmd->scmd)->sense_buffer, (void const *)cmd->sense,
+      __ret = memcpy((void *)(cmd->scmd)->sense_buffer, (void const *)cmd->sense,
                                __len);
     }
     (cmd->scmd)->result = (cmd->scmd)->result | 134217728;
@@ -15259,7 +15259,7 @@ void megasas_build_ldio_fusion(struct megasas_instance *instance , struct scsi_c
     if (__len > 63UL) {
       __ret = memcpy((void *)(& io_request->LUN), (void const *)raidLUN, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& io_request->LUN), (void const *)raidLUN,
+      __ret = memcpy((void *)(& io_request->LUN), (void const *)raidLUN,
                                __len);
     }
   } else {
@@ -15470,7 +15470,7 @@ static void megasas_build_dcdb_fusion(struct megasas_instance *instance , struct
       __ret = memcpy((void *)(& io_request->LUN), (void const *)(& raid->LUN),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& io_request->LUN), (void const *)(& raid->LUN),
+      __ret = memcpy((void *)(& io_request->LUN), (void const *)(& raid->LUN),
                                __len);
     }
     io_request->Function = 0U;
@@ -15510,7 +15510,7 @@ int megasas_build_io_fusion(struct megasas_instance *instance , struct scsi_cmnd
   io_request->RaidContext.Type = 0U;
   io_request->RaidContext.nseg = 0U;
   __len = (size_t )scp->cmd_len;
-  __ret = __builtin_memcpy((void *)(& io_request->CDB.CDB32), (void const *)scp->cmnd,
+  __ret = memcpy((void *)(& io_request->CDB.CDB32), (void const *)scp->cmnd,
                            __len);
   io_request->IoFlags = scp->cmd_len;
   tmp = megasas_is_ldio(scp);

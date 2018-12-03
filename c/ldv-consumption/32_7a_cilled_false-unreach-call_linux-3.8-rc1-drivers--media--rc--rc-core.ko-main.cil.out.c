@@ -3726,7 +3726,7 @@ static int ir_resize_table(struct rc_map *rc_map , gfp_t gfp_flags )
 
   }
   __len = (unsigned long )rc_map->len * 8UL;
-  __ret = __builtin_memcpy((void *)newscan, (void const   *)rc_map->scan, __len);
+  __ret = memcpy((void *)newscan, (void const   *)rc_map->scan, __len);
   rc_map->scan = newscan;
   rc_map->alloc = newalloc;
   rc_map->size = rc_map->alloc / 8U;
@@ -4055,7 +4055,7 @@ static int ir_getkeycode(struct input_dev *idev , struct input_keymap_entry *ke 
       __ret = memcpy((void *)(& ke->scancode), (void const   *)(& entry->scancode),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ke->scancode), (void const   *)(& entry->scancode),
+      __ret = memcpy((void *)(& ke->scancode), (void const   *)(& entry->scancode),
                                __len);
     }
   } else
@@ -4846,7 +4846,7 @@ int rc_register_device(struct rc_dev *dev )
     __ret = memcpy((void *)(& (dev->input_dev)->id), (void const   *)(& dev->input_id),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (dev->input_dev)->id), (void const   *)(& dev->input_id),
+    __ret = memcpy((void *)(& (dev->input_dev)->id), (void const   *)(& dev->input_id),
                              __len);
   }
   (dev->input_dev)->phys = dev->input_phys;

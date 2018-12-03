@@ -8195,6 +8195,7 @@ __inline static void stk1160_buffer_done(struct stk1160 *dev )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void stk1160_copy_video(struct stk1160 *dev , u8 *src , int len )
 {
   int linesdone ;
@@ -8272,7 +8273,7 @@ __inline static void stk1160_copy_video(struct stk1160 *dev , u8 *src , int len 
   } else {
   }
   __len = (size_t )lencopy;
-  __ret = __builtin_memcpy((void *)dst, (void const *)src, __len);
+  __ret = memcpy((void *)dst, (void const *)src, __len);
   buf->bytesused = buf->bytesused + (unsigned int )lencopy;
   buf->pos = buf->pos + (unsigned int )lencopy;
   remain = remain - lencopy;
@@ -8343,7 +8344,7 @@ __inline static void stk1160_copy_video(struct stk1160 *dev , u8 *src , int len 
   } else {
   }
   __len___0 = (size_t )lencopy;
-  __ret___0 = __builtin_memcpy((void *)dst, (void const *)src, __len___0);
+  __ret___0 = memcpy((void *)dst, (void const *)src, __len___0);
   remain = remain - lencopy;
   buf->bytesused = buf->bytesused + (unsigned int )lencopy;
   buf->pos = buf->pos + (unsigned int )lencopy;

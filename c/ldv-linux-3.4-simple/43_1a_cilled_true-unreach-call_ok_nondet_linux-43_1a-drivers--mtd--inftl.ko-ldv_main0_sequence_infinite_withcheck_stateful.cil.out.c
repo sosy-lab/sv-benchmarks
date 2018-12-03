@@ -7058,7 +7058,7 @@ static int find_boot_record(struct INFTLrecord *inftl )
     {
     __cil_tmp108 = (void *)mh;
     __cil_tmp109 = (void const   *)(& buf);
-    __ret = __builtin_memcpy(__cil_tmp108, __cil_tmp109, __len);
+    __ret = memcpy(__cil_tmp108, __cil_tmp109, __len);
     }
   }
   {

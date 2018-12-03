@@ -7290,7 +7290,7 @@ static int find_boot_record(struct NFTLrecord *nftl )
       __cil_tmp133 = (unsigned long )(buf) + __cil_tmp132;
       __cil_tmp134 = (u8 *)__cil_tmp133;
       __cil_tmp135 = (void const *)__cil_tmp134;
-      __ret = __builtin_memcpy(__cil_tmp131, __cil_tmp135, __len);
+      __ret = memcpy(__cil_tmp131, __cil_tmp135, __len);
       }
     }
     __cil_tmp136 = (unsigned long )nftl;

@@ -4120,7 +4120,7 @@ struct dvb_frontend *tua6100_attach(struct dvb_frontend *fe , int addr , struct 
     __cil_tmp76 = (struct dvb_tuner_ops *)__cil_tmp75;
     __cil_tmp77 = (void *)__cil_tmp76;
     __cil_tmp78 = (void const   *)(& tua6100_tuner_ops);
-    __ret = __builtin_memcpy(__cil_tmp77, __cil_tmp78, __len);
+    __ret = memcpy(__cil_tmp77, __cil_tmp78, __len);
     }
   }
   __cil_tmp79 = (unsigned long )fe;

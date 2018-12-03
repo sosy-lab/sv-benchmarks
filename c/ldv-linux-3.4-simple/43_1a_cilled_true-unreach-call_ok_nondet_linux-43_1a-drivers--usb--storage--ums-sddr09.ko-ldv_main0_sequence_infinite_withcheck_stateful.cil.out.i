@@ -4757,7 +4757,7 @@ static void nand_store_ecc(unsigned char *data , unsigned char *ecc )
     {
     __cil_tmp7 = (void *)data;
     __cil_tmp8 = (void const *)ecc;
-    __ret = __builtin_memcpy(__cil_tmp7, __cil_tmp8, __len);
+    __ret = memcpy(__cil_tmp7, __cil_tmp8, __len);
     }
   }
   return;
@@ -5934,7 +5934,7 @@ static int sddr09_write_lba(struct us_data *us , unsigned int lba , unsigned int
   __len = (size_t )__cil_tmp113;
   __cil_tmp114 = (void *)bptr;
   __cil_tmp115 = (void const *)xptr;
-  __ret = __builtin_memcpy(__cil_tmp114, __cil_tmp115, __len);
+  __ret = memcpy(__cil_tmp114, __cil_tmp115, __len);
   __cil_tmp116 = (unsigned long )info;
   __cil_tmp117 = __cil_tmp116 + 8;
   __cil_tmp118 = *((int *)__cil_tmp117);
@@ -8248,7 +8248,7 @@ static int sddr09_transport(struct scsi_cmnd *srb , struct us_data *us )
       {
       __cil_tmp109 = (void *)ptr;
       __cil_tmp110 = (void const *)(& inquiry_response);
-      __ret = __builtin_memcpy(__cil_tmp109, __cil_tmp110, __len);
+      __ret = memcpy(__cil_tmp109, __cil_tmp110, __len);
       }
     }
     {
@@ -8390,7 +8390,7 @@ static int sddr09_transport(struct scsi_cmnd *srb , struct us_data *us )
         {
         __cil_tmp183 = (void *)ptr;
         __cil_tmp184 = (void const *)(& mode_page_01);
-        __ret___0 = __builtin_memcpy(__cil_tmp183, __cil_tmp184, __len___0);
+        __ret___0 = memcpy(__cil_tmp183, __cil_tmp184, __len___0);
         }
       }
       __cil_tmp185 = (__be16 *)ptr;

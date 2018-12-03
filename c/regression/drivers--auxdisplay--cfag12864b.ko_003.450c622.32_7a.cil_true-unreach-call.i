@@ -438,7 +438,7 @@ enum lock_usage_bit {
     LOCK_ENABLED_HARDIRQS_READ = 8,
     LOCK_USAGE_STATES = 9
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 __inline static void clear_bit(int nr , void volatile   *addr ) 
 { 
 
@@ -877,7 +877,7 @@ static void cfag12864b_update(struct work_struct *work )
       __ret = memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
+      __ret = memcpy((void *)cfag12864b_cache, (void const   *)cfag12864b_buffer,
                                __len);
     }
   } else {

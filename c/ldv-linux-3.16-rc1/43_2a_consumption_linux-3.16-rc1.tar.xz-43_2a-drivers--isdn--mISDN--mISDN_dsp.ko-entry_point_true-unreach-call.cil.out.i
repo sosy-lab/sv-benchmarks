@@ -6049,6 +6049,7 @@ __inline static struct sk_buff *mI_alloc_skb(unsigned int len , gfp_t gfp_mask )
   return (skb);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static struct sk_buff *_alloc_mISDN_skb(u_int prim , u_int id , u_int len ,
                                                  void *dp , gfp_t gfp_mask )
 {
@@ -6068,7 +6069,7 @@ __inline static struct sk_buff *_alloc_mISDN_skb(u_int prim , u_int id , u_int l
   if (len != 0U) {
     __len = (size_t )len;
     tmp___1 = skb_put(skb, len);
-    __ret = __builtin_memcpy((void *)tmp___1, (void const *)dp, __len);
+    __ret = memcpy((void *)tmp___1, (void const *)dp, __len);
   } else {
   }
   hh = (struct mISDNhead *)(& skb->cb);
@@ -9326,7 +9327,7 @@ static void dsp_cmx_send_member(struct dsp *dsp , int len , s32 *c , int members
         thh->id = 0U;
         __len = (size_t )len;
         tmp___17 = skb_put(txskb, (unsigned int )len);
-        __ret = __builtin_memcpy((void *)tmp___17, (void const *)nskb->data + (unsigned long )preload,
+        __ret = memcpy((void *)tmp___17, (void const *)nskb->data + (unsigned long )preload,
                                  __len);
         skb_queue_tail(& dsp->sendq, txskb);
       }
@@ -9926,7 +9927,7 @@ __inline static struct sk_buff *_alloc_mISDN_skb___0(u_int prim , u_int id , u_i
   if (len != 0U) {
     __len = (size_t )len;
     tmp___1 = skb_put(skb, len);
-    __ret = __builtin_memcpy((void *)tmp___1, (void const *)dp, __len);
+    __ret = memcpy((void *)tmp___1, (void const *)dp, __len);
   } else {
   }
   hh = (struct mISDNhead *)(& skb->cb);
@@ -10456,7 +10457,7 @@ void dsp_tone_copy(struct dsp *dsp , u8 *data , int len )
   } else {
   }
   __len = (size_t )num;
-  __ret = __builtin_memcpy((void *)data, (void const *)pat->data[index] + (unsigned long )start,
+  __ret = memcpy((void *)data, (void const *)pat->data[index] + (unsigned long )start,
                            __len);
   data = data + (unsigned long )num;
   count = count + num;

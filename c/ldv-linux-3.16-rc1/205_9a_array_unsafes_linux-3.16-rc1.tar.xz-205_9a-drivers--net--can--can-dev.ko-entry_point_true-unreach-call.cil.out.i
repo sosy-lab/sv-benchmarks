@@ -6847,7 +6847,7 @@ static int can_changelink(struct net_device *dev , struct nlattr **tb , struct n
       __ret = memcpy((void *)(& bt), (void const *)tmp___2, __len);
     } else {
       tmp___3 = nla_data((struct nlattr const *)*(data + 1UL));
-      __ret = __builtin_memcpy((void *)(& bt), (void const *)tmp___3, __len);
+      __ret = memcpy((void *)(& bt), (void const *)tmp___3, __len);
     }
     err = can_get_bittiming(dev, & bt, priv->bittiming_const);
     if (err != 0) {
@@ -6858,7 +6858,7 @@ static int can_changelink(struct net_device *dev , struct nlattr **tb , struct n
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& priv->bittiming), (void const *)(& bt), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& priv->bittiming), (void const *)(& bt),
+      __ret___0 = memcpy((void *)(& priv->bittiming), (void const *)(& bt),
                                    __len___0);
     }
     if ((unsigned long )priv->do_set_bittiming != (unsigned long )((int (*)(struct net_device * ))0)) {
@@ -6923,7 +6923,7 @@ static int can_changelink(struct net_device *dev , struct nlattr **tb , struct n
       __ret___1 = memcpy((void *)(& dbt), (void const *)tmp___6, __len___1);
     } else {
       tmp___7 = nla_data((struct nlattr const *)*(data + 9UL));
-      __ret___1 = __builtin_memcpy((void *)(& dbt), (void const *)tmp___7, __len___1);
+      __ret___1 = memcpy((void *)(& dbt), (void const *)tmp___7, __len___1);
     }
     err = can_get_bittiming(dev, & dbt, priv->data_bittiming_const);
     if (err != 0) {
@@ -6935,7 +6935,7 @@ static int can_changelink(struct net_device *dev , struct nlattr **tb , struct n
       __ret___2 = memcpy((void *)(& priv->data_bittiming), (void const *)(& dbt),
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)(& priv->data_bittiming), (void const *)(& dbt),
+      __ret___2 = memcpy((void *)(& priv->data_bittiming), (void const *)(& dbt),
                                    __len___2);
     }
     if ((unsigned long )priv->do_set_data_bittiming != (unsigned long )((int (*)(struct net_device * ))0)) {

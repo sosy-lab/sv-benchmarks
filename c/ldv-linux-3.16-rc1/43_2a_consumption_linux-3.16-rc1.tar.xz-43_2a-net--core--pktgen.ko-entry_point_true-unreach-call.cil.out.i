@@ -12365,7 +12365,7 @@ static int process_ipsec(struct pktgen_dev *pkt_dev , struct sk_buff *skb , __be
       if (__len > 63UL) {
         __ret = memcpy((void *)eth, (void const *)(& pkt_dev->hh), __len);
       } else {
-        __ret = __builtin_memcpy((void *)eth, (void const *)(& pkt_dev->hh), __len);
+        __ret = memcpy((void *)eth, (void const *)(& pkt_dev->hh), __len);
       }
       *((u16 *)eth + 12U) = protocol;
       iph = ip_hdr((struct sk_buff const *)skb);
@@ -12664,7 +12664,7 @@ static struct sk_buff *fill_packet_ipv4(struct net_device *odev , struct pktgen_
   if (__len > 63UL) {
     __ret = memcpy((void *)eth, (void const *)(& pkt_dev->hh), __len);
   } else {
-    __ret = __builtin_memcpy((void *)eth, (void const *)(& pkt_dev->hh), __len);
+    __ret = memcpy((void *)eth, (void const *)(& pkt_dev->hh), __len);
   }
   *((__be16 *)eth + 12U) = protocol;
   datalen = (int )((pkt_dev->cur_pkt_size - (__u32 )pkt_dev->pkt_overhead) - 42U);
@@ -12824,7 +12824,7 @@ static struct sk_buff *fill_packet_ipv6(struct net_device *odev , struct pktgen_
   if (__len > 63UL) {
     __ret = memcpy((void *)eth, (void const *)(& pkt_dev->hh), __len);
   } else {
-    __ret = __builtin_memcpy((void *)eth, (void const *)(& pkt_dev->hh), __len);
+    __ret = memcpy((void *)eth, (void const *)(& pkt_dev->hh), __len);
   }
   *((__be16 *)eth + 12U) = protocol;
   datalen = (int )((pkt_dev->cur_pkt_size - (unsigned int )pkt_dev->pkt_overhead) - 62U);

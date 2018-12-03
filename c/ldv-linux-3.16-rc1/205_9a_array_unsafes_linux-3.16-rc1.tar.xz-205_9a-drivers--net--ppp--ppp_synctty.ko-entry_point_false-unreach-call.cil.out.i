@@ -5580,7 +5580,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   return;
 }
 }
@@ -6285,7 +6285,7 @@ static int ppp_sync_ioctl(struct ppp_channel *chan , unsigned int cmd , unsigned
   if (__len > 63UL) {
     __ret = memcpy((void *)(& ap->xaccm), (void const *)(& accm), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ap->xaccm), (void const *)(& accm), __len);
+    __ret = memcpy((void *)(& ap->xaccm), (void const *)(& accm), __len);
   }
   err = 0;
   goto ldv_42685;
@@ -6580,7 +6580,7 @@ static void ppp_sync_input(struct syncppp *ap , unsigned char const *buf , char 
   }
   p = skb_put(skb, (unsigned int )count);
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)p, (void const *)buf, __len);
+  __ret = memcpy((void *)p, (void const *)buf, __len);
   p = skb->data;
   if ((unsigned int )*p == 255U && (unsigned int )*(p + 1UL) == 3U) {
     if (skb->len <= 2U) {

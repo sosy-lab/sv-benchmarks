@@ -3043,7 +3043,7 @@ enum __anonenum_122 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
@@ -3304,7 +3304,7 @@ static int abyss_attach(struct pci_dev *pdev , struct pci_device_id  const  *ent
     __ret = memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
+    __ret = memcpy((void *)(& tp->ProductID), (void const   *)"Madge PCI 16/4 Mk2",
                              __len);
   }
   dev->netdev_ops = (struct net_device_ops  const  *)(& abyss_netdev_ops);

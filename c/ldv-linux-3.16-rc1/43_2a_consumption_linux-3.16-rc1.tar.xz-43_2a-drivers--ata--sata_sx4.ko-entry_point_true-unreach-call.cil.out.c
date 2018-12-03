@@ -4900,6 +4900,7 @@ __inline static void writel(unsigned int val , void volatile   *addr )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern unsigned int ioread8(void * ) ;
 __inline static void memcpy_toio(void volatile   *dst , void const   *src , size_t count ) 
 { 
@@ -4908,7 +4909,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy((void *)dst, src, __len);
+  __ret = memcpy((void *)dst, src, __len);
   return;
 }
 }

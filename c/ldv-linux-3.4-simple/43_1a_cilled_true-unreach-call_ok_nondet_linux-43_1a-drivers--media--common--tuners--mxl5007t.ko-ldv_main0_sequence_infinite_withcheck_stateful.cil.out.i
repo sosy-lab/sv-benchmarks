@@ -4566,7 +4566,7 @@ static struct reg_pair_t *mxl5007t_calc_init_regs(struct mxl5007t_state *state ,
     __cil_tmp17 = (struct reg_pair_t (*)[17U])__cil_tmp16;
     __cil_tmp18 = (void *)__cil_tmp17;
     __cil_tmp19 = (void const *)(& init_tab);
-    __ret = __builtin_memcpy(__cil_tmp18, __cil_tmp19, __len);
+    __ret = memcpy(__cil_tmp18, __cil_tmp19, __len);
     }
   }
   __len___0 = 40UL;
@@ -4586,7 +4586,7 @@ static struct reg_pair_t *mxl5007t_calc_init_regs(struct mxl5007t_state *state ,
     __cil_tmp27 = (struct reg_pair_t (*)[20U])__cil_tmp26;
     __cil_tmp28 = (void *)__cil_tmp27;
     __cil_tmp29 = (void const *)(& init_tab_cable);
-    __ret___0 = __builtin_memcpy(__cil_tmp28, __cil_tmp29, __len___0);
+    __ret___0 = memcpy(__cil_tmp28, __cil_tmp29, __len___0);
     }
   }
   {
@@ -4803,7 +4803,7 @@ static struct reg_pair_t *mxl5007t_calc_rf_tune_regs(struct mxl5007t_state *stat
     __cil_tmp17 = (struct reg_pair_t (*)[11U])__cil_tmp16;
     __cil_tmp18 = (void *)__cil_tmp17;
     __cil_tmp19 = (void const *)(& reg_pair_rftune);
-    __ret = __builtin_memcpy(__cil_tmp18, __cil_tmp19, __len);
+    __ret = memcpy(__cil_tmp18, __cil_tmp19, __len);
     }
   }
   {
@@ -6767,7 +6767,7 @@ struct dvb_frontend *mxl5007t_attach(struct dvb_frontend *fe , struct i2c_adapte
     __cil_tmp155 = (struct dvb_tuner_ops *)__cil_tmp154;
     __cil_tmp156 = (void *)__cil_tmp155;
     __cil_tmp157 = (void const *)(& mxl5007t_tuner_ops);
-    __ret___1 = __builtin_memcpy(__cil_tmp156, __cil_tmp157, __len);
+    __ret___1 = memcpy(__cil_tmp156, __cil_tmp157, __len);
     }
   }
   return (fe);

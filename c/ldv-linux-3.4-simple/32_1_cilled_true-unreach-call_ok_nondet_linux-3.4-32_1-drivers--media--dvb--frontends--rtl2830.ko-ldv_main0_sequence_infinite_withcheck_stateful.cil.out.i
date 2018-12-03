@@ -3424,7 +3424,7 @@ static int rtl2830_wr(struct rtl2830_priv *priv , u8 reg , u8 *val , int len )
   __cil_tmp30 = buf + 1;
   __cil_tmp31 = (void *)__cil_tmp30;
   __cil_tmp32 = (void const *)val;
-  __ret = __builtin_memcpy(__cil_tmp31, __cil_tmp32, __len);
+  __ret = memcpy(__cil_tmp31, __cil_tmp32, __len);
   __cil_tmp33 = *((struct i2c_adapter **)priv);
   __cil_tmp34 = 0 * 16UL;
   __cil_tmp35 = (unsigned long )(msg) + __cil_tmp34;
@@ -5385,7 +5385,7 @@ struct dvb_frontend *rtl2830_attach(struct rtl2830_config const *cfg , struct i2
     __cil_tmp23 = (struct rtl2830_config *)__cil_tmp22;
     __cil_tmp24 = (void *)__cil_tmp23;
     __cil_tmp25 = (void const *)cfg;
-    __ret = __builtin_memcpy(__cil_tmp24, __cil_tmp25, __len);
+    __ret = memcpy(__cil_tmp24, __cil_tmp25, __len);
     }
   }
   {
@@ -5413,7 +5413,7 @@ struct dvb_frontend *rtl2830_attach(struct rtl2830_config const *cfg , struct i2
     __cil_tmp34 = (struct dvb_frontend_ops *)__cil_tmp33;
     __cil_tmp35 = (void *)__cil_tmp34;
     __cil_tmp36 = (void const *)(& rtl2830_ops);
-    __ret___0 = __builtin_memcpy(__cil_tmp35, __cil_tmp36, __len___0);
+    __ret___0 = memcpy(__cil_tmp35, __cil_tmp36, __len___0);
     }
   }
   {

@@ -7905,7 +7905,7 @@ static int p54u_upload_firmware_3887(struct ieee80211_hw *dev )
     __cil_tmp107 = (u8 *)__cil_tmp106;
     __cil_tmp108 = (void *)__cil_tmp107;
     __cil_tmp109 = (void *)"x2  ";
-    __ret = __builtin_memcpy(__cil_tmp108, __cil_tmp109, __len);
+    __ret = memcpy(__cil_tmp108, __cil_tmp109, __len);
     }
   }
   {
@@ -9400,7 +9400,7 @@ static int p54u_upload_firmware_net2280(struct ieee80211_hw *dev )
     block_len = tmp___13;
     __len = (size_t )block_len;
     __cil_tmp226 = (void *)data;
-    __ret = __builtin_memcpy(buf, __cil_tmp226, __len);
+    __ret = memcpy(buf, __cil_tmp226, __len);
     __cil_tmp227 = (size_t )block_len;
     err = p54u_bulk_msg(priv, 1U, buf, __cil_tmp227);
     }

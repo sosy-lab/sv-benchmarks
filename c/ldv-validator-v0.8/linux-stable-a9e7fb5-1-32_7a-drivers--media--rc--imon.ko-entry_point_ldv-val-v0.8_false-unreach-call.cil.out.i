@@ -4151,7 +4151,7 @@ static int send_associate_24g(struct imon_context *ictx )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& packet), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& packet),
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& packet),
                              __len);
   }
   retval = send_packet(ictx);
@@ -4228,7 +4228,7 @@ static int send_set_imon_clock(struct imon_context *ictx , unsigned int year , u
     __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& clock_enable_pkt) + (unsigned long )i,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& clock_enable_pkt) + (unsigned long )i,
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& clock_enable_pkt) + (unsigned long )i,
                              __len);
   }
   retval = send_packet(ictx);
@@ -4462,7 +4462,7 @@ static ssize_t vfd_write(struct file *file , char const *buf , size_t n_bytes ,
     __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& ictx->tx.data_buf) + (unsigned long )offset,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& ictx->tx.data_buf) + (unsigned long )offset,
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& ictx->tx.data_buf) + (unsigned long )offset,
                              __len);
   }
   ictx->usb_tx_buf[7] = (unsigned char )seq;
@@ -4483,7 +4483,7 @@ static ssize_t vfd_write(struct file *file , char const *buf , size_t n_bytes ,
     __ret___0 = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& vfd_packet6),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& vfd_packet6),
+    __ret___0 = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& vfd_packet6),
                                  __len___0);
   }
   ictx->usb_tx_buf[7] = (unsigned char )seq;
@@ -4698,7 +4698,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 rc_type )
     __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& ir_proto_packet),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& ir_proto_packet),
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& ir_proto_packet),
                              __len);
   }
   retval = send_packet(ictx);
@@ -5579,7 +5579,7 @@ static struct rc_dev *imon_init_rdev(struct imon_context *ictx )
     __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& fp_packet),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& fp_packet),
+    __ret = memcpy((void *)(& ictx->usb_tx_buf), (void const *)(& fp_packet),
                              __len);
   }
   ret = send_packet(ictx);

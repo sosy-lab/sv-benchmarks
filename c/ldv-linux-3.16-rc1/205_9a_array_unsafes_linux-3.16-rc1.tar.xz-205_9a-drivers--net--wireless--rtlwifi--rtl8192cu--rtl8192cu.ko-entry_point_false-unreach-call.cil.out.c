@@ -9190,7 +9190,7 @@ static void _rtl92cu_read_adapter_info(struct ieee80211_hw *hw )
       __ret = memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
+      __ret = memcpy((void *)(& hwinfo), (void const   *)(& rtlefuse->efuse_map),
                                __len);
     }
   } else
@@ -12211,7 +12211,7 @@ static void rtl92cu_update_hal_rate_mask(struct ieee80211_hw *hw , struct ieee80
     __ret = memcpy((void *)(& rtlpriv->rate_mask), (void const   *)(& rate_mask),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& rtlpriv->rate_mask), (void const   *)(& rate_mask),
+    __ret = memcpy((void *)(& rtlpriv->rate_mask), (void const   *)(& rate_mask),
                              __len);
   }
   schedule_work(& rtlpriv->works.fill_h2c_cmd);
@@ -20391,7 +20391,7 @@ static void _rtl_rx_process(struct ieee80211_hw *hw , struct sk_buff *skb )
     __ret = memcpy((void *)tmp___21, (void const   *)rx_status, __len);
   } else {
     tmp___22 = IEEE80211_SKB_RXCB(skb);
-    __ret = __builtin_memcpy((void *)tmp___22, (void const   *)rx_status, __len);
+    __ret = memcpy((void *)tmp___22, (void const   *)rx_status, __len);
   }
   ieee80211_rx(hw, skb);
   return;

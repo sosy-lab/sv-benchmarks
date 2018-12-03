@@ -7176,7 +7176,7 @@ u32 ceph_choose_frag(struct ceph_inode_info *ci , u32 v , struct ceph_inode_frag
       if (__len > 63UL) {
         __ret = memcpy((void *)pfrag, (void const *)frag, __len);
       } else {
-        __ret = __builtin_memcpy((void *)pfrag, (void const *)frag, __len);
+        __ret = memcpy((void *)pfrag, (void const *)frag, __len);
       }
     } else {
     }
@@ -8047,7 +8047,7 @@ static int fill_inode(struct inode *inode , struct ceph_mds_reply_info_in *iinfo
     ci->i_xattrs.blob = xattr_blob;
     if ((unsigned long )xattr_blob != (unsigned long )((struct ceph_buffer *)0)) {
       __len = (size_t )iinfo->xattr_len;
-      __ret = __builtin_memcpy((ci->i_xattrs.blob)->vec.iov_base, (void const *)iinfo->xattr_data,
+      __ret = memcpy((ci->i_xattrs.blob)->vec.iov_base, (void const *)iinfo->xattr_data,
                                __len);
     } else {
     }
@@ -11040,7 +11040,7 @@ static int note_last_dentry(struct ceph_file_info *fi , char const *name , int l
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)fi->last_name, (void const *)name, __len);
+  __ret = memcpy((void *)fi->last_name, (void const *)name, __len);
   *(fi->last_name + (unsigned long )len) = 0;
   descriptor.modname = "ceph";
   descriptor.function = "note_last_dentry";
@@ -19197,7 +19197,7 @@ static long ceph_ioctl_get_dataloc(struct file *file , void *arg )
         __ret = memcpy((void *)(& dl.osd_addr), (void const *)(& a->in_addr),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& dl.osd_addr), (void const *)(& a->in_addr),
+        __ret = memcpy((void *)(& dl.osd_addr), (void const *)(& a->in_addr),
                                  __len);
       }
     } else {
@@ -25865,7 +25865,7 @@ int ceph_encode_dentry_release(void **p , struct dentry *dentry , int mds , int 
     }
     rel->dname_len = dentry->d_name.ldv_11489.ldv_11487.len;
     __len = (size_t )dentry->d_name.ldv_11489.ldv_11487.len;
-    __ret = __builtin_memcpy(*p, (void const *)dentry->d_name.name, __len);
+    __ret = memcpy(*p, (void const *)dentry->d_name.name, __len);
     *p = *p + (unsigned long )dentry->d_name.ldv_11489.ldv_11487.len;
     rel->dname_seq = di->lease_seq;
     __ceph_mdsc_drop_dentry_lease(dentry);
@@ -26559,11 +26559,11 @@ static int build_snap_context(struct ceph_snap_realm *realm )
   } else {
   }
   __len = (unsigned long )realm->num_snaps * 8UL;
-  __ret = __builtin_memcpy((void *)(& snapc->snaps) + (unsigned long )num, (void const *)realm->snaps,
+  __ret = memcpy((void *)(& snapc->snaps) + (unsigned long )num, (void const *)realm->snaps,
                            __len);
   num = realm->num_snaps + num;
   __len___0 = (unsigned long )realm->num_prior_parent_snaps * 8UL;
-  __ret___0 = __builtin_memcpy((void *)(& snapc->snaps) + (unsigned long )num, (void const *)realm->prior_parent_snaps,
+  __ret___0 = memcpy((void *)(& snapc->snaps) + (unsigned long )num, (void const *)realm->prior_parent_snaps,
                                __len___0);
   num = realm->num_prior_parent_snaps + num;
   sort((void *)(& snapc->snaps), (size_t )num, 8UL, & cmpu64_rev, 0);
@@ -28151,7 +28151,7 @@ static char *__copy_xattr_names(struct ceph_inode_info *ci , char *dest )
   __mptr = (struct rb_node const *)p;
   xattr = (struct ceph_inode_xattr *)__mptr;
   __len = (size_t )xattr->name_len;
-  __ret = __builtin_memcpy((void *)dest, (void const *)xattr->name, __len);
+  __ret = memcpy((void *)dest, (void const *)xattr->name, __len);
   *(dest + (unsigned long )xattr->name_len) = 0;
   descriptor___0.modname = "ceph";
   descriptor___0.function = "__copy_xattr_names";
@@ -28493,11 +28493,11 @@ void __ceph_build_xattrs_blob(struct ceph_inode_info *ci )
     xattr = (struct ceph_inode_xattr *)__mptr;
     ceph_encode_32(& dest, (u32 )xattr->name_len);
     __len = (size_t )xattr->name_len;
-    __ret = __builtin_memcpy(dest, (void const *)xattr->name, __len);
+    __ret = memcpy(dest, (void const *)xattr->name, __len);
     dest = dest + (unsigned long )xattr->name_len;
     ceph_encode_32(& dest, (u32 )xattr->val_len);
     __len___0 = (size_t )xattr->val_len;
-    __ret___0 = __builtin_memcpy(dest, (void const *)xattr->val, __len___0);
+    __ret___0 = memcpy(dest, (void const *)xattr->val, __len___0);
     dest = dest + (unsigned long )xattr->val_len;
     p = rb_next((struct rb_node const *)p);
     ldv_29177: ;
@@ -28615,7 +28615,7 @@ ssize_t ceph_getxattr(struct dentry *dentry , char const *name , void *value , s
   } else {
   }
   __len = (size_t )xattr->val_len;
-  __ret = __builtin_memcpy(value, (void const *)xattr->val, __len);
+  __ret = memcpy(value, (void const *)xattr->val, __len);
   out:
   spin_unlock(& ci->i_ceph_lock);
   return ((ssize_t )err);
@@ -28776,7 +28776,7 @@ static int ceph_sync_setxattr(struct dentry *dentry , char const *name , char co
     _min1 = 4096UL;
     _min2 = size - (unsigned long )i * 4096UL;
     __len = _min1 < _min2 ? _min1 : _min2;
-    __ret = __builtin_memcpy(kaddr, (void const *)(value + (unsigned long )i * 4096UL),
+    __ret = memcpy(kaddr, (void const *)(value + (unsigned long )i * 4096UL),
                              __len);
     i = i + 1;
     ldv_29246: ;
@@ -29697,7 +29697,7 @@ __inline static void ceph_decode_copy(void **p , void *pv , size_t n )
   void *__ret ;
   {
   __len = n;
-  __ret = __builtin_memcpy(pv, (void const *)*p, __len);
+  __ret = memcpy(pv, (void const *)*p, __len);
   *p = *p + n;
   return;
 }
@@ -29748,7 +29748,7 @@ __inline static void ceph_encode_filepath(void **p , void *end , u64 ino , char 
   ceph_encode_32(p, len);
   if (len != 0U) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy(*p, (void const *)path, __len);
+    __ret = memcpy(*p, (void const *)path, __len);
   } else {
   }
   *p = *p + (unsigned long )len;
@@ -30450,7 +30450,7 @@ static struct ceph_mds_session *register_session(struct ceph_mds_client *mdsc , 
     }
     if ((unsigned long )mdsc->sessions != (unsigned long )((struct ceph_mds_session **)0)) {
       __len = (unsigned long )mdsc->max_sessions * 8UL;
-      __ret = __builtin_memcpy((void *)sa, (void const *)mdsc->sessions, __len);
+      __ret = memcpy((void *)sa, (void const *)mdsc->sessions, __len);
       kfree((void const *)mdsc->sessions);
     } else {
     }
@@ -34558,7 +34558,7 @@ void ceph_mdsc_lease_send_msg(struct ceph_mds_session *session , struct inode *i
   lease->seq = seq;
   put_unaligned_le32((u32 )dnamelen, (void *)lease + 1U);
   __len = (size_t )dnamelen;
-  __ret = __builtin_memcpy((void *)lease + 5U, (void const *)dentry->d_name.name,
+  __ret = memcpy((void *)lease + 5U, (void const *)dentry->d_name.name,
                            __len);
   msg->more_to_follow = (int )((signed char )action) == 2;
   ceph_con_send(& session->s_con, msg);

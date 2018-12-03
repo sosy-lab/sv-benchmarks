@@ -1375,7 +1375,7 @@ struct comedi_bond_private {
    struct BondedDevice *chanIdDevMap[256U] ;
    unsigned int nchans ;
 };
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
@@ -1544,7 +1544,7 @@ static void *Realloc(void const   *oldmem , size_t newlen , size_t oldlen )
     _min1 = oldlen;
     _min2 = newlen;
     __len = _min1 < _min2 ? _min1 : _min2;
-    __ret = __builtin_memcpy(newmem, oldmem, __len);
+    __ret = memcpy(newmem, oldmem, __len);
   } else {
 
   }

@@ -4173,7 +4173,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
     __cil_tmp41 = __cil_tmp40 + 80;
     __cil_tmp42 = *((unsigned char **)__cil_tmp41);
     __cil_tmp43 = (void const *)__cil_tmp42;
-    __ret = __builtin_memcpy(__cil_tmp39, __cil_tmp43, __len);
+    __ret = memcpy(__cil_tmp39, __cil_tmp43, __len);
     }
   }
   {
@@ -4564,7 +4564,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
           __cil_tmp272 = __cil_tmp271 + 136;
           __cil_tmp273 = *((unsigned char **)__cil_tmp272);
           __cil_tmp274 = (void const *)__cil_tmp273;
-          __ret___0 = __builtin_memcpy(__cil_tmp270, __cil_tmp274, __len___0);
+          __ret___0 = memcpy(__cil_tmp270, __cil_tmp274, __len___0);
           }
         }
         {
@@ -4657,7 +4657,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
     __cil_tmp316 = *((unsigned char **)__cil_tmp315);
     __cil_tmp317 = (void *)__cil_tmp316;
     __cil_tmp318 = (void const *)(& usb_stor_sense_invalidCDB);
-    __ret___1 = __builtin_memcpy(__cil_tmp317, __cil_tmp318, __len___1);
+    __ret___1 = memcpy(__cil_tmp317, __cil_tmp318, __len___1);
     }
   }
   end:
@@ -4678,7 +4678,7 @@ static void cypress_atacb_passthrough(struct scsi_cmnd *srb , struct us_data *us
     __cil_tmp326 = *((unsigned char **)__cil_tmp325);
     __cil_tmp327 = (void *)__cil_tmp326;
     __cil_tmp328 = (void const *)(& save_cmnd);
-    __ret___2 = __builtin_memcpy(__cil_tmp327, __cil_tmp328, __len___2);
+    __ret___2 = memcpy(__cil_tmp327, __cil_tmp328, __len___2);
     }
   }
   {

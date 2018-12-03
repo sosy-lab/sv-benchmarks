@@ -4122,7 +4122,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
 
   }
   __len = n_bytes;
-  __ret = __builtin_memcpy((void *)(& context->tx.data_buf), (void const   *)data_buf,
+  __ret = memcpy((void *)(& context->tx.data_buf), (void const   *)data_buf,
                            __len);
   i = (int )n_bytes;
   goto ldv_29748;
@@ -4144,7 +4144,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\a", __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)"\a",
+    __ret___0 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\a",
                                  __len___0);
   }
   context->usb_tx_buf[1] = context->vfd_contrast != 0U ? 43U - (unsigned int )((unsigned char )((context->vfd_contrast - 1U) / 250U)) : 43U;
@@ -4155,7 +4155,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     __ret___1 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\t\001",
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)"\t\001",
+    __ret___1 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\t\001",
                                  __len___1);
   }
   goto ldv_29754;
@@ -4165,7 +4165,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     __ret___2 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\v\001",
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)"\v\001",
+    __ret___2 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\v\001",
                                  __len___2);
   }
   goto ldv_29754;
@@ -4175,7 +4175,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     __ret___3 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf),
                          __len___3);
   } else {
-    __ret___3 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf),
+    __ret___3 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf),
                                  __len___3);
   }
   goto ldv_29754;
@@ -4185,7 +4185,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     __ret___4 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + 8U,
                          __len___4);
   } else {
-    __ret___4 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + 8U,
+    __ret___4 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + 8U,
                                  __len___4);
   }
   goto ldv_29754;
@@ -4195,7 +4195,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     __ret___5 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\t\001",
                          __len___5);
   } else {
-    __ret___5 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)"\t\001",
+    __ret___5 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\t\001",
                                  __len___5);
   }
   goto ldv_29754;
@@ -4205,7 +4205,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     __ret___6 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\v\002",
                          __len___6);
   } else {
-    __ret___6 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)"\v\002",
+    __ret___6 = memcpy((void *)(& context->usb_tx_buf), (void const   *)"\v\002",
                                  __len___6);
   }
   goto ldv_29754;
@@ -4215,7 +4215,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     __ret___7 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + 16U,
                          __len___7);
   } else {
-    __ret___7 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + 16U,
+    __ret___7 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + 16U,
                                  __len___7);
   }
   goto ldv_29754;
@@ -4225,7 +4225,7 @@ static ssize_t vfd_write(struct file *file , char const   *buf , size_t n_bytes 
     __ret___8 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + 24U,
                          __len___8);
   } else {
-    __ret___8 = __builtin_memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + 24U,
+    __ret___8 = memcpy((void *)(& context->usb_tx_buf), (void const   *)(& context->tx.data_buf) + 24U,
                                  __len___8);
   }
   goto ldv_29754;
@@ -4392,7 +4392,7 @@ static void incoming_packet(struct sasem_context *context , struct urb *urb )
       if (__len > 63UL) {
         __ret = memcpy((void *)buf, (void const   *)(& context->lastcode), __len);
       } else {
-        __ret = __builtin_memcpy((void *)buf, (void const   *)(& context->lastcode),
+        __ret = memcpy((void *)buf, (void const   *)(& context->lastcode),
                                  __len);
       }
       context->presstime.tv_sec = tv.tv_sec;
@@ -4405,7 +4405,7 @@ static void incoming_packet(struct sasem_context *context , struct urb *urb )
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)(& context->lastcode), (void const   *)buf, __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& context->lastcode), (void const   *)buf,
+      __ret___0 = memcpy((void *)(& context->lastcode), (void const   *)buf,
                                    __len___0);
     }
     context->codesaved = 1;

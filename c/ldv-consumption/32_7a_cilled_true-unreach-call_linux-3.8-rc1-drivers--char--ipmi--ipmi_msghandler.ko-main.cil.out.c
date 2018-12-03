@@ -5393,7 +5393,7 @@ __inline static void format_ipmb_msg(struct ipmi_smi_msg *smi_msg , struct kerne
   smi_msg->data[i + 8] = msg->cmd;
   if ((unsigned int )msg->data_len != 0U) {
     __len = (size_t )msg->data_len;
-    __ret = __builtin_memcpy((void *)(& smi_msg->data) + ((unsigned long )i + 9UL),
+    __ret = memcpy((void *)(& smi_msg->data) + ((unsigned long )i + 9UL),
                              (void const   *)msg->data, __len);
   } else {
 
@@ -5425,7 +5425,7 @@ __inline static void format_lan_msg(struct ipmi_smi_msg *smi_msg , struct kernel
   smi_msg->data[9] = msg->cmd;
   if ((unsigned int )msg->data_len != 0U) {
     __len = (size_t )msg->data_len;
-    __ret = __builtin_memcpy((void *)(& smi_msg->data) + 10U, (void const   *)msg->data,
+    __ret = memcpy((void *)(& smi_msg->data) + 10U, (void const   *)msg->data,
                              __len);
   } else {
 
@@ -5534,7 +5534,7 @@ static int i_ipmi_request(ipmi_user_t user , ipmi_smi_t intf , struct ipmi_addr 
     if (__len > 63UL) {
       __ret = memcpy((void *)(& recv_msg->addr), (void const   *)smi_addr, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& recv_msg->addr), (void const   *)smi_addr,
+      __ret = memcpy((void *)(& recv_msg->addr), (void const   *)smi_addr,
                                __len);
     }
     if ((unsigned int )msg->netfn == 6U && (((unsigned int )msg->cmd == 52U || (unsigned int )msg->cmd == 51U) || (unsigned int )msg->cmd == 53U)) {
@@ -5571,7 +5571,7 @@ static int i_ipmi_request(ipmi_user_t user , ipmi_smi_t intf , struct ipmi_addr 
     smi_msg->user_data = (void *)recv_msg;
     if ((unsigned int )msg->data_len != 0U) {
       __len___0 = (size_t )msg->data_len;
-      __ret___0 = __builtin_memcpy((void *)(& smi_msg->data) + 2U, (void const   *)msg->data,
+      __ret___0 = memcpy((void *)(& smi_msg->data) + 2U, (void const   *)msg->data,
                                    __len___0);
     } else {
 
@@ -5641,7 +5641,7 @@ static int i_ipmi_request(ipmi_user_t user , ipmi_smi_t intf , struct ipmi_addr 
           __ret___1 = memcpy((void *)(& recv_msg->addr), (void const   *)ipmb_addr,
                                __len___1);
         } else {
-          __ret___1 = __builtin_memcpy((void *)(& recv_msg->addr), (void const   *)ipmb_addr,
+          __ret___1 = memcpy((void *)(& recv_msg->addr), (void const   *)ipmb_addr,
                                        __len___1);
         }
         if ((int )recv_msg->msg.netfn & 1) {
@@ -5664,7 +5664,7 @@ static int i_ipmi_request(ipmi_user_t user , ipmi_smi_t intf , struct ipmi_addr 
           format_ipmb_msg(smi_msg, msg, ipmb_addr, (long )((int )ipmb_seq << 26) | (seqid & 67108863L),
                           (int )ipmb_seq, broadcast, (int )source_address, (int )source_lun);
           __len___2 = (size_t )smi_msg->data_size;
-          __ret___2 = __builtin_memcpy((void *)(& recv_msg->msg_data), (void const   *)(& smi_msg->data),
+          __ret___2 = memcpy((void *)(& recv_msg->msg_data), (void const   *)(& smi_msg->data),
                                        __len___2);
           recv_msg->msg.data = (unsigned char *)(& recv_msg->msg_data);
           recv_msg->msg.data_len = (unsigned short )smi_msg->data_size;
@@ -5713,7 +5713,7 @@ static int i_ipmi_request(ipmi_user_t user , ipmi_smi_t intf , struct ipmi_addr 
             __ret___3 = memcpy((void *)(& recv_msg->addr), (void const   *)lan_addr,
                                  __len___3);
           } else {
-            __ret___3 = __builtin_memcpy((void *)(& recv_msg->addr), (void const   *)lan_addr,
+            __ret___3 = memcpy((void *)(& recv_msg->addr), (void const   *)lan_addr,
                                          __len___3);
           }
           if ((int )recv_msg->msg.netfn & 1) {
@@ -5736,7 +5736,7 @@ static int i_ipmi_request(ipmi_user_t user , ipmi_smi_t intf , struct ipmi_addr 
             format_lan_msg(smi_msg, msg, lan_addr, (long )((int )ipmb_seq___0 << 26) | (seqid___0 & 67108863L),
                            (int )ipmb_seq___0, (int )source_lun);
             __len___4 = (size_t )smi_msg->data_size;
-            __ret___4 = __builtin_memcpy((void *)(& recv_msg->msg_data), (void const   *)(& smi_msg->data),
+            __ret___4 = memcpy((void *)(& recv_msg->msg_data), (void const   *)(& smi_msg->data),
                                          __len___4);
             recv_msg->msg.data = (unsigned char *)(& recv_msg->msg_data);
             recv_msg->msg.data_len = (unsigned short )smi_msg->data_size;
@@ -6679,7 +6679,7 @@ static void guid_handler(ipmi_smi_t intf , struct ipmi_recv_msg *msg )
     __ret = memcpy((void *)(& (intf->bmc)->guid), (void const   *)msg->msg.data,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (intf->bmc)->guid), (void const   *)msg->msg.data,
+    __ret = memcpy((void *)(& (intf->bmc)->guid), (void const   *)msg->msg.data,
                              __len);
   }
   (intf->bmc)->guid_set = 1;
@@ -7174,7 +7174,7 @@ static int handle_ipmb_get_msg_rsp(ipmi_smi_t intf , struct ipmi_smi_msg *msg )
 
   }
   __len = (size_t )(msg->rsp_size + -9);
-  __ret = __builtin_memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 9U,
+  __ret = memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 9U,
                            __len);
   recv_msg->msg.netfn = (int )msg->rsp[4] >> 2;
   recv_msg->msg.data = (unsigned char *)(& recv_msg->msg_data);
@@ -7267,7 +7267,7 @@ static int handle_ipmb_get_msg_cmd(ipmi_smi_t intf , struct ipmi_smi_msg *msg )
       recv_msg->msg.data = (unsigned char *)(& recv_msg->msg_data);
       recv_msg->msg.data_len = (unsigned int )((unsigned short )msg->rsp_size) + 65526U;
       __len = (size_t )(msg->rsp_size + -10);
-      __ret = __builtin_memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 9U,
+      __ret = memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 9U,
                                __len);
       deliver_response(recv_msg);
     }
@@ -7311,7 +7311,7 @@ static int handle_lan_get_msg_rsp(ipmi_smi_t intf , struct ipmi_smi_msg *msg )
 
   }
   __len = (size_t )(msg->rsp_size + -11);
-  __ret = __builtin_memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 11U,
+  __ret = memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 11U,
                            __len);
   recv_msg->msg.netfn = (int )msg->rsp[6] >> 2;
   recv_msg->msg.data = (unsigned char *)(& recv_msg->msg_data);
@@ -7386,7 +7386,7 @@ static int handle_lan_get_msg_cmd(ipmi_smi_t intf , struct ipmi_smi_msg *msg )
       recv_msg->msg.data = (unsigned char *)(& recv_msg->msg_data);
       recv_msg->msg.data_len = (unsigned int )((unsigned short )msg->rsp_size) + 65524U;
       __len = (size_t )(msg->rsp_size + -12);
-      __ret = __builtin_memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 11U,
+      __ret = memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 11U,
                                __len);
       deliver_response(recv_msg);
     }
@@ -7454,7 +7454,7 @@ static int handle_oem_get_msg_cmd(ipmi_smi_t intf , struct ipmi_smi_msg *msg )
       recv_msg->msg.data = (unsigned char *)(& recv_msg->msg_data);
       recv_msg->msg.data_len = (unsigned int )((unsigned short )msg->rsp_size) + 65532U;
       __len = (size_t )(msg->rsp_size + -4);
-      __ret = __builtin_memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 4U,
+      __ret = memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 4U,
                                __len);
       deliver_response(recv_msg);
     }
@@ -7477,7 +7477,7 @@ static void copy_event_into_recv_msg(struct ipmi_recv_msg *recv_msg , struct ipm
   recv_msg->msg.netfn = (int )msg->rsp[0] >> 2;
   recv_msg->msg.cmd = msg->rsp[1];
   __len = (size_t )(msg->rsp_size + -3);
-  __ret = __builtin_memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 3U,
+  __ret = memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 3U,
                            __len);
   recv_msg->msg.data = (unsigned char *)(& recv_msg->msg_data);
   recv_msg->msg.data_len = (unsigned int )((unsigned short )msg->rsp_size) + 65533U;
@@ -7669,7 +7669,7 @@ static int handle_bmc_rsp(ipmi_smi_t intf , struct ipmi_smi_msg *msg )
     recv_msg->msg.netfn = (int )msg->rsp[0] >> 2;
     recv_msg->msg.cmd = msg->rsp[1];
     __len = (size_t )(msg->rsp_size + -2);
-    __ret = __builtin_memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 2U,
+    __ret = memcpy((void *)(& recv_msg->msg_data), (void const   *)(& msg->rsp) + 2U,
                              __len);
     recv_msg->msg.data = (unsigned char *)(& recv_msg->msg_data);
     recv_msg->msg.data_len = (unsigned int )((unsigned short )msg->rsp_size) + 65534U;
@@ -7975,7 +7975,7 @@ static struct ipmi_smi_msg *smi_from_recv_msg(ipmi_smi_t intf , struct ipmi_recv
 
   }
   __len = (size_t )recv_msg->msg.data_len;
-  __ret = __builtin_memcpy((void *)(& smi_msg->data), (void const   *)recv_msg->msg.data,
+  __ret = memcpy((void *)(& smi_msg->data), (void const   *)recv_msg->msg.data,
                            __len);
   smi_msg->data_size = (int )recv_msg->msg.data_len;
   smi_msg->msgid = (long )((int )seq << 26) | (seqid & 67108863L);

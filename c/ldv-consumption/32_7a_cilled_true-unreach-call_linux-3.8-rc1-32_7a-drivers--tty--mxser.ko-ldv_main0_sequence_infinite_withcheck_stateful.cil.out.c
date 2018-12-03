@@ -4826,6 +4826,7 @@ static void mxser_close(struct tty_struct *tty , struct file *filp )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int mxser_write(struct tty_struct *tty , unsigned char const   *buf , int count ) 
 { 
   int c ;
@@ -4861,7 +4862,7 @@ static int mxser_write(struct tty_struct *tty , unsigned char const   *buf , int
 
   }
   __len = (size_t )c;
-  __ret = __builtin_memcpy((void *)info->port.xmit_buf + (unsigned long )info->xmit_head,
+  __ret = memcpy((void *)info->port.xmit_buf + (unsigned long )info->xmit_head,
                            (void const   *)buf, __len);
   tmp = spinlock_check(& info->slock);
   flags = _raw_spin_lock_irqsave(tmp);

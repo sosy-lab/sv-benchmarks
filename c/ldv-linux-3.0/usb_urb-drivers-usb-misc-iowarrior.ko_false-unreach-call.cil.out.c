@@ -4059,7 +4059,7 @@ static void iowarrior_callback(struct urb *urb )
   {
   offset = intr_idx * (dev->report_size + 1);
   __len = (size_t )dev->report_size;
-  __ret = __builtin_memcpy((void *)(dev->read_queue + offset), (void const *)urb->transfer_buffer,
+  __ret = memcpy((void *)(dev->read_queue + offset), (void const *)urb->transfer_buffer,
                            __len);
   tmp___8 = dev->serial_number;
   dev->serial_number = (unsigned char )((int )dev->serial_number + 1);
@@ -4856,7 +4856,7 @@ static long iowarrior_ioctl(struct file *file , unsigned int cmd , unsigned long
         }
       } else {
         {
-        __ret = __builtin_memcpy((void *)(info.serial), (void const *)(dev->chip_serial),
+        __ret = memcpy((void *)(info.serial), (void const *)(dev->chip_serial),
                                  __len);
         }
       }

@@ -3044,7 +3044,7 @@ enum hrtimer_restart;
 enum __anonenum_122 {
     MAX_NESTED_LINKS___0 = 8
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static int variable_test_bit(int nr , void const volatile   *addr ) 
 { 
@@ -3427,13 +3427,13 @@ static unsigned int put_ringbuf(struct ringbuf *pb , char const   *buf , unsigne
   len = (pb->buf_buf + pb->buf_size) - pb->buf_put;
   if (count > len) {
     __len = len;
-    __ret = __builtin_memcpy(pb->buf_put, buf, __len);
+    __ret = memcpy(pb->buf_put, buf, __len);
     __len___0 = count - len;
-    __ret___0 = __builtin_memcpy(pb->buf_buf, buf + len, __len___0);
+    __ret___0 = memcpy(pb->buf_buf, buf + len, __len___0);
     pb->buf_put = (pb->buf_buf + count) - len;
   } else {
     __len___1 = count;
-    __ret___1 = __builtin_memcpy(pb->buf_put, buf, __len___1);
+    __ret___1 = memcpy(pb->buf_put, buf, __len___1);
     if (count < len) {
       pb->buf_put = pb->buf_put + count;
     } else {
@@ -3473,13 +3473,13 @@ static unsigned int get_ringbuf(struct ringbuf *pb , char *buf , unsigned int co
   len = (pb->buf_buf + pb->buf_size) - pb->buf_get;
   if (count > len) {
     __len = len;
-    __ret = __builtin_memcpy(buf, pb->buf_get, __len);
+    __ret = memcpy(buf, pb->buf_get, __len);
     __len___0 = count - len;
-    __ret___0 = __builtin_memcpy(buf + len, pb->buf_buf, __len___0);
+    __ret___0 = memcpy(buf + len, pb->buf_buf, __len___0);
     pb->buf_get = (pb->buf_buf + count) - len;
   } else {
     __len___1 = count;
-    __ret___1 = __builtin_memcpy(buf, pb->buf_get, __len___1);
+    __ret___1 = memcpy(buf, pb->buf_get, __len___1);
     if (count < len) {
       pb->buf_get = pb->buf_get + count;
     } else {

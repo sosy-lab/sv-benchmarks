@@ -17938,7 +17938,7 @@ struct page *ldv_alloc_page_vma_204(gfp_t ldv_func_arg1 , struct vm_area_struct 
   return (tmp);
 }
 }
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 struct page *ldv_alloc_page_vma_220(gfp_t ldv_func_arg1 , struct vm_area_struct *ldv_func_arg2 ,
                                     unsigned long ldv_func_arg3 ) ;
@@ -19033,7 +19033,7 @@ void intel_sdvo_init(struct drm_device *dev , int output_device )
       __ret = memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
+      __ret = memcpy((void *)(& bytes), (void const   *)(& sdvo_priv->caps.output_flags),
                                __len);
     }
     if (drm_debug != 0U) {

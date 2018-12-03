@@ -3070,7 +3070,7 @@ enum hrtimer_restart;
 enum __anonenum_120 {
     MAX_NESTED_LINKS___0 = 8
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 __inline static int ( __attribute__((__always_inline__)) variable_test_bit)(int nr ,
                                                                             void const volatile   *addr ) 
@@ -5320,7 +5320,7 @@ static int mos7840_write(struct usb_serial_port *port , unsigned char const   *d
   _y = 32;
   transfer_size = _x < _y ? _x : _y;
   __len = transfer_size;
-  __ret = __builtin_memcpy(urb->transfer_buffer, current_position, __len);
+  __ret = memcpy(urb->transfer_buffer, current_position, __len);
   tmp___1 = __create_pipe(serial->dev, port->bulk_out_endpointAddress);
   usb_fill_bulk_urb(urb, serial->dev, (unsigned int )(3 << 30) | tmp___1, urb->transfer_buffer,
                     transfer_size, & mos7840_bulk_out_data_callback, mos7840_port);

@@ -9109,7 +9109,7 @@ static void bm_page_io_async(struct bm_aio_ctx *ctx , int page_nr , int rw )
       }
     } else {
       {
-      __ret = __builtin_memcpy(dest, (void const *)src, __len);
+      __ret = memcpy(dest, (void const *)src, __len);
       }
     }
     {
@@ -16374,7 +16374,7 @@ __inline static int bitstream_get_bits(struct bitstream *bs , u64 *out , int bit
   if (n != 0U) {
     {
     __len = (size_t )(n - 1U);
-    __ret = __builtin_memcpy((void *)(& val), (void const *)bs->cur.b + 1U, __len);
+    __ret = memcpy((void *)(& val), (void const *)bs->cur.b + 1U, __len);
     val = val << (int )(8U - bs->cur.bit);
     }
   } else {
@@ -17334,7 +17334,7 @@ static struct socket *drbd_try_connect(struct drbd_conf *mdev )
   }
   {
   __len = (size_t )tmp___1;
-  __ret = __builtin_memcpy((void *)(& src_in6), (void const *)(& (mdev->net_conf)->my_addr),
+  __ret = memcpy((void *)(& src_in6), (void const *)(& (mdev->net_conf)->my_addr),
                            __len);
   }
   if ((unsigned int )((struct sockaddr *)(& (mdev->net_conf)->my_addr))->sa_family == 10U) {
@@ -23302,7 +23302,7 @@ static int receive_bitmap(struct drbd_conf *mdev , enum drbd_packets cmd , unsig
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)p, (void const *)h, __len);
+      __ret = memcpy((void *)p, (void const *)h, __len);
       }
     }
     {
@@ -28824,7 +28824,7 @@ int drbd_md_sync_page_io(struct drbd_conf *mdev , struct drbd_backing_dev *bdev 
         }
       } else {
         {
-        __ret = __builtin_memcpy(hp + (unsigned long )(offset * 512), (void const *)p,
+        __ret = memcpy(hp + (unsigned long )(offset * 512), (void const *)p,
                                  __len);
         }
       }
@@ -28895,7 +28895,7 @@ int drbd_md_sync_page_io(struct drbd_conf *mdev , struct drbd_backing_dev *bdev 
         }
       } else {
         {
-        __ret___0 = __builtin_memcpy(p___0, (void const *)hp___0 + (unsigned long )(offset * 512),
+        __ret___0 = memcpy(p___0, (void const *)hp___0 + (unsigned long )(offset * 512),
                                      __len___0);
         }
       }
@@ -40003,7 +40003,7 @@ __inline static void bitmap_copy(unsigned long *dst , unsigned long const *src ,
   {
   len = (int )((unsigned int )(((unsigned long )nbits + 63UL) / 64UL) * 8U);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)dst, (void const *)src, __len);
+  __ret = memcpy((void *)dst, (void const *)src, __len);
   }
   return;
 }
@@ -40498,7 +40498,7 @@ static int disk_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , s
       }
       {
       __len = tmp___1;
-      __ret = __builtin_memcpy((void *)(& arg->backing_dev), (void const *)tags,
+      __ret = memcpy((void *)(& arg->backing_dev), (void const *)tags,
                                __len);
       }
       goto ldv_48515;
@@ -40522,7 +40522,7 @@ static int disk_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , s
       }
       {
       __len___0 = tmp___2;
-      __ret___0 = __builtin_memcpy((void *)(& arg->meta_dev), (void const *)tags,
+      __ret___0 = memcpy((void *)(& arg->meta_dev), (void const *)tags,
                                    __len___0);
       }
       goto ldv_48515;
@@ -40770,7 +40770,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
       }
       {
       __len = tmp___1;
-      __ret = __builtin_memcpy((void *)(& arg->my_addr), (void const *)tags, __len);
+      __ret = memcpy((void *)(& arg->my_addr), (void const *)tags, __len);
       }
       goto ldv_48585;
       case_9: ;
@@ -40793,7 +40793,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
       }
       {
       __len___0 = tmp___2;
-      __ret___0 = __builtin_memcpy((void *)(& arg->peer_addr), (void const *)tags,
+      __ret___0 = memcpy((void *)(& arg->peer_addr), (void const *)tags,
                                    __len___0);
       }
       goto ldv_48585;
@@ -40817,7 +40817,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
       }
       {
       __len___1 = tmp___3;
-      __ret___1 = __builtin_memcpy((void *)(& arg->shared_secret), (void const *)tags,
+      __ret___1 = memcpy((void *)(& arg->shared_secret), (void const *)tags,
                                    __len___1);
       }
       goto ldv_48585;
@@ -40841,7 +40841,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
       }
       {
       __len___2 = tmp___4;
-      __ret___2 = __builtin_memcpy((void *)(& arg->cram_hmac_alg), (void const *)tags,
+      __ret___2 = memcpy((void *)(& arg->cram_hmac_alg), (void const *)tags,
                                    __len___2);
       }
       goto ldv_48585;
@@ -40865,7 +40865,7 @@ static int net_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags , st
       }
       {
       __len___3 = tmp___5;
-      __ret___3 = __builtin_memcpy((void *)(& arg->integrity_alg), (void const *)tags,
+      __ret___3 = memcpy((void *)(& arg->integrity_alg), (void const *)tags,
                                    __len___3);
       }
       goto ldv_48585;
@@ -41281,7 +41281,7 @@ static int syncer_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags ,
       }
       {
       __len = tmp___4;
-      __ret = __builtin_memcpy((void *)(& arg->verify_alg), (void const *)tags,
+      __ret = memcpy((void *)(& arg->verify_alg), (void const *)tags,
                                __len);
       }
       goto ldv_48703;
@@ -41305,7 +41305,7 @@ static int syncer_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags ,
       }
       {
       __len___0 = tmp___5;
-      __ret___0 = __builtin_memcpy((void *)(& arg->cpu_mask), (void const *)tags,
+      __ret___0 = memcpy((void *)(& arg->cpu_mask), (void const *)tags,
                                    __len___0);
       }
       goto ldv_48703;
@@ -41329,7 +41329,7 @@ static int syncer_conf_from_tags(struct drbd_conf *mdev , unsigned short *tags ,
       }
       {
       __len___1 = tmp___6;
-      __ret___1 = __builtin_memcpy((void *)(& arg->csums_alg), (void const *)tags,
+      __ret___1 = memcpy((void *)(& arg->csums_alg), (void const *)tags,
                                    __len___1);
       }
       goto ldv_48703;
@@ -41751,7 +41751,7 @@ static unsigned short *disk_conf_to_tags(struct drbd_conf *mdev , struct disk_co
   ldv_49134:
   {
   __len = (size_t )arg->backing_dev_len;
-  __ret = __builtin_memcpy((void *)tags, (void const *)(& arg->backing_dev), __len);
+  __ret = memcpy((void *)tags, (void const *)(& arg->backing_dev), __len);
   tags = tags + (unsigned long )arg->backing_dev_len;
   tmp___3 = tags;
   tags = tags + 1;
@@ -41822,7 +41822,7 @@ static unsigned short *disk_conf_to_tags(struct drbd_conf *mdev , struct disk_co
   ldv_49151:
   {
   __len___0 = (size_t )arg->meta_dev_len;
-  __ret___0 = __builtin_memcpy((void *)tags, (void const *)(& arg->meta_dev), __len___0);
+  __ret___0 = memcpy((void *)tags, (void const *)(& arg->meta_dev), __len___0);
   tags = tags + (unsigned long )arg->meta_dev_len;
   tmp___5 = tags;
   tags = tags + 1;
@@ -42782,7 +42782,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   ldv_49340:
   {
   __len = (size_t )arg->my_addr_len;
-  __ret = __builtin_memcpy((void *)tags, (void const *)(& arg->my_addr), __len);
+  __ret = memcpy((void *)tags, (void const *)(& arg->my_addr), __len);
   tags = tags + (unsigned long )arg->my_addr_len;
   tmp___1 = tags;
   tags = tags + 1;
@@ -42853,7 +42853,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   ldv_49357:
   {
   __len___0 = (size_t )arg->peer_addr_len;
-  __ret___0 = __builtin_memcpy((void *)tags, (void const *)(& arg->peer_addr), __len___0);
+  __ret___0 = memcpy((void *)tags, (void const *)(& arg->peer_addr), __len___0);
   tags = tags + (unsigned long )arg->peer_addr_len;
   tmp___3 = tags;
   tags = tags + 1;
@@ -42925,7 +42925,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   ldv_49374:
   {
   __len___1 = (size_t )arg->shared_secret_len;
-  __ret___1 = __builtin_memcpy((void *)tags, (void const *)(& arg->shared_secret),
+  __ret___1 = memcpy((void *)tags, (void const *)(& arg->shared_secret),
                                __len___1);
   tags = tags + (unsigned long )arg->shared_secret_len;
   tmp___5 = tags;
@@ -42998,7 +42998,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   ldv_49391:
   {
   __len___2 = (size_t )arg->cram_hmac_alg_len;
-  __ret___2 = __builtin_memcpy((void *)tags, (void const *)(& arg->cram_hmac_alg),
+  __ret___2 = memcpy((void *)tags, (void const *)(& arg->cram_hmac_alg),
                                __len___2);
   tags = tags + (unsigned long )arg->cram_hmac_alg_len;
   tmp___7 = tags;
@@ -43071,7 +43071,7 @@ static unsigned short *net_conf_to_tags(struct drbd_conf *mdev , struct net_conf
   ldv_49408:
   {
   __len___3 = (size_t )arg->integrity_alg_len;
-  __ret___3 = __builtin_memcpy((void *)tags, (void const *)(& arg->integrity_alg),
+  __ret___3 = memcpy((void *)tags, (void const *)(& arg->integrity_alg),
                                __len___3);
   tags = tags + (unsigned long )arg->integrity_alg_len;
   tmp___9 = tags;
@@ -45753,7 +45753,7 @@ static unsigned short *syncer_conf_to_tags(struct drbd_conf *mdev , struct synce
   ldv_50054:
   {
   __len = (size_t )arg->verify_alg_len;
-  __ret = __builtin_memcpy((void *)tags, (void const *)(& arg->verify_alg), __len);
+  __ret = memcpy((void *)tags, (void const *)(& arg->verify_alg), __len);
   tags = tags + (unsigned long )arg->verify_alg_len;
   tmp___7 = tags;
   tags = tags + 1;
@@ -45824,7 +45824,7 @@ static unsigned short *syncer_conf_to_tags(struct drbd_conf *mdev , struct synce
   ldv_50071:
   {
   __len___0 = (size_t )arg->cpu_mask_len;
-  __ret___0 = __builtin_memcpy((void *)tags, (void const *)(& arg->cpu_mask), __len___0);
+  __ret___0 = memcpy((void *)tags, (void const *)(& arg->cpu_mask), __len___0);
   tags = tags + (unsigned long )arg->cpu_mask_len;
   tmp___9 = tags;
   tags = tags + 1;
@@ -45895,7 +45895,7 @@ static unsigned short *syncer_conf_to_tags(struct drbd_conf *mdev , struct synce
   ldv_50088:
   {
   __len___1 = (size_t )arg->csums_alg_len;
-  __ret___1 = __builtin_memcpy((void *)tags, (void const *)(& arg->csums_alg), __len___1);
+  __ret___1 = memcpy((void *)tags, (void const *)(& arg->csums_alg), __len___1);
   tags = tags + (unsigned long )arg->csums_alg_len;
   tmp___11 = tags;
   tags = tags + 1;
@@ -49867,7 +49867,7 @@ static int drbd_nl_syncer_conf(struct drbd_conf *mdev , struct drbd_nl_cfg_req *
       }
     } else {
       {
-      __ret = __builtin_memcpy((void *)(& sc), (void const *)(& mdev->sync_conf),
+      __ret = memcpy((void *)(& sc), (void const *)(& mdev->sync_conf),
                                __len);
       }
     }
@@ -51285,7 +51285,7 @@ static unsigned short *__tl_add_blob(unsigned short *tl , enum drbd_tags tag , v
   ldv_51230:
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)tl, data, __len);
+  __ret = memcpy((void *)tl, data, __len);
   tl = tl + (unsigned long )len;
   }
   if (nul_terminated != 0) {
@@ -51801,7 +51801,7 @@ void drbd_bcast_ee(struct drbd_conf *mdev , char const *reason , int const dgs ,
   {
   l = tmp___4;
   __len = (size_t )l;
-  __ret = __builtin_memcpy((void *)tl, (void const *)d, __len);
+  __ret = memcpy((void *)tl, (void const *)d, __len);
   __kunmap_atomic(d);
   tl = tl + (unsigned long )l;
   len = len - l;

@@ -5783,7 +5783,7 @@ static void ipheth_rcvbulk_callback(struct urb *urb )
   }
   __len = (size_t )len;
   tmp___0 = skb_put(skb, (unsigned int )len);
-  __ret = __builtin_memcpy((void *)tmp___0, (void const *)buf, __len);
+  __ret = memcpy((void *)tmp___0, (void const *)buf, __len);
   skb->dev = dev->net;
   skb->protocol = eth_type_trans(skb, dev->net);
   (dev->net)->stats.rx_packets = (dev->net)->stats.rx_packets + 1UL;
@@ -5879,7 +5879,7 @@ static int ipheth_get_macaddr(struct ipheth_device *dev )
     if (__len > 63UL) {
       __ret = memcpy((void *)net->dev_addr, (void const *)dev->ctrl_buf, __len);
     } else {
-      __ret = __builtin_memcpy((void *)net->dev_addr, (void const *)dev->ctrl_buf,
+      __ret = memcpy((void *)net->dev_addr, (void const *)dev->ctrl_buf,
                                __len);
     }
     retval = 0;
@@ -5978,7 +5978,7 @@ static int ipheth_tx(struct sk_buff *skb , struct net_device *net )
   } else {
   }
   __len = (size_t )skb->len;
-  __ret = __builtin_memcpy((void *)dev->tx_buf, (void const *)skb->data, __len);
+  __ret = memcpy((void *)dev->tx_buf, (void const *)skb->data, __len);
   if (skb->len <= 1515U) {
     memset((void *)dev->tx_buf + (unsigned long )skb->len, 0, (size_t )(1516U - skb->len));
   } else {

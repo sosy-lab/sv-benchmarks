@@ -1028,6 +1028,7 @@ static int phram_unpoint(struct mtd_info *mtd , loff_t from , size_t len )
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int phram_read(struct mtd_info *mtd , loff_t from , size_t len , size_t *retlen ,
                       u_char *buf ) 
 { u_char *start ;
@@ -1050,7 +1051,7 @@ static int phram_read(struct mtd_info *mtd , loff_t from , size_t len , size_t *
   __cil_tmp12 = (void *)buf;
   __cil_tmp13 = start + from;
   __cil_tmp14 = (void const   *)__cil_tmp13;
-  __ret = __builtin_memcpy(__cil_tmp12, __cil_tmp14, __len);
+  __ret = memcpy(__cil_tmp12, __cil_tmp14, __len);
   *retlen = len;
   }
   return (0);
@@ -1078,7 +1079,7 @@ static int phram_write(struct mtd_info *mtd , loff_t to , size_t len , size_t *r
   __cil_tmp12 = start + to;
   __cil_tmp13 = (void *)__cil_tmp12;
   __cil_tmp14 = (void const   *)buf;
-  __ret = __builtin_memcpy(__cil_tmp13, __cil_tmp14, __len);
+  __ret = memcpy(__cil_tmp13, __cil_tmp14, __len);
   *retlen = len;
   }
   return (0);

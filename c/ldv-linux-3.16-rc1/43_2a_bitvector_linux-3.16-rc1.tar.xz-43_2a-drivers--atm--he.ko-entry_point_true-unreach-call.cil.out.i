@@ -8497,6 +8497,7 @@ static struct he_tpd *__alloc_tpd(struct he_dev *he_dev )
   return (tpd);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int he_service_rbrq(struct he_dev *he_dev , int group )
 {
   struct he_rbrq *rbrq_tail ;
@@ -8594,7 +8595,7 @@ static int he_service_rbrq(struct he_dev *he_dev , int group )
   ldv_47558:
   __len = heb->len;
   tmp___0 = skb_put(skb, (unsigned int )heb->len);
-  __ret = __builtin_memcpy((void *)tmp___0, (void const *)(& heb->data), __len);
+  __ret = memcpy((void *)tmp___0, (void const *)(& heb->data), __len);
   __mptr___0 = (struct list_head const *)heb->entry.next;
   heb = (struct he_buff *)__mptr___0;
   ldv_47559: ;

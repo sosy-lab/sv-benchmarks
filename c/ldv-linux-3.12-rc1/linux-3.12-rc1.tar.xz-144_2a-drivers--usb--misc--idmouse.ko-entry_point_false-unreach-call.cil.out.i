@@ -3708,7 +3708,7 @@ static int idmouse_create_image(struct usb_idmouse *dev )
     __ret = memcpy((void *)dev->bulk_in_buffer, (void const *)"P5 225 289 255 ",
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)dev->bulk_in_buffer, (void const *)"P5 225 289 255 ",
+    __ret = memcpy((void *)dev->bulk_in_buffer, (void const *)"P5 225 289 255 ",
                              __len);
   }
   bytes_read = 15;

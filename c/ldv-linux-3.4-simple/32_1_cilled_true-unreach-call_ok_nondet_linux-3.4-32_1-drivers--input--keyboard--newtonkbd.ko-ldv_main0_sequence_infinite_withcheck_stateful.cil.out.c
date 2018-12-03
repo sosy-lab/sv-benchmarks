@@ -2289,7 +2289,7 @@ static int nkbd_connect(struct serio *serio , struct serio_driver *drv )
     __cil_tmp41 = (unsigned long )(nkbd_keycode) + __cil_tmp40;
     __cil_tmp42 = (unsigned char *)__cil_tmp41;
     __cil_tmp43 = (void const   *)__cil_tmp42;
-    __ret = __builtin_memcpy(__cil_tmp39, __cil_tmp43, __len);
+    __ret = memcpy(__cil_tmp39, __cil_tmp43, __len);
     }
   }
   *((char const   **)input_dev) = "Newton Keyboard";

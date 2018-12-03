@@ -9897,7 +9897,7 @@ static void _rtl8723ae_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer,
+    __ret = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer,
                              __len);
   }
   idx = 0U;
@@ -9918,7 +9918,7 @@ static void _rtl8723ae_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
     __ret___0 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer,
+    __ret___0 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer,
                                  __len___0);
   }
   idx = 0U;
@@ -9939,7 +9939,7 @@ static void _rtl8723ae_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
     __ret___1 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer,
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer,
+    __ret___1 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer,
                                  __len___1);
   }
   idx = 0U;
@@ -9959,7 +9959,7 @@ static void _rtl8723ae_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
   if (__len___2 > 63UL) {
     __ret___2 = memcpy((void *)(& boxextcontent), (void const *)p_cmdbuffer, __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& boxextcontent), (void const *)p_cmdbuffer,
+    __ret___2 = memcpy((void *)(& boxextcontent), (void const *)p_cmdbuffer,
                                  __len___2);
   }
   __len___3 = 2UL;
@@ -9967,7 +9967,7 @@ static void _rtl8723ae_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
     __ret___3 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + 2U,
                          __len___3);
   } else {
-    __ret___3 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + 2U,
+    __ret___3 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + 2U,
                                  __len___3);
   }
   idx = 0U;
@@ -9997,7 +9997,7 @@ static void _rtl8723ae_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
   if (__len___4 > 63UL) {
     __ret___4 = memcpy((void *)(& boxextcontent), (void const *)p_cmdbuffer, __len___4);
   } else {
-    __ret___4 = __builtin_memcpy((void *)(& boxextcontent), (void const *)p_cmdbuffer,
+    __ret___4 = memcpy((void *)(& boxextcontent), (void const *)p_cmdbuffer,
                                  __len___4);
   }
   __len___5 = 3UL;
@@ -10005,7 +10005,7 @@ static void _rtl8723ae_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id 
     __ret___5 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + 2U,
                          __len___5);
   } else {
-    __ret___5 = __builtin_memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + 2U,
+    __ret___5 = memcpy((void *)(& boxcontent) + 1U, (void const *)p_cmdbuffer + 2U,
                                  __len___5);
   }
   idx = 0U;
@@ -10413,7 +10413,7 @@ void rtl8723ae_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
   if (__len > 63UL) {
     __ret = memcpy((void *)p_pspoll + 4U, (void const *)(& mac->bssid), __len);
   } else {
-    __ret = __builtin_memcpy((void *)p_pspoll + 4U, (void const *)(& mac->bssid),
+    __ret = memcpy((void *)p_pspoll + 4U, (void const *)(& mac->bssid),
                              __len);
   }
   __len___0 = 6UL;
@@ -10421,7 +10421,7 @@ void rtl8723ae_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
     __ret___0 = memcpy((void *)p_pspoll + 10U, (void const *)(& mac->mac_addr),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)p_pspoll + 10U, (void const *)(& mac->mac_addr),
+    __ret___0 = memcpy((void *)p_pspoll + 10U, (void const *)(& mac->mac_addr),
                                  __len___0);
   }
   *((u8 *)(& u1RsvdPageLoc) + 1UL) = 2U;
@@ -10519,7 +10519,7 @@ void rtl8723ae_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool dl_finished )
   skb = ldv_dev_alloc_skb_25(totalpacketlen);
   __len___1 = (size_t )totalpacketlen;
   tmp___11 = skb_put(skb, totalpacketlen);
-  __ret___1 = __builtin_memcpy((void *)tmp___11, (void const *)(& reserved_page_packet),
+  __ret___1 = memcpy((void *)tmp___11, (void const *)(& reserved_page_packet),
                                __len___1);
   rtstatus = _rtl8723ae_cmd_send_packet(hw, skb);
   if ((int )rtstatus) {
@@ -13142,7 +13142,7 @@ void rtl8723ae_dm_bt_set_bt_dm(struct ieee80211_hw *hw , struct btdm_8723 *btdm 
     if (__len > 63UL) {
       __ret = memcpy((void *)btdm_8723, (void const *)btdm, __len);
     } else {
-      __ret = __builtin_memcpy((void *)btdm_8723, (void const *)btdm, __len);
+      __ret = memcpy((void *)btdm_8723, (void const *)btdm, __len);
     }
   }
   if ((int )rtlpcipriv->bt_coexist.hold_for_bt_operation) {
@@ -18897,7 +18897,7 @@ static void _rtl8723ae_read_adapter_info(struct ieee80211_hw *hw , bool pseudo_t
       __ret = memcpy((void *)(& hwinfo), (void const *)(& rtlefuse->efuse_map),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& hwinfo), (void const *)(& rtlefuse->efuse_map),
+      __ret = memcpy((void *)(& hwinfo), (void const *)(& rtlefuse->efuse_map),
                                __len);
     }
   } else

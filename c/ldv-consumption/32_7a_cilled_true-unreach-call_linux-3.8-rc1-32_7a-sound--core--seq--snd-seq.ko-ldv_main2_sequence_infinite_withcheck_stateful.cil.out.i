@@ -4941,7 +4941,7 @@ static void get_client_info(struct snd_seq_client *cptr , struct snd_seq_client_
     __ret = memcpy((void *)(& info->event_filter), (void const *)(& cptr->event_filter),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& info->event_filter), (void const *)(& cptr->event_filter),
+    __ret = memcpy((void *)(& info->event_filter), (void const *)(& cptr->event_filter),
                              __len);
   }
   info->num_ports = cptr->num_ports;
@@ -5007,7 +5007,7 @@ static int snd_seq_ioctl_set_client_info(struct snd_seq_client *client , void *a
     __ret = memcpy((void *)(& client->event_filter), (void const *)(& client_info.event_filter),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& client->event_filter), (void const *)(& client_info.event_filter),
+    __ret = memcpy((void *)(& client->event_filter), (void const *)(& client_info.event_filter),
                              __len);
   }
   return (0);
@@ -7425,7 +7425,7 @@ static int seq_copy_in_kernel(char **bufptr , void const *src , int size )
   void *__ret ;
   {
   __len = (size_t )size;
-  __ret = __builtin_memcpy((void *)*bufptr, src, __len);
+  __ret = memcpy((void *)*bufptr, src, __len);
   *bufptr = *bufptr + (unsigned long )size;
   return (0);
 }
@@ -7757,7 +7757,7 @@ int snd_seq_event_dup(struct snd_seq_pool *pool , struct snd_seq_event *event , 
         goto __error;
       } else {
         __len = (size_t )size;
-        __ret = __builtin_memcpy((void *)(& tmp->event), (void const *)buf, __len);
+        __ret = memcpy((void *)(& tmp->event), (void const *)buf, __len);
       }
     } else {
     }

@@ -6274,6 +6274,7 @@ static void ems_usb_write_bulk_callback(struct urb *urb )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int ems_usb_command_msg(struct ems_usb *dev , struct ems_cpc_msg *msg ) 
 { 
   int actual_length ;
@@ -6284,7 +6285,7 @@ static int ems_usb_command_msg(struct ems_usb *dev , struct ems_cpc_msg *msg )
 
   {
   __len = (size_t )((int )msg->length + 11);
-  __ret = __builtin_memcpy((void *)dev->tx_msg_buffer + 4U, (void const   *)msg, __len);
+  __ret = memcpy((void *)dev->tx_msg_buffer + 4U, (void const   *)msg, __len);
   memset((void *)dev->tx_msg_buffer, 0, 4UL);
   tmp = __create_pipe(dev->udev, 2U);
   tmp___0 = usb_bulk_msg(dev->udev, tmp | 3221225472U, (void *)dev->tx_msg_buffer,

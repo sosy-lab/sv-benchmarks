@@ -18533,6 +18533,7 @@ static void xpc_handle_notify_mq_ack_uv(struct xpc_channel *ch , struct xpc_noti
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void xpc_handle_notify_mq_msg_uv(struct xpc_partition *part , struct xpc_notify_mq_msg_uv *msg )
 { struct xpc_partition_uv *part_uv ;
   struct xpc_channel *ch ;
@@ -18779,7 +18780,7 @@ static void xpc_handle_notify_mq_msg_uv(struct xpc_partition *part , struct xpc_
   __len = (size_t )__cil_tmp86;
   __cil_tmp87 = (void *)msg_slot;
   __cil_tmp88 = (void *)msg;
-  __ret = __builtin_memcpy(__cil_tmp87, __cil_tmp88, __len);
+  __ret = memcpy(__cil_tmp87, __cil_tmp88, __len);
   __cil_tmp89 = (unsigned long )ch_uv;
   __cil_tmp90 = __cil_tmp89 + 120;
   __cil_tmp91 = (struct xpc_fifo_head_uv *)__cil_tmp90;
@@ -19248,7 +19249,7 @@ static enum xp_retval xpc_send_payload_uv(struct xpc_channel *ch , u32 flags , v
   __cil_tmp80 = (unsigned long *)__cil_tmp79;
   __cil_tmp81 = (void *)__cil_tmp80;
   __cil_tmp82 = (void *)payload;
-  __ret = __builtin_memcpy(__cil_tmp81, __cil_tmp82, __len);
+  __ret = memcpy(__cil_tmp81, __cil_tmp82, __len);
   __cil_tmp83 = (unsigned long )ch;
   __cil_tmp84 = __cil_tmp83 + 432;
   __cil_tmp85 = *((void **)__cil_tmp84);

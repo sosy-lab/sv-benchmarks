@@ -4492,7 +4492,7 @@ static int pcd_identify(struct pcd_unit *cd , char *id )
   if (__len > 63UL) {
     __ret = memcpy((void *)id, (void const   *)(& pcd_buffer) + 16U, __len);
   } else {
-    __ret = __builtin_memcpy((void *)id, (void const   *)(& pcd_buffer) + 16U, __len);
+    __ret = memcpy((void *)id, (void const   *)(& pcd_buffer) + 16U, __len);
   }
   *(id + 16UL) = 0;
   k = 16;
@@ -4824,7 +4824,7 @@ static void pcd_transfer(void)
     __ret = memcpy((void *)pcd_buf, (void const   *)(& pcd_buffer) + (unsigned long )o,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)pcd_buf, (void const   *)(& pcd_buffer) + (unsigned long )o,
+    __ret = memcpy((void *)pcd_buf, (void const   *)(& pcd_buffer) + (unsigned long )o,
                              __len);
   }
   pcd_count = pcd_count - 1;
@@ -5083,7 +5083,7 @@ static int pcd_get_mcn(struct cdrom_device_info *cdi , struct cdrom_mcn *mcn )
     __ret = memcpy((void *)(& mcn->medium_catalog_number), (void const   *)(& buffer) + 9U,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mcn->medium_catalog_number), (void const   *)(& buffer) + 9U,
+    __ret = memcpy((void *)(& mcn->medium_catalog_number), (void const   *)(& buffer) + 9U,
                              __len);
   }
   mcn->medium_catalog_number[13] = 0U;

@@ -6626,6 +6626,7 @@ static int stb6100_set_bandwidth(struct dvb_frontend *fe , u32 bandwidth )
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int dvb_ca_en50221_init(struct dvb_adapter *dvb_adapter , struct dvb_ca_en50221 *ca ,
                                int flags , int slot_count ) ;
 extern void dvb_ca_en50221_release(struct dvb_ca_en50221 *ca ) ;
@@ -6953,7 +6954,7 @@ static int tt3650_ci_msg(struct dvb_usb_device *d , u8 cmd , u8 *data , unsigned
   __cil_tmp56 = __cil_tmp55 + 4;
   __cil_tmp57 = (void *)__cil_tmp56;
   __cil_tmp58 = (void const   *)data;
-  __ret = __builtin_memcpy(__cil_tmp57, __cil_tmp58, __len);
+  __ret = memcpy(__cil_tmp57, __cil_tmp58, __len);
   }
   if (read_len > 0U) {
     rlen = 64U;
@@ -7009,7 +7010,7 @@ static int tt3650_ci_msg(struct dvb_usb_device *d , u8 cmd , u8 *data , unsigned
   __cil_tmp80 = (u8 *)__cil_tmp79;
   __cil_tmp81 = __cil_tmp80 + 4;
   __cil_tmp82 = (void const   *)__cil_tmp81;
-  __ret___0 = __builtin_memcpy(__cil_tmp77, __cil_tmp82, __len___0);
+  __ret___0 = memcpy(__cil_tmp77, __cil_tmp82, __len___0);
   }
   return (0);
   failed: 
@@ -7913,7 +7914,7 @@ static int pctv452e_i2c_msg(struct dvb_usb_device *d , u8 addr , u8 const   *snd
   __cil_tmp51 = __cil_tmp50 + 7;
   __cil_tmp52 = (void *)__cil_tmp51;
   __cil_tmp53 = (void const   *)snd_buf;
-  __ret = __builtin_memcpy(__cil_tmp52, __cil_tmp53, __len);
+  __ret = memcpy(__cil_tmp52, __cil_tmp53, __len);
   __cil_tmp54 = 0 * 1UL;
   __cil_tmp55 = (unsigned long )(buf) + __cil_tmp54;
   __cil_tmp56 = (u8 *)__cil_tmp55;
@@ -7987,7 +7988,7 @@ static int pctv452e_i2c_msg(struct dvb_usb_device *d , u8 addr , u8 const   *snd
   __cil_tmp86 = (u8 *)__cil_tmp85;
   __cil_tmp87 = __cil_tmp86 + 7;
   __cil_tmp88 = (void const   *)__cil_tmp87;
-  __ret___0 = __builtin_memcpy(__cil_tmp83, __cil_tmp88, __len___0);
+  __ret___0 = memcpy(__cil_tmp83, __cil_tmp88, __len___0);
   }
   return ((int )rcv_len);
   failed: 

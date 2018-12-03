@@ -8800,7 +8800,7 @@ static int atyfb_check_var(struct fb_var_screeninfo *var , struct fb_info *info 
     __cil_tmp20 = __cil_tmp19 + 960;
     __cil_tmp21 = (union aty_pll *)__cil_tmp20;
     __cil_tmp22 = (void *)__cil_tmp21;
-    __ret = __builtin_memcpy(__cil_tmp18, __cil_tmp22, __len);
+    __ret = memcpy(__cil_tmp18, __cil_tmp22, __len);
     }
   }
   {

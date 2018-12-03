@@ -3410,6 +3410,7 @@ static int st21nfca_hci_i2c_repack(struct sk_buff *skb )
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int st21nfca_hci_i2c_read(struct st21nfca_i2c_phy *phy , struct sk_buff *skb )
 {
   int r ;
@@ -3459,7 +3460,7 @@ static int st21nfca_hci_i2c_read(struct st21nfca_i2c_phy *phy , struct sk_buff *
     }
     __len = (size_t )len;
     tmp___0 = skb_put(skb, (unsigned int )len);
-    __ret = __builtin_memcpy((void *)tmp___0, (void const *)(& buf), __len);
+    __ret = memcpy((void *)tmp___0, (void const *)(& buf), __len);
     if ((unsigned int )*(skb->data + (unsigned long )(skb->len - 1U)) == 126U) {
       phy->current_read_len = 0;
       tmp___1 = st21nfca_hci_i2c_repack(skb);

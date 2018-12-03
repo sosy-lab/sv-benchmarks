@@ -7520,7 +7520,7 @@ static int skd_sg_io_send_fitmsg(struct skd_device *skdev , struct skd_sg_io *sk
   if (__len > 63UL) {
     __ret = memcpy((void *)(& scsi_req->cdb), (void const *)(& sksgio->cdb), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& scsi_req->cdb), (void const *)(& sksgio->cdb),
+    __ret = memcpy((void *)(& scsi_req->cdb), (void const *)(& sksgio->cdb),
                              __len);
   }
   skspcl->req.state = 2;
@@ -8819,7 +8819,7 @@ static void skd_do_inq_page_da(struct skd_device *skdev , struct fit_completion_
   tmp___5 = strlen("2.2.1.0260");
   _min2 = tmp___5;
   __len = _min1 < _min2 ? _min1 : _min2;
-  __ret = __builtin_memcpy((void *)(& inq.driver_version), (void const *)"2.2.1.0260",
+  __ret = memcpy((void *)(& inq.driver_version), (void const *)"2.2.1.0260",
                            __len);
   inq.page_length = 10240U;
   skcomp->status = 0U;
@@ -8828,7 +8828,7 @@ static void skd_do_inq_page_da(struct skd_device *skdev , struct fit_completion_
   __min1 = max_bytes;
   __min2 = 44U;
   __len___0 = (size_t )(__min1 < __min2 ? __min1 : __min2);
-  __ret___0 = __builtin_memcpy((void *)buf, (void const *)(& inq), __len___0);
+  __ret___0 = memcpy((void *)buf, (void const *)(& inq), __len___0);
   __min1___0 = (uint16_t )max_bytes;
   __min2___0 = 44U;
   tmp___6 = __fswab32((unsigned int )((int )__min1___0 < (int )__min2___0 ? __min1___0 : __min2___0));

@@ -5736,7 +5736,7 @@ __inline static void memcpy_fromio(void *dst , void const volatile   *src , size
 
   {
   __len = count;
-  __ret = __builtin_memcpy(dst, (void const   *)src, __len);
+  __ret = memcpy(dst, (void const   *)src, __len);
   return;
 }
 }
@@ -6159,7 +6159,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const   
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data, from, __len);
+  __ret = memcpy((void *)skb->data, from, __len);
   return;
 }
 }
@@ -7899,7 +7899,7 @@ __inline static void myri10ge_rx_skb_build(struct sk_buff *skb , u8 *va , struct
   if (__len > 63UL) {
     __ret = memcpy((void *)skb_frags, (void const   *)rx_frags, __len);
   } else {
-    __ret = __builtin_memcpy((void *)skb_frags, (void const   *)rx_frags, __len);
+    __ret = memcpy((void *)skb_frags, (void const   *)rx_frags, __len);
   }
   len = (int )((__u32 )len - rx_frags->size);
   skb_frags = skb_frags + 1;
@@ -8909,7 +8909,7 @@ static void myri10ge_get_strings(struct net_device *netdev , u32 stringset , u8 
     __ret = memcpy((void *)data, (void const   *)(& myri10ge_gstrings_main_stats),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)data, (void const   *)(& myri10ge_gstrings_main_stats),
+    __ret = memcpy((void *)data, (void const   *)(& myri10ge_gstrings_main_stats),
                              __len);
   }
   data = data + 1472UL;
@@ -8921,7 +8921,7 @@ static void myri10ge_get_strings(struct net_device *netdev , u32 stringset , u8 
     __ret___0 = memcpy((void *)data, (void const   *)(& myri10ge_gstrings_slice_stats),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)data, (void const   *)(& myri10ge_gstrings_slice_stats),
+    __ret___0 = memcpy((void *)data, (void const   *)(& myri10ge_gstrings_slice_stats),
                                  __len___0);
   }
   data = data + 448UL;
@@ -10688,7 +10688,7 @@ static void myri10ge_set_multicast_list(struct net_device *dev )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& data), (void const   *)(& ha->addr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& data), (void const   *)(& ha->addr), __len);
+    __ret = memcpy((void *)(& data), (void const   *)(& ha->addr), __len);
   }
   tmp___0 = __fswab32(data[0]);
   cmd.data0 = tmp___0;
@@ -10756,7 +10756,7 @@ static int myri10ge_set_mac_address(struct net_device *dev , void *addr )
   if (__len > 63UL) {
     __ret = memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data), __len);
   } else {
-    __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data),
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& sa->sa_data),
                              __len);
   }
   return (0);

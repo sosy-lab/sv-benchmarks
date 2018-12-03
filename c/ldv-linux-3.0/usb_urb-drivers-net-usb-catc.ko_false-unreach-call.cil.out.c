@@ -4876,6 +4876,7 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern unsigned long volatile jiffies __attribute__((__section__(".data"))) ;
 extern void init_timer_key(struct timer_list *timer , char const *name , struct lock_class_key *key ) ;
 extern int mod_timer(struct timer_list *timer , unsigned long expires ) ;
@@ -4897,7 +4898,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   {
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   }
   return;
 }
@@ -4910,7 +4911,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const *f
   {
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data, from, __len);
+  __ret = memcpy((void *)skb->data, from, __len);
   }
   return;
 }
@@ -5811,7 +5812,7 @@ static void catc_ctrl_run(struct catc *catc )
       if (q->len) {
         {
         __len = (size_t )q->len;
-        __ret = __builtin_memcpy((void *)(catc->ctrl_buf), (void const *)q->buf,
+        __ret = memcpy((void *)(catc->ctrl_buf), (void const *)q->buf,
                                  __len);
         }
       } else {
@@ -5887,7 +5888,7 @@ static void catc_ctrl_done(struct urb *urb )
       if (q->len) {
         {
         __len = (size_t )q->len;
-        __ret = __builtin_memcpy(q->buf, (void const *)(catc->ctrl_buf), __len);
+        __ret = memcpy(q->buf, (void const *)(catc->ctrl_buf), __len);
         }
       } else {
         q->buf = (void *)(catc->ctrl_buf);

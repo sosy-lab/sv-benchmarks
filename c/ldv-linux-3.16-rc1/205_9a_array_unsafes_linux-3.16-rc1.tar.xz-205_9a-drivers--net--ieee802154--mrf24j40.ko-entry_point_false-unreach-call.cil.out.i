@@ -6336,7 +6336,7 @@ static int mrf24j40_filter(struct ieee802154_dev *dev , struct ieee802154_hw_add
     if (__len > 63UL) {
       __ret = memcpy((void *)(& addr), (void const *)(& filt->ieee_addr), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& addr), (void const *)(& filt->ieee_addr),
+      __ret = memcpy((void *)(& addr), (void const *)(& filt->ieee_addr),
                                __len);
     }
     i = 0U;

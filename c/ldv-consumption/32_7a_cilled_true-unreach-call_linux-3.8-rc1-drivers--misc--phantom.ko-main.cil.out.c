@@ -3509,7 +3509,7 @@ static long phantom_ioctl(struct file *file , unsigned int cmd , unsigned long a
     if (__len > 63UL) {
       __ret = memcpy((void *)(& dev->oregs), (void const   *)(& rs), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& dev->oregs), (void const   *)(& rs), __len);
+      __ret = memcpy((void *)(& dev->oregs), (void const   *)(& rs), __len);
     }
   } else {
     _min1 = rs.count;

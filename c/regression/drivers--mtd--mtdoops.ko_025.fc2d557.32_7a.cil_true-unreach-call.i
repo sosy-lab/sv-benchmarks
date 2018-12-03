@@ -1931,7 +1931,7 @@ struct mtdoops_context {
    void *oops_buf ;
 };
 typedef int ldv_func_ret_type___0;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
 
@@ -2530,9 +2530,9 @@ static void mtdoops_do_dump(struct kmsg_dumper *dumper , enum kmsg_dump_reason r
   s2_start = l2 - l2_cpy;
   s1_start = l1 - l1_cpy;
   __len = l1_cpy;
-  __ret = __builtin_memcpy((void *)dst, (void const   *)(s1 + s1_start), __len);
+  __ret = memcpy((void *)dst, (void const   *)(s1 + s1_start), __len);
   __len___0 = l2_cpy;
-  __ret___0 = __builtin_memcpy((void *)(dst + l1_cpy), (void const   *)(s2 + s2_start),
+  __ret___0 = memcpy((void *)(dst + l1_cpy), (void const   *)(s2 + s2_start),
                                __len___0);
   if ((unsigned int )reason != 0U) {
     if ((unsigned long )(cxt->mtd)->panic_write == (unsigned long )((int (*)(struct mtd_info * ,

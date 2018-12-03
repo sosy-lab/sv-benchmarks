@@ -12883,7 +12883,7 @@ static unsigned int rh_string(int id , struct usb_hcd const *hcd , u8 *data , un
   } else {
   }
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)data, (void const *)(& langids), __len);
+  __ret = memcpy((void *)data, (void const *)(& langids), __len);
   return (len);
   case 1:
   s = hcd->self.bus_name;
@@ -13137,7 +13137,7 @@ static int rh_call_control(struct usb_hcd *hcd , struct urb *urb )
     }
     urb->actual_length = len;
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)ubuf, (void const *)bufp, __len);
+    __ret = memcpy((void *)ubuf, (void const *)bufp, __len);
     if ((unsigned int )patch_wakeup != 0U && len > 7U) {
       ((struct usb_config_descriptor *)ubuf)->bmAttributes = (__u8 )((unsigned int )((struct usb_config_descriptor *)ubuf)->bmAttributes | 32U);
     } else {
@@ -13187,7 +13187,7 @@ void usb_hcd_poll_rh_status(struct usb_hcd *hcd )
       hcd->status_urb = 0;
       urb->actual_length = (u32 )length;
       __len = (size_t )length;
-      __ret = __builtin_memcpy(urb->transfer_buffer, (void const *)(& buffer), __len);
+      __ret = memcpy(urb->transfer_buffer, (void const *)(& buffer), __len);
       usb_hcd_unlink_urb_from_ep(hcd, urb);
       spin_unlock(& hcd_root_hub_lock);
       usb_hcd_giveback_urb(hcd, urb, 0);
@@ -13704,7 +13704,7 @@ static int hcd_alloc_coherent(struct usb_bus *bus , gfp_t mem_flags , dma_addr_t
   ldv_32791: ;
   if ((unsigned int )dir == 1U) {
     __len = size;
-    __ret = __builtin_memcpy((void *)vaddr, (void const *)*vaddr_handle, __len);
+    __ret = memcpy((void *)vaddr, (void const *)*vaddr_handle, __len);
   } else {
   }
   *vaddr_handle = (void *)vaddr;
@@ -13724,7 +13724,7 @@ static void hcd_free_coherent(struct usb_bus *bus , dma_addr_t *dma_handle , voi
   vaddr = (unsigned char *)tmp;
   if ((unsigned int )dir == 2U) {
     __len = size;
-    __ret = __builtin_memcpy((void *)vaddr, (void const *)*vaddr_handle, __len);
+    __ret = memcpy((void *)vaddr, (void const *)*vaddr_handle, __len);
   } else {
   }
   hcd_buffer_free(bus, size + 8UL, *vaddr_handle, *dma_handle);
@@ -17212,7 +17212,7 @@ char *usb_cache_string(struct usb_device *udev , int index )
       } else {
       }
       __len = (size_t )len;
-      __ret = __builtin_memcpy((void *)smallbuf, (void const *)buf, __len);
+      __ret = memcpy((void *)smallbuf, (void const *)buf, __len);
     } else {
     }
     kfree((void const *)buf);
@@ -17242,7 +17242,7 @@ int usb_get_device_descriptor(struct usb_device *dev , unsigned int size )
   ret = usb_get_descriptor(dev, 1, 0, (void *)desc, (int )size);
   if (ret >= 0) {
     __len = (size_t )size;
-    __ret = __builtin_memcpy((void *)(& dev->descriptor), (void const *)desc, __len);
+    __ret = memcpy((void *)(& dev->descriptor), (void const *)desc, __len);
   } else {
   }
   kfree((void const *)desc);
@@ -20563,7 +20563,7 @@ static void usb_parse_ss_endpoint_companion(struct device *ddev , int cfgno , in
   if (__len > 63UL) {
     __ret = memcpy((void *)(& ep->ss_ep_comp), (void const *)desc, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ep->ss_ep_comp), (void const *)desc, __len);
+    __ret = memcpy((void *)(& ep->ss_ep_comp), (void const *)desc, __len);
   }
   tmp___1 = usb_endpoint_xfer_control((struct usb_endpoint_descriptor const *)(& ep->desc));
   if (tmp___1 != 0 && (unsigned int )desc->bMaxBurst != 0U) {
@@ -20692,7 +20692,7 @@ static int usb_parse_endpoint(struct device *ddev , int cfgno , int inum , int a
   endpoint = ifp->endpoint + (unsigned long )ifp->desc.bNumEndpoints;
   ifp->desc.bNumEndpoints = (__u8 )((int )ifp->desc.bNumEndpoints + 1);
   __len = (size_t )n;
-  __ret = __builtin_memcpy((void *)(& endpoint->desc), (void const *)d, __len);
+  __ret = memcpy((void *)(& endpoint->desc), (void const *)d, __len);
   INIT_LIST_HEAD(& endpoint->urb_list);
   i = 0;
   j = 255;
@@ -20902,7 +20902,7 @@ static int usb_parse_interface(struct device *ddev , int cfgno , struct usb_host
   if (__len > 63UL) {
     __ret = memcpy((void *)(& alt->desc), (void const *)d, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& alt->desc), (void const *)d, __len);
+    __ret = memcpy((void *)(& alt->desc), (void const *)d, __len);
   }
   alt->extra = buffer;
   i = find_next_descriptor(buffer, size, 5, 4, & n);
@@ -21015,7 +21015,7 @@ static int usb_parse_configuration(struct usb_device *dev , int cfgidx , struct 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& config->desc), (void const *)buffer, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& config->desc), (void const *)buffer, __len);
+    __ret = memcpy((void *)(& config->desc), (void const *)buffer, __len);
   }
   if ((unsigned int )config->desc.bDescriptorType != 2U || (unsigned int )config->desc.bLength <= 8U) {
     dev_err((struct device const *)ddev, "invalid descriptor for config index %d: type = 0x%X, length = %d\n",
@@ -23436,7 +23436,7 @@ static ssize_t read_descriptors(struct file *filp , struct kobject *kobj , struc
     _min2 = srclen - (unsigned long )off;
     n = _min1 < _min2 ? _min1 : _min2;
     __len = n;
-    __ret = __builtin_memcpy((void *)buf, (void const *)src + (unsigned long )off,
+    __ret = memcpy((void *)buf, (void const *)src + (unsigned long )off,
                              __len);
     nleft = nleft - n;
     buf = buf + n;
@@ -24778,7 +24778,7 @@ static ssize_t usbdev_read(struct file *file , char *buf , size_t nbytes , loff_
       __ret = memcpy((void *)(& temp_desc), (void const *)(& dev->descriptor),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& temp_desc), (void const *)(& dev->descriptor),
+      __ret = memcpy((void *)(& temp_desc), (void const *)(& dev->descriptor),
                                __len);
     }
     len = 18U - (unsigned int )pos;

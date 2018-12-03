@@ -11113,7 +11113,7 @@ static int nv_set_mac_address(struct net_device *dev , void *addr )
     __ret = memcpy((void *)dev->dev_addr, (void const   *)(& macaddr->sa_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& macaddr->sa_data),
+    __ret = memcpy((void *)dev->dev_addr, (void const   *)(& macaddr->sa_data),
                              __len);
   }
   tmp___2 = netif_running((struct net_device  const  *)dev);
@@ -13770,7 +13770,7 @@ static void nv_get_ethtool_stats(struct net_device *dev , struct ethtool_stats *
   nv_update_stats(dev);
   tmp___0 = nv_get_sset_count(dev, 1);
   __len = (unsigned long )tmp___0 * 8UL;
-  __ret = __builtin_memcpy((void *)buffer, (void const   *)(& np->estats), __len);
+  __ret = memcpy((void *)buffer, (void const   *)(& np->estats), __len);
   spin_unlock_bh(& np->hwstats_lock);
   return;
 }
@@ -14218,12 +14218,12 @@ static void nv_get_strings(struct net_device *dev , u32 stringset , u8 *buffer )
   case 1U: 
   tmp = nv_get_sset_count(dev, 1);
   __len = (unsigned long )tmp * 32UL;
-  __ret = __builtin_memcpy((void *)buffer, (void const   *)(& nv_estats_str), __len);
+  __ret = memcpy((void *)buffer, (void const   *)(& nv_estats_str), __len);
   goto ldv_45700;
   case 0U: 
   tmp___0 = nv_get_sset_count(dev, 0);
   __len___0 = (unsigned long )tmp___0 * 32UL;
-  __ret___0 = __builtin_memcpy((void *)buffer, (void const   *)(& nv_etests_str),
+  __ret___0 = memcpy((void *)buffer, (void const   *)(& nv_etests_str),
                                __len___0);
   goto ldv_45700;
   }

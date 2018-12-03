@@ -8018,7 +8018,7 @@ struct dvb_frontend *tda829x_attach(struct dvb_frontend *fe , struct i2c_adapter
       __cil_tmp45 = (struct analog_demod_ops *)__cil_tmp44;
       __cil_tmp46 = (void *)__cil_tmp45;
       __cil_tmp47 = (void const   *)(& tda8290_ops);
-      __ret = __builtin_memcpy(__cil_tmp46, __cil_tmp47, __len);
+      __ret = memcpy(__cil_tmp46, __cil_tmp47, __len);
       }
     }
   } else {
@@ -8051,7 +8051,7 @@ struct dvb_frontend *tda829x_attach(struct dvb_frontend *fe , struct i2c_adapter
       __cil_tmp60 = (struct analog_demod_ops *)__cil_tmp59;
       __cil_tmp61 = (void *)__cil_tmp60;
       __cil_tmp62 = (void const   *)(& tda8295_ops);
-      __ret___0 = __builtin_memcpy(__cil_tmp61, __cil_tmp62, __len___0);
+      __ret___0 = memcpy(__cil_tmp61, __cil_tmp62, __len___0);
       }
     }
   } else {

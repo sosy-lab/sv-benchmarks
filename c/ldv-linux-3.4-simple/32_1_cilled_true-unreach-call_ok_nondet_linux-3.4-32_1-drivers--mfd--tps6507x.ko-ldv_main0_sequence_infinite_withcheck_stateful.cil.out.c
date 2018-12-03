@@ -2275,6 +2275,7 @@ static int tps6507x_i2c_read_device(struct tps6507x_dev *tps6507x , char reg , i
   return (ret);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int tps6507x_i2c_write_device(struct tps6507x_dev *tps6507x , char reg , int bytes ,
                                      void *src ) 
 { struct i2c_client *i2c ;
@@ -2318,7 +2319,7 @@ static int tps6507x_i2c_write_device(struct tps6507x_dev *tps6507x , char reg , 
   __cil_tmp16 = (u8 *)__cil_tmp15;
   __cil_tmp17 = (void *)__cil_tmp16;
   __cil_tmp18 = (void const   *)src;
-  __ret = __builtin_memcpy(__cil_tmp17, __cil_tmp18, __len);
+  __ret = memcpy(__cil_tmp17, __cil_tmp18, __len);
   __cil_tmp19 = (struct i2c_client  const  *)i2c;
   __cil_tmp20 = 0 * 1UL;
   __cil_tmp21 = (unsigned long )(msg) + __cil_tmp20;

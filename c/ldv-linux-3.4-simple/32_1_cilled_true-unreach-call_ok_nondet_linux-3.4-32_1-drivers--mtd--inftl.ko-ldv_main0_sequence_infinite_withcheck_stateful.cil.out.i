@@ -7013,7 +7013,7 @@ static int find_boot_record(struct INFTLrecord *inftl )
       __cil_tmp117 = (unsigned long )(buf) + __cil_tmp116;
       __cil_tmp118 = (u8 *)__cil_tmp117;
       __cil_tmp119 = (void const *)__cil_tmp118;
-      __ret = __builtin_memcpy(__cil_tmp115, __cil_tmp119, __len);
+      __ret = memcpy(__cil_tmp115, __cil_tmp119, __len);
       }
     }
     {

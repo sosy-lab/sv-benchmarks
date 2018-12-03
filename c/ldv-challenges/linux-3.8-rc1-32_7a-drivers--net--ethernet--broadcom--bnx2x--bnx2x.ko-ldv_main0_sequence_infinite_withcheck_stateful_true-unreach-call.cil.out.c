@@ -11374,7 +11374,7 @@ static void bnx2x_init_wr_wb(struct bnx2x *bp , u32 addr , u32 const   *data , u
   {
   if (bp->dmae_ready != 0) {
     __len = (size_t )(len * 4U);
-    __ret = __builtin_memcpy(bp->gunzip_buf, (void const   *)data, __len);
+    __ret = memcpy(bp->gunzip_buf, (void const   *)data, __len);
     bnx2x_write_big_buf_wb(bp, addr, len);
   } else
   if (bp->common.chip_id >> 16 == 5710U) {
@@ -11399,7 +11399,7 @@ static void bnx2x_wr_64(struct bnx2x *bp , u32 reg , u32 val_lo , u32 val_hi )
     __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
+    __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
                              __len);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, reg, 2U);
@@ -16936,7 +16936,7 @@ static void bnx2x_drv_info_fcoe_stat(struct bnx2x *bp )
     __ret = memcpy((void *)(& fcoe_stat->mac_local) + 2U, (void const   *)(& bp->fip_mac),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& fcoe_stat->mac_local) + 2U, (void const   *)(& bp->fip_mac),
+    __ret = memcpy((void *)(& fcoe_stat->mac_local) + 2U, (void const   *)(& bp->fip_mac),
                              __len);
   }
   fcoe_stat->qos_priority = app->traffic_type_priority[1];
@@ -17003,7 +17003,7 @@ static void bnx2x_drv_info_iscsi_stat(struct bnx2x *bp )
     __ret = memcpy((void *)(& iscsi_stat->mac_local) + 2U, (void const   *)(& bp->cnic_eth_dev.iscsi_mac),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& iscsi_stat->mac_local) + 2U, (void const   *)(& bp->cnic_eth_dev.iscsi_mac),
+    __ret = memcpy((void *)(& iscsi_stat->mac_local) + 2U, (void const   *)(& bp->cnic_eth_dev.iscsi_mac),
                              __len);
   }
   iscsi_stat->qos_priority = app->traffic_type_priority[2];
@@ -20827,7 +20827,7 @@ static void bnx2x_lb_pckt(struct bnx2x *bp )
     __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
+    __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
                              __len);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, 67584U, 3U);
@@ -20839,7 +20839,7 @@ static void bnx2x_lb_pckt(struct bnx2x *bp )
     __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
+    __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
                                  __len___0);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, 67584U, 3U);
@@ -21821,7 +21821,7 @@ static void bnx2x_ilt_wr(struct bnx2x *bp , u32 index , dma_addr_t addr )
     __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
+    __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_write),
                              __len);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, (u32 )reg, 2U);
@@ -22713,7 +22713,7 @@ int bnx2x_set_mac_one(struct bnx2x *bp , u8 *mac , struct bnx2x_vlan_mac_obj *ob
       __ret = memcpy((void *)(& ramrod_param.user_req.u.mac.mac), (void const   *)mac,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ramrod_param.user_req.u.mac.mac), (void const   *)mac,
+      __ret = memcpy((void *)(& ramrod_param.user_req.u.mac.mac), (void const   *)mac,
                                __len);
     }
     __set_bit(mac_type, (unsigned long volatile   *)(& ramrod_param.user_req.vlan_mac_flags));
@@ -26079,13 +26079,13 @@ static void bnx2x_set_mac_buf(u8 *mac_buf , u32 mac_lo , u16 mac_hi )
   if (__len > 63UL) {
     __ret = memcpy((void *)mac_buf, (void const   *)(& mac_hi_be), __len);
   } else {
-    __ret = __builtin_memcpy((void *)mac_buf, (void const   *)(& mac_hi_be), __len);
+    __ret = memcpy((void *)mac_buf, (void const   *)(& mac_hi_be), __len);
   }
   __len___0 = 4UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)mac_buf + 2U, (void const   *)(& mac_lo_be), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)mac_buf + 2U, (void const   *)(& mac_lo_be),
+    __ret___0 = memcpy((void *)mac_buf + 2U, (void const   *)(& mac_lo_be),
                                  __len___0);
   }
   return;
@@ -26345,7 +26345,7 @@ static void bnx2x_get_cnic_mac_hwinfo(struct bnx2x *bp )
       if (__len > 63UL) {
         __ret = memcpy((void *)iscsi_mac, (void const   *)(bp->dev)->dev_addr, __len);
       } else {
-        __ret = __builtin_memcpy((void *)iscsi_mac, (void const   *)(bp->dev)->dev_addr,
+        __ret = memcpy((void *)iscsi_mac, (void const   *)(bp->dev)->dev_addr,
                                  __len);
       }
       tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
@@ -26368,7 +26368,7 @@ static void bnx2x_get_cnic_mac_hwinfo(struct bnx2x *bp )
         __ret___0 = memcpy((void *)fip_mac, (void const   *)(bp->dev)->dev_addr,
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)fip_mac, (void const   *)(bp->dev)->dev_addr,
+        __ret___0 = memcpy((void *)fip_mac, (void const   *)(bp->dev)->dev_addr,
                                      __len___0);
       }
       tmp___4 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
@@ -26393,7 +26393,7 @@ static void bnx2x_get_cnic_mac_hwinfo(struct bnx2x *bp )
         __ret___1 = memcpy((void *)(bp->dev)->dev_addr, (void const   *)fip_mac,
                              __len___1);
       } else {
-        __ret___1 = __builtin_memcpy((void *)(bp->dev)->dev_addr, (void const   *)fip_mac,
+        __ret___1 = memcpy((void *)(bp->dev)->dev_addr, (void const   *)fip_mac,
                                      __len___1);
       }
     } else {
@@ -26482,7 +26482,7 @@ static void bnx2x_get_mac_hwinfo(struct bnx2x *bp )
     __ret = memcpy((void *)(& bp->link_params.mac_addr), (void const   *)(bp->dev)->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& bp->link_params.mac_addr), (void const   *)(bp->dev)->dev_addr,
+    __ret = memcpy((void *)(& bp->link_params.mac_addr), (void const   *)(bp->dev)->dev_addr,
                              __len);
   }
   tmp = bnx2x_is_valid_ether_addr(bp, (bp->dev)->dev_addr);
@@ -26871,7 +26871,7 @@ static void bnx2x_read_fwinfo(struct bnx2x *bp )
     if (__len > 63UL) {
       __ret = memcpy((void *)vpd_extended_data, (void const   *)(& vpd_start), __len);
     } else {
-      __ret = __builtin_memcpy((void *)vpd_extended_data, (void const   *)(& vpd_start),
+      __ret = memcpy((void *)vpd_extended_data, (void const   *)(& vpd_start),
                                __len);
     }
     tmp___2 = pci_read_vpd(bp->pdev, 128LL, (size_t )(block_end + -128), (void *)vpd_extended_data + 128U);
@@ -26917,7 +26917,7 @@ static void bnx2x_read_fwinfo(struct bnx2x *bp )
         rodi = rodi + 3;
         if ((unsigned int )len <= 31U && (int )len + rodi <= 128) {
           __len___0 = (size_t )len;
-          __ret___0 = __builtin_memcpy((void *)(& bp->fw_ver), (void const   *)vpd_data + (unsigned long )rodi,
+          __ret___0 = memcpy((void *)(& bp->fw_ver), (void const   *)vpd_data + (unsigned long )rodi,
                                        __len___0);
           bp->fw_ver[(int )len] = 32;
         } else {
@@ -32172,7 +32172,7 @@ static void bnx2x_update_pfc_bmac1(struct link_params *params , struct link_vars
     __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                              __len);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 264U, 2U);
@@ -32189,7 +32189,7 @@ static void bnx2x_update_pfc_bmac1(struct link_params *params , struct link_vars
     __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___0);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 56U, 2U);
@@ -32235,7 +32235,7 @@ static void bnx2x_update_pfc_bmac2(struct link_params *params , struct link_vars
     __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                              __len);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 464U, 2U);
@@ -32253,7 +32253,7 @@ static void bnx2x_update_pfc_bmac2(struct link_params *params , struct link_vars
     __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___0);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 224U, 2U);
@@ -32277,7 +32277,7 @@ static void bnx2x_update_pfc_bmac2(struct link_params *params , struct link_vars
       __ret___1 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+      __ret___1 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                    __len___1);
     }
     bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 48U, 2U);
@@ -32298,7 +32298,7 @@ static void bnx2x_update_pfc_bmac2(struct link_params *params , struct link_vars
     __ret___2 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___2 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___2);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 48U, 2U);
@@ -32315,7 +32315,7 @@ static void bnx2x_update_pfc_bmac2(struct link_params *params , struct link_vars
     __ret___3 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___3);
   } else {
-    __ret___3 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___3 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___3);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 256U, 2U);
@@ -32344,7 +32344,7 @@ static void bnx2x_update_pfc_bmac2(struct link_params *params , struct link_vars
     __ret___4 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___4);
   } else {
-    __ret___4 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___4 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___4);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr, 2U);
@@ -32636,7 +32636,7 @@ static int bnx2x_bmac1_enable(struct link_params *params , struct link_vars *var
     __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                              __len);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 8U, 2U);
@@ -32647,7 +32647,7 @@ static int bnx2x_bmac1_enable(struct link_params *params , struct link_vars *var
     __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___0);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 64U, 2U);
@@ -32671,7 +32671,7 @@ static int bnx2x_bmac1_enable(struct link_params *params , struct link_vars *var
     __ret___1 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___1 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___1);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr, 2U);
@@ -32682,7 +32682,7 @@ static int bnx2x_bmac1_enable(struct link_params *params , struct link_vars *var
     __ret___2 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___2 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___2);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 280U, 2U);
@@ -32694,7 +32694,7 @@ static int bnx2x_bmac1_enable(struct link_params *params , struct link_vars *var
     __ret___3 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___3);
   } else {
-    __ret___3 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___3 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___3);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 72U, 2U);
@@ -32705,7 +32705,7 @@ static int bnx2x_bmac1_enable(struct link_params *params , struct link_vars *var
     __ret___4 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___4);
   } else {
-    __ret___4 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___4 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___4);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 40U, 2U);
@@ -32716,7 +32716,7 @@ static int bnx2x_bmac1_enable(struct link_params *params , struct link_vars *var
     __ret___5 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___5);
   } else {
-    __ret___5 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___5 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___5);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 560U, 2U);
@@ -32763,7 +32763,7 @@ static int bnx2x_bmac2_enable(struct link_params *params , struct link_vars *var
     __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                              __len);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr, 2U);
@@ -32775,7 +32775,7 @@ static int bnx2x_bmac2_enable(struct link_params *params , struct link_vars *var
     __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___0);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 8U, 2U);
@@ -32787,7 +32787,7 @@ static int bnx2x_bmac2_enable(struct link_params *params , struct link_vars *var
     __ret___1 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___1 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___1);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 232U, 2U);
@@ -32799,7 +32799,7 @@ static int bnx2x_bmac2_enable(struct link_params *params , struct link_vars *var
     __ret___2 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___2 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___2);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 784U, 2U);
@@ -32811,7 +32811,7 @@ static int bnx2x_bmac2_enable(struct link_params *params , struct link_vars *var
     __ret___3 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___3);
   } else {
-    __ret___3 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___3 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___3);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 480U, 2U);
@@ -32823,7 +32823,7 @@ static int bnx2x_bmac2_enable(struct link_params *params , struct link_vars *var
     __ret___4 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___4);
   } else {
-    __ret___4 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___4 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___4);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 240U, 2U);
@@ -32835,7 +32835,7 @@ static int bnx2x_bmac2_enable(struct link_params *params , struct link_vars *var
     __ret___5 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                          __len___5);
   } else {
-    __ret___5 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+    __ret___5 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                  __len___5);
   }
   bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr + 40U, 2U);
@@ -32917,7 +32917,7 @@ static void bnx2x_set_bmac_rx(struct bnx2x *bp , u32 chip_id , u8 port , u8 en )
       __ret = memcpy((void *)(& wb_data), (void const   *)(& (bp->slowpath)->wb_data),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& wb_data), (void const   *)(& (bp->slowpath)->wb_data),
+      __ret = memcpy((void *)(& wb_data), (void const   *)(& (bp->slowpath)->wb_data),
                                __len);
     }
     if ((unsigned int )en != 0U) {
@@ -32930,7 +32930,7 @@ static void bnx2x_set_bmac_rx(struct bnx2x *bp , u32 chip_id , u8 port , u8 en )
       __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+      __ret___0 = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                    __len___0);
     }
     bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, bmac_addr, 2U);
@@ -44858,7 +44858,7 @@ int bnx2x_check_half_open_conn(struct link_params *params , struct link_vars *va
         __ret = memcpy((void *)(& wb_data), (void const   *)(& (bp->slowpath)->wb_data),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& wb_data), (void const   *)(& (bp->slowpath)->wb_data),
+        __ret = memcpy((void *)(& wb_data), (void const   *)(& (bp->slowpath)->wb_data),
                                  __len);
       }
       lss_status = wb_data[0] != 0U;
@@ -47480,21 +47480,21 @@ __inline static void bnx2x_move_fp(struct bnx2x *bp , int from , int to )
   if (__len > 63UL) {
     __ret = memcpy((void *)to_fp, (void const   *)from_fp, __len);
   } else {
-    __ret = __builtin_memcpy((void *)to_fp, (void const   *)from_fp, __len);
+    __ret = memcpy((void *)to_fp, (void const   *)from_fp, __len);
   }
   to_fp->index = (u8 )to;
   __len___0 = 488UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)to_sp_objs, (void const   *)from_sp_objs, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)to_sp_objs, (void const   *)from_sp_objs,
+    __ret___0 = memcpy((void *)to_sp_objs, (void const   *)from_sp_objs,
                                  __len___0);
   }
   __len___1 = 512UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)to_fp_stats, (void const   *)from_fp_stats, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)to_fp_stats, (void const   *)from_fp_stats,
+    __ret___1 = memcpy((void *)to_fp_stats, (void const   *)from_fp_stats,
                                  __len___1);
   }
   old_max_eth_txqs = (int )(bp->num_ethernet_queues * (uint )bp->max_cos);
@@ -47511,7 +47511,7 @@ __inline static void bnx2x_move_fp(struct bnx2x *bp , int from , int to )
                          (void const   *)bp->bnx2x_txq + (unsigned long )old_txdata_index,
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)bp->bnx2x_txq + (unsigned long )new_txdata_index,
+    __ret___2 = memcpy((void *)bp->bnx2x_txq + (unsigned long )new_txdata_index,
                                  (void const   *)bp->bnx2x_txq + (unsigned long )old_txdata_index,
                                  __len___2);
   }
@@ -47566,7 +47566,7 @@ static void bnx2x_shrink_eth_fp(struct bnx2x *bp , int delta )
     __ret = memcpy((void *)bp->bnx2x_txq + (unsigned long )new_idx, (void const   *)fp->txdata_ptr[cos],
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)bp->bnx2x_txq + (unsigned long )new_idx, (void const   *)fp->txdata_ptr[cos],
+    __ret = memcpy((void *)bp->bnx2x_txq + (unsigned long )new_idx, (void const   *)fp->txdata_ptr[cos],
                              __len);
   }
   fp->txdata_ptr[cos] = bp->bnx2x_txq + (unsigned long )new_idx;
@@ -48638,7 +48638,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 
     }
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)skb->data, (void const   *)data + (unsigned long )pad,
+    __ret = memcpy((void *)skb->data, (void const   *)data + (unsigned long )pad,
                              __len);
     bnx2x_reuse_rx_data(fp, (int )bd_cons, (int )bd_prod);
   } else {
@@ -48894,7 +48894,7 @@ void __bnx2x_link_report(struct bnx2x *bp )
     __ret = memcpy((void *)(& bp->last_reported_link), (void const   *)(& cur_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& bp->last_reported_link), (void const   *)(& cur_data),
+    __ret = memcpy((void *)(& bp->last_reported_link), (void const   *)(& cur_data),
                              __len);
   }
   tmp___5 = constant_test_bit(1U, (unsigned long const volatile   *)(& cur_data.link_report_flags));
@@ -50265,7 +50265,7 @@ int bnx2x_config_rss_pf(struct bnx2x *bp , struct bnx2x_rss_config_obj *rss_obj 
     __ret = memcpy((void *)(& params.ind_table), (void const   *)(& rss_obj->ind_table),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& params.ind_table), (void const   *)(& rss_obj->ind_table),
+    __ret = memcpy((void *)(& params.ind_table), (void const   *)(& rss_obj->ind_table),
                              __len);
   }
   if ((int )config_hash) {
@@ -52887,7 +52887,7 @@ int bnx2x_change_mac_addr(struct net_device *dev , void *p )
 
   }
   __len = (size_t )dev->addr_len;
-  __ret = __builtin_memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
+  __ret = memcpy((void *)dev->dev_addr, (void const   *)(& addr->sa_data),
                            __len);
   tmp___5 = netif_running((struct net_device  const  *)dev);
   if ((int )tmp___5) {
@@ -57947,7 +57947,7 @@ static void bnx2x_get_regs(struct net_device *dev , struct ethtool_regs *regs , 
   if (__len > 63UL) {
     __ret = memcpy((void *)p, (void const   *)(& dump_hdr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const   *)(& dump_hdr), __len);
+    __ret = memcpy((void *)p, (void const   *)(& dump_hdr), __len);
   }
   p = p + (unsigned long )(dump_hdr.header_size + 1U);
   __bnx2x_get_regs(bp, p);
@@ -58070,7 +58070,7 @@ static int bnx2x_get_dump_data(struct net_device *dev , struct ethtool_dump *dum
   if (__len > 63UL) {
     __ret = memcpy((void *)p, (void const   *)(& dump_hdr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)p, (void const   *)(& dump_hdr), __len);
+    __ret = memcpy((void *)p, (void const   *)(& dump_hdr), __len);
   }
   p = p + (unsigned long )(dump_hdr.header_size + 1U);
   __bnx2x_get_preset_regs(bp, p, dump_hdr.preset);
@@ -58491,7 +58491,7 @@ static int bnx2x_nvram_read(struct bnx2x *bp , u32 offset , u8 *ret_buf , int bu
   if (__len > 63UL) {
     __ret = memcpy((void *)ret_buf, (void const   *)(& val), __len);
   } else {
-    __ret = __builtin_memcpy((void *)ret_buf, (void const   *)(& val), __len);
+    __ret = memcpy((void *)ret_buf, (void const   *)(& val), __len);
   }
   offset = offset + 4U;
   ret_buf = ret_buf + 4UL;
@@ -58511,7 +58511,7 @@ static int bnx2x_nvram_read(struct bnx2x *bp , u32 offset , u8 *ret_buf , int bu
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)ret_buf, (void const   *)(& val), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)ret_buf, (void const   *)(& val), __len___0);
+      __ret___0 = memcpy((void *)ret_buf, (void const   *)(& val), __len___0);
     }
   } else {
 
@@ -58951,7 +58951,7 @@ static int bnx2x_nvram_write(struct bnx2x *bp , u32 offset , u8 *data_buf , int 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& val), (void const   *)data_buf, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& val), (void const   *)data_buf, __len);
+    __ret = memcpy((void *)(& val), (void const   *)data_buf, __len);
   }
   rc = bnx2x_nvram_write_dword(bp, offset, val, cmd_flags);
   offset = offset + 4U;
@@ -60330,7 +60330,7 @@ static int bnx2x_run_loopback(struct bnx2x *bp , int loopback_mode )
   if (__len > 63UL) {
     __ret = memcpy((void *)packet, (void const   *)(bp->dev)->dev_addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)packet, (void const   *)(bp->dev)->dev_addr,
+    __ret = memcpy((void *)packet, (void const   *)(bp->dev)->dev_addr,
                              __len);
   }
   memset((void *)packet + 6U, 0, 6UL);
@@ -61360,7 +61360,7 @@ static void bnx2x_get_strings(struct net_device *dev , u32 stringset , u8 *buf )
     start = 4;
   }
   __len = (unsigned int )bp->mf_mode != 0U ? 96UL : 224UL;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)(& bnx2x_tests_str_arr) + (unsigned long )start,
+  __ret = memcpy((void *)buf, (void const   *)(& bnx2x_tests_str_arr) + (unsigned long )start,
                            __len);
   }
   ldv_46115: ;
@@ -62470,7 +62470,7 @@ static void bnx2x_hw_stats_post(struct bnx2x *bp )
       __ret = memcpy((void *)(& (bp->slowpath)->func_stats), (void const   *)(& bp->func_stats),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& (bp->slowpath)->func_stats), (void const   *)(& bp->func_stats),
+      __ret = memcpy((void *)(& (bp->slowpath)->func_stats), (void const   *)(& bp->func_stats),
                                __len);
     }
   } else {
@@ -64126,14 +64126,14 @@ static int bnx2x_hw_stats_update(struct bnx2x *bp )
   if (__len > 63UL) {
     __ret = memcpy((void *)old, (void const   *)new, __len);
   } else {
-    __ret = __builtin_memcpy((void *)old, (void const   *)new, __len);
+    __ret = memcpy((void *)old, (void const   *)new, __len);
   }
   __len___0 = 304UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& estats->rx_stat_ifhcinbadoctets_hi), (void const   *)(& pstats->mac_stx) + 1U,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& estats->rx_stat_ifhcinbadoctets_hi), (void const   *)(& pstats->mac_stx) + 1U,
+    __ret___0 = memcpy((void *)(& estats->rx_stat_ifhcinbadoctets_hi), (void const   *)(& pstats->mac_stx) + 1U,
                                  __len___0);
   }
   estats->brb_drop_hi = pstats->brb_drop_hi;
@@ -65320,7 +65320,7 @@ void bnx2x_stats_init(struct bnx2x *bp )
       __ret = memcpy((void *)(& bp->port.old_nig_stats.egress_mac_pkt0_lo), (void const   *)(& (bp->slowpath)->wb_data),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& bp->port.old_nig_stats.egress_mac_pkt0_lo),
+      __ret = memcpy((void *)(& bp->port.old_nig_stats.egress_mac_pkt0_lo),
                                (void const   *)(& (bp->slowpath)->wb_data), __len);
     }
     bnx2x_read_dmae(bp, (u32 )(port * 80 + 67424), 2U);
@@ -65329,7 +65329,7 @@ void bnx2x_stats_init(struct bnx2x *bp )
       __ret___0 = memcpy((void *)(& bp->port.old_nig_stats.egress_mac_pkt1_lo),
                            (void const   *)(& (bp->slowpath)->wb_data), __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& bp->port.old_nig_stats.egress_mac_pkt1_lo),
+      __ret___0 = memcpy((void *)(& bp->port.old_nig_stats.egress_mac_pkt1_lo),
                                    (void const   *)(& (bp->slowpath)->wb_data), __len___0);
     }
   } else {
@@ -68418,10 +68418,10 @@ static void bnx2x_dcbnl_get_perm_hw_addr(struct net_device *netdev , u8 *perm_ad
 
   }
   __len = (size_t )netdev->addr_len;
-  __ret = __builtin_memcpy((void *)perm_addr, (void const   *)netdev->dev_addr, __len);
+  __ret = memcpy((void *)perm_addr, (void const   *)netdev->dev_addr, __len);
   if ((int )bp->cnic_loaded) {
     __len___0 = (size_t )netdev->addr_len;
-    __ret___0 = __builtin_memcpy((void *)perm_addr + (unsigned long )netdev->addr_len,
+    __ret___0 = memcpy((void *)perm_addr + (unsigned long )netdev->addr_len,
                                  (void const   *)(& bp->fip_mac), __len___0);
   } else {
 
@@ -70495,7 +70495,7 @@ static int bnx2x_get_n_elements(struct bnx2x *bp , struct bnx2x_vlan_mac_obj *o 
   ldv_46026: ;
   if (counter < n) {
     __len = (size_t )size;
-    __ret = __builtin_memcpy((void *)next, (void const   *)(& pos->u), __len);
+    __ret = memcpy((void *)next, (void const   *)(& pos->u), __len);
     counter = counter + 1;
     tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
     if (tmp != 0L) {
@@ -70877,7 +70877,7 @@ void bnx2x_set_mac_in_nig(struct bnx2x *bp , bool add , unsigned char *dev_addr 
       __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
+      __ret = memcpy((void *)(& (bp->slowpath)->wb_data), (void const   *)(& wb_data),
                                __len);
     }
     bnx2x_write_dmae(bp, bp->slowpath_mapping + 4392ULL, reg_offset, 2U);
@@ -71227,7 +71227,7 @@ static int bnx2x_vlan_mac_restore(struct bnx2x *bp , struct bnx2x_vlan_mac_ramro
   if (__len > 63UL) {
     __ret = memcpy((void *)(& p->user_req.u), (void const   *)(& pos->u), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& p->user_req.u), (void const   *)(& pos->u),
+    __ret = memcpy((void *)(& p->user_req.u), (void const   *)(& pos->u),
                              __len);
   }
   p->user_req.cmd = 0;
@@ -71437,7 +71437,7 @@ __inline static int bnx2x_validate_vlan_mac_del(struct bnx2x *bp , union bnx2x_q
   if (__len > 63UL) {
     __ret = memcpy((void *)(& query_elem), (void const   *)elem, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& query_elem), (void const   *)elem, __len);
+    __ret = memcpy((void *)(& query_elem), (void const   *)elem, __len);
   }
   query_elem.cmd_data.vlan_mac.cmd = 2;
   tmp___0 = (*(exeq->get))(exeq, & query_elem);
@@ -71533,7 +71533,7 @@ __inline static int bnx2x_validate_vlan_mac_move(struct bnx2x *bp , union bnx2x_
   if (__len > 63UL) {
     __ret = memcpy((void *)(& query_elem), (void const   *)elem, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& query_elem), (void const   *)elem, __len);
+    __ret = memcpy((void *)(& query_elem), (void const   *)elem, __len);
   }
   query_elem.cmd_data.vlan_mac.cmd = 1;
   tmp___2 = (*(src_exeq->get))(src_exeq, & query_elem);
@@ -71773,7 +71773,7 @@ static int bnx2x_optimize_vlan_mac(struct bnx2x *bp , union bnx2x_qable_obj *qo 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& query), (void const   *)elem, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& query), (void const   *)elem, __len);
+    __ret = memcpy((void *)(& query), (void const   *)elem, __len);
   }
   switch ((unsigned int )elem->cmd_data.vlan_mac.cmd) {
   case 0U: 
@@ -71899,7 +71899,7 @@ __inline static int bnx2x_vlan_mac_get_registry_elem(struct bnx2x *bp , struct b
       __ret = memcpy((void *)(& reg_elem->u), (void const   *)(& elem->cmd_data.vlan_mac.u),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& reg_elem->u), (void const   *)(& elem->cmd_data.vlan_mac.u),
+      __ret = memcpy((void *)(& reg_elem->u), (void const   *)(& elem->cmd_data.vlan_mac.u),
                                __len);
     }
     reg_elem->vlan_mac_flags = elem->cmd_data.vlan_mac.vlan_mac_flags;
@@ -72117,7 +72117,7 @@ __inline static int bnx2x_vlan_mac_push_new_cmd(struct bnx2x *bp , struct bnx2x_
     __ret = memcpy((void *)(& elem->cmd_data.vlan_mac), (void const   *)(& p->user_req),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& elem->cmd_data.vlan_mac), (void const   *)(& p->user_req),
+    __ret = memcpy((void *)(& elem->cmd_data.vlan_mac), (void const   *)(& p->user_req),
                              __len);
   }
   tmp___0 = bnx2x_exe_queue_add(bp, & o->exe_queue, elem, (int )restore);
@@ -72322,7 +72322,7 @@ static int bnx2x_vlan_mac_del_all(struct bnx2x *bp , struct bnx2x_vlan_mac_obj *
     if (__len > 63UL) {
       __ret = memcpy((void *)(& p.user_req.u), (void const   *)(& pos->u), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& p.user_req.u), (void const   *)(& pos->u),
+      __ret = memcpy((void *)(& p.user_req.u), (void const   *)(& pos->u),
                                __len);
     }
     rc = bnx2x_config_vlan_mac(bp, & p);
@@ -72923,7 +72923,7 @@ static int bnx2x_mcast_enqueue_cmd(struct bnx2x *bp , struct bnx2x_mcast_obj *o 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& cur_mac->mac), (void const   *)pos->mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& cur_mac->mac), (void const   *)pos->mac, __len);
+    __ret = memcpy((void *)(& cur_mac->mac), (void const   *)pos->mac, __len);
   }
   list_add_tail(& cur_mac->link, & new_cmd->data.macs_head);
   cur_mac = cur_mac + 1;
@@ -74856,7 +74856,7 @@ static int bnx2x_setup_rss(struct bnx2x *bp , struct bnx2x_config_rss_params *p 
     __ret = memcpy((void *)(& data->indirection_table), (void const   *)(& p->ind_table),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& data->indirection_table), (void const   *)(& p->ind_table),
+    __ret = memcpy((void *)(& data->indirection_table), (void const   *)(& p->ind_table),
                              __len);
   }
   __len___0 = 128UL;
@@ -74864,7 +74864,7 @@ static int bnx2x_setup_rss(struct bnx2x *bp , struct bnx2x_config_rss_params *p 
     __ret___0 = memcpy((void *)(& o->ind_table), (void const   *)(& p->ind_table),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& o->ind_table), (void const   *)(& p->ind_table),
+    __ret___0 = memcpy((void *)(& o->ind_table), (void const   *)(& p->ind_table),
                                  __len___0);
   }
   if ((bp->msg_enable & 32) != 0) {
@@ -74879,7 +74879,7 @@ static int bnx2x_setup_rss(struct bnx2x *bp , struct bnx2x_config_rss_params *p 
       __ret___1 = memcpy((void *)(& data->rss_key), (void const   *)(& p->rss_key),
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& data->rss_key), (void const   *)(& p->rss_key),
+      __ret___1 = memcpy((void *)(& data->rss_key), (void const   *)(& p->rss_key),
                                    __len___1);
     }
     data->capabilities = (u8 )((unsigned int )data->capabilities | 128U);
@@ -74906,7 +74906,7 @@ void bnx2x_get_rss_ind_table(struct bnx2x_rss_config_obj *rss_obj , u8 *ind_tabl
   if (__len > 63UL) {
     __ret = memcpy((void *)ind_table, (void const   *)(& rss_obj->ind_table), __len);
   } else {
-    __ret = __builtin_memcpy((void *)ind_table, (void const   *)(& rss_obj->ind_table),
+    __ret = memcpy((void *)ind_table, (void const   *)(& rss_obj->ind_table),
                              __len);
   }
   return;
@@ -76007,7 +76007,7 @@ void bnx2x_init_queue_obj(struct bnx2x *bp , struct bnx2x_queue_sp_obj *obj , u8
 
   }
   __len = (unsigned long )cid_cnt * 4UL;
-  __ret = __builtin_memcpy((void *)(& obj->cids), (void const   *)cids, __len);
+  __ret = memcpy((void *)(& obj->cids), (void const   *)cids, __len);
   obj->max_cos = cid_cnt;
   obj->cl_id = cl_id;
   obj->func_id = func_id;
@@ -77590,7 +77590,7 @@ int bnx2x_vfpf_acquire(struct bnx2x *bp , u8 tx_count , u8 rx_count )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& bp->acquire_resp), (void const   *)resp, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& bp->acquire_resp), (void const   *)resp, __len);
+    __ret = memcpy((void *)(& bp->acquire_resp), (void const   *)resp, __len);
   }
   attempts = attempts + 1;
   if ((unsigned int )bp->acquire_resp.hdr.status == 1U) {
@@ -77651,7 +77651,7 @@ int bnx2x_vfpf_acquire(struct bnx2x *bp , u8 tx_count , u8 rx_count )
       __ret___0 = memcpy((void *)(bp->dev)->dev_addr, (void const   *)(& bp->acquire_resp.resc.current_mac_addr),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(bp->dev)->dev_addr, (void const   *)(& bp->acquire_resp.resc.current_mac_addr),
+      __ret___0 = memcpy((void *)(bp->dev)->dev_addr, (void const   *)(& bp->acquire_resp.resc.current_mac_addr),
                                    __len___0);
     }
   } else {
@@ -77990,7 +77990,7 @@ int bnx2x_vfpf_config_mac(struct bnx2x *bp , u8 *addr , u8 vf_qid , bool set )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& req->filters[0].mac), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& req->filters[0].mac), (void const   *)addr,
+    __ret = memcpy((void *)(& req->filters[0].mac), (void const   *)addr,
                              __len);
   }
   bnx2x_add_tlv(bp, (void *)req, (int )req->first_tlv.tl.length, 9, 8);
@@ -78018,7 +78018,7 @@ int bnx2x_vfpf_config_mac(struct bnx2x *bp , u8 *addr , u8 vf_qid , bool set )
     __ret___0 = memcpy((void *)(bp->dev)->dev_addr, (void const   *)(& bulletin.mac),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(bp->dev)->dev_addr, (void const   *)(& bulletin.mac),
+    __ret___0 = memcpy((void *)(bp->dev)->dev_addr, (void const   *)(& bulletin.mac),
                                  __len___0);
   }
   tmp___0 = bnx2x_sample_bulletin(bp);
@@ -78028,7 +78028,7 @@ int bnx2x_vfpf_config_mac(struct bnx2x *bp , u8 *addr , u8 vf_qid , bool set )
       __ret___1 = memcpy((void *)(& req->filters[0].mac), (void const   *)(bp->dev)->dev_addr,
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& req->filters[0].mac), (void const   *)(bp->dev)->dev_addr,
+      __ret___1 = memcpy((void *)(& req->filters[0].mac), (void const   *)(bp->dev)->dev_addr,
                                    __len___1);
     }
     rc = bnx2x_send_msg2pf(bp, & resp->hdr.status, bp->vf2pf_mbox_mapping);
@@ -78116,7 +78116,7 @@ int bnx2x_vfpf_set_mcast(struct net_device *dev )
     __ret = memcpy((void *)(& req->multicast) + (unsigned long )i, (void const   *)(& ha->addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& req->multicast) + (unsigned long )i, (void const   *)(& ha->addr),
+    __ret = memcpy((void *)(& req->multicast) + (unsigned long )i, (void const   *)(& ha->addr),
                              __len);
   }
   i = i + 1;
@@ -78468,7 +78468,7 @@ static void bnx2x_vf_mbx_acquire_resp(struct bnx2x *bp , struct bnx2x_virtf *vf 
           __ret = memcpy((void *)(& resc->current_mac_addr), (void const   *)(& bulletin->mac),
                            __len);
         } else {
-          __ret = __builtin_memcpy((void *)(& resc->current_mac_addr), (void const   *)(& bulletin->mac),
+          __ret = memcpy((void *)(& resc->current_mac_addr), (void const   *)(& bulletin->mac),
                                    __len);
         }
       } else {
@@ -80442,7 +80442,7 @@ static int bnx2x_vfop_set_user_req(struct bnx2x *bp , struct bnx2x_vfop_filter *
   if (__len > 63UL) {
     __ret = memcpy((void *)(& user_req->u.mac.mac), (void const   *)pos->mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& user_req->u.mac.mac), (void const   *)pos->mac,
+    __ret = memcpy((void *)(& user_req->u.mac.mac), (void const   *)pos->mac,
                              __len);
   }
   goto ldv_45975;
@@ -84190,7 +84190,7 @@ int bnx2x_get_vf_config(struct net_device *dev , int vfidx , struct ifla_vf_info
         __ret = memcpy((void *)(& ivi->mac), (void const   *)(& bulletin->mac),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& ivi->mac), (void const   *)(& bulletin->mac),
+        __ret = memcpy((void *)(& ivi->mac), (void const   *)(& bulletin->mac),
                                  __len);
       }
     } else {
@@ -84202,7 +84202,7 @@ int bnx2x_get_vf_config(struct net_device *dev , int vfidx , struct ifla_vf_info
         __ret___0 = memcpy((void *)(& ivi->vlan), (void const   *)(& bulletin->vlan),
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& ivi->vlan), (void const   *)(& bulletin->vlan),
+        __ret___0 = memcpy((void *)(& ivi->vlan), (void const   *)(& bulletin->vlan),
                                      __len___0);
       }
     } else {
@@ -84255,7 +84255,7 @@ int bnx2x_set_vf_mac(struct net_device *dev , int vfidx , u8 *mac )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& bulletin->mac), (void const   *)mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& bulletin->mac), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& bulletin->mac), (void const   *)mac, __len);
   }
   rc = bnx2x_post_vf_bulletin(bp, vfidx);
   if (rc != 0) {
@@ -84510,7 +84510,7 @@ enum sample_bulletin_result bnx2x_sample_bulletin(struct bnx2x *bp )
         __ret = memcpy((void *)(bp->dev)->dev_addr, (void const   *)(& bulletin.mac),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(bp->dev)->dev_addr, (void const   *)(& bulletin.mac),
+        __ret = memcpy((void *)(bp->dev)->dev_addr, (void const   *)(& bulletin.mac),
                                  __len);
       }
     } else {
@@ -84525,7 +84525,7 @@ enum sample_bulletin_result bnx2x_sample_bulletin(struct bnx2x *bp )
       __ret___0 = memcpy((void *)(& bulletin.vlan), (void const   *)(& bp->old_bulletin.vlan),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& bulletin.vlan), (void const   *)(& bp->old_bulletin.vlan),
+      __ret___0 = memcpy((void *)(& bulletin.vlan), (void const   *)(& bp->old_bulletin.vlan),
                                    __len___0);
     }
   } else {

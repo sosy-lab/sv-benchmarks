@@ -8240,7 +8240,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   return;
 }
 }
@@ -9531,7 +9531,7 @@ static void send_mpa_req(struct iwch_ep *ep , struct sk_buff *skb )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mpa->key), (void const *)"MPA ID Req Frame", __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mpa->key), (void const *)"MPA ID Req Frame",
+    __ret = memcpy((void *)(& mpa->key), (void const *)"MPA ID Req Frame",
                              __len);
   }
   if (crc_enabled != 0) {
@@ -9550,7 +9550,7 @@ static void send_mpa_req(struct iwch_ep *ep , struct sk_buff *skb )
   mpa->revision = (u8 )mpa_rev;
   if ((unsigned int )ep->plen != 0U) {
     __len___0 = (size_t )ep->plen;
-    __ret___0 = __builtin_memcpy((void *)(& mpa->private_data), (void const *)(& ep->mpa_pkt) + 20U,
+    __ret___0 = memcpy((void *)(& mpa->private_data), (void const *)(& ep->mpa_pkt) + 20U,
                                  __len___0);
   } else {
   }
@@ -9634,7 +9634,7 @@ static int send_mpa_reject(struct iwch_ep *ep , void const *pdata , u8 plen )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mpa->key), (void const *)"MPA ID Rep Frame", __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mpa->key), (void const *)"MPA ID Rep Frame",
+    __ret = memcpy((void *)(& mpa->key), (void const *)"MPA ID Rep Frame",
                              __len);
   }
   mpa->flags = 32U;
@@ -9643,7 +9643,7 @@ static int send_mpa_reject(struct iwch_ep *ep , void const *pdata , u8 plen )
   mpa->private_data_size = tmp___1;
   if ((unsigned int )plen != 0U) {
     __len___0 = (size_t )plen;
-    __ret___0 = __builtin_memcpy((void *)(& mpa->private_data), pdata, __len___0);
+    __ret___0 = memcpy((void *)(& mpa->private_data), pdata, __len___0);
   } else {
   }
   skb_get(skb);
@@ -9727,7 +9727,7 @@ static int send_mpa_reply(struct iwch_ep *ep , void const *pdata , u8 plen )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mpa->key), (void const *)"MPA ID Rep Frame", __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mpa->key), (void const *)"MPA ID Rep Frame",
+    __ret = memcpy((void *)(& mpa->key), (void const *)"MPA ID Rep Frame",
                              __len);
   }
   if ((unsigned int )ep->mpa_attr.crc_enabled != 0U) {
@@ -9746,7 +9746,7 @@ static int send_mpa_reply(struct iwch_ep *ep , void const *pdata , u8 plen )
   mpa->private_data_size = tmp___3;
   if ((unsigned int )plen != 0U) {
     __len___0 = (size_t )plen;
-    __ret___0 = __builtin_memcpy((void *)(& mpa->private_data), pdata, __len___0);
+    __ret___0 = memcpy((void *)(& mpa->private_data), pdata, __len___0);
   } else {
   }
   skb_get(skb);
@@ -12102,7 +12102,7 @@ int iwch_connect(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param )
   ep->plen = conn_param->private_data_len;
   if ((unsigned int )ep->plen != 0U) {
     __len = (size_t )ep->plen;
-    __ret = __builtin_memcpy((void *)(& ep->mpa_pkt) + 20U, conn_param->private_data,
+    __ret = memcpy((void *)(& ep->mpa_pkt) + 20U, conn_param->private_data,
                              __len);
   } else {
   }
@@ -17074,7 +17074,7 @@ static int iwch_reregister_phys_mem(struct ib_mr *mr , int mr_rereg_mask , struc
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mh), (void const *)mhp, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mh), (void const *)mhp, __len);
+    __ret = memcpy((void *)(& mh), (void const *)mhp, __len);
   }
   if ((mr_rereg_mask & 2) != 0) {
     php = to_iwch_pd(pd);
@@ -18087,7 +18087,7 @@ static int iwch_query_gid(struct ib_device *ibdev , u8 port , int index , union 
     __ret = memcpy((void *)(& gid->raw), (void const *)(dev->rdev.port_info.lldevs[(int )port + -1])->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& gid->raw), (void const *)(dev->rdev.port_info.lldevs[(int )port + -1])->dev_addr,
+    __ret = memcpy((void *)(& gid->raw), (void const *)(dev->rdev.port_info.lldevs[(int )port + -1])->dev_addr,
                              __len);
   }
   return (0);
@@ -18140,7 +18140,7 @@ static int iwch_query_device(struct ib_device *ibdev , struct ib_device_attr *pr
     __ret = memcpy((void *)(& props->sys_image_guid), (void const *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& props->sys_image_guid), (void const *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
+    __ret = memcpy((void *)(& props->sys_image_guid), (void const *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
                              __len);
   }
   props->hw_ver = (u32 )(dev->rdev.t3cdev_p)->type;
@@ -18435,7 +18435,7 @@ int iwch_register_device(struct iwch_dev *dev )
     __ret = memcpy((void *)(& dev->ibdev.node_guid), (void const *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dev->ibdev.node_guid), (void const *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
+    __ret = memcpy((void *)(& dev->ibdev.node_guid), (void const *)((dev->rdev.t3cdev_p)->lldev)->dev_addr,
                              __len);
   }
   dev->ibdev.owner = & __this_module;
@@ -18448,7 +18448,7 @@ int iwch_register_device(struct iwch_dev *dev )
     __ret___0 = memcpy((void *)(& dev->ibdev.node_desc), (void const *)"cxgb3 Chelsio Communications",
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& dev->ibdev.node_desc), (void const *)"cxgb3 Chelsio Communications",
+    __ret___0 = memcpy((void *)(& dev->ibdev.node_desc), (void const *)"cxgb3 Chelsio Communications",
                                  __len___0);
   }
   dev->ibdev.phys_port_cnt = (u8 )dev->rdev.port_info.nports;
@@ -20883,7 +20883,7 @@ static int cxio_hal_ctrl_qp_write_mem(struct cxio_rdev *rdev_p , u32 addr , u32 
   }
   if ((unsigned long )data != (unsigned long )((void *)0)) {
     __len = (size_t )copy_len;
-    __ret___0 = __builtin_memcpy((void *)wqe, (void const *)copy_data, __len);
+    __ret___0 = memcpy((void *)wqe, (void const *)copy_data, __len);
   } else {
     memset((void *)wqe, 0, (size_t )copy_len);
   }

@@ -5336,6 +5336,7 @@ static void isicom_close(struct tty_struct *tty , struct file *filp )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int isicom_write(struct tty_struct *tty , unsigned char const   *buf , int count ) 
 { 
   struct isi_port *port ;
@@ -5367,7 +5368,7 @@ static int isicom_write(struct tty_struct *tty , unsigned char const   *buf , in
 
   }
   __len = (size_t )cnt;
-  __ret = __builtin_memcpy((void *)port->port.xmit_buf + (unsigned long )port->xmit_head,
+  __ret = memcpy((void *)port->port.xmit_buf + (unsigned long )port->xmit_head,
                            (void const   *)buf, __len);
   port->xmit_head = (port->xmit_head + cnt) & 4095;
   port->xmit_cnt = port->xmit_cnt + cnt;

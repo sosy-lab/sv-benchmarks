@@ -5768,7 +5768,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data, __len);
+  __ret = memcpy(to, (void const *)skb->data, __len);
   return;
 }
 }
@@ -5779,7 +5779,7 @@ __inline static void skb_copy_from_linear_data_offset(struct sk_buff const *skb 
   void *__ret ;
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const *)skb->data + (unsigned long )offset,
+  __ret = memcpy(to, (void const *)skb->data + (unsigned long )offset,
                            __len);
   return;
 }
@@ -5962,7 +5962,7 @@ int prism2_rx_80211(struct net_device *dev , struct sk_buff *skb , struct hostap
     if (__len > 63UL) {
       __ret = memcpy((void *)(& hdr->devname), (void const *)(& dev->name), __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& hdr->devname), (void const *)(& dev->name),
+      __ret = memcpy((void *)(& hdr->devname), (void const *)(& dev->name),
                                __len);
     }
     hdr->hosttime.did = 4164U;
@@ -6152,7 +6152,7 @@ static struct sk_buff *prism2_frag_cache_get(local_info_t *local , struct ieee80
       __ret = memcpy((void *)(& entry->src_addr), (void const *)(& hdr->addr2),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& entry->src_addr), (void const *)(& hdr->addr2),
+      __ret = memcpy((void *)(& entry->src_addr), (void const *)(& hdr->addr2),
                                __len);
     }
     __len___0 = 6UL;
@@ -6160,7 +6160,7 @@ static struct sk_buff *prism2_frag_cache_get(local_info_t *local , struct ieee80
       __ret___0 = memcpy((void *)(& entry->dst_addr), (void const *)(& hdr->addr1),
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)(& entry->dst_addr), (void const *)(& hdr->addr1),
+      __ret___0 = memcpy((void *)(& entry->dst_addr), (void const *)(& hdr->addr1),
                                    __len___0);
     }
   } else {
@@ -6261,10 +6261,10 @@ static struct hostap_bss_info *__hostap_add_bss(local_info_t *local , u8 *bssid 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& bss->bssid), (void const *)bssid, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& bss->bssid), (void const *)bssid, __len);
+    __ret = memcpy((void *)(& bss->bssid), (void const *)bssid, __len);
   }
   __len___0 = ssid_len;
-  __ret___0 = __builtin_memcpy((void *)(& bss->ssid), (void const *)ssid, __len___0);
+  __ret___0 = memcpy((void *)(& bss->ssid), (void const *)ssid, __len___0);
   bss->ssid_len = ssid_len;
   local->num_bss_info = local->num_bss_info + 1;
   list_add(& bss->list, & local->bss_list);
@@ -6390,14 +6390,14 @@ static void hostap_rx_sta_beacon(local_info_t *local , struct sk_buff *skb , int
     bss->capab_info = mgmt->u.beacon.capab_info;
     if ((unsigned long )wpa != (unsigned long )((u8 *)0)) {
       __len = wpa_len;
-      __ret = __builtin_memcpy((void *)(& bss->wpa_ie), (void const *)wpa, __len);
+      __ret = memcpy((void *)(& bss->wpa_ie), (void const *)wpa, __len);
       bss->wpa_ie_len = wpa_len;
     } else {
       bss->wpa_ie_len = 0UL;
     }
     if ((unsigned long )rsn != (unsigned long )((u8 *)0)) {
       __len___0 = rsn_len;
-      __ret___0 = __builtin_memcpy((void *)(& bss->rsn_ie), (void const *)rsn, __len___0);
+      __ret___0 = memcpy((void *)(& bss->rsn_ie), (void const *)rsn, __len___0);
       bss->rsn_ie_len = rsn_len;
     } else {
       bss->rsn_ie_len = 0UL;
@@ -6847,13 +6847,13 @@ void hostap_80211_rx(struct net_device *dev , struct sk_buff *skb , struct hosta
   if (__len > 63UL) {
     __ret = memcpy((void *)(& dst), (void const *)(& hdr->addr1), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& dst), (void const *)(& hdr->addr1), __len);
+    __ret = memcpy((void *)(& dst), (void const *)(& hdr->addr1), __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& src), (void const *)(& hdr->addr3), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& src), (void const *)(& hdr->addr3),
+    __ret___0 = memcpy((void *)(& src), (void const *)(& hdr->addr3),
                                  __len___0);
   }
   goto ldv_40072;
@@ -6862,14 +6862,14 @@ void hostap_80211_rx(struct net_device *dev , struct sk_buff *skb , struct hosta
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& dst), (void const *)(& hdr->addr3), __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& dst), (void const *)(& hdr->addr3),
+    __ret___1 = memcpy((void *)(& dst), (void const *)(& hdr->addr3),
                                  __len___1);
   }
   __len___2 = 6UL;
   if (__len___2 > 63UL) {
     __ret___2 = memcpy((void *)(& src), (void const *)(& hdr->addr2), __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& src), (void const *)(& hdr->addr2),
+    __ret___2 = memcpy((void *)(& src), (void const *)(& hdr->addr2),
                                  __len___2);
   }
   goto ldv_40072;
@@ -6882,14 +6882,14 @@ void hostap_80211_rx(struct net_device *dev , struct sk_buff *skb , struct hosta
   if (__len___3 > 63UL) {
     __ret___3 = memcpy((void *)(& dst), (void const *)(& hdr->addr3), __len___3);
   } else {
-    __ret___3 = __builtin_memcpy((void *)(& dst), (void const *)(& hdr->addr3),
+    __ret___3 = memcpy((void *)(& dst), (void const *)(& hdr->addr3),
                                  __len___3);
   }
   __len___4 = 6UL;
   if (__len___4 > 63UL) {
     __ret___4 = memcpy((void *)(& src), (void const *)(& hdr->addr4), __len___4);
   } else {
-    __ret___4 = __builtin_memcpy((void *)(& src), (void const *)(& hdr->addr4),
+    __ret___4 = memcpy((void *)(& src), (void const *)(& hdr->addr4),
                                  __len___4);
   }
   goto ldv_40072;
@@ -6898,14 +6898,14 @@ void hostap_80211_rx(struct net_device *dev , struct sk_buff *skb , struct hosta
   if (__len___5 > 63UL) {
     __ret___5 = memcpy((void *)(& dst), (void const *)(& hdr->addr1), __len___5);
   } else {
-    __ret___5 = __builtin_memcpy((void *)(& dst), (void const *)(& hdr->addr1),
+    __ret___5 = memcpy((void *)(& dst), (void const *)(& hdr->addr1),
                                  __len___5);
   }
   __len___6 = 6UL;
   if (__len___6 > 63UL) {
     __ret___6 = memcpy((void *)(& src), (void const *)(& hdr->addr2), __len___6);
   } else {
-    __ret___6 = __builtin_memcpy((void *)(& src), (void const *)(& hdr->addr2),
+    __ret___6 = memcpy((void *)(& src), (void const *)(& hdr->addr2),
                                  __len___6);
   }
   goto ldv_40072;
@@ -7079,7 +7079,7 @@ void hostap_80211_rx(struct net_device *dev , struct sk_buff *skb , struct hosta
           __ret___7 = memcpy((void *)tmp___13, (void const *)(& src), __len___7);
         } else {
           tmp___14 = skb_push(skb, 6U);
-          __ret___7 = __builtin_memcpy((void *)tmp___14, (void const *)(& src),
+          __ret___7 = memcpy((void *)tmp___14, (void const *)(& src),
                                        __len___7);
         }
         __len___8 = 6UL;
@@ -7088,7 +7088,7 @@ void hostap_80211_rx(struct net_device *dev , struct sk_buff *skb , struct hosta
           __ret___8 = memcpy((void *)tmp___15, (void const *)(& dst), __len___8);
         } else {
           tmp___16 = skb_push(skb, 6U);
-          __ret___8 = __builtin_memcpy((void *)tmp___16, (void const *)(& dst),
+          __ret___8 = memcpy((void *)tmp___16, (void const *)(& dst),
                                        __len___8);
         }
       } else {
@@ -7106,7 +7106,7 @@ void hostap_80211_rx(struct net_device *dev , struct sk_buff *skb , struct hosta
       __ret___9 = memcpy((void *)tmp___18, (void const *)(& len), __len___9);
     } else {
       tmp___19 = skb_push(skb, 2U);
-      __ret___9 = __builtin_memcpy((void *)tmp___19, (void const *)(& len), __len___9);
+      __ret___9 = memcpy((void *)tmp___19, (void const *)(& len), __len___9);
     }
     __len___10 = 6UL;
     if (__len___10 > 63UL) {
@@ -7114,7 +7114,7 @@ void hostap_80211_rx(struct net_device *dev , struct sk_buff *skb , struct hosta
       __ret___10 = memcpy((void *)tmp___20, (void const *)(& src), __len___10);
     } else {
       tmp___21 = skb_push(skb, 6U);
-      __ret___10 = __builtin_memcpy((void *)tmp___21, (void const *)(& src), __len___10);
+      __ret___10 = memcpy((void *)tmp___21, (void const *)(& src), __len___10);
     }
     __len___11 = 6UL;
     if (__len___11 > 63UL) {
@@ -7122,7 +7122,7 @@ void hostap_80211_rx(struct net_device *dev , struct sk_buff *skb , struct hosta
       __ret___11 = memcpy((void *)tmp___22, (void const *)(& dst), __len___11);
     } else {
       tmp___23 = skb_push(skb, 6U);
-      __ret___11 = __builtin_memcpy((void *)tmp___23, (void const *)(& dst), __len___11);
+      __ret___11 = memcpy((void *)tmp___23, (void const *)(& dst), __len___11);
     }
   }
   if (((unsigned long )wds != (unsigned long )((struct net_device *)0) && ((int )fc & 768) == 256) && skb->len > 19U) {
@@ -7488,7 +7488,7 @@ netdev_tx_t hostap_data_start_xmit(struct sk_buff *skb , struct net_device *dev 
         __ret = memcpy((void *)(& hdr.addr1), (void const *)(& iface->u.wds.remote_addr),
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& hdr.addr1), (void const *)(& iface->u.wds.remote_addr),
+        __ret = memcpy((void *)(& hdr.addr1), (void const *)(& iface->u.wds.remote_addr),
                                  __len);
       }
     } else {
@@ -7497,7 +7497,7 @@ netdev_tx_t hostap_data_start_xmit(struct sk_buff *skb , struct net_device *dev 
         __ret___0 = memcpy((void *)(& hdr.addr1), (void const *)(& local->bssid),
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& hdr.addr1), (void const *)(& local->bssid),
+        __ret___0 = memcpy((void *)(& hdr.addr1), (void const *)(& local->bssid),
                                      __len___0);
       }
     }
@@ -7505,7 +7505,7 @@ netdev_tx_t hostap_data_start_xmit(struct sk_buff *skb , struct net_device *dev 
     if (__len___1 > 63UL) {
       __ret___1 = memcpy((void *)(& hdr.addr2), (void const *)dev->dev_addr, __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& hdr.addr2), (void const *)dev->dev_addr,
+      __ret___1 = memcpy((void *)(& hdr.addr2), (void const *)dev->dev_addr,
                                    __len___1);
     }
     skb_copy_from_linear_data((struct sk_buff const *)skb, (void *)(& hdr.addr3),
@@ -7519,7 +7519,7 @@ netdev_tx_t hostap_data_start_xmit(struct sk_buff *skb , struct net_device *dev 
     if (__len___2 > 63UL) {
       __ret___2 = memcpy((void *)(& hdr.addr2), (void const *)dev->dev_addr, __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)(& hdr.addr2), (void const *)dev->dev_addr,
+      __ret___2 = memcpy((void *)(& hdr.addr2), (void const *)dev->dev_addr,
                                    __len___2);
     }
     skb_copy_from_linear_data_offset((struct sk_buff const *)skb, 6, (void *)(& hdr.addr3),
@@ -7541,7 +7541,7 @@ netdev_tx_t hostap_data_start_xmit(struct sk_buff *skb , struct net_device *dev 
       } else {
         tmp___2 = & local->bssid;
       }
-      __ret___3 = __builtin_memcpy((void *)(& hdr.addr1), (void const *)tmp___2,
+      __ret___3 = memcpy((void *)(& hdr.addr1), (void const *)tmp___2,
                                    __len___3);
     }
     skb_copy_from_linear_data_offset((struct sk_buff const *)skb, 6, (void *)(& hdr.addr2),
@@ -7559,7 +7559,7 @@ netdev_tx_t hostap_data_start_xmit(struct sk_buff *skb , struct net_device *dev 
       __ret___4 = memcpy((void *)(& hdr.addr3), (void const *)(& local->bssid),
                            __len___4);
     } else {
-      __ret___4 = __builtin_memcpy((void *)(& hdr.addr3), (void const *)(& local->bssid),
+      __ret___4 = memcpy((void *)(& hdr.addr3), (void const *)(& local->bssid),
                                    __len___4);
     }
   } else {
@@ -7605,12 +7605,12 @@ netdev_tx_t hostap_data_start_xmit(struct sk_buff *skb , struct net_device *dev 
   if ((unsigned long )encaps_data != (unsigned long )((u8 *)0)) {
     __len___5 = (size_t )encaps_len;
     tmp___8 = skb_push(skb, (unsigned int )encaps_len);
-    __ret___5 = __builtin_memcpy((void *)tmp___8, (void const *)encaps_data, __len___5);
+    __ret___5 = memcpy((void *)tmp___8, (void const *)encaps_data, __len___5);
   } else {
   }
   __len___6 = (size_t )hdr_len;
   tmp___10 = skb_push(skb, (unsigned int )hdr_len);
-  __ret___6 = __builtin_memcpy((void *)tmp___10, (void const *)(& hdr), __len___6);
+  __ret___6 = memcpy((void *)tmp___10, (void const *)(& hdr), __len___6);
   if ((unsigned int )use_wds == 1U) {
     __len___7 = 6UL;
     if (__len___7 > 63UL) {
@@ -7618,7 +7618,7 @@ netdev_tx_t hostap_data_start_xmit(struct sk_buff *skb , struct net_device *dev 
       __ret___7 = memcpy((void *)tmp___11, (void const *)(& hdr.addr4), __len___7);
     } else {
       tmp___12 = skb_put(skb, 6U);
-      __ret___7 = __builtin_memcpy((void *)tmp___12, (void const *)(& hdr.addr4),
+      __ret___7 = memcpy((void *)tmp___12, (void const *)(& hdr.addr4),
                                    __len___7);
     }
   } else {
@@ -8190,10 +8190,10 @@ __inline static char *iwe_stream_add_event(struct iw_request_info *info , char *
     if (__len > 63UL) {
       __ret = memcpy((void *)stream, (void const *)iwe, __len);
     } else {
-      __ret = __builtin_memcpy((void *)stream, (void const *)iwe, __len);
+      __ret = memcpy((void *)stream, (void const *)iwe, __len);
     }
     __len___0 = (size_t )(event_len - lcp_len);
-    __ret___0 = __builtin_memcpy((void *)stream + (unsigned long )lcp_len, (void const *)(& iwe->u),
+    __ret___0 = memcpy((void *)stream + (unsigned long )lcp_len, (void const *)(& iwe->u),
                                  __len___0);
     stream = stream + (unsigned long )event_len;
   } else {
@@ -8231,18 +8231,18 @@ __inline static char *iwe_stream_add_point(struct iw_request_info *info , char *
     if (__len > 63UL) {
       __ret = memcpy((void *)stream, (void const *)iwe, __len);
     } else {
-      __ret = __builtin_memcpy((void *)stream, (void const *)iwe, __len);
+      __ret = memcpy((void *)stream, (void const *)iwe, __len);
     }
     __len___0 = 4UL;
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)stream + (unsigned long )lcp_len, (void const *)(& iwe->u) + 8U,
                            __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)stream + (unsigned long )lcp_len, (void const *)(& iwe->u) + 8U,
+      __ret___0 = memcpy((void *)stream + (unsigned long )lcp_len, (void const *)(& iwe->u) + 8U,
                                    __len___0);
     }
     __len___1 = (size_t )iwe->u.data.length;
-    __ret___1 = __builtin_memcpy((void *)stream + (unsigned long )point_len, (void const *)extra,
+    __ret___1 = memcpy((void *)stream + (unsigned long )point_len, (void const *)extra,
                                  __len___1);
     stream = stream + (unsigned long )event_len;
   } else {
@@ -8477,7 +8477,7 @@ static void hostap_event_new_sta(struct net_device *dev , struct sta_info *sta )
     __ret = memcpy((void *)(& wrqu.addr.sa_data), (void const *)(& sta->addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& wrqu.addr.sa_data), (void const *)(& sta->addr),
+    __ret = memcpy((void *)(& wrqu.addr.sa_data), (void const *)(& sta->addr),
                              __len);
   }
   wrqu.addr.sa_family = 1U;
@@ -8496,7 +8496,7 @@ static void hostap_event_expired_sta(struct net_device *dev , struct sta_info *s
     __ret = memcpy((void *)(& wrqu.addr.sa_data), (void const *)(& sta->addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& wrqu.addr.sa_data), (void const *)(& sta->addr),
+    __ret = memcpy((void *)(& wrqu.addr.sa_data), (void const *)(& sta->addr),
                              __len);
   }
   wrqu.addr.sa_family = 1U;
@@ -8757,7 +8757,7 @@ int ap_control_add_mac(struct mac_restrictions *mac_restrictions , u8 *mac )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& entry->addr), (void const *)mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& entry->addr), (void const *)mac, __len);
+    __ret = memcpy((void *)(& entry->addr), (void const *)mac, __len);
   }
   spin_lock_bh(& mac_restrictions->lock);
   list_add_tail(& entry->list, & mac_restrictions->mac_list);
@@ -9514,7 +9514,7 @@ static void prism2_send_mgmt(struct net_device *dev , u16 type_subtype , char *b
   if ((unsigned long )body != (unsigned long )((char *)0)) {
     __len = (size_t )body_len;
     tmp___3 = skb_put(skb, (unsigned int )body_len);
-    __ret = __builtin_memcpy((void *)tmp___3, (void const *)body, __len);
+    __ret = memcpy((void *)tmp___3, (void const *)body, __len);
   } else {
   }
   memset((void *)hdr, 0, (size_t )hdrlen);
@@ -9522,7 +9522,7 @@ static void prism2_send_mgmt(struct net_device *dev , u16 type_subtype , char *b
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& hdr->addr1), (void const *)addr, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& hdr->addr1), (void const *)addr, __len___0);
+    __ret___0 = memcpy((void *)(& hdr->addr1), (void const *)addr, __len___0);
   }
   tmp___5 = ieee80211_is_data((int )hdr->frame_control);
   if (tmp___5 != 0) {
@@ -9532,7 +9532,7 @@ static void prism2_send_mgmt(struct net_device *dev , u16 type_subtype , char *b
       __ret___1 = memcpy((void *)(& hdr->addr2), (void const *)dev->dev_addr,
                            __len___1);
     } else {
-      __ret___1 = __builtin_memcpy((void *)(& hdr->addr2), (void const *)dev->dev_addr,
+      __ret___1 = memcpy((void *)(& hdr->addr2), (void const *)dev->dev_addr,
                                    __len___1);
     }
     __len___2 = 6UL;
@@ -9540,7 +9540,7 @@ static void prism2_send_mgmt(struct net_device *dev , u16 type_subtype , char *b
       __ret___2 = memcpy((void *)(& hdr->addr3), (void const *)dev->dev_addr,
                            __len___2);
     } else {
-      __ret___2 = __builtin_memcpy((void *)(& hdr->addr3), (void const *)dev->dev_addr,
+      __ret___2 = memcpy((void *)(& hdr->addr3), (void const *)dev->dev_addr,
                                    __len___2);
     }
   } else {
@@ -9554,7 +9554,7 @@ static void prism2_send_mgmt(struct net_device *dev , u16 type_subtype , char *b
         __ret___3 = memcpy((void *)(& hdr->addr2), (void const *)dev->dev_addr,
                              __len___3);
       } else {
-        __ret___3 = __builtin_memcpy((void *)(& hdr->addr2), (void const *)dev->dev_addr,
+        __ret___3 = memcpy((void *)(& hdr->addr2), (void const *)dev->dev_addr,
                                      __len___3);
       }
       __len___4 = 6UL;
@@ -9562,7 +9562,7 @@ static void prism2_send_mgmt(struct net_device *dev , u16 type_subtype , char *b
         __ret___4 = memcpy((void *)(& hdr->addr3), (void const *)dev->dev_addr,
                              __len___4);
       } else {
-        __ret___4 = __builtin_memcpy((void *)(& hdr->addr3), (void const *)dev->dev_addr,
+        __ret___4 = memcpy((void *)(& hdr->addr3), (void const *)dev->dev_addr,
                                      __len___4);
       }
     }
@@ -9798,7 +9798,7 @@ static struct sta_info *ap_add_sta(struct ap_data *ap , u8 *addr )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& sta->addr), (void const *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& sta->addr), (void const *)addr, __len);
+    __ret = memcpy((void *)(& sta->addr), (void const *)addr, __len);
   }
   atomic_inc(& sta->users);
   spin_lock_bh(& ap->sta_table_lock);
@@ -9815,7 +9815,7 @@ static struct sta_info *ap_add_sta(struct ap_data *ap , u8 *addr )
         __ret___0 = memcpy((void *)(& entry->addr), (void const *)(& sta->addr),
                              __len___0);
       } else {
-        __ret___0 = __builtin_memcpy((void *)(& entry->addr), (void const *)(& sta->addr),
+        __ret___0 = memcpy((void *)(& entry->addr), (void const *)(& sta->addr),
                                      __len___0);
       }
       entry->next = ap->add_sta_proc_entries;
@@ -10220,7 +10220,7 @@ static void handle_authen(local_info_t *local , struct sk_buff *skb , struct hos
     if (__len > 63UL) {
       __ret = memcpy((void *)pos, (void const *)sta->u.sta.challenge, __len);
     } else {
-      __ret = __builtin_memcpy((void *)pos, (void const *)sta->u.sta.challenge,
+      __ret = memcpy((void *)pos, (void const *)sta->u.sta.challenge,
                                __len);
     }
     olen = olen + 130;
@@ -10319,7 +10319,7 @@ static void handle_assoc(local_info_t *local , struct sk_buff *skb , struct host
     if (__len > 63UL) {
       __ret = memcpy((void *)(& prev_ap), (void const *)pos, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& prev_ap), (void const *)pos, __len);
+      __ret = memcpy((void *)(& prev_ap), (void const *)pos, __len);
     }
     pos = pos + 1;
     pos = pos + 1;
@@ -10374,7 +10374,7 @@ static void handle_assoc(local_info_t *local , struct sk_buff *skb , struct host
       }
       memset((void *)(& sta->supported_rates), 0, 32UL);
       __len___0 = (size_t )ileft;
-      __ret___0 = __builtin_memcpy((void *)(& sta->supported_rates), (void const *)u,
+      __ret___0 = memcpy((void *)(& sta->supported_rates), (void const *)u,
                                    __len___0);
       prism2_check_tx_rates(sta);
       u = u + (unsigned long )ileft;
@@ -10942,7 +10942,7 @@ static void handle_beacon(local_info_t *local , struct sk_buff *skb , struct hos
   if ((unsigned long )ssid != (unsigned long )((char *)0)) {
     sta->u.ap.ssid_len = ssid_len;
     __len = (size_t )ssid_len;
-    __ret = __builtin_memcpy((void *)(& sta->u.ap.ssid), (void const *)ssid, __len);
+    __ret = memcpy((void *)(& sta->u.ap.ssid), (void const *)ssid, __len);
     sta->u.ap.ssid[ssid_len] = 0U;
   } else {
     sta->u.ap.ssid_len = 0;
@@ -10960,7 +10960,7 @@ static void handle_beacon(local_info_t *local , struct sk_buff *skb , struct hos
   if (new_sta != 0) {
     memset((void *)(& sta->supported_rates), 0, 32UL);
     __len___0 = (size_t )supp_rates_len;
-    __ret___0 = __builtin_memcpy((void *)(& sta->supported_rates), (void const *)supp_rates,
+    __ret___0 = memcpy((void *)(& sta->supported_rates), (void const *)supp_rates,
                                  __len___0);
     prism2_check_tx_rates(sta);
   } else {
@@ -11141,14 +11141,14 @@ static void schedule_packet_send(local_info_t *local , struct sta_info *sta )
     __ret = memcpy((void *)(& hdr->addr1), (void const *)(local->dev)->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& hdr->addr1), (void const *)(local->dev)->dev_addr,
+    __ret = memcpy((void *)(& hdr->addr1), (void const *)(local->dev)->dev_addr,
                              __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& hdr->addr2), (void const *)(& sta->addr), __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& hdr->addr2), (void const *)(& sta->addr),
+    __ret___0 = memcpy((void *)(& hdr->addr2), (void const *)(& sta->addr),
                                  __len___0);
   }
   hdr->duration_id = (unsigned int )sta->aid | 49152U;
@@ -11184,7 +11184,7 @@ int prism2_ap_get_sta_qual(local_info_t *local , struct sockaddr *addr , struct 
     __ret = memcpy((void *)(& (addr + (unsigned long )count)->sa_data), (void const *)(& sta->addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (addr + (unsigned long )count)->sa_data),
+    __ret = memcpy((void *)(& (addr + (unsigned long )count)->sa_data),
                              (void const *)(& sta->addr), __len);
   }
   if ((int )sta->last_rx_silence == 0) {
@@ -11253,7 +11253,7 @@ int prism2_ap_translate_scan(struct net_device *dev , struct iw_request_info *in
     __ret = memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const *)(& sta->addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const *)(& sta->addr),
+    __ret = memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const *)(& sta->addr),
                              __len);
   }
   iwe.len = 24U;
@@ -12145,7 +12145,7 @@ void hostap_wds_link_oper(local_info_t *local , u8 *addr , wds_oper_type type )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& entry->addr), (void const *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& entry->addr), (void const *)addr, __len);
+    __ret = memcpy((void *)(& entry->addr), (void const *)addr, __len);
   }
   entry->type = type;
   spin_lock_bh(& local->lock);
@@ -12465,7 +12465,7 @@ static void prism2_host_roaming(local_info_t *local )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& req.bssid), (void const *)(& selected->bssid), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& req.bssid), (void const *)(& selected->bssid),
+    __ret = memcpy((void *)(& req.bssid), (void const *)(& selected->bssid),
                              __len);
   }
   req.channel = selected->chid;
@@ -12530,7 +12530,7 @@ static void prism2_info_scanresults(local_info_t *local , unsigned char *buf , i
     __ret = memcpy((void *)results + (unsigned long )i, (void const *)res + (unsigned long )i,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)results + (unsigned long )i, (void const *)res + (unsigned long )i,
+    __ret = memcpy((void *)results + (unsigned long )i, (void const *)res + (unsigned long )i,
                              __len);
   }
   (results + (unsigned long )i)->atim = 0U;
@@ -12606,7 +12606,7 @@ static void prism2_info_hostscanresults(local_info_t *local , unsigned char *buf
   goto ldv_39936;
   ldv_39935:
   __len = (size_t )copy_len;
-  __ret = __builtin_memcpy((void *)results + (unsigned long )i, (void const *)ptr,
+  __ret = memcpy((void *)results + (unsigned long )i, (void const *)ptr,
                            __len);
   ptr = ptr + (unsigned long )result_size;
   left = left - result_size;
@@ -12715,7 +12715,7 @@ static void handle_info_queue_linkstatus(local_info_t *local )
       __ret = memcpy((void *)(& wrqu.ap_addr.sa_data), (void const *)(& local->bssid),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& wrqu.ap_addr.sa_data), (void const *)(& local->bssid),
+      __ret = memcpy((void *)(& wrqu.ap_addr.sa_data), (void const *)(& local->bssid),
                                __len);
     }
   } else {
@@ -13054,11 +13054,11 @@ __inline static char *iwe_stream_add_value(struct iw_request_info *info , char *
                              1L);
   if (tmp___0 != 0L) {
     __len = (size_t )event_len;
-    __ret = __builtin_memcpy((void *)value, (void const *)(& iwe->u), __len);
+    __ret = memcpy((void *)value, (void const *)(& iwe->u), __len);
     value = value + (unsigned long )event_len;
     iwe->len = (int )((__u16 )((long )value)) - (int )((__u16 )((long )event));
     __len___0 = (size_t )lcp_len;
-    __ret___0 = __builtin_memcpy((void *)event, (void const *)iwe, __len___0);
+    __ret___0 = memcpy((void *)event, (void const *)iwe, __len___0);
   } else {
   }
   return (value);
@@ -13157,7 +13157,7 @@ static int prism2_get_datarates(struct net_device *dev , u8 *rates )
   } else {
   }
   __len = (size_t )val;
-  __ret = __builtin_memcpy((void *)rates, (void const *)(& buf) + 2U, __len);
+  __ret = memcpy((void *)rates, (void const *)(& buf) + 2U, __len);
   return ((int )val);
 }
 }
@@ -13655,10 +13655,10 @@ static int prism2_ioctl_giwaplist(struct net_device *dev , struct iw_request_inf
   tmp___2 = prism2_ap_get_sta_qual(local, addr, qual, 64, 1);
   data->length = (__u16 )tmp___2;
   __len = (unsigned long )data->length * 16UL;
-  __ret = __builtin_memcpy((void *)extra, (void const *)(& addr), __len);
+  __ret = memcpy((void *)extra, (void const *)(& addr), __len);
   data->flags = 1U;
   __len___0 = (unsigned long )data->length * 4UL;
-  __ret___0 = __builtin_memcpy((void *)(extra + (unsigned long )data->length * 16UL),
+  __ret___0 = memcpy((void *)(extra + (unsigned long )data->length * 16UL),
                                (void const *)(& qual), __len___0);
   kfree((void const *)addr);
   kfree((void const *)qual);
@@ -13799,7 +13799,7 @@ static int hostap_join_ap(struct net_device *dev )
     __ret = memcpy((void *)(& req.bssid), (void const *)(& local->preferred_ap),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& req.bssid), (void const *)(& local->preferred_ap),
+    __ret = memcpy((void *)(& req.bssid), (void const *)(& local->preferred_ap),
                              __len);
   }
   req.channel = 0U;
@@ -13858,7 +13858,7 @@ static int prism2_ioctl_siwap(struct net_device *dev , struct iw_request_info *i
     __ret = memcpy((void *)(& local->preferred_ap), (void const *)(& ap_addr->sa_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& local->preferred_ap), (void const *)(& ap_addr->sa_data),
+    __ret = memcpy((void *)(& local->preferred_ap), (void const *)(& ap_addr->sa_data),
                              __len);
   }
   if (local->host_roaming == 1 && local->iw_mode == 2) {
@@ -13911,7 +13911,7 @@ static int prism2_ioctl_giwap(struct net_device *dev , struct iw_request_info *i
     __ret = memcpy((void *)(& ap_addr->sa_data), (void const *)dev->dev_addr,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& ap_addr->sa_data), (void const *)dev->dev_addr,
+    __ret = memcpy((void *)(& ap_addr->sa_data), (void const *)dev->dev_addr,
                              __len);
   }
   goto ldv_40837;
@@ -13921,7 +13921,7 @@ static int prism2_ioctl_giwap(struct net_device *dev , struct iw_request_info *i
     __ret___0 = memcpy((void *)(& ap_addr->sa_data), (void const *)(& local->assoc_ap_addr),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& ap_addr->sa_data), (void const *)(& local->assoc_ap_addr),
+    __ret___0 = memcpy((void *)(& ap_addr->sa_data), (void const *)(& local->assoc_ap_addr),
                                  __len___0);
   }
   goto ldv_40837;
@@ -13931,7 +13931,7 @@ static int prism2_ioctl_giwap(struct net_device *dev , struct iw_request_info *i
     __ret___1 = memcpy((void *)(& ap_addr->sa_data), (void const *)(& iface->u.wds.remote_addr),
                          __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& ap_addr->sa_data), (void const *)(& iface->u.wds.remote_addr),
+    __ret___1 = memcpy((void *)(& ap_addr->sa_data), (void const *)(& iface->u.wds.remote_addr),
                                  __len___1);
   }
   goto ldv_40837;
@@ -13947,7 +13947,7 @@ static int prism2_ioctl_giwap(struct net_device *dev , struct iw_request_info *i
     __ret___2 = memcpy((void *)(& local->bssid), (void const *)(& ap_addr->sa_data),
                          __len___2);
   } else {
-    __ret___2 = __builtin_memcpy((void *)(& local->bssid), (void const *)(& ap_addr->sa_data),
+    __ret___2 = memcpy((void *)(& local->bssid), (void const *)(& ap_addr->sa_data),
                                  __len___2);
   }
   goto ldv_40837;
@@ -13971,7 +13971,7 @@ static int prism2_ioctl_siwnickn(struct net_device *dev , struct iw_request_info
   local = iface->local;
   memset((void *)(& local->name), 0, 33UL);
   __len = (size_t )data->length;
-  __ret = __builtin_memcpy((void *)(& local->name), (void const *)nickname, __len);
+  __ret = memcpy((void *)(& local->name), (void const *)nickname, __len);
   local->name_set = 1;
   tmp___0 = hostap_set_string(dev, 64526, (char const *)(& local->name));
   if (tmp___0 != 0) {
@@ -14009,7 +14009,7 @@ static int prism2_ioctl_giwnickn(struct net_device *dev , struct iw_request_info
   name[(int )val + 2] = 0;
   data->length = (unsigned int )val + 1U;
   __len = (size_t )((int )val + 1);
-  __ret = __builtin_memcpy((void *)nickname, (void const *)(& name) + 2U, __len);
+  __ret = memcpy((void *)nickname, (void const *)(& name) + 2U, __len);
   return (0);
 }
 }
@@ -14137,7 +14137,7 @@ static int prism2_ioctl_siwessid(struct net_device *dev , struct iw_request_info
   } else {
   }
   __len = (size_t )data->length;
-  __ret = __builtin_memcpy((void *)(& local->essid), (void const *)ssid, __len);
+  __ret = memcpy((void *)(& local->essid), (void const *)ssid, __len);
   local->essid[(int )data->length] = 0;
   if (local->fw_ap == 0) {
     tmp___0 = hostap_set_string(dev, 64514, (char const *)(& local->essid));
@@ -14191,7 +14191,7 @@ static int prism2_ioctl_giwessid(struct net_device *dev , struct iw_request_info
     if (__len > 63UL) {
       __ret = memcpy((void *)essid, (void const *)(& local->essid), __len);
     } else {
-      __ret = __builtin_memcpy((void *)essid, (void const *)(& local->essid), __len);
+      __ret = memcpy((void *)essid, (void const *)(& local->essid), __len);
     }
   } else {
     memset((void *)(& ssid), 0, 34UL);
@@ -14206,7 +14206,7 @@ static int prism2_ioctl_giwessid(struct net_device *dev , struct iw_request_info
     if (__len___0 > 63UL) {
       __ret___0 = memcpy((void *)essid, (void const *)(& ssid) + 2U, __len___0);
     } else {
-      __ret___0 = __builtin_memcpy((void *)essid, (void const *)(& ssid) + 2U, __len___0);
+      __ret___0 = memcpy((void *)essid, (void const *)(& ssid) + 2U, __len___0);
     }
   }
   return (0);
@@ -14797,7 +14797,7 @@ static int prism2_request_hostscan(struct net_device *dev , u8 *ssid , u8 ssid_l
     }
     scan_req.target_ssid_len = (unsigned short )ssid_len;
     __len = (size_t )ssid_len;
-    __ret = __builtin_memcpy((void *)(& scan_req.target_ssid), (void const *)ssid,
+    __ret = memcpy((void *)(& scan_req.target_ssid), (void const *)ssid,
                              __len);
   } else {
   }
@@ -14934,7 +14934,7 @@ static char *__prism2_translate_scan(local_info_t *local , struct iw_request_inf
   if (__len > 63UL) {
     __ret = memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const *)bssid, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const *)bssid,
+    __ret = memcpy((void *)(& iwe.u.ap_addr.sa_data), (void const *)bssid,
                              __len);
   }
   current_ev = iwe_stream_add_event(info, current_ev, end_buf, & iwe, 24);
@@ -16326,7 +16326,7 @@ static int prism2_set_genericelement(struct net_device *dev , u8 *elem , size_t 
   }
   *((__le16 *)buf) = (unsigned short )len;
   __len = len;
-  __ret = __builtin_memcpy((void *)buf + 2U, (void const *)elem, __len);
+  __ret = memcpy((void *)buf + 2U, (void const *)elem, __len);
   kfree((void const *)local->generic_elem);
   local->generic_elem = buf;
   local->generic_elem_len = len + 2UL;
@@ -16981,7 +16981,7 @@ static int prism2_ioctl_get_encryption(local_info_t *local , struct prism2_hosta
     if (__len > 63UL) {
       __ret = memcpy((void *)(& param->u.crypt.alg), (void const *)"none", __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& param->u.crypt.alg), (void const *)"none",
+      __ret = memcpy((void *)(& param->u.crypt.alg), (void const *)"none",
                                __len);
     }
     param->u.crypt.key_len = 0U;
@@ -17054,7 +17054,7 @@ static int prism2_ioctl_set_assoc_ap_addr(local_info_t *local , struct prism2_ho
     __ret = memcpy((void *)(& local->assoc_ap_addr), (void const *)(& param->sta_addr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& local->assoc_ap_addr), (void const *)(& param->sta_addr),
+    __ret = memcpy((void *)(& local->assoc_ap_addr), (void const *)(& param->sta_addr),
                              __len);
   }
   return (0);
@@ -17092,7 +17092,7 @@ static int prism2_ioctl_giwgenie(struct net_device *dev , struct iw_request_info
   }
   data->length = (__u16 )len;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)extra, (void const *)local->generic_elem + 2U,
+  __ret = memcpy((void *)extra, (void const *)local->generic_elem + 2U,
                            __len);
   return (0);
 }
@@ -17818,7 +17818,7 @@ struct net_device *hostap_add_interface(struct local_info *local , int type , in
   if (__len > 63UL) {
     __ret = memcpy((void *)dev->dev_addr, (void const *)mdev->dev_addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)dev->dev_addr, (void const *)mdev->dev_addr,
+    __ret = memcpy((void *)dev->dev_addr, (void const *)mdev->dev_addr,
                              __len);
   }
   dev->base_addr = mdev->base_addr;
@@ -17949,7 +17949,7 @@ int prism2_wds_add(local_info_t *local , u8 *remote_addr , int rtnl_locked )
         __ret = memcpy((void *)(& empty->u.wds.remote_addr), (void const *)remote_addr,
                          __len);
       } else {
-        __ret = __builtin_memcpy((void *)(& empty->u.wds.remote_addr), (void const *)remote_addr,
+        __ret = memcpy((void *)(& empty->u.wds.remote_addr), (void const *)remote_addr,
                                  __len);
       }
       _raw_read_unlock_bh(& local->iface_lock);
@@ -17993,7 +17993,7 @@ int prism2_wds_add(local_info_t *local , u8 *remote_addr , int rtnl_locked )
     __ret___0 = memcpy((void *)(& iface->u.wds.remote_addr), (void const *)remote_addr,
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& iface->u.wds.remote_addr), (void const *)remote_addr,
+    __ret___0 = memcpy((void *)(& iface->u.wds.remote_addr), (void const *)remote_addr,
                                  __len___0);
   }
   local->wds_connections = local->wds_connections + 1;
@@ -18162,7 +18162,7 @@ int hostap_set_string(struct net_device *dev , int rid , char const *val )
   memset((void *)(& buf), 0, 34UL);
   buf[0] = (char )len;
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& buf) + 2U, (void const *)val, __len);
+  __ret = memcpy((void *)(& buf) + 2U, (void const *)val, __len);
   tmp___1 = (*(((iface->local)->func)->set_rid))(dev, (int )((u16 )rid), (void *)(& buf),
                                                  34);
   return (tmp___1);
@@ -18480,7 +18480,7 @@ static int hostap_80211_header_parse(struct sk_buff const *skb , unsigned char *
     __ret = memcpy((void *)haddr, (void const *)tmp + 10U, __len);
   } else {
     tmp___0 = skb_mac_header(skb);
-    __ret = __builtin_memcpy((void *)haddr, (void const *)tmp___0 + 10U, __len);
+    __ret = memcpy((void *)haddr, (void const *)tmp___0 + 10U, __len);
   }
   return (6);
 }
@@ -18682,7 +18682,7 @@ static int prism2_set_mac_address(struct net_device *dev , void *p )
     __ret = memcpy((void *)(iface->dev)->dev_addr, (void const *)(& addr->sa_data),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(iface->dev)->dev_addr, (void const *)(& addr->sa_data),
+    __ret = memcpy((void *)(iface->dev)->dev_addr, (void const *)(& addr->sa_data),
                              __len);
   }
   ptr = ptr->next;
@@ -18698,7 +18698,7 @@ static int prism2_set_mac_address(struct net_device *dev , void *p )
     __ret___0 = memcpy((void *)(local->dev)->dev_addr, (void const *)(& addr->sa_data),
                          __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(local->dev)->dev_addr, (void const *)(& addr->sa_data),
+    __ret___0 = memcpy((void *)(local->dev)->dev_addr, (void const *)(& addr->sa_data),
                                  __len___0);
   }
   _raw_read_unlock_bh(& local->iface_lock);
@@ -18999,25 +18999,25 @@ int prism2_sta_send_mgmt(local_info_t *local , u8 *dst , u16 stype , u8 *body , 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& mgmt->da), (void const *)dst, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& mgmt->da), (void const *)dst, __len);
+    __ret = memcpy((void *)(& mgmt->da), (void const *)dst, __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& mgmt->sa), (void const *)dev->dev_addr, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& mgmt->sa), (void const *)dev->dev_addr,
+    __ret___0 = memcpy((void *)(& mgmt->sa), (void const *)dev->dev_addr,
                                  __len___0);
   }
   __len___1 = 6UL;
   if (__len___1 > 63UL) {
     __ret___1 = memcpy((void *)(& mgmt->bssid), (void const *)dst, __len___1);
   } else {
-    __ret___1 = __builtin_memcpy((void *)(& mgmt->bssid), (void const *)dst, __len___1);
+    __ret___1 = memcpy((void *)(& mgmt->bssid), (void const *)dst, __len___1);
   }
   if ((unsigned long )body != (unsigned long )((u8 *)0)) {
     __len___2 = bodylen;
     tmp___1 = skb_put(skb, (unsigned int )bodylen);
-    __ret___2 = __builtin_memcpy((void *)tmp___1, (void const *)body, __len___2);
+    __ret___2 = memcpy((void *)tmp___1, (void const *)body, __len___2);
   } else {
   }
   meta = (struct hostap_skb_tx_data *)(& skb->cb);
@@ -20253,7 +20253,7 @@ static int prism2_pda_proc_read(char *page , char **start , off_t off , int coun
   } else {
   }
   __len = (size_t )count;
-  __ret = __builtin_memcpy((void *)page, (void const *)local->pda + (unsigned long )off,
+  __ret = memcpy((void *)page, (void const *)local->pda + (unsigned long )off,
                            __len);
   return (count);
 }

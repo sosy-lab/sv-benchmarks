@@ -2537,6 +2537,7 @@ static int onenand_check_overwrite(void *dest , void *src , size_t count )
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void onenand_data_handle(struct onenand_chip *this , int cmd , int dataram ,
                                 unsigned int offset ) 
 { struct mtd_info *mtd ;
@@ -2834,7 +2835,7 @@ static void onenand_data_handle(struct onenand_chip *this , int cmd , int datara
       __cil_tmp63 = *((uint32_t *)__cil_tmp62);
       __len = (size_t )__cil_tmp63;
       __cil_tmp64 = (void const   *)src;
-      __ret = __builtin_memcpy(dest, __cil_tmp64, __len);
+      __ret = memcpy(dest, __cil_tmp64, __len);
       }
       case_19: /* CIL Label */ 
       {
@@ -2858,7 +2859,7 @@ static void onenand_data_handle(struct onenand_chip *this , int cmd , int datara
       __cil_tmp80 = *((uint32_t *)__cil_tmp79);
       __len___0 = (size_t )__cil_tmp80;
       __cil_tmp81 = (void const   *)src;
-      __ret___0 = __builtin_memcpy(dest, __cil_tmp81, __len___0);
+      __ret___0 = memcpy(dest, __cil_tmp81, __len___0);
       }
       goto ldv_18966;
       case_128: /* CIL Label */ 
@@ -2953,7 +2954,7 @@ static void onenand_data_handle(struct onenand_chip *this , int cmd , int datara
       __cil_tmp128 = (unsigned long )off;
       __cil_tmp129 = (void const   *)src;
       __cil_tmp130 = __cil_tmp129 + __cil_tmp128;
-      __ret___1 = __builtin_memcpy(__cil_tmp127, __cil_tmp130, __len___1);
+      __ret___1 = memcpy(__cil_tmp127, __cil_tmp130, __len___1);
       }
       ldv_18978: 
       i = i + 1U;
@@ -3034,7 +3035,7 @@ static void onenand_data_handle(struct onenand_chip *this , int cmd , int datara
       __cil_tmp167 = *((uint32_t *)__cil_tmp166);
       __len___2 = (size_t )__cil_tmp167;
       __cil_tmp168 = (void const   *)src;
-      __ret___2 = __builtin_memcpy(dest, __cil_tmp168, __len___2);
+      __ret___2 = memcpy(dest, __cil_tmp168, __len___2);
       }
       goto ldv_18966;
       case_148: /* CIL Label */ ;

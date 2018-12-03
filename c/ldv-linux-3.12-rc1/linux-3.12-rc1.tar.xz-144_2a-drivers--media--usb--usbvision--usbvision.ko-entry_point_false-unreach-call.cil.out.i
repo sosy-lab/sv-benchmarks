@@ -5345,19 +5345,19 @@ static int scratch_put(struct usb_usbvision *usbvision , unsigned char *data , i
   {
   if (usbvision->scratch_write_ptr + len < (int )scratch_buf_size) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)usbvision->scratch + (unsigned long )usbvision->scratch_write_ptr,
+    __ret = memcpy((void *)usbvision->scratch + (unsigned long )usbvision->scratch_write_ptr,
                              (void const *)data, __len);
     usbvision->scratch_write_ptr = usbvision->scratch_write_ptr + len;
   } else {
     len_part = (int )scratch_buf_size - usbvision->scratch_write_ptr;
     __len___0 = (size_t )len_part;
-    __ret___0 = __builtin_memcpy((void *)usbvision->scratch + (unsigned long )usbvision->scratch_write_ptr,
+    __ret___0 = memcpy((void *)usbvision->scratch + (unsigned long )usbvision->scratch_write_ptr,
                                  (void const *)data, __len___0);
     if (len == len_part) {
       usbvision->scratch_write_ptr = 0;
     } else {
       __len___1 = (size_t )(len - len_part);
-      __ret___1 = __builtin_memcpy((void *)usbvision->scratch, (void const *)data + (unsigned long )len_part,
+      __ret___1 = memcpy((void *)usbvision->scratch, (void const *)data + (unsigned long )len_part,
                                    __len___1);
       usbvision->scratch_write_ptr = len - len_part;
     }
@@ -5397,19 +5397,19 @@ static int scratch_get_extra(struct usb_usbvision *usbvision , unsigned char *da
   {
   if (*ptr + len < (int )scratch_buf_size) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)data, (void const *)usbvision->scratch + (unsigned long )*ptr,
+    __ret = memcpy((void *)data, (void const *)usbvision->scratch + (unsigned long )*ptr,
                              __len);
     *ptr = *ptr + len;
   } else {
     len_part = (int )scratch_buf_size - *ptr;
     __len___0 = (size_t )len_part;
-    __ret___0 = __builtin_memcpy((void *)data, (void const *)usbvision->scratch + (unsigned long )*ptr,
+    __ret___0 = memcpy((void *)data, (void const *)usbvision->scratch + (unsigned long )*ptr,
                                  __len___0);
     if (len == len_part) {
       *ptr = 0;
     } else {
       __len___1 = (size_t )(len - len_part);
-      __ret___1 = __builtin_memcpy((void *)data + (unsigned long )len_part, (void const *)usbvision->scratch,
+      __ret___1 = memcpy((void *)data + (unsigned long )len_part, (void const *)usbvision->scratch,
                                    __len___1);
       *ptr = len - len_part;
     }
@@ -5456,19 +5456,19 @@ static int scratch_get(struct usb_usbvision *usbvision , unsigned char *data , i
   {
   if (usbvision->scratch_read_ptr + len < (int )scratch_buf_size) {
     __len = (size_t )len;
-    __ret = __builtin_memcpy((void *)data, (void const *)usbvision->scratch + (unsigned long )usbvision->scratch_read_ptr,
+    __ret = memcpy((void *)data, (void const *)usbvision->scratch + (unsigned long )usbvision->scratch_read_ptr,
                              __len);
     usbvision->scratch_read_ptr = usbvision->scratch_read_ptr + len;
   } else {
     len_part = (int )scratch_buf_size - usbvision->scratch_read_ptr;
     __len___0 = (size_t )len_part;
-    __ret___0 = __builtin_memcpy((void *)data, (void const *)usbvision->scratch + (unsigned long )usbvision->scratch_read_ptr,
+    __ret___0 = memcpy((void *)data, (void const *)usbvision->scratch + (unsigned long )usbvision->scratch_read_ptr,
                                  __len___0);
     if (len == len_part) {
       usbvision->scratch_read_ptr = 0;
     } else {
       __len___1 = (size_t )(len - len_part);
-      __ret___1 = __builtin_memcpy((void *)data + (unsigned long )len_part, (void const *)usbvision->scratch,
+      __ret___1 = memcpy((void *)data + (unsigned long )len_part, (void const *)usbvision->scratch,
                                    __len___1);
       usbvision->scratch_read_ptr = len - len_part;
     }
@@ -7017,7 +7017,7 @@ static int usbvision_write_reg_irq(struct usb_usbvision *usbvision , int address
                        (void *)(& usbvision->ctrl_urb_buffer), len, & usbvision_ctrl_urb_complete,
                        (void *)usbvision);
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)(& usbvision->ctrl_urb_buffer), (void const *)data,
+  __ret = memcpy((void *)(& usbvision->ctrl_urb_buffer), (void const *)data,
                            __len);
   err_code = ldv_usb_submit_urb_4(usbvision->ctrl_urb, 32U);
   if (err_code < 0) {
@@ -7320,7 +7320,7 @@ static int usbvision_init_webcam(struct usb_usbvision *usbvision )
     __ret = memcpy((void *)(& value), (void const *)(& init_values) + (unsigned long )i,
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& value), (void const *)(& init_values) + (unsigned long )i,
+    __ret = memcpy((void *)(& value), (void const *)(& init_values) + (unsigned long )i,
                              __len);
   }
   tmp = __create_pipe(usbvision->dev, 1U);

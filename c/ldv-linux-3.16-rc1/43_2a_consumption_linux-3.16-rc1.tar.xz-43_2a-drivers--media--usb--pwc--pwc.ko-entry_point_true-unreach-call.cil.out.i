@@ -6331,7 +6331,7 @@ static void pwc_isoc_handler(struct urb *urb )
       pdev->vsync = 0;
     } else {
       __len = (size_t )flen;
-      __ret = __builtin_memcpy(fbuf->data + (unsigned long )fbuf->filled, (void const *)iso_buf,
+      __ret = memcpy(fbuf->data + (unsigned long )fbuf->filled, (void const *)iso_buf,
                                __len);
       fbuf->filled = fbuf->filled + flen;
     }
@@ -7937,13 +7937,13 @@ __inline static int send_video_command(struct pwc_device *pdev , int index , uns
   void *__ret___0 ;
   {
   __len = (size_t )buflen;
-  __ret = __builtin_memcpy((void *)pdev->ctrl_buf, (void const *)buf, __len);
+  __ret = memcpy((void *)pdev->ctrl_buf, (void const *)buf, __len);
   tmp = __create_pipe(pdev->udev, 0U);
   rc = usb_control_msg(pdev->udev, tmp | 2147483648U, 7, 64, 256, (int )((__u16 )index),
                        (void *)pdev->ctrl_buf, (int )((__u16 )buflen), 5000);
   if (rc >= 0) {
     __len___0 = (size_t )buflen;
-    __ret___0 = __builtin_memcpy((void *)(& pdev->cmd_buf), (void const *)buf, __len___0);
+    __ret___0 = memcpy((void *)(& pdev->cmd_buf), (void const *)buf, __len___0);
   } else {
     printk("\vpwc: send_video_command error %d\n", rc);
   }
@@ -9963,11 +9963,11 @@ int pwc_decompress(struct pwc_device *pdev , struct pwc_frame_buf *fbuf )
       __ret = memcpy((void *)(& raw_frame->cmd), (void const *)(& pdev->cmd_buf),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& raw_frame->cmd), (void const *)(& pdev->cmd_buf),
+      __ret = memcpy((void *)(& raw_frame->cmd), (void const *)(& pdev->cmd_buf),
                                __len);
     }
     __len___0 = (size_t )pdev->frame_size;
-    __ret___0 = __builtin_memcpy((void *)raw_frame + 1U, (void const *)yuv, __len___0);
+    __ret___0 = memcpy((void *)raw_frame + 1U, (void const *)yuv, __len___0);
     vb2_set_plane_payload(& fbuf->vb, 0U, (unsigned long )pdev->frame_size + 8UL);
     return (0);
   } else {
@@ -10100,7 +10100,7 @@ static void build_subblock_pattern(struct pwc_dec23_private *pdec )
     __ret = memcpy((void *)(& temp_values), (void const *)(& initial_values),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& temp_values), (void const *)(& initial_values),
+    __ret = memcpy((void *)(& temp_values), (void const *)(& initial_values),
                              __len);
   }
   i = 0;

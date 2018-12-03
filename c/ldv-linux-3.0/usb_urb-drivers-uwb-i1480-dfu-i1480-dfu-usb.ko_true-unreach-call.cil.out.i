@@ -4126,6 +4126,7 @@ int i1480_mac_fw_upload(struct i1480 *i1480 )
   return (result);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 static int i1480_mpi_write(struct i1480 *i1480 , void const *data , size_t size )
 { int result ;
@@ -4179,7 +4180,7 @@ static int i1480_mpi_write(struct i1480 *i1480 , void const *data , size_t size 
   cmd->rccb.wCommand = (__u16 )15;
   cmd->size = (__u16 )size;
   __len = size;
-  __ret = __builtin_memcpy((void *)(cmd->data), data, __len);
+  __ret = memcpy((void *)(cmd->data), data, __len);
   reply->rceb.bEventType = (u8 )253;
   reply->rceb.wEvent = (__le16 )15;
   tmp___0 = i1480_cmd(i1480, "MPI-WRITE", sizeof(*cmd) + size, sizeof(*reply));
@@ -4632,7 +4633,7 @@ static int i1480_usb_write(struct i1480 *i1480 , u32 memory_address , void const
     }
     {
     __len = buffer_size;
-    __ret = __builtin_memcpy(i1480->cmd_buf, buffer + itr, __len);
+    __ret = memcpy(i1480->cmd_buf, buffer + itr, __len);
     tmp___8 = __create_pipe(i1480_usb->usb_dev, 0U);
     result = usb_control_msg(i1480_usb->usb_dev, (unsigned int )(2 << 30) | tmp___8,
                              (__u8 )240, (__u8 )(2 << 5), (__u16 )memory_address,

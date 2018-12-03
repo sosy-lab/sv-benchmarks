@@ -4651,6 +4651,7 @@ static int snd_rawmidi_control_ioctl(struct snd_card *card , struct snd_ctl_file
   return (-515);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int snd_rawmidi_receive(struct snd_rawmidi_substream *substream , unsigned char const *buffer ,
                         int count )
 {
@@ -4704,7 +4705,7 @@ int snd_rawmidi_receive(struct snd_rawmidi_substream *substream , unsigned char 
     } else {
     }
     __len = (size_t )count1;
-    __ret = __builtin_memcpy((void *)(runtime->buffer + runtime->hw_ptr), (void const *)buffer,
+    __ret = memcpy((void *)(runtime->buffer + runtime->hw_ptr), (void const *)buffer,
                              __len);
     runtime->hw_ptr = runtime->hw_ptr + (size_t )count1;
     runtime->hw_ptr = runtime->hw_ptr % runtime->buffer_size;
@@ -4721,7 +4722,7 @@ int snd_rawmidi_receive(struct snd_rawmidi_substream *substream , unsigned char 
       }
       if (count1 > 0) {
         __len___0 = (size_t )count1;
-        __ret___0 = __builtin_memcpy((void *)runtime->buffer, (void const *)buffer,
+        __ret___0 = memcpy((void *)runtime->buffer, (void const *)buffer,
                                      __len___0);
         runtime->hw_ptr = (size_t )count1;
         runtime->avail = runtime->avail + (size_t )count1;
@@ -4777,7 +4778,7 @@ static long snd_rawmidi_kernel_read1(struct snd_rawmidi_substream *substream , u
   }
   if ((unsigned long )kernelbuf != (unsigned long )((unsigned char *)0)) {
     __len = (size_t )count1;
-    __ret = __builtin_memcpy((void *)kernelbuf + (unsigned long )result, (void const *)(runtime->buffer + runtime->appl_ptr),
+    __ret = memcpy((void *)kernelbuf + (unsigned long )result, (void const *)(runtime->buffer + runtime->appl_ptr),
                              __len);
   } else {
   }
@@ -4988,7 +4989,7 @@ int snd_rawmidi_transmit_peek(struct snd_rawmidi_substream *substream , unsigned
     } else {
     }
     __len = (size_t )count1;
-    __ret = __builtin_memcpy((void *)buffer, (void const *)(runtime->buffer + runtime->hw_ptr),
+    __ret = memcpy((void *)buffer, (void const *)(runtime->buffer + runtime->hw_ptr),
                              __len);
     count = count - count1;
     result = result + count1;
@@ -4998,7 +4999,7 @@ int snd_rawmidi_transmit_peek(struct snd_rawmidi_substream *substream , unsigned
       } else {
       }
       __len___0 = (size_t )count;
-      __ret___0 = __builtin_memcpy((void *)buffer + (unsigned long )count1, (void const *)runtime->buffer,
+      __ret___0 = memcpy((void *)buffer + (unsigned long )count1, (void const *)runtime->buffer,
                                    __len___0);
       result = result + count;
     } else {
@@ -5142,7 +5143,7 @@ static long snd_rawmidi_kernel_write1(struct snd_rawmidi_substream *substream , 
   }
   if ((unsigned long )kernelbuf != (unsigned long )((unsigned char const *)0)) {
     __len = (size_t )count1;
-    __ret = __builtin_memcpy((void *)(runtime->buffer + runtime->appl_ptr), (void const *)kernelbuf + (unsigned long )result,
+    __ret = memcpy((void *)(runtime->buffer + runtime->appl_ptr), (void const *)kernelbuf + (unsigned long )result,
                              __len);
   } else
   if ((unsigned long )userbuf != (unsigned long )((unsigned char const *)0)) {

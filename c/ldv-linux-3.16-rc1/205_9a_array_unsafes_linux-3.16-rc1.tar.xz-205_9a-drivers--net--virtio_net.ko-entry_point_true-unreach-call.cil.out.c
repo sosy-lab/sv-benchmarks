@@ -6822,7 +6822,7 @@ static struct sk_buff *page_to_skb(struct receive_queue *rq , struct page *page 
     hdr_padded_len = 16U;
   }
   __len = (size_t )hdr_len;
-  __ret = __builtin_memcpy((void *)hdr, (void const   *)p, __len);
+  __ret = memcpy((void *)hdr, (void const   *)p, __len);
   len = len - hdr_len;
   offset = offset + hdr_padded_len;
   p = p + (unsigned long )hdr_padded_len;
@@ -6836,7 +6836,7 @@ static struct sk_buff *page_to_skb(struct receive_queue *rq , struct page *page 
   }
   __len___0 = (size_t )copy;
   tmp___4 = skb_put(skb, copy);
-  __ret___0 = __builtin_memcpy((void *)tmp___4, (void const   *)p, __len___0);
+  __ret___0 = memcpy((void *)tmp___4, (void const   *)p, __len___0);
   len = len - copy;
   offset = offset + copy;
   if ((int )vi->mergeable_rx_bufs) {
@@ -8462,7 +8462,7 @@ static void virtnet_set_rx_mode(struct net_device *dev )
   } else {
     tmp___7 = i;
     i = i + 1;
-    __ret = __builtin_memcpy((void *)(& mac_data->macs) + (unsigned long )tmp___7,
+    __ret = memcpy((void *)(& mac_data->macs) + (unsigned long )tmp___7,
                              (void const   *)(& ha->addr), __len);
   }
   __mptr___0 = (struct list_head  const  *)ha->list.next;
@@ -8490,7 +8490,7 @@ static void virtnet_set_rx_mode(struct net_device *dev )
   } else {
     tmp___9 = i;
     i = i + 1;
-    __ret___0 = __builtin_memcpy((void *)(& mac_data->macs) + (unsigned long )tmp___9,
+    __ret___0 = memcpy((void *)(& mac_data->macs) + (unsigned long )tmp___9,
                                  (void const   *)(& ha->addr), __len___0);
   }
   __mptr___2 = (struct list_head  const  *)ha->list.next;

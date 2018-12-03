@@ -7761,7 +7761,7 @@ static int az6007_read_mac_addr(struct dvb_usb_device *d , u8 *mac )
     __cil_tmp24 = __cil_tmp23 + 440;
     __cil_tmp25 = (unsigned char (*)[4096U])__cil_tmp24;
     __cil_tmp26 = (void const *)__cil_tmp25;
-    __ret = __builtin_memcpy(__cil_tmp22, __cil_tmp26, __len);
+    __ret = memcpy(__cil_tmp22, __cil_tmp26, __len);
     }
   }
   if (ret > 0) {

@@ -9765,6 +9765,7 @@ static int mos7840_write_room(struct tty_struct *tty )
   return (room);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static bool __print_once  ;
 static bool __print_once___0  ;
 static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port , unsigned char const   *data ,
@@ -10264,7 +10265,7 @@ static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port ,
   __cil_tmp97 = __cil_tmp96 + 104;
   __cil_tmp98 = *((void **)__cil_tmp97);
   __cil_tmp99 = (void const   *)current_position;
-  __ret = __builtin_memcpy(__cil_tmp98, __cil_tmp99, __len);
+  __ret = memcpy(__cil_tmp98, __cil_tmp99, __len);
   }
   {
   __cil_tmp100 = (unsigned long )serial;

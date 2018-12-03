@@ -6817,7 +6817,7 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   if (__len > 63UL) {
     __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
+    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const   *)addr,
                              __len);
   }
   return;
@@ -7793,7 +7793,7 @@ static int carl9170_init_interface(struct ar9170 *ar , struct ieee80211_vif *vif
   if (__len > 63UL) {
     __ret = memcpy((void *)(& common->macaddr), (void const   *)(& vif->addr), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& common->macaddr), (void const   *)(& vif->addr),
+    __ret = memcpy((void *)(& common->macaddr), (void const   *)(& vif->addr),
                              __len);
   }
   if (modparam_nohwcrypt != 0 || ((unsigned int )vif->type != 2U && (unsigned int )vif->type != 3U)) {
@@ -8491,7 +8491,7 @@ static void carl9170_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee80
       __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
+      __ret = memcpy((void *)(& common->curbssid), (void const   *)bss_conf->bssid,
                                __len);
     }
     err = carl9170_set_operating_mode(ar);
@@ -8879,7 +8879,7 @@ static int carl9170_op_conf_tx(struct ieee80211_hw *hw , u16 queue , struct ieee
       __ret = memcpy((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
                        (void const   *)param, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
+      __ret = memcpy((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
                                (void const   *)param, __len);
     }
     ret = carl9170_set_qos(ar);
@@ -12963,7 +12963,7 @@ int carl9170_exec_cmd(struct ar9170 *ar , enum carl9170_cmd_oids  const  cmd , u
   ar->__annonCompField58.cmd.hdr.__annonCompField51.__annonCompField50.cmd = (u8 )cmd;
   if (plen != 0U && (unsigned long )((void *)(& ar->__annonCompField58.cmd.__annonCompField52.data)) != (unsigned long )payload) {
     __len = (size_t )plen;
-    __ret = __builtin_memcpy((void *)(& ar->__annonCompField58.cmd.__annonCompField52.data),
+    __ret = memcpy((void *)(& ar->__annonCompField58.cmd.__annonCompField52.data),
                              (void const   *)payload, __len);
   } else {
 
@@ -13137,7 +13137,7 @@ static int carl9170_usb_load_firmware(struct ar9170 *ar )
   __min2 = 4096U;
   transfer = __min1 < __min2 ? __min1 : __min2;
   __len = (size_t )transfer;
-  __ret = __builtin_memcpy((void *)buf, (void const   *)data, __len);
+  __ret = memcpy((void *)buf, (void const   *)data, __len);
   tmp___0 = __create_pipe(ar->udev, 0U);
   err = usb_control_msg(ar->udev, tmp___0 | 2147483648U, 48, 64, (int )((__u16 )(addr >> 8)),
                         0, (void *)buf, (int )((__u16 )transfer), 100);
@@ -16681,11 +16681,11 @@ int carl9170_upload_key(struct ar9170 *ar , u8 const   id , u8 const   *mac , u8
   if (__len > 63UL) {
     __ret = memcpy((void *)(& key.macAddr), (void const   *)mac, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& key.macAddr), (void const   *)mac, __len);
+    __ret = memcpy((void *)(& key.macAddr), (void const   *)mac, __len);
   }
   if ((unsigned long )keydata != (unsigned long )((u8 const   *)0U)) {
     __len___0 = (size_t )keylen;
-    __ret___0 = __builtin_memcpy((void *)(& key.key), (void const   *)keydata, __len___0);
+    __ret___0 = memcpy((void *)(& key.key), (void const   *)keydata, __len___0);
   } else {
 
   }
@@ -23803,7 +23803,7 @@ static void carl9170_cmd_callback(struct ar9170 *ar , u32 len , void *buffer )
   if ((unsigned long )ar->readbuf != (unsigned long )((u8 *)0U)) {
     if (len > 3U) {
       __len = (size_t )(len - 4U);
-      __ret = __builtin_memcpy((void *)ar->readbuf, (void const   *)buffer + 4U, __len);
+      __ret = memcpy((void *)ar->readbuf, (void const   *)buffer + 4U, __len);
     } else {
 
     }
@@ -24238,7 +24238,7 @@ static struct sk_buff *carl9170_rx_copy_data(u8 *buf , int len )
     skb_reserve(skb, reserved);
     __len = (size_t )len;
     tmp___3 = skb_put(skb, (unsigned int )len);
-    __ret = __builtin_memcpy((void *)tmp___3, (void const   *)buf, __len);
+    __ret = memcpy((void *)tmp___3, (void const   *)buf, __len);
   } else {
 
   }
@@ -24479,7 +24479,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
     if (__len > 63UL) {
       __ret = memcpy((void *)(& ar->rx_plcp), (void const   *)buf, __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& ar->rx_plcp), (void const   *)buf, __len);
+      __ret = memcpy((void *)(& ar->rx_plcp), (void const   *)buf, __len);
     }
     mpdu_len = (int )((unsigned int )mpdu_len - 12U);
     buf = buf + 12UL;
@@ -24587,7 +24587,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
     __ret___0 = memcpy((void *)tmp___12, (void const   *)(& status), __len___0);
   } else {
     tmp___13 = IEEE80211_SKB_RXCB(skb);
-    __ret___0 = __builtin_memcpy((void *)tmp___13, (void const   *)(& status), __len___0);
+    __ret___0 = memcpy((void *)tmp___13, (void const   *)(& status), __len___0);
   }
   ieee80211_rx(ar->hw, skb);
   return;
@@ -24726,7 +24726,7 @@ static void carl9170_rx_stream(struct ar9170 *ar , void *buf , unsigned int len 
     }
     __len = (size_t )tlen;
     tmp___2 = skb_put(ar->rx_failover, tlen);
-    __ret = __builtin_memcpy((void *)tmp___2, (void const   *)tbuf, __len);
+    __ret = memcpy((void *)tmp___2, (void const   *)tbuf, __len);
     ar->rx_failover_missing = (int )((unsigned int )ar->rx_failover_missing - tlen);
     if (ar->rx_failover_missing <= 0) {
       ar->rx_failover_missing = 0;
@@ -24754,7 +24754,7 @@ static void carl9170_rx_stream(struct ar9170 *ar , void *buf , unsigned int len 
     }
     __len___0 = (size_t )tlen;
     tmp___5 = skb_put(ar->rx_failover, tlen);
-    __ret___0 = __builtin_memcpy((void *)tmp___5, (void const   *)tbuf, __len___0);
+    __ret___0 = memcpy((void *)tmp___5, (void const   *)tbuf, __len___0);
     ar->rx_failover_missing = (int )(clen - tlen);
     return;
   } else {

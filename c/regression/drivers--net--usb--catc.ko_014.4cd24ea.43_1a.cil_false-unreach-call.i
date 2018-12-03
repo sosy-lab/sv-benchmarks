@@ -4081,7 +4081,7 @@ enum __anonenum_122 {
     LDV_SPIN_UNLOCKED = 0,
     LDV_SPIN_LOCKED = 1
 } ;
-void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
+void *memcpy(void * , void const   * , unsigned long  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
@@ -4267,7 +4267,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy(to, (void const   *)skb->data, __len);
+  __ret = memcpy(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -4279,7 +4279,7 @@ __inline static void skb_copy_to_linear_data(struct sk_buff *skb , void const   
 
   {
   __len = (size_t )len;
-  __ret = __builtin_memcpy((void *)skb->data, from, __len);
+  __ret = memcpy((void *)skb->data, from, __len);
   return;
 }
 }
@@ -4877,7 +4877,7 @@ static void catc_ctrl_run(struct catc *catc )
   urb->dev = usbdev;
   if (((unsigned int )q->dir == 0U && (unsigned long )q->buf != (unsigned long )((void *)0)) && q->len != 0) {
     __len = (size_t )q->len;
-    __ret = __builtin_memcpy((void *)(& catc->ctrl_buf), (void const   *)q->buf, __len);
+    __ret = memcpy((void *)(& catc->ctrl_buf), (void const   *)q->buf, __len);
   } else {
 
   }
@@ -4907,7 +4907,7 @@ static void catc_ctrl_done(struct urb *urb )
   if ((unsigned int )q->dir != 0U) {
     if ((unsigned long )q->buf != (unsigned long )((void *)0) && q->len != 0) {
       __len = (size_t )q->len;
-      __ret = __builtin_memcpy(q->buf, (void const   *)(& catc->ctrl_buf), __len);
+      __ret = memcpy(q->buf, (void const   *)(& catc->ctrl_buf), __len);
     } else {
       q->buf = (void *)(& catc->ctrl_buf);
     }

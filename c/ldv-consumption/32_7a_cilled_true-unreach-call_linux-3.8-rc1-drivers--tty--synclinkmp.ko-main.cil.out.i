@@ -6213,7 +6213,7 @@ static int write(struct tty_struct *tty , unsigned char const *buf , int count )
   } else {
   }
   __len = (size_t )c;
-  __ret = __builtin_memcpy((void *)info->tx_buf + (unsigned long )info->tx_put, (void const *)buf,
+  __ret = memcpy((void *)info->tx_buf + (unsigned long )info->tx_put, (void const *)buf,
                            __len);
   tmp___3 = spinlock_check(& info->lock);
   flags = _raw_spin_lock_irqsave(tmp___3);
@@ -7283,7 +7283,7 @@ static void hdlcdev_rx(SLMP_INFO *info , char *buf , int size )
   }
   __len = (size_t )size;
   tmp___1 = skb_put(skb, (unsigned int )size);
-  __ret = __builtin_memcpy((void *)tmp___1, (void const *)buf, __len);
+  __ret = memcpy((void *)tmp___1, (void const *)buf, __len);
   skb->protocol = hdlc_type_trans(skb, dev);
   dev->stats.rx_packets = dev->stats.rx_packets + 1UL;
   dev->stats.rx_bytes = dev->stats.rx_bytes + (unsigned long )size;
@@ -8435,7 +8435,7 @@ static int set_params(SLMP_INFO *info , MGSL_PARAMS *new_params )
   if (__len > 63UL) {
     __ret = memcpy((void *)(& info->params), (void const *)(& tmp_params), __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& info->params), (void const *)(& tmp_params),
+    __ret = memcpy((void *)(& info->params), (void const *)(& tmp_params),
                              __len);
   }
   spin_unlock_irqrestore(& info->lock, flags);
@@ -9757,7 +9757,7 @@ static SLMP_INFO *alloc_dev(int adapter_num , int port_num , struct pci_dev *pde
       __ret = memcpy((void *)(& info->params), (void const *)(& default_params),
                        __len);
     } else {
-      __ret = __builtin_memcpy((void *)(& info->params), (void const *)(& default_params),
+      __ret = memcpy((void *)(& info->params), (void const *)(& default_params),
                                __len);
     }
     info->idle_mode = 0U;
@@ -9834,7 +9834,7 @@ static void device_init(int adapter_num , struct pci_dev *pdev )
     __ret = memcpy((void *)(& (port_array[port])->port_array), (void const *)(& port_array),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& (port_array[port])->port_array), (void const *)(& port_array),
+    __ret = memcpy((void *)(& (port_array[port])->port_array), (void const *)(& port_array),
                              __len);
   }
   add_device(port_array[port]);
@@ -10743,7 +10743,7 @@ static bool rx_get_frame(SLMP_INFO *info )
       }
       partial_count = tmp___1;
       __len = (size_t )partial_count;
-      __ret = __builtin_memcpy((void *)ptmp, (void const *)info->rx_buf_list_ex[index].virt_addr,
+      __ret = memcpy((void *)ptmp, (void const *)info->rx_buf_list_ex[index].virt_addr,
                                __len);
       ptmp = ptmp + (unsigned long )partial_count;
       copy_count = copy_count - partial_count;
@@ -11370,7 +11370,7 @@ static void load_pci_memory(SLMP_INFO *info , char *dest , char const *src , uns
   goto ldv_42732;
   ldv_42731:
   __len = (size_t )sca_pci_load_interval;
-  __ret = __builtin_memcpy((void *)dest, (void const *)src, __len);
+  __ret = memcpy((void *)dest, (void const *)src, __len);
   read_status_reg(info);
   dest = dest + (unsigned long )sca_pci_load_interval;
   src = src + (unsigned long )sca_pci_load_interval;
@@ -11383,7 +11383,7 @@ static void load_pci_memory(SLMP_INFO *info , char *dest , char const *src , uns
   }
   ldv_42733:
   __len___0 = (size_t )((u32 )count % sca_pci_load_interval);
-  __ret___0 = __builtin_memcpy((void *)dest, (void const *)src, __len___0);
+  __ret___0 = memcpy((void *)dest, (void const *)src, __len___0);
   return;
 }
 }

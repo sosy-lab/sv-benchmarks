@@ -9115,7 +9115,7 @@ static int iwl_alloc_fw_desc(struct iwl_drv *drv , struct fw_desc *desc , struct
   desc->len = (u32 )sec->size;
   desc->offset = sec->offset;
   __len = (size_t )desc->len;
-  __ret = __builtin_memcpy(data, sec->data, __len);
+  __ret = memcpy(data, sec->data, __len);
   desc->data = (void const   *)data;
   return (0);
 }
@@ -11910,7 +11910,7 @@ void iwl_init_notification_wait(struct iwl_notif_wait_data *notif_wait , struct 
   wait_entry->fn_data = fn_data;
   wait_entry->n_cmds = (u8 )n_cmds;
   __len = (size_t )n_cmds;
-  __ret = __builtin_memcpy((void *)(& wait_entry->cmds), (void const   *)cmds, __len);
+  __ret = memcpy((void *)(& wait_entry->cmds), (void const   *)cmds, __len);
   wait_entry->triggered = 0;
   wait_entry->aborted = 0;
   spin_lock_bh(& notif_wait->notif_wait_lock);
@@ -13736,7 +13736,7 @@ struct iwl_nvm_data *iwl_parse_eeprom_data(struct device *dev , struct iwl_cfg  
   if (__len > 63UL) {
     __ret = memcpy((void *)(& data->hw_addr), tmp, __len);
   } else {
-    __ret = __builtin_memcpy((void *)(& data->hw_addr), tmp, __len);
+    __ret = memcpy((void *)(& data->hw_addr), tmp, __len);
   }
   tmp___4 = iwl_eeprom_query16(eeprom, eeprom_size, 152);
   data->n_hw_addrs = (int )tmp___4;
@@ -13757,7 +13757,7 @@ struct iwl_nvm_data *iwl_parse_eeprom_data(struct device *dev , struct iwl_cfg  
   if (__len___0 > 63UL) {
     __ret___0 = memcpy((void *)(& data->xtal_calib), tmp, __len___0);
   } else {
-    __ret___0 = __builtin_memcpy((void *)(& data->xtal_calib), tmp, __len___0);
+    __ret___0 = memcpy((void *)(& data->xtal_calib), tmp, __len___0);
   }
   tmp___7 = iwl_eeprom_query_addr(eeprom, eeprom_size, 1311318U);
   tmp = (void const   *)tmp___7;
@@ -22068,7 +22068,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
   if (((int )cmd->dataflags[i] & 3) == 0) {
     copy___0 = (int )cmd->len[i];
     __len = (size_t )copy___0;
-    __ret = __builtin_memcpy((void *)out_cmd + (unsigned long )cmd_pos, cmd->data[i],
+    __ret = memcpy((void *)out_cmd + (unsigned long )cmd_pos, cmd->data[i],
                              __len);
     cmd_pos = cmd_pos + (u32 )copy___0;
     copy_size = (int )((u16 )copy___0) + (int )copy_size;
@@ -22080,7 +22080,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
   __min2 = (int )cmd->len[i];
   copy___0 = __min1 < __min2 ? __min1 : __min2;
   __len___0 = (size_t )copy___0;
-  __ret___0 = __builtin_memcpy((void *)out_cmd + (unsigned long )cmd_pos, cmd->data[i],
+  __ret___0 = memcpy((void *)out_cmd + (unsigned long )cmd_pos, cmd->data[i],
                                __len___0);
   cmd_pos = cmd_pos + (u32 )copy___0;
   if ((unsigned int )copy_size <= 15U) {
@@ -22110,7 +22110,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
   __min2___0 = 16;
   scratch_size = (u16 )(__min1___0 < __min2___0 ? __min1___0 : __min2___0);
   __len___1 = (size_t )scratch_size;
-  __ret___1 = __builtin_memcpy((void *)txq->scratchbufs + (unsigned long )q->write_ptr,
+  __ret___1 = memcpy((void *)txq->scratchbufs + (unsigned long )q->write_ptr,
                                (void const   *)(& out_cmd->hdr), __len___1);
   tmp___11 = iwl_pcie_get_scratchbuf_dma(txq, q->write_ptr);
   iwl_pcie_txq_build_tfd(trans, txq, tmp___11, (int )scratch_size, 1);
@@ -22684,7 +22684,7 @@ int iwl_trans_pcie_tx(struct iwl_trans *trans , struct sk_buff *skb , struct iwl
     __ret = memcpy((void *)txq->scratchbufs + (unsigned long )q->write_ptr, (void const   *)(& dev_cmd->hdr),
                      __len);
   } else {
-    __ret = __builtin_memcpy((void *)txq->scratchbufs + (unsigned long )q->write_ptr,
+    __ret = memcpy((void *)txq->scratchbufs + (unsigned long )q->write_ptr,
                              (void const   *)(& dev_cmd->hdr), __len);
   }
   iwl_pcie_txq_build_tfd(trans, txq, tb0_phys, 16, 1);
@@ -24071,7 +24071,7 @@ static int iwl_pcie_load_section(struct iwl_trans *trans , u8 section_num , stru
   __min2 = (unsigned int )section->len - offset;
   copy_size = __min1 < __min2 ? __min1 : __min2;
   __len = (size_t )copy_size;
-  __ret = __builtin_memcpy((void *)v_addr, (void const   *)section->data + (unsigned long )offset,
+  __ret = memcpy((void *)v_addr, (void const   *)section->data + (unsigned long )offset,
                            __len);
   ret = iwl_pcie_load_firmware_chunk(trans, (unsigned int )section->offset + offset,
                                      p_addr, copy_size);
@@ -24582,7 +24582,7 @@ static void iwl_trans_pcie_configure(struct iwl_trans *trans , struct iwl_trans_
   }
   if ((unsigned int )trans_pcie->n_no_reclaim_cmds != 0U) {
     __len = (unsigned long )trans_pcie->n_no_reclaim_cmds;
-    __ret = __builtin_memcpy((void *)(& trans_pcie->no_reclaim_cmds), (void const   *)trans_cfg->no_reclaim_cmds,
+    __ret = memcpy((void *)(& trans_pcie->no_reclaim_cmds), (void const   *)trans_cfg->no_reclaim_cmds,
                              __len);
   } else {
 
@@ -25551,7 +25551,7 @@ static u32 iwl_trans_pcie_dump_data(struct iwl_trans *trans , void *buf , u32 bu
     txcmd->cmdlen = cmdlen;
     txcmd->caplen = caplen;
     __len = (size_t )caplen;
-    __ret = __builtin_memcpy((void *)(& txcmd->data), (void const   *)(cmdq->entries + (unsigned long )idx)->cmd,
+    __ret = memcpy((void *)(& txcmd->data), (void const   *)(cmdq->entries + (unsigned long )idx)->cmd,
                              __len);
     txcmd = (struct iwl_fw_error_dump_txcmd *)(& txcmd->data) + (unsigned long )caplen;
   } else {

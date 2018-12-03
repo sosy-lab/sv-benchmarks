@@ -4756,7 +4756,7 @@ static void nand_store_ecc(unsigned char *data , unsigned char *ecc )
     {
     __cil_tmp7 = (void *)data;
     __cil_tmp8 = (void const *)ecc;
-    __ret = __builtin_memcpy(__cil_tmp7, __cil_tmp8, __len);
+    __ret = memcpy(__cil_tmp7, __cil_tmp8, __len);
     }
   }
   return;
@@ -8273,7 +8273,7 @@ static int alauda_write_lba(struct us_data *us , u16 lba , unsigned int page , u
   __len = (size_t )pagesize;
   __cil_tmp190 = (void *)bptr;
   __cil_tmp191 = (void const *)xptr;
-  __ret = __builtin_memcpy(__cil_tmp190, __cil_tmp191, __len);
+  __ret = memcpy(__cil_tmp190, __cil_tmp191, __len);
   __cil_tmp192 = (unsigned long )pagesize;
   xptr = xptr + __cil_tmp192;
   __cil_tmp193 = (unsigned char *)(& ecc);
@@ -9777,7 +9777,7 @@ static int alauda_transport(struct scsi_cmnd *srb , struct us_data *us )
       {
       __cil_tmp47 = (void *)ptr;
       __cil_tmp48 = (void const *)(& inquiry_response);
-      __ret = __builtin_memcpy(__cil_tmp47, __cil_tmp48, __len);
+      __ret = memcpy(__cil_tmp47, __cil_tmp48, __len);
       }
     }
     {
