@@ -3309,6 +3309,10 @@ unsigned int sleep(unsigned int sec) {
   __VERIFIER_assume(retval <= sec);
   return retval;
 }
+char *strsep(char **stringp, const char *delim)
+{
+  return strtok(*stringp, delim);
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())
