@@ -679,3 +679,12 @@ int usb_submit_urb(struct urb *arg0, gfp_t arg1) {
   return __VERIFIER_nondet_int();
 }
 
+// Function: default_wake_function
+// with type: int default_wake_function(wait_queue_t *, unsigned int, int, void *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+

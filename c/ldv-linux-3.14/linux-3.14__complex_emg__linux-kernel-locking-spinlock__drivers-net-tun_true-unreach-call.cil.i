@@ -17288,6 +17288,10 @@ int __VERIFIER_nondet_int(void);
 int zerocopy_sg_from_iovec(struct sk_buff *arg0, const struct iovec *arg1, int arg2, size_t arg3) {
   return __VERIFIER_nondet_int();
 }
+int __VERIFIER_nondet_int(void);
+int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
+  return __VERIFIER_nondet_int();
+}
 void *__VERIFIER_external_alloc(void);
 void *external_alloc(void) {
   return __VERIFIER_external_alloc();
