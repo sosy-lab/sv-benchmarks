@@ -83,6 +83,7 @@ unsigned int __CS_SwitchDone;
 //cseq: function declarations
 extern int __VERIFIER_nondet_int();
 extern unsigned char __VERIFIER_nondet_uchar();
+extern void *__VERIFIER_nondet_pointer(void);
 
 void __CS_cs(void)
 {
@@ -391,6 +392,17 @@ int main()
 	__CS_pthread_mutex_t __CS_cp_mb[__CS_ROUNDS];
 	int __CS_cp_data1[__CS_ROUNDS];
 	int __CS_cp_data2[__CS_ROUNDS];
+
+	for (int i = 0; i < __CS_ROUNDS; ++i) {
+		for (int j = 0; j < __CS_THREADS+1; ++j) {
+			__CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
+			__CS_cp___CS_thread_lockedon[i][j] = __VERIFIER_nondet_pointer();
+		}
+		__CS_cp_ma[i] = __VERIFIER_nondet_uchar();
+		__CS_cp_mb[i] = __VERIFIER_nondet_uchar();
+		__CS_cp_data1[i] = __VERIFIER_nondet_int();
+		__CS_cp_data2[i] = __VERIFIER_nondet_int();
+	}
 
 	//cseq: Copy statements for global variables:
 	//cseq: for each global variable x,
