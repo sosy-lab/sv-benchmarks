@@ -6436,7 +6436,6 @@ unsigned long ldv_undef_ulong(void) ;
 int ldv_undef_int_nonpositive(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 int ldv_undef_int(void)
 {
   int tmp ;
@@ -6452,7 +6451,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
   {
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   }
   return (tmp);
 }
@@ -7685,9 +7684,8 @@ int ldv_atomic_dec_and_lock_siglock_of_sighand_struct(void)
   return (0);
 }
 }
-void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 void free(void *);
 void kfree(void const *p) {

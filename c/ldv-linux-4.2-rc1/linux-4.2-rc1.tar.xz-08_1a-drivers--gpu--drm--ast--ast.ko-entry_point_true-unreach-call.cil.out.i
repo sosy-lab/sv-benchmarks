@@ -5574,7 +5574,6 @@ extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -5641,7 +5640,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -11699,7 +11698,7 @@ void ldv_main_exported_1(void)
   ldvarg10 = (struct page *)tmp;
   tmp___0 = ldv_init_zalloc(32UL);
   ldvarg13 = (struct ttm_placement *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   ldvarg14 = (struct file *)tmp___1;
   tmp___2 = ldv_init_zalloc(256UL);
   ldvarg15 = (struct ttm_mem_type_manager *)tmp___2;

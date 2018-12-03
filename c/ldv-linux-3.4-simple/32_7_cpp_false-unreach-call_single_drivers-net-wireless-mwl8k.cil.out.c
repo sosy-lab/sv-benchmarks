@@ -52126,7 +52126,7 @@ ERROR: __VERIFIER_error();
 }
 
 int __VERIFIER_nondet_int(void);
-void *__VERIFIER_nondet_pointer(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long ldv_undefined_ulong(void);
 int ldv_mutex = 1;
 

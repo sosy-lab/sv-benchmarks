@@ -13545,7 +13545,6 @@ int ldv_undef_int_negative(void) ;
 int ldv_undef_int_nonpositive(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 int ldv_undef_int(void) 
 { 
   int tmp ;
@@ -13563,7 +13562,7 @@ void *ldv_undef_ptr(void)
 
   {
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   }
   return (tmp);
 }

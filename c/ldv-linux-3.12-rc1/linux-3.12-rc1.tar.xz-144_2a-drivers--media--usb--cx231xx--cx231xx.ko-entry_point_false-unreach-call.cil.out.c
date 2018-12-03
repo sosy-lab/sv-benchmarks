@@ -7882,7 +7882,6 @@ extern int __VERIFIER_nondet_int(void) ;
 extern size_t __VERIFIER_nondet_size_t(void) ;
 extern unsigned int __VERIFIER_nondet_uint(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int expression ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -7934,7 +7933,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }

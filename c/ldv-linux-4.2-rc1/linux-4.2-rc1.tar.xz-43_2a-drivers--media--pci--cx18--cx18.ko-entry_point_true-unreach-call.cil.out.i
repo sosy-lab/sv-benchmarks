@@ -8984,7 +8984,6 @@ extern void *calloc(size_t , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -9051,7 +9050,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -16883,7 +16882,7 @@ void ldv_initialize_v4l2_file_operations_18(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   cx18_v4l2_enc_fops_group0 = (struct file *)tmp;
   return;
 }
@@ -20630,7 +20629,7 @@ void ldv_initialize_v4l2_ioctl_ops_16(void)
   cx18_ioctl_ops_group1 = (struct v4l2_audio *)tmp___1;
   tmp___2 = ldv_init_zalloc(176UL);
   cx18_ioctl_ops_group3 = (struct v4l2_fh *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
+  tmp___3 = (void*)__VERIFIER_nondet_ulong();
   cx18_ioctl_ops_group2 = (struct file *)tmp___3;
   tmp___4 = ldv_init_zalloc(88UL);
   cx18_ioctl_ops_group4 = (struct v4l2_buffer *)tmp___4;

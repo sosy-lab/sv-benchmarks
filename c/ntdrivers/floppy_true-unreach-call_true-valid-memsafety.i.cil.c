@@ -4,7 +4,7 @@ extern void *malloc(unsigned int sz );
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
-extern void *__VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void memcpy_guard(void* p1, void* p2, unsigned int n)
@@ -7674,7 +7674,7 @@ NTSTATUS IofCallDriver(PDEVICE_OBJECT DeviceObject ,
 { int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   NTSTATUS returnVal2 ;
   int compRetStatus1 ;
-  PVOID lcontext = __VERIFIER_nondet_pointer() ;
+  PVOID lcontext = (void*)__VERIFIER_nondet_ulong() ;
   NTSTATUS tmp ;
 
   {
@@ -8012,7 +8012,7 @@ NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 { int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int compRetStatus ;
   NTSTATUS returnVal ;
-  PVOID lcontext = __VERIFIER_nondet_pointer() ;
+  PVOID lcontext = (void*)__VERIFIER_nondet_ulong() ;
   NTSTATUS tmp ;
 
   {

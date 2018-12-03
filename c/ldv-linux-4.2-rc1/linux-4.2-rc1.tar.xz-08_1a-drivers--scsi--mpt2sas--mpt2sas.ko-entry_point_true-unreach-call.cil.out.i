@@ -7190,7 +7190,6 @@ extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -7257,7 +7256,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -22916,7 +22915,7 @@ void ldv_initialize_pci_error_handlers_31(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   _scsih_err_handler_group0 = (struct pci_dev *)tmp;
   return;
 }
@@ -22967,13 +22966,13 @@ void ldv_initialize_scsi_host_template_32(void)
   void *tmp___1 ;
   void *tmp___2 ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   scsih_driver_template_group0 = (struct scsi_cmnd *)tmp;
   tmp___0 = ldv_init_zalloc(3816UL);
   scsih_driver_template_group1 = (struct Scsi_Host *)tmp___0;
   tmp___1 = ldv_init_zalloc(1504UL);
   scsih_driver_template_group2 = (struct scsi_target *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
+  tmp___2 = (void*)__VERIFIER_nondet_ulong();
   scsih_driver_template_group3 = (struct scsi_device *)tmp___2;
   return;
 }

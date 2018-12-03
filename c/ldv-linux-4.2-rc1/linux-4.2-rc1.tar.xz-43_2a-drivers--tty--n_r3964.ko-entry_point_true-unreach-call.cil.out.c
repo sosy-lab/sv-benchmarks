@@ -3166,7 +3166,6 @@ extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -3239,7 +3238,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -4950,7 +4949,7 @@ int main(void)
   int tmp___11 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   ldvarg11 = (struct file *)tmp;
   tmp___0 = ldv_init_zalloc(16UL);
   ldvarg7 = (struct poll_table_struct *)tmp___0;
@@ -4958,9 +4957,9 @@ int main(void)
   ldvarg5 = (unsigned char *)tmp___1;
   tmp___2 = ldv_init_zalloc(44UL);
   ldvarg6 = (struct ktermios *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
+  tmp___3 = (void*)__VERIFIER_nondet_ulong();
   ldvarg8 = (struct file *)tmp___3;
-  tmp___4 = __VERIFIER_nondet_pointer();
+  tmp___4 = (void*)__VERIFIER_nondet_ulong();
   ldvarg14 = (struct file *)tmp___4;
   tmp___5 = ldv_init_zalloc(1UL);
   ldvarg4 = (char *)tmp___5;
@@ -4968,7 +4967,7 @@ int main(void)
   ldvarg13 = (unsigned char *)tmp___6;
   tmp___7 = ldv_init_zalloc(1UL);
   ldvarg10 = (unsigned char *)tmp___7;
-  tmp___8 = __VERIFIER_nondet_pointer();
+  tmp___8 = (void*)__VERIFIER_nondet_ulong();
   ldvarg2 = (struct file *)tmp___8;
   ldv_initialize();
   ldv_memset((void *)(& ldvarg3), 0, 4UL);

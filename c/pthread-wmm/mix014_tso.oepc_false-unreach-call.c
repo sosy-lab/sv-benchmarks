@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void * __VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 extern void __VERIFIER_atomic_begin();
@@ -250,7 +250,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -271,8 +271,8 @@ void * P1(void *arg)
   x$r_buff0_thd2 = TRUE;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = __VERIFIER_nondet_pointer();
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = (void*)__VERIFIER_nondet_ulong();
+  weak$$choice2 = (void*)__VERIFIER_nondet_ulong();
   x$flush_delayed = weak$$choice2;
   x$mem_tmp = x;
   x = !x$w_buff0_used || !x$r_buff0_thd2 && !x$w_buff1_used || !x$r_buff0_thd2 && !x$r_buff1_thd2 ? x : (x$w_buff0_used && x$r_buff0_thd2 ? x$w_buff0 : x$w_buff1);
@@ -287,8 +287,8 @@ void * P1(void *arg)
   x$flush_delayed = FALSE;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = __VERIFIER_nondet_pointer();
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = (void*)__VERIFIER_nondet_ulong();
+  weak$$choice2 = (void*)__VERIFIER_nondet_ulong();
   y$flush_delayed = weak$$choice2;
   y$mem_tmp = y;
   y = !y$w_buff0_used || !y$r_buff0_thd2 && !y$w_buff1_used || !y$r_buff0_thd2 && !y$r_buff1_thd2 ? y : (y$w_buff0_used && y$r_buff0_thd2 ? y$w_buff0 : y$w_buff1);
@@ -312,7 +312,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -350,7 +350,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -381,7 +381,7 @@ void * P3(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -435,9 +435,9 @@ int main()
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
   /* Program proven to be relaxed for X86, model checker says YES. */
-  weak$$choice0 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = (void*)__VERIFIER_nondet_ulong();
   /* Program proven to be relaxed for X86, model checker says YES. */
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice2 = (void*)__VERIFIER_nondet_ulong();
   /* Program proven to be relaxed for X86, model checker says YES. */
   x$flush_delayed = weak$$choice2;
   /* Program proven to be relaxed for X86, model checker says YES. */

@@ -8312,7 +8312,6 @@ extern void *calloc(size_t , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -8379,7 +8378,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -21530,7 +21529,7 @@ void ldv_initialize_v4l2_file_operations_9(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   mpeg_fops_group0 = (struct file *)tmp;
   return;
 }
@@ -21548,7 +21547,7 @@ void ldv_initialize_v4l2_ioctl_ops_8(void)
   mpeg_ioctl_ops_group1 = (struct v4l2_format *)tmp___0;
   tmp___1 = ldv_init_zalloc(8UL);
   mpeg_ioctl_ops_group0 = (struct v4l2_control *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
+  tmp___2 = (void*)__VERIFIER_nondet_ulong();
   mpeg_ioctl_ops_group3 = (struct file *)tmp___2;
   return;
 }
@@ -23949,7 +23948,7 @@ void ldv_initialize_v4l2_file_operations_7(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   vbi_fops_group0 = (struct file *)tmp;
   return;
 }
@@ -23967,7 +23966,7 @@ void ldv_initialize_v4l2_ioctl_ops_6(void)
   vbi_ioctl_ops_group1 = (struct v4l2_ext_controls *)tmp___0;
   tmp___1 = ldv_init_zalloc(8UL);
   vbi_ioctl_ops_group0 = (struct v4l2_control *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
+  tmp___2 = (void*)__VERIFIER_nondet_ulong();
   vbi_ioctl_ops_group3 = (struct file *)tmp___2;
   return;
 }

@@ -23083,7 +23083,7 @@ extern void ldv_check_return_value_probe(int  ) ;
 void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 extern int __VERIFIER_nondet_int(void) ;
-extern void * __VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 int LDV_IN_INTERRUPT  ;
 void ldv_main2_sequence_infinite_withcheck_stateful(void) 
 { 
@@ -29657,8 +29657,8 @@ int main(void)
 
   {
 
-  mpt3sas_ioc_list.next = __VERIFIER_nondet_pointer();
-  mpt3sas_ioc_list.prev = __VERIFIER_nondet_pointer();
+  mpt3sas_ioc_list.next = (void*)__VERIFIER_nondet_ulong();
+  mpt3sas_ioc_list.prev = (void*)__VERIFIER_nondet_ulong();
 
   LDV_IN_INTERRUPT = 1;
   ldv_initialize();

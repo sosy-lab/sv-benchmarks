@@ -6024,7 +6024,6 @@ extern void *calloc(size_t , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -6091,7 +6090,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -7242,9 +7241,8 @@ void unregister_netdev(struct net_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 void free(void *);
 void kfree(void const *p) {

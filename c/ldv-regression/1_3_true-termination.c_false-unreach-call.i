@@ -14,7 +14,7 @@ struct RR
 
 typedef struct RR rr;
 
-extern void *__VERIFIER_nondet_pointer();
+extern unsigned long __VERIFIER_nondet_ulong();
 extern int __VERIFIER_nondet_int();
 
 typedef unsigned int size_t;

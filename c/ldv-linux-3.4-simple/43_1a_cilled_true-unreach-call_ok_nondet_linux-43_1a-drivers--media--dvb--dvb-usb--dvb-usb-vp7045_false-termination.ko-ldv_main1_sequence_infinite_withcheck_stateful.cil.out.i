@@ -7158,7 +7158,7 @@ int ldv_pskb_expand_head_27(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
 extern void *memcpy(void * , void const * , size_t ) ;
 extern void kfree(void * ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
+extern unsigned long __VERIFIER_nondet_ulong(void) ;
 static int vp7045_fe_read_status(struct dvb_frontend *fe , fe_status_t *status )
 { struct vp7045_fe_state *state ;
   u8 s0 ;
@@ -7966,7 +7966,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   }
   return (tmp);
 }

@@ -1,5 +1,4 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern void *__VERIFIER_nondet_pointer(void) ;
 typedef signed char __s8;
 typedef unsigned char __u8;
 typedef short __s16;
@@ -4376,9 +4375,10 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp___7);
 }
 }
+extern unsigned long __VERIFIER_nondet_ulong(void) ;
 struct font_desc *find_font(char *name )
 {
- return __VERIFIER_nondet_pointer();
+ return (void*)__VERIFIER_nondet_ulong();
 }
 extern struct task_struct *( kthread_create_on_node)(int (*threadfn)(void *data ) ,
                                                                              void *data ,
@@ -10573,48 +10573,47 @@ extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned int __VERIFIER_nondet_uint(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 int LDV_IN_INTERRUPT ;
 void main(void)
-{ struct vb2_buffer *var_group1 = __VERIFIER_nondet_pointer();
-  struct vb2_queue *var_group2 = __VERIFIER_nondet_pointer();
+{ struct vb2_buffer *var_group1 = (void*)__VERIFIER_nondet_ulong();
+  struct vb2_queue *var_group2 = (void*)__VERIFIER_nondet_ulong();
   unsigned int var_start_streaming_16_p1 = __VERIFIER_nondet_uint();
-  struct v4l2_ctrl *var_group3 = __VERIFIER_nondet_pointer();
-  struct file *var_group4 = __VERIFIER_nondet_pointer();
-  char *var_vivi_read_37_p1 = __VERIFIER_nondet_pointer();
+  struct v4l2_ctrl *var_group3 = (void*)__VERIFIER_nondet_ulong();
+  struct file *var_group4 = (void*)__VERIFIER_nondet_ulong();
+  char *var_vivi_read_37_p1 = (void*)__VERIFIER_nondet_ulong();
   size_t var_vivi_read_37_p2 = __VERIFIER_nondet_ulong();
-  loff_t *var_vivi_read_37_p3 = __VERIFIER_nondet_pointer();
-  struct poll_table_struct *var_group5 = __VERIFIER_nondet_pointer();
-  struct vm_area_struct *var_group6 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_querycap_20_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_capability *var_vidioc_querycap_20_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_enum_fmt_vid_cap_21_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_fmtdesc *var_vidioc_enum_fmt_vid_cap_21_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_g_fmt_vid_cap_22_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_format *var_vidioc_g_fmt_vid_cap_22_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_try_fmt_vid_cap_23_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_format *var_vidioc_try_fmt_vid_cap_23_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_s_fmt_vid_cap_24_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_format *var_vidioc_s_fmt_vid_cap_24_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_reqbufs_25_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_requestbuffers *var_vidioc_reqbufs_25_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_querybuf_26_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_buffer *var_vidioc_querybuf_26_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_qbuf_27_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_buffer *var_vidioc_qbuf_27_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_dqbuf_28_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_buffer *var_vidioc_dqbuf_28_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_s_std_31_p1 = __VERIFIER_nondet_pointer();
-  v4l2_std_id *var_vidioc_s_std_31_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_enum_input_32_p1 = __VERIFIER_nondet_pointer();
-  struct v4l2_input *var_vidioc_enum_input_32_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_g_input_33_p1 = __VERIFIER_nondet_pointer();
-  unsigned int *var_vidioc_g_input_33_p2 = __VERIFIER_nondet_pointer();
-  void *var_vidioc_s_input_34_p1 = __VERIFIER_nondet_pointer();
+  loff_t *var_vivi_read_37_p3 = (void*)__VERIFIER_nondet_ulong();
+  struct poll_table_struct *var_group5 = (void*)__VERIFIER_nondet_ulong();
+  struct vm_area_struct *var_group6 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_querycap_20_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_capability *var_vidioc_querycap_20_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_enum_fmt_vid_cap_21_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_fmtdesc *var_vidioc_enum_fmt_vid_cap_21_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_g_fmt_vid_cap_22_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_format *var_vidioc_g_fmt_vid_cap_22_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_try_fmt_vid_cap_23_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_format *var_vidioc_try_fmt_vid_cap_23_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_s_fmt_vid_cap_24_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_format *var_vidioc_s_fmt_vid_cap_24_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_reqbufs_25_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_requestbuffers *var_vidioc_reqbufs_25_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_querybuf_26_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_buffer *var_vidioc_querybuf_26_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_qbuf_27_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_buffer *var_vidioc_qbuf_27_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_dqbuf_28_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_buffer *var_vidioc_dqbuf_28_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_s_std_31_p1 = (void*)__VERIFIER_nondet_ulong();
+  v4l2_std_id *var_vidioc_s_std_31_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_enum_input_32_p1 = (void*)__VERIFIER_nondet_ulong();
+  struct v4l2_input *var_vidioc_enum_input_32_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_g_input_33_p1 = (void*)__VERIFIER_nondet_ulong();
+  unsigned int *var_vidioc_g_input_33_p2 = (void*)__VERIFIER_nondet_ulong();
+  void *var_vidioc_s_input_34_p1 = (void*)__VERIFIER_nondet_ulong();
   unsigned int var_vidioc_s_input_34_p2 = __VERIFIER_nondet_uint();
-  void *var_vidioc_streamon_29_p1 = __VERIFIER_nondet_pointer();
+  void *var_vidioc_streamon_29_p1 = (void*)__VERIFIER_nondet_ulong();
   enum v4l2_buf_type var_vidioc_streamon_29_p2 = __VERIFIER_nondet_int();
-  void *var_vidioc_streamoff_30_p1 = __VERIFIER_nondet_pointer();
+  void *var_vidioc_streamoff_30_p1 = (void*)__VERIFIER_nondet_ulong();
   enum v4l2_buf_type var_vidioc_streamoff_30_p2 = __VERIFIER_nondet_int();
   int tmp___7 ;
   int ldv_s_vivi_fops_v4l2_file_operations ;

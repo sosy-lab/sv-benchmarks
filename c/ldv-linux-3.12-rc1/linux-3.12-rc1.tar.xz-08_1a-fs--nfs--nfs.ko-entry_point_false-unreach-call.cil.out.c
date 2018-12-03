@@ -8764,7 +8764,6 @@ extern int __VERIFIER_nondet_int(void) ;
 extern size_t __VERIFIER_nondet_size_t(void) ;
 extern loff_t __VERIFIER_nondet_loff_t(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int expression ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -8816,7 +8815,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -20466,9 +20465,9 @@ void ldv_main_exported_61(void)
   ldvarg45 = tmp___10;
   tmp___11 = __VERIFIER_nondet_size_t();
   ldvarg66 = tmp___11;
-  tmp___12 = __VERIFIER_nondet_pointer();
+  tmp___12 = (void*)__VERIFIER_nondet_ulong();
   ldvarg55 = (struct pipe_inode_info *)tmp___12;
-  tmp___13 = __VERIFIER_nondet_pointer();
+  tmp___13 = (void*)__VERIFIER_nondet_ulong();
   ldvarg79 = (struct files_struct *)tmp___13;
   tmp___14 = ldv_zalloc(8UL);
   ldvarg65 = (loff_t *)tmp___14;
@@ -20500,7 +20499,7 @@ void ldv_main_exported_61(void)
   ldvarg50 = tmp___27;
   tmp___28 = ldv_zalloc(8UL);
   ldvarg56 = (loff_t *)tmp___28;
-  tmp___29 = __VERIFIER_nondet_pointer();
+  tmp___29 = (void*)__VERIFIER_nondet_ulong();
   ldvarg72 = (struct pipe_inode_info *)tmp___29;
   tmp___30 = __VERIFIER_nondet_size_t();
   ldvarg71 = tmp___30;
@@ -20810,7 +20809,7 @@ void ldv_main_exported_62(void)
   {
   tmp = ldv_zalloc(256UL);
   ldvarg162 = (struct file_lock *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
+  tmp___0 = (void*)__VERIFIER_nondet_ulong();
   ldvarg171 = (struct pipe_inode_info *)tmp___0;
   tmp___1 = ldv_zalloc(16UL);
   ldvarg180 = (struct iovec *)tmp___1;
@@ -20844,7 +20843,7 @@ void ldv_main_exported_62(void)
   ldvarg172 = (loff_t *)tmp___15;
   tmp___16 = __VERIFIER_nondet_size_t();
   ldvarg187 = tmp___16;
-  tmp___17 = __VERIFIER_nondet_pointer();
+  tmp___17 = (void*)__VERIFIER_nondet_ulong();
   ldvarg195 = (struct files_struct *)tmp___17;
   tmp___18 = __VERIFIER_nondet_loff_t();
   ldvarg175 = tmp___18;
@@ -20868,7 +20867,7 @@ void ldv_main_exported_62(void)
   ldvarg191 = (struct vm_area_struct *)tmp___27;
   tmp___28 = __VERIFIER_nondet_size_t();
   ldvarg185 = tmp___28;
-  tmp___29 = __VERIFIER_nondet_pointer();
+  tmp___29 = (void*)__VERIFIER_nondet_ulong();
   ldvarg188 = (struct pipe_inode_info *)tmp___29;
   tmp___30 = __VERIFIER_nondet_ulong();
   ldvarg168 = tmp___30;
@@ -35757,7 +35756,7 @@ void ldv_main_exported_44(void)
   ldvarg29 = tmp___1;
   tmp___2 = ldv_zalloc(1UL);
   ldvarg31 = (char *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
+  tmp___3 = (void*)__VERIFIER_nondet_ulong();
   ldvarg26 = (struct vfsmount *)tmp___3;
   tmp___4 = ldv_zalloc(104UL);
   ldvarg27 = (struct kstat *)tmp___4;
@@ -41723,7 +41722,7 @@ void ldv_main_exported_35(void)
   ldvarg90 = (struct iattr *)tmp;
   tmp___0 = ldv_zalloc(104UL);
   ldvarg89 = (struct kstat *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   ldvarg88 = (struct vfsmount *)tmp___1;
   tmp___2 = __VERIFIER_nondet_int();
   switch (tmp___2) {
@@ -41765,7 +41764,7 @@ void ldv_main_exported_34(void)
   ldvarg304 = (struct kstat *)tmp;
   tmp___0 = ldv_zalloc(80UL);
   ldvarg305 = (struct iattr *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   ldvarg303 = (struct vfsmount *)tmp___1;
   tmp___2 = __VERIFIER_nondet_int();
   switch (tmp___2) {

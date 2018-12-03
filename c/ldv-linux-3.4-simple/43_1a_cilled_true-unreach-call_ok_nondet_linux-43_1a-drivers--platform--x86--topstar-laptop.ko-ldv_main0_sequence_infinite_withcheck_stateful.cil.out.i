@@ -3136,7 +3136,7 @@ extern char *strcpy(char * , char const * ) ;
 extern void kfree(void * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
+extern unsigned long __VERIFIER_nondet_ulong(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
 struct page *ldv_check_alloc_flags_and_return_some_page(gfp_t flags ) ;

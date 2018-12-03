@@ -12,7 +12,7 @@
 
 //unsafe: free without alloc (free not allocated memory)
 int *h_unsafe() {
-	return (int *)__VERIFIER_nondet_pointer();
+	return (int *)(void*)__VERIFIER_nondet_ulong();
 }
 
 void entry_point(void) {

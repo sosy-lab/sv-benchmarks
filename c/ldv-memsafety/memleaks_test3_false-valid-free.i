@@ -1052,7 +1052,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 void kfree(void*);
 
 int __VERIFIER_nondet_int(void);
-void *__VERIFIER_nondet_pointer(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 
 int ldv_nonpositive(void) {
  int r = __VERIFIER_nondet_int();
@@ -1432,7 +1432,7 @@ int g(void) {
 
 
 int *h_unsafe() {
- return (int *)__VERIFIER_nondet_pointer();
+ return (int *)(void*)__VERIFIER_nondet_ulong();
 }
 
 void entry_point(void) {

@@ -3939,7 +3939,6 @@ extern void *memset(void * , int , size_t ) ;
 extern void *memmove(void * , void const * , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -4006,7 +4005,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -7415,7 +7414,7 @@ void ldv_initialize_tty_operations_2(void)
   void *tmp ;
   void *tmp___0 ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   acm_ops_group0 = (struct file *)tmp;
   tmp___0 = ldv_init_zalloc(1816UL);
   acm_ops_group1 = (struct tty_struct *)tmp___0;

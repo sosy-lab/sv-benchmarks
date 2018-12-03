@@ -10712,7 +10712,6 @@ extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -10785,7 +10784,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -43006,7 +43005,7 @@ void ldv_main_exported_53(void)
   ldvarg158 = (struct kstat *)tmp;
   tmp___0 = ldv_init_zalloc(4UL);
   ldvarg160 = (int *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   ldvarg162 = (struct file *)tmp___1;
   tmp___2 = ldv_init_zalloc(80UL);
   ldvarg159 = (struct iattr *)tmp___2;
@@ -52589,7 +52588,7 @@ void ldv_initialize_address_space_operations_49(void)
   {
   tmp = ldv_init_zalloc(408UL);
   ll_aops_group1 = (struct address_space *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
+  tmp___0 = (void*)__VERIFIER_nondet_ulong();
   ll_aops_group2 = (struct file *)tmp___0;
   tmp___1 = ldv_init_zalloc(64UL);
   ll_aops_group0 = (struct page *)tmp___1;
@@ -53837,7 +53836,7 @@ int main(void)
   ldvarg185 = (char *)tmp___0;
   tmp___1 = ldv_init_zalloc(4UL);
   ldvarg186 = (int *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
+  tmp___2 = (void*)__VERIFIER_nondet_ulong();
   ldvarg184 = (struct kstatfs *)tmp___2;
   ldv_initialize();
   ldv_state_variable_33 = 0;

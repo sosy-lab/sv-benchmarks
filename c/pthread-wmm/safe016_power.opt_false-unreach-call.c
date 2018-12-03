@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void * __VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 extern void __VERIFIER_atomic_begin();
@@ -223,7 +223,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -243,7 +243,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -251,11 +251,11 @@ void * P1(void *arg)
 void * P2(void *arg)
 {
   __VERIFIER_atomic_begin();
-  weak$$choice0 = __VERIFIER_nondet_pointer();
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = (void*)__VERIFIER_nondet_ulong();
+  weak$$choice2 = (void*)__VERIFIER_nondet_ulong();
   x$flush_delayed = weak$$choice2;
   x$mem_tmp = x;
-  weak$$choice1 = __VERIFIER_nondet_pointer();
+  weak$$choice1 = (void*)__VERIFIER_nondet_ulong();
   x = !x$w_buff0_used ? x : (x$w_buff0_used && x$r_buff0_thd3 ? x$w_buff0 : (x$w_buff0_used && !x$r_buff1_thd3 && x$w_buff1_used && !x$r_buff0_thd3 ? (weak$$choice0 ? x : (weak$$choice1 ? x$w_buff0 : x$w_buff1)) : (x$w_buff0_used && x$r_buff1_thd3 && x$w_buff1_used && !x$r_buff0_thd3 ? (weak$$choice0 ? x$w_buff1 : x$w_buff0) : (weak$$choice0 ? x$w_buff0 : x))));
   x$w_buff0 = weak$$choice2 ? x$w_buff0 : (!x$w_buff0_used ? x$w_buff0 : (x$w_buff0_used && x$r_buff0_thd3 ? x$w_buff0 : (x$w_buff0_used && !x$r_buff1_thd3 && x$w_buff1_used && !x$r_buff0_thd3 ? x$w_buff0 : (x$w_buff0_used && x$r_buff1_thd3 && x$w_buff1_used && !x$r_buff0_thd3 ? x$w_buff0 : x$w_buff0))));
   x$w_buff1 = weak$$choice2 ? x$w_buff1 : (!x$w_buff0_used ? x$w_buff1 : (x$w_buff0_used && x$r_buff0_thd3 ? x$w_buff1 : (x$w_buff0_used && !x$r_buff1_thd3 && x$w_buff1_used && !x$r_buff0_thd3 ? x$w_buff1 : (x$w_buff0_used && x$r_buff1_thd3 && x$w_buff1_used && !x$r_buff0_thd3 ? x$w_buff1 : x$w_buff1))));
@@ -282,7 +282,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -302,7 +302,7 @@ void * P3(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -352,10 +352,10 @@ int main()
   __VERIFIER_atomic_begin();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice0 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = (void*)__VERIFIER_nondet_ulong();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice2 = (void*)__VERIFIER_nondet_ulong();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
   x$flush_delayed = weak$$choice2;
@@ -385,7 +385,7 @@ This likely is a bug in the tool chain. */
   x$r_buff1_thd0 = weak$$choice2 ? x$r_buff1_thd0 : (!x$w_buff0_used || !x$r_buff0_thd0 && !x$w_buff1_used || !x$r_buff0_thd0 && !x$r_buff1_thd0 ? x$r_buff1_thd0 : (x$w_buff0_used && x$r_buff0_thd0 ? FALSE : FALSE));
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice1 = __VERIFIER_nondet_pointer();
+  weak$$choice1 = (void*)__VERIFIER_nondet_ulong();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
   __unbuffered_p2_EAX = __unbuffered_p2_EAX$read_delayed ? (weak$$choice1 ? *__unbuffered_p2_EAX$read_delayed_var : __unbuffered_p2_EAX) : __unbuffered_p2_EAX;

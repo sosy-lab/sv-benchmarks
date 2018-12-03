@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void * __VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 extern void __VERIFIER_atomic_begin();
@@ -173,7 +173,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -191,8 +191,8 @@ void * P1(void *arg)
   y$r_buff1_thd2 = y$w_buff0_used && y$r_buff0_thd2 || y$w_buff1_used && y$r_buff1_thd2 ? FALSE : y$r_buff1_thd2;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = __VERIFIER_nondet_pointer();
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = (void*)__VERIFIER_nondet_ulong();
+  weak$$choice2 = (void*)__VERIFIER_nondet_ulong();
   y$flush_delayed = weak$$choice2;
   y$mem_tmp = y;
   y = !y$w_buff0_used || !y$r_buff0_thd2 && !y$w_buff1_used || !y$r_buff0_thd2 && !y$r_buff1_thd2 ? y : (y$w_buff0_used && y$r_buff0_thd2 ? y$w_buff0 : y$w_buff1);
@@ -216,7 +216,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -243,8 +243,8 @@ void * P2(void *arg)
   y$r_buff1_thd3 = y$w_buff0_used && y$r_buff0_thd3 || y$w_buff1_used && y$r_buff1_thd3 ? FALSE : y$r_buff1_thd3;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = __VERIFIER_nondet_pointer();
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = (void*)__VERIFIER_nondet_ulong();
+  weak$$choice2 = (void*)__VERIFIER_nondet_ulong();
   y$flush_delayed = weak$$choice2;
   y$mem_tmp = y;
   y = !y$w_buff0_used || !y$r_buff0_thd3 && !y$w_buff1_used || !y$r_buff0_thd3 && !y$r_buff1_thd3 ? y : (y$w_buff0_used && y$r_buff0_thd3 ? y$w_buff0 : y$w_buff1);
@@ -268,7 +268,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -316,10 +316,10 @@ int main()
   __VERIFIER_atomic_begin();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice0 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = (void*)__VERIFIER_nondet_ulong();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice2 = (void*)__VERIFIER_nondet_ulong();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
   y$flush_delayed = weak$$choice2;
@@ -328,7 +328,7 @@ This likely is a bug in the tool chain. */
   y$mem_tmp = y;
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice1 = __VERIFIER_nondet_pointer();
+  weak$$choice1 = (void*)__VERIFIER_nondet_ulong();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
   y = !y$w_buff0_used ? y : (y$w_buff0_used && y$r_buff0_thd0 ? y$w_buff0 : (y$w_buff0_used && !y$r_buff1_thd0 && y$w_buff1_used && !y$r_buff0_thd0 ? (weak$$choice0 ? y : (weak$$choice1 ? y$w_buff0 : y$w_buff1)) : (y$w_buff0_used && y$r_buff1_thd0 && y$w_buff1_used && !y$r_buff0_thd0 ? (weak$$choice0 ? y$w_buff1 : y$w_buff0) : (weak$$choice0 ? y$w_buff0 : y))));

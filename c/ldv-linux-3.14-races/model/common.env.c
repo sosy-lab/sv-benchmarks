@@ -1,7 +1,7 @@
-void *__VERIFIER_nondet_pointer(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 
 void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 void free(void *);

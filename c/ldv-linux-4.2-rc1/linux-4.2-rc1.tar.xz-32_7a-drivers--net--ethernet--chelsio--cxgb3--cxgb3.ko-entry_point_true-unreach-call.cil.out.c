@@ -7538,7 +7538,6 @@ extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -7611,7 +7610,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -14769,7 +14768,7 @@ void ldv_initialize_pci_error_handlers_25(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   t3_err_handler_group0 = (struct pci_dev *)tmp;
   return;
 }

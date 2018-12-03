@@ -1,7 +1,7 @@
 void __VERIFIER_error(void);
 void __VERIFIER_assume(int);
 int __VERIFIER_nondet_int(void);
-void *__VERIFIER_nondet_pointer(void);
+unsigned long __VERIFIER_nondet_ulong(void);
 
 /* Add variable, check for expression equal to it */
 

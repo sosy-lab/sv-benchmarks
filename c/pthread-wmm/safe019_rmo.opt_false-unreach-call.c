@@ -1,6 +1,6 @@
 extern _Bool __VERIFIER_nondet_bool(void);
 extern void __VERIFIER_assume(int);
-extern void * __VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 extern void __VERIFIER_atomic_begin();
@@ -238,7 +238,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -258,7 +258,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -296,7 +296,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 
@@ -316,7 +316,7 @@ void * P3(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 
 

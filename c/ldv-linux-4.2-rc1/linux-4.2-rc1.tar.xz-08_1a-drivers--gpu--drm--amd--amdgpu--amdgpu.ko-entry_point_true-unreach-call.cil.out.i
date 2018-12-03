@@ -13091,7 +13091,6 @@ extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -13158,7 +13157,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -14714,13 +14713,13 @@ int main(void)
   ldvarg988 = (struct drm_mode_create_dumb *)tmp___4;
   tmp___5 = ldv_init_zalloc(4UL);
   ldvarg973 = (int *)tmp___5;
-  tmp___6 = __VERIFIER_nondet_pointer();
+  tmp___6 = (void*)__VERIFIER_nondet_ulong();
   ldvarg992 = (struct dma_buf_attachment *)tmp___6;
   tmp___7 = ldv_init_zalloc(1UL);
   ldvarg990 = tmp___7;
   tmp___8 = ldv_init_zalloc(8UL);
   ldvarg985 = (uint64_t *)tmp___8;
-  tmp___9 = __VERIFIER_nondet_pointer();
+  tmp___9 = (void*)__VERIFIER_nondet_ulong();
   ldvarg983 = (struct dma_buf *)tmp___9;
   tmp___10 = ldv_init_zalloc(4UL);
   ldvarg982 = (int *)tmp___10;
@@ -19694,7 +19693,7 @@ void ldv_initialize_vga_switcheroo_client_ops_175(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   amdgpu_switcheroo_ops_group0 = (struct pci_dev *)tmp;
   return;
 }
@@ -33554,7 +33553,7 @@ void ldv_main_exported_162(void)
   void *tmp___2 ;
   int tmp___3 ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   ldvarg575 = (struct file *)tmp;
   tmp___0 = ldv_init_zalloc(32UL);
   ldvarg576 = (struct ttm_placement *)tmp___0;
@@ -136047,7 +136046,7 @@ void ldv_main_exported_12(void)
   enum vga_switcheroo_client_id ldvarg792 ;
   int tmp___0 ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   ldvarg793 = (struct pci_dev *)tmp;
   ldv_memset((void *)(& ldvarg791), 0, 4UL);
   ldv_memset((void *)(& ldvarg794), 0, 4UL);

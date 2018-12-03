@@ -5,7 +5,7 @@ extern void *malloc(unsigned int sz);
 
 
 extern int __VERIFIER_nondet_int(void);
-extern void *__VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 
 typedef unsigned int size_t;
 typedef long __time_t;
@@ -1074,7 +1074,7 @@ int main(void)
 }
 }
 int ssl3_connect(SSL *s )
-{ BUF_MEM *buf = __VERIFIER_nondet_pointer();
+{ BUF_MEM *buf = (void*)__VERIFIER_nondet_ulong();
   unsigned long tmp ;
   unsigned long l ;
   long num1 ;

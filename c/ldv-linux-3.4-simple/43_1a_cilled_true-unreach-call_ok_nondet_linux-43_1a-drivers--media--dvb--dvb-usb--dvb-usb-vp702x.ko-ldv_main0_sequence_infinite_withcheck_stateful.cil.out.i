@@ -7865,7 +7865,7 @@ int ldv_pskb_expand_head_27(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
 }
 extern unsigned long volatile jiffies ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
+extern unsigned long __VERIFIER_nondet_ulong(void) ;
 static int vp702x_fe_refresh_state(struct vp702x_fe_state *st )
 { struct vp702x_device_state *dst ;
   u8 *buf ;
@@ -9492,7 +9492,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   }
   return (tmp);
 }

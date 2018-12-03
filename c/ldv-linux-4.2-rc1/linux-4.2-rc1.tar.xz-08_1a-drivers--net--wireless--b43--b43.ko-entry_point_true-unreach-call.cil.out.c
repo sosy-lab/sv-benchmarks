@@ -9757,7 +9757,6 @@ extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -9830,7 +9829,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -71719,7 +71718,7 @@ void ldv_initialize_b43_debugfs_fops_17(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_mmio16read_group0 = (struct file *)tmp;
   return;
 }
@@ -71729,7 +71728,7 @@ void ldv_initialize_b43_debugfs_fops_15(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_mmio32read_group0 = (struct file *)tmp;
   return;
 }
@@ -71739,7 +71738,7 @@ void ldv_initialize_b43_debugfs_fops_20(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_shm16write_group0 = (struct file *)tmp;
   return;
 }
@@ -71749,7 +71748,7 @@ void ldv_initialize_b43_debugfs_fops_13(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_txstat_group0 = (struct file *)tmp;
   return;
 }
@@ -71759,7 +71758,7 @@ void ldv_initialize_b43_debugfs_fops_18(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_shm32write_group0 = (struct file *)tmp;
   return;
 }
@@ -71769,7 +71768,7 @@ void ldv_initialize_b43_debugfs_fops_14(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_mmio32write_group0 = (struct file *)tmp;
   return;
 }
@@ -71779,7 +71778,7 @@ void ldv_initialize_b43_debugfs_fops_11(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_loctls_group0 = (struct file *)tmp;
   return;
 }
@@ -71789,7 +71788,7 @@ void ldv_initialize_b43_debugfs_fops_21(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_shm16read_group0 = (struct file *)tmp;
   return;
 }
@@ -71799,7 +71798,7 @@ void ldv_initialize_b43_debugfs_fops_16(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_mmio16write_group0 = (struct file *)tmp;
   return;
 }
@@ -71809,7 +71808,7 @@ void ldv_initialize_b43_debugfs_fops_19(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_shm32read_group0 = (struct file *)tmp;
   return;
 }
@@ -71819,7 +71818,7 @@ void ldv_initialize_b43_debugfs_fops_12(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   fops_restart_group0 = (struct file *)tmp;
   return;
 }

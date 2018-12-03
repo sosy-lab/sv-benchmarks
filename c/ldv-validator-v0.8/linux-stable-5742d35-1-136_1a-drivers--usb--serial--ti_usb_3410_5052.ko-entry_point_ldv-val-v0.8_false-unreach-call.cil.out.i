@@ -3651,7 +3651,6 @@ extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -3718,7 +3717,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -6018,7 +6017,7 @@ void ldv_initialize_usb_serial_driver_1(void)
   ti_2port_device_group0 = (struct urb *)tmp;
   tmp___0 = ldv_init_zalloc(2152UL);
   ti_2port_device_group1 = (struct usb_serial_port *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   ti_2port_device_group2 = (struct file *)tmp___1;
   tmp___2 = ldv_init_zalloc(264UL);
   ti_2port_device_group3 = (struct usb_serial *)tmp___2;
@@ -6039,7 +6038,7 @@ void ldv_initialize_usb_serial_driver_2(void)
   ti_1port_device_group0 = (struct urb *)tmp;
   tmp___0 = ldv_init_zalloc(2152UL);
   ti_1port_device_group1 = (struct usb_serial_port *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   ti_1port_device_group2 = (struct file *)tmp___1;
   tmp___2 = ldv_init_zalloc(264UL);
   ti_1port_device_group3 = (struct usb_serial *)tmp___2;

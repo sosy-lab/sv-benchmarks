@@ -1,5 +1,5 @@
 extern int __VERIFIER_nondet_int(void);
-extern void * __VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 extern unsigned char __VERIFIER_nondet_uchar(void);
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
@@ -875,7 +875,7 @@ int main()
    __CS_cp_y[i] = __VERIFIER_nondet_int();
    for(j = 0; j < 5; j++) {
      __CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
-     __CS_cp___CS_thread_lockedon[i][j] = (unsigned char *) __VERIFIER_nondet_pointer();
+     __CS_cp___CS_thread_lockedon[i][j] = (unsigned char *) (void*)__VERIFIER_nondet_ulong();
    }
  }
  __CS_thread_status[1][0] = __CS_cp___CS_thread_status[1][0];

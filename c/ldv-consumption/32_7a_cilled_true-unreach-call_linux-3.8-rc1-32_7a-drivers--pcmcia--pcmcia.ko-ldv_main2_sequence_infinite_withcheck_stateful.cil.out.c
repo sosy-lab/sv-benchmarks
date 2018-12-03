@@ -7958,7 +7958,7 @@ extern void ldv_check_return_value_probe(int  ) ;
 void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 extern int __VERIFIER_nondet_int(void) ;
-extern void* __VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 int LDV_IN_INTERRUPT  ;
 void ldv_main0_sequence_infinite_withcheck_stateful(void) 
 { 
@@ -8830,7 +8830,7 @@ struct resource *pcmcia_find_mem_region(u_long base , u_long num , u_long align 
                                                                                             int  ,
                                                                                             struct pcmcia_socket * ))0)) {
     //tmp = (*((s->resource_ops)->find_mem))(base, num, align, low, s);
-    tmp = __VERIFIER_nondet_pointer();
+    tmp = (void*)__VERIFIER_nondet_ulong();
     return (tmp);
   } else {
 

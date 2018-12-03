@@ -8269,7 +8269,7 @@ int ldv_pskb_expand_head_27(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
+extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void msleep(unsigned int  ) ;
 static int dtt200u_fe_read_status(struct dvb_frontend *fe , fe_status_t *stat ) 
 { struct dtt200u_fe_state *state ;
@@ -9194,7 +9194,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   }
   return (tmp);
 }

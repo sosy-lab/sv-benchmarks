@@ -9738,7 +9738,6 @@ extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -9811,7 +9810,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -23891,9 +23890,9 @@ void ldv_initialize_scsi_host_template_27(void)
   {
   tmp = ldv_init_zalloc(3816UL);
   qla4xxx_driver_template_group0 = (struct Scsi_Host *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
+  tmp___0 = (void*)__VERIFIER_nondet_ulong();
   qla4xxx_driver_template_group1 = (struct scsi_cmnd *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   qla4xxx_driver_template_group2 = (struct scsi_device *)tmp___1;
   return;
 }
@@ -23903,7 +23902,7 @@ void ldv_initialize_pci_error_handlers_22(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   qla4xxx_err_handler_group0 = (struct pci_dev *)tmp;
   return;
 }
@@ -42032,7 +42031,7 @@ void ldv_initialize_bin_attribute_20(void)
   {
   tmp = ldv_init_zalloc(296UL);
   sysfs_fw_dump_attr_group0 = (struct kobject *)tmp;
-  tmp___0 = __VERIFIER_nondet_pointer();
+  tmp___0 = (void*)__VERIFIER_nondet_ulong();
   sysfs_fw_dump_attr_group1 = (struct file *)tmp___0;
   tmp___1 = ldv_init_zalloc(72UL);
   sysfs_fw_dump_attr_group2 = (struct bin_attribute *)tmp___1;

@@ -3789,7 +3789,6 @@ extern void *calloc(size_t , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern long __VERIFIER_nondet_long(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern unsigned char __VERIFIER_nondet_uchar();
 extern unsigned int __VERIFIER_nondet_uint();
 extern _Bool __VERIFIER_nondet_bool(void) ;
@@ -3910,7 +3909,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }

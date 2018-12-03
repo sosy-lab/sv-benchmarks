@@ -5832,7 +5832,6 @@ extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -5905,7 +5904,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -6597,7 +6596,7 @@ int main(void)
   ldvarg32 = (struct vm_area_struct *)tmp___4;
   tmp___5 = ldv_init_zalloc(1UL);
   ldvarg31 = tmp___5;
-  tmp___6 = __VERIFIER_nondet_pointer();
+  tmp___6 = (void*)__VERIFIER_nondet_ulong();
   ldvarg43 = (struct dma_buf_attachment *)tmp___6;
   tmp___7 = ldv_init_zalloc(16UL);
   ldvarg42 = (struct sg_table *)tmp___7;
@@ -6607,7 +6606,7 @@ int main(void)
   ldvarg29 = (uint32_t *)tmp___9;
   tmp___10 = ldv_init_zalloc(32UL);
   ldvarg26 = (struct drm_mode_create_dumb *)tmp___10;
-  tmp___11 = __VERIFIER_nondet_pointer();
+  tmp___11 = (void*)__VERIFIER_nondet_ulong();
   ldvarg38 = (struct dma_buf *)tmp___11;
   tmp___12 = ldv_init_zalloc(1UL);
   ldvarg25 = tmp___12;
@@ -11781,7 +11780,7 @@ void ldv_main_exported_8(void)
   ldvarg74 = (struct page *)tmp;
   tmp___0 = ldv_init_zalloc(256UL);
   ldvarg79 = (struct ttm_mem_type_manager *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   ldvarg77 = (struct file *)tmp___1;
   tmp___2 = ldv_init_zalloc(32UL);
   ldvarg81 = (struct ttm_placement *)tmp___2;

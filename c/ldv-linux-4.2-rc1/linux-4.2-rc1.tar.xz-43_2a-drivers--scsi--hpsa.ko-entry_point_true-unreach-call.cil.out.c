@@ -5330,7 +5330,6 @@ extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -5403,7 +5402,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -17963,11 +17962,11 @@ void ldv_initialize_scsi_host_template_5(void)
   void *tmp___1 ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   hpsa_driver_template_group0 = (struct scsi_cmnd *)tmp;
   tmp___0 = ldv_init_zalloc(3816UL);
   hpsa_driver_template_group1 = (struct Scsi_Host *)tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   hpsa_driver_template_group2 = (struct scsi_device *)tmp___1;
   return;
 }

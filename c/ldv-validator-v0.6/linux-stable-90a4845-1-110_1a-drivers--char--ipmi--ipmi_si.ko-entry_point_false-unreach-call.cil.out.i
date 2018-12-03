@@ -3659,7 +3659,6 @@ extern void *malloc(size_t size ) ;
 extern void *calloc(size_t nmemb , size_t size ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int expression ) ;
 void *ldv_malloc(size_t size )
 {
@@ -3707,7 +3706,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -7561,7 +7560,7 @@ int main(void)
   ldvarg7 = tmp___0;
   tmp___1 = __VERIFIER_nondet_int();
   ldvarg12 = tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
+  tmp___2 = (void*)__VERIFIER_nondet_ulong();
   ldvarg16 = (struct ipmi_smi *)tmp___2;
   tmp___3 = ldv_zalloc(1UL);
   ldvarg15 = tmp___3;

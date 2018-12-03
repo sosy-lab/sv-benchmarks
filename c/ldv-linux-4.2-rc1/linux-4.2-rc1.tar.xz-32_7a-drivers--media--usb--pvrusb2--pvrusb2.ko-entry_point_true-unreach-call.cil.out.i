@@ -9107,7 +9107,6 @@ extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -9174,7 +9173,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -22649,7 +22648,7 @@ void ldv_initialize_v4l2_file_operations_12(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   vdev_fops_group0 = (struct file *)tmp;
   return;
 }
@@ -22670,7 +22669,7 @@ void ldv_initialize_v4l2_ioctl_ops_13(void)
   pvr2_ioctl_ops_group1 = (struct v4l2_audio *)tmp___1;
   tmp___2 = ldv_init_zalloc(32UL);
   pvr2_ioctl_ops_group0 = (struct v4l2_ext_controls *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
+  tmp___3 = (void*)__VERIFIER_nondet_ulong();
   pvr2_ioctl_ops_group2 = (struct file *)tmp___3;
   return;
 }

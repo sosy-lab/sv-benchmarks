@@ -7078,7 +7078,7 @@ static void gigaset_exit_module(void)
 void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 extern int __VERIFIER_nondet_int(void) ;
-extern void * __VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 int LDV_IN_INTERRUPT ;
 void ldv_blast_assert(void)
 {
@@ -8799,8 +8799,8 @@ int main(void)
   int tmp___0 ;
   {
   {
-  drivers.prev = __VERIFIER_nondet_pointer();
-  drivers.next = __VERIFIER_nondet_pointer();
+  drivers.prev = (void*)__VERIFIER_nondet_ulong();
+  drivers.next = (void*)__VERIFIER_nondet_ulong();
   ldv_s_if_ops_tty_operations = 0;
   LDV_IN_INTERRUPT = 1;
   ldv_initialize();

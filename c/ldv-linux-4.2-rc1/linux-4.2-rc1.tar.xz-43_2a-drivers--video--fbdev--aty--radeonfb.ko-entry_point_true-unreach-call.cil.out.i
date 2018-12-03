@@ -4092,7 +4092,6 @@ extern void *calloc(size_t , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int ) ;
 void *ldv_malloc(size_t size )
 {
@@ -4159,7 +4158,7 @@ void *ldv_undef_ptr(void)
 {
   void *tmp ;
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -7251,7 +7250,7 @@ int main(void)
   ldvarg10 = (struct fb_image *)tmp___1;
   tmp___2 = ldv_init_zalloc(40UL);
   ldvarg9 = (struct fb_cmap *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
+  tmp___3 = (void*)__VERIFIER_nondet_ulong();
   ldvarg14 = (struct file *)tmp___3;
   tmp___4 = ldv_init_zalloc(1UL);
   ldvarg13 = (char *)tmp___4;
@@ -7265,7 +7264,7 @@ int main(void)
   ldvarg24 = (struct bin_attribute *)tmp___8;
   tmp___9 = ldv_init_zalloc(296UL);
   ldvarg25 = (struct kobject *)tmp___9;
-  tmp___10 = __VERIFIER_nondet_pointer();
+  tmp___10 = (void*)__VERIFIER_nondet_ulong();
   ldvarg23 = (struct file *)tmp___10;
   tmp___11 = ldv_init_zalloc(1UL);
   ldvarg22 = (char *)tmp___11;

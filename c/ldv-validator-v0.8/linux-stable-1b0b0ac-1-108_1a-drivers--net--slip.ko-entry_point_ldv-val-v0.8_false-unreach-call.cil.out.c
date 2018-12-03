@@ -4734,7 +4734,6 @@ extern void *calloc(size_t  , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -4807,7 +4806,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -7406,9 +7405,9 @@ int main(void)
   ldvarg4 = (struct ifreq *)tmp___0;
   tmp___1 = ldv_init_zalloc(184UL);
   ldvarg0 = (struct rtnl_link_stats64 *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
+  tmp___2 = (void*)__VERIFIER_nondet_ulong();
   ldvarg7 = (struct file *)tmp___2;
-  tmp___3 = __VERIFIER_nondet_pointer();
+  tmp___3 = (void*)__VERIFIER_nondet_ulong();
   ldvarg13 = (struct file *)tmp___3;
   tmp___4 = ldv_init_zalloc(1UL);
   ldvarg10 = (unsigned char *)tmp___4;

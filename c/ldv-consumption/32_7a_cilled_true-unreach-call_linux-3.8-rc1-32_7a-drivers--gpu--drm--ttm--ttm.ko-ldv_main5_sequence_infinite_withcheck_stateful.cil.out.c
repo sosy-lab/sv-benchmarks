@@ -3766,11 +3766,11 @@ void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern long __VERIFIER_nondet_long(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
+extern unsigned long __VERIFIER_nondet_ulong(void) ;
 
 struct ttm_tt *ttm_tt_create_dummy(struct ttm_bo_device *p0, unsigned long p1, uint32_t p2,
                                    struct page *p3) {
-  return (struct ttm_tt *)__VERIFIER_nondet_pointer();
+  return (struct ttm_tt *)(void*)__VERIFIER_nondet_ulong();
 }
 int ttm_tt_populate_dummy(struct ttm_tt *p0)  {
   return __VERIFIER_nondet_int();
@@ -3803,7 +3803,7 @@ int sync_obj_flush_dummy(void *p0) {
 void sync_obj_unref_dummy(void **p0) {
 }
 void *sync_obj_ref_dummy(void *p0) {
-  return __VERIFIER_nondet_pointer();
+  return (void*)__VERIFIER_nondet_ulong();
 }
 void move_notify_dummy(struct ttm_buffer_object *p0, struct ttm_mem_reg *p1) {
 }
@@ -10460,10 +10460,10 @@ int main(void)
   int tmp___0 ;
 
   var_group1 = ldv_init_zalloc(sizeof(struct vm_area_struct));
-  var_group1->vm_private_data = __VERIFIER_nondet_pointer();
+  var_group1->vm_private_data = (void*)__VERIFIER_nondet_ulong();
   __VERIFIER_assume(var_group1->vm_private_data != ((void *)0));
   bo = (struct ttm_buffer_object *)var_group1->vm_private_data;
-  bo->bdev = __VERIFIER_nondet_pointer();
+  bo->bdev = (void*)__VERIFIER_nondet_ulong();
   __VERIFIER_assume(bo->bdev != ((void *)0));
   (bo->bdev)->driver = &_var_group1_vm_private_data_driver;
 

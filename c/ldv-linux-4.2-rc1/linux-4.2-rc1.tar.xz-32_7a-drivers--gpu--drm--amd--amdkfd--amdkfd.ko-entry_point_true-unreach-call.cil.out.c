@@ -5270,7 +5270,6 @@ extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
-extern void *__VERIFIER_nondet_pointer(void) ;
 extern void __VERIFIER_assume(int  ) ;
 void *ldv_malloc(size_t size ) 
 { 
@@ -5343,7 +5342,7 @@ void *ldv_undef_ptr(void)
   void *tmp ;
 
   {
-  tmp = __VERIFIER_nondet_pointer();
+  tmp = (void*)__VERIFIER_nondet_ulong();
   return (tmp);
 }
 }
@@ -5583,9 +5582,9 @@ int main(void)
   ldvarg18 = (struct kfd2kgd_calls *)tmp;
   tmp___0 = ldv_init_zalloc(1UL);
   ldvarg20 = tmp___0;
-  tmp___1 = __VERIFIER_nondet_pointer();
+  tmp___1 = (void*)__VERIFIER_nondet_ulong();
   ldvarg17 = (struct kgd_dev *)tmp___1;
-  tmp___2 = __VERIFIER_nondet_pointer();
+  tmp___2 = (void*)__VERIFIER_nondet_ulong();
   ldvarg19 = (struct pci_dev *)tmp___2;
   tmp___3 = ldv_init_zalloc(40UL);
   ldvarg16 = (struct kgd2kfd_shared_resources *)tmp___3;
