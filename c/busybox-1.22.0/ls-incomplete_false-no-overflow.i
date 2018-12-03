@@ -5395,6 +5395,10 @@ char *strchrnul(const char *s, int c)
   else
     return result;
 }
+int strverscmp(const char *s1, const char *s2)
+{
+  return __VERIFIER_nondet_int();
+}
 static struct utmp dummy_utmp;
 struct utmp *getutent(void) {
   if (__VERIFIER_nondet_int())
