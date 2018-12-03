@@ -2693,6 +2693,7 @@ inval:
 #include "busybox_sv_comp-dup2.h"
 #include "busybox_sv_comp-fcntl.h"
 #include "busybox_sv_comp-ioctl.h"
+#include "busybox_sv_comp-open.h"
 #include "busybox_sv_comp-sleep.h"
 #include "busybox_sv_comp-termios.h"
 #include "busybox_sv_comp_impl.h"
