@@ -19902,6 +19902,10 @@ __be32 *xdr_reserve_space(struct xdr_stream *arg0, size_t arg1) {
 void xdr_set_scratch_buffer(struct xdr_stream *arg0, void *arg1, size_t arg2) {
   return;
 }
+int __VERIFIER_nondet_int(void);
+int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
+  return __VERIFIER_nondet_int();
+}
 void *__VERIFIER_external_alloc(void);
 void *external_alloc(void) {
   return __VERIFIER_external_alloc();
