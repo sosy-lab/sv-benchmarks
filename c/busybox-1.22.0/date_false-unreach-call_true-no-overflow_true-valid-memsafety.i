@@ -3776,6 +3776,17 @@ static void * xzalloc(unsigned long int size)
   memset(ptr, 0, size);
   return ptr;
 }
+int putenv(char *string)
+{
+  (void)*string;
+  if(__VERIFIER_nondet_int())
+  {
+    *bb_errno = __VERIFIER_nondet_int();
+    __VERIFIER_assume(*bb_errno != 0);
+    return -1;
+  }
+  return 0;
+}
 unsigned int sleep(unsigned int sec) {
   unsigned int retval = __VERIFIER_nondet_uint();
   __VERIFIER_assume(retval <= sec);
