@@ -1848,9 +1848,9 @@ void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

@@ -6700,9 +6700,9 @@ int __VERIFIER_nondet_int(void);
 int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 arg3, __u16 arg4, __u16 arg5, void *arg6, __u16 arg7, int arg8) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

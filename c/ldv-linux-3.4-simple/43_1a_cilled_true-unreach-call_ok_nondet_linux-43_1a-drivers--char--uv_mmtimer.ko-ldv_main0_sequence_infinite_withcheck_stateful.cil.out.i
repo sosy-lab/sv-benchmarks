@@ -3448,9 +3448,9 @@ int __VERIFIER_nondet_int(void);
 int remap_pfn_range(struct vm_area_struct *arg0, unsigned long arg1, unsigned long arg2, unsigned long arg3, pgprotval_t arg4) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

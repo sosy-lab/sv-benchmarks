@@ -2403,9 +2403,9 @@ void input_event(struct input_dev *arg0, unsigned int arg1, unsigned int arg2, i
 void ldv_initialize() {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

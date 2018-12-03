@@ -3816,9 +3816,9 @@ void unregister_sysctl_table(struct ctl_table_header *arg0) {
 void wait_for_completion(struct completion *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

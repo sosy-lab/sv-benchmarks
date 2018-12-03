@@ -6877,9 +6877,9 @@ int sysfs_create_link(struct kobject *arg0, struct kobject *arg1, const char *ar
 void sysfs_remove_link(struct kobject *arg0, const char *arg1) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

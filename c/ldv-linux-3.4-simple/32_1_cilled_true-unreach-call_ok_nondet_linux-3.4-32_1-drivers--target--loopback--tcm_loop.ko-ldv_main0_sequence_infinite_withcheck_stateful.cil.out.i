@@ -12609,9 +12609,9 @@ int __VERIFIER_nondet_int(void);
 int transport_send_check_condition_and_sense(struct se_cmd *arg0, u8 arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

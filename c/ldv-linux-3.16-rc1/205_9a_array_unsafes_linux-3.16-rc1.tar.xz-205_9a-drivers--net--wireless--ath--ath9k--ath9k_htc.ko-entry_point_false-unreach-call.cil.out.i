@@ -21840,9 +21840,9 @@ void *external_alloc(void);
 struct ieee80211_hw *wiphy_to_ieee80211_hw(struct wiphy *arg0) {
   return (struct ieee80211_hw *)external_alloc();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {

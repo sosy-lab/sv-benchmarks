@@ -7864,9 +7864,9 @@ void *zs_map_object(struct zs_pool *arg0, void *arg1) {
 void zs_unmap_object(struct zs_pool *arg0, void *arg1) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

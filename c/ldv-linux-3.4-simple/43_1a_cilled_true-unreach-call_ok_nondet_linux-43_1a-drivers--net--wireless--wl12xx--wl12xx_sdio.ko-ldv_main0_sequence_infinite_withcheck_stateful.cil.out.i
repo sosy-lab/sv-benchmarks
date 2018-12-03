@@ -7407,9 +7407,9 @@ void *external_alloc(void);
 struct wl12xx_platform_data *wl12xx_get_platform_data() {
   return (struct wl12xx_platform_data *)external_alloc();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

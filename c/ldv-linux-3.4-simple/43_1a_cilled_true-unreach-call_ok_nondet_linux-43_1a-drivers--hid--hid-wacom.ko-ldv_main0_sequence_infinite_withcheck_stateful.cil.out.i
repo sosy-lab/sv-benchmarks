@@ -4835,9 +4835,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 __kernel_size_t strnlen(const char *arg0, __kernel_size_t arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

@@ -7932,9 +7932,9 @@ void skb_complete_tx_timestamp(struct sk_buff *arg0, struct skb_shared_hwtstamps
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {

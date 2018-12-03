@@ -13712,9 +13712,9 @@ int __VERIFIER_nondet_int(void);
 int xenbus_watch_pathfmt(struct xenbus_device *arg0, struct xenbus_watch *arg1, void (*arg2)(struct xenbus_watch *, const char **, unsigned int), const char *arg3, ...) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {

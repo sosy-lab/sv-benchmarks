@@ -2742,9 +2742,9 @@ int printk(const char *arg0, ...) {
 void uio_unregister_device(struct uio_info *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

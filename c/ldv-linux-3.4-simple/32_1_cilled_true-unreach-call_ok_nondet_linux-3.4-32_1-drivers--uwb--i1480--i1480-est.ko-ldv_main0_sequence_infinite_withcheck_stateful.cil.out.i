@@ -2851,9 +2851,9 @@ int __VERIFIER_nondet_int(void);
 int uwb_est_unregister(u8 arg0, u8 arg1, u16 arg2, u16 arg3, const struct uwb_est_entry *arg4, size_t arg5) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

@@ -4734,9 +4734,9 @@ int usb_wwan_open(struct tty_struct *arg0, struct usb_serial_port *arg1) {
 void usb_wwan_release(struct usb_serial *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

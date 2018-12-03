@@ -10285,9 +10285,9 @@ void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
 void warn_slowpath_fmt(char *arg0, int arg1, char *arg2, ...) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

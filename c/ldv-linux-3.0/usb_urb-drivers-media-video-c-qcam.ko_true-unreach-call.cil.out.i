@@ -7336,9 +7336,9 @@ struct video_device *video_devdata(struct file *arg0) {
 void video_unregister_device(struct video_device *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {

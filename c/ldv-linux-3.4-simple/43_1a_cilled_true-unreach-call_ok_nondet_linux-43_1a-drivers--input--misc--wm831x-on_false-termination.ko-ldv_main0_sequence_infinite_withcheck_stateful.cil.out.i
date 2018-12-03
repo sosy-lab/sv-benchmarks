@@ -2496,9 +2496,9 @@ int __VERIFIER_nondet_int(void);
 int wm831x_reg_read(struct wm831x *arg0, unsigned short arg1) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

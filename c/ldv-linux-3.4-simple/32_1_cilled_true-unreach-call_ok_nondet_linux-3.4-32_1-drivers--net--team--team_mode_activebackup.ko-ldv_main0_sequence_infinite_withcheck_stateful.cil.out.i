@@ -5155,9 +5155,9 @@ int team_options_register(struct team *arg0, const struct team_option *arg1, siz
 void team_options_unregister(struct team *arg0, const struct team_option *arg1, size_t arg2) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

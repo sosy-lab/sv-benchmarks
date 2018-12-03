@@ -18858,9 +18858,9 @@ unsigned long int wait_for_completion_io_timeout(struct completion *arg0, unsign
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {

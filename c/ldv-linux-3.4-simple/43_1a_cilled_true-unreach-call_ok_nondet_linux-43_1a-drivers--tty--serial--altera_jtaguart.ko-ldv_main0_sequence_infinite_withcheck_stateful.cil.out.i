@@ -4716,9 +4716,9 @@ void uart_unregister_driver(struct uart_driver *arg0) {
 void uart_write_wakeup(struct uart_port *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

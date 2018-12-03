@@ -19547,9 +19547,9 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *arg0) {
 void videobuf_vmalloc_free(struct videobuf_buffer *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {

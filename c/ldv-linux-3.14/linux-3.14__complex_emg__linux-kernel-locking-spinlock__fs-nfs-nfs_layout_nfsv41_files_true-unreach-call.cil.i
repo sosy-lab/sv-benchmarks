@@ -17343,9 +17343,9 @@ __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
 void xdr_set_scratch_buffer(struct xdr_stream *arg0, void *arg1, size_t arg2) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {

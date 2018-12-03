@@ -9957,9 +9957,9 @@ int ttpci_budget_init(struct budget *arg0, struct saa7146_dev *arg1, struct saa7
 void ttpci_budget_init_hooks(struct budget *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

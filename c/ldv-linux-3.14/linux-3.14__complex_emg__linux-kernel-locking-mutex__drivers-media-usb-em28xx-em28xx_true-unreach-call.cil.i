@@ -15363,9 +15363,9 @@ struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {
