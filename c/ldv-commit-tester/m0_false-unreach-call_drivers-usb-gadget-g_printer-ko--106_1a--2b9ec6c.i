@@ -3515,6 +3515,7 @@ int usb_gadget_get_string(struct usb_gadget_strings *table , int id , u8 *buf )
   return ((int )*buf);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int usb_descriptor_fillbuf(void *buf , unsigned int buflen , struct usb_descriptor_header const **src )
 {
   u8 *dest ;

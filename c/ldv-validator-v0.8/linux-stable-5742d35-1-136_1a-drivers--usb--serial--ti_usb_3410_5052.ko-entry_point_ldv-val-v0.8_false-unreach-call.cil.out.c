@@ -6153,6 +6153,7 @@ static int ti_do_download(struct usb_device *dev , int pipe , u8 *buffer , int s
   return (status);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int ti_download_firmware(struct ti_device *tdev ) 
 { 
   int status ;

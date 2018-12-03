@@ -7128,6 +7128,7 @@ static int flexcop_usb_i2c_request(struct flexcop_i2c_adapter *i2c , flexcop_acc
   }
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void flexcop_usb_process_frame(struct flexcop_usb *fc_usb , u8 *buffer , int buffer_length ) 
 { u8 *b ;
   int l ;

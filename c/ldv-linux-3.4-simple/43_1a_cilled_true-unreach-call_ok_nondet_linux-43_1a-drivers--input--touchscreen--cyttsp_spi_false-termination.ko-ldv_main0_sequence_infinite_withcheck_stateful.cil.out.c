@@ -3203,6 +3203,7 @@ __inline static void spi_message_add_tail(struct spi_transfer *t , struct spi_me
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int spi_setup(struct spi_device * ) ;
 extern int spi_sync(struct spi_device * , struct spi_message * ) ;
 static int cyttsp_spi_xfer(struct cyttsp *ts , u8 op , u8 reg , u8 *buf , int length ) 

@@ -5825,6 +5825,7 @@ static void x25_asy_free(struct x25_asy *sl )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int x25_asy_change_mtu(struct net_device *dev , int newmtu ) 
 { 
   struct x25_asy *sl ;

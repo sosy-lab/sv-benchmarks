@@ -4975,6 +4975,7 @@ __inline static int list_empty(struct list_head const *head )
   return ((unsigned long )((struct list_head const *)head->next) == (unsigned long )head);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const * , int const ) ;
 extern void *__memcpy(void * , void const * , size_t ) ;

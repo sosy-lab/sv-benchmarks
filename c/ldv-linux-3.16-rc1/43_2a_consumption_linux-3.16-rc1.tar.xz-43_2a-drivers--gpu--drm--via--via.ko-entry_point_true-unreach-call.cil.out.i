@@ -6511,6 +6511,7 @@ static int via_dma_init(struct drm_device *dev , void *data , struct drm_file *f
   return (retcode);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int via_dispatch_cmdbuffer(struct drm_device *dev , drm_via_cmdbuffer_t *cmd )
 {
   drm_via_private_t *dev_priv ;

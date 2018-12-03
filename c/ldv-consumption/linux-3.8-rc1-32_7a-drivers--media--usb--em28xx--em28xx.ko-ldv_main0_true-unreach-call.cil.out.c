@@ -6330,6 +6330,7 @@ __inline static void finish_buffer(struct em28xx *dev , struct em28xx_buffer *bu
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void em28xx_copy_video(struct em28xx *dev , struct em28xx_buffer *buf , unsigned char *usb_buf ,
                               unsigned long len ) 
 { 

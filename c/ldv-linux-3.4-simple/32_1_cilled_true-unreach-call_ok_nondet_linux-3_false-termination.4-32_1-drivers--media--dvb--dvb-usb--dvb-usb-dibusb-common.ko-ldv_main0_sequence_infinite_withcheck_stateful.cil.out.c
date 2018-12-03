@@ -6550,6 +6550,7 @@ int dibusb2_0_power_ctrl(struct dvb_usb_device *d , int onoff )
   }
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *__crc_dibusb2_0_power_ctrl  __attribute__((__weak__)) ;
 static unsigned long const   __kcrctab_dibusb2_0_power_ctrl  __attribute__((__used__,
 __unused__, __section__("___kcrctab+dibusb2_0_power_ctrl")))  =    (unsigned long const   )((unsigned long )(& __crc_dibusb2_0_power_ctrl));

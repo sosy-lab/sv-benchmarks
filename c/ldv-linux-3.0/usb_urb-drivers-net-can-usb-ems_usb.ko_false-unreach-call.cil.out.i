@@ -5763,6 +5763,7 @@ static void ems_usb_write_bulk_callback(struct urb *urb )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int ems_usb_command_msg(struct ems_usb *dev , struct ems_cpc_msg *msg )
 { int actual_length ;
   size_t __len ;

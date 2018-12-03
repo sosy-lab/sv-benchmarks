@@ -5403,6 +5403,7 @@ static struct s3c_hsotg_ep *ep_from_windex(struct s3c_hsotg *hsotg , u32 windex 
   return (ep);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int s3c_hsotg_send_reply(struct s3c_hsotg *hsotg , struct s3c_hsotg_ep *ep ,
                                 void *buff , int length ) 
 { 

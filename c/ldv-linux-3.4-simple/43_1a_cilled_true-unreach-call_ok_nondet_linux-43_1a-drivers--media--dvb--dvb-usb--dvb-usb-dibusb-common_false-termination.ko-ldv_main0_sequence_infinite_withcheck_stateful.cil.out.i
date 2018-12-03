@@ -6277,6 +6277,7 @@ int dibusb2_0_power_ctrl(struct dvb_usb_device *d , int onoff )
   }
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int dibusb_i2c_msg(struct dvb_usb_device *d , u8 addr , u8 *wbuf , u16 wlen ,
                           u8 *rbuf , u16 rlen )
 { u8 *sndbuf ;

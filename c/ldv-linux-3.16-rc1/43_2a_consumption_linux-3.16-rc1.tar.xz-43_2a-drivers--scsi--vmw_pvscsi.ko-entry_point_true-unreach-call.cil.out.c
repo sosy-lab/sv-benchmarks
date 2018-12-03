@@ -6132,6 +6132,7 @@ static void pvscsi_process_completion_ring(struct pvscsi_adapter *adapter )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int pvscsi_queue_ring(struct pvscsi_adapter *adapter , struct pvscsi_ctx *ctx ,
                              struct scsi_cmnd *cmd ) 
 { 

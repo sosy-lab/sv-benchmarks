@@ -4640,6 +4640,7 @@ static void clear_capture_buf(struct loopback_pcm *dpcm , unsigned int bytes )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void copy_play_buf(struct loopback_pcm *play , struct loopback_pcm *capt ,
                           unsigned int bytes ) 
 { 

@@ -5215,6 +5215,7 @@ static void sdhci_set_adma_desc(u8 *desc , u32 addr , int len , unsigned int cmd
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data ) 
 { 
   int direction ;

@@ -4654,6 +4654,7 @@ struct raid5_plug_cb {
    struct list_head list ;
    struct list_head temp_inactive_list[8U] ;
 };
+extern void *memcpy(void * , void const   * , size_t  ) ;
 typedef bool ldv_func_ret_type;
 typedef bool ldv_func_ret_type___0;
 typedef bool ldv_func_ret_type___1;

@@ -4702,6 +4702,7 @@ static void mxser_close(struct tty_struct *tty , struct file *filp )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int mxser_write(struct tty_struct *tty , unsigned char const *buf , int count )
 {
   int c ;

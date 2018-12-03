@@ -6069,6 +6069,7 @@ static int rp_put_char(struct tty_struct *tty , unsigned char ch )
   return (1);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int rp_write(struct tty_struct *tty , unsigned char const *buf , int count )
 {
   struct r_port *info ;

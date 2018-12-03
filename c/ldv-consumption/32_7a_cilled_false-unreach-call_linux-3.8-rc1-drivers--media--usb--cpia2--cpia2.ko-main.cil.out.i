@@ -5558,6 +5558,7 @@ static int cpia2_s_ctrl(struct v4l2_ctrl *ctrl )
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int cpia2_g_jpegcomp(struct file *file , void *fh , struct v4l2_jpegcompression *parms )
 { struct camera_data *cam ;
   void *tmp ;

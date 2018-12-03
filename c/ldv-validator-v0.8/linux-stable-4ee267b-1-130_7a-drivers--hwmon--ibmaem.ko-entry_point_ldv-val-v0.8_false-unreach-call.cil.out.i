@@ -3107,6 +3107,7 @@ static int aem_send_message(struct aem_ipmi_data *data )
   return (err);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void aem_msg_handler(struct ipmi_recv_msg *msg , void *user_msg_data )
 {
   unsigned short rx_len ;

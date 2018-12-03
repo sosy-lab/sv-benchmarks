@@ -9504,6 +9504,7 @@ void ldv_mutex_unlock_68(struct mutex *ldv_func_arg1 )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 int ldv_mutex_trylock_84(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_82(struct mutex *ldv_func_arg1 ) ;

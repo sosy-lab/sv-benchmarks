@@ -3701,6 +3701,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
   }
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int gspca_dev_probe(struct usb_interface * , struct usb_device_id const * ,
                            struct sd_desc const * , int , struct module * ) ;
 extern void gspca_frame_add(struct gspca_dev * , enum gspca_packet_type , u8 const * ,

@@ -7632,6 +7632,7 @@ static int ath6kl_usb_submit_ctrl_out(struct ath6kl_usb *ar_usb , u8 req , u16 v
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int ath6kl_usb_submit_ctrl_in(struct ath6kl_usb *ar_usb , u8 req , u16 value ,
                                      u16 index , void *data , u32 size )
 {

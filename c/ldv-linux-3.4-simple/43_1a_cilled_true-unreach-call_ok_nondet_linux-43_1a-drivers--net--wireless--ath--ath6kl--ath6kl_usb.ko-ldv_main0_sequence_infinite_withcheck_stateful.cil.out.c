@@ -5732,6 +5732,7 @@ static void ath6kl_usb_device_detached(struct usb_interface *interface )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int ath6kl_usb_submit_ctrl_out(struct ath6kl_usb *ar_usb , u8 req , u16 value ,
                                       u16 index , void *data , u32 size ) 
 { u8 *buf ;

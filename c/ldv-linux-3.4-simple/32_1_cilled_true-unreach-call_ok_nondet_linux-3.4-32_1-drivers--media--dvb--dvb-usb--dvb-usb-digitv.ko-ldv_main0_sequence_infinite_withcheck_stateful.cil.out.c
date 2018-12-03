@@ -6088,6 +6088,7 @@ __inline static int mt352_write(struct dvb_frontend *fe , u8 const   *buf , int 
   return (r);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int dvb_usb_digitv_debug  ;
 static char const   __param_str_debug[6]  = {      (char const   )'d',      (char const   )'e',      (char const   )'b',      (char const   )'u', 
         (char const   )'g',      (char const   )'\000'};

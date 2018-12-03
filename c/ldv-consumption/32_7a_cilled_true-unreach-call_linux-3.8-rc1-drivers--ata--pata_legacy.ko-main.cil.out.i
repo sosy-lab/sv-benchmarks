@@ -4661,6 +4661,7 @@ static void pdc20230_set_piomode(struct ata_port *ap , struct ata_device *adev )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static unsigned int pdc_data_xfer_vlb(struct ata_device *dev , unsigned char *buf ,
                                       unsigned int buflen , int rw )
 { int slop ;

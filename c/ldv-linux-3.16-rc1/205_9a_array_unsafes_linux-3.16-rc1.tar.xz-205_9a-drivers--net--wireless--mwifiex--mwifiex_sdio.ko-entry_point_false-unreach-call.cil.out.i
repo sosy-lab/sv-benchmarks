@@ -8734,6 +8734,7 @@ static int mwifiex_check_fw_status(struct mwifiex_adapter *adapter , u32 poll_nu
   return (ret);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int mwifiex_decode_rx_packet(struct mwifiex_adapter *adapter , struct sk_buff *skb ,
                                     u32 upld_typ )
 {

@@ -4210,6 +4210,7 @@ static int stv090x_read_reg(struct stv090x_state *state , unsigned int reg )
   return ((int )buf);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int stv090x_write_regs(struct stv090x_state *state , unsigned int reg , u8 *data ,
                               u32 count )
 {

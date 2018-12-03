@@ -7452,6 +7452,7 @@ static ssize_t mousedev_write(struct file *file , char    *buffer , size_t count
   return ((ssize_t )count);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static ssize_t mousedev_read(struct file *file , char *buffer , size_t count , loff_t *ppos ) 
 { struct mousedev_client *client ;
   struct mousedev *mousedev ;

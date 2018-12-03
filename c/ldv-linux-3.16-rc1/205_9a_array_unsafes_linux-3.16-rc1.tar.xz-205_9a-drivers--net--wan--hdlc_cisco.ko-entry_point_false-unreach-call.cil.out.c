@@ -6047,6 +6047,7 @@ static void cisco_stop(struct net_device *dev )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static struct hdlc_proto proto  = 
      {0, 0, & cisco_start, & cisco_stop, 0, & cisco_ioctl, & cisco_type_trans, & cisco_rx,
     0, & __this_module, 0};

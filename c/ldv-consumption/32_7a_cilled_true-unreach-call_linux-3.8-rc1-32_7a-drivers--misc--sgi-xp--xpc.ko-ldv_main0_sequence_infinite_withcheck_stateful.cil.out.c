@@ -9919,6 +9919,7 @@ static void xpc_handle_notify_mq_ack_uv(struct xpc_channel *ch , struct xpc_noti
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void xpc_handle_notify_mq_msg_uv(struct xpc_partition *part , struct xpc_notify_mq_msg_uv *msg ) 
 { 
   struct xpc_partition_uv *part_uv ;

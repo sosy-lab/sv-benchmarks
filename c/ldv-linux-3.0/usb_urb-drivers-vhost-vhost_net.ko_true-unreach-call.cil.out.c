@@ -7631,6 +7631,7 @@ int vhost_vq_access_ok(struct vhost_virtqueue *vq )
   return (tmp___9);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static bool __warned___25 ;
 static long vhost_set_memory(struct vhost_dev *d , struct vhost_memory *m )
 { struct vhost_memory mem ;

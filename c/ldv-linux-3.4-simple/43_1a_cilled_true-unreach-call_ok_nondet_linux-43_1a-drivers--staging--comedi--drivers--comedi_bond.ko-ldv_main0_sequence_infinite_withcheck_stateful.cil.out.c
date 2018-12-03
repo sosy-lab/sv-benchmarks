@@ -2020,6 +2020,7 @@ static int bonding_dio_insn_config(struct comedi_device *dev , struct comedi_sub
   }
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void *Realloc(void const   *oldmem , size_t newlen , size_t oldlen ) 
 { void *newmem ;
   void *tmp ;

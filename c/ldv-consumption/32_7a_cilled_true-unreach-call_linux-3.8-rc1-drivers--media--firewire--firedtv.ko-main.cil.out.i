@@ -6131,6 +6131,7 @@ static bool is_register_rc(struct avc_response_frame *r )
   return ((bool )(((((unsigned int )r->opcode == 0U && (unsigned int )r->operand[0] == 0U) && (unsigned int )r->operand[1] == 18U) && (unsigned int )r->operand[2] == 135U) && (unsigned int )r->operand[3] == 10U));
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int avc_recv(struct firedtv *fdtv , void *data , size_t length )
 { struct avc_response_frame *r ;
   long tmp ;

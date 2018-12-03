@@ -4651,6 +4651,7 @@ static int snd_rawmidi_control_ioctl(struct snd_card *card , struct snd_ctl_file
   return (-515);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 int snd_rawmidi_receive(struct snd_rawmidi_substream *substream , unsigned char const *buffer ,
                         int count )
 {

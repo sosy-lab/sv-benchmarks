@@ -7370,6 +7370,7 @@ static int smsc9420_ethtool_get_eeprom_len(struct net_device *dev )
   return (11);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int smsc9420_ethtool_get_eeprom(struct net_device *dev , struct ethtool_eeprom *eeprom ,
                                        u8 *data ) 
 { 

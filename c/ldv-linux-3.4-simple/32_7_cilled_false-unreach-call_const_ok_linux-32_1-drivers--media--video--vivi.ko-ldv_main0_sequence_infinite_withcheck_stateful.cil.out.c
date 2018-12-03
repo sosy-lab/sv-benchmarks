@@ -6114,6 +6114,7 @@ static void gen_text(struct vivi_dev *dev , char *basep , int y , int x , char *
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void vivi_fillbuff(struct vivi_dev *dev , struct vivi_buffer *buf ) 
 { int wmax ;
   int hmax ;

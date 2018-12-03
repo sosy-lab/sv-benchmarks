@@ -4866,6 +4866,7 @@ static void sierra_outdat_callback(struct urb *urb )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int sierra_write(struct tty_struct *tty , struct usb_serial_port *port , unsigned char const   *buf ,
                         int count ) 
 { 

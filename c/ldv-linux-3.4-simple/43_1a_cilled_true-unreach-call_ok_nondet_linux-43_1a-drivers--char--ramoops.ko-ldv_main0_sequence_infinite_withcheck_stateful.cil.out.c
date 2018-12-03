@@ -905,6 +905,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
   return (tmp);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void iounmap(void volatile   * ) ;
 extern struct module __this_module ;
 extern void kfree(void const   * ) ;

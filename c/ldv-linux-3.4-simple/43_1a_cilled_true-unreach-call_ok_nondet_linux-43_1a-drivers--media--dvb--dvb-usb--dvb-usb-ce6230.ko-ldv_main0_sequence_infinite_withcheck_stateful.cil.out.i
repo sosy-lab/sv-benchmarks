@@ -5900,6 +5900,7 @@ __inline static void *i2c_get_adapdata(struct i2c_adapter const *dev )
   return (tmp);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern struct sk_buff *skb_clone(struct sk_buff * , gfp_t ) ;
 struct sk_buff *ldv_skb_clone_22(struct sk_buff *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 extern struct sk_buff *skb_copy(struct sk_buff const * , gfp_t ) ;

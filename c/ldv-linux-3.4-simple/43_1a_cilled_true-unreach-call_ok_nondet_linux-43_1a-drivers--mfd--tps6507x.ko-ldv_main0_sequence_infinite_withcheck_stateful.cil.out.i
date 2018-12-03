@@ -2219,6 +2219,7 @@ static int tps6507x_i2c_read_device(struct tps6507x_dev *tps6507x , char reg , i
   return (ret);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int tps6507x_i2c_write_device(struct tps6507x_dev *tps6507x , char reg , int bytes ,
                                      void *src )
 { struct i2c_client *i2c ;

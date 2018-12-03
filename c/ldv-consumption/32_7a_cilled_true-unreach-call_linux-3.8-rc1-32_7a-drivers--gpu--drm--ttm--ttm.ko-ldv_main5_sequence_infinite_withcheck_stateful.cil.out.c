@@ -8684,6 +8684,7 @@ extern unsigned int ioread32(void * ) ;
 extern void iowrite32(u32  , void * ) ;
 extern void *vmap(struct page ** , unsigned int  , unsigned long  , pgprot_t  ) ;
 extern void vunmap(void const   * ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void memcpy_fromio(void *dst , void const volatile   *src , size_t count ) 
 { 
   size_t __len ;

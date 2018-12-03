@@ -1327,6 +1327,7 @@ static int w1_f2d_write(struct w1_slave *sl , int addr , int len , u8 const   *d
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static ssize_t w1_f2d_write_bin(struct file *filp , struct kobject *kobj , struct bin_attribute *bin_attr ,
                                 char *buf , loff_t off , size_t count ) 
 { struct w1_slave *sl ;

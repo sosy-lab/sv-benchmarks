@@ -3913,6 +3913,7 @@ struct driver_attribute {
    ssize_t (*show)(struct device_driver * , char * ) ;
    ssize_t (*store)(struct device_driver * , char const   * , size_t  ) ;
 };
+extern void *memcpy(void * , void const   * , size_t  ) ;
 typedef struct device *ldv_func_ret_type___7;
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 __inline static void __read_once_size(void const volatile   *p , void *res , int size ) 

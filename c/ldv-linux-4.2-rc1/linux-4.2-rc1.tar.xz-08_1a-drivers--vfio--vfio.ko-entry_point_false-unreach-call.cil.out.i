@@ -3435,6 +3435,7 @@ struct vfio_device {
    struct list_head group_next ;
    void *device_data ;
 };
+extern void *memcpy(void * , void const   * , size_t  ) ;
 typedef int ldv_func_ret_type;
 typedef int ldv_func_ret_type___0;
 typedef int ldv_func_ret_type___1;

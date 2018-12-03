@@ -3348,6 +3348,7 @@ static void pch_vbus_gpio_free(struct pch_udc_dev *dev )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void complete_req(struct pch_udc_ep *ep , struct pch_udc_request *req , int status )
 {
   struct pch_udc_dev *dev ;

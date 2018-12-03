@@ -5640,6 +5640,7 @@ __inline static struct sk_buff *netdev_alloc_skb_ip_align(struct net_device *dev
   return (tmp);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void *to ,
                                                unsigned int const len )
 {

@@ -5644,6 +5644,7 @@ static int stk_initialise(struct stk_camera *dev )
   }
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void stk_isoc_handler(struct urb *urb ) 
 { 
   int i ;

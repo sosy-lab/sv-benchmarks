@@ -9251,6 +9251,7 @@ static int mos7840_write_room(struct tty_struct *tty )
   return (room);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int mos7840_write(struct tty_struct *tty , struct usb_serial_port *port , unsigned char const *data ,
                          int count )
 { int status ;

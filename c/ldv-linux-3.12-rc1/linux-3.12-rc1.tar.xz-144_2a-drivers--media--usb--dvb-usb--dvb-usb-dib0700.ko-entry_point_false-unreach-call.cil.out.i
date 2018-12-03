@@ -7416,6 +7416,7 @@ static int dib0700_set_usb_xfer_len(struct dvb_usb_device *d , u16 nb_ts_packets
   return (ret);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int dib0700_i2c_xfer_new(struct i2c_adapter *adap , struct i2c_msg *msg , int num )
 {
   struct dvb_usb_device *d ;

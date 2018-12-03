@@ -2304,6 +2304,7 @@ static int write_eraseblock(int ebnum )
   return (err);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int verify_eraseblock(int ebnum ) 
 { uint32_t j ;
   size_t read ;

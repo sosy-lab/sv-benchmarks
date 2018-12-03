@@ -5684,6 +5684,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
   return ((unsigned int )(dev->devnum << 8) | (endpoint << 15));
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int usbnet_probe(struct usb_interface * , struct usb_device_id const * ) ;
 extern int usbnet_suspend(struct usb_interface * , pm_message_t ) ;
 extern int usbnet_resume(struct usb_interface * ) ;

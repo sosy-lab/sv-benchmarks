@@ -1013,6 +1013,7 @@ static int phram_unpoint(struct mtd_info *mtd , loff_t from , size_t len )
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int phram_read(struct mtd_info *mtd , loff_t from , size_t len , size_t *retlen ,
                       u_char *buf )
 { u_char *start ;

@@ -5916,6 +5916,7 @@ __inline static int mt352_write(struct dvb_frontend *fe , u8 const   *buf , int 
   return (r);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int dvb_usb_digitv_debug  ;
 static short adapter_nr[8U]  = 
   {      (short)-1,      (short)-1,      (short)-1,      (short)-1, 

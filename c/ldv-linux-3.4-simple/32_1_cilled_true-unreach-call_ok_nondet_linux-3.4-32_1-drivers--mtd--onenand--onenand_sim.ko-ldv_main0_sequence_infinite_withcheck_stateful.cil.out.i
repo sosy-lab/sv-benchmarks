@@ -2539,6 +2539,7 @@ static int onenand_check_overwrite(void *dest , void *src , size_t count )
   return (0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int pi_operation ;
 static void onenand_data_handle(struct onenand_chip *this , int cmd , int dataram ,
                                 unsigned int offset )

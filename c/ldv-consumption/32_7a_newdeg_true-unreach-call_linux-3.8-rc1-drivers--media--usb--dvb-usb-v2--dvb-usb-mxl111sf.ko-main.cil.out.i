@@ -6259,6 +6259,7 @@ struct mxl_gpio_cfg {
    u8 dir ;
    u8 val ;
 };
+extern void *memcpy(void * , void const   * , size_t  ) ;
 long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const * , ...) ;
 extern int __dynamic_pr_debug(struct _ddebug * , char const * , ...) ;

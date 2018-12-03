@@ -8646,6 +8646,7 @@ static void ppp_push(struct ppp *ppp )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static bool mp_protocol_compress = 1;
 static int ppp_mp_explode(struct ppp *ppp , struct sk_buff *skb )
 {

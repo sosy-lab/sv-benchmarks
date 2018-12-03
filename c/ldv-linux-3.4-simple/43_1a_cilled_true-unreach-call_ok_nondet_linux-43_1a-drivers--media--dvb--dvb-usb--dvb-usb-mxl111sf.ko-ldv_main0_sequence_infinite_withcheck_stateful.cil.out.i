@@ -5803,6 +5803,7 @@ struct mxl_gpio_cfg {
    u8 dir ;
    u8 val ;
 };
+extern void *memcpy(void * , void const   * , size_t  ) ;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;

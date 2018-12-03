@@ -4651,6 +4651,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
 }
 }
 extern void iounmap(void volatile   * ) ;
+extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static void memcpy_fromio(void *dst , void const volatile   *src , size_t count ) 
 { 
   size_t __len ;

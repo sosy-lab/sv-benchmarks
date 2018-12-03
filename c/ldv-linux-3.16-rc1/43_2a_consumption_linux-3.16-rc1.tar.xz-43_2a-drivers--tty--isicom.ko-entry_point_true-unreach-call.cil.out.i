@@ -5179,6 +5179,7 @@ static void isicom_close(struct tty_struct *tty , struct file *filp )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int isicom_write(struct tty_struct *tty , unsigned char const *buf , int count )
 {
   struct isi_port *port ;

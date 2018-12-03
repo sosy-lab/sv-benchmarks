@@ -2319,6 +2319,7 @@ static void ibmpex_bmc_gone(int iface )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void ibmpex_msg_handler(struct ipmi_recv_msg *msg , void *user_msg_data ) 
 { 
   struct ibmpex_bmc_data *data ;

@@ -3782,6 +3782,7 @@ static void find_next_position(struct mtdoops_context *cxt )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static void mtdoops_do_dump(struct kmsg_dumper *dumper , enum kmsg_dump_reason reason ,
                             char const   *s1 , unsigned long l1 , char const   *s2 ,
                             unsigned long l2 ) 

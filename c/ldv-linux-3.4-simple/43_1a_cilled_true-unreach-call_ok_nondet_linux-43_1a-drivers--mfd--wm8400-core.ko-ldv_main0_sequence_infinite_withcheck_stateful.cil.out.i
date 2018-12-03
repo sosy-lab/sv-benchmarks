@@ -2305,6 +2305,7 @@ __inline static void i2c_set_clientdata(struct i2c_client *dev , void *data )
   return;
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int i2c_register_driver(struct module * , struct i2c_driver * ) ;
 extern void i2c_del_driver(struct i2c_driver * ) ;
 extern int mfd_add_devices(struct device * , int , struct mfd_cell * , int , struct resource * ,

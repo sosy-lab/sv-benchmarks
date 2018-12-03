@@ -6427,6 +6427,7 @@ __inline static int kvaser_usb_send_msg(struct kvaser_usb  const  *dev , struct 
   return (tmp___0);
 }
 }
+extern void *memcpy(void * , void const   * , size_t  ) ;
 static int kvaser_usb_wait_msg(struct kvaser_usb  const  *dev , u8 id , struct kvaser_msg *msg ) 
 { 
   struct kvaser_msg *tmp ;
