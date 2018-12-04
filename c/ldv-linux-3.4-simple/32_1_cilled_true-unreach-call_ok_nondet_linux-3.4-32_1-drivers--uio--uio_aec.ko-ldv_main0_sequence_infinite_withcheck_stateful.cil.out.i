@@ -2089,7 +2089,7 @@ extern int __attribute__((__warn_unused_result__)) __pci_register_driver(struct 
                                                                           struct module * ,
                                                                           char const *mod_name ) ;
 extern void pci_unregister_driver(struct pci_driver *dev ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -3069,6 +3069,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

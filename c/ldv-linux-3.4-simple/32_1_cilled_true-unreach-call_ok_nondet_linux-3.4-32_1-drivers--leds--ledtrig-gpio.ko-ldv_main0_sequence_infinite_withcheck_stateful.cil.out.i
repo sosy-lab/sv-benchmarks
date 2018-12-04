@@ -945,7 +945,7 @@ __inline static int __attribute__((__warn_unused_result__)) request_irq(unsigned
 extern void free_irq(unsigned int , void * ) ;
 extern int led_trigger_register(struct led_trigger *trigger ) ;
 extern void led_trigger_unregister(struct led_trigger *trigger ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -2111,6 +2111,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

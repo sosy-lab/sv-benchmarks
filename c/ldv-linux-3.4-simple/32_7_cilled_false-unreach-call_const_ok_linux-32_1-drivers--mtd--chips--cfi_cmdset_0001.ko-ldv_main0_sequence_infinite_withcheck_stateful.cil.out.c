@@ -2481,7 +2481,7 @@ extern struct module __this_module ;
 extern void __module_get(struct module *module ) ;
 extern void schedule(void) ;
 extern int _cond_resched(void) ;
-extern void kfree(void    * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);

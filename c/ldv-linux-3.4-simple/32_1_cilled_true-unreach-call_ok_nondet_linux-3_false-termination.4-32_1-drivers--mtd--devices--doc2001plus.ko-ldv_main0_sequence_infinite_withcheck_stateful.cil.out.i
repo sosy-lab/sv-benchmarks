@@ -2110,7 +2110,7 @@ __inline static void writeb(unsigned char val , void volatile *addr )
 extern void iounmap(void volatile *addr ) ;
 extern struct module __this_module ;
 void cleanup_module(void) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -5695,6 +5695,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

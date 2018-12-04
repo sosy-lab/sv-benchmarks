@@ -3784,7 +3784,7 @@ extern int del_timer_sync(struct timer_list * ) ;
 extern int proc_dointvec_minmax(struct ctl_table * , int  , void * , size_t * , loff_t * ) ;
 extern struct ctl_table_header *register_sysctl_table(struct ctl_table * ) ;
 extern void unregister_sysctl_table(struct ctl_table_header * ) ;
-extern void kfree(void    * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;

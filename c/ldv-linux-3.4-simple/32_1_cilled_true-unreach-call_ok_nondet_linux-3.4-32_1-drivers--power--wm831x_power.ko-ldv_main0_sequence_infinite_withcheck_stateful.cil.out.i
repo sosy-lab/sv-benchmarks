@@ -1154,7 +1154,7 @@ __inline static void platform_set_drvdata(struct platform_device *pdev , void *d
 extern void power_supply_changed(struct power_supply *psy ) ;
 extern int power_supply_register(struct device *parent , struct power_supply *psy ) ;
 extern void power_supply_unregister(struct power_supply *psy ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -3327,6 +3327,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

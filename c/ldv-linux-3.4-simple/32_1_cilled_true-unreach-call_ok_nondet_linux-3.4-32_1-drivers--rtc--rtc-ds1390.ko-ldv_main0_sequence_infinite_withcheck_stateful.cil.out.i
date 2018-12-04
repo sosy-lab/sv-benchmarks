@@ -2951,7 +2951,7 @@ extern struct rtc_device *rtc_device_register(char const *name , struct device *
                                               struct rtc_class_ops const *ops ,
                                               struct module *owner ) ;
 extern void rtc_device_unregister(struct rtc_device *rtc ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -4022,6 +4022,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

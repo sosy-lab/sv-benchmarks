@@ -2086,7 +2086,7 @@ int init_module(void) ;
 extern void *__symbol_get(char const *symbol ) ;
 extern void symbol_put_addr(void *addr ) ;
 extern void __const_udelay(unsigned long xloops ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -3130,6 +3130,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

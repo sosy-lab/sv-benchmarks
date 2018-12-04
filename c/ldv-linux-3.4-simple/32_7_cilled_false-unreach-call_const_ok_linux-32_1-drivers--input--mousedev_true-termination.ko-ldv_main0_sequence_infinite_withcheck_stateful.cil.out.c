@@ -3758,7 +3758,7 @@ __inline static int signal_pending(struct task_struct *p )
   return ((int )tmp___9);
 }
 }
-extern void kfree(void    * ) ;
+extern void kfree(void const * ) ;
 __inline static char    *kobject_name(struct kobject    *kobj )  __attribute__((__no_instrument_function__)) ;
 __inline static char    *kobject_name(struct kobject    *kobj ) 
 { char    *   __cil_tmp2 ;

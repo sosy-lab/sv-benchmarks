@@ -1942,7 +1942,7 @@ extern unsigned long volatile jiffies ;
 extern void init_timer_key(struct timer_list * , char const * , struct lock_class_key * ) ;
 extern int mod_timer(struct timer_list * , unsigned long ) ;
 extern int del_timer_sync(struct timer_list * ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
@@ -3454,6 +3454,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

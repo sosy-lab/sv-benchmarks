@@ -3287,7 +3287,7 @@ extern void *memcpy(void * , void const * , size_t ) ;
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int ) ;
 extern void mutex_unlock(struct mutex * ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
@@ -7051,6 +7051,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

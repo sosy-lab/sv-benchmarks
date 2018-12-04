@@ -2102,7 +2102,7 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 }
 extern char *kasprintf(gfp_t , char const * , ...) ;
 extern unsigned long __phys_addr(unsigned long ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int remap_pfn_range(struct vm_area_struct * , unsigned long , unsigned long ,
                            unsigned long , pgprotval_t ) ;
 extern struct xenstore_domain_interface *xen_store_interface ;
@@ -2580,6 +2580,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

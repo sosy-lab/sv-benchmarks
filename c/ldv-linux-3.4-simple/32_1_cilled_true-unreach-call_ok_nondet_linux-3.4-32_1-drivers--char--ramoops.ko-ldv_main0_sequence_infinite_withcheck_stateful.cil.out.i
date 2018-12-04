@@ -919,7 +919,7 @@ extern struct platform_device *platform_create_bundle(struct platform_driver *dr
                                                       int (*probe)(struct platform_device * ) ,
                                                       struct resource *res , unsigned int n_res ,
                                                       void const *data , size_t size ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -2060,6 +2060,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

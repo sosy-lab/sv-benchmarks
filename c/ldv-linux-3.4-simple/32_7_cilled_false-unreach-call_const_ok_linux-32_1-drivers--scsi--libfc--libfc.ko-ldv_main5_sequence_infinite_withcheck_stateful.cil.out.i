@@ -7148,7 +7148,7 @@ extern void __mutex_init(struct mutex *lock , char *name , struct lock_class_key
 extern void __init_work(struct work_struct *work , int onstack ) ;
 extern int schedule_delayed_work(struct delayed_work *work , unsigned long delay ) ;
 extern bool cancel_delayed_work_sync(struct delayed_work *dwork ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 __inline static void kref_get(struct kref *kref ) __attribute__((__no_instrument_function__)) ;
 __inline static void kref_get(struct kref *kref )
 { int __ret_warn_on ;
@@ -57452,6 +57452,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

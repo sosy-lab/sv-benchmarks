@@ -2147,7 +2147,7 @@ __inline static int mtd_write_oob(struct mtd_info *mtd , loff_t to , struct mtd_
 extern int mtd_block_isbad(struct mtd_info *mtd , loff_t ofs ) ;
 extern struct mtd_info *get_mtd_device(struct mtd_info *mtd , int num ) ;
 extern void put_mtd_device(struct mtd_info *mtd ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 extern void *malloc(size_t size);
@@ -4684,6 +4684,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

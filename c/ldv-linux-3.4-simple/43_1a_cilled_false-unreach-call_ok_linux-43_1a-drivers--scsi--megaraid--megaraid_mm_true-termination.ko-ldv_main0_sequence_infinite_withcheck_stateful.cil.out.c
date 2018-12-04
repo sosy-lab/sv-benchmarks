@@ -3274,7 +3274,7 @@ extern void init_timer_key(struct timer_list * , char    * , struct lock_class_k
 extern void add_timer(struct timer_list * ) ;
 extern int del_timer_sync(struct timer_list * ) ;
 extern struct module __this_module ;
-extern void kfree(void    * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 extern int __VERIFIER_nondet_int(void);

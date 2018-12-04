@@ -1305,7 +1305,7 @@ extern void destroy_workqueue(struct workqueue_struct * ) ;
 extern int queue_work(struct workqueue_struct * , struct work_struct * ) ;
 extern void flush_workqueue(struct workqueue_struct * ) ;
 extern int add_uevent_var(struct kobj_uevent_env * , char const * , ...) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
@@ -3336,6 +3336,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }

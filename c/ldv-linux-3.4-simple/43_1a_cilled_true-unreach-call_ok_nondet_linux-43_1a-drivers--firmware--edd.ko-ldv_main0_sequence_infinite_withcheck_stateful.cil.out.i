@@ -3439,7 +3439,7 @@ int ldv_spin_trylock(void) ;
 extern struct edd edd ;
 extern void kobject_put(struct kobject * ) ;
 extern void kset_unregister(struct kset * ) ;
-extern void kfree(void * ) ;
+extern void kfree(void const * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -3813,6 +3813,6 @@ void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
 }
 void free(void *);
-void kfree(void *p) {
+void kfree(void const *p) {
   free((void *)p);
 }
