@@ -3373,7 +3373,9 @@ struct dm_io_region {
    sector_t sector ;
    sector_t count ;
 };
-struct dm_kcopyd_client;
+struct dm_kcopyd_client {
+  int __dummy;
+};
 typedef sector_t chunk_t;
 struct dm_exception {
    struct list_head hash_list ;
@@ -3468,7 +3470,9 @@ struct transient_c {
 typedef __u32 __le32;
 typedef __u64 __le64;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct page_list {
    struct page_list *next ;
    struct page *page ;
@@ -3494,7 +3498,9 @@ struct dm_io_notify {
    void (*fn)(unsigned long , void * ) ;
    void *context ;
 };
-struct dm_io_client;
+struct dm_io_client {
+  int __dummy;
+};
 struct dm_io_request {
    int bi_rw ;
    struct dm_io_memory mem ;

@@ -479,7 +479,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -631,7 +633,9 @@ struct call_single_data {
    void *info ;
    unsigned int flags ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 struct kernel_cap_struct {
    __u32 cap[2U] ;
 };
@@ -3531,7 +3535,9 @@ struct dm_thin_lookup_result {
    dm_block_t block ;
    bool shared ;
 };
-struct dm_bio_prison;
+struct dm_bio_prison {
+  int __dummy;
+};
 struct dm_cell_key {
    int virtual ;
    dm_thin_id dev ;
@@ -3545,11 +3551,17 @@ struct dm_bio_prison_cell {
    struct bio *holder ;
    struct bio_list bios ;
 };
-struct dm_deferred_set;
-struct dm_deferred_entry;
+struct dm_deferred_set {
+  int __dummy;
+};
+struct dm_deferred_entry {
+  int __dummy;
+};
 struct dm_dev;
 struct dm_table;
-struct mapped_device;
+struct mapped_device {
+  int __dummy;
+};
 enum ldv_25369 {
     STATUSTYPE_INFO = 0,
     STATUSTYPE_TABLE = 1
@@ -3745,7 +3757,9 @@ struct dm_kcopyd_throttle {
    unsigned int total_period ;
    unsigned int last_jiffies ;
 };
-struct dm_kcopyd_client;
+struct dm_kcopyd_client {
+  int __dummy;
+};
 typedef __u64 Elf64_Addr;
 typedef __u16 Elf64_Half;
 typedef __u32 Elf64_Word;
@@ -4073,7 +4087,9 @@ typedef bool ldv_func_ret_type___5;
 typedef __u32 __le32;
 typedef __u64 __le64;
 enum hrtimer_restart;
-struct dm_block_manager;
+struct dm_block_manager {
+  int __dummy;
+};
 struct dm_space_map {
    void (*destroy)(struct dm_space_map * ) ;
    int (*extend)(struct dm_space_map * , dm_block_t  ) ;
@@ -4091,7 +4107,9 @@ struct dm_space_map {
    int (*register_threshold_callback)(struct dm_space_map * , dm_block_t  , void (*)(void * ) ,
                                       void * ) ;
 };
-struct dm_transaction_manager;
+struct dm_transaction_manager {
+  int __dummy;
+};
 struct dm_btree_value_type {
    void *context ;
    uint32_t size ;

@@ -514,7 +514,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -744,7 +746,9 @@ union __anonunion____missing_field_name_157 {
    struct __anonstruct____missing_field_name_159 __annonCompField44 ;
    pgtable_t pmd_huge_pte ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 union __anonunion____missing_field_name_160 {
    unsigned long private ;
    spinlock_t *ptl ;
@@ -3697,7 +3701,9 @@ struct dm_thin_lookup_result {
    dm_block_t block ;
    bool shared ;
 };
-struct dm_bio_prison;
+struct dm_bio_prison {
+  int __dummy;
+};
 struct dm_cell_key {
    int virtual ;
    dm_thin_id dev ;
@@ -3711,11 +3717,17 @@ struct dm_bio_prison_cell {
    struct bio *holder ;
    struct bio_list bios ;
 };
-struct dm_deferred_set;
-struct dm_deferred_entry;
+struct dm_deferred_set {
+  int __dummy;
+};
+struct dm_deferred_entry {
+  int __dummy;
+};
 struct dm_dev;
 struct dm_table;
-struct mapped_device;
+struct mapped_device {
+  int __dummy;
+};
 enum ldv_25701 {
     STATUSTYPE_INFO = 0,
     STATUSTYPE_TABLE = 1
@@ -3911,7 +3923,9 @@ struct dm_kcopyd_throttle {
    unsigned int total_period ;
    unsigned int last_jiffies ;
 };
-struct dm_kcopyd_client;
+struct dm_kcopyd_client {
+  int __dummy;
+};
 enum lock_space {
     VIRTUAL = 0,
     PHYSICAL = 1
@@ -4079,7 +4093,9 @@ typedef bool ldv_func_ret_type___4;
 typedef __u32 __le32;
 typedef __u64 __le64;
 enum hrtimer_restart;
-struct dm_block_manager;
+struct dm_block_manager {
+  int __dummy;
+};
 struct dm_space_map {
    void (*destroy)(struct dm_space_map * ) ;
    int (*extend)(struct dm_space_map * , dm_block_t ) ;
@@ -4097,7 +4113,9 @@ struct dm_space_map {
    int (*register_threshold_callback)(struct dm_space_map * , dm_block_t , void (*)(void * ) ,
                                       void * ) ;
 };
-struct dm_transaction_manager;
+struct dm_transaction_manager {
+  int __dummy;
+};
 struct dm_btree_value_type {
    void *context ;
    uint32_t size ;

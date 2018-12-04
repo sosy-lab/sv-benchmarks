@@ -750,7 +750,9 @@ union __anonunion____missing_field_name_157 {
    struct __anonstruct____missing_field_name_159 __annonCompField44 ;
    pgtable_t pmd_huge_pte ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 union __anonunion____missing_field_name_160 {
    unsigned long private ;
    spinlock_t *ptl ;
@@ -2132,7 +2134,9 @@ struct usb_request;
 struct usb_gadget;
 struct usb_hcd;
 struct usb_ep;
-struct gpio_desc;
+struct gpio_desc {
+  int __dummy;
+};
 enum gpiod_flags {
     GPIOD_ASIS = 0,
     GPIOD_IN = 1,

@@ -2296,7 +2296,9 @@ struct scatterlist {
    dma_addr_t dma_address ;
    unsigned int dma_length ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct shrink_control {
    gfp_t gfp_mask ;
    unsigned long nr_to_scan ;
@@ -3802,7 +3804,9 @@ struct scsi_device;
 struct scsi_host_cmd_pool;
 struct scsi_target;
 struct Scsi_Host;
-struct scsi_transport_template;
+struct scsi_transport_template {
+  int __dummy;
+};
 struct scsi_host_template {
    struct module *module ;
    char const   *name ;

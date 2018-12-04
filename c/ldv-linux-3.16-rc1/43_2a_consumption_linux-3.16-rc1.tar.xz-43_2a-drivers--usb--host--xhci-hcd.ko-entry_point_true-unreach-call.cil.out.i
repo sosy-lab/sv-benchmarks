@@ -1712,7 +1712,9 @@ struct scatterlist {
    dma_addr_t dma_address ;
    unsigned int dma_length ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;
@@ -4021,7 +4023,9 @@ struct xhci_bus_state {
    unsigned long rexit_ports ;
    struct completion rexit_done[31U] ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct xhci_hcd {
    struct usb_hcd *main_hcd ;
    struct usb_hcd *shared_hcd ;

@@ -340,7 +340,9 @@ struct fpu {
    unsigned int has_fpu ;
    union thread_xstate *state ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 struct perf_event;
 struct thread_struct {
    struct desc_struct tls_array[3U] ;
@@ -745,7 +747,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -2400,7 +2404,9 @@ struct scatterlist {
    dma_addr_t dma_address ;
    unsigned int dma_length ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct shrink_control {
    gfp_t gfp_mask ;
    unsigned long nr_to_scan ;

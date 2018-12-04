@@ -2564,7 +2564,9 @@ struct dma_map_ops {
    int (*set_dma_mask)(struct device * , u64 ) ;
    int is_phys ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct hlist_bl_node;
 struct hlist_bl_head {
    struct hlist_bl_node *first ;

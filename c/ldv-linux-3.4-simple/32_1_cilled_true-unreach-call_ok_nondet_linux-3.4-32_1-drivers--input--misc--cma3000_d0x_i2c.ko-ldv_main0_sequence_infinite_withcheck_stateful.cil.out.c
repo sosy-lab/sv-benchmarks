@@ -2780,7 +2780,9 @@ struct file_system_type {
    struct lock_class_key i_mutex_dir_key ;
 };
 struct device;
-struct cma3000_accl_data;
+struct cma3000_accl_data {
+  int __dummy;
+};
 struct cma3000_accl_data;
 struct cma3000_bus_ops {
    u16 bustype ;

@@ -2164,7 +2164,9 @@ struct kmem_cache {
    int remote_node_defrag_ratio ;
    struct kmem_cache_node *node[1024U] ;
 };
-struct regulator;
+struct regulator {
+  int __dummy;
+};
 enum led_brightness {
     LED_OFF = 0,
     LED_HALF = 127,

@@ -561,7 +561,9 @@ struct completion {
    unsigned int done ;
    wait_queue_head_t wait ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;

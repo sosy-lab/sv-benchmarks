@@ -957,7 +957,9 @@ struct scatterlist {
    dma_addr_t dma_address ;
    unsigned int dma_length ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;
@@ -4189,7 +4191,9 @@ struct mthca_arbel_srq_context {
    __be16 wqe_counter ;
    u32 reserved2[3U] ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 __inline static int fls64(__u64 x ) 
 { int bitpos ;
 

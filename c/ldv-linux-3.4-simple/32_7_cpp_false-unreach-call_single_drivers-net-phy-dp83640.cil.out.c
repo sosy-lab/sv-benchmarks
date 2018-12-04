@@ -41584,7 +41584,9 @@ struct ptp_clock_info {
         struct ptp_clock_request *request, int on);
 };
 
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 
 
 

@@ -2795,7 +2795,9 @@ struct module {
    ctor_fn_t *ctors ;
    unsigned int num_ctors ;
 };
-struct ad7879;
+struct ad7879 {
+  int __dummy;
+};
 struct ad7879;
 struct device;
 struct ad7879_bus_ops {

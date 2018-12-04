@@ -23,7 +23,9 @@ struct list_head {
    struct list_head *next ;
    struct list_head *prev ;
 };
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct task_struct;
 struct task_struct;
@@ -125,7 +127,9 @@ struct timer_list {
    char start_comm[16U] ;
    struct lockdep_map lockdep_map ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct workqueue_struct;
 struct work_struct;
 struct work_struct;

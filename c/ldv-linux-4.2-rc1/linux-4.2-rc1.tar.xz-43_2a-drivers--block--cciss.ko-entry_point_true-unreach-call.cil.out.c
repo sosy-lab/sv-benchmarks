@@ -2161,7 +2161,9 @@ enum irqreturn {
     IRQ_WAKE_THREAD = 2
 } ;
 typedef enum irqreturn irqreturn_t;
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct exception_table_entry {
    int insn ;
    int fixup ;

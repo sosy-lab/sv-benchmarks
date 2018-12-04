@@ -5160,7 +5160,9 @@ struct ptp_clock_info {
    int (*verify)(struct ptp_clock_info * , unsigned int  , enum ptp_pin_function  ,
                  unsigned int  ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 union __anonunion_ldv_43076_257 {
    u64 timestamp ;
    struct pps_event_time pps_times ;

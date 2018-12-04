@@ -2988,7 +2988,9 @@ struct bus_type;
 struct device_node;
 struct fwnode_handle;
 struct iommu_ops;
-struct iommu_group;
+struct iommu_group {
+  int __dummy;
+};
 struct device_attribute;
 struct bus_type {
    char const *name ;

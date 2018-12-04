@@ -2772,7 +2772,9 @@ struct spi_message {
    struct list_head queue ;
    void *state ;
 };
-struct adxl34x;
+struct adxl34x {
+  int __dummy;
+};
 struct adxl34x;
 struct adxl34x_bus_ops {
    u16 bustype ;

@@ -440,7 +440,9 @@ struct subsys_private;
 struct bus_type;
 struct device_node;
 struct iommu_ops;
-struct iommu_group;
+struct iommu_group {
+  int __dummy;
+};
 struct bus_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct bus_type * , char * ) ;
@@ -588,7 +590,9 @@ struct wakeup_source {
    bool active ;
    bool autosleep_enabled ;
 };
-struct eventfd_ctx;
+struct eventfd_ctx {
+  int __dummy;
+};
 struct pci_dev;
 struct __anonstruct_nodemask_t_100 {
    unsigned long bits[16U] ;
@@ -1007,7 +1011,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct pci_saved_state;
+struct pci_saved_state {
+  int __dummy;
+};
 struct scatterlist {
    unsigned long sg_magic ;
    unsigned long page_link ;
@@ -1434,7 +1440,9 @@ struct timespec {
    __kernel_time_t tv_sec ;
    long tv_nsec ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 enum irqreturn {
     IRQ_NONE = 0,
     IRQ_HANDLED = 1,

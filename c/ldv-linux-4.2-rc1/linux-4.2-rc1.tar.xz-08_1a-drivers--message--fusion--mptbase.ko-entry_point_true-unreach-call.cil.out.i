@@ -519,7 +519,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -2382,7 +2384,9 @@ struct pcie_link_state;
 struct pci_vpd;
 struct pci_sriov;
 struct pci_ats;
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct pci_driver;
 union __anonunion____missing_field_name_220 {
    struct pci_sriov *sriov ;

@@ -2618,7 +2618,9 @@ struct sg_table {
    unsigned int nents ;
    unsigned int orig_nents ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct dma_attrs {
    unsigned long flags[1U] ;
 };

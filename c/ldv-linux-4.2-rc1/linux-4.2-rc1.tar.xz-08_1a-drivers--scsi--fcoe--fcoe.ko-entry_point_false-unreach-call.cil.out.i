@@ -582,7 +582,9 @@ struct ctl_table_root {
    struct ctl_table_set *(*lookup)(struct ctl_table_root * , struct nsproxy * ) ;
    int (*permissions)(struct ctl_table_header * , struct ctl_table * ) ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -7043,8 +7045,12 @@ struct fc_fcp_pkt {
    struct fc_seq *recov_seq ;
    struct completion tm_done ;
 };
-struct fc_exch_mgr;
-struct fc_exch_mgr_anchor;
+struct fc_exch_mgr {
+  int __dummy;
+};
+struct fc_exch_mgr_anchor {
+  int __dummy;
+};
 struct fc_seq {
    u8 id ;
    u16 ssb_stat ;

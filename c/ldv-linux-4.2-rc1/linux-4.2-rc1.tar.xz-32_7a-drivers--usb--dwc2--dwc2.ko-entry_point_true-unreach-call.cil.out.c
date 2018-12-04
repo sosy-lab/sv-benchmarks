@@ -490,7 +490,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -3837,7 +3839,9 @@ union dwc2_hcd_internal_flags {
    u32 d32 ;
    struct __anonstruct_b_256 b ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct debugfs_regset32;
 struct s3c_hsotg_plat;
 struct dwc2_hsotg {

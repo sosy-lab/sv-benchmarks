@@ -81,7 +81,9 @@ struct callback_head {
    struct callback_head *next ;
    void (*func)(struct callback_head * ) ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct resource {
    resource_size_t start ;
    resource_size_t end ;
@@ -788,8 +790,12 @@ struct seq_operations {
    void *(*next)(struct seq_file * , void * , loff_t * ) ;
    int (*show)(struct seq_file * , void * ) ;
 };
-struct pinctrl;
-struct pinctrl_state;
+struct pinctrl {
+  int __dummy;
+};
+struct pinctrl_state {
+  int __dummy;
+};
 struct dev_pin_info {
    struct pinctrl *p ;
    struct pinctrl_state *default_state ;
@@ -5134,7 +5140,9 @@ struct device_node {
    unsigned long _flags ;
    void *data ;
 };
-struct gpio_desc;
+struct gpio_desc {
+  int __dummy;
+};
 struct macb_platform_data {
    u32 phy_mask ;
    int phy_irq_pin ;

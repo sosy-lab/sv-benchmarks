@@ -3014,7 +3014,9 @@ struct linux_logo {
    unsigned char const   *clut ;
    unsigned char const   *data ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct seq_file {
    char *buf ;
    size_t size ;

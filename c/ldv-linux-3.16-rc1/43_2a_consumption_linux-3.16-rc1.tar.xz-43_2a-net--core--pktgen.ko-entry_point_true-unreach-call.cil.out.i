@@ -2374,7 +2374,9 @@ struct pid_namespace {
    int reboot ;
    unsigned int proc_inum ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct exception_table_entry {
    int insn ;
    int fixup ;

@@ -326,7 +326,9 @@ struct fpu {
    unsigned int has_fpu ;
    union thread_xstate *state ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 struct perf_event;
 struct thread_struct {
    struct desc_struct tls_array[3U] ;
@@ -590,7 +592,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;

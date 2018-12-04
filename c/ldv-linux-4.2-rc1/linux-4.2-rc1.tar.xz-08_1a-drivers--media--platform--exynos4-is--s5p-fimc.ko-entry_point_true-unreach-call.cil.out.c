@@ -2200,8 +2200,12 @@ struct seq_operations {
    void *(*next)(struct seq_file * , void * , loff_t * ) ;
    int (*show)(struct seq_file * , void * ) ;
 };
-struct pinctrl;
-struct pinctrl_state;
+struct pinctrl {
+  int __dummy;
+};
+struct pinctrl_state {
+  int __dummy;
+};
 struct dev_pin_info {
    struct pinctrl *p ;
    struct pinctrl_state *default_state ;
@@ -2412,7 +2416,9 @@ struct platform_driver {
    struct platform_device_id  const  *id_table ;
    bool prevent_deferred_probe ;
 };
-struct regmap;
+struct regmap {
+  int __dummy;
+};
 enum fwnode_type {
     FWNODE_INVALID = 0,
     FWNODE_OF = 1,
@@ -2448,7 +2454,9 @@ struct device_node {
    unsigned long _flags ;
    void *data ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct hlist_bl_node;
 struct hlist_bl_head {
    struct hlist_bl_node *first ;
@@ -4783,7 +4791,9 @@ struct v4l2_device {
    struct kref ref ;
    void (*release)(struct v4l2_device * ) ;
 };
-struct v4l2_m2m_dev;
+struct v4l2_m2m_dev {
+  int __dummy;
+};
 struct v4l2_m2m_queue_ctx {
    struct vb2_queue q ;
    struct list_head rdy_queue ;

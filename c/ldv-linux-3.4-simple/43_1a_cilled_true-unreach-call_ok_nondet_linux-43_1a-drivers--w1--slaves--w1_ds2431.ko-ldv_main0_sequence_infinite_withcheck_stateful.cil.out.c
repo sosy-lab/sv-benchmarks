@@ -44,7 +44,9 @@ struct device;
 struct device;
 struct completion;
 struct completion;
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct task_struct;
 struct task_struct;

@@ -1814,7 +1814,9 @@ struct spi_message {
    void *state ;
 };
 struct device;
-struct regulator;
+struct regulator {
+  int __dummy;
+};
 struct regulator;
 struct cred;
 struct file;

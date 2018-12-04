@@ -3343,7 +3343,9 @@ struct lcd_device {
    struct notifier_block fb_notif ;
    struct device dev ;
 };
-struct regulator;
+struct regulator {
+  int __dummy;
+};
 struct regulator;
 struct kthread_work;
 struct kthread_work;

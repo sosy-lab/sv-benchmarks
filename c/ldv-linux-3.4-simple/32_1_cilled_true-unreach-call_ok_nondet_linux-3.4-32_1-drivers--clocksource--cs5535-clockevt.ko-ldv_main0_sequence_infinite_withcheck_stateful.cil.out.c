@@ -137,7 +137,9 @@ struct kparam_array {
    struct kernel_param_ops  const  *ops ;
    void *elem ;
 };
-struct cs5535_mfgpt_timer;
+struct cs5535_mfgpt_timer {
+  int __dummy;
+};
 struct cs5535_mfgpt_timer;
 struct clock_event_device;
 enum clock_event_mode {

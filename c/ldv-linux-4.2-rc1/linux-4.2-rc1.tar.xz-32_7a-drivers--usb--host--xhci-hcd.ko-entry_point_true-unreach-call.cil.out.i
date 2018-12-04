@@ -2471,7 +2471,9 @@ struct sg_table {
    unsigned int nents ;
    unsigned int orig_nents ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;

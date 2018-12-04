@@ -29059,7 +29059,9 @@ struct ptp_clock_info {
  int (*enable)(struct ptp_clock_info *ptp,
         struct ptp_clock_request *request, int on);
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 extern struct ptp_clock *ptp_clock_register(struct ptp_clock_info *info);
 extern int ptp_clock_unregister(struct ptp_clock *ptp);
 enum ptp_clock_events {

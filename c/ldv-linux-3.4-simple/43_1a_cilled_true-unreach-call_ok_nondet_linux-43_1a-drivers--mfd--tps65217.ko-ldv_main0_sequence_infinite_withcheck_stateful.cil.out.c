@@ -2070,7 +2070,9 @@ union i2c_smbus_data {
    __u16 word ;
    __u8 block[34U] ;
 };
-struct regmap;
+struct regmap {
+  int __dummy;
+};
 struct regmap;
 enum regcache_type {
     REGCACHE_NONE = 0,

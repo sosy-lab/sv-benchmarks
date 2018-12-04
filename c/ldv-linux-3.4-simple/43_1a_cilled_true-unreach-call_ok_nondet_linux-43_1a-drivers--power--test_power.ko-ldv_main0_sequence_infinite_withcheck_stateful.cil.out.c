@@ -32,7 +32,9 @@ struct list_head {
 };
 struct device;
 struct device;
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct arch_spinlock;
 struct arch_spinlock;

@@ -2296,7 +2296,9 @@ struct exception_table_entry {
    int insn ;
    int fixup ;
 };
-struct gpio_desc;
+struct gpio_desc {
+  int __dummy;
+};
 struct st21nfca_nfc_platform_data {
    unsigned int gpio_irq ;
    unsigned int gpio_ena ;

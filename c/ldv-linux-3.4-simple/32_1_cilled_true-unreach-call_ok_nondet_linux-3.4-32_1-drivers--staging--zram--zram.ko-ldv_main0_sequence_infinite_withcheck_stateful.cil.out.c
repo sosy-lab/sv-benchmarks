@@ -3166,7 +3166,9 @@ struct block_device_operations {
    void (*swap_slot_free_notify)(struct block_device * , unsigned long  ) ;
    struct module *owner ;
 };
-struct zs_pool;
+struct zs_pool {
+  int __dummy;
+};
 struct zobj_header {
 
 };

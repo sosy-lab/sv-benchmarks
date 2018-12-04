@@ -1373,7 +1373,9 @@ struct ethtool_cmd;
 struct ethtool_eee;
 struct ethtool_wolinfo;
 struct ethtool_pauseparam;
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct device_node;
 struct proc_dir_entry;
 struct exception_table_entry {
@@ -6443,8 +6445,12 @@ struct ptp_clock_info {
    int (*verify)(struct ptp_clock_info * , unsigned int  , enum ptp_pin_function  ,
                  unsigned int  ) ;
 };
-struct ptp_clock;
-struct reset_control;
+struct ptp_clock {
+  int __dummy;
+};
+struct reset_control {
+  int __dummy;
+};
 struct stmmac_priv {
    struct dma_extended_desc *dma_etx ;
    struct dma_desc *dma_tx ;
@@ -6584,7 +6590,9 @@ enum hrtimer_restart;
 enum hrtimer_restart;
 enum hrtimer_restart;
 enum hrtimer_restart;
-struct regmap;
+struct regmap {
+  int __dummy;
+};
 struct stmmac_of_data {
    int has_gmac ;
    int enh_desc ;

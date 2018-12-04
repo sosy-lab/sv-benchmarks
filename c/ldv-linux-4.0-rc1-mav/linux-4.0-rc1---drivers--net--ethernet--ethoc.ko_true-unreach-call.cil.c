@@ -5159,7 +5159,9 @@ struct platform_driver {
    struct platform_device_id  const  *id_table ;
    bool prevent_deferred_probe ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 typedef __u64 Elf64_Addr;
 typedef __u16 Elf64_Half;
 typedef __u32 Elf64_Word;

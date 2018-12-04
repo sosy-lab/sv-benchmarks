@@ -3623,7 +3623,9 @@ struct vm_operations_struct {
    struct mempolicy *(*get_policy)(struct vm_area_struct * , unsigned long  ) ;
    struct page *(*find_special_page)(struct vm_area_struct * , unsigned long  ) ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct r8a66597_platdata {
    void (*port_power)(int  , int  ) ;
    u16 buswait ;

@@ -4537,7 +4537,9 @@ struct ptp_clock_info {
    int (*settime)(struct ptp_clock_info * , struct timespec const * ) ;
    int (*enable)(struct ptp_clock_info * , struct ptp_clock_request * , int ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 struct e1000_hw;
 enum e1000_mac_type {
     e1000_82571 = 0,

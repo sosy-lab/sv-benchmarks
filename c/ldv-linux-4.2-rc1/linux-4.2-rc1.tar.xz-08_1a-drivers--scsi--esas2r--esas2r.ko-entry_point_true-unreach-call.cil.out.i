@@ -515,7 +515,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -2337,7 +2339,9 @@ struct wakeup_source {
    bool active ;
    bool autosleep_enabled ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct shrink_control {
    gfp_t gfp_mask ;
    unsigned long nr_to_scan ;

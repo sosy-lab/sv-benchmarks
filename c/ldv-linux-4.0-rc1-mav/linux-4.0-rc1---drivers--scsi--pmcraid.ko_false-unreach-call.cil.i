@@ -345,7 +345,9 @@ struct fpu {
    unsigned int has_fpu ;
    union thread_xstate *state ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 struct perf_event;
 struct thread_struct {
    struct desc_struct tls_array[3U] ;
@@ -2425,7 +2427,9 @@ struct scatterlist {
    dma_addr_t dma_address ;
    unsigned int dma_length ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;

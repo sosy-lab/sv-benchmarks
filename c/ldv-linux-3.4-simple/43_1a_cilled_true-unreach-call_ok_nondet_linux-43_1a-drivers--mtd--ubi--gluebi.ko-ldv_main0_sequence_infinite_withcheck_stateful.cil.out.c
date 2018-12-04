@@ -1773,7 +1773,9 @@ struct ubi_notification {
    struct ubi_device_info di ;
    struct ubi_volume_info vi ;
 };
-struct ubi_volume_desc;
+struct ubi_volume_desc {
+  int __dummy;
+};
 struct ubi_volume_desc;
 struct klist_node;
 struct klist_node;

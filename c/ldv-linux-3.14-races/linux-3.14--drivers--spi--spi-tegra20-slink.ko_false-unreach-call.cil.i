@@ -1149,7 +1149,9 @@ struct hrtimer_cpu_base {
    ktime_t max_hang_time ;
    struct hrtimer_clock_base clock_base[4U] ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct arch_uprobe_task {
    unsigned long saved_scratch_register ;
    unsigned int saved_trap_nr ;
@@ -2500,7 +2502,9 @@ struct device_node {
    unsigned long _flags ;
    void *data ;
 };
-struct reset_control;
+struct reset_control {
+  int __dummy;
+};
 struct kmem_cache_cpu {
    void **freelist ;
    unsigned long tid ;

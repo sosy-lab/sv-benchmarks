@@ -591,7 +591,9 @@ struct ctl_table_root {
    struct ctl_table_set *(*lookup)(struct ctl_table_root * , struct nsproxy * ) ;
    int (*permissions)(struct ctl_table_header * , struct ctl_table * ) ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -7756,7 +7758,9 @@ struct ptp_clock_info {
    int (*verify)(struct ptp_clock_info * , unsigned int , enum ptp_pin_function ,
                  unsigned int ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 union __anonunion____missing_field_name_362 {
    u64 timestamp ;
    struct pps_event_time pps_times ;

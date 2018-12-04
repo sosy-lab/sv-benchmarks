@@ -4926,7 +4926,9 @@ struct i2c_adapter {
    struct mutex userspace_clients_lock ;
    struct list_head userspace_clients ;
 };
-struct edid;
+struct edid {
+  int __dummy;
+};
 enum mode_set_atomic {
     LEAVE_ATOMIC_MODE_SET = 0,
     ENTER_ATOMIC_MODE_SET = 1

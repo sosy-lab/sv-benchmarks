@@ -2955,7 +2955,9 @@ struct kernel_ipmi_msg {
    unsigned short data_len ;
    unsigned char *data ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct klist_node;
 struct klist_node {
    void *n_klist ;

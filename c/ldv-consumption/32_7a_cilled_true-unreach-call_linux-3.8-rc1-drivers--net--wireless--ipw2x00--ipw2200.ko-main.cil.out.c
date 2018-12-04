@@ -4934,7 +4934,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct firmware {
    size_t size ;
    u8 const   *data ;

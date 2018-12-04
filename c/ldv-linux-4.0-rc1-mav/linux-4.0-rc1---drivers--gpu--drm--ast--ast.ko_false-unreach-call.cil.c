@@ -5044,7 +5044,9 @@ struct i2c_adapter {
    struct list_head userspace_clients ;
    struct i2c_bus_recovery_info *bus_recovery_info ;
 };
-struct edid;
+struct edid {
+  int __dummy;
+};
 enum mode_set_atomic {
     LEAVE_ATOMIC_MODE_SET = 0,
     ENTER_ATOMIC_MODE_SET = 1

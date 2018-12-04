@@ -77,7 +77,9 @@ struct pid;
 struct pid;
 struct timespec;
 struct timespec;
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct task_struct;
 struct task_struct;
@@ -1598,7 +1600,9 @@ struct exception_table_entry {
    unsigned long insn ;
    unsigned long fixup ;
 };
-struct cs5535_mfgpt_timer;
+struct cs5535_mfgpt_timer {
+  int __dummy;
+};
 struct cs5535_mfgpt_timer;
 void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;

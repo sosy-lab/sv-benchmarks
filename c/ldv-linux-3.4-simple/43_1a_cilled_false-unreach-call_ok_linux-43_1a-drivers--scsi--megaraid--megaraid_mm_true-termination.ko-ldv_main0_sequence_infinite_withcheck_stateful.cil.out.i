@@ -2906,7 +2906,9 @@ struct scatterlist {
    dma_addr_t dma_address ;
    unsigned int dma_length ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct vm_fault {
    unsigned int flags ;
    unsigned long pgoff ;

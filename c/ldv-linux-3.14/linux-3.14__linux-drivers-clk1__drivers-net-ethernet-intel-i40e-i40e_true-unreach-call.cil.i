@@ -6014,7 +6014,9 @@ struct ptp_clock_info {
    int (*settime)(struct ptp_clock_info * , struct timespec const * ) ;
    int (*enable)(struct ptp_clock_info * , struct ptp_clock_request * , int ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 enum i40e_status_code {
     I40E_SUCCESS = 0,
     I40E_ERR_NVM = -1,

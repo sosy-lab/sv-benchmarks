@@ -30,7 +30,9 @@ struct list_head {
    struct list_head *next ;
    struct list_head *prev ;
 };
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct task_struct;
 struct task_struct;
@@ -257,7 +259,9 @@ struct irqaction {
    char const *name ;
    struct proc_dir_entry *dir ;
 };
-struct cs5535_mfgpt_timer;
+struct cs5535_mfgpt_timer {
+  int __dummy;
+};
 struct cs5535_mfgpt_timer;
 enum clock_event_mode {
     CLOCK_EVT_MODE_UNUSED = 0,

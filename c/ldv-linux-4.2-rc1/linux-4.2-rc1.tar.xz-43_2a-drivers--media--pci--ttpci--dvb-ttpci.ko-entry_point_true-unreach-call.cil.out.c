@@ -2986,7 +2986,9 @@ struct file_system_type {
    struct lock_class_key i_mutex_key ;
    struct lock_class_key i_mutex_dir_key ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct exception_table_entry {
    int insn ;
    int fixup ;

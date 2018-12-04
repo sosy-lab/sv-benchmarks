@@ -3477,7 +3477,9 @@ struct tsc2005_platform_data {
    unsigned int esd_timeout_ms ;
    void (*set_reset)(bool  ) ;
 };
-struct regulator;
+struct regulator {
+  int __dummy;
+};
 struct tsc2005_spi_rd {
    struct spi_transfer spi_xfer ;
    u32 spi_tx ;

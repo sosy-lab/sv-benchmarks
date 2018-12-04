@@ -2145,7 +2145,9 @@ struct rtc_device {
    unsigned int uie_task_active : 1 ;
    unsigned int uie_timer_active : 1 ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 typedef __u64 Elf64_Addr;
 typedef __u16 Elf64_Half;
 typedef __u32 Elf64_Word;

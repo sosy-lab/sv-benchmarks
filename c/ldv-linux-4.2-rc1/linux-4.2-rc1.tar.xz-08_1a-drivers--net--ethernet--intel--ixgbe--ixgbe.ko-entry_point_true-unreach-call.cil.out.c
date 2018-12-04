@@ -2841,7 +2841,9 @@ struct sg_table {
    unsigned int nents ;
    unsigned int orig_nents ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;
@@ -6617,7 +6619,9 @@ struct ptp_clock_info {
    int (*verify)(struct ptp_clock_info * , unsigned int  , enum ptp_pin_function  ,
                  unsigned int  ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 struct mdio_if_info {
    int prtad ;
    u32 mmds ;

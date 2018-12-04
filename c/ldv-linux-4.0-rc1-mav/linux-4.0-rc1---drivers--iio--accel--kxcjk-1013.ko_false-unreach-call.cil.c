@@ -3640,7 +3640,9 @@ struct acpi_gpio_mapping {
    struct acpi_gpio_params  const  *data ;
    unsigned int size ;
 };
-struct gpio_desc;
+struct gpio_desc {
+  int __dummy;
+};
 enum gpiod_flags {
     GPIOD_ASIS = 0,
     GPIOD_IN = 1,

@@ -6076,7 +6076,9 @@ struct ptp_clock_info {
    int (*settime)(struct ptp_clock_info * , struct timespec  const  * ) ;
    int (*enable)(struct ptp_clock_info * , struct ptp_clock_request * , int  ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 struct tg3_tx_buffer_desc {
    u32 addr_hi ;
    u32 addr_lo ;

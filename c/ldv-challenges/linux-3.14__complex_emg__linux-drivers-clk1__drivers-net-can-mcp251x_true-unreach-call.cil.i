@@ -78,7 +78,9 @@ struct callback_head {
    struct callback_head *next ;
    void (*func)(struct callback_head * ) ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct resource {
    resource_size_t start ;
    resource_size_t end ;
@@ -697,7 +699,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -5238,7 +5242,9 @@ struct device_node {
    unsigned long _flags ;
    void *data ;
 };
-struct regulator;
+struct regulator {
+  int __dummy;
+};
 enum mcp251x_model {
     CAN_MCP251X_MCP2510 = 9488,
     CAN_MCP251X_MCP2515 = 9493

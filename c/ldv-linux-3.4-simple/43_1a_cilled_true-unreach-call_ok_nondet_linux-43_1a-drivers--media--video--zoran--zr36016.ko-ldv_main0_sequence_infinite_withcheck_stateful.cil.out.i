@@ -30,7 +30,9 @@ struct list_head {
 struct module;
 struct module;
 typedef void (*ctor_fn_t)(void);
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct task_struct;
 struct task_struct;

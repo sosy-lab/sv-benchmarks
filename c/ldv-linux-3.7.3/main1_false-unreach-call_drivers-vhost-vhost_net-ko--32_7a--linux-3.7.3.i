@@ -492,7 +492,9 @@ struct __wait_queue_head {
    struct list_head task_list ;
 };
 typedef struct __wait_queue_head wait_queue_head_t;
-struct eventfd_ctx;
+struct eventfd_ctx {
+  int __dummy;
+};
 struct __anonstruct_seqlock_t_35 {
    unsigned int sequence ;
    spinlock_t lock ;

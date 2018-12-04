@@ -5762,7 +5762,9 @@ struct irq_domain {
    unsigned int linear_revmap[] ;
 };
 struct gpio_chip;
-struct gpio_desc;
+struct gpio_desc {
+  int __dummy;
+};
 struct gpio_chip {
    char const   *label ;
    struct device *dev ;

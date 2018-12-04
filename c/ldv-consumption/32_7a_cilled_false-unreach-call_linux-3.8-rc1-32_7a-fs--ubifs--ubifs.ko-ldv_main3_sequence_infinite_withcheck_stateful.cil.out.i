@@ -2326,7 +2326,9 @@ struct ubi_device_info {
    int ro_mode ;
    dev_t cdev ;
 };
-struct ubi_volume_desc;
+struct ubi_volume_desc {
+  int __dummy;
+};
 struct vm_fault {
    unsigned int flags ;
    unsigned long pgoff ;

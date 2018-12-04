@@ -6628,7 +6628,9 @@ struct ptp_clock_info {
    int (*settime)(struct ptp_clock_info * , struct timespec  const  * ) ;
    int (*enable)(struct ptp_clock_info * , struct ptp_clock_request * , int  ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 struct i2c_algo_bit_data {
    void *data ;
    void (*setsda)(void * , int  ) ;
