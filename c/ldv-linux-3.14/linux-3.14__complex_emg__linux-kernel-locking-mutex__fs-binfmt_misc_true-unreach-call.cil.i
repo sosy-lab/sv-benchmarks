@@ -7895,9 +7895,9 @@ int unregister_filesystem(struct file_system_type *arg0) {
 void would_dump(struct linux_binprm *arg0, struct file *arg1) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {

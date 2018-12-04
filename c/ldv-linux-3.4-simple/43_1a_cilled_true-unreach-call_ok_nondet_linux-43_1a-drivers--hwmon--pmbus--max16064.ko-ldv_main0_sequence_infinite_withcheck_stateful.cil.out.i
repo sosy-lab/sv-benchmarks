@@ -2400,9 +2400,9 @@ int __VERIFIER_nondet_int(void);
 int pmbus_write_word_data(struct i2c_client *arg0, u8 arg1, u8 arg2, u16 arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

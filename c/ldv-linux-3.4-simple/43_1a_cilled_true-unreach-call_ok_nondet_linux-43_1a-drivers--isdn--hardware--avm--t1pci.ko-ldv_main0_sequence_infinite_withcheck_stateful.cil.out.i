@@ -2833,9 +2833,9 @@ int t1pci_detect(avmcard *arg0) {
 void unregister_capi_driver(struct capi_driver *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

@@ -16087,9 +16087,9 @@ int __VERIFIER_nondet_int(void);
 int xenbus_write(struct xenbus_transaction arg0, const char *arg1, const char *arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {

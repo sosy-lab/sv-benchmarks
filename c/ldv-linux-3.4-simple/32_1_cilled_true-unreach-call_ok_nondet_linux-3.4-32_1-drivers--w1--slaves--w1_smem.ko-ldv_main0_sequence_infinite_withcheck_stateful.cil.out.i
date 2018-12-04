@@ -1034,9 +1034,9 @@ int w1_register_family(struct w1_family *arg0) {
 void w1_unregister_family(struct w1_family *arg0) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

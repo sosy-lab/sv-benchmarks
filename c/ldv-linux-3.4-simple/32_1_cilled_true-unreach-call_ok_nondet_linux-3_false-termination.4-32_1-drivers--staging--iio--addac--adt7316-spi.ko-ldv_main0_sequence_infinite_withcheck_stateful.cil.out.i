@@ -2838,9 +2838,9 @@ int __VERIFIER_nondet_int(void);
 int spi_write_then_read(struct spi_device *arg0, const void *arg1, unsigned int arg2, void *arg3, unsigned int arg4) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

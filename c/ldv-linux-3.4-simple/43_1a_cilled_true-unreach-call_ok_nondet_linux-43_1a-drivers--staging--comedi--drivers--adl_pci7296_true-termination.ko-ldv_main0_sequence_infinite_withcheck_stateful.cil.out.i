@@ -2436,9 +2436,9 @@ int __VERIFIER_nondet_int(void);
 int subdev_8255_init(struct comedi_device *arg0, struct comedi_subdevice *arg1, int (*arg2)(int, int, int, unsigned long), unsigned long arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void *p) {

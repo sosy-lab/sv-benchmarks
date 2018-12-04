@@ -35023,9 +35023,9 @@ void xdr_terminate_string(struct xdr_buf *arg0, const u32 arg1) {
 void xdr_write_pages(struct xdr_stream *arg0, struct page **arg1, unsigned int arg2, unsigned int arg3) {
   return;
 }
-void *__VERIFIER_external_alloc(void);
+void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
-  return __VERIFIER_external_alloc();
+  return __VERIFIER_nondet_pointer();
 }
 void free(void *);
 void kfree(void const *p) {
