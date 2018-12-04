@@ -22,19 +22,19 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
 // Function: alloc_orinocodev
 // with type: struct orinoco_private *alloc_orinocodev(int sizeof_card, struct device *device, int (*hard_reset)(struct orinoco_private *), int (*stop_fw)(struct orinoco_private *, int))
 // with return type: (struct orinoco_private)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct orinoco_private *alloc_orinocodev(int arg0, struct device *arg1, int (*arg2)(struct orinoco_private *), int (*arg3)(struct orinoco_private *, int)) {
   // Pointer type
-  return (struct orinoco_private *)external_alloc();
+  return external_alloc(sizeof(struct orinoco_private));
 }
 
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -166,10 +166,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *dev, int bar, unsigned long max)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap

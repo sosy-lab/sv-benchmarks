@@ -7325,7 +7325,7 @@ static ssize_t mousedev_write(struct file *file , char *buffer , size_t count ,
   return ((ssize_t )count);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static ssize_t mousedev_read(struct file *file , char *buffer , size_t count , loff_t *ppos )
 { struct mousedev_client *client ;
   struct mousedev *mousedev ;
@@ -9053,9 +9053,9 @@ int fasync_helper(int arg0, struct file *arg1, int arg2, struct fasync_struct **
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void input_close_device(struct input_handle *arg0) {
   return;
@@ -9115,9 +9115,12 @@ void schedule() {
 void synchronize_sched() {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

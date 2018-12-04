@@ -24116,9 +24116,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __copy_from_user_overflow() {
   return;
@@ -24238,17 +24238,17 @@ void debug_dma_sync_single_for_device(struct device *arg0, dma_addr_t arg1, size
 void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_u32(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
@@ -24264,9 +24264,9 @@ int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -24288,17 +24288,17 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int get_zeroed_page(gfp_t arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_device *ib_alloc_device(size_t arg0) {
-  return (struct ib_device *)external_alloc();
+  return external_alloc(sizeof(struct ib_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_pd *ib_alloc_pd(struct ib_device *arg0) {
-  return (struct ib_pd *)external_alloc();
+  return external_alloc(sizeof(struct ib_pd));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_cq *ib_create_cq(struct ib_device *arg0, void (*arg1)(struct ib_cq *, void *), void (*arg2)(struct ib_event *, void *), void *arg3, const struct ib_cq_init_attr *arg4) {
-  return (struct ib_cq *)external_alloc();
+  return external_alloc(sizeof(struct ib_cq));
 }
 void ib_dealloc_device(struct ib_device *arg0) {
   return;
@@ -24318,9 +24318,9 @@ int ib_destroy_cq(struct ib_cq *arg0) {
 void ib_dispatch_event(struct ib_event *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mr *ib_get_dma_mr(struct ib_pd *arg0, int arg1) {
-  return (struct ib_mr *)external_alloc();
+  return external_alloc(sizeof(struct ib_mr));
 }
 int __VERIFIER_nondet_int(void);
 int ib_modify_qp_is_ok(enum ib_qp_state arg0, enum ib_qp_state arg1, enum ib_qp_type arg2, enum ib_qp_attr_mask arg3, enum rdma_link_layer arg4) {
@@ -24334,9 +24334,9 @@ int __VERIFIER_nondet_int(void);
 int ib_umem_copy_from(void *arg0, struct ib_umem *arg1, size_t arg2, size_t arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_umem *ib_umem_get(struct ib_ucontext *arg0, unsigned long arg1, size_t arg2, int arg3, int arg4) {
-  return (struct ib_umem *)external_alloc();
+  return external_alloc(sizeof(struct ib_umem));
 }
 int __VERIFIER_nondet_int(void);
 int ib_umem_odp_map_dma_pages(struct ib_umem *arg0, u64 arg1, u64 arg2, u64 arg3, unsigned long arg4) {
@@ -24467,9 +24467,9 @@ int __VERIFIER_nondet_int(void);
 int mlx5_core_detach_mcg(struct mlx5_core_dev *arg0, union ib_gid *arg1, u32 arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mlx5_core_srq *mlx5_core_get_srq(struct mlx5_core_dev *arg0, u32 arg1) {
-  return (struct mlx5_core_srq *)external_alloc();
+  return external_alloc(sizeof(struct mlx5_core_srq));
 }
 int __VERIFIER_nondet_int(void);
 int mlx5_core_mad_ifc(struct mlx5_core_dev *arg0, const void *arg1, void *arg2, u16 arg3, u8 arg4) {
@@ -24584,10 +24584,10 @@ int mutex_trylock(struct mutex *arg0) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -24607,17 +24607,17 @@ int __VERIFIER_nondet_int(void);
 int radix_tree_insert(struct radix_tree_root *arg0, unsigned long arg1, void *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *radix_tree_lookup(struct radix_tree_root *arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int remap_pfn_range(struct vm_area_struct *arg0, unsigned long arg1, unsigned long arg2, unsigned long arg3, pgprot_t arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 int __VERIFIER_nondet_int(void);
 int simple_open(struct inode *arg0, struct file *arg1) {
@@ -24636,9 +24636,9 @@ void up(struct semaphore *arg0) {
 void usleep_range(unsigned long arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void wait_for_completion(struct completion *arg0) {
   return;
@@ -24650,9 +24650,12 @@ unsigned long int wait_for_completion_timeout(struct completion *arg0, unsigned 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

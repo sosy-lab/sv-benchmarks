@@ -13,10 +13,10 @@ void __const_udelay(unsigned long arg0) {
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t size, gfp_t flags)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -64,10 +64,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t start, resource_size_t n, const char *name, int flags)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: _raw_spin_lock_irq
@@ -155,10 +155,10 @@ int del_timer(struct timer_list *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -207,10 +207,10 @@ void ldv_initialize() {
 // Function: ldv_undefined_pointer
 // with type: void *ldv_undefined_pointer()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ldv_undefined_pointer() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: list_del
@@ -322,10 +322,10 @@ void scsi_dma_unmap(struct scsi_cmnd *arg0) {
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put
@@ -339,10 +339,10 @@ void scsi_host_put(struct Scsi_Host *arg0) {
 // Function: scsi_kmap_atomic_sg
 // with type: void *scsi_kmap_atomic_sg(struct scatterlist *sg, int sg_count, size_t *offset, size_t *len)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *scsi_kmap_atomic_sg(struct scatterlist *arg0, int arg1, size_t *arg2, size_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: scsi_kunmap_atomic_sg
@@ -381,10 +381,10 @@ int scsicam_bios_param(struct block_device *arg0, sector_t arg1, int *arg2) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: sprintf

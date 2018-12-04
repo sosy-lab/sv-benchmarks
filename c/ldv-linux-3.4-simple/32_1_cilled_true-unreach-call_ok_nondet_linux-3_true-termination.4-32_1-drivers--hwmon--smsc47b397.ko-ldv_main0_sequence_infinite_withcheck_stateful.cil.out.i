@@ -4327,9 +4327,9 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int acpi_check_resource_conflict(const struct resource *arg0) {
@@ -4339,17 +4339,17 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *hwmon_device_register(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void hwmon_device_unregister(struct device *arg0) {
   return;
@@ -4368,9 +4368,9 @@ int __VERIFIER_nondet_int(void);
 int platform_device_add_resources(struct platform_device *arg0, const struct resource *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 void platform_device_put(struct platform_device *arg0) {
   return;
@@ -4385,9 +4385,9 @@ int platform_driver_register(struct platform_driver *arg0) {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
@@ -4400,9 +4400,12 @@ int sysfs_create_group(struct kobject *arg0, const struct attribute_group *arg1)
 void sysfs_remove_group(struct kobject *arg0, const struct attribute_group *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

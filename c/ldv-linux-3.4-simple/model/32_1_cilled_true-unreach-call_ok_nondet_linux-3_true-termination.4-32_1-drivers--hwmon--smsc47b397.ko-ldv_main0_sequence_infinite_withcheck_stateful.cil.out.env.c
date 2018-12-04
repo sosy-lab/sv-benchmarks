@@ -30,10 +30,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t start, resource_size_t n, const char *name, int flags)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: acpi_check_resource_conflict
@@ -57,10 +57,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -75,10 +75,10 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 // Function: hwmon_device_register
 // with type: struct device *hwmon_device_register(struct device *dev)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *hwmon_device_register(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: hwmon_device_unregister
@@ -130,10 +130,10 @@ int platform_device_add_resources(struct platform_device *arg0, const struct res
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *name, int id)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_put
@@ -172,10 +172,10 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: printk

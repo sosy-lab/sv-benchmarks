@@ -13,10 +13,10 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t offset, unsigned long size)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -107,9 +107,9 @@ __kernel_size_t strnlen(const char *arg0, __kernel_size_t arg1) {
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 

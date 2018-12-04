@@ -26888,9 +26888,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
@@ -27021,29 +27021,29 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 void free_pages(unsigned long arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_device *ib_alloc_device(size_t arg0) {
-  return (struct ib_device *)external_alloc();
+  return external_alloc(sizeof(struct ib_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_pd *ib_alloc_pd(struct ib_device *arg0) {
-  return (struct ib_pd *)external_alloc();
+  return external_alloc(sizeof(struct ib_pd));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_ah *ib_create_ah(struct ib_pd *arg0, struct ib_ah_attr *arg1) {
-  return (struct ib_ah *)external_alloc();
+  return external_alloc(sizeof(struct ib_ah));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_cq *ib_create_cq(struct ib_device *arg0, void (*arg1)(struct ib_cq *, void *), void (*arg2)(struct ib_event *, void *), void *arg3, int arg4, int arg5) {
-  return (struct ib_cq *)external_alloc();
+  return external_alloc(sizeof(struct ib_cq));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_qp *ib_create_qp(struct ib_pd *arg0, struct ib_qp_init_attr *arg1) {
-  return (struct ib_qp *)external_alloc();
+  return external_alloc(sizeof(struct ib_qp));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mad_send_buf *ib_create_send_mad(struct ib_mad_agent *arg0, u32 arg1, u16 arg2, int arg3, int arg4, int arg5, gfp_t arg6) {
-  return (struct ib_mad_send_buf *)external_alloc();
+  return external_alloc(sizeof(struct ib_mad_send_buf));
 }
 void ib_dealloc_device(struct ib_device *arg0) {
   return;
@@ -27086,9 +27086,9 @@ int __VERIFIER_nondet_int(void);
 int ib_get_cached_pkey(struct ib_device *arg0, u8 arg1, int arg2, u16 *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mr *ib_get_dma_mr(struct ib_pd *arg0, int arg1) {
-  return (struct ib_mr *)external_alloc();
+  return external_alloc(sizeof(struct ib_mr));
 }
 int __VERIFIER_nondet_int(void);
 int ib_modify_qp(struct ib_qp *arg0, struct ib_qp_attr *arg1, int arg2) {
@@ -27114,9 +27114,9 @@ int __VERIFIER_nondet_int(void);
 int ib_register_device(struct ib_device *arg0, int (*arg1)(struct ib_device *, u8 , struct kobject *)) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mad_agent *ib_register_mad_agent(struct ib_device *arg0, u8 arg1, enum ib_qp_type arg2, struct ib_mad_reg_req *arg3, u8 arg4, void (*arg5)(struct ib_mad_agent *, struct ib_mad_send_wc *), void (*arg6)(struct ib_mad_agent *, struct ib_mad_recv_wc *), void *arg7) {
-  return (struct ib_mad_agent *)external_alloc();
+  return external_alloc(sizeof(struct ib_mad_agent));
 }
 void ib_sa_cancel_query(int arg0, struct ib_sa_query *arg1) {
   return;
@@ -27138,9 +27138,9 @@ int __VERIFIER_nondet_int(void);
 int ib_ud_header_pack(struct ib_ud_header *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_umem *ib_umem_get(struct ib_ucontext *arg0, unsigned long arg1, size_t arg2, int arg3, int arg4) {
-  return (struct ib_umem *)external_alloc();
+  return external_alloc(sizeof(struct ib_umem));
 }
 int __VERIFIER_nondet_int(void);
 int ib_umem_page_count(struct ib_umem *arg0) {
@@ -27156,9 +27156,9 @@ int __VERIFIER_nondet_int(void);
 int ib_unregister_mad_agent(struct ib_mad_agent *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int idr_get_new_above(struct idr *arg0, void *arg1, int arg2, int *arg3) {
@@ -27177,20 +27177,20 @@ void idr_remove(struct idr *arg0, int arg1) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_create_and_add(const char *arg0, struct kobject *arg1) {
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_get(struct kobject *arg0) {
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 int __VERIFIER_nondet_int(void);
 int kobject_init_and_add(struct kobject *arg0, struct kobj_type *arg1, struct kobject *arg2, const char *arg3, ...) {
@@ -27236,9 +27236,9 @@ int __VERIFIER_nondet_int(void);
 int mlx4_SYNC_TPT(struct mlx4_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mlx4_cmd_mailbox *mlx4_alloc_cmd_mailbox(struct mlx4_dev *arg0) {
-  return (struct mlx4_cmd_mailbox *)external_alloc();
+  return external_alloc(sizeof(struct mlx4_cmd_mailbox));
 }
 int __VERIFIER_nondet_int(void);
 int mlx4_assign_eq(struct mlx4_dev *arg0, char *arg1, struct cpu_rmap *arg2, int *arg3) {
@@ -27326,9 +27326,9 @@ int __VERIFIER_nondet_int(void);
 int mlx4_get_parav_qkey(struct mlx4_dev *arg0, u32 arg1, u32 *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mlx4_get_protocol_dev(struct mlx4_dev *arg0, enum mlx4_protocol arg1, int arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 enum slave_port_state mlx4_get_slave_port_state(struct mlx4_dev *arg0, int arg1, u8 arg2) {
@@ -27466,10 +27466,10 @@ int mutex_trylock(struct mutex *arg0) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -27489,23 +27489,23 @@ bool __VERIFIER_nondet_bool(void);
 bool queue_work(struct workqueue_struct *arg0, struct work_struct *arg1) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *radix_tree_lookup(struct radix_tree_root *arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_first(const struct rb_root *arg0) {
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_next(const struct rb_node *arg0) {
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 void rb_replace_node(struct rb_node *arg0, struct rb_node *arg1, struct rb_root *arg2) {
   return;
@@ -27570,9 +27570,9 @@ int __VERIFIER_nondet_int(void);
 int unregister_netdevice_notifier(struct notifier_block *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *vlan_dev_real_dev(const struct net_device *arg0) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 unsigned short __VERIFIER_nondet_ushort(void);
 u16 vlan_dev_vlan_id(const struct net_device *arg0) {
@@ -27587,9 +27587,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -13231,9 +13231,9 @@ int atm_charge(struct atm_vcc *arg0, int arg1) {
 void atm_dev_deregister(struct atm_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct atm_dev *atm_dev_register(const char *arg0, struct device *arg1, const struct atmdev_ops *arg2, int arg3, unsigned long *arg4) {
-  return (struct atm_dev *)external_alloc();
+  return external_alloc(sizeof(struct atm_dev));
 }
 void atm_dev_signal_change(struct atm_dev *arg0, char arg1) {
   return;
@@ -13291,9 +13291,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_2() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -13309,9 +13309,9 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;
@@ -13359,21 +13359,21 @@ long __VERIFIER_nondet_long(void);
 long int simple_strtol(const char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -13394,9 +13394,12 @@ void tasklet_init(struct tasklet_struct *arg0, void (*arg1)(unsigned long), unsi
 void tasklet_kill(struct tasklet_struct *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

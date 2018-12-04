@@ -4140,7 +4140,7 @@ static int stv090x_read_reg(struct stv090x_state *state , unsigned int reg )
   return ((int )buf);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int stv090x_write_regs(struct stv090x_state *state , unsigned int reg , u8 *data ,
                               u32 count )
 {
@@ -16396,9 +16396,12 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

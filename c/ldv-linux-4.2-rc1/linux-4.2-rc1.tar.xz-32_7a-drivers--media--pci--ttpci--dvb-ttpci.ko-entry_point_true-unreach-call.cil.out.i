@@ -23434,9 +23434,9 @@ int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __symbol_put(const char *arg0) {
   return;
@@ -23492,9 +23492,9 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -23631,9 +23631,9 @@ int input_register_device(struct input_dev *arg0) {
 void input_unregister_device(struct input_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -23708,9 +23708,9 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 void proc_set_size(struct proc_dir_entry *arg0, loff_t arg1) {
   return;
@@ -23762,9 +23762,9 @@ int saa7146_unregister_extension(struct saa7146_extension *arg0) {
 void saa7146_vfree_destroy_pgtable(struct pci_dev *arg0, void *arg1, struct saa7146_pgtable *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *saa7146_vmalloc_build_pgtable(struct pci_dev *arg0, long arg1, struct saa7146_pgtable *arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int saa7146_vv_init(struct saa7146_dev *arg0, struct saa7146_ext_vv *arg1) {
@@ -23806,17 +23806,20 @@ int ttpci_eeprom_parse_mac(struct i2c_adapter *arg0, u8 *arg1) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int wake_up_process(struct task_struct *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -119,10 +119,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -255,10 +255,10 @@ int pci_bus_write_config_word(struct pci_bus *arg0, unsigned int arg1, int arg2,
 // Function: pci_dev_get
 // with type: struct pci_dev *pci_dev_get(struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_dev_put
@@ -281,10 +281,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_release_regions
@@ -341,10 +341,10 @@ void scsi_dma_unmap(struct scsi_cmnd *arg0) {
 // Function: scsi_register
 // with type: struct Scsi_Host *scsi_register(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_register(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_track_queue_full
@@ -388,10 +388,10 @@ unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: warn_slowpath_null

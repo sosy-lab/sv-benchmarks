@@ -162,19 +162,19 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: alloc_page_buffers
 // with type: struct buffer_head *alloc_page_buffers(struct page *, unsigned long, int)
 // with return type: (struct buffer_head)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct buffer_head *alloc_page_buffers(struct page *arg0, unsigned long arg1, int arg2) {
   // Pointer type
-  return (struct buffer_head *)external_alloc();
+  return external_alloc(sizeof(struct buffer_head));
 }
 
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: bh_submit_read
@@ -207,10 +207,10 @@ int bio_add_page(struct bio *arg0, struct page *arg1, unsigned int arg2, unsigne
 // Function: bio_alloc_bioset
 // with type: struct bio *bio_alloc_bioset(gfp_t , int, struct bio_set *)
 // with return type: (struct bio)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_alloc_bioset(gfp_t arg0, int arg1, struct bio_set *arg2) {
   // Pointer type
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 
 // Function: bio_put
@@ -224,10 +224,10 @@ void bio_put(struct bio *arg0) {
 // Function: blkdev_get_by_dev
 // with type: struct block_device *blkdev_get_by_dev(dev_t , fmode_t , void *)
 // with return type: (struct block_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *blkdev_get_by_dev(dev_t arg0, fmode_t arg1, void *arg2) {
   // Pointer type
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 
 // Function: blkdev_put
@@ -268,28 +268,28 @@ void end_page_writeback(struct page *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: find_get_page
 // with type: struct page *find_get_page(struct address_space *, unsigned long)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *find_get_page(struct address_space *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: find_or_create_page
 // with type: struct page *find_or_create_page(struct address_space *, unsigned long, gfp_t )
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *find_or_create_page(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Skip function: free
@@ -623,10 +623,10 @@ void remove_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: rpc_d_lookup_sb
 // with type: struct dentry *rpc_d_lookup_sb(const struct super_block *, const unsigned char *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *rpc_d_lookup_sb(const struct super_block *arg0, const unsigned char *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: rpc_destroy_pipe_data
@@ -640,28 +640,28 @@ void rpc_destroy_pipe_data(struct rpc_pipe *arg0) {
 // Function: rpc_get_sb_net
 // with type: struct super_block *rpc_get_sb_net(const struct net *)
 // with return type: (struct super_block)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct super_block *rpc_get_sb_net(const struct net *arg0) {
   // Pointer type
-  return (struct super_block *)external_alloc();
+  return external_alloc(sizeof(struct super_block));
 }
 
 // Function: rpc_mkpipe_data
 // with type: struct rpc_pipe *rpc_mkpipe_data(const struct rpc_pipe_ops *, int)
 // with return type: (struct rpc_pipe)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_pipe *rpc_mkpipe_data(const struct rpc_pipe_ops *arg0, int arg1) {
   // Pointer type
-  return (struct rpc_pipe *)external_alloc();
+  return external_alloc(sizeof(struct rpc_pipe));
 }
 
 // Function: rpc_mkpipe_dentry
 // with type: struct dentry *rpc_mkpipe_dentry(struct dentry *, const char *, void *, struct rpc_pipe *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *rpc_mkpipe_dentry(struct dentry *arg0, const char *arg1, void *arg2, struct rpc_pipe *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: rpc_pipe_generic_upcall
@@ -793,10 +793,10 @@ void warn_slowpath_null(const char *arg0, const int arg1) {
 // Function: xdr_encode_opaque_fixed
 // with type: __be32 *xdr_encode_opaque_fixed(__be32 *, const void *, unsigned int)
 // with return type: (__be32 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_encode_opaque_fixed(__be32 *arg0, const void *arg1, unsigned int arg2) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 
 // Function: xdr_init_decode_pages
@@ -810,19 +810,19 @@ void xdr_init_decode_pages(struct xdr_stream *arg0, struct xdr_buf *arg1, struct
 // Function: xdr_inline_decode
 // with type: __be32 *xdr_inline_decode(struct xdr_stream *, size_t )
 // with return type: (__be32 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 
 // Function: xdr_reserve_space
 // with type: __be32 *xdr_reserve_space(struct xdr_stream *, size_t )
 // with return type: (__be32 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_reserve_space(struct xdr_stream *arg0, size_t arg1) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 
 // Function: xdr_set_scratch_buffer

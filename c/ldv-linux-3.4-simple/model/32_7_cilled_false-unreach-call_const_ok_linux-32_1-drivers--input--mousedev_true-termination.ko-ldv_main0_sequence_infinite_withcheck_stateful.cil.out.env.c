@@ -153,10 +153,10 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: get_device
 // with type: struct device *get_device(struct device *dev)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: input_close_device

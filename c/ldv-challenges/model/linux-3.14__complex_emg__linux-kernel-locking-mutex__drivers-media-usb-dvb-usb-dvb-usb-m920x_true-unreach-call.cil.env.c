@@ -18,10 +18,10 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __symbol_put
@@ -54,10 +54,10 @@ int dvb_usb_device_init(struct usb_interface *arg0, struct dvb_usb_device_proper
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -155,10 +155,10 @@ void rc_repeat(struct rc_dev *arg0) {
 // Function: usb_altnum_to_altsetting
 // with type: struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *, unsigned int)
 // with return type: (struct usb_host_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_host_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_host_interface));
 }
 
 // Function: usb_control_msg
@@ -181,10 +181,10 @@ void usb_deregister(struct usb_driver *arg0) {
 // Function: usb_ifnum_to_if
 // with type: struct usb_interface *usb_ifnum_to_if(const struct usb_device *, unsigned int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_register_driver

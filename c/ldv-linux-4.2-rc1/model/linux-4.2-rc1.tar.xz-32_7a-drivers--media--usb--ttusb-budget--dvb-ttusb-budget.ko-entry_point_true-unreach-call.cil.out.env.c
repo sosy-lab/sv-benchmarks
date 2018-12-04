@@ -26,10 +26,10 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __symbol_put
@@ -45,10 +45,10 @@ void __symbol_put(const char *arg0) {
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -279,10 +279,10 @@ int request_firmware(const struct firmware **arg0, const char *arg1, struct devi
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_bulk_msg

@@ -1,10 +1,10 @@
 // Function: PDE_DATA
 // with type: void *PDE_DATA(const struct inode *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *PDE_DATA(const struct inode *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: __VERIFIER_error
@@ -102,10 +102,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __wake_up
@@ -177,10 +177,10 @@ void add_timer(struct timer_list *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: blk_cleanup_queue
@@ -194,19 +194,19 @@ void blk_cleanup_queue(struct request_queue *arg0) {
 // Function: blk_init_queue
 // with type: struct request_queue *blk_init_queue(request_fn_proc *, spinlock_t *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_init_queue(request_fn_proc *arg0, spinlock_t *arg1) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_peek_request
 // with type: struct request *blk_peek_request(struct request_queue *)
 // with return type: (struct request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_peek_request(struct request_queue *arg0) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 
 // Function: blk_queue_bounce_limit
@@ -316,10 +316,10 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -333,10 +333,10 @@ void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg
 // Function: dma_pool_create
 // with type: struct dma_pool *dma_pool_create(const char *, struct device *, size_t , size_t , size_t )
 // with return type: (struct dma_pool)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
   // Pointer type
-  return (struct dma_pool *)external_alloc();
+  return external_alloc(sizeof(struct dma_pool));
 }
 
 // Function: dma_pool_destroy
@@ -383,10 +383,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -470,10 +470,10 @@ int ldv_shutdown_2() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Skip function: malloc
@@ -585,19 +585,19 @@ int printk(const char *arg0, ...) {
 // Function: proc_create_data
 // with type: struct proc_dir_entry *proc_create_data(const char *, umode_t , struct proc_dir_entry *, const struct file_operations *, void *)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: proc_mkdir
 // with type: struct proc_dir_entry *proc_mkdir(const char *, struct proc_dir_entry *)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_mkdir(const char *arg0, struct proc_dir_entry *arg1) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: put_disk
@@ -708,10 +708,10 @@ void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: simple_strtoul

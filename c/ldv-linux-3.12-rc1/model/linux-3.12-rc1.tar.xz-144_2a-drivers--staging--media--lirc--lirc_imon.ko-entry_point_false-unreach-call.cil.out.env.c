@@ -192,10 +192,10 @@ int lirc_unregister_driver(int arg0) {
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: memset
@@ -259,10 +259,10 @@ void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg
 // Function: usb_find_interface
 // with type: struct usb_interface *usb_find_interface(struct usb_driver *, int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_kill_urb
@@ -276,10 +276,10 @@ void usb_kill_urb(struct urb *arg0) {
 // Function: usb_match_id
 // with type: const struct usb_device_id *usb_match_id(struct usb_interface *, const struct usb_device_id *)
 // with return type: (struct usb_device_id)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct usb_device_id *usb_match_id(struct usb_interface *arg0, const struct usb_device_id *arg1) {
   // Pointer type
-  return (const struct usb_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct usb_device_id));
 }
 
 // Function: usb_register_dev

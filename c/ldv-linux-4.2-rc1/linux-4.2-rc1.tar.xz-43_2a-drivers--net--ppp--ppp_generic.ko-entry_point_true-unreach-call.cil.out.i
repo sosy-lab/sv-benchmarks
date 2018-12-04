@@ -11380,9 +11380,9 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 void __copy_from_user_overflow() {
   return;
@@ -11411,9 +11411,9 @@ void __might_sleep(const char *arg0, int arg1, int arg2) {
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -11470,9 +11470,9 @@ void _raw_write_unlock_bh(rwlock_t *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, unsigned char arg2, void (*arg3)(struct net_device *), unsigned int arg4, unsigned int arg5) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int bpf_prog_create(struct bpf_prog **arg0, struct sock_fprog_kern *arg1) {
@@ -11495,9 +11495,9 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void device_destroy(struct class *arg0, dev_t arg1) {
   return;
@@ -11518,9 +11518,9 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 void idr_destroy(struct idr *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void idr_init(struct idr *arg0) {
   return;
@@ -11552,9 +11552,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_ndo_uninit_1() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -11568,9 +11568,9 @@ void lock_release(struct lockdep_map *arg0, int arg1, unsigned long arg2) {
 void lockdep_rcu_suspicious(const char *arg0, const int arg1, const char *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void module_put(struct module *arg0) {
   return;
@@ -11636,25 +11636,25 @@ int __VERIFIER_nondet_int(void);
 int skb_copy_datagram_iter(const struct sk_buff *arg0, int arg1, struct iov_iter *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull_rcsum(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_head(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -11675,9 +11675,9 @@ int slhc_compress(struct slcompress *arg0, unsigned char *arg1, int arg2, unsign
 void slhc_free(struct slcompress *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct slcompress *slhc_init(int arg0, int arg1) {
-  return (struct slcompress *)external_alloc();
+  return external_alloc(sizeof(struct slcompress));
 }
 int __VERIFIER_nondet_int(void);
 int slhc_remember(struct slcompress *arg0, unsigned char *arg1, int arg2) {
@@ -11711,9 +11711,12 @@ int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

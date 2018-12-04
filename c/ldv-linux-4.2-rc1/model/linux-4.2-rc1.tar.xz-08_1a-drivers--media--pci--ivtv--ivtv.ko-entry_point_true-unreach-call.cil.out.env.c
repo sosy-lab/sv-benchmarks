@@ -149,10 +149,10 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __v4l2_ctrl_s_ctrl
@@ -251,10 +251,10 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Skip function: calloc
@@ -484,19 +484,19 @@ int i2c_master_send(const struct i2c_client *arg0, const char *arg1, int arg2) {
 // Function: i2c_new_probed_device
 // with type: struct i2c_client *i2c_new_probed_device(struct i2c_adapter *, struct i2c_board_info *, const unsigned short *, int (*)(struct i2c_adapter *, unsigned short))
 // with return type: (struct i2c_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_probed_device(struct i2c_adapter *arg0, struct i2c_board_info *arg1, const unsigned short *arg2, int (*arg3)(struct i2c_adapter *, unsigned short)) {
   // Pointer type
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -521,10 +521,10 @@ unsigned int jiffies_to_msecs(const unsigned long arg0) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_stop
@@ -829,10 +829,10 @@ void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf
@@ -955,19 +955,19 @@ int v4l2_ctrl_handler_setup(struct v4l2_ctrl_handler *arg0) {
 // Function: v4l2_ctrl_new_std
 // with type: struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *, const struct v4l2_ctrl_ops *, u32 , s64 , s64 , u64 , s64 )
 // with return type: (struct v4l2_ctrl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s64 arg3, s64 arg4, u64 arg5, s64 arg6) {
   // Pointer type
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 
 // Function: v4l2_ctrl_new_std_menu
 // with type: struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *, const struct v4l2_ctrl_ops *, u32 , u8 , u64 , u8 )
 // with return type: (struct v4l2_ctrl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, u8 arg3, u64 arg4, u8 arg5) {
   // Pointer type
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 
 // Function: v4l2_device_register
@@ -1084,19 +1084,19 @@ int v4l2_fh_is_singular(struct v4l2_fh *arg0) {
 // Function: v4l2_i2c_new_subdev
 // with type: struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *, struct i2c_adapter *, const char *, u8 , const unsigned short *)
 // with return type: (struct v4l2_subdev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *arg0, struct i2c_adapter *arg1, const char *arg2, u8 arg3, const unsigned short *arg4) {
   // Pointer type
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 
 // Function: v4l2_i2c_new_subdev_board
 // with type: struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *, struct i2c_adapter *, struct i2c_board_info *, const unsigned short *)
 // with return type: (struct v4l2_subdev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i2c_adapter *arg1, struct i2c_board_info *arg2, const unsigned short *arg3) {
   // Pointer type
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 
 // Function: v4l2_subdev_g_ctrl
@@ -1173,10 +1173,10 @@ int v4l2_subdev_try_ext_ctrls(struct v4l2_subdev *arg0, struct v4l2_ext_controls
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_ioctl2

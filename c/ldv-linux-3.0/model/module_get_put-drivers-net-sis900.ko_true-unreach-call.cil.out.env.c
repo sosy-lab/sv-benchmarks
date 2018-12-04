@@ -13,10 +13,10 @@ void __const_udelay(unsigned long arg0) {
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __netif_schedule
@@ -113,10 +113,10 @@ void add_timer(struct timer_list *arg0) {
 // Function: alloc_etherdev_mqs
 // with type: struct net_device *alloc_etherdev_mqs(int, unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: bitrev32
@@ -193,19 +193,19 @@ int del_timer(struct timer_list *arg0) {
 // Function: dev_alloc_skb
 // with type: struct sk_buff *dev_alloc_skb(unsigned int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_kfree_skb_irq
@@ -466,10 +466,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_release_regions
@@ -561,10 +561,10 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Skip function: strcpy

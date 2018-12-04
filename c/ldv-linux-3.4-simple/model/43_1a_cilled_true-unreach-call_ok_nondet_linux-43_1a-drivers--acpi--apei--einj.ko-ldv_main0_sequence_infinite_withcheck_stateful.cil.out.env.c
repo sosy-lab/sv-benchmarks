@@ -30,19 +30,19 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: acpi_format_exception
 // with type: const char *acpi_format_exception(acpi_status )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *acpi_format_exception(acpi_status arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: acpi_get_table
@@ -61,10 +61,10 @@ acpi_status acpi_get_table(acpi_string arg0, u32 arg1, struct acpi_table_header 
 // Function: acpi_os_map_memory
 // with type: void *acpi_os_map_memory(acpi_physical_address , acpi_size )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *acpi_os_map_memory(acpi_physical_address arg0, acpi_size arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: acpi_os_unmap_memory
@@ -113,10 +113,10 @@ int apei_exec_pre_map_gars(struct apei_exec_context *arg0) {
 // Function: apei_get_debugfs_dir
 // with type: struct dentry *apei_get_debugfs_dir()
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *apei_get_debugfs_dir() {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: apei_resources_add
@@ -165,46 +165,46 @@ int apei_resources_sub(struct apei_resources *arg0, struct apei_resources *arg1)
 // Function: debugfs_create_blob
 // with type: struct dentry *debugfs_create_blob(const char *, umode_t , struct dentry *, struct debugfs_blob_wrapper *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_blob(const char *arg0, umode_t arg1, struct dentry *arg2, struct debugfs_blob_wrapper *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_x32
 // with type: struct dentry *debugfs_create_x32(const char *, umode_t , struct dentry *, u32 *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_x32(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_x64
 // with type: struct dentry *debugfs_create_x64(const char *, umode_t , struct dentry *, u64 *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_x64(const char *arg0, umode_t arg1, struct dentry *arg2, u64 *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove_recursive
@@ -218,10 +218,10 @@ void debugfs_remove_recursive(struct dentry *arg0) {
 // Function: ioremap_cache
 // with type: void *ioremap_cache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_cache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -235,10 +235,10 @@ void iounmap(volatile void *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -268,10 +268,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Skip function: memcpy

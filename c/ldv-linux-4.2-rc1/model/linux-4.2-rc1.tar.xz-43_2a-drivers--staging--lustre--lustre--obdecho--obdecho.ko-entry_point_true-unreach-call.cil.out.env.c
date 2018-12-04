@@ -223,10 +223,10 @@ void cl_2queue_init(struct cl_2queue *arg0) {
 // Function: cl_env_get
 // with type: struct lu_env *cl_env_get(int *)
 // with return type: (struct lu_env)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lu_env *cl_env_get(int *arg0) {
   // Pointer type
-  return (struct lu_env *)external_alloc();
+  return external_alloc(sizeof(struct lu_env));
 }
 
 // Function: cl_env_put
@@ -275,10 +275,10 @@ int cl_io_submit_sync(const struct lu_env *arg0, struct cl_io *arg1, enum cl_req
 // Function: cl_lock_at
 // with type: const struct cl_lock_slice *cl_lock_at(const struct cl_lock *, const struct lu_device_type *)
 // with return type: (struct cl_lock_slice)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct cl_lock_slice *cl_lock_at(const struct cl_lock *arg0, const struct lu_device_type *arg1) {
   // Pointer type
-  return (const struct cl_lock_slice *)external_alloc();
+  return external_alloc(sizeof(const struct cl_lock_slice));
 }
 
 // Function: cl_lock_cancel
@@ -340,10 +340,10 @@ void cl_lock_release(const struct lu_env *arg0, struct cl_lock *arg1, const char
 // Function: cl_lock_request
 // with type: struct cl_lock *cl_lock_request(const struct lu_env *, struct cl_io *, const struct cl_lock_descr *, const char *, const void *)
 // with return type: (struct cl_lock)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cl_lock *cl_lock_request(const struct lu_env *arg0, struct cl_io *arg1, const struct cl_lock_descr *arg2, const char *arg3, const void *arg4) {
   // Pointer type
-  return (struct cl_lock *)external_alloc();
+  return external_alloc(sizeof(struct cl_lock));
 }
 
 // Function: cl_lock_slice_add
@@ -357,10 +357,10 @@ void cl_lock_slice_add(struct cl_lock *arg0, struct cl_lock_slice *arg1, struct 
 // Function: cl_object_find
 // with type: struct cl_object *cl_object_find(const struct lu_env *, struct cl_device *, const struct lu_fid *, const struct cl_object_conf *)
 // with return type: (struct cl_object)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cl_object *cl_object_find(const struct lu_env *arg0, struct cl_device *arg1, const struct lu_fid *arg2, const struct cl_object_conf *arg3) {
   // Pointer type
-  return (struct cl_object *)external_alloc();
+  return external_alloc(sizeof(struct cl_object));
 }
 
 // Function: cl_object_header_init
@@ -408,10 +408,10 @@ void cl_page_delete(const struct lu_env *arg0, struct cl_page *arg1) {
 // Function: cl_page_find
 // with type: struct cl_page *cl_page_find(const struct lu_env *, struct cl_object *, unsigned long, struct page *, enum cl_page_type )
 // with return type: (struct cl_page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cl_page *cl_page_find(const struct lu_env *arg0, struct cl_object *arg1, unsigned long arg2, struct page *arg3, enum cl_page_type arg4) {
   // Pointer type
-  return (struct cl_page *)external_alloc();
+  return external_alloc(sizeof(struct cl_page));
 }
 
 // Function: cl_page_own
@@ -485,10 +485,10 @@ int cl_wait(const struct lu_env *arg0, struct cl_lock *arg1) {
 // Function: class_conn2export
 // with type: struct obd_export *class_conn2export(struct lustre_handle *)
 // with return type: (struct obd_export)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_export *class_conn2export(struct lustre_handle *arg0) {
   // Pointer type
-  return (struct obd_export *)external_alloc();
+  return external_alloc(sizeof(struct obd_export));
 }
 
 // Function: class_connect
@@ -512,19 +512,19 @@ int class_disconnect(struct obd_export *arg0) {
 // Function: class_exp2obd
 // with type: struct obd_device *class_exp2obd(struct obd_export *)
 // with return type: (struct obd_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_device *class_exp2obd(struct obd_export *arg0) {
   // Pointer type
-  return (struct obd_device *)external_alloc();
+  return external_alloc(sizeof(struct obd_device));
 }
 
 // Function: class_name2obd
 // with type: struct obd_device *class_name2obd(const char *)
 // with return type: (struct obd_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_device *class_name2obd(const char *arg0) {
   // Pointer type
-  return (struct obd_device *)external_alloc();
+  return external_alloc(sizeof(struct obd_device));
 }
 
 // Function: class_register_type
@@ -631,10 +631,10 @@ int ldv_probe_1() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: libcfs_debug_msg
@@ -709,10 +709,10 @@ void lu_context_key_degister_many(struct lu_context_key *arg0, ...) {
 // Function: lu_context_key_get
 // with type: void *lu_context_key_get(const struct lu_context *, const struct lu_context_key *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *lu_context_key_get(const struct lu_context *arg0, const struct lu_context_key *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: lu_context_key_quiesce_many

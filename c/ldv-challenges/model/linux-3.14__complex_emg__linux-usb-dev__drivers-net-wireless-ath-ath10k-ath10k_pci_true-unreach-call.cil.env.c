@@ -81,10 +81,10 @@ void __might_sleep(const char *arg0, int arg1, int arg2) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __pci_register_driver
@@ -148,10 +148,10 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 // Function: ath10k_core_create
 // with type: struct ath10k *ath10k_core_create(void *, struct device *, const struct ath10k_hif_ops *)
 // with return type: (struct ath10k)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ath10k *ath10k_core_create(void *arg0, struct device *arg1, const struct ath10k_hif_ops *arg2) {
   // Pointer type
-  return (struct ath10k *)external_alloc();
+  return external_alloc(sizeof(struct ath10k));
 }
 
 // Function: ath10k_core_destroy
@@ -312,10 +312,10 @@ int dma_supported(struct device *arg0, u64 arg1) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -350,10 +350,10 @@ void iowrite32(u32 arg0, void *arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_after_alloc
@@ -498,10 +498,10 @@ int pci_enable_msi_block(struct pci_dev *arg0, int arg1) {
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap
@@ -593,10 +593,10 @@ void schedule() {
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_trim

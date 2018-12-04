@@ -49,10 +49,10 @@ int i2c_del_adapter(struct i2c_adapter *arg0) {
 // Function: i2c_new_probed_device
 // with type: struct i2c_client *i2c_new_probed_device(struct i2c_adapter *adap, struct i2c_board_info *info, const unsigned short *addr_list, int (*probe)(struct i2c_adapter *, unsigned short addr))
 // with return type: (struct i2c_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_probed_device(struct i2c_adapter *arg0, struct i2c_board_info *arg1, const unsigned short *arg2, int (*arg3)(struct i2c_adapter *, unsigned short addr)) {
   // Pointer type
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
 
 // Skip function: kfree

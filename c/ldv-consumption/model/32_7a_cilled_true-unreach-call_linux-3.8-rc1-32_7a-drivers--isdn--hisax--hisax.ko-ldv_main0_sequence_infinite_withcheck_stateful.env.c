@@ -5,10 +5,10 @@
 // Function: __alloc_skb
 // with type: struct sk_buff *__alloc_skb(unsigned int, gfp_t , int, int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __const_udelay
@@ -38,10 +38,10 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __phys_addr
@@ -72,10 +72,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __wake_up
@@ -231,10 +231,10 @@ void interruptible_sleep_on(wait_queue_head_t *arg0) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -340,10 +340,10 @@ int pci_bus_write_config_word(struct pci_bus *arg0, unsigned int arg1, int arg2,
 // Function: pci_dev_get
 // with type: struct pci_dev *pci_dev_get(struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_dev_put
@@ -366,10 +366,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_get_subsys
 // with type: struct pci_dev *pci_get_subsys(unsigned int, unsigned int, unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_subsys(unsigned int arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, struct pci_dev *arg4) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_set_master
@@ -421,46 +421,46 @@ bool schedule_work(struct work_struct *arg0) {
 // Function: skb_clone
 // with type: struct sk_buff *skb_clone(struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_queue_head
@@ -490,10 +490,10 @@ void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
 // Function: skb_realloc_headroom
 // with type: struct sk_buff *skb_realloc_headroom(struct sk_buff *, unsigned int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_realloc_headroom(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Skip function: sprintf

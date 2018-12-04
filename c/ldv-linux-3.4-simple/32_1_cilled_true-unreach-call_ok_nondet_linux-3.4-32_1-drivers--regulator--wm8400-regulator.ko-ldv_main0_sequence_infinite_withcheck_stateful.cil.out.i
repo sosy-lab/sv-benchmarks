@@ -3645,9 +3645,9 @@ long ldv__builtin_expect(long val , long res )
   return (val);
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -3670,17 +3670,17 @@ int platform_driver_register(struct platform_driver *arg0) {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *rdev_get_drvdata(struct regulator_dev *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int rdev_get_id(struct regulator_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regulator_dev *regulator_register(struct regulator_desc *arg0, struct device *arg1, const struct regulator_init_data *arg2, void *arg3, struct device_node *arg4) {
-  return (struct regulator_dev *)external_alloc();
+  return external_alloc(sizeof(struct regulator_dev));
 }
 void regulator_unregister(struct regulator_dev *arg0) {
   return;
@@ -3697,9 +3697,12 @@ int __VERIFIER_nondet_int(void);
 int wm8400_set_bits(struct wm8400 *arg0, u8 arg1, u16 arg2, u16 arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

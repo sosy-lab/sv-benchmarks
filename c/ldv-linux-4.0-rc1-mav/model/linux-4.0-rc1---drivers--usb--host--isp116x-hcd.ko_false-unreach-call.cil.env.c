@@ -74,10 +74,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: _raw_spin_lock
@@ -125,10 +125,10 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -160,10 +160,10 @@ int device_wakeup_enable(struct device *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -235,10 +235,10 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: printk
@@ -326,10 +326,10 @@ long int usb_calc_bus_time(int arg0, int arg1, int arg2, int arg3) {
 // Function: usb_create_hcd
 // with type: struct usb_hcd *usb_create_hcd(const struct hc_driver *, struct device *, const char *)
 // with return type: (struct usb_hcd)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
   // Pointer type
-  return (struct usb_hcd *)external_alloc();
+  return external_alloc(sizeof(struct usb_hcd));
 }
 
 // Function: usb_disabled

@@ -5955,7 +5955,7 @@ static void cisco_stop(struct net_device *dev )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static struct hdlc_proto proto =
      {0, 0, & cisco_start, & cisco_stop, 0, & cisco_ioctl, & cisco_type_trans, & cisco_rx,
     0, & __this_module, 0};
@@ -6675,24 +6675,27 @@ bool rcu_lockdep_current_cpu_online() {
 void register_hdlc_protocol(struct hdlc_proto *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void unregister_hdlc_protocol(struct hdlc_proto *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

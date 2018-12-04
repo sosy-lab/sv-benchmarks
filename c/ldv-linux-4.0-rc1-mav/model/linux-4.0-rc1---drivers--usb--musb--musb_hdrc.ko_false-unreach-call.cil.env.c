@@ -27,10 +27,10 @@ void __copy_from_user_overflow() {
 // Function: __dma_request_channel
 // with type: struct dma_chan *__dma_request_channel(const dma_cap_mask_t *, bool (*)(struct dma_chan *, void *), void *)
 // with return type: (struct dma_chan)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_chan *__dma_request_channel(const dma_cap_mask_t *arg0, bool (*arg1)(struct dma_chan *, void *), void *arg2) {
   // Pointer type
-  return (struct dma_chan *)external_alloc();
+  return external_alloc(sizeof(struct dma_chan));
 }
 
 // Function: __dynamic_dev_dbg
@@ -250,19 +250,19 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove_recursive
@@ -327,19 +327,19 @@ int device_wakeup_enable(struct device *arg0) {
 // Function: devm_ioremap_resource
 // with type: void *devm_ioremap_resource(struct device *, struct resource *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_release_channel
@@ -353,19 +353,19 @@ void dma_release_channel(struct dma_chan *arg0) {
 // Function: dma_request_slave_channel
 // with type: struct dma_chan *dma_request_slave_channel(struct device *, const char *)
 // with return type: (struct dma_chan)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_chan *dma_request_slave_channel(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct dma_chan *)external_alloc();
+  return external_alloc(sizeof(struct dma_chan));
 }
 
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -537,10 +537,10 @@ int platform_get_irq_byname(struct platform_device *arg0, const char *arg1) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: pm_runtime_enable
@@ -743,10 +743,10 @@ int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
 // Function: usb_create_hcd
 // with type: struct usb_hcd *usb_create_hcd(const struct hc_driver *, struct device *, const char *)
 // with return type: (struct usb_hcd)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
   // Pointer type
-  return (struct usb_hcd *)external_alloc();
+  return external_alloc(sizeof(struct usb_hcd));
 }
 
 // Function: usb_del_gadget_udc
@@ -843,10 +843,10 @@ void usb_hcd_unmap_urb_for_dma(struct usb_hcd *arg0, struct urb *arg1) {
 // Function: usb_otg_state_string
 // with type: const char *usb_otg_state_string(enum usb_otg_state )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *usb_otg_state_string(enum usb_otg_state arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: usb_put_hcd

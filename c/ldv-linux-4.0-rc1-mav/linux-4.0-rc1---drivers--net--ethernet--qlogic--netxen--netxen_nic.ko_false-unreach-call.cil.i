@@ -33012,9 +33012,9 @@ int __VERIFIER_nondet_int(void);
 int __printk_ratelimit(const char *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -33045,9 +33045,9 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
@@ -33125,9 +33125,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 ethtool_op_get_link(struct net_device *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;
@@ -33190,9 +33190,9 @@ void netdev_err(const struct net_device *arg0, const char *arg1, ...) {
 void netdev_info(const struct net_device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *netdev_master_upper_dev_get_rcu(struct net_device *arg0) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 void netif_carrier_off(struct net_device *arg0) {
   return;
@@ -33272,9 +33272,9 @@ int __VERIFIER_nondet_int(void);
 int pci_find_ext_capability(struct pci_dev *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_release_regions(struct pci_dev *arg0) {
   return;
@@ -33345,13 +33345,13 @@ void rtnl_lock() {
 void rtnl_unlock() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
@@ -33371,16 +33371,19 @@ int unregister_netdevice_notifier(struct notifier_block *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *vlan_dev_real_dev(const struct net_device *arg0) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

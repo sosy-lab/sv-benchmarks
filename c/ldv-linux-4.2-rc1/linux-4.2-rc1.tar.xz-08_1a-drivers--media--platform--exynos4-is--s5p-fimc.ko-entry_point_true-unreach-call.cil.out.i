@@ -17525,9 +17525,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *__clk_get_name(struct clk *arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -17617,9 +17617,9 @@ int __VERIFIER_nondet_int(void);
 int clk_enable(struct clk *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct clk *clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return external_alloc(sizeof(struct clk));
 }
 int __VERIFIER_nondet_int(void);
 int clk_prepare(struct clk *arg0) {
@@ -17628,9 +17628,9 @@ int clk_prepare(struct clk *arg0) {
 void clk_put(struct clk *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct clk *clk_register(struct device *arg0, struct clk_hw *arg1) {
-  return (struct clk *)external_alloc();
+  return external_alloc(sizeof(struct clk));
 }
 int __VERIFIER_nondet_int(void);
 int clk_set_rate(struct clk *arg0, unsigned long arg1) {
@@ -17655,25 +17655,25 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pinctrl *devm_pinctrl_get(struct device *arg0) {
-  return (struct pinctrl *)external_alloc();
+  return external_alloc(sizeof(struct pinctrl));
 }
 int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *fimc_find_remote_sensor(struct media_entity *arg0) {
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -17753,9 +17753,9 @@ int __VERIFIER_nondet_int(void);
 int media_entity_create_link(struct media_entity *arg0, u16 arg1, struct media_entity *arg2, u16 arg3, u32 arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct media_entity *media_entity_graph_walk_next(struct media_entity_graph *arg0) {
-  return (struct media_entity *)external_alloc();
+  return external_alloc(sizeof(struct media_entity));
 }
 void media_entity_graph_walk_start(struct media_entity_graph *arg0, struct media_entity *arg1) {
   return;
@@ -17771,9 +17771,9 @@ int media_entity_pipeline_start(struct media_entity *arg0, struct media_pipeline
 void media_entity_pipeline_stop(struct media_entity *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct media_pad *media_entity_remote_pad(struct media_pad *arg0) {
-  return (struct media_pad *)external_alloc();
+  return external_alloc(sizeof(struct media_pad));
 }
 int __VERIFIER_nondet_int(void);
 int mutex_lock_interruptible_nested(struct mutex *arg0, unsigned int arg1) {
@@ -17800,37 +17800,37 @@ bool __VERIFIER_nondet_bool(void);
 bool of_device_is_available(const struct device_node *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *of_find_device_by_node(struct device_node *arg0) {
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct property *of_find_property(const struct device_node *arg0, const char *arg1, int *arg2) {
-  return (struct property *)external_alloc();
+  return external_alloc(sizeof(struct property));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_child_by_name(const struct device_node *arg0, const char *arg1) {
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_next_available_child(const struct device_node *arg0, struct device_node *arg1) {
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_next_child(const struct device_node *arg0, struct device_node *arg1) {
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_parent(const struct device_node *arg0) {
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_graph_get_remote_port_parent(const struct device_node *arg0) {
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct of_device_id *of_match_node(const struct of_device_id *arg0, const struct device_node *arg1) {
-  return (const struct of_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct of_device_id));
 }
 void of_node_put(struct device_node *arg0) {
   return;
@@ -17843,16 +17843,16 @@ int __VERIFIER_nondet_int(void);
 int of_property_read_u32_array(const struct device_node *arg0, const char *arg1, u32 *arg2, size_t arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pinctrl_state *pinctrl_lookup_state(struct pinctrl *arg0, const char *arg1) {
-  return (struct pinctrl_state *)external_alloc();
+  return external_alloc(sizeof(struct pinctrl_state));
 }
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 void pm_runtime_enable(struct device *arg0) {
   return;
@@ -17888,9 +17888,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regmap *syscon_regmap_lookup_by_phandle(struct device_node *arg0, const char *arg1) {
-  return (struct regmap *)external_alloc();
+  return external_alloc(sizeof(struct regmap));
 }
 void usleep_range(unsigned long arg0, unsigned long arg1) {
   return;
@@ -17919,13 +17919,13 @@ int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_handler_init_class(struct v4l2_ctrl_handler *arg0, unsigned int arg1, struct lock_class_key *arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s64 arg3, s64 arg4, u64 arg5, s64 arg6) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, u8 arg3, u64 arg4, u8 arg5) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 int __VERIFIER_nondet_int(void);
 int v4l2_device_register(struct device *arg0, struct v4l2_device *arg1) {
@@ -17972,13 +17972,13 @@ int v4l2_fh_release(struct file *arg0) {
 void v4l2_m2m_buf_queue(struct v4l2_m2m_ctx *arg0, struct vb2_buffer *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *v4l2_m2m_buf_remove(struct v4l2_m2m_queue_ctx *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *arg0, void *arg1, int (*arg2)(void *, struct vb2_queue *, struct vb2_queue *)) {
-  return (struct v4l2_m2m_ctx *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_m2m_ctx));
 }
 void v4l2_m2m_ctx_release(struct v4l2_m2m_ctx *arg0) {
   return;
@@ -17991,17 +17991,17 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int v4l2_m2m_fop_poll(struct file *arg0, poll_table *arg1) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vb2_queue *v4l2_m2m_get_vq(struct v4l2_m2m_ctx *arg0, enum v4l2_buf_type arg1) {
-  return (struct vb2_queue *)external_alloc();
+  return external_alloc(sizeof(struct vb2_queue));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_m2m_dev *v4l2_m2m_init(const struct v4l2_m2m_ops *arg0) {
-  return (struct v4l2_m2m_dev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_m2m_dev));
 }
 int __VERIFIER_nondet_int(void);
 int v4l2_m2m_ioctl_dqbuf(struct file *arg0, void *arg1, struct v4l2_buffer *arg2) {
@@ -18034,9 +18034,9 @@ int v4l2_m2m_ioctl_streamon(struct file *arg0, void *arg1, enum v4l2_buf_type ar
 void v4l2_m2m_job_finish(struct v4l2_m2m_dev *arg0, struct v4l2_m2m_ctx *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *v4l2_m2m_next_buf(struct v4l2_m2m_queue_ctx *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void v4l2_m2m_release(struct v4l2_m2m_dev *arg0) {
   return;
@@ -18057,9 +18057,9 @@ void vb2_buffer_done(struct vb2_buffer *arg0, enum vb2_buffer_state arg1) {
 void vb2_dma_contig_cleanup_ctx(void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_dma_contig_init_ctx(struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int vb2_fop_mmap(struct file *arg0, struct vm_area_struct *arg1) {
@@ -18111,21 +18111,21 @@ void vb2_ops_wait_finish(struct vb2_queue *arg0) {
 void vb2_ops_wait_prepare(struct vb2_queue *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_cookie(struct vb2_buffer *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int vb2_queue_init(struct vb2_queue *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 long __VERIFIER_nondet_long(void);
 long int video_ioctl2(struct file *arg0, unsigned int arg1, unsigned long arg2) {
@@ -18140,9 +18140,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

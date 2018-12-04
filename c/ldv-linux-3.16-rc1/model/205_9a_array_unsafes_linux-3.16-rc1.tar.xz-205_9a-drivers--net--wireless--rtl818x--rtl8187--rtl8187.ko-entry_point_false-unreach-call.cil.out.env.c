@@ -48,28 +48,28 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 // Function: __ieee80211_get_radio_led_name
 // with type: char *__ieee80211_get_radio_led_name(struct ieee80211_hw *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_radio_led_name(struct ieee80211_hw *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: __ieee80211_get_rx_led_name
 // with type: char *__ieee80211_get_rx_led_name(struct ieee80211_hw *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_rx_led_name(struct ieee80211_hw *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: __ieee80211_get_tx_led_name
 // with type: char *__ieee80211_get_tx_led_name(struct ieee80211_hw *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_tx_led_name(struct ieee80211_hw *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: __init_waitqueue_head
@@ -99,10 +99,10 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __raw_spin_lock_init
@@ -219,19 +219,19 @@ void get_random_bytes(void *arg0, int arg1) {
 // Function: ieee80211_alloc_hw
 // with type: struct ieee80211_hw *ieee80211_alloc_hw(size_t , const struct ieee80211_ops *)
 // with return type: (struct ieee80211_hw)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_hw *ieee80211_alloc_hw(size_t arg0, const struct ieee80211_ops *arg1) {
   // Pointer type
-  return (struct ieee80211_hw *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_hw));
 }
 
 // Function: ieee80211_beacon_get_tim
 // with type: struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *, struct ieee80211_vif *, u16 *, u16 *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1, u16 *arg2, u16 *arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: ieee80211_ctstoself_duration
@@ -547,28 +547,28 @@ bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_queue_tail
@@ -602,10 +602,10 @@ void skb_unlink(struct sk_buff *arg0, struct sk_buff_head *arg1) {
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_anchor_urb
@@ -644,10 +644,10 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 
 // Function: usb_kill_anchored_urbs

@@ -3601,9 +3601,9 @@ int __VERIFIER_nondet_int(void);
 int __serio_register_driver(struct serio_driver *arg0, struct module *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -3653,9 +3653,12 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

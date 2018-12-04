@@ -6301,21 +6301,21 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kzalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *hwmon_device_register(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void hwmon_device_unregister(struct device *arg0) {
   return;
@@ -6323,9 +6323,9 @@ void hwmon_device_unregister(struct device *arg0) {
 void i2c_del_driver(struct i2c_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_dummy(struct i2c_adapter *arg0, u16 arg1) {
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
 int __VERIFIER_nondet_int(void);
 int i2c_register_driver(struct module *arg0, struct i2c_driver *arg1) {
@@ -6387,9 +6387,12 @@ unsigned char __VERIFIER_nondet_uchar(void);
 u8 vid_which_vrm() {
   return __VERIFIER_nondet_uchar();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

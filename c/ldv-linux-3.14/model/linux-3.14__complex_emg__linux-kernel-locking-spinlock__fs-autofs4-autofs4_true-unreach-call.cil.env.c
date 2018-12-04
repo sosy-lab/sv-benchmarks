@@ -201,11 +201,11 @@ void complete_all(struct completion *arg0) {
 // Function: current_kernel_time
 // with type: struct timespec current_kernel_time()
 // with return type: struct timespec
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
   // Composite type
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -238,19 +238,19 @@ int d_invalidate(struct dentry *arg0) {
 // Function: d_lookup
 // with type: struct dentry *d_lookup(const struct dentry *, const struct qstr *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_lookup(const struct dentry *arg0, const struct qstr *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_make_root
 // with type: struct dentry *d_make_root(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_make_root(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_rehash
@@ -313,10 +313,10 @@ int debug_lockdep_rcu_enabled() {
 // Function: dentry_open
 // with type: struct file *dentry_open(const struct path *, int, const struct cred *)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *dentry_open(const struct path *arg0, int arg1, const struct cred *arg2) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: dput
@@ -338,10 +338,10 @@ void drop_nlink(struct inode *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: fd_install
@@ -355,19 +355,19 @@ void fd_install(unsigned int arg0, struct file *arg1) {
 // Function: fget
 // with type: struct file *fget(unsigned int)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *fget(unsigned int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: find_get_pid
 // with type: struct pid *find_get_pid(int)
 // with return type: (struct pid)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pid *find_get_pid(int arg0) {
   // Pointer type
-  return (struct pid *)external_alloc();
+  return external_alloc(sizeof(struct pid));
 }
 
 // Function: finish_wait
@@ -477,10 +477,10 @@ unsigned int get_next_ino() {
 // Function: get_task_pid
 // with type: struct pid *get_task_pid(struct task_struct *, enum pid_type )
 // with return type: (struct pid)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pid *get_task_pid(struct task_struct *arg0, enum pid_type arg1) {
   // Pointer type
-  return (struct pid *)external_alloc();
+  return external_alloc(sizeof(struct pid));
 }
 
 // Function: get_unused_fd_flags
@@ -619,13 +619,13 @@ void lockref_get(struct lockref *arg0) {
 // Function: make_kgid
 // with type: kgid_t make_kgid(struct user_namespace *, gid_t )
 // with return type: kgid_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
   // Typedef type
   // Real type: struct __anonstruct_kgid_t_39
   // Composite type
-  struct __anonstruct_kgid_t_39 *tmp = (struct __anonstruct_kgid_t_39*)external_alloc();
+  struct __anonstruct_kgid_t_39 *tmp = external_alloc(sizeof(struct __anonstruct_kgid_t_39));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -633,13 +633,13 @@ kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
 // Function: make_kuid
 // with type: kuid_t make_kuid(struct user_namespace *, uid_t )
 // with return type: kuid_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
   // Typedef type
   // Real type: struct __anonstruct_kuid_t_38
   // Composite type
-  struct __anonstruct_kuid_t_38 *tmp = (struct __anonstruct_kuid_t_38*)external_alloc();
+  struct __anonstruct_kuid_t_38 *tmp = external_alloc(sizeof(struct __anonstruct_kuid_t_38));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -691,10 +691,10 @@ int may_umount_tree(struct vfsmount *arg0) {
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: memset
@@ -728,10 +728,10 @@ int misc_register(struct miscdevice *arg0) {
 // Function: mount_nodev
 // with type: struct dentry *mount_nodev(struct file_system_type *, int, void *, int (*)(struct super_block *, void *, int))
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *mount_nodev(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: mutex_lock_interruptible_nested
@@ -762,10 +762,10 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: new_inode
 // with type: struct inode *new_inode(struct super_block *)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *new_inode(struct super_block *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: noop_llseek
@@ -937,10 +937,10 @@ int simple_statfs(struct dentry *arg0, struct kstatfs *arg1) {
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: sys_close

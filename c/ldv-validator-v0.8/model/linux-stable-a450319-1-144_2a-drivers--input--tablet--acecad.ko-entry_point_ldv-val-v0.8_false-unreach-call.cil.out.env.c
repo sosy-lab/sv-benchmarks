@@ -11,10 +11,10 @@
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -122,10 +122,10 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 // Function: usb_alloc_coherent
 // with type: void *usb_alloc_coherent(struct usb_device *, size_t , gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: usb_deregister

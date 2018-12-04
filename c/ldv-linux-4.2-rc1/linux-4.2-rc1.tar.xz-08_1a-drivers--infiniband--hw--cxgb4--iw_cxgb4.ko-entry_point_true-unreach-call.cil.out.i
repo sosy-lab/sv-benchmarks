@@ -28902,13 +28902,13 @@ int __VERIFIER_nondet_int(void);
 int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __copy_to_user_overflow() {
   return;
@@ -28920,9 +28920,9 @@ unsigned long int __get_free_pages(gfp_t arg0, unsigned int arg1) {
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *__ip_dev_find(struct net *arg0, __be32 arg1, bool arg2) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int __ipv6_addr_type(const struct in6_addr *arg0) {
@@ -29041,9 +29041,9 @@ void cxgb4_free_stid(struct tid_info *arg0, unsigned int arg1, int arg2) {
 void cxgb4_get_tcp_stats(struct pci_dev *arg0, struct tp_tcp_stats *arg1, struct tp_tcp_stats *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct l2t_entry *cxgb4_l2t_get(struct l2t_data *arg0, struct neighbour *arg1, const struct net_device *arg2, unsigned int arg3) {
-  return (struct l2t_entry *)external_alloc();
+  return external_alloc(sizeof(struct l2t_entry));
 }
 void cxgb4_l2t_release(struct l2t_entry *arg0) {
   return;
@@ -29056,9 +29056,9 @@ int __VERIFIER_nondet_int(void);
 int cxgb4_ofld_send(struct net_device *arg0, struct sk_buff *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *cxgb4_pktgl_to_skb(const struct pkt_gl *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int cxgb4_port_chan(const struct net_device *arg0) {
@@ -29120,13 +29120,13 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file_size(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4, loff_t arg5) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
@@ -29155,9 +29155,9 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -29190,9 +29190,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int gen_pool_alloc(struct gen_pool *arg0, size_t arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gen_pool *gen_pool_create(int arg0, int arg1) {
-  return (struct gen_pool *)external_alloc();
+  return external_alloc(sizeof(struct gen_pool));
 }
 void gen_pool_destroy(struct gen_pool *arg0) {
   return;
@@ -29203,9 +29203,9 @@ void gen_pool_free(struct gen_pool *arg0, unsigned long arg1, size_t arg2) {
 void getnstimeofday64(struct timespec *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_device *ib_alloc_device(size_t arg0) {
-  return (struct ib_device *)external_alloc();
+  return external_alloc(sizeof(struct ib_device));
 }
 void ib_dealloc_device(struct ib_device *arg0) {
   return;
@@ -29217,9 +29217,9 @@ int __VERIFIER_nondet_int(void);
 int ib_register_device(struct ib_device *arg0, int (*arg1)(struct ib_device *, u8 , struct kobject *)) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_umem *ib_umem_get(struct ib_ucontext *arg0, unsigned long arg1, size_t arg2, int arg3, int arg4) {
-  return (struct ib_umem *)external_alloc();
+  return external_alloc(sizeof(struct ib_umem));
 }
 void ib_umem_release(struct ib_umem *arg0) {
   return;
@@ -29242,9 +29242,9 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 void idr_destroy(struct idr *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int idr_for_each(struct idr *arg0, int (*arg1)(int, void *, void *), void *arg2) {
@@ -29262,20 +29262,20 @@ void idr_remove(struct idr *arg0, int arg1) {
 void in_dev_finish_destroy(struct in_device *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dst_entry *ip6_route_output(struct net *arg0, const struct sock *arg1, struct flowi6 *arg2) {
-  return (struct dst_entry *)external_alloc();
+  return external_alloc(sizeof(struct dst_entry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rtable *ip_route_output_flow(struct net *arg0, struct flowi4 *arg1, struct sock *arg2) {
-  return (struct rtable *)external_alloc();
+  return external_alloc(sizeof(struct rtable));
 }
 int __VERIFIER_nondet_int(void);
 int ipv6_chk_addr(struct net *arg0, const struct in6_addr *arg1, const struct net_device *arg2, int arg3) {
@@ -29356,10 +29356,10 @@ void mutex_unlock(struct mutex *arg0) {
 void neigh_destroy(struct neighbour *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -29420,9 +29420,9 @@ ssize_t seq_read(struct file *arg0, char *arg1, size_t arg2, loff_t *arg3) {
 void set_normalized_timespec(struct timespec *arg0, time_t arg1, s64 arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 long __VERIFIER_nondet_long(void);
 ssize_t simple_read_from_buffer(void *arg0, size_t arg1, loff_t *arg2, const void *arg3, size_t arg4) {
@@ -29436,17 +29436,17 @@ int __VERIFIER_nondet_int(void);
 int single_release(struct inode *arg0, struct file *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -29464,13 +29464,13 @@ void tcp_parse_options(const struct sk_buff *arg0, struct tcp_options_received *
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *vlan_dev_real_dev(const struct net_device *arg0) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int wait_for_completion_timeout(struct completion *arg0, unsigned long arg1) {
@@ -29482,9 +29482,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

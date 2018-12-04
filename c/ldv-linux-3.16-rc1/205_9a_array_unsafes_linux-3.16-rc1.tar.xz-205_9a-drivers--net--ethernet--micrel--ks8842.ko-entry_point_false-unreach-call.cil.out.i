@@ -5640,7 +5640,7 @@ __inline static struct sk_buff *netdev_alloc_skb_ip_align(struct net_device *dev
   return (tmp);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void *to ,
                                                unsigned int const len )
 {
@@ -8269,9 +8269,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_chan *__dma_request_channel(const dma_cap_mask_t *arg0, bool (*arg1)(struct dma_chan *, void *), void *arg2) {
-  return (struct dma_chan *)external_alloc();
+  return external_alloc(sizeof(struct dma_chan));
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, const char *arg2, ...) {
@@ -8280,9 +8280,9 @@ int __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, co
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -8301,9 +8301,9 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 void __tasklet_schedule(struct tasklet_struct *arg0) {
   return;
@@ -8315,9 +8315,9 @@ unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_work_sync(struct work_struct *arg0) {
@@ -8371,9 +8371,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread8(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -8414,9 +8414,9 @@ int __VERIFIER_nondet_int(void);
 int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
@@ -8437,9 +8437,9 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void tasklet_init(struct tasklet_struct *arg0, void (*arg1)(unsigned long), unsigned long arg2) {
   return;
@@ -8453,9 +8453,12 @@ void unregister_netdev(struct net_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -18350,9 +18350,9 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct buffer_head *__bread_gfp(struct block_device *arg0, sector_t arg1, unsigned int arg2, gfp_t arg3) {
-  return (struct buffer_head *)external_alloc();
+  return external_alloc(sizeof(struct buffer_head));
 }
 void __compiletime_assert_100() {
   return;
@@ -18366,9 +18366,9 @@ void __compiletime_assert_491() {
 void __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct buffer_head *__getblk_gfp(struct block_device *arg0, sector_t arg1, unsigned int arg2, gfp_t arg3) {
-  return (struct buffer_head *)external_alloc();
+  return external_alloc(sizeof(struct buffer_head));
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -18397,33 +18397,33 @@ void _raw_spin_lock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *bdevname(struct block_device *arg0, char *arg1) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_make_root(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_obtain_alias(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_splice_alias(struct inode *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 long __VERIFIER_nondet_long(void);
 loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -18443,9 +18443,9 @@ int generic_readlink(struct dentry *arg0, char *arg1, int arg2) {
 void iget_failed(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *iget_locked(struct super_block *arg0, unsigned long arg1) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 void init_special_inode(struct inode *arg0, umode_t arg1, dev_t arg2) {
   return;
@@ -18459,9 +18459,9 @@ void iput(struct inode *arg0) {
 void kill_block_super(struct super_block *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -18489,38 +18489,38 @@ int lzo1x_decompress_safe(const unsigned char *arg0, size_t arg1, unsigned char 
 void make_bad_inode(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_49 *tmp = (struct __anonstruct_kgid_t_49*)external_alloc();
+  struct __anonstruct_kgid_t_49 *tmp = external_alloc(sizeof(struct __anonstruct_kgid_t_49));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_48 *tmp = (struct __anonstruct_kuid_t_48*)external_alloc();
+  struct __anonstruct_kuid_t_48 *tmp = external_alloc(sizeof(struct __anonstruct_kuid_t_48));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *mount_bdev(struct file_system_type *arg0, int arg1, const char *arg2, void *arg3, int (*arg4)(struct super_block *, void *, int)) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *page_follow_link_light(struct dentry *arg0, struct nameidata *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void page_put_link(struct dentry *arg0, struct nameidata *arg1, void *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *pagecache_get_page(struct address_space *arg0, unsigned long arg1, int arg2, gfp_t arg3) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {
@@ -18567,9 +18567,9 @@ void vfree(const void *arg0) {
 void xz_dec_end(struct xz_dec *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct xz_dec *xz_dec_init(enum xz_mode arg0, uint32_t arg1) {
-  return (struct xz_dec *)external_alloc();
+  return external_alloc(sizeof(struct xz_dec));
 }
 void xz_dec_reset(struct xz_dec *arg0) {
   return;
@@ -18594,9 +18594,12 @@ int __VERIFIER_nondet_int(void);
 int zlib_inflate_workspacesize() {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -23,10 +23,10 @@ unsigned int __kfifo_out_r(struct __kfifo *arg0, void *arg1, unsigned int arg2, 
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t size, gfp_t flags)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: _raw_spin_lock_irqsave
@@ -76,10 +76,10 @@ void ldv_initialize() {
 // Function: ldv_undefined_pointer
 // with type: void *ldv_undefined_pointer()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ldv_undefined_pointer() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: printk
@@ -138,10 +138,10 @@ void tty_kref_put(struct tty_struct *arg0) {
 // Function: tty_port_tty_get
 // with type: struct tty_struct *tty_port_tty_get(struct tty_port *port)
 // with return type: (struct tty_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
   // Pointer type
-  return (struct tty_struct *)external_alloc();
+  return external_alloc(sizeof(struct tty_struct));
 }
 
 // Function: tty_termios_copy_hw

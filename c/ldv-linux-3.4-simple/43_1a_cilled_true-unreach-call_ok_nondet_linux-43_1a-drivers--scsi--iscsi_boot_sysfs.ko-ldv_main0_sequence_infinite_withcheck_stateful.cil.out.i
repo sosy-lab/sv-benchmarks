@@ -2165,13 +2165,13 @@ bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int kobject_init_and_add(struct kobject *arg0, struct kobj_type *arg1, struct kobject *arg2, const char *arg3, ...) {
@@ -2184,9 +2184,9 @@ int __VERIFIER_nondet_int(void);
 int kobject_uevent(struct kobject *arg0, enum kobject_action arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kset *kset_create_and_add(const char *arg0, const struct kset_uevent_ops *arg1, struct kobject *arg2) {
-  return (struct kset *)external_alloc();
+  return external_alloc(sizeof(struct kset));
 }
 void kset_unregister(struct kset *arg0) {
   return;
@@ -2197,9 +2197,9 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -2211,9 +2211,12 @@ int sysfs_create_group(struct kobject *arg0, const struct attribute_group *arg1)
 void sysfs_remove_group(struct kobject *arg0, const struct attribute_group *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

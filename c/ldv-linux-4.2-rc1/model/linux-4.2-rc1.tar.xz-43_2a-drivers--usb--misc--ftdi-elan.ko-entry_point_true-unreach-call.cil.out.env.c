@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __const_udelay
@@ -230,10 +230,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: lockdep_init_map
@@ -373,10 +373,10 @@ void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg
 // Function: usb_find_interface
 // with type: struct usb_interface *usb_find_interface(struct usb_driver *, int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_free_coherent
@@ -398,10 +398,10 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 
 // Function: usb_put_dev

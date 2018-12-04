@@ -9,19 +9,19 @@
 // Function: __alloc_skb
 // with type: struct sk_buff *__alloc_skb(unsigned int, gfp_t , int, int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Skip function: __builtin_prefetch
@@ -77,10 +77,10 @@ void __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, c
 // Function: __ieee80211_get_channel
 // with type: struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *, int)
 // with return type: (struct ieee80211_channel)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *arg0, int arg1) {
   // Pointer type
-  return (struct ieee80211_channel *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_channel));
 }
 
 // Function: __init_waitqueue_head
@@ -151,10 +151,10 @@ void __napi_schedule(struct napi_struct *arg0) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __pci_register_driver
@@ -269,10 +269,10 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_netdev_mqs
 // with type: struct net_device *alloc_netdev_mqs(int, const char *, unsigned char, void (*)(struct net_device *), unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, unsigned char arg2, void (*arg3)(struct net_device *), unsigned int arg4, unsigned int arg5) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -323,19 +323,19 @@ void cfg80211_disconnected(struct net_device *arg0, u16 arg1, const u8 *arg2, si
 // Function: cfg80211_find_ie
 // with type: const u8 *cfg80211_find_ie(u8 , const u8 *, int)
 // with return type: (const u8 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const u8 *cfg80211_find_ie(u8 arg0, const u8 *arg1, int arg2) {
   // Pointer type
-  return (const u8 *)external_alloc();
+  return external_alloc(sizeof(const u8));
 }
 
 // Function: cfg80211_get_bss
 // with type: struct cfg80211_bss *cfg80211_get_bss(struct wiphy *, struct ieee80211_channel *, const u8 *, const u8 *, size_t , enum ieee80211_bss_type , enum ieee80211_privacy )
 // with return type: (struct cfg80211_bss)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cfg80211_bss *cfg80211_get_bss(struct wiphy *arg0, struct ieee80211_channel *arg1, const u8 *arg2, const u8 *arg3, size_t arg4, enum ieee80211_bss_type arg5, enum ieee80211_privacy arg6) {
   // Pointer type
-  return (struct cfg80211_bss *)external_alloc();
+  return external_alloc(sizeof(struct cfg80211_bss));
 }
 
 // Function: cfg80211_get_drvinfo
@@ -349,10 +349,10 @@ void cfg80211_get_drvinfo(struct net_device *arg0, struct ethtool_drvinfo *arg1)
 // Function: cfg80211_inform_bss_width_frame
 // with type: struct cfg80211_bss *cfg80211_inform_bss_width_frame(struct wiphy *, struct ieee80211_channel *, enum nl80211_bss_scan_width , struct ieee80211_mgmt *, size_t , s32 , gfp_t )
 // with return type: (struct cfg80211_bss)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cfg80211_bss *cfg80211_inform_bss_width_frame(struct wiphy *arg0, struct ieee80211_channel *arg1, enum nl80211_bss_scan_width arg2, struct ieee80211_mgmt *arg3, size_t arg4, s32 arg5, gfp_t arg6) {
   // Pointer type
-  return (struct cfg80211_bss *)external_alloc();
+  return external_alloc(sizeof(struct cfg80211_bss));
 }
 
 // Function: cfg80211_mgmt_tx_status
@@ -469,37 +469,37 @@ int debug_lockdep_rcu_enabled() {
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_u32
 // with type: struct dentry *debugfs_create_u32(const char *, umode_t , struct dentry *, u32 *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_u32(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_x32
 // with type: struct dentry *debugfs_create_x32(const char *, umode_t , struct dentry *, u32 *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_x32(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove_recursive
@@ -577,10 +577,10 @@ void disable_irq(unsigned int arg0) {
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -695,10 +695,10 @@ int hex_dump_to_buffer(const void *arg0, size_t arg1, int arg2, int arg3, char *
 // Function: ieee80211_bss_get_ie
 // with type: const u8 *ieee80211_bss_get_ie(struct cfg80211_bss *, u8 )
 // with return type: (const u8 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const u8 *ieee80211_bss_get_ie(struct cfg80211_bss *arg0, u8 arg1) {
   // Pointer type
-  return (const u8 *)external_alloc();
+  return external_alloc(sizeof(const u8));
 }
 
 // Function: ieee80211_channel_to_frequency
@@ -1173,10 +1173,10 @@ int pci_enable_msi_range(struct pci_dev *arg0, int arg1, int arg2) {
 // Function: pci_ioremap_bar
 // with type: void *pci_ioremap_bar(struct pci_dev *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap
@@ -1520,37 +1520,37 @@ void skb_complete_wifi_ack(struct sk_buff *arg0, bool arg1) {
 // Function: skb_copy
 // with type: struct sk_buff *skb_copy(const struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_trim
@@ -1601,10 +1601,10 @@ int trace_event_reg(struct trace_event_call *arg0, enum trace_reg arg1, void *ar
 // Function: trace_print_flags_seq
 // with type: const char *trace_print_flags_seq(struct trace_seq *, const char *, unsigned long, const struct trace_print_flags *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *trace_print_flags_seq(struct trace_seq *arg0, const char *arg1, unsigned long arg2, const struct trace_print_flags *arg3) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: trace_raw_output_prep
@@ -1668,10 +1668,10 @@ void wiphy_free(struct wiphy *arg0) {
 // Function: wiphy_new_nm
 // with type: struct wiphy *wiphy_new_nm(const struct cfg80211_ops *, int, const char *)
 // with return type: (struct wiphy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct wiphy *wiphy_new_nm(const struct cfg80211_ops *arg0, int arg1, const char *arg2) {
   // Pointer type
-  return (struct wiphy *)external_alloc();
+  return external_alloc(sizeof(struct wiphy));
 }
 
 // Function: wiphy_register

@@ -6668,9 +6668,9 @@ int __VERIFIER_nondet_int(void);
 int __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, const char *arg2, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_arcdev(const char *arg0) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int com20020_check(struct net_device *arg0) {
@@ -6720,9 +6720,12 @@ void pcmcia_unregister_driver(struct pcmcia_driver *arg0) {
 void unregister_netdev(struct net_device *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

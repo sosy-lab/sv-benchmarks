@@ -136,10 +136,10 @@ u8 efuse_read_1byte(struct ieee80211_hw *arg0, u16 arg1) {
 // Function: ieee80211_find_sta
 // with type: struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *, const u8 *)
 // with return type: (struct ieee80211_sta)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *arg0, const u8 *arg1) {
   // Pointer type
-  return (struct ieee80211_sta *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_sta));
 }
 
 // Function: jiffies_to_msecs
@@ -589,10 +589,10 @@ void rtl_bb_delay(struct ieee80211_hw *arg0, u32 arg1, u32 arg2) {
 // Function: rtl_btc_get_ops_pointer
 // with type: struct rtl_btc_ops *rtl_btc_get_ops_pointer()
 // with return type: (struct rtl_btc_ops)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rtl_btc_ops *rtl_btc_get_ops_pointer() {
   // Pointer type
-  return (struct rtl_btc_ops *)external_alloc();
+  return external_alloc(sizeof(struct rtl_btc_ops));
 }
 
 // Function: rtl_cam_add_one_entry
@@ -784,19 +784,19 @@ long int rtl_signal_scale_mapping(struct ieee80211_hw *arg0, long arg1) {
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: synchronize_irq
@@ -834,10 +834,10 @@ void vfree(const void *arg0) {
 // Function: vzalloc
 // with type: void *vzalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: warn_slowpath_null

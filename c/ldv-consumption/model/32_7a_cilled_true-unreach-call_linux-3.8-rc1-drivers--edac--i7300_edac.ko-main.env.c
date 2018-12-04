@@ -23,19 +23,19 @@ int edac_mc_add_mc(struct mem_ctl_info *arg0) {
 // Function: edac_mc_alloc
 // with type: struct mem_ctl_info *edac_mc_alloc(unsigned int, unsigned int, struct edac_mc_layer *, unsigned int)
 // with return type: (struct mem_ctl_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mem_ctl_info *edac_mc_alloc(unsigned int arg0, unsigned int arg1, struct edac_mc_layer *arg2, unsigned int arg3) {
   // Pointer type
-  return (struct mem_ctl_info *)external_alloc();
+  return external_alloc(sizeof(struct mem_ctl_info));
 }
 
 // Function: edac_mc_del_mc
 // with type: struct mem_ctl_info *edac_mc_del_mc(struct device *)
 // with return type: (struct mem_ctl_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mem_ctl_info *edac_mc_del_mc(struct device *arg0) {
   // Pointer type
-  return (struct mem_ctl_info *)external_alloc();
+  return external_alloc(sizeof(struct mem_ctl_info));
 }
 
 // Function: edac_mc_free
@@ -57,10 +57,10 @@ void edac_mc_handle_error(const enum hw_event_mc_err_type arg0, struct mem_ctl_i
 // Function: edac_pci_create_generic_ctl
 // with type: struct edac_pci_ctl_info *edac_pci_create_generic_ctl(struct device *, const char *)
 // with return type: (struct edac_pci_ctl_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct edac_pci_ctl_info *edac_pci_create_generic_ctl(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct edac_pci_ctl_info *)external_alloc();
+  return external_alloc(sizeof(struct edac_pci_ctl_info));
 }
 
 // Function: edac_pci_release_generic_ctl
@@ -156,10 +156,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_unregister_driver

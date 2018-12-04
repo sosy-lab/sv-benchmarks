@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Skip function: __builtin_prefetch
@@ -126,10 +126,10 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_etherdev_mqs
 // with type: struct net_device *alloc_etherdev_mqs(int, unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -206,10 +206,10 @@ int dev_close(struct net_device *arg0) {
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -368,10 +368,10 @@ int ldv_shutdown_6() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: lockdep_init_map
@@ -524,10 +524,10 @@ int pci_enable_msi_range(struct pci_dev *arg0, int arg1, int arg2) {
 // Function: pci_ioremap_bar
 // with type: void *pci_ioremap_bar(struct pci_dev *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_release_regions
@@ -631,19 +631,19 @@ void rtnl_unlock() {
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: strlcpy

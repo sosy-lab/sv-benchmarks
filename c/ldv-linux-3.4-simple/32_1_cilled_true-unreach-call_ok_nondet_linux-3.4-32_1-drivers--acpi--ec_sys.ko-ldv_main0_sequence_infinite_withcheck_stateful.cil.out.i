@@ -3126,21 +3126,21 @@ long ldv__builtin_expect(long val , long res )
   return (val);
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_bool(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_x32(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
@@ -3159,9 +3159,12 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

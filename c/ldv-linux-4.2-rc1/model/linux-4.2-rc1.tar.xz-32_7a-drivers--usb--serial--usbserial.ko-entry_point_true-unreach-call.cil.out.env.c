@@ -127,10 +127,10 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: __tty_alloc_driver
 // with type: struct tty_driver *__tty_alloc_driver(unsigned int, struct module *, unsigned long)
 // with return type: (struct tty_driver)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_driver *__tty_alloc_driver(unsigned int arg0, struct module *arg1, unsigned long arg2) {
   // Pointer type
-  return (struct tty_driver *)external_alloc();
+  return external_alloc(sizeof(struct tty_driver));
 }
 
 // Function: __wake_up
@@ -358,10 +358,10 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 // Function: idr_find_slowpath
 // with type: void *idr_find_slowpath(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: idr_remove
@@ -703,10 +703,10 @@ void tty_ldisc_deref(struct tty_ldisc *arg0) {
 // Function: tty_ldisc_ref
 // with type: struct tty_ldisc *tty_ldisc_ref(struct tty_struct *)
 // with return type: (struct tty_ldisc)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_ldisc *tty_ldisc_ref(struct tty_struct *arg0) {
   // Pointer type
-  return (struct tty_ldisc *)external_alloc();
+  return external_alloc(sizeof(struct tty_ldisc));
 }
 
 // Function: tty_port_close
@@ -762,10 +762,10 @@ int tty_port_open(struct tty_port *arg0, struct tty_struct *arg1, struct file *a
 // Function: tty_port_tty_get
 // with type: struct tty_struct *tty_port_tty_get(struct tty_port *)
 // with return type: (struct tty_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
   // Pointer type
-  return (struct tty_struct *)external_alloc();
+  return external_alloc(sizeof(struct tty_struct));
 }
 
 // Function: tty_port_tty_wakeup
@@ -779,10 +779,10 @@ void tty_port_tty_wakeup(struct tty_port *arg0) {
 // Function: tty_register_device
 // with type: struct device *tty_register_device(struct tty_driver *, unsigned int, struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *tty_register_device(struct tty_driver *arg0, unsigned int arg1, struct device *arg2) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: tty_register_driver
@@ -849,10 +849,10 @@ void tty_vhangup(struct tty_struct *arg0) {
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_autopm_get_interface
@@ -900,19 +900,19 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 
 // Function: usb_get_intf
 // with type: struct usb_interface *usb_get_intf(struct usb_interface *)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_get_intf(struct usb_interface *arg0) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_kill_urb
@@ -926,10 +926,10 @@ void usb_kill_urb(struct urb *arg0) {
 // Function: usb_match_id
 // with type: const struct usb_device_id *usb_match_id(struct usb_interface *, const struct usb_device_id *)
 // with return type: (struct usb_device_id)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct usb_device_id *usb_match_id(struct usb_interface *arg0, const struct usb_device_id *arg1) {
   // Pointer type
-  return (const struct usb_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct usb_device_id));
 }
 
 // Function: usb_match_one_id

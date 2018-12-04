@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __copy_from_user_overflow
@@ -189,10 +189,10 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: bio_endio
@@ -206,10 +206,10 @@ void bio_endio(struct bio *arg0, int arg1) {
 // Function: blk_alloc_queue
 // with type: struct request_queue *blk_alloc_queue(gfp_t )
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_alloc_queue(gfp_t arg0) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_cleanup_queue
@@ -351,19 +351,19 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -467,10 +467,10 @@ int dma_set_mask(struct device *arg0, u64 arg1) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -572,10 +572,10 @@ void iowrite32be(u32 arg0, void *arg1) {
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -720,10 +720,10 @@ int pci_enable_msi_range(struct pci_dev *arg0, int arg1, int arg2) {
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap

@@ -16661,16 +16661,16 @@ void gigaset_isdn_unregdrv(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -16682,9 +16682,9 @@ int __VERIFIER_nondet_int(void);
 int __printk_ratelimit(const char *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -16723,25 +16723,25 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_driver *alloc_tty_driver(int arg0) {
-  return (struct tty_driver *)external_alloc();
+  return external_alloc(sizeof(struct tty_driver));
 }
 int __VERIFIER_nondet_int(void);
 int attach_capi_ctr(struct capi_ctr *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *capi_cmd2str(__u8 arg0, __u8 arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int capi_cmsg2message(_cmsg *arg0, __u8 *arg1) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 _cdebbuf *capi_cmsg2str(_cmsg *arg0) {
-  return (_cdebbuf *)external_alloc();
+  return external_alloc(sizeof(_cdebbuf));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int capi_cmsg_header(_cmsg *arg0, __u16 arg1, __u8 arg2, __u8 arg3, __u16 arg4, __u32 arg5) {
@@ -16774,21 +16774,21 @@ int __VERIFIER_nondet_int(void);
 int detach_capi_ctr(struct capi_ctr *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dev_driver_string(const struct device *arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dev_kfree_skb_any(struct sk_buff *arg0) {
   return;
@@ -16822,9 +16822,9 @@ int hex_to_bin(char arg0) {
 void init_timer_key(struct timer_list *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoint(const char *arg0, unsigned int arg1, int *arg2) {
@@ -16908,21 +16908,21 @@ int __VERIFIER_nondet_int(void);
 int single_open(struct file *arg0, int (*arg1)(struct seq_file *, void *), void *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -16940,9 +16940,9 @@ int __VERIFIER_nondet_int(void);
 int tty_insert_flip_string_fixed_flag(struct tty_struct *arg0, const unsigned char *arg1, char arg2, size_t arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *tty_register_device(struct tty_driver *arg0, unsigned int arg1, struct device *arg2) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int tty_register_driver(struct tty_driver *arg0) {
@@ -16970,9 +16970,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -8081,9 +8081,9 @@ unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct blk_queue_tag *blk_init_tags(int arg0, int arg1) {
-  return (struct blk_queue_tag *)external_alloc();
+  return external_alloc(sizeof(struct blk_queue_tag));
 }
 void blk_queue_max_hw_sectors(struct request_queue *arg0, unsigned int arg1) {
   return;
@@ -8159,9 +8159,9 @@ int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
 void scsi_cmd_get_serial(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -8188,9 +8188,9 @@ int __VERIFIER_nondet_int(void);
 int usb_alloc_streams(struct usb_interface *arg0, struct usb_host_endpoint **arg1, unsigned int arg2, unsigned int arg3, gfp_t arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 void usb_anchor_urb(struct urb *arg0, struct usb_anchor *arg1) {
   return;
@@ -8205,9 +8205,9 @@ int usb_free_streams(struct usb_interface *arg0, struct usb_host_endpoint **arg1
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_get_urb(struct urb *arg0) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 void usb_kill_anchored_urbs(struct usb_anchor *arg0) {
   return;
@@ -8248,9 +8248,12 @@ int usb_wait_anchor_empty_timeout(struct usb_anchor *arg0, unsigned int arg1) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

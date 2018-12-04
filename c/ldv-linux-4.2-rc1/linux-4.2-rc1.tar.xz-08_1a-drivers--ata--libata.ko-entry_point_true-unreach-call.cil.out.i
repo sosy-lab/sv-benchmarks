@@ -38001,9 +38001,9 @@ int __VERIFIER_nondet_int(void);
 int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -38014,9 +38014,9 @@ void __copy_from_user_overflow() {
 void __copy_to_user_overflow() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__devres_alloc(void (*arg0)(struct device *, void *), size_t arg1, gfp_t arg2, const char *arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -38048,9 +38048,9 @@ int __pm_runtime_set_status(struct device *arg0, unsigned int arg1) {
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *__scsi_add_device(struct Scsi_Host *arg0, uint arg1, uint arg2, u64 arg3, void *arg4) {
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t __scsi_format_command(char *arg0, size_t arg1, const unsigned char *arg2, size_t arg3) {
@@ -38094,9 +38094,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi_object_list *arg2, struct acpi_buffer *arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct acpi_device *acpi_find_child_device(struct acpi_device *arg0, u64 arg1, bool arg2) {
-  return (struct acpi_device *)external_alloc();
+  return external_alloc(sizeof(struct acpi_device));
 }
 void acpi_initialize_hp_context(struct acpi_device *arg0, struct acpi_hotplug_context *arg1, int (*arg2)(struct acpi_device *, u32 ), void (*arg3)(struct acpi_device *, u32 )) {
   return;
@@ -38138,9 +38138,9 @@ int attribute_container_unregister(struct attribute_container *arg0) {
 void blk_abort_request(struct request *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct blk_queue_tag *blk_init_tags(int arg0, int arg1) {
-  return (struct blk_queue_tag *)external_alloc();
+  return external_alloc(sizeof(struct blk_queue_tag));
 }
 int __VERIFIER_nondet_int(void);
 int blk_queue_dma_drain(struct request_queue *arg0, dma_drain_needed_fn *arg1, void *arg2, unsigned int arg3) {
@@ -38186,9 +38186,9 @@ int del_timer_sync(struct timer_list *arg0) {
 void destroy_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dev_driver_string(const struct device *arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
@@ -38230,9 +38230,9 @@ void devres_add(struct device *arg0, void *arg1) {
 void devres_free(void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devres_open_group(struct device *arg0, void *arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int devres_release_group(struct device *arg0, void *arg1) {
@@ -38249,9 +38249,9 @@ int __VERIFIER_nondet_int(void);
 int dma_supported(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -38259,9 +38259,9 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 bool __VERIFIER_nondet_bool(void);
 bool glob_match(const char *arg0, const char *arg1) {
@@ -38452,9 +38452,9 @@ int __VERIFIER_nondet_int(void);
 int pcim_iomap_regions(struct pci_dev *arg0, int arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void * const *pcim_iomap_table(struct pci_dev *arg0) {
-  return (void * const *)external_alloc();
+  return external_alloc(sizeof(void * const));
 }
 void pcim_pin_device(struct pci_dev *arg0) {
   return;
@@ -38537,9 +38537,9 @@ int __VERIFIER_nondet_int(void);
 int scsi_execute(struct scsi_device *arg0, const unsigned char *arg1, int arg2, void *arg3, unsigned int arg4, unsigned char *arg5, int arg6, int arg7, u64 arg8, int *arg9) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -38586,9 +38586,9 @@ size_t sg_copy_to_buffer(struct scatterlist *arg0, unsigned int arg1, void *arg2
 void sg_init_one(struct scatterlist *arg0, const void *arg1, unsigned int arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {
@@ -38598,9 +38598,9 @@ int __VERIFIER_nondet_int(void);
 int strcasecmp(const char *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strim(char *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int strncasecmp(const char *arg0, const char *arg1, size_t arg2) {
@@ -38632,9 +38632,9 @@ void trace_hardirqs_off() {
 void trace_hardirqs_on() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *trace_print_symbols_seq(struct trace_seq *arg0, unsigned long arg1, const struct trace_print_flags *arg2) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 int __VERIFIER_nondet_int(void);
 int trace_raw_output_prep(struct trace_iterator *arg0, struct trace_event *arg1) {
@@ -38682,9 +38682,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

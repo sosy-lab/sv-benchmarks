@@ -56,10 +56,10 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -194,19 +194,19 @@ void v4l2_m2m_buf_queue(struct v4l2_m2m_ctx *arg0, struct vb2_buffer *arg1) {
 // Function: v4l2_m2m_buf_remove
 // with type: void *v4l2_m2m_buf_remove(struct v4l2_m2m_queue_ctx *q_ctx)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *v4l2_m2m_buf_remove(struct v4l2_m2m_queue_ctx *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: v4l2_m2m_ctx_init
 // with type: struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *m2m_dev, void *drv_priv, int (*queue_init)(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq))
 // with return type: (struct v4l2_m2m_ctx)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *arg0, void *arg1, int (*arg2)(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq)) {
   // Pointer type
-  return (struct v4l2_m2m_ctx *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_m2m_ctx));
 }
 
 // Function: v4l2_m2m_ctx_release
@@ -229,28 +229,28 @@ int v4l2_m2m_dqbuf(struct file *arg0, struct v4l2_m2m_ctx *arg1, struct v4l2_buf
 // Function: v4l2_m2m_get_curr_priv
 // with type: void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *m2m_dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: v4l2_m2m_get_vq
 // with type: struct vb2_queue *v4l2_m2m_get_vq(struct v4l2_m2m_ctx *m2m_ctx, enum v4l2_buf_type type)
 // with return type: (struct vb2_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vb2_queue *v4l2_m2m_get_vq(struct v4l2_m2m_ctx *arg0, enum v4l2_buf_type arg1) {
   // Pointer type
-  return (struct vb2_queue *)external_alloc();
+  return external_alloc(sizeof(struct vb2_queue));
 }
 
 // Function: v4l2_m2m_init
 // with type: struct v4l2_m2m_dev *v4l2_m2m_init(struct v4l2_m2m_ops *m2m_ops)
 // with return type: (struct v4l2_m2m_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_m2m_dev *v4l2_m2m_init(struct v4l2_m2m_ops *arg0) {
   // Pointer type
-  return (struct v4l2_m2m_dev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_m2m_dev));
 }
 
 // Function: v4l2_m2m_job_finish
@@ -273,10 +273,10 @@ int v4l2_m2m_mmap(struct file *arg0, struct v4l2_m2m_ctx *arg1, struct vm_area_s
 // Function: v4l2_m2m_next_buf
 // with type: void *v4l2_m2m_next_buf(struct v4l2_m2m_queue_ctx *q_ctx)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *v4l2_m2m_next_buf(struct v4l2_m2m_queue_ctx *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: v4l2_m2m_poll
@@ -352,10 +352,10 @@ void vb2_buffer_done(struct vb2_buffer *arg0, enum vb2_buffer_state arg1) {
 // Function: vb2_plane_vaddr
 // with type: void *vb2_plane_vaddr(struct vb2_buffer *vb, unsigned int plane_no)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vb2_queue_init
@@ -370,19 +370,19 @@ int vb2_queue_init(struct vb2_queue *arg0) {
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *file)
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_device_alloc
 // with type: struct video_device *video_device_alloc()
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_device_alloc() {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_device_release

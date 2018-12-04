@@ -8484,9 +8484,9 @@ int __VERIFIER_nondet_int(void);
 int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 int __VERIFIER_nondet_int(void);
 int __blkdev_reread_part(struct block_device *arg0) {
@@ -8547,20 +8547,20 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void bd_set_size(struct block_device *arg0, loff_t arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *bdgrab(struct block_device *arg0) {
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 void bdput(struct block_device *arg0) {
   return;
@@ -8581,13 +8581,13 @@ void blk_mq_free_tag_set(struct blk_mq_tag_set *arg0) {
 void blk_mq_freeze_queue(struct request_queue *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *arg0) {
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct blk_mq_hw_ctx *blk_mq_map_queue(struct request_queue *arg0, const int arg1) {
-  return (struct blk_mq_hw_ctx *)external_alloc();
+  return external_alloc(sizeof(struct blk_mq_hw_ctx));
 }
 void blk_mq_start_request(struct request *arg0) {
   return;
@@ -8622,13 +8622,13 @@ void del_gendisk(struct gendisk *arg0) {
 void destroy_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *fget(unsigned int arg0) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *file_path(struct file *arg0, char *arg1, int arg2) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
@@ -8636,9 +8636,9 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 void fput(struct file *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *get_disk(struct gendisk *arg0) {
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 int __VERIFIER_nondet_int(void);
 int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
@@ -8647,9 +8647,9 @@ int idr_alloc(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg4) {
 void idr_destroy(struct idr *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int idr_for_each(struct idr *arg0, int (*arg1)(int, void *, void *), void *arg2) {
@@ -8765,9 +8765,12 @@ void warn_slowpath_null(const char *arg0, const int arg1) {
 void zero_fill_bio(struct bio *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

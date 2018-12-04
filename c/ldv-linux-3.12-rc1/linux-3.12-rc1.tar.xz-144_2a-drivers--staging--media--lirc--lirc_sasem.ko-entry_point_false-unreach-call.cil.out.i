@@ -5291,9 +5291,9 @@ int __VERIFIER_nondet_int(void);
 int lirc_unregister_driver(int arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
   return;
@@ -5315,9 +5315,9 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1) {
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;
@@ -5336,9 +5336,12 @@ void wait_for_completion(struct completion *arg0) {
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

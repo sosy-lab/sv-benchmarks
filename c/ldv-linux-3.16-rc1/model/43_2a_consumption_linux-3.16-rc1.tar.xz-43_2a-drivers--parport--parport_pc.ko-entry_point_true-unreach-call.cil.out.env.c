@@ -80,10 +80,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: _cond_resched
@@ -210,10 +210,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -262,10 +262,10 @@ int ldv_release_5() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Skip function: malloc
@@ -461,10 +461,10 @@ void parport_put_port(struct parport *arg0) {
 // Function: parport_register_port
 // with type: struct parport *parport_register_port(unsigned long, int, int, struct parport_operations *)
 // with return type: (struct parport)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct parport *parport_register_port(unsigned long arg0, int arg1, int arg2, struct parport_operations *arg3) {
   // Pointer type
-  return (struct parport *)external_alloc();
+  return external_alloc(sizeof(struct parport));
 }
 
 // Function: parport_remove_port
@@ -541,19 +541,19 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_match_id
 // with type: const struct pci_device_id *pci_match_id(const struct pci_device_id *, struct pci_dev *)
 // with return type: (struct pci_device_id)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct pci_device_id *pci_match_id(const struct pci_device_id *arg0, struct pci_dev *arg1) {
   // Pointer type
-  return (const struct pci_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct pci_device_id));
 }
 
 // Function: pci_unregister_driver
@@ -567,10 +567,10 @@ void pci_unregister_driver(struct pci_driver *arg0) {
 // Function: platform_device_register_full
 // with type: struct platform_device *platform_device_register_full(const struct platform_device_info *)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_unregister
@@ -592,10 +592,10 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: pnp_get_resource
 // with type: struct resource *pnp_get_resource(struct pnp_dev *, unsigned long, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *pnp_get_resource(struct pnp_dev *arg0, unsigned long arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: pnp_register_driver

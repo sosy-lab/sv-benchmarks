@@ -1044,7 +1044,7 @@ static unsigned long ram_get_unmapped_area(struct mtd_info *mtd , unsigned long 
   }
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int ram_read(struct mtd_info *mtd , loff_t from , size_t len , size_t *retlen ,
                     u_char *buf )
 { size_t __len ;
@@ -1570,13 +1570,16 @@ void mtd_erase_callback(struct erase_info *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

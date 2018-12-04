@@ -762,20 +762,20 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct c2port_device *c2port_device_register(char *arg0, struct c2port_ops *arg1, void *arg2) {
-  return (struct c2port_device *)external_alloc();
+  return external_alloc(sizeof(struct c2port_device));
 }
 void c2port_device_unregister(struct c2port_device *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_check_final_state() {
   return;
@@ -783,9 +783,9 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
   return;
@@ -793,9 +793,12 @@ void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -73,10 +73,10 @@ void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_first
 // with type: struct rb_node *rb_first(const struct rb_root *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_first(const struct rb_root *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: rb_insert_color
@@ -90,10 +90,10 @@ void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_next
 // with type: struct rb_node *rb_next(const struct rb_node *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_next(const struct rb_node *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: warn_slowpath_null

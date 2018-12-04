@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __init_work
@@ -34,19 +34,19 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: __netlink_kernel_create
 // with type: struct sock *__netlink_kernel_create(struct net *, int, struct module *, struct netlink_kernel_cfg *)
 // with return type: (struct sock)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sock *__netlink_kernel_create(struct net *arg0, int arg1, struct module *arg2, struct netlink_kernel_cfg *arg3) {
   // Pointer type
-  return (struct sock *)external_alloc();
+  return external_alloc(sizeof(struct sock));
 }
 
 // Function: __nlmsg_put
 // with type: struct nlmsghdr *__nlmsg_put(struct sk_buff *, u32 , u32 , int, int, int)
 // with return type: (struct nlmsghdr)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nlmsghdr *__nlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, int arg3, int arg4, int arg5) {
   // Pointer type
-  return (struct nlmsghdr *)external_alloc();
+  return external_alloc(sizeof(struct nlmsghdr));
 }
 
 // Function: __raw_spin_lock_init
@@ -76,10 +76,10 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_netdev_mqs
 // with type: struct net_device *alloc_netdev_mqs(int, const char *, unsigned char, void (*)(struct net_device *), unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, unsigned char arg2, void (*arg3)(struct net_device *), unsigned int arg4, unsigned int arg5) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -111,10 +111,10 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_by_index
 // with type: struct net_device *dev_get_by_index(struct net *, int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *dev_get_by_index(struct net *arg0, int arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: flush_workqueue
@@ -188,10 +188,10 @@ int ldv_ndo_uninit_4() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: list_del
@@ -344,19 +344,19 @@ int register_netdev(struct net_device *arg0) {
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: sock_release
@@ -432,10 +432,10 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 
 // Function: usb_kill_urb

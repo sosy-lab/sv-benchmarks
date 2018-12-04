@@ -11,10 +11,10 @@
 // Function: __class_create
 // with type: struct class *__class_create(struct module *, const char *, struct lock_class_key *)
 // with return type: (struct class)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 
 // Function: __copy_from_user_overflow
@@ -62,10 +62,10 @@ unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2)
 // Function: bdget
 // with type: struct block_device *bdget(dev_t )
 // with return type: (struct block_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *bdget(dev_t arg0) {
   // Pointer type
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 
 // Function: bdput
@@ -203,10 +203,10 @@ loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_destroy
@@ -220,19 +220,19 @@ void device_destroy(struct class *arg0, dev_t arg1) {
 // Function: igrab
 // with type: struct inode *igrab(struct inode *)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *igrab(struct inode *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: ldv_initialize
@@ -331,9 +331,9 @@ void vfree(const void *arg0) {
 // Function: vzalloc
 // with type: void *vzalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 

@@ -3248,9 +3248,9 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -3260,9 +3260,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -3270,9 +3270,9 @@ void iounmap(volatile void *arg0) {
 void iowrite32(u32 arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_check_final_state() {
   return;
@@ -3283,9 +3283,9 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void pci_disable_device(struct pci_dev *arg0) {
   return;
@@ -3307,9 +3307,12 @@ void pci_unregister_driver(struct pci_driver *arg0) {
 void uio_unregister_device(struct uio_info *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

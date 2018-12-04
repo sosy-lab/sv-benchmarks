@@ -222,10 +222,10 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -264,10 +264,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -472,19 +472,19 @@ void scsi_free_host_dev(struct scsi_device *arg0) {
 // Function: scsi_get_host_dev
 // with type: struct scsi_device *scsi_get_host_dev(struct Scsi_Host *)
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *scsi_get_host_dev(struct Scsi_Host *arg0) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put
@@ -514,10 +514,10 @@ void scsi_scan_host(struct Scsi_Host *arg0) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: simple_strtoul

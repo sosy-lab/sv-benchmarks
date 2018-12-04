@@ -128,10 +128,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -147,10 +147,10 @@ void iounmap(volatile void *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -172,10 +172,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Skip function: malloc
@@ -194,10 +194,10 @@ int memstick_add_host(struct memstick_host *arg0) {
 // Function: memstick_alloc_host
 // with type: struct memstick_host *memstick_alloc_host(unsigned int, struct device *)
 // with return type: (struct memstick_host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct memstick_host *memstick_alloc_host(unsigned int arg0, struct device *arg1) {
   // Pointer type
-  return (struct memstick_host *)external_alloc();
+  return external_alloc(sizeof(struct memstick_host));
 }
 
 // Function: memstick_detect_change
@@ -392,10 +392,10 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf

@@ -39,10 +39,10 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1)
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -154,19 +154,19 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: bd_set_size
@@ -180,19 +180,19 @@ void bd_set_size(struct block_device *arg0, loff_t arg1) {
 // Function: bdevname
 // with type: const char *bdevname(struct block_device *, char *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *bdevname(struct block_device *arg0, char *arg1) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: bdget
 // with type: struct block_device *bdget(dev_t )
 // with return type: (struct block_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *bdget(dev_t arg0) {
   // Pointer type
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 
 // Function: bio_add_page
@@ -207,10 +207,10 @@ int bio_add_page(struct bio *arg0, struct page *arg1, unsigned int arg2, unsigne
 // Function: bio_clone
 // with type: struct bio *bio_clone(struct bio *, gfp_t )
 // with return type: (struct bio)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_clone(struct bio *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 
 // Function: bio_endio
@@ -248,19 +248,19 @@ void bio_put(struct bio *arg0) {
 // Function: bio_split
 // with type: struct bio_pair *bio_split(struct bio *, int)
 // with return type: (struct bio_pair)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio_pair *bio_split(struct bio *arg0, int arg1) {
   // Pointer type
-  return (struct bio_pair *)external_alloc();
+  return external_alloc(sizeof(struct bio_pair));
 }
 
 // Function: blk_alloc_queue
 // with type: struct request_queue *blk_alloc_queue(gfp_t )
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_alloc_queue(gfp_t arg0) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_cleanup_queue
@@ -283,10 +283,10 @@ int blk_execute_rq(struct request_queue *arg0, struct gendisk *arg1, struct requ
 // Function: blk_get_request
 // with type: struct request *blk_get_request(struct request_queue *, int, gfp_t )
 // with return type: (struct request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_get_request(struct request_queue *arg0, int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 
 // Function: blk_put_request
@@ -403,19 +403,19 @@ long int congestion_wait(int arg0, long arg1) {
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, mode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, mode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -437,10 +437,10 @@ void del_gendisk(struct gendisk *arg0) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_unregister
@@ -470,10 +470,10 @@ void init_cdrom_command(struct packet_command *arg0, void *arg1, int arg2, int a
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -507,10 +507,10 @@ int kobject_uevent(struct kobject *arg0, enum kobject_action arg1) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -569,19 +569,19 @@ void list_del(struct list_head *arg0) {
 // Function: mempool_alloc
 // with type: void *mempool_alloc(mempool_t *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: mempool_create
 // with type: mempool_t *mempool_create(int, mempool_alloc_t *, mempool_free_t *, void *)
 // with return type: (mempool_t )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
   // Pointer type
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 
 // Function: mempool_destroy
@@ -656,19 +656,19 @@ int printk(const char *arg0, ...) {
 // Function: proc_create_data
 // with type: struct proc_dir_entry *proc_create_data(const char *, mode_t , struct proc_dir_entry *, const struct file_operations *, void *)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, mode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: proc_mkdir
 // with type: struct proc_dir_entry *proc_mkdir(const char *, struct proc_dir_entry *)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_mkdir(const char *arg0, struct proc_dir_entry *arg1) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: put_disk
@@ -690,10 +690,10 @@ void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_first
 // with type: struct rb_node *rb_first(const struct rb_root *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_first(const struct rb_root *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: rb_insert_color
@@ -707,10 +707,10 @@ void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_next
 // with type: struct rb_node *rb_next(const struct rb_node *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_next(const struct rb_node *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: refrigerator

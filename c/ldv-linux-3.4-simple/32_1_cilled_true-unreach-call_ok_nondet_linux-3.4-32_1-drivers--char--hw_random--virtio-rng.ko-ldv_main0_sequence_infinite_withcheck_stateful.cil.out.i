@@ -1663,9 +1663,9 @@ int __VERIFIER_nondet_int(void);
 int virtqueue_add_buf(struct virtqueue *arg0, struct scatterlist *arg1, unsigned int arg2, unsigned int arg3, void *arg4, gfp_t arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void virtqueue_kick(struct virtqueue *arg0) {
   return;
@@ -1673,9 +1673,12 @@ void virtqueue_kick(struct virtqueue *arg0) {
 void wait_for_completion(struct completion *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

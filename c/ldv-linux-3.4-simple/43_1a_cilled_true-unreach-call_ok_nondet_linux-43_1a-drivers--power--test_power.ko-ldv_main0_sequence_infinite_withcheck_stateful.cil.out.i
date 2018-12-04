@@ -1416,9 +1416,9 @@ void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_
   return ((void *)0);
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_check_final_state() {
   return;
@@ -1426,9 +1426,9 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void msleep(unsigned int arg0) {
   return;
@@ -1455,9 +1455,12 @@ unsigned long __VERIFIER_nondet_ulong(void);
 __kernel_size_t strnlen(const char *arg0, __kernel_size_t arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

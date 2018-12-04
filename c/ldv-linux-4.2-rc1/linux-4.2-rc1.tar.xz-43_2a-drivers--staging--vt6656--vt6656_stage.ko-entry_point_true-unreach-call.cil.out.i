@@ -18069,13 +18069,13 @@ void dev_warn(const struct device *arg0, const char *arg1, ...) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_hw *ieee80211_alloc_hw_nm(size_t arg0, const struct ieee80211_ops *arg1, const char *arg2) {
-  return (struct ieee80211_hw *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_hw));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1, u16 *arg2, u16 *arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void ieee80211_free_hw(struct ieee80211_hw *arg0) {
   return;
@@ -18125,9 +18125,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_reset_resume_2() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
@@ -18153,17 +18153,17 @@ int __VERIFIER_nondet_int(void);
 int request_firmware(const struct firmware **arg0, const char *arg1, struct device *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
   return;
@@ -18178,9 +18178,9 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;
@@ -18199,9 +18199,12 @@ int usb_reset_device(struct usb_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

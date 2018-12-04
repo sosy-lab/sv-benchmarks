@@ -44,10 +44,10 @@ void __list_del_entry(struct list_head *arg0) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __raw_spin_lock_init
@@ -133,19 +133,19 @@ bool cancel_work_sync(struct work_struct *arg0) {
 // Function: core_tpg_add_initiator_node_acl
 // with type: struct se_node_acl *core_tpg_add_initiator_node_acl(struct se_portal_group *, struct se_node_acl *, const char *, u32 )
 // with return type: (struct se_node_acl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_add_initiator_node_acl(struct se_portal_group *arg0, struct se_node_acl *arg1, const char *arg2, u32 arg3) {
   // Pointer type
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
 
 // Function: core_tpg_check_initiator_node_acl
 // with type: struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *, unsigned char *)
 // with return type: (struct se_node_acl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *arg0, unsigned char *arg1) {
   // Pointer type
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
 
 // Function: core_tpg_del_initiator_node_acl
@@ -257,10 +257,10 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrtoull
@@ -309,10 +309,10 @@ int ldv_release_1() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Function: list_del
@@ -405,19 +405,19 @@ void sg_miter_stop(struct sg_mapping_iter *arg0) {
 // Function: skb_clone
 // with type: struct sk_buff *skb_clone(struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_copy
 // with type: struct sk_buff *skb_copy(const struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Skip function: snprintf
@@ -445,10 +445,10 @@ void target_fabric_configfs_deregister(struct target_fabric_configfs *arg0) {
 // Function: target_fabric_configfs_init
 // with type: struct target_fabric_configfs *target_fabric_configfs_init(struct module *, const char *)
 // with return type: (struct target_fabric_configfs)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct target_fabric_configfs *target_fabric_configfs_init(struct module *arg0, const char *arg1) {
   // Pointer type
-  return (struct target_fabric_configfs *)external_alloc();
+  return external_alloc(sizeof(struct target_fabric_configfs));
 }
 
 // Function: target_fabric_configfs_register
@@ -505,10 +505,10 @@ int transport_generic_free_cmd(struct se_cmd *arg0, int arg1) {
 // Function: transport_init_session
 // with type: struct se_session *transport_init_session(enum target_prot_op )
 // with return type: (struct se_session)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_session *transport_init_session(enum target_prot_op arg0) {
   // Pointer type
-  return (struct se_session *)external_alloc();
+  return external_alloc(sizeof(struct se_session));
 }
 
 // Function: transport_register_session
@@ -530,10 +530,10 @@ void usleep_range(unsigned long arg0, unsigned long arg1) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: warn_slowpath_null

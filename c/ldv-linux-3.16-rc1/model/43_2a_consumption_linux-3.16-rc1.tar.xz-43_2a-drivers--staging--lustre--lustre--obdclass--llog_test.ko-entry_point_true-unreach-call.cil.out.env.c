@@ -27,10 +27,10 @@ int __llog_ctxt_put(const struct lu_env *arg0, struct llog_ctxt *arg1) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: _raw_spin_lock
@@ -63,19 +63,19 @@ unsigned int cfs_rand() {
 // Function: class_find_client_obd
 // with type: struct obd_device *class_find_client_obd(struct obd_uuid *, const char *, struct obd_uuid *)
 // with return type: (struct obd_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_device *class_find_client_obd(struct obd_uuid *arg0, const char *arg1, struct obd_uuid *arg2) {
   // Pointer type
-  return (struct obd_device *)external_alloc();
+  return external_alloc(sizeof(struct obd_device));
 }
 
 // Function: class_name2obd
 // with type: struct obd_device *class_name2obd(const char *)
 // with return type: (struct obd_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_device *class_name2obd(const char *arg0) {
   // Pointer type
-  return (struct obd_device *)external_alloc();
+  return external_alloc(sizeof(struct obd_device));
 }
 
 // Function: class_register_type
@@ -101,10 +101,10 @@ int class_unregister_type(const char *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: lbug_with_loc
@@ -134,10 +134,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Function: libcfs_debug_msg
@@ -383,19 +383,19 @@ int pskb_expand_head(struct sk_buff *arg0, int arg1, int arg2, gfp_t arg3) {
 // Function: skb_clone
 // with type: struct sk_buff *skb_clone(struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_copy
 // with type: struct sk_buff *skb_copy(const struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Skip function: sprintf
@@ -403,9 +403,9 @@ struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
 // Function: vzalloc
 // with type: void *vzalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 

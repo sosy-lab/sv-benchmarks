@@ -9,10 +9,10 @@
 // Function: __alloc_skb
 // with type: struct sk_buff *__alloc_skb(unsigned int, gfp_t , int, int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __const_udelay
@@ -166,10 +166,10 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_libipw
 // with type: struct net_device *alloc_libipw(int, int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_libipw(int arg0, int arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -242,10 +242,10 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -259,19 +259,19 @@ void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg
 // Function: dma_pool_alloc
 // with type: void *dma_pool_alloc(struct dma_pool *, gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_pool_create
 // with type: struct dma_pool *dma_pool_create(const char *, struct device *, size_t , size_t , size_t )
 // with return type: (struct dma_pool)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
   // Pointer type
-  return (struct dma_pool *)external_alloc();
+  return external_alloc(sizeof(struct dma_pool));
 }
 
 // Function: dma_pool_destroy
@@ -422,10 +422,10 @@ unsigned int jiffies_to_msecs(const unsigned long arg0) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_initialize
@@ -522,10 +522,10 @@ u8 libipw_freq_to_channel(struct libipw_device *arg0, u32 arg1) {
 // Function: libipw_get_geo
 // with type: const struct libipw_geo *libipw_get_geo(struct libipw_device *)
 // with return type: (struct libipw_geo)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct libipw_geo *libipw_get_geo(struct libipw_device *arg0) {
   // Pointer type
-  return (const struct libipw_geo *)external_alloc();
+  return external_alloc(sizeof(const struct libipw_geo));
 }
 
 // Function: libipw_is_valid_channel
@@ -794,10 +794,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_ioremap_bar
 // with type: void *pci_ioremap_bar(struct pci_dev *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_release_regions
@@ -973,37 +973,37 @@ unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg
 // Function: skb_copy
 // with type: struct sk_buff *skb_copy(const struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_trim

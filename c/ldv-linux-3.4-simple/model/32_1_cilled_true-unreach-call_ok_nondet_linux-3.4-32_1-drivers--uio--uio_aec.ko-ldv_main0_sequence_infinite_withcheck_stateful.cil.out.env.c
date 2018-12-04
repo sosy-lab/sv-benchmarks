@@ -41,10 +41,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -129,10 +129,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *dev, int bar, unsigned long max)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap

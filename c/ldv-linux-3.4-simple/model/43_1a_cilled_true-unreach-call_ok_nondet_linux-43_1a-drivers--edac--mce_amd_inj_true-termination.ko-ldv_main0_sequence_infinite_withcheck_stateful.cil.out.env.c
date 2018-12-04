@@ -14,10 +14,10 @@ int amd_decode_mce(struct notifier_block *arg0, unsigned long arg1, void *arg2) 
 // Function: edac_get_sysfs_subsys
 // with type: struct bus_type *edac_get_sysfs_subsys()
 // with return type: (struct bus_type)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bus_type *edac_get_sysfs_subsys() {
   // Pointer type
-  return (struct bus_type *)external_alloc();
+  return external_alloc(sizeof(struct bus_type));
 }
 
 // Function: edac_put_sysfs_subsys
@@ -31,19 +31,19 @@ void edac_put_sysfs_subsys() {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kobject_create_and_add
 // with type: struct kobject *kobject_create_and_add(const char *, struct kobject *)
 // with return type: (struct kobject)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_create_and_add(const char *arg0, struct kobject *arg1) {
   // Pointer type
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 
 // Function: kobject_del
@@ -82,10 +82,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: printk

@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __bitmap_weight
@@ -86,10 +86,10 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: blk_cleanup_queue
@@ -111,19 +111,19 @@ void blk_dump_rq_flags(struct request *arg0, char *arg1) {
 // Function: blk_fetch_request
 // with type: struct request *blk_fetch_request(struct request_queue *)
 // with return type: (struct request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_fetch_request(struct request_queue *arg0) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 
 // Function: blk_init_queue
 // with type: struct request_queue *blk_init_queue(void (*)(struct request_queue *), spinlock_t *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_init_queue(void (*arg0)(struct request_queue *), spinlock_t *arg1) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_queue_bounce_limit
@@ -237,10 +237,10 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: flush_workqueue
@@ -490,10 +490,10 @@ int sg_nents(struct scatterlist *arg0) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: sprintf

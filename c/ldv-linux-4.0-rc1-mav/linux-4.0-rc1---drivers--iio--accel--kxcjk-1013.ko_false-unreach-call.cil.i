@@ -13280,9 +13280,9 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gpio_desc *__devm_gpiod_get_index(struct device *arg0, const char *arg1, unsigned int arg2, enum gpiod_flags arg3) {
-  return (struct gpio_desc *)external_alloc();
+  return external_alloc(sizeof(struct gpio_desc));
 }
 void __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
@@ -13308,9 +13308,9 @@ int __pm_runtime_suspend(struct device *arg0, int arg1) {
 void __pm_runtime_use_autosuspend(struct device *arg0, bool arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *arg0, const struct device *arg1) {
-  return (const struct acpi_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct acpi_device_id));
 }
 int __VERIFIER_nondet_int(void);
 int desc_to_gpio(const struct gpio_desc *arg0) {
@@ -13319,25 +13319,25 @@ int desc_to_gpio(const struct gpio_desc *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iio_dev *devm_iio_device_alloc(struct device *arg0, int arg1) {
-  return (struct iio_dev *)external_alloc();
+  return external_alloc(sizeof(struct iio_dev));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iio_trigger *devm_iio_trigger_alloc(struct device *arg0, const char *arg1, ...) {
-  return (struct iio_trigger *)external_alloc();
+  return external_alloc(sizeof(struct iio_trigger));
 }
 int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int gpiod_direction_input(struct gpio_desc *arg0) {
@@ -13409,10 +13409,10 @@ int __VERIFIER_nondet_int(void);
 int iio_triggered_buffer_setup(struct iio_dev *arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), const struct iio_buffer_setup_ops *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get_with_offset(enum tk_offsets arg0) {
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -13438,9 +13438,12 @@ void pm_runtime_set_autosuspend_delay(struct device *arg0, int arg1) {
 void usleep_range(unsigned long arg0, unsigned long arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

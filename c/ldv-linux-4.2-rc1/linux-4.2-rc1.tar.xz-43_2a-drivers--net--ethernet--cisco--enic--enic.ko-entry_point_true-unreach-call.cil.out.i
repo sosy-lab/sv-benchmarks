@@ -21480,9 +21480,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __phys_addr(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -21506,13 +21506,13 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cpu_rmap *alloc_cpu_rmap(unsigned int arg0, gfp_t arg1) {
-  return (struct cpu_rmap *)external_alloc();
+  return external_alloc(sizeof(struct cpu_rmap));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int call_netdevice_notifiers(unsigned long arg0, struct net_device *arg1) {
@@ -21551,9 +21551,9 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -21619,10 +21619,10 @@ int __VERIFIER_nondet_int(void);
 int irq_cpu_rmap_add(struct cpu_rmap *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get() {
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -21652,9 +21652,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_10() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
@@ -21765,9 +21765,9 @@ int __VERIFIER_nondet_int(void);
 int pci_find_ext_capability(struct pci_dev *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_release_regions(struct pci_dev *arg0) {
   return;
@@ -21820,9 +21820,9 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout_uninterruptible(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
@@ -21837,9 +21837,12 @@ void unregister_netdev(struct net_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

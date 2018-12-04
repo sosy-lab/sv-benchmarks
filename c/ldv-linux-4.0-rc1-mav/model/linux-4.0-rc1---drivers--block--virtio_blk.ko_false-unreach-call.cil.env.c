@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __compiletime_assert_322
@@ -66,19 +66,19 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: bio_map_kern
 // with type: struct bio *bio_map_kern(struct request_queue *, void *, unsigned int, gfp_t )
 // with return type: (struct bio)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_map_kern(struct request_queue *arg0, void *arg1, unsigned int arg2, gfp_t arg3) {
   // Pointer type
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 
 // Function: bio_put
@@ -142,10 +142,10 @@ void blk_mq_free_tag_set(struct blk_mq_tag_set *arg0) {
 // Function: blk_mq_init_queue
 // with type: struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *arg0) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_mq_start_request
@@ -315,10 +315,10 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: flush_work
@@ -551,10 +551,10 @@ bool virtqueue_enable_cb(struct virtqueue *arg0) {
 // Function: virtqueue_get_buf
 // with type: void *virtqueue_get_buf(struct virtqueue *, unsigned int *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: virtqueue_is_broken

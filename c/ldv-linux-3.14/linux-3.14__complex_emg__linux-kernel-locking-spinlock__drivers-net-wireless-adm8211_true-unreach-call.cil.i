@@ -13747,9 +13747,9 @@ void __const_udelay(unsigned long arg0) {
 void __ldv_spin_lock(spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const char *arg2) {
@@ -13823,9 +13823,9 @@ int dma_supported(struct device *arg0, u64 arg1) {
 void eeprom_93cx6_multiread(struct eeprom_93cx6 *arg0, const u8 arg1, __le16 *arg2, const u16 arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;
@@ -13833,9 +13833,9 @@ void free_irq(unsigned int arg0, void *arg1) {
 void get_random_bytes(void *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_hw *ieee80211_alloc_hw(size_t arg0, const struct ieee80211_ops *arg1) {
-  return (struct ieee80211_hw *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_hw));
 }
 void ieee80211_free_hw(struct ieee80211_hw *arg0) {
   return;
@@ -13921,9 +13921,9 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;
@@ -13970,24 +13970,27 @@ void rtnl_lock() {
 void rtnl_unlock() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

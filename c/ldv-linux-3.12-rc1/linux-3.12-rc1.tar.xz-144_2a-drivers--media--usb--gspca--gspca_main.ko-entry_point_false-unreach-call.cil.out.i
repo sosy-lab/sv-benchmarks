@@ -9347,9 +9347,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -9368,10 +9368,10 @@ int input_register_device(struct input_dev *arg0) {
 void input_unregister_device(struct input_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get() {
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -9405,10 +9405,10 @@ void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
-  struct timeval *tmp = (struct timeval*)external_alloc();
+  struct timeval *tmp = external_alloc(sizeof(struct timeval));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -9435,9 +9435,9 @@ bool __VERIFIER_nondet_bool(void);
 bool try_module_get(struct module *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int usb_clear_halt(struct usb_device *arg0, int arg1) {
@@ -9446,9 +9446,9 @@ int usb_clear_halt(struct usb_device *arg0, int arg1) {
 void usb_free_coherent(struct usb_device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;
@@ -9509,9 +9509,9 @@ int v4l2_fh_release(struct file *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 void video_device_release_empty(struct video_device *arg0) {
   return;
@@ -9527,17 +9527,20 @@ int __VERIFIER_nondet_int(void);
 int vm_insert_page(struct vm_area_struct *arg0, unsigned long arg1, struct page *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc_32(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *vmalloc_to_page(const void *arg0) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

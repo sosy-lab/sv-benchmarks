@@ -8365,9 +8365,9 @@ void __const_udelay(unsigned long arg0) {
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -8405,9 +8405,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mq(int arg0, unsigned int arg1) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, size_t arg3, int arg4, dma_addr_t arg5, bool arg6) {
   return;
@@ -8429,9 +8429,9 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dev_driver_string(const struct device *arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 void dev_kfree_skb_any(struct sk_buff *arg0) {
   return;
@@ -8550,13 +8550,13 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int round_jiffies(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 int __VERIFIER_nondet_int(void);
 int ssb_bus_may_powerdown(struct ssb_bus *arg0) {
@@ -8580,9 +8580,9 @@ int __VERIFIER_nondet_int(void);
 int ssb_device_is_enabled(struct ssb_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ssb_dma_alloc_consistent(struct ssb_device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ssb_dma_free_consistent(struct ssb_device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, gfp_t arg4) {
   return;
@@ -8616,9 +8616,12 @@ void unregister_netdev(struct net_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -54,10 +54,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t start, resource_size_t n, char *name, int flags)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __wake_up
@@ -103,10 +103,10 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 // Function: backlight_device_register
 // with type: struct backlight_device *backlight_device_register(char *name, struct device *dev, void *devdata, struct backlight_ops *ops, struct backlight_properties *props)
 // with return type: (struct backlight_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct backlight_device *backlight_device_register(char *arg0, struct device *arg1, void *arg2, struct backlight_ops *arg3, struct backlight_properties *arg4) {
   // Pointer type
-  return (struct backlight_device *)external_alloc();
+  return external_alloc(sizeof(struct backlight_device));
 }
 
 // Function: backlight_device_unregister
@@ -160,10 +160,10 @@ void console_unlock() {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -237,10 +237,10 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t size, struct device *dev)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return external_alloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -262,10 +262,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t offset, unsigned long size)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap

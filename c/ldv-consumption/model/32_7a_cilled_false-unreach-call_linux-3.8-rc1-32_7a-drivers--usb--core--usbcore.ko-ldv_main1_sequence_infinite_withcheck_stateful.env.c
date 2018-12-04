@@ -14,10 +14,10 @@ int __bus_register(struct bus_type *arg0, struct lock_class_key *arg1) {
 // Function: __class_create
 // with type: struct class *__class_create(struct module *, const char *, struct lock_class_key *)
 // with return type: (struct class)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 
 // Function: __dynamic_dev_dbg
@@ -220,10 +220,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __suspend_report_result
@@ -362,12 +362,12 @@ acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi
 // Function: acpi_get_child
 // with type: acpi_handle acpi_get_child(acpi_handle , u64 )
 // with return type: acpi_handle 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 acpi_handle acpi_get_child(acpi_handle arg0, u64 arg1) {
   // Typedef type
   // Real type: (void)*
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: acpi_get_physical_device_location
@@ -438,10 +438,10 @@ int blocking_notifier_chain_unregister(struct blocking_notifier_head *arg0, stru
 // Function: bus_find_device
 // with type: struct device *bus_find_device(struct bus_type *, struct device *, void *, int (*)(struct device *, void *))
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *bus_find_device(struct bus_type *arg0, struct device *arg1, void *arg2, int (*arg3)(struct device *, void *)) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: bus_register_notifier
@@ -528,10 +528,10 @@ void class_destroy(struct class *arg0) {
 // Function: compat_alloc_user_space
 // with type: void *compat_alloc_user_space(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *compat_alloc_user_space(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: complete
@@ -565,11 +565,11 @@ bool creds_are_invalid(const struct cred *arg0) {
 // Function: current_kernel_time
 // with type: struct timespec current_kernel_time()
 // with return type: struct timespec
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
   // Composite type
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -642,19 +642,19 @@ int debug_lockdep_rcu_enabled() {
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -686,10 +686,10 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: dev_driver_string
 // with type: const char *dev_driver_string(const struct device *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dev_driver_string(const struct device *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: dev_err
@@ -704,10 +704,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_printk
@@ -776,10 +776,10 @@ int device_bind_driver(struct device *arg0) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_create_bin_file
@@ -912,19 +912,19 @@ int device_wakeup_enable(struct device *arg0) {
 // Function: dma_pool_alloc
 // with type: void *dma_pool_alloc(struct dma_pool *, gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_pool_create
 // with type: struct dma_pool *dma_pool_create(const char *, struct device *, size_t , size_t , size_t )
 // with return type: (struct dma_pool)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
   // Pointer type
-  return (struct dma_pool *)external_alloc();
+  return external_alloc(sizeof(struct dma_pool));
 }
 
 // Function: dma_pool_destroy
@@ -1060,10 +1060,10 @@ bool freezing_slow_path(struct task_struct *arg0) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: init_timer_key
@@ -1077,10 +1077,10 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -1103,10 +1103,10 @@ unsigned int jiffies_to_msecs(const unsigned long arg0) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -1123,19 +1123,19 @@ int kill_pid_info_as_cred(int arg0, struct siginfo *arg1, struct pid *arg2, cons
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -1315,10 +1315,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_prepare_to_sleep
@@ -1560,10 +1560,10 @@ void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf
@@ -1711,10 +1711,10 @@ void up_write(struct rw_semaphore *arg0) {
 // Function: usb_speed_string
 // with type: const char *usb_speed_string(enum usb_device_speed )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *usb_speed_string(enum usb_device_speed arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: usleep_range

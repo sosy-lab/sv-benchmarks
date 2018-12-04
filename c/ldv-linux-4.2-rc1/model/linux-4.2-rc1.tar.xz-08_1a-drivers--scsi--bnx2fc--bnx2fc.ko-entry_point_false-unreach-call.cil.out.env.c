@@ -18,19 +18,19 @@ int ___pskb_trim(struct sk_buff *arg0, unsigned int arg1) {
 // Function: __alloc_percpu
 // with type: void *__alloc_percpu(size_t , size_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __bitmap_weight
@@ -119,10 +119,10 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 // Function: __pskb_pull_tail
 // with type: unsigned char *__pskb_pull_tail(struct sk_buff *, int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: __raw_spin_lock_init
@@ -161,10 +161,10 @@ void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3)
 // Function: _fc_frame_alloc
 // with type: struct fc_frame *_fc_frame_alloc(size_t )
 // with return type: (struct fc_frame)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_frame *_fc_frame_alloc(size_t arg0) {
   // Pointer type
-  return (struct fc_frame *)external_alloc();
+  return external_alloc(sizeof(struct fc_frame));
 }
 
 // Function: _raw_spin_lock
@@ -351,10 +351,10 @@ int dev_queue_xmit_sk(struct sock *arg0, struct sk_buff *arg1) {
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -368,10 +368,10 @@ void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg
 // Function: fc_attach_transport
 // with type: struct scsi_transport_template *fc_attach_transport(struct fc_function_template *)
 // with return type: (struct scsi_transport_template)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_transport_template *fc_attach_transport(struct fc_function_template *arg0) {
   // Pointer type
-  return (struct scsi_transport_template *)external_alloc();
+  return external_alloc(sizeof(struct scsi_transport_template));
 }
 
 // Function: fc_block_scsi_eh
@@ -420,10 +420,10 @@ int fc_elsct_init(struct fc_lport *arg0) {
 // Function: fc_elsct_send
 // with type: struct fc_seq *fc_elsct_send(struct fc_lport *, u32 , struct fc_frame *, unsigned int, void (*)(struct fc_seq *, struct fc_frame *, void *), void *, u32 )
 // with return type: (struct fc_seq)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_seq *fc_elsct_send(struct fc_lport *arg0, u32 arg1, struct fc_frame *arg2, unsigned int arg3, void (*arg4)(struct fc_seq *, struct fc_frame *, void *), void *arg5, u32 arg6) {
   // Pointer type
-  return (struct fc_seq *)external_alloc();
+  return external_alloc(sizeof(struct fc_seq));
 }
 
 // Function: fc_exch_init
@@ -438,10 +438,10 @@ int fc_exch_init(struct fc_lport *arg0) {
 // Function: fc_exch_mgr_alloc
 // with type: struct fc_exch_mgr *fc_exch_mgr_alloc(struct fc_lport *, enum fc_class , u16 , u16 , bool (*)(struct fc_frame *))
 // with return type: (struct fc_exch_mgr)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_exch_mgr *fc_exch_mgr_alloc(struct fc_lport *arg0, enum fc_class arg1, u16 arg2, u16 arg3, bool (*arg4)(struct fc_frame *)) {
   // Pointer type
-  return (struct fc_exch_mgr *)external_alloc();
+  return external_alloc(sizeof(struct fc_exch_mgr));
 }
 
 // Function: fc_exch_mgr_free
@@ -490,10 +490,10 @@ int fc_fabric_logoff(struct fc_lport *arg0) {
 // Function: fc_frame_alloc_fill
 // with type: struct fc_frame *fc_frame_alloc_fill(struct fc_lport *, size_t )
 // with return type: (struct fc_frame)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_frame *fc_frame_alloc_fill(struct fc_lport *arg0, size_t arg1) {
   // Pointer type
-  return (struct fc_frame *)external_alloc();
+  return external_alloc(sizeof(struct fc_frame));
 }
 
 // Function: fc_get_host_port_state
@@ -515,10 +515,10 @@ void fc_get_host_speed(struct Scsi_Host *arg0) {
 // Function: fc_get_host_stats
 // with type: struct fc_host_statistics *fc_get_host_stats(struct Scsi_Host *)
 // with return type: (struct fc_host_statistics)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_host_statistics *fc_get_host_stats(struct Scsi_Host *arg0) {
   // Pointer type
-  return (struct fc_host_statistics *)external_alloc();
+  return external_alloc(sizeof(struct fc_host_statistics));
 }
 
 // Function: fc_lport_bsg_request
@@ -644,10 +644,10 @@ int fc_slave_alloc(struct scsi_device *arg0) {
 // Function: fc_vport_id_lookup
 // with type: struct fc_lport *fc_vport_id_lookup(struct fc_lport *, u32 )
 // with return type: (struct fc_lport)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_lport *fc_vport_id_lookup(struct fc_lport *arg0, u32 arg1) {
   // Pointer type
-  return (struct fc_lport *)external_alloc();
+  return external_alloc(sizeof(struct fc_lport));
 }
 
 // Function: fc_vport_setlink
@@ -694,10 +694,10 @@ void fcoe_ctlr_destroy(struct fcoe_ctlr *arg0) {
 // Function: fcoe_ctlr_device_add
 // with type: struct fcoe_ctlr_device *fcoe_ctlr_device_add(struct device *, struct fcoe_sysfs_function_template *, int)
 // with return type: (struct fcoe_ctlr_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fcoe_ctlr_device *fcoe_ctlr_device_add(struct device *arg0, struct fcoe_sysfs_function_template *arg1, int arg2) {
   // Pointer type
-  return (struct fcoe_ctlr_device *)external_alloc();
+  return external_alloc(sizeof(struct fcoe_ctlr_device));
 }
 
 // Function: fcoe_ctlr_device_delete
@@ -944,10 +944,10 @@ void int_to_scsilun(u64 arg0, struct scsi_lun *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -979,10 +979,10 @@ void kthread_bind(struct task_struct *arg0, unsigned int arg1) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -1032,10 +1032,10 @@ void ldv_initialize() {
 // Function: libfc_vport_create
 // with type: struct fc_lport *libfc_vport_create(struct fc_vport *, int)
 // with return type: (struct fc_lport)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_lport *libfc_vport_create(struct fc_vport *arg0, int arg1) {
   // Pointer type
-  return (struct fc_lport *)external_alloc();
+  return external_alloc(sizeof(struct fc_lport));
 }
 
 // Function: list_del
@@ -1129,10 +1129,10 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: pci_dev_get
 // with type: struct pci_dev *pci_dev_get(struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_dev_put
@@ -1239,10 +1239,10 @@ int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put
@@ -1281,19 +1281,19 @@ void set_user_nice(struct task_struct *arg0, long arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: skb_clone
 // with type: struct sk_buff *skb_clone(struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_copy_bits
@@ -1308,28 +1308,28 @@ int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Skip function: snprintf
@@ -1351,10 +1351,10 @@ void synchronize_net() {
 // Function: vlan_dev_real_dev
 // with type: struct net_device *vlan_dev_real_dev(const struct net_device *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *vlan_dev_real_dev(const struct net_device *arg0) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: vlan_dev_vlan_id

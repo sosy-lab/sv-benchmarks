@@ -65,10 +65,10 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __wake_up
@@ -184,10 +184,10 @@ void gameport_unregister_port(struct gameport *arg0) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -203,28 +203,28 @@ void iounmap(volatile void *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: ldv_check_final_state
@@ -354,10 +354,10 @@ int ldv_resume_noirq_2() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Function: ldv_suspend_late_2
@@ -472,10 +472,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_restore_state
@@ -688,19 +688,19 @@ int snd_ctl_boolean_mono_info(struct snd_kcontrol *arg0, struct snd_ctl_elem_inf
 // Function: snd_ctl_find_id
 // with type: struct snd_kcontrol *snd_ctl_find_id(struct snd_card *, struct snd_ctl_elem_id *)
 // with return type: (struct snd_kcontrol)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_find_id(struct snd_card *arg0, struct snd_ctl_elem_id *arg1) {
   // Pointer type
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
 
 // Function: snd_ctl_new1
 // with type: struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *, void *)
 // with return type: (struct snd_kcontrol)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *arg0, void *arg1) {
   // Pointer type
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
 
 // Function: snd_ctl_notify
@@ -740,10 +740,10 @@ void snd_dma_free_pages(struct snd_dma_buffer *arg0) {
 // Function: snd_info_create_card_entry
 // with type: struct snd_info_entry *snd_info_create_card_entry(struct snd_card *, const char *, struct snd_info_entry *)
 // with return type: (struct snd_info_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_info_entry *snd_info_create_card_entry(struct snd_card *arg0, const char *arg1, struct snd_info_entry *arg2) {
   // Pointer type
-  return (struct snd_info_entry *)external_alloc();
+  return external_alloc(sizeof(struct snd_info_entry));
 }
 
 // Function: snd_info_free_entry
@@ -956,10 +956,10 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: warn_slowpath_fmt

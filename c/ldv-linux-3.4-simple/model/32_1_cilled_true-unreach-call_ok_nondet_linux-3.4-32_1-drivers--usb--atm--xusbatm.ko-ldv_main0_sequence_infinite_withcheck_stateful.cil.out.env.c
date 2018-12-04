@@ -14,10 +14,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_printk
@@ -74,10 +74,10 @@ int printk(const char *arg0, ...) {
 // Function: usb_altnum_to_altsetting
 // with type: struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *intf, unsigned int altnum)
 // with return type: (struct usb_host_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_host_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_host_interface));
 }
 
 // Function: usb_deregister

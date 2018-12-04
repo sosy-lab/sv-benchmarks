@@ -13697,9 +13697,9 @@ void ldv_assert_linux_kernel_locking_mutex__one_thread_locked_at_exit(int expr )
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int gspca_dev_probe(struct usb_interface *arg0, const struct usb_device_id *arg1, const struct sd_desc *arg2, int arg3, struct module *arg4) {
@@ -13745,9 +13745,9 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *arg0, unsigned int arg1) {
-  return (struct usb_host_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_host_interface));
 }
 int __VERIFIER_nondet_int(void);
 int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 arg3, __u16 arg4, __u16 arg5, void *arg6, __u16 arg7, int arg8) {
@@ -13756,9 +13756,9 @@ int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 
 void usb_deregister(struct usb_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 int __VERIFIER_nondet_int(void);
 int usb_register_driver(struct usb_driver *arg0, struct module *arg1, const char *arg2) {
@@ -13781,21 +13781,24 @@ int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_handler_init_class(struct v4l2_ctrl_handler *arg0, unsigned int arg1, struct lock_class_key *arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s32 arg3, s32 arg4, u32 arg5, s32 arg6) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s32 arg3, s32 arg4, s32 arg5) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_s_ctrl(struct v4l2_ctrl *arg0, s32 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

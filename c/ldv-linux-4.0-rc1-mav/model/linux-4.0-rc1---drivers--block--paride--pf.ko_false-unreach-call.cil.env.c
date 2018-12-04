@@ -52,10 +52,10 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: blk_cleanup_queue
@@ -69,19 +69,19 @@ void blk_cleanup_queue(struct request_queue *arg0) {
 // Function: blk_fetch_request
 // with type: struct request *blk_fetch_request(struct request_queue *)
 // with return type: (struct request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_fetch_request(struct request_queue *arg0) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 
 // Function: blk_init_queue
 // with type: struct request_queue *blk_init_queue(void (*)(struct request_queue *), spinlock_t *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_init_queue(void (*arg0)(struct request_queue *), spinlock_t *arg1) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_queue_max_segments
@@ -113,10 +113,10 @@ void delayed_work_timer_fn(unsigned long arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free

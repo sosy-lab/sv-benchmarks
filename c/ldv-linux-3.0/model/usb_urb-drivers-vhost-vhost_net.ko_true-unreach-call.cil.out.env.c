@@ -22,10 +22,10 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1)
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t size, gfp_t flags)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -148,10 +148,10 @@ int debug_lockdep_rcu_enabled() {
 // Function: eventfd_ctx_fileget
 // with type: struct eventfd_ctx *eventfd_ctx_fileget(struct file *file)
 // with return type: (struct eventfd_ctx)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct eventfd_ctx *eventfd_ctx_fileget(struct file *arg0) {
   // Pointer type
-  return (struct eventfd_ctx *)external_alloc();
+  return external_alloc(sizeof(struct eventfd_ctx));
 }
 
 // Function: eventfd_ctx_put
@@ -165,10 +165,10 @@ void eventfd_ctx_put(struct eventfd_ctx *arg0) {
 // Function: eventfd_fget
 // with type: struct file *eventfd_fget(int fd)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *eventfd_fget(int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: eventfd_signal
@@ -183,10 +183,10 @@ int eventfd_signal(struct eventfd_ctx *arg0, int arg1) {
 // Function: fget
 // with type: struct file *fget(unsigned int fd)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *fget(unsigned int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: finish_wait
@@ -208,10 +208,10 @@ void fput(struct file *arg0) {
 // Function: get_task_mm
 // with type: struct mm_struct *get_task_mm(struct task_struct *task)
 // with return type: (struct mm_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mm_struct *get_task_mm(struct task_struct *arg0) {
   // Pointer type
-  return (struct mm_struct *)external_alloc();
+  return external_alloc(sizeof(struct mm_struct));
 }
 
 // Function: get_user_pages_fast
@@ -228,10 +228,10 @@ int get_user_pages_fast(unsigned long arg0, int arg1, int arg2, struct page **ar
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*threadfn)(void *data), void *data, int node, const char *namefmt, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *data), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -271,10 +271,10 @@ void ldv_initialize() {
 // Function: ldv_undefined_pointer
 // with type: void *ldv_undefined_pointer()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ldv_undefined_pointer() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: lock_acquire
@@ -313,10 +313,10 @@ void lockdep_rcu_dereference(const char *arg0, const int arg1) {
 // Function: macvtap_get_socket
 // with type: struct socket *macvtap_get_socket(struct file *)
 // with return type: (struct socket)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *macvtap_get_socket(struct file *arg0) {
   // Pointer type
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 
 // Function: memcpy_fromiovec
@@ -431,10 +431,10 @@ int set_page_dirty_lock(struct page *arg0) {
 // Function: sockfd_lookup
 // with type: struct socket *sockfd_lookup(int fd, int *err)
 // with return type: (struct socket)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *sockfd_lookup(int arg0, int *arg1) {
   // Pointer type
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 
 // Function: synchronize_sched
@@ -448,10 +448,10 @@ void synchronize_sched() {
 // Function: tun_get_socket
 // with type: struct socket *tun_get_socket(struct file *)
 // with return type: (struct socket)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *tun_get_socket(struct file *arg0) {
   // Pointer type
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 
 // Function: unuse_mm

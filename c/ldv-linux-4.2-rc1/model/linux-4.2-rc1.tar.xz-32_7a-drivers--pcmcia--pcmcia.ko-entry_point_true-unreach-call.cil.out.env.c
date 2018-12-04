@@ -232,19 +232,19 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -258,10 +258,10 @@ void iounmap(volatile void *arg0) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -353,10 +353,10 @@ int pccard_register_pcmcia(struct pcmcia_socket *arg0, struct pcmcia_callback *a
 // Function: pcmcia_get_socket
 // with type: struct pcmcia_socket *pcmcia_get_socket(struct pcmcia_socket *)
 // with return type: (struct pcmcia_socket)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pcmcia_socket *pcmcia_get_socket(struct pcmcia_socket *arg0) {
   // Pointer type
-  return (struct pcmcia_socket *)external_alloc();
+  return external_alloc(sizeof(struct pcmcia_socket));
 }
 
 // Function: pcmcia_parse_uevents

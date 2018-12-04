@@ -5441,7 +5441,7 @@ static void sl_free_bufs(struct slip *sl )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int sl_realloc_bufs(struct slip *sl , int mtu )
 {
   int err ;
@@ -7685,9 +7685,9 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int capable(int arg0) {
@@ -7704,9 +7704,9 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int dev_close(struct net_device *arg0) {
@@ -7758,9 +7758,9 @@ void rtnl_lock() {
 void rtnl_unlock() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 int __VERIFIER_nondet_int(void);
 int slhc_compress(struct slcompress *arg0, unsigned char *arg1, int arg2, unsigned char *arg3, unsigned char **arg4, int arg5) {
@@ -7769,9 +7769,9 @@ int slhc_compress(struct slcompress *arg0, unsigned char *arg1, int arg2, unsign
 void slhc_free(struct slcompress *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct slcompress *slhc_init(int arg0, int arg1) {
-  return (struct slcompress *)external_alloc();
+  return external_alloc(sizeof(struct slcompress));
 }
 int __VERIFIER_nondet_int(void);
 int slhc_remember(struct slcompress *arg0, unsigned char *arg1, int arg2) {
@@ -7813,9 +7813,12 @@ void unregister_netdevice_queue(struct net_device *arg0, struct list_head *arg1)
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

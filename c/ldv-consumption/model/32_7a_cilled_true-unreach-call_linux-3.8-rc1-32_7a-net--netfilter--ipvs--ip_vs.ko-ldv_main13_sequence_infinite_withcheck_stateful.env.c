@@ -5,28 +5,28 @@
 // Function: __alloc_percpu
 // with type: void *__alloc_percpu(size_t , size_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __alloc_skb
 // with type: struct sk_buff *__alloc_skb(unsigned int, gfp_t , int, int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __dev_get_by_name
 // with type: struct net_device *__dev_get_by_name(struct net *, const char *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *__dev_get_by_name(struct net *arg0, const char *arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: __dynamic_pr_debug
@@ -407,10 +407,10 @@ int genl_unregister_family(struct genl_family *arg0) {
 // Function: genlmsg_put
 // with type: void *genlmsg_put(struct sk_buff *, u32 , u32 , struct genl_family *, int, u8 )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *genlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, struct genl_family *arg3, int arg4, u8 arg5) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: get_random_bytes
@@ -488,10 +488,10 @@ int ip6_route_me_harder(struct sk_buff *arg0) {
 // Function: ip6_route_output
 // with type: struct dst_entry *ip6_route_output(struct net *, const struct sock *, struct flowi6 *)
 // with return type: (struct dst_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dst_entry *ip6_route_output(struct net *arg0, const struct sock *arg1, struct flowi6 *arg2) {
   // Pointer type
-  return (struct dst_entry *)external_alloc();
+  return external_alloc(sizeof(struct dst_entry));
 }
 
 // Function: ip_defrag
@@ -542,10 +542,10 @@ int ip_route_me_harder(struct sk_buff *arg0, unsigned int arg1) {
 // Function: ip_route_output_flow
 // with type: struct rtable *ip_route_output_flow(struct net *, struct flowi4 *, struct sock *)
 // with return type: (struct rtable)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rtable *ip_route_output_flow(struct net *arg0, struct flowi4 *arg1, struct sock *arg2) {
   // Pointer type
-  return (struct rtable *)external_alloc();
+  return external_alloc(sizeof(struct rtable));
 }
 
 // Function: ip_send_check
@@ -613,19 +613,19 @@ void kfree_skb(struct sk_buff *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -647,19 +647,19 @@ void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -873,10 +873,10 @@ void nf_conntrack_destroy(struct nf_conntrack *arg0) {
 // Function: nf_conntrack_find_get
 // with type: struct nf_conntrack_tuple_hash *nf_conntrack_find_get(struct net *, u16 , const struct nf_conntrack_tuple *)
 // with return type: (struct nf_conntrack_tuple_hash)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nf_conntrack_tuple_hash *nf_conntrack_find_get(struct net *arg0, u16 arg1, const struct nf_conntrack_tuple *arg2) {
   // Pointer type
-  return (struct nf_conntrack_tuple_hash *)external_alloc();
+  return external_alloc(sizeof(struct nf_conntrack_tuple_hash));
 }
 
 // Function: nf_ct_deliver_cached_events
@@ -890,10 +890,10 @@ void nf_ct_deliver_cached_events(struct nf_conn *arg0) {
 // Function: nf_ct_expect_alloc
 // with type: struct nf_conntrack_expect *nf_ct_expect_alloc(struct nf_conn *)
 // with return type: (struct nf_conntrack_expect)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nf_conntrack_expect *nf_ct_expect_alloc(struct nf_conn *arg0) {
   // Pointer type
-  return (struct nf_conntrack_expect *)external_alloc();
+  return external_alloc(sizeof(struct nf_conntrack_expect));
 }
 
 // Function: nf_ct_expect_init
@@ -1051,10 +1051,10 @@ int proc_dointvec(struct ctl_table *arg0, int arg1, void *arg2, size_t *arg3, lo
 // Function: proc_net_fops_create
 // with type: struct proc_dir_entry *proc_net_fops_create(struct net *, const char *, umode_t , const struct file_operations *)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_net_fops_create(struct net *arg0, const char *arg1, umode_t arg2, const struct file_operations *arg3) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: proc_net_remove
@@ -1106,10 +1106,10 @@ int rcu_read_lock_bh_held() {
 // Function: register_net_sysctl
 // with type: struct ctl_table_header *register_net_sysctl(struct net *, const char *, struct ctl_table *)
 // with return type: (struct ctl_table_header)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ctl_table_header *register_net_sysctl(struct net *arg0, const char *arg1, struct ctl_table *arg2) {
   // Pointer type
-  return (struct ctl_table_header *)external_alloc();
+  return external_alloc(sizeof(struct ctl_table_header));
 }
 
 // Function: register_netdevice_notifier
@@ -1252,10 +1252,10 @@ __wsum skb_checksum(const struct sk_buff *arg0, int arg1, int arg2, __wsum arg3)
 // Function: skb_clone
 // with type: struct sk_buff *skb_clone(struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_copy_bits
@@ -1279,19 +1279,19 @@ int skb_make_writable(struct sk_buff *arg0, unsigned int arg1) {
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_realloc_headroom
 // with type: struct sk_buff *skb_realloc_headroom(struct sk_buff *, unsigned int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_realloc_headroom(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_trim
@@ -1404,10 +1404,10 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: wake_up_process
@@ -1438,9 +1438,9 @@ void warn_slowpath_null(const char *arg0, const int arg1) {
 // Function: xfrm_lookup
 // with type: struct dst_entry *xfrm_lookup(struct net *, struct dst_entry *, const struct flowi *, struct sock *, int)
 // with return type: (struct dst_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dst_entry *xfrm_lookup(struct net *arg0, struct dst_entry *arg1, const struct flowi *arg2, struct sock *arg3, int arg4) {
   // Pointer type
-  return (struct dst_entry *)external_alloc();
+  return external_alloc(sizeof(struct dst_entry));
 }
 

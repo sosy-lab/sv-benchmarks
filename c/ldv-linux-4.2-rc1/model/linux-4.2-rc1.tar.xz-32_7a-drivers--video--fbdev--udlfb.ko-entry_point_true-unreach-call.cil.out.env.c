@@ -35,10 +35,10 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -248,19 +248,19 @@ void fb_edid_to_monspecs(unsigned char *arg0, struct fb_monspecs *arg1) {
 // Function: fb_find_best_display
 // with type: const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *, struct list_head *)
 // with return type: (struct fb_videomode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *arg0, struct list_head *arg1) {
   // Pointer type
-  return (const struct fb_videomode *)external_alloc();
+  return external_alloc(sizeof(const struct fb_videomode));
 }
 
 // Function: fb_find_nearest_mode
 // with type: const struct fb_videomode *fb_find_nearest_mode(const struct fb_videomode *, struct list_head *)
 // with return type: (struct fb_videomode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_videomode *fb_find_nearest_mode(const struct fb_videomode *arg0, struct list_head *arg1) {
   // Pointer type
-  return (const struct fb_videomode *)external_alloc();
+  return external_alloc(sizeof(const struct fb_videomode));
 }
 
 // Function: fb_sys_read
@@ -320,10 +320,10 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t , struct device *)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return external_alloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -533,19 +533,19 @@ void up(struct semaphore *arg0) {
 // Function: usb_alloc_coherent
 // with type: void *usb_alloc_coherent(struct usb_device *, size_t , gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_control_msg
@@ -619,10 +619,10 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vmalloc_to_pfn
@@ -637,10 +637,10 @@ unsigned long int vmalloc_to_pfn(const void *arg0) {
 // Function: vzalloc
 // with type: void *vzalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: warn_slowpath_null

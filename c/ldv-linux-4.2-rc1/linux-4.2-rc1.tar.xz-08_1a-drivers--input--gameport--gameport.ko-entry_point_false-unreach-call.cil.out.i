@@ -4855,9 +4855,9 @@ int __VERIFIER_nondet_int(void);
 int driver_attach(struct device_driver *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_driver *driver_find(const char *arg0, struct bus_type *arg1) {
-  return (struct device_driver *)external_alloc();
+  return external_alloc(sizeof(struct device_driver));
 }
 int __VERIFIER_nondet_int(void);
 int driver_register(struct device_driver *arg0) {
@@ -4869,10 +4869,10 @@ void driver_unregister(struct device_driver *arg0) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get() {
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -4920,9 +4920,12 @@ void trace_hardirqs_off() {
 void trace_hardirqs_on() {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -162,10 +162,10 @@ void ldv_switch_to_process_context(){
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2){
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: printk
@@ -201,10 +201,10 @@ bool capable(int arg0){
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1){
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Skip function: __VERIFIER_error
@@ -240,10 +240,10 @@ int net_ratelimit(){
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data(){
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: malloc
@@ -268,10 +268,10 @@ int ldv_failed_register_netdev(){
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4){
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: debug_dma_free_coherent
@@ -285,19 +285,19 @@ void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_a
 // Function: alloc_irdadev
 // with type: struct net_device *alloc_irdadev(int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_irdadev(int arg0){
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: memcpy
 // with type: void *memcpy(void *, const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memcpy(void *arg0, const void *arg1, size_t arg2){
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: __VERIFIER_nondet_int
@@ -313,10 +313,10 @@ void free_dma(unsigned int arg0){
 // Function: irlap_open
 // with type: struct irlap_cb *irlap_open(struct net_device *, struct qos_info *, const char *)
 // with return type: (struct irlap_cb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irlap_cb *irlap_open(struct net_device *arg0, struct qos_info *arg1, const char *arg2){
   // Pointer type
-  return (struct irlap_cb *)external_alloc();
+  return external_alloc(sizeof(struct irlap_cb));
 }
 
 // Function: netpoll_trap

@@ -65,10 +65,10 @@ int mmc_add_host(struct mmc_host *arg0) {
 // Function: mmc_alloc_host
 // with type: struct mmc_host *mmc_alloc_host(int extra, struct device *)
 // with return type: (struct mmc_host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mmc_host *mmc_alloc_host(int arg0, struct device *arg1) {
   // Pointer type
-  return (struct mmc_host *)external_alloc();
+  return external_alloc(sizeof(struct mmc_host));
 }
 
 // Function: mmc_free_host
@@ -124,19 +124,19 @@ void pci_dev_put(struct pci_dev *arg0) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int vendor, unsigned int device, struct pci_dev *from)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *dev, int bar, unsigned long max)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap

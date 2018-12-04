@@ -14997,9 +14997,9 @@ int __VERIFIER_nondet_int(void);
 int _snd_pcm_lib_alloc_vmalloc_buffer(struct snd_pcm_substream *arg0, size_t arg1, gfp_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_after_alloc(void *arg0) {
   return;
@@ -15037,9 +15037,9 @@ int __VERIFIER_nondet_int(void);
 int snd_ctl_enum_info(struct snd_ctl_elem_info *arg0, unsigned int arg1, unsigned int arg2, const char * const *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *arg0, void *arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
 int __VERIFIER_nondet_int(void);
 int snd_iprintf(struct snd_info_buffer *arg0, const char *arg1, ...) {
@@ -15061,9 +15061,9 @@ int __VERIFIER_nondet_int(void);
 int snd_pcm_lib_free_vmalloc_buffer(struct snd_pcm_substream *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *snd_pcm_lib_get_vmalloc_page(struct snd_pcm_substream *arg0, unsigned long arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int snd_pcm_lib_ioctl(struct snd_pcm_substream *arg0, unsigned int arg1, void *arg2) {
@@ -15089,9 +15089,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

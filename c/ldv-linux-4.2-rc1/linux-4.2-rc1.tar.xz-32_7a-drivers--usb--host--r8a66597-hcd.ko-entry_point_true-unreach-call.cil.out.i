@@ -9543,9 +9543,9 @@ int __VERIFIER_nondet_int(void);
 int clk_enable(struct clk *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct clk *clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return external_alloc(sizeof(struct clk));
 }
 int __VERIFIER_nondet_int(void);
 int clk_prepare(struct clk *arg0) {
@@ -9582,9 +9582,9 @@ unsigned int ioread32(void *arg0) {
 void ioread32_rep(void *arg0, void *arg1, unsigned long arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -9667,9 +9667,9 @@ void mutex_unlock(struct mutex *arg0) {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
@@ -9679,9 +9679,9 @@ int __VERIFIER_nondet_int(void);
 int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
-  return (struct usb_hcd *)external_alloc();
+  return external_alloc(sizeof(struct usb_hcd));
 }
 int __VERIFIER_nondet_int(void);
 int usb_disabled() {
@@ -9707,9 +9707,9 @@ void usb_hcd_resume_root_hub(struct usb_hcd *arg0) {
 void usb_hcd_unlink_urb_from_ep(struct usb_hcd *arg0, struct urb *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_hub_find_child(struct usb_device *arg0, int arg1) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 void usb_put_hcd(struct usb_hcd *arg0) {
   return;
@@ -9723,9 +9723,12 @@ void usb_root_hub_lost_power(struct usb_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

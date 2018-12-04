@@ -11,10 +11,10 @@
 // Function: __alloc_skb
 // with type: struct sk_buff *__alloc_skb(unsigned int, gfp_t , int, int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __copy_from_user_overflow
@@ -77,10 +77,10 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: atm_alloc_charge
 // with type: struct sk_buff *atm_alloc_charge(struct atm_vcc *, int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *atm_alloc_charge(struct atm_vcc *arg0, int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: atm_dev_deregister
@@ -94,19 +94,19 @@ void atm_dev_deregister(struct atm_dev *arg0) {
 // Function: atm_dev_lookup
 // with type: struct atm_dev *atm_dev_lookup(int)
 // with return type: (struct atm_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct atm_dev *atm_dev_lookup(int arg0) {
   // Pointer type
-  return (struct atm_dev *)external_alloc();
+  return external_alloc(sizeof(struct atm_dev));
 }
 
 // Function: atm_dev_register
 // with type: struct atm_dev *atm_dev_register(const char *, struct device *, const struct atmdev_ops *, int, unsigned long *)
 // with return type: (struct atm_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct atm_dev *atm_dev_register(const char *arg0, struct device *arg1, const struct atmdev_ops *arg2, int arg3, unsigned long *arg4) {
   // Pointer type
-  return (struct atm_dev *)external_alloc();
+  return external_alloc(sizeof(struct atm_dev));
 }
 
 // Function: atm_init_aal5
@@ -161,13 +161,13 @@ void deregister_atm_ioctl(struct atm_ioctl *arg0) {
 // Function: ktime_get_with_offset
 // with type: ktime_t ktime_get_with_offset(enum tk_offsets )
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get_with_offset(enum tk_offsets arg0) {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -239,19 +239,19 @@ void schedule() {
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Skip function: sprintf

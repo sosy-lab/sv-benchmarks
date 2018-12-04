@@ -24,10 +24,10 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: ad7879_probe
 // with type: struct ad7879 *ad7879_probe(struct device *, u8 , unsigned int, const struct ad7879_bus_ops *)
 // with return type: (struct ad7879)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ad7879 *ad7879_probe(struct device *arg0, u8 arg1, unsigned int arg2, const struct ad7879_bus_ops *arg3) {
   // Pointer type
-  return (struct ad7879 *)external_alloc();
+  return external_alloc(sizeof(struct ad7879));
 }
 
 // Function: dev_err
@@ -53,10 +53,10 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -86,10 +86,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Skip function: memset

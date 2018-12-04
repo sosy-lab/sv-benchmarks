@@ -12122,17 +12122,17 @@ int __VERIFIER_nondet_int(void);
 int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_radio_led_name(struct ieee80211_hw *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_rx_led_name(struct ieee80211_hw *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_tx_led_name(struct ieee80211_hw *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -12143,9 +12143,9 @@ void __init_work(struct work_struct *arg0, int arg1) {
 void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -12190,13 +12190,13 @@ bool flush_delayed_work(struct delayed_work *arg0) {
 void get_random_bytes(void *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_hw *ieee80211_alloc_hw(size_t arg0, const struct ieee80211_ops *arg1) {
-  return (struct ieee80211_hw *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_hw));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1, u16 *arg2, u16 *arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 unsigned short __VERIFIER_nondet_ushort(void);
 __le16 ieee80211_ctstoself_duration(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1, size_t arg2, const struct ieee80211_tx_info *arg3) {
@@ -12319,17 +12319,17 @@ bool __VERIFIER_nondet_bool(void);
 bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -12340,9 +12340,9 @@ void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
 void skb_unlink(struct sk_buff *arg0, struct sk_buff_head *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 void usb_anchor_urb(struct urb *arg0, struct usb_anchor *arg1) {
   return;
@@ -12357,9 +12357,9 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 void usb_kill_anchored_urbs(struct usb_anchor *arg0) {
   return;
@@ -12398,9 +12398,12 @@ void wiphy_rfkill_start_polling(struct wiphy *arg0) {
 void wiphy_rfkill_stop_polling(struct wiphy *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

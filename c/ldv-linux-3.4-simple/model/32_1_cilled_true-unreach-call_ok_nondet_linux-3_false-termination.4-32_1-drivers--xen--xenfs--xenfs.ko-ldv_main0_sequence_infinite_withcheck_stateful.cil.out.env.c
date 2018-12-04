@@ -14,11 +14,11 @@ unsigned long int __phys_addr(unsigned long arg0) {
 // Function: current_kernel_time
 // with type: struct timespec current_kernel_time()
 // with return type: struct timespec
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
   // Composite type
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -26,10 +26,10 @@ struct timespec current_kernel_time() {
 // Function: d_alloc_name
 // with type: struct dentry *d_alloc_name(struct dentry *, const char *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_alloc_name(struct dentry *arg0, const char *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_instantiate
@@ -59,10 +59,10 @@ void dput(struct dentry *arg0) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t gfp, const char *fmt, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -86,19 +86,19 @@ void ldv_initialize() {
 // Function: mount_single
 // with type: struct dentry *mount_single(struct file_system_type *fs_type, int flags, void *data, int (*fill_super)(struct super_block *, void *, int))
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *mount_single(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: new_inode
 // with type: struct inode *new_inode(struct super_block *sb)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *new_inode(struct super_block *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: printk

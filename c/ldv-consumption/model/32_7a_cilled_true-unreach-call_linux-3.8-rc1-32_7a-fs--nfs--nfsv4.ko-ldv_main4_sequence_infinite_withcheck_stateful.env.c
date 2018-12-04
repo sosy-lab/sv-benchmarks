@@ -230,19 +230,19 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 // Function: alloc_nfs_open_context
 // with type: struct nfs_open_context *alloc_nfs_open_context(struct dentry *, fmode_t )
 // with return type: (struct nfs_open_context)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_open_context *alloc_nfs_open_context(struct dentry *arg0, fmode_t arg1) {
   // Pointer type
-  return (struct nfs_open_context *)external_alloc();
+  return external_alloc(sizeof(struct nfs_open_context));
 }
 
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: allow_signal
@@ -354,10 +354,10 @@ int debug_lockdep_rcu_enabled() {
 // Function: dget_parent
 // with type: struct dentry *dget_parent(struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *dget_parent(struct dentry *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: down_read
@@ -459,19 +459,19 @@ bool freezing_slow_path(struct task_struct *arg0) {
 // Function: get_nfs_open_context
 // with type: struct nfs_open_context *get_nfs_open_context(struct nfs_open_context *)
 // with return type: (struct nfs_open_context)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_open_context *get_nfs_open_context(struct nfs_open_context *arg0) {
   // Pointer type
-  return (struct nfs_open_context *)external_alloc();
+  return external_alloc(sizeof(struct nfs_open_context));
 }
 
 // Function: gss_mech_get_by_OID
 // with type: struct gss_api_mech *gss_mech_get_by_OID(struct xdr_netobj *)
 // with return type: (struct gss_api_mech)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gss_api_mech *gss_mech_get_by_OID(struct xdr_netobj *arg0) {
   // Pointer type
-  return (struct gss_api_mech *)external_alloc();
+  return external_alloc(sizeof(struct gss_api_mech));
 }
 
 // Function: gss_mech_put
@@ -539,10 +539,10 @@ void ida_simple_remove(struct ida *arg0, unsigned int arg1) {
 // Function: idr_find
 // with type: void *idr_find(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: idr_get_new
@@ -566,19 +566,19 @@ int idr_pre_get(struct idr *arg0, gfp_t arg1) {
 // Function: idr_replace
 // with type: void *idr_replace(struct idr *, void *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_replace(struct idr *arg0, void *arg1, int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: igrab
 // with type: struct inode *igrab(struct inode *)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *igrab(struct inode *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: ihold
@@ -650,10 +650,10 @@ int key_validate(const struct key *arg0) {
 // Function: keyring_alloc
 // with type: struct key *keyring_alloc(const char *, kuid_t , kgid_t , const struct cred *, key_perm_t , unsigned long, struct key *)
 // with return type: (struct key)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct key *keyring_alloc(const char *arg0, kuid_t arg1, kgid_t arg2, const struct cred *arg3, key_perm_t arg4, unsigned long arg5, struct key *arg6) {
   // Pointer type
-  return (struct key *)external_alloc();
+  return external_alloc(sizeof(struct key));
 }
 
 // Skip function: kfree
@@ -669,10 +669,10 @@ void kfree_call_rcu(struct callback_head *arg0, void (*arg1)(struct callback_hea
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrtoll
@@ -696,10 +696,10 @@ int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -725,13 +725,13 @@ int kthread_stop(struct task_struct *arg0) {
 // Function: ktime_get
 // with type: ktime_t ktime_get()
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get() {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -890,10 +890,10 @@ void module_put(struct module *arg0) {
 // Function: mount_subtree
 // with type: struct dentry *mount_subtree(struct vfsmount *, const char *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *mount_subtree(struct vfsmount *arg0, const char *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: msleep
@@ -956,37 +956,37 @@ void nfs_access_zap_cache(struct inode *arg0) {
 // Function: nfs_alloc_client
 // with type: struct nfs_client *nfs_alloc_client(const struct nfs_client_initdata *)
 // with return type: (struct nfs_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_client *nfs_alloc_client(const struct nfs_client_initdata *arg0) {
   // Pointer type
-  return (struct nfs_client *)external_alloc();
+  return external_alloc(sizeof(struct nfs_client));
 }
 
 // Function: nfs_alloc_fattr
 // with type: struct nfs_fattr *nfs_alloc_fattr()
 // with return type: (struct nfs_fattr)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_fattr *nfs_alloc_fattr() {
   // Pointer type
-  return (struct nfs_fattr *)external_alloc();
+  return external_alloc(sizeof(struct nfs_fattr));
 }
 
 // Function: nfs_alloc_fhandle
 // with type: struct nfs_fh *nfs_alloc_fhandle()
 // with return type: (struct nfs_fh)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_fh *nfs_alloc_fhandle() {
   // Pointer type
-  return (struct nfs_fh *)external_alloc();
+  return external_alloc(sizeof(struct nfs_fh));
 }
 
 // Function: nfs_alloc_server
 // with type: struct nfs_server *nfs_alloc_server()
 // with return type: (struct nfs_server)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_server *nfs_alloc_server() {
   // Pointer type
-  return (struct nfs_server *)external_alloc();
+  return external_alloc(sizeof(struct nfs_server));
 }
 
 // Function: nfs_clear_inode
@@ -1024,10 +1024,10 @@ ssize_t nfs_dns_resolve_name(struct net *arg0, char *arg1, size_t arg2, struct s
 // Function: nfs_do_submount
 // with type: struct vfsmount *nfs_do_submount(struct dentry *, struct nfs_fh *, struct nfs_fattr *, rpc_authflavor_t )
 // with return type: (struct vfsmount)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vfsmount *nfs_do_submount(struct dentry *arg0, struct nfs_fh *arg1, struct nfs_fattr *arg2, rpc_authflavor_t arg3) {
   // Pointer type
-  return (struct vfsmount *)external_alloc();
+  return external_alloc(sizeof(struct vfsmount));
 }
 
 // Function: nfs_dreq_bytes_left
@@ -1056,10 +1056,10 @@ void nfs_fattr_init(struct nfs_fattr *arg0) {
 // Function: nfs_fhget
 // with type: struct inode *nfs_fhget(struct super_block *, struct nfs_fh *, struct nfs_fattr *)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *nfs_fhget(struct super_block *arg0, struct nfs_fh *arg1, struct nfs_fattr *arg2) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: nfs_file_fsync_commit
@@ -1106,10 +1106,10 @@ void nfs_free_server(struct nfs_server *arg0) {
 // Function: nfs_fs_mount_common
 // with type: struct dentry *nfs_fs_mount_common(struct nfs_server *, int, const char *, struct nfs_mount_info *, struct nfs_subversion *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *nfs_fs_mount_common(struct nfs_server *arg0, int arg1, const char *arg2, struct nfs_mount_info *arg3, struct nfs_subversion *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: nfs_fscache_set_inode_cookie
@@ -1152,10 +1152,10 @@ bool nfs_generic_pg_test(struct nfs_pageio_descriptor *arg0, struct nfs_page *ar
 // Function: nfs_get_client
 // with type: struct nfs_client *nfs_get_client(const struct nfs_client_initdata *, const struct rpc_timeout *, const char *, rpc_authflavor_t )
 // with return type: (struct nfs_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_client *nfs_get_client(const struct nfs_client_initdata *arg0, const struct rpc_timeout *arg1, const char *arg2, rpc_authflavor_t arg3) {
   // Pointer type
-  return (struct nfs_client *)external_alloc();
+  return external_alloc(sizeof(struct nfs_client));
 }
 
 // Function: nfs_init_server_rpcclient
@@ -1269,10 +1269,10 @@ void nfs_pageio_reset_write_mds(struct nfs_pageio_descriptor *arg0) {
 // Function: nfs_path
 // with type: char *nfs_path(char **, struct dentry *, char *, ssize_t , unsigned int)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *nfs_path(char **arg0, struct dentry *arg1, char *arg2, ssize_t arg3, unsigned int arg4) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: nfs_pgheader_init
@@ -1329,10 +1329,10 @@ void nfs_readdata_release(struct nfs_read_data *arg0) {
 // Function: nfs_readhdr_alloc
 // with type: struct nfs_read_header *nfs_readhdr_alloc()
 // with return type: (struct nfs_read_header)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_read_header *nfs_readhdr_alloc() {
   // Pointer type
-  return (struct nfs_read_header *)external_alloc();
+  return external_alloc(sizeof(struct nfs_read_header));
 }
 
 // Function: nfs_readhdr_free
@@ -1456,10 +1456,10 @@ void nfs_writedata_release(struct nfs_write_data *arg0) {
 // Function: nfs_writehdr_alloc
 // with type: struct nfs_write_header *nfs_writehdr_alloc()
 // with return type: (struct nfs_write_header)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_write_header *nfs_writehdr_alloc() {
   // Pointer type
-  return (struct nfs_write_header *)external_alloc();
+  return external_alloc(sizeof(struct nfs_write_header));
 }
 
 // Function: nfs_writehdr_free
@@ -1499,10 +1499,10 @@ int out_of_line_wait_on_bit_lock(void *arg0, int arg1, int (*arg2)(void *), unsi
 // Function: override_creds
 // with type: const struct cred *override_creds(const struct cred *)
 // with return type: (struct cred)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct cred *override_creds(const struct cred *arg0) {
   // Pointer type
-  return (const struct cred *)external_alloc();
+  return external_alloc(sizeof(const struct cred));
 }
 
 // Function: posix_lock_file_wait
@@ -1517,10 +1517,10 @@ int posix_lock_file_wait(struct file *arg0, struct file_lock *arg1) {
 // Function: prepare_kernel_cred
 // with type: struct cred *prepare_kernel_cred(struct task_struct *)
 // with return type: (struct cred)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cred *prepare_kernel_cred(struct task_struct *arg0) {
   // Pointer type
-  return (struct cred *)external_alloc();
+  return external_alloc(sizeof(struct cred));
 }
 
 // Function: prepare_to_wait
@@ -1575,10 +1575,10 @@ void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_first
 // with type: struct rb_node *rb_first(const struct rb_root *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_first(const struct rb_root *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: rb_insert_color
@@ -1592,10 +1592,10 @@ void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_next
 // with type: struct rb_node *rb_next(const struct rb_node *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_next(const struct rb_node *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: rcu_is_cpu_idle
@@ -1638,28 +1638,28 @@ void register_nfs_version(struct nfs_subversion *arg0) {
 // Function: register_sysctl_table
 // with type: struct ctl_table_header *register_sysctl_table(struct ctl_table *)
 // with return type: (struct ctl_table_header)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
   // Pointer type
-  return (struct ctl_table_header *)external_alloc();
+  return external_alloc(sizeof(struct ctl_table_header));
 }
 
 // Function: request_key
 // with type: struct key *request_key(struct key_type *, const char *, const char *)
 // with return type: (struct key)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct key *request_key(struct key_type *arg0, const char *arg1, const char *arg2) {
   // Pointer type
-  return (struct key *)external_alloc();
+  return external_alloc(sizeof(struct key));
 }
 
 // Function: request_key_with_auxdata
 // with type: struct key *request_key_with_auxdata(struct key_type *, const char *, const void *, size_t , void *)
 // with return type: (struct key)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct key *request_key_with_auxdata(struct key_type *arg0, const char *arg1, const void *arg2, size_t arg3, void *arg4) {
   // Pointer type
-  return (struct key *)external_alloc();
+  return external_alloc(sizeof(struct key));
 }
 
 // Function: revert_creds
@@ -1699,19 +1699,19 @@ int rpc_call_sync(struct rpc_clnt *arg0, const struct rpc_message *arg1, int arg
 // Function: rpc_clone_client
 // with type: struct rpc_clnt *rpc_clone_client(struct rpc_clnt *)
 // with return type: (struct rpc_clnt)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_clnt *rpc_clone_client(struct rpc_clnt *arg0) {
   // Pointer type
-  return (struct rpc_clnt *)external_alloc();
+  return external_alloc(sizeof(struct rpc_clnt));
 }
 
 // Function: rpc_clone_client_set_auth
 // with type: struct rpc_clnt *rpc_clone_client_set_auth(struct rpc_clnt *, rpc_authflavor_t )
 // with return type: (struct rpc_clnt)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_clnt *rpc_clone_client_set_auth(struct rpc_clnt *arg0, rpc_authflavor_t arg1) {
   // Pointer type
-  return (struct rpc_clnt *)external_alloc();
+  return external_alloc(sizeof(struct rpc_clnt));
 }
 
 // Function: rpc_delay
@@ -1749,10 +1749,10 @@ void rpc_exit(struct rpc_task *arg0, int arg1) {
 // Function: rpc_get_sb_net
 // with type: struct super_block *rpc_get_sb_net(const struct net *)
 // with return type: (struct super_block)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct super_block *rpc_get_sb_net(const struct net *arg0) {
   // Pointer type
-  return (struct super_block *)external_alloc();
+  return external_alloc(sizeof(struct super_block));
 }
 
 // Function: rpc_init_priority_wait_queue
@@ -1783,28 +1783,28 @@ int rpc_localaddr(struct rpc_clnt *arg0, struct sockaddr *arg1, size_t arg2) {
 // Function: rpc_mkpipe_data
 // with type: struct rpc_pipe *rpc_mkpipe_data(const struct rpc_pipe_ops *, int)
 // with return type: (struct rpc_pipe)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_pipe *rpc_mkpipe_data(const struct rpc_pipe_ops *arg0, int arg1) {
   // Pointer type
-  return (struct rpc_pipe *)external_alloc();
+  return external_alloc(sizeof(struct rpc_pipe));
 }
 
 // Function: rpc_mkpipe_dentry
 // with type: struct dentry *rpc_mkpipe_dentry(struct dentry *, const char *, void *, struct rpc_pipe *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *rpc_mkpipe_dentry(struct dentry *arg0, const char *arg1, void *arg2, struct rpc_pipe *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: rpc_net_ns
 // with type: struct net *rpc_net_ns(struct rpc_clnt *)
 // with return type: (struct net)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net *rpc_net_ns(struct rpc_clnt *arg0) {
   // Pointer type
-  return (struct net *)external_alloc();
+  return external_alloc(sizeof(struct net));
 }
 
 // Function: rpc_ntop
@@ -1825,10 +1825,10 @@ size_t rpc_ntop(const struct sockaddr *arg0, char *arg1, const size_t arg2) {
 // Function: rpc_peeraddr2str
 // with type: const char *rpc_peeraddr2str(struct rpc_clnt *, enum rpc_display_format_t )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *rpc_peeraddr2str(struct rpc_clnt *arg0, enum rpc_display_format_t arg1) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: rpc_pipefs_notifier_register
@@ -1935,10 +1935,10 @@ int rpc_rmdir(struct dentry *arg0) {
 // Function: rpc_run_task
 // with type: struct rpc_task *rpc_run_task(const struct rpc_task_setup *)
 // with return type: (struct rpc_task)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_task *rpc_run_task(const struct rpc_task_setup *arg0) {
   // Pointer type
-  return (struct rpc_task *)external_alloc();
+  return external_alloc(sizeof(struct rpc_task));
 }
 
 // Function: rpc_shutdown_client
@@ -1985,10 +1985,10 @@ void rpc_wake_up(struct rpc_wait_queue *arg0) {
 // Function: rpc_wake_up_first
 // with type: struct rpc_task *rpc_wake_up_first(struct rpc_wait_queue *, bool (*)(struct rpc_task *, void *), void *)
 // with return type: (struct rpc_task)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_task *rpc_wake_up_first(struct rpc_wait_queue *arg0, bool (*arg1)(struct rpc_task *, void *), void *arg2) {
   // Pointer type
-  return (struct rpc_task *)external_alloc();
+  return external_alloc(sizeof(struct rpc_task));
 }
 
 // Function: rpc_wake_up_queued_task
@@ -2002,10 +2002,10 @@ void rpc_wake_up_queued_task(struct rpc_wait_queue *arg0, struct rpc_task *arg1)
 // Function: rpcauth_create
 // with type: struct rpc_auth *rpcauth_create(rpc_authflavor_t , struct rpc_clnt *)
 // with return type: (struct rpc_auth)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_auth *rpcauth_create(rpc_authflavor_t arg0, struct rpc_clnt *arg1) {
   // Pointer type
-  return (struct rpc_auth *)external_alloc();
+  return external_alloc(sizeof(struct rpc_auth));
 }
 
 // Function: rpcauth_list_flavors
@@ -2108,10 +2108,10 @@ int svc_bind(struct svc_serv *arg0, struct net *arg1) {
 // Function: svc_create
 // with type: struct svc_serv *svc_create(struct svc_program *, unsigned int, void (*)(struct svc_serv *, struct net *))
 // with return type: (struct svc_serv)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct svc_serv *svc_create(struct svc_program *arg0, unsigned int arg1, void (*arg2)(struct svc_serv *, struct net *)) {
   // Pointer type
-  return (struct svc_serv *)external_alloc();
+  return external_alloc(sizeof(struct svc_serv));
 }
 
 // Function: svc_create_xprt
@@ -2142,10 +2142,10 @@ void svc_exit_thread(struct svc_rqst *arg0) {
 // Function: svc_prepare_thread
 // with type: struct svc_rqst *svc_prepare_thread(struct svc_serv *, struct svc_pool *, int)
 // with return type: (struct svc_rqst)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct svc_rqst *svc_prepare_thread(struct svc_serv *arg0, struct svc_pool *arg1, int arg2) {
   // Pointer type
-  return (struct svc_rqst *)external_alloc();
+  return external_alloc(sizeof(struct svc_rqst));
 }
 
 // Function: svc_process
@@ -2276,10 +2276,10 @@ void up_write(struct rw_semaphore *arg0) {
 // Function: vfs_kern_mount
 // with type: struct vfsmount *vfs_kern_mount(struct file_system_type *, int, const char *, void *)
 // with return type: (struct vfsmount)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vfsmount *vfs_kern_mount(struct file_system_type *arg0, int arg1, const char *arg2, void *arg3) {
   // Pointer type
-  return (struct vfsmount *)external_alloc();
+  return external_alloc(sizeof(struct vfsmount));
 }
 
 // Function: wait_for_completion_interruptible
@@ -2327,19 +2327,19 @@ void warn_slowpath_null(const char *arg0, const int arg1) {
 // Function: xdr_encode_opaque
 // with type: __be32 *xdr_encode_opaque(__be32 *, const void *, unsigned int)
 // with return type: (__be32 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_encode_opaque(__be32 *arg0, const void *arg1, unsigned int arg2) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 
 // Function: xdr_encode_opaque_fixed
 // with type: __be32 *xdr_encode_opaque_fixed(__be32 *, const void *, unsigned int)
 // with return type: (__be32 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_encode_opaque_fixed(__be32 *arg0, const void *arg1, unsigned int arg2) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 
 // Function: xdr_enter_page
@@ -2369,10 +2369,10 @@ void xdr_init_encode(struct xdr_stream *arg0, struct xdr_buf *arg1, __be32 *arg2
 // Function: xdr_inline_decode
 // with type: __be32 *xdr_inline_decode(struct xdr_stream *, size_t )
 // with return type: (__be32 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 
 // Function: xdr_inline_pages
@@ -2395,10 +2395,10 @@ unsigned int xdr_read_pages(struct xdr_stream *arg0, unsigned int arg1) {
 // Function: xdr_reserve_space
 // with type: __be32 *xdr_reserve_space(struct xdr_stream *, size_t )
 // with return type: (__be32 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_reserve_space(struct xdr_stream *arg0, size_t arg1) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 
 // Function: xdr_set_scratch_buffer

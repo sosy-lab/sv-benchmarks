@@ -266,10 +266,10 @@ void dev_printk(const char *arg0, const struct device *arg1, const char *arg2, .
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -316,10 +316,10 @@ void int_to_scsilun(u64 arg0, struct scsi_lun *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -368,10 +368,10 @@ int iscsi_conn_send_pdu(struct iscsi_cls_conn *arg0, struct iscsi_hdr *arg1, cha
 // Function: iscsi_conn_setup
 // with type: struct iscsi_cls_conn *iscsi_conn_setup(struct iscsi_cls_session *, int, uint32_t )
 // with return type: (struct iscsi_cls_conn)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_cls_conn *iscsi_conn_setup(struct iscsi_cls_session *arg0, int arg1, uint32_t arg2) {
   // Pointer type
-  return (struct iscsi_cls_conn *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_cls_conn));
 }
 
 // Function: iscsi_conn_start
@@ -402,10 +402,10 @@ void iscsi_conn_teardown(struct iscsi_cls_conn *arg0) {
 // Function: iscsi_create_endpoint
 // with type: struct iscsi_endpoint *iscsi_create_endpoint(int)
 // with return type: (struct iscsi_endpoint)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_endpoint *iscsi_create_endpoint(int arg0) {
   // Pointer type
-  return (struct iscsi_endpoint *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_endpoint));
 }
 
 // Function: iscsi_destroy_endpoint
@@ -455,10 +455,10 @@ int iscsi_host_add(struct Scsi_Host *arg0, struct device *arg1) {
 // Function: iscsi_host_alloc
 // with type: struct Scsi_Host *iscsi_host_alloc(struct scsi_host_template *, int, bool )
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *iscsi_host_alloc(struct scsi_host_template *arg0, int arg1, bool arg2) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: iscsi_host_for_each_session
@@ -497,19 +497,19 @@ void iscsi_host_remove(struct Scsi_Host *arg0) {
 // Function: iscsi_itt_to_task
 // with type: struct iscsi_task *iscsi_itt_to_task(struct iscsi_conn *, itt_t )
 // with return type: (struct iscsi_task)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_task *iscsi_itt_to_task(struct iscsi_conn *arg0, itt_t arg1) {
   // Pointer type
-  return (struct iscsi_task *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_task));
 }
 
 // Function: iscsi_lookup_endpoint
 // with type: struct iscsi_endpoint *iscsi_lookup_endpoint(u64 )
 // with return type: (struct iscsi_endpoint)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_endpoint *iscsi_lookup_endpoint(u64 arg0) {
   // Pointer type
-  return (struct iscsi_endpoint *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_endpoint));
 }
 
 // Function: iscsi_offload_mesg
@@ -533,10 +533,10 @@ int iscsi_queuecommand(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
 // Function: iscsi_register_transport
 // with type: struct scsi_transport_template *iscsi_register_transport(struct iscsi_transport *)
 // with return type: (struct scsi_transport_template)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_transport_template *iscsi_register_transport(struct iscsi_transport *arg0) {
   // Pointer type
-  return (struct scsi_transport_template *)external_alloc();
+  return external_alloc(sizeof(struct scsi_transport_template));
 }
 
 // Function: iscsi_session_failure
@@ -567,10 +567,10 @@ void iscsi_session_recovery_timedout(struct iscsi_cls_session *arg0) {
 // Function: iscsi_session_setup
 // with type: struct iscsi_cls_session *iscsi_session_setup(struct iscsi_transport *, struct Scsi_Host *, uint16_t , int, int, uint32_t , unsigned int)
 // with return type: (struct iscsi_cls_session)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_cls_session *iscsi_session_setup(struct iscsi_transport *arg0, struct Scsi_Host *arg1, uint16_t arg2, int arg3, int arg4, uint32_t arg5, unsigned int arg6) {
   // Pointer type
-  return (struct iscsi_cls_session *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_cls_session));
 }
 
 // Function: iscsi_session_teardown
@@ -629,10 +629,10 @@ void kthread_bind(struct task_struct *arg0, unsigned int arg1) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -683,10 +683,10 @@ int ldv_probe_6() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: list_del
@@ -732,10 +732,10 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: pci_dev_get
 // with type: struct pci_dev *pci_dev_get(struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_dev_put
@@ -749,10 +749,10 @@ void pci_dev_put(struct pci_dev *arg0) {
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap
@@ -852,10 +852,10 @@ void set_user_nice(struct task_struct *arg0, long arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: sprintf

@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Skip function: __builtin_alloca
@@ -20,10 +20,10 @@ struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int ar
 // Function: __class_create
 // with type: struct class *__class_create(struct module *, const char *, struct lock_class_key *)
 // with return type: (struct class)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 
 // Function: __copy_from_user_overflow
@@ -69,19 +69,19 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __kmalloc_node
 // with type: void *__kmalloc_node(size_t , gfp_t , int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -247,10 +247,10 @@ void complete(struct completion *arg0) {
 // Function: crypto_alloc_shash
 // with type: struct crypto_shash *crypto_alloc_shash(const char *, u32 , u32 )
 // with return type: (struct crypto_shash)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_shash *crypto_alloc_shash(const char *arg0, u32 arg1, u32 arg2) {
   // Pointer type
-  return (struct crypto_shash *)external_alloc();
+  return external_alloc(sizeof(struct crypto_shash));
 }
 
 // Function: crypto_authenc_extractkeys
@@ -350,19 +350,19 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -392,10 +392,10 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_destroy
@@ -409,10 +409,10 @@ void device_destroy(struct class *arg0, dev_t arg1) {
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -452,10 +452,10 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrtouint
@@ -724,19 +724,19 @@ int request_firmware(const struct firmware **arg0, const char *arg1, struct devi
 // Function: seq_list_next
 // with type: struct list_head *seq_list_next(void *, struct list_head *, loff_t *)
 // with return type: (struct list_head)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct list_head *seq_list_next(void *arg0, struct list_head *arg1, loff_t *arg2) {
   // Pointer type
-  return (struct list_head *)external_alloc();
+  return external_alloc(sizeof(struct list_head));
 }
 
 // Function: seq_list_start
 // with type: struct list_head *seq_list_start(struct list_head *, loff_t )
 // with return type: (struct list_head)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct list_head *seq_list_start(struct list_head *arg0, loff_t arg1) {
   // Pointer type
-  return (struct list_head *)external_alloc();
+  return external_alloc(sizeof(struct list_head));
 }
 
 // Function: seq_lseek
@@ -815,10 +815,10 @@ int sg_nents(struct scatterlist *arg0) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf

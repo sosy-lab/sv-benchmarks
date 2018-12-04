@@ -64,10 +64,10 @@ void pps_event(struct pps_device *arg0, struct pps_event_time *arg1, int arg2, v
 // Function: pps_register_source
 // with type: struct pps_device *pps_register_source(struct pps_source_info *info, int default_params)
 // with return type: (struct pps_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pps_device *pps_register_source(struct pps_source_info *arg0, int arg1) {
   // Pointer type
-  return (struct pps_device *)external_alloc();
+  return external_alloc(sizeof(struct pps_device));
 }
 
 // Function: pps_unregister_source

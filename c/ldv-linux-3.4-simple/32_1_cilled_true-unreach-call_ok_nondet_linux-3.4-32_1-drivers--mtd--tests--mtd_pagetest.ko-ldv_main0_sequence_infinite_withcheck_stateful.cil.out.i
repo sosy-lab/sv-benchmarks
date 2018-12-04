@@ -2327,7 +2327,7 @@ static int write_eraseblock(int ebnum )
   return (err);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int verify_eraseblock(int ebnum )
 { uint32_t j ;
   size_t read ;
@@ -4354,9 +4354,9 @@ int __VERIFIER_nondet_int(void);
 int _cond_resched() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mtd_info *get_mtd_device(struct mtd_info *arg0, int arg1) {
-  return (struct mtd_info *)external_alloc();
+  return external_alloc(sizeof(struct mtd_info));
 }
 void ldv_initialize() {
   return;
@@ -4384,9 +4384,12 @@ int printk(const char *arg0, ...) {
 void put_mtd_device(struct mtd_info *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

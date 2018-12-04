@@ -13,10 +13,10 @@ void cma3000_exit(struct cma3000_accl_data *arg0) {
 // Function: cma3000_init
 // with type: struct cma3000_accl_data *cma3000_init(struct device *dev, int irq, const struct cma3000_bus_ops *bops)
 // with return type: (struct cma3000_accl_data)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cma3000_accl_data *cma3000_init(struct device *arg0, int arg1, const struct cma3000_bus_ops *arg2) {
   // Pointer type
-  return (struct cma3000_accl_data *)external_alloc();
+  return external_alloc(sizeof(struct cma3000_accl_data));
 }
 
 // Function: cma3000_resume
@@ -47,10 +47,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata

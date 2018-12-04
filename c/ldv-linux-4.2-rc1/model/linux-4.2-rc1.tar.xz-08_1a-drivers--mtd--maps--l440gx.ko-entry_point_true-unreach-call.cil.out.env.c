@@ -28,19 +28,19 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: do_map_probe
 // with type: struct mtd_info *do_map_probe(const char *, struct map_info *)
 // with return type: (struct mtd_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mtd_info *do_map_probe(const char *arg0, struct map_info *arg1) {
   // Pointer type
-  return (struct mtd_info *)external_alloc();
+  return external_alloc(sizeof(struct mtd_info));
 }
 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -145,10 +145,10 @@ void pci_dev_put(struct pci_dev *arg0) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: printk

@@ -11932,13 +11932,13 @@ void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2,
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -11955,9 +11955,9 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -11974,17 +11974,17 @@ int device_init_wakeup(struct device *arg0, bool arg1) {
 void device_set_wakeup_capable(struct device *arg0, bool arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_request_and_ioremap(struct device *arg0, struct resource *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
-  return (struct dma_pool *)external_alloc();
+  return external_alloc(sizeof(struct dma_pool));
 }
 void dma_pool_destroy(struct dma_pool *arg0) {
   return;
@@ -12071,17 +12071,17 @@ int pci_bus_write_config_word(struct pci_bus *arg0, unsigned int arg1, int arg2,
 void pci_dev_put(struct pci_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_slot(struct pci_bus *arg0, unsigned int arg1) {
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct pci_device_id *pci_match_id(const struct pci_device_id *arg0, struct pci_dev *arg1) {
-  return (const struct pci_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct pci_device_id));
 }
 void pci_unregister_driver(struct pci_driver *arg0) {
   return;
@@ -12097,9 +12097,9 @@ int __VERIFIER_nondet_int(void);
 int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
@@ -12146,9 +12146,9 @@ long __VERIFIER_nondet_long(void);
 long int usb_calc_bus_time(int arg0, int arg1, int arg2, int arg3) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
-  return (struct usb_hcd *)external_alloc();
+  return external_alloc(sizeof(struct usb_hcd));
 }
 int __VERIFIER_nondet_int(void);
 int usb_disabled() {
@@ -12202,9 +12202,12 @@ void usb_root_hub_lost_power(struct usb_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

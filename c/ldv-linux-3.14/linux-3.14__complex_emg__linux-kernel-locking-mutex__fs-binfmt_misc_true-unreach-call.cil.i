@@ -7745,10 +7745,10 @@ int __VERIFIER_nondet_int(void);
 int copy_strings_kernel(int arg0, const char * const *arg1, struct linux_binprm *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_fs_time(struct super_block *arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -7768,9 +7768,9 @@ void dput(struct dentry *arg0) {
 void drop_nlink(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void fd_install(unsigned int arg0, struct file *arg1) {
   return;
@@ -7811,28 +7811,28 @@ void ldv_check_alloc_flags(gfp_t arg0) {
 void lockref_get(struct lockref *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *lookup_one_len(const char *arg0, struct dentry *arg1, int arg2) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void might_fault() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *mount_single(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 long __VERIFIER_nondet_long(void);
 loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *open_exec(const char *arg0) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 int __VERIFIER_nondet_int(void);
 int prepare_binprm(struct linux_binprm *arg0) {
@@ -7895,9 +7895,12 @@ int unregister_filesystem(struct file_system_type *arg0) {
 void would_dump(struct linux_binprm *arg0, struct file *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

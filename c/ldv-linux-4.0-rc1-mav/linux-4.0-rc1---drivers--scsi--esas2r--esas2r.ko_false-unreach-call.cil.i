@@ -29175,9 +29175,9 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -29262,9 +29262,9 @@ int __VERIFIER_nondet_int(void);
 int down_interruptible(struct semaphore *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -29388,9 +29388,9 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 bool __VERIFIER_nondet_bool(void);
 bool queue_delayed_work_on(int arg0, struct workqueue_struct *arg1, struct delayed_work *arg2, unsigned long arg3) {
@@ -29422,9 +29422,9 @@ int __VERIFIER_nondet_int(void);
 int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *scsi_device_lookup(struct Scsi_Host *arg0, uint arg1, uint arg2, u64 arg3) {
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 void scsi_device_put(struct scsi_device *arg0) {
   return;
@@ -29440,9 +29440,9 @@ int scsi_dma_map(struct scsi_cmnd *arg0) {
 void scsi_dma_unmap(struct scsi_cmnd *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -29474,9 +29474,9 @@ int __VERIFIER_nondet_int(void);
 int seq_puts(struct seq_file *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 int __VERIFIER_nondet_int(void);
 int sysfs_create_bin_file(struct kobject *arg0, const struct bin_attribute *arg1) {
@@ -29497,9 +29497,12 @@ void up(struct semaphore *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

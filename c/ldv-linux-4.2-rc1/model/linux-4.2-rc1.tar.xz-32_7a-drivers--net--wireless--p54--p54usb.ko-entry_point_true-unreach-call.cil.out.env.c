@@ -50,10 +50,10 @@ unsigned long int __msecs_to_jiffies(const unsigned int arg0) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __raw_spin_lock_init
@@ -130,10 +130,10 @@ void kfree_skb(struct sk_buff *arg0) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_initialize
@@ -196,10 +196,10 @@ void p54_free_skb(struct ieee80211_hw *arg0, struct sk_buff *arg1) {
 // Function: p54_init_common
 // with type: struct ieee80211_hw *p54_init_common(size_t )
 // with return type: (struct ieee80211_hw)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_hw *p54_init_common(size_t arg0) {
   // Pointer type
-  return (struct ieee80211_hw *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_hw));
 }
 
 // Function: p54_parse_firmware
@@ -266,28 +266,28 @@ int request_firmware_nowait(struct module *arg0, bool arg1, const char *arg2, st
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_queue_tail
@@ -321,10 +321,10 @@ void skb_unlink(struct sk_buff *arg0, struct sk_buff_head *arg1) {
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_anchor_urb
@@ -363,19 +363,19 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 
 // Function: usb_ifnum_to_if
 // with type: struct usb_interface *usb_ifnum_to_if(const struct usb_device *, unsigned int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_interrupt_msg

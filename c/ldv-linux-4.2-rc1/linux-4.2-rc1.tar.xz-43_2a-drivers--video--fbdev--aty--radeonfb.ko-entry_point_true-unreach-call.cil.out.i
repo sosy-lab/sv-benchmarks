@@ -13063,9 +13063,9 @@ int arch_phys_wc_add(unsigned long arg0, unsigned long arg1) {
 void arch_phys_wc_del(int arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct backlight_device *backlight_device_register(const char *arg0, struct device *arg1, void *arg2, const struct backlight_ops *arg3, const struct backlight_properties *arg4) {
-  return (struct backlight_device *)external_alloc();
+  return external_alloc(sizeof(struct backlight_device));
 }
 void backlight_device_unregister(struct backlight_device *arg0) {
   return;
@@ -13110,9 +13110,9 @@ int fb_alloc_cmap(struct fb_cmap *arg0, int arg1, int arg2) {
 void fb_bl_default_curve(struct fb_info *arg0, u8 arg1, u8 arg2, u8 arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *fb_ddc_read(struct i2c_adapter *arg0) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void fb_dealloc_cmap(struct fb_cmap *arg0) {
   return;
@@ -13152,9 +13152,9 @@ void fb_var_to_videomode(struct fb_videomode *arg0, const struct fb_var_screenin
 void fb_videomode_to_modelist(const struct fb_videomode *arg0, int arg1, struct list_head *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
-  return (struct fb_info *)external_alloc();
+  return external_alloc(sizeof(struct fb_info));
 }
 void framebuffer_release(struct fb_info *arg0) {
   return;
@@ -13166,13 +13166,13 @@ int i2c_bit_add_bus(struct i2c_adapter *arg0) {
 void i2c_del_adapter(struct i2c_adapter *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -13207,9 +13207,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_shutdown_3() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_late_3() {
@@ -13247,9 +13247,9 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_release_region(struct pci_dev *arg0, int arg1) {
   return;
@@ -13297,9 +13297,12 @@ int __VERIFIER_nondet_int(void);
 int unregister_framebuffer(struct fb_info *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

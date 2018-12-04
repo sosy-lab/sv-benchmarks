@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __init_work
@@ -160,10 +160,10 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -189,10 +189,10 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: kstrndup
 // with type: char *kstrndup(const char *, size_t , gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrndup(const char *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: ldv_after_alloc

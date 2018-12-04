@@ -40,10 +40,10 @@ int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: ldv_handler_precall

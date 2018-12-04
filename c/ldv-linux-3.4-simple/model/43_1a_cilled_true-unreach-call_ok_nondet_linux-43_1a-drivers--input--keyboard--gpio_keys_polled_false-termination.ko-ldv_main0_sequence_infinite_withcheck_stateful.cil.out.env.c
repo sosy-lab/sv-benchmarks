@@ -78,10 +78,10 @@ int gpio_request(unsigned int arg0, const char *arg1) {
 // Function: input_allocate_polled_device
 // with type: struct input_polled_dev *input_allocate_polled_device()
 // with return type: (struct input_polled_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct input_polled_dev *input_allocate_polled_device() {
   // Pointer type
-  return (struct input_polled_dev *)external_alloc();
+  return external_alloc(sizeof(struct input_polled_dev));
 }
 
 // Function: input_event
@@ -122,10 +122,10 @@ void input_set_capability(struct input_dev *arg0, unsigned int arg1, unsigned in
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -155,9 +155,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 

@@ -7852,9 +7852,9 @@ int __VERIFIER_nondet_int(void);
 int genphy_read_status(struct phy_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -7882,10 +7882,10 @@ void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec ns_to_timespec(const s64 arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -7907,9 +7907,9 @@ int __VERIFIER_nondet_int(void);
 int ptp_clock_index(struct ptp_clock *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ptp_clock *ptp_clock_register(struct ptp_clock_info *arg0, struct device *arg1) {
-  return (struct ptp_clock *)external_alloc();
+  return external_alloc(sizeof(struct ptp_clock));
 }
 int __VERIFIER_nondet_int(void);
 int ptp_clock_unregister(struct ptp_clock *arg0) {
@@ -7932,9 +7932,12 @@ void skb_complete_tx_timestamp(struct sk_buff *arg0, struct skb_shared_hwtstamps
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

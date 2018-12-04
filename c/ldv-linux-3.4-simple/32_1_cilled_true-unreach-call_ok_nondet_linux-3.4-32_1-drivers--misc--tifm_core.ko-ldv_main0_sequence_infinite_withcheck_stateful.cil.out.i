@@ -3715,9 +3715,9 @@ long ldv__builtin_expect(long val , long res )
   return (val);
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 int __VERIFIER_nondet_int(void);
 int __bus_register(struct bus_type *arg0, struct lock_class_key *arg1) {
@@ -3755,9 +3755,9 @@ void debug_dma_unmap_sg(struct device *arg0, struct scatterlist *arg1, int arg2,
 void destroy_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_name(struct device *arg0, const char *arg1, ...) {
@@ -3786,9 +3786,9 @@ void driver_unregister(struct device_driver *arg0) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int idr_get_new(struct idr *arg0, void *arg1, int *arg2) {
@@ -3818,13 +3818,16 @@ int __VERIFIER_nondet_int(void);
 int queue_work(struct workqueue_struct *arg0, struct work_struct *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

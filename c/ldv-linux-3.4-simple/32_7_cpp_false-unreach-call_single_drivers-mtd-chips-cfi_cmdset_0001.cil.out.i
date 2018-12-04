@@ -18366,9 +18366,9 @@ long ldv__builtin_expect(long val, long res) {
 void __account_scheduler_latency(struct task_struct *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void __bad_unaligned_access_size() {
   return;
@@ -18459,9 +18459,9 @@ void __invalid_creds(const struct cred *arg0, const char *arg1, unsigned arg2) {
 void __irq_set_handler(unsigned int arg0, irq_flow_handler_t arg1, int arg2, const char *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -18469,9 +18469,9 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void __list_del_entry(struct list_head *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sighand_struct *__lock_task_sighand(struct task_struct *arg0, unsigned long *arg1) {
-  return (struct sighand_struct *)external_alloc();
+  return external_alloc(sizeof(struct sighand_struct));
 }
 void __might_sleep(const char *arg0, int arg1, int arg2) {
   return;
@@ -18609,9 +18609,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int bitmap_bitremap(int arg0, const unsigned long *arg1, const unsigned long *arg2, int arg3) {
@@ -18653,16 +18653,16 @@ int call_usermodehelper_exec(struct subprocess_info *arg0, int arg1) {
 void call_usermodehelper_setfns(struct subprocess_info *arg0, int (*arg1)(struct subprocess_info *info, struct cred *new), void (*arg2)(struct subprocess_info *info), void *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct subprocess_info *call_usermodehelper_setup(char *arg0, char **arg1, char **arg2, gfp_t arg3) {
-  return (struct subprocess_info *)external_alloc();
+  return external_alloc(sizeof(struct subprocess_info));
 }
 void cfi_fixup(struct mtd_info *arg0, struct cfi_fixup *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cfi_extquery *cfi_read_pri(struct map_info *arg0, uint16_t arg1, uint16_t arg2, const char *arg3) {
-  return (struct cfi_extquery *)external_alloc();
+  return external_alloc(sizeof(struct cfi_extquery));
 }
 int __VERIFIER_nondet_int(void);
 int cfi_varsize_frob(struct mtd_info *arg0, varsize_frob_t arg1, loff_t arg2, size_t arg3, void *arg4) {
@@ -18787,16 +18787,16 @@ void init_timer_key(struct timer_list *arg0, const char *arg1, struct lock_class
 void init_timer_on_stack_key(struct timer_list *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void irq_free_descs(unsigned int arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irq_data *irq_get_irq_data(unsigned int arg0) {
-  return (struct irq_data *)external_alloc();
+  return external_alloc(sizeof(struct irq_data));
 }
 void irq_modify_status(unsigned int arg0, unsigned long arg1, unsigned long arg2) {
   return;
@@ -18812,9 +18812,9 @@ int __VERIFIER_nondet_int(void);
 int irq_set_irq_wake(unsigned int arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irq_desc *irq_to_desc(unsigned int arg0) {
-  return (struct irq_desc *)external_alloc();
+  return external_alloc(sizeof(struct irq_desc));
 }
 void key_put(struct key *arg0) {
   return;
@@ -18826,13 +18826,13 @@ int __VERIFIER_nondet_int(void);
 int kill_pid(struct pid *arg0, int arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmalloc_order_trace(size_t arg0, gfp_t arg1, unsigned int arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void kmemleak_alloc(const void *arg0, size_t arg1, int arg2, gfp_t arg3) {
   return;
@@ -18840,9 +18840,9 @@ void kmemleak_alloc(const void *arg0, size_t arg1, int arg2, gfp_t arg3) {
 void kmemleak_free(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_get(struct kobject *arg0) {
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 void kobject_put(struct kobject *arg0) {
   return;
@@ -18879,10 +18879,10 @@ int __VERIFIER_nondet_int(void);
 int kstrtoull_from_user(const char *arg0, size_t arg1, unsigned int arg2, unsigned long long *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_add_safe(const ktime_t arg0, const ktime_t arg1) {
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -18907,14 +18907,14 @@ void msleep(unsigned int arg0) {
 void mtd_erase_callback(struct erase_info *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct zoneref *next_zones_zonelist(struct zoneref *arg0, enum zone_type arg1, nodemask_t *arg2, struct zone **arg3) {
-  return (struct zoneref *)external_alloc();
+  return external_alloc(sizeof(struct zoneref));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
-  struct timeval *tmp = (struct timeval*)external_alloc();
+  struct timeval *tmp = external_alloc(sizeof(struct timeval));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -18960,9 +18960,9 @@ void set_normalized_timespec(struct timespec *arg0, time_t arg1, s64 arg2) {
 void show_state_filter(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strim(char *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void synchronize_sched() {
   return;
@@ -19011,9 +19011,12 @@ bool __VERIFIER_nondet_bool(void);
 bool xen_hvm_need_lapic() {
   return __VERIFIER_nondet_bool();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

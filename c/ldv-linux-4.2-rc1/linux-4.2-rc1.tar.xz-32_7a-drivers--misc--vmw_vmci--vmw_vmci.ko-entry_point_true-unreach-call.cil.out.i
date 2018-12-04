@@ -17473,13 +17473,13 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -17510,9 +17510,9 @@ void iowrite32(u32 arg0, void *arg1) {
 void iowrite8_rep(void *arg0, const void *arg1, unsigned long arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *krealloc(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_initialize() {
   return;
@@ -17582,9 +17582,9 @@ int __VERIFIER_nondet_int(void);
 int pcim_iomap_regions(struct pci_dev *arg0, int arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void * const *pcim_iomap_table(struct pci_dev *arg0) {
-  return (void * const *)external_alloc();
+  return external_alloc(sizeof(void * const));
 }
 long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {
@@ -17632,13 +17632,13 @@ void tasklet_kill(struct tasklet_struct *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmap(struct page **arg0, unsigned int arg1, unsigned long arg2, pgprot_t arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void vunmap(const void *arg0) {
   return;
@@ -17649,9 +17649,12 @@ void wait_for_completion(struct completion *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

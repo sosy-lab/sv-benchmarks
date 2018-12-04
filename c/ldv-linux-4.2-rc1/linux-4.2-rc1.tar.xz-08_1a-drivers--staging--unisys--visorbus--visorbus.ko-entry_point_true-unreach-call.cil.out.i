@@ -14828,9 +14828,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __copy_from_user_overflow() {
   return;
@@ -14865,9 +14865,9 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 void __rwlock_init(rwlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -14907,9 +14907,9 @@ int __VERIFIER_nondet_int(void);
 int alloc_chrdev_region(dev_t *arg0, unsigned int arg1, unsigned int arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *bus_find_device(struct bus_type *arg0, struct device *arg1, void *arg2, int (*arg3)(struct device *, void *)) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int bus_register(struct bus_type *arg0) {
@@ -14976,16 +14976,16 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 void free_pages(unsigned long arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_cache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -15099,9 +15099,12 @@ void up(struct semaphore *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

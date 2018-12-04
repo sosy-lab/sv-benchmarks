@@ -17,10 +17,10 @@ void ___might_sleep(const char *arg0, int arg1, int arg2) {
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __bitmap_or
@@ -335,10 +335,10 @@ long int __copy_user_nocache(void *arg0, const void *arg1, unsigned int arg2, in
 // Function: __devm_request_region
 // with type: struct resource *__devm_request_region(struct device *, struct resource *, resource_size_t , resource_size_t , const char *)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__devm_request_region(struct device *arg0, struct resource *arg1, resource_size_t arg2, resource_size_t arg3, const char *arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __drm_atomic_helper_crtc_duplicate_state
@@ -401,10 +401,10 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -554,10 +554,10 @@ void __sg_page_iter_start(struct sg_page_iter *arg0, struct scatterlist *arg1, u
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __symbol_put
@@ -580,10 +580,10 @@ unsigned long int __usecs_to_jiffies(const unsigned int arg0) {
 // Function: __vmalloc
 // with type: void *__vmalloc(unsigned long, gfp_t , pgprot_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__vmalloc(unsigned long arg0, gfp_t arg1, pgprot_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __wake_up
@@ -693,10 +693,10 @@ bool acpi_check_dsm(acpi_handle arg0, const u8 *arg1, int arg2, u64 arg3) {
 // Function: acpi_evaluate_dsm
 // with type: union acpi_object *acpi_evaluate_dsm(acpi_handle , const u8 *, int, int, union acpi_object *)
 // with return type: (union acpi_object)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 union acpi_object *acpi_evaluate_dsm(acpi_handle arg0, const u8 *arg1, int arg2, int arg3, union acpi_object *arg4) {
   // Pointer type
-  return (union acpi_object *)external_alloc();
+  return external_alloc(sizeof(union acpi_object));
 }
 
 // Function: acpi_evaluate_integer
@@ -801,10 +801,10 @@ void acpi_video_unregister() {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: arch_phys_wc_add
@@ -848,10 +848,10 @@ void async_synchronize_full() {
 // Function: backlight_device_register
 // with type: struct backlight_device *backlight_device_register(const char *, struct device *, void *, const struct backlight_ops *, const struct backlight_properties *)
 // with return type: (struct backlight_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct backlight_device *backlight_device_register(const char *arg0, struct device *arg1, void *arg2, const struct backlight_ops *arg3, const struct backlight_properties *arg4) {
   // Pointer type
-  return (struct backlight_device *)external_alloc();
+  return external_alloc(sizeof(struct backlight_device));
 }
 
 // Function: backlight_device_unregister
@@ -943,10 +943,10 @@ void cfb_imageblit(struct fb_info *arg0, const struct fb_image *arg1) {
 // Function: compat_alloc_user_space
 // with type: void *compat_alloc_user_space(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *compat_alloc_user_space(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: component_add
@@ -1003,10 +1003,10 @@ void console_unlock() {
 // Function: cpufreq_cpu_get
 // with type: struct cpufreq_policy *cpufreq_cpu_get(unsigned int)
 // with return type: (struct cpufreq_policy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cpufreq_policy *cpufreq_cpu_get(unsigned int arg0) {
   // Pointer type
-  return (struct cpufreq_policy *)external_alloc();
+  return external_alloc(sizeof(struct cpufreq_policy));
 }
 
 // Function: cpufreq_cpu_put
@@ -1069,10 +1069,10 @@ int debug_lockdep_rcu_enabled() {
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -1149,19 +1149,19 @@ void device_remove_bin_file(struct device *arg0, const struct bin_attribute *arg
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_buf_attach
 // with type: struct dma_buf_attachment *dma_buf_attach(struct dma_buf *, struct device *)
 // with return type: (struct dma_buf_attachment)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_buf_attachment *dma_buf_attach(struct dma_buf *arg0, struct device *arg1) {
   // Pointer type
-  return (struct dma_buf_attachment *)external_alloc();
+  return external_alloc(sizeof(struct dma_buf_attachment));
 }
 
 // Function: dma_buf_detach
@@ -1175,19 +1175,19 @@ void dma_buf_detach(struct dma_buf *arg0, struct dma_buf_attachment *arg1) {
 // Function: dma_buf_export
 // with type: struct dma_buf *dma_buf_export(const struct dma_buf_export_info *)
 // with return type: (struct dma_buf)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_buf *dma_buf_export(const struct dma_buf_export_info *arg0) {
   // Pointer type
-  return (struct dma_buf *)external_alloc();
+  return external_alloc(sizeof(struct dma_buf));
 }
 
 // Function: dma_buf_map_attachment
 // with type: struct sg_table *dma_buf_map_attachment(struct dma_buf_attachment *, enum dma_data_direction )
 // with return type: (struct sg_table)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sg_table *dma_buf_map_attachment(struct dma_buf_attachment *arg0, enum dma_data_direction arg1) {
   // Pointer type
-  return (struct sg_table *)external_alloc();
+  return external_alloc(sizeof(struct sg_table));
 }
 
 // Function: dma_buf_put
@@ -1305,28 +1305,28 @@ int drm_atomic_connectors_for_crtc(struct drm_atomic_state *arg0, struct drm_crt
 // Function: drm_atomic_get_connector_state
 // with type: struct drm_connector_state *drm_atomic_get_connector_state(struct drm_atomic_state *, struct drm_connector *)
 // with return type: (struct drm_connector_state)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_connector_state *drm_atomic_get_connector_state(struct drm_atomic_state *arg0, struct drm_connector *arg1) {
   // Pointer type
-  return (struct drm_connector_state *)external_alloc();
+  return external_alloc(sizeof(struct drm_connector_state));
 }
 
 // Function: drm_atomic_get_crtc_state
 // with type: struct drm_crtc_state *drm_atomic_get_crtc_state(struct drm_atomic_state *, struct drm_crtc *)
 // with return type: (struct drm_crtc_state)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_crtc_state *drm_atomic_get_crtc_state(struct drm_atomic_state *arg0, struct drm_crtc *arg1) {
   // Pointer type
-  return (struct drm_crtc_state *)external_alloc();
+  return external_alloc(sizeof(struct drm_crtc_state));
 }
 
 // Function: drm_atomic_get_plane_state
 // with type: struct drm_plane_state *drm_atomic_get_plane_state(struct drm_atomic_state *, struct drm_plane *)
 // with return type: (struct drm_plane_state)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_plane_state *drm_atomic_get_plane_state(struct drm_atomic_state *arg0, struct drm_plane *arg1) {
   // Pointer type
-  return (struct drm_plane_state *)external_alloc();
+  return external_alloc(sizeof(struct drm_plane_state));
 }
 
 // Function: drm_atomic_helper_check_modeset
@@ -1374,10 +1374,10 @@ void drm_atomic_helper_connector_destroy_state(struct drm_connector *arg0, struc
 // Function: drm_atomic_helper_connector_duplicate_state
 // with type: struct drm_connector_state *drm_atomic_helper_connector_duplicate_state(struct drm_connector *)
 // with return type: (struct drm_connector_state)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_connector_state *drm_atomic_helper_connector_duplicate_state(struct drm_connector *arg0) {
   // Pointer type
-  return (struct drm_connector_state *)external_alloc();
+  return external_alloc(sizeof(struct drm_connector_state));
 }
 
 // Function: drm_atomic_helper_crtc_destroy_state
@@ -1477,10 +1477,10 @@ void drm_atomic_set_fb_for_plane(struct drm_plane_state *arg0, struct drm_frameb
 // Function: drm_atomic_state_alloc
 // with type: struct drm_atomic_state *drm_atomic_state_alloc(struct drm_device *)
 // with return type: (struct drm_atomic_state)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_atomic_state *drm_atomic_state_alloc(struct drm_device *arg0) {
   // Pointer type
-  return (struct drm_atomic_state *)external_alloc();
+  return external_alloc(sizeof(struct drm_atomic_state));
 }
 
 // Function: drm_atomic_state_free
@@ -1894,10 +1894,10 @@ void drm_dp_mst_dump_topology(struct seq_file *arg0, struct drm_dp_mst_topology_
 // Function: drm_dp_mst_get_edid
 // with type: struct edid *drm_dp_mst_get_edid(struct drm_connector *, struct drm_dp_mst_topology_mgr *, struct drm_dp_mst_port *)
 // with return type: (struct edid)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct edid *drm_dp_mst_get_edid(struct drm_connector *arg0, struct drm_dp_mst_topology_mgr *arg1, struct drm_dp_mst_port *arg2) {
   // Pointer type
-  return (struct edid *)external_alloc();
+  return external_alloc(sizeof(struct edid));
 }
 
 // Function: drm_dp_mst_hpd_irq
@@ -1981,10 +1981,10 @@ int drm_dp_update_payload_part2(struct drm_dp_mst_topology_mgr *arg0) {
 // Function: drm_edid_duplicate
 // with type: struct edid *drm_edid_duplicate(const struct edid *)
 // with return type: (struct edid)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct edid *drm_edid_duplicate(const struct edid *arg0) {
   // Pointer type
-  return (struct edid *)external_alloc();
+  return external_alloc(sizeof(struct edid));
 }
 
 // Function: drm_edid_to_eld
@@ -2310,10 +2310,10 @@ int drm_gem_object_init(struct drm_device *arg0, struct drm_gem_object *arg1, si
 // Function: drm_gem_object_lookup
 // with type: struct drm_gem_object *drm_gem_object_lookup(struct drm_device *, struct drm_file *, u32 )
 // with return type: (struct drm_gem_object)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_gem_object *drm_gem_object_lookup(struct drm_device *arg0, struct drm_file *arg1, u32 arg2) {
   // Pointer type
-  return (struct drm_gem_object *)external_alloc();
+  return external_alloc(sizeof(struct drm_gem_object));
 }
 
 // Function: drm_gem_object_release
@@ -2369,28 +2369,28 @@ void drm_gem_vm_open(struct vm_area_struct *arg0) {
 // Function: drm_get_connector_status_name
 // with type: const char *drm_get_connector_status_name(enum drm_connector_status )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *drm_get_connector_status_name(enum drm_connector_status arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: drm_get_edid
 // with type: struct edid *drm_get_edid(struct drm_connector *, struct i2c_adapter *)
 // with return type: (struct edid)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct edid *drm_get_edid(struct drm_connector *arg0, struct i2c_adapter *arg1) {
   // Pointer type
-  return (struct edid *)external_alloc();
+  return external_alloc(sizeof(struct edid));
 }
 
 // Function: drm_get_format_name
 // with type: const char *drm_get_format_name(uint32_t )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *drm_get_format_name(uint32_t arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: drm_get_pci_dev
@@ -2405,10 +2405,10 @@ int drm_get_pci_dev(struct pci_dev *arg0, const struct pci_device_id *arg1, stru
 // Function: drm_get_subpixel_order_name
 // with type: const char *drm_get_subpixel_order_name(enum subpixel_order )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *drm_get_subpixel_order_name(enum subpixel_order arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: drm_handle_vblank
@@ -2425,10 +2425,10 @@ bool drm_handle_vblank(struct drm_device *arg0, int arg1) {
 // Function: drm_has_preferred_mode
 // with type: struct drm_display_mode *drm_has_preferred_mode(struct drm_fb_helper_connector *, int, int)
 // with return type: (struct drm_display_mode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_display_mode *drm_has_preferred_mode(struct drm_fb_helper_connector *arg0, int arg1, int arg2) {
   // Pointer type
-  return (struct drm_display_mode *)external_alloc();
+  return external_alloc(sizeof(struct drm_display_mode));
 }
 
 // Function: drm_hdmi_avi_infoframe_from_display_mode
@@ -2714,10 +2714,10 @@ void drm_mode_copy(struct drm_display_mode *arg0, const struct drm_display_mode 
 // Function: drm_mode_create
 // with type: struct drm_display_mode *drm_mode_create(struct drm_device *)
 // with return type: (struct drm_display_mode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_display_mode *drm_mode_create(struct drm_device *arg0) {
   // Pointer type
-  return (struct drm_display_mode *)external_alloc();
+  return external_alloc(sizeof(struct drm_display_mode));
 }
 
 // Function: drm_mode_create_aspect_ratio_property
@@ -2732,10 +2732,10 @@ int drm_mode_create_aspect_ratio_property(struct drm_device *arg0) {
 // Function: drm_mode_create_rotation_property
 // with type: struct drm_property *drm_mode_create_rotation_property(struct drm_device *, unsigned int)
 // with return type: (struct drm_property)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_property *drm_mode_create_rotation_property(struct drm_device *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct drm_property *)external_alloc();
+  return external_alloc(sizeof(struct drm_property));
 }
 
 // Function: drm_mode_create_scaling_mode_property
@@ -2784,10 +2784,10 @@ void drm_mode_destroy(struct drm_device *arg0, struct drm_display_mode *arg1) {
 // Function: drm_mode_duplicate
 // with type: struct drm_display_mode *drm_mode_duplicate(struct drm_device *, const struct drm_display_mode *)
 // with return type: (struct drm_display_mode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_display_mode *drm_mode_duplicate(struct drm_device *arg0, const struct drm_display_mode *arg1) {
   // Pointer type
-  return (struct drm_display_mode *)external_alloc();
+  return external_alloc(sizeof(struct drm_display_mode));
 }
 
 // Function: drm_mode_legacy_fb_format
@@ -2806,10 +2806,10 @@ uint32_t drm_mode_legacy_fb_format(uint32_t arg0, uint32_t arg1) {
 // Function: drm_mode_object_find
 // with type: struct drm_mode_object *drm_mode_object_find(struct drm_device *, uint32_t , uint32_t )
 // with return type: (struct drm_mode_object)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_mode_object *drm_mode_object_find(struct drm_device *arg0, uint32_t arg1, uint32_t arg2) {
   // Pointer type
-  return (struct drm_mode_object *)external_alloc();
+  return external_alloc(sizeof(struct drm_mode_object));
 }
 
 // Function: drm_mode_probed_add
@@ -2982,10 +2982,10 @@ void drm_panel_remove(struct drm_panel *arg0) {
 // Function: drm_pci_alloc
 // with type: struct drm_dma_handle *drm_pci_alloc(struct drm_device *, size_t , size_t )
 // with return type: (struct drm_dma_handle)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_dma_handle *drm_pci_alloc(struct drm_device *arg0, size_t arg1, size_t arg2) {
   // Pointer type
-  return (struct drm_dma_handle *)external_alloc();
+  return external_alloc(sizeof(struct drm_dma_handle));
 }
 
 // Function: drm_pci_exit
@@ -3025,10 +3025,10 @@ int drm_pci_set_busid(struct drm_device *arg0, struct drm_master *arg1) {
 // Function: drm_pick_cmdline_mode
 // with type: struct drm_display_mode *drm_pick_cmdline_mode(struct drm_fb_helper_connector *, int, int)
 // with return type: (struct drm_display_mode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_display_mode *drm_pick_cmdline_mode(struct drm_fb_helper_connector *arg0, int arg1, int arg2) {
   // Pointer type
-  return (struct drm_display_mode *)external_alloc();
+  return external_alloc(sizeof(struct drm_display_mode));
 }
 
 // Function: drm_plane_cleanup
@@ -3042,10 +3042,10 @@ void drm_plane_cleanup(struct drm_plane *arg0) {
 // Function: drm_plane_from_index
 // with type: struct drm_plane *drm_plane_from_index(struct drm_device *, int)
 // with return type: (struct drm_plane)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_plane *drm_plane_from_index(struct drm_device *arg0, int arg1) {
   // Pointer type
-  return (struct drm_plane *)external_alloc();
+  return external_alloc(sizeof(struct drm_plane));
 }
 
 // Function: drm_plane_helper_check_update
@@ -3124,28 +3124,28 @@ int drm_property_add_enum(struct drm_property *arg0, int arg1, uint64_t arg2, co
 // Function: drm_property_create
 // with type: struct drm_property *drm_property_create(struct drm_device *, int, const char *, int)
 // with return type: (struct drm_property)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_property *drm_property_create(struct drm_device *arg0, int arg1, const char *arg2, int arg3) {
   // Pointer type
-  return (struct drm_property *)external_alloc();
+  return external_alloc(sizeof(struct drm_property));
 }
 
 // Function: drm_property_create_enum
 // with type: struct drm_property *drm_property_create_enum(struct drm_device *, int, const char *, const struct drm_prop_enum_list *, int)
 // with return type: (struct drm_property)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_property *drm_property_create_enum(struct drm_device *arg0, int arg1, const char *arg2, const struct drm_prop_enum_list *arg3, int arg4) {
   // Pointer type
-  return (struct drm_property *)external_alloc();
+  return external_alloc(sizeof(struct drm_property));
 }
 
 // Function: drm_property_create_range
 // with type: struct drm_property *drm_property_create_range(struct drm_device *, int, const char *, uint64_t , uint64_t )
 // with return type: (struct drm_property)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_property *drm_property_create_range(struct drm_device *arg0, int arg1, const char *arg2, uint64_t arg3, uint64_t arg4) {
   // Pointer type
-  return (struct drm_property *)external_alloc();
+  return external_alloc(sizeof(struct drm_property));
 }
 
 // Function: drm_put_dev
@@ -3273,10 +3273,10 @@ bool drm_rgb_quant_range_selectable(struct edid *arg0) {
 // Function: drm_select_eld
 // with type: struct drm_connector *drm_select_eld(struct drm_encoder *, struct drm_display_mode *)
 // with return type: (struct drm_connector)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_connector *drm_select_eld(struct drm_encoder *arg0, struct drm_display_mode *arg1) {
   // Pointer type
-  return (struct drm_connector *)external_alloc();
+  return external_alloc(sizeof(struct drm_connector));
 }
 
 // Function: drm_send_vblank_event
@@ -3386,10 +3386,10 @@ unsigned long int find_next_bit(const unsigned long *arg0, unsigned long arg1, u
 // Function: find_vma
 // with type: struct vm_area_struct *find_vma(struct mm_struct *, unsigned long)
 // with return type: (struct vm_area_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vm_area_struct *find_vma(struct mm_struct *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct vm_area_struct *)external_alloc();
+  return external_alloc(sizeof(struct vm_area_struct));
 }
 
 // Function: finish_wait
@@ -3433,10 +3433,10 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t , struct device *)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return external_alloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -3463,10 +3463,10 @@ loff_t generic_file_llseek(struct file *arg0, loff_t arg1, int arg2) {
 // Function: get_pid_task
 // with type: struct task_struct *get_pid_task(struct pid *, enum pid_type )
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *get_pid_task(struct pid *arg0, enum pid_type arg1) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: get_seconds
@@ -3557,10 +3557,10 @@ void idr_destroy(struct idr *arg0) {
 // Function: idr_find_slowpath
 // with type: void *idr_find_slowpath(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: idr_for_each
@@ -3667,19 +3667,19 @@ void interval_tree_insert(struct interval_tree_node *arg0, struct rb_root *arg1)
 // Function: interval_tree_iter_first
 // with type: struct interval_tree_node *interval_tree_iter_first(struct rb_root *, unsigned long, unsigned long)
 // with return type: (struct interval_tree_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct interval_tree_node *interval_tree_iter_first(struct rb_root *arg0, unsigned long arg1, unsigned long arg2) {
   // Pointer type
-  return (struct interval_tree_node *)external_alloc();
+  return external_alloc(sizeof(struct interval_tree_node));
 }
 
 // Function: interval_tree_iter_next
 // with type: struct interval_tree_node *interval_tree_iter_next(struct interval_tree_node *, unsigned long, unsigned long)
 // with return type: (struct interval_tree_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct interval_tree_node *interval_tree_iter_next(struct interval_tree_node *arg0, unsigned long arg1, unsigned long arg2) {
   // Pointer type
-  return (struct interval_tree_node *)external_alloc();
+  return external_alloc(sizeof(struct interval_tree_node));
 }
 
 // Function: interval_tree_remove
@@ -3720,28 +3720,28 @@ unsigned int ioread32(void *arg0) {
 // Function: ioremap_cache
 // with type: void *ioremap_cache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_cache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ioremap_wc
 // with type: void *ioremap_wc(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -3781,10 +3781,10 @@ unsigned int jiffies_to_usecs(const unsigned long arg0) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -3792,19 +3792,19 @@ char *kasprintf(gfp_t arg0, const char *arg1, ...) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -3826,10 +3826,10 @@ void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kobject_uevent_env
@@ -3862,13 +3862,13 @@ int kstrtouint(const char *arg0, unsigned int arg1, unsigned int *arg2) {
 // Function: ktime_get
 // with type: ktime_t ktime_get()
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get() {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -3876,13 +3876,13 @@ ktime_t ktime_get() {
 // Function: ktime_get_raw
 // with type: ktime_t ktime_get_raw()
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get_raw() {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -4721,28 +4721,28 @@ int pci_enable_msi_range(struct pci_dev *arg0, int arg1, int arg2) {
 // Function: pci_get_class
 // with type: struct pci_dev *pci_get_class(unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_class(unsigned int arg0, struct pci_dev *arg1) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_get_domain_bus_and_slot
 // with type: struct pci_dev *pci_get_domain_bus_and_slot(int, unsigned int, unsigned int)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_domain_bus_and_slot(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap
@@ -4756,10 +4756,10 @@ void pci_iounmap(struct pci_dev *arg0, void *arg1) {
 // Function: pci_map_rom
 // with type: void *pci_map_rom(struct pci_dev *, size_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_save_state
@@ -4799,13 +4799,13 @@ void pci_unmap_rom(struct pci_dev *arg0, void *arg1) {
 // Function: pgprot_writecombine
 // with type: pgprot_t pgprot_writecombine(pgprot_t )
 // with return type: pgprot_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
   // Typedef type
   // Real type: struct pgprot
   // Composite type
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -4813,10 +4813,10 @@ pgprot_t pgprot_writecombine(pgprot_t arg0) {
 // Function: pid_task
 // with type: struct task_struct *pid_task(struct pid *, enum pid_type )
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *pid_task(struct pid *arg0, enum pid_type arg1) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: pm_qos_add_request
@@ -5198,19 +5198,19 @@ void sg_free_table(struct sg_table *arg0) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: shmem_read_mapping_page_gfp
 // with type: struct page *shmem_read_mapping_page_gfp(struct address_space *, unsigned long, gfp_t )
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *shmem_read_mapping_page_gfp(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: shmem_truncate_range
@@ -5305,10 +5305,10 @@ int single_release(struct inode *arg0, struct file *arg1) {
 // Function: skip_spaces
 // with type: char *skip_spaces(const char *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *skip_spaces(const char *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: snprintf
@@ -5618,13 +5618,13 @@ bool vgacon_text_force() {
 // Function: vm_get_page_prot
 // with type: pgprot_t vm_get_page_prot(unsigned long)
 // with return type: pgprot_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t vm_get_page_prot(unsigned long arg0) {
   // Typedef type
   // Real type: struct pgprot
   // Composite type
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -5650,10 +5650,10 @@ unsigned long int vm_mmap(struct file *arg0, unsigned long arg1, unsigned long a
 // Function: vmap
 // with type: void *vmap(struct page **, unsigned int, unsigned long, pgprot_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmap(struct page **arg0, unsigned int arg1, unsigned long arg2, pgprot_t arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vscnprintf

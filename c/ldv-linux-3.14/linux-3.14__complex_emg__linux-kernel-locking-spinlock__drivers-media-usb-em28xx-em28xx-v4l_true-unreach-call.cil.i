@@ -14399,9 +14399,9 @@ int __VERIFIER_nondet_int(void);
 int em28xx_write_regs(struct em28xx *arg0, u16 arg1, char *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_after_alloc(void *arg0) {
   return;
@@ -14446,9 +14446,9 @@ int usb_set_interface(struct usb_device *arg0, int arg1, int arg2) {
 void v4l2_clk_unregister_fixed(struct v4l2_clk *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_find(struct v4l2_ctrl_handler *arg0, u32 arg1) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 void v4l2_ctrl_handler_free(struct v4l2_ctrl_handler *arg0) {
   return;
@@ -14461,9 +14461,9 @@ int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_handler_setup(struct v4l2_ctrl_handler *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s32 arg3, s32 arg4, u32 arg5, s32 arg6) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 void v4l2_ctrl_notify(struct v4l2_ctrl *arg0, void (*arg1)(struct v4l2_ctrl *, void *), void *arg2) {
   return;
@@ -14495,17 +14495,17 @@ void v4l2_fh_init(struct v4l2_fh *arg0, struct video_device *arg1) {
 void v4l2_get_timestamp(struct timeval *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *arg0, struct i2c_adapter *arg1, const char *arg2, u8 arg3, const unsigned short *arg4) {
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 unsigned short __VERIFIER_nondet_ushort(void);
 unsigned short int v4l2_i2c_subdev_addr(struct v4l2_subdev *arg0) {
   return __VERIFIER_nondet_ushort();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const unsigned short *v4l2_i2c_tuner_addrs(enum v4l2_i2c_tuner_type arg0) {
-  return (const unsigned short *)external_alloc();
+  return external_alloc(sizeof(const unsigned short));
 }
 void v4l2_video_std_frame_period(int arg0, struct v4l2_fract *arg1) {
   return;
@@ -14570,21 +14570,21 @@ void vb2_ops_wait_finish(struct vb2_queue *arg0) {
 void vb2_ops_wait_prepare(struct vb2_queue *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int vb2_queue_init(struct vb2_queue *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_device_alloc() {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 void video_device_release(struct video_device *arg0) {
   return;
@@ -14596,9 +14596,12 @@ long int video_ioctl2(struct file *arg0, unsigned int arg1, unsigned long arg2) 
 void video_unregister_device(struct video_device *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

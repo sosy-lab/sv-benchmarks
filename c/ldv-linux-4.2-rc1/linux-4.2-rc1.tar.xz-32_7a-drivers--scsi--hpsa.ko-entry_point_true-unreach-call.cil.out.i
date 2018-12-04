@@ -19115,13 +19115,13 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -19190,9 +19190,9 @@ unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct blk_queue_tag *blk_init_tags(int arg0, int arg1) {
-  return (struct blk_queue_tag *)external_alloc();
+  return external_alloc(sizeof(struct blk_queue_tag));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
@@ -19206,9 +19206,9 @@ int __VERIFIER_nondet_int(void);
 int check_signature(const volatile void *arg0, const unsigned char *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *compat_alloc_user_space(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void complete(struct completion *arg0) {
   return;
@@ -19238,9 +19238,9 @@ void dev_printk(const char *arg0, const struct device *arg1, const char *arg2, .
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -19284,9 +19284,9 @@ void free_percpu(void *arg0) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -19365,9 +19365,9 @@ int __VERIFIER_nondet_int(void);
 int pci_find_capability(struct pci_dev *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_release_regions(struct pci_dev *arg0) {
   return;
@@ -19435,16 +19435,16 @@ int __VERIFIER_nondet_int(void);
 int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *scsi_device_lookup(struct Scsi_Host *arg0, uint arg1, uint arg2, u64 arg3) {
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 void scsi_device_put(struct scsi_device *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *scsi_device_type(unsigned int arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 int __VERIFIER_nondet_int(void);
 int scsi_dma_map(struct scsi_cmnd *arg0) {
@@ -19453,13 +19453,13 @@ int scsi_dma_map(struct scsi_cmnd *arg0) {
 void scsi_dma_unmap(struct scsi_cmnd *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_get(struct Scsi_Host *arg0) {
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -19483,9 +19483,9 @@ void scsi_scan_host(struct Scsi_Host *arg0) {
 void scsi_unblock_requests(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 void wait_for_completion_io(struct completion *arg0) {
   return;
@@ -19497,9 +19497,12 @@ unsigned long int wait_for_completion_io_timeout(struct completion *arg0, unsign
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

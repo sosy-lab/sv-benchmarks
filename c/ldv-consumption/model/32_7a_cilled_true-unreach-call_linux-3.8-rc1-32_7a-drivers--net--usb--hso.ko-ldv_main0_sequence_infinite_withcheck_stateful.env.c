@@ -38,10 +38,10 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -71,10 +71,10 @@ void __tasklet_hi_schedule(struct tasklet_struct *arg0) {
 // Function: __tty_alloc_driver
 // with type: struct tty_driver *__tty_alloc_driver(unsigned int, struct module *, unsigned long)
 // with return type: (struct tty_driver)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_driver *__tty_alloc_driver(unsigned int arg0, struct module *arg1, unsigned long arg2) {
   // Pointer type
-  return (struct tty_driver *)external_alloc();
+  return external_alloc(sizeof(struct tty_driver));
 }
 
 // Function: __wake_up
@@ -145,10 +145,10 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: alloc_netdev_mqs
 // with type: struct net_device *alloc_netdev_mqs(int, const char *, void (*)(struct net_device *), unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: cancel_work_sync
@@ -182,10 +182,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -353,10 +353,10 @@ void remove_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: rfkill_alloc
 // with type: struct rfkill *rfkill_alloc(const char *, struct device *, const enum rfkill_type , const struct rfkill_ops *, void *)
 // with return type: (struct rfkill)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rfkill *rfkill_alloc(const char *arg0, struct device *arg1, const enum rfkill_type arg2, const struct rfkill_ops *arg3, void *arg4) {
   // Pointer type
-  return (struct rfkill *)external_alloc();
+  return external_alloc(sizeof(struct rfkill));
 }
 
 // Function: rfkill_destroy
@@ -406,10 +406,10 @@ bool schedule_work(struct work_struct *arg0) {
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Skip function: snprintf
@@ -492,19 +492,19 @@ void tty_port_init(struct tty_port *arg0) {
 // Function: tty_port_register_device
 // with type: struct device *tty_port_register_device(struct tty_port *, struct tty_driver *, unsigned int, struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *tty_port_register_device(struct tty_port *arg0, struct tty_driver *arg1, unsigned int arg2, struct device *arg3) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: tty_port_tty_get
 // with type: struct tty_struct *tty_port_tty_get(struct tty_port *)
 // with return type: (struct tty_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
   // Pointer type
-  return (struct tty_struct *)external_alloc();
+  return external_alloc(sizeof(struct tty_struct));
 }
 
 // Function: tty_port_tty_set
@@ -576,10 +576,10 @@ void unregister_netdev(struct net_device *arg0) {
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_autopm_get_interface

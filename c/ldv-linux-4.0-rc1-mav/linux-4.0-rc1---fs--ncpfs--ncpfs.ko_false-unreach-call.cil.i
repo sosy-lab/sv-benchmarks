@@ -26030,20 +26030,20 @@ bool capable(int arg0) {
 void clear_inode(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_alloc(struct dentry *arg0, const struct qstr *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_hash_and_lookup(struct dentry *arg0, struct qstr *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_make_root(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void d_rehash(struct dentry *arg0) {
   return;
@@ -26063,9 +26063,9 @@ int del_timer_sync(struct timer_list *arg0) {
 void dentry_update_name_case(struct dentry *arg0, struct qstr *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *dget_parent(struct dentry *arg0) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void down_read(struct rw_semaphore *arg0) {
   return;
@@ -26076,9 +26076,9 @@ void down_write(struct rw_semaphore *arg0) {
 void dput(struct dentry *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int file_update_time(struct file *arg0) {
@@ -26088,9 +26088,9 @@ int __VERIFIER_nondet_int(void);
 int filemap_write_and_wait_range(struct address_space *arg0, loff_t arg1, loff_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pid *find_get_pid(int arg0) {
-  return (struct pid *)external_alloc();
+  return external_alloc(sizeof(struct pid));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -26166,9 +26166,9 @@ int __VERIFIER_nondet_int(void);
 int kill_pid(struct pid *arg0, int arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -26194,13 +26194,13 @@ int __VERIFIER_nondet_int(void);
 int ldv_mod_timer(int arg0, struct timer_list *arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nls_table *load_nls(char *arg0) {
-  return (struct nls_table *)external_alloc();
+  return external_alloc(sizeof(struct nls_table));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nls_table *load_nls_default() {
-  return (struct nls_table *)external_alloc();
+  return external_alloc(sizeof(struct nls_table));
 }
 void lock_sock_nested(struct sock *arg0, int arg1) {
   return;
@@ -26215,23 +26215,23 @@ int lockref_get_not_dead(struct lockref *arg0) {
 void make_bad_inode(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_49 *tmp = (struct __anonstruct_kgid_t_49*)external_alloc();
+  struct __anonstruct_kgid_t_49 *tmp = external_alloc(sizeof(struct __anonstruct_kgid_t_49));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_48 *tmp = (struct __anonstruct_kuid_t_48*)external_alloc();
+  struct __anonstruct_kuid_t_48 *tmp = external_alloc(sizeof(struct __anonstruct_kuid_t_48));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void might_fault() {
   return;
@@ -26247,27 +26247,27 @@ int __VERIFIER_nondet_int(void);
 int mod_timer(struct timer_list *arg0, unsigned long arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *mount_nodev(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void mutex_destroy(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *page_follow_link_light(struct dentry *arg0, struct nameidata *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void page_put_link(struct dentry *arg0, struct nameidata *arg1, void *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *pagecache_get_page(struct address_space *arg0, unsigned long arg1, int arg2, gfp_t arg3) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 pid_t pid_vnr(struct pid *arg0) {
@@ -26317,13 +26317,13 @@ void setattr_copy(struct inode *arg0, const struct iattr *arg1) {
 void shrink_dcache_parent(struct dentry *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *sockfd_lookup(int arg0, int *arg1) {
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int sync_filesystem(struct super_block *arg0) {
@@ -26365,9 +26365,12 @@ int utf8_to_utf32(const u8 *arg0, int arg1, unicode_t *arg2) {
 void vfree(const void *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

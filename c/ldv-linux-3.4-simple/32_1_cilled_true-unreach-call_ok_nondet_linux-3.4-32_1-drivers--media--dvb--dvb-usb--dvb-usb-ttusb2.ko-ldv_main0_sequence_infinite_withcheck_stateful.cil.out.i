@@ -6121,7 +6121,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp___7);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern int dvb_usb_device_init(struct usb_interface * , struct dvb_usb_device_properties * ,
                                struct module * , struct dvb_usb_device ** , short *adapter_nums ) ;
 extern void dvb_usb_device_exit(struct usb_interface * ) ;
@@ -10274,16 +10274,16 @@ int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __symbol_put(const char *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dvb_ca_en50221_init(struct dvb_adapter *arg0, struct dvb_ca_en50221 *arg1, int arg2, int arg3) {
@@ -10333,9 +10333,12 @@ int __VERIFIER_nondet_int(void);
 int usb_set_interface(struct usb_device *arg0, int arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -32277,9 +32277,9 @@ int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int __v4l2_ctrl_s_ctrl(struct v4l2_ctrl *arg0, s32 arg1) {
@@ -32319,9 +32319,9 @@ void add_timer(struct timer_list *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int cx2341x_handler_init(struct cx2341x_handler *arg0, unsigned int arg1) {
@@ -32413,13 +32413,13 @@ int __VERIFIER_nondet_int(void);
 int i2c_master_send(const struct i2c_client *arg0, const char *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_probed_device(struct i2c_adapter *arg0, struct i2c_board_info *arg1, const unsigned short *arg2, int (*arg3)(struct i2c_adapter *, unsigned short)) {
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -32428,9 +32428,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int jiffies_to_msecs(const unsigned long arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 int __VERIFIER_nondet_int(void);
 int kthread_stop(struct task_struct *arg0) {
@@ -32548,9 +32548,9 @@ long int schedule_timeout_interruptible(long arg0) {
 void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
@@ -32593,13 +32593,13 @@ int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_handler_setup(struct v4l2_ctrl_handler *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s64 arg3, s64 arg4, u64 arg5, s64 arg6) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, u8 arg3, u64 arg4, u8 arg5) {
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 int __VERIFIER_nondet_int(void);
 int v4l2_device_register(struct device *arg0, struct v4l2_device *arg1) {
@@ -32647,13 +32647,13 @@ int __VERIFIER_nondet_int(void);
 int v4l2_fh_is_singular(struct v4l2_fh *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *arg0, struct i2c_adapter *arg1, const char *arg2, u8 arg3, const unsigned short *arg4) {
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i2c_adapter *arg1, struct i2c_board_info *arg2, const unsigned short *arg3) {
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 int __VERIFIER_nondet_int(void);
 int v4l2_subdev_g_ctrl(struct v4l2_subdev *arg0, struct v4l2_control *arg1) {
@@ -32686,9 +32686,9 @@ int __VERIFIER_nondet_int(void);
 int v4l2_subdev_try_ext_ctrls(struct v4l2_subdev *arg0, struct v4l2_ext_controls *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 long __VERIFIER_nondet_long(void);
 long int video_ioctl2(struct file *arg0, unsigned int arg1, unsigned long arg2) {
@@ -32708,9 +32708,12 @@ int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -15504,9 +15504,9 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __blk_mq_end_request(struct request *arg0, int arg1) {
   return;
@@ -15550,16 +15550,16 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 void bio_advance(struct bio *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_clone_bioset(struct bio *arg0, gfp_t arg1, struct bio_set *arg2) {
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 void bio_put(struct bio *arg0) {
   return;
@@ -15577,13 +15577,13 @@ void blk_mq_end_request(struct request *arg0, int arg1) {
 void blk_mq_free_tag_set(struct blk_mq_tag_set *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *arg0) {
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct blk_mq_hw_ctx *blk_mq_map_queue(struct request_queue *arg0, const int arg1) {
-  return (struct blk_mq_hw_ctx *)external_alloc();
+  return external_alloc(sizeof(struct blk_mq_hw_ctx));
 }
 void blk_mq_start_request(struct request *arg0) {
   return;
@@ -15617,9 +15617,9 @@ int bus_register(struct bus_type *arg0) {
 void bus_unregister(struct bus_type *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page **ceph_alloc_page_vector(int arg0, gfp_t arg1) {
-  return (struct page **)external_alloc();
+  return external_alloc(sizeof(struct page *));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 u64 ceph_client_id(struct ceph_client *arg0) {
@@ -15632,13 +15632,13 @@ int ceph_compare_options(struct ceph_options *arg0, struct ceph_client *arg1) {
 void ceph_copy_from_page_vector(struct page **arg0, void *arg1, loff_t arg2, size_t arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_client *ceph_create_client(struct ceph_options *arg0, void *arg1, u64 arg2, u64 arg3) {
-  return (struct ceph_client *)external_alloc();
+  return external_alloc(sizeof(struct ceph_client));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_snap_context *ceph_create_snap_context(u32 arg0, gfp_t arg1) {
-  return (struct ceph_snap_context *)external_alloc();
+  return external_alloc(sizeof(struct ceph_snap_context));
 }
 void ceph_destroy_client(struct ceph_client *arg0) {
   return;
@@ -15646,13 +15646,13 @@ void ceph_destroy_client(struct ceph_client *arg0) {
 void ceph_destroy_options(struct ceph_options *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *ceph_file_part(const char *arg0, int arg1) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_snap_context *ceph_get_snap_context(struct ceph_snap_context *arg0) {
-  return (struct ceph_snap_context *)external_alloc();
+  return external_alloc(sizeof(struct ceph_snap_context));
 }
 int __VERIFIER_nondet_int(void);
 int ceph_monc_do_get_version(struct ceph_mon_client *arg0, const char *arg1, u64 *arg2) {
@@ -15669,9 +15669,9 @@ int __VERIFIER_nondet_int(void);
 int ceph_open_session(struct ceph_client *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_osd_request *ceph_osdc_alloc_request(struct ceph_osd_client *arg0, struct ceph_snap_context *arg1, unsigned int arg2, bool arg3, gfp_t arg4) {
-  return (struct ceph_osd_request *)external_alloc();
+  return external_alloc(sizeof(struct ceph_osd_request));
 }
 void ceph_osdc_build_request(struct ceph_osd_request *arg0, u64 arg1, struct ceph_snap_context *arg2, u64 arg3, struct timespec *arg4) {
   return;
@@ -15703,13 +15703,13 @@ int __VERIFIER_nondet_int(void);
 int ceph_pagelist_append(struct ceph_pagelist *arg0, const void *arg1, size_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_options *ceph_parse_options(char *arg0, const char *arg1, const char *arg2, int (*arg3)(char *, void *), void *arg4) {
-  return (struct ceph_options *)external_alloc();
+  return external_alloc(sizeof(struct ceph_options));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *ceph_pg_pool_name_by_id(struct ceph_osdmap *arg0, u64 arg1) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 int __VERIFIER_nondet_int(void);
 int ceph_pg_poolid_by_name(struct ceph_osdmap *arg0, const char *arg1) {
@@ -15724,10 +15724,10 @@ void ceph_release_page_vector(struct page **arg0, int arg1) {
 void complete_all(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -15757,9 +15757,9 @@ void down_write(struct rw_semaphore *arg0) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void ida_destroy(struct ida *arg0) {
   return;
@@ -15771,9 +15771,9 @@ int ida_simple_get(struct ida *arg0, unsigned int arg1, unsigned int arg2, gfp_t
 void ida_simple_remove(struct ida *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -15781,13 +15781,13 @@ void kmem_cache_destroy(struct kmem_cache *arg0) {
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
@@ -15813,9 +15813,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_probe_2() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 bool __VERIFIER_nondet_bool(void);
 bool libceph_compatible(void *arg0) {
@@ -15939,9 +15939,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

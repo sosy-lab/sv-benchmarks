@@ -7416,7 +7416,7 @@ static int dib0700_set_usb_xfer_len(struct dvb_usb_device *d , u16 nb_ts_packets
   return (ret);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int dib0700_i2c_xfer_new(struct i2c_adapter *adap , struct i2c_msg *msg , int num )
 {
   struct dvb_usb_device *d ;
@@ -14422,16 +14422,16 @@ int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __symbol_put(const char *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned short __VERIFIER_nondet_ushort(void);
 u16 dib0070_wbd_offset(struct dvb_frontend *arg0) {
@@ -14465,17 +14465,17 @@ int __VERIFIER_nondet_int(void);
 int dib0090_set_tune_state(struct dvb_frontend *arg0, enum frontend_tune_state arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *dib3000mc_get_tuner_i2c_master(struct dvb_frontend *arg0, int arg1) {
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 int __VERIFIER_nondet_int(void);
 int dib3000mc_i2c_enumeration(struct i2c_adapter *arg0, int arg1, u8 arg2, struct dib3000mc_config *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *dib7000m_get_i2c_master(struct dvb_frontend *arg0, enum dibx000_i2c_interface arg1, int arg2) {
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 int __VERIFIER_nondet_int(void);
 int dib7000m_pid_filter(struct dvb_frontend *arg0, u8 arg1, u16 arg2, u8 arg3) {
@@ -14489,9 +14489,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 dib7000p_ctrl_timf(struct dvb_frontend *arg0, u8 arg1, u32 arg2) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *dib7000p_get_i2c_master(struct dvb_frontend *arg0, enum dibx000_i2c_interface arg1, int arg2) {
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 int __VERIFIER_nondet_int(void);
 int dib7000p_i2c_enumeration(struct i2c_adapter *arg0, int arg1, u8 arg2, struct dib7000p_config *arg3) {
@@ -14529,9 +14529,9 @@ int __VERIFIER_nondet_int(void);
 int dib7090_get_adc_power(struct dvb_frontend *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *dib7090_get_i2c_tuner(struct dvb_frontend *arg0) {
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 int __VERIFIER_nondet_int(void);
 int dib7090_slave_reset(struct dvb_frontend *arg0) {
@@ -14549,13 +14549,13 @@ int __VERIFIER_nondet_int(void);
 s32 dib8000_get_adc_power(struct dvb_frontend *arg0, u8 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *dib8000_get_i2c_master(struct dvb_frontend *arg0, enum dibx000_i2c_interface arg1, int arg2) {
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dvb_frontend *dib8000_get_slave_frontend(struct dvb_frontend *arg0, int arg1) {
-  return (struct dvb_frontend *)external_alloc();
+  return external_alloc(sizeof(struct dvb_frontend));
 }
 int __VERIFIER_nondet_int(void);
 int dib8000_i2c_enumeration(struct i2c_adapter *arg0, int arg1, u8 arg2, u8 arg3, u8 arg4) {
@@ -14592,9 +14592,9 @@ int __VERIFIER_nondet_int(void);
 int dib8000_update_pll(struct dvb_frontend *arg0, struct dibx000_bandwidth_config *arg1, u32 arg2, u8 arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *dib8096p_get_i2c_tuner(struct dvb_frontend *arg0) {
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 int __VERIFIER_nondet_int(void);
 int dib8096p_tuner_sleep(struct dvb_frontend *arg0, int arg1) {
@@ -14664,9 +14664,12 @@ int __VERIFIER_nondet_int(void);
 int usb_register_driver(struct usb_driver *arg0, struct module *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

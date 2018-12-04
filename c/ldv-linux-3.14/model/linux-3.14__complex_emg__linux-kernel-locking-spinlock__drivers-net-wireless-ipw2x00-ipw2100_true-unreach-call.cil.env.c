@@ -65,10 +65,10 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -148,10 +148,10 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_libipw
 // with type: struct net_device *alloc_libipw(int, int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_libipw(int arg0, int arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -272,10 +272,10 @@ int eth_validate_addr(struct net_device *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: finish_wait
@@ -377,10 +377,10 @@ void iowrite8(u8 arg0, void *arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrtouint
@@ -478,10 +478,10 @@ int libipw_change_mtu(struct net_device *arg0, int arg1) {
 // Function: libipw_get_geo
 // with type: const struct libipw_geo *libipw_get_geo(struct libipw_device *)
 // with return type: (struct libipw_geo)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct libipw_geo *libipw_get_geo(struct libipw_device *arg0) {
   // Pointer type
-  return (const struct libipw_geo *)external_alloc();
+  return external_alloc(sizeof(const struct libipw_geo));
 }
 
 // Function: libipw_networks_age
@@ -722,10 +722,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap
@@ -831,10 +831,10 @@ long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int 
 // Function: print_ssid
 // with type: const char *print_ssid(char *, const char *, u8 )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *print_ssid(char *arg0, const char *arg1, u8 arg2) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: printk
@@ -922,10 +922,10 @@ long int schedule_timeout_uninterruptible(long arg0) {
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Skip function: snprintf

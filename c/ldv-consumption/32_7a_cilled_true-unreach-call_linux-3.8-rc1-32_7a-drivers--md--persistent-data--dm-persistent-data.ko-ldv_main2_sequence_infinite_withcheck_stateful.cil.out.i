@@ -10446,24 +10446,24 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 crc32c(u32 arg0, const void *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_bufio_client *dm_bufio_client_create(struct block_device *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, void (*arg4)(struct dm_buffer *), void (*arg5)(struct dm_buffer *)) {
-  return (struct dm_bufio_client *)external_alloc();
+  return external_alloc(sizeof(struct dm_bufio_client));
 }
 void dm_bufio_client_destroy(struct dm_bufio_client *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_get(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_get_aux_data(struct dm_buffer *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_get_block_data(struct dm_buffer *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 sector_t dm_bufio_get_block_number(struct dm_buffer *arg0) {
@@ -10473,9 +10473,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int dm_bufio_get_block_size(struct dm_bufio_client *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_bufio_client *dm_bufio_get_client(struct dm_buffer *arg0) {
-  return (struct dm_bufio_client *)external_alloc();
+  return external_alloc(sizeof(struct dm_bufio_client));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 sector_t dm_bufio_get_device_size(struct dm_bufio_client *arg0) {
@@ -10484,13 +10484,13 @@ sector_t dm_bufio_get_device_size(struct dm_bufio_client *arg0) {
 void dm_bufio_mark_buffer_dirty(struct dm_buffer *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_new(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_read(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dm_bufio_release(struct dm_buffer *arg0) {
   return;
@@ -10532,9 +10532,12 @@ int __VERIFIER_nondet_int(void);
 int wake_up_process(struct task_struct *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

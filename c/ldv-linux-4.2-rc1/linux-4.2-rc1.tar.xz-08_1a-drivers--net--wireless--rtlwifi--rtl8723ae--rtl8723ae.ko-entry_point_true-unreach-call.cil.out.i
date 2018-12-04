@@ -25031,9 +25031,9 @@ void ldv_check_final_state(void)
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const char *arg2) {
@@ -25227,9 +25227,9 @@ void rtl8723_save_adda_registers(struct ieee80211_hw *arg0, u32 *arg1, u32 *arg2
 void rtl8723ae_firmware_selfreset(struct ieee80211_hw *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rtl_btc_ops *rtl_btc_get_ops_pointer() {
-  return (struct rtl_btc_ops *)external_alloc();
+  return external_alloc(sizeof(struct rtl_btc_ops));
 }
 unsigned char __VERIFIER_nondet_uchar(void);
 u8 rtl_cam_add_one_entry(struct ieee80211_hw *arg0, u8 *arg1, u32 arg2, u32 arg3, u32 arg4, u32 arg5, u8 *arg6) {
@@ -25314,9 +25314,9 @@ int __VERIFIER_nondet_int(void);
 int rtlwifi_rate_mapping(struct ieee80211_hw *arg0, bool arg1, bool arg2, u8 arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void trace_hardirqs_off() {
   return;
@@ -25327,13 +25327,16 @@ void trace_hardirqs_on() {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

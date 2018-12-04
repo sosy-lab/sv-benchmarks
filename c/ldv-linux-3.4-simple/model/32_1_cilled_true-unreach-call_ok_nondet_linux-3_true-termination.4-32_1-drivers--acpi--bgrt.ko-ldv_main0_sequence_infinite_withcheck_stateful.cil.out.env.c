@@ -18,10 +18,10 @@ acpi_status acpi_get_table(acpi_string arg0, u32 arg1, struct acpi_table_header 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t offset, unsigned long size)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -35,10 +35,10 @@ void iounmap(volatile void *arg0) {
 // Function: kobject_create_and_add
 // with type: struct kobject *kobject_create_and_add(const char *name, struct kobject *parent)
 // with return type: (struct kobject)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_create_and_add(const char *arg0, struct kobject *arg1) {
   // Pointer type
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 
 // Function: kobject_put

@@ -101,10 +101,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __video_register_device
@@ -171,10 +171,10 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -190,10 +190,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: i2c_get_adapter
 // with type: struct i2c_adapter *i2c_get_adapter(int)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *i2c_get_adapter(int arg0) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 
 // Function: i2c_put_adapter
@@ -207,10 +207,10 @@ void i2c_put_adapter(struct i2c_adapter *arg0) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -345,10 +345,10 @@ int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: pm_runtime_enable
@@ -431,10 +431,10 @@ void v4l2_get_timestamp(struct timeval *arg0) {
 // Function: v4l2_i2c_new_subdev_board
 // with type: struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *, struct i2c_adapter *, struct i2c_board_info *, const unsigned short *)
 // with return type: (struct v4l2_subdev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i2c_adapter *arg1, struct i2c_board_info *arg2, const unsigned short *arg3) {
   // Pointer type
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 
 // Function: v4l_bound_align_image
@@ -448,19 +448,19 @@ void v4l_bound_align_image(unsigned int *arg0, unsigned int arg1, unsigned int a
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_device_alloc
 // with type: struct video_device *video_device_alloc()
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_device_alloc() {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_device_release

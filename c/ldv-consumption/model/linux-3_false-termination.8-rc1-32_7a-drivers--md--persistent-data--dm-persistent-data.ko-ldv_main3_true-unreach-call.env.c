@@ -65,10 +65,10 @@ u32 crc32c(u32 arg0, const void *arg1, unsigned int arg2) {
 // Function: dm_bufio_client_create
 // with type: struct dm_bufio_client *dm_bufio_client_create(struct block_device *, unsigned int, unsigned int, unsigned int, void (*)(struct dm_buffer *), void (*)(struct dm_buffer *))
 // with return type: (struct dm_bufio_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_bufio_client *dm_bufio_client_create(struct block_device *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, void (*arg4)(struct dm_buffer *), void (*arg5)(struct dm_buffer *)) {
   // Pointer type
-  return (struct dm_bufio_client *)external_alloc();
+  return external_alloc(sizeof(struct dm_bufio_client));
 }
 
 // Function: dm_bufio_client_destroy
@@ -82,28 +82,28 @@ void dm_bufio_client_destroy(struct dm_bufio_client *arg0) {
 // Function: dm_bufio_get
 // with type: void *dm_bufio_get(struct dm_bufio_client *, sector_t , struct dm_buffer **)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_get(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dm_bufio_get_aux_data
 // with type: void *dm_bufio_get_aux_data(struct dm_buffer *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_get_aux_data(struct dm_buffer *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dm_bufio_get_block_data
 // with type: void *dm_bufio_get_block_data(struct dm_buffer *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_get_block_data(struct dm_buffer *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dm_bufio_get_block_number
@@ -129,10 +129,10 @@ unsigned int dm_bufio_get_block_size(struct dm_bufio_client *arg0) {
 // Function: dm_bufio_get_client
 // with type: struct dm_bufio_client *dm_bufio_get_client(struct dm_buffer *)
 // with return type: (struct dm_bufio_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_bufio_client *dm_bufio_get_client(struct dm_buffer *arg0) {
   // Pointer type
-  return (struct dm_bufio_client *)external_alloc();
+  return external_alloc(sizeof(struct dm_bufio_client));
 }
 
 // Function: dm_bufio_get_device_size
@@ -157,19 +157,19 @@ void dm_bufio_mark_buffer_dirty(struct dm_buffer *arg0) {
 // Function: dm_bufio_new
 // with type: void *dm_bufio_new(struct dm_bufio_client *, sector_t , struct dm_buffer **)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_new(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dm_bufio_read
 // with type: void *dm_bufio_read(struct dm_bufio_client *, sector_t , struct dm_buffer **)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_read(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dm_bufio_release

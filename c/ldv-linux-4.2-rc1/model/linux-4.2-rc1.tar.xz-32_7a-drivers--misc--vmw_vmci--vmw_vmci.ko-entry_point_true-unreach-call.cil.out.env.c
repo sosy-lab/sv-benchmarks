@@ -329,19 +329,19 @@ void dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -423,10 +423,10 @@ void iowrite8_rep(void *arg0, const void *arg1, unsigned long arg2) {
 // Function: krealloc
 // with type: void *krealloc(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *krealloc(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_initialize
@@ -608,10 +608,10 @@ int pcim_iomap_regions(struct pci_dev *arg0, int arg1, const char *arg2) {
 // Function: pcim_iomap_table
 // with type: void * const *pcim_iomap_table(struct pci_dev *)
 // with return type: (const (void)*)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void * const *pcim_iomap_table(struct pci_dev *arg0) {
   // Pointer type
-  return (void * const *)external_alloc();
+  return external_alloc(sizeof(void * const));
 }
 
 // Function: prepare_to_wait_event
@@ -734,19 +734,19 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vmap
 // with type: void *vmap(struct page **, unsigned int, unsigned long, pgprot_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmap(struct page **arg0, unsigned int arg1, unsigned long arg2, pgprot_t arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vunmap

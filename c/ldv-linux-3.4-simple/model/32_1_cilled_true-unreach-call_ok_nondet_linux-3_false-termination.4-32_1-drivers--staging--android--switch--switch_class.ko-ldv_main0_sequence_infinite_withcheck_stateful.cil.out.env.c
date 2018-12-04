@@ -5,10 +5,10 @@
 // Function: __class_create
 // with type: struct class *__class_create(struct module *owner, const char *name, struct lock_class_key *key)
 // with return type: (struct class)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 
 // Function: class_destroy
@@ -22,10 +22,10 @@ void class_destroy(struct class *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -40,10 +40,10 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 // Function: device_create
 // with type: struct device *device_create(struct class *cls, struct device *parent, dev_t devt, void *drvdata, const char *fmt, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_create_file

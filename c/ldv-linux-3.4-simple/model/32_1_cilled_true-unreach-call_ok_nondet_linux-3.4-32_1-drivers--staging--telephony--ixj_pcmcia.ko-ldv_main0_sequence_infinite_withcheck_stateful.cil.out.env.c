@@ -14,10 +14,10 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 // Function: ixj_pcmcia_probe
 // with type: IXJ *ixj_pcmcia_probe(unsigned long, unsigned long)
 // with return type: (IXJ )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 IXJ *ixj_pcmcia_probe(unsigned long arg0, unsigned long arg1) {
   // Pointer type
-  return (IXJ *)external_alloc();
+  return external_alloc(sizeof(IXJ));
 }
 
 // Skip function: kfree

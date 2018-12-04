@@ -14415,9 +14415,9 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -14445,9 +14445,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
@@ -14455,13 +14455,13 @@ void blk_cleanup_queue(struct request_queue *arg0) {
 void blk_dump_rq_flags(struct request *arg0, char *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_fetch_request(struct request_queue *arg0) {
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_init_queue(void (*arg0)(struct request_queue *), spinlock_t *arg1) {
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 void blk_queue_bounce_limit(struct request_queue *arg0, u64 arg1) {
   return;
@@ -14504,9 +14504,9 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
@@ -14596,9 +14596,9 @@ int __VERIFIER_nondet_int(void);
 int sg_nents(struct scatterlist *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 void trace_hardirqs_off() {
   return;
@@ -14615,9 +14615,12 @@ void wait_for_completion(struct completion *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

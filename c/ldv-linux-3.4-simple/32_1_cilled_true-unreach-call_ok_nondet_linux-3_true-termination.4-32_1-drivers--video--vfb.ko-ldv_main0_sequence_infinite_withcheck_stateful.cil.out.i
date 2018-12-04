@@ -5571,9 +5571,9 @@ long ldv__builtin_expect(long val , long res )
   return (val);
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -5590,9 +5590,9 @@ int __VERIFIER_nondet_int(void);
 int fb_find_mode(struct fb_var_screeninfo *arg0, struct fb_info *arg1, const char *arg2, const struct fb_videomode *arg3, unsigned int arg4, const struct fb_videomode *arg5, unsigned int arg6) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
-  return (struct fb_info *)external_alloc();
+  return external_alloc(sizeof(struct fb_info));
 }
 void framebuffer_release(struct fb_info *arg0) {
   return;
@@ -5607,9 +5607,9 @@ int __VERIFIER_nondet_int(void);
 int platform_device_add(struct platform_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 void platform_device_put(struct platform_device *arg0) {
   return;
@@ -5643,21 +5643,24 @@ int unregister_framebuffer(struct fb_info *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc_32(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *vmalloc_to_page(const void *arg0) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int vmalloc_to_pfn(const void *arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

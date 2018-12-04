@@ -5,10 +5,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __const_udelay
@@ -105,19 +105,19 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __symbol_put
@@ -286,10 +286,10 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -461,10 +461,10 @@ int i2c_del_adapter(struct i2c_adapter *arg0) {
 // Function: i2c_new_probed_device
 // with type: struct i2c_client *i2c_new_probed_device(struct i2c_adapter *, struct i2c_board_info *, const unsigned short *, int (*)(struct i2c_adapter *, unsigned short))
 // with return type: (struct i2c_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_probed_device(struct i2c_adapter *arg0, struct i2c_board_info *arg1, const unsigned short *arg2, int (*arg3)(struct i2c_adapter *, unsigned short)) {
   // Pointer type
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
 
 // Function: init_timer_key
@@ -478,10 +478,10 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -506,13 +506,13 @@ unsigned int jiffies_to_msecs(const unsigned long arg0) {
 // Function: ktime_get
 // with type: ktime_t ktime_get()
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get() {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -595,11 +595,11 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: ns_to_timeval
 // with type: struct timeval ns_to_timeval(const s64 )
 // with return type: struct timeval
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
   // Composite type
-  struct timeval *tmp = (struct timeval*)external_alloc();
+  struct timeval *tmp = external_alloc(sizeof(struct timeval));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -853,10 +853,10 @@ int v4l2_ctrl_handler_setup(struct v4l2_ctrl_handler *arg0) {
 // Function: v4l2_ctrl_new_std
 // with type: struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *, const struct v4l2_ctrl_ops *, u32 , s32 , s32 , u32 , s32 )
 // with return type: (struct v4l2_ctrl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s32 arg3, s32 arg4, u32 arg5, s32 arg6) {
   // Pointer type
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 
 // Function: v4l2_ctrl_s_ctrl
@@ -938,10 +938,10 @@ int v4l2_fh_is_singular(struct v4l2_fh *arg0) {
 // Function: v4l2_i2c_new_subdev
 // with type: struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *, struct i2c_adapter *, const char *, u8 , const unsigned short *)
 // with return type: (struct v4l2_subdev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *arg0, struct i2c_adapter *arg1, const char *arg2, u8 arg3, const unsigned short *arg4) {
   // Pointer type
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 
 // Function: v4l2_subdev_g_ctrl
@@ -1018,19 +1018,19 @@ int v4l2_subdev_try_ext_ctrls(struct v4l2_subdev *arg0, struct v4l2_ext_controls
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_device_alloc
 // with type: struct video_device *video_device_alloc()
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_device_alloc() {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_device_release
@@ -1174,10 +1174,10 @@ int videobuf_streamon(struct videobuf_queue *arg0) {
 // Function: videobuf_to_vmalloc
 // with type: void *videobuf_to_vmalloc(struct videobuf_buffer *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *videobuf_to_vmalloc(struct videobuf_buffer *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: videobuf_vmalloc_free

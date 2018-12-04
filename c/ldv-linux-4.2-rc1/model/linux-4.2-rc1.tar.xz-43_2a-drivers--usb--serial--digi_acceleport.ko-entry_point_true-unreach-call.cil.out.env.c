@@ -153,10 +153,10 @@ int ldv_probe_3() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: lockdep_init_map
@@ -282,10 +282,10 @@ void tty_kref_put(struct tty_struct *arg0) {
 // Function: tty_port_tty_get
 // with type: struct tty_struct *tty_port_tty_get(struct tty_port *)
 // with return type: (struct tty_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
   // Pointer type
-  return (struct tty_struct *)external_alloc();
+  return external_alloc(sizeof(struct tty_struct));
 }
 
 // Function: tty_port_tty_wakeup

@@ -100,10 +100,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -174,10 +174,10 @@ int ldv_release_3() {
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: memset
@@ -327,10 +327,10 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 // Function: usb_altnum_to_altsetting
 // with type: struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *, unsigned int)
 // with return type: (struct usb_host_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_host_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_host_interface));
 }
 
 // Function: usb_control_msg
@@ -412,10 +412,10 @@ void vfree(const void *arg0) {
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_unregister_device
@@ -429,19 +429,19 @@ void video_unregister_device(struct video_device *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vmalloc_to_page
 // with type: struct page *vmalloc_to_page(const void *)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *vmalloc_to_page(const void *arg0) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: warn_slowpath_fmt

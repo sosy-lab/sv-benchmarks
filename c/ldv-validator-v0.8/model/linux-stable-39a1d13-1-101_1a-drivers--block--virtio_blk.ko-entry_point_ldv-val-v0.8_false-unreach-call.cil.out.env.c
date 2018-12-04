@@ -76,19 +76,19 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: bio_map_kern
 // with type: struct bio *bio_map_kern(struct request_queue *, void *, unsigned int, gfp_t )
 // with return type: (struct bio)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_map_kern(struct request_queue *arg0, void *arg1, unsigned int arg2, gfp_t arg3) {
   // Pointer type
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 
 // Function: bio_put
@@ -119,19 +119,19 @@ int blk_execute_rq(struct request_queue *arg0, struct gendisk *arg1, struct requ
 // Function: blk_init_queue
 // with type: struct request_queue *blk_init_queue(request_fn_proc *, spinlock_t *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_init_queue(request_fn_proc *arg0, spinlock_t *arg1) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_peek_request
 // with type: struct request *blk_peek_request(struct request_queue *)
 // with return type: (struct request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_peek_request(struct request_queue *arg0) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 
 // Function: blk_queue_alignment_offset
@@ -281,19 +281,19 @@ void list_del(struct list_head *arg0) {
 // Function: mempool_alloc
 // with type: void *mempool_alloc(mempool_t *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: mempool_create
 // with type: mempool_t *mempool_create(int, mempool_alloc_t *, mempool_free_t *, void *)
 // with return type: (mempool_t )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
   // Pointer type
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 
 // Function: mempool_destroy
@@ -411,10 +411,10 @@ int virtqueue_add_buf_gfp(struct virtqueue *arg0, struct scatterlist *arg1, unsi
 // Function: virtqueue_get_buf
 // with type: void *virtqueue_get_buf(struct virtqueue *, unsigned int *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: virtqueue_kick

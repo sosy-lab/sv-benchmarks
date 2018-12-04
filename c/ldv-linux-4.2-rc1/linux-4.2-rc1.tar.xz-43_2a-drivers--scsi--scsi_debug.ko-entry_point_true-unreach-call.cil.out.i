@@ -14385,9 +14385,9 @@ int ldv_spin_trylock(void)
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *__root_device_register(const char *arg0, struct module *arg1) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void __tasklet_hi_schedule(struct tasklet_struct *arg0) {
   return;
@@ -14509,9 +14509,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_3() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -14538,9 +14538,9 @@ int __VERIFIER_nondet_int(void);
 int scsi_change_queue_depth(struct scsi_device *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -14596,9 +14596,12 @@ void vfree(const void *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

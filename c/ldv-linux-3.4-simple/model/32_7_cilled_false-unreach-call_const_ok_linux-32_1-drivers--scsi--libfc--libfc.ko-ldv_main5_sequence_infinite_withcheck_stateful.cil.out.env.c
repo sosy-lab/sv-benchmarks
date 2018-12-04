@@ -5,28 +5,28 @@
 // Function: __alloc_percpu
 // with type: void *__alloc_percpu(size_t size, size_t align)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __alloc_skb
 // with type: struct sk_buff *__alloc_skb(unsigned int size, gfp_t priority, int fclone, int node)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(char *fmt, unsigned int flags, int max_active, struct lock_class_key *key, char *lock_name, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __get_page_tail
@@ -226,10 +226,10 @@ void fc_host_post_event(struct Scsi_Host *arg0, u32 arg1, enum fc_host_event_cod
 // Function: fc_remote_port_add
 // with type: struct fc_rport *fc_remote_port_add(struct Scsi_Host *shost, int channel, struct fc_rport_identifiers *ids)
 // with return type: (struct fc_rport)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_rport *fc_remote_port_add(struct Scsi_Host *arg0, int arg1, struct fc_rport_identifiers *arg2) {
   // Pointer type
-  return (struct fc_rport *)external_alloc();
+  return external_alloc(sizeof(struct fc_rport));
 }
 
 // Function: fc_remote_port_delete
@@ -319,10 +319,10 @@ void kfree_skb(struct sk_buff *arg0) {
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -356,19 +356,19 @@ void list_del(struct list_head *arg0) {
 // Function: mempool_alloc
 // with type: void *mempool_alloc(mempool_t *pool, gfp_t gfp_mask)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: mempool_create
 // with type: mempool_t *mempool_create(int min_nr, mempool_alloc_t *alloc_fn, mempool_free_t *free_fn, void *pool_data)
 // with return type: (mempool_t )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
   // Pointer type
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 
 // Function: mempool_destroy
@@ -470,10 +470,10 @@ void scsi_adjust_queue_depth(struct scsi_device *arg0, int arg1, int arg2) {
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_is_fc_rport
@@ -512,19 +512,19 @@ size_t sg_copy_to_buffer(struct scatterlist *arg0, unsigned int arg1, void *arg2
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *skb, unsigned int len)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_trim

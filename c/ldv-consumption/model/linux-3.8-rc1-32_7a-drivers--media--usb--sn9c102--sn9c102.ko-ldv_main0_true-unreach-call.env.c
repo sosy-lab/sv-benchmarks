@@ -155,10 +155,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -405,19 +405,19 @@ void up_write(struct rw_semaphore *arg0) {
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_altnum_to_altsetting
 // with type: struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *, unsigned int)
 // with return type: (struct usb_host_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_host_interface *usb_altnum_to_altsetting(const struct usb_interface *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_host_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_host_interface));
 }
 
 // Function: usb_control_msg
@@ -440,19 +440,19 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 
 // Function: usb_ifnum_to_if
 // with type: struct usb_interface *usb_ifnum_to_if(const struct usb_device *, unsigned int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_kill_urb
@@ -466,10 +466,10 @@ void usb_kill_urb(struct urb *arg0) {
 // Function: usb_match_id
 // with type: const struct usb_device_id *usb_match_id(struct usb_interface *, const struct usb_device_id *)
 // with return type: (struct usb_device_id)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct usb_device_id *usb_match_id(struct usb_interface *arg0, const struct usb_device_id *arg1) {
   // Pointer type
-  return (const struct usb_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct usb_device_id));
 }
 
 // Function: usb_put_dev
@@ -525,19 +525,19 @@ void vfree(const void *arg0) {
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_device_alloc
 // with type: struct video_device *video_device_alloc()
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_device_alloc() {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_device_release
@@ -568,19 +568,19 @@ int vm_insert_page(struct vm_area_struct *arg0, unsigned long arg1, struct page 
 // Function: vmalloc_32_user
 // with type: void *vmalloc_32_user(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc_32_user(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vmalloc_to_page
 // with type: struct page *vmalloc_to_page(const void *)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *vmalloc_to_page(const void *arg0) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: wait_for_completion_interruptible

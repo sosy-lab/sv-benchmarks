@@ -12837,9 +12837,9 @@ void ldv_handler_precall() {
 void list_del(struct list_head *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void might_fault() {
   return;
@@ -12879,9 +12879,9 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout_uninterruptible(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_info_entry *snd_info_create_module_entry(struct module *arg0, const char *arg1, struct snd_info_entry *arg2) {
-  return (struct snd_info_entry *)external_alloc();
+  return external_alloc(sizeof(struct snd_info_entry));
 }
 void snd_info_free_entry(struct snd_info_entry *arg0) {
   return;
@@ -12955,16 +12955,19 @@ void up_write(struct rw_semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -6496,13 +6496,13 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *devm_hwmon_device_register_with_groups(struct device *arg0, const char *arg1, void *arg2, const struct attribute_group **arg3) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void i2c_del_driver(struct i2c_driver *arg0) {
   return;
@@ -6552,9 +6552,12 @@ int __VERIFIER_nondet_int(void);
 int vid_from_reg(int arg0, u8 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

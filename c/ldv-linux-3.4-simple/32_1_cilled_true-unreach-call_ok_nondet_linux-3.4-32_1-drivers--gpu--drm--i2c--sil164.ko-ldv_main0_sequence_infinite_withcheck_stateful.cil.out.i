@@ -6263,9 +6263,9 @@ int __VERIFIER_nondet_int(void);
 int i2c_master_send(const struct i2c_client *arg0, const char *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_device(struct i2c_adapter *arg0, const struct i2c_board_info *arg1) {
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
 int __VERIFIER_nondet_int(void);
 int i2c_register_driver(struct module *arg0, struct i2c_driver *arg1) {
@@ -6284,9 +6284,12 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

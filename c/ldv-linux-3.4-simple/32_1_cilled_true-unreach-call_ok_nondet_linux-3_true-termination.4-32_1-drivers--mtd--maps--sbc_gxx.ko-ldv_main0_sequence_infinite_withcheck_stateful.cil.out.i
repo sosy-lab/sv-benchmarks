@@ -927,7 +927,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
   return (tmp);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern void iounmap(void volatile *addr ) ;
 __inline static void memcpy_fromio(void *dst , void const volatile *src , size_t count ) __attribute__((__no_instrument_function__)) ;
 __inline static void memcpy_fromio(void *dst , void const volatile *src , size_t count )
@@ -1643,9 +1643,9 @@ long ldv__builtin_expect(long val , long res )
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 void _raw_spin_lock(raw_spinlock_t *arg0) {
   return;
@@ -1653,13 +1653,13 @@ void _raw_spin_lock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mtd_info *do_map_probe(const char *arg0, struct map_info *arg1) {
-  return (struct mtd_info *)external_alloc();
+  return external_alloc(sizeof(struct mtd_info));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -1682,9 +1682,12 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

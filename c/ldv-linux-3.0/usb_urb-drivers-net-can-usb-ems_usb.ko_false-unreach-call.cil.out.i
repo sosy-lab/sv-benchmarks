@@ -5763,7 +5763,7 @@ static void ems_usb_write_bulk_callback(struct urb *urb )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int ems_usb_command_msg(struct ems_usb *dev , struct ems_cpc_msg *msg )
 { int actual_length ;
   size_t __len ;
@@ -6892,9 +6892,9 @@ void ldv_check_final_state(void)
 void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -6906,17 +6906,17 @@ int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *alloc_can_err_skb(struct net_device *arg0, struct can_frame **arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *alloc_can_skb(struct net_device *arg0, struct can_frame **arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_candev(int arg0, unsigned int arg1) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 void can_bus_off(struct net_device *arg0) {
   return;
@@ -6940,9 +6940,9 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -6964,9 +6964,9 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ldv_undefined_pointer() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void netif_device_detach(struct net_device *arg0) {
   return;
@@ -7025,9 +7025,12 @@ int usb_unlink_urb(struct urb *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

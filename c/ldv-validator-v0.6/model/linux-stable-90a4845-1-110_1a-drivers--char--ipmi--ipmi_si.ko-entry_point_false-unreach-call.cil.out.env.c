@@ -46,10 +46,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: _dev_info
@@ -187,10 +187,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_notice
@@ -222,10 +222,10 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: dmi_find_device
 // with type: const struct dmi_device *dmi_find_device(int, const char *, const struct dmi_device *)
 // with return type: (struct dmi_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct dmi_device *dmi_find_device(int arg0, const char *arg1, const struct dmi_device *arg2) {
   // Pointer type
-  return (const struct dmi_device *)external_alloc();
+  return external_alloc(sizeof(const struct dmi_device));
 }
 
 // Function: driver_register
@@ -264,10 +264,10 @@ void getnstimeofday(struct timespec *arg0) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -281,10 +281,10 @@ void iounmap(volatile void *arg0) {
 // Function: ipmi_alloc_smi_msg
 // with type: struct ipmi_smi_msg *ipmi_alloc_smi_msg()
 // with return type: (struct ipmi_smi_msg)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ipmi_smi_msg *ipmi_alloc_smi_msg() {
   // Pointer type
-  return (struct ipmi_smi_msg *)external_alloc();
+  return external_alloc(sizeof(struct ipmi_smi_msg));
 }
 
 // Function: ipmi_register_smi
@@ -335,19 +335,19 @@ int ipmi_unregister_smi(ipmi_smi_t arg0) {
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: kthread_create
 // with type: struct task_struct *kthread_create(int (*)(void *), void *, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create(int (*arg0)(void *), void *arg1, const char *arg2, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -460,10 +460,10 @@ int platform_device_add(struct platform_device *arg0) {
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *, int)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_unregister
@@ -477,10 +477,10 @@ void platform_device_unregister(struct platform_device *arg0) {
 // Function: pnp_get_resource
 // with type: struct resource *pnp_get_resource(struct pnp_dev *, unsigned long, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *pnp_get_resource(struct pnp_dev *arg0, unsigned long arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: pnp_register_driver

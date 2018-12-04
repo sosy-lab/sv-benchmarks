@@ -3706,17 +3706,17 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dmi_get_system_info(int arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0) {
@@ -3765,16 +3765,16 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_release_regions(struct pci_dev *arg0) {
   return;
@@ -3814,9 +3814,12 @@ void sysfs_remove_bin_file(struct kobject *arg0, const struct bin_attribute *arg
 void sysfs_remove_file(struct kobject *arg0, const struct attribute *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

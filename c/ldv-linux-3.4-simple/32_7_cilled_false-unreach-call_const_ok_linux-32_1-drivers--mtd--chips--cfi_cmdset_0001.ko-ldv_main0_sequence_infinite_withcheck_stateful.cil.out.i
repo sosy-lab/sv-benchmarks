@@ -14134,9 +14134,9 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void cfi_fixup(struct mtd_info *arg0, struct cfi_fixup *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cfi_extquery *cfi_read_pri(struct map_info *arg0, uint16_t arg1, uint16_t arg2, char *arg3) {
-  return (struct cfi_extquery *)external_alloc();
+  return external_alloc(sizeof(struct cfi_extquery));
 }
 int __VERIFIER_nondet_int(void);
 int cfi_varsize_frob(struct mtd_info *arg0, int (*arg1)(struct map_info *map, struct flchip *chip, unsigned long adr, int len, void *thunk), loff_t arg2, size_t arg3, void *arg4) {
@@ -14181,9 +14181,12 @@ int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

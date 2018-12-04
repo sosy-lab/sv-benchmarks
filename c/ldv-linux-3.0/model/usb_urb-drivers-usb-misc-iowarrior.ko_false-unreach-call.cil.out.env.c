@@ -13,10 +13,10 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1)
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t size, gfp_t flags)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __mutex_init
@@ -98,10 +98,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -124,10 +124,10 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t gfp, const char *fmt, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -151,10 +151,10 @@ void ldv_initialize() {
 // Function: ldv_undefined_pointer
 // with type: void *ldv_undefined_pointer()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ldv_undefined_pointer() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: memcmp
@@ -242,10 +242,10 @@ void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg
 // Function: usb_find_interface
 // with type: struct usb_interface *usb_find_interface(struct usb_driver *drv, int minor)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_kill_urb

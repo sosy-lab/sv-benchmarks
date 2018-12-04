@@ -5,10 +5,10 @@
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -23,10 +23,10 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -48,10 +48,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: mutex_lock_nested
@@ -91,10 +91,10 @@ int platform_device_add_data(struct platform_device *arg0, const void *arg1, siz
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *, int)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_unregister

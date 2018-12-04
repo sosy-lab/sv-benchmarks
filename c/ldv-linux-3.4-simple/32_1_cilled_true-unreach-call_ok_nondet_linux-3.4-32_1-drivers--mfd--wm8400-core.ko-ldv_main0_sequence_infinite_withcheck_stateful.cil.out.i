@@ -2340,7 +2340,7 @@ __inline static void i2c_set_clientdata(struct i2c_client *dev , void *data )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern int i2c_register_driver(struct module * , struct i2c_driver * ) ;
 extern void i2c_del_driver(struct i2c_driver * ) ;
 extern int mfd_add_devices(struct device *parent , int id , struct mfd_cell *cells ,
@@ -3838,9 +3838,9 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -3850,13 +3850,13 @@ int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kzalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regmap *devm_regmap_init_i2c(struct i2c_client *arg0, const struct regmap_config *arg1) {
-  return (struct regmap *)external_alloc();
+  return external_alloc(sizeof(struct regmap));
 }
 void i2c_del_driver(struct i2c_driver *arg0) {
   return;
@@ -3898,9 +3898,12 @@ int __VERIFIER_nondet_int(void);
 int regmap_write(struct regmap *arg0, unsigned int arg1, unsigned int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

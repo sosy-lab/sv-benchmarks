@@ -4126,7 +4126,7 @@ int i1480_mac_fw_upload(struct i1480 *i1480 )
   return (result);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 static int i1480_mpi_write(struct i1480 *i1480 , void const *data , size_t size )
 { int result ;
@@ -5428,9 +5428,9 @@ int main(void)
 void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...) {
@@ -5464,9 +5464,9 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ldv_undefined_pointer() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void msleep(unsigned int arg0) {
   return;
@@ -5485,13 +5485,13 @@ int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 
 void usb_deregister(struct usb_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_get_intf(struct usb_interface *arg0) {
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;
@@ -5522,9 +5522,12 @@ long __VERIFIER_nondet_long(void);
 long int wait_for_completion_interruptible_timeout(struct completion *arg0, unsigned long arg1) {
   return __VERIFIER_nondet_long();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

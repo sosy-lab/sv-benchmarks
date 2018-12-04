@@ -32638,9 +32638,9 @@ void __free_pages(struct page *arg0, unsigned int arg1) {
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -32671,16 +32671,16 @@ int __request_module(bool arg0, const char *arg1, ...) {
 void __rwlock_init(rwlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __symbol_put(const char *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__vmalloc(unsigned long arg0, gfp_t arg1, pgprot_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -32740,9 +32740,9 @@ void abort_exclusive_wait(wait_queue_head_t *arg0, wait_queue_t *arg1, unsigned 
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int atomic_notifier_chain_register(struct atomic_notifier_head *arg0, struct notifier_block *arg1) {
@@ -32771,13 +32771,13 @@ int __VERIFIER_nondet_int(void);
 int cpumask_next_and(int arg0, const struct cpumask *arg1, const struct cpumask *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct cpumask *cpumask_of_node(int arg0) {
-  return (const struct cpumask *)external_alloc();
+  return external_alloc(sizeof(const struct cpumask));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
-  return (struct crypto_tfm *)external_alloc();
+  return external_alloc(sizeof(struct crypto_tfm));
 }
 int __VERIFIER_nondet_int(void);
 int crypto_register_shash(struct shash_alg *arg0) {
@@ -32811,9 +32811,9 @@ int __VERIFIER_nondet_int(void);
 int filp_close(struct file *arg0, fl_owner_t arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *filp_open(const char *arg0, int arg1, umode_t arg2) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_first_bit(const unsigned long *arg0, unsigned long arg1) {
@@ -32840,9 +32840,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int jiffies_to_msecs(const unsigned long arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 void ldv__builtin_va_end(__builtin_va_list *arg0) {
   return;
@@ -32898,9 +32898,9 @@ void mutex_unlock(struct mutex *arg0) {
 void panic(const char *arg0, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cred *prepare_creds() {
-  return (struct cred *)external_alloc();
+  return external_alloc(sizeof(struct cred));
 }
 long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {
@@ -32925,9 +32925,9 @@ int __VERIFIER_nondet_int(void);
 int register_cpu_notifier(struct notifier_block *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
-  return (struct ctl_table_header *)external_alloc();
+  return external_alloc(sizeof(struct ctl_table_header));
 }
 void remove_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -32998,13 +32998,13 @@ long __VERIFIER_nondet_long(void);
 ssize_t vfs_write(struct file *arg0, const char *arg1, size_t arg2, loff_t *arg3) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc_node(unsigned long arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void wait_for_completion(struct completion *arg0) {
   return;
@@ -33020,9 +33020,12 @@ int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

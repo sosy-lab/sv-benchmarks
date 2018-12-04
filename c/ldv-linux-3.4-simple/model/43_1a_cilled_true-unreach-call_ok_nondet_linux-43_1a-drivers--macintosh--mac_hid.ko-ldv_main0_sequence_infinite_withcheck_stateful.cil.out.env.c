@@ -93,10 +93,10 @@ void input_unregister_handler(struct input_handler *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -126,10 +126,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: lockdep_init_map
@@ -178,10 +178,10 @@ int proc_dointvec(struct ctl_table *arg0, int arg1, void *arg2, size_t *arg3, lo
 // Function: register_sysctl_table
 // with type: struct ctl_table_header *register_sysctl_table(struct ctl_table *)
 // with return type: (struct ctl_table_header)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
   // Pointer type
-  return (struct ctl_table_header *)external_alloc();
+  return external_alloc(sizeof(struct ctl_table_header));
 }
 
 // Function: unregister_sysctl_table

@@ -14,10 +14,10 @@ int __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const cha
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -158,10 +158,10 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: rtc_device_register
 // with type: struct rtc_device *rtc_device_register(const char *name, struct device *dev, const struct rtc_class_ops *ops, struct module *owner)
 // with return type: (struct rtc_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rtc_device *rtc_device_register(const char *arg0, struct device *arg1, const struct rtc_class_ops *arg2, struct module *arg3) {
   // Pointer type
-  return (struct rtc_device *)external_alloc();
+  return external_alloc(sizeof(struct rtc_device));
 }
 
 // Function: rtc_device_unregister

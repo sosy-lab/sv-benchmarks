@@ -774,9 +774,9 @@ u64 clockevent_delta2ns(unsigned long arg0, struct clock_event_device *arg1) {
 void clockevents_register_device(struct clock_event_device *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int arg0, int arg1) {
-  return (struct cs5535_mfgpt_timer *)external_alloc();
+  return external_alloc(sizeof(struct cs5535_mfgpt_timer));
 }
 void cs5535_mfgpt_free_timer(struct cs5535_mfgpt_timer *arg0) {
   return;
@@ -792,9 +792,9 @@ int cs5535_mfgpt_set_irq(struct cs5535_mfgpt_timer *arg0, int arg1, int *arg2, i
 void cs5535_mfgpt_write(struct cs5535_mfgpt_timer *arg0, uint16_t arg1, uint16_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_check_final_state() {
   return;
@@ -802,9 +802,9 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
@@ -814,9 +814,12 @@ int __VERIFIER_nondet_int(void);
 int setup_irq(unsigned int arg0, struct irqaction *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -27,10 +27,10 @@ int __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, co
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: _raw_spin_lock_bh
@@ -63,10 +63,10 @@ int cdc_ncm_bind_common(struct usbnet *arg0, struct usb_interface *arg1, u8 arg2
 // Function: cdc_ncm_fill_tx_frame
 // with type: struct sk_buff *cdc_ncm_fill_tx_frame(struct cdc_ncm_ctx *, struct sk_buff *, __le32 )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *cdc_ncm_fill_tx_frame(struct cdc_ncm_ctx *arg0, struct sk_buff *arg1, __le32 arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: cdc_ncm_rx_verify_ndp16
@@ -159,37 +159,37 @@ int pskb_expand_head(struct sk_buff *arg0, int arg1, int arg2, gfp_t arg3) {
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: usb_cdc_wdm_register
 // with type: struct usb_driver *usb_cdc_wdm_register(struct usb_interface *, struct usb_endpoint_descriptor *, int, int (*)(struct usb_interface *, int))
 // with return type: (struct usb_driver)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_driver *usb_cdc_wdm_register(struct usb_interface *arg0, struct usb_endpoint_descriptor *arg1, int arg2, int (*arg3)(struct usb_interface *, int)) {
   // Pointer type
-  return (struct usb_driver *)external_alloc();
+  return external_alloc(sizeof(struct usb_driver));
 }
 
 // Function: usb_deregister

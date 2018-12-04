@@ -6208,9 +6208,9 @@ int debug_lockdep_rcu_enabled() {
 void down_read(struct rw_semaphore *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void ldv_check_return_value(int arg0) {
   return;
@@ -6249,20 +6249,20 @@ int __VERIFIER_nondet_int(void);
 int snd_card_file_remove(struct snd_card *arg0, struct file *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_find_id(struct snd_card *arg0, struct snd_ctl_elem_id *arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_find_numid(struct snd_card *arg0, unsigned int arg1) {
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
 void snd_ctl_notify(struct snd_card *arg0, unsigned int arg1, struct snd_ctl_elem_id *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_info_entry *snd_info_create_card_entry(struct snd_card *arg0, const char *arg1, struct snd_info_entry *arg2) {
-  return (struct snd_info_entry *)external_alloc();
+  return external_alloc(sizeof(struct snd_info_entry));
 }
 void snd_info_free_entry(struct snd_info_entry *arg0) {
   return;
@@ -6271,9 +6271,9 @@ int __VERIFIER_nondet_int(void);
 int snd_info_get_line(struct snd_info_buffer *arg0, char *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *snd_info_get_str(char *arg0, const char *arg1, int arg2) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 int __VERIFIER_nondet_int(void);
 int snd_info_register(struct snd_info_entry *arg0) {
@@ -6283,9 +6283,9 @@ int __VERIFIER_nondet_int(void);
 int snd_iprintf(struct snd_info_buffer *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *snd_lookup_oss_minor_data(unsigned int arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int snd_oss_info_register(int arg0, int arg1, char *arg2) {
@@ -6309,9 +6309,12 @@ void up_read(struct rw_semaphore *arg0) {
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

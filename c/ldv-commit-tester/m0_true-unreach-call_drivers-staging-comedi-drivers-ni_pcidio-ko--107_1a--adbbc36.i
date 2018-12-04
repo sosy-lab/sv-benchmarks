@@ -4158,9 +4158,9 @@ void disable_irq(unsigned int arg0) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void ldv_handler_precall() {
   return;
@@ -4194,9 +4194,9 @@ void mite_prep_dma(struct mite_channel *arg0, unsigned int arg1, unsigned int ar
 void mite_release_channel(struct mite_channel *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mite_channel *mite_request_channel_in_range(struct mite_struct *arg0, struct mite_dma_descriptor_ring *arg1, unsigned int arg2, unsigned int arg3) {
-  return (struct mite_channel *)external_alloc();
+  return external_alloc(sizeof(struct mite_channel));
 }
 int __VERIFIER_nondet_int(void);
 int mite_setup(struct mite_struct *arg0) {
@@ -4236,9 +4236,12 @@ int subdev_8255_init(struct comedi_device *arg0, struct comedi_subdevice *arg1, 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

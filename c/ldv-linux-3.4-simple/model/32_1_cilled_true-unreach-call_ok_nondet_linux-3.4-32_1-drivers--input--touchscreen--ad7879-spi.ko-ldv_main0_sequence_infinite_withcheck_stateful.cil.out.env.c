@@ -22,10 +22,10 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: ad7879_probe
 // with type: struct ad7879 *ad7879_probe(struct device *dev, u8 devid, unsigned int irq, const struct ad7879_bus_ops *bops)
 // with return type: (struct ad7879)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ad7879 *ad7879_probe(struct device *arg0, u8 arg1, unsigned int arg2, const struct ad7879_bus_ops *arg3) {
   // Pointer type
-  return (struct ad7879 *)external_alloc();
+  return external_alloc(sizeof(struct ad7879));
 }
 
 // Function: ad7879_remove
@@ -48,10 +48,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata

@@ -9,10 +9,10 @@
 // Function: __alloc_pages_nodemask
 // with type: struct page *__alloc_pages_nodemask(gfp_t , unsigned int, struct zonelist *, nodemask_t *)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: __const_udelay
@@ -150,10 +150,10 @@ void complete(struct completion *arg0) {
 // Function: cpumask_of_node
 // with type: const struct cpumask *cpumask_of_node(int)
 // with return type: (struct cpumask)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct cpumask *cpumask_of_node(int arg0) {
   // Pointer type
-  return (const struct cpumask *)external_alloc();
+  return external_alloc(sizeof(const struct cpumask));
 }
 
 // Function: del_timer_sync
@@ -260,10 +260,10 @@ void gru_free_message(struct gru_message_queue_desc *arg0, void *arg1) {
 // Function: gru_get_next_message
 // with type: void *gru_get_next_message(struct gru_message_queue_desc *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *gru_get_next_message(struct gru_message_queue_desc *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: gru_send_message_gpa
@@ -289,10 +289,10 @@ int is_uv_system() {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: ldv_check_final_state
@@ -323,10 +323,10 @@ int ldv_probe_3() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Skip function: malloc
@@ -415,10 +415,10 @@ int register_reboot_notifier(struct notifier_block *arg0) {
 // Function: register_sysctl_table
 // with type: struct ctl_table_header *register_sysctl_table(struct ctl_table *)
 // with return type: (struct ctl_table_header)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
   // Pointer type
-  return (struct ctl_table_header *)external_alloc();
+  return external_alloc(sizeof(struct ctl_table_header));
 }
 
 // Function: request_threaded_irq

@@ -35316,13 +35316,13 @@ int ___pskb_trim(struct sk_buff *arg0, unsigned int arg1) {
 void __account_scheduler_latency(struct task_struct *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_and(unsigned long *arg0, const unsigned long *arg1, const unsigned long *arg2, int arg3) {
@@ -35405,37 +35405,37 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __get_free_pages(gfp_t arg0, unsigned int arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 pte_t *__get_locked_pte(struct mm_struct *arg0, unsigned long arg1, spinlock_t **arg2) {
-  return (pte_t *)external_alloc();
+  return external_alloc(sizeof(pte_t));
 }
 bool __VERIFIER_nondet_bool(void);
 bool __get_page_tail(struct page *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_create_tpt_led_trigger(struct ieee80211_hw *arg0, unsigned int arg1, const struct ieee80211_tpt_blink *arg2, unsigned int arg3) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_assoc_led_name(struct ieee80211_hw *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *arg0, int arg1) {
-  return (struct ieee80211_channel *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_channel));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_radio_led_name(struct ieee80211_hw *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_rx_led_name(struct ieee80211_hw *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *__ieee80211_get_tx_led_name(struct ieee80211_hw *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -35452,9 +35452,9 @@ void __invalid_creds(const struct cred *arg0, const char *arg1, unsigned arg2) {
 void __irq_set_handler(unsigned int arg0, irq_flow_handler_t arg1, int arg2, const char *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -35462,9 +35462,9 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void __list_del_entry(struct list_head *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sighand_struct *__lock_task_sighand(struct task_struct *arg0, unsigned long *arg1) {
-  return (struct sighand_struct *)external_alloc();
+  return external_alloc(sizeof(struct sighand_struct));
 }
 void __mark_inode_dirty(struct inode *arg0, int arg1) {
   return;
@@ -35478,9 +35478,9 @@ void __mmdrop(struct mm_struct *arg0) {
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -35540,13 +35540,13 @@ void __prop_inc_percpu(struct prop_descriptor *arg0, struct prop_local_percpu *a
 void __prop_inc_single(struct prop_descriptor *arg0, struct prop_local_single *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__pskb_copy(struct sk_buff *arg0, int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 int __VERIFIER_nondet_int(void);
 int __pud_alloc(struct mm_struct *arg0, pgd_t *arg1, unsigned long arg2) {
@@ -35676,9 +35676,9 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int bitmap_bitremap(int arg0, const unsigned long *arg1, const unsigned long *arg2, int arg3) {
@@ -35720,13 +35720,13 @@ int call_usermodehelper_exec(struct subprocess_info *arg0, int arg1) {
 void call_usermodehelper_setfns(struct subprocess_info *arg0, int (*arg1)(struct subprocess_info *info, struct cred *new), void (*arg2)(struct subprocess_info *info), void *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct subprocess_info *call_usermodehelper_setup(char *arg0, char **arg1, char **arg2, gfp_t arg3) {
-  return (struct subprocess_info *)external_alloc();
+  return external_alloc(sizeof(struct subprocess_info));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cfg80211_bss *cfg80211_get_bss(struct wiphy *arg0, struct ieee80211_channel *arg1, const u8 *arg2, const u8 *arg3, size_t arg4, u16 arg5, u16 arg6) {
-  return (struct cfg80211_bss *)external_alloc();
+  return external_alloc(sizeof(struct cfg80211_bss));
 }
 void clear_page(void *arg0) {
   return;
@@ -35734,17 +35734,17 @@ void clear_page(void *arg0) {
 void copy_page(void *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct cpumask *cpumask_of_node(int arg0) {
-  return (const struct cpumask *)external_alloc();
+  return external_alloc(sizeof(const struct cpumask));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 u32 crc32_le(u32 arg0, const unsigned char *arg1, size_t arg2) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *create_proc_entry(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 bool __VERIFIER_nondet_bool(void);
 bool creds_are_invalid(const struct cred *arg0) {
@@ -35761,9 +35761,9 @@ __wsum csum_partial_copy_from_user(const void *arg0, void *arg1, int arg2, __wsu
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_instantiate_unique(struct dentry *arg0, struct inode *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void d_rehash(struct dentry *arg0) {
   return;
@@ -35819,17 +35819,17 @@ int __VERIFIER_nondet_int(void);
 int dequeue_signal(struct task_struct *arg0, sigset_t *arg1, siginfo_t *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dev_kfree_skb_irq(struct sk_buff *arg0) {
   return;
@@ -35923,9 +35923,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_next_zero_bit(const unsigned long *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vm_area_struct *find_vma(struct mm_struct *arg0, unsigned long arg1) {
-  return (struct vm_area_struct *)external_alloc();
+  return external_alloc(sizeof(struct vm_area_struct));
 }
 void flush_scheduled_work() {
   return;
@@ -35953,9 +35953,9 @@ int __VERIFIER_nondet_int(void);
 int hrtimer_start_range_ns(struct hrtimer *arg0, ktime_t arg1, unsigned long arg2, const enum hrtimer_mode arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1, u16 *arg2, u16 *arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void ieee80211_get_tkip_p1k_iv(struct ieee80211_key_conf *arg0, u32 arg1, u16 *arg2) {
   return;
@@ -35999,9 +35999,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int invalidate_mapping_pages(struct address_space *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iov_iter_advance(struct iov_iter *arg0, size_t arg1) {
   return;
@@ -36009,9 +36009,9 @@ void iov_iter_advance(struct iov_iter *arg0, size_t arg1) {
 void irq_free_descs(unsigned int arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irq_data *irq_get_irq_data(unsigned int arg0) {
-  return (struct irq_data *)external_alloc();
+  return external_alloc(sizeof(struct irq_data));
 }
 void irq_modify_status(unsigned int arg0, unsigned long arg1, unsigned long arg2) {
   return;
@@ -36027,9 +36027,9 @@ int __VERIFIER_nondet_int(void);
 int irq_set_irq_wake(unsigned int arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irq_desc *irq_to_desc(unsigned int arg0) {
-  return (struct irq_desc *)external_alloc();
+  return external_alloc(sizeof(struct irq_desc));
 }
 void key_put(struct key *arg0) {
   return;
@@ -36044,17 +36044,17 @@ int __VERIFIER_nondet_int(void);
 int kill_pid(struct pid *arg0, int arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmalloc_order_trace(size_t arg0, gfp_t arg1, unsigned int arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void kmemleak_alloc(const void *arg0, size_t arg1, int arg2, gfp_t arg3) {
   return;
@@ -36062,9 +36062,9 @@ void kmemleak_alloc(const void *arg0, size_t arg1, int arg2, gfp_t arg3) {
 void kmemleak_free(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_get(struct kobject *arg0) {
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 void kobject_put(struct kobject *arg0) {
   return;
@@ -36101,17 +36101,17 @@ int __VERIFIER_nondet_int(void);
 int kstrtoull_from_user(const char *arg0, size_t arg1, unsigned int arg2, unsigned long long *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_add_safe(const ktime_t arg0, const ktime_t arg1) {
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get_real() {
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -36163,9 +36163,9 @@ int __VERIFIER_nondet_int(void);
 int netpoll_trap() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct zoneref *next_zones_zonelist(struct zoneref *arg0, enum zone_type arg1, nodemask_t *arg2, struct zone **arg3) {
-  return (struct zoneref *)external_alloc();
+  return external_alloc(sizeof(struct zoneref));
 }
 void nf_conntrack_destroy(struct nf_conntrack *arg0) {
   return;
@@ -36174,17 +36174,17 @@ int __VERIFIER_nondet_int(void);
 int nf_hook_slow(u_int8_t arg0, unsigned int arg1, struct sk_buff *arg2, struct net_device *arg3, struct net_device *arg4, int (*arg5)(struct sk_buff *), int arg6) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec ns_to_timespec(const s64 arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
-  struct timeval *tmp = (struct timeval*)external_alloc();
+  struct timeval *tmp = external_alloc(sizeof(struct timeval));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -36202,9 +36202,9 @@ void p54_free_common(struct ieee80211_hw *arg0) {
 void p54_free_skb(struct ieee80211_hw *arg0, struct sk_buff *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_hw *p54_init_common(size_t arg0) {
-  return (struct ieee80211_hw *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_hw));
 }
 int __VERIFIER_nondet_int(void);
 int p54_parse_firmware(struct ieee80211_hw *arg0, const struct firmware *arg1) {
@@ -36249,9 +36249,9 @@ int __VERIFIER_nondet_int(void);
 int pci_bus_write_config_word(struct pci_bus *arg0, unsigned int arg1, int arg2, u16 arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_domain_bus_and_slot(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 void percpu_counter_destroy(struct percpu_counter *arg0) {
   return;
@@ -36270,9 +36270,9 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 void profile_hits(int arg0, void *arg1, unsigned int arg2) {
   return;
@@ -36319,23 +36319,23 @@ void set_normalized_timespec(struct timespec *arg0, time_t arg1, s64 arg2) {
 void sg_init_one(struct scatterlist *arg0, const void *arg1, unsigned int arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 void show_state_filter(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void skb_clone_tx_timestamp(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
@@ -36345,17 +36345,17 @@ int __VERIFIER_nondet_int(void);
 int skb_pad(struct sk_buff *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -36369,9 +36369,9 @@ void skb_tstamp_tx(struct sk_buff *arg0, struct skb_shared_hwtstamps *arg1) {
 void skb_unlink(struct sk_buff *arg0, struct sk_buff_head *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strim(char *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void synchronize_sched() {
   return;
@@ -36407,9 +36407,9 @@ void up_read(struct rw_semaphore *arg0) {
 void up_write(struct rw_semaphore *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 void usb_anchor_urb(struct urb *arg0, struct usb_anchor *arg1) {
   return;
@@ -36424,13 +36424,13 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned arg1) {
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 int __VERIFIER_nondet_int(void);
 int usb_interrupt_msg(struct usb_device *arg0, unsigned int arg1, void *arg2, int arg3, int *arg4, int arg5) {
@@ -36483,9 +36483,12 @@ bool __VERIFIER_nondet_bool(void);
 bool xen_hvm_need_lapic() {
   return __VERIFIER_nondet_bool();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

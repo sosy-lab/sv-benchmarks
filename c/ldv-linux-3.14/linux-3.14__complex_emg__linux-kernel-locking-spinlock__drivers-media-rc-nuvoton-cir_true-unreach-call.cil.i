@@ -7927,9 +7927,9 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -7945,9 +7945,9 @@ int __VERIFIER_nondet_int(void);
 int device_init_wakeup(struct device *arg0, bool arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -7984,9 +7984,9 @@ void ldv_switch_to_interrupt_context() {
 void ldv_switch_to_process_context() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *pnp_get_resource(struct pnp_dev *arg0, unsigned long arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int pnp_register_driver(struct pnp_driver *arg0) {
@@ -8003,9 +8003,9 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rc_dev *rc_allocate_device() {
-  return (struct rc_dev *)external_alloc();
+  return external_alloc(sizeof(struct rc_dev));
 }
 void rc_free_device(struct rc_dev *arg0) {
   return;
@@ -8024,9 +8024,12 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 void schedule() {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

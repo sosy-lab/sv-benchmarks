@@ -5991,7 +5991,7 @@ static void cfv_release_used_buf(struct virtqueue *vq_tx )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static struct sk_buff *cfv_alloc_and_copy_skb(int *err , struct cfv_info *cfv , u8 *frm ,
                                               u32 frm_len )
 {
@@ -7280,9 +7280,9 @@ unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2, void *arg3) {
   return;
@@ -7290,13 +7290,13 @@ void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2,
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_u32(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
@@ -7320,9 +7320,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int gen_pool_alloc(struct gen_pool *arg0, size_t arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gen_pool *gen_pool_create(int arg0, int arg1) {
-  return (struct gen_pool *)external_alloc();
+  return external_alloc(sizeof(struct gen_pool));
 }
 void gen_pool_destroy(struct gen_pool *arg0) {
   return;
@@ -7394,9 +7394,9 @@ int __VERIFIER_nondet_int(void);
 int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void tasklet_init(struct tasklet_struct *arg0, void (*arg1)(unsigned long), unsigned long arg2) {
   return;
@@ -7414,9 +7414,9 @@ int __VERIFIER_nondet_int(void);
 int virtqueue_add_outbuf(struct virtqueue *arg0, struct scatterlist *arg1, unsigned int arg2, void *arg3, gfp_t arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_detach_unused_buf(struct virtqueue *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void virtqueue_disable_cb(struct virtqueue *arg0) {
   return;
@@ -7425,9 +7425,9 @@ bool __VERIFIER_nondet_bool(void);
 bool virtqueue_enable_cb(struct virtqueue *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int virtqueue_get_vring_size(struct virtqueue *arg0) {
@@ -7459,9 +7459,12 @@ bool vringh_notify_enable_kern(struct vringh *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

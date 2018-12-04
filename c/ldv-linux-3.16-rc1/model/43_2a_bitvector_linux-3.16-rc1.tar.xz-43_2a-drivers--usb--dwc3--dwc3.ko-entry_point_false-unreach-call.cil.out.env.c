@@ -199,28 +199,28 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_regset32
 // with type: struct dentry *debugfs_create_regset32(const char *, umode_t , struct dentry *, struct debugfs_regset32 *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_regset32(const char *arg0, umode_t arg1, struct dentry *arg2, struct debugfs_regset32 *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove_recursive
@@ -234,10 +234,10 @@ void debugfs_remove_recursive(struct dentry *arg0) {
 // Function: dev_driver_string
 // with type: const char *dev_driver_string(const struct device *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dev_driver_string(const struct device *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: dev_err
@@ -252,46 +252,46 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_ioremap_resource
 // with type: void *devm_ioremap_resource(struct device *, struct resource *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_phy_get
 // with type: struct phy *devm_phy_get(struct device *, const char *)
 // with return type: (struct phy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct phy *devm_phy_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct phy *)external_alloc();
+  return external_alloc(sizeof(struct phy));
 }
 
 // Function: devm_usb_get_phy
 // with type: struct usb_phy *devm_usb_get_phy(struct device *, enum usb_phy_type )
 // with return type: (struct usb_phy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_phy *devm_usb_get_phy(struct device *arg0, enum usb_phy_type arg1) {
   // Pointer type
-  return (struct usb_phy *)external_alloc();
+  return external_alloc(sizeof(struct usb_phy));
 }
 
 // Function: devm_usb_get_phy_by_phandle
 // with type: struct usb_phy *devm_usb_get_phy_by_phandle(struct device *, const char *, u8 )
 // with return type: (struct usb_phy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_phy *devm_usb_get_phy_by_phandle(struct device *arg0, const char *arg1, u8 arg2) {
   // Pointer type
-  return (struct usb_phy *)external_alloc();
+  return external_alloc(sizeof(struct usb_phy));
 }
 
 // Function: dma_supported
@@ -316,10 +316,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -413,10 +413,10 @@ int ldv_resume_noirq_10() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Function: ldv_suspend_late_10
@@ -543,10 +543,10 @@ int platform_device_add_resources(struct platform_device *arg0, const struct res
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *, int)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_put
@@ -585,10 +585,10 @@ int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: pm_runtime_allow
@@ -664,10 +664,10 @@ ssize_t seq_read(struct file *arg0, char *arg1, size_t arg2, loff_t *arg3) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: single_open

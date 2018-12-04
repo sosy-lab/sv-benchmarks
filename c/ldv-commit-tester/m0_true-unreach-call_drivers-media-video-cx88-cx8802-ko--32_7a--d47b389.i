@@ -6814,9 +6814,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void btcx_riscmem_free(struct pci_dev *arg0, struct btcx_riscmem *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cx88_core *cx88_core_get(struct pci_dev *arg0) {
-  return (struct cx88_core *)external_alloc();
+  return external_alloc(sizeof(struct cx88_core));
 }
 int __VERIFIER_nondet_int(void);
 int cx88_core_irq(struct cx88_core *arg0, u32 arg1) {
@@ -6864,9 +6864,9 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dev_set_drvdata(struct device *arg0, void *arg1) {
   return;
@@ -6966,13 +6966,16 @@ int __VERIFIER_nondet_int(void);
 int videobuf_iolock(struct videobuf_queue *arg0, struct videobuf_buffer *arg1, struct v4l2_framebuffer *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct videobuf_dmabuf *videobuf_to_dma(struct videobuf_buffer *arg0) {
-  return (struct videobuf_dmabuf *)external_alloc();
+  return external_alloc(sizeof(struct videobuf_dmabuf));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

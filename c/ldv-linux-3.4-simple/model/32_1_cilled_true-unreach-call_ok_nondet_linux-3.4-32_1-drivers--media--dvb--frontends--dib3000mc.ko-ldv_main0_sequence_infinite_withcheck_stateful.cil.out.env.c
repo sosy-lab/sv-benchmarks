@@ -13,10 +13,10 @@ void dibx000_exit_i2c_master(struct dibx000_i2c_master *arg0) {
 // Function: dibx000_get_i2c_adapter
 // with type: struct i2c_adapter *dibx000_get_i2c_adapter(struct dibx000_i2c_master *mst, enum dibx000_i2c_interface intf, int gating)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *dibx000_get_i2c_adapter(struct dibx000_i2c_master *arg0, enum dibx000_i2c_interface arg1, int arg2) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 
 // Function: dibx000_init_i2c_master

@@ -2915,9 +2915,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int arg0, int arg1) {
-  return (struct cs5535_mfgpt_timer *)external_alloc();
+  return external_alloc(sizeof(struct cs5535_mfgpt_timer));
 }
 int __VERIFIER_nondet_int(void);
 int cs5535_mfgpt_toggle_event(struct cs5535_mfgpt_timer *arg0, int arg1, int arg2, int arg3) {
@@ -2926,9 +2926,9 @@ int cs5535_mfgpt_toggle_event(struct cs5535_mfgpt_timer *arg0, int arg1, int arg
 void cs5535_mfgpt_write(struct cs5535_mfgpt_timer *arg0, uint16_t arg1, uint16_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_check_final_state() {
   return;
@@ -2939,9 +2939,9 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void might_fault() {
   return;
@@ -2961,9 +2961,9 @@ int __VERIFIER_nondet_int(void);
 int nonseekable_open(struct inode *arg0, struct file *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0) {
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 void platform_device_unregister(struct platform_device *arg0) {
   return;
@@ -2979,9 +2979,12 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

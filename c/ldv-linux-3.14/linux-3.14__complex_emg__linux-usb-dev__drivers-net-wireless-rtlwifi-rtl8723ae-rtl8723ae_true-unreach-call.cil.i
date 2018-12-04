@@ -36254,9 +36254,9 @@ void ldv_assert_linux_usb_dev__unincremented_counter_decrement(int expr )
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const char *arg2) {
@@ -36296,13 +36296,13 @@ unsigned char __VERIFIER_nondet_uchar(void);
 u8 efuse_read_1byte(struct ieee80211_hw *arg0, u16 arg1) {
   return __VERIFIER_nondet_uchar();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *arg0, const u8 *arg1) {
-  return (struct ieee80211_sta *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_sta));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int jiffies_to_msecs(const unsigned long arg0) {
@@ -36431,9 +36431,9 @@ void rtnl_lock() {
 void rtnl_unlock() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void synchronize_irq(unsigned int arg0) {
   return;
@@ -36441,13 +36441,16 @@ void synchronize_irq(unsigned int arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

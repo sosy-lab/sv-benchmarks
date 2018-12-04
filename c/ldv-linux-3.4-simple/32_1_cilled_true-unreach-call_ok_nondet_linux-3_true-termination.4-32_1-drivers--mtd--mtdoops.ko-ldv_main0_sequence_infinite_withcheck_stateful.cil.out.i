@@ -3725,7 +3725,7 @@ static void find_next_position(struct mtdoops_context *cxt )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static void mtdoops_do_dump(struct kmsg_dumper *dumper , enum kmsg_dump_reason reason ,
                             char const *s1 , unsigned long l1 , char const *s2 ,
                             unsigned long l2 )
@@ -4850,17 +4850,20 @@ int unregister_mtd_user(struct mtd_notifier *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

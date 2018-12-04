@@ -8116,9 +8116,12 @@ int ldv_atomic_dec_and_lock_siglock_of_sighand_struct(void)
   return (0);
 }
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {
@@ -8205,9 +8208,9 @@ loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2){
 void __copy_to_user_overflow(){
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data(){
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1){
   return;
@@ -8229,17 +8232,17 @@ int __VERIFIER_nondet_int(void);
 int usb_string(struct usb_device *arg0, int arg1, char *arg2, size_t arg3){
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1){
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memcpy(void *arg0, const void *arg1, size_t arg2){
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1){
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_from_user(void *arg0, const void *arg1, unsigned int arg2){

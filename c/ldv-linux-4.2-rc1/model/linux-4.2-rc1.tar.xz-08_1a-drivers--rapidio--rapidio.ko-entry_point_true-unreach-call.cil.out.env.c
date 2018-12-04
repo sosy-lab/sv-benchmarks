@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __class_register
@@ -35,10 +35,10 @@ void __const_udelay(unsigned long arg0) {
 // Function: __dma_request_channel
 // with type: struct dma_chan *__dma_request_channel(const dma_cap_mask_t *, bool (*)(struct dma_chan *, void *), void *)
 // with return type: (struct dma_chan)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_chan *__dma_request_channel(const dma_cap_mask_t *arg0, bool (*arg1)(struct dma_chan *, void *), void *arg2) {
   // Pointer type
-  return (struct dma_chan *)external_alloc();
+  return external_alloc(sizeof(struct dma_chan));
 }
 
 // Function: __dynamic_dev_dbg
@@ -258,10 +258,10 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Skip function: kfree

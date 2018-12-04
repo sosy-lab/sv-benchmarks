@@ -1395,9 +1395,9 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
@@ -1413,9 +1413,9 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *hwmon_device_register(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void hwmon_device_unregister(struct device *arg0) {
   return;
@@ -1441,16 +1441,19 @@ int __VERIFIER_nondet_int(void);
 int s3c_adc_read(struct s3c_adc_client *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct s3c_adc_client *s3c_adc_register(struct platform_device *arg0, void (*arg1)(struct s3c_adc_client *, unsigned int), void (*arg2)(struct s3c_adc_client *, unsigned int, unsigned int, unsigned int *), unsigned int arg3) {
-  return (struct s3c_adc_client *)external_alloc();
+  return external_alloc(sizeof(struct s3c_adc_client));
 }
 void s3c_adc_release(struct s3c_adc_client *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

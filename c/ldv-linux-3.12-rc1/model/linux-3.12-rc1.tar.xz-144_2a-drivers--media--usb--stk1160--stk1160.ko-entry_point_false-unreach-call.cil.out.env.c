@@ -94,10 +94,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -298,10 +298,10 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 // Function: usb_alloc_coherent
 // with type: void *usb_alloc_coherent(struct usb_device *, size_t , gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: usb_control_msg
@@ -461,10 +461,10 @@ void v4l2_get_timestamp(struct timeval *arg0) {
 // Function: v4l2_i2c_new_subdev
 // with type: struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *, struct i2c_adapter *, const char *, u8 , const unsigned short *)
 // with return type: (struct v4l2_subdev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *arg0, struct i2c_adapter *arg1, const char *arg2, u8 arg3, const unsigned short *arg4) {
   // Pointer type
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 
 // Function: vb2_buffer_done
@@ -590,10 +590,10 @@ void vb2_ops_wait_prepare(struct vb2_queue *arg0) {
 // Function: vb2_plane_vaddr
 // with type: void *vb2_plane_vaddr(struct vb2_buffer *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vb2_queue_init
@@ -608,10 +608,10 @@ int vb2_queue_init(struct vb2_queue *arg0) {
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_device_release_empty

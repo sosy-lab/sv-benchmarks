@@ -11289,9 +11289,9 @@ int ldv_spin_trylock(void)
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gpio_desc *__devm_gpiod_get_optional(struct device *arg0, const char *arg1, enum gpiod_flags arg2) {
-  return (struct gpio_desc *)external_alloc();
+  return external_alloc(sizeof(struct gpio_desc));
 }
 void __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
@@ -11320,9 +11320,9 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 void _dev_info(const struct device *arg0, const char *arg1, ...) {
   return;
@@ -11360,13 +11360,13 @@ int __VERIFIER_nondet_int(void);
 int device_wakeup_enable(struct device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void down_write(struct rw_semaphore *arg0) {
   return;
@@ -11377,16 +11377,16 @@ void free_irq(unsigned int arg0, void *arg1) {
 void gpiod_set_value_cansleep(struct gpio_desc *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -11400,9 +11400,9 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -11418,9 +11418,9 @@ int __VERIFIER_nondet_int(void);
 int of_device_is_compatible(const struct device_node *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct property *of_find_property(const struct device_node *arg0, const char *arg1, int *arg2) {
-  return (struct property *)external_alloc();
+  return external_alloc(sizeof(struct property));
 }
 int __VERIFIER_nondet_int(void);
 int of_property_read_u32_array(const struct device_node *arg0, const char *arg1, u32 *arg2, size_t arg3) {
@@ -11450,9 +11450,9 @@ void pci_unregister_driver(struct pci_driver *arg0) {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
@@ -11473,9 +11473,9 @@ int __VERIFIER_nondet_int(void);
 int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
-  return (struct usb_hcd *)external_alloc();
+  return external_alloc(sizeof(struct usb_hcd));
 }
 void usb_del_gadget_udc(struct usb_gadget *arg0) {
   return;
@@ -11520,9 +11520,12 @@ void usleep_range(unsigned long arg0, unsigned long arg1) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

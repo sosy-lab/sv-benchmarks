@@ -16394,9 +16394,9 @@ void cl_2queue_fini(const struct lu_env *arg0, struct cl_2queue *arg1) {
 void cl_2queue_init(struct cl_2queue *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lu_env *cl_env_get(int *arg0) {
-  return (struct lu_env *)external_alloc();
+  return external_alloc(sizeof(struct lu_env));
 }
 void cl_env_put(struct lu_env *arg0, int *arg1) {
   return;
@@ -16416,9 +16416,9 @@ int __VERIFIER_nondet_int(void);
 int cl_io_submit_sync(const struct lu_env *arg0, struct cl_io *arg1, enum cl_req_type arg2, struct cl_2queue *arg3, long arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct cl_lock_slice *cl_lock_at(const struct cl_lock *arg0, const struct lu_device_type *arg1) {
-  return (const struct cl_lock_slice *)external_alloc();
+  return external_alloc(sizeof(const struct cl_lock_slice));
 }
 void cl_lock_cancel(const struct lu_env *arg0, struct cl_lock *arg1) {
   return;
@@ -16441,16 +16441,16 @@ void cl_lock_put(const struct lu_env *arg0, struct cl_lock *arg1) {
 void cl_lock_release(const struct lu_env *arg0, struct cl_lock *arg1, const char *arg2, const void *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cl_lock *cl_lock_request(const struct lu_env *arg0, struct cl_io *arg1, const struct cl_lock_descr *arg2, const char *arg3, const void *arg4) {
-  return (struct cl_lock *)external_alloc();
+  return external_alloc(sizeof(struct cl_lock));
 }
 void cl_lock_slice_add(struct cl_lock *arg0, struct cl_lock_slice *arg1, struct cl_object *arg2, const struct cl_lock_operations *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cl_object *cl_object_find(const struct lu_env *arg0, struct cl_device *arg1, const struct lu_fid *arg2, const struct cl_object_conf *arg3) {
-  return (struct cl_object *)external_alloc();
+  return external_alloc(sizeof(struct cl_object));
 }
 int __VERIFIER_nondet_int(void);
 int cl_object_header_init(struct cl_object_header *arg0) {
@@ -16469,9 +16469,9 @@ void cl_page_clip(const struct lu_env *arg0, struct cl_page *arg1, int arg2, int
 void cl_page_delete(const struct lu_env *arg0, struct cl_page *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cl_page *cl_page_find(const struct lu_env *arg0, struct cl_object *arg1, unsigned long arg2, struct page *arg3, enum cl_page_type arg4) {
-  return (struct cl_page *)external_alloc();
+  return external_alloc(sizeof(struct cl_page));
 }
 int __VERIFIER_nondet_int(void);
 int cl_page_own(const struct lu_env *arg0, struct cl_io *arg1, struct cl_page *arg2) {
@@ -16501,9 +16501,9 @@ int __VERIFIER_nondet_int(void);
 int cl_wait(const struct lu_env *arg0, struct cl_lock *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_export *class_conn2export(struct lustre_handle *arg0) {
-  return (struct obd_export *)external_alloc();
+  return external_alloc(sizeof(struct obd_export));
 }
 int __VERIFIER_nondet_int(void);
 int class_connect(struct lustre_handle *arg0, struct obd_device *arg1, struct obd_uuid *arg2) {
@@ -16513,13 +16513,13 @@ int __VERIFIER_nondet_int(void);
 int class_disconnect(struct obd_export *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_device *class_exp2obd(struct obd_export *arg0) {
-  return (struct obd_device *)external_alloc();
+  return external_alloc(sizeof(struct obd_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_device *class_name2obd(const char *arg0) {
-  return (struct obd_device *)external_alloc();
+  return external_alloc(sizeof(struct obd_device));
 }
 int __VERIFIER_nondet_int(void);
 int class_register_type(struct obd_ops *arg0, struct md_ops *arg1, const char *arg2, struct lu_device_type *arg3) {
@@ -16560,9 +16560,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_probe_1() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int libcfs_debug_msg(struct libcfs_debug_msg_data *arg0, const char *arg1, ...) {
@@ -16591,9 +16591,9 @@ void lu_context_exit(struct lu_context *arg0) {
 void lu_context_key_degister_many(struct lu_context_key *arg0, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *lu_context_key_get(const struct lu_context *arg0, const struct lu_context_key *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void lu_context_key_quiesce_many(struct lu_context_key *arg0, ...) {
   return;
@@ -16674,9 +16674,12 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

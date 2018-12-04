@@ -5057,9 +5057,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -5082,9 +5082,9 @@ unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2)
 void class_destroy(struct class *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void device_destroy(struct class *arg0, dev_t arg1) {
   return;
@@ -5139,9 +5139,12 @@ long int schedule_timeout_interruptible(long arg0) {
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

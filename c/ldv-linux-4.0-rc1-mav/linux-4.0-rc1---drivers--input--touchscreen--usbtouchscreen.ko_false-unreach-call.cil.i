@@ -15138,9 +15138,9 @@ void __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const ch
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void input_event(struct input_dev *arg0, unsigned int arg1, unsigned int arg2, int arg3) {
   return;
@@ -15158,13 +15158,13 @@ void input_set_abs_params(struct input_dev *arg0, unsigned int arg1, int arg2, i
 void input_unregister_device(struct input_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void ldv_after_alloc(void *arg0) {
   return;
@@ -15215,9 +15215,12 @@ int __VERIFIER_nondet_int(void);
 int usb_register_driver(struct usb_driver *arg0, struct module *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

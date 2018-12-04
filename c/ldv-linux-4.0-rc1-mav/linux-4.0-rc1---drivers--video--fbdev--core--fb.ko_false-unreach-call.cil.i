@@ -21420,9 +21420,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _copy_to_user(void *arg0, const void *arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *compat_alloc_user_space(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void console_lock() {
   return;
@@ -21438,9 +21438,9 @@ long __VERIFIER_nondet_long(void);
 loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
@@ -21452,9 +21452,9 @@ void device_destroy(struct class *arg0, dev_t arg1) {
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int fb_deferred_io_fsync(struct file *arg0, loff_t arg1, loff_t arg2, int arg3) {
@@ -21463,9 +21463,9 @@ int fb_deferred_io_fsync(struct file *arg0, loff_t arg1, loff_t arg2, int arg3) 
 void fb_deferred_io_open(struct fb_info *arg0, struct inode *arg1, struct file *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct linux_logo *fb_find_logo(int arg0) {
-  return (const struct linux_logo *)external_alloc();
+  return external_alloc(sizeof(const struct linux_logo));
 }
 int __VERIFIER_nondet_int(void);
 int fb_is_primary_device(struct fb_info *arg0) {
@@ -21501,9 +21501,9 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 void remove_proc_entry(const char *arg0, struct proc_dir_entry *arg1) {
   return;
@@ -21536,10 +21536,10 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t vm_get_page_prot(unsigned long arg0) {
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -21547,9 +21547,12 @@ int __VERIFIER_nondet_int(void);
 int vm_iomap_memory(struct vm_area_struct *arg0, phys_addr_t arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

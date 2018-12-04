@@ -12014,13 +12014,13 @@ void consume_skb(struct sk_buff *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void kfree_skb(struct sk_buff *arg0) {
   return;
@@ -12037,9 +12037,9 @@ void ldv_pre_probe() {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfc_digital_dev *nfc_digital_allocate_device(struct nfc_digital_ops *arg0, __u32 arg1, __u32 arg2, int arg3, int arg4) {
-  return (struct nfc_digital_dev *)external_alloc();
+  return external_alloc(sizeof(struct nfc_digital_dev));
 }
 void nfc_digital_free_device(struct nfc_digital_dev *arg0) {
   return;
@@ -12058,17 +12058,17 @@ bool __VERIFIER_nondet_bool(void);
 bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
   return;
@@ -12090,9 +12090,12 @@ int usb_unlink_urb(struct urb *arg0) {
 void wait_for_completion(struct completion *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

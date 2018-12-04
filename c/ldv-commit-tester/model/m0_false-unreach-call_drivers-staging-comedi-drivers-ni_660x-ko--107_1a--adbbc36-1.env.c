@@ -133,10 +133,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Skip function: kfree
@@ -222,10 +222,10 @@ void mite_release_channel(struct mite_channel *arg0) {
 // Function: mite_request_channel_in_range
 // with type: struct mite_channel *mite_request_channel_in_range(struct mite_struct *, struct mite_dma_descriptor_ring *, unsigned int, unsigned int)
 // with return type: (struct mite_channel)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mite_channel *mite_request_channel_in_range(struct mite_struct *arg0, struct mite_dma_descriptor_ring *arg1, unsigned int arg2, unsigned int arg3) {
   // Pointer type
-  return (struct mite_channel *)external_alloc();
+  return external_alloc(sizeof(struct mite_channel));
 }
 
 // Function: mite_setup2
@@ -257,10 +257,10 @@ void mite_unsetup(struct mite_struct *arg0) {
 // Function: ni_gpct_device_construct
 // with type: struct ni_gpct_device *ni_gpct_device_construct(struct comedi_device *, void (*)(struct ni_gpct *, unsigned int, enum ni_gpct_register ), unsigned int (*)(struct ni_gpct *, enum ni_gpct_register ), enum ni_gpct_variant , unsigned int)
 // with return type: (struct ni_gpct_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ni_gpct_device *ni_gpct_device_construct(struct comedi_device *arg0, void (*arg1)(struct ni_gpct *, unsigned int, enum ni_gpct_register ), unsigned int (*arg2)(struct ni_gpct *, enum ni_gpct_register ), enum ni_gpct_variant arg3, unsigned int arg4) {
   // Pointer type
-  return (struct ni_gpct_device *)external_alloc();
+  return external_alloc(sizeof(struct ni_gpct_device));
 }
 
 // Function: ni_gpct_device_destroy

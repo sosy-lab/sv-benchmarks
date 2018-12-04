@@ -320,10 +320,10 @@ void sysfs_remove_group(struct kobject *arg0, const struct attribute_group *arg1
 // Function: usb_alloc_coherent
 // with type: void *usb_alloc_coherent(struct usb_device *, size_t , gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: usb_bulk_msg
@@ -380,10 +380,10 @@ void usb_free_coherent(struct usb_device *arg0, size_t arg1, void *arg2, dma_add
 // Function: usb_ifnum_to_if
 // with type: struct usb_interface *usb_ifnum_to_if(const struct usb_device *, unsigned int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_kill_urb

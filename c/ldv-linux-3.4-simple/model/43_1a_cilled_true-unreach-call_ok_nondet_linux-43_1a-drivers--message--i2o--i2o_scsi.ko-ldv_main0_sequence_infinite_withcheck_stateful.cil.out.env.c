@@ -5,19 +5,19 @@
 // Function: __scsi_add_device
 // with type: struct scsi_device *__scsi_add_device(struct Scsi_Host *, uint , uint , uint , void *)
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *__scsi_add_device(struct Scsi_Host *arg0, uint arg1, uint arg2, uint arg3, void *arg4) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 
 // Function: __scsi_iterate_devices
 // with type: struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *, struct scsi_device *)
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *arg0, struct scsi_device *arg1) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 
 // Function: _raw_spin_unlock_irqrestore
@@ -42,10 +42,10 @@ u32 i2o_cntxt_list_add(struct i2o_controller *arg0, void *arg1) {
 // Function: i2o_cntxt_list_get
 // with type: void *i2o_cntxt_list_get(struct i2o_controller *, u32 )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *i2o_cntxt_list_get(struct i2o_controller *arg0, u32 arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: i2o_cntxt_list_get_ptr
@@ -88,19 +88,19 @@ void i2o_driver_unregister(struct i2o_driver *arg0) {
 // Function: i2o_iop_find_device
 // with type: struct i2o_device *i2o_iop_find_device(struct i2o_controller *, u16 )
 // with return type: (struct i2o_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2o_device *i2o_iop_find_device(struct i2o_controller *arg0, u16 arg1) {
   // Pointer type
-  return (struct i2o_device *)external_alloc();
+  return external_alloc(sizeof(struct i2o_device));
 }
 
 // Function: i2o_msg_get_wait
 // with type: struct i2o_message *i2o_msg_get_wait(struct i2o_controller *, int)
 // with return type: (struct i2o_message)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2o_message *i2o_msg_get_wait(struct i2o_controller *arg0, int arg1) {
   // Pointer type
-  return (struct i2o_message *)external_alloc();
+  return external_alloc(sizeof(struct i2o_message));
 }
 
 // Function: i2o_msg_post_wait_mem
@@ -135,10 +135,10 @@ u16 i2o_sg_tablesize(struct i2o_controller *arg0, u16 arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -168,10 +168,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Skip function: memcpy
@@ -179,10 +179,10 @@ struct page *ldv_some_page() {
 // Function: mempool_alloc
 // with type: void *mempool_alloc(mempool_t *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: mempool_free
@@ -238,10 +238,10 @@ void scsi_dma_unmap(struct scsi_cmnd *arg0) {
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put

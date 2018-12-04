@@ -21,10 +21,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t start, resource_size_t n, const char *name, int flags)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: _raw_spin_lock
@@ -72,10 +72,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -107,10 +107,10 @@ unsigned int ioread32(void *arg0) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t offset, unsigned long size)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -165,10 +165,10 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: request_threaded_irq
@@ -199,10 +199,10 @@ void tty_kref_put(struct tty_struct *arg0) {
 // Function: tty_port_tty_get
 // with type: struct tty_struct *tty_port_tty_get(struct tty_port *port)
 // with return type: (struct tty_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
   // Pointer type
-  return (struct tty_struct *)external_alloc();
+  return external_alloc(sizeof(struct tty_struct));
 }
 
 // Function: tty_termios_baud_rate

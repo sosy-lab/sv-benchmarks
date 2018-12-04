@@ -31021,9 +31021,9 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __compiletime_assert_60() {
   return;
@@ -31035,9 +31035,9 @@ int __VERIFIER_nondet_int(void);
 int __netlink_dump_start(struct sock *arg0, struct sk_buff *arg1, const struct nlmsghdr *arg2, struct netlink_dump_control *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nlmsghdr *__nlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, int arg3, int arg4, int arg5) {
-  return (struct nlmsghdr *)external_alloc();
+  return external_alloc(sizeof(struct nlmsghdr));
 }
 int __VERIFIER_nondet_int(void);
 int __request_module(bool arg0, const char *arg1, ...) {
@@ -31047,9 +31047,9 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void free_pages(unsigned long arg0, unsigned int arg1) {
   return;
@@ -31159,9 +31159,9 @@ int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
 void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strnchr(const char *arg0, size_t arg1, int arg2) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void unregister_pernet_subsys(struct pernet_operations *arg0) {
   return;
@@ -31169,9 +31169,12 @@ void unregister_pernet_subsys(struct pernet_operations *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

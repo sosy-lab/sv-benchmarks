@@ -26,10 +26,10 @@ int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __bitmap_weight
@@ -339,19 +339,19 @@ void debug_dma_unmap_sg(struct device *arg0, struct scatterlist *arg1, int arg2,
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -399,10 +399,10 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -427,19 +427,19 @@ u64 dma_get_required_mask(struct device *arg0) {
 // Function: dma_pool_alloc
 // with type: void *dma_pool_alloc(struct dma_pool *, gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_pool_create
 // with type: struct dma_pool *dma_pool_create(const char *, struct device *, size_t , size_t , size_t )
 // with return type: (struct dma_pool)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
   // Pointer type
-  return (struct dma_pool *)external_alloc();
+  return external_alloc(sizeof(struct dma_pool));
 }
 
 // Function: dma_pool_destroy
@@ -495,10 +495,10 @@ void dump_stack() {
 // Function: fc_attach_transport
 // with type: struct scsi_transport_template *fc_attach_transport(struct fc_function_template *)
 // with return type: (struct scsi_transport_template)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_transport_template *fc_attach_transport(struct fc_function_template *arg0) {
   // Pointer type
-  return (struct scsi_transport_template *)external_alloc();
+  return external_alloc(sizeof(struct scsi_transport_template));
 }
 
 // Function: fc_block_scsi_eh
@@ -540,10 +540,10 @@ void fc_release_transport(struct scsi_transport_template *arg0) {
 // Function: fc_remote_port_add
 // with type: struct fc_rport *fc_remote_port_add(struct Scsi_Host *, int, struct fc_rport_identifiers *)
 // with return type: (struct fc_rport)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_rport *fc_remote_port_add(struct Scsi_Host *arg0, int arg1, struct fc_rport_identifiers *arg2) {
   // Pointer type
-  return (struct fc_rport *)external_alloc();
+  return external_alloc(sizeof(struct fc_rport));
 }
 
 // Function: fc_remote_port_delete
@@ -573,10 +573,10 @@ void fc_remove_host(struct Scsi_Host *arg0) {
 // Function: fc_vport_create
 // with type: struct fc_vport *fc_vport_create(struct Scsi_Host *, int, struct fc_vport_identifiers *)
 // with return type: (struct fc_vport)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fc_vport *fc_vport_create(struct Scsi_Host *arg0, int arg1, struct fc_vport_identifiers *arg2) {
   // Pointer type
-  return (struct fc_vport *)external_alloc();
+  return external_alloc(sizeof(struct fc_vport));
 }
 
 // Function: fc_vport_terminate
@@ -669,10 +669,10 @@ void int_to_scsilun(u64 arg0, struct scsi_lun *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -697,10 +697,10 @@ unsigned int jiffies_to_msecs(const unsigned long arg0) {
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -714,10 +714,10 @@ void kmem_cache_destroy(struct kmem_cache *arg0) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kobject_uevent_env
@@ -732,10 +732,10 @@ int kobject_uevent_env(struct kobject *arg0, enum kobject_action arg1, char **ar
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -1227,19 +1227,19 @@ ssize_t memory_read_from_buffer(void *arg0, size_t arg1, loff_t *arg2, const voi
 // Function: mempool_alloc
 // with type: void *mempool_alloc(mempool_t *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: mempool_create
 // with type: mempool_t *mempool_create(int, mempool_alloc_t *, mempool_free_t *, void *)
 // with return type: (mempool_t )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
   // Pointer type
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 
 // Function: mempool_destroy
@@ -1474,10 +1474,10 @@ int pci_find_capability(struct pci_dev *arg0, int arg1) {
 // Function: pci_get_domain_bus_and_slot
 // with type: struct pci_dev *pci_get_domain_bus_and_slot(int, unsigned int, unsigned int)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_domain_bus_and_slot(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_release_selected_regions
@@ -1764,19 +1764,19 @@ void scsi_dma_unmap(struct scsi_cmnd *arg0) {
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_get
 // with type: struct Scsi_Host *scsi_host_get(struct Scsi_Host *)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_get(struct Scsi_Host *arg0) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put
@@ -1936,10 +1936,10 @@ size_t sg_copy_to_buffer(struct scatterlist *arg0, unsigned int arg1, void *arg2
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: simple_strtol
@@ -1993,10 +1993,10 @@ int strcasecmp(const char *arg0, const char *arg1) {
 // Function: strim
 // with type: char *strim(char *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strim(char *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: strlen
@@ -2057,10 +2057,10 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: wait_for_completion

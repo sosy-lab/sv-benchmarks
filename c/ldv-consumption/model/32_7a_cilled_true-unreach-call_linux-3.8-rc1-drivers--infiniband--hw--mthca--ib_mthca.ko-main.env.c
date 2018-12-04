@@ -5,10 +5,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __bitmap_empty
@@ -216,10 +216,10 @@ void add_timer(struct timer_list *arg0) {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: clear_page
@@ -339,10 +339,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_printk
@@ -384,19 +384,19 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 // Function: dma_pool_alloc
 // with type: void *dma_pool_alloc(struct dma_pool *, gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_pool_alloc(struct dma_pool *arg0, gfp_t arg1, dma_addr_t *arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_pool_create
 // with type: struct dma_pool *dma_pool_create(const char *, struct device *, size_t , size_t , size_t )
 // with return type: (struct dma_pool)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
   // Pointer type
-  return (struct dma_pool *)external_alloc();
+  return external_alloc(sizeof(struct dma_pool));
 }
 
 // Function: dma_pool_destroy
@@ -513,28 +513,28 @@ unsigned long int get_zeroed_page(gfp_t arg0) {
 // Function: ib_alloc_device
 // with type: struct ib_device *ib_alloc_device(size_t )
 // with return type: (struct ib_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_device *ib_alloc_device(size_t arg0) {
   // Pointer type
-  return (struct ib_device *)external_alloc();
+  return external_alloc(sizeof(struct ib_device));
 }
 
 // Function: ib_create_ah
 // with type: struct ib_ah *ib_create_ah(struct ib_pd *, struct ib_ah_attr *)
 // with return type: (struct ib_ah)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_ah *ib_create_ah(struct ib_pd *arg0, struct ib_ah_attr *arg1) {
   // Pointer type
-  return (struct ib_ah *)external_alloc();
+  return external_alloc(sizeof(struct ib_ah));
 }
 
 // Function: ib_create_send_mad
 // with type: struct ib_mad_send_buf *ib_create_send_mad(struct ib_mad_agent *, u32 , u16 , int, int, int, gfp_t )
 // with return type: (struct ib_mad_send_buf)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mad_send_buf *ib_create_send_mad(struct ib_mad_agent *arg0, u32 arg1, u16 arg2, int arg3, int arg4, int arg5, gfp_t arg6) {
   // Pointer type
-  return (struct ib_mad_send_buf *)external_alloc();
+  return external_alloc(sizeof(struct ib_mad_send_buf));
 }
 
 // Function: ib_dealloc_device
@@ -636,10 +636,10 @@ int ib_register_device(struct ib_device *arg0, int (*arg1)(struct ib_device *, u
 // Function: ib_register_mad_agent
 // with type: struct ib_mad_agent *ib_register_mad_agent(struct ib_device *, u8 , enum ib_qp_type , struct ib_mad_reg_req *, u8 , void (*)(struct ib_mad_agent *, struct ib_mad_send_wc *), void (*)(struct ib_mad_agent *, struct ib_mad_recv_wc *), void *)
 // with return type: (struct ib_mad_agent)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mad_agent *ib_register_mad_agent(struct ib_device *arg0, u8 arg1, enum ib_qp_type arg2, struct ib_mad_reg_req *arg3, u8 arg4, void (*arg5)(struct ib_mad_agent *, struct ib_mad_send_wc *), void (*arg6)(struct ib_mad_agent *, struct ib_mad_recv_wc *), void *arg7) {
   // Pointer type
-  return (struct ib_mad_agent *)external_alloc();
+  return external_alloc(sizeof(struct ib_mad_agent));
 }
 
 // Function: ib_ud_header_init
@@ -662,10 +662,10 @@ int ib_ud_header_pack(struct ib_ud_header *arg0, void *arg1) {
 // Function: ib_umem_get
 // with type: struct ib_umem *ib_umem_get(struct ib_ucontext *, unsigned long, size_t , int, int)
 // with return type: (struct ib_umem)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_umem *ib_umem_get(struct ib_ucontext *arg0, unsigned long arg1, size_t arg2, int arg3, int arg4) {
   // Pointer type
-  return (struct ib_umem *)external_alloc();
+  return external_alloc(sizeof(struct ib_umem));
 }
 
 // Function: ib_umem_release
@@ -704,10 +704,10 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -893,10 +893,10 @@ int pci_find_capability(struct pci_dev *arg0, int arg1) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_release_regions
@@ -1050,10 +1050,10 @@ void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf

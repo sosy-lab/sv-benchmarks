@@ -5,10 +5,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __dynamic_pr_debug
@@ -337,55 +337,55 @@ void free_pages(unsigned long arg0, unsigned int arg1) {
 // Function: ib_alloc_device
 // with type: struct ib_device *ib_alloc_device(size_t )
 // with return type: (struct ib_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_device *ib_alloc_device(size_t arg0) {
   // Pointer type
-  return (struct ib_device *)external_alloc();
+  return external_alloc(sizeof(struct ib_device));
 }
 
 // Function: ib_alloc_pd
 // with type: struct ib_pd *ib_alloc_pd(struct ib_device *)
 // with return type: (struct ib_pd)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_pd *ib_alloc_pd(struct ib_device *arg0) {
   // Pointer type
-  return (struct ib_pd *)external_alloc();
+  return external_alloc(sizeof(struct ib_pd));
 }
 
 // Function: ib_create_ah
 // with type: struct ib_ah *ib_create_ah(struct ib_pd *, struct ib_ah_attr *)
 // with return type: (struct ib_ah)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_ah *ib_create_ah(struct ib_pd *arg0, struct ib_ah_attr *arg1) {
   // Pointer type
-  return (struct ib_ah *)external_alloc();
+  return external_alloc(sizeof(struct ib_ah));
 }
 
 // Function: ib_create_cq
 // with type: struct ib_cq *ib_create_cq(struct ib_device *, void (*)(struct ib_cq *, void *), void (*)(struct ib_event *, void *), void *, int, int)
 // with return type: (struct ib_cq)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_cq *ib_create_cq(struct ib_device *arg0, void (*arg1)(struct ib_cq *, void *), void (*arg2)(struct ib_event *, void *), void *arg3, int arg4, int arg5) {
   // Pointer type
-  return (struct ib_cq *)external_alloc();
+  return external_alloc(sizeof(struct ib_cq));
 }
 
 // Function: ib_create_qp
 // with type: struct ib_qp *ib_create_qp(struct ib_pd *, struct ib_qp_init_attr *)
 // with return type: (struct ib_qp)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_qp *ib_create_qp(struct ib_pd *arg0, struct ib_qp_init_attr *arg1) {
   // Pointer type
-  return (struct ib_qp *)external_alloc();
+  return external_alloc(sizeof(struct ib_qp));
 }
 
 // Function: ib_create_send_mad
 // with type: struct ib_mad_send_buf *ib_create_send_mad(struct ib_mad_agent *, u32 , u16 , int, int, int, gfp_t )
 // with return type: (struct ib_mad_send_buf)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mad_send_buf *ib_create_send_mad(struct ib_mad_agent *arg0, u32 arg1, u16 arg2, int arg3, int arg4, int arg5, gfp_t arg6) {
   // Pointer type
-  return (struct ib_mad_send_buf *)external_alloc();
+  return external_alloc(sizeof(struct ib_mad_send_buf));
 }
 
 // Function: ib_dealloc_device
@@ -487,10 +487,10 @@ int ib_get_cached_pkey(struct ib_device *arg0, u8 arg1, int arg2, u16 *arg3) {
 // Function: ib_get_dma_mr
 // with type: struct ib_mr *ib_get_dma_mr(struct ib_pd *, int)
 // with return type: (struct ib_mr)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mr *ib_get_dma_mr(struct ib_pd *arg0, int arg1) {
   // Pointer type
-  return (struct ib_mr *)external_alloc();
+  return external_alloc(sizeof(struct ib_mr));
 }
 
 // Function: ib_modify_qp
@@ -550,10 +550,10 @@ int ib_register_device(struct ib_device *arg0, int (*arg1)(struct ib_device *, u
 // Function: ib_register_mad_agent
 // with type: struct ib_mad_agent *ib_register_mad_agent(struct ib_device *, u8 , enum ib_qp_type , struct ib_mad_reg_req *, u8 , void (*)(struct ib_mad_agent *, struct ib_mad_send_wc *), void (*)(struct ib_mad_agent *, struct ib_mad_recv_wc *), void *)
 // with return type: (struct ib_mad_agent)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mad_agent *ib_register_mad_agent(struct ib_device *arg0, u8 arg1, enum ib_qp_type arg2, struct ib_mad_reg_req *arg3, u8 arg4, void (*arg5)(struct ib_mad_agent *, struct ib_mad_send_wc *), void (*arg6)(struct ib_mad_agent *, struct ib_mad_recv_wc *), void *arg7) {
   // Pointer type
-  return (struct ib_mad_agent *)external_alloc();
+  return external_alloc(sizeof(struct ib_mad_agent));
 }
 
 // Function: ib_sa_cancel_query
@@ -609,10 +609,10 @@ int ib_ud_header_pack(struct ib_ud_header *arg0, void *arg1) {
 // Function: ib_umem_get
 // with type: struct ib_umem *ib_umem_get(struct ib_ucontext *, unsigned long, size_t , int, int)
 // with return type: (struct ib_umem)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_umem *ib_umem_get(struct ib_ucontext *arg0, unsigned long arg1, size_t arg2, int arg3, int arg4) {
   // Pointer type
-  return (struct ib_umem *)external_alloc();
+  return external_alloc(sizeof(struct ib_umem));
 }
 
 // Function: ib_umem_page_count
@@ -652,10 +652,10 @@ int ib_unregister_mad_agent(struct ib_mad_agent *arg0) {
 // Function: idr_find
 // with type: void *idr_find(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: idr_get_new_above
@@ -703,10 +703,10 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -722,19 +722,19 @@ void iounmap(volatile void *arg0) {
 // Function: kobject_create_and_add
 // with type: struct kobject *kobject_create_and_add(const char *, struct kobject *)
 // with return type: (struct kobject)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_create_and_add(const char *arg0, struct kobject *arg1) {
   // Pointer type
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 
 // Function: kobject_get
 // with type: struct kobject *kobject_get(struct kobject *)
 // with return type: (struct kobject)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_get(struct kobject *arg0) {
   // Pointer type
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 
 // Function: kobject_init_and_add
@@ -857,10 +857,10 @@ int mlx4_SYNC_TPT(struct mlx4_dev *arg0) {
 // Function: mlx4_alloc_cmd_mailbox
 // with type: struct mlx4_cmd_mailbox *mlx4_alloc_cmd_mailbox(struct mlx4_dev *)
 // with return type: (struct mlx4_cmd_mailbox)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mlx4_cmd_mailbox *mlx4_alloc_cmd_mailbox(struct mlx4_dev *arg0) {
   // Pointer type
-  return (struct mlx4_cmd_mailbox *)external_alloc();
+  return external_alloc(sizeof(struct mlx4_cmd_mailbox));
 }
 
 // Function: mlx4_assign_eq
@@ -1067,10 +1067,10 @@ int mlx4_get_parav_qkey(struct mlx4_dev *arg0, u32 arg1, u32 *arg2) {
 // Function: mlx4_get_protocol_dev
 // with type: void *mlx4_get_protocol_dev(struct mlx4_dev *, enum mlx4_protocol , int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mlx4_get_protocol_dev(struct mlx4_dev *arg0, enum mlx4_protocol arg1, int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: mlx4_get_slave_port_state
@@ -1402,13 +1402,13 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: pgprot_writecombine
 // with type: pgprot_t pgprot_writecombine(pgprot_t )
 // with return type: pgprot_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
   // Typedef type
   // Real type: struct pgprot
   // Composite type
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -1458,10 +1458,10 @@ bool queue_work(struct workqueue_struct *arg0, struct work_struct *arg1) {
 // Function: radix_tree_lookup
 // with type: void *radix_tree_lookup(struct radix_tree_root *, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *radix_tree_lookup(struct radix_tree_root *arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: rb_erase
@@ -1475,10 +1475,10 @@ void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_first
 // with type: struct rb_node *rb_first(const struct rb_root *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_first(const struct rb_root *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: rb_insert_color
@@ -1492,10 +1492,10 @@ void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_next
 // with type: struct rb_node *rb_next(const struct rb_node *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_next(const struct rb_node *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: rb_replace_node
@@ -1667,10 +1667,10 @@ int unregister_netdevice_notifier(struct notifier_block *arg0) {
 // Function: vlan_dev_real_dev
 // with type: struct net_device *vlan_dev_real_dev(const struct net_device *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *vlan_dev_real_dev(const struct net_device *arg0) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: vlan_dev_vlan_id

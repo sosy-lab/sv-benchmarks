@@ -16545,13 +16545,13 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 void __copy_from_user_overflow() {
   return;
@@ -16568,9 +16568,9 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
 void __init_work(struct work_struct *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -16635,9 +16635,9 @@ void class_destroy(struct class *arg0) {
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_shash *crypto_alloc_shash(const char *arg0, u32 arg1, u32 arg2) {
-  return (struct crypto_shash *)external_alloc();
+  return external_alloc(sizeof(struct crypto_shash));
 }
 int __VERIFIER_nondet_int(void);
 int crypto_authenc_extractkeys(struct crypto_authenc_keys *arg0, const u8 *arg1, unsigned int arg2) {
@@ -16678,13 +16678,13 @@ void debug_dma_mapping_error(struct device *arg0, dma_addr_t arg1) {
 void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -16695,16 +16695,16 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void device_destroy(struct class *arg0, dev_t arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -16718,9 +16718,9 @@ void down_write(struct rw_semaphore *arg0) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtouint(const char *arg0, unsigned int arg1, unsigned int *arg2) {
@@ -16752,9 +16752,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_7() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_suspend_6() {
@@ -16838,13 +16838,13 @@ int __VERIFIER_nondet_int(void);
 int request_firmware(const struct firmware **arg0, const char *arg1, struct device *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct list_head *seq_list_next(void *arg0, struct list_head *arg1, loff_t *arg2) {
-  return (struct list_head *)external_alloc();
+  return external_alloc(sizeof(struct list_head));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct list_head *seq_list_start(struct list_head *arg0, loff_t arg1) {
-  return (struct list_head *)external_alloc();
+  return external_alloc(sizeof(struct list_head));
 }
 long __VERIFIER_nondet_long(void);
 loff_t seq_lseek(struct file *arg0, loff_t arg1, int arg2) {
@@ -16874,9 +16874,9 @@ int __VERIFIER_nondet_int(void);
 int sg_nents(struct scatterlist *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
@@ -16902,9 +16902,12 @@ unsigned long int wait_for_completion_timeout(struct completion *arg0, unsigned 
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -9808,9 +9808,9 @@ void __free_pages(struct page *arg0, unsigned int arg1) {
 void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -9853,32 +9853,32 @@ void add_disk(struct gendisk *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void bd_set_size(struct block_device *arg0, loff_t arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *bdevname(struct block_device *arg0, char *arg1) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *bdget(dev_t arg0) {
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 int __VERIFIER_nondet_int(void);
 int bio_add_page(struct bio *arg0, struct page *arg1, unsigned int arg2, unsigned int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_clone(struct bio *arg0, gfp_t arg1) {
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 void bio_endio(struct bio *arg0, int arg1) {
   return;
@@ -9892,13 +9892,13 @@ void bio_pair_release(struct bio_pair *arg0) {
 void bio_put(struct bio *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio_pair *bio_split(struct bio *arg0, int arg1) {
-  return (struct bio_pair *)external_alloc();
+  return external_alloc(sizeof(struct bio_pair));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_alloc_queue(gfp_t arg0) {
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
@@ -9907,9 +9907,9 @@ int __VERIFIER_nondet_int(void);
 int blk_execute_rq(struct request_queue *arg0, struct gendisk *arg1, struct request *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_get_request(struct request_queue *arg0, int arg1, gfp_t arg2) {
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 void blk_put_request(struct request *arg0) {
   return;
@@ -9955,13 +9955,13 @@ long __VERIFIER_nondet_long(void);
 long int congestion_wait(int arg0, long arg1) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, mode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -9969,9 +9969,9 @@ void debugfs_remove(struct dentry *arg0) {
 void del_gendisk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void device_unregister(struct device *arg0) {
   return;
@@ -9982,9 +9982,9 @@ void generic_make_request(struct bio *arg0) {
 void init_cdrom_command(struct packet_command *arg0, void *arg1, int arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kobject_init_and_add(struct kobject *arg0, struct kobj_type *arg1, struct kobject *arg2, const char *arg3, ...) {
@@ -9997,9 +9997,9 @@ int __VERIFIER_nondet_int(void);
 int kobject_uevent(struct kobject *arg0, enum kobject_action arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 int __VERIFIER_nondet_int(void);
 int kthread_should_stop() {
@@ -10022,13 +10022,13 @@ int ldv_undefined_int() {
 void list_del(struct list_head *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 void mempool_destroy(mempool_t *arg0) {
   return;
@@ -10057,13 +10057,13 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, mode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_mkdir(const char *arg0, struct proc_dir_entry *arg1) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 void put_disk(struct gendisk *arg0) {
   return;
@@ -10071,16 +10071,16 @@ void put_disk(struct gendisk *arg0) {
 void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_first(const struct rb_root *arg0) {
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_next(const struct rb_node *arg0) {
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 void refrigerator() {
   return;
@@ -10131,9 +10131,12 @@ int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

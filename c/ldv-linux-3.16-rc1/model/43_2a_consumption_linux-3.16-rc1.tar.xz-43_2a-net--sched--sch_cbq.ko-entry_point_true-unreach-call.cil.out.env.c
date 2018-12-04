@@ -11,10 +11,10 @@
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __netif_schedule
@@ -187,22 +187,22 @@ void kfree_skb(struct sk_buff *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ktime_get
 // with type: ktime_t ktime_get()
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get() {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -244,10 +244,10 @@ int ldv_setup_1() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Function: lockdep_rcu_suspicious
@@ -342,10 +342,10 @@ void qdisc_class_hash_remove(struct Qdisc_class_hash *arg0, struct Qdisc_class_c
 // Function: qdisc_create_dflt
 // with type: struct Qdisc *qdisc_create_dflt(struct netdev_queue *, const struct Qdisc_ops *, u32 )
 // with return type: (struct Qdisc)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Qdisc *qdisc_create_dflt(struct netdev_queue *arg0, const struct Qdisc_ops *arg1, u32 arg2) {
   // Pointer type
-  return (struct Qdisc *)external_alloc();
+  return external_alloc(sizeof(struct Qdisc));
 }
 
 // Function: qdisc_destroy
@@ -359,10 +359,10 @@ void qdisc_destroy(struct Qdisc *arg0) {
 // Function: qdisc_get_rtab
 // with type: struct qdisc_rate_table *qdisc_get_rtab(struct tc_ratespec *, struct nlattr *)
 // with return type: (struct qdisc_rate_table)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct qdisc_rate_table *qdisc_get_rtab(struct tc_ratespec *arg0, struct nlattr *arg1) {
   // Pointer type
-  return (struct qdisc_rate_table *)external_alloc();
+  return external_alloc(sizeof(struct qdisc_rate_table));
 }
 
 // Function: qdisc_put_rtab
@@ -443,19 +443,19 @@ int rtnl_is_locked() {
 // Function: skb_clone
 // with type: struct sk_buff *skb_clone(struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_copy
 // with type: struct sk_buff *skb_copy(const struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_trim

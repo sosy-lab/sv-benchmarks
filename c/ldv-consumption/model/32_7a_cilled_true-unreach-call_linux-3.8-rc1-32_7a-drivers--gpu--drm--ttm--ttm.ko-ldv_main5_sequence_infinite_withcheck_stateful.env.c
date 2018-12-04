@@ -9,19 +9,19 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __devres_alloc
 // with type: void *__devres_alloc(void (*)(struct device *, void *), size_t , gfp_t , const char *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__devres_alloc(void (*arg0)(struct device *, void *), size_t arg1, gfp_t arg2, const char *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __dynamic_dev_dbg
@@ -69,10 +69,10 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // Function: __kmalloc_node
 // with type: void *__kmalloc_node(size_t , gfp_t , int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -135,10 +135,10 @@ void __rwlock_init(rwlock_t *arg0, const char *arg1, struct lock_class_key *arg2
 // Function: __vmalloc
 // with type: void *__vmalloc(unsigned long, gfp_t , pgprot_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__vmalloc(unsigned long arg0, gfp_t arg1, pgprot_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __wake_up
@@ -235,10 +235,10 @@ void _raw_write_unlock(rwlock_t *arg0) {
 // Function: agp_allocate_memory
 // with type: struct agp_memory *agp_allocate_memory(struct agp_bridge_data *, size_t , u32 )
 // with return type: (struct agp_memory)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct agp_memory *agp_allocate_memory(struct agp_bridge_data *arg0, size_t arg1, u32 arg2) {
   // Pointer type
-  return (struct agp_memory *)external_alloc();
+  return external_alloc(sizeof(struct agp_memory));
 }
 
 // Function: agp_bind_memory
@@ -270,10 +270,10 @@ int agp_unbind_memory(struct agp_memory *arg0) {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Skip function: calloc
@@ -352,10 +352,10 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 // Function: dev_driver_string
 // with type: const char *dev_driver_string(const struct device *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dev_driver_string(const struct device *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: dev_set_name
@@ -490,19 +490,19 @@ void drm_mm_debug_table(struct drm_mm *arg0, const char *arg1) {
 // Function: drm_mm_get_block_generic
 // with type: struct drm_mm_node *drm_mm_get_block_generic(struct drm_mm_node *, unsigned long, unsigned int, unsigned long, int)
 // with return type: (struct drm_mm_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_mm_node *drm_mm_get_block_generic(struct drm_mm_node *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, int arg4) {
   // Pointer type
-  return (struct drm_mm_node *)external_alloc();
+  return external_alloc(sizeof(struct drm_mm_node));
 }
 
 // Function: drm_mm_get_block_range_generic
 // with type: struct drm_mm_node *drm_mm_get_block_range_generic(struct drm_mm_node *, unsigned long, unsigned int, unsigned long, unsigned long, unsigned long, int)
 // with return type: (struct drm_mm_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_mm_node *drm_mm_get_block_range_generic(struct drm_mm_node *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5, int arg6) {
   // Pointer type
-  return (struct drm_mm_node *)external_alloc();
+  return external_alloc(sizeof(struct drm_mm_node));
 }
 
 // Function: drm_mm_init
@@ -534,19 +534,19 @@ void drm_mm_put_block(struct drm_mm_node *arg0) {
 // Function: drm_mm_search_free_generic
 // with type: struct drm_mm_node *drm_mm_search_free_generic(const struct drm_mm *, unsigned long, unsigned int, unsigned long, bool )
 // with return type: (struct drm_mm_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_mm_node *drm_mm_search_free_generic(const struct drm_mm *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, bool arg4) {
   // Pointer type
-  return (struct drm_mm_node *)external_alloc();
+  return external_alloc(sizeof(struct drm_mm_node));
 }
 
 // Function: drm_mm_search_free_in_range_generic
 // with type: struct drm_mm_node *drm_mm_search_free_in_range_generic(const struct drm_mm *, unsigned long, unsigned int, unsigned long, unsigned long, unsigned long, bool )
 // with return type: (struct drm_mm_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_mm_node *drm_mm_search_free_in_range_generic(const struct drm_mm *arg0, unsigned long arg1, unsigned int arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5, bool arg6) {
   // Pointer type
-  return (struct drm_mm_node *)external_alloc();
+  return external_alloc(sizeof(struct drm_mm_node));
 }
 
 // Function: drm_mm_takedown
@@ -601,19 +601,19 @@ unsigned int ioread32(void *arg0) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ioremap_wc
 // with type: void *ioremap_wc(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -764,13 +764,13 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: pgprot_writecombine
 // with type: pgprot_t pgprot_writecombine(pgprot_t )
 // with return type: pgprot_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t pgprot_writecombine(pgprot_t arg0) {
   // Typedef type
   // Real type: struct pgprot
   // Composite type
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -947,19 +947,19 @@ int set_pages_wb(struct page *arg0, int arg1) {
 // Function: shmem_file_setup
 // with type: struct file *shmem_file_setup(const char *, loff_t , unsigned long)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *shmem_file_setup(const char *arg0, loff_t arg1, unsigned long arg2) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: shmem_read_mapping_page_gfp
 // with type: struct page *shmem_read_mapping_page_gfp(struct address_space *, unsigned long, gfp_t )
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *shmem_read_mapping_page_gfp(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: si_meminfo
@@ -1001,13 +1001,13 @@ void vfree(const void *arg0) {
 // Function: vm_get_page_prot
 // with type: pgprot_t vm_get_page_prot(unsigned long)
 // with return type: pgprot_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t vm_get_page_prot(unsigned long arg0) {
   // Typedef type
   // Real type: struct pgprot
   // Composite type
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -1024,10 +1024,10 @@ int vm_insert_mixed(struct vm_area_struct *arg0, unsigned long arg1, unsigned lo
 // Function: vmap
 // with type: void *vmap(struct page **, unsigned int, unsigned long, pgprot_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmap(struct page **arg0, unsigned int arg1, unsigned long arg2, pgprot_t arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vunmap

@@ -8294,9 +8294,9 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
@@ -8359,9 +8359,9 @@ void schedule() {
 void sock_release(struct socket *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *sockfd_to_socket(unsigned int arg0) {
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 int __VERIFIER_nondet_int(void);
 int sysfs_create_group(struct kobject *arg0, const struct attribute_group *arg1) {
@@ -8374,17 +8374,17 @@ int __VERIFIER_nondet_int(void);
 int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
-  return (struct usb_hcd *)external_alloc();
+  return external_alloc(sizeof(struct usb_hcd));
 }
 int __VERIFIER_nondet_int(void);
 int usb_disabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 int __VERIFIER_nondet_int(void);
 int usb_hcd_check_unlink_urb(struct usb_hcd *arg0, struct urb *arg1, int arg2) {
@@ -8415,9 +8415,9 @@ void usb_put_hcd(struct usb_hcd *arg0) {
 void usb_remove_hcd(struct usb_hcd *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usbip_alloc_iso_desc_pdu(struct urb *arg0, ssize_t *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void usbip_dump_header(struct usbip_header *arg0) {
   return;
@@ -8467,9 +8467,12 @@ int __VERIFIER_nondet_int(void);
 int usbip_xmit(int arg0, struct socket *arg1, char *arg2, int arg3, int arg4) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

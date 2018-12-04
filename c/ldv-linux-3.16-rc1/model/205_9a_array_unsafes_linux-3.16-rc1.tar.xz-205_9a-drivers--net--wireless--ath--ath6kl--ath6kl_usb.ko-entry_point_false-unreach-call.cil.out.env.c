@@ -80,10 +80,10 @@ void ath6kl_core_cleanup(struct ath6kl *arg0) {
 // Function: ath6kl_core_create
 // with type: struct ath6kl *ath6kl_core_create(struct device *)
 // with return type: (struct ath6kl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ath6kl *ath6kl_core_create(struct device *arg0) {
   // Pointer type
-  return (struct ath6kl *)external_alloc();
+  return external_alloc(sizeof(struct ath6kl));
 }
 
 // Function: ath6kl_core_destroy
@@ -168,10 +168,10 @@ void flush_scheduled_work() {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_probe_2
@@ -217,10 +217,10 @@ bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_queue_tail
@@ -234,10 +234,10 @@ void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_anchor_urb
@@ -276,10 +276,10 @@ void usb_free_urb(struct urb *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 
 // Function: usb_kill_anchored_urbs

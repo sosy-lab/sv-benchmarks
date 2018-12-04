@@ -25,10 +25,10 @@ void __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
 // Function: __hci_cmd_sync
 // with type: struct sk_buff *__hci_cmd_sync(struct hci_dev *, u16 , u32 , const void *, u32 )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__hci_cmd_sync(struct hci_dev *arg0, u16 arg1, u32 arg2, const void *arg3, u32 arg4) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __init_work
@@ -194,10 +194,10 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: hci_alloc_dev
 // with type: struct hci_dev *hci_alloc_dev()
 // with return type: (struct hci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct hci_dev *hci_alloc_dev() {
   // Pointer type
-  return (struct hci_dev *)external_alloc();
+  return external_alloc(sizeof(struct hci_dev));
 }
 
 // Function: hci_free_dev
@@ -308,10 +308,10 @@ int ldv_release_8() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: ldv_start_6
@@ -428,37 +428,37 @@ int request_firmware(const struct firmware **arg0, const char *arg1, struct devi
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_queue_head

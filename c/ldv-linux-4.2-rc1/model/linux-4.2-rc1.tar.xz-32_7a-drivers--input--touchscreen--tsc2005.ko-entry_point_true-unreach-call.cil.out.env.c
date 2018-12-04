@@ -130,28 +130,28 @@ int devm_gpio_request_one(struct device *arg0, unsigned int arg1, unsigned long 
 // Function: devm_input_allocate_device
 // with type: struct input_dev *devm_input_allocate_device(struct device *)
 // with return type: (struct input_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct input_dev *devm_input_allocate_device(struct device *arg0) {
   // Pointer type
-  return (struct input_dev *)external_alloc();
+  return external_alloc(sizeof(struct input_dev));
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_regulator_get
 // with type: struct regulator *devm_regulator_get(struct device *, const char *)
 // with return type: (struct regulator)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regulator *devm_regulator_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct regulator *)external_alloc();
+  return external_alloc(sizeof(struct regulator));
 }
 
 // Function: devm_request_threaded_irq

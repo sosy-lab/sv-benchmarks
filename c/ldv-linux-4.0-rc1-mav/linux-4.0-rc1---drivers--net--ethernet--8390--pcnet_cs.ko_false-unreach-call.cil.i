@@ -15646,9 +15646,9 @@ void ldv_assert_linux_kernel_rcu_update_lock_sched__locked_at_exit(int expr )
 void NS8390_init(struct net_device *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *__alloc_ei_netdev(int arg0) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -15682,9 +15682,9 @@ int __VERIFIER_nondet_int(void);
 int ei_close(struct net_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device_stats *ei_get_stats(struct net_device *arg0) {
-  return (struct net_device_stats *)external_alloc();
+  return external_alloc(sizeof(struct net_device_stats));
 }
 int __VERIFIER_nondet_int(void);
 irqreturn_t ei_interrupt(int arg0, void *arg1) {
@@ -15719,9 +15719,9 @@ int __VERIFIER_nondet_int(void);
 int eth_validate_addr(struct net_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;
@@ -15753,9 +15753,9 @@ void netif_device_attach(struct net_device *arg0) {
 void netif_device_detach(struct net_device *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *arg0) {
-  return (struct pcmcia_device *)external_alloc();
+  return external_alloc(sizeof(struct pcmcia_device));
 }
 void pcmcia_disable_device(struct pcmcia_device *arg0) {
   return;
@@ -15809,9 +15809,12 @@ void unregister_netdev(struct net_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

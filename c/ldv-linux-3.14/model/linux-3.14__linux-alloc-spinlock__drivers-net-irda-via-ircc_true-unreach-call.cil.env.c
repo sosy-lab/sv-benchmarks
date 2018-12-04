@@ -58,10 +58,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: _raw_spin_lock
@@ -91,10 +91,10 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_irdadev
 // with type: struct net_device *alloc_irdadev(int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_irdadev(int arg0) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: async_wrap_skb
@@ -138,10 +138,10 @@ void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_a
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -213,10 +213,10 @@ void irlap_close(struct irlap_cb *arg0) {
 // Function: irlap_open
 // with type: struct irlap_cb *irlap_open(struct net_device *, struct qos_info *, const char *)
 // with return type: (struct irlap_cb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irlap_cb *irlap_open(struct net_device *arg0, struct qos_info *arg1, const char *arg2) {
   // Pointer type
-  return (struct irlap_cb *)external_alloc();
+  return external_alloc(sizeof(struct irlap_cb));
 }
 
 // Function: kfree_skb
@@ -399,10 +399,10 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Skip function: sprintf

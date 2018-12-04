@@ -13595,9 +13595,9 @@ int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -13656,9 +13656,9 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;
@@ -13692,9 +13692,9 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
@@ -13717,9 +13717,9 @@ int v4l2_device_register(struct device *arg0, struct v4l2_device *arg1) {
 void v4l2_device_unregister(struct v4l2_device *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev_board(struct v4l2_device *arg0, struct i2c_adapter *arg1, struct i2c_board_info *arg2, const unsigned short *arg3) {
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 void vb2_buffer_done(struct vb2_buffer *arg0, enum vb2_buffer_state arg1) {
   return;
@@ -13727,9 +13727,9 @@ void vb2_buffer_done(struct vb2_buffer *arg0, enum vb2_buffer_state arg1) {
 void vb2_dma_contig_cleanup_ctx(void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_dma_contig_init_ctx(struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int vb2_dqbuf(struct vb2_queue *arg0, struct v4l2_buffer *arg1, bool arg2) {
@@ -13739,13 +13739,13 @@ int __VERIFIER_nondet_int(void);
 int vb2_mmap(struct vb2_queue *arg0, struct vm_area_struct *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_cookie(struct vb2_buffer *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int vb2_poll(struct vb2_queue *arg0, struct file *arg1, poll_table *arg2) {
@@ -13782,9 +13782,9 @@ int __VERIFIER_nondet_int(void);
 int vb2_streamon(struct vb2_queue *arg0, enum v4l2_buf_type arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 void video_device_release_empty(struct video_device *arg0) {
   return;
@@ -13799,9 +13799,12 @@ void video_unregister_device(struct video_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

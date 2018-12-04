@@ -9,10 +9,10 @@
 // Function: __class_create
 // with type: struct class *__class_create(struct module *, const char *, struct lock_class_key *)
 // with return type: (struct class)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 
 // Function: __copy_from_user_overflow
@@ -143,10 +143,10 @@ int alloc_chrdev_region(dev_t *arg0, unsigned int arg1, unsigned int arg2, const
 // Function: anon_inode_getfile
 // with type: struct file *anon_inode_getfile(const char *, const struct file_operations *, void *, int)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *anon_inode_getfile(const char *arg0, const struct file_operations *arg1, void *arg2, int arg3) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Skip function: calloc
@@ -204,10 +204,10 @@ void dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_destroy
@@ -287,10 +287,10 @@ void idr_destroy(struct idr *arg0) {
 // Function: idr_find_slowpath
 // with type: void *idr_find_slowpath(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: idr_init
@@ -321,10 +321,10 @@ int iommu_group_for_each_dev(struct iommu_group *arg0, void *arg1, int (*arg2)(s
 // Function: iommu_group_get
 // with type: struct iommu_group *iommu_group_get(struct device *)
 // with return type: (struct iommu_group)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iommu_group *iommu_group_get(struct device *arg0) {
   // Pointer type
-  return (struct iommu_group *)external_alloc();
+  return external_alloc(sizeof(struct iommu_group));
 }
 
 // Function: iommu_group_id
@@ -365,10 +365,10 @@ int iommu_group_unregister_notifier(struct iommu_group *arg0, struct notifier_bl
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -476,10 +476,10 @@ long int schedule_timeout(long arg0) {
 // Function: strndup_user
 // with type: char *strndup_user(const char *, long)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strndup_user(const char *arg0, long arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: unregister_chrdev_region

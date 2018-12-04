@@ -3422,9 +3422,9 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iio_trigger *iio_trigger_alloc(const char *arg0, ...) {
-  return (struct iio_trigger *)external_alloc();
+  return external_alloc(sizeof(struct iio_trigger));
 }
 void iio_trigger_poll(struct iio_trigger *arg0) {
   return;
@@ -3442,9 +3442,9 @@ void ldv_initialize() {
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 void put_device(struct device *arg0) {
   return;
@@ -3453,9 +3453,12 @@ int __VERIFIER_nondet_int(void);
 int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), unsigned long arg3, const char *arg4, void *arg5) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

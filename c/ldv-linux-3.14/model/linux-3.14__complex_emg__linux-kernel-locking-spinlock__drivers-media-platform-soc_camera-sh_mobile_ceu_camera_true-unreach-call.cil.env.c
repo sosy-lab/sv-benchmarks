@@ -189,19 +189,19 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_ioremap_resource
 // with type: void *devm_ioremap_resource(struct device *, struct resource *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_request_threaded_irq
@@ -216,10 +216,10 @@ int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -340,10 +340,10 @@ int platform_device_add_data(struct platform_device *arg0, const void *arg1, siz
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *, int)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_del
@@ -382,10 +382,10 @@ int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: pm_runtime_enable
@@ -467,10 +467,10 @@ void soc_camera_unlock(struct vb2_queue *arg0) {
 // Function: soc_camera_xlate_by_fourcc
 // with type: const struct soc_camera_format_xlate *soc_camera_xlate_by_fourcc(struct soc_camera_device *, unsigned int)
 // with return type: (struct soc_camera_format_xlate)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct soc_camera_format_xlate *soc_camera_xlate_by_fourcc(struct soc_camera_device *arg0, unsigned int arg1) {
   // Pointer type
-  return (const struct soc_camera_format_xlate *)external_alloc();
+  return external_alloc(sizeof(const struct soc_camera_format_xlate));
 }
 
 // Function: soc_mbus_bytes_per_line
@@ -496,10 +496,10 @@ unsigned int soc_mbus_config_compatible(const struct v4l2_mbus_config *arg0, uns
 // Function: soc_mbus_get_fmtdesc
 // with type: const struct soc_mbus_pixelfmt *soc_mbus_get_fmtdesc(enum v4l2_mbus_pixelcode )
 // with return type: (struct soc_mbus_pixelfmt)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct soc_mbus_pixelfmt *soc_mbus_get_fmtdesc(enum v4l2_mbus_pixelcode arg0) {
   // Pointer type
-  return (const struct soc_mbus_pixelfmt *)external_alloc();
+  return external_alloc(sizeof(const struct soc_mbus_pixelfmt));
 }
 
 // Function: soc_mbus_image_size
@@ -544,10 +544,10 @@ bool try_module_get(struct module *arg0) {
 // Function: v4l2_ctrl_new_std
 // with type: struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *, const struct v4l2_ctrl_ops *, u32 , s32 , s32 , u32 , s32 )
 // with return type: (struct v4l2_ctrl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s32 arg3, s32 arg4, u32 arg5, s32 arg6) {
   // Pointer type
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 
 // Function: v4l2_device_register_subdev
@@ -594,28 +594,28 @@ void vb2_dma_contig_cleanup_ctx(void *arg0) {
 // Function: vb2_dma_contig_init_ctx
 // with type: void *vb2_dma_contig_init_ctx(struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_dma_contig_init_ctx(struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vb2_plane_cookie
 // with type: void *vb2_plane_cookie(struct vb2_buffer *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_cookie(struct vb2_buffer *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vb2_plane_vaddr
 // with type: void *vb2_plane_vaddr(struct vb2_buffer *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vb2_poll

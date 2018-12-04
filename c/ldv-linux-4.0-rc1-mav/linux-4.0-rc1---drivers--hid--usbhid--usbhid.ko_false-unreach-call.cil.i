@@ -19755,9 +19755,9 @@ void down_read(struct rw_semaphore *arg0) {
 void down_write(struct rw_semaphore *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int fasync_helper(int arg0, struct file *arg1, int arg2, struct fasync_struct **arg3) {
@@ -19770,13 +19770,13 @@ int __VERIFIER_nondet_int(void);
 int hid_add_device(struct hid_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 u8 *hid_alloc_report_buf(struct hid_report *arg0, gfp_t arg1) {
-  return (u8 *)external_alloc();
+  return external_alloc(sizeof(u8));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct hid_device *hid_allocate_device() {
-  return (struct hid_device *)external_alloc();
+  return external_alloc(sizeof(struct hid_device));
 }
 int __VERIFIER_nondet_int(void);
 int hid_check_keys_pressed(struct hid_device *arg0) {
@@ -19811,9 +19811,9 @@ int __VERIFIER_nondet_int(void);
 int input_ff_create(struct input_dev *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void kill_fasync(struct fasync_struct **arg0, int arg1, int arg2) {
   return;
@@ -19927,9 +19927,9 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1) {
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 int __VERIFIER_nondet_int(void);
 int usb_interrupt_msg(struct usb_device *arg0, unsigned int arg1, void *arg2, int arg3, int *arg4, int arg5) {
@@ -19966,9 +19966,12 @@ void vfree(const void *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

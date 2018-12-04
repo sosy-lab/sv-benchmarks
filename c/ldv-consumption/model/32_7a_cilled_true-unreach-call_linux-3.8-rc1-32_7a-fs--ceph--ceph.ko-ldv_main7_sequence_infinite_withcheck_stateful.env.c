@@ -5,10 +5,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __ceph_open_session
@@ -112,10 +112,10 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 // Function: __page_cache_alloc
 // with type: struct page *__page_cache_alloc(gfp_t )
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *__page_cache_alloc(gfp_t arg0) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: __pagevec_release
@@ -273,19 +273,19 @@ bool cancel_delayed_work_sync(struct delayed_work *arg0) {
 // Function: ceph_alloc_page_vector
 // with type: struct page **ceph_alloc_page_vector(int, gfp_t )
 // with return type: ((struct page)*)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page **ceph_alloc_page_vector(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct page **)external_alloc();
+  return external_alloc(sizeof(struct page *));
 }
 
 // Function: ceph_buffer_new
 // with type: struct ceph_buffer *ceph_buffer_new(size_t , gfp_t )
 // with return type: (struct ceph_buffer)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_buffer *ceph_buffer_new(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (struct ceph_buffer *)external_alloc();
+  return external_alloc(sizeof(struct ceph_buffer));
 }
 
 // Function: ceph_calc_file_object_mapping
@@ -403,10 +403,10 @@ int ceph_copy_user_to_page_vector(struct page **arg0, const char *arg1, loff_t a
 // Function: ceph_create_client
 // with type: struct ceph_client *ceph_create_client(struct ceph_options *, void *, unsigned int, unsigned int)
 // with return type: (struct ceph_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_client *ceph_create_client(struct ceph_options *arg0, void *arg1, unsigned int arg2, unsigned int arg3) {
   // Pointer type
-  return (struct ceph_client *)external_alloc();
+  return external_alloc(sizeof(struct ceph_client));
 }
 
 // Function: ceph_destroy_client
@@ -428,10 +428,10 @@ void ceph_destroy_options(struct ceph_options *arg0) {
 // Function: ceph_file_part
 // with type: const char *ceph_file_part(const char *, int)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *ceph_file_part(const char *arg0, int arg1) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: ceph_flags_to_mode
@@ -446,10 +446,10 @@ int ceph_flags_to_mode(int arg0) {
 // Function: ceph_get_direct_page_vector
 // with type: struct page **ceph_get_direct_page_vector(const char *, int, bool )
 // with return type: ((struct page)*)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page **ceph_get_direct_page_vector(const char *arg0, int arg1, bool arg2) {
   // Pointer type
-  return (struct page **)external_alloc();
+  return external_alloc(sizeof(struct page *));
 }
 
 // Function: ceph_monc_do_statfs
@@ -490,19 +490,19 @@ void ceph_msg_dump(struct ceph_msg *arg0) {
 // Function: ceph_msg_new
 // with type: struct ceph_msg *ceph_msg_new(int, int, gfp_t , bool )
 // with return type: (struct ceph_msg)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_msg *ceph_msg_new(int arg0, int arg1, gfp_t arg2, bool arg3) {
   // Pointer type
-  return (struct ceph_msg *)external_alloc();
+  return external_alloc(sizeof(struct ceph_msg));
 }
 
 // Function: ceph_msg_type_name
 // with type: const char *ceph_msg_type_name(int)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *ceph_msg_type_name(int arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: ceph_msgr_flush
@@ -516,10 +516,10 @@ void ceph_msgr_flush() {
 // Function: ceph_osdc_new_request
 // with type: struct ceph_osd_request *ceph_osdc_new_request(struct ceph_osd_client *, struct ceph_file_layout *, struct ceph_vino , u64 , u64 *, int, int, struct ceph_snap_context *, int, u32 , u64 , struct timespec *, bool , int, int)
 // with return type: (struct ceph_osd_request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_osd_request *ceph_osdc_new_request(struct ceph_osd_client *arg0, struct ceph_file_layout *arg1, struct ceph_vino arg2, u64 arg3, u64 *arg4, int arg5, int arg6, struct ceph_snap_context *arg7, int arg8, u32 arg9, u64 arg10, struct timespec *arg11, bool arg12, int arg13, int arg14) {
   // Pointer type
-  return (struct ceph_osd_request *)external_alloc();
+  return external_alloc(sizeof(struct ceph_osd_request));
 }
 
 // Function: ceph_osdc_readpages
@@ -613,19 +613,19 @@ int ceph_pagelist_truncate(struct ceph_pagelist *arg0, struct ceph_pagelist_curs
 // Function: ceph_parse_options
 // with type: struct ceph_options *ceph_parse_options(char *, const char *, const char *, int (*)(char *, void *), void *)
 // with return type: (struct ceph_options)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_options *ceph_parse_options(char *arg0, const char *arg1, const char *arg2, int (*arg3)(char *, void *), void *arg4) {
   // Pointer type
-  return (struct ceph_options *)external_alloc();
+  return external_alloc(sizeof(struct ceph_options));
 }
 
 // Function: ceph_pr_addr
 // with type: const char *ceph_pr_addr(const struct __kernel_sockaddr_storage *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *ceph_pr_addr(const struct __kernel_sockaddr_storage *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: ceph_put_page_vector
@@ -689,11 +689,11 @@ void complete_all(struct completion *arg0) {
 // Function: current_kernel_time
 // with type: struct timespec current_kernel_time()
 // with return type: struct timespec
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
   // Composite type
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -701,10 +701,10 @@ struct timespec current_kernel_time() {
 // Function: d_alloc
 // with type: struct dentry *d_alloc(struct dentry *, const struct qstr *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_alloc(struct dentry *arg0, const struct qstr *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_delete
@@ -726,19 +726,19 @@ void d_drop(struct dentry *arg0) {
 // Function: d_find_alias
 // with type: struct dentry *d_find_alias(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_find_alias(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_find_any_alias
 // with type: struct dentry *d_find_any_alias(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_find_any_alias(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_instantiate
@@ -752,28 +752,28 @@ void d_instantiate(struct dentry *arg0, struct inode *arg1) {
 // Function: d_lookup
 // with type: struct dentry *d_lookup(struct dentry *, struct qstr *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_lookup(struct dentry *arg0, struct qstr *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_make_root
 // with type: struct dentry *d_make_root(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_make_root(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_materialise_unique
 // with type: struct dentry *d_materialise_unique(struct dentry *, struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_materialise_unique(struct dentry *arg0, struct inode *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_move
@@ -787,10 +787,10 @@ void d_move(struct dentry *arg0, struct dentry *arg1) {
 // Function: d_obtain_alias
 // with type: struct dentry *d_obtain_alias(struct inode *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_obtain_alias(struct inode *arg0) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: d_prune_aliases
@@ -837,19 +837,19 @@ int debug_lockdep_rcu_enabled() {
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_symlink
 // with type: struct dentry *debugfs_create_symlink(const char *, struct dentry *, const char *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_symlink(const char *arg0, struct dentry *arg1, const char *arg2) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -1073,28 +1073,28 @@ void get_random_bytes(void *arg0, int arg1) {
 // Function: grab_cache_page_write_begin
 // with type: struct page *grab_cache_page_write_begin(struct address_space *, unsigned long, unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *grab_cache_page_write_begin(struct address_space *arg0, unsigned long arg1, unsigned int arg2) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: iget5_locked
 // with type: struct inode *iget5_locked(struct super_block *, unsigned long, int (*)(struct inode *, void *), int (*)(struct inode *, void *), void *)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *iget5_locked(struct super_block *arg0, unsigned long arg1, int (*arg2)(struct inode *, void *), int (*arg3)(struct inode *, void *), void *arg4) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: igrab
 // with type: struct inode *igrab(struct inode *)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *igrab(struct inode *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: ihold
@@ -1108,10 +1108,10 @@ void ihold(struct inode *arg0) {
 // Function: ilookup5
 // with type: struct inode *ilookup5(struct super_block *, unsigned long, int (*)(struct inode *, void *), void *)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *ilookup5(struct super_block *arg0, unsigned long arg1, int (*arg2)(struct inode *, void *), void *arg3) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: init_special_inode
@@ -1195,19 +1195,19 @@ void kill_anon_super(struct super_block *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -1229,28 +1229,28 @@ void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: kstrndup
 // with type: char *kstrndup(const char *, size_t , gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrndup(const char *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: ldv_check_return_value
@@ -1344,19 +1344,19 @@ int match_token(char *arg0, const struct match_token *arg1, substring_t *arg2) {
 // Function: mempool_alloc
 // with type: void *mempool_alloc(mempool_t *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: mempool_create
 // with type: mempool_t *mempool_create(int, mempool_alloc_t *, mempool_free_t *, void *)
 // with return type: (mempool_t )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
   // Pointer type
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 
 // Function: mempool_destroy
@@ -1475,10 +1475,10 @@ bool queue_work(struct workqueue_struct *arg0, struct work_struct *arg1) {
 // Function: radix_tree_tag_set
 // with type: void *radix_tree_tag_set(struct radix_tree_root *, unsigned long, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *radix_tree_tag_set(struct radix_tree_root *arg0, unsigned long arg1, unsigned int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: rb_erase
@@ -1492,10 +1492,10 @@ void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_first
 // with type: struct rb_node *rb_first(const struct rb_root *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_first(const struct rb_root *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: rb_insert_color
@@ -1509,10 +1509,10 @@ void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_next
 // with type: struct rb_node *rb_next(const struct rb_node *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_next(const struct rb_node *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: rcu_barrier
@@ -1642,10 +1642,10 @@ int set_page_dirty(struct page *arg0) {
 // Function: sget
 // with type: struct super_block *sget(struct file_system_type *, int (*)(struct super_block *, void *), int (*)(struct super_block *, void *), int, void *)
 // with return type: (struct super_block)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct super_block *sget(struct file_system_type *arg0, int (*arg1)(struct super_block *, void *), int (*arg2)(struct super_block *, void *), int arg3, void *arg4) {
   // Pointer type
-  return (struct super_block *)external_alloc();
+  return external_alloc(sizeof(struct super_block));
 }
 
 // Function: simple_attr_open

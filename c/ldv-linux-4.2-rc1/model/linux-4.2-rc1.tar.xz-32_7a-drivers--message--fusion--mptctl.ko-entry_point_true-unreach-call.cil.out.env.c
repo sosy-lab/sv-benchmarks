@@ -58,10 +58,10 @@ unsigned long int __phys_addr(unsigned long arg0) {
 // Function: __scsi_iterate_devices
 // with type: struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *, struct scsi_device *)
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *arg0, struct scsi_device *arg1) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 
 // Function: _copy_from_user
@@ -128,10 +128,10 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: dma_alloc_attrs
 // with type: void *dma_alloc_attrs(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_free_attrs
@@ -194,10 +194,10 @@ int ldv_release_2() {
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: memset
@@ -336,10 +336,10 @@ void mpt_free_msg_frame(MPT_ADAPTER *arg0, MPT_FRAME_HDR *arg1) {
 // Function: mpt_get_msg_frame
 // with type: MPT_FRAME_HDR *mpt_get_msg_frame(u8 , MPT_ADAPTER *)
 // with return type: (MPT_FRAME_HDR )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 MPT_FRAME_HDR *mpt_get_msg_frame(u8 arg0, MPT_ADAPTER *arg1) {
   // Pointer type
-  return (MPT_FRAME_HDR *)external_alloc();
+  return external_alloc(sizeof(MPT_FRAME_HDR));
 }
 
 // Function: mpt_halt_firmware

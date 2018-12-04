@@ -54651,9 +54651,9 @@ int __VERIFIER_nondet_int(void);
 int __set_page_dirty_nobuffers(struct page *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__vmalloc(unsigned long arg0, gfp_t arg1, pgprot_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -54708,23 +54708,23 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 crc32_le(u32 arg0, const unsigned char *arg1, size_t arg2) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
-  return (struct crypto_tfm *)external_alloc();
+  return external_alloc(sizeof(struct crypto_tfm));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_fs_time(struct super_block *arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_make_root(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void d_rehash(struct dentry *arg0) {
   return;
@@ -54736,13 +54736,13 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove_recursive(struct dentry *arg0) {
   return;
@@ -54770,13 +54770,13 @@ int __VERIFIER_nondet_int(void);
 int filemap_write_and_wait_range(struct address_space *arg0, loff_t arg1, loff_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *find_lock_page(struct address_space *arg0, unsigned long arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *find_or_create_page(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -54807,9 +54807,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int get_seconds() {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *grab_cache_page_write_begin(struct address_space *arg0, unsigned long arg1, unsigned int arg2) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int hrtimer_cancel(struct hrtimer *arg0) {
@@ -54825,16 +54825,16 @@ int hrtimer_start_range_ns(struct hrtimer *arg0, ktime_t arg1, unsigned long arg
 void iget_failed(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *iget_locked(struct super_block *arg0, unsigned long arg1) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 void ihold(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *ilookup(struct super_block *arg0, unsigned long arg1) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 int __VERIFIER_nondet_int(void);
 int in_group_p(kgid_t arg0) {
@@ -54867,9 +54867,9 @@ int is_bad_inode(struct inode *arg0) {
 void kill_anon_super(struct super_block *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -54877,13 +54877,13 @@ void kmem_cache_destroy(struct kmem_cache *arg0) {
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -54908,9 +54908,9 @@ void list_sort(void *arg0, struct list_head *arg1, int (*arg2)(void *, struct li
 void make_bad_inode(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *match_strdup(const substring_t *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int match_token(char *arg0, const struct match_token *arg1, substring_t *arg2) {
@@ -54943,9 +54943,9 @@ int mutex_trylock(struct mutex *arg0) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 int __VERIFIER_nondet_int(void);
 int nonseekable_open(struct inode *arg0, struct file *arg1) {
@@ -54974,16 +54974,16 @@ void put_page(struct page *arg0) {
 void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_first(const struct rb_root *arg0) {
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_next(const struct rb_node *arg0) {
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 void rcu_barrier() {
   return;
@@ -55006,9 +55006,9 @@ bool set_freezable() {
 void set_nlink(struct inode *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct super_block *sget(struct file_system_type *arg0, int (*arg1)(struct super_block *, void *), int (*arg2)(struct super_block *, void *), int arg3, void *arg4) {
-  return (struct super_block *)external_alloc();
+  return external_alloc(sizeof(struct super_block));
 }
 long __VERIFIER_nondet_long(void);
 ssize_t simple_read_from_buffer(void *arg0, size_t arg1, loff_t *arg2, const void *arg3, size_t arg4) {
@@ -55025,18 +55025,18 @@ unsigned long __VERIFIER_nondet_ulong(void);
 __kernel_size_t strnlen(const char *arg0, __kernel_size_t arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int test_set_page_writeback(struct page *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec timespec_trunc(struct timespec arg0, unsigned int arg1) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -55080,17 +55080,17 @@ int __VERIFIER_nondet_int(void);
 int ubi_leb_write(struct ubi_volume_desc *arg0, int arg1, const void *arg2, int arg3, int arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ubi_volume_desc *ubi_open_volume(int arg0, int arg1, int arg2) {
-  return (struct ubi_volume_desc *)external_alloc();
+  return external_alloc(sizeof(struct ubi_volume_desc));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ubi_volume_desc *ubi_open_volume_nm(int arg0, const char *arg1, int arg2) {
-  return (struct ubi_volume_desc *)external_alloc();
+  return external_alloc(sizeof(struct ubi_volume_desc));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ubi_volume_desc *ubi_open_volume_path(const char *arg0, int arg1) {
-  return (struct ubi_volume_desc *)external_alloc();
+  return external_alloc(sizeof(struct ubi_volume_desc));
 }
 int __VERIFIER_nondet_int(void);
 int ubi_sync(int arg0) {
@@ -55118,9 +55118,9 @@ void up_write(struct rw_semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int wake_up_process(struct task_struct *arg0) {
@@ -55136,9 +55136,12 @@ int write_inode_now(struct inode *arg0, int arg1) {
 void writeback_inodes_sb(struct super_block *arg0, enum wb_reason arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

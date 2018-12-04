@@ -119,11 +119,11 @@ int copy_strings_kernel(int arg0, const char * const *arg1, struct linux_binprm 
 // Function: current_fs_time
 // with type: struct timespec current_fs_time(struct super_block *)
 // with return type: struct timespec
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_fs_time(struct super_block *arg0) {
   // Composite type
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -176,10 +176,10 @@ void drop_nlink(struct inode *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: fd_install
@@ -288,10 +288,10 @@ void lockref_get(struct lockref *arg0) {
 // Function: lookup_one_len
 // with type: struct dentry *lookup_one_len(const char *, struct dentry *, int)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *lookup_one_len(const char *arg0, struct dentry *arg1, int arg2) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Skip function: malloc
@@ -309,19 +309,19 @@ void might_fault() {
 // Function: mount_single
 // with type: struct dentry *mount_single(struct file_system_type *, int, void *, int (*)(struct super_block *, void *, int))
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *mount_single(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int)) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: new_inode
 // with type: struct inode *new_inode(struct super_block *)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *new_inode(struct super_block *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: noop_llseek
@@ -340,10 +340,10 @@ loff_t noop_llseek(struct file *arg0, loff_t arg1, int arg2) {
 // Function: open_exec
 // with type: struct file *open_exec(const char *)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *open_exec(const char *arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: prepare_binprm

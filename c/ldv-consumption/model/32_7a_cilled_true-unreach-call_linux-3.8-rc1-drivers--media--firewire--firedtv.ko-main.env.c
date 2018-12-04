@@ -118,10 +118,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -343,10 +343,10 @@ int fw_iso_buffer_init(struct fw_iso_buffer *arg0, struct fw_card *arg1, int arg
 // Function: fw_iso_context_create
 // with type: struct fw_iso_context *fw_iso_context_create(struct fw_card *, int, int, int, size_t , void (*)(struct fw_iso_context *, u32 , size_t , void *, void *), void *)
 // with return type: (struct fw_iso_context)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fw_iso_context *fw_iso_context_create(struct fw_card *arg0, int arg1, int arg2, int arg3, size_t arg4, void (*arg5)(struct fw_iso_context *, u32 , size_t , void *, void *), void *arg6) {
   // Pointer type
-  return (struct fw_iso_context *)external_alloc();
+  return external_alloc(sizeof(struct fw_iso_context));
 }
 
 // Function: fw_iso_context_destroy
@@ -439,10 +439,10 @@ void input_unregister_device(struct input_dev *arg0) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: list_del

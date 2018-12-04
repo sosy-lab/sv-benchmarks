@@ -655,13 +655,13 @@ long ldv__builtin_expect(long val , long res )
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct c2port_device *c2port_device_register(char *arg0, struct c2port_ops *arg1, void *arg2) {
-  return (struct c2port_device *)external_alloc();
+  return external_alloc(sizeof(struct c2port_device));
 }
 void c2port_device_unregister(struct c2port_device *arg0) {
   return;
@@ -669,9 +669,12 @@ void c2port_device_unregister(struct c2port_device *arg0) {
 void ldv_initialize() {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

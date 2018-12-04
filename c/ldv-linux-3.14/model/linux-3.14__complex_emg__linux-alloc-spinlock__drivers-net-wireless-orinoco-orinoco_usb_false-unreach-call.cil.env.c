@@ -122,10 +122,10 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_orinocodev
 // with type: struct orinoco_private *alloc_orinocodev(int, struct device *, int (*)(struct orinoco_private *), int (*)(struct orinoco_private *, int))
 // with return type: (struct orinoco_private)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct orinoco_private *alloc_orinocodev(int arg0, struct device *arg1, int (*arg2)(struct orinoco_private *), int (*arg3)(struct orinoco_private *, int)) {
   // Pointer type
-  return (struct orinoco_private *)external_alloc();
+  return external_alloc(sizeof(struct orinoco_private));
 }
 
 // Skip function: calloc
@@ -185,10 +185,10 @@ int eth_validate_addr(struct net_device *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: finish_wait
@@ -345,10 +345,10 @@ int orinoco_change_mtu(struct net_device *arg0, int arg1) {
 // Function: orinoco_get_stats
 // with type: struct net_device_stats *orinoco_get_stats(struct net_device *)
 // with return type: (struct net_device_stats)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device_stats *orinoco_get_stats(struct net_device *arg0) {
   // Pointer type
-  return (struct net_device_stats *)external_alloc();
+  return external_alloc(sizeof(struct net_device_stats));
 }
 
 // Function: orinoco_if_add

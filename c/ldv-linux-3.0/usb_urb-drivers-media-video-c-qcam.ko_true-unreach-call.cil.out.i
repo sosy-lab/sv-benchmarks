@@ -7239,9 +7239,9 @@ void ldv_check_final_state(void)
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __might_sleep(const char *arg0, int arg1, int arg2) {
   return;
@@ -7257,9 +7257,9 @@ int __VERIFIER_nondet_int(void);
 int _cond_resched() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -7268,9 +7268,9 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ldv_undefined_pointer() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void might_fault() {
   return;
@@ -7293,9 +7293,9 @@ int __VERIFIER_nondet_int(void);
 int parport_claim_or_block(struct pardevice *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pardevice *parport_register_device(struct parport *arg0, const char *arg1, int (*arg2)(void *), void (*arg3)(void *), void (*arg4)(void *), int arg5, void *arg6) {
-  return (struct pardevice *)external_alloc();
+  return external_alloc(sizeof(struct pardevice));
 }
 int __VERIFIER_nondet_int(void);
 int parport_register_driver(struct parport_driver *arg0) {
@@ -7329,16 +7329,19 @@ int __VERIFIER_nondet_int(void);
 int v4l2_device_register(struct device *arg0, struct v4l2_device *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 void video_unregister_device(struct video_device *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

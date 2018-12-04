@@ -61448,13 +61448,13 @@ void ldv_check_final_state(void)
 void ___might_sleep(const char *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __bitmap_or(unsigned long *arg0, const unsigned long *arg1, const unsigned long *arg2, unsigned int arg3) {
   return;
@@ -61497,9 +61497,9 @@ void __init_work(struct work_struct *arg0, int arg1) {
 void __iowrite64_copy(void *arg0, const void *arg1, size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -61529,9 +61529,9 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const char *arg2) {
@@ -61541,9 +61541,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __phys_addr(unsigned long arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -61586,17 +61586,17 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cpu_rmap *alloc_cpu_rmap(unsigned int arg0, gfp_t arg1) {
-  return (struct cpu_rmap *)external_alloc();
+  return external_alloc(sizeof(struct cpu_rmap));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
@@ -61654,9 +61654,9 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
 void disable_irq_nosync(unsigned int arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -61737,9 +61737,9 @@ void get_random_bytes(void *arg0, int arg1) {
 void getnstimeofday64(struct timespec *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *hwmon_device_register_with_groups(struct device *arg0, const char *arg1, void *arg2, const struct attribute_group **arg3) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void hwmon_device_unregister(struct device *arg0) {
   return;
@@ -61751,13 +61751,13 @@ int i2c_bit_add_bus(struct i2c_adapter *arg0) {
 void i2c_del_adapter(struct i2c_adapter *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_device(struct i2c_adapter *arg0, const struct i2c_board_info *arg1) {
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_dummy(struct i2c_adapter *arg0, u16 arg1) {
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
 int __VERIFIER_nondet_int(void);
 s32 i2c_smbus_read_byte_data(const struct i2c_client *arg0, u8 arg1) {
@@ -61777,13 +61777,13 @@ bool __VERIFIER_nondet_bool(void);
 bool iommu_present(struct bus_type *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -61946,9 +61946,9 @@ void mutex_unlock(struct mutex *arg0) {
 void napi_disable(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *napi_get_frags(struct napi_struct *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 gro_result_t napi_gro_frags(struct napi_struct *arg0) {
@@ -62012,10 +62012,10 @@ int netif_set_real_num_tx_queues(struct net_device *arg0, unsigned int arg1) {
 void netif_tx_wake_queue(struct netdev_queue *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec ns_to_timespec(const s64 arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -62030,9 +62030,9 @@ int pci_cleanup_aer_uncorrect_error_status(struct pci_dev *arg0) {
 void pci_clear_master(struct pci_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 void pci_dev_put(struct pci_dev *arg0) {
   return;
@@ -62077,9 +62077,9 @@ int __VERIFIER_nondet_int(void);
 int pci_find_ext_capability(struct pci_dev *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 int __VERIFIER_nondet_int(void);
 int pci_num_vf(struct pci_dev *arg0) {
@@ -62155,9 +62155,9 @@ int __VERIFIER_nondet_int(void);
 int ptp_clock_index(struct ptp_clock *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ptp_clock *ptp_clock_register(struct ptp_clock_info *arg0, struct device *arg1) {
-  return (struct ptp_clock *)external_alloc();
+  return external_alloc(sizeof(struct ptp_clock));
 }
 int __VERIFIER_nondet_int(void);
 int ptp_clock_unregister(struct ptp_clock *arg0) {
@@ -62226,17 +62226,17 @@ int __VERIFIER_nondet_int(void);
 int skb_checksum_help(struct sk_buff *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int skb_pad(struct sk_buff *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_head(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -62279,9 +62279,9 @@ void usleep_range(unsigned long arg0, unsigned long arg1) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
@@ -62293,9 +62293,12 @@ bool __VERIFIER_nondet_bool(void);
 bool zalloc_cpumask_var(cpumask_var_t **arg0, gfp_t arg1) {
   return __VERIFIER_nondet_bool();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

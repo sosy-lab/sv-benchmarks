@@ -30143,13 +30143,13 @@ int ___pskb_trim(struct sk_buff *arg0, unsigned int arg1) {
 void __account_scheduler_latency(struct task_struct *arg0, int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_and(unsigned long *arg0, const unsigned long *arg1, const unsigned long *arg2, int arg3) {
@@ -30233,9 +30233,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int __get_free_pages(gfp_t arg0, unsigned int arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 pte_t *__get_locked_pte(struct mm_struct *arg0, unsigned long arg1, spinlock_t **arg2) {
-  return (pte_t *)external_alloc();
+  return external_alloc(sizeof(pte_t));
 }
 bool __VERIFIER_nondet_bool(void);
 bool __get_page_tail(struct page *arg0) {
@@ -30259,9 +30259,9 @@ void __invalid_creds(const struct cred *arg0, const char *arg1, unsigned arg2) {
 void __irq_set_handler(unsigned int arg0, irq_flow_handler_t arg1, int arg2, const char *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -30269,9 +30269,9 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 void __list_del_entry(struct list_head *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sighand_struct *__lock_task_sighand(struct task_struct *arg0, unsigned long *arg1) {
-  return (struct sighand_struct *)external_alloc();
+  return external_alloc(sizeof(struct sighand_struct));
 }
 void __mark_inode_dirty(struct inode *arg0, int arg1) {
   return;
@@ -30288,9 +30288,9 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -30324,13 +30324,13 @@ void __prop_inc_percpu(struct prop_descriptor *arg0, struct prop_local_percpu *a
 void __prop_inc_single(struct prop_descriptor *arg0, struct prop_local_single *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__pskb_copy(struct sk_buff *arg0, int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 int __VERIFIER_nondet_int(void);
 int __pud_alloc(struct mm_struct *arg0, pgd_t *arg1, unsigned long arg2) {
@@ -30451,9 +30451,9 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int bitmap_bitremap(int arg0, const unsigned long *arg1, const unsigned long *arg2, int arg3) {
@@ -30495,9 +30495,9 @@ int call_usermodehelper_exec(struct subprocess_info *arg0, int arg1) {
 void call_usermodehelper_setfns(struct subprocess_info *arg0, int (*arg1)(struct subprocess_info *info, struct cred *new), void (*arg2)(struct subprocess_info *info), void *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct subprocess_info *call_usermodehelper_setup(char *arg0, char **arg1, char **arg2, gfp_t arg3) {
-  return (struct subprocess_info *)external_alloc();
+  return external_alloc(sizeof(struct subprocess_info));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_work_sync(struct work_struct *arg0) {
@@ -30509,9 +30509,9 @@ void clear_page(void *arg0) {
 void copy_page(void *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *create_proc_entry(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 bool __VERIFIER_nondet_bool(void);
 bool creds_are_invalid(const struct cred *arg0) {
@@ -30528,9 +30528,9 @@ __wsum csum_partial_copy_from_user(const void *arg0, void *arg1, int arg2, __wsu
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_instantiate_unique(struct dentry *arg0, struct inode *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void d_rehash(struct dentry *arg0) {
   return;
@@ -30662,13 +30662,13 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_next_zero_bit(const unsigned long *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vm_area_struct *find_vma(struct mm_struct *arg0, unsigned long arg1) {
-  return (struct vm_area_struct *)external_alloc();
+  return external_alloc(sizeof(struct vm_area_struct));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int get_pageblock_flags_group(struct page *arg0, int arg1, int arg2) {
@@ -30707,9 +30707,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int invalidate_mapping_pages(struct address_space *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iov_iter_advance(struct iov_iter *arg0, size_t arg1) {
   return;
@@ -30717,9 +30717,9 @@ void iov_iter_advance(struct iov_iter *arg0, size_t arg1) {
 void irq_free_descs(unsigned int arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irq_data *irq_get_irq_data(unsigned int arg0) {
-  return (struct irq_data *)external_alloc();
+  return external_alloc(sizeof(struct irq_data));
 }
 void irq_modify_status(unsigned int arg0, unsigned long arg1, unsigned long arg2) {
   return;
@@ -30731,9 +30731,9 @@ int irq_reserve_irqs(unsigned int arg0, unsigned int arg1) {
 void irq_set_chip_and_handler_name(unsigned int arg0, struct irq_chip *arg1, irq_flow_handler_t arg2, const char *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irq_desc *irq_to_desc(unsigned int arg0) {
-  return (struct irq_desc *)external_alloc();
+  return external_alloc(sizeof(struct irq_desc));
 }
 void key_put(struct key *arg0) {
   return;
@@ -30748,13 +30748,13 @@ int __VERIFIER_nondet_int(void);
 int kill_pid(struct pid *arg0, int arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmalloc_order_trace(size_t arg0, gfp_t arg1, unsigned int arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void kmemleak_alloc(const void *arg0, size_t arg1, int arg2, gfp_t arg3) {
   return;
@@ -30762,9 +30762,9 @@ void kmemleak_alloc(const void *arg0, size_t arg1, int arg2, gfp_t arg3) {
 void kmemleak_free(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_get(struct kobject *arg0) {
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 void kobject_put(struct kobject *arg0) {
   return;
@@ -30801,17 +30801,17 @@ int __VERIFIER_nondet_int(void);
 int kstrtoull_from_user(const char *arg0, size_t arg1, unsigned int arg2, unsigned long long *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_add_safe(const ktime_t arg0, const ktime_t arg1) {
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get_real() {
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -30844,9 +30844,9 @@ int __VERIFIER_nondet_int(void);
 int locks_mandatory_locked(struct inode *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mii_bus *mdiobus_alloc_size(size_t arg0) {
-  return (struct mii_bus *)external_alloc();
+  return external_alloc(sizeof(struct mii_bus));
 }
 int __VERIFIER_nondet_int(void);
 int mdiobus_read(struct mii_bus *arg0, int arg1, u32 arg2) {
@@ -30878,9 +30878,9 @@ int __VERIFIER_nondet_int(void);
 int netpoll_trap() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct zoneref *next_zones_zonelist(struct zoneref *arg0, enum zone_type arg1, nodemask_t *arg2, struct zone **arg3) {
-  return (struct zoneref *)external_alloc();
+  return external_alloc(sizeof(struct zoneref));
 }
 void nf_conntrack_destroy(struct nf_conntrack *arg0) {
   return;
@@ -30889,17 +30889,17 @@ int __VERIFIER_nondet_int(void);
 int nf_hook_slow(u_int8_t arg0, unsigned int arg1, struct sk_buff *arg2, struct net_device *arg3, struct net_device *arg4, int (*arg5)(struct sk_buff *), int arg6) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec ns_to_timespec(const s64 arg0) {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
-  struct timeval *tmp = (struct timeval*)external_alloc();
+  struct timeval *tmp = external_alloc(sizeof(struct timeval));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -30935,9 +30935,9 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 void profile_hits(int arg0, void *arg1, unsigned int arg2) {
   return;
@@ -30949,9 +30949,9 @@ int pskb_expand_head(struct sk_buff *arg0, int arg1, int arg2, gfp_t arg3) {
 void ptp_clock_event(struct ptp_clock *arg0, struct ptp_clock_event *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ptp_clock *ptp_clock_register(struct ptp_clock_info *arg0) {
-  return (struct ptp_clock *)external_alloc();
+  return external_alloc(sizeof(struct ptp_clock));
 }
 int __VERIFIER_nondet_int(void);
 int ptp_clock_unregister(struct ptp_clock *arg0) {
@@ -30991,9 +30991,9 @@ void set_normalized_timespec(struct timespec *arg0, time_t arg1, s64 arg2) {
 void sg_init_one(struct scatterlist *arg0, const void *arg1, unsigned int arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 void show_state_filter(unsigned long arg0) {
   return;
@@ -31002,9 +31002,9 @@ int __VERIFIER_nondet_int(void);
 int sk_chk_filter(struct sock_filter *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void skb_clone_tx_timestamp(struct sk_buff *arg0) {
   return;
@@ -31012,29 +31012,29 @@ void skb_clone_tx_timestamp(struct sk_buff *arg0) {
 void skb_complete_tx_timestamp(struct sk_buff *arg0, struct skb_shared_hwtstamps *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_copy(const struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int skb_pad(struct sk_buff *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -31042,9 +31042,9 @@ void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
 void skb_tstamp_tx(struct sk_buff *arg0, struct skb_shared_hwtstamps *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strim(char *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void synchronize_sched() {
   return;
@@ -31099,9 +31099,12 @@ bool __VERIFIER_nondet_bool(void);
 bool xen_hvm_need_lapic() {
   return __VERIFIER_nondet_bool();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

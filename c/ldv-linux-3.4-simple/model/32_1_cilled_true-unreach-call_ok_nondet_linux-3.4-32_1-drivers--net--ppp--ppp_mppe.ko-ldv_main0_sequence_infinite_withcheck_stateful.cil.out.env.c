@@ -14,10 +14,10 @@ unsigned long int __phys_addr(unsigned long arg0) {
 // Function: crypto_alloc_base
 // with type: struct crypto_tfm *crypto_alloc_base(const char *alg_name, u32 type, u32 mask)
 // with return type: (struct crypto_tfm)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
   // Pointer type
-  return (struct crypto_tfm *)external_alloc();
+  return external_alloc(sizeof(struct crypto_tfm));
 }
 
 // Function: crypto_destroy_tfm

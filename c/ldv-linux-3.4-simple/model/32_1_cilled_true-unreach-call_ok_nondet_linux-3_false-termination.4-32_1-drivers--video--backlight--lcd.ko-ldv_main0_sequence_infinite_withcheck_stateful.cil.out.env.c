@@ -5,10 +5,10 @@
 // Function: __class_create
 // with type: struct class *__class_create(struct module *owner, const char *name, struct lock_class_key *key)
 // with return type: (struct class)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 
 // Function: __dynamic_pr_debug

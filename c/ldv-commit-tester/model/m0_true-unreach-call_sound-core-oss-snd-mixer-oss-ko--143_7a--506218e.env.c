@@ -58,10 +58,10 @@ void down_read(struct rw_semaphore *arg0) {
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: ldv_check_return_value
@@ -163,19 +163,19 @@ int snd_card_file_remove(struct snd_card *arg0, struct file *arg1) {
 // Function: snd_ctl_find_id
 // with type: struct snd_kcontrol *snd_ctl_find_id(struct snd_card *, struct snd_ctl_elem_id *)
 // with return type: (struct snd_kcontrol)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_find_id(struct snd_card *arg0, struct snd_ctl_elem_id *arg1) {
   // Pointer type
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
 
 // Function: snd_ctl_find_numid
 // with type: struct snd_kcontrol *snd_ctl_find_numid(struct snd_card *, unsigned int)
 // with return type: (struct snd_kcontrol)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_find_numid(struct snd_card *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
 
 // Function: snd_ctl_notify
@@ -189,10 +189,10 @@ void snd_ctl_notify(struct snd_card *arg0, unsigned int arg1, struct snd_ctl_ele
 // Function: snd_info_create_card_entry
 // with type: struct snd_info_entry *snd_info_create_card_entry(struct snd_card *, const char *, struct snd_info_entry *)
 // with return type: (struct snd_info_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_info_entry *snd_info_create_card_entry(struct snd_card *arg0, const char *arg1, struct snd_info_entry *arg2) {
   // Pointer type
-  return (struct snd_info_entry *)external_alloc();
+  return external_alloc(sizeof(struct snd_info_entry));
 }
 
 // Function: snd_info_free_entry
@@ -215,10 +215,10 @@ int snd_info_get_line(struct snd_info_buffer *arg0, char *arg1, int arg2) {
 // Function: snd_info_get_str
 // with type: const char *snd_info_get_str(char *, const char *, int)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *snd_info_get_str(char *arg0, const char *arg1, int arg2) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: snd_info_register
@@ -242,10 +242,10 @@ int snd_iprintf(struct snd_info_buffer *arg0, const char *arg1, ...) {
 // Function: snd_lookup_oss_minor_data
 // with type: void *snd_lookup_oss_minor_data(unsigned int, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *snd_lookup_oss_minor_data(unsigned int arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: snd_oss_info_register

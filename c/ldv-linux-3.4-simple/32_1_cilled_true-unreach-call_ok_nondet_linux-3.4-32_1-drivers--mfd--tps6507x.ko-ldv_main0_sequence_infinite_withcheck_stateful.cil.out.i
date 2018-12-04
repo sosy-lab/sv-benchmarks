@@ -2260,7 +2260,7 @@ static int tps6507x_i2c_read_device(struct tps6507x_dev *tps6507x , char reg , i
   return (ret);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int tps6507x_i2c_write_device(struct tps6507x_dev *tps6507x , char reg , int bytes ,
                                      void *src )
 { struct i2c_client *i2c ;
@@ -2748,9 +2748,9 @@ long ldv__builtin_expect(long val , long res )
   return (val);
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -2784,9 +2784,12 @@ int mfd_add_devices(struct device *arg0, int arg1, struct mfd_cell *arg2, int ar
 void mfd_remove_devices(struct device *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

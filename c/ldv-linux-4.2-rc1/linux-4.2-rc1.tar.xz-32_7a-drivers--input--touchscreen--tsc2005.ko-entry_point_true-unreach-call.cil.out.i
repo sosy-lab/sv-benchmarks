@@ -6910,17 +6910,17 @@ int __VERIFIER_nondet_int(void);
 int devm_gpio_request_one(struct device *arg0, unsigned int arg1, unsigned long arg2, const char *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct input_dev *devm_input_allocate_device(struct device *arg0) {
-  return (struct input_dev *)external_alloc();
+  return external_alloc(sizeof(struct input_dev));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regulator *devm_regulator_get(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return external_alloc(sizeof(struct regulator));
 }
 int __VERIFIER_nondet_int(void);
 int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_t (*arg2)(int, void *), irqreturn_t (*arg3)(int, void *), unsigned long arg4, const char *arg5, void *arg6) {
@@ -7084,9 +7084,12 @@ void touchscreen_parse_of_params(struct input_dev *arg0, bool arg1) {
 void usleep_range(unsigned long arg0, unsigned long arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

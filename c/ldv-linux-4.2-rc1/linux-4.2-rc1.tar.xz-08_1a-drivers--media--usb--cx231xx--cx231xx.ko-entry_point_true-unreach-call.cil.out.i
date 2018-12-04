@@ -27460,9 +27460,9 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_first_zero_bit(const unsigned long *arg0, unsigned long arg1) {
@@ -27479,9 +27479,9 @@ int __VERIFIER_nondet_int(void);
 int i2c_add_adapter(struct i2c_adapter *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *i2c_add_mux_adapter(struct i2c_adapter *arg0, struct device *arg1, void *arg2, u32 arg3, u32 arg4, unsigned int arg5, int (*arg6)(struct i2c_adapter *, void *, u32 ), int (*arg7)(struct i2c_adapter *, void *, u32 )) {
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 void i2c_del_adapter(struct i2c_adapter *arg0) {
   return;
@@ -27493,9 +27493,9 @@ int __VERIFIER_nondet_int(void);
 int i2c_master_recv(const struct i2c_client *arg0, char *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_device(struct i2c_adapter *arg0, const struct i2c_board_info *arg1) {
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
 int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {
@@ -27566,9 +27566,9 @@ bool __VERIFIER_nondet_bool(void);
 bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rc_dev *rc_allocate_device() {
-  return (struct rc_dev *)external_alloc();
+  return external_alloc(sizeof(struct rc_dev));
 }
 void release_firmware(const struct firmware *arg0) {
   return;
@@ -27584,13 +27584,13 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 void tveeprom_hauppauge_analog(struct i2c_client *arg0, struct tveeprom *arg1, unsigned char *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_bulk_msg(struct usb_device *arg0, unsigned int arg1, void *arg2, int arg3, int *arg4, int arg5) {
@@ -27613,9 +27613,9 @@ void usb_free_coherent(struct usb_device *arg0, size_t arg1, void *arg2, dma_add
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;
@@ -27692,9 +27692,9 @@ void v4l2_fh_init(struct v4l2_fh *arg0, struct video_device *arg1) {
 void v4l2_get_timestamp(struct timeval *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *arg0, struct i2c_adapter *arg1, const char *arg2, u8 arg3, const unsigned short *arg4) {
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 void v4l_bound_align_image(unsigned int *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int *arg4, unsigned int arg5, unsigned int arg6, unsigned int arg7, unsigned int arg8) {
   return;
@@ -27702,9 +27702,9 @@ void v4l_bound_align_image(unsigned int *arg0, unsigned int arg1, unsigned int a
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 void video_device_release_empty(struct video_device *arg0) {
   return;
@@ -27773,9 +27773,9 @@ int __VERIFIER_nondet_int(void);
 int videobuf_streamon(struct videobuf_queue *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *videobuf_to_vmalloc(struct videobuf_buffer *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void videobuf_vmalloc_free(struct videobuf_buffer *arg0) {
   return;
@@ -27784,13 +27784,16 @@ int __VERIFIER_nondet_int(void);
 int videobuf_waiton(struct videobuf_queue *arg0, struct videobuf_buffer *arg1, int arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

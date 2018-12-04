@@ -25993,9 +25993,9 @@ void __copy_from_user_overflow() {
 void __copy_to_user_overflow() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *__dev_get_by_name(struct net *arg0, const char *arg1) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -26023,9 +26023,9 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, unsigned char arg2, void (*arg3)(struct net_device *), unsigned int arg4, unsigned int arg5) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int arp_find(unsigned char *arg0, struct sk_buff *arg1) {
@@ -26038,13 +26038,13 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int ax25_display_timer(struct timer_list *arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 ax25_cb *ax25_find_cb(ax25_address *arg0, ax25_address *arg1, ax25_digi *arg2, struct net_device *arg3) {
-  return (ax25_cb *)external_alloc();
+  return external_alloc(sizeof(ax25_cb));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 ax25_uid_assoc *ax25_findbyuid(kuid_t arg0) {
-  return (ax25_uid_assoc *)external_alloc();
+  return external_alloc(sizeof(ax25_uid_assoc));
 }
 void ax25_linkfail_register(struct ax25_linkfail *arg0) {
   return;
@@ -26065,17 +26065,17 @@ void ax25_protocol_release(unsigned int arg0) {
 void ax25_register_pid(struct ax25_protocol *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 ax25_cb *ax25_send_frame(struct sk_buff *arg0, int arg1, ax25_address *arg2, ax25_address *arg3, ax25_digi *arg4, struct net_device *arg5) {
-  return (ax25_cb *)external_alloc();
+  return external_alloc(sizeof(ax25_cb));
 }
 int __VERIFIER_nondet_int(void);
 int ax25cmp(const ax25_address *arg0, const ax25_address *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *ax2asc(char *arg0, const ax25_address *arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 bool __VERIFIER_nondet_bool(void);
 bool capable(int arg0) {
@@ -26100,9 +26100,9 @@ int __VERIFIER_nondet_int(void);
 int del_timer(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -26126,9 +26126,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_del_timer(int arg0, struct timer_list *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ctl_table_header *ldv_register_net_sysctl(struct ctl_table_header *arg0, struct net *arg1, char *arg2, struct ctl_table *arg3) {
-  return (struct ctl_table_header *)external_alloc();
+  return external_alloc(sizeof(struct ctl_table_header));
 }
 void lock_sock_nested(struct sock *arg0, int arg1) {
   return;
@@ -26150,9 +26150,9 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 int __VERIFIER_nondet_int(void);
 int proto_register(struct proto *arg0, int arg1) {
@@ -26165,9 +26165,9 @@ int __VERIFIER_nondet_int(void);
 int rcu_read_lock_held() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ctl_table_header *register_net_sysctl(struct net *arg0, const char *arg1, struct ctl_table *arg2) {
-  return (struct ctl_table_header *)external_alloc();
+  return external_alloc(sizeof(struct ctl_table_header));
 }
 int __VERIFIER_nondet_int(void);
 int register_netdev(struct net_device *arg0) {
@@ -26193,13 +26193,13 @@ int __VERIFIER_nondet_int(void);
 int send_sig(int arg0, struct task_struct *arg1, int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct hlist_node *seq_hlist_next(void *arg0, struct hlist_head *arg1, loff_t *arg2) {
-  return (struct hlist_node *)external_alloc();
+  return external_alloc(sizeof(struct hlist_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct hlist_node *seq_hlist_start_head(struct hlist_head *arg0, loff_t arg1) {
-  return (struct hlist_node *)external_alloc();
+  return external_alloc(sizeof(struct hlist_node));
 }
 long __VERIFIER_nondet_long(void);
 loff_t seq_lseek(struct file *arg0, loff_t arg1, int arg2) {
@@ -26221,9 +26221,9 @@ long __VERIFIER_nondet_long(void);
 ssize_t seq_read(struct file *arg0, char *arg1, size_t arg2, loff_t *arg3) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sock *sk_alloc(struct net *arg0, int arg1, gfp_t arg2, struct proto *arg3) {
-  return (struct sock *)external_alloc();
+  return external_alloc(sizeof(struct sock));
 }
 void sk_free(struct sock *arg0) {
   return;
@@ -26235,24 +26235,24 @@ int __VERIFIER_nondet_int(void);
 int skb_copy_datagram_iter(const struct sk_buff *arg0, int arg1, struct iov_iter *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void skb_free_datagram(struct sock *arg0, struct sk_buff *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_head(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -26263,13 +26263,13 @@ void skb_queue_purge(struct sk_buff_head *arg0) {
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_recv_datagram(struct sock *arg0, unsigned int arg1, int arg2, int *arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *sock_alloc_send_skb(struct sock *arg0, unsigned long arg1, int arg2, int *arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int sock_get_timestamp(struct sock *arg0, struct timeval *arg1) {
@@ -26322,9 +26322,12 @@ int unregister_netdevice_notifier(struct notifier_block *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

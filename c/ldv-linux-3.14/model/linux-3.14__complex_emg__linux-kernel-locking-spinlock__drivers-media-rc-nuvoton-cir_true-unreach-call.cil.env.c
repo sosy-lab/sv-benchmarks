@@ -41,10 +41,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t , resource_size_t , const char *, int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __wake_up
@@ -86,10 +86,10 @@ int device_init_wakeup(struct device *arg0, bool arg1) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: finish_wait
@@ -195,10 +195,10 @@ void ldv_switch_to_process_context() {
 // Function: pnp_get_resource
 // with type: struct resource *pnp_get_resource(struct pnp_dev *, unsigned long, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *pnp_get_resource(struct pnp_dev *arg0, unsigned long arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: pnp_register_driver
@@ -239,10 +239,10 @@ int printk(const char *arg0, ...) {
 // Function: rc_allocate_device
 // with type: struct rc_dev *rc_allocate_device()
 // with return type: (struct rc_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rc_dev *rc_allocate_device() {
   // Pointer type
-  return (struct rc_dev *)external_alloc();
+  return external_alloc(sizeof(struct rc_dev));
 }
 
 // Function: rc_free_device

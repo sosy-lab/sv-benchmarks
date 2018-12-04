@@ -26,10 +26,10 @@ int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __blkdev_reread_part
@@ -184,19 +184,19 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: bd_set_size
@@ -210,10 +210,10 @@ void bd_set_size(struct block_device *arg0, loff_t arg1) {
 // Function: bdgrab
 // with type: struct block_device *bdgrab(struct block_device *)
 // with return type: (struct block_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *bdgrab(struct block_device *arg0) {
   // Pointer type
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 
 // Function: bdput
@@ -268,19 +268,19 @@ void blk_mq_freeze_queue(struct request_queue *arg0) {
 // Function: blk_mq_init_queue
 // with type: struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *arg0) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_mq_map_queue
 // with type: struct blk_mq_hw_ctx *blk_mq_map_queue(struct request_queue *, const int)
 // with return type: (struct blk_mq_hw_ctx)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct blk_mq_hw_ctx *blk_mq_map_queue(struct request_queue *arg0, const int arg1) {
   // Pointer type
-  return (struct blk_mq_hw_ctx *)external_alloc();
+  return external_alloc(sizeof(struct blk_mq_hw_ctx));
 }
 
 // Function: blk_mq_start_request
@@ -373,19 +373,19 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 // Function: fget
 // with type: struct file *fget(unsigned int)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *fget(unsigned int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: file_path
 // with type: char *file_path(struct file *, char *, int)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *file_path(struct file *arg0, char *arg1, int arg2) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: flush_workqueue
@@ -407,10 +407,10 @@ void fput(struct file *arg0) {
 // Function: get_disk
 // with type: struct kobject *get_disk(struct gendisk *)
 // with return type: (struct kobject)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *get_disk(struct gendisk *arg0) {
   // Pointer type
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 
 // Function: idr_alloc
@@ -433,10 +433,10 @@ void idr_destroy(struct idr *arg0) {
 // Function: idr_find_slowpath
 // with type: void *idr_find_slowpath(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: idr_for_each

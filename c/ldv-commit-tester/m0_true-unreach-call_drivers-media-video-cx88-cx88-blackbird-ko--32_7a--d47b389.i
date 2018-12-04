@@ -7705,9 +7705,9 @@ void ldv_check_final_state(void)
 void __const_udelay(unsigned long arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char * const *cx2341x_ctrl_get_menu(const struct cx2341x_mpeg_params *arg0, u32 arg1) {
-  return (const char * const *)external_alloc();
+  return external_alloc(sizeof(const char * const));
 }
 int __VERIFIER_nondet_int(void);
 int cx2341x_ctrl_query(const struct cx2341x_mpeg_params *arg0, struct v4l2_queryctrl *arg1) {
@@ -7741,9 +7741,9 @@ void cx8802_buf_queue(struct cx8802_dev *arg0, struct cx88_buffer *arg1) {
 void cx8802_cancel_buffers(struct cx8802_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cx8802_driver *cx8802_get_driver(struct cx8802_dev *arg0, enum cx88_board_type arg1) {
-  return (struct cx8802_driver *)external_alloc();
+  return external_alloc(sizeof(struct cx8802_driver));
 }
 int __VERIFIER_nondet_int(void);
 int cx8802_register_driver(struct cx8802_driver *arg0) {
@@ -7789,17 +7789,17 @@ int __VERIFIER_nondet_int(void);
 int cx88_set_tvnorm(struct cx88_core *arg0, v4l2_std_id arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *cx88_vdev_init(struct cx88_core *arg0, struct pci_dev *arg1, const struct video_device *arg2, const char *arg3) {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 int __VERIFIER_nondet_int(void);
 int cx88_video_mux(struct cx88_core *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dev_set_drvdata(struct device *arg0, void *arg1) {
   return;
@@ -7856,9 +7856,9 @@ int __VERIFIER_nondet_int(void);
 int v4l2_ctrl_query_menu(struct v4l2_querymenu *arg0, struct v4l2_queryctrl *arg1, const char * const *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 void video_device_release(struct video_device *arg0) {
   return;
@@ -7916,9 +7916,12 @@ int __VERIFIER_nondet_int(void);
 int videobuf_streamon(struct videobuf_queue *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

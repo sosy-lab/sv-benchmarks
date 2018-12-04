@@ -13,10 +13,10 @@ void __account_scheduler_latency(struct task_struct *arg0, int arg1, int arg2) {
 // Function: __alloc_pages_nodemask
 // with type: struct page *__alloc_pages_nodemask(gfp_t gfp_mask, unsigned int order, struct zonelist *zonelist, nodemask_t *nodemask)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: __bad_unaligned_access_size
@@ -236,10 +236,10 @@ void __irq_set_handler(unsigned int arg0, irq_flow_handler_t arg1, int arg2, con
 // Function: __kmalloc_node
 // with type: void *__kmalloc_node(size_t size, gfp_t flags, int node)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -261,10 +261,10 @@ void __list_del_entry(struct list_head *arg0) {
 // Function: __lock_task_sighand
 // with type: struct sighand_struct *__lock_task_sighand(struct task_struct *tsk, unsigned long *flags)
 // with return type: (struct sighand_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sighand_struct *__lock_task_sighand(struct task_struct *arg0, unsigned long *arg1) {
   // Pointer type
-  return (struct sighand_struct *)external_alloc();
+  return external_alloc(sizeof(struct sighand_struct));
 }
 
 // Function: __might_sleep
@@ -617,10 +617,10 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t gfp_mask, unsigned order)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: bitmap_bitremap
@@ -721,10 +721,10 @@ void call_usermodehelper_setfns(struct subprocess_info *arg0, int (*arg1)(struct
 // Function: call_usermodehelper_setup
 // with type: struct subprocess_info *call_usermodehelper_setup(char *path, char **argv, char **envp, gfp_t gfp_mask)
 // with return type: (struct subprocess_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct subprocess_info *call_usermodehelper_setup(char *arg0, char **arg1, char **arg2, gfp_t arg3) {
   // Pointer type
-  return (struct subprocess_info *)external_alloc();
+  return external_alloc(sizeof(struct subprocess_info));
 }
 
 // Function: cfi_fixup
@@ -738,10 +738,10 @@ void cfi_fixup(struct mtd_info *arg0, struct cfi_fixup *arg1) {
 // Function: cfi_read_pri
 // with type: struct cfi_extquery *cfi_read_pri(struct map_info *map, uint16_t adr, uint16_t size, const char *name)
 // with return type: (struct cfi_extquery)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cfi_extquery *cfi_read_pri(struct map_info *arg0, uint16_t arg1, uint16_t arg2, const char *arg3) {
   // Pointer type
-  return (struct cfi_extquery *)external_alloc();
+  return external_alloc(sizeof(struct cfi_extquery));
 }
 
 // Function: cfi_varsize_frob
@@ -1049,10 +1049,10 @@ void init_timer_on_stack_key(struct timer_list *arg0, const char *arg1, struct l
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t offset, unsigned long size)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: irq_free_descs
@@ -1066,10 +1066,10 @@ void irq_free_descs(unsigned int arg0, unsigned int arg1) {
 // Function: irq_get_irq_data
 // with type: struct irq_data *irq_get_irq_data(unsigned int irq)
 // with return type: (struct irq_data)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irq_data *irq_get_irq_data(unsigned int arg0) {
   // Pointer type
-  return (struct irq_data *)external_alloc();
+  return external_alloc(sizeof(struct irq_data));
 }
 
 // Function: irq_modify_status
@@ -1109,10 +1109,10 @@ int irq_set_irq_wake(unsigned int arg0, unsigned int arg1) {
 // Function: irq_to_desc
 // with type: struct irq_desc *irq_to_desc(unsigned int irq)
 // with return type: (struct irq_desc)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct irq_desc *irq_to_desc(unsigned int arg0) {
   // Pointer type
-  return (struct irq_desc *)external_alloc();
+  return external_alloc(sizeof(struct irq_desc));
 }
 
 // Function: key_put
@@ -1145,19 +1145,19 @@ int kill_pid(struct pid *arg0, int arg1, int arg2) {
 // Function: kmalloc_order_trace
 // with type: void *kmalloc_order_trace(size_t size, gfp_t flags, unsigned int order)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmalloc_order_trace(size_t arg0, gfp_t arg1, unsigned int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmemleak_alloc
@@ -1179,10 +1179,10 @@ void kmemleak_free(const void *arg0) {
 // Function: kobject_get
 // with type: struct kobject *kobject_get(struct kobject *kobj)
 // with return type: (struct kobject)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_get(struct kobject *arg0) {
   // Pointer type
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 
 // Function: kobject_put
@@ -1268,13 +1268,13 @@ int kstrtoull_from_user(const char *arg0, size_t arg1, unsigned int arg2, unsign
 // Function: ktime_add_safe
 // with type: ktime_t ktime_add_safe(const ktime_t lhs, const ktime_t rhs)
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_add_safe(const ktime_t arg0, const ktime_t arg1) {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -1344,20 +1344,20 @@ void mtd_erase_callback(struct erase_info *arg0) {
 // Function: next_zones_zonelist
 // with type: struct zoneref *next_zones_zonelist(struct zoneref *z, enum zone_type highest_zoneidx, nodemask_t *nodes, struct zone **zone)
 // with return type: (struct zoneref)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct zoneref *next_zones_zonelist(struct zoneref *arg0, enum zone_type arg1, nodemask_t *arg2, struct zone **arg3) {
   // Pointer type
-  return (struct zoneref *)external_alloc();
+  return external_alloc(sizeof(struct zoneref));
 }
 
 // Function: ns_to_timeval
 // with type: struct timeval ns_to_timeval(const s64 nsec)
 // with return type: struct timeval
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
   // Composite type
-  struct timeval *tmp = (struct timeval*)external_alloc();
+  struct timeval *tmp = external_alloc(sizeof(struct timeval));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -1473,10 +1473,10 @@ void show_state_filter(unsigned long arg0) {
 // Function: strim
 // with type: char *strim(char *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strim(char *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: strlen

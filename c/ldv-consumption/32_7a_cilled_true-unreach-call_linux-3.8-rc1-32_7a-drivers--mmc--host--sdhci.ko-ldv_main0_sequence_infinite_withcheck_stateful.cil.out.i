@@ -5030,7 +5030,7 @@ static void sdhci_set_adma_desc(u8 *desc , u32 addr , int len , unsigned int cmd
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data )
 {
   int direction ;
@@ -8669,9 +8669,9 @@ int __VERIFIER_nondet_int(void);
 int mmc_add_host(struct mmc_host *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mmc_host *mmc_alloc_host(int arg0, struct device *arg1) {
-  return (struct mmc_host *)external_alloc();
+  return external_alloc(sizeof(struct mmc_host));
 }
 void mmc_detect_change(struct mmc_host *arg0, unsigned long arg1) {
   return;
@@ -8737,9 +8737,9 @@ int __VERIFIER_nondet_int(void);
 int regulator_enable(struct regulator *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regulator *regulator_get(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return external_alloc(sizeof(struct regulator));
 }
 int __VERIFIER_nondet_int(void);
 int regulator_get_current_limit(struct regulator *arg0) {
@@ -8774,9 +8774,9 @@ void sg_miter_start(struct sg_mapping_iter *arg0, struct scatterlist *arg1, unsi
 void sg_miter_stop(struct sg_mapping_iter *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 void synchronize_irq(unsigned int arg0) {
   return;
@@ -8803,9 +8803,12 @@ int wake_up_process(struct task_struct *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -14101,9 +14101,9 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -14183,17 +14183,17 @@ void scsi_eh_prep_cmnd(struct scsi_cmnd *arg0, struct scsi_eh_save *arg1, unsign
 void scsi_eh_restore_cmnd(struct scsi_cmnd *arg0, struct scsi_eh_save *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *scsi_extd_sense_format(unsigned char arg0, unsigned char arg1, const char **arg2) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *scsi_get_host_dev(struct Scsi_Host *arg0) {
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -14218,13 +14218,13 @@ void scsi_report_device_reset(struct Scsi_Host *arg0, int arg1, int arg2) {
 void scsi_scan_host(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const u8 *scsi_sense_desc_find(const u8 *arg0, int arg1, int arg2) {
-  return (const u8 *)external_alloc();
+  return external_alloc(sizeof(const u8));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *scsi_sense_key_string(unsigned char arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 int __VERIFIER_nondet_int(void);
 int seq_printf(struct seq_file *arg0, const char *arg1, ...) {
@@ -14252,21 +14252,21 @@ int __VERIFIER_nondet_int(void);
 int sg_nents(struct scatterlist *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 void usb_autopm_get_interface_no_resume(struct usb_interface *arg0) {
   return;
@@ -14340,9 +14340,12 @@ int wake_up_process(struct task_struct *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

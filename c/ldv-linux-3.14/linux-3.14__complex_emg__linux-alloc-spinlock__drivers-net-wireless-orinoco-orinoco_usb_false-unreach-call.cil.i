@@ -13477,9 +13477,9 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct orinoco_private *alloc_orinocodev(int arg0, struct device *arg1, int (*arg2)(struct orinoco_private *), int (*arg3)(struct orinoco_private *, int)) {
-  return (struct orinoco_private *)external_alloc();
+  return external_alloc(sizeof(struct orinoco_private));
 }
 void complete(struct completion *arg0) {
   return;
@@ -13503,9 +13503,9 @@ int __VERIFIER_nondet_int(void);
 int eth_validate_addr(struct net_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -13563,9 +13563,9 @@ int __VERIFIER_nondet_int(void);
 int orinoco_change_mtu(struct net_device *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device_stats *orinoco_get_stats(struct net_device *arg0) {
-  return (struct net_device_stats *)external_alloc();
+  return external_alloc(sizeof(struct net_device_stats));
 }
 int __VERIFIER_nondet_int(void);
 int orinoco_if_add(struct orinoco_private *arg0, unsigned long arg1, unsigned int arg2, const struct net_device_ops *arg3) {
@@ -13641,9 +13641,12 @@ void wait_for_completion(struct completion *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

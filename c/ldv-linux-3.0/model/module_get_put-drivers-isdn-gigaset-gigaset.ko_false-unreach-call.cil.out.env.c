@@ -7,10 +7,10 @@
 // Function: __alloc_skb
 // with type: struct sk_buff *__alloc_skb(unsigned int, gfp_t , int, int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __init_waitqueue_head
@@ -24,10 +24,10 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1)
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -58,10 +58,10 @@ int __printk_ratelimit(const char *arg0) {
 // Function: __pskb_pull_tail
 // with type: unsigned char *__pskb_pull_tail(struct sk_buff *, int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *__pskb_pull_tail(struct sk_buff *arg0, int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: __raw_spin_lock_init
@@ -159,10 +159,10 @@ void add_timer(struct timer_list *arg0) {
 // Function: alloc_tty_driver
 // with type: struct tty_driver *alloc_tty_driver(int)
 // with return type: (struct tty_driver)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_driver *alloc_tty_driver(int arg0) {
   // Pointer type
-  return (struct tty_driver *)external_alloc();
+  return external_alloc(sizeof(struct tty_driver));
 }
 
 // Function: attach_capi_ctr
@@ -177,10 +177,10 @@ int attach_capi_ctr(struct capi_ctr *arg0) {
 // Function: capi_cmd2str
 // with type: char *capi_cmd2str(__u8 , __u8 )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *capi_cmd2str(__u8 arg0, __u8 arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: capi_cmsg2message
@@ -195,10 +195,10 @@ unsigned int capi_cmsg2message(_cmsg *arg0, __u8 *arg1) {
 // Function: capi_cmsg2str
 // with type: _cdebbuf *capi_cmsg2str(_cmsg *)
 // with return type: (_cdebbuf )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 _cdebbuf *capi_cmsg2str(_cmsg *arg0) {
   // Pointer type
-  return (_cdebbuf *)external_alloc();
+  return external_alloc(sizeof(_cdebbuf));
 }
 
 // Function: capi_cmsg_header
@@ -280,19 +280,19 @@ int detach_capi_ctr(struct capi_ctr *arg0) {
 // Function: dev_alloc_skb
 // with type: struct sk_buff *dev_alloc_skb(unsigned int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *dev_alloc_skb(unsigned int arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: dev_driver_string
 // with type: const char *dev_driver_string(const struct device *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dev_driver_string(const struct device *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: dev_err
@@ -307,10 +307,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_kfree_skb_any
@@ -395,10 +395,10 @@ void init_timer_key(struct timer_list *arg0, const char *arg1, struct lock_class
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: kstrtoint
@@ -605,37 +605,37 @@ int single_open(struct file *arg0, int (*arg1)(struct seq_file *, void *), void 
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_queue_tail
@@ -694,10 +694,10 @@ int tty_insert_flip_string_fixed_flag(struct tty_struct *arg0, const unsigned ch
 // Function: tty_register_device
 // with type: struct device *tty_register_device(struct tty_driver *, unsigned int, struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *tty_register_device(struct tty_driver *arg0, unsigned int arg1, struct device *arg2) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: tty_register_driver

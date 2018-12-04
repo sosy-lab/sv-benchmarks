@@ -78,10 +78,10 @@ void dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -343,10 +343,10 @@ void usb_driver_release_interface(struct usb_driver *arg0, struct usb_interface 
 // Function: usb_ifnum_to_if
 // with type: struct usb_interface *usb_ifnum_to_if(const struct usb_device *, unsigned int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_ifnum_to_if(const struct usb_device *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_kill_urb

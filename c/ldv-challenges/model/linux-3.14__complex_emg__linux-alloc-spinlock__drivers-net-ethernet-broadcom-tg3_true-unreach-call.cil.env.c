@@ -134,10 +134,10 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: __skb_gso_segment
 // with type: struct sk_buff *__skb_gso_segment(struct sk_buff *, netdev_features_t , bool )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__skb_gso_segment(struct sk_buff *arg0, netdev_features_t arg1, bool arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __udelay
@@ -217,19 +217,19 @@ void add_timer(struct timer_list *arg0) {
 // Function: alloc_etherdev_mqs
 // with type: struct net_device *alloc_etherdev_mqs(int, unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: build_skb
 // with type: struct sk_buff *build_skb(void *, unsigned int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *build_skb(void *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Skip function: calloc
@@ -432,10 +432,10 @@ u32 ethtool_op_get_link(struct net_device *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -459,10 +459,10 @@ void free_netdev(struct net_device *arg0) {
 // Function: hwmon_device_register_with_groups
 // with type: struct device *hwmon_device_register_with_groups(struct device *, const char *, void *, const struct attribute_group **)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *hwmon_device_register_with_groups(struct device *arg0, const char *arg1, void *arg2, const struct attribute_group **arg3) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: hwmon_device_unregister
@@ -503,13 +503,13 @@ unsigned int jiffies_to_usecs(const unsigned long arg0) {
 // Function: ktime_get_real
 // with type: ktime_t ktime_get_real()
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get_real() {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -584,10 +584,10 @@ void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_cl
 // Function: mdiobus_alloc_size
 // with type: struct mii_bus *mdiobus_alloc_size(size_t )
 // with return type: (struct mii_bus)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mii_bus *mdiobus_alloc_size(size_t arg0) {
   // Pointer type
-  return (struct mii_bus *)external_alloc();
+  return external_alloc(sizeof(struct mii_bus));
 }
 
 // Function: mdiobus_free
@@ -668,10 +668,10 @@ gro_result_t napi_gro_receive(struct napi_struct *arg0, struct sk_buff *arg1) {
 // Function: netdev_alloc_frag
 // with type: void *netdev_alloc_frag(unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *netdev_alloc_frag(unsigned int arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: netdev_err
@@ -947,28 +947,28 @@ int pci_find_capability(struct pci_dev *arg0, int arg1) {
 // Function: pci_get_device
 // with type: struct pci_dev *pci_get_device(unsigned int, unsigned int, struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_get_slot
 // with type: struct pci_dev *pci_get_slot(struct pci_bus *, unsigned int)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_slot(struct pci_bus *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_ioremap_bar
 // with type: void *pci_ioremap_bar(struct pci_dev *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_read_vpd
@@ -1102,10 +1102,10 @@ int pcie_capability_write_word(struct pci_dev *arg0, int arg1, u16 arg2) {
 // Function: phy_connect
 // with type: struct phy_device *phy_connect(struct net_device *, const char *, void (*)(struct net_device *), phy_interface_t )
 // with return type: (struct phy_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct phy_device *phy_connect(struct net_device *arg0, const char *arg1, void (*arg2)(struct net_device *), phy_interface_t arg3) {
   // Pointer type
-  return (struct phy_device *)external_alloc();
+  return external_alloc(sizeof(struct phy_device));
 }
 
 // Function: phy_disconnect
@@ -1189,10 +1189,10 @@ int ptp_clock_index(struct ptp_clock *arg0) {
 // Function: ptp_clock_register
 // with type: struct ptp_clock *ptp_clock_register(struct ptp_clock_info *, struct device *)
 // with return type: (struct ptp_clock)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ptp_clock *ptp_clock_register(struct ptp_clock_info *arg0, struct device *arg1) {
   // Pointer type
-  return (struct ptp_clock *)external_alloc();
+  return external_alloc(sizeof(struct ptp_clock));
 }
 
 // Function: ptp_clock_unregister
@@ -1285,10 +1285,10 @@ void skb_clone_tx_timestamp(struct sk_buff *arg0) {
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_tstamp_tx

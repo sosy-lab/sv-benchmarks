@@ -26618,9 +26618,9 @@ int del_timer_sync(struct timer_list *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
@@ -26643,9 +26643,9 @@ int driver_create_file(struct device_driver *arg0, const struct driver_attribute
 void driver_remove_file(struct device_driver *arg0, const struct driver_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -26744,13 +26744,13 @@ void tty_ldisc_deref(struct tty_ldisc *arg0) {
 void tty_ldisc_flush(struct tty_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_ldisc *tty_ldisc_ref(struct tty_struct *arg0) {
-  return (struct tty_ldisc *)external_alloc();
+  return external_alloc(sizeof(struct tty_ldisc));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *tty_register_device(struct tty_driver *arg0, unsigned int arg1, struct device *arg2) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int tty_register_driver(struct tty_driver *arg0) {
@@ -26769,9 +26769,12 @@ int tty_unregister_driver(struct tty_driver *arg0) {
 void up(struct semaphore *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

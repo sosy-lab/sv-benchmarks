@@ -43,10 +43,10 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __symbol_put
@@ -110,10 +110,10 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 // Function: cxd2099_attach
 // with type: struct dvb_ca_en50221 *cxd2099_attach(struct cxd2099_cfg *, void *, struct i2c_adapter *)
 // with return type: (struct dvb_ca_en50221)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dvb_ca_en50221 *cxd2099_attach(struct cxd2099_cfg *arg0, void *arg1, struct i2c_adapter *arg2) {
   // Pointer type
-  return (struct dvb_ca_en50221 *)external_alloc();
+  return external_alloc(sizeof(struct dvb_ca_en50221));
 }
 
 // Function: debug_dma_alloc_coherent
@@ -382,10 +382,10 @@ int dvb_unregister_frontend(struct dvb_frontend *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: finish_wait
@@ -435,10 +435,10 @@ int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -688,19 +688,19 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vzalloc
 // with type: void *vzalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: warn_slowpath_null

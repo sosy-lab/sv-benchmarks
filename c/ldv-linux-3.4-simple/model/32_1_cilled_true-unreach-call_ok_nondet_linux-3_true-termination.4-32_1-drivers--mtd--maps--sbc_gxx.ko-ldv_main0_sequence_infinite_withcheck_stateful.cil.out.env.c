@@ -13,10 +13,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t start, resource_size_t n, const char *name, int flags)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: _raw_spin_lock
@@ -38,19 +38,19 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 // Function: do_map_probe
 // with type: struct mtd_info *do_map_probe(const char *name, struct map_info *map)
 // with return type: (struct mtd_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mtd_info *do_map_probe(const char *arg0, struct map_info *arg1) {
   // Pointer type
-  return (struct mtd_info *)external_alloc();
+  return external_alloc(sizeof(struct mtd_info));
 }
 
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t offset, unsigned long size)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap

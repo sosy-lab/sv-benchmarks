@@ -122,10 +122,10 @@ void tty_kref_put(struct tty_struct *arg0) {
 // Function: tty_port_tty_get
 // with type: struct tty_struct *tty_port_tty_get(struct tty_port *port)
 // with return type: (struct tty_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct tty_struct *tty_port_tty_get(struct tty_port *arg0) {
   // Pointer type
-  return (struct tty_struct *)external_alloc();
+  return external_alloc(sizeof(struct tty_struct));
 }
 
 // Function: tty_termios_copy_hw
@@ -139,10 +139,10 @@ void tty_termios_copy_hw(struct ktermios *arg0, struct ktermios *arg1) {
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int iso_packets, gfp_t mem_flags)
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_control_msg

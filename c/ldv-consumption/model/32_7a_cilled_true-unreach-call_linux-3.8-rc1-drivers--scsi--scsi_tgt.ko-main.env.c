@@ -5,10 +5,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __blk_put_request
@@ -63,19 +63,19 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: __scsi_alloc_queue
 // with type: struct request_queue *__scsi_alloc_queue(struct Scsi_Host *, void (*)(struct request_queue *))
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *__scsi_alloc_queue(struct Scsi_Host *arg0, void (*arg1)(struct request_queue *)) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: __scsi_get_command
 // with type: struct scsi_cmnd *__scsi_get_command(struct Scsi_Host *, gfp_t )
 // with return type: (struct scsi_cmnd)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_cmnd *__scsi_get_command(struct Scsi_Host *arg0, gfp_t arg1) {
   // Pointer type
-  return (struct scsi_cmnd *)external_alloc();
+  return external_alloc(sizeof(struct scsi_cmnd));
 }
 
 // Function: __scsi_put_command
@@ -131,10 +131,10 @@ void blk_cleanup_queue(struct request_queue *arg0) {
 // Function: blk_get_request
 // with type: struct request *blk_get_request(struct request_queue *, int, gfp_t )
 // with return type: (struct request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_get_request(struct request_queue *arg0, int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 
 // Function: blk_put_request
@@ -190,10 +190,10 @@ void free_pages(unsigned long arg0, unsigned int arg1) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: get_zeroed_page
@@ -208,19 +208,19 @@ unsigned long int get_zeroed_page(gfp_t arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -365,10 +365,10 @@ bool queue_work(struct workqueue_struct *arg0, struct work_struct *arg1) {
 // Function: scsi_host_lookup
 // with type: struct Scsi_Host *scsi_host_lookup(unsigned short)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_lookup(unsigned short arg0) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put

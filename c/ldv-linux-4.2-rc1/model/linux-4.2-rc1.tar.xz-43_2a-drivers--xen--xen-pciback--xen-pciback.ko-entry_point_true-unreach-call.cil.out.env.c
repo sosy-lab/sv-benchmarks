@@ -18,10 +18,10 @@ int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __dynamic_dev_dbg
@@ -305,10 +305,10 @@ int ldv_shutdown_14() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: ldv_suspend_15
@@ -446,10 +446,10 @@ void pci_clear_mwi(struct pci_dev *arg0) {
 // Function: pci_dev_get
 // with type: struct pci_dev *pci_dev_get(struct pci_dev *)
 // with return type: (struct pci_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
   // Pointer type
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 
 // Function: pci_dev_put
@@ -584,10 +584,10 @@ int pci_set_power_state(struct pci_dev *arg0, pci_power_t arg1) {
 // Function: pci_store_saved_state
 // with type: struct pci_saved_state *pci_store_saved_state(struct pci_dev *)
 // with return type: (struct pci_saved_state)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_saved_state *pci_store_saved_state(struct pci_dev *arg0) {
   // Pointer type
-  return (struct pci_saved_state *)external_alloc();
+  return external_alloc(sizeof(struct pci_saved_state));
 }
 
 // Function: pci_unregister_driver

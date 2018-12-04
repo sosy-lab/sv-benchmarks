@@ -158,19 +158,19 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_etherdev_mqs
 // with type: struct net_device *alloc_etherdev_mqs(int, unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: alloc_mdio_bitbang
 // with type: struct mii_bus *alloc_mdio_bitbang(struct mdiobb_ctrl *)
 // with return type: (struct mii_bus)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mii_bus *alloc_mdio_bitbang(struct mdiobb_ctrl *arg0) {
   // Pointer type
-  return (struct mii_bus *)external_alloc();
+  return external_alloc(sizeof(struct mii_bus));
 }
 
 // Skip function: calloc
@@ -244,19 +244,19 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_ioremap_resource
 // with type: void *devm_ioremap_resource(struct device *, struct resource *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: eth_change_mtu
@@ -313,10 +313,10 @@ u32 ethtool_op_get_link(struct net_device *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -505,10 +505,10 @@ int netpoll_trap() {
 // Function: phy_connect
 // with type: struct phy_device *phy_connect(struct net_device *, const char *, void (*)(struct net_device *), phy_interface_t )
 // with return type: (struct phy_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct phy_device *phy_connect(struct net_device *arg0, const char *arg1, void (*arg2)(struct net_device *), phy_interface_t arg3) {
   // Pointer type
-  return (struct phy_device *)external_alloc();
+  return external_alloc(sizeof(struct phy_device));
 }
 
 // Function: phy_disconnect
@@ -599,10 +599,10 @@ int platform_get_irq(struct platform_device *arg0, unsigned int arg1) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: pm_runtime_enable
@@ -643,10 +643,10 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Skip function: snprintf

@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __init_rwsem
@@ -149,10 +149,10 @@ void dm_accept_partial_bio(struct bio *arg0, unsigned int arg1) {
 // Function: dm_bufio_client_create
 // with type: struct dm_bufio_client *dm_bufio_client_create(struct block_device *, unsigned int, unsigned int, unsigned int, void (*)(struct dm_buffer *), void (*)(struct dm_buffer *))
 // with return type: (struct dm_bufio_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_bufio_client *dm_bufio_client_create(struct block_device *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, void (*arg4)(struct dm_buffer *), void (*arg5)(struct dm_buffer *)) {
   // Pointer type
-  return (struct dm_bufio_client *)external_alloc();
+  return external_alloc(sizeof(struct dm_bufio_client));
 }
 
 // Function: dm_bufio_client_destroy
@@ -193,10 +193,10 @@ void dm_bufio_prefetch(struct dm_bufio_client *arg0, sector_t arg1, unsigned int
 // Function: dm_bufio_read
 // with type: void *dm_bufio_read(struct dm_bufio_client *, sector_t , struct dm_buffer **)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_bufio_read(struct dm_bufio_client *arg0, sector_t arg1, struct dm_buffer **arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dm_bufio_release
@@ -261,10 +261,10 @@ int dm_io(struct dm_io_request *arg0, unsigned int arg1, struct dm_io_region *ar
 // Function: dm_io_client_create
 // with type: struct dm_io_client *dm_io_client_create()
 // with return type: (struct dm_io_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_io_client *dm_io_client_create() {
   // Pointer type
-  return (struct dm_io_client *)external_alloc();
+  return external_alloc(sizeof(struct dm_io_client));
 }
 
 // Function: dm_io_client_destroy
@@ -278,10 +278,10 @@ void dm_io_client_destroy(struct dm_io_client *arg0) {
 // Function: dm_kcopyd_client_create
 // with type: struct dm_kcopyd_client *dm_kcopyd_client_create(struct dm_kcopyd_throttle *)
 // with return type: (struct dm_kcopyd_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_kcopyd_client *dm_kcopyd_client_create(struct dm_kcopyd_throttle *arg0) {
   // Pointer type
-  return (struct dm_kcopyd_client *)external_alloc();
+  return external_alloc(sizeof(struct dm_kcopyd_client));
 }
 
 // Function: dm_kcopyd_client_destroy
@@ -312,10 +312,10 @@ void dm_kcopyd_do_callback(void *arg0, int arg1, unsigned long arg2) {
 // Function: dm_kcopyd_prepare_callback
 // with type: void *dm_kcopyd_prepare_callback(struct dm_kcopyd_client *, void (*)(int, unsigned long, void *), void *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_kcopyd_prepare_callback(struct dm_kcopyd_client *arg0, void (*arg1)(int, unsigned long, void *), void *arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dm_put
@@ -372,10 +372,10 @@ void dm_table_event(struct dm_table *arg0) {
 // Function: dm_table_get_md
 // with type: struct mapped_device *dm_table_get_md(struct dm_table *)
 // with return type: (struct mapped_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mapped_device *dm_table_get_md(struct dm_table *arg0) {
   // Pointer type
-  return (struct mapped_device *)external_alloc();
+  return external_alloc(sizeof(struct mapped_device));
 }
 
 // Function: dm_table_get_mode
@@ -411,10 +411,10 @@ void dm_unregister_target(struct target_type *arg0) {
 // Function: dm_vcalloc
 // with type: void *dm_vcalloc(unsigned long, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_vcalloc(unsigned long arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: down_read
@@ -470,10 +470,10 @@ void generic_make_request(struct bio *arg0) {
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -495,10 +495,10 @@ void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: kstrtouint
@@ -646,10 +646,10 @@ int ldv_release_4() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: list_del
@@ -675,10 +675,10 @@ void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_cl
 // Function: mempool_create
 // with type: mempool_t *mempool_create(int, mempool_alloc_t *, mempool_free_t *, void *)
 // with return type: (mempool_t )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
   // Pointer type
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 
 // Function: mempool_destroy

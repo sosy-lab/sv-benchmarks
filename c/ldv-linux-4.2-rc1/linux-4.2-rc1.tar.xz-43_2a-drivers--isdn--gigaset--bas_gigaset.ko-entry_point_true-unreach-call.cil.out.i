@@ -13526,9 +13526,9 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct event_t *gigaset_add_event(struct cardstate *arg0, struct at_state_t *arg1, int arg2, void *arg3, int arg4, void *arg5) {
-  return (struct event_t *)external_alloc();
+  return external_alloc(sizeof(struct event_t));
 }
 void gigaset_blockdriver(struct gigaset_driver *arg0) {
   return;
@@ -13552,13 +13552,13 @@ void gigaset_handle_modem_response(struct cardstate *arg0) {
 void gigaset_if_receive(struct cardstate *arg0, unsigned char *arg1, size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cardstate *gigaset_initcs(struct gigaset_driver *arg0, int arg1, int arg2, int arg3, int arg4, const char *arg5) {
-  return (struct cardstate *)external_alloc();
+  return external_alloc(sizeof(struct cardstate));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gigaset_driver *gigaset_initdriver(unsigned int arg0, unsigned int arg1, const char *arg2, const char *arg3, const struct gigaset_ops *arg4, struct module *arg5) {
-  return (struct gigaset_driver *)external_alloc();
+  return external_alloc(sizeof(struct gigaset_driver));
 }
 void gigaset_isdn_rcv_err(struct bc_state *arg0) {
   return;
@@ -13594,9 +13594,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_6() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
@@ -13628,17 +13628,17 @@ long __VERIFIER_nondet_long(void);
 long int schedule_timeout(long arg0) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_head(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
@@ -13669,9 +13669,9 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 void usb_kill_urb(struct urb *arg0) {
   return;
@@ -13705,9 +13705,12 @@ int usb_unlink_urb(struct urb *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

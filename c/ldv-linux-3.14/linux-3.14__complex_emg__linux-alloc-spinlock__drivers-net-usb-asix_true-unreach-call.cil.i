@@ -14920,9 +14920,9 @@ int __VERIFIER_nondet_int(void);
 int eth_validate_addr(struct net_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int generic_mii_ioctl(struct mii_if_info *arg0, struct mii_ioctl_data *arg1, int arg2, unsigned int *arg3) {
@@ -14954,9 +14954,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_pre_usb_register_driver() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mii_bus *mdiobus_alloc_size(size_t arg0) {
-  return (struct mii_bus *)external_alloc();
+  return external_alloc(sizeof(struct mii_bus));
 }
 void mdiobus_free(struct mii_bus *arg0) {
   return;
@@ -15001,9 +15001,9 @@ int __VERIFIER_nondet_int(void);
 int netdev_info(const struct net_device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct phy_device *phy_connect(struct net_device *arg0, const char *arg1, void (*arg2)(struct net_device *), phy_interface_t arg3) {
-  return (struct phy_device *)external_alloc();
+  return external_alloc(sizeof(struct phy_device));
 }
 void phy_disconnect(struct phy_device *arg0) {
   return;
@@ -15033,13 +15033,13 @@ int phy_start_aneg(struct phy_device *arg0) {
 void phy_stop(struct phy_device *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
@@ -15140,9 +15140,12 @@ int __VERIFIER_nondet_int(void);
 int usbnet_write_cmd_async(struct usbnet *arg0, u8 arg1, u8 arg2, u16 arg3, u16 arg4, const void *arg5, u16 arg6) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -13362,9 +13362,9 @@ int __VERIFIER_nondet_int(void);
 int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __init_rwsem(struct rw_semaphore *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -13407,9 +13407,9 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *bdevname(struct block_device *arg0, char *arg1) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 void bio_endio(struct bio *arg0, int arg1) {
   return;
@@ -13458,13 +13458,13 @@ int __VERIFIER_nondet_int(void);
 int dm_bio_detain(struct dm_bio_prison *arg0, struct dm_cell_key *arg1, struct bio *arg2, struct dm_bio_prison_cell *arg3, struct dm_bio_prison_cell **arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_bio_prison_cell *dm_bio_prison_alloc_cell(struct dm_bio_prison *arg0, gfp_t arg1) {
-  return (struct dm_bio_prison_cell *)external_alloc();
+  return external_alloc(sizeof(struct dm_bio_prison_cell));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_bio_prison *dm_bio_prison_create() {
-  return (struct dm_bio_prison *)external_alloc();
+  return external_alloc(sizeof(struct dm_bio_prison));
 }
 void dm_bio_prison_destroy(struct dm_bio_prison *arg0) {
   return;
@@ -13496,17 +13496,17 @@ int __VERIFIER_nondet_int(void);
 int dm_bitset_test_bit(struct dm_disk_bitset *arg0, dm_block_t arg1, uint32_t arg2, dm_block_t *arg3, bool *arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dm_block_data(struct dm_block *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 dm_block_t dm_block_location(struct dm_block *arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_block_manager *dm_block_manager_create(struct block_device *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3) {
-  return (struct dm_block_manager *)external_alloc();
+  return external_alloc(sizeof(struct dm_block_manager));
 }
 void dm_block_manager_destroy(struct dm_block_manager *arg0) {
   return;
@@ -13565,24 +13565,24 @@ void dm_consume_args(struct dm_arg_set *arg0, unsigned int arg1) {
 void dm_deferred_entry_dec(struct dm_deferred_entry *arg0, struct list_head *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_deferred_entry *dm_deferred_entry_inc(struct dm_deferred_set *arg0) {
-  return (struct dm_deferred_entry *)external_alloc();
+  return external_alloc(sizeof(struct dm_deferred_entry));
 }
 int __VERIFIER_nondet_int(void);
 int dm_deferred_set_add_work(struct dm_deferred_set *arg0, struct list_head *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_deferred_set *dm_deferred_set_create() {
-  return (struct dm_deferred_set *)external_alloc();
+  return external_alloc(sizeof(struct dm_deferred_set));
 }
 void dm_deferred_set_destroy(struct dm_deferred_set *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dm_device_name(struct mapped_device *arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 void dm_disk_bitset_init(struct dm_transaction_manager *arg0, struct dm_disk_bitset *arg1) {
   return;
@@ -13595,9 +13595,9 @@ int __VERIFIER_nondet_int(void);
 int dm_get_device(struct dm_target *arg0, const char *arg1, fmode_t arg2, struct dm_dev **arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dm_kcopyd_client *dm_kcopyd_client_create(struct dm_kcopyd_throttle *arg0) {
-  return (struct dm_kcopyd_client *)external_alloc();
+  return external_alloc(sizeof(struct dm_kcopyd_client));
 }
 void dm_kcopyd_client_destroy(struct dm_kcopyd_client *arg0) {
   return;
@@ -13621,9 +13621,9 @@ int __VERIFIER_nondet_int(void);
 int dm_set_target_max_io_len(struct dm_target *arg0, sector_t arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dm_shift_arg(struct dm_arg_set *arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 int __VERIFIER_nondet_int(void);
 int dm_suspended(struct dm_target *arg0) {
@@ -13635,9 +13635,9 @@ void dm_table_add_target_callbacks(struct dm_table *arg0, struct dm_target_callb
 void dm_table_event(struct dm_table *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mapped_device *dm_table_get_md(struct dm_table *arg0) {
-  return (struct mapped_device *)external_alloc();
+  return external_alloc(sizeof(struct mapped_device));
 }
 int __VERIFIER_nondet_int(void);
 int dm_tm_commit(struct dm_transaction_manager *arg0, struct dm_block *arg1) {
@@ -13679,16 +13679,16 @@ void generic_make_request(struct bio *arg0) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
@@ -13715,13 +13715,13 @@ void list_del(struct list_head *arg0) {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 void mempool_destroy(mempool_t *arg0) {
   return;
@@ -13771,13 +13771,16 @@ void up_write(struct rw_semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

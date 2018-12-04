@@ -41298,9 +41298,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void __copy_from_user_overflow() {
   return;
@@ -41308,13 +41308,13 @@ void __copy_from_user_overflow() {
 void __dev_kfree_skb_any(struct sk_buff *arg0, enum skb_free_reason arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *__ieee80211_create_tpt_led_trigger(struct ieee80211_hw *arg0, unsigned int arg1, const struct ieee80211_tpt_blink *arg2, unsigned int arg3) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *__ieee80211_get_radio_led_name(struct ieee80211_hw *arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2) {
   return;
@@ -41481,9 +41481,9 @@ void ath9k_cmn_debug_recv(struct dentry *arg0, struct ath_rx_stats *arg1) {
 void ath9k_cmn_debug_stat_rx(struct ath_rx_stats *arg0, struct ath_rx_status *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ath9k_channel *ath9k_cmn_get_channel(struct ieee80211_hw *arg0, struct ath_hw *arg1, struct cfg80211_chan_def *arg2) {
-  return (struct ath9k_channel *)external_alloc();
+  return external_alloc(sizeof(struct ath9k_channel));
 }
 int __VERIFIER_nondet_int(void);
 int ath9k_cmn_get_hw_crypto_keytype(struct sk_buff *arg0) {
@@ -41819,9 +41819,9 @@ void ath_dynack_sample_ack_ts(struct ath_hw *arg0, struct sk_buff *arg1, u32 arg
 void ath_dynack_sample_tx_ts(struct ath_hw *arg0, struct sk_buff *arg1, struct ath_tx_status *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ath_gen_timer *ath_gen_timer_alloc(struct ath_hw *arg0, void (*arg1)(void *), void (*arg2)(void *), void *arg3, u8 arg4) {
-  return (struct ath_gen_timer *)external_alloc();
+  return external_alloc(sizeof(struct ath_gen_timer));
 }
 void ath_gen_timer_free(struct ath_hw *arg0, struct ath_gen_timer *arg1) {
   return;
@@ -41850,9 +41850,9 @@ int ath_key_config(struct ath_common *arg0, struct ieee80211_vif *arg1, struct i
 void ath_key_delete(struct ath_common *arg0, struct ieee80211_key_conf *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *ath_opmode_to_string(enum nl80211_iftype arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 void ath_printk(const char *arg0, const struct ath_common *arg1, const char *arg2, ...) {
   return;
@@ -41864,9 +41864,9 @@ int __VERIFIER_nondet_int(void);
 int ath_regd_init(struct ath_regulatory *arg0, struct wiphy *arg1, void (*arg2)(struct wiphy *, struct regulatory_request *)) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *ath_rxbuf_alloc(struct ath_common *arg0, u32 arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
@@ -41904,29 +41904,29 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_bool(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_devm_seqfile(struct device *arg0, const char *arg1, struct dentry *arg2, int (*arg3)(struct seq_file *, void *)) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_u32(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_u8(const char *arg0, umode_t arg1, struct dentry *arg2, u8 *arg3) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 long __VERIFIER_nondet_long(void);
 loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
@@ -41947,17 +41947,17 @@ int __VERIFIER_nondet_int(void);
 int device_set_wakeup_enable(struct device *arg0, bool arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_ioremap_nocache(struct device *arg0, resource_size_t arg1, resource_size_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dfs_pattern_detector *dfs_pattern_detector_init(struct ath_common *arg0, enum nl80211_dfs_regions arg1) {
-  return (struct dfs_pattern_detector *)external_alloc();
+  return external_alloc(sizeof(struct dfs_pattern_detector));
 }
 void disable_irq(unsigned int arg0) {
   return;
@@ -41970,9 +41970,9 @@ int __VERIFIER_nondet_int(void);
 int dma_supported(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void enable_irq(unsigned int arg0) {
   return;
@@ -41989,13 +41989,13 @@ void free_irq(unsigned int arg0, void *arg1) {
 void getrawmonotonic64(struct timespec *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_hw *ieee80211_alloc_hw_nm(size_t arg0, const struct ieee80211_ops *arg1, const char *arg2) {
-  return (struct ieee80211_hw *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_hw));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1, u16 *arg2, u16 *arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void ieee80211_csa_finish(struct ieee80211_vif *arg0) {
   return;
@@ -42004,13 +42004,13 @@ bool __VERIFIER_nondet_bool(void);
 bool ieee80211_csa_is_complete(struct ieee80211_vif *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *arg0, const u8 *arg1) {
-  return (struct ieee80211_sta *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_sta));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_sta *ieee80211_find_sta_by_ifaddr(struct ieee80211_hw *arg0, const u8 *arg1, const u8 *arg2) {
-  return (struct ieee80211_sta *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_sta));
 }
 void ieee80211_free_hw(struct ieee80211_hw *arg0) {
   return;
@@ -42018,9 +42018,9 @@ void ieee80211_free_hw(struct ieee80211_hw *arg0) {
 void ieee80211_free_txskb(struct ieee80211_hw *arg0, struct sk_buff *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *ieee80211_get_buffered_bc(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void ieee80211_get_tx_rates(struct ieee80211_vif *arg0, struct ieee80211_sta *arg1, struct sk_buff *arg2, struct ieee80211_tx_rate *arg3, int arg4) {
   return;
@@ -42032,17 +42032,17 @@ unsigned int ieee80211_hdrlen(__le16 arg0) {
 void ieee80211_iterate_active_interfaces_atomic(struct ieee80211_hw *arg0, u32 arg1, void (*arg2)(void *, u8 *, struct ieee80211_vif *), void *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *ieee80211_nullfunc_get(struct ieee80211_hw *arg0, struct ieee80211_vif *arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int ieee80211_parse_p2p_noa(const struct ieee80211_p2p_noa_attr *arg0, struct ieee80211_noa_data *arg1, u32 arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *ieee80211_probereq_get(struct ieee80211_hw *arg0, const u8 *arg1, const u8 *arg2, size_t arg3, size_t arg4) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void ieee80211_queue_delayed_work(struct ieee80211_hw *arg0, struct delayed_work *arg1, unsigned long arg2) {
   return;
@@ -42355,16 +42355,16 @@ int __VERIFIER_nondet_int(void);
 int pcim_iomap_regions(struct pci_dev *arg0, int arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void * const *pcim_iomap_table(struct pci_dev *arg0) {
-  return (void * const *)external_alloc();
+  return external_alloc(sizeof(void * const));
 }
 void platform_driver_unregister(struct platform_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 long __VERIFIER_nondet_long(void);
 long int prepare_to_wait_event(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {
@@ -42445,17 +42445,17 @@ int __VERIFIER_nondet_int(void);
 int single_release(struct inode *arg0, struct file *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
   return;
@@ -42476,9 +42476,9 @@ void tasklet_kill(struct tasklet_struct *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void wait_for_completion(struct completion *arg0) {
   return;
@@ -42499,13 +42499,16 @@ void wiphy_rfkill_start_polling(struct wiphy *arg0) {
 void wiphy_rfkill_stop_polling(struct wiphy *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_hw *wiphy_to_ieee80211_hw(struct wiphy *arg0) {
-  return (struct ieee80211_hw *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_hw));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

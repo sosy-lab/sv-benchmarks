@@ -33,10 +33,10 @@ void _dev_info(const struct device *arg0, const char *arg1, ...) {
 // Function: acpi_match_device
 // with type: const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *, const struct device *)
 // with return type: (struct acpi_device_id)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *arg0, const struct device *arg1) {
   // Pointer type
-  return (const struct acpi_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct acpi_device_id));
 }
 
 // Skip function: calloc
@@ -72,10 +72,10 @@ int device_property_read_u32_array(struct device *arg0, const char *arg1, u32 *a
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: flush_workqueue
@@ -140,10 +140,10 @@ void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -207,28 +207,28 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: power_supply_get_by_name
 // with type: struct power_supply *power_supply_get_by_name(const char *)
 // with return type: (struct power_supply)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct power_supply *power_supply_get_by_name(const char *arg0) {
   // Pointer type
-  return (struct power_supply *)external_alloc();
+  return external_alloc(sizeof(struct power_supply));
 }
 
 // Function: power_supply_get_by_phandle
 // with type: struct power_supply *power_supply_get_by_phandle(struct device_node *, const char *)
 // with return type: (struct power_supply)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct power_supply *power_supply_get_by_phandle(struct device_node *arg0, const char *arg1) {
   // Pointer type
-  return (struct power_supply *)external_alloc();
+  return external_alloc(sizeof(struct power_supply));
 }
 
 // Function: power_supply_get_drvdata
 // with type: void *power_supply_get_drvdata(struct power_supply *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *power_supply_get_drvdata(struct power_supply *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: power_supply_get_property
@@ -260,10 +260,10 @@ int power_supply_reg_notifier(struct notifier_block *arg0) {
 // Function: power_supply_register
 // with type: struct power_supply *power_supply_register(struct device *, const struct power_supply_desc *, const struct power_supply_config *)
 // with return type: (struct power_supply)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct power_supply *power_supply_register(struct device *arg0, const struct power_supply_desc *arg1, const struct power_supply_config *arg2) {
   // Pointer type
-  return (struct power_supply *)external_alloc();
+  return external_alloc(sizeof(struct power_supply));
 }
 
 // Function: power_supply_unreg_notifier

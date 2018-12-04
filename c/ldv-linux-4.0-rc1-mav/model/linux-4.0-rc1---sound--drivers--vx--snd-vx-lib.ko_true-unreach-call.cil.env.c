@@ -60,10 +60,10 @@ int _snd_pcm_lib_alloc_vmalloc_buffer(struct snd_pcm_substream *arg0, size_t arg
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -163,10 +163,10 @@ int snd_ctl_enum_info(struct snd_ctl_elem_info *arg0, unsigned int arg1, unsigne
 // Function: snd_ctl_new1
 // with type: struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *, void *)
 // with return type: (struct snd_kcontrol)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *arg0, void *arg1) {
   // Pointer type
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
 
 // Function: snd_iprintf
@@ -217,10 +217,10 @@ int snd_pcm_lib_free_vmalloc_buffer(struct snd_pcm_substream *arg0) {
 // Function: snd_pcm_lib_get_vmalloc_page
 // with type: struct page *snd_pcm_lib_get_vmalloc_page(struct snd_pcm_substream *, unsigned long)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *snd_pcm_lib_get_vmalloc_page(struct snd_pcm_substream *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: snd_pcm_lib_ioctl

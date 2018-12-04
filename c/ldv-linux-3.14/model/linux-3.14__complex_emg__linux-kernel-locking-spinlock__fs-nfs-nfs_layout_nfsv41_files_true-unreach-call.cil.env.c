@@ -93,10 +93,10 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Skip function: calloc
@@ -113,10 +113,10 @@ int debug_lockdep_rcu_enabled() {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -199,19 +199,19 @@ int nfs41_setup_sequence(struct nfs4_session *arg0, struct nfs4_sequence_args *a
 // Function: nfs4_find_get_deviceid
 // with type: struct nfs4_deviceid_node *nfs4_find_get_deviceid(const struct pnfs_layoutdriver_type *, const struct nfs_client *, const struct nfs4_deviceid *)
 // with return type: (struct nfs4_deviceid_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs4_deviceid_node *nfs4_find_get_deviceid(const struct pnfs_layoutdriver_type *arg0, const struct nfs_client *arg1, const struct nfs4_deviceid *arg2) {
   // Pointer type
-  return (struct nfs4_deviceid_node *)external_alloc();
+  return external_alloc(sizeof(struct nfs4_deviceid_node));
 }
 
 // Function: nfs4_find_or_create_ds_client
 // with type: struct rpc_clnt *nfs4_find_or_create_ds_client(struct nfs_client *, struct inode *)
 // with return type: (struct rpc_clnt)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_clnt *nfs4_find_or_create_ds_client(struct nfs_client *arg0, struct inode *arg1) {
   // Pointer type
-  return (struct rpc_clnt *)external_alloc();
+  return external_alloc(sizeof(struct rpc_clnt));
 }
 
 // Function: nfs4_init_deviceid_node
@@ -234,10 +234,10 @@ int nfs4_init_ds_session(struct nfs_client *arg0, unsigned long arg1) {
 // Function: nfs4_insert_deviceid_node
 // with type: struct nfs4_deviceid_node *nfs4_insert_deviceid_node(struct nfs4_deviceid_node *)
 // with return type: (struct nfs4_deviceid_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs4_deviceid_node *nfs4_insert_deviceid_node(struct nfs4_deviceid_node *arg0) {
   // Pointer type
-  return (struct nfs4_deviceid_node *)external_alloc();
+  return external_alloc(sizeof(struct nfs4_deviceid_node));
 }
 
 // Function: nfs4_mark_deviceid_unavailable
@@ -304,10 +304,10 @@ int nfs4_schedule_stateid_recovery(const struct nfs_server *arg0, struct nfs4_st
 // Function: nfs4_set_ds_client
 // with type: struct nfs_client *nfs4_set_ds_client(struct nfs_client *, const struct sockaddr *, int, int, unsigned int, unsigned int)
 // with return type: (struct nfs_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_client *nfs4_set_ds_client(struct nfs_client *arg0, const struct sockaddr *arg1, int arg2, int arg3, unsigned int arg4, unsigned int arg5) {
   // Pointer type
-  return (struct nfs_client *)external_alloc();
+  return external_alloc(sizeof(struct nfs_client));
 }
 
 // Function: nfs4_set_rw_stateid
@@ -333,10 +333,10 @@ bool nfs4_test_deviceid_unavailable(struct nfs4_deviceid_node *arg0) {
 // Function: nfs_commitdata_alloc
 // with type: struct nfs_commit_data *nfs_commitdata_alloc()
 // with return type: (struct nfs_commit_data)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_commit_data *nfs_commitdata_alloc() {
   // Pointer type
-  return (struct nfs_commit_data *)external_alloc();
+  return external_alloc(sizeof(struct nfs_commit_data));
 }
 
 // Function: nfs_commitdata_release
@@ -548,10 +548,10 @@ void pnfs_unregister_layoutdriver(struct pnfs_layoutdriver_type *arg0) {
 // Function: pnfs_update_layout
 // with type: struct pnfs_layout_segment *pnfs_update_layout(struct inode *, struct nfs_open_context *, loff_t , u64 , enum pnfs_iomode , gfp_t )
 // with return type: (struct pnfs_layout_segment)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pnfs_layout_segment *pnfs_update_layout(struct inode *arg0, struct nfs_open_context *arg1, loff_t arg2, u64 arg3, enum pnfs_iomode arg4, gfp_t arg5) {
   // Pointer type
-  return (struct pnfs_layout_segment *)external_alloc();
+  return external_alloc(sizeof(struct pnfs_layout_segment));
 }
 
 // Function: pnfs_write_done_resend_to_mds
@@ -703,10 +703,10 @@ void xdr_init_decode_pages(struct xdr_stream *arg0, struct xdr_buf *arg1, struct
 // Function: xdr_inline_decode
 // with type: __be32 *xdr_inline_decode(struct xdr_stream *, size_t )
 // with return type: (__be32 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
   // Pointer type
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 
 // Function: xdr_set_scratch_buffer

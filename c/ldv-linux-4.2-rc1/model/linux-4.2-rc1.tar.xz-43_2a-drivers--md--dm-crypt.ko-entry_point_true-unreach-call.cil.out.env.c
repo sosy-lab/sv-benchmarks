@@ -17,10 +17,10 @@ void ___might_sleep(const char *arg0, int arg1, int arg2) {
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __bitmap_weight
@@ -110,19 +110,19 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: bio_alloc_bioset
 // with type: struct bio *bio_alloc_bioset(gfp_t , int, struct bio_set *)
 // with return type: (struct bio)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_alloc_bioset(gfp_t arg0, int arg1, struct bio_set *arg2) {
   // Pointer type
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 
 // Function: bio_clone_fast
 // with type: struct bio *bio_clone_fast(struct bio *, gfp_t , struct bio_set *)
 // with return type: (struct bio)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_clone_fast(struct bio *arg0, gfp_t arg1, struct bio_set *arg2) {
   // Pointer type
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 
 // Function: bio_endio
@@ -144,10 +144,10 @@ void bio_put(struct bio *arg0) {
 // Function: bioset_create
 // with type: struct bio_set *bioset_create(unsigned int, unsigned int)
 // with return type: (struct bio_set)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio_set *bioset_create(unsigned int arg0, unsigned int arg1) {
   // Pointer type
-  return (struct bio_set *)external_alloc();
+  return external_alloc(sizeof(struct bio_set));
 }
 
 // Function: bioset_free
@@ -187,28 +187,28 @@ void complete(struct completion *arg0) {
 // Function: crypto_alloc_ablkcipher
 // with type: struct crypto_ablkcipher *crypto_alloc_ablkcipher(const char *, u32 , u32 )
 // with return type: (struct crypto_ablkcipher)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_ablkcipher *crypto_alloc_ablkcipher(const char *arg0, u32 arg1, u32 arg2) {
   // Pointer type
-  return (struct crypto_ablkcipher *)external_alloc();
+  return external_alloc(sizeof(struct crypto_ablkcipher));
 }
 
 // Function: crypto_alloc_base
 // with type: struct crypto_tfm *crypto_alloc_base(const char *, u32 , u32 )
 // with return type: (struct crypto_tfm)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
   // Pointer type
-  return (struct crypto_tfm *)external_alloc();
+  return external_alloc(sizeof(struct crypto_tfm));
 }
 
 // Function: crypto_alloc_shash
 // with type: struct crypto_shash *crypto_alloc_shash(const char *, u32 , u32 )
 // with return type: (struct crypto_shash)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_shash *crypto_alloc_shash(const char *arg0, u32 arg1, u32 arg2) {
   // Pointer type
-  return (struct crypto_shash *)external_alloc();
+  return external_alloc(sizeof(struct crypto_shash));
 }
 
 // Function: crypto_destroy_tfm
@@ -291,10 +291,10 @@ int dm_register_target(struct target_type *arg0) {
 // Function: dm_shift_arg
 // with type: const char *dm_shift_arg(struct dm_arg_set *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dm_shift_arg(struct dm_arg_set *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: dm_table_get_mode
@@ -337,10 +337,10 @@ void generic_make_request(struct bio *arg0) {
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: kstrtou8
@@ -355,10 +355,10 @@ int kstrtou8(const char *arg0, unsigned int arg1, u8 *arg2) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -471,10 +471,10 @@ int ldv_setup_8() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: list_del
@@ -500,10 +500,10 @@ void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_cl
 // Function: mempool_create
 // with type: mempool_t *mempool_create(int, mempool_alloc_t *, mempool_free_t *, void *)
 // with return type: (mempool_t )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
   // Pointer type
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 
 // Function: mempool_destroy
@@ -590,10 +590,10 @@ void rb_erase(struct rb_node *arg0, struct rb_root *arg1) {
 // Function: rb_first
 // with type: struct rb_node *rb_first(const struct rb_root *)
 // with return type: (struct rb_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rb_node *rb_first(const struct rb_root *arg0) {
   // Pointer type
-  return (struct rb_node *)external_alloc();
+  return external_alloc(sizeof(struct rb_node));
 }
 
 // Function: rb_insert_color
@@ -667,10 +667,10 @@ int strcasecmp(const char *arg0, const char *arg1) {
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: wait_for_completion

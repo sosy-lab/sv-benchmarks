@@ -98,10 +98,10 @@ int del_timer(struct timer_list *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -213,10 +213,10 @@ int ldv_resume_noirq_3() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Function: ldv_suspend_late_3
@@ -278,10 +278,10 @@ void mutex_unlock(struct mutex *arg0) {
 // Function: platform_device_register_full
 // with type: struct platform_device *platform_device_register_full(const struct platform_device_info *)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_unregister
@@ -357,10 +357,10 @@ int snd_ctl_add(struct snd_card *arg0, struct snd_kcontrol *arg1) {
 // Function: snd_ctl_new1
 // with type: struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *, void *)
 // with return type: (struct snd_kcontrol)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *arg0, void *arg1) {
   // Pointer type
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
 
 // Function: snd_ctl_notify
@@ -437,10 +437,10 @@ int snd_pcm_lib_free_vmalloc_buffer(struct snd_pcm_substream *arg0) {
 // Function: snd_pcm_lib_get_vmalloc_page
 // with type: struct page *snd_pcm_lib_get_vmalloc_page(struct snd_pcm_substream *, unsigned long)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *snd_pcm_lib_get_vmalloc_page(struct snd_pcm_substream *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: snd_pcm_lib_ioctl

@@ -13,10 +13,10 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dvb_ca_en50221_init
@@ -113,19 +113,19 @@ int printk(const char *arg0, ...) {
 // Function: stb0899_attach
 // with type: struct dvb_frontend *stb0899_attach(struct stb0899_config *config, struct i2c_adapter *i2c)
 // with return type: (struct dvb_frontend)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dvb_frontend *stb0899_attach(struct stb0899_config *arg0, struct i2c_adapter *arg1) {
   // Pointer type
-  return (struct dvb_frontend *)external_alloc();
+  return external_alloc(sizeof(struct dvb_frontend));
 }
 
 // Function: stb6100_attach
 // with type: struct dvb_frontend *stb6100_attach(struct dvb_frontend *fe, const struct stb6100_config *config, struct i2c_adapter *i2c)
 // with return type: (struct dvb_frontend)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dvb_frontend *stb6100_attach(struct dvb_frontend *arg0, const struct stb6100_config *arg1, struct i2c_adapter *arg2) {
   // Pointer type
-  return (struct dvb_frontend *)external_alloc();
+  return external_alloc(sizeof(struct dvb_frontend));
 }
 
 // Function: usb_control_msg

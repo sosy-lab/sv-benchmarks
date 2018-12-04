@@ -14,10 +14,10 @@ int __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t size, gfp_t flags)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __mutex_init
@@ -90,10 +90,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -142,10 +142,10 @@ void fb_set_suspend(struct fb_info *arg0, int arg1) {
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t size, struct device *dev)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return external_alloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -177,10 +177,10 @@ void ldv_initialize() {
 // Function: ldv_undefined_pointer
 // with type: void *ldv_undefined_pointer()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ldv_undefined_pointer() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: memset
@@ -259,10 +259,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *dev, int bar, unsigned long max)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap

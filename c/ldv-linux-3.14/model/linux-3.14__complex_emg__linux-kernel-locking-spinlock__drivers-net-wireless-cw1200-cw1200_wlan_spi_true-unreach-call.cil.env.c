@@ -126,10 +126,10 @@ void driver_unregister(struct device_driver *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -162,10 +162,10 @@ int gpio_request(unsigned int arg0, const char *arg1) {
 // Function: gpio_to_desc
 // with type: struct gpio_desc *gpio_to_desc(unsigned int)
 // with return type: (struct gpio_desc)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gpio_desc *gpio_to_desc(unsigned int arg0) {
   // Pointer type
-  return (struct gpio_desc *)external_alloc();
+  return external_alloc(sizeof(struct gpio_desc));
 }
 
 // Function: gpiod_direction_output

@@ -324,28 +324,28 @@ void tasklet_kill(struct tasklet_struct *arg0) {
 // Function: ttusbdecfe_dvbs_attach
 // with type: struct dvb_frontend *ttusbdecfe_dvbs_attach(const struct ttusbdecfe_config *)
 // with return type: (struct dvb_frontend)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dvb_frontend *ttusbdecfe_dvbs_attach(const struct ttusbdecfe_config *arg0) {
   // Pointer type
-  return (struct dvb_frontend *)external_alloc();
+  return external_alloc(sizeof(struct dvb_frontend));
 }
 
 // Function: ttusbdecfe_dvbt_attach
 // with type: struct dvb_frontend *ttusbdecfe_dvbt_attach(const struct ttusbdecfe_config *)
 // with return type: (struct dvb_frontend)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dvb_frontend *ttusbdecfe_dvbt_attach(const struct ttusbdecfe_config *arg0) {
   // Pointer type
-  return (struct dvb_frontend *)external_alloc();
+  return external_alloc(sizeof(struct dvb_frontend));
 }
 
 // Function: usb_alloc_coherent
 // with type: void *usb_alloc_coherent(struct usb_device *, size_t , gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: usb_bulk_msg

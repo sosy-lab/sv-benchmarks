@@ -4771,7 +4771,7 @@ static void sierra_outdat_callback(struct urb *urb )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int sierra_write(struct tty_struct *tty , struct usb_serial_port *port , unsigned char const *buf ,
                         int count )
 {
@@ -6459,9 +6459,9 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_check_final_state() {
   return;
@@ -6473,9 +6473,9 @@ int ldv_detach_1() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 void tty_flip_buffer_push(struct tty_port *arg0) {
   return;
@@ -6487,9 +6487,9 @@ int tty_insert_flip_string_fixed_flag(struct tty_port *arg0, const unsigned char
 void tty_port_tty_hangup(struct tty_port *arg0, bool arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 void usb_anchor_urb(struct urb *arg0, struct usb_anchor *arg1) {
   return;
@@ -6522,9 +6522,9 @@ int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_get_from_anchor(struct usb_anchor *arg0) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 void usb_kill_anchored_urbs(struct usb_anchor *arg0) {
   return;
@@ -6553,9 +6553,12 @@ int usb_submit_urb(struct urb *arg0, gfp_t arg1) {
 void usb_unanchor_urb(struct urb *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

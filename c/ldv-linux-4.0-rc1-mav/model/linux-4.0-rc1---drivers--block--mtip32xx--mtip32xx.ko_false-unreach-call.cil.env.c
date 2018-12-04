@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __bitmap_empty
@@ -219,19 +219,19 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk_node
 // with type: struct gendisk *alloc_disk_node(int, int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk_node(int arg0, int arg1) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: bdget_disk
 // with type: struct block_device *bdget_disk(struct gendisk *, int)
 // with return type: (struct block_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *bdget_disk(struct gendisk *arg0, int arg1) {
   // Pointer type
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 
 // Function: bdput
@@ -253,10 +253,10 @@ void blk_cleanup_queue(struct request_queue *arg0) {
 // Function: blk_mq_alloc_request
 // with type: struct request *blk_mq_alloc_request(struct request_queue *, int, gfp_t , bool )
 // with return type: (struct request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_mq_alloc_request(struct request_queue *arg0, int arg1, gfp_t arg2, bool arg3) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 
 // Function: blk_mq_alloc_tag_set
@@ -287,10 +287,10 @@ void blk_mq_free_tag_set(struct blk_mq_tag_set *arg0) {
 // Function: blk_mq_init_queue
 // with type: struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *arg0) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_mq_start_request
@@ -320,10 +320,10 @@ void blk_mq_stop_hw_queues(struct request_queue *arg0) {
 // Function: blk_mq_tag_to_rq
 // with type: struct request *blk_mq_tag_to_rq(struct blk_mq_tags *, unsigned int)
 // with return type: (struct request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_mq_tag_to_rq(struct blk_mq_tags *arg0, unsigned int arg1) {
   // Pointer type
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 
 // Function: blk_queue_bounce_limit
@@ -423,10 +423,10 @@ void complete(struct completion *arg0) {
 // Function: cpumask_of_node
 // with type: const struct cpumask *cpumask_of_node(int)
 // with return type: (struct cpumask)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct cpumask *cpumask_of_node(int arg0) {
   // Pointer type
-  return (const struct cpumask *)external_alloc();
+  return external_alloc(sizeof(const struct cpumask));
 }
 
 // Function: debug_dma_map_page
@@ -464,19 +464,19 @@ void debug_dma_unmap_sg(struct device *arg0, struct scatterlist *arg1, int arg2,
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -514,10 +514,10 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 // Function: dev_driver_string
 // with type: const char *dev_driver_string(const struct device *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *dev_driver_string(const struct device *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: dev_err
@@ -574,10 +574,10 @@ int dma_supported(struct device *arg0, u64 arg1) {
 // Function: dmam_alloc_coherent
 // with type: void *dmam_alloc_coherent(struct device *, size_t , dma_addr_t *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dmam_free_coherent
@@ -600,10 +600,10 @@ int down_trylock(struct semaphore *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: finish_wait
@@ -673,10 +673,10 @@ unsigned int jiffies_to_msecs(const unsigned long arg0) {
 // Function: kobject_get
 // with type: struct kobject *kobject_get(struct kobject *)
 // with return type: (struct kobject)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kobject *kobject_get(struct kobject *arg0) {
   // Pointer type
-  return (struct kobject *)external_alloc();
+  return external_alloc(sizeof(struct kobject));
 }
 
 // Function: kobject_put
@@ -690,10 +690,10 @@ void kobject_put(struct kobject *arg0) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -918,10 +918,10 @@ int pcim_iomap_regions(struct pci_dev *arg0, int arg1, const char *arg2) {
 // Function: pcim_iomap_table
 // with type: void * const *pcim_iomap_table(struct pci_dev *)
 // with return type: (const (void)*)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void * const *pcim_iomap_table(struct pci_dev *arg0) {
   // Pointer type
-  return (void * const *)external_alloc();
+  return external_alloc(sizeof(void * const));
 }
 
 // Function: pcim_iounmap_regions
@@ -997,10 +997,10 @@ void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: simple_open

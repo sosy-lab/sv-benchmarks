@@ -34,10 +34,10 @@ void ldv_initialize() {
 // Function: parport_pc_probe_port
 // with type: struct parport *parport_pc_probe_port(unsigned long base, unsigned long base_hi, int irq, int dma, struct device *dev, int irqflags)
 // with return type: (struct parport)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct parport *parport_pc_probe_port(unsigned long arg0, unsigned long arg1, int arg2, int arg3, struct device *arg4, int arg5) {
   // Pointer type
-  return (struct parport *)external_alloc();
+  return external_alloc(sizeof(struct parport));
 }
 
 // Function: parport_pc_unregister_port

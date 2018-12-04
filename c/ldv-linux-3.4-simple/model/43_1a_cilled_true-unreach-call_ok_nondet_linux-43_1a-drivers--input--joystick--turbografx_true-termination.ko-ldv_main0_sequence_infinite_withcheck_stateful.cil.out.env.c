@@ -24,10 +24,10 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -93,10 +93,10 @@ void input_unregister_device(struct input_dev *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -118,10 +118,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: mod_timer
@@ -170,10 +170,10 @@ int parport_claim(struct pardevice *arg0) {
 // Function: parport_find_number
 // with type: struct parport *parport_find_number(int)
 // with return type: (struct parport)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct parport *parport_find_number(int arg0) {
   // Pointer type
-  return (struct parport *)external_alloc();
+  return external_alloc(sizeof(struct parport));
 }
 
 // Function: parport_put_port
@@ -187,10 +187,10 @@ void parport_put_port(struct parport *arg0) {
 // Function: parport_register_device
 // with type: struct pardevice *parport_register_device(struct parport *, const char *, int (*)(void *), void (*)(void *), void (*)(void *), int, void *)
 // with return type: (struct pardevice)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pardevice *parport_register_device(struct parport *arg0, const char *arg1, int (*arg2)(void *), void (*arg3)(void *), void (*arg4)(void *), int arg5, void *arg6) {
   // Pointer type
-  return (struct pardevice *)external_alloc();
+  return external_alloc(sizeof(struct pardevice));
 }
 
 // Function: parport_release

@@ -11498,24 +11498,24 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct eventfd_ctx *eventfd_ctx_fileget(struct file *arg0) {
-  return (struct eventfd_ctx *)external_alloc();
+  return external_alloc(sizeof(struct eventfd_ctx));
 }
 void eventfd_ctx_put(struct eventfd_ctx *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *eventfd_fget(int arg0) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 __u64 eventfd_signal(struct eventfd_ctx *arg0, __u64 arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *fget(unsigned int arg0) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -11523,17 +11523,17 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void fput(struct file *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mm_struct *get_task_mm(struct task_struct *arg0) {
-  return (struct mm_struct *)external_alloc();
+  return external_alloc(sizeof(struct mm_struct));
 }
 int __VERIFIER_nondet_int(void);
 int get_user_pages_fast(unsigned long arg0, int arg1, int arg2, struct page **arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -11562,9 +11562,9 @@ void lock_release(struct lockdep_map *arg0, int arg1, unsigned long arg2) {
 void lockdep_rcu_suspicious(const char *arg0, const int arg1, const char *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *macvtap_get_socket(struct file *arg0) {
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 int __VERIFIER_nondet_int(void);
 int memcpy_fromiovec(unsigned char *arg0, struct iovec *arg1, int arg2) {
@@ -11622,16 +11622,16 @@ int __VERIFIER_nondet_int(void);
 int set_page_dirty_lock(struct page *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *sockfd_lookup(int arg0, int *arg1) {
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 void synchronize_sched() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *tun_get_socket(struct file *arg0) {
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 void unuse_mm(struct mm_struct *arg0) {
   return;
@@ -11649,9 +11649,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

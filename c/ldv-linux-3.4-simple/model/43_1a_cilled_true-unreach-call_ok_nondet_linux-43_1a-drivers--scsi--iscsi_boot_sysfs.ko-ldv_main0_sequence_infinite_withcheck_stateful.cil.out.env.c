@@ -26,10 +26,10 @@ bool capable(int arg0) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -37,10 +37,10 @@ char *kasprintf(gfp_t arg0, const char *arg1, ...) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kobject_init_and_add
@@ -72,10 +72,10 @@ int kobject_uevent(struct kobject *arg0, enum kobject_action arg1) {
 // Function: kset_create_and_add
 // with type: struct kset *kset_create_and_add(const char *, const struct kset_uevent_ops *, struct kobject *)
 // with return type: (struct kset)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kset *kset_create_and_add(const char *arg0, const struct kset_uevent_ops *arg1, struct kobject *arg2) {
   // Pointer type
-  return (struct kset *)external_alloc();
+  return external_alloc(sizeof(struct kset));
 }
 
 // Function: kset_unregister
@@ -105,10 +105,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: list_del

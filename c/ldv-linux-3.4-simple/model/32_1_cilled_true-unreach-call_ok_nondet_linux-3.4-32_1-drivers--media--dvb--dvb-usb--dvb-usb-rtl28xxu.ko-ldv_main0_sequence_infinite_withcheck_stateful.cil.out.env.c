@@ -14,10 +14,10 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *symbol)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __symbol_put
@@ -31,10 +31,10 @@ void __symbol_put(const char *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dvb_usb_device_init
@@ -86,10 +86,10 @@ void rc_keydown(struct rc_dev *arg0, int arg1, u8 arg2) {
 // Function: rtl2830_get_tuner_i2c_adapter
 // with type: struct i2c_adapter *rtl2830_get_tuner_i2c_adapter(struct dvb_frontend *fe)
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *rtl2830_get_tuner_i2c_adapter(struct dvb_frontend *arg0) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 
 // Function: usb_control_msg

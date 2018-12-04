@@ -4889,7 +4889,7 @@ __inline static void writel(unsigned int val , void volatile *addr )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern unsigned int ioread8(void * ) ;
 __inline static void memcpy_toio(void volatile *dst , void const *src , size_t count )
 {
@@ -6926,9 +6926,9 @@ int __VERIFIER_nondet_int(void);
 int ata_host_activate(struct ata_host *arg0, int arg1, irqreturn_t (*arg2)(int, void *), unsigned long arg3, struct scsi_host_template *arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ata_host *ata_host_alloc_pinfo(struct device *arg0, const struct ata_port_info * const *arg1, int arg2) {
-  return (struct ata_host *)external_alloc();
+  return external_alloc(sizeof(struct ata_host));
 }
 void ata_pci_remove_one(struct pci_dev *arg0) {
   return;
@@ -6981,9 +6981,9 @@ int __VERIFIER_nondet_int(void);
 int ata_std_bios_param(struct scsi_device *arg0, struct block_device *arg1, sector_t arg2, int *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dma_set_mask(struct device *arg0, u64 arg1) {
@@ -6993,17 +6993,17 @@ int __VERIFIER_nondet_int(void);
 int dma_supported(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread8(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_check_final_state() {
   return;
@@ -7011,9 +7011,9 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 void msleep(unsigned int arg0) {
   return;
@@ -7032,9 +7032,9 @@ int __VERIFIER_nondet_int(void);
 int pcim_iomap_regions(struct pci_dev *arg0, int arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void * const *pcim_iomap_table(struct pci_dev *arg0) {
-  return (void * const *)external_alloc();
+  return external_alloc(sizeof(void * const));
 }
 void pcim_pin_device(struct pci_dev *arg0) {
   return;
@@ -7043,16 +7043,19 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __blk_mq_end_request
@@ -130,10 +130,10 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: bio_advance
@@ -147,10 +147,10 @@ void bio_advance(struct bio *arg0, unsigned int arg1) {
 // Function: bio_clone_bioset
 // with type: struct bio *bio_clone_bioset(struct bio *, gfp_t , struct bio_set *)
 // with return type: (struct bio)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_clone_bioset(struct bio *arg0, gfp_t arg1, struct bio_set *arg2) {
   // Pointer type
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 
 // Function: bio_put
@@ -197,19 +197,19 @@ void blk_mq_free_tag_set(struct blk_mq_tag_set *arg0) {
 // Function: blk_mq_init_queue
 // with type: struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *)
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_mq_init_queue(struct blk_mq_tag_set *arg0) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_mq_map_queue
 // with type: struct blk_mq_hw_ctx *blk_mq_map_queue(struct request_queue *, const int)
 // with return type: (struct blk_mq_hw_ctx)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct blk_mq_hw_ctx *blk_mq_map_queue(struct request_queue *arg0, const int arg1) {
   // Pointer type
-  return (struct blk_mq_hw_ctx *)external_alloc();
+  return external_alloc(sizeof(struct blk_mq_hw_ctx));
 }
 
 // Function: blk_mq_start_request
@@ -303,10 +303,10 @@ void bus_unregister(struct bus_type *arg0) {
 // Function: ceph_alloc_page_vector
 // with type: struct page **ceph_alloc_page_vector(int, gfp_t )
 // with return type: ((struct page)*)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page **ceph_alloc_page_vector(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct page **)external_alloc();
+  return external_alloc(sizeof(struct page *));
 }
 
 // Function: ceph_client_id
@@ -340,19 +340,19 @@ void ceph_copy_from_page_vector(struct page **arg0, void *arg1, loff_t arg2, siz
 // Function: ceph_create_client
 // with type: struct ceph_client *ceph_create_client(struct ceph_options *, void *, u64 , u64 )
 // with return type: (struct ceph_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_client *ceph_create_client(struct ceph_options *arg0, void *arg1, u64 arg2, u64 arg3) {
   // Pointer type
-  return (struct ceph_client *)external_alloc();
+  return external_alloc(sizeof(struct ceph_client));
 }
 
 // Function: ceph_create_snap_context
 // with type: struct ceph_snap_context *ceph_create_snap_context(u32 , gfp_t )
 // with return type: (struct ceph_snap_context)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_snap_context *ceph_create_snap_context(u32 arg0, gfp_t arg1) {
   // Pointer type
-  return (struct ceph_snap_context *)external_alloc();
+  return external_alloc(sizeof(struct ceph_snap_context));
 }
 
 // Function: ceph_destroy_client
@@ -374,19 +374,19 @@ void ceph_destroy_options(struct ceph_options *arg0) {
 // Function: ceph_file_part
 // with type: const char *ceph_file_part(const char *, int)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *ceph_file_part(const char *arg0, int arg1) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: ceph_get_snap_context
 // with type: struct ceph_snap_context *ceph_get_snap_context(struct ceph_snap_context *)
 // with return type: (struct ceph_snap_context)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_snap_context *ceph_get_snap_context(struct ceph_snap_context *arg0) {
   // Pointer type
-  return (struct ceph_snap_context *)external_alloc();
+  return external_alloc(sizeof(struct ceph_snap_context));
 }
 
 // Function: ceph_monc_do_get_version
@@ -427,10 +427,10 @@ int ceph_open_session(struct ceph_client *arg0) {
 // Function: ceph_osdc_alloc_request
 // with type: struct ceph_osd_request *ceph_osdc_alloc_request(struct ceph_osd_client *, struct ceph_snap_context *, unsigned int, bool , gfp_t )
 // with return type: (struct ceph_osd_request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_osd_request *ceph_osdc_alloc_request(struct ceph_osd_client *arg0, struct ceph_snap_context *arg1, unsigned int arg2, bool arg3, gfp_t arg4) {
   // Pointer type
-  return (struct ceph_osd_request *)external_alloc();
+  return external_alloc(sizeof(struct ceph_osd_request));
 }
 
 // Function: ceph_osdc_build_request
@@ -511,19 +511,19 @@ int ceph_pagelist_append(struct ceph_pagelist *arg0, const void *arg1, size_t ar
 // Function: ceph_parse_options
 // with type: struct ceph_options *ceph_parse_options(char *, const char *, const char *, int (*)(char *, void *), void *)
 // with return type: (struct ceph_options)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ceph_options *ceph_parse_options(char *arg0, const char *arg1, const char *arg2, int (*arg3)(char *, void *), void *arg4) {
   // Pointer type
-  return (struct ceph_options *)external_alloc();
+  return external_alloc(sizeof(struct ceph_options));
 }
 
 // Function: ceph_pg_pool_name_by_id
 // with type: const char *ceph_pg_pool_name_by_id(struct ceph_osdmap *, u64 )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *ceph_pg_pool_name_by_id(struct ceph_osdmap *arg0, u64 arg1) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: ceph_pg_poolid_by_name
@@ -562,11 +562,11 @@ void complete_all(struct completion *arg0) {
 // Function: current_kernel_time
 // with type: struct timespec current_kernel_time()
 // with return type: struct timespec
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
   // Composite type
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -640,10 +640,10 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: ida_destroy
@@ -676,19 +676,19 @@ void ida_simple_remove(struct ida *arg0, unsigned int arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -710,19 +710,19 @@ void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: kstrtoull

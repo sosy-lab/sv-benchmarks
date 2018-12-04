@@ -88,10 +88,10 @@ int virtqueue_add_buf(struct virtqueue *arg0, struct scatterlist *arg1, unsigned
 // Function: virtqueue_get_buf
 // with type: void *virtqueue_get_buf(struct virtqueue *vq, unsigned int *len)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: virtqueue_kick

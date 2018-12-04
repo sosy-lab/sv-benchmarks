@@ -80,10 +80,10 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
 // Function: __kmalloc_node
 // with type: void *__kmalloc_node(size_t , gfp_t , int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc_node(size_t arg0, gfp_t arg1, int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __list_add
@@ -163,10 +163,10 @@ void __rwlock_init(rwlock_t *arg0, const char *arg1, struct lock_class_key *arg2
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __symbol_put
@@ -180,10 +180,10 @@ void __symbol_put(const char *arg0) {
 // Function: __vmalloc
 // with type: void *__vmalloc(unsigned long, gfp_t , pgprot_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__vmalloc(unsigned long arg0, gfp_t arg1, pgprot_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __wake_up
@@ -339,10 +339,10 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: alloc_pages_current
 // with type: struct page *alloc_pages_current(gfp_t , unsigned int)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: atomic_notifier_chain_register
@@ -414,19 +414,19 @@ int cpumask_next_and(int arg0, const struct cpumask *arg1, const struct cpumask 
 // Function: cpumask_of_node
 // with type: const struct cpumask *cpumask_of_node(int)
 // with return type: (struct cpumask)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct cpumask *cpumask_of_node(int arg0) {
   // Pointer type
-  return (const struct cpumask *)external_alloc();
+  return external_alloc(sizeof(const struct cpumask));
 }
 
 // Function: crypto_alloc_base
 // with type: struct crypto_tfm *crypto_alloc_base(const char *, u32 , u32 )
 // with return type: (struct crypto_tfm)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
   // Pointer type
-  return (struct crypto_tfm *)external_alloc();
+  return external_alloc(sizeof(struct crypto_tfm));
 }
 
 // Function: crypto_register_shash
@@ -509,10 +509,10 @@ int filp_close(struct file *arg0, fl_owner_t arg1) {
 // Function: filp_open
 // with type: struct file *filp_open(const char *, int, umode_t )
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *filp_open(const char *arg0, int arg1, umode_t arg2) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: find_first_bit
@@ -580,10 +580,10 @@ unsigned int jiffies_to_msecs(const unsigned long arg0) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: ldv__builtin_va_end
@@ -731,10 +731,10 @@ void panic(const char *arg0, ...) {
 // Function: prepare_creds
 // with type: struct cred *prepare_creds()
 // with return type: (struct cred)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cred *prepare_creds() {
   // Pointer type
-  return (struct cred *)external_alloc();
+  return external_alloc(sizeof(struct cred));
 }
 
 // Function: prepare_to_wait_event
@@ -793,10 +793,10 @@ int register_cpu_notifier(struct notifier_block *arg0) {
 // Function: register_sysctl_table
 // with type: struct ctl_table_header *register_sysctl_table(struct ctl_table *)
 // with return type: (struct ctl_table_header)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ctl_table_header *register_sysctl_table(struct ctl_table *arg0) {
   // Pointer type
-  return (struct ctl_table_header *)external_alloc();
+  return external_alloc(sizeof(struct ctl_table_header));
 }
 
 // Function: remove_wait_queue
@@ -1001,19 +1001,19 @@ ssize_t vfs_write(struct file *arg0, const char *arg1, size_t arg2, loff_t *arg3
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vmalloc_node
 // with type: void *vmalloc_node(unsigned long, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc_node(unsigned long arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: vsnprintf

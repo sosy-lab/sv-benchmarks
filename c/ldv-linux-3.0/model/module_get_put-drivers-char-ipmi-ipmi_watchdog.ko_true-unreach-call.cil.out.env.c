@@ -324,10 +324,10 @@ unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg
 // Function: strim
 // with type: char *strim(char *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strim(char *arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: strlen

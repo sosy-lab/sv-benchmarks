@@ -9,10 +9,10 @@
 // Function: __clk_get_name
 // with type: const char *__clk_get_name(struct clk *)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *__clk_get_name(struct clk *arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: __const_udelay
@@ -238,10 +238,10 @@ int clk_enable(struct clk *arg0) {
 // Function: clk_get
 // with type: struct clk *clk_get(struct device *, const char *)
 // with return type: (struct clk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct clk *clk_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct clk *)external_alloc();
+  return external_alloc(sizeof(struct clk));
 }
 
 // Function: clk_prepare
@@ -264,10 +264,10 @@ void clk_put(struct clk *arg0) {
 // Function: clk_register
 // with type: struct clk *clk_register(struct device *, struct clk_hw *)
 // with return type: (struct clk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct clk *clk_register(struct device *arg0, struct clk_hw *arg1) {
   // Pointer type
-  return (struct clk *)external_alloc();
+  return external_alloc(sizeof(struct clk));
 }
 
 // Function: clk_set_rate
@@ -331,28 +331,28 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
 // Function: devm_ioremap_resource
 // with type: void *devm_ioremap_resource(struct device *, struct resource *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_pinctrl_get
 // with type: struct pinctrl *devm_pinctrl_get(struct device *)
 // with return type: (struct pinctrl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pinctrl *devm_pinctrl_get(struct device *arg0) {
   // Pointer type
-  return (struct pinctrl *)external_alloc();
+  return external_alloc(sizeof(struct pinctrl));
 }
 
 // Function: devm_request_threaded_irq
@@ -367,10 +367,10 @@ int devm_request_threaded_irq(struct device *arg0, unsigned int arg1, irqreturn_
 // Function: fimc_find_remote_sensor
 // with type: struct v4l2_subdev *fimc_find_remote_sensor(struct media_entity *)
 // with return type: (struct v4l2_subdev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_subdev *fimc_find_remote_sensor(struct media_entity *arg0) {
   // Pointer type
-  return (struct v4l2_subdev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_subdev));
 }
 
 // Function: finish_wait
@@ -563,10 +563,10 @@ int media_entity_create_link(struct media_entity *arg0, u16 arg1, struct media_e
 // Function: media_entity_graph_walk_next
 // with type: struct media_entity *media_entity_graph_walk_next(struct media_entity_graph *)
 // with return type: (struct media_entity)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct media_entity *media_entity_graph_walk_next(struct media_entity_graph *arg0) {
   // Pointer type
-  return (struct media_entity *)external_alloc();
+  return external_alloc(sizeof(struct media_entity));
 }
 
 // Function: media_entity_graph_walk_start
@@ -606,10 +606,10 @@ void media_entity_pipeline_stop(struct media_entity *arg0) {
 // Function: media_entity_remote_pad
 // with type: struct media_pad *media_entity_remote_pad(struct media_pad *)
 // with return type: (struct media_pad)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct media_pad *media_entity_remote_pad(struct media_pad *arg0) {
   // Pointer type
-  return (struct media_pad *)external_alloc();
+  return external_alloc(sizeof(struct media_pad));
 }
 
 // Skip function: memset
@@ -679,73 +679,73 @@ bool of_device_is_available(const struct device_node *arg0) {
 // Function: of_find_device_by_node
 // with type: struct platform_device *of_find_device_by_node(struct device_node *)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *of_find_device_by_node(struct device_node *arg0) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: of_find_property
 // with type: struct property *of_find_property(const struct device_node *, const char *, int *)
 // with return type: (struct property)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct property *of_find_property(const struct device_node *arg0, const char *arg1, int *arg2) {
   // Pointer type
-  return (struct property *)external_alloc();
+  return external_alloc(sizeof(struct property));
 }
 
 // Function: of_get_child_by_name
 // with type: struct device_node *of_get_child_by_name(const struct device_node *, const char *)
 // with return type: (struct device_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_child_by_name(const struct device_node *arg0, const char *arg1) {
   // Pointer type
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
 
 // Function: of_get_next_available_child
 // with type: struct device_node *of_get_next_available_child(const struct device_node *, struct device_node *)
 // with return type: (struct device_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_next_available_child(const struct device_node *arg0, struct device_node *arg1) {
   // Pointer type
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
 
 // Function: of_get_next_child
 // with type: struct device_node *of_get_next_child(const struct device_node *, struct device_node *)
 // with return type: (struct device_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_next_child(const struct device_node *arg0, struct device_node *arg1) {
   // Pointer type
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
 
 // Function: of_get_parent
 // with type: struct device_node *of_get_parent(const struct device_node *)
 // with return type: (struct device_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_parent(const struct device_node *arg0) {
   // Pointer type
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
 
 // Function: of_graph_get_remote_port_parent
 // with type: struct device_node *of_graph_get_remote_port_parent(const struct device_node *)
 // with return type: (struct device_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_graph_get_remote_port_parent(const struct device_node *arg0) {
   // Pointer type
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
 
 // Function: of_match_node
 // with type: const struct of_device_id *of_match_node(const struct of_device_id *, const struct device_node *)
 // with return type: (struct of_device_id)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct of_device_id *of_match_node(const struct of_device_id *arg0, const struct device_node *arg1) {
   // Pointer type
-  return (const struct of_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct of_device_id));
 }
 
 // Function: of_node_put
@@ -777,10 +777,10 @@ int of_property_read_u32_array(const struct device_node *arg0, const char *arg1,
 // Function: pinctrl_lookup_state
 // with type: struct pinctrl_state *pinctrl_lookup_state(struct pinctrl *, const char *)
 // with return type: (struct pinctrl_state)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pinctrl_state *pinctrl_lookup_state(struct pinctrl *arg0, const char *arg1) {
   // Pointer type
-  return (struct pinctrl_state *)external_alloc();
+  return external_alloc(sizeof(struct pinctrl_state));
 }
 
 // Function: platform_driver_unregister
@@ -794,10 +794,10 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: pm_runtime_enable
@@ -894,10 +894,10 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 // Function: syscon_regmap_lookup_by_phandle
 // with type: struct regmap *syscon_regmap_lookup_by_phandle(struct device_node *, const char *)
 // with return type: (struct regmap)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regmap *syscon_regmap_lookup_by_phandle(struct device_node *arg0, const char *arg1) {
   // Pointer type
-  return (struct regmap *)external_alloc();
+  return external_alloc(sizeof(struct regmap));
 }
 
 // Function: usleep_range
@@ -970,19 +970,19 @@ int v4l2_ctrl_handler_init_class(struct v4l2_ctrl_handler *arg0, unsigned int ar
 // Function: v4l2_ctrl_new_std
 // with type: struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *, const struct v4l2_ctrl_ops *, u32 , s64 , s64 , u64 , s64 )
 // with return type: (struct v4l2_ctrl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, s64 arg3, s64 arg4, u64 arg5, s64 arg6) {
   // Pointer type
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 
 // Function: v4l2_ctrl_new_std_menu
 // with type: struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *, const struct v4l2_ctrl_ops *, u32 , u8 , u64 , u8 )
 // with return type: (struct v4l2_ctrl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *arg0, const struct v4l2_ctrl_ops *arg1, u32 arg2, u8 arg3, u64 arg4, u8 arg5) {
   // Pointer type
-  return (struct v4l2_ctrl *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_ctrl));
 }
 
 // Function: v4l2_device_register
@@ -1098,19 +1098,19 @@ void v4l2_m2m_buf_queue(struct v4l2_m2m_ctx *arg0, struct vb2_buffer *arg1) {
 // Function: v4l2_m2m_buf_remove
 // with type: void *v4l2_m2m_buf_remove(struct v4l2_m2m_queue_ctx *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *v4l2_m2m_buf_remove(struct v4l2_m2m_queue_ctx *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: v4l2_m2m_ctx_init
 // with type: struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *, void *, int (*)(void *, struct vb2_queue *, struct vb2_queue *))
 // with return type: (struct v4l2_m2m_ctx)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *arg0, void *arg1, int (*arg2)(void *, struct vb2_queue *, struct vb2_queue *)) {
   // Pointer type
-  return (struct v4l2_m2m_ctx *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_m2m_ctx));
 }
 
 // Function: v4l2_m2m_ctx_release
@@ -1142,28 +1142,28 @@ unsigned int v4l2_m2m_fop_poll(struct file *arg0, poll_table *arg1) {
 // Function: v4l2_m2m_get_curr_priv
 // with type: void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: v4l2_m2m_get_vq
 // with type: struct vb2_queue *v4l2_m2m_get_vq(struct v4l2_m2m_ctx *, enum v4l2_buf_type )
 // with return type: (struct vb2_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vb2_queue *v4l2_m2m_get_vq(struct v4l2_m2m_ctx *arg0, enum v4l2_buf_type arg1) {
   // Pointer type
-  return (struct vb2_queue *)external_alloc();
+  return external_alloc(sizeof(struct vb2_queue));
 }
 
 // Function: v4l2_m2m_init
 // with type: struct v4l2_m2m_dev *v4l2_m2m_init(const struct v4l2_m2m_ops *)
 // with return type: (struct v4l2_m2m_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct v4l2_m2m_dev *v4l2_m2m_init(const struct v4l2_m2m_ops *arg0) {
   // Pointer type
-  return (struct v4l2_m2m_dev *)external_alloc();
+  return external_alloc(sizeof(struct v4l2_m2m_dev));
 }
 
 // Function: v4l2_m2m_ioctl_dqbuf
@@ -1240,10 +1240,10 @@ void v4l2_m2m_job_finish(struct v4l2_m2m_dev *arg0, struct v4l2_m2m_ctx *arg1) {
 // Function: v4l2_m2m_next_buf
 // with type: void *v4l2_m2m_next_buf(struct v4l2_m2m_queue_ctx *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *v4l2_m2m_next_buf(struct v4l2_m2m_queue_ctx *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: v4l2_m2m_release
@@ -1298,10 +1298,10 @@ void vb2_dma_contig_cleanup_ctx(void *arg0) {
 // Function: vb2_dma_contig_init_ctx
 // with type: void *vb2_dma_contig_init_ctx(struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_dma_contig_init_ctx(struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vb2_fop_mmap
@@ -1422,19 +1422,19 @@ void vb2_ops_wait_prepare(struct vb2_queue *arg0) {
 // Function: vb2_plane_cookie
 // with type: void *vb2_plane_cookie(struct vb2_buffer *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_cookie(struct vb2_buffer *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vb2_plane_vaddr
 // with type: void *vb2_plane_vaddr(struct vb2_buffer *, unsigned int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vb2_plane_vaddr(struct vb2_buffer *arg0, unsigned int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: vb2_queue_init
@@ -1449,10 +1449,10 @@ int vb2_queue_init(struct vb2_queue *arg0) {
 // Function: video_devdata
 // with type: struct video_device *video_devdata(struct file *)
 // with return type: (struct video_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct video_device *video_devdata(struct file *arg0) {
   // Pointer type
-  return (struct video_device *)external_alloc();
+  return external_alloc(sizeof(struct video_device));
 }
 
 // Function: video_ioctl2

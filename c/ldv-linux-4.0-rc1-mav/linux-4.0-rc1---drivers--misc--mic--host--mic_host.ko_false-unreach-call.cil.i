@@ -24167,9 +24167,9 @@ void __copy_from_user_overflow() {
 void __copy_to_user_overflow() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_chan *__dma_request_channel(const dma_cap_mask_t *arg0, bool (*arg1)(struct dma_chan *, void *), void *arg2) {
-  return (struct dma_chan *)external_alloc();
+  return external_alloc(sizeof(struct dma_chan));
 }
 void __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
@@ -24249,13 +24249,13 @@ void debug_dma_mapping_error(struct device *arg0, dma_addr_t arg1) {
 void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -24269,9 +24269,9 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create_with_groups(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const struct attribute_group **arg4, const char *arg5, ...) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void device_destroy(struct class *arg0, dev_t arg1) {
   return;
@@ -24287,9 +24287,9 @@ int __VERIFIER_nondet_int(void);
 enum dma_status dma_sync_wait(struct dma_chan *arg0, dma_cookie_t arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -24321,16 +24321,16 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ioread32(void *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iowrite32(u32 arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kernfs_node *kernfs_find_and_get_ns(struct kernfs_node *arg0, const char *arg1, const void *arg2) {
-  return (struct kernfs_node *)external_alloc();
+  return external_alloc(sizeof(struct kernfs_node));
 }
 void kernfs_notify(struct kernfs_node *arg0) {
   return;
@@ -24357,9 +24357,9 @@ void list_del(struct list_head *arg0) {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mbus_device *mbus_register_device(struct device *arg0, int arg1, struct dma_map_ops *arg2, struct mbus_hw_ops *arg3, void *arg4) {
-  return (struct mbus_device *)external_alloc();
+  return external_alloc(sizeof(struct mbus_device));
 }
 void mbus_unregister_device(struct mbus_device *arg0) {
   return;
@@ -24398,9 +24398,9 @@ int pci_enable_msix_range(struct pci_dev *arg0, struct msix_entry *arg1, int arg
 void pci_intx(struct pci_dev *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_msi_off(struct pci_dev *arg0) {
   return;
@@ -24516,9 +24516,12 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int wait_for_completion_timeout(struct completion *arg0, unsigned long arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

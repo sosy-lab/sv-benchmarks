@@ -10135,9 +10135,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, int arg1) {
@@ -10175,9 +10175,9 @@ void __mutex_init(struct mutex *arg0, const char *arg1, struct lock_class_key *a
 void __napi_schedule(struct napi_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void __netif_schedule(struct Qdisc *arg0) {
   return;
@@ -10190,13 +10190,13 @@ bool __VERIFIER_nondet_bool(void);
 bool __virt_addr_valid(unsigned long arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
@@ -10228,9 +10228,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 ethtool_op_get_link(struct net_device *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ewma *ewma_add(struct ewma *arg0, unsigned long arg1) {
-  return (struct ewma *)external_alloc();
+  return external_alloc(sizeof(struct ewma));
 }
 void ewma_init(struct ewma *arg0, unsigned long arg1, unsigned long arg2) {
   return;
@@ -10381,9 +10381,9 @@ bool __VERIFIER_nondet_bool(void);
 bool skb_partial_csum_set(struct sk_buff *arg0, u16 arg1, u16 arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 int __VERIFIER_nondet_int(void);
 int skb_to_sgvec(struct sk_buff *arg0, struct scatterlist *arg1, int arg2, int arg3) {
@@ -10420,9 +10420,9 @@ int __VERIFIER_nondet_int(void);
 int virtqueue_add_sgs(struct virtqueue *arg0, struct scatterlist **arg1, unsigned int arg2, unsigned int arg3, void *arg4, gfp_t arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_detach_unused_buf(struct virtqueue *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void virtqueue_disable_cb(struct virtqueue *arg0) {
   return;
@@ -10435,9 +10435,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int virtqueue_enable_cb_prepare(struct virtqueue *arg0) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int virtqueue_get_vring_size(struct virtqueue *arg0) {
@@ -10458,9 +10458,12 @@ bool virtqueue_poll(struct virtqueue *arg0, unsigned int arg1) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

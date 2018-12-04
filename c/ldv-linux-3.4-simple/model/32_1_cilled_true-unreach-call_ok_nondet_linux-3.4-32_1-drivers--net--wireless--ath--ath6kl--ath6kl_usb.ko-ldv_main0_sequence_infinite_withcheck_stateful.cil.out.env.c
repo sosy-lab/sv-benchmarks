@@ -13,10 +13,10 @@ void ath6kl_core_cleanup(struct ath6kl *arg0) {
 // Function: ath6kl_core_create
 // with type: struct ath6kl *ath6kl_core_create(struct device *dev)
 // with return type: (struct ath6kl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ath6kl *ath6kl_core_create(struct device *arg0) {
   // Pointer type
-  return (struct ath6kl *)external_alloc();
+  return external_alloc(sizeof(struct ath6kl));
 }
 
 // Function: ath6kl_core_destroy
@@ -64,10 +64,10 @@ void ath6kl_stop_txrx(struct ath6kl *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -121,10 +121,10 @@ void usb_deregister(struct usb_driver *arg0) {
 // Function: usb_get_dev
 // with type: struct usb_device *usb_get_dev(struct usb_device *dev)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 
 // Function: usb_put_dev

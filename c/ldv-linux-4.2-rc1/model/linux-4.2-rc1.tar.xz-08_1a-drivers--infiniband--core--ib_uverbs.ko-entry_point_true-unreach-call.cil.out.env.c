@@ -9,10 +9,10 @@
 // Function: __class_create
 // with type: struct class *__class_create(struct module *, const char *, struct lock_class_key *)
 // with return type: (struct class)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 
 // Function: __copy_from_user_overflow
@@ -191,10 +191,10 @@ int alloc_chrdev_region(dev_t *arg0, unsigned int arg1, unsigned int arg2, const
 // Function: anon_inode_getfile
 // with type: struct file *anon_inode_getfile(const char *, const struct file_operations *, void *, int)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *anon_inode_getfile(const char *arg0, const struct file_operations *arg1, void *arg2, int arg3) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Skip function: calloc
@@ -272,10 +272,10 @@ int debug_lockdep_rcu_enabled() {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_create_file
@@ -364,10 +364,10 @@ void fput(struct file *arg0) {
 // Function: get_task_pid
 // with type: struct pid *get_task_pid(struct task_struct *, enum pid_type )
 // with return type: (struct pid)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pid *get_task_pid(struct task_struct *arg0, enum pid_type arg1) {
   // Pointer type
-  return (struct pid *)external_alloc();
+  return external_alloc(sizeof(struct pid));
 }
 
 // Function: get_unused_fd_flags
@@ -400,28 +400,28 @@ int ib_close_qp(struct ib_qp *arg0) {
 // Function: ib_create_ah
 // with type: struct ib_ah *ib_create_ah(struct ib_pd *, struct ib_ah_attr *)
 // with return type: (struct ib_ah)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_ah *ib_create_ah(struct ib_pd *arg0, struct ib_ah_attr *arg1) {
   // Pointer type
-  return (struct ib_ah *)external_alloc();
+  return external_alloc(sizeof(struct ib_ah));
 }
 
 // Function: ib_create_flow
 // with type: struct ib_flow *ib_create_flow(struct ib_qp *, struct ib_flow_attr *, int)
 // with return type: (struct ib_flow)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_flow *ib_create_flow(struct ib_qp *arg0, struct ib_flow_attr *arg1, int arg2) {
   // Pointer type
-  return (struct ib_flow *)external_alloc();
+  return external_alloc(sizeof(struct ib_flow));
 }
 
 // Function: ib_create_qp
 // with type: struct ib_qp *ib_create_qp(struct ib_pd *, struct ib_qp_init_attr *)
 // with return type: (struct ib_qp)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_qp *ib_create_qp(struct ib_pd *arg0, struct ib_qp_init_attr *arg1) {
   // Pointer type
-  return (struct ib_qp *)external_alloc();
+  return external_alloc(sizeof(struct ib_qp));
 }
 
 // Function: ib_dealloc_mw
@@ -517,10 +517,10 @@ int ib_detach_mcast(struct ib_qp *arg0, union ib_gid *arg1, u16 arg2) {
 // Function: ib_get_client_data
 // with type: void *ib_get_client_data(struct ib_device *, struct ib_client *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ib_get_client_data(struct ib_device *arg0, struct ib_client *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ib_modify_qp
@@ -535,10 +535,10 @@ int ib_modify_qp(struct ib_qp *arg0, struct ib_qp_attr *arg1, int arg2) {
 // Function: ib_open_qp
 // with type: struct ib_qp *ib_open_qp(struct ib_xrcd *, struct ib_qp_open_attr *)
 // with return type: (struct ib_qp)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_qp *ib_open_qp(struct ib_xrcd *arg0, struct ib_qp_open_attr *arg1) {
   // Pointer type
-  return (struct ib_qp *)external_alloc();
+  return external_alloc(sizeof(struct ib_qp));
 }
 
 // Function: ib_query_device
@@ -649,10 +649,10 @@ void idr_destroy(struct idr *arg0) {
 // Function: idr_find_slowpath
 // with type: void *idr_find_slowpath(struct idr *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: idr_preload
@@ -674,10 +674,10 @@ void idr_remove(struct idr *arg0, int arg1) {
 // Function: igrab
 // with type: struct inode *igrab(struct inode *)
 // with return type: (struct inode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *igrab(struct inode *arg0) {
   // Pointer type
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 
 // Function: iput
@@ -691,10 +691,10 @@ void iput(struct inode *arg0) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree

@@ -17,10 +17,10 @@ void __const_udelay(unsigned long arg0) {
 // Function: __devm_request_region
 // with type: struct resource *__devm_request_region(struct device *, struct resource *, resource_size_t , resource_size_t , const char *)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__devm_request_region(struct device *arg0, struct resource *arg1, resource_size_t arg2, resource_size_t arg3, const char *arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: __raw_spin_lock_init
@@ -128,10 +128,10 @@ void dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: drm_add_edid_modes
@@ -396,10 +396,10 @@ int drm_gem_object_init(struct drm_device *arg0, struct drm_gem_object *arg1, si
 // Function: drm_gem_object_lookup
 // with type: struct drm_gem_object *drm_gem_object_lookup(struct drm_device *, struct drm_file *, u32 )
 // with return type: (struct drm_gem_object)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_gem_object *drm_gem_object_lookup(struct drm_device *arg0, struct drm_file *arg1, u32 arg2) {
   // Pointer type
-  return (struct drm_gem_object *)external_alloc();
+  return external_alloc(sizeof(struct drm_gem_object));
 }
 
 // Function: drm_gem_object_release
@@ -413,10 +413,10 @@ void drm_gem_object_release(struct drm_gem_object *arg0) {
 // Function: drm_get_edid
 // with type: struct edid *drm_get_edid(struct drm_connector *, struct i2c_adapter *)
 // with return type: (struct edid)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct edid *drm_get_edid(struct drm_connector *arg0, struct i2c_adapter *arg1) {
   // Pointer type
-  return (struct edid *)external_alloc();
+  return external_alloc(sizeof(struct edid));
 }
 
 // Function: drm_get_pci_dev
@@ -546,10 +546,10 @@ uint32_t drm_mode_legacy_fb_format(uint32_t arg0, uint32_t arg1) {
 // Function: drm_mode_object_find
 // with type: struct drm_mode_object *drm_mode_object_find(struct drm_device *, uint32_t , uint32_t )
 // with return type: (struct drm_mode_object)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_mode_object *drm_mode_object_find(struct drm_device *arg0, uint32_t arg1, uint32_t arg2) {
   // Pointer type
-  return (struct drm_mode_object *)external_alloc();
+  return external_alloc(sizeof(struct drm_mode_object));
 }
 
 // Function: drm_open
@@ -667,10 +667,10 @@ void fb_dealloc_cmap(struct fb_cmap *arg0) {
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t , struct device *)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return external_alloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -925,10 +925,10 @@ int pci_bus_write_config_dword(struct pci_bus *arg0, unsigned int arg1, int arg2
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap
@@ -942,10 +942,10 @@ void pci_iounmap(struct pci_dev *arg0, void *arg1) {
 // Function: pcim_iomap
 // with type: void *pcim_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pcim_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: printk
@@ -1195,10 +1195,10 @@ bool vgacon_text_force() {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: warn_slowpath_null

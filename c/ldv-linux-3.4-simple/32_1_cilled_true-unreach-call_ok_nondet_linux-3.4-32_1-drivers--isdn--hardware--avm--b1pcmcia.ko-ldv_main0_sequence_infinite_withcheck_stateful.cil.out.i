@@ -1909,9 +1909,9 @@ int __VERIFIER_nondet_int(void);
 int attach_capi_ctr(struct capi_ctr *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 avmcard *b1_alloc_card(int arg0) {
-  return (avmcard *)external_alloc();
+  return external_alloc(sizeof(avmcard));
 }
 int __VERIFIER_nondet_int(void);
 int b1_detect(unsigned int arg0, enum avmcardtype arg1) {
@@ -1951,9 +1951,12 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 void unregister_capi_driver(struct capi_driver *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

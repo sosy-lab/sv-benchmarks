@@ -51618,17 +51618,17 @@ int __VERIFIER_nondet_int(void);
 int core_tmr_alloc_req(struct se_cmd *arg0, void *arg1, u8 arg2, gfp_t arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *arg0, unsigned char *arg1) {
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
 int __VERIFIER_nondet_int(void);
 int core_tpg_deregister(struct se_portal_group *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_get_initiator_node_acl(struct se_portal_group *arg0, unsigned char *arg1) {
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
 int __VERIFIER_nondet_int(void);
 int core_tpg_register(struct se_wwn *arg0, struct se_portal_group *arg1, int arg2) {
@@ -51642,9 +51642,9 @@ int __VERIFIER_nondet_int(void);
 int core_tpg_set_initiator_node_tag(struct se_portal_group *arg0, struct se_node_acl *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
-  return (struct crypto_tfm *)external_alloc();
+  return external_alloc(sizeof(struct crypto_tfm));
 }
 int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
@@ -51733,13 +51733,13 @@ int kernel_setsockopt(struct socket *arg0, int arg1, int arg2, char *arg3, unsig
 void kernel_sigaction(int arg0, __sighandler_t arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -51747,13 +51747,13 @@ void kmem_cache_destroy(struct kmem_cache *arg0) {
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtou16(const char *arg0, unsigned int arg1, u16 *arg2) {
@@ -51767,9 +51767,9 @@ int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -51867,9 +51867,9 @@ int set_cpus_allowed_ptr(struct task_struct *arg0, const struct cpumask *arg1) {
 void sg_init_one(struct scatterlist *arg0, const void *arg1, unsigned int arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {
@@ -51890,9 +51890,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void target_execute_cmd(struct se_cmd *arg0) {
   return;
@@ -51959,9 +51959,9 @@ int transport_handle_cdb_direct(struct se_cmd *arg0) {
 void transport_init_se_cmd(struct se_cmd *arg0, const struct target_core_fabric_ops *arg1, struct se_session *arg2, u32 arg3, int arg4, int arg5, unsigned char *arg6) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_session *transport_init_session(enum target_prot_op arg0) {
-  return (struct se_session *)external_alloc();
+  return external_alloc(sizeof(struct se_session));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 sense_reason_t transport_lookup_cmd_lun(struct se_cmd *arg0, u64 arg1) {
@@ -51989,9 +51989,9 @@ void up(struct semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void wait_for_completion(struct completion *arg0) {
   return;
@@ -52019,9 +52019,12 @@ bool __VERIFIER_nondet_bool(void);
 bool zalloc_cpumask_var(cpumask_var_t **arg0, gfp_t arg1) {
   return __VERIFIER_nondet_bool();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

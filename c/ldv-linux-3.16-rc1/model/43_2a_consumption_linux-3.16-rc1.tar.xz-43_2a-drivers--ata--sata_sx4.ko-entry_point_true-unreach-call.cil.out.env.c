@@ -51,10 +51,10 @@ int ata_host_activate(struct ata_host *arg0, int arg1, irqreturn_t (*arg2)(int, 
 // Function: ata_host_alloc_pinfo
 // with type: struct ata_host *ata_host_alloc_pinfo(struct device *, const struct ata_port_info * const *, int)
 // with return type: (struct ata_host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ata_host *ata_host_alloc_pinfo(struct device *arg0, const struct ata_port_info * const *arg1, int arg2) {
   // Pointer type
-  return (struct ata_host *)external_alloc();
+  return external_alloc(sizeof(struct ata_host));
 }
 
 // Function: ata_pci_remove_one
@@ -188,10 +188,10 @@ int ata_std_bios_param(struct scsi_device *arg0, struct block_device *arg1, sect
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dma_set_mask
@@ -215,10 +215,10 @@ int dma_supported(struct device *arg0, u64 arg1) {
 // Function: dmam_alloc_coherent
 // with type: void *dmam_alloc_coherent(struct device *, size_t , dma_addr_t *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dmam_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ioread8
@@ -235,10 +235,10 @@ unsigned int ioread8(void *arg0) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -260,10 +260,10 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Skip function: malloc
@@ -315,10 +315,10 @@ int pcim_iomap_regions(struct pci_dev *arg0, int arg1, const char *arg2) {
 // Function: pcim_iomap_table
 // with type: void * const *pcim_iomap_table(struct pci_dev *)
 // with return type: (const (void)*)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void * const *pcim_iomap_table(struct pci_dev *arg0) {
   // Pointer type
-  return (void * const *)external_alloc();
+  return external_alloc(sizeof(void * const));
 }
 
 // Function: pcim_pin_device
@@ -341,10 +341,10 @@ int printk(const char *arg0, ...) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: warn_slowpath_null

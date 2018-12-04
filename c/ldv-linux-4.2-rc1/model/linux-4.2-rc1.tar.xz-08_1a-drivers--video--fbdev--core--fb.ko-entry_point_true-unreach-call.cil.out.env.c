@@ -18,10 +18,10 @@ int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
 // Function: __class_create
 // with type: struct class *__class_create(struct module *, const char *, struct lock_class_key *)
 // with return type: (struct class)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct class *__class_create(struct module *arg0, const char *arg1, struct lock_class_key *arg2) {
   // Pointer type
-  return (struct class *)external_alloc();
+  return external_alloc(sizeof(struct class));
 }
 
 // Function: __copy_from_user_overflow
@@ -175,10 +175,10 @@ void class_destroy(struct class *arg0) {
 // Function: compat_alloc_user_space
 // with type: void *compat_alloc_user_space(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *compat_alloc_user_space(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: console_lock
@@ -222,10 +222,10 @@ loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_create_file
@@ -264,10 +264,10 @@ void dump_page(struct page *arg0, const char *arg1) {
 // Function: fb_find_logo
 // with type: const struct linux_logo *fb_find_logo(int)
 // with return type: (struct linux_logo)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct linux_logo *fb_find_logo(int arg0) {
   // Pointer type
-  return (const struct linux_logo *)external_alloc();
+  return external_alloc(sizeof(const struct linux_logo));
 }
 
 // Function: fb_is_primary_device
@@ -455,10 +455,10 @@ int printk(const char *arg0, ...) {
 // Function: proc_create_data
 // with type: struct proc_dir_entry *proc_create_data(const char *, umode_t , struct proc_dir_entry *, const struct file_operations *, void *)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, umode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: queue_delayed_work_on
@@ -583,13 +583,13 @@ void unlock_page(struct page *arg0) {
 // Function: vm_get_page_prot
 // with type: pgprot_t vm_get_page_prot(unsigned long)
 // with return type: pgprot_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 pgprot_t vm_get_page_prot(unsigned long arg0) {
   // Typedef type
   // Real type: struct pgprot
   // Composite type
-  struct pgprot *tmp = (struct pgprot*)external_alloc();
+  struct pgprot *tmp = external_alloc(sizeof(struct pgprot));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -606,9 +606,9 @@ int vm_iomap_memory(struct vm_area_struct *arg0, phys_addr_t arg1, unsigned long
 // Function: vmalloc_to_page
 // with type: struct page *vmalloc_to_page(const void *)
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *vmalloc_to_page(const void *arg0) {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 

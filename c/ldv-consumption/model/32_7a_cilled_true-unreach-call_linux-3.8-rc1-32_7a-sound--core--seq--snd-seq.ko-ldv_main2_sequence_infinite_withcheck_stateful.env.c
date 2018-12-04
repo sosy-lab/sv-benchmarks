@@ -256,10 +256,10 @@ void list_del(struct list_head *arg0) {
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: memset
@@ -360,10 +360,10 @@ long int schedule_timeout_uninterruptible(long arg0) {
 // Function: snd_info_create_module_entry
 // with type: struct snd_info_entry *snd_info_create_module_entry(struct module *, const char *, struct snd_info_entry *)
 // with return type: (struct snd_info_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_info_entry *snd_info_create_module_entry(struct module *arg0, const char *arg1, struct snd_info_entry *arg2) {
   // Pointer type
-  return (struct snd_info_entry *)external_alloc();
+  return external_alloc(sizeof(struct snd_info_entry));
 }
 
 // Function: snd_info_free_entry
@@ -557,10 +557,10 @@ void vfree(const void *arg0) {
 // Function: vmalloc
 // with type: void *vmalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: vsnprintf

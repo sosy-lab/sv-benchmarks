@@ -5,10 +5,10 @@
 // Function: cma3000_init
 // with type: struct cma3000_accl_data *cma3000_init(struct device *, int, const struct cma3000_bus_ops *)
 // with return type: (struct cma3000_accl_data)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cma3000_accl_data *cma3000_init(struct device *arg0, int arg1, const struct cma3000_bus_ops *arg2) {
   // Pointer type
-  return (struct cma3000_accl_data *)external_alloc();
+  return external_alloc(sizeof(struct cma3000_accl_data));
 }
 
 // Function: cma3000_resume
@@ -39,10 +39,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -79,10 +79,10 @@ s32 i2c_smbus_write_byte_data(const struct i2c_client *arg0, u8 arg1, u8 arg2) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -112,9 +112,9 @@ void ldv_initialize() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 

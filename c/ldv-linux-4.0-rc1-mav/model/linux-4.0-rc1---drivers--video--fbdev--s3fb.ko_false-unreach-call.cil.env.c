@@ -100,10 +100,10 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: fb_alloc_cmap
@@ -118,10 +118,10 @@ int fb_alloc_cmap(struct fb_cmap *arg0, int arg1, int arg2) {
 // Function: fb_ddc_read
 // with type: unsigned char *fb_ddc_read(struct i2c_adapter *)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *fb_ddc_read(struct i2c_adapter *arg0) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: fb_dealloc_cmap
@@ -151,10 +151,10 @@ void fb_edid_to_monspecs(unsigned char *arg0, struct fb_monspecs *arg1) {
 // Function: fb_find_best_display
 // with type: const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *, struct list_head *)
 // with return type: (struct fb_videomode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *arg0, struct list_head *arg1) {
   // Pointer type
-  return (const struct fb_videomode *)external_alloc();
+  return external_alloc(sizeof(const struct fb_videomode));
 }
 
 // Function: fb_find_mode
@@ -193,10 +193,10 @@ void fb_videomode_to_var(struct fb_var_screeninfo *arg0, const struct fb_videomo
 // Function: framebuffer_alloc
 // with type: struct fb_info *framebuffer_alloc(size_t , struct device *)
 // with return type: (struct fb_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
   // Pointer type
-  return (struct fb_info *)external_alloc();
+  return external_alloc(sizeof(struct fb_info));
 }
 
 // Function: framebuffer_release
@@ -322,10 +322,10 @@ int pci_enable_device(struct pci_dev *arg0) {
 // Function: pci_iomap
 // with type: void *pci_iomap(struct pci_dev *, int, unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_iounmap

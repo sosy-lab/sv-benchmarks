@@ -9434,9 +9434,9 @@ int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int device_create_file(struct device *arg0, const struct device_attribute *arg1) {
@@ -9474,17 +9474,17 @@ int __VERIFIER_nondet_int(void);
 int fb_copy_cmap(const struct fb_cmap *arg0, struct fb_cmap *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_cmap *fb_default_cmap(int arg0) {
-  return (const struct fb_cmap *)external_alloc();
+  return external_alloc(sizeof(const struct fb_cmap));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_videomode *fb_find_best_mode(const struct fb_var_screeninfo *arg0, struct list_head *arg1) {
-  return (const struct fb_videomode *)external_alloc();
+  return external_alloc(sizeof(const struct fb_videomode));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_videomode *fb_find_nearest_mode(const struct fb_videomode *arg0, struct list_head *arg1) {
-  return (const struct fb_videomode *)external_alloc();
+  return external_alloc(sizeof(const struct fb_videomode));
 }
 int __VERIFIER_nondet_int(void);
 int fb_get_color_depth(struct fb_var_screeninfo *arg0, struct fb_fix_screeninfo *arg1) {
@@ -9494,9 +9494,9 @@ int __VERIFIER_nondet_int(void);
 int fb_is_primary_device(struct fb_info *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_videomode *fb_match_mode(const struct fb_var_screeninfo *arg0, struct list_head *arg1) {
-  return (const struct fb_videomode *)external_alloc();
+  return external_alloc(sizeof(const struct fb_videomode));
 }
 int __VERIFIER_nondet_int(void);
 int fb_mode_is_equal(const struct fb_videomode *arg0, const struct fb_videomode *arg1) {
@@ -9535,16 +9535,16 @@ void fbcon_set_bitops(struct fbcon_ops *arg0) {
 void fbcon_set_tileops(struct vc_data *arg0, struct fb_info *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct font_desc *find_font(const char *arg0) {
-  return (const struct font_desc *)external_alloc();
+  return external_alloc(sizeof(const struct font_desc));
 }
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct font_desc *get_default_font(int arg0, int arg1, u32 arg2, u32 arg3) {
-  return (const struct font_desc *)external_alloc();
+  return external_alloc(sizeof(const struct font_desc));
 }
 void ldv_initialize() {
   return;
@@ -9589,9 +9589,12 @@ int __VERIFIER_nondet_int(void);
 int vc_resize(struct vc_data *arg0, unsigned int arg1, unsigned int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

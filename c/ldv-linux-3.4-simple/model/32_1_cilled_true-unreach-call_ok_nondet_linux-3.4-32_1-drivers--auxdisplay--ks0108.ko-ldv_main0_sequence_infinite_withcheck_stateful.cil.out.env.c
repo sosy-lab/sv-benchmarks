@@ -30,19 +30,19 @@ int parport_claim(struct pardevice *arg0) {
 // Function: parport_find_base
 // with type: struct parport *parport_find_base(unsigned long)
 // with return type: (struct parport)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct parport *parport_find_base(unsigned long arg0) {
   // Pointer type
-  return (struct parport *)external_alloc();
+  return external_alloc(sizeof(struct parport));
 }
 
 // Function: parport_register_device
 // with type: struct pardevice *parport_register_device(struct parport *port, const char *name, int (*pf)(void *), void (*kf)(void *), void (*irq_func)(void *), int flags, void *handle)
 // with return type: (struct pardevice)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pardevice *parport_register_device(struct parport *arg0, const char *arg1, int (*arg2)(void *), void (*arg3)(void *), void (*arg4)(void *), int arg5, void *arg6) {
   // Pointer type
-  return (struct pardevice *)external_alloc();
+  return external_alloc(sizeof(struct pardevice));
 }
 
 // Function: parport_release

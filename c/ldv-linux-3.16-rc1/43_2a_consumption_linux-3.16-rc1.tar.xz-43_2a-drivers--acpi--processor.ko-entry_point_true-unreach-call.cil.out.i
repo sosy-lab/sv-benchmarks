@@ -10303,9 +10303,9 @@ int __VERIFIER_nondet_int(void);
 int cpuidle_enable_device(struct cpuidle_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cpuidle_driver *cpuidle_get_driver() {
-  return (struct cpuidle_driver *)external_alloc();
+  return external_alloc(sizeof(struct cpuidle_driver));
 }
 void cpuidle_pause_and_lock() {
   return;
@@ -10356,9 +10356,9 @@ void free_cpumask_var(cpumask_var_t arg0) {
 void get_online_cpus() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_check_final_state() {
   return;
@@ -10374,9 +10374,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_4() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 void leave_mm(int arg0) {
   return;
@@ -10434,9 +10434,9 @@ int sysfs_create_link(struct kobject *arg0, struct kobject *arg1, const char *ar
 void sysfs_remove_link(struct kobject *arg0, const char *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct thermal_cooling_device *thermal_cooling_device_register(char *arg0, void *arg1, const struct thermal_cooling_device_ops *arg2) {
-  return (struct thermal_cooling_device *)external_alloc();
+  return external_alloc(sizeof(struct thermal_cooling_device));
 }
 void thermal_cooling_device_unregister(struct thermal_cooling_device *arg0) {
   return;
@@ -10471,9 +10471,12 @@ bool __VERIFIER_nondet_bool(void);
 bool zalloc_cpumask_var(cpumask_var_t **arg0, gfp_t arg1) {
   return __VERIFIER_nondet_bool();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

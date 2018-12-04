@@ -34867,9 +34867,9 @@ void _raw_spin_lock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 gid_t from_kgid(struct user_namespace *arg0, kgid_t arg1) {
@@ -34885,42 +34885,42 @@ void ldv_after_alloc(void *arg0) {
 void ldv_assert(const char *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_52 *tmp = (struct __anonstruct_kgid_t_52*)external_alloc();
+  struct __anonstruct_kgid_t_52 *tmp = external_alloc(sizeof(struct __anonstruct_kgid_t_52));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_51 *tmp = (struct __anonstruct_kuid_t_51*)external_alloc();
+  struct __anonstruct_kuid_t_51 *tmp = external_alloc(sizeof(struct __anonstruct_kuid_t_51));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_client *nfs_alloc_client(const struct nfs_client_initdata *arg0) {
-  return (struct nfs_client *)external_alloc();
+  return external_alloc(sizeof(struct nfs_client));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_fattr *nfs_alloc_fattr() {
-  return (struct nfs_fattr *)external_alloc();
+  return external_alloc(sizeof(struct nfs_fattr));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_fh *nfs_alloc_fhandle() {
-  return (struct nfs_fh *)external_alloc();
+  return external_alloc(sizeof(struct nfs_fh));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_server *nfs_clone_server(struct nfs_server *arg0, struct nfs_fh *arg1, struct nfs_fattr *arg2, rpc_authflavor_t arg3) {
-  return (struct nfs_server *)external_alloc();
+  return external_alloc(sizeof(struct nfs_server));
 }
 void nfs_close_context(struct nfs_open_context *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_server *nfs_create_server(struct nfs_mount_info *arg0, struct nfs_subversion *arg1) {
-  return (struct nfs_server *)external_alloc();
+  return external_alloc(sizeof(struct nfs_server));
 }
 void nfs_fattr_init(struct nfs_fattr *arg0) {
   return;
@@ -34928,9 +34928,9 @@ void nfs_fattr_init(struct nfs_fattr *arg0) {
 void nfs_free_client(struct nfs_client *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_client *nfs_init_client(struct nfs_client *arg0, const struct rpc_timeout *arg1, const char *arg2) {
-  return (struct nfs_client *)external_alloc();
+  return external_alloc(sizeof(struct nfs_client));
 }
 int __VERIFIER_nondet_int(void);
 int nfs_instantiate(struct dentry *arg0, struct nfs_fh *arg1, struct nfs_fattr *arg2, struct nfs4_label *arg3) {
@@ -34962,13 +34962,13 @@ int nfs_rmdir(struct inode *arg0, struct dentry *arg1) {
 void nfs_setattr_update_inode(struct inode *arg0, struct iattr *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vfsmount *nfs_submount(struct nfs_server *arg0, struct dentry *arg1, struct nfs_fh *arg2, struct nfs_fattr *arg3) {
-  return (struct vfsmount *)external_alloc();
+  return external_alloc(sizeof(struct vfsmount));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *nfs_try_mount(int arg0, const char *arg1, struct nfs_mount_info *arg2, struct nfs_subversion *arg3) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 int __VERIFIER_nondet_int(void);
 int nfs_wb_all(struct inode *arg0) {
@@ -34998,13 +34998,13 @@ void unregister_nfs_version(struct nfs_subversion *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_encode_opaque(__be32 *arg0, const void *arg1, unsigned int arg2) {
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 void xdr_inline_pages(struct xdr_buf *arg0, unsigned int arg1, struct page **arg2, unsigned int arg3, unsigned int arg4) {
   return;
@@ -35013,9 +35013,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 unsigned int xdr_read_pages(struct xdr_stream *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_reserve_space(struct xdr_stream *arg0, size_t arg1) {
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 void xdr_terminate_string(struct xdr_buf *arg0, const u32 arg1) {
   return;
@@ -35023,9 +35023,12 @@ void xdr_terminate_string(struct xdr_buf *arg0, const u32 arg1) {
 void xdr_write_pages(struct xdr_stream *arg0, struct page **arg1, unsigned int arg2, unsigned int arg3) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

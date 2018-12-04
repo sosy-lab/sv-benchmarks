@@ -262,10 +262,10 @@ int core_tmr_alloc_req(struct se_cmd *arg0, void *arg1, u8 arg2, gfp_t arg3) {
 // Function: core_tpg_check_initiator_node_acl
 // with type: struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *, unsigned char *)
 // with return type: (struct se_node_acl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *arg0, unsigned char *arg1) {
   // Pointer type
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
 
 // Function: core_tpg_deregister
@@ -280,10 +280,10 @@ int core_tpg_deregister(struct se_portal_group *arg0) {
 // Function: core_tpg_get_initiator_node_acl
 // with type: struct se_node_acl *core_tpg_get_initiator_node_acl(struct se_portal_group *, unsigned char *)
 // with return type: (struct se_node_acl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_get_initiator_node_acl(struct se_portal_group *arg0, unsigned char *arg1) {
   // Pointer type
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
 
 // Function: core_tpg_register
@@ -316,10 +316,10 @@ int core_tpg_set_initiator_node_tag(struct se_portal_group *arg0, struct se_node
 // Function: crypto_alloc_base
 // with type: struct crypto_tfm *crypto_alloc_base(const char *, u32 , u32 )
 // with return type: (struct crypto_tfm)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
   // Pointer type
-  return (struct crypto_tfm *)external_alloc();
+  return external_alloc(sizeof(struct crypto_tfm));
 }
 
 // Function: del_timer_sync
@@ -543,19 +543,19 @@ void kernel_sigaction(int arg0, __sighandler_t arg1) {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmem_cache_create
 // with type: struct kmem_cache *kmem_cache_create(const char *, size_t , size_t , unsigned long, void (*)(void *))
 // with return type: (struct kmem_cache)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
   // Pointer type
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 
 // Function: kmem_cache_destroy
@@ -577,19 +577,19 @@ void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrdup
 // with type: char *kstrdup(const char *, gfp_t )
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: kstrtou16
@@ -622,10 +622,10 @@ int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -878,10 +878,10 @@ void sg_init_one(struct scatterlist *arg0, const void *arg1, unsigned int arg2) 
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: simple_strtoul
@@ -953,10 +953,10 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 // Function: strsep
 // with type: char *strsep(char **, const char *)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: strstr
@@ -1129,10 +1129,10 @@ void transport_init_se_cmd(struct se_cmd *arg0, const struct target_core_fabric_
 // Function: transport_init_session
 // with type: struct se_session *transport_init_session(enum target_prot_op )
 // with return type: (struct se_session)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_session *transport_init_session(enum target_prot_op arg0) {
   // Pointer type
-  return (struct se_session *)external_alloc();
+  return external_alloc(sizeof(struct se_session));
 }
 
 // Function: transport_lookup_cmd_lun
@@ -1207,10 +1207,10 @@ void vfree(const void *arg0) {
 // Function: vzalloc
 // with type: void *vzalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: wait_for_completion

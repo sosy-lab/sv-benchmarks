@@ -22,10 +22,10 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: cyttsp_probe
 // with type: struct cyttsp *cyttsp_probe(const struct cyttsp_bus_ops *bus_ops, struct device *dev, int irq, size_t xfer_buf_size)
 // with return type: (struct cyttsp)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cyttsp *cyttsp_probe(const struct cyttsp_bus_ops *arg0, struct device *arg1, int arg2, size_t arg3) {
   // Pointer type
-  return (struct cyttsp *)external_alloc();
+  return external_alloc(sizeof(struct cyttsp));
 }
 
 // Function: cyttsp_remove
@@ -48,10 +48,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata

@@ -49076,9 +49076,9 @@ unsigned long int __get_free_pages(gfp_t arg0, unsigned int arg1) {
 void __init_waitqueue_head(wait_queue_head_t *arg0, struct lock_class_key *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
@@ -49150,17 +49150,17 @@ void add_disk(struct gendisk *arg0) {
 void add_timer(struct timer_list *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *bdget(dev_t arg0) {
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 void bdput(struct block_device *arg0) {
   return;
@@ -49169,13 +49169,13 @@ int __VERIFIER_nondet_int(void);
 int bio_add_page(struct bio *arg0, struct page *arg1, unsigned int arg2, unsigned int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_alloc(gfp_t arg0, int arg1) {
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_clone(struct bio *arg0, gfp_t arg1) {
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 void bio_endio(struct bio *arg0, int arg1) {
   return;
@@ -49186,13 +49186,13 @@ void bio_pair_release(struct bio_pair *arg0) {
 void bio_put(struct bio *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio_pair *bio_split(struct bio *arg0, int arg1) {
-  return (struct bio_pair *)external_alloc();
+  return external_alloc(sizeof(struct bio_pair));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_alloc_queue(gfp_t arg0) {
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
@@ -49221,9 +49221,9 @@ void blk_queue_segment_boundary(struct request_queue *arg0, unsigned long arg1) 
 void blk_queue_stack_limits(struct request_queue *arg0, struct request_queue *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *blkdev_get_by_path(const char *arg0, fmode_t arg1, void *arg2) {
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 int __VERIFIER_nondet_int(void);
 int blkdev_issue_flush(struct block_device *arg0, gfp_t arg1, sector_t *arg2) {
@@ -49240,9 +49240,9 @@ int call_usermodehelper_exec(struct subprocess_info *arg0, enum umh_wait arg1) {
 void call_usermodehelper_setfns(struct subprocess_info *arg0, int (*arg1)(struct subprocess_info *, struct cred *), void (*arg2)(struct subprocess_info *), void *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct subprocess_info *call_usermodehelper_setup(char *arg0, char **arg1, char **arg2, gfp_t arg3) {
-  return (struct subprocess_info *)external_alloc();
+  return external_alloc(sizeof(struct subprocess_info));
 }
 int __VERIFIER_nondet_int(void);
 int cn_add_callback(struct cb_id *arg0, const char *arg1, void (*arg2)(struct cn_msg *, struct netlink_skb_parms *)) {
@@ -49258,9 +49258,9 @@ int cn_netlink_send(struct cn_msg *arg0, u32 arg1, gfp_t arg2) {
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct crypto_tfm *crypto_alloc_base(const char *arg0, u32 arg1, u32 arg2) {
-  return (struct crypto_tfm *)external_alloc();
+  return external_alloc(sizeof(struct crypto_tfm));
 }
 void del_gendisk(struct gendisk *arg0) {
   return;
@@ -49343,9 +49343,9 @@ int __VERIFIER_nondet_int(void);
 int kernel_sock_shutdown(struct socket *arg0, enum sock_shutdown_cmd arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -49354,16 +49354,16 @@ int __VERIFIER_nondet_int(void);
 int kobject_uevent(struct kobject *arg0, enum kobject_action arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 void lc_changed(struct lru_cache *arg0, struct lc_element *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lru_cache *lc_create(const char *arg0, struct kmem_cache *arg1, unsigned int arg2, size_t arg3, size_t arg4) {
-  return (struct lru_cache *)external_alloc();
+  return external_alloc(sizeof(struct lru_cache));
 }
 void lc_del(struct lru_cache *arg0, struct lc_element *arg1) {
   return;
@@ -49371,17 +49371,17 @@ void lc_del(struct lru_cache *arg0, struct lc_element *arg1) {
 void lc_destroy(struct lru_cache *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lc_element *lc_element_by_index(struct lru_cache *arg0, unsigned int arg1) {
-  return (struct lc_element *)external_alloc();
+  return external_alloc(sizeof(struct lc_element));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lc_element *lc_find(struct lru_cache *arg0, unsigned int arg1) {
-  return (struct lc_element *)external_alloc();
+  return external_alloc(sizeof(struct lc_element));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lc_element *lc_get(struct lru_cache *arg0, unsigned int arg1) {
-  return (struct lc_element *)external_alloc();
+  return external_alloc(sizeof(struct lc_element));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int lc_index_of(struct lru_cache *arg0, struct lc_element *arg1) {
@@ -49404,9 +49404,9 @@ size_t lc_seq_printf_stats(struct seq_file *arg0, struct lru_cache *arg1) {
 void lc_set(struct lru_cache *arg0, unsigned int arg1, int arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lc_element *lc_try_get(struct lru_cache *arg0, unsigned int arg1) {
-  return (struct lc_element *)external_alloc();
+  return external_alloc(sizeof(struct lc_element));
 }
 void ldv_check_return_value(int arg0) {
   return;
@@ -49430,13 +49430,13 @@ void lock_release(struct lockdep_map *arg0, int arg1, unsigned long arg2) {
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 mempool_t *mempool_create(int arg0, mempool_alloc_t *arg1, mempool_free_t *arg2, void *arg3) {
-  return (mempool_t *)external_alloc();
+  return external_alloc(sizeof(mempool_t));
 }
 void mempool_destroy(mempool_t *arg0) {
   return;
@@ -49472,9 +49472,9 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(const char *arg0, mode_t arg1, struct proc_dir_entry *arg2, const struct file_operations *arg3, void *arg4) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 void put_disk(struct gendisk *arg0) {
   return;
@@ -49569,9 +49569,9 @@ void up(struct semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void wait_for_completion(struct completion *arg0) {
   return;
@@ -49587,9 +49587,12 @@ bool __VERIFIER_nondet_bool(void);
 bool zalloc_cpumask_var(cpumask_var_t **arg0, gfp_t arg1) {
   return __VERIFIER_nondet_bool();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

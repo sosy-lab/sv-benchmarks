@@ -5,10 +5,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(char *fmt, unsigned int flags, int max_active, struct lock_class_key *key, char *lock_name, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __init_waitqueue_head
@@ -197,19 +197,19 @@ int printk(char *arg0, ...) {
 // Function: proc_create_data
 // with type: struct proc_dir_entry *proc_create_data(char *name, umode_t mode, struct proc_dir_entry *parent, struct file_operations *proc_fops, void *data)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_create_data(char *arg0, umode_t arg1, struct proc_dir_entry *arg2, struct file_operations *arg3, void *arg4) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: proc_mkdir
 // with type: struct proc_dir_entry *proc_mkdir(char *, struct proc_dir_entry *)
 // with return type: (struct proc_dir_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_mkdir(char *arg0, struct proc_dir_entry *arg1) {
   // Pointer type
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 
 // Function: queue_work
@@ -240,19 +240,19 @@ void schedule() {
 // Function: seq_list_next
 // with type: struct list_head *seq_list_next(void *v, struct list_head *head, loff_t *ppos)
 // with return type: (struct list_head)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct list_head *seq_list_next(void *arg0, struct list_head *arg1, loff_t *arg2) {
   // Pointer type
-  return (struct list_head *)external_alloc();
+  return external_alloc(sizeof(struct list_head));
 }
 
 // Function: seq_list_start
 // with type: struct list_head *seq_list_start(struct list_head *head, loff_t pos)
 // with return type: (struct list_head)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct list_head *seq_list_start(struct list_head *arg0, loff_t arg1) {
   // Pointer type
-  return (struct list_head *)external_alloc();
+  return external_alloc(sizeof(struct list_head));
 }
 
 // Function: seq_open
@@ -276,10 +276,10 @@ int seq_printf(struct seq_file *arg0, char *arg1, ...) {
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *list)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_queue_purge

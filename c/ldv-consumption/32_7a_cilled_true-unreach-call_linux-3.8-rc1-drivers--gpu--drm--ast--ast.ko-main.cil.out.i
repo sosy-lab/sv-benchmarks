@@ -9104,7 +9104,7 @@ void ldv_mutex_unlock_68(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern char *strcpy(char * , char const * ) ;
 int ldv_mutex_trylock_84(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_82(struct mutex *ldv_func_arg1 ) ;
@@ -13572,9 +13572,9 @@ void console_lock() {
 void console_unlock() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -13692,16 +13692,16 @@ int __VERIFIER_nondet_int(void);
 int drm_gem_object_init(struct drm_device *arg0, struct drm_gem_object *arg1, size_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_gem_object *drm_gem_object_lookup(struct drm_device *arg0, struct drm_file *arg1, u32 arg2) {
-  return (struct drm_gem_object *)external_alloc();
+  return external_alloc(sizeof(struct drm_gem_object));
 }
 void drm_gem_object_release(struct drm_gem_object *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct edid *drm_get_edid(struct drm_connector *arg0, struct i2c_adapter *arg1) {
-  return (struct edid *)external_alloc();
+  return external_alloc(sizeof(struct edid));
 }
 int __VERIFIER_nondet_int(void);
 int drm_get_pci_dev(struct pci_dev *arg0, const struct pci_device_id *arg1, struct drm_driver *arg2) {
@@ -13768,9 +13768,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 uint32_t drm_mode_legacy_fb_format(uint32_t arg0, uint32_t arg1) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct drm_mode_object *drm_mode_object_find(struct drm_device *arg0, uint32_t arg1, uint32_t arg2) {
-  return (struct drm_mode_object *)external_alloc();
+  return external_alloc(sizeof(struct drm_mode_object));
 }
 int __VERIFIER_nondet_int(void);
 int drm_mode_vrefresh(const struct drm_display_mode *arg0) {
@@ -13822,9 +13822,9 @@ void fb_dealloc_cmap(struct fb_cmap *arg0) {
 void fb_set_suspend(struct fb_info *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct fb_info *framebuffer_alloc(size_t arg0, struct device *arg1) {
-  return (struct fb_info *)external_alloc();
+  return external_alloc(sizeof(struct fb_info));
 }
 void framebuffer_release(struct fb_info *arg0) {
   return;
@@ -13975,9 +13975,9 @@ int __VERIFIER_nondet_int(void);
 int pci_enable_device(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;
@@ -14084,16 +14084,19 @@ bool __VERIFIER_nondet_bool(void);
 bool vgacon_text_force() {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

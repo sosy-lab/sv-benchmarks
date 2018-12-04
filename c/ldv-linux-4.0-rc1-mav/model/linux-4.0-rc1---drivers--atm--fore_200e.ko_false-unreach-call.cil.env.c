@@ -117,10 +117,10 @@ void atm_dev_deregister(struct atm_dev *arg0) {
 // Function: atm_dev_register
 // with type: struct atm_dev *atm_dev_register(const char *, struct device *, const struct atmdev_ops *, int, unsigned long *)
 // with return type: (struct atm_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct atm_dev *atm_dev_register(const char *arg0, struct device *arg1, const struct atmdev_ops *arg2, int arg3, unsigned long *arg4) {
   // Pointer type
-  return (struct atm_dev *)external_alloc();
+  return external_alloc(sizeof(struct atm_dev));
 }
 
 // Skip function: calloc
@@ -205,10 +205,10 @@ int dma_supported(struct device *arg0, u64 arg1) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -226,13 +226,13 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: ktime_get_with_offset
 // with type: ktime_t ktime_get_with_offset(enum tk_offsets )
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get_with_offset(enum tk_offsets arg0) {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -381,10 +381,10 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Skip function: sprintf

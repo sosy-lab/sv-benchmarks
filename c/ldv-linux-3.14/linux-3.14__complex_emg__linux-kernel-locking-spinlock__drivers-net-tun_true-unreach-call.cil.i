@@ -16855,9 +16855,9 @@ void __copy_from_user_overflow() {
 void __copy_to_user_overflow() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *__dev_get_by_name(struct net *arg0, const char *arg1) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
@@ -16914,9 +16914,9 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 u32 bitrev32(u32 arg0) {
@@ -16973,9 +16973,9 @@ int __VERIFIER_nondet_int(void);
 int ethtool_op_get_ts_info(struct net_device *arg0, struct ethtool_ts_info *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int fasync_helper(int arg0, struct file *arg1, int arg2, struct fasync_struct **arg3) {
@@ -17050,17 +17050,17 @@ int __VERIFIER_nondet_int(void);
 int lockdep_rtnl_is_held() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
-  struct __anonstruct_kgid_t_39 *tmp = (struct __anonstruct_kgid_t_39*)external_alloc();
+  struct __anonstruct_kgid_t_39 *tmp = external_alloc(sizeof(struct __anonstruct_kgid_t_39));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
-  struct __anonstruct_kuid_t_38 *tmp = (struct __anonstruct_kuid_t_38*)external_alloc();
+  struct __anonstruct_kuid_t_38 *tmp = external_alloc(sizeof(struct __anonstruct_kuid_t_38));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -17195,9 +17195,9 @@ int __VERIFIER_nondet_int(void);
 int seq_printf(struct seq_file *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sock *sk_alloc(struct net *arg0, int arg1, gfp_t arg2, struct proto *arg3) {
-  return (struct sock *)external_alloc();
+  return external_alloc(sizeof(struct sock));
 }
 int __VERIFIER_nondet_int(void);
 int sk_attach_filter(struct sock_fprog *arg0, struct sock *arg1) {
@@ -17229,9 +17229,9 @@ int __VERIFIER_nondet_int(void);
 int skb_copy_ubufs(struct sk_buff *arg0, gfp_t arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 bool __VERIFIER_nondet_bool(void);
 bool skb_flow_dissect(const struct sk_buff *arg0, struct flow_keys *arg1) {
@@ -17241,9 +17241,9 @@ bool __VERIFIER_nondet_bool(void);
 bool skb_partial_csum_set(struct sk_buff *arg0, u16 arg1, u16 arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_purge(struct sk_buff_head *arg0) {
   return;
@@ -17257,9 +17257,9 @@ void skb_tstamp_tx(struct sk_buff *arg0, struct skb_shared_hwtstamps *arg1) {
 void skb_tx_error(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *sock_alloc_send_pskb(struct sock *arg0, unsigned long arg1, unsigned long arg2, int arg3, int *arg4, int arg5) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void sock_init_data(struct socket *arg0, struct sock *arg1) {
   return;
@@ -17292,9 +17292,12 @@ int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

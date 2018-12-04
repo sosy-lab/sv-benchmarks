@@ -5698,13 +5698,13 @@ int __VERIFIER_nondet_int(void);
 int ldv_ni_660x_driver_release_2() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mite_struct *mite_alloc(struct pci_dev *arg0) {
-  return (struct mite_struct *)external_alloc();
+  return external_alloc(sizeof(struct mite_struct));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mite_dma_descriptor_ring *mite_alloc_ring(struct mite_struct *arg0) {
-  return (struct mite_dma_descriptor_ring *)external_alloc();
+  return external_alloc(sizeof(struct mite_dma_descriptor_ring));
 }
 int __VERIFIER_nondet_int(void);
 int mite_buf_change(struct mite_dma_descriptor_ring *arg0, struct comedi_async *arg1) {
@@ -5716,9 +5716,9 @@ void mite_free_ring(struct mite_dma_descriptor_ring *arg0) {
 void mite_release_channel(struct mite_channel *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mite_channel *mite_request_channel_in_range(struct mite_struct *arg0, struct mite_dma_descriptor_ring *arg1, unsigned int arg2, unsigned int arg3) {
-  return (struct mite_channel *)external_alloc();
+  return external_alloc(sizeof(struct mite_channel));
 }
 int __VERIFIER_nondet_int(void);
 int mite_setup2(struct mite_struct *arg0, unsigned int arg1) {
@@ -5741,9 +5741,9 @@ int mutex_trylock(struct mutex *arg0) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ni_gpct_device *ni_gpct_device_construct(struct comedi_device *arg0, void (*arg1)(struct ni_gpct *, unsigned int, enum ni_gpct_register ), unsigned int (*arg2)(struct ni_gpct *, enum ni_gpct_register ), enum ni_gpct_variant arg3, unsigned int arg4) {
-  return (struct ni_gpct_device *)external_alloc();
+  return external_alloc(sizeof(struct ni_gpct_device));
 }
 void ni_gpct_device_destroy(struct ni_gpct_device *arg0) {
   return;
@@ -5788,9 +5788,12 @@ int __VERIFIER_nondet_int(void);
 int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), irqreturn_t (*arg2)(int, void *), unsigned long arg3, const char *arg4, void *arg5) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

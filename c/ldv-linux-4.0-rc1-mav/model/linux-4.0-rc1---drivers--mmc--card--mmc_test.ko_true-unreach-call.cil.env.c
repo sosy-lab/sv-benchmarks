@@ -53,10 +53,10 @@ void _dev_info(const struct device *arg0, const char *arg1, ...) {
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -78,10 +78,10 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -215,10 +215,10 @@ void mmc_set_data_timeout(struct mmc_data *arg0, const struct mmc_card *arg1) {
 // Function: mmc_start_req
 // with type: struct mmc_async_req *mmc_start_req(struct mmc_host *, struct mmc_async_req *, int *)
 // with return type: (struct mmc_async_req)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mmc_async_req *mmc_start_req(struct mmc_host *arg0, struct mmc_async_req *arg1, int *arg2) {
   // Pointer type
-  return (struct mmc_async_req *)external_alloc();
+  return external_alloc(sizeof(struct mmc_async_req));
 }
 
 // Function: mmc_unregister_driver
@@ -358,10 +358,10 @@ void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: single_open

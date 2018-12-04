@@ -23,10 +23,10 @@ unsigned long int __phys_addr(unsigned long arg0) {
 // Function: alloc_pages_exact
 // with type: void *alloc_pages_exact(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *alloc_pages_exact(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: debug_dma_alloc_coherent
@@ -97,10 +97,10 @@ void down_read(struct rw_semaphore *arg0) {
 // Function: find_vma
 // with type: struct vm_area_struct *find_vma(struct mm_struct *, unsigned long)
 // with return type: (struct vm_area_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vm_area_struct *find_vma(struct mm_struct *arg0, unsigned long arg1) {
   // Pointer type
-  return (struct vm_area_struct *)external_alloc();
+  return external_alloc(sizeof(struct vm_area_struct));
 }
 
 // Function: follow_pfn

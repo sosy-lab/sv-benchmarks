@@ -30,10 +30,10 @@ int attach_capi_ctr(struct capi_ctr *arg0) {
 // Function: b1_alloc_card
 // with type: avmcard *b1_alloc_card(int nr_controllers)
 // with return type: (avmcard )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 avmcard *b1_alloc_card(int arg0) {
   // Pointer type
-  return (avmcard *)external_alloc();
+  return external_alloc(sizeof(avmcard));
 }
 
 // Function: b1_detect

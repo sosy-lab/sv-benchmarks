@@ -27,10 +27,10 @@ void __init_work(struct work_struct *arg0, int arg1) {
 // Function: __netdev_alloc_skb
 // with type: struct sk_buff *__netdev_alloc_skb(struct net_device *, unsigned int, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: __raw_spin_lock_init
@@ -168,10 +168,10 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: gigaset_add_event
 // with type: struct event_t *gigaset_add_event(struct cardstate *, struct at_state_t *, int, void *, int, void *)
 // with return type: (struct event_t)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct event_t *gigaset_add_event(struct cardstate *arg0, struct at_state_t *arg1, int arg2, void *arg3, int arg4, void *arg5) {
   // Pointer type
-  return (struct event_t *)external_alloc();
+  return external_alloc(sizeof(struct event_t));
 }
 
 // Function: gigaset_blockdriver
@@ -234,19 +234,19 @@ void gigaset_if_receive(struct cardstate *arg0, unsigned char *arg1, size_t arg2
 // Function: gigaset_initcs
 // with type: struct cardstate *gigaset_initcs(struct gigaset_driver *, int, int, int, int, const char *)
 // with return type: (struct cardstate)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cardstate *gigaset_initcs(struct gigaset_driver *arg0, int arg1, int arg2, int arg3, int arg4, const char *arg5) {
   // Pointer type
-  return (struct cardstate *)external_alloc();
+  return external_alloc(sizeof(struct cardstate));
 }
 
 // Function: gigaset_initdriver
 // with type: struct gigaset_driver *gigaset_initdriver(unsigned int, unsigned int, const char *, const char *, const struct gigaset_ops *, struct module *)
 // with return type: (struct gigaset_driver)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gigaset_driver *gigaset_initdriver(unsigned int arg0, unsigned int arg1, const char *arg2, const char *arg3, const struct gigaset_ops *arg4, struct module *arg5) {
   // Pointer type
-  return (struct gigaset_driver *)external_alloc();
+  return external_alloc(sizeof(struct gigaset_driver));
 }
 
 // Function: gigaset_isdn_rcv_err
@@ -398,28 +398,28 @@ long int schedule_timeout(long arg0) {
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_pull
 // with type: unsigned char *skb_pull(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_queue_head

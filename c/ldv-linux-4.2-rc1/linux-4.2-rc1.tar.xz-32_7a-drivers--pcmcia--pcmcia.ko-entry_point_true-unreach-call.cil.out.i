@@ -15826,20 +15826,20 @@ void driver_unregister(struct device_driver *arg0) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void ldv_initialize() {
   return;
@@ -15872,9 +15872,9 @@ int __VERIFIER_nondet_int(void);
 int pccard_register_pcmcia(struct pcmcia_socket *arg0, struct pcmcia_callback *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pcmcia_socket *pcmcia_get_socket(struct pcmcia_socket *arg0) {
-  return (struct pcmcia_socket *)external_alloc();
+  return external_alloc(sizeof(struct pcmcia_socket));
 }
 void pcmcia_parse_uevents(struct pcmcia_socket *arg0, unsigned int arg1) {
   return;
@@ -15922,9 +15922,12 @@ bool try_module_get(struct module *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

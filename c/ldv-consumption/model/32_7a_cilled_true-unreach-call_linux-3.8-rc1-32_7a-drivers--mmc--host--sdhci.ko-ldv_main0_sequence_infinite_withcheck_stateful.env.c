@@ -266,10 +266,10 @@ int mmc_add_host(struct mmc_host *arg0) {
 // Function: mmc_alloc_host
 // with type: struct mmc_host *mmc_alloc_host(int, struct device *)
 // with return type: (struct mmc_host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mmc_host *mmc_alloc_host(int arg0, struct device *arg1) {
   // Pointer type
-  return (struct mmc_host *)external_alloc();
+  return external_alloc(sizeof(struct mmc_host));
 }
 
 // Function: mmc_detect_change
@@ -429,10 +429,10 @@ int regulator_enable(struct regulator *arg0) {
 // Function: regulator_get
 // with type: struct regulator *regulator_get(struct device *, const char *)
 // with return type: (struct regulator)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regulator *regulator_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct regulator *)external_alloc();
+  return external_alloc(sizeof(struct regulator));
 }
 
 // Function: regulator_get_current_limit
@@ -518,10 +518,10 @@ void sg_miter_stop(struct sg_mapping_iter *arg0) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf

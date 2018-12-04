@@ -15081,13 +15081,13 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *bdget_disk(struct gendisk *arg0, int arg1) {
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 void bdput(struct block_device *arg0) {
   return;
@@ -15096,9 +15096,9 @@ int __VERIFIER_nondet_int(void);
 int bind_evtchn_to_irqhandler(unsigned int arg0, irqreturn_t (*arg1)(int, void *), unsigned long arg2, const char *arg3, void *arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_clone_bioset(struct bio *arg0, gfp_t arg1, struct bio_set *arg2) {
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 void bio_endio(struct bio *arg0, int arg1) {
   return;
@@ -15121,17 +15121,17 @@ void blk_cleanup_queue(struct request_queue *arg0) {
 void blk_end_request_all(struct request *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_fetch_request(struct request_queue *arg0) {
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_init_queue(void (*arg0)(struct request_queue *), spinlock_t *arg1) {
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request *blk_peek_request(struct request_queue *arg0) {
-  return (struct request *)external_alloc();
+  return external_alloc(sizeof(struct request));
 }
 void blk_queue_bounce_limit(struct request_queue *arg0, u64 arg1) {
   return;
@@ -15185,9 +15185,9 @@ void del_gendisk(struct gendisk *arg0) {
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 bool __VERIFIER_nondet_bool(void);
 bool flush_work(struct work_struct *arg0) {
@@ -15227,9 +15227,9 @@ int gnttab_query_foreign_access(grant_ref_t arg0) {
 void gnttab_request_free_callback(struct gnttab_free_callback *arg0, void (*arg1)(void *), void *arg2, u16 arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_after_alloc(void *arg0) {
   return;
@@ -15278,9 +15278,9 @@ void set_disk_ro(struct gendisk *arg0, int arg1) {
 void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int simple_strtoul(const char *arg0, char **arg1, unsigned int arg2) {
@@ -15335,9 +15335,9 @@ int __VERIFIER_nondet_int(void);
 int xenbus_printf(struct xenbus_transaction arg0, const char *arg1, const char *arg2, const char *arg3, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *xenbus_read(struct xenbus_transaction arg0, const char *arg1, const char *arg2, unsigned int *arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int xenbus_scanf(struct xenbus_transaction arg0, const char *arg1, const char *arg2, const char *arg3, ...) {
@@ -15358,9 +15358,12 @@ int xenbus_transaction_start(struct xenbus_transaction *arg0) {
 void xenbus_unregister_driver(struct xenbus_driver *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

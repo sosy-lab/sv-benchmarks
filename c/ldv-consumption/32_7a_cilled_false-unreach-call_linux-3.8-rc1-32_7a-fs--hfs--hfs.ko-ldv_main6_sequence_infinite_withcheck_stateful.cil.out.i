@@ -13176,9 +13176,9 @@ long __VERIFIER_nondet_long(void);
 ssize_t __blockdev_direct_IO(int arg0, struct kiocb *arg1, struct inode *arg2, struct block_device *arg3, const struct iovec *arg4, loff_t arg5, unsigned long arg6, get_block_t *arg7, dio_iodone_t *arg8, dio_submit_t *arg9, int arg10) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct buffer_head *__bread(struct block_device *arg0, sector_t arg1, unsigned int arg2) {
-  return (struct buffer_head *)external_alloc();
+  return external_alloc(sizeof(struct buffer_head));
 }
 void __brelse(struct buffer_head *arg0) {
   return;
@@ -13255,9 +13255,9 @@ int cont_write_begin(struct file *arg0, struct address_space *arg1, loff_t arg2,
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_make_root(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void d_rehash(struct dentry *arg0) {
   return;
@@ -13288,17 +13288,17 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int get_seconds() {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *iget5_locked(struct super_block *arg0, unsigned long arg1, int (*arg2)(struct inode *, void *), int (*arg3)(struct inode *, void *), void *arg4) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *iget_locked(struct super_block *arg0, unsigned long arg1) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *igrab(struct inode *arg0) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
@@ -13330,13 +13330,13 @@ int ioctl_by_bdev(struct block_device *arg0, unsigned int arg1, unsigned long ar
 void iput(struct inode *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -13353,13 +13353,13 @@ void ldv_handler_precall() {
 void list_del(struct list_head *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nls_table *load_nls(char *arg0) {
-  return (struct nls_table *)external_alloc();
+  return external_alloc(sizeof(struct nls_table));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nls_table *load_nls_default() {
-  return (struct nls_table *)external_alloc();
+  return external_alloc(sizeof(struct nls_table));
 }
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
@@ -13381,17 +13381,17 @@ int __VERIFIER_nondet_int(void);
 int match_octal(substring_t *arg0, int *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *match_strdup(const substring_t *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int match_token(char *arg0, const struct match_token *arg1, substring_t *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *mount_bdev(struct file_system_type *arg0, int arg1, const char *arg2, void *arg3, int (*arg4)(struct super_block *, void *, int)) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 int __VERIFIER_nondet_int(void);
 int mpage_writepages(struct address_space *arg0, struct writeback_control *arg1, get_block_t *arg2) {
@@ -13411,9 +13411,9 @@ int mutex_trylock(struct mutex *arg0) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 int __VERIFIER_nondet_int(void);
 int pagecache_write_begin(struct file *arg0, struct address_space *arg1, loff_t arg2, unsigned int arg3, unsigned int arg4, struct page **arg5, void **arg6) {
@@ -13443,9 +13443,9 @@ bool queue_delayed_work(struct workqueue_struct *arg0, struct delayed_work *arg1
 void rcu_barrier() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *read_cache_page(struct address_space *arg0, unsigned long arg1, filler_t *arg2, void *arg3) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int register_filesystem(struct file_system_type *arg0) {
@@ -13476,9 +13476,9 @@ int set_page_dirty(struct page *arg0) {
 void setattr_copy(struct inode *arg0, const struct iattr *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int sync_blockdev(struct block_device *arg0) {
@@ -13518,9 +13518,12 @@ int __VERIFIER_nondet_int(void);
 int write_inode_now(struct inode *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

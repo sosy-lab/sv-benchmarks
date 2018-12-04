@@ -18020,9 +18020,9 @@ unsigned long int __phys_addr(unsigned long arg0) {
 void _dev_info(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void debugfs_remove(struct dentry *arg0) {
   return;
@@ -18030,9 +18030,9 @@ void debugfs_remove(struct dentry *arg0) {
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void getnstimeofday64(struct timespec *arg0) {
   return;
@@ -18084,9 +18084,9 @@ int mmc_set_blocklen(struct mmc_card *arg0, unsigned int arg1) {
 void mmc_set_data_timeout(struct mmc_data *arg0, const struct mmc_card *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mmc_async_req *mmc_start_req(struct mmc_host *arg0, struct mmc_async_req *arg1, int *arg2) {
-  return (struct mmc_async_req *)external_alloc();
+  return external_alloc(sizeof(struct mmc_async_req));
 }
 void mmc_unregister_driver(struct device_driver *arg0) {
   return;
@@ -18135,9 +18135,9 @@ void sg_init_one(struct scatterlist *arg0, const void *arg1, unsigned int arg2) 
 void sg_init_table(struct scatterlist *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 int __VERIFIER_nondet_int(void);
 int single_open(struct file *arg0, int (*arg1)(struct seq_file *, void *), void *arg2) {
@@ -18153,9 +18153,12 @@ void trace_hardirqs_off() {
 void trace_hardirqs_on() {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

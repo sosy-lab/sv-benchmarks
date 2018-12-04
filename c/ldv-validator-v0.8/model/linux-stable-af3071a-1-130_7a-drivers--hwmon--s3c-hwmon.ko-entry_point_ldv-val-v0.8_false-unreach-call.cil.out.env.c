@@ -28,10 +28,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_printk
@@ -71,10 +71,10 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
 // Function: hwmon_device_register
 // with type: struct device *hwmon_device_register(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *hwmon_device_register(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: hwmon_device_unregister
@@ -145,10 +145,10 @@ int s3c_adc_read(struct s3c_adc_client *arg0, unsigned int arg1) {
 // Function: s3c_adc_register
 // with type: struct s3c_adc_client *s3c_adc_register(struct platform_device *, void (*)(struct s3c_adc_client *, unsigned int), void (*)(struct s3c_adc_client *, unsigned int, unsigned int, unsigned int *), unsigned int)
 // with return type: (struct s3c_adc_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct s3c_adc_client *s3c_adc_register(struct platform_device *arg0, void (*arg1)(struct s3c_adc_client *, unsigned int), void (*arg2)(struct s3c_adc_client *, unsigned int, unsigned int, unsigned int *), unsigned int arg3) {
   // Pointer type
-  return (struct s3c_adc_client *)external_alloc();
+  return external_alloc(sizeof(struct s3c_adc_client));
 }
 
 // Function: s3c_adc_release

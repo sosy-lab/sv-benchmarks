@@ -21,10 +21,10 @@ void atm_dev_deregister(struct atm_dev *arg0) {
 // Function: atm_dev_register
 // with type: struct atm_dev *atm_dev_register(const char *type, struct device *parent, const struct atmdev_ops *ops, int number, unsigned long *flags)
 // with return type: (struct atm_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct atm_dev *atm_dev_register(const char *arg0, struct device *arg1, const struct atmdev_ops *arg2, int arg3, unsigned long *arg4) {
   // Pointer type
-  return (struct atm_dev *)external_alloc();
+  return external_alloc(sizeof(struct atm_dev));
 }
 
 // Function: atm_dev_signal_change

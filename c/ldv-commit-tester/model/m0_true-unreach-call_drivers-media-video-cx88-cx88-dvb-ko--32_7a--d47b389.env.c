@@ -30,10 +30,10 @@ int __request_module(bool arg0, const char *arg1, ...) {
 // Function: __symbol_get
 // with type: void *__symbol_get(const char *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__symbol_get(const char *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: __symbol_put
@@ -64,10 +64,10 @@ void cx8802_buf_queue(struct cx8802_dev *arg0, struct cx88_buffer *arg1) {
 // Function: cx8802_get_driver
 // with type: struct cx8802_driver *cx8802_get_driver(struct cx8802_dev *, enum cx88_board_type )
 // with return type: (struct cx8802_driver)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cx8802_driver *cx8802_get_driver(struct cx8802_dev *arg0, enum cx88_board_type arg1) {
   // Pointer type
-  return (struct cx8802_driver *)external_alloc();
+  return external_alloc(sizeof(struct cx8802_driver));
 }
 
 // Function: cx8802_register_driver
@@ -199,10 +199,10 @@ int printk(const char *arg0, ...) {
 // Function: videobuf_dvb_alloc_frontend
 // with type: struct videobuf_dvb_frontend *videobuf_dvb_alloc_frontend(struct videobuf_dvb_frontends *, int)
 // with return type: (struct videobuf_dvb_frontend)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct videobuf_dvb_frontend *videobuf_dvb_alloc_frontend(struct videobuf_dvb_frontends *arg0, int arg1) {
   // Pointer type
-  return (struct videobuf_dvb_frontend *)external_alloc();
+  return external_alloc(sizeof(struct videobuf_dvb_frontend));
 }
 
 // Function: videobuf_dvb_dealloc_frontends
@@ -225,10 +225,10 @@ int videobuf_dvb_find_frontend(struct videobuf_dvb_frontends *arg0, struct dvb_f
 // Function: videobuf_dvb_get_frontend
 // with type: struct videobuf_dvb_frontend *videobuf_dvb_get_frontend(struct videobuf_dvb_frontends *, int)
 // with return type: (struct videobuf_dvb_frontend)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct videobuf_dvb_frontend *videobuf_dvb_get_frontend(struct videobuf_dvb_frontends *arg0, int arg1) {
   // Pointer type
-  return (struct videobuf_dvb_frontend *)external_alloc();
+  return external_alloc(sizeof(struct videobuf_dvb_frontend));
 }
 
 // Function: videobuf_dvb_register_bus

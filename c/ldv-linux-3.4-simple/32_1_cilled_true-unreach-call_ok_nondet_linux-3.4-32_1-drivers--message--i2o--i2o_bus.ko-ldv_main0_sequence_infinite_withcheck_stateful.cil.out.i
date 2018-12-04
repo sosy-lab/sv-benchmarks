@@ -1938,9 +1938,9 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 int __VERIFIER_nondet_int(void);
 int i2o_driver_register(struct i2o_driver *arg0) {
@@ -1949,9 +1949,9 @@ int i2o_driver_register(struct i2o_driver *arg0) {
 void i2o_driver_unregister(struct i2o_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2o_message *i2o_msg_get_wait(struct i2o_controller *arg0, int arg1) {
-  return (struct i2o_message *)external_alloc();
+  return external_alloc(sizeof(struct i2o_message));
 }
 int __VERIFIER_nondet_int(void);
 int i2o_msg_post_wait_mem(struct i2o_controller *arg0, struct i2o_message *arg1, unsigned long arg2, struct i2o_dma *arg3) {
@@ -1970,9 +1970,12 @@ int printk(const char *arg0, ...) {
 void put_device(struct device *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

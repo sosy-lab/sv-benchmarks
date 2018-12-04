@@ -5965,16 +5965,16 @@ void list_del(struct list_head *arg0) {
 void md_check_recovery(struct mddev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct md_rdev *md_find_rdev_nr_rcu(struct mddev *arg0, int arg1) {
-  return (struct md_rdev *)external_alloc();
+  return external_alloc(sizeof(struct md_rdev));
 }
 void md_kick_rdev_from_array(struct md_rdev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct md_thread *md_register_thread(void (*arg0)(struct md_thread *), struct mddev *arg1, const char *arg2) {
-  return (struct md_thread *)external_alloc();
+  return external_alloc(sizeof(struct md_thread));
 }
 void md_reload_sb(struct mddev *arg0) {
   return;
@@ -6011,9 +6011,12 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int wait_for_completion_timeout(struct completion *arg0, unsigned long arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

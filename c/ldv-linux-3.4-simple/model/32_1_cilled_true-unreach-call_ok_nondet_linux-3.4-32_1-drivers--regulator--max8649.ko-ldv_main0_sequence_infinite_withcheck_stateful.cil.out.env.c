@@ -23,10 +23,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -78,10 +78,10 @@ void ldv_initialize() {
 // Function: rdev_get_drvdata
 // with type: void *rdev_get_drvdata(struct regulator_dev *rdev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *rdev_get_drvdata(struct regulator_dev *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: regmap_exit
@@ -95,10 +95,10 @@ void regmap_exit(struct regmap *arg0) {
 // Function: regmap_init_i2c
 // with type: struct regmap *regmap_init_i2c(struct i2c_client *i2c, const struct regmap_config *config)
 // with return type: (struct regmap)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regmap *regmap_init_i2c(struct i2c_client *arg0, const struct regmap_config *arg1) {
   // Pointer type
-  return (struct regmap *)external_alloc();
+  return external_alloc(sizeof(struct regmap));
 }
 
 // Function: regmap_read
@@ -122,10 +122,10 @@ int regmap_update_bits(struct regmap *arg0, unsigned int arg1, unsigned int arg2
 // Function: regulator_register
 // with type: struct regulator_dev *regulator_register(struct regulator_desc *regulator_desc, struct device *dev, const struct regulator_init_data *init_data, void *driver_data, struct device_node *of_node)
 // with return type: (struct regulator_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regulator_dev *regulator_register(struct regulator_desc *arg0, struct device *arg1, const struct regulator_init_data *arg2, void *arg3, struct device_node *arg4) {
   // Pointer type
-  return (struct regulator_dev *)external_alloc();
+  return external_alloc(sizeof(struct regulator_dev));
 }
 
 // Function: regulator_unregister

@@ -178,10 +178,10 @@ int lirc_unregister_driver(int arg0) {
 // Function: memdup_user
 // with type: void *memdup_user(const void *, size_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: mutex_lock_nested
@@ -243,10 +243,10 @@ void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg
 // Function: usb_find_interface
 // with type: struct usb_interface *usb_find_interface(struct usb_driver *, int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_kill_urb

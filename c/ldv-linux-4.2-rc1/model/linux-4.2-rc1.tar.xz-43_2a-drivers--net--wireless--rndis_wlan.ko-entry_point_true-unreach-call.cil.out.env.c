@@ -9,10 +9,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __dynamic_netdev_dbg
@@ -26,10 +26,10 @@ void __dynamic_netdev_dbg(struct _ddebug *arg0, const struct net_device *arg1, c
 // Function: __ieee80211_get_channel
 // with type: struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *, int)
 // with return type: (struct ieee80211_channel)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *arg0, int arg1) {
   // Pointer type
-  return (struct ieee80211_channel *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_channel));
 }
 
 // Function: __init_work
@@ -132,10 +132,10 @@ void cfg80211_ibss_joined(struct net_device *arg0, const u8 *arg1, struct ieee80
 // Function: cfg80211_inform_bss_width
 // with type: struct cfg80211_bss *cfg80211_inform_bss_width(struct wiphy *, struct ieee80211_channel *, enum nl80211_bss_scan_width , enum cfg80211_bss_frame_type , const u8 *, u64 , u16 , u16 , const u8 *, size_t , s32 , gfp_t )
 // with return type: (struct cfg80211_bss)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cfg80211_bss *cfg80211_inform_bss_width(struct wiphy *arg0, struct ieee80211_channel *arg1, enum nl80211_bss_scan_width arg2, enum cfg80211_bss_frame_type arg3, const u8 *arg4, u64 arg5, u16 arg6, u16 arg7, const u8 *arg8, size_t arg9, s32 arg10, gfp_t arg11) {
   // Pointer type
-  return (struct cfg80211_bss *)external_alloc();
+  return external_alloc(sizeof(struct cfg80211_bss));
 }
 
 // Function: cfg80211_michael_mic_failure
@@ -375,10 +375,10 @@ int ldv_reset_resume_4() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: ldv_start_5
@@ -537,10 +537,10 @@ void rndis_status(struct usbnet *arg0, struct urb *arg1) {
 // Function: rndis_tx_fixup
 // with type: struct sk_buff *rndis_tx_fixup(struct usbnet *, struct sk_buff *, gfp_t )
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *rndis_tx_fixup(struct usbnet *arg0, struct sk_buff *arg1, gfp_t arg2) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: rndis_unbind
@@ -700,10 +700,10 @@ void wiphy_free(struct wiphy *arg0) {
 // Function: wiphy_new_nm
 // with type: struct wiphy *wiphy_new_nm(const struct cfg80211_ops *, int, const char *)
 // with return type: (struct wiphy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct wiphy *wiphy_new_nm(const struct cfg80211_ops *arg0, int arg1, const char *arg2) {
   // Pointer type
-  return (struct wiphy *)external_alloc();
+  return external_alloc(sizeof(struct wiphy));
 }
 
 // Function: wiphy_register

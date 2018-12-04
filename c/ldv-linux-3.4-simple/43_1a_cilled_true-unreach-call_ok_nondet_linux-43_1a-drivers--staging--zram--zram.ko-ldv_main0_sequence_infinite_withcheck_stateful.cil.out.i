@@ -7573,24 +7573,24 @@ void _raw_spin_unlock(raw_spinlock_t *arg0) {
 void add_disk(struct gendisk *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *bdget_disk(struct gendisk *arg0, int arg1) {
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 void bio_endio(struct bio *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_alloc_queue(gfp_t arg0) {
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 void blk_cleanup_queue(struct request_queue *arg0) {
   return;
@@ -7626,9 +7626,9 @@ int __VERIFIER_nondet_int(void);
 int fsync_bdev(struct block_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtou16(const char *arg0, unsigned int arg1, u16 *arg2) {
@@ -7644,9 +7644,9 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int lzo1x_1_compress(const unsigned char *arg0, size_t arg1, unsigned char *arg2, size_t *arg3, void *arg4) {
@@ -7686,13 +7686,13 @@ void up_write(struct rw_semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct zs_pool *zs_create_pool(const char *arg0, gfp_t arg1) {
-  return (struct zs_pool *)external_alloc();
+  return external_alloc(sizeof(struct zs_pool));
 }
 void zs_destroy_pool(struct zs_pool *arg0) {
   return;
@@ -7704,20 +7704,23 @@ unsigned long __VERIFIER_nondet_ulong(void);
 u64 zs_get_total_size_bytes(struct zs_pool *arg0) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *zs_malloc(struct zs_pool *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *zs_map_object(struct zs_pool *arg0, void *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void zs_unmap_object(struct zs_pool *arg0, void *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -104,10 +104,10 @@ bool cancel_work_sync(struct work_struct *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: finish_wait
@@ -206,10 +206,10 @@ long int schedule_timeout(long arg0) {
 // Function: snd_info_create_module_entry
 // with type: struct snd_info_entry *snd_info_create_module_entry(struct module *, const char *, struct snd_info_entry *)
 // with return type: (struct snd_info_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_info_entry *snd_info_create_module_entry(struct module *arg0, const char *arg1, struct snd_info_entry *arg2) {
   // Pointer type
-  return (struct snd_info_entry *)external_alloc();
+  return external_alloc(sizeof(struct snd_info_entry));
 }
 
 // Function: snd_info_free_entry

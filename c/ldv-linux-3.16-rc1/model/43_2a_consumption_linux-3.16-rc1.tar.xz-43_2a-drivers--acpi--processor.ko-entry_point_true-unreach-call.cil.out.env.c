@@ -301,10 +301,10 @@ int cpuidle_enable_device(struct cpuidle_device *arg0) {
 // Function: cpuidle_get_driver
 // with type: struct cpuidle_driver *cpuidle_get_driver()
 // with return type: (struct cpuidle_driver)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cpuidle_driver *cpuidle_get_driver() {
   // Pointer type
-  return (struct cpuidle_driver *)external_alloc();
+  return external_alloc(sizeof(struct cpuidle_driver));
 }
 
 // Function: cpuidle_pause_and_lock
@@ -431,10 +431,10 @@ void get_online_cpus() {
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_final_state
@@ -474,10 +474,10 @@ int ldv_release_4() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Function: leave_mm
@@ -634,10 +634,10 @@ void sysfs_remove_link(struct kobject *arg0, const char *arg1) {
 // Function: thermal_cooling_device_register
 // with type: struct thermal_cooling_device *thermal_cooling_device_register(char *, void *, const struct thermal_cooling_device_ops *)
 // with return type: (struct thermal_cooling_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct thermal_cooling_device *thermal_cooling_device_register(char *arg0, void *arg1, const struct thermal_cooling_device_ops *arg2) {
   // Pointer type
-  return (struct thermal_cooling_device *)external_alloc();
+  return external_alloc(sizeof(struct thermal_cooling_device));
 }
 
 // Function: thermal_cooling_device_unregister

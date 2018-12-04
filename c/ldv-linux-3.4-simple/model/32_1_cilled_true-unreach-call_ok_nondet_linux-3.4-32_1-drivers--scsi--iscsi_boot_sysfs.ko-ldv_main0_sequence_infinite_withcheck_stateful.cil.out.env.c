@@ -24,10 +24,10 @@ bool capable(int arg0) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t gfp, const char *fmt, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -61,10 +61,10 @@ int kobject_uevent(struct kobject *arg0, enum kobject_action arg1) {
 // Function: kset_create_and_add
 // with type: struct kset *kset_create_and_add(const char *name, const struct kset_uevent_ops *u, struct kobject *parent_kobj)
 // with return type: (struct kset)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kset *kset_create_and_add(const char *arg0, const struct kset_uevent_ops *arg1, struct kobject *arg2) {
   // Pointer type
-  return (struct kset *)external_alloc();
+  return external_alloc(sizeof(struct kset));
 }
 
 // Function: kset_unregister

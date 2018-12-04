@@ -4651,7 +4651,7 @@ static int snd_rawmidi_control_ioctl(struct snd_card *card , struct snd_ctl_file
   return (-515);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 int snd_rawmidi_receive(struct snd_rawmidi_substream *substream , unsigned char const *buffer ,
                         int count )
 {
@@ -7274,9 +7274,9 @@ bool cancel_work_sync(struct work_struct *arg0) {
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *krealloc(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_check_return_value(int arg0) {
   return;
@@ -7368,9 +7368,9 @@ int __VERIFIER_nondet_int(void);
 int snd_device_register(struct snd_card *arg0, void *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_info_entry *snd_info_create_card_entry(struct snd_card *arg0, const char *arg1, struct snd_info_entry *arg2) {
-  return (struct snd_info_entry *)external_alloc();
+  return external_alloc(sizeof(struct snd_info_entry));
 }
 void snd_info_free_entry(struct snd_info_entry *arg0) {
   return;
@@ -7383,13 +7383,13 @@ int __VERIFIER_nondet_int(void);
 int snd_iprintf(struct snd_info_buffer *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *snd_lookup_minor_data(unsigned int arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *snd_lookup_oss_minor_data(unsigned int arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int snd_oss_info_register(int arg0, int arg1, char *arg2) {
@@ -7426,9 +7426,12 @@ bool try_module_get(struct module *arg0) {
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

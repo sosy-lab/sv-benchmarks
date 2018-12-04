@@ -109,10 +109,10 @@ acpi_status acpi_evaluate_object(acpi_handle arg0, acpi_string arg1, struct acpi
 // Function: acpi_match_device
 // with type: const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *, const struct device *)
 // with return type: (struct acpi_device_id)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct acpi_device_id *acpi_match_device(const struct acpi_device_id *arg0, const struct device *arg1) {
   // Pointer type
-  return (const struct acpi_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct acpi_device_id));
 }
 
 // Skip function: calloc
@@ -128,19 +128,19 @@ void dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_iio_device_alloc
 // with type: struct iio_dev *devm_iio_device_alloc(struct device *, int)
 // with return type: (struct iio_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iio_dev *devm_iio_device_alloc(struct device *arg0, int arg1) {
   // Pointer type
-  return (struct iio_dev *)external_alloc();
+  return external_alloc(sizeof(struct iio_dev));
 }
 
 // Function: devm_iio_trigger_alloc
 // with type: struct iio_trigger *devm_iio_trigger_alloc(struct device *, const char *, ...)
 // with return type: (struct iio_trigger)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iio_trigger *devm_iio_trigger_alloc(struct device *arg0, const char *arg1, ...) {
   // Pointer type
-  return (struct iio_trigger *)external_alloc();
+  return external_alloc(sizeof(struct iio_trigger));
 }
 
 // Function: devm_request_threaded_irq
@@ -164,19 +164,19 @@ int dmi_check_system(const struct dmi_system_id *arg0) {
 // Function: get_device
 // with type: struct device *get_device(struct device *)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: i2c_add_mux_adapter
 // with type: struct i2c_adapter *i2c_add_mux_adapter(struct i2c_adapter *, struct device *, void *, u32 , u32 , unsigned int, int (*)(struct i2c_adapter *, void *, u32 ), int (*)(struct i2c_adapter *, void *, u32 ))
 // with return type: (struct i2c_adapter)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_adapter *i2c_add_mux_adapter(struct i2c_adapter *arg0, struct device *arg1, void *arg2, u32 arg3, u32 arg4, unsigned int arg5, int (*arg6)(struct i2c_adapter *, void *, u32 ), int (*arg7)(struct i2c_adapter *, void *, u32 )) {
   // Pointer type
-  return (struct i2c_adapter *)external_alloc();
+  return external_alloc(sizeof(struct i2c_adapter));
 }
 
 // Function: i2c_del_driver
@@ -198,10 +198,10 @@ void i2c_del_mux_adapter(struct i2c_adapter *arg0) {
 // Function: i2c_new_device
 // with type: struct i2c_client *i2c_new_device(struct i2c_adapter *, const struct i2c_board_info *)
 // with return type: (struct i2c_client)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_new_device(struct i2c_adapter *arg0, const struct i2c_board_info *arg1) {
   // Pointer type
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
 
 // Function: i2c_register_driver
@@ -340,13 +340,13 @@ int kstrtoint(const char *arg0, unsigned int arg1, int *arg2) {
 // Function: ktime_get_with_offset
 // with type: ktime_t ktime_get_with_offset(enum tk_offsets )
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get_with_offset(enum tk_offsets arg0) {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }

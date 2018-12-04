@@ -3650,24 +3650,24 @@ int __pci_register_driver(struct pci_driver *arg0, struct module *arg1, const ch
 void __release_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int attach_capi_ctr(struct capi_ctr *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 avmcard_dmainfo *avmcard_dma_alloc(char *arg0, struct pci_dev *arg1, long arg2, long arg3) {
-  return (avmcard_dmainfo *)external_alloc();
+  return external_alloc(sizeof(avmcard_dmainfo));
 }
 void avmcard_dma_free(avmcard_dmainfo *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 avmcard *b1_alloc_card(int arg0) {
-  return (avmcard *)external_alloc();
+  return external_alloc(sizeof(avmcard));
 }
 int __VERIFIER_nondet_int(void);
 int b1_detect(unsigned int arg0, enum avmcardtype arg1) {
@@ -3690,9 +3690,9 @@ int __VERIFIER_nondet_int(void);
 int detach_capi_ctr(struct capi_ctr *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -3701,9 +3701,9 @@ int dev_set_drvdata(struct device *arg0, void *arg1) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -3742,9 +3742,12 @@ size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
 void unregister_capi_driver(struct capi_driver *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

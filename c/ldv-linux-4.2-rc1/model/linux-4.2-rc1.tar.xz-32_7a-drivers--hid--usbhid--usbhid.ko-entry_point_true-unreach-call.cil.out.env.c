@@ -319,19 +319,19 @@ int hid_add_device(struct hid_device *arg0) {
 // Function: hid_alloc_report_buf
 // with type: u8 *hid_alloc_report_buf(struct hid_report *, gfp_t )
 // with return type: (u8 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 u8 *hid_alloc_report_buf(struct hid_report *arg0, gfp_t arg1) {
   // Pointer type
-  return (u8 *)external_alloc();
+  return external_alloc(sizeof(u8));
 }
 
 // Function: hid_allocate_device
 // with type: struct hid_device *hid_allocate_device()
 // with return type: (struct hid_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct hid_device *hid_allocate_device() {
   // Pointer type
-  return (struct hid_device *)external_alloc();
+  return external_alloc(sizeof(struct hid_device));
 }
 
 // Function: hid_check_keys_pressed
@@ -407,10 +407,10 @@ int input_ff_create(struct input_dev *arg0, unsigned int arg1) {
 // Function: kasprintf
 // with type: char *kasprintf(gfp_t , const char *, ...)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -674,19 +674,19 @@ void up_write(struct rw_semaphore *arg0) {
 // Function: usb_alloc_coherent
 // with type: void *usb_alloc_coherent(struct usb_device *, size_t , gfp_t , dma_addr_t *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int, gfp_t )
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_autopm_get_interface
@@ -784,10 +784,10 @@ void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg
 // Function: usb_find_interface
 // with type: struct usb_interface *usb_find_interface(struct usb_driver *, int)
 // with return type: (struct usb_interface)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1) {
   // Pointer type
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 
 // Function: usb_free_coherent
@@ -895,10 +895,10 @@ void vfree(const void *arg0) {
 // Function: vzalloc
 // with type: void *vzalloc(unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: warn_slowpath_null

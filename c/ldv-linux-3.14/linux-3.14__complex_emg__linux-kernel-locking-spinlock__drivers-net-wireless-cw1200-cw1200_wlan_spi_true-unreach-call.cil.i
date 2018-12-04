@@ -11386,9 +11386,9 @@ void cw1200_irq_handler(struct cw1200_common *arg0) {
 void driver_unregister(struct device_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;
@@ -11400,9 +11400,9 @@ int __VERIFIER_nondet_int(void);
 int gpio_request(unsigned int arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gpio_desc *gpio_to_desc(unsigned int arg0) {
-  return (struct gpio_desc *)external_alloc();
+  return external_alloc(sizeof(struct gpio_desc));
 }
 int __VERIFIER_nondet_int(void);
 int gpiod_direction_output(struct gpio_desc *arg0, int arg1) {
@@ -11469,9 +11469,12 @@ int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

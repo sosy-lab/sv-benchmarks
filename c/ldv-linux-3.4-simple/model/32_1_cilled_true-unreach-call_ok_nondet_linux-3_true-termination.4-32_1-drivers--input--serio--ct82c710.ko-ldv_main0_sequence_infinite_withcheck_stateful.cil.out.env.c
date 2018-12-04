@@ -65,10 +65,10 @@ int platform_device_add_resources(struct platform_device *arg0, const struct res
 // Function: platform_device_alloc
 // with type: struct platform_device *platform_device_alloc(const char *name, int id)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_alloc(const char *arg0, int arg1) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_put

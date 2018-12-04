@@ -57914,9 +57914,9 @@ int ldv_spin_trylock(void)
   }
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __compiletime_assert_361() {
   return;
@@ -58059,9 +58059,9 @@ int down_interruptible(struct semaphore *arg0) {
 void dump_stack() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *filp_open(const char *arg0, int arg1, umode_t arg2) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 bool __VERIFIER_nondet_bool(void);
 bool flush_delayed_work(struct delayed_work *arg0) {
@@ -58094,9 +58094,9 @@ ssize_t kernel_write(struct file *arg0, const char *arg1, size_t arg2, loff_t ar
 void kfree_call_rcu(struct callback_head *arg0, void (*arg1)(struct callback_head *)) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -58104,9 +58104,9 @@ void kmem_cache_destroy(struct kmem_cache *arg0) {
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtouint(const char *arg0, unsigned int arg1, unsigned int *arg2) {
@@ -58173,9 +58173,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_release_8() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -58200,9 +58200,9 @@ int __VERIFIER_nondet_int(void);
 int match_int(substring_t *arg0, int *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *match_strdup(const substring_t *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int match_token(char *arg0, const struct match_token *arg1, substring_t *arg2) {
@@ -58259,9 +58259,9 @@ int __VERIFIER_nondet_int(void);
 int rcu_read_lock_held() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *scsi_device_type(unsigned int arg0) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t sg_copy_to_buffer(struct scatterlist *arg0, unsigned int arg1, void *arg2, size_t arg3) {
@@ -58280,21 +58280,21 @@ void sg_miter_start(struct sg_mapping_iter *arg0, struct scatterlist *arg1, unsi
 void sg_miter_stop(struct sg_mapping_iter *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strim(char *arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int strncasecmp(const char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int strtobool(const char *arg0, bool *arg1) {
@@ -58318,13 +58318,13 @@ void trace_hardirqs_off() {
 void trace_hardirqs_on() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *trace_print_hex_seq(struct trace_seq *arg0, const unsigned char *arg1, int arg2) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *trace_print_symbols_seq(struct trace_seq *arg0, unsigned long arg1, const struct trace_print_flags *arg2) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 int __VERIFIER_nondet_int(void);
 int trace_raw_output_prep(struct trace_iterator *arg0, struct trace_event *arg1) {
@@ -58343,9 +58343,9 @@ void up(struct semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmap(struct page **arg0, unsigned int arg1, unsigned long arg2, pgprot_t arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void vunmap(const void *arg0) {
   return;
@@ -58360,9 +58360,12 @@ int wait_for_completion_interruptible(struct completion *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

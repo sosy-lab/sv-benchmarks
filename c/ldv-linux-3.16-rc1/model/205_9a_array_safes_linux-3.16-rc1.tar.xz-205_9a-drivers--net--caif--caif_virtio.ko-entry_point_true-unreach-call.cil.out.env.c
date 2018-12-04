@@ -93,10 +93,10 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 // Function: alloc_netdev_mqs
 // with type: struct net_device *alloc_netdev_mqs(int, const char *, void (*)(struct net_device *), unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -120,19 +120,19 @@ void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_a
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_u32
 // with type: struct dentry *debugfs_create_u32(const char *, umode_t , struct dentry *, u32 *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_u32(const char *arg0, umode_t arg1, struct dentry *arg2, u32 *arg3) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove_recursive
@@ -190,10 +190,10 @@ unsigned long int gen_pool_alloc(struct gen_pool *arg0, size_t arg1) {
 // Function: gen_pool_create
 // with type: struct gen_pool *gen_pool_create(int, int)
 // with return type: (struct gen_pool)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gen_pool *gen_pool_create(int arg0, int arg1) {
   // Pointer type
-  return (struct gen_pool *)external_alloc();
+  return external_alloc(sizeof(struct gen_pool));
 }
 
 // Function: gen_pool_destroy
@@ -373,10 +373,10 @@ int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: tasklet_init
@@ -423,10 +423,10 @@ int virtqueue_add_outbuf(struct virtqueue *arg0, struct scatterlist *arg1, unsig
 // Function: virtqueue_detach_unused_buf
 // with type: void *virtqueue_detach_unused_buf(struct virtqueue *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_detach_unused_buf(struct virtqueue *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: virtqueue_disable_cb
@@ -451,10 +451,10 @@ bool virtqueue_enable_cb(struct virtqueue *arg0) {
 // Function: virtqueue_get_buf
 // with type: void *virtqueue_get_buf(struct virtqueue *, unsigned int *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *virtqueue_get_buf(struct virtqueue *arg0, unsigned int *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: virtqueue_get_vring_size

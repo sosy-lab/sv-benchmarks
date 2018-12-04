@@ -10745,9 +10745,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void config_group_init(struct config_group *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct config_item *config_item_get(struct config_item *arg0) {
-  return (struct config_item *)external_alloc();
+  return external_alloc(sizeof(struct config_item));
 }
 void config_item_init_type_name(struct config_item *arg0, const char *arg1, struct config_item_type *arg2) {
   return;
@@ -10762,9 +10762,9 @@ int configfs_register_subsystem(struct configfs_subsystem *arg0) {
 void configfs_unregister_subsystem(struct configfs_subsystem *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int in6_pton(const char *arg0, int arg1, u8 *arg2, int arg3, const char **arg4) {
@@ -10830,17 +10830,17 @@ unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strnchr(const char *arg0, size_t arg1, int arg2) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 __kernel_size_t strnlen(const char *arg0, __kernel_size_t arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strsep(char **arg0, const char *arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int unregister_console(struct console *arg0) {
@@ -10850,9 +10850,12 @@ int __VERIFIER_nondet_int(void);
 int unregister_netdevice_notifier(struct notifier_block *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

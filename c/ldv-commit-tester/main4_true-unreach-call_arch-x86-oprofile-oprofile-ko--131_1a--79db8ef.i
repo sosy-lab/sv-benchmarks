@@ -8040,7 +8040,7 @@ __inline static void mux_init(struct oprofile_operations *ops )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static void mux_clone(int cpu )
 {
   int tmp ;
@@ -10941,9 +10941,9 @@ void __init_work(struct work_struct *arg0, int arg1) {
 void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head *arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ring_buffer *__ring_buffer_alloc(unsigned long arg0, unsigned int arg1, struct lock_class_key *arg2) {
-  return (struct ring_buffer *)external_alloc();
+  return external_alloc(sizeof(struct ring_buffer));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -10981,20 +10981,20 @@ int __VERIFIER_nondet_int(void);
 int capable(int arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_alloc_name(struct dentry *arg0, const char *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *d_alloc_root(struct inode *arg0) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void d_instantiate(struct dentry *arg0, struct inode *arg1) {
   return;
@@ -11002,9 +11002,9 @@ void d_instantiate(struct dentry *arg0, struct inode *arg1) {
 void d_rehash(struct dentry *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dcookie_user *dcookie_register() {
-  return (struct dcookie_user *)external_alloc();
+  return external_alloc(sizeof(struct dcookie_user));
 }
 void dcookie_unregister(struct dcookie_user *arg0) {
   return;
@@ -11034,9 +11034,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_next_bit(const unsigned long *arg0, unsigned long arg1, unsigned long arg2) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct vm_area_struct *find_vma(struct mm_struct *arg0, unsigned long arg1) {
-  return (struct vm_area_struct *)external_alloc();
+  return external_alloc(sizeof(struct vm_area_struct));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -11061,9 +11061,9 @@ int __VERIFIER_nondet_int(void);
 int get_sb_single(struct file_system_type *arg0, int arg1, void *arg2, int (*arg3)(struct super_block *, void *, int), struct vfsmount *arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mm_struct *get_task_mm(struct task_struct *arg0) {
-  return (struct mm_struct *)external_alloc();
+  return external_alloc(sizeof(struct mm_struct));
 }
 int __VERIFIER_nondet_int(void);
 int hrtimer_cancel(struct hrtimer *arg0) {
@@ -11127,9 +11127,9 @@ void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct inode *new_inode(struct super_block *arg0) {
-  return (struct inode *)external_alloc();
+  return external_alloc(sizeof(struct inode));
 }
 int __VERIFIER_nondet_int(void);
 int nonseekable_open(struct inode *arg0, struct file *arg1) {
@@ -11150,9 +11150,9 @@ int pci_bus_write_config_dword(struct pci_bus *arg0, unsigned int arg1, int arg2
 void pci_dev_put(struct pci_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_get_device(unsigned int arg0, unsigned int arg1, struct pci_dev *arg2) {
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 void prepare_to_wait(wait_queue_head_t *arg0, wait_queue_t *arg1, int arg2) {
   return;
@@ -11206,17 +11206,17 @@ int __VERIFIER_nondet_int(void);
 int reserve_perfctr_nmi(unsigned int arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ring_buffer_event *ring_buffer_consume(struct ring_buffer *arg0, int arg1, u64 *arg2, unsigned long *arg3) {
-  return (struct ring_buffer_event *)external_alloc();
+  return external_alloc(sizeof(struct ring_buffer_event));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int ring_buffer_entries_cpu(struct ring_buffer *arg0, int arg1) {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ring_buffer_event_data(struct ring_buffer_event *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int ring_buffer_event_length(struct ring_buffer_event *arg0) {
@@ -11225,9 +11225,9 @@ unsigned int ring_buffer_event_length(struct ring_buffer_event *arg0) {
 void ring_buffer_free(struct ring_buffer *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ring_buffer_event *ring_buffer_lock_reserve(struct ring_buffer *arg0, unsigned long arg1) {
-  return (struct ring_buffer_event *)external_alloc();
+  return external_alloc(sizeof(struct ring_buffer_event));
 }
 int __VERIFIER_nondet_int(void);
 int ring_buffer_unlock_commit(struct ring_buffer *arg0, struct ring_buffer_event *arg1) {
@@ -11306,9 +11306,9 @@ void up_read(struct rw_semaphore *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
@@ -11320,9 +11320,12 @@ bool __VERIFIER_nondet_bool(void);
 bool zalloc_cpumask_var(cpumask_var_t **arg0, gfp_t arg1) {
   return __VERIFIER_nondet_bool();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

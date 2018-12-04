@@ -3773,7 +3773,7 @@ __inline static unsigned int __create_pipe(struct usb_device *dev , unsigned int
   }
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern int gspca_dev_probe(struct usb_interface *intf , struct usb_device_id const *id ,
                            struct sd_desc const *sd_desc , int dev_size , struct module *module ) ;
 extern void gspca_disconnect(struct usb_interface *intf ) ;
@@ -5535,9 +5535,12 @@ int __VERIFIER_nondet_int(void);
 int usb_register_driver(struct usb_driver *arg0, struct module *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

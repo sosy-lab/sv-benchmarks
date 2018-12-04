@@ -43,10 +43,10 @@ void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct loc
 // Function: __ldlm_handle2lock
 // with type: struct ldlm_lock *__ldlm_handle2lock(const struct lustre_handle *, __u64 )
 // with return type: (struct ldlm_lock)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ldlm_lock *__ldlm_handle2lock(const struct lustre_handle *arg0, __u64 arg1) {
   // Pointer type
-  return (struct ldlm_lock *)external_alloc();
+  return external_alloc(sizeof(struct ldlm_lock));
 }
 
 // Function: __list_add
@@ -193,13 +193,13 @@ void capa_cpy(void *arg0, struct obd_capa *arg1) {
 // Function: cfs_block_sigsinv
 // with type: sigset_t cfs_block_sigsinv(unsigned long)
 // with return type: sigset_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 sigset_t cfs_block_sigsinv(unsigned long arg0) {
   // Typedef type
   // Real type: struct __anonstruct_sigset_t_163
   // Composite type
-  struct __anonstruct_sigset_t_163 *tmp = (struct __anonstruct_sigset_t_163*)external_alloc();
+  struct __anonstruct_sigset_t_163 *tmp = external_alloc(sizeof(struct __anonstruct_sigset_t_163));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -245,28 +245,28 @@ int cfs_signal_pending() {
 // Function: class_exp2cliimp
 // with type: struct obd_import *class_exp2cliimp(struct obd_export *)
 // with return type: (struct obd_import)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_import *class_exp2cliimp(struct obd_export *arg0) {
   // Pointer type
-  return (struct obd_import *)external_alloc();
+  return external_alloc(sizeof(struct obd_import));
 }
 
 // Function: class_exp2obd
 // with type: struct obd_device *class_exp2obd(struct obd_export *)
 // with return type: (struct obd_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_device *class_exp2obd(struct obd_export *arg0) {
   // Pointer type
-  return (struct obd_device *)external_alloc();
+  return external_alloc(sizeof(struct obd_device));
 }
 
 // Function: class_import_get
 // with type: struct obd_import *class_import_get(struct obd_import *)
 // with return type: (struct obd_import)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct obd_import *class_import_get(struct obd_import *arg0) {
   // Pointer type
-  return (struct obd_import *)external_alloc();
+  return external_alloc(sizeof(struct obd_import));
 }
 
 // Function: class_import_put
@@ -438,10 +438,10 @@ void dump_stack() {
 // Function: fget
 // with type: struct file *fget(unsigned int)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *fget(unsigned int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: fput
@@ -509,10 +509,10 @@ void kfree_call_rcu(struct callback_head *arg0, void (*arg1)(struct callback_hea
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kmem_cache_free
@@ -535,10 +535,10 @@ int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kvfree
@@ -614,10 +614,10 @@ int ldlm_cli_enqueue_fini(struct obd_export *arg0, struct ptlrpc_request *arg1, 
 // Function: ldlm_it2str
 // with type: char *ldlm_it2str(int)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *ldlm_it2str(int arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: ldlm_lock_addref
@@ -693,10 +693,10 @@ int ldlm_prep_enqueue_req(struct obd_export *arg0, struct ptlrpc_request *arg1, 
 // Function: ldlm_resource_get
 // with type: struct ldlm_resource *ldlm_resource_get(struct ldlm_namespace *, struct ldlm_resource *, const struct ldlm_res_id *, ldlm_type_t , int)
 // with return type: (struct ldlm_resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ldlm_resource *ldlm_resource_get(struct ldlm_namespace *arg0, struct ldlm_resource *arg1, const struct ldlm_res_id *arg2, ldlm_type_t arg3, int arg4) {
   // Pointer type
-  return (struct ldlm_resource *)external_alloc();
+  return external_alloc(sizeof(struct ldlm_resource));
 }
 
 // Function: ldlm_resource_iterate
@@ -811,10 +811,10 @@ int libcfs_kkuc_msg_put(struct file *arg0, void *arg1) {
 // Function: libcfs_kvzalloc
 // with type: void *libcfs_kvzalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *libcfs_kvzalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: llog_cat_close
@@ -883,10 +883,10 @@ int llog_setup(const struct lu_env *arg0, struct obd_device *arg1, struct obd_ll
 // Function: lock_res_and_lock
 // with type: struct ldlm_resource *lock_res_and_lock(struct ldlm_lock *)
 // with return type: (struct ldlm_resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ldlm_resource *lock_res_and_lock(struct ldlm_lock *arg0) {
   // Pointer type
-  return (struct ldlm_resource *)external_alloc();
+  return external_alloc(sizeof(struct ldlm_resource));
 }
 
 // Function: lprocfs_counter_add
@@ -1150,10 +1150,10 @@ int obd_alloc_fail(const void *arg0, const char *arg1, const char *arg2, size_t 
 // Function: posix_acl_from_xattr
 // with type: struct posix_acl *posix_acl_from_xattr(struct user_namespace *, const void *, size_t )
 // with return type: (struct posix_acl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct posix_acl *posix_acl_from_xattr(struct user_namespace *arg0, const void *arg1, size_t arg2) {
   // Pointer type
-  return (struct posix_acl *)external_alloc();
+  return external_alloc(sizeof(struct posix_acl));
 }
 
 // Function: posix_acl_valid
@@ -1217,10 +1217,10 @@ int ptlrpc_obd_ping(struct obd_device *arg0) {
 // Function: ptlrpc_prep_bulk_imp
 // with type: struct ptlrpc_bulk_desc *ptlrpc_prep_bulk_imp(struct ptlrpc_request *, unsigned int, unsigned int, unsigned int, unsigned int)
 // with return type: (struct ptlrpc_bulk_desc)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ptlrpc_bulk_desc *ptlrpc_prep_bulk_imp(struct ptlrpc_request *arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int arg4) {
   // Pointer type
-  return (struct ptlrpc_bulk_desc *)external_alloc();
+  return external_alloc(sizeof(struct ptlrpc_bulk_desc));
 }
 
 // Function: ptlrpc_queue_wait
@@ -1252,28 +1252,28 @@ void ptlrpc_req_finished(struct ptlrpc_request *arg0) {
 // Function: ptlrpc_request_addref
 // with type: struct ptlrpc_request *ptlrpc_request_addref(struct ptlrpc_request *)
 // with return type: (struct ptlrpc_request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ptlrpc_request *ptlrpc_request_addref(struct ptlrpc_request *arg0) {
   // Pointer type
-  return (struct ptlrpc_request *)external_alloc();
+  return external_alloc(sizeof(struct ptlrpc_request));
 }
 
 // Function: ptlrpc_request_alloc
 // with type: struct ptlrpc_request *ptlrpc_request_alloc(struct obd_import *, const struct req_format *)
 // with return type: (struct ptlrpc_request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ptlrpc_request *ptlrpc_request_alloc(struct obd_import *arg0, const struct req_format *arg1) {
   // Pointer type
-  return (struct ptlrpc_request *)external_alloc();
+  return external_alloc(sizeof(struct ptlrpc_request));
 }
 
 // Function: ptlrpc_request_alloc_pack
 // with type: struct ptlrpc_request *ptlrpc_request_alloc_pack(struct obd_import *, const struct req_format *, __u32 , int)
 // with return type: (struct ptlrpc_request)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ptlrpc_request *ptlrpc_request_alloc_pack(struct obd_import *arg0, const struct req_format *arg1, __u32 arg2, int arg3) {
   // Pointer type
-  return (struct ptlrpc_request *)external_alloc();
+  return external_alloc(sizeof(struct ptlrpc_request));
 }
 
 // Function: ptlrpc_request_committed
@@ -1354,10 +1354,10 @@ void remove_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: req_capsule_client_get
 // with type: void *req_capsule_client_get(struct req_capsule *, const struct req_msg_field *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *req_capsule_client_get(struct req_capsule *arg0, const struct req_msg_field *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: req_capsule_get_size
@@ -1381,28 +1381,28 @@ int req_capsule_has_field(const struct req_capsule *arg0, const struct req_msg_f
 // Function: req_capsule_server_get
 // with type: void *req_capsule_server_get(struct req_capsule *, const struct req_msg_field *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *req_capsule_server_get(struct req_capsule *arg0, const struct req_msg_field *arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: req_capsule_server_sized_get
 // with type: void *req_capsule_server_sized_get(struct req_capsule *, const struct req_msg_field *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *req_capsule_server_sized_get(struct req_capsule *arg0, const struct req_msg_field *arg1, int arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: req_capsule_server_swab_get
 // with type: void *req_capsule_server_swab_get(struct req_capsule *, const struct req_msg_field *, void *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *req_capsule_server_swab_get(struct req_capsule *arg0, const struct req_msg_field *arg1, void *arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: req_capsule_set_size

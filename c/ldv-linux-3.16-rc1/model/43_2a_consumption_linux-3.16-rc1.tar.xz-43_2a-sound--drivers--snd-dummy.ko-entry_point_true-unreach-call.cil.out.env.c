@@ -168,10 +168,10 @@ int hrtimer_start(struct hrtimer *arg0, ktime_t arg1, const enum hrtimer_mode ar
 // Function: kmem_cache_alloc
 // with type: void *kmem_cache_alloc(struct kmem_cache *, gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrtoull
@@ -292,10 +292,10 @@ int ldv_resume_noirq_3() {
 // Function: ldv_some_page
 // with type: struct page___0 *ldv_some_page()
 // with return type: (struct page___0)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page___0 *ldv_some_page() {
   // Pointer type
-  return (struct page___0 *)external_alloc();
+  return external_alloc(sizeof(struct page___0));
 }
 
 // Function: ldv_suspend_late_3
@@ -341,11 +341,11 @@ int ldv_thaw_noirq_3() {
 // Function: ns_to_timeval
 // with type: struct timeval ns_to_timeval(const s64 )
 // with return type: struct timeval
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timeval ns_to_timeval(const s64 arg0) {
   // Composite type
-  struct timeval *tmp = (struct timeval*)external_alloc();
+  struct timeval *tmp = external_alloc(sizeof(struct timeval));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -353,10 +353,10 @@ struct timeval ns_to_timeval(const s64 arg0) {
 // Function: platform_device_register_full
 // with type: struct platform_device *platform_device_register_full(const struct platform_device_info *)
 // with return type: (struct platform_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct platform_device *platform_device_register_full(const struct platform_device_info *arg0) {
   // Pointer type
-  return (struct platform_device *)external_alloc();
+  return external_alloc(sizeof(struct platform_device));
 }
 
 // Function: platform_device_unregister
@@ -441,10 +441,10 @@ int snd_ctl_enum_info(struct snd_ctl_elem_info *arg0, unsigned int arg1, unsigne
 // Function: snd_ctl_new1
 // with type: struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *, void *)
 // with return type: (struct snd_kcontrol)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *arg0, void *arg1) {
   // Pointer type
-  return (struct snd_kcontrol *)external_alloc();
+  return external_alloc(sizeof(struct snd_kcontrol));
 }
 
 // Function: snd_ctl_notify
@@ -467,10 +467,10 @@ int snd_info_get_line(struct snd_info_buffer *arg0, char *arg1, int arg2) {
 // Function: snd_info_get_str
 // with type: const char *snd_info_get_str(char *, const char *, int)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *snd_info_get_str(char *arg0, const char *arg1, int arg2) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: snd_iprintf
@@ -485,10 +485,10 @@ int snd_iprintf(struct snd_info_buffer *arg0, const char *arg1, ...) {
 // Function: snd_pcm_format_name
 // with type: const char *snd_pcm_format_name(snd_pcm_format_t )
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *snd_pcm_format_name(snd_pcm_format_t arg0) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: snd_pcm_hw_constraint_integer

@@ -9550,9 +9550,9 @@ void ldv_assert_linux_drivers_clk1__more_at_exit(int expr )
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __const_udelay(unsigned long arg0) {
   return;
@@ -9577,17 +9577,17 @@ int __VERIFIER_nondet_int(void);
 int _dev_info(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *alloc_can_err_skb(struct net_device *arg0, struct can_frame **arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *alloc_can_skb(struct net_device *arg0, struct can_frame **arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_candev(int arg0, unsigned int arg1) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 void can_bus_off(struct net_device *arg0) {
   return;
@@ -9635,17 +9635,17 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 void devm_can_led_init(struct net_device *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return external_alloc(sizeof(struct clk));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regulator *devm_regulator_get(struct device *arg0, const char *arg1) {
-  return (struct regulator *)external_alloc();
+  return external_alloc(sizeof(struct regulator));
 }
 void disable_irq(unsigned int arg0) {
   return;
@@ -9656,9 +9656,9 @@ void driver_unregister(struct device_driver *arg0) {
 void enable_irq(unsigned int arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void free_candev(struct net_device *arg0) {
   return;
@@ -9748,9 +9748,9 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 void schedule() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct spi_device_id *spi_get_device_id(const struct spi_device *arg0) {
-  return (const struct spi_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct spi_device_id));
 }
 int __VERIFIER_nondet_int(void);
 int spi_register_driver(struct spi_driver *arg0) {
@@ -9770,9 +9770,12 @@ void unregister_candev(struct net_device *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

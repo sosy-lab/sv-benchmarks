@@ -32522,9 +32522,9 @@ int __VERIFIER_nondet_int(void);
 int LNetSetLazyPortal(int arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *__alloc_pages_nodemask(gfp_t arg0, unsigned int arg1, struct zonelist *arg2, nodemask_t *arg3) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void __copy_from_user_overflow() {
   return;
@@ -32573,10 +32573,10 @@ void _raw_spin_lock(raw_spinlock_t *arg0) {
 void _raw_spin_unlock(raw_spinlock_t *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 sigset_t cfs_block_allsigs() {
-  struct __anonstruct_sigset_t_180 *tmp = (struct __anonstruct_sigset_t_180*)external_alloc();
+  struct __anonstruct_sigset_t_180 *tmp = external_alloc(sizeof(struct __anonstruct_sigset_t_180));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -32592,9 +32592,9 @@ int __VERIFIER_nondet_int(void);
 int cfs_cpt_weight(struct cfs_cpt_table *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *cfs_percpt_alloc(struct cfs_cpt_table *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void cfs_percpt_free(void *arg0) {
   return;
@@ -32620,10 +32620,10 @@ void cfs_wi_sched_destroy(struct cfs_wi_sched *arg0) {
 void cfs_wi_schedule(struct cfs_wi_sched *arg0, cfs_workitem_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 struct timespec current_kernel_time() {
-  struct timespec *tmp = (struct timespec*)external_alloc();
+  struct timespec *tmp = external_alloc(sizeof(struct timespec));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -32637,9 +32637,9 @@ unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int get_seconds() {
   return __VERIFIER_nondet_ulong();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 void lbug_with_loc(struct libcfs_debug_msg_data *arg0) {
   return;
@@ -32650,9 +32650,9 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int libcfs_debug_msg(struct libcfs_debug_msg_data *arg0, const char *arg1, ...) {
@@ -32662,13 +32662,13 @@ int __VERIFIER_nondet_int(void);
 int libcfs_deregister_ioctl(struct libcfs_ioctl_handler *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *libcfs_id2str(lnet_process_id_t arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *libcfs_nid2str(lnet_nid_t arg0) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int libcfs_register_ioctl(struct libcfs_ioctl_handler *arg0) {
@@ -32712,9 +32712,12 @@ int __VERIFIER_nondet_int(void);
 int wake_up_process(struct task_struct *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

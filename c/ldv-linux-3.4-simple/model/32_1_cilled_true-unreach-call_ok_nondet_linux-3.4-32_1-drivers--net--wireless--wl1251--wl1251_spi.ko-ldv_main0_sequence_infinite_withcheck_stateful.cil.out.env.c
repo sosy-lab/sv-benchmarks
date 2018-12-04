@@ -24,10 +24,10 @@ u8 crc7(u8 arg0, const u8 *arg1, size_t arg2) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -164,10 +164,10 @@ int spi_sync(struct spi_device *arg0, struct spi_message *arg1) {
 // Function: wl1251_alloc_hw
 // with type: struct ieee80211_hw *wl1251_alloc_hw()
 // with return type: (struct ieee80211_hw)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_hw *wl1251_alloc_hw() {
   // Pointer type
-  return (struct ieee80211_hw *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_hw));
 }
 
 // Function: wl1251_free_hw

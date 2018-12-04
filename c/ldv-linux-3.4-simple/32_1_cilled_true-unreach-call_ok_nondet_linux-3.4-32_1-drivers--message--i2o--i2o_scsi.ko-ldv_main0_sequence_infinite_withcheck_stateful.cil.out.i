@@ -6769,13 +6769,13 @@ long ldv__builtin_expect(long val , long res )
   return (val);
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *__scsi_add_device(struct Scsi_Host *arg0, uint arg1, uint arg2, uint arg3, void *arg4) {
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *arg0, struct scsi_device *arg1) {
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int _raw_spin_lock_irqsave(raw_spinlock_t *arg0) {
@@ -6788,9 +6788,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 i2o_cntxt_list_add(struct i2o_controller *arg0, void *arg1) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *i2o_cntxt_list_get(struct i2o_controller *arg0, u32 arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 u32 i2o_cntxt_list_get_ptr(struct i2o_controller *arg0, void *arg1) {
@@ -6807,13 +6807,13 @@ int i2o_driver_register(struct i2o_driver *arg0) {
 void i2o_driver_unregister(struct i2o_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2o_device *i2o_iop_find_device(struct i2o_controller *arg0, u16 arg1) {
-  return (struct i2o_device *)external_alloc();
+  return external_alloc(sizeof(struct i2o_device));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2o_message *i2o_msg_get_wait(struct i2o_controller *arg0, int arg1) {
-  return (struct i2o_message *)external_alloc();
+  return external_alloc(sizeof(struct i2o_message));
 }
 int __VERIFIER_nondet_int(void);
 int i2o_msg_post_wait_mem(struct i2o_controller *arg0, struct i2o_message *arg1, unsigned long arg2, struct i2o_dma *arg3) {
@@ -6833,9 +6833,9 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *mempool_alloc(mempool_t *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void mempool_free(void *arg0, mempool_t *arg1) {
   return;
@@ -6857,9 +6857,9 @@ void scsi_device_put(struct scsi_device *arg0) {
 void scsi_dma_unmap(struct scsi_cmnd *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 void scsi_host_put(struct Scsi_Host *arg0) {
   return;
@@ -6877,9 +6877,12 @@ int sysfs_create_link(struct kobject *arg0, struct kobject *arg1, const char *ar
 void sysfs_remove_link(struct kobject *arg0, const char *arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

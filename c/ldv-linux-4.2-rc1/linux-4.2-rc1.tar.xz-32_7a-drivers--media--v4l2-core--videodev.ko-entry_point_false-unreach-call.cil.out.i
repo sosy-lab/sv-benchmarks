@@ -29179,9 +29179,9 @@ int __VERIFIER_nondet_int(void);
 int cdev_add(struct cdev *arg0, dev_t arg1, unsigned int arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cdev *cdev_alloc() {
-  return (struct cdev *)external_alloc();
+  return external_alloc(sizeof(struct cdev));
 }
 void cdev_del(struct cdev *arg0) {
   return;
@@ -29193,9 +29193,9 @@ int __VERIFIER_nondet_int(void);
 int clk_enable(struct clk *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct clk *clk_get(struct device *arg0, const char *arg1) {
-  return (struct clk *)external_alloc();
+  return external_alloc(sizeof(struct clk));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int clk_get_rate(struct clk *arg0) {
@@ -29219,9 +29219,9 @@ int clk_set_rate(struct clk *arg0, unsigned long arg1) {
 void clk_unprepare(struct clk *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *compat_alloc_user_space(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int compat_put_timespec(const struct timespec *arg0, void *arg1) {
@@ -29267,20 +29267,20 @@ unsigned long int find_next_zero_bit(const unsigned long *arg0, unsigned long ar
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void i2c_unregister_device(struct i2c_client *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2c_client *i2c_verify_client(struct device *arg0) {
-  return (struct i2c_client *)external_alloc();
+  return external_alloc(sizeof(struct i2c_client));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtou16(const char *arg0, unsigned int arg1, u16 *arg2) {
@@ -29328,9 +29328,9 @@ int media_device_register_entity(struct media_device *arg0, struct media_entity 
 void media_device_unregister_entity(struct media_entity *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct media_entity *media_entity_get(struct media_entity *arg0) {
-  return (struct media_entity *)external_alloc();
+  return external_alloc(sizeof(struct media_entity));
 }
 void media_entity_put(struct media_entity *arg0) {
   return;
@@ -29359,21 +29359,21 @@ long __VERIFIER_nondet_long(void);
 loff_t no_llseek(struct file *arg0, loff_t arg1, int arg2) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct property *of_find_property(const struct device_node *arg0, const char *arg1, int *arg2) {
-  return (struct property *)external_alloc();
+  return external_alloc(sizeof(struct property));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_next_parent(struct device_node *arg0) {
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_get_parent(const struct device_node *arg0) {
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const void *of_get_property(const struct device_node *arg0, const char *arg1, int *arg2) {
-  return (const void *)external_alloc();
+  return external_alloc(sizeof(const void));
 }
 int __VERIFIER_nondet_int(void);
 int of_graph_parse_endpoint(const struct device_node *arg0, struct of_endpoint *arg1) {
@@ -29382,13 +29382,13 @@ int of_graph_parse_endpoint(const struct device_node *arg0, struct of_endpoint *
 void of_node_put(struct device_node *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_node *of_parse_phandle(const struct device_node *arg0, const char *arg1, int arg2) {
-  return (struct device_node *)external_alloc();
+  return external_alloc(sizeof(struct device_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const __be32 *of_prop_next_u32(struct property *arg0, const __be32 *arg1, u32 *arg2) {
-  return (const __be32 *)external_alloc();
+  return external_alloc(sizeof(const __be32));
 }
 int __VERIFIER_nondet_int(void);
 int of_property_read_u32_array(const struct device_node *arg0, const char *arg1, u32 *arg2, size_t arg3) {
@@ -29444,13 +29444,13 @@ int __VERIFIER_nondet_int(void);
 int trace_event_reg(struct trace_event_call *arg0, enum trace_reg arg1, void *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *trace_print_flags_seq(struct trace_seq *arg0, const char *arg1, unsigned long arg2, const struct trace_print_flags *arg3) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *trace_print_symbols_seq(struct trace_seq *arg0, unsigned long arg1, const struct trace_print_flags *arg2) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 int __VERIFIER_nondet_int(void);
 int trace_raw_output_prep(struct trace_iterator *arg0, struct trace_event *arg1) {
@@ -29472,9 +29472,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

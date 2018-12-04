@@ -38,10 +38,10 @@ int serial_synth_probe(struct spk_synth *arg0) {
 // Function: spk_synth_immediate
 // with type: const char *spk_synth_immediate(struct spk_synth *synth, const char *buff)
 // with return type: (const char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *spk_synth_immediate(struct spk_synth *arg0, const char *arg1) {
   // Pointer type
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
 
 // Function: synth_add

@@ -25,10 +25,10 @@ void __copy_to_user_overflow() {
 // Function: __dma_request_channel
 // with type: struct dma_chan *__dma_request_channel(const dma_cap_mask_t *, bool (*)(struct dma_chan *, void *), void *)
 // with return type: (struct dma_chan)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_chan *__dma_request_channel(const dma_cap_mask_t *arg0, bool (*arg1)(struct dma_chan *, void *), void *arg2) {
   // Pointer type
-  return (struct dma_chan *)external_alloc();
+  return external_alloc(sizeof(struct dma_chan));
 }
 
 // Function: __dynamic_dev_dbg
@@ -234,19 +234,19 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: debugfs_create_dir
 // with type: struct dentry *debugfs_create_dir(const char *, struct dentry *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_dir(const char *arg0, struct dentry *arg1) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_create_file
 // with type: struct dentry *debugfs_create_file(const char *, umode_t , struct dentry *, void *, const struct file_operations *)
 // with return type: (struct dentry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *debugfs_create_file(const char *arg0, umode_t arg1, struct dentry *arg2, void *arg3, const struct file_operations *arg4) {
   // Pointer type
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 
 // Function: debugfs_remove
@@ -284,10 +284,10 @@ void dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: device_create_with_groups
 // with type: struct device *device_create_with_groups(struct class *, struct device *, dev_t , void *, const struct attribute_group **, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create_with_groups(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const struct attribute_group **arg4, const char *arg5, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_destroy
@@ -327,10 +327,10 @@ enum dma_status dma_sync_wait(struct dma_chan *arg0, dma_cookie_t arg1) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: finish_wait
@@ -415,10 +415,10 @@ unsigned int ioread32(void *arg0) {
 // Function: ioremap_wc
 // with type: void *ioremap_wc(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_wc(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iowrite32
@@ -432,10 +432,10 @@ void iowrite32(u32 arg0, void *arg1) {
 // Function: kernfs_find_and_get_ns
 // with type: struct kernfs_node *kernfs_find_and_get_ns(struct kernfs_node *, const char *, const void *)
 // with return type: (struct kernfs_node)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kernfs_node *kernfs_find_and_get_ns(struct kernfs_node *arg0, const char *arg1, const void *arg2) {
   // Pointer type
-  return (struct kernfs_node *)external_alloc();
+  return external_alloc(sizeof(struct kernfs_node));
 }
 
 // Function: kernfs_notify
@@ -510,10 +510,10 @@ void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_cl
 // Function: mbus_register_device
 // with type: struct mbus_device *mbus_register_device(struct device *, int, struct dma_map_ops *, struct mbus_hw_ops *, void *)
 // with return type: (struct mbus_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mbus_device *mbus_register_device(struct device *arg0, int arg1, struct dma_map_ops *arg2, struct mbus_hw_ops *arg3, void *arg4) {
   // Pointer type
-  return (struct mbus_device *)external_alloc();
+  return external_alloc(sizeof(struct mbus_device));
 }
 
 // Function: mbus_unregister_device
@@ -615,10 +615,10 @@ void pci_intx(struct pci_dev *arg0, int arg1) {
 // Function: pci_ioremap_bar
 // with type: void *pci_ioremap_bar(struct pci_dev *, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_ioremap_bar(struct pci_dev *arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: pci_msi_off

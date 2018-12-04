@@ -22,10 +22,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -93,19 +93,19 @@ void gpio_set_value_cansleep(unsigned int arg0, int arg1) {
 // Function: kmemdup
 // with type: void *kmemdup(const void *src, size_t len, gfp_t gfp)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: kstrdup
 // with type: char *kstrdup(const char *s, gfp_t gfp)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrdup(const char *arg0, gfp_t arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: ldv_check_return_value
@@ -146,19 +146,19 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: rdev_get_drvdata
 // with type: void *rdev_get_drvdata(struct regulator_dev *rdev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *rdev_get_drvdata(struct regulator_dev *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: regulator_register
 // with type: struct regulator_dev *regulator_register(struct regulator_desc *regulator_desc, struct device *dev, const struct regulator_init_data *init_data, void *driver_data, struct device_node *of_node)
 // with return type: (struct regulator_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regulator_dev *regulator_register(struct regulator_desc *arg0, struct device *arg1, const struct regulator_init_data *arg2, void *arg3, struct device_node *arg4) {
   // Pointer type
-  return (struct regulator_dev *)external_alloc();
+  return external_alloc(sizeof(struct regulator_dev));
 }
 
 // Function: regulator_unregister

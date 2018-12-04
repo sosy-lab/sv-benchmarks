@@ -5288,9 +5288,9 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void complete(struct completion *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -5337,9 +5337,9 @@ int input_register_device(struct input_dev *arg0) {
 void input_unregister_device(struct input_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kstrndup(const char *arg0, size_t arg1, gfp_t arg2) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void ldv_check_return_value(int arg0) {
   return;
@@ -5347,9 +5347,9 @@ void ldv_check_return_value(int arg0) {
 void ldv_handler_precall() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void might_fault() {
   return;
@@ -5390,9 +5390,9 @@ int printk(const char *arg0, ...) {
 void schedule() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *strndup_user(const char *arg0, long arg1) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void wait_for_completion(struct completion *arg0) {
   return;
@@ -5400,9 +5400,12 @@ void wait_for_completion(struct completion *arg0) {
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -145,10 +145,10 @@ void sysfs_remove_link(struct kobject *arg0, const char *arg1) {
 // Function: thermal_cooling_device_register
 // with type: struct thermal_cooling_device *thermal_cooling_device_register(char *, void *, const struct thermal_cooling_device_ops *)
 // with return type: (struct thermal_cooling_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct thermal_cooling_device *thermal_cooling_device_register(char *arg0, void *arg1, const struct thermal_cooling_device_ops *arg2) {
   // Pointer type
-  return (struct thermal_cooling_device *)external_alloc();
+  return external_alloc(sizeof(struct thermal_cooling_device));
 }
 
 // Function: thermal_cooling_device_unregister

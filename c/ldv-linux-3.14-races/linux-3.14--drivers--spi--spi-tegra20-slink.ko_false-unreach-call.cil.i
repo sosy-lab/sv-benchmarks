@@ -7062,9 +7062,12 @@ int ldv_atomic_dec_and_lock_siglock_of_sighand_struct(void)
   return (0);
 }
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {
@@ -7111,9 +7114,9 @@ long __VERIFIER_nondet_long(void);
 long int wait_for_completion_interruptible_timeout(struct completion *arg0, unsigned long arg1){
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_chan *dma_request_slave_channel_reason(struct device *arg0, const char *arg1){
-  return (struct dma_chan *)external_alloc();
+  return external_alloc(sizeof(struct dma_chan));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int wait_for_completion_timeout(struct completion *arg0, unsigned long arg1){
@@ -7132,9 +7135,9 @@ int reset_control_deassert(struct reset_control *arg0){
 void ldv_check_alloc_flags(gfp_t arg0){
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2){
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 int __VERIFIER_nondet_int(void);
 int clk_set_rate(struct clk *arg0, unsigned long arg1){
@@ -7162,9 +7165,9 @@ void ldv_pre_probe(){
 void put_device(struct device *arg0){
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct reset_control *devm_reset_control_get(struct device *arg0, const char *arg1){
-  return (struct reset_control *)external_alloc();
+  return external_alloc(sizeof(struct reset_control));
 }
 int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...){
@@ -7185,17 +7188,17 @@ int spi_master_resume(struct spi_master *arg0){
 void pm_runtime_enable(struct device *arg0){
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data(){
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_ioremap_resource(struct device *arg0, struct resource *arg1){
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct clk *devm_clk_get(struct device *arg0, const char *arg1){
-  return (struct clk *)external_alloc();
+  return external_alloc(sizeof(struct clk));
 }
 void __init_waitqueue_head(wait_queue_head_t *arg0, const char *arg1, struct lock_class_key *arg2){
   return;
@@ -7214,9 +7217,9 @@ void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_a
 void clk_unprepare(struct clk *arg0){
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memcpy(void *arg0, const void *arg1, size_t arg2){
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int clk_prepare(struct clk *arg0){

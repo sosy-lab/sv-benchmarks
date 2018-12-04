@@ -115,10 +115,10 @@ void add_disk(struct gendisk *arg0) {
 // Function: alloc_disk
 // with type: struct gendisk *alloc_disk(int)
 // with return type: (struct gendisk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct gendisk *alloc_disk(int arg0) {
   // Pointer type
-  return (struct gendisk *)external_alloc();
+  return external_alloc(sizeof(struct gendisk));
 }
 
 // Function: bd_set_size
@@ -140,10 +140,10 @@ void bio_endio(struct bio *arg0, int arg1) {
 // Function: blk_alloc_queue
 // with type: struct request_queue *blk_alloc_queue(gfp_t )
 // with return type: (struct request_queue)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct request_queue *blk_alloc_queue(gfp_t arg0) {
   // Pointer type
-  return (struct request_queue *)external_alloc();
+  return external_alloc(sizeof(struct request_queue));
 }
 
 // Function: blk_cleanup_queue
@@ -189,10 +189,10 @@ void blk_queue_max_segments(struct request_queue *arg0, unsigned short arg1) {
 // Function: blkdev_get_by_dev
 // with type: struct block_device *blkdev_get_by_dev(dev_t , fmode_t , void *)
 // with return type: (struct block_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *blkdev_get_by_dev(dev_t arg0, fmode_t arg1, void *arg2) {
   // Pointer type
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 
 // Function: blkdev_put
@@ -208,10 +208,10 @@ void blkdev_put(struct block_device *arg0, fmode_t arg1) {
 // Function: cl_env_get
 // with type: struct lu_env *cl_env_get(int *)
 // with return type: (struct lu_env)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lu_env *cl_env_get(int *arg0) {
   // Pointer type
-  return (struct lu_env *)external_alloc();
+  return external_alloc(sizeof(struct lu_env));
 }
 
 // Function: cl_env_put
@@ -284,10 +284,10 @@ void invalidate_bdev(struct block_device *arg0) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: lbug_with_loc
@@ -333,10 +333,10 @@ ssize_t ll_direct_rw_pages(const struct lu_env *arg0, struct cl_io *arg1, int ar
 // Function: ll_iocontrol_register
 // with type: void *ll_iocontrol_register(enum llioc_iter (*)(struct inode *, struct file *, unsigned int, unsigned long, void *, int *), int, unsigned int *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ll_iocontrol_register(enum llioc_iter (*arg0)(struct inode *, struct file *, unsigned int, unsigned long, void *, int *), int arg1, unsigned int *arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ll_iocontrol_unregister

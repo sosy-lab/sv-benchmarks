@@ -3428,9 +3428,9 @@ long ldv__builtin_expect(long val , long res )
 void cma3000_exit(struct cma3000_accl_data *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct cma3000_accl_data *cma3000_init(struct device *arg0, int arg1, const struct cma3000_bus_ops *arg2) {
-  return (struct cma3000_accl_data *)external_alloc();
+  return external_alloc(sizeof(struct cma3000_accl_data));
 }
 void cma3000_resume(struct cma3000_accl_data *arg0) {
   return;
@@ -3442,9 +3442,9 @@ int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -3471,9 +3471,12 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

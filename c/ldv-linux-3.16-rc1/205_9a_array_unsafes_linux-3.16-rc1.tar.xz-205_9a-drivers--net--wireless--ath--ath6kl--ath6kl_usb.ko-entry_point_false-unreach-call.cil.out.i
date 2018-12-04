@@ -7632,7 +7632,7 @@ static int ath6kl_usb_submit_ctrl_out(struct ath6kl_usb *ar_usb , u8 req , u16 v
   return (0);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int ath6kl_usb_submit_ctrl_in(struct ath6kl_usb *ar_usb , u8 req , u16 value ,
                                      u16 index , void *data , u32 size )
 {
@@ -8718,9 +8718,9 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 void ath6kl_core_cleanup(struct ath6kl *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ath6kl *ath6kl_core_create(struct device *arg0) {
-  return (struct ath6kl *)external_alloc();
+  return external_alloc(sizeof(struct ath6kl));
 }
 void ath6kl_core_destroy(struct ath6kl *arg0) {
   return;
@@ -8752,9 +8752,9 @@ int ath6kl_warn(const char *arg0, ...) {
 void flush_scheduled_work() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_probe_2() {
@@ -8770,16 +8770,16 @@ bool __VERIFIER_nondet_bool(void);
 bool queue_work_on(int arg0, struct workqueue_struct *arg1, struct work_struct *arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void skb_queue_tail(struct sk_buff_head *arg0, struct sk_buff *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 void usb_anchor_urb(struct urb *arg0, struct usb_anchor *arg1) {
   return;
@@ -8794,9 +8794,9 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_free_urb(struct urb *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 void usb_kill_anchored_urbs(struct usb_anchor *arg0) {
   return;
@@ -8815,9 +8815,12 @@ int usb_submit_urb(struct urb *arg0, gfp_t arg1) {
 void usb_unanchor_urb(struct urb *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

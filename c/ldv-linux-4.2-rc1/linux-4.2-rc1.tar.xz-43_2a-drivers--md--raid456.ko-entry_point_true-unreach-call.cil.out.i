@@ -4723,7 +4723,7 @@ struct raid5_plug_cb {
    struct list_head list ;
    struct list_head temp_inactive_list[8U] ;
 };
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 typedef bool ldv_func_ret_type___2;
 typedef bool ldv_func_ret_type___3;
 typedef bool ldv_func_ret_type___4;
@@ -21557,13 +21557,13 @@ int __VERIFIER_nondet_int(void);
 int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 int __VERIFIER_nondet_int(void);
 int __bitmap_weight(const unsigned long *arg0, unsigned int arg1) {
@@ -21625,48 +21625,48 @@ void _raw_spin_unlock_irq(raw_spinlock_t *arg0) {
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_async_tx_descriptor *async_gen_syndrome(struct page **arg0, unsigned int arg1, int arg2, size_t arg3, struct async_submit_ctl *arg4) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return external_alloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_async_tx_descriptor *async_memcpy(struct page *arg0, struct page *arg1, unsigned int arg2, unsigned int arg3, size_t arg4, struct async_submit_ctl *arg5) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return external_alloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_async_tx_descriptor *async_raid6_2data_recov(int arg0, size_t arg1, int arg2, int arg3, struct page **arg4, struct async_submit_ctl *arg5) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return external_alloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_async_tx_descriptor *async_raid6_datap_recov(int arg0, size_t arg1, int arg2, struct page **arg3, struct async_submit_ctl *arg4) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return external_alloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_async_tx_descriptor *async_syndrome_val(struct page **arg0, unsigned int arg1, int arg2, size_t arg3, enum sum_check_flags *arg4, struct page *arg5, struct async_submit_ctl *arg6) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return external_alloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_async_tx_descriptor *async_trigger_callback(struct async_submit_ctl *arg0) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return external_alloc(sizeof(struct dma_async_tx_descriptor));
 }
 void async_tx_quiesce(struct dma_async_tx_descriptor **arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_async_tx_descriptor *async_xor(struct page *arg0, struct page **arg1, unsigned int arg2, int arg3, size_t arg4, struct async_submit_ctl *arg5) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return external_alloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_async_tx_descriptor *async_xor_val(struct page *arg0, struct page **arg1, unsigned int arg2, int arg3, size_t arg4, enum sum_check_flags *arg5, struct async_submit_ctl *arg6) {
-  return (struct dma_async_tx_descriptor *)external_alloc();
+  return external_alloc(sizeof(struct dma_async_tx_descriptor));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const char *bdevname(struct block_device *arg0, char *arg1) {
-  return (const char *)external_alloc();
+  return external_alloc(sizeof(const char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_clone_mddev(struct bio *arg0, gfp_t arg1, struct mddev *arg2) {
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 void bio_endio(struct bio *arg0, int arg1) {
   return;
@@ -21707,9 +21707,9 @@ int bitmap_startwrite(struct bitmap *arg0, sector_t arg1, unsigned long arg2, in
 void bitmap_unplug(struct bitmap *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct blk_plug_cb *blk_check_plugged(void (*arg0)(struct blk_plug_cb *, bool ), void *arg1, int arg2) {
-  return (struct blk_plug_cb *)external_alloc();
+  return external_alloc(sizeof(struct blk_plug_cb));
 }
 void blk_finish_plug(struct blk_plug *arg0) {
   return;
@@ -21753,16 +21753,16 @@ unsigned long int find_next_bit(const unsigned long *arg0, unsigned long arg1, u
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct flex_array *flex_array_alloc(int arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct flex_array *)external_alloc();
+  return external_alloc(sizeof(struct flex_array));
 }
 void flex_array_free(struct flex_array *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *flex_array_get(struct flex_array *arg0, unsigned int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int flex_array_prealloc(struct flex_array *arg0, unsigned int arg1, unsigned int arg2, gfp_t arg3) {
@@ -21786,9 +21786,9 @@ void get_online_cpus() {
 void kernfs_notify(struct kernfs_node *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -21806,9 +21806,9 @@ void ldv_check_final_state() {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int ldv_stop_2() {
@@ -21829,9 +21829,9 @@ bool __VERIFIER_nondet_bool(void);
 bool llist_add_batch(struct llist_node *arg0, struct llist_node *arg1, struct llist_head *arg2) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct llist_node *llist_reverse_order(struct llist_node *arg0) {
-  return (struct llist_node *)external_alloc();
+  return external_alloc(sizeof(struct llist_node));
 }
 void lock_acquire(struct lockdep_map *arg0, unsigned int arg1, int arg2, int arg3, int arg4, struct lockdep_map *arg5, unsigned long arg6) {
   return;
@@ -21872,9 +21872,9 @@ int md_is_badblock(struct badblocks *arg0, sector_t arg1, int arg2, sector_t *ar
 void md_new_event(struct mddev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct md_thread *md_register_thread(void (*arg0)(struct md_thread *), struct mddev *arg1, const char *arg2) {
-  return (struct md_thread *)external_alloc();
+  return external_alloc(sizeof(struct md_thread));
 }
 void md_set_array_sectors(struct mddev *arg0, sector_t arg1) {
   return;
@@ -22015,9 +22015,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

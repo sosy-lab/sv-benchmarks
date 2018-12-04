@@ -147,10 +147,10 @@ void complete(struct completion *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_notice
@@ -210,10 +210,10 @@ void init_timer_key(struct timer_list *arg0, char *arg1, struct lock_class_key *
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*threadfn)(void *data), void *data, int node, char *namefmt, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *data), void *arg1, int arg2, char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -346,28 +346,28 @@ void scsi_eh_restore_cmnd(struct scsi_cmnd *arg0, struct scsi_eh_save *arg1) {
 // Function: scsi_extd_sense_format
 // with type: char *scsi_extd_sense_format(unsigned char, unsigned char)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *scsi_extd_sense_format(unsigned char arg0, unsigned char arg1) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: scsi_get_host_dev
 // with type: struct scsi_device *scsi_get_host_dev(struct Scsi_Host *)
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *scsi_get_host_dev(struct Scsi_Host *arg0) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put
@@ -431,28 +431,28 @@ void scsi_scan_host(struct Scsi_Host *arg0) {
 // Function: scsi_sense_desc_find
 // with type: u8 *scsi_sense_desc_find(u8 *sense_buffer, int sb_len, int desc_type)
 // with return type: (u8 )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 u8 *scsi_sense_desc_find(u8 *arg0, int arg1, int arg2) {
   // Pointer type
-  return (u8 *)external_alloc();
+  return external_alloc(sizeof(u8));
 }
 
 // Function: scsi_sense_key_string
 // with type: char *scsi_sense_key_string(unsigned char)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *scsi_sense_key_string(unsigned char arg0) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Function: simple_strtoul
@@ -475,19 +475,19 @@ unsigned long int simple_strtoul(char *arg0, char **arg1, unsigned int arg2) {
 // Function: usb_alloc_coherent
 // with type: void *usb_alloc_coherent(struct usb_device *dev, size_t size, gfp_t mem_flags, dma_addr_t *dma)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: usb_alloc_urb
 // with type: struct urb *usb_alloc_urb(int iso_packets, gfp_t mem_flags)
 // with return type: (struct urb)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
   // Pointer type
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 
 // Function: usb_autopm_get_interface_no_resume

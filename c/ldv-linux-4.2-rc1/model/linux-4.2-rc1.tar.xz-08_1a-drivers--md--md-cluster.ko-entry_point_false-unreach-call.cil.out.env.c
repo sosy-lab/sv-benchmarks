@@ -149,10 +149,10 @@ void md_check_recovery(struct mddev *arg0) {
 // Function: md_find_rdev_nr_rcu
 // with type: struct md_rdev *md_find_rdev_nr_rcu(struct mddev *, int)
 // with return type: (struct md_rdev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct md_rdev *md_find_rdev_nr_rcu(struct mddev *arg0, int arg1) {
   // Pointer type
-  return (struct md_rdev *)external_alloc();
+  return external_alloc(sizeof(struct md_rdev));
 }
 
 // Function: md_kick_rdev_from_array
@@ -166,10 +166,10 @@ void md_kick_rdev_from_array(struct md_rdev *arg0) {
 // Function: md_register_thread
 // with type: struct md_thread *md_register_thread(void (*)(struct md_thread *), struct mddev *, const char *)
 // with return type: (struct md_thread)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct md_thread *md_register_thread(void (*arg0)(struct md_thread *), struct mddev *arg1, const char *arg2) {
   // Pointer type
-  return (struct md_thread *)external_alloc();
+  return external_alloc(sizeof(struct md_thread));
 }
 
 // Function: md_reload_sb

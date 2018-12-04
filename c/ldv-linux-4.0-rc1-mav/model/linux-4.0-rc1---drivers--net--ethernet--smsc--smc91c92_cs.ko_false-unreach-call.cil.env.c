@@ -89,10 +89,10 @@ void add_timer(struct timer_list *arg0) {
 // Function: alloc_etherdev_mqs
 // with type: struct net_device *alloc_etherdev_mqs(int, unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_etherdev_mqs(int arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Skip function: calloc
@@ -184,10 +184,10 @@ int eth_validate_addr(struct net_device *arg0) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -343,10 +343,10 @@ void netif_tx_wake_queue(struct netdev_queue *arg0) {
 // Function: pcmcia_dev_present
 // with type: struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *)
 // with return type: (struct pcmcia_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *arg0) {
   // Pointer type
-  return (struct pcmcia_device *)external_alloc();
+  return external_alloc(sizeof(struct pcmcia_device));
 }
 
 // Function: pcmcia_disable_device
@@ -517,10 +517,10 @@ int request_firmware(const struct firmware **arg0, const char *arg1, struct devi
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: strlcpy

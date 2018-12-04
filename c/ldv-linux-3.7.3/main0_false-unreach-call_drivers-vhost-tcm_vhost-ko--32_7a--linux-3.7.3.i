@@ -14343,9 +14343,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
@@ -14409,13 +14409,13 @@ int __VERIFIER_nondet_int(void);
 int cgroup_attach_task_all(struct task_struct *arg0, struct task_struct *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_add_initiator_node_acl(struct se_portal_group *arg0, struct se_node_acl *arg1, const char *arg2, u32 arg3) {
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *arg0, unsigned char *arg1) {
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
 int __VERIFIER_nondet_int(void);
 int core_tpg_del_initiator_node_acl(struct se_portal_group *arg0, struct se_node_acl *arg1, int arg2) {
@@ -14436,16 +14436,16 @@ int debug_lockdep_rcu_enabled() {
 void destroy_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct eventfd_ctx *eventfd_ctx_fileget(struct file *arg0) {
-  return (struct eventfd_ctx *)external_alloc();
+  return external_alloc(sizeof(struct eventfd_ctx));
 }
 void eventfd_ctx_put(struct eventfd_ctx *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *eventfd_fget(int arg0) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 __u64 eventfd_signal(struct eventfd_ctx *arg0, __u64 arg1) {
@@ -14463,9 +14463,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 fc_get_pr_transport_id_len(struct se_portal_group *arg0, struct se_node_acl *arg1, struct t10_pr_registration *arg2, int *arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *fc_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *arg1, u32 *arg2, char **arg3) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -14473,9 +14473,9 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void fput(struct file *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mm_struct *get_task_mm(struct task_struct *arg0) {
-  return (struct mm_struct *)external_alloc();
+  return external_alloc(sizeof(struct mm_struct));
 }
 int __VERIFIER_nondet_int(void);
 int get_user_pages_fast(unsigned long arg0, int arg1, int arg2, struct page **arg3) {
@@ -14493,17 +14493,17 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 iscsi_get_pr_transport_id_len(struct se_portal_group *arg0, struct se_node_acl *arg1, struct t10_pr_registration *arg2, int *arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *iscsi_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *arg1, u32 *arg2, char **arg3) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 int __VERIFIER_nondet_int(void);
 int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -14603,9 +14603,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 u32 sas_get_pr_transport_id_len(struct se_portal_group *arg0, struct se_node_acl *arg1, struct t10_pr_registration *arg2, int *arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *sas_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *arg1, u32 *arg2, char **arg3) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void schedule() {
   return;
@@ -14626,9 +14626,9 @@ void target_execute_cmd(struct se_cmd *arg0) {
 void target_fabric_configfs_deregister(struct target_fabric_configfs *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct target_fabric_configfs *target_fabric_configfs_init(struct module *arg0, const char *arg1) {
-  return (struct target_fabric_configfs *)external_alloc();
+  return external_alloc(sizeof(struct target_fabric_configfs));
 }
 int __VERIFIER_nondet_int(void);
 int target_fabric_configfs_register(struct target_fabric_configfs *arg0) {
@@ -14647,9 +14647,9 @@ void transport_free_session(struct se_session *arg0) {
 void transport_generic_free_cmd(struct se_cmd *arg0, int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_session *transport_init_session() {
-  return (struct se_session *)external_alloc();
+  return external_alloc(sizeof(struct se_session));
 }
 int __VERIFIER_nondet_int(void);
 int transport_send_check_condition_and_sense(struct se_cmd *arg0, u8 arg1, int arg2) {
@@ -14671,9 +14671,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

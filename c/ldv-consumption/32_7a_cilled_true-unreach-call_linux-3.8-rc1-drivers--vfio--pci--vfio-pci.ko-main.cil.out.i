@@ -6914,9 +6914,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
@@ -6972,13 +6972,13 @@ void disable_irq_nosync(unsigned int arg0) {
 void enable_irq(unsigned int arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct eventfd_ctx *eventfd_ctx_fdget(int arg0) {
-  return (struct eventfd_ctx *)external_alloc();
+  return external_alloc(sizeof(struct eventfd_ctx));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct eventfd_ctx *eventfd_ctx_fileget(struct file *arg0) {
-  return (struct eventfd_ctx *)external_alloc();
+  return external_alloc(sizeof(struct eventfd_ctx));
 }
 void eventfd_ctx_put(struct eventfd_ctx *arg0) {
   return;
@@ -6987,9 +6987,9 @@ int __VERIFIER_nondet_int(void);
 int eventfd_ctx_remove_wait_queue(struct eventfd_ctx *arg0, wait_queue_t *arg1, __u64 *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *eventfd_fget(int arg0) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 __u64 eventfd_signal(struct eventfd_ctx *arg0, __u64 arg1) {
@@ -7008,9 +7008,9 @@ void fput(struct file *arg0) {
 void free_irq(unsigned int arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iommu_group *iommu_group_get(struct device *arg0) {
-  return (struct iommu_group *)external_alloc();
+  return external_alloc(sizeof(struct iommu_group));
 }
 void iommu_group_put(struct iommu_group *arg0) {
   return;
@@ -7036,16 +7036,16 @@ void iowrite32(u32 arg0, void *arg1) {
 void iowrite8(u8 arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_class_key *arg2, int arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *memdup_user(const void *arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void might_fault() {
   return;
@@ -7119,9 +7119,9 @@ bool __VERIFIER_nondet_bool(void);
 bool pci_intx_mask_supported(struct pci_dev *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;
@@ -7130,9 +7130,9 @@ int __VERIFIER_nondet_int(void);
 int pci_load_and_free_saved_state(struct pci_dev *arg0, struct pci_saved_state **arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_map_rom(struct pci_dev *arg0, size_t *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_release_selected_regions(struct pci_dev *arg0, int arg1) {
   return;
@@ -7152,9 +7152,9 @@ int __VERIFIER_nondet_int(void);
 int pci_save_state(struct pci_dev *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_saved_state *pci_store_saved_state(struct pci_dev *arg0) {
-  return (struct pci_saved_state *)external_alloc();
+  return external_alloc(sizeof(struct pci_saved_state));
 }
 void pci_unmap_rom(struct pci_dev *arg0, void *arg1) {
   return;
@@ -7214,9 +7214,9 @@ int __VERIFIER_nondet_int(void);
 int vfio_add_group_dev(struct device *arg0, const struct vfio_device_ops *arg1, void *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vfio_del_group_dev(struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) {
   return;
@@ -7224,9 +7224,12 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

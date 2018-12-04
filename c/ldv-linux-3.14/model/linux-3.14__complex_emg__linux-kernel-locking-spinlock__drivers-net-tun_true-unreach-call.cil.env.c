@@ -41,10 +41,10 @@ void __copy_to_user_overflow() {
 // Function: __dev_get_by_name
 // with type: struct net_device *__dev_get_by_name(struct net *, const char *)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *__dev_get_by_name(struct net *arg0, const char *arg1) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: __dynamic_pr_debug
@@ -190,10 +190,10 @@ void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: alloc_netdev_mqs
 // with type: struct net_device *alloc_netdev_mqs(int, const char *, void (*)(struct net_device *), unsigned int, unsigned int)
 // with return type: (struct net_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *alloc_netdev_mqs(int arg0, const char *arg1, void (*arg2)(struct net_device *), unsigned int arg3, unsigned int arg4) {
   // Pointer type
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 
 // Function: bitrev32
@@ -348,10 +348,10 @@ int ethtool_op_get_ts_info(struct net_device *arg0, struct ethtool_ts_info *arg1
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: fasync_helper
@@ -552,13 +552,13 @@ int lockdep_rtnl_is_held() {
 // Function: make_kgid
 // with type: kgid_t make_kgid(struct user_namespace *, gid_t )
 // with return type: kgid_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
   // Typedef type
   // Real type: struct __anonstruct_kgid_t_39
   // Composite type
-  struct __anonstruct_kgid_t_39 *tmp = (struct __anonstruct_kgid_t_39*)external_alloc();
+  struct __anonstruct_kgid_t_39 *tmp = external_alloc(sizeof(struct __anonstruct_kgid_t_39));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -566,13 +566,13 @@ kgid_t make_kgid(struct user_namespace *arg0, gid_t arg1) {
 // Function: make_kuid
 // with type: kuid_t make_kuid(struct user_namespace *, uid_t )
 // with return type: kuid_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 kuid_t make_kuid(struct user_namespace *arg0, uid_t arg1) {
   // Typedef type
   // Real type: struct __anonstruct_kuid_t_38
   // Composite type
-  struct __anonstruct_kuid_t_38 *tmp = (struct __anonstruct_kuid_t_38*)external_alloc();
+  struct __anonstruct_kuid_t_38 *tmp = external_alloc(sizeof(struct __anonstruct_kuid_t_38));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }
@@ -907,10 +907,10 @@ int seq_printf(struct seq_file *arg0, const char *arg1, ...) {
 // Function: sk_alloc
 // with type: struct sock *sk_alloc(struct net *, int, gfp_t , struct proto *)
 // with return type: (struct sock)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sock *sk_alloc(struct net *arg0, int arg1, gfp_t arg2, struct proto *arg3) {
   // Pointer type
-  return (struct sock *)external_alloc();
+  return external_alloc(sizeof(struct sock));
 }
 
 // Function: sk_attach_filter
@@ -986,10 +986,10 @@ int skb_copy_ubufs(struct sk_buff *arg0, gfp_t arg1) {
 // Function: skb_dequeue
 // with type: struct sk_buff *skb_dequeue(struct sk_buff_head *)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_dequeue(struct sk_buff_head *arg0) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: skb_flow_dissect
@@ -1017,10 +1017,10 @@ bool skb_partial_csum_set(struct sk_buff *arg0, u16 arg1, u16 arg2) {
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_queue_purge
@@ -1058,10 +1058,10 @@ void skb_tx_error(struct sk_buff *arg0) {
 // Function: sock_alloc_send_pskb
 // with type: struct sk_buff *sock_alloc_send_pskb(struct sock *, unsigned long, unsigned long, int, int *, int)
 // with return type: (struct sk_buff)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *sock_alloc_send_pskb(struct sock *arg0, unsigned long arg1, unsigned long arg2, int arg3, int *arg4, int arg5) {
   // Pointer type
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 
 // Function: sock_init_data

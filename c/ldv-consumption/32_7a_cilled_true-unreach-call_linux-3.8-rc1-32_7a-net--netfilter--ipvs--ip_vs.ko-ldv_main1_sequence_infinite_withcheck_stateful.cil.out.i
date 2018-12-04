@@ -31290,17 +31290,17 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__alloc_percpu(size_t arg0, size_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__alloc_skb(unsigned int arg0, gfp_t arg1, int arg2, int arg3) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct net_device *__dev_get_by_name(struct net *arg0, const char *arg1) {
-  return (struct net_device *)external_alloc();
+  return external_alloc(sizeof(struct net_device));
 }
 int __VERIFIER_nondet_int(void);
 int __dynamic_pr_debug(struct _ddebug *arg0, const char *arg1, ...) {
@@ -31448,9 +31448,9 @@ int __VERIFIER_nondet_int(void);
 int genl_unregister_family(struct genl_family *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *genlmsg_put(struct sk_buff *arg0, u32 arg1, u32 arg2, struct genl_family *arg3, int arg4, u8 arg5) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void get_random_bytes(void *arg0, int arg1) {
   return;
@@ -31480,9 +31480,9 @@ int __VERIFIER_nondet_int(void);
 int ip6_route_me_harder(struct sk_buff *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dst_entry *ip6_route_output(struct net *arg0, const struct sock *arg1, struct flowi6 *arg2) {
-  return (struct dst_entry *)external_alloc();
+  return external_alloc(sizeof(struct dst_entry));
 }
 int __VERIFIER_nondet_int(void);
 int ip_defrag(struct sk_buff *arg0, u32 arg1) {
@@ -31504,9 +31504,9 @@ int __VERIFIER_nondet_int(void);
 int ip_route_me_harder(struct sk_buff *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rtable *ip_route_output_flow(struct net *arg0, struct flowi4 *arg1, struct sock *arg2) {
-  return (struct rtable *)external_alloc();
+  return external_alloc(sizeof(struct rtable));
 }
 void ip_send_check(struct iphdr *arg0) {
   return;
@@ -31533,13 +31533,13 @@ int kernel_sendmsg(struct socket *arg0, struct msghdr *arg1, struct kvec *arg2, 
 void kfree_skb(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmem_cache_alloc(struct kmem_cache *arg0, gfp_t arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct kmem_cache *kmem_cache_create(const char *arg0, size_t arg1, size_t arg2, unsigned long arg3, void (*arg4)(void *)) {
-  return (struct kmem_cache *)external_alloc();
+  return external_alloc(sizeof(struct kmem_cache));
 }
 void kmem_cache_destroy(struct kmem_cache *arg0) {
   return;
@@ -31547,13 +31547,13 @@ void kmem_cache_destroy(struct kmem_cache *arg0) {
 void kmem_cache_free(struct kmem_cache *arg0, void *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -31635,16 +31635,16 @@ void nf_conntrack_alter_reply(struct nf_conn *arg0, const struct nf_conntrack_tu
 void nf_conntrack_destroy(struct nf_conntrack *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nf_conntrack_tuple_hash *nf_conntrack_find_get(struct net *arg0, u16 arg1, const struct nf_conntrack_tuple *arg2) {
-  return (struct nf_conntrack_tuple_hash *)external_alloc();
+  return external_alloc(sizeof(struct nf_conntrack_tuple_hash));
 }
 void nf_ct_deliver_cached_events(struct nf_conn *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nf_conntrack_expect *nf_ct_expect_alloc(struct nf_conn *arg0) {
-  return (struct nf_conntrack_expect *)external_alloc();
+  return external_alloc(sizeof(struct nf_conntrack_expect));
 }
 void nf_ct_expect_init(struct nf_conntrack_expect *arg0, unsigned int arg1, u_int8_t arg2, const union nf_inet_addr *arg3, const union nf_inet_addr *arg4, u_int8_t arg5, const __be16 *arg6, const __be16 *arg7) {
   return;
@@ -31709,9 +31709,9 @@ int __VERIFIER_nondet_int(void);
 int proc_dointvec(struct ctl_table *arg0, int arg1, void *arg2, size_t *arg3, loff_t *arg4) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct proc_dir_entry *proc_net_fops_create(struct net *arg0, const char *arg1, umode_t arg2, const struct file_operations *arg3) {
-  return (struct proc_dir_entry *)external_alloc();
+  return external_alloc(sizeof(struct proc_dir_entry));
 }
 void proc_net_remove(struct net *arg0, const char *arg1) {
   return;
@@ -31732,9 +31732,9 @@ int __VERIFIER_nondet_int(void);
 int rcu_read_lock_bh_held() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ctl_table_header *register_net_sysctl(struct net *arg0, const char *arg1, struct ctl_table *arg2) {
-  return (struct ctl_table_header *)external_alloc();
+  return external_alloc(sizeof(struct ctl_table_header));
 }
 int __VERIFIER_nondet_int(void);
 int register_netdevice_notifier(struct notifier_block *arg0) {
@@ -31792,9 +31792,9 @@ unsigned int __VERIFIER_nondet_uint(void);
 __wsum skb_checksum(const struct sk_buff *arg0, int arg1, int arg2, __wsum arg3) {
   return __VERIFIER_nondet_uint();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_clone(struct sk_buff *arg0, gfp_t arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 int __VERIFIER_nondet_int(void);
 int skb_copy_bits(const struct sk_buff *arg0, int arg1, void *arg2, int arg3) {
@@ -31804,13 +31804,13 @@ int __VERIFIER_nondet_int(void);
 int skb_make_writable(struct sk_buff *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *skb_realloc_headroom(struct sk_buff *arg0, unsigned int arg1) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void skb_trim(struct sk_buff *arg0, unsigned int arg1) {
   return;
@@ -31847,9 +31847,9 @@ void unregister_pernet_subsys(struct pernet_operations *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vmalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int wake_up_process(struct task_struct *arg0) {
@@ -31861,13 +31861,16 @@ void warn_slowpath_fmt(const char *arg0, const int arg1, const char *arg2, ...) 
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dst_entry *xfrm_lookup(struct net *arg0, struct dst_entry *arg1, const struct flowi *arg2, struct sock *arg3, int arg4) {
-  return (struct dst_entry *)external_alloc();
+  return external_alloc(sizeof(struct dst_entry));
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

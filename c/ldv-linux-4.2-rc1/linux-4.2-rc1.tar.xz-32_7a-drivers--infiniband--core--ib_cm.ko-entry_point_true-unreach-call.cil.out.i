@@ -14226,9 +14226,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 int __VERIFIER_nondet_int(void);
 int __class_register(struct class *arg0, struct lock_class_key *arg1) {
@@ -14303,9 +14303,9 @@ int debug_lockdep_rcu_enabled() {
 void destroy_workqueue(struct workqueue_struct *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 void device_unregister(struct device *arg0) {
   return;
@@ -14319,17 +14319,17 @@ void get_random_bytes(void *arg0, int arg1) {
 void ib_cancel_mad(struct ib_mad_agent *arg0, struct ib_mad_send_buf *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_ah *ib_create_ah(struct ib_pd *arg0, struct ib_ah_attr *arg1) {
-  return (struct ib_ah *)external_alloc();
+  return external_alloc(sizeof(struct ib_ah));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_ah *ib_create_ah_from_wc(struct ib_pd *arg0, const struct ib_wc *arg1, const struct ib_grh *arg2, u8 arg3) {
-  return (struct ib_ah *)external_alloc();
+  return external_alloc(sizeof(struct ib_ah));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mad_send_buf *ib_create_send_mad(struct ib_mad_agent *arg0, u32 arg1, u16 arg2, int arg3, int arg4, int arg5, gfp_t arg6, u8 arg7) {
-  return (struct ib_mad_send_buf *)external_alloc();
+  return external_alloc(sizeof(struct ib_mad_send_buf));
 }
 int __VERIFIER_nondet_int(void);
 int ib_destroy_ah(struct ib_ah *arg0) {
@@ -14353,9 +14353,9 @@ int __VERIFIER_nondet_int(void);
 int ib_get_cached_gid(struct ib_device *arg0, u8 arg1, int arg2, union ib_gid *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ib_get_client_data(struct ib_device *arg0, struct ib_client *arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int ib_init_ah_from_path(struct ib_device *arg0, u8 arg1, struct ib_sa_path_rec *arg2, struct ib_ah_attr *arg3) {
@@ -14385,9 +14385,9 @@ int __VERIFIER_nondet_int(void);
 int ib_register_client(struct ib_client *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ib_mad_agent *ib_register_mad_agent(struct ib_device *arg0, u8 arg1, enum ib_qp_type arg2, struct ib_mad_reg_req *arg3, u8 arg4, void (*arg5)(struct ib_mad_agent *, struct ib_mad_send_wc *), void (*arg6)(struct ib_mad_agent *, struct ib_mad_recv_wc *), void *arg7, u32 arg8) {
-  return (struct ib_mad_agent *)external_alloc();
+  return external_alloc(sizeof(struct ib_mad_agent));
 }
 void ib_set_client_data(struct ib_device *arg0, struct ib_client *arg1, void *arg2) {
   return;
@@ -14406,9 +14406,9 @@ int idr_alloc_cyclic(struct idr *arg0, void *arg1, int arg2, int arg3, gfp_t arg
 void idr_destroy(struct idr *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *idr_find_slowpath(struct idr *arg0, int arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void idr_init(struct idr *arg0) {
   return;
@@ -14422,13 +14422,13 @@ void idr_remove(struct idr *arg0, int arg1) {
 void init_timer_key(struct timer_list *arg0, unsigned int arg1, const char *arg2, struct lock_class_key *arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int kobject_init_and_add(struct kobject *arg0, struct kobj_type *arg1, struct kobject *arg2, const char *arg3, ...) {
@@ -14477,9 +14477,12 @@ void rb_insert_color(struct rb_node *arg0, struct rb_root *arg1) {
 void wait_for_completion(struct completion *arg0) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

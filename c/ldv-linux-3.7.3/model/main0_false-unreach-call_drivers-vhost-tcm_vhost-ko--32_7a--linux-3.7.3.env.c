@@ -5,10 +5,10 @@
 // Function: __alloc_workqueue_key
 // with type: struct workqueue_struct *__alloc_workqueue_key(const char *, unsigned int, int, struct lock_class_key *, const char *, ...)
 // with return type: (struct workqueue_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 
 // Function: __dynamic_pr_debug
@@ -171,19 +171,19 @@ int cgroup_attach_task_all(struct task_struct *arg0, struct task_struct *arg1) {
 // Function: core_tpg_add_initiator_node_acl
 // with type: struct se_node_acl *core_tpg_add_initiator_node_acl(struct se_portal_group *, struct se_node_acl *, const char *, u32 )
 // with return type: (struct se_node_acl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_add_initiator_node_acl(struct se_portal_group *arg0, struct se_node_acl *arg1, const char *arg2, u32 arg3) {
   // Pointer type
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
 
 // Function: core_tpg_check_initiator_node_acl
 // with type: struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *, unsigned char *)
 // with return type: (struct se_node_acl)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_node_acl *core_tpg_check_initiator_node_acl(struct se_portal_group *arg0, unsigned char *arg1) {
   // Pointer type
-  return (struct se_node_acl *)external_alloc();
+  return external_alloc(sizeof(struct se_node_acl));
 }
 
 // Function: core_tpg_del_initiator_node_acl
@@ -233,10 +233,10 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 // Function: eventfd_ctx_fileget
 // with type: struct eventfd_ctx *eventfd_ctx_fileget(struct file *)
 // with return type: (struct eventfd_ctx)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct eventfd_ctx *eventfd_ctx_fileget(struct file *arg0) {
   // Pointer type
-  return (struct eventfd_ctx *)external_alloc();
+  return external_alloc(sizeof(struct eventfd_ctx));
 }
 
 // Function: eventfd_ctx_put
@@ -250,10 +250,10 @@ void eventfd_ctx_put(struct eventfd_ctx *arg0) {
 // Function: eventfd_fget
 // with type: struct file *eventfd_fget(int)
 // with return type: (struct file)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *eventfd_fget(int arg0) {
   // Pointer type
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 
 // Function: eventfd_signal
@@ -303,10 +303,10 @@ u32 fc_get_pr_transport_id_len(struct se_portal_group *arg0, struct se_node_acl 
 // Function: fc_parse_pr_out_transport_id
 // with type: char *fc_parse_pr_out_transport_id(struct se_portal_group *, const char *, u32 *, char **)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *fc_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *arg1, u32 *arg2, char **arg3) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: finish_wait
@@ -328,10 +328,10 @@ void fput(struct file *arg0) {
 // Function: get_task_mm
 // with type: struct mm_struct *get_task_mm(struct task_struct *)
 // with return type: (struct mm_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mm_struct *get_task_mm(struct task_struct *arg0) {
   // Pointer type
-  return (struct mm_struct *)external_alloc();
+  return external_alloc(sizeof(struct mm_struct));
 }
 
 // Function: get_user_pages_fast
@@ -379,10 +379,10 @@ u32 iscsi_get_pr_transport_id_len(struct se_portal_group *arg0, struct se_node_a
 // Function: iscsi_parse_pr_out_transport_id
 // with type: char *iscsi_parse_pr_out_transport_id(struct se_portal_group *, const char *, u32 *, char **)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *iscsi_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *arg1, u32 *arg2, char **arg3) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Skip function: kfree
@@ -399,10 +399,10 @@ int kstrtoull(const char *arg0, unsigned int arg1, unsigned long long *arg2) {
 // Function: kthread_create_on_node
 // with type: struct task_struct *kthread_create_on_node(int (*)(void *), void *, int, const char *, ...)
 // with return type: (struct task_struct)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
   // Pointer type
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 
 // Function: kthread_should_stop
@@ -664,10 +664,10 @@ u32 sas_get_pr_transport_id_len(struct se_portal_group *arg0, struct se_node_acl
 // Function: sas_parse_pr_out_transport_id
 // with type: char *sas_parse_pr_out_transport_id(struct se_portal_group *, const char *, u32 *, char **)
 // with return type: (char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *sas_parse_pr_out_transport_id(struct se_portal_group *arg0, const char *arg1, u32 *arg2, char **arg3) {
   // Pointer type
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 
 // Function: schedule
@@ -734,10 +734,10 @@ void target_fabric_configfs_deregister(struct target_fabric_configfs *arg0) {
 // Function: target_fabric_configfs_init
 // with type: struct target_fabric_configfs *target_fabric_configfs_init(struct module *, const char *)
 // with return type: (struct target_fabric_configfs)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct target_fabric_configfs *target_fabric_configfs_init(struct module *arg0, const char *arg1) {
   // Pointer type
-  return (struct target_fabric_configfs *)external_alloc();
+  return external_alloc(sizeof(struct target_fabric_configfs));
 }
 
 // Function: target_fabric_configfs_register
@@ -785,10 +785,10 @@ void transport_generic_free_cmd(struct se_cmd *arg0, int arg1) {
 // Function: transport_init_session
 // with type: struct se_session *transport_init_session()
 // with return type: (struct se_session)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct se_session *transport_init_session() {
   // Pointer type
-  return (struct se_session *)external_alloc();
+  return external_alloc(sizeof(struct se_session));
 }
 
 // Function: transport_send_check_condition_and_sense

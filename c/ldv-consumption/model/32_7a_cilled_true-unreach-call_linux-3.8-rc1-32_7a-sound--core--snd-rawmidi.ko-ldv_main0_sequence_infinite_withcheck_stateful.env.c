@@ -165,10 +165,10 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 // Function: krealloc
 // with type: void *krealloc(const void *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *krealloc(const void *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: ldv_check_return_value
@@ -404,10 +404,10 @@ int snd_device_register(struct snd_card *arg0, void *arg1) {
 // Function: snd_info_create_card_entry
 // with type: struct snd_info_entry *snd_info_create_card_entry(struct snd_card *, const char *, struct snd_info_entry *)
 // with return type: (struct snd_info_entry)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct snd_info_entry *snd_info_create_card_entry(struct snd_card *arg0, const char *arg1, struct snd_info_entry *arg2) {
   // Pointer type
-  return (struct snd_info_entry *)external_alloc();
+  return external_alloc(sizeof(struct snd_info_entry));
 }
 
 // Function: snd_info_free_entry
@@ -439,19 +439,19 @@ int snd_iprintf(struct snd_info_buffer *arg0, const char *arg1, ...) {
 // Function: snd_lookup_minor_data
 // with type: void *snd_lookup_minor_data(unsigned int, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *snd_lookup_minor_data(unsigned int arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: snd_lookup_oss_minor_data
 // with type: void *snd_lookup_oss_minor_data(unsigned int, int)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *snd_lookup_oss_minor_data(unsigned int arg0, int arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: snd_oss_info_register

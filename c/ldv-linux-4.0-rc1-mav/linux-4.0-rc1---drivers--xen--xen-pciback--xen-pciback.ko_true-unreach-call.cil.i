@@ -21210,9 +21210,9 @@ int __VERIFIER_nondet_int(void);
 int ___ratelimit(struct ratelimit_state *arg0, const char *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct workqueue_struct *__alloc_workqueue_key(const char *arg0, unsigned int arg1, int arg2, struct lock_class_key *arg3, const char *arg4, ...) {
-  return (struct workqueue_struct *)external_alloc();
+  return external_alloc(sizeof(struct workqueue_struct));
 }
 void __dynamic_dev_dbg(struct _ddebug *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
@@ -21299,9 +21299,9 @@ int driver_create_file(struct device_driver *arg0, const struct driver_attribute
 void driver_remove_file(struct device_driver *arg0, const struct driver_attribute *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -21358,9 +21358,9 @@ int __VERIFIER_nondet_int(void);
 int pci_bus_write_config_word(struct pci_bus *arg0, unsigned int arg1, int arg2, u16 arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 void pci_dev_put(struct pci_dev *arg0) {
   return;
@@ -21416,9 +21416,9 @@ int __VERIFIER_nondet_int(void);
 int pci_set_power_state(struct pci_dev *arg0, pci_power_t arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_saved_state *pci_store_saved_state(struct pci_dev *arg0) {
-  return (struct pci_saved_state *)external_alloc();
+  return external_alloc(sizeof(struct pci_saved_state));
 }
 void pci_unregister_driver(struct pci_driver *arg0) {
   return;
@@ -21533,9 +21533,12 @@ int __VERIFIER_nondet_int(void);
 int xenbus_watch_path(struct xenbus_device *arg0, const char *arg1, struct xenbus_watch *arg2, void (*arg3)(struct xenbus_watch *, const char **, unsigned int)) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

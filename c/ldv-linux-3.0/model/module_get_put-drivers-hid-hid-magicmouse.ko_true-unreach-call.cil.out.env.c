@@ -14,10 +14,10 @@ int __hid_register_driver(struct hid_driver *arg0, struct module *arg1, const ch
 // Function: __kmalloc
 // with type: void *__kmalloc(size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *__kmalloc(size_t arg0, gfp_t arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_err
@@ -32,10 +32,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -67,10 +67,10 @@ void hid_disconnect(struct hid_device *arg0) {
 // Function: hid_register_report
 // with type: struct hid_report *hid_register_report(struct hid_device *, unsigned int, unsigned int)
 // with return type: (struct hid_report)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct hid_report *hid_register_report(struct hid_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct hid_report *)external_alloc();
+  return external_alloc(sizeof(struct hid_report));
 }
 
 // Function: hid_unregister_driver

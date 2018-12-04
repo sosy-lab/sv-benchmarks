@@ -17107,9 +17107,9 @@ int __VERIFIER_nondet_int(void);
 int debug_lockdep_rcu_enabled() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void ldv_after_alloc(void *arg0) {
   return;
@@ -17135,13 +17135,13 @@ int __VERIFIER_nondet_int(void);
 int nfs41_setup_sequence(struct nfs4_session *arg0, struct nfs4_sequence_args *arg1, struct nfs4_sequence_res *arg2, struct rpc_task *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs4_deviceid_node *nfs4_find_get_deviceid(const struct pnfs_layoutdriver_type *arg0, const struct nfs_client *arg1, const struct nfs4_deviceid *arg2) {
-  return (struct nfs4_deviceid_node *)external_alloc();
+  return external_alloc(sizeof(struct nfs4_deviceid_node));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_clnt *nfs4_find_or_create_ds_client(struct nfs_client *arg0, struct inode *arg1) {
-  return (struct rpc_clnt *)external_alloc();
+  return external_alloc(sizeof(struct rpc_clnt));
 }
 void nfs4_init_deviceid_node(struct nfs4_deviceid_node *arg0, const struct pnfs_layoutdriver_type *arg1, const struct nfs_client *arg2, const struct nfs4_deviceid *arg3) {
   return;
@@ -17150,9 +17150,9 @@ int __VERIFIER_nondet_int(void);
 int nfs4_init_ds_session(struct nfs_client *arg0, unsigned long arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs4_deviceid_node *nfs4_insert_deviceid_node(struct nfs4_deviceid_node *arg0) {
-  return (struct nfs4_deviceid_node *)external_alloc();
+  return external_alloc(sizeof(struct nfs4_deviceid_node));
 }
 void nfs4_mark_deviceid_unavailable(struct nfs4_deviceid_node *arg0) {
   return;
@@ -17178,9 +17178,9 @@ int __VERIFIER_nondet_int(void);
 int nfs4_schedule_stateid_recovery(const struct nfs_server *arg0, struct nfs4_state *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_client *nfs4_set_ds_client(struct nfs_client *arg0, const struct sockaddr *arg1, int arg2, int arg3, unsigned int arg4, unsigned int arg5) {
-  return (struct nfs_client *)external_alloc();
+  return external_alloc(sizeof(struct nfs_client));
 }
 int __VERIFIER_nondet_int(void);
 int nfs4_set_rw_stateid(nfs4_stateid *arg0, const struct nfs_open_context *arg1, const struct nfs_lock_context *arg2, fmode_t arg3) {
@@ -17190,9 +17190,9 @@ bool __VERIFIER_nondet_bool(void);
 bool nfs4_test_deviceid_unavailable(struct nfs4_deviceid_node *arg0) {
   return __VERIFIER_nondet_bool();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct nfs_commit_data *nfs_commitdata_alloc() {
-  return (struct nfs_commit_data *)external_alloc();
+  return external_alloc(sizeof(struct nfs_commit_data));
 }
 void nfs_commitdata_release(struct nfs_commit_data *arg0) {
   return;
@@ -17276,9 +17276,9 @@ void pnfs_set_layoutcommit(struct nfs_write_data *arg0) {
 void pnfs_unregister_layoutdriver(struct pnfs_layoutdriver_type *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pnfs_layout_segment *pnfs_update_layout(struct inode *arg0, struct nfs_open_context *arg1, loff_t arg2, u64 arg3, enum pnfs_iomode arg4, gfp_t arg5) {
-  return (struct pnfs_layout_segment *)external_alloc();
+  return external_alloc(sizeof(struct pnfs_layout_segment));
 }
 int __VERIFIER_nondet_int(void);
 int pnfs_write_done_resend_to_mds(struct inode *arg0, struct list_head *arg1, const struct nfs_pgio_completion_ops *arg2, struct nfs_direct_req *arg3) {
@@ -17331,16 +17331,19 @@ void warn_slowpath_null(const char *arg0, const int arg1) {
 void xdr_init_decode_pages(struct xdr_stream *arg0, struct xdr_buf *arg1, struct page **arg2, unsigned int arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 void xdr_set_scratch_buffer(struct xdr_stream *arg0, void *arg1, size_t arg2) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -5862,7 +5862,7 @@ static void ath6kl_usb_device_detached(struct usb_interface *interface )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int ath6kl_usb_submit_ctrl_out(struct ath6kl_usb *ar_usb , u8 req , u16 value ,
                                       u16 index , void *data , u32 size )
 { u8 *buf ;
@@ -6941,9 +6941,9 @@ long ldv__builtin_expect(long val , long res )
 void ath6kl_core_cleanup(struct ath6kl *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ath6kl *ath6kl_core_create(struct device *arg0) {
-  return (struct ath6kl *)external_alloc();
+  return external_alloc(sizeof(struct ath6kl));
 }
 void ath6kl_core_destroy(struct ath6kl *arg0) {
   return;
@@ -6962,9 +6962,9 @@ int ath6kl_printk(const char *arg0, const char *arg1, ...) {
 void ath6kl_stop_txrx(struct ath6kl *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 int __VERIFIER_nondet_int(void);
 int dev_set_drvdata(struct device *arg0, void *arg1) {
@@ -6983,9 +6983,9 @@ int usb_control_msg(struct usb_device *arg0, unsigned int arg1, __u8 arg2, __u8 
 void usb_deregister(struct usb_driver *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_get_dev(struct usb_device *arg0) {
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 void usb_put_dev(struct usb_device *arg0) {
   return;
@@ -6994,9 +6994,12 @@ int __VERIFIER_nondet_int(void);
 int usb_register_driver(struct usb_driver *arg0, struct module *arg1, const char *arg2) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

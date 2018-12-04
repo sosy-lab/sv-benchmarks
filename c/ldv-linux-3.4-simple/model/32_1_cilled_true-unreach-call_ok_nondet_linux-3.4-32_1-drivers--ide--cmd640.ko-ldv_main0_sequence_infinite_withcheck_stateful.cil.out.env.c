@@ -21,10 +21,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t start, resource_size_t n, const char *name, int flags)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: _raw_spin_lock_irqsave
@@ -67,10 +67,10 @@ u16 ide_pio_cycle_time(ide_drive_t *arg0, u8 arg1) {
 // Function: ide_timing_find_mode
 // with type: struct ide_timing *ide_timing_find_mode(u8 )
 // with return type: (struct ide_timing)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ide_timing *ide_timing_find_mode(u8 arg0) {
   // Pointer type
-  return (struct ide_timing *)external_alloc();
+  return external_alloc(sizeof(struct ide_timing));
 }
 
 // Function: ldv_initialize

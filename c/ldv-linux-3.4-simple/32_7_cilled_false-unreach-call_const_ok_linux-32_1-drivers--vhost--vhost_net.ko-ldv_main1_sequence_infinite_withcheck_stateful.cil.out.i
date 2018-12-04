@@ -9729,7 +9729,7 @@ int vhost_vq_access_ok(struct vhost_virtqueue *vq )
   return (tmp___9);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static long vhost_set_memory(struct vhost_dev *d , struct vhost_memory *m )
 { struct vhost_memory mem ;
   struct vhost_memory *newmem ;
@@ -22622,24 +22622,24 @@ int __VERIFIER_nondet_int(void);
 int cgroup_attach_task_all(struct task_struct *arg0, struct task_struct *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct eventfd_ctx *eventfd_ctx_fileget(struct file *arg0) {
-  return (struct eventfd_ctx *)external_alloc();
+  return external_alloc(sizeof(struct eventfd_ctx));
 }
 void eventfd_ctx_put(struct eventfd_ctx *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *eventfd_fget(int arg0) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 int __VERIFIER_nondet_int(void);
 int eventfd_signal(struct eventfd_ctx *arg0, int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct file *fget(unsigned int arg0) {
-  return (struct file *)external_alloc();
+  return external_alloc(sizeof(struct file));
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
@@ -22647,17 +22647,17 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void fput(struct file *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mm_struct *get_task_mm(struct task_struct *arg0) {
-  return (struct mm_struct *)external_alloc();
+  return external_alloc(sizeof(struct mm_struct));
 }
 int __VERIFIER_nondet_int(void);
 int get_user_pages_fast(unsigned long arg0, int arg1, int arg2, struct page **arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *data), void *arg1, int arg2, char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 int __VERIFIER_nondet_int(void);
 int kthread_should_stop() {
@@ -22673,9 +22673,9 @@ void ldv_check_return_value(int arg0) {
 void ldv_initialize() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *macvtap_get_socket(struct file *arg0) {
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 int __VERIFIER_nondet_int(void);
 int memcpy_fromiovec(unsigned char *arg0, struct iovec *arg1, int arg2) {
@@ -22712,16 +22712,16 @@ int __VERIFIER_nondet_int(void);
 int set_page_dirty_lock(struct page *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *sockfd_lookup(int arg0, int *arg1) {
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 void synchronize_sched() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct socket *tun_get_socket(struct file *arg0) {
-  return (struct socket *)external_alloc();
+  return external_alloc(sizeof(struct socket));
 }
 void unuse_mm(struct mm_struct *arg0) {
   return;
@@ -22739,9 +22739,12 @@ void warn_slowpath_fmt(char *arg0, int arg1, char *arg2, ...) {
 void warn_slowpath_null(char *arg0, int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

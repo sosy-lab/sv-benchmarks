@@ -13377,13 +13377,13 @@ int __VERIFIER_nondet_int(void);
 int hid_add_device(struct hid_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 u8 *hid_alloc_report_buf(struct hid_report *arg0, gfp_t arg1) {
-  return (u8 *)external_alloc();
+  return external_alloc(sizeof(u8));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct hid_device *hid_allocate_device() {
-  return (struct hid_device *)external_alloc();
+  return external_alloc(sizeof(struct hid_device));
 }
 int __VERIFIER_nondet_int(void);
 int hid_check_keys_pressed(struct hid_device *arg0) {
@@ -13415,9 +13415,9 @@ int __VERIFIER_nondet_int(void);
 int input_ff_create(struct input_dev *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 char *kasprintf(gfp_t arg0, const char *arg1, ...) {
-  return (char *)external_alloc();
+  return external_alloc(sizeof(char));
 }
 void kill_fasync(struct fasync_struct **arg0, int arg1, int arg2) {
   return;
@@ -13511,13 +13511,13 @@ void up_read(struct rw_semaphore *arg0) {
 void up_write(struct rw_semaphore *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *usb_alloc_coherent(struct usb_device *arg0, size_t arg1, gfp_t arg2, dma_addr_t *arg3) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct urb *usb_alloc_urb(int arg0, gfp_t arg1) {
-  return (struct urb *)external_alloc();
+  return external_alloc(sizeof(struct urb));
 }
 int __VERIFIER_nondet_int(void);
 int usb_autopm_get_interface(struct usb_interface *arg0) {
@@ -13556,9 +13556,9 @@ void usb_deregister(struct usb_driver *arg0) {
 void usb_deregister_dev(struct usb_interface *arg0, struct usb_class_driver *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_interface *usb_find_interface(struct usb_driver *arg0, int arg1) {
-  return (struct usb_interface *)external_alloc();
+  return external_alloc(sizeof(struct usb_interface));
 }
 void usb_free_coherent(struct usb_device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
@@ -13602,16 +13602,19 @@ void usb_unpoison_urb(struct urb *arg0) {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

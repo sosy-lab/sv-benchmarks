@@ -36,10 +36,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: iio_trigger_alloc
 // with type: struct iio_trigger *iio_trigger_alloc(const char *, ...)
 // with return type: (struct iio_trigger)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iio_trigger *iio_trigger_alloc(const char *arg0, ...) {
   // Pointer type
-  return (struct iio_trigger *)external_alloc();
+  return external_alloc(sizeof(struct iio_trigger));
 }
 
 // Function: iio_trigger_poll
@@ -92,10 +92,10 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: put_device

@@ -24224,9 +24224,9 @@ unsigned char __VERIFIER_nondet_uchar(void);
 u8 efuse_read_1byte(struct ieee80211_hw *arg0, u16 arg1) {
   return __VERIFIER_nondet_uchar();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *arg0, const u8 *arg1) {
-  return (struct ieee80211_sta *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_sta));
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int jiffies_to_msecs(const unsigned long arg0) {
@@ -24406,9 +24406,9 @@ void rtl8723be_firmware_selfreset(struct ieee80211_hw *arg0) {
 void rtl_bb_delay(struct ieee80211_hw *arg0, u32 arg1, u32 arg2) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rtl_btc_ops *rtl_btc_get_ops_pointer() {
-  return (struct rtl_btc_ops *)external_alloc();
+  return external_alloc(sizeof(struct rtl_btc_ops));
 }
 unsigned char __VERIFIER_nondet_uchar(void);
 u8 rtl_cam_add_one_entry(struct ieee80211_hw *arg0, u8 *arg1, u32 arg2, u32 arg3, u32 arg4, u32 arg5, u8 *arg6) {
@@ -24482,13 +24482,13 @@ long __VERIFIER_nondet_long(void);
 long int rtl_signal_scale_mapping(struct ieee80211_hw *arg0, long arg1) {
   return __VERIFIER_nondet_long();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void synchronize_irq(unsigned int arg0) {
   return;
@@ -24502,16 +24502,19 @@ void trace_hardirqs_on() {
 void vfree(const void *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *vzalloc(unsigned long arg0) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

@@ -2121,7 +2121,7 @@ static int bonding_dio_insn_config(struct comedi_device *dev , struct comedi_sub
   }
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static void *Realloc(void const *oldmem , size_t newlen , size_t oldlen )
 { void *newmem ;
   void *tmp ;
@@ -3330,9 +3330,9 @@ int __VERIFIER_nondet_int(void);
 int comedi_get_n_channels(struct comedi_device *arg0, unsigned int arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct comedi_device *comedi_open(const char *arg0) {
-  return (struct comedi_device *)external_alloc();
+  return external_alloc(sizeof(struct comedi_device));
 }
 void ldv_initialize() {
   return;
@@ -3341,9 +3341,12 @@ int __VERIFIER_nondet_int(void);
 int printk(const char *arg0, ...) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

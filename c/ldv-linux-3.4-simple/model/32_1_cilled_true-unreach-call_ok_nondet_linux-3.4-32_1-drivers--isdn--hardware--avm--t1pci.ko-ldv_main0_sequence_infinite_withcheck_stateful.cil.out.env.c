@@ -22,10 +22,10 @@ void __release_region(struct resource *arg0, resource_size_t arg1, resource_size
 // Function: __request_region
 // with type: struct resource *__request_region(struct resource *, resource_size_t start, resource_size_t n, const char *name, int flags)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *__request_region(struct resource *arg0, resource_size_t arg1, resource_size_t arg2, const char *arg3, int arg4) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: attach_capi_ctr
@@ -40,10 +40,10 @@ int attach_capi_ctr(struct capi_ctr *arg0) {
 // Function: avmcard_dma_alloc
 // with type: avmcard_dmainfo *avmcard_dma_alloc(char *name, struct pci_dev *, long rsize, long ssize)
 // with return type: (avmcard_dmainfo )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 avmcard_dmainfo *avmcard_dma_alloc(char *arg0, struct pci_dev *arg1, long arg2, long arg3) {
   // Pointer type
-  return (avmcard_dmainfo *)external_alloc();
+  return external_alloc(sizeof(avmcard_dmainfo));
 }
 
 // Function: avmcard_dma_free
@@ -57,10 +57,10 @@ void avmcard_dma_free(avmcard_dmainfo *arg0) {
 // Function: b1_alloc_card
 // with type: avmcard *b1_alloc_card(int nr_controllers)
 // with return type: (avmcard )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 avmcard *b1_alloc_card(int arg0) {
   // Pointer type
-  return (avmcard *)external_alloc();
+  return external_alloc(sizeof(avmcard));
 }
 
 // Function: b1_free_card
@@ -91,10 +91,10 @@ int detach_capi_ctr(struct capi_ctr *arg0) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -117,10 +117,10 @@ void free_irq(unsigned int arg0, void *arg1) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t offset, unsigned long size)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap

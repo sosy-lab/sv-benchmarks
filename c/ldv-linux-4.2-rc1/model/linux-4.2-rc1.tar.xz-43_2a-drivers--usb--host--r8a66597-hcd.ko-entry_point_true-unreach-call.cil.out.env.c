@@ -118,10 +118,10 @@ int clk_enable(struct clk *arg0) {
 // Function: clk_get
 // with type: struct clk *clk_get(struct device *, const char *)
 // with return type: (struct clk)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct clk *clk_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct clk *)external_alloc();
+  return external_alloc(sizeof(struct clk));
 }
 
 // Function: clk_prepare
@@ -212,10 +212,10 @@ void ioread32_rep(void *arg0, void *arg1, unsigned long arg2) {
 // Function: ioremap_nocache
 // with type: void *ioremap_nocache(resource_size_t , unsigned long)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: iounmap
@@ -351,10 +351,10 @@ int ldv_resume_noirq_5() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: ldv_suspend_late_5
@@ -417,10 +417,10 @@ void platform_driver_unregister(struct platform_driver *arg0) {
 // Function: platform_get_resource
 // with type: struct resource *platform_get_resource(struct platform_device *, unsigned int, unsigned int)
 // with return type: (struct resource)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct resource *platform_get_resource(struct platform_device *arg0, unsigned int arg1, unsigned int arg2) {
   // Pointer type
-  return (struct resource *)external_alloc();
+  return external_alloc(sizeof(struct resource));
 }
 
 // Function: printk
@@ -448,10 +448,10 @@ int usb_add_hcd(struct usb_hcd *arg0, unsigned int arg1, unsigned long arg2) {
 // Function: usb_create_hcd
 // with type: struct usb_hcd *usb_create_hcd(const struct hc_driver *, struct device *, const char *)
 // with return type: (struct usb_hcd)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_hcd *usb_create_hcd(const struct hc_driver *arg0, struct device *arg1, const char *arg2) {
   // Pointer type
-  return (struct usb_hcd *)external_alloc();
+  return external_alloc(sizeof(struct usb_hcd));
 }
 
 // Function: usb_disabled
@@ -516,10 +516,10 @@ void usb_hcd_unlink_urb_from_ep(struct usb_hcd *arg0, struct urb *arg1) {
 // Function: usb_hub_find_child
 // with type: struct usb_device *usb_hub_find_child(struct usb_device *, int)
 // with return type: (struct usb_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct usb_device *usb_hub_find_child(struct usb_device *arg0, int arg1) {
   // Pointer type
-  return (struct usb_device *)external_alloc();
+  return external_alloc(sizeof(struct usb_device));
 }
 
 // Function: usb_put_hcd

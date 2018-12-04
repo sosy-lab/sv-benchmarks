@@ -8482,9 +8482,9 @@ int __VERIFIER_nondet_int(void);
 int __lbs_cmd(struct lbs_private *arg0, uint16_t arg1, struct cmd_header *arg2, int arg3, int (*arg4)(struct lbs_private *, unsigned long, struct cmd_header *), unsigned long arg5) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sk_buff *__netdev_alloc_skb(struct net_device *arg0, unsigned int arg1, gfp_t arg2) {
-  return (struct sk_buff *)external_alloc();
+  return external_alloc(sizeof(struct sk_buff));
 }
 void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return;
@@ -8509,13 +8509,13 @@ void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
 void kfree_skb(struct sk_buff *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *kmemdup(const void *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lbs_private *lbs_add_card(void *arg0, struct device *arg1) {
-  return (struct lbs_private *)external_alloc();
+  return external_alloc(sizeof(struct lbs_private));
 }
 int __VERIFIER_nondet_int(void);
 int lbs_get_firmware_async(struct lbs_private *arg0, struct device *arg1, u32 arg2, const struct lbs_fw_table *arg3, void (*arg4)(struct lbs_private *, int, const struct firmware *, const struct firmware *)) {
@@ -8590,13 +8590,13 @@ void release_firmware(const struct firmware *arg0) {
 void schedule() {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_pull(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 void usb_deregister(struct usb_driver *arg0) {
   return;
@@ -8612,9 +8612,12 @@ int __VERIFIER_nondet_int(void);
 int usb_reset_device(struct usb_device *arg0) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

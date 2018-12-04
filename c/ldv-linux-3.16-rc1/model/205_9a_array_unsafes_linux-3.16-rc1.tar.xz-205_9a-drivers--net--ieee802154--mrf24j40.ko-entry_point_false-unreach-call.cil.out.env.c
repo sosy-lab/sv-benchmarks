@@ -70,10 +70,10 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 // Function: devm_kmalloc
 // with type: void *devm_kmalloc(struct device *, size_t , gfp_t )
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: devm_request_threaded_irq
@@ -96,10 +96,10 @@ void driver_unregister(struct device_driver *arg0) {
 // Function: ieee802154_alloc_device
 // with type: struct ieee802154_dev *ieee802154_alloc_device(size_t , struct ieee802154_ops *)
 // with return type: (struct ieee802154_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee802154_dev *ieee802154_alloc_device(size_t arg0, struct ieee802154_ops *arg1) {
   // Pointer type
-  return (struct ieee802154_dev *)external_alloc();
+  return external_alloc(sizeof(struct ieee802154_dev));
 }
 
 // Function: ieee802154_free_device
@@ -187,10 +187,10 @@ int printk(const char *arg0, ...) {
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_trim

@@ -193,10 +193,10 @@ void dev_printk(const char *arg0, const struct device *arg1, const char *arg2, .
 // Function: dma_pool_create
 // with type: struct dma_pool *dma_pool_create(const char *, struct device *, size_t , size_t , size_t )
 // with return type: (struct dma_pool)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dma_pool *dma_pool_create(const char *arg0, struct device *arg1, size_t arg2, size_t arg3, size_t arg4) {
   // Pointer type
-  return (struct dma_pool *)external_alloc();
+  return external_alloc(sizeof(struct dma_pool));
 }
 
 // Function: dma_pool_destroy
@@ -236,10 +236,10 @@ int dma_supported(struct device *arg0, u64 arg1) {
 // Function: external_allocated_data
 // with type: void *external_allocated_data()
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Skip function: free
@@ -441,10 +441,10 @@ int request_threaded_irq(unsigned int arg0, irqreturn_t (*arg1)(int, void *), ir
 // Function: sas_alloc_slow_task
 // with type: struct sas_task *sas_alloc_slow_task(gfp_t )
 // with return type: (struct sas_task)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sas_task *sas_alloc_slow_task(gfp_t arg0) {
   // Pointer type
-  return (struct sas_task *)external_alloc();
+  return external_alloc(sizeof(struct sas_task));
 }
 
 // Function: sas_bios_param
@@ -468,10 +468,10 @@ int sas_change_queue_depth(struct scsi_device *arg0, int arg1) {
 // Function: sas_domain_attach_transport
 // with type: struct scsi_transport_template *sas_domain_attach_transport(struct sas_domain_function_template *)
 // with return type: (struct scsi_transport_template)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_transport_template *sas_domain_attach_transport(struct sas_domain_function_template *arg0) {
   // Pointer type
-  return (struct scsi_transport_template *)external_alloc();
+  return external_alloc(sizeof(struct scsi_transport_template));
 }
 
 // Function: sas_drain_work
@@ -512,10 +512,10 @@ void sas_free_task(struct sas_task *arg0) {
 // Function: sas_get_local_phy
 // with type: struct sas_phy *sas_get_local_phy(struct domain_device *)
 // with return type: (struct sas_phy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sas_phy *sas_get_local_phy(struct domain_device *arg0) {
   // Pointer type
-  return (struct sas_phy *)external_alloc();
+  return external_alloc(sizeof(struct sas_phy));
 }
 
 // Function: sas_ioctl
@@ -625,10 +625,10 @@ int scsi_add_host_with_dma(struct Scsi_Host *arg0, struct device *arg1, struct d
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_host_put
@@ -658,10 +658,10 @@ void scsi_scan_host(struct Scsi_Host *arg0) {
 // Function: sg_next
 // with type: struct scatterlist *sg_next(struct scatterlist *)
 // with return type: (struct scatterlist)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
   // Pointer type
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 
 // Skip function: snprintf

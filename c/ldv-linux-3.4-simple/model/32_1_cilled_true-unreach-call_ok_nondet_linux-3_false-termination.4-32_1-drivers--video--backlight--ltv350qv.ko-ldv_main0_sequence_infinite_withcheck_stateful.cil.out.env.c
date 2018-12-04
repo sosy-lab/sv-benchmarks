@@ -13,10 +13,10 @@ void __list_add(struct list_head *arg0, struct list_head *arg1, struct list_head
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -41,10 +41,10 @@ void driver_unregister(struct device_driver *arg0) {
 // Function: lcd_device_register
 // with type: struct lcd_device *lcd_device_register(const char *name, struct device *parent, void *devdata, struct lcd_ops *ops)
 // with return type: (struct lcd_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct lcd_device *lcd_device_register(const char *arg0, struct device *arg1, void *arg2, struct lcd_ops *arg3) {
   // Pointer type
-  return (struct lcd_device *)external_alloc();
+  return external_alloc(sizeof(struct lcd_device));
 }
 
 // Function: lcd_device_unregister

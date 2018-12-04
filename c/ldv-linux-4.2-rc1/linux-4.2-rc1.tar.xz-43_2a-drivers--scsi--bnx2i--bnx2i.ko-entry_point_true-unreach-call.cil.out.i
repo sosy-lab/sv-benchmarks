@@ -16365,9 +16365,9 @@ int del_timer_sync(struct timer_list *arg0) {
 void dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dma_alloc_attrs(struct device *arg0, size_t arg1, dma_addr_t *arg2, gfp_t arg3, struct dma_attrs *arg4) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void dma_free_attrs(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3, struct dma_attrs *arg4) {
   return;
@@ -16385,9 +16385,9 @@ void flush_signals(struct task_struct *arg0) {
 void int_to_scsilun(u64 arg0, struct scsi_lun *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *ioremap_nocache(resource_size_t arg0, unsigned long arg1) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void iounmap(volatile void *arg0) {
   return;
@@ -16407,9 +16407,9 @@ int __VERIFIER_nondet_int(void);
 int iscsi_conn_send_pdu(struct iscsi_cls_conn *arg0, struct iscsi_hdr *arg1, char *arg2, uint32_t arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_cls_conn *iscsi_conn_setup(struct iscsi_cls_session *arg0, int arg1, uint32_t arg2) {
-  return (struct iscsi_cls_conn *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_cls_conn));
 }
 int __VERIFIER_nondet_int(void);
 int iscsi_conn_start(struct iscsi_cls_conn *arg0) {
@@ -16421,9 +16421,9 @@ void iscsi_conn_stop(struct iscsi_cls_conn *arg0, int arg1) {
 void iscsi_conn_teardown(struct iscsi_cls_conn *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_endpoint *iscsi_create_endpoint(int arg0) {
-  return (struct iscsi_endpoint *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_endpoint));
 }
 void iscsi_destroy_endpoint(struct iscsi_endpoint *arg0) {
   return;
@@ -16444,9 +16444,9 @@ int __VERIFIER_nondet_int(void);
 int iscsi_host_add(struct Scsi_Host *arg0, struct device *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *iscsi_host_alloc(struct scsi_host_template *arg0, int arg1, bool arg2) {
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 void iscsi_host_for_each_session(struct Scsi_Host *arg0, void (*arg1)(struct iscsi_cls_session *)) {
   return;
@@ -16461,13 +16461,13 @@ int iscsi_host_get_param(struct Scsi_Host *arg0, enum iscsi_host_param arg1, cha
 void iscsi_host_remove(struct Scsi_Host *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_task *iscsi_itt_to_task(struct iscsi_conn *arg0, itt_t arg1) {
-  return (struct iscsi_task *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_task));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_endpoint *iscsi_lookup_endpoint(u64 arg0) {
-  return (struct iscsi_endpoint *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_endpoint));
 }
 int __VERIFIER_nondet_int(void);
 int iscsi_offload_mesg(struct Scsi_Host *arg0, struct iscsi_transport *arg1, uint32_t arg2, char *arg3, uint16_t arg4) {
@@ -16477,9 +16477,9 @@ int __VERIFIER_nondet_int(void);
 int iscsi_queuecommand(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_transport_template *iscsi_register_transport(struct iscsi_transport *arg0) {
-  return (struct scsi_transport_template *)external_alloc();
+  return external_alloc(sizeof(struct scsi_transport_template));
 }
 void iscsi_session_failure(struct iscsi_session *arg0, enum iscsi_err arg1) {
   return;
@@ -16491,9 +16491,9 @@ int iscsi_session_get_param(struct iscsi_cls_session *arg0, enum iscsi_param arg
 void iscsi_session_recovery_timedout(struct iscsi_cls_session *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iscsi_cls_session *iscsi_session_setup(struct iscsi_transport *arg0, struct Scsi_Host *arg1, uint16_t arg2, int arg3, int arg4, uint32_t arg5, unsigned int arg6) {
-  return (struct iscsi_cls_session *)external_alloc();
+  return external_alloc(sizeof(struct iscsi_cls_session));
 }
 void iscsi_session_teardown(struct iscsi_cls_session *arg0) {
   return;
@@ -16516,9 +16516,9 @@ int iscsi_unregister_transport(struct iscsi_transport *arg0) {
 void kthread_bind(struct task_struct *arg0, unsigned int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct task_struct *kthread_create_on_node(int (*arg0)(void *), void *arg1, int arg2, const char *arg3, ...) {
-  return (struct task_struct *)external_alloc();
+  return external_alloc(sizeof(struct task_struct));
 }
 bool __VERIFIER_nondet_bool(void);
 bool kthread_should_stop() {
@@ -16538,9 +16538,9 @@ int __VERIFIER_nondet_int(void);
 int ldv_probe_6() {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void list_del(struct list_head *arg0) {
   return;
@@ -16554,16 +16554,16 @@ void mutex_lock_nested(struct mutex *arg0, unsigned int arg1) {
 void mutex_unlock(struct mutex *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct pci_dev *pci_dev_get(struct pci_dev *arg0) {
-  return (struct pci_dev *)external_alloc();
+  return external_alloc(sizeof(struct pci_dev));
 }
 void pci_dev_put(struct pci_dev *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *pci_iomap(struct pci_dev *arg0, int arg1, unsigned long arg2) {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 void pci_iounmap(struct pci_dev *arg0, void *arg1) {
   return;
@@ -16604,9 +16604,9 @@ int scsi_is_host_device(const struct device *arg0) {
 void set_user_nice(struct task_struct *arg0, long arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scatterlist *sg_next(struct scatterlist *arg0) {
-  return (struct scatterlist *)external_alloc();
+  return external_alloc(sizeof(struct scatterlist));
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 size_t strlcpy(char *arg0, const char *arg1, size_t arg2) {
@@ -16627,9 +16627,12 @@ int wake_up_process(struct task_struct *arg0) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

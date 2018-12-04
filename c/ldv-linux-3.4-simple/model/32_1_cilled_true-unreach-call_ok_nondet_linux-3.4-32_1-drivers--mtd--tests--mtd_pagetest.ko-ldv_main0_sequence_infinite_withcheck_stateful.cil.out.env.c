@@ -22,10 +22,10 @@ int _cond_resched() {
 // Function: get_mtd_device
 // with type: struct mtd_info *get_mtd_device(struct mtd_info *mtd, int num)
 // with return type: (struct mtd_info)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct mtd_info *get_mtd_device(struct mtd_info *arg0, int arg1) {
   // Pointer type
-  return (struct mtd_info *)external_alloc();
+  return external_alloc(sizeof(struct mtd_info));
 }
 
 // Skip function: kfree

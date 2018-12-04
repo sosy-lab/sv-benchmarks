@@ -31,10 +31,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -57,10 +57,10 @@ void driver_unregister(struct device_driver *arg0) {
 // Function: iio_allocate_device
 // with type: struct iio_dev *iio_allocate_device(int sizeof_priv)
 // with return type: (struct iio_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct iio_dev *iio_allocate_device(int arg0) {
   // Pointer type
-  return (struct iio_dev *)external_alloc();
+  return external_alloc(sizeof(struct iio_dev));
 }
 
 // Function: iio_device_register
@@ -136,10 +136,10 @@ int regulator_enable(struct regulator *arg0) {
 // Function: regulator_get
 // with type: struct regulator *regulator_get(struct device *dev, const char *id)
 // with return type: (struct regulator)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct regulator *regulator_get(struct device *arg0, const char *arg1) {
   // Pointer type
-  return (struct regulator *)external_alloc();
+  return external_alloc(sizeof(struct regulator));
 }
 
 // Function: regulator_put
@@ -153,10 +153,10 @@ void regulator_put(struct regulator *arg0) {
 // Function: spi_get_device_id
 // with type: const struct spi_device_id *spi_get_device_id(const struct spi_device *sdev)
 // with return type: (struct spi_device_id)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct spi_device_id *spi_get_device_id(const struct spi_device *arg0) {
   // Pointer type
-  return (const struct spi_device_id *)external_alloc();
+  return external_alloc(sizeof(const struct spi_device_id));
 }
 
 // Function: spi_register_driver

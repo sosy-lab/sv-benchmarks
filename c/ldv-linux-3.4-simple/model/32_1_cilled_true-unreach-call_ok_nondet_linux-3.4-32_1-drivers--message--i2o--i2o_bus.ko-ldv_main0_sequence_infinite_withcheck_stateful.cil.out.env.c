@@ -22,10 +22,10 @@ void device_remove_file(struct device *arg0, const struct device_attribute *arg1
 // Function: get_device
 // with type: struct device *get_device(struct device *dev)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *get_device(struct device *arg0) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: i2o_driver_register
@@ -48,10 +48,10 @@ void i2o_driver_unregister(struct i2o_driver *arg0) {
 // Function: i2o_msg_get_wait
 // with type: struct i2o_message *i2o_msg_get_wait(struct i2o_controller *, int)
 // with return type: (struct i2o_message)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct i2o_message *i2o_msg_get_wait(struct i2o_controller *arg0, int arg1) {
   // Pointer type
-  return (struct i2o_message *)external_alloc();
+  return external_alloc(sizeof(struct i2o_message));
 }
 
 // Function: i2o_msg_post_wait_mem

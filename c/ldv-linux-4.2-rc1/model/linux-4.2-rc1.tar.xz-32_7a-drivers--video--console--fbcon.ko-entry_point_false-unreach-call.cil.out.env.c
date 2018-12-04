@@ -127,10 +127,10 @@ int del_timer_sync(struct timer_list *arg0) {
 // Function: device_create
 // with type: struct device *device_create(struct class *, struct device *, dev_t , void *, const char *, ...)
 // with return type: (struct device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device *device_create(struct class *arg0, struct device *arg1, dev_t arg2, void *arg3, const char *arg4, ...) {
   // Pointer type
-  return (struct device *)external_alloc();
+  return external_alloc(sizeof(struct device));
 }
 
 // Function: device_create_file
@@ -222,28 +222,28 @@ int fb_copy_cmap(const struct fb_cmap *arg0, struct fb_cmap *arg1) {
 // Function: fb_default_cmap
 // with type: const struct fb_cmap *fb_default_cmap(int)
 // with return type: (struct fb_cmap)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_cmap *fb_default_cmap(int arg0) {
   // Pointer type
-  return (const struct fb_cmap *)external_alloc();
+  return external_alloc(sizeof(const struct fb_cmap));
 }
 
 // Function: fb_find_best_mode
 // with type: const struct fb_videomode *fb_find_best_mode(const struct fb_var_screeninfo *, struct list_head *)
 // with return type: (struct fb_videomode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_videomode *fb_find_best_mode(const struct fb_var_screeninfo *arg0, struct list_head *arg1) {
   // Pointer type
-  return (const struct fb_videomode *)external_alloc();
+  return external_alloc(sizeof(const struct fb_videomode));
 }
 
 // Function: fb_find_nearest_mode
 // with type: const struct fb_videomode *fb_find_nearest_mode(const struct fb_videomode *, struct list_head *)
 // with return type: (struct fb_videomode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_videomode *fb_find_nearest_mode(const struct fb_videomode *arg0, struct list_head *arg1) {
   // Pointer type
-  return (const struct fb_videomode *)external_alloc();
+  return external_alloc(sizeof(const struct fb_videomode));
 }
 
 // Function: fb_get_color_depth
@@ -267,10 +267,10 @@ int fb_is_primary_device(struct fb_info *arg0) {
 // Function: fb_match_mode
 // with type: const struct fb_videomode *fb_match_mode(const struct fb_var_screeninfo *, struct list_head *)
 // with return type: (struct fb_videomode)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct fb_videomode *fb_match_mode(const struct fb_var_screeninfo *arg0, struct list_head *arg1) {
   // Pointer type
-  return (const struct fb_videomode *)external_alloc();
+  return external_alloc(sizeof(const struct fb_videomode));
 }
 
 // Function: fb_mode_is_equal
@@ -363,10 +363,10 @@ void fbcon_set_tileops(struct vc_data *arg0, struct fb_info *arg1) {
 // Function: find_font
 // with type: const struct font_desc *find_font(const char *)
 // with return type: (struct font_desc)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct font_desc *find_font(const char *arg0) {
   // Pointer type
-  return (const struct font_desc *)external_alloc();
+  return external_alloc(sizeof(const struct font_desc));
 }
 
 // Function: flush_workqueue
@@ -380,10 +380,10 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: get_default_font
 // with type: const struct font_desc *get_default_font(int, int, u32 , u32 )
 // with return type: (struct font_desc)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 const struct font_desc *get_default_font(int arg0, int arg1, u32 arg2, u32 arg3) {
   // Pointer type
-  return (const struct font_desc *)external_alloc();
+  return external_alloc(sizeof(const struct font_desc));
 }
 
 // Skip function: kfree

@@ -232,10 +232,10 @@ int driver_attach(struct device_driver *arg0) {
 // Function: driver_find
 // with type: struct device_driver *driver_find(const char *, struct bus_type *)
 // with return type: (struct device_driver)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct device_driver *driver_find(const char *arg0, struct bus_type *arg1) {
   // Pointer type
-  return (struct device_driver *)external_alloc();
+  return external_alloc(sizeof(struct device_driver));
 }
 
 // Function: driver_register
@@ -268,13 +268,13 @@ void flush_workqueue(struct workqueue_struct *arg0) {
 // Function: ktime_get
 // with type: ktime_t ktime_get()
 // with return type: ktime_t 
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void __VERIFIER_assume(int);
 ktime_t ktime_get() {
   // Typedef type
   // Real type: union ktime
   // Composite type
-  union ktime *tmp = (union ktime*)external_alloc();
+  union ktime *tmp = external_alloc(sizeof(union ktime));
   __VERIFIER_assume(tmp != 0);
   return *tmp;
 }

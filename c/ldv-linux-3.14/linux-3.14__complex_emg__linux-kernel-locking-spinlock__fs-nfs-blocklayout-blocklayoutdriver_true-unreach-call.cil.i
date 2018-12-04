@@ -19639,13 +19639,13 @@ void _raw_spin_unlock_bh(raw_spinlock_t *arg0) {
 void add_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct buffer_head *alloc_page_buffers(struct page *arg0, unsigned long arg1, int arg2) {
-  return (struct buffer_head *)external_alloc();
+  return external_alloc(sizeof(struct buffer_head));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *alloc_pages_current(gfp_t arg0, unsigned int arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 int __VERIFIER_nondet_int(void);
 int bh_submit_read(struct buffer_head *arg0) {
@@ -19659,16 +19659,16 @@ int __VERIFIER_nondet_int(void);
 int bio_add_page(struct bio *arg0, struct page *arg1, unsigned int arg2, unsigned int arg3) {
   return __VERIFIER_nondet_int();
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct bio *bio_alloc_bioset(gfp_t arg0, int arg1, struct bio_set *arg2) {
-  return (struct bio *)external_alloc();
+  return external_alloc(sizeof(struct bio));
 }
 void bio_put(struct bio *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct block_device *blkdev_get_by_dev(dev_t arg0, fmode_t arg1, void *arg2) {
-  return (struct block_device *)external_alloc();
+  return external_alloc(sizeof(struct block_device));
 }
 void blkdev_put(struct block_device *arg0, fmode_t arg1) {
   return;
@@ -19683,17 +19683,17 @@ void dput(struct dentry *arg0) {
 void end_page_writeback(struct page *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *external_allocated_data() {
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *find_get_page(struct address_space *arg0, unsigned long arg1) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *find_or_create_page(struct address_space *arg0, unsigned long arg1, gfp_t arg2) {
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 void free_buffer_head(struct buffer_head *arg0) {
   return;
@@ -19817,24 +19817,24 @@ int register_pernet_subsys(struct pernet_operations *arg0) {
 void remove_wait_queue(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *rpc_d_lookup_sb(const struct super_block *arg0, const unsigned char *arg1) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 void rpc_destroy_pipe_data(struct rpc_pipe *arg0) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct super_block *rpc_get_sb_net(const struct net *arg0) {
-  return (struct super_block *)external_alloc();
+  return external_alloc(sizeof(struct super_block));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rpc_pipe *rpc_mkpipe_data(const struct rpc_pipe_ops *arg0, int arg1) {
-  return (struct rpc_pipe *)external_alloc();
+  return external_alloc(sizeof(struct rpc_pipe));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct dentry *rpc_mkpipe_dentry(struct dentry *arg0, const char *arg1, void *arg2, struct rpc_pipe *arg3) {
-  return (struct dentry *)external_alloc();
+  return external_alloc(sizeof(struct dentry));
 }
 long __VERIFIER_nondet_long(void);
 ssize_t rpc_pipe_generic_upcall(struct file *arg0, struct rpc_pipe_msg *arg1, char *arg2, size_t arg3) {
@@ -19884,20 +19884,20 @@ void wait_on_page_bit(struct page *arg0, int arg1) {
 void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_encode_opaque_fixed(__be32 *arg0, const void *arg1, unsigned int arg2) {
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 void xdr_init_decode_pages(struct xdr_stream *arg0, struct xdr_buf *arg1, struct page **arg2, unsigned int arg3) {
   return;
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_inline_decode(struct xdr_stream *arg0, size_t arg1) {
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 __be32 *xdr_reserve_space(struct xdr_stream *arg0, size_t arg1) {
-  return (__be32 *)external_alloc();
+  return external_alloc(sizeof(__be32));
 }
 void xdr_set_scratch_buffer(struct xdr_stream *arg0, void *arg1, size_t arg2) {
   return;
@@ -19906,9 +19906,12 @@ int __VERIFIER_nondet_int(void);
 int default_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void *arg3) {
   return __VERIFIER_nondet_int();
 }
-void *__VERIFIER_nondet_pointer(void);
-void *external_alloc(void) {
-  return __VERIFIER_nondet_pointer();
+char __VERIFIER_nondet_char(void);
+void *external_alloc(unsigned long size) {
+  char *result = malloc(size);
+  for(unsigned long i = 0; i < size; ++i)
+    result[i] = __VERIFIER_nondet_char();
+  return result;
 }
 void free(void *);
 void kfree(void const *p) {

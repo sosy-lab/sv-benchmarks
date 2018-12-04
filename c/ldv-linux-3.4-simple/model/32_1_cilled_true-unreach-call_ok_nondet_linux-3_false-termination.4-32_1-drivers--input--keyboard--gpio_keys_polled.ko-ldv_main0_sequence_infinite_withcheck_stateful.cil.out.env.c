@@ -32,10 +32,10 @@ int dev_err(const struct device *arg0, const char *arg1, ...) {
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *dev)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_set_drvdata
@@ -85,10 +85,10 @@ int gpio_request(unsigned int arg0, const char *arg1) {
 // Function: input_allocate_polled_device
 // with type: struct input_polled_dev *input_allocate_polled_device()
 // with return type: (struct input_polled_dev)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct input_polled_dev *input_allocate_polled_device() {
   // Pointer type
-  return (struct input_polled_dev *)external_alloc();
+  return external_alloc(sizeof(struct input_polled_dev));
 }
 
 // Function: input_event

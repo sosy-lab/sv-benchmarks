@@ -63,10 +63,10 @@ void __raw_spin_lock_init(raw_spinlock_t *arg0, const char *arg1, struct lock_cl
 // Function: __scsi_iterate_devices
 // with type: struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *, struct scsi_device *)
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *arg0, struct scsi_device *arg1) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 
 // Function: _raw_spin_lock_irqsave
@@ -140,10 +140,10 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 // Function: dev_get_drvdata
 // with type: void *dev_get_drvdata(const struct device *)
 // with return type: (void)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 void *dev_get_drvdata(const struct device *arg0) {
   // Pointer type
-  return (void *)external_alloc();
+  return external_alloc(sizeof(void));
 }
 
 // Function: dev_printk
@@ -336,10 +336,10 @@ void mpt_free_msg_frame(MPT_ADAPTER *arg0, MPT_FRAME_HDR *arg1) {
 // Function: mpt_get_msg_frame
 // with type: MPT_FRAME_HDR *mpt_get_msg_frame(u8 , MPT_ADAPTER *)
 // with return type: (MPT_FRAME_HDR )*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 MPT_FRAME_HDR *mpt_get_msg_frame(u8 arg0, MPT_ADAPTER *arg1) {
   // Pointer type
-  return (MPT_FRAME_HDR *)external_alloc();
+  return external_alloc(sizeof(MPT_FRAME_HDR));
 }
 
 // Function: mpt_put_msg_frame
@@ -434,10 +434,10 @@ int mptbase_sas_persist_operation(MPT_ADAPTER *arg0, u8 arg1) {
 // Function: mptscsih_get_scsi_lookup
 // with type: struct scsi_cmnd *mptscsih_get_scsi_lookup(MPT_ADAPTER *, int)
 // with return type: (struct scsi_cmnd)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_cmnd *mptscsih_get_scsi_lookup(MPT_ADAPTER *arg0, int arg1) {
   // Pointer type
-  return (struct scsi_cmnd *)external_alloc();
+  return external_alloc(sizeof(struct scsi_cmnd));
 }
 
 // Function: mptscsih_ioc_reset
@@ -577,28 +577,28 @@ bool queue_delayed_work_on(int arg0, struct workqueue_struct *arg1, struct delay
 // Function: sas_attach_transport
 // with type: struct scsi_transport_template *sas_attach_transport(struct sas_function_template *)
 // with return type: (struct scsi_transport_template)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_transport_template *sas_attach_transport(struct sas_function_template *arg0) {
   // Pointer type
-  return (struct scsi_transport_template *)external_alloc();
+  return external_alloc(sizeof(struct scsi_transport_template));
 }
 
 // Function: sas_end_device_alloc
 // with type: struct sas_rphy *sas_end_device_alloc(struct sas_port *)
 // with return type: (struct sas_rphy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sas_rphy *sas_end_device_alloc(struct sas_port *arg0) {
   // Pointer type
-  return (struct sas_rphy *)external_alloc();
+  return external_alloc(sizeof(struct sas_rphy));
 }
 
 // Function: sas_expander_alloc
 // with type: struct sas_rphy *sas_expander_alloc(struct sas_port *, enum sas_device_type )
 // with return type: (struct sas_rphy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sas_rphy *sas_expander_alloc(struct sas_port *arg0, enum sas_device_type arg1) {
   // Pointer type
-  return (struct sas_rphy *)external_alloc();
+  return external_alloc(sizeof(struct sas_rphy));
 }
 
 // Function: sas_phy_add
@@ -613,10 +613,10 @@ int sas_phy_add(struct sas_phy *arg0) {
 // Function: sas_phy_alloc
 // with type: struct sas_phy *sas_phy_alloc(struct device *, int)
 // with return type: (struct sas_phy)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sas_phy *sas_phy_alloc(struct device *arg0, int arg1) {
   // Pointer type
-  return (struct sas_phy *)external_alloc();
+  return external_alloc(sizeof(struct sas_phy));
 }
 
 // Function: sas_phy_free
@@ -647,10 +647,10 @@ void sas_port_add_phy(struct sas_port *arg0, struct sas_phy *arg1) {
 // Function: sas_port_alloc_num
 // with type: struct sas_port *sas_port_alloc_num(struct device *)
 // with return type: (struct sas_port)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct sas_port *sas_port_alloc_num(struct device *arg0) {
   // Pointer type
-  return (struct sas_port *)external_alloc();
+  return external_alloc(sizeof(struct sas_port));
 }
 
 // Function: sas_port_delete
@@ -748,10 +748,10 @@ void scsi_cmd_get_serial(struct Scsi_Host *arg0, struct scsi_cmnd *arg1) {
 // Function: scsi_device_lookup
 // with type: struct scsi_device *scsi_device_lookup(struct Scsi_Host *, uint , uint , uint )
 // with return type: (struct scsi_device)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct scsi_device *scsi_device_lookup(struct Scsi_Host *arg0, uint arg1, uint arg2, uint arg3) {
   // Pointer type
-  return (struct scsi_device *)external_alloc();
+  return external_alloc(sizeof(struct scsi_device));
 }
 
 // Function: scsi_device_put
@@ -774,10 +774,10 @@ int scsi_device_set_state(struct scsi_device *arg0, enum scsi_device_state arg1)
 // Function: scsi_host_alloc
 // with type: struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *, int)
 // with return type: (struct Scsi_Host)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *arg0, int arg1) {
   // Pointer type
-  return (struct Scsi_Host *)external_alloc();
+  return external_alloc(sizeof(struct Scsi_Host));
 }
 
 // Function: scsi_is_host_device

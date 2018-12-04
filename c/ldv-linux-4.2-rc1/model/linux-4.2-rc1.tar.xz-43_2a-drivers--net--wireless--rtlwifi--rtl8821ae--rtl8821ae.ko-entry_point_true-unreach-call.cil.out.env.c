@@ -135,10 +135,10 @@ void efuse_shadow_read(struct ieee80211_hw *arg0, u8 arg1, u16 arg2, u32 *arg3) 
 // Function: ieee80211_find_sta
 // with type: struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *, const u8 *)
 // with return type: (struct ieee80211_sta)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *arg0, const u8 *arg1) {
   // Pointer type
-  return (struct ieee80211_sta *)external_alloc();
+  return external_alloc(sizeof(struct ieee80211_sta));
 }
 
 // Function: jiffies_to_msecs
@@ -294,10 +294,10 @@ int ldv_shutdown_1() {
 // Function: ldv_some_page
 // with type: struct page *ldv_some_page()
 // with return type: (struct page)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct page *ldv_some_page() {
   // Pointer type
-  return (struct page *)external_alloc();
+  return external_alloc(sizeof(struct page));
 }
 
 // Function: ldv_suspend_late_2
@@ -458,10 +458,10 @@ int request_firmware_nowait(struct module *arg0, bool arg1, const char *arg2, st
 // Function: rtl_btc_get_ops_pointer
 // with type: struct rtl_btc_ops *rtl_btc_get_ops_pointer()
 // with return type: (struct rtl_btc_ops)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 struct rtl_btc_ops *rtl_btc_get_ops_pointer() {
   // Pointer type
-  return (struct rtl_btc_ops *)external_alloc();
+  return external_alloc(sizeof(struct rtl_btc_ops));
 }
 
 // Function: rtl_cam_add_one_entry
@@ -681,19 +681,19 @@ int rtlwifi_rate_mapping(struct ieee80211_hw *arg0, bool arg1, bool arg2, u8 arg
 // Function: skb_push
 // with type: unsigned char *skb_push(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_push(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: skb_put
 // with type: unsigned char *skb_put(struct sk_buff *, unsigned int)
 // with return type: (unsigned char)*
-void *external_alloc(void);
+void *external_alloc(unsigned long);
 unsigned char *skb_put(struct sk_buff *arg0, unsigned int arg1) {
   // Pointer type
-  return (unsigned char *)external_alloc();
+  return external_alloc(sizeof(unsigned char));
 }
 
 // Function: vfree
