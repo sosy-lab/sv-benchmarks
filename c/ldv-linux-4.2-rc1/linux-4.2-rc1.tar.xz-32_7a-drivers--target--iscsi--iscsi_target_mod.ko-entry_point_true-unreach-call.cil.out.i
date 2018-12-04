@@ -693,7 +693,9 @@ struct call_single_data {
    void *info ;
    unsigned int flags ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 struct kernel_cap_struct {
    __u32 cap[2U] ;
 };

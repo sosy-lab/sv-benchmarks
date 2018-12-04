@@ -2249,7 +2249,9 @@ struct max8649_platform_data {
    unsigned char ramp_timing : 3 ;
    unsigned char ramp_down : 1 ;
 };
-struct regmap;
+struct regmap {
+  int __dummy;
+};
 struct regmap;
 enum regcache_type {
     REGCACHE_NONE = 0,

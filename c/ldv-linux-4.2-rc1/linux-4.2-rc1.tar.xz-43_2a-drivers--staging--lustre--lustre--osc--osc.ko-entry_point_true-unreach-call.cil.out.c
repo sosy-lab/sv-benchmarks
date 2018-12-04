@@ -5958,7 +5958,9 @@ struct cfs_crypto_hash_type {
    unsigned int cht_key ;
    unsigned int cht_size ;
 };
-struct cfs_crypto_hash_desc;
+struct cfs_crypto_hash_desc {
+  int __dummy;
+};
 typedef __u64 lnet_nid_t;
 typedef __u32 lnet_pid_t;
 struct __anonstruct_lnet_handle_any_t_370 {

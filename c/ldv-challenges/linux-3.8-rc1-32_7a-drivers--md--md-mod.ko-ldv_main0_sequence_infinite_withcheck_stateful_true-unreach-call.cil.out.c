@@ -562,7 +562,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -1675,7 +1677,9 @@ struct sysfs_ops {
    ssize_t (*store)(struct kobject * , struct attribute * , char const   * , size_t  ) ;
    void const   *(*namespace)(struct kobject * , struct attribute  const  * ) ;
 };
-struct sysfs_dirent;
+struct sysfs_dirent {
+  int __dummy;
+};
 struct kref {
    atomic_t refcount ;
 };
@@ -2762,7 +2766,9 @@ struct exception_table_entry {
    int insn ;
    int fixup ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct fprop_local_percpu {
    struct percpu_counter events ;
    unsigned int period ;

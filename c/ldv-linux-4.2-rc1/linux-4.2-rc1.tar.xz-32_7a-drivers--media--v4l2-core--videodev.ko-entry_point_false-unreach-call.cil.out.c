@@ -5677,7 +5677,9 @@ struct v4l2_subdev_crop {
    __u32 reserved[8U] ;
 };
 enum hrtimer_restart;
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct v4l2_clk_ops;
 struct v4l2_clk {
    struct list_head list ;

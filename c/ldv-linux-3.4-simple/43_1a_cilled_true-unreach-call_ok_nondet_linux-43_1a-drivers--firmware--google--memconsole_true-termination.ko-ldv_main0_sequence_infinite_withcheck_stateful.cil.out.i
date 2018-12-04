@@ -27,7 +27,9 @@ struct list_head {
    struct list_head *next ;
    struct list_head *prev ;
 };
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct file;
 struct file;

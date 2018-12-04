@@ -5157,7 +5157,9 @@ enum rfkill_type {
     RFKILL_TYPE_FM = 7,
     NUM_RFKILL_TYPES = 8
 } ;
-struct rfkill;
+struct rfkill {
+  int __dummy;
+};
 struct rfkill_ops {
    void (*poll)(struct rfkill * , void * ) ;
    void (*query)(struct rfkill * , void * ) ;

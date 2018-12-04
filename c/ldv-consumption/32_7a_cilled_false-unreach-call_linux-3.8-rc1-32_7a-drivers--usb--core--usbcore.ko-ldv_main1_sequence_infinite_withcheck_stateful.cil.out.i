@@ -3124,7 +3124,9 @@ struct urb {
 };
 struct hc_driver;
 struct usb_phy;
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct usb_hcd {
    struct usb_bus self ;
    struct kref kref ;

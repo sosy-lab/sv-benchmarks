@@ -5014,7 +5014,9 @@ struct eeprom_93cx6 {
    char reg_data_clock ;
    char reg_chip_select ;
 };
-struct regulator;
+struct regulator {
+  int __dummy;
+};
 struct kthread_work;
 struct kthread_worker {
    spinlock_t lock ;

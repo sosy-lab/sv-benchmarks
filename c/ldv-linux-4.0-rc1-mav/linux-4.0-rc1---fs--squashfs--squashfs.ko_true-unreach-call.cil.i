@@ -299,7 +299,9 @@ struct fpu {
    unsigned int has_fpu ;
    union thread_xstate *state ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 struct perf_event;
 struct thread_struct {
    struct desc_struct tls_array[3U] ;
@@ -3680,7 +3682,9 @@ struct xz_buf {
    size_t out_pos ;
    size_t out_size ;
 };
-struct xz_dec;
+struct xz_dec {
+  int __dummy;
+};
 struct squashfs_xz {
    struct xz_dec *state ;
    struct xz_buf buf ;

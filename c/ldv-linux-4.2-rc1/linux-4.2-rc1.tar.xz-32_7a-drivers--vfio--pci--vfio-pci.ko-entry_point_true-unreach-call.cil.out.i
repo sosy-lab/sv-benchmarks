@@ -2080,7 +2080,9 @@ struct bus_type;
 struct device_node;
 struct fwnode_handle;
 struct iommu_ops;
-struct iommu_group;
+struct iommu_group {
+  int __dummy;
+};
 struct device_attribute;
 struct bus_type {
    char const *name ;
@@ -2230,7 +2232,9 @@ struct wakeup_source {
    bool active ;
    bool autosleep_enabled ;
 };
-struct eventfd_ctx;
+struct eventfd_ctx {
+  int __dummy;
+};
 struct vfsmount;
 struct fd {
    struct file *file ;
@@ -2551,7 +2555,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct pci_saved_state;
+struct pci_saved_state {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;
@@ -3599,8 +3605,12 @@ struct vfio_device_ops {
    int (*mmap)(void * , struct vm_area_struct * ) ;
    void (*request)(void * , unsigned int ) ;
 };
-struct vfio_device;
-struct vfio_group;
+struct vfio_device {
+  int __dummy;
+};
+struct vfio_group {
+  int __dummy;
+};
 struct virqfd {
    void *opaque ;
    struct eventfd_ctx *eventfd ;

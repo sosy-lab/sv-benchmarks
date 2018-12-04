@@ -2428,7 +2428,9 @@ struct file_system_type {
    struct lock_class_key i_mutex_key ;
    struct lock_class_key i_mutex_dir_key ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct regulator;
 struct regulator_bulk_data {
    char const *supply ;

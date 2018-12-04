@@ -478,7 +478,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -3503,7 +3505,9 @@ enum rfkill_type {
     RFKILL_TYPE_FM = 7,
     NUM_RFKILL_TYPES = 8
 } ;
-struct rfkill;
+struct rfkill {
+  int __dummy;
+};
 struct rfkill_ops {
    void (*poll)(struct rfkill * , void * ) ;
    void (*query)(struct rfkill * , void * ) ;

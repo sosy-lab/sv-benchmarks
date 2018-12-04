@@ -41,7 +41,9 @@ struct module;
 typedef void (*ctor_fn_t)(void);
 struct device;
 struct completion;
-struct page;
+struct page {
+  int __dummy;
+};
 struct task_struct;
 struct file;
 struct arch_spinlock;

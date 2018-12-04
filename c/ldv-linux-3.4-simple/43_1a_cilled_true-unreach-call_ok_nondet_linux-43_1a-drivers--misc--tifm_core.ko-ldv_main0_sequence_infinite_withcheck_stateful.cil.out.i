@@ -223,7 +223,9 @@ struct timer_list {
    char start_comm[16U] ;
    struct lockdep_map lockdep_map ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct workqueue_struct;
 struct work_struct;
 struct work_struct;

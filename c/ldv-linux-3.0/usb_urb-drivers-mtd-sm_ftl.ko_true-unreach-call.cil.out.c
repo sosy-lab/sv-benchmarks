@@ -512,7 +512,9 @@ struct hrtimer;
 struct hrtimer;
 enum hrtimer_restart;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct workqueue_struct;
 struct workqueue_struct;
 struct work_struct;

@@ -5111,7 +5111,9 @@ struct rtc_device {
    unsigned int uie_task_active : 1 ;
    unsigned int uie_timer_active : 1 ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct res_counter {
    unsigned long long usage ;
    unsigned long long max_usage ;
@@ -6384,8 +6386,12 @@ struct ptp_clock_info {
    int (*settime)(struct ptp_clock_info * , struct timespec  const  * ) ;
    int (*enable)(struct ptp_clock_info * , struct ptp_clock_request * , int  ) ;
 };
-struct ptp_clock;
-struct reset_control;
+struct ptp_clock {
+  int __dummy;
+};
+struct reset_control {
+  int __dummy;
+};
 struct stmmac_priv {
    struct dma_extended_desc *dma_etx ;
    struct dma_desc *dma_tx ;

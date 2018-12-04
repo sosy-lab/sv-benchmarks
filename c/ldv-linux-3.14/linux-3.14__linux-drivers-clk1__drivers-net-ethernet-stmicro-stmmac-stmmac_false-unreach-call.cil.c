@@ -81,7 +81,9 @@ struct callback_head {
    struct callback_head *next ;
    void (*func)(struct callback_head * ) ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct ldv_thread;
 struct kernel_symbol {
    unsigned long value ;
@@ -6385,8 +6387,12 @@ struct ptp_clock_info {
    int (*settime)(struct ptp_clock_info * , struct timespec  const  * ) ;
    int (*enable)(struct ptp_clock_info * , struct ptp_clock_request * , int  ) ;
 };
-struct ptp_clock;
-struct reset_control;
+struct ptp_clock {
+  int __dummy;
+};
+struct reset_control {
+  int __dummy;
+};
 struct stmmac_priv {
    struct dma_extended_desc *dma_etx ;
    struct dma_desc *dma_tx ;

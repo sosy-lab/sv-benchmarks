@@ -592,7 +592,9 @@ struct ctl_table_root {
    struct ctl_table_set *(*lookup)(struct ctl_table_root * , struct nsproxy * ) ;
    int (*permissions)(struct ctl_table_header * , struct ctl_table * ) ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -5300,7 +5302,9 @@ struct pcpu_sw_netstats {
    u64 tx_bytes ;
    struct u64_stats_sync syncp ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 typedef u64 acpi_io_address;
 typedef void *acpi_handle;
 typedef u32 acpi_object_type;
@@ -5612,7 +5616,9 @@ struct ptp_clock_info {
    int (*verify)(struct ptp_clock_info * , unsigned int  , enum ptp_pin_function  ,
                  unsigned int  ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 struct cyclecounter {
    cycle_t (*read)(struct cyclecounter  const  * ) ;
    cycle_t mask ;

@@ -514,7 +514,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -7273,7 +7275,9 @@ struct ptp_clock_info {
    int (*settime)(struct ptp_clock_info * , struct timespec  const  * ) ;
    int (*enable)(struct ptp_clock_info * , struct ptp_clock_request * , int  ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 union __anonunion____missing_field_name_265 {
    u64 timestamp ;
    struct pps_event_time pps_times ;

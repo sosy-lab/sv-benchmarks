@@ -555,7 +555,9 @@ struct ctl_table_root {
    struct ctl_table_set *(*lookup)(struct ctl_table_root * , struct nsproxy * ) ;
    int (*permissions)(struct ctl_table_header * , struct ctl_table * ) ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -726,7 +728,9 @@ struct call_single_data {
    void *info ;
    unsigned int flags ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 struct kernel_cap_struct {
    __u32 cap[2U] ;
 };
@@ -4492,7 +4496,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct acpi_device;
 struct pci_sysdata {
    int domain ;

@@ -6391,7 +6391,9 @@ struct blk_mq_ops {
    exit_request_fn *exit_request ;
 };
 struct scsi_host_cmd_pool;
-struct scsi_transport_template;
+struct scsi_transport_template {
+  int __dummy;
+};
 struct scsi_host_template {
    struct module *module ;
    char const *name ;

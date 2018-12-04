@@ -515,7 +515,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -1307,7 +1309,9 @@ struct scatterlist {
    dma_addr_t dma_address ;
    unsigned int dma_length ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;
@@ -4405,7 +4409,9 @@ struct scsi_target {
    unsigned long starget_data[0U] ;
 };
 struct scsi_host_cmd_pool;
-struct scsi_transport_template;
+struct scsi_transport_template {
+  int __dummy;
+};
 struct scsi_host_template {
    struct module *module ;
    char const *name ;

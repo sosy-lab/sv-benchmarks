@@ -533,7 +533,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -5503,7 +5505,9 @@ struct ptp_clock_info {
    int (*verify)(struct ptp_clock_info * , unsigned int , enum ptp_pin_function ,
                  unsigned int ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 enum mlx4_qp_state {
     MLX4_QP_STATE_RST = 0,
     MLX4_QP_STATE_INIT = 1,

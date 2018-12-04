@@ -4960,7 +4960,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct iw_param {
    __s32 value ;
    __u8 fixed ;

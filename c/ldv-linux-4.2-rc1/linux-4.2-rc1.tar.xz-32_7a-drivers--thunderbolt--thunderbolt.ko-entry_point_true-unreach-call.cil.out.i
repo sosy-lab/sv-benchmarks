@@ -459,7 +459,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -2688,7 +2690,9 @@ typedef bool ldv_func_ret_type___6;
 typedef int ldv_func_ret_type___7;
 typedef __u32 __be32;
 enum hrtimer_restart;
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct __kfifo {
    unsigned int in ;
    unsigned int out ;

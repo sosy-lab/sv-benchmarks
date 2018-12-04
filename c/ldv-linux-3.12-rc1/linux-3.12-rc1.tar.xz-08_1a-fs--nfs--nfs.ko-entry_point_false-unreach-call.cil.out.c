@@ -573,7 +573,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -3090,7 +3092,9 @@ struct file_system_type {
    struct lock_class_key i_mutex_key ;
    struct lock_class_key i_mutex_dir_key ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct rpc_program;
 struct rpc_stat {
    struct rpc_program  const  *program ;
@@ -6430,11 +6434,15 @@ struct backing_dev_info {
    struct dentry *debug_stats ;
 };
 struct nfs_iostats;
-struct nlm_host;
+struct nlm_host {
+  int __dummy;
+};
 struct nfs4_minor_version_ops;
 struct idmap;
 struct nfs4_slot_table;
-struct fscache_cookie;
+struct fscache_cookie {
+  int __dummy;
+};
 struct nfs_client {
    atomic_t cl_count ;
    atomic_t cl_mds_count ;

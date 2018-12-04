@@ -1148,7 +1148,9 @@ struct bus_type;
 struct device;
 struct dma_attrs;
 struct scatterlist;
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct page;
 struct block_device;
 struct block_device;

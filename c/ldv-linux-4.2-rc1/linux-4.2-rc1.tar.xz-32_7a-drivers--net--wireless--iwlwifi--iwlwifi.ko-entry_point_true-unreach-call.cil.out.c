@@ -554,7 +554,9 @@ struct ctl_table_root {
    struct ctl_table_set *(*lookup)(struct ctl_table_root * , struct nsproxy * ) ;
    int (*permissions)(struct ctl_table_header * , struct ctl_table * ) ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -705,7 +707,9 @@ struct llist_node;
 struct llist_node {
    struct llist_node *next ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 struct kernel_cap_struct {
    __u32 cap[2U] ;
 };

@@ -621,7 +621,9 @@ struct ctl_table_root {
    struct ctl_table_set *(*lookup)(struct ctl_table_root * , struct nsproxy * ) ;
    int (*permissions)(struct ctl_table_header * , struct ctl_table * ) ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -3319,7 +3321,9 @@ struct exception_table_entry {
    int insn ;
    int fixup ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct fprop_local_percpu {
    struct percpu_counter events ;
    unsigned int period ;

@@ -4630,8 +4630,12 @@ enum ttm_object_type {
     ttm_driver_type4 = 260,
     ttm_driver_type5 = 261
 } ;
-struct ttm_object_file;
-struct ttm_object_device;
+struct ttm_object_file {
+  int __dummy;
+};
+struct ttm_object_device {
+  int __dummy;
+};
 struct ttm_base_object {
    struct drm_hash_item hash ;
    enum ttm_object_type object_type ;

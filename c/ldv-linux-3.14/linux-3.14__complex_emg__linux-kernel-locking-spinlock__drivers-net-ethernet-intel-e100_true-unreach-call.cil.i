@@ -4926,7 +4926,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 typedef __u64 Elf64_Addr;
 typedef __u16 Elf64_Half;
 typedef __u32 Elf64_Word;

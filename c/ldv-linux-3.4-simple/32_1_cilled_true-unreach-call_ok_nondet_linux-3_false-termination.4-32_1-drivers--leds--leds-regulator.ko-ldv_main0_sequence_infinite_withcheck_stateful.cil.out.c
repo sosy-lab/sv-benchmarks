@@ -837,7 +837,9 @@ struct platform_driver {
    struct platform_device_id  const  *id_table ;
 };
 struct device;
-struct regulator;
+struct regulator {
+  int __dummy;
+};
 struct regulator;
 struct regulator_led {
    struct led_classdev cdev ;

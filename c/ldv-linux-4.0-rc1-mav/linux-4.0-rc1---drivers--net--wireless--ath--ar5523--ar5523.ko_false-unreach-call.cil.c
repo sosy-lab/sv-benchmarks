@@ -645,7 +645,9 @@ struct llist_node;
 struct llist_node {
    struct llist_node *next ;
 };
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;

@@ -564,7 +564,9 @@ struct timer_list {
 };
 struct hrtimer;
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -1518,7 +1520,9 @@ union __anonunion_ki_obj_163 {
    void *user ;
    struct task_struct *tsk ;
 };
-struct eventfd_ctx;
+struct eventfd_ctx {
+  int __dummy;
+};
 struct kiocb {
    struct list_head ki_run_list ;
    unsigned long ki_flags ;

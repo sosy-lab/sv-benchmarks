@@ -1346,7 +1346,9 @@ struct scatterlist {
    dma_addr_t dma_address ;
    unsigned int dma_length ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct vm_fault {
    unsigned int flags ;
    unsigned long pgoff ;
@@ -1571,7 +1573,9 @@ struct device_node {
    unsigned long _flags ;
    void *data ;
 };
-struct gpio_desc;
+struct gpio_desc {
+  int __dummy;
+};
 struct pch_udc_data_dma_desc {
    u32 status ;
    u32 reserved ;

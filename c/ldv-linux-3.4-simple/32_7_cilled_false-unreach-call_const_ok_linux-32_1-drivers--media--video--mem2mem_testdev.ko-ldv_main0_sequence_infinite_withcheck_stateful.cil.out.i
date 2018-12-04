@@ -3358,7 +3358,9 @@ struct v4l2_m2m_ops {
    void (*lock)(void *priv ) ;
    void (*unlock)(void *priv ) ;
 };
-struct v4l2_m2m_dev;
+struct v4l2_m2m_dev {
+  int __dummy;
+};
 struct v4l2_m2m_dev;
 struct v4l2_m2m_queue_ctx {
    struct vb2_queue q ;

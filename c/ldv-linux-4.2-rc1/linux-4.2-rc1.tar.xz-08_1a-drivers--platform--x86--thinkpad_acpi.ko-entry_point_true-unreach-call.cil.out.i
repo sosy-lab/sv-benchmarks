@@ -513,7 +513,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -2877,7 +2879,9 @@ struct file_system_type {
    struct lock_class_key i_mutex_key ;
    struct lock_class_key i_mutex_dir_key ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct seq_file {
    char *buf ;
    size_t size ;
@@ -3754,7 +3758,9 @@ enum rfkill_type {
     RFKILL_TYPE_NFC = 8,
     NUM_RFKILL_TYPES = 9
 } ;
-struct rfkill;
+struct rfkill {
+  int __dummy;
+};
 struct rfkill_ops {
    void (*poll)(struct rfkill * , void * ) ;
    void (*query)(struct rfkill * , void * ) ;

@@ -3017,7 +3017,9 @@ enum rfkill_type {
     NUM_RFKILL_TYPES = 8
 } ;
 struct platform_device;
-struct rfkill;
+struct rfkill {
+  int __dummy;
+};
 struct rfkill_ops {
    void (*poll)(struct rfkill * , void * ) ;
    void (*query)(struct rfkill * , void * ) ;

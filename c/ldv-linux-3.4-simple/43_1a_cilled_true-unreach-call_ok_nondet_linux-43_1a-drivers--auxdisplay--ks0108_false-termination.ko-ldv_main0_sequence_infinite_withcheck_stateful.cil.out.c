@@ -37,7 +37,9 @@ struct module;
 typedef void (*ctor_fn_t)(void);
 struct device;
 struct device;
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct task_struct;
 struct task_struct;

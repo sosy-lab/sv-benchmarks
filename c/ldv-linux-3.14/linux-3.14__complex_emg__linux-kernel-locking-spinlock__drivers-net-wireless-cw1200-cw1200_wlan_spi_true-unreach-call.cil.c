@@ -1369,7 +1369,9 @@ struct radix_tree_root {
    gfp_t gfp_mask ;
    struct radix_tree_node *rnode ;
 };
-struct gpio_desc;
+struct gpio_desc {
+  int __dummy;
+};
 enum irqreturn {
     IRQ_NONE = 0,
     IRQ_HANDLED = 1,

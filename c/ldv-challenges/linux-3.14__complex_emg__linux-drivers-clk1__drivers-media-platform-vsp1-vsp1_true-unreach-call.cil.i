@@ -74,7 +74,9 @@ struct callback_head {
    struct callback_head *next ;
    void (*func)(struct callback_head * ) ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct resource {
    resource_size_t start ;
    resource_size_t end ;

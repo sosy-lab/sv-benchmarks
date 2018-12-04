@@ -2518,7 +2518,9 @@ struct radix_tree_root {
    gfp_t gfp_mask ;
    struct radix_tree_node *rnode ;
 };
-struct regmap;
+struct regmap {
+  int __dummy;
+};
 struct regmap_range_cfg;
 enum regcache_type {
     REGCACHE_NONE = 0,

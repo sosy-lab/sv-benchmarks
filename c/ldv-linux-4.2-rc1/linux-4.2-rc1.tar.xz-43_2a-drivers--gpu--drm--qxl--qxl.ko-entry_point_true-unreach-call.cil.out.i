@@ -523,7 +523,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -4566,7 +4568,9 @@ struct drm_master {
    struct drm_lock_data lock ;
    void *driver_priv ;
 };
-struct dma_buf;
+struct dma_buf {
+  int __dummy;
+};
 struct drm_driver {
    int (*load)(struct drm_device * , unsigned long ) ;
    int (*firstopen)(struct drm_device * ) ;

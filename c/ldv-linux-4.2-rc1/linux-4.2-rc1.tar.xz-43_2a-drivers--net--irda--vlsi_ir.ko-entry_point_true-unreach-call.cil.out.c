@@ -2219,7 +2219,9 @@ enum irqreturn {
     IRQ_WAKE_THREAD = 2
 } ;
 typedef enum irqreturn irqreturn_t;
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct exception_table_entry {
    int insn ;
    int fixup ;
@@ -5963,7 +5965,9 @@ struct qos_info {
    qos_value_t link_disc_time ;
    qos_value_t power ;
 };
-struct irlap_cb;
+struct irlap_cb {
+  int __dummy;
+};
 struct irda_skb_cb {
    unsigned int default_qdisc_pad ;
    magic_t magic ;

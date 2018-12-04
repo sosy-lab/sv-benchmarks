@@ -2169,7 +2169,9 @@ struct vm_operations_struct {
 struct wm8400_platform_data {
    int (*platform_init)(struct device * ) ;
 };
-struct regmap;
+struct regmap {
+  int __dummy;
+};
 struct regmap;
 struct wm8400 {
    struct device *dev ;

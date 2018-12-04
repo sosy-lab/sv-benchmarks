@@ -2836,7 +2836,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct tasklet_struct {
    struct tasklet_struct *next ;
    unsigned long state ;

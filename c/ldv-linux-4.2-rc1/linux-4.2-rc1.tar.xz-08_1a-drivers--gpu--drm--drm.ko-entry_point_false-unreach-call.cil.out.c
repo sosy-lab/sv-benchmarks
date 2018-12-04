@@ -2169,7 +2169,9 @@ struct agp_kern_info {
    unsigned long page_mask ;
    struct vm_operations_struct  const  *vm_ops ;
 };
-struct agp_bridge_data;
+struct agp_bridge_data {
+  int __dummy;
+};
 struct scatterlist;
 struct cdev {
    struct kobject kobj ;

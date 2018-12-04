@@ -3528,7 +3528,9 @@ struct linux_mib {
 struct linux_xfrm_mib {
    unsigned long mibs[29U] ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct netns_mib {
    struct tcp_mib *tcp_statistics[1U] ;
    struct ipstats_mib *ip_statistics[1U] ;
@@ -5518,7 +5520,9 @@ struct qos_info {
    qos_value_t link_disc_time ;
    qos_value_t power ;
 };
-struct irlap_cb;
+struct irlap_cb {
+  int __dummy;
+};
 struct irda_skb_cb {
    unsigned int default_qdisc_pad ;
    magic_t magic ;

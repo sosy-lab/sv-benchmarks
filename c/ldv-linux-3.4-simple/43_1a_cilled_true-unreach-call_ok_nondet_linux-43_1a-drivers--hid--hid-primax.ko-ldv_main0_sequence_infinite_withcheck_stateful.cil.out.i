@@ -70,7 +70,9 @@ struct pid;
 struct pid;
 struct timespec;
 struct timespec;
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct task_struct;
 struct task_struct;

@@ -551,7 +551,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -2636,7 +2638,9 @@ struct sg_table {
    unsigned int nents ;
    unsigned int orig_nents ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;
@@ -4950,7 +4954,9 @@ struct blk_mq_ops {
    exit_request_fn *exit_request ;
 };
 struct scsi_host_cmd_pool;
-struct scsi_transport_template;
+struct scsi_transport_template {
+  int __dummy;
+};
 struct scsi_host_template {
    struct module *module ;
    char const   *name ;

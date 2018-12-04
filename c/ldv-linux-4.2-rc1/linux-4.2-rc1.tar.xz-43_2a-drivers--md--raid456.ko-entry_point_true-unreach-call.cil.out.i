@@ -560,7 +560,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -798,7 +800,9 @@ union __anonunion____missing_field_name_157 {
    struct __anonstruct____missing_field_name_159 __annonCompField44 ;
    pgtable_t pmd_huge_pte ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 union __anonunion____missing_field_name_160 {
    unsigned long private ;
    spinlock_t *ptl ;

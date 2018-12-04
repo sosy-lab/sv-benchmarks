@@ -2788,7 +2788,9 @@ struct spi_message {
    void *state ;
 };
 struct device;
-struct adxl34x;
+struct adxl34x {
+  int __dummy;
+};
 struct adxl34x;
 struct adxl34x_bus_ops {
    u16 bustype ;

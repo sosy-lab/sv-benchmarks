@@ -3125,7 +3125,9 @@ struct exception_table_entry {
    int insn ;
    int fixup ;
 };
-struct dm_bufio_client;
+struct dm_bufio_client {
+  int __dummy;
+};
 struct dm_buffer;
 typedef __u64 Elf64_Addr;
 typedef __u16 Elf64_Half;

@@ -5244,7 +5244,9 @@ struct pv_lock_ops {
    void (*spin_unlock)(struct arch_spinlock * ) ;
 };
 enum hrtimer_restart;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct netdev_hw_addr {
    struct list_head list ;
    unsigned char addr[32U] ;

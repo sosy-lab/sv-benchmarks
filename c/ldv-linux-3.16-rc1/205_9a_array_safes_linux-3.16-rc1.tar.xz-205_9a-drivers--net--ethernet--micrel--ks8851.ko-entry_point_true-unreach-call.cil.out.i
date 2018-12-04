@@ -5118,7 +5118,9 @@ struct eeprom_93cx6 {
    char reg_data_clock ;
    char reg_chip_select ;
 };
-struct regulator;
+struct regulator {
+  int __dummy;
+};
 typedef unsigned long kernel_ulong_t;
 struct acpi_device_id {
    __u8 id[9U] ;

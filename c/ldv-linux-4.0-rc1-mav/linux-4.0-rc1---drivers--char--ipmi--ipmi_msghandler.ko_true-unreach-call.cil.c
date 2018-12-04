@@ -2186,7 +2186,9 @@ struct exception_table_entry {
    int insn ;
    int fixup ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct nsproxy;
 typedef __u64 Elf64_Addr;
 typedef __u16 Elf64_Half;

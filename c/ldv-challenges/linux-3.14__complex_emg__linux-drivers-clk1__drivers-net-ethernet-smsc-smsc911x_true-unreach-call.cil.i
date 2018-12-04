@@ -78,7 +78,9 @@ struct callback_head {
    struct callback_head *next ;
    void (*func)(struct callback_head * ) ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 struct kernel_symbol {
    unsigned long value ;
    char const *name ;

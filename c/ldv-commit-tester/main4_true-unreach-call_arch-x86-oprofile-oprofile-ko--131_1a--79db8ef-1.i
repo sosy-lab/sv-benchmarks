@@ -1570,7 +1570,9 @@ struct op_entry {
    unsigned long size ;
    unsigned long *data ;
 };
-struct ring_buffer;
+struct ring_buffer {
+  int __dummy;
+};
 struct ring_buffer_event {
    unsigned char type_len : 5 ;
    unsigned int time_delta : 27 ;
@@ -2353,7 +2355,9 @@ struct __wait_queue {
    struct list_head task_list ;
 };
 enum hrtimer_restart;
-struct dcookie_user;
+struct dcookie_user {
+  int __dummy;
+};
 typedef unsigned long ulong;
 typedef int ldv_func_ret_type___3;
 struct exception_table_entry {

@@ -2871,7 +2871,9 @@ struct urb {
    struct usb_iso_packet_descriptor iso_frame_desc[0U] ;
 };
 struct hc_driver;
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct usb_hcd {
    struct usb_bus self ;
    struct kref kref ;

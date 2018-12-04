@@ -6275,7 +6275,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;
@@ -6421,7 +6423,9 @@ struct ptp_clock_info {
    int (*verify)(struct ptp_clock_info * , unsigned int  , enum ptp_pin_function  ,
                  unsigned int  ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 enum i40e_status_code {
     I40E_SUCCESS = 0,
     I40E_ERR_NVM = -1,

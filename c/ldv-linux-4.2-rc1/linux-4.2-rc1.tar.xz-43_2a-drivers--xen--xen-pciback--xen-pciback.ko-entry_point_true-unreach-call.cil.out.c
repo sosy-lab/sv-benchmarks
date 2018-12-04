@@ -510,7 +510,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -2550,7 +2552,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct pci_saved_state;
+struct pci_saved_state {
+  int __dummy;
+};
 struct vm_fault {
    unsigned int flags ;
    unsigned long pgoff ;

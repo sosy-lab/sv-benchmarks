@@ -3283,7 +3283,9 @@ struct gendisk {
    struct blk_integrity *integrity ;
    int node_id ;
 };
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct fprop_local_percpu {
    struct percpu_counter events ;
    unsigned int period ;

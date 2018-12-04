@@ -739,7 +739,9 @@ struct sensor_device_attribute {
    struct device_attribute dev_attr ;
    int index ;
 };
-struct s3c_adc_client;
+struct s3c_adc_client {
+  int __dummy;
+};
 struct s3c_hwmon_chcfg {
    char const *name ;
    unsigned int mult ;

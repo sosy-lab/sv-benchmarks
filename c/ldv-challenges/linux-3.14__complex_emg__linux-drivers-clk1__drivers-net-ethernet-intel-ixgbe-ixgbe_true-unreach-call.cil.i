@@ -5194,7 +5194,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 struct msix_entry {
    u32 vector ;
    u16 entry ;
@@ -6107,7 +6109,9 @@ struct ptp_clock_info {
    int (*settime)(struct ptp_clock_info * , struct timespec const * ) ;
    int (*enable)(struct ptp_clock_info * , struct ptp_clock_request * , int ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 struct mii_ioctl_data {
    __u16 phy_id ;
    __u16 reg_num ;

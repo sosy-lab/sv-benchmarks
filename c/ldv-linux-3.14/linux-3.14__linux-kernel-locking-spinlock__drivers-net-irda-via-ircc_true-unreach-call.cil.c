@@ -5519,7 +5519,9 @@ struct qos_info {
    qos_value_t link_disc_time ;
    qos_value_t power ;
 };
-struct irlap_cb;
+struct irlap_cb {
+  int __dummy;
+};
 struct irda_skb_cb {
    unsigned int default_qdisc_pad ;
    magic_t magic ;

@@ -3448,7 +3448,9 @@ enum page_cache_mode {
 } ;
 enum hrtimer_restart;
 enum hrtimer_restart;
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 enum hrtimer_restart;
 struct bio_vec;
 struct __large_struct {

@@ -4977,7 +4977,9 @@ struct platform_driver {
    struct platform_device_id  const  *id_table ;
    bool prevent_deferred_probe ;
 };
-struct clk;
+struct clk {
+  int __dummy;
+};
 enum ldv_30851 {
     PHY_INTERFACE_MODE_NA = 0,
     PHY_INTERFACE_MODE_MII = 1,

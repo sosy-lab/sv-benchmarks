@@ -2472,7 +2472,9 @@ struct dma_map_ops {
    int (*set_dma_mask)(struct device * , u64  ) ;
    int is_phys ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 enum fwnode_type {
     FWNODE_INVALID = 0,
     FWNODE_OF = 1,

@@ -3903,7 +3903,9 @@ struct gru_tlb_global_handle {
    unsigned long fill11[3U] ;
 };
 enum hrtimer_restart;
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct mcs_op_statistic {
    atomic_long_t count ;
    atomic_long_t total ;

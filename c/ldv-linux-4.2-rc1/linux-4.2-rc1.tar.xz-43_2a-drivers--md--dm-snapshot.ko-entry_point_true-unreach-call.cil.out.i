@@ -526,7 +526,9 @@ struct rb_root {
    struct rb_node *rb_node ;
 };
 struct nsproxy;
-struct workqueue_struct;
+struct workqueue_struct {
+  int __dummy;
+};
 struct work_struct;
 struct work_struct {
    atomic_long_t data ;
@@ -756,7 +758,9 @@ union __anonunion____missing_field_name_157 {
    struct __anonstruct____missing_field_name_159 __annonCompField44 ;
    pgtable_t pmd_huge_pte ;
 };
-struct kmem_cache;
+struct kmem_cache {
+  int __dummy;
+};
 union __anonunion____missing_field_name_160 {
    unsigned long private ;
    spinlock_t *ptl ;
@@ -3690,7 +3694,9 @@ struct block_device_operations {
 };
 struct dm_dev;
 struct dm_table;
-struct mapped_device;
+struct mapped_device {
+  int __dummy;
+};
 enum ldv_25489 {
     STATUSTYPE_INFO = 0,
     STATUSTYPE_TABLE = 1
@@ -3773,7 +3779,9 @@ struct dm_kcopyd_throttle {
    unsigned int total_period ;
    unsigned int last_jiffies ;
 };
-struct dm_kcopyd_client;
+struct dm_kcopyd_client {
+  int __dummy;
+};
 enum writeback_sync_modes {
     WB_SYNC_NONE = 0,
     WB_SYNC_ALL = 1
@@ -4011,14 +4019,18 @@ struct dm_io_notify {
    void (*fn)(unsigned long , void * ) ;
    void *context ;
 };
-struct dm_io_client;
+struct dm_io_client {
+  int __dummy;
+};
 struct dm_io_request {
    int bi_rw ;
    struct dm_io_memory mem ;
    struct dm_io_notify notify ;
    struct dm_io_client *client ;
 };
-struct dm_bufio_client;
+struct dm_bufio_client {
+  int __dummy;
+};
 struct dm_buffer;
 struct disk_header {
    __le32 magic ;

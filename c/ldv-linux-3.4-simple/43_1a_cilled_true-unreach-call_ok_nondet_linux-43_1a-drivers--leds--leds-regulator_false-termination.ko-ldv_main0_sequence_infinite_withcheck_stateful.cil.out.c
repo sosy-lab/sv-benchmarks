@@ -55,7 +55,9 @@ struct device;
 struct device;
 struct completion;
 struct completion;
-struct page;
+struct page {
+  int __dummy;
+};
 struct page;
 struct task_struct;
 struct task_struct;
@@ -844,7 +846,9 @@ struct platform_device {
    struct mfd_cell *mfd_cell ;
    struct pdev_archdata archdata ;
 };
-struct regulator;
+struct regulator {
+  int __dummy;
+};
 struct regulator;
 struct regulator_led {
    struct led_classdev cdev ;

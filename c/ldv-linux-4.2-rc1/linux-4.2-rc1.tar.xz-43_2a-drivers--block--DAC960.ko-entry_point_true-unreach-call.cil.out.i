@@ -3234,7 +3234,9 @@ enum irqreturn {
     IRQ_WAKE_THREAD = 2
 } ;
 typedef enum irqreturn irqreturn_t;
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct fprop_local_percpu {
    struct percpu_counter events ;
    unsigned int period ;
@@ -3966,7 +3968,9 @@ struct pci_driver {
    struct device_driver driver ;
    struct pci_dynids dynids ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 typedef unsigned long DAC960_IO_Address_T;
 typedef unsigned long DAC960_PCI_Address_T;
 typedef unsigned int DAC960_BusAddress32_T;

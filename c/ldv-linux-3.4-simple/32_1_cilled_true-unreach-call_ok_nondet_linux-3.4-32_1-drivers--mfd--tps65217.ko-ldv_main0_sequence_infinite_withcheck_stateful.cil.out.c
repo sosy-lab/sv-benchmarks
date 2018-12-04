@@ -2061,7 +2061,9 @@ struct kmem_cache {
 struct module;
 struct device;
 struct i2c_client;
-struct regmap;
+struct regmap {
+  int __dummy;
+};
 struct regmap;
 enum regcache_type {
     REGCACHE_NONE = 0,

@@ -2405,7 +2405,9 @@ struct sg_table {
    unsigned int nents ;
    unsigned int orig_nents ;
 };
-struct dma_pool;
+struct dma_pool {
+  int __dummy;
+};
 enum irqreturn {
     IRQ_NONE = 0,
     IRQ_HANDLED = 1,

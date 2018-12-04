@@ -3176,7 +3176,9 @@ struct pcie_link_state;
 struct pci_vpd;
 struct pci_sriov;
 struct pci_ats;
-struct proc_dir_entry;
+struct proc_dir_entry {
+  int __dummy;
+};
 struct pci_driver;
 union __anonunion_ldv_16293_142 {
    struct pci_sriov *sriov ;

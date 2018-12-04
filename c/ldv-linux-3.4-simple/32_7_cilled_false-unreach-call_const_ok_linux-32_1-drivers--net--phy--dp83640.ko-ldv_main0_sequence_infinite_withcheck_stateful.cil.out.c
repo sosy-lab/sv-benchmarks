@@ -4547,7 +4547,9 @@ struct ptp_clock_info {
    int (*enable)(struct ptp_clock_info *ptp , struct ptp_clock_request *request ,
                  int on ) ;
 };
-struct ptp_clock;
+struct ptp_clock {
+  int __dummy;
+};
 struct ptp_clock;
 struct ptp_clock_event {
    int type ;
