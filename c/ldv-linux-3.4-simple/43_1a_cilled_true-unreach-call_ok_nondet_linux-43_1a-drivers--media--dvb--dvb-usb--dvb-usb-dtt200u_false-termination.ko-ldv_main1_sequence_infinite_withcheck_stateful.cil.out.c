@@ -8266,7 +8266,7 @@ int ldv_pskb_expand_head_27(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
 }
 }
 
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void kfree(void const   * ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -8818,7 +8818,7 @@ static int dtt200u_fe_get_frontend(struct dvb_frontend *fe )
     __cil_tmp13 = __cil_tmp12 + 12;
     __cil_tmp14 = (struct dtv_frontend_properties *)__cil_tmp13;
     __cil_tmp15 = (void const   *)__cil_tmp14;
-    __ret = memcpy(__cil_tmp11, __cil_tmp15, __len);
+    __ret = memmove(__cil_tmp11, __cil_tmp15, __len);
     }
   } else {
     {
@@ -8827,7 +8827,7 @@ static int dtt200u_fe_get_frontend(struct dvb_frontend *fe )
     __cil_tmp18 = __cil_tmp17 + 12;
     __cil_tmp19 = (struct dtv_frontend_properties *)__cil_tmp18;
     __cil_tmp20 = (void const   *)__cil_tmp19;
-    __ret = memcpy(__cil_tmp16, __cil_tmp20, __len);
+    __ret = memmove(__cil_tmp16, __cil_tmp20, __len);
     }
   }
   return (0);
@@ -8915,7 +8915,7 @@ struct dvb_frontend *dtt200u_fe_attach(struct dvb_usb_device *d )
     __cil_tmp13 = (struct dvb_frontend_ops *)__cil_tmp12;
     __cil_tmp14 = (void *)__cil_tmp13;
     __cil_tmp15 = (void const   *)(& dtt200u_fe_ops);
-    __ret = memcpy(__cil_tmp14, __cil_tmp15, __len);
+    __ret = memmove(__cil_tmp14, __cil_tmp15, __len);
     }
   } else {
     {
@@ -8924,7 +8924,7 @@ struct dvb_frontend *dtt200u_fe_attach(struct dvb_usb_device *d )
     __cil_tmp18 = (struct dvb_frontend_ops *)__cil_tmp17;
     __cil_tmp19 = (void *)__cil_tmp18;
     __cil_tmp20 = (void const   *)(& dtt200u_fe_ops);
-    __ret = memcpy(__cil_tmp19, __cil_tmp20, __len);
+    __ret = memmove(__cil_tmp19, __cil_tmp20, __len);
     }
   }
   __cil_tmp21 = 152 + 760;

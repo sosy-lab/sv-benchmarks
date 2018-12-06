@@ -4567,7 +4567,7 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
   return;
 }
 }
-extern void *memcpy(void * , void const * , size_t ) ;
+extern void *memmove(void * , void const * , size_t ) ;
 extern void lockdep_init_map(struct lockdep_map * , char const * , struct lock_class_key * ,
                              int ) ;
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
@@ -5305,10 +5305,10 @@ void mv88e6xxx_get_strings(struct dsa_switch *ds , int nr_stats , struct mv88e6x
   ldv_39151:
   __len = 32UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const *)(& (stats + (unsigned long )i)->string),
+    __ret = memmove((void *)data + (unsigned long )(i * 32), (void const *)(& (stats + (unsigned long )i)->string),
                      __len);
   } else {
-    __ret = memcpy((void *)data + (unsigned long )(i * 32), (void const *)(& (stats + (unsigned long )i)->string),
+    __ret = memmove((void *)data + (unsigned long )(i * 32), (void const *)(& (stats + (unsigned long )i)->string),
                              __len);
   }
   i = i + 1;

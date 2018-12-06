@@ -31,7 +31,7 @@ void ldv_initialize() {
 
 // Skip function: malloc
 
-// Skip function: memcpy
+// Skip function: memmove
 
 // Function: msleep
 // with type: void msleep(unsigned int msecs)

@@ -5704,7 +5704,7 @@ static void copy_video_data(struct video_data *video , char *src , unsigned int 
     } else {
     }
     __len = (size_t )video->prev_left;
-    __ret = memcpy((void *)video->dst, (void const *)src, __len);
+    __ret = memmove((void *)video->dst, (void const *)src, __len);
     video->dst = video->dst + (unsigned long )(video->prev_left + video->lines_size);
     src = src + (unsigned long )video->prev_left;
     count = count - (unsigned int )video->prev_left;
@@ -5718,7 +5718,7 @@ static void copy_video_data(struct video_data *video , char *src , unsigned int 
   } else {
   }
   __len___0 = (size_t )video->lines_size;
-  __ret___0 = memcpy((void *)video->dst, (void const *)src, __len___0);
+  __ret___0 = memmove((void *)video->dst, (void const *)src, __len___0);
   video->dst = video->dst + (unsigned long )(video->lines_size + video->lines_size);
   src = src + (unsigned long )video->lines_size;
   count = count - (unsigned int )video->lines_size;
@@ -5729,7 +5729,7 @@ static void copy_video_data(struct video_data *video , char *src , unsigned int 
   }
   if (count != 0U && (unsigned int )video->lines_size > count) {
     __len___1 = (size_t )count;
-    __ret___1 = memcpy((void *)video->dst, (void const *)src, __len___1);
+    __ret___1 = memmove((void *)video->dst, (void const *)src, __len___1);
     video->prev_left = (int )((unsigned int )video->lines_size - count);
     video->dst = video->dst + (unsigned long )count;
   } else {
@@ -5795,7 +5795,7 @@ __inline static void copy_vbi_data(struct vbi_data *vbi , char *src , unsigned i
       } else {
       }
       __len = (size_t )count;
-      __ret = memcpy((void *)buf + (unsigned long )vbi->copied, (void const *)src,
+      __ret = memmove((void *)buf + (unsigned long )vbi->copied, (void const *)src,
                                __len);
     } else {
     }
@@ -8381,14 +8381,14 @@ __inline static void handle_audio_data(struct urb *urb , int *period_elapsed )
   if ((snd_pcm_uframes_t )(oldptr + (unsigned int )len) >= runtime->buffer_size) {
     cnt = (unsigned int )runtime->buffer_size - oldptr;
     __len = (size_t )(cnt * (unsigned int )stride);
-    __ret = memcpy((void *)runtime->dma_area + (unsigned long )(oldptr * (unsigned int )stride),
+    __ret = memmove((void *)runtime->dma_area + (unsigned long )(oldptr * (unsigned int )stride),
                              (void const *)cp, __len);
     __len___0 = (size_t )((unsigned int )(len * stride) - cnt * (unsigned int )stride);
-    __ret___0 = memcpy((void *)runtime->dma_area, (void const *)cp + (unsigned long )(cnt * (unsigned int )stride),
+    __ret___0 = memmove((void *)runtime->dma_area, (void const *)cp + (unsigned long )(cnt * (unsigned int )stride),
                                  __len___0);
   } else {
     __len___1 = (size_t )(len * stride);
-    __ret___1 = memcpy((void *)runtime->dma_area + (unsigned long )(oldptr * (unsigned int )stride),
+    __ret___1 = memmove((void *)runtime->dma_area + (unsigned long )(oldptr * (unsigned int )stride),
                                  (void const *)cp, __len___1);
   }
   snd_pcm_stream_lock(pa->capture_pcm_substream);
@@ -8743,7 +8743,7 @@ void ldv_mutex_unlock_67(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *memcpy(void * , void const * , size_t ) ;
+extern void *memmove(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 __inline static int atomic_read(atomic_t const *v )
 {
@@ -9057,9 +9057,9 @@ static int poseidon_set_fe(struct dvb_frontend *fe , struct dvb_frontend_paramet
     }
     __len = 36UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& pd_dvb->fe_param), (void const *)fep, __len);
+      __ret = memmove((void *)(& pd_dvb->fe_param), (void const *)fep, __len);
     } else {
-      __ret = memcpy((void *)(& pd_dvb->fe_param), (void const *)fep,
+      __ret = memmove((void *)(& pd_dvb->fe_param), (void const *)fep,
                                __len);
     }
     pd_dvb->bandwidth = bandwidth;
@@ -9119,9 +9119,9 @@ static int poseidon_get_fe(struct dvb_frontend *fe , struct dvb_frontend_paramet
   pd_dvb = & pd->dvb_data;
   __len = 36UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)fep, (void const *)(& pd_dvb->fe_param), __len);
+    __ret = memmove((void *)fep, (void const *)(& pd_dvb->fe_param), __len);
   } else {
-    __ret = memcpy((void *)fep, (void const *)(& pd_dvb->fe_param), __len);
+    __ret = memmove((void *)fep, (void const *)(& pd_dvb->fe_param), __len);
   }
   return (0);
 }
@@ -9499,10 +9499,10 @@ int pd_dvb_usb_device_init(struct poseidon *pd )
   pd_dvb->dvb_fe.demodulator_priv = (void *)pd;
   __len = 752UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& pd_dvb->dvb_fe.ops), (void const *)(& poseidon_frontend_ops),
+    __ret = memmove((void *)(& pd_dvb->dvb_fe.ops), (void const *)(& poseidon_frontend_ops),
                      __len);
   } else {
-    __ret = memcpy((void *)(& pd_dvb->dvb_fe.ops), (void const *)(& poseidon_frontend_ops),
+    __ret = memmove((void *)(& pd_dvb->dvb_fe.ops), (void const *)(& poseidon_frontend_ops),
                              __len);
   }
   ret = dvb_register_frontend(& pd_dvb->dvb_adap, & pd_dvb->dvb_fe);
@@ -10929,9 +10929,9 @@ int send_set_req(struct poseidon *pd , u8 cmdid , s32 param , s32 *cmd_status )
   } else {
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)cmd_status, (void const *)(& data), __len);
+      __ret = memmove((void *)cmd_status, (void const *)(& data), __len);
     } else {
-      __ret = memcpy((void *)cmd_status, (void const *)(& data), __len);
+      __ret = memmove((void *)cmd_status, (void const *)(& data), __len);
     }
   }
   return (0);
@@ -11111,12 +11111,12 @@ int send_get_req(struct poseidon *pd , u8 cmdid , s32 param , void *buf , s32 *c
   } else {
     __len = 4UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)cmd_status, (void const *)(& data), __len);
+      __ret = memmove((void *)cmd_status, (void const *)(& data), __len);
     } else {
-      __ret = memcpy((void *)cmd_status, (void const *)(& data), __len);
+      __ret = memmove((void *)cmd_status, (void const *)(& data), __len);
     }
     __len___0 = (size_t )datalen;
-    __ret___0 = memcpy(buf, (void const *)(& data) + 4U, __len___0);
+    __ret___0 = memmove(buf, (void const *)(& data) + 4U, __len___0);
   }
   return (0);
 }

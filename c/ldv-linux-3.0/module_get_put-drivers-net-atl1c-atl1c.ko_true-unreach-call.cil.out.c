@@ -5119,7 +5119,7 @@ extern void warn_slowpath_null(char const * , int const ) ;
 extern unsigned long __phys_addr(unsigned long ) ;
 extern void __bad_percpu_size(void) ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *memcpy(void * , void const * , size_t ) ;
+extern void *memmove(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 __inline static unsigned long arch_local_save_flags(void)
 { unsigned long __ret ;
@@ -7330,10 +7330,10 @@ static int atl1c_set_mac_addr(struct net_device *netdev , void *p )
   }
   {
   __len = (size_t )netdev->addr_len;
-  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
+  __ret = memmove((void *)netdev->dev_addr, (void const *)(& addr->sa_data),
                            __len);
   __len___0 = (size_t )netdev->addr_len;
-  __ret___0 = memcpy((void *)(& adapter->hw.mac_addr), (void const *)(& addr->sa_data),
+  __ret___0 = memmove((void *)(& adapter->hw.mac_addr), (void const *)(& addr->sa_data),
                                __len___0);
   atl1c_hw_set_mac_addr(& adapter->hw);
   }
@@ -10109,11 +10109,11 @@ static void atl1c_tx_map(struct atl1c_adapter *adapter , struct sk_buff *skb , s
       }
       if (__len > 63UL) {
         {
-        __ret = memcpy((void *)use_tpd, (void const *)tpd, __len);
+        __ret = memmove((void *)use_tpd, (void const *)tpd, __len);
         }
       } else {
         {
-        __ret = memcpy((void *)use_tpd, (void const *)tpd, __len);
+        __ret = memmove((void *)use_tpd, (void const *)tpd, __len);
         }
       }
     }
@@ -10145,11 +10145,11 @@ static void atl1c_tx_map(struct atl1c_adapter *adapter , struct sk_buff *skb , s
   }
   if (__len___0 > 63UL) {
     {
-    __ret___0 = memcpy((void *)use_tpd, (void const *)tpd, __len___0);
+    __ret___0 = memmove((void *)use_tpd, (void const *)tpd, __len___0);
     }
   } else {
     {
-    __ret___0 = memcpy((void *)use_tpd, (void const *)tpd, __len___0);
+    __ret___0 = memmove((void *)use_tpd, (void const *)tpd, __len___0);
     }
   }
   {
@@ -11171,10 +11171,10 @@ static int atl1c_probe(struct pci_dev *pdev , struct pci_device_id const *ent )
   }
   {
   __len = (size_t )netdev->addr_len;
-  __ret = memcpy((void *)netdev->dev_addr, (void const *)(& adapter->hw.mac_addr),
+  __ret = memmove((void *)netdev->dev_addr, (void const *)(& adapter->hw.mac_addr),
                            __len);
   __len___0 = (size_t )netdev->addr_len;
-  __ret___0 = memcpy((void *)(& netdev->perm_addr), (void const *)(& adapter->hw.mac_addr),
+  __ret___0 = memmove((void *)(& netdev->perm_addr), (void const *)(& adapter->hw.mac_addr),
                                __len___0);
   }
   if ((adapter->msg_enable & 2U) != 0U) {
@@ -11911,12 +11911,12 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
     __len = 6UL;
     if (__len > 63UL) {
       {
-      __ret = memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
+      __ret = memmove((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
                        __len);
       }
     } else {
       {
-      __ret = memcpy((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
+      __ret = memmove((void *)(& hw->perm_mac_addr), (void const *)(& eth_addr),
                                __len);
       }
     }
@@ -12068,12 +12068,12 @@ int atl1c_read_mac_addr(struct atl1c_hw *hw )
   __len = 6UL;
   if (__len > 63UL) {
     {
-    __ret = memcpy((void *)(& hw->mac_addr), (void const *)(& hw->perm_mac_addr),
+    __ret = memmove((void *)(& hw->mac_addr), (void const *)(& hw->perm_mac_addr),
                      __len);
     }
   } else {
     {
-    __ret = memcpy((void *)(& hw->mac_addr), (void const *)(& hw->perm_mac_addr),
+    __ret = memmove((void *)(& hw->mac_addr), (void const *)(& hw->perm_mac_addr),
                              __len);
     }
   }
@@ -13610,7 +13610,7 @@ static int atl1c_get_eeprom(struct net_device *netdev , struct ethtool_eeprom *e
   ldv_42448:
   {
   __len = (size_t )eeprom->len;
-  __ret = memcpy((void *)bytes, (void const *)eeprom_buff + ((unsigned long )eeprom->offset & 3UL),
+  __ret = memmove((void *)bytes, (void const *)eeprom_buff + ((unsigned long )eeprom->offset & 3UL),
                            __len);
   kfree((void const *)eeprom_buff);
   }

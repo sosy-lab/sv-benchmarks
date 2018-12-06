@@ -4000,7 +4000,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 __inline static void *ERR_PTR(long error ) 
 { 
 
@@ -4072,7 +4072,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
   {
   __len = count;
   __cil_tmp6 = (void *)dst;
-  __ret = memcpy(__cil_tmp6, src, __len);
+  __ret = memmove(__cil_tmp6, src, __len);
   }
   return;
 }
@@ -5491,7 +5491,7 @@ static int i2o_scsi_reply(struct i2o_controller *c , u32 m , struct i2o_message 
     __cil_tmp41 = (u32 (*)[0U])__cil_tmp40;
     __cil_tmp42 = (void const   *)__cil_tmp41;
     __cil_tmp43 = __cil_tmp42 + 3U;
-    __ret = memcpy(__cil_tmp38, __cil_tmp43, __len);
+    __ret = memmove(__cil_tmp38, __cil_tmp43, __len);
     }
   } else {
 
@@ -6007,7 +6007,7 @@ static int i2o_scsi_queuecommand_lck(struct scsi_cmnd *SCpnt , void (*done)(stru
     __cil_tmp83 = __cil_tmp82 + 80;
     __cil_tmp84 = *((unsigned char **)__cil_tmp83);
     __cil_tmp85 = (void const   *)__cil_tmp84;
-    __ret = memcpy(__cil_tmp81, __cil_tmp85, __len);
+    __ret = memmove(__cil_tmp81, __cil_tmp85, __len);
     }
   } else {
     {
@@ -6018,7 +6018,7 @@ static int i2o_scsi_queuecommand_lck(struct scsi_cmnd *SCpnt , void (*done)(stru
     __cil_tmp90 = __cil_tmp89 + 80;
     __cil_tmp91 = *((unsigned char **)__cil_tmp90);
     __cil_tmp92 = (void const   *)__cil_tmp91;
-    __ret = memcpy(__cil_tmp88, __cil_tmp92, __len);
+    __ret = memmove(__cil_tmp88, __cil_tmp92, __len);
     }
   }
   __cil_tmp93 = & mptr;

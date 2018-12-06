@@ -93,7 +93,7 @@ struct page *ldv_some_page() {
 
 // Skip function: malloc
 
-// Skip function: memcpy
+// Skip function: memmove
 
 // Skip function: memset
 

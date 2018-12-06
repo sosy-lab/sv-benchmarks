@@ -6780,7 +6780,7 @@ int ldv_pskb_expand_head_27(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
   return (tmp);
 }
 }
-extern void *memcpy(void * , void const * , size_t ) ;
+extern void *memmove(void * , void const * , size_t ) ;
 extern void kfree(void const * ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -7712,14 +7712,14 @@ struct dvb_frontend *cinergyt2_fe_attach(struct dvb_usb_device *d )
     __cil_tmp11 = (struct dvb_frontend_ops *)s;
     __cil_tmp12 = (void *)__cil_tmp11;
     __cil_tmp13 = (void const *)(& cinergyt2_fe_ops);
-    __ret = memcpy(__cil_tmp12, __cil_tmp13, __len);
+    __ret = memmove(__cil_tmp12, __cil_tmp13, __len);
     }
   } else {
     {
     __cil_tmp14 = (struct dvb_frontend_ops *)s;
     __cil_tmp15 = (void *)__cil_tmp14;
     __cil_tmp16 = (void const *)(& cinergyt2_fe_ops);
-    __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
+    __ret = memmove(__cil_tmp15, __cil_tmp16, __len);
     }
   }
   __cil_tmp17 = 0 + 760;

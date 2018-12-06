@@ -431,7 +431,7 @@ void lockdep_init_map(struct lockdep_map *arg0, const char *arg1, struct lock_cl
   return;
 }
 
-// Skip function: memcpy
+// Skip function: memmove
 
 // Skip function: memset
 

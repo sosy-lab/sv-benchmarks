@@ -3828,7 +3828,7 @@ long ldv__builtin_expect(long exp , long c ) ;
 extern int printk(char const * , ...) ;
 extern void warn_slowpath_fmt(char const * , int const , char const * , ...) ;
 extern void might_fault(void) ;
-extern void *memcpy(void * , void const * , size_t ) ;
+extern void *memmove(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 unsigned long strlen(char const *str ) ;
 extern char *strncpy(char * , char const * , __kernel_size_t ) ;
@@ -4115,7 +4115,7 @@ static int si4713_send_command(struct si4713_device *sdev , u8 const command , u
   }
   data1[0] = command;
   __len = (size_t )argn;
-  __ret = memcpy((void *)(& data1) + 1U, (void const *)args, __len);
+  __ret = memmove((void *)(& data1) + 1U, (void const *)args, __len);
   err = i2c_master_send((struct i2c_client const *)client, (char const *)(& data1),
                         (int )argn + 1);
   if ((int )argn + 1 != err) {
@@ -5062,9 +5062,9 @@ static int si4713_setup(struct si4713_device *sdev )
   mutex_lock_nested(& sdev->mutex, 0U);
   __len = 2616UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)tmp, (void const *)sdev, __len);
+    __ret = memmove((void *)tmp, (void const *)sdev, __len);
   } else {
-    __ret = memcpy((void *)tmp, (void const *)sdev, __len);
+    __ret = memmove((void *)tmp, (void const *)sdev, __len);
   }
   mutex_unlock(& sdev->mutex);
   ctrl.id = 10160386U;

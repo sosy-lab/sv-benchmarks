@@ -989,7 +989,7 @@ long ldv__builtin_expect(long val , long res ) ;
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
                                                         char const   *fmt  , ...) ;
-extern void *memcpy(void *to , void const   *from , size_t len ) ;
+extern void *memmove(void *to , void const   *from , size_t len ) ;
 __inline static bool gpio_is_valid(int number )  __attribute__((__no_instrument_function__)) ;
 __inline static bool gpio_is_valid(int number ) 
 { int tmp ;
@@ -2067,14 +2067,14 @@ static int max8903_probe(struct platform_device *pdev )
     __cil_tmp44 = (struct max8903_pdata *)data;
     __cil_tmp45 = (void *)__cil_tmp44;
     __cil_tmp46 = (void const   *)pdata;
-    __ret = memcpy(__cil_tmp45, __cil_tmp46, __len);
+    __ret = memmove(__cil_tmp45, __cil_tmp46, __len);
     }
   } else {
     {
     __cil_tmp47 = (struct max8903_pdata *)data;
     __cil_tmp48 = (void *)__cil_tmp47;
     __cil_tmp49 = (void const   *)pdata;
-    __ret = memcpy(__cil_tmp48, __cil_tmp49, __len);
+    __ret = memmove(__cil_tmp48, __cil_tmp49, __len);
     }
   }
   {
