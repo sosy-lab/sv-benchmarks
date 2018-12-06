@@ -7292,6 +7292,10 @@ void up(struct semaphore *arg0) {
 void warn_slowpath_fmt(char *arg0, int arg1, const char *arg2, ...) {
   return;
 }
+int __VERIFIER_nondet_int(void);
+int autoremove_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void * arg3) {
+  return __VERIFIER_nondet_int();
+}
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();

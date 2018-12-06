@@ -512,3 +512,12 @@ void warn_slowpath_null(const char *arg0, const int arg1) {
   return;
 }
 
+// Function: autoremove_wake_function
+// with type: int autoremove_wake_function(wait_queue_t *, unsigned int, int, void *)
+// with return type: int
+int __VERIFIER_nondet_int(void);
+int autoremove_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void * arg3) {
+  // Simple type
+  return __VERIFIER_nondet_int();
+}
+

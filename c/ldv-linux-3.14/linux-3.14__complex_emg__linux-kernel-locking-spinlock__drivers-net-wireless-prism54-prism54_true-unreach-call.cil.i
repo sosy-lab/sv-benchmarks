@@ -18678,6 +18678,10 @@ void wireless_send_event(struct net_device *arg0, unsigned int arg1, union iwreq
 void wireless_spy_update(struct net_device *arg0, unsigned char *arg1, struct iw_quality *arg2) {
   return;
 }
+int __VERIFIER_nondet_int(void);
+int autoremove_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void * arg3) {
+  return __VERIFIER_nondet_int();
+}
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
