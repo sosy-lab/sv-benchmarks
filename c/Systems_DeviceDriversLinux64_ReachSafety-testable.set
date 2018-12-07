@@ -152,7 +152,6 @@ ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--net-
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--net--wireless--ath--ath5k--ath5k.ko-ldv_main16_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--net--wireless--ipw2x00--ipw2100.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--net--wireless--ipw2x00--ipw2200.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
-ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--net--wireless--zd1211rw--zd1211rw.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--pcmcia--pcmcia.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--scsi--be2iscsi--be2iscsi.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--staging--bcm--bcm_wimax.ko-ldv_main17_sequence_infinite_withcheck_stateful.cil.out.i
@@ -160,7 +159,6 @@ ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--stag
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--staging--rtl8192e--rtl8192e--r8192e_pci.ko-ldv_main7_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--staging--speakup--speakup.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--usb--host--isp1362-hcd.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
-ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--usb--host--xhci-hcd.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--video--aty--radeonfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i
 ldv-consumption/32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-fs--ceph--ceph.ko-ldv_main7_sequence_infinite_withcheck_stateful.cil.out.i
@@ -194,7 +192,6 @@ ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--qlogic--qlge--qlge.k
 ldv-consumption/linux-3.8-rc1-32_7a-drivers--scsi--mpt3sas--mpt3sas.ko-ldv_main4_false-unreach-call.cil.out.i
 ldv-consumption/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main13_true-unreach-call.cil.out.i
 ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko_false-unreach-call.cil.out.i
-ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko_true-unreach-call.cil.out.i
 ldv-linux-3.0/module_get_put-drivers-gpu-drm-i915-i915.ko_true-unreach-call.cil.out.i
 ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko_false-unreach-call.cil.out.i
 ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko_false-unreach-call.cil.out.i
