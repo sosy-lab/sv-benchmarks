@@ -195,7 +195,6 @@ ldv-consumption/linux-3.8-rc1-32_7a-drivers--scsi--mpt3sas--mpt3sas.ko-ldv_main4
 ldv-consumption/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main13_true-unreach-call.cil.out.i
 ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko_false-unreach-call.cil.out.i
 ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko_true-unreach-call.cil.out.i
-ldv-linux-3.0/module_get_put-drivers-gpu-drm-i915-i915.ko_true-unreach-call.cil.out.i
 ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko_false-unreach-call.cil.out.i
 ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko_false-unreach-call.cil.out.i
 ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-08_1a-fs--nfs--nfs.ko-entry_point_false-unreach-call.cil.out.i
