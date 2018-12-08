@@ -81,7 +81,7 @@ extern int __VERIFIER_nondet_int();
 
 
 
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error();
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error()
 
 inode i;
 pthread_mutex_t lock;

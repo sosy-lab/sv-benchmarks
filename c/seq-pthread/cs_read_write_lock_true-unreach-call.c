@@ -412,18 +412,18 @@ int main()
 	int __CS_cp_r[__CS_ROUNDS];
 	int __CS_cp_x[__CS_ROUNDS];
 	int __CS_cp_y[__CS_ROUNDS];
-  int i, j;
+	int i, j;
 
-  for(i = 0; i < 2; i++) {
-    __CS_cp_w[i] = __VERIFIER_nondet_int();
-    __CS_cp_r[i] = __VERIFIER_nondet_int();
-    __CS_cp_x[i] = __VERIFIER_nondet_int();
-    __CS_cp_y[i] = __VERIFIER_nondet_int();
-    for(j = 0; j < 5; j++) {
-      __CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
-      __CS_cp___CS_thread_lockedon[i][j] = (unsigned char *) __VERIFIER_nondet_pointer();
-    }
-  }
+	for(i = 0; i < 2; i++) {
+	  __CS_cp_w[i] = __VERIFIER_nondet_int();
+	  __CS_cp_r[i] = __VERIFIER_nondet_int();
+	  __CS_cp_x[i] = __VERIFIER_nondet_int();
+	  __CS_cp_y[i] = __VERIFIER_nondet_int();
+ 	 for(j = 0; j < 5; j++) {
+	    __CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
+	    __CS_cp___CS_thread_lockedon[i][j] = (unsigned char *) __VERIFIER_nondet_pointer();
+	  }
+	}
 	//cseq: Copy statements for global variables:
 	//cseq: for each global variable x,
 	//cseq: copy into x[1...___CS_ROUNDS] <--- __CS_cp_x[1..___CS_ROUNDS].

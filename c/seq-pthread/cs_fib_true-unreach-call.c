@@ -379,16 +379,16 @@ int main(int argc, char **argv)
 	__CS_type *__CS_cp___CS_thread_lockedon[__CS_ROUNDS][__CS_THREADS+1];
 	int __CS_cp_i[__CS_ROUNDS];
 	int __CS_cp_j[__CS_ROUNDS];
-  int k, l;
+	int k, l;
 
-  for(k = 0; k < 6; k++) {
-    __CS_cp_i[k] = __VERIFIER_nondet_int();
-    __CS_cp_j[k] = __VERIFIER_nondet_int();
-    for(l = 0; l < 3; l++) {
-      __CS_cp___CS_thread_status[k][l] = __VERIFIER_nondet_uchar();
-      __CS_cp___CS_thread_lockedon[k][l] = (unsigned char *) __VERIFIER_nondet_pointer();
-    }
-  }
+	for(k = 0; k < 6; k++) {
+	  __CS_cp_i[k] = __VERIFIER_nondet_int();
+	  __CS_cp_j[k] = __VERIFIER_nondet_int();
+	  for(l = 0; l < 3; l++) {
+	    __CS_cp___CS_thread_status[k][l] = __VERIFIER_nondet_uchar();
+	    __CS_cp___CS_thread_lockedon[k][l] = (unsigned char *) __VERIFIER_nondet_pointer();
+	  }
+	}
 	//cseq: Copy statements for global variables:
 	//cseq: for each global variable x,
 	//cseq: copy into x[1...___CS_ROUNDS] <--- __CS_cp_x[1..___CS_ROUNDS].

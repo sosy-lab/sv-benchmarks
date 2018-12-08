@@ -23,8 +23,8 @@ static void free_data(TData *data)
         free(hi);
     }
 
-    data->lo = NULL;
-    data->hi = NULL;
+    data->lo = (void *) 0;
+    data->hi = (void *) 0;
 }
 
 int main() {
