@@ -794,12 +794,12 @@ void lwfence()
 }
 int main()
 {
+  pthread_t t2109;
+  pthread_create(&t2109, ((void *)0), P0, ((void *)0));
+  pthread_t t2110;
+  pthread_create(&t2110, ((void *)0), P1, ((void *)0));
   pthread_t t2111;
-  pthread_create(&t2111, ((void *)0), P0, ((void *)0));
-  pthread_t t2112;
-  pthread_create(&t2112, ((void *)0), P1, ((void *)0));
-  pthread_t t2113;
-  pthread_create(&t2113, ((void *)0), P2, ((void *)0));
+  pthread_create(&t2111, ((void *)0), P2, ((void *)0));
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 3;
   __VERIFIER_atomic_end();
