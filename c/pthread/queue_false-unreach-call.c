@@ -153,6 +153,7 @@ int main(void)
 
   if (!empty(&queue)==EMPTY) {
     ERROR: __VERIFIER_error();
+    goto ERROR;
   }
 
 

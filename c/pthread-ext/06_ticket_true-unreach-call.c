@@ -22,7 +22,7 @@ volatile unsigned now_serving = 0;
 // #define NEXT(e) ((e+1 == FAILED)?0:e+1)
 
 unsigned fetch_and_increment__next_ticket(){
-        __VERIFIER_atomic_begin();
+	__VERIFIER_atomic_begin();
 	unsigned value;
 
 		if(NEXT(next_ticket) == now_serving){ 

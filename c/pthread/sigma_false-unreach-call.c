@@ -32,7 +32,7 @@ int main()
 	__VERIFIER_assume(array);
 
 	for (tid=0; tid<SIGMA; tid++) {
-	        array_index++;
+		array_index++;
 		pthread_create(&t[tid], 0, thread, 0);
 	}
 

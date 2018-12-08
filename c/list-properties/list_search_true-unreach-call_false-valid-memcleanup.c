@@ -59,7 +59,7 @@ int main(void){
 
 	int i;
 	mlist *mylist = 0;
-  mlist *temp;
+	mlist *temp;
 
 	insert_list(mylist,2);
 	insert_list(mylist,5);
