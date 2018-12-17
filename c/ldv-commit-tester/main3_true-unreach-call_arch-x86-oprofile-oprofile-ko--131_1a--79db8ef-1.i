@@ -8025,7 +8025,7 @@ __inline static void mux_init(struct oprofile_operations *ops )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static void mux_clone(int cpu )
 {
   int tmp ;
