@@ -11184,6 +11184,10 @@ void xpc_clear_interface() {
 void xpc_set_interface(void (*arg0)(int), void (*arg1)(int), enum xp_retval (*arg2)(short, int, u32 , void *, u16 ), enum xp_retval (*arg3)(short, int, u32 , void *, u16 , void (*)(enum xp_retval , short, int, void *), void *), void (*arg4)(short, int, void *), enum xp_retval (*arg5)(short, void *)) {
   return;
 }
+int __VERIFIER_nondet_int(void);
+int autoremove_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void * arg3) {
+  return __VERIFIER_nondet_int();
+}
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();

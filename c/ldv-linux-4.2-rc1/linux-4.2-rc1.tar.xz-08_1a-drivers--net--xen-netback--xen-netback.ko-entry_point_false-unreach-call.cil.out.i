@@ -13712,6 +13712,10 @@ int __VERIFIER_nondet_int(void);
 int xenbus_watch_pathfmt(struct xenbus_device *arg0, struct xenbus_watch *arg1, void (*arg2)(struct xenbus_watch *, const char **, unsigned int), const char *arg3, ...) {
   return __VERIFIER_nondet_int();
 }
+int __VERIFIER_nondet_int(void);
+int autoremove_wake_function(wait_queue_t *arg0, unsigned int arg1, int arg2, void * arg3) {
+  return __VERIFIER_nondet_int();
+}
 void *__VERIFIER_nondet_pointer(void);
 void *external_alloc(void) {
   return __VERIFIER_nondet_pointer();
