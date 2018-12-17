@@ -400,18 +400,18 @@ int main()
 	__CS_pthread_mutex_t __CS_cp_m[__CS_ROUNDS];
 	__CS_pthread_cond_t __CS_cp_empty[__CS_ROUNDS];
 	__CS_pthread_cond_t __CS_cp_full[__CS_ROUNDS];
-  int i, j;
+	int i, j;
 
-  for(i = 0; i < 2; i++) {
-    __CS_cp_num[i] = __VERIFIER_nondet_int();
-    __CS_cp_m[i] = __VERIFIER_nondet_uchar();
-    __CS_cp_empty[i] = __VERIFIER_nondet_uchar();
-    __CS_cp_full[i] = __VERIFIER_nondet_uchar();
-    for(j = 0; j < 3; j++) {
-      __CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
-      __CS_cp___CS_thread_lockedon[i][j] = (unsigned char *) __VERIFIER_nondet_pointer();
-    }
-  }
+	for(i = 0; i < 2; i++) {
+	  __CS_cp_num[i] = __VERIFIER_nondet_int();
+	  __CS_cp_m[i] = __VERIFIER_nondet_uchar();
+	  __CS_cp_empty[i] = __VERIFIER_nondet_uchar();
+	  __CS_cp_full[i] = __VERIFIER_nondet_uchar();
+	  for(j = 0; j < 3; j++) {
+	    __CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
+	    __CS_cp___CS_thread_lockedon[i][j] = (unsigned char *) __VERIFIER_nondet_pointer();
+	  }
+	}
 	//cseq: Copy statements for global variables:
 	//cseq: for each global variable x,
 	//cseq: copy into x[1...___CS_ROUNDS] <--- __CS_cp_x[1..___CS_ROUNDS].

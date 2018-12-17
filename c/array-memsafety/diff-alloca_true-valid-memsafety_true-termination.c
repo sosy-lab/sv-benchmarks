@@ -32,10 +32,10 @@ int main() {
   int Alen = __VERIFIER_nondet_int();
   int Blen = __VERIFIER_nondet_int();
   if (Alen < 1 || Alen >= 2147483647 / sizeof(int)) {
-     Alen = 1;
+    Alen = 1;
   }
   if (Blen < 1 || Blen >= 2147483647 / sizeof(int)) {
-     Blen = 1;
+    Blen = 1;
   }
   int* A = (int*) alloca(Alen * sizeof(int));
   int* B = (int*) alloca(Blen * sizeof(int));
