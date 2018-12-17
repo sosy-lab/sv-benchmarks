@@ -5271,7 +5271,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcat(char * , char const   * ) ;
@@ -7577,7 +7577,7 @@ static int mgsl_write(struct tty_struct *tty , unsigned char const   *buf , int 
 
     }
     __len = (size_t )c;
-    __ret = memcpy((void *)info->xmit_buf + (unsigned long )info->xmit_head,
+    __ret = memmove((void *)info->xmit_buf + (unsigned long )info->xmit_head,
                              (void const   *)buf, __len);
     info->xmit_head = (info->xmit_head + c) & 4095;
     info->xmit_cnt = info->xmit_cnt + c;
@@ -7935,9 +7935,9 @@ static int mgsl_set_params(struct mgsl_struct *info , MGSL_PARAMS *new_params )
   flags = _raw_spin_lock_irqsave(tmp___1);
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& info->params), (void const   *)(& tmp_params), __len);
+    __ret = memmove((void *)(& info->params), (void const   *)(& tmp_params), __len);
   } else {
-    __ret = memcpy((void *)(& info->params), (void const   *)(& tmp_params),
+    __ret = memmove((void *)(& info->params), (void const   *)(& tmp_params),
                              __len);
   }
   spin_unlock_irqrestore(& info->irq_spinlock, flags);
@@ -9995,7 +9995,7 @@ static int save_tx_buffer_request(struct mgsl_struct *info , char const   *Buffe
   ptx = (struct tx_holding_buffer *)(& info->tx_holding_buffers) + (unsigned long )info->put_tx_holding_index;
   ptx->buffer_size = (int )BufferSize;
   __len = (size_t )BufferSize;
-  __ret = memcpy((void *)ptx->buffer, (void const   *)Buffer, __len);
+  __ret = memmove((void *)ptx->buffer, (void const   *)Buffer, __len);
   info->tx_holding_count = info->tx_holding_count + 1;
   info->put_tx_holding_index = info->put_tx_holding_index + 1;
   if (info->put_tx_holding_index >= info->num_tx_holding_buffers) {
@@ -10304,10 +10304,10 @@ static struct mgsl_struct *mgsl_allocate_device(void)
                          & __key___3);
     __len = 48UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& info->params), (void const   *)(& default_params),
+      __ret = memmove((void *)(& info->params), (void const   *)(& default_params),
                        __len);
     } else {
-      __ret = memcpy((void *)(& info->params), (void const   *)(& default_params),
+      __ret = memmove((void *)(& info->params), (void const   *)(& default_params),
                                __len);
     }
     info->idle_mode = 0U;
@@ -11867,7 +11867,7 @@ static bool mgsl_get_rx_frame(struct mgsl_struct *info )
       }
       pBufEntry = info->rx_buffer_list + (unsigned long )index;
       __len = (size_t )partial_count;
-      __ret = memcpy((void *)ptmp, (void const   *)pBufEntry->virt_addr,
+      __ret = memmove((void *)ptmp, (void const   *)pBufEntry->virt_addr,
                                __len);
       ptmp = ptmp + (unsigned long )partial_count;
       copy_count = copy_count - partial_count;
@@ -12004,7 +12004,7 @@ static bool mgsl_get_raw_rx_frame(struct mgsl_struct *info )
     if (framesize != 0U) {
       pBufEntry = info->rx_buffer_list + (unsigned long )CurrentIndex;
       __len = (size_t )framesize;
-      __ret = memcpy((void *)info->intermediate_rxbuffer, (void const   *)pBufEntry->virt_addr,
+      __ret = memmove((void *)info->intermediate_rxbuffer, (void const   *)pBufEntry->virt_addr,
                                __len);
       info->icount.rxok = info->icount.rxok + 1U;
       ldisc_receive_buf(tty, (__u8 const   *)info->intermediate_rxbuffer, (char *)(& info->flag_buf),
@@ -12087,7 +12087,7 @@ static void mgsl_load_tx_dma_buffer(struct mgsl_struct *info , char const   *Buf
     mgsl_load_pci_memory(pBufEntry->virt_addr, Buffer, (int )Copycount);
   } else {
     __len = (size_t )Copycount;
-    __ret = memcpy((void *)pBufEntry->virt_addr, (void const   *)Buffer,
+    __ret = memmove((void *)pBufEntry->virt_addr, (void const   *)Buffer,
                              __len);
   }
   pBufEntry->count = Copycount;
@@ -12304,17 +12304,17 @@ static bool mgsl_dma_test(struct mgsl_struct *info )
   status = 0U;
   __len = 48UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& tmp_params), (void const   *)(& info->params), __len);
+    __ret = memmove((void *)(& tmp_params), (void const   *)(& info->params), __len);
   } else {
-    __ret = memcpy((void *)(& tmp_params), (void const   *)(& info->params),
+    __ret = memmove((void *)(& tmp_params), (void const   *)(& info->params),
                              __len);
   }
   __len___0 = 48UL;
   if (__len___0 > 63UL) {
-    __ret___0 = memcpy((void *)(& info->params), (void const   *)(& default_params),
+    __ret___0 = memmove((void *)(& info->params), (void const   *)(& default_params),
                          __len___0);
   } else {
-    __ret___0 = memcpy((void *)(& info->params), (void const   *)(& default_params),
+    __ret___0 = memmove((void *)(& info->params), (void const   *)(& default_params),
                                  __len___0);
   }
   tmp = spinlock_check(& info->irq_spinlock);
@@ -12508,10 +12508,10 @@ static bool mgsl_dma_test(struct mgsl_struct *info )
   spin_unlock_irqrestore(& info->irq_spinlock, flags);
   __len___1 = 48UL;
   if (__len___1 > 63UL) {
-    __ret___1 = memcpy((void *)(& info->params), (void const   *)(& tmp_params),
+    __ret___1 = memmove((void *)(& info->params), (void const   *)(& tmp_params),
                          __len___1);
   } else {
-    __ret___1 = memcpy((void *)(& info->params), (void const   *)(& tmp_params),
+    __ret___1 = memmove((void *)(& info->params), (void const   *)(& tmp_params),
                                  __len___1);
   }
   return (rc);
@@ -12674,9 +12674,9 @@ static void mgsl_load_pci_memory(char *TargetPtr , char const   *SourcePtr , uns
   ldv_42861: 
   __len = 64UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)TargetPtr, (void const   *)SourcePtr, __len);
+    __ret = memmove((void *)TargetPtr, (void const   *)SourcePtr, __len);
   } else {
-    __ret = memcpy((void *)TargetPtr, (void const   *)SourcePtr, __len);
+    __ret = memmove((void *)TargetPtr, (void const   *)SourcePtr, __len);
   }
   Dummy = *((unsigned long volatile   *)TargetPtr);
   TargetPtr = TargetPtr + 64UL;
@@ -12690,7 +12690,7 @@ static void mgsl_load_pci_memory(char *TargetPtr , char const   *SourcePtr , uns
   }
   ldv_42863: 
   __len___0 = (size_t )count & 63UL;
-  __ret___0 = memcpy((void *)TargetPtr, (void const   *)SourcePtr, __len___0);
+  __ret___0 = memmove((void *)TargetPtr, (void const   *)SourcePtr, __len___0);
   return;
 }
 }
@@ -13241,7 +13241,7 @@ static void hdlcdev_rx(struct mgsl_struct *info , char *buf , int size )
   }
   __len = (size_t )size;
   tmp___1 = skb_put(skb, (unsigned int )size);
-  __ret = memcpy((void *)tmp___1, (void const   *)buf, __len);
+  __ret = memmove((void *)tmp___1, (void const   *)buf, __len);
   skb->protocol = hdlc_type_trans(skb, dev);
   dev->stats.rx_packets = dev->stats.rx_packets + 1UL;
   dev->stats.rx_bytes = dev->stats.rx_bytes + (unsigned long )size;

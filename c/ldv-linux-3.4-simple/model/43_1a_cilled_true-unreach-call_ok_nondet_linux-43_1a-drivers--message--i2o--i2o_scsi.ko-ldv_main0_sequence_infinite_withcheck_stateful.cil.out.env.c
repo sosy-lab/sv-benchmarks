@@ -174,7 +174,7 @@ struct page *ldv_some_page() {
   return (struct page *)external_alloc();
 }
 
-// Skip function: memcpy
+// Skip function: memmove
 
 // Function: mempool_alloc
 // with type: void *mempool_alloc(mempool_t *, gfp_t )

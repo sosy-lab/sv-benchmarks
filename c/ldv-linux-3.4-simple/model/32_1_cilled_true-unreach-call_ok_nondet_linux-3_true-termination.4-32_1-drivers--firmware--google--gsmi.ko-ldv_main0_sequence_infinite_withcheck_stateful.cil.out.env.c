@@ -144,7 +144,7 @@ void ldv_initialize() {
 
 // Skip function: malloc
 
-// Skip function: memcpy
+// Skip function: memmove
 
 // Skip function: memset
 

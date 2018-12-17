@@ -6064,7 +6064,7 @@ __inline static int list_empty(struct list_head const *head )
   return ((unsigned long )((struct list_head const *)head->next) == (unsigned long )head);
 }
 }
-extern void *memcpy(void * , void const * , size_t ) ;
+extern void *memmove(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern int bitmap_find_free_region(unsigned long * , int , int ) ;
 extern void bitmap_release_region(unsigned long * , int , int ) ;
@@ -6533,9 +6533,9 @@ __inline static void SET_IEEE80211_PERM_ADDR(struct ieee80211_hw *hw , u8 *addr 
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const *)addr, __len);
+    __ret = memmove((void *)(& (hw->wiphy)->perm_addr), (void const *)addr, __len);
   } else {
-    __ret = memcpy((void *)(& (hw->wiphy)->perm_addr), (void const *)addr,
+    __ret = memmove((void *)(& (hw->wiphy)->perm_addr), (void const *)addr,
                              __len);
   }
   return;
@@ -7421,9 +7421,9 @@ static int carl9170_init_interface(struct ar9170 *ar , struct ieee80211_vif *vif
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& common->macaddr), (void const *)(& vif->addr), __len);
+    __ret = memmove((void *)(& common->macaddr), (void const *)(& vif->addr), __len);
   } else {
-    __ret = memcpy((void *)(& common->macaddr), (void const *)(& vif->addr),
+    __ret = memmove((void *)(& common->macaddr), (void const *)(& vif->addr),
                              __len);
   }
   if (modparam_nohwcrypt != 0 || ((unsigned int )vif->type != 2U && (unsigned int )vif->type != 3U)) {
@@ -8039,10 +8039,10 @@ static void carl9170_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee80
   if ((changed & 128U) != 0U) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& common->curbssid), (void const *)bss_conf->bssid,
+      __ret = memmove((void *)(& common->curbssid), (void const *)bss_conf->bssid,
                        __len);
     } else {
-      __ret = memcpy((void *)(& common->curbssid), (void const *)bss_conf->bssid,
+      __ret = memmove((void *)(& common->curbssid), (void const *)bss_conf->bssid,
                                __len);
     }
     err = carl9170_set_operating_mode(ar);
@@ -8381,10 +8381,10 @@ static int carl9170_op_conf_tx(struct ieee80211_hw *hw , u16 queue , struct ieee
   if ((int )(ar->hw)->queues > (int )queue) {
     __len = 8UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
+      __ret = memmove((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
                        (void const *)param, __len);
     } else {
-      __ret = memcpy((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
+      __ret = memmove((void *)(& ar->edcf) + (unsigned long )ar9170_qmap[(int )queue],
                                (void const *)param, __len);
     }
     ret = carl9170_set_qos(ar);
@@ -10574,7 +10574,7 @@ int carl9170_exec_cmd(struct ar9170 *ar , enum carl9170_cmd_oids const cmd , uns
   ar->ldv_39847.cmd.hdr.ldv_39068.ldv_39066.cmd = (u8 )cmd;
   if (plen != 0U && (unsigned long )((void *)(& ar->ldv_39847.cmd.ldv_39082.data)) != (unsigned long )payload) {
     __len = (size_t )plen;
-    __ret = memcpy((void *)(& ar->ldv_39847.cmd.ldv_39082.data), (void const *)payload,
+    __ret = memmove((void *)(& ar->ldv_39847.cmd.ldv_39082.data), (void const *)payload,
                              __len);
   } else {
   }
@@ -10731,7 +10731,7 @@ static int carl9170_usb_load_firmware(struct ar9170 *ar )
   __min2 = 4096U;
   transfer = __min1 < __min2 ? __min1 : __min2;
   __len = (size_t )transfer;
-  __ret = memcpy((void *)buf, (void const *)data, __len);
+  __ret = memmove((void *)buf, (void const *)data, __len);
   tmp___0 = __create_pipe(ar->udev, 0U);
   err = usb_control_msg(ar->udev, tmp___0 | 2147483648U, 48, 64, (int )((__u16 )(addr >> 8)),
                         0, (void *)buf, (int )((__u16 )transfer), 100);
@@ -13210,13 +13210,13 @@ int carl9170_upload_key(struct ar9170 *ar , u8 const id , u8 const *mac , u8 con
   key.type = (unsigned short )ktype;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& key.macAddr), (void const *)mac, __len);
+    __ret = memmove((void *)(& key.macAddr), (void const *)mac, __len);
   } else {
-    __ret = memcpy((void *)(& key.macAddr), (void const *)mac, __len);
+    __ret = memmove((void *)(& key.macAddr), (void const *)mac, __len);
   }
   if ((unsigned long )keydata != (unsigned long )((u8 const *)0)) {
     __len___0 = (size_t )keylen;
-    __ret___0 = memcpy((void *)(& key.key), (void const *)keydata, __len___0);
+    __ret___0 = memmove((void *)(& key.key), (void const *)keydata, __len___0);
   } else {
   }
   tmp = carl9170_exec_cmd(ar, 16, 28U, (void *)(& key), 0U, 0);
@@ -19046,7 +19046,7 @@ static void carl9170_cmd_callback(struct ar9170 *ar , u32 len , void *buffer )
   if ((unsigned long )ar->readbuf != (unsigned long )((u8 *)0)) {
     if (len > 3U) {
       __len = (size_t )(len - 4U);
-      __ret = memcpy((void *)ar->readbuf, (void const *)buffer + 4U, __len);
+      __ret = memmove((void *)ar->readbuf, (void const *)buffer + 4U, __len);
     } else {
     }
     ar->readbuf = 0;
@@ -19438,7 +19438,7 @@ static struct sk_buff *carl9170_rx_copy_data(u8 *buf , int len )
     skb_reserve(skb, reserved);
     __len = (size_t )len;
     tmp___3 = skb_put(skb, (unsigned int )len);
-    __ret = memcpy((void *)tmp___3, (void const *)buf, __len);
+    __ret = memmove((void *)tmp___3, (void const *)buf, __len);
   } else {
   }
   return (skb);
@@ -19650,9 +19650,9 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
     head = (struct ar9170_rx_head *)buf;
     __len = 12UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& ar->rx_plcp), (void const *)buf, __len);
+      __ret = memmove((void *)(& ar->rx_plcp), (void const *)buf, __len);
     } else {
-      __ret = memcpy((void *)(& ar->rx_plcp), (void const *)buf, __len);
+      __ret = memmove((void *)(& ar->rx_plcp), (void const *)buf, __len);
     }
     mpdu_len = (int )((unsigned int )mpdu_len - 12U);
     buf = buf + 12UL;
@@ -19743,10 +19743,10 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
   __len___0 = 40UL;
   if (__len___0 > 63UL) {
     tmp___11 = IEEE80211_SKB_RXCB(skb);
-    __ret___0 = memcpy((void *)tmp___11, (void const *)(& status), __len___0);
+    __ret___0 = memmove((void *)tmp___11, (void const *)(& status), __len___0);
   } else {
     tmp___12 = IEEE80211_SKB_RXCB(skb);
-    __ret___0 = memcpy((void *)tmp___12, (void const *)(& status), __len___0);
+    __ret___0 = memmove((void *)tmp___12, (void const *)(& status), __len___0);
   }
   ieee80211_rx(ar->hw, skb);
   return;
@@ -19873,7 +19873,7 @@ static void carl9170_rx_stream(struct ar9170 *ar , void *buf , unsigned int len 
     }
     __len = (size_t )tlen;
     tmp___2 = skb_put(ar->rx_failover, tlen);
-    __ret = memcpy((void *)tmp___2, (void const *)tbuf, __len);
+    __ret = memmove((void *)tmp___2, (void const *)tbuf, __len);
     ar->rx_failover_missing = (int )((unsigned int )ar->rx_failover_missing - tlen);
     if (ar->rx_failover_missing <= 0) {
       ar->rx_failover_missing = 0;
@@ -19898,7 +19898,7 @@ static void carl9170_rx_stream(struct ar9170 *ar , void *buf , unsigned int len 
     }
     __len___0 = (size_t )tlen;
     tmp___5 = skb_put(ar->rx_failover, tlen);
-    __ret___0 = memcpy((void *)tmp___5, (void const *)tbuf, __len___0);
+    __ret___0 = memmove((void *)tmp___5, (void const *)tbuf, __len___0);
     ar->rx_failover_missing = (int )(clen - tlen);
     return;
   } else {

@@ -3904,7 +3904,7 @@ extern void might_fault(void) ;
 extern int snprintf(char * , size_t , char const * , ...) ;
 extern int oops_in_progress ;
 extern struct pv_irq_ops pv_irq_ops ;
-extern void *memcpy(void * , void const * , size_t ) ;
+extern void *memmove(void * , void const * , size_t ) ;
 extern size_t strlcpy(char * , char const * , size_t ) ;
 extern ssize_t memory_read_from_buffer(void * , size_t , loff_t * , void const * ,
                                        size_t ) ;
@@ -5141,9 +5141,9 @@ static int radeonfb_check_var(struct fb_var_screeninfo *var , struct fb_info *in
   v.red.msb_right = v.green.msb_right;
   __len = 160UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)var, (void const *)(& v), __len);
+    __ret = memmove((void *)var, (void const *)(& v), __len);
   } else {
-    __ret = memcpy((void *)var, (void const *)(& v), __len);
+    __ret = memmove((void *)var, (void const *)(& v), __len);
   }
   return (0);
 }
@@ -6285,9 +6285,9 @@ static int radeonfb_set_par(struct fb_info *info )
   if (rinfo->asleep == 0) {
     __len = 396UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& rinfo->state), (void const *)newmode, __len);
+      __ret = memmove((void *)(& rinfo->state), (void const *)newmode, __len);
     } else {
-      __ret = memcpy((void *)(& rinfo->state), (void const *)newmode,
+      __ret = memmove((void *)(& rinfo->state), (void const *)newmode,
                                __len);
     }
     radeon_write_mode(rinfo, newmode, 0);
@@ -6702,10 +6702,10 @@ static int radeonfb_pci_register(struct pci_dev *pdev , struct pci_device_id con
   radeon_save_state(rinfo, & rinfo->init_state);
   __len = 396UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& rinfo->state), (void const *)(& rinfo->init_state),
+    __ret = memmove((void *)(& rinfo->state), (void const *)(& rinfo->init_state),
                      __len);
   } else {
-    __ret = memcpy((void *)(& rinfo->state), (void const *)(& rinfo->init_state),
+    __ret = memmove((void *)(& rinfo->state), (void const *)(& rinfo->init_state),
                              __len);
   }
   if (default_dynclk < -1) {
@@ -10924,9 +10924,9 @@ int radeon_match_mode(struct radeonfb_info *rinfo , struct fb_var_screeninfo *de
   candidate = 0;
   __len = 160UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)dest, (void const *)src, __len);
+    __ret = memmove((void *)dest, (void const *)src, __len);
   } else {
-    __ret = memcpy((void *)dest, (void const *)src, __len);
+    __ret = memmove((void *)dest, (void const *)src, __len);
   }
   if ((unsigned long )rinfo->mon1_modedb != (unsigned long )((struct fb_videomode *)0)) {
     db = (struct fb_videomode const *)rinfo->mon1_modedb;
@@ -11190,9 +11190,9 @@ void radeonfb_fillrect(struct fb_info *info , struct fb_fillrect const *region )
   vyres = (int )info->var.yres_virtual;
   __len = 24UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& modded), (void const *)region, __len);
+    __ret = memmove((void *)(& modded), (void const *)region, __len);
   } else {
-    __ret = memcpy((void *)(& modded), (void const *)region, __len);
+    __ret = memmove((void *)(& modded), (void const *)region, __len);
   }
   if (((modded.width == 0U || modded.height == 0U) || modded.dx >= (__u32 )vxres) || modded.dy >= (__u32 )vyres) {
     return;

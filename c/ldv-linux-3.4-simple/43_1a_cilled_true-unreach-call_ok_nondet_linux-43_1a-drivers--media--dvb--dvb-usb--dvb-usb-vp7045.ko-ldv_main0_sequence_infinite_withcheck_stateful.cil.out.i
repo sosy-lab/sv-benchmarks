@@ -5857,7 +5857,7 @@ int vp7045_usb_op(struct dvb_usb_device *d , u8 cmd , u8 *out , int outlen , u8 
       __cil_tmp29 = (void *)buf;
       __cil_tmp30 = __cil_tmp29 + 1U;
       __cil_tmp31 = (void const *)out;
-      __ret = memcpy(__cil_tmp30, __cil_tmp31, __len);
+      __ret = memmove(__cil_tmp30, __cil_tmp31, __len);
       }
     } else {
     }
@@ -6028,7 +6028,7 @@ int vp7045_usb_op(struct dvb_usb_device *d , u8 cmd , u8 *out , int outlen , u8 
       __cil_tmp89 = (void *)in;
       __cil_tmp90 = (void const *)buf;
       __cil_tmp91 = __cil_tmp90 + 1U;
-      __ret___0 = memcpy(__cil_tmp89, __cil_tmp91, __len___0);
+      __ret___0 = memmove(__cil_tmp89, __cil_tmp91, __len___0);
       }
     } else {
     }
@@ -7155,7 +7155,7 @@ int ldv_pskb_expand_head_27(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
   return (tmp);
 }
 }
-extern void *memcpy(void * , void const * , size_t ) ;
+extern void *memmove(void * , void const * , size_t ) ;
 extern void kfree(void const * ) ;
 __inline static void *kzalloc(size_t size , gfp_t flags ) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
@@ -7707,14 +7707,14 @@ struct dvb_frontend *vp7045_fe_attach(struct dvb_usb_device *d )
     __cil_tmp11 = (struct dvb_frontend_ops *)s;
     __cil_tmp12 = (void *)__cil_tmp11;
     __cil_tmp13 = (void const *)(& vp7045_fe_ops);
-    __ret = memcpy(__cil_tmp12, __cil_tmp13, __len);
+    __ret = memmove(__cil_tmp12, __cil_tmp13, __len);
     }
   } else {
     {
     __cil_tmp14 = (struct dvb_frontend_ops *)s;
     __cil_tmp15 = (void *)__cil_tmp14;
     __cil_tmp16 = (void const *)(& vp7045_fe_ops);
-    __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
+    __ret = memmove(__cil_tmp15, __cil_tmp16, __len);
     }
   }
   __cil_tmp17 = 0 + 760;

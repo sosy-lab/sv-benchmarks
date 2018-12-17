@@ -794,7 +794,7 @@ void lockdep_rcu_dereference(const char *arg0, const int arg1) {
 
 // Skip function: memcmp
 
-// Skip function: memcpy
+// Skip function: memmove
 
 // Skip function: memset
 

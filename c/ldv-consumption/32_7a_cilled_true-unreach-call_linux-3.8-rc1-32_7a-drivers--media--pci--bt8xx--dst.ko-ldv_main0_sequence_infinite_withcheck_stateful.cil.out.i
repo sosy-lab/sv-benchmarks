@@ -3612,7 +3612,7 @@ struct dst_config {
 };
 typedef int ldv_func_ret_type___4;
 extern int printk(char const * , ...) ;
-extern void *memcpy(void * , void const * , size_t ) ;
+extern void *memmove(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern int memcmp(void const * , void const * , size_t ) ;
 extern size_t strlen(char const * ) ;
@@ -4927,10 +4927,10 @@ static int dst_get_mac(struct dst_state *state )
   memset((void *)(& state->mac_address), 0, 8UL);
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& state->mac_address), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->mac_address), (void const *)(& state->rxbuffer),
                      __len);
   } else {
-    __ret = memcpy((void *)(& state->mac_address), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->mac_address), (void const *)(& state->rxbuffer),
                              __len);
   }
   if (verbose != 0U && verbose != 0U) {
@@ -4993,10 +4993,10 @@ static int dst_fw_ver(struct dst_state *state )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& state->fw_version), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->fw_version), (void const *)(& state->rxbuffer),
                      __len);
   } else {
-    __ret = memcpy((void *)(& state->fw_version), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->fw_version), (void const *)(& state->rxbuffer),
                              __len);
   }
   if (verbose != 0U && verbose != 0U) {
@@ -5077,10 +5077,10 @@ static int dst_card_type(struct dst_state *state )
   memset((void *)(& state->card_info), 0, 8UL);
   __len = 7UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& state->card_info), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->card_info), (void const *)(& state->rxbuffer),
                      __len);
   } else {
-    __ret = memcpy((void *)(& state->card_info), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->card_info), (void const *)(& state->rxbuffer),
                              __len);
   }
   if (verbose != 0U && verbose != 0U) {
@@ -5182,10 +5182,10 @@ static int dst_get_vendor(struct dst_state *state )
   memset((void *)(& state->vendor), 0, 8UL);
   __len = 7UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& state->vendor), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->vendor), (void const *)(& state->rxbuffer),
                      __len);
   } else {
-    __ret = memcpy((void *)(& state->vendor), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->vendor), (void const *)(& state->rxbuffer),
                              __len);
   }
   if (verbose != 0U && verbose != 0U) {
@@ -5446,10 +5446,10 @@ static int dst_get_tuner_info(struct dst_state *state )
   }
   __len = 8UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& state->board_info), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->board_info), (void const *)(& state->rxbuffer),
                      __len);
   } else {
-    __ret = memcpy((void *)(& state->board_info), (void const *)(& state->rxbuffer),
+    __ret = memmove((void *)(& state->board_info), (void const *)(& state->rxbuffer),
                              __len);
   }
   if ((state->type_flags & 512U) != 0U) {
@@ -6699,12 +6699,12 @@ static int dst_set_diseqc(struct dvb_frontend *fe , struct dvb_diseqc_master_cmd
   }
   if ((unsigned int )cmd->msg_len != 0U && (unsigned int )cmd->msg_len <= 4U) {
     __len = (size_t )cmd->msg_len;
-    __ret = memcpy((void *)(& paket) + 3U, (void const *)(& cmd->msg),
+    __ret = memmove((void *)(& paket) + 3U, (void const *)(& cmd->msg),
                              __len);
   } else
   if ((unsigned int )cmd->msg_len == 5U && (state->dst_hw_cap & 8U) != 0U) {
     __len___0 = (size_t )cmd->msg_len;
-    __ret___0 = memcpy((void *)(& paket) + 2U, (void const *)(& cmd->msg),
+    __ret___0 = memmove((void *)(& paket) + 2U, (void const *)(& cmd->msg),
                                  __len___0);
   } else {
     return (-22);
@@ -6908,40 +6908,40 @@ static int dst_init(struct dvb_frontend *fe )
   if ((unsigned int )state->dst_type == 0U) {
     __len = 10UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & sat_tuna_188 : & sat_tuna_204),
+      __ret = memmove((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & sat_tuna_188 : & sat_tuna_204),
                        __len);
     } else {
-      __ret = memcpy((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & sat_tuna_188 : & sat_tuna_204),
+      __ret = memmove((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & sat_tuna_188 : & sat_tuna_204),
                                __len);
     }
   } else
   if ((unsigned int )state->dst_type == 1U) {
     __len___0 = 10UL;
     if (__len___0 > 63UL) {
-      __ret___0 = memcpy((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & ter_tuna_188 : & ter_tuna_204),
+      __ret___0 = memmove((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & ter_tuna_188 : & ter_tuna_204),
                            __len___0);
     } else {
-      __ret___0 = memcpy((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & ter_tuna_188 : & ter_tuna_204),
+      __ret___0 = memmove((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & ter_tuna_188 : & ter_tuna_204),
                                    __len___0);
     }
   } else
   if ((unsigned int )state->dst_type == 2U) {
     __len___1 = 10UL;
     if (__len___1 > 63UL) {
-      __ret___1 = memcpy((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & cab_tuna_188 : & cab_tuna_204),
+      __ret___1 = memmove((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & cab_tuna_188 : & cab_tuna_204),
                            __len___1);
     } else {
-      __ret___1 = memcpy((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & cab_tuna_188 : & cab_tuna_204),
+      __ret___1 = memmove((void *)(& state->tx_tuna), (void const *)((state->type_flags & 4096U) != 0U ? & cab_tuna_188 : & cab_tuna_204),
                                    __len___1);
     }
   } else
   if ((unsigned int )state->dst_type == 3U) {
     __len___2 = 10UL;
     if (__len___2 > 63UL) {
-      __ret___2 = memcpy((void *)(& state->tx_tuna), (void const *)(& atsc_tuner),
+      __ret___2 = memmove((void *)(& state->tx_tuna), (void const *)(& atsc_tuner),
                            __len___2);
     } else {
-      __ret___2 = memcpy((void *)(& state->tx_tuna), (void const *)(& atsc_tuner),
+      __ret___2 = memmove((void *)(& state->tx_tuna), (void const *)(& atsc_tuner),
                                    __len___2);
     }
   } else {
@@ -7223,40 +7223,40 @@ struct dst_state *dst_attach(struct dst_state *state , struct dvb_adapter *dvb_a
   case 1:
   __len = 768UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& state->frontend.ops), (void const *)(& dst_dvbt_ops),
+    __ret = memmove((void *)(& state->frontend.ops), (void const *)(& dst_dvbt_ops),
                      __len);
   } else {
-    __ret = memcpy((void *)(& state->frontend.ops), (void const *)(& dst_dvbt_ops),
+    __ret = memmove((void *)(& state->frontend.ops), (void const *)(& dst_dvbt_ops),
                              __len);
   }
   goto ldv_33077;
   case 2:
   __len___0 = 768UL;
   if (__len___0 > 63UL) {
-    __ret___0 = memcpy((void *)(& state->frontend.ops), (void const *)(& dst_dvbc_ops),
+    __ret___0 = memmove((void *)(& state->frontend.ops), (void const *)(& dst_dvbc_ops),
                          __len___0);
   } else {
-    __ret___0 = memcpy((void *)(& state->frontend.ops), (void const *)(& dst_dvbc_ops),
+    __ret___0 = memmove((void *)(& state->frontend.ops), (void const *)(& dst_dvbc_ops),
                                  __len___0);
   }
   goto ldv_33077;
   case 0:
   __len___1 = 768UL;
   if (__len___1 > 63UL) {
-    __ret___1 = memcpy((void *)(& state->frontend.ops), (void const *)(& dst_dvbs_ops),
+    __ret___1 = memmove((void *)(& state->frontend.ops), (void const *)(& dst_dvbs_ops),
                          __len___1);
   } else {
-    __ret___1 = memcpy((void *)(& state->frontend.ops), (void const *)(& dst_dvbs_ops),
+    __ret___1 = memmove((void *)(& state->frontend.ops), (void const *)(& dst_dvbs_ops),
                                  __len___1);
   }
   goto ldv_33077;
   case 3:
   __len___2 = 768UL;
   if (__len___2 > 63UL) {
-    __ret___2 = memcpy((void *)(& state->frontend.ops), (void const *)(& dst_atsc_ops),
+    __ret___2 = memmove((void *)(& state->frontend.ops), (void const *)(& dst_atsc_ops),
                          __len___2);
   } else {
-    __ret___2 = memcpy((void *)(& state->frontend.ops), (void const *)(& dst_atsc_ops),
+    __ret___2 = memmove((void *)(& state->frontend.ops), (void const *)(& dst_atsc_ops),
                                  __len___2);
   }
   goto ldv_33077;

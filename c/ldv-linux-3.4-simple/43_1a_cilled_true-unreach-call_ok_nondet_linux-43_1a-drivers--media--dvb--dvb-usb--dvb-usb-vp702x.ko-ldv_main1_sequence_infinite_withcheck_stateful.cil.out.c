@@ -5701,7 +5701,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
@@ -6325,7 +6325,7 @@ static int vp702x_usb_inout_cmd(struct dvb_usb_device *d , u8 cmd , u8 *o , int 
   __cil_tmp43 = (void *)buf;
   __cil_tmp44 = __cil_tmp43 + 2U;
   __cil_tmp45 = (void const   *)o;
-  __ret = memcpy(__cil_tmp44, __cil_tmp45, __len);
+  __ret = memmove(__cil_tmp44, __cil_tmp45, __len);
   __cil_tmp46 = olen + 2;
   __cil_tmp47 = ilen + 1;
   ret = vp702x_usb_inout_op(d, buf, __cil_tmp46, buf, __cil_tmp47, msec);
@@ -6336,7 +6336,7 @@ static int vp702x_usb_inout_cmd(struct dvb_usb_device *d , u8 cmd , u8 *o , int 
     __cil_tmp48 = (void *)i;
     __cil_tmp49 = (void const   *)buf;
     __cil_tmp50 = __cil_tmp49 + 1U;
-    __ret___0 = memcpy(__cil_tmp48, __cil_tmp50, __len___0);
+    __ret___0 = memmove(__cil_tmp48, __cil_tmp50, __len___0);
     }
   } else {
 
@@ -6971,13 +6971,13 @@ static int vp702x_read_mac_addr(struct dvb_usb_device *d , u8 *mac )
     {
     __cil_tmp24 = (void *)mac;
     __cil_tmp25 = (void const   *)buf;
-    __ret = memcpy(__cil_tmp24, __cil_tmp25, __len);
+    __ret = memmove(__cil_tmp24, __cil_tmp25, __len);
     }
   } else {
     {
     __cil_tmp26 = (void *)mac;
     __cil_tmp27 = (void const   *)buf;
-    __ret = memcpy(__cil_tmp26, __cil_tmp27, __len);
+    __ret = memmove(__cil_tmp26, __cil_tmp27, __len);
     }
   }
   {
@@ -8748,7 +8748,7 @@ static int vp702x_fe_send_diseqc_msg(struct dvb_frontend *fe , struct dvb_diseqc
   __cil_tmp35 = __cil_tmp34 + 3U;
   __cil_tmp36 = (__u8 (*)[6U])m;
   __cil_tmp37 = (void const   *)__cil_tmp36;
-  __ret = memcpy(__cil_tmp35, __cil_tmp37, __len);
+  __ret = memmove(__cil_tmp35, __cil_tmp37, __len);
   __cil_tmp38 = cmd + 7UL;
   *__cil_tmp38 = vp702x_chksum(cmd, 0, 7);
   __cil_tmp39 = (unsigned long )st;
@@ -8959,7 +8959,7 @@ static int vp702x_fe_set_tone(struct dvb_frontend *fe , fe_sec_tone_mode_t tone 
     __cil_tmp44 = __cil_tmp43 + 1728;
     __cil_tmp45 = (u8 (*)[8U])__cil_tmp44;
     __cil_tmp46 = (void const   *)__cil_tmp45;
-    __ret = memcpy(__cil_tmp42, __cil_tmp46, __len);
+    __ret = memmove(__cil_tmp42, __cil_tmp46, __len);
     }
   } else {
     {
@@ -8968,7 +8968,7 @@ static int vp702x_fe_set_tone(struct dvb_frontend *fe , fe_sec_tone_mode_t tone 
     __cil_tmp49 = __cil_tmp48 + 1728;
     __cil_tmp50 = (u8 (*)[8U])__cil_tmp49;
     __cil_tmp51 = (void const   *)__cil_tmp50;
-    __ret = memcpy(__cil_tmp47, __cil_tmp51, __len);
+    __ret = memmove(__cil_tmp47, __cil_tmp51, __len);
     }
   }
   {
@@ -9159,7 +9159,7 @@ static int vp702x_fe_set_voltage(struct dvb_frontend *fe , fe_sec_voltage_t volt
     __cil_tmp44 = __cil_tmp43 + 1728;
     __cil_tmp45 = (u8 (*)[8U])__cil_tmp44;
     __cil_tmp46 = (void const   *)__cil_tmp45;
-    __ret = memcpy(__cil_tmp42, __cil_tmp46, __len);
+    __ret = memmove(__cil_tmp42, __cil_tmp46, __len);
     }
   } else {
     {
@@ -9168,7 +9168,7 @@ static int vp702x_fe_set_voltage(struct dvb_frontend *fe , fe_sec_voltage_t volt
     __cil_tmp49 = __cil_tmp48 + 1728;
     __cil_tmp50 = (u8 (*)[8U])__cil_tmp49;
     __cil_tmp51 = (void const   *)__cil_tmp50;
-    __ret = memcpy(__cil_tmp47, __cil_tmp51, __len);
+    __ret = memmove(__cil_tmp47, __cil_tmp51, __len);
     }
   }
   {
@@ -9297,14 +9297,14 @@ struct dvb_frontend *vp702x_fe_attach(struct dvb_usb_device *d )
     __cil_tmp11 = (struct dvb_frontend_ops *)s;
     __cil_tmp12 = (void *)__cil_tmp11;
     __cil_tmp13 = (void const   *)(& vp702x_fe_ops);
-    __ret = memcpy(__cil_tmp12, __cil_tmp13, __len);
+    __ret = memmove(__cil_tmp12, __cil_tmp13, __len);
     }
   } else {
     {
     __cil_tmp14 = (struct dvb_frontend_ops *)s;
     __cil_tmp15 = (void *)__cil_tmp14;
     __cil_tmp16 = (void const   *)(& vp702x_fe_ops);
-    __ret = memcpy(__cil_tmp15, __cil_tmp16, __len);
+    __ret = memmove(__cil_tmp15, __cil_tmp16, __len);
     }
   }
   __cil_tmp17 = 0 + 760;

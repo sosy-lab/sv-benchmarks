@@ -6448,7 +6448,7 @@ __inline static struct task_struct *get_current(void)
   return (pfo_ret__);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
@@ -6829,7 +6829,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = memcpy((void *)dst, src, __len);
+  __ret = memmove((void *)dst, src, __len);
   return;
 }
 }
@@ -7268,7 +7268,7 @@ __inline static void skb_copy_from_linear_data(struct sk_buff  const  *skb , voi
 
   {
   __len = (size_t )len;
-  __ret = memcpy(to, (void const   *)skb->data, __len);
+  __ret = memmove(to, (void const   *)skb->data, __len);
   return;
 }
 }
@@ -11199,10 +11199,10 @@ static void notify_wx_assoc_event(struct ipw_priv *priv )
   if ((priv->status & 128U) != 0U) {
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& wrqu.ap_addr.sa_data), (void const   *)(& priv->bssid),
+      __ret = memmove((void *)(& wrqu.ap_addr.sa_data), (void const   *)(& priv->bssid),
                        __len);
     } else {
-      __ret = memcpy((void *)(& wrqu.ap_addr.sa_data), (void const   *)(& priv->bssid),
+      __ret = memmove((void *)(& wrqu.ap_addr.sa_data), (void const   *)(& priv->bssid),
                                __len);
     }
   } else {
@@ -11681,7 +11681,7 @@ static int __ipw_send_cmd(struct ipw_priv *priv , struct host_cmd *cmd )
     (priv->cmdlog + (unsigned long )priv->cmdlog_pos)->cmd.cmd = cmd->cmd;
     (priv->cmdlog + (unsigned long )priv->cmdlog_pos)->cmd.len = cmd->len;
     __len = (size_t )cmd->len;
-    __ret = memcpy((void *)(& (priv->cmdlog + (unsigned long )priv->cmdlog_pos)->cmd.param),
+    __ret = memmove((void *)(& (priv->cmdlog + (unsigned long )priv->cmdlog_pos)->cmd.param),
                              (void const   *)cmd->param, __len);
     (priv->cmdlog + (unsigned long )priv->cmdlog_pos)->retcode = -1;
   } else {
@@ -12412,9 +12412,9 @@ static void eeprom_parse_mac(struct ipw_priv *priv , u8 *mac )
   {
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)mac, (void const   *)(& priv->eeprom) + 66U, __len);
+    __ret = memmove((void *)mac, (void const   *)(& priv->eeprom) + 66U, __len);
   } else {
-    __ret = memcpy((void *)mac, (void const   *)(& priv->eeprom) + 66U,
+    __ret = memmove((void *)mac, (void const   *)(& priv->eeprom) + 66U,
                              __len);
   }
   return;
@@ -13635,10 +13635,10 @@ static int ipw_load_ucode(struct ipw_priv *priv , u8 *data , size_t len )
     ldv_46794: 
     __len = 26UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& priv->dino_alive), (void const   *)(& response_buffer),
+      __ret = memmove((void *)(& priv->dino_alive), (void const   *)(& response_buffer),
                        __len);
     } else {
-      __ret = memcpy((void *)(& priv->dino_alive), (void const   *)(& response_buffer),
+      __ret = memmove((void *)(& priv->dino_alive), (void const   *)(& response_buffer),
                                __len);
     }
     if ((unsigned int )priv->dino_alive.alive_command == 1U && (unsigned int )priv->dino_alive.ucode_valid == 1U) {
@@ -13793,7 +13793,7 @@ static int ipw_load_firmware(struct ipw_priv *priv , u8 *data , size_t len )
   }
   size = (int )tmp___5;
   __len = (size_t )size;
-  __ret = memcpy(*(virts + (unsigned long )total_nr), (void const   *)start,
+  __ret = memmove(*(virts + (unsigned long )total_nr), (void const   *)start,
                            __len);
   start = start + (unsigned long )size;
   total_nr = total_nr + 1;
@@ -14815,16 +14815,16 @@ static u8 ipw_add_station(struct ipw_priv *priv , u8 *bssid )
   entry.support_mode = 0U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& entry.mac_addr), (void const   *)bssid, __len);
+    __ret = memmove((void *)(& entry.mac_addr), (void const   *)bssid, __len);
   } else {
-    __ret = memcpy((void *)(& entry.mac_addr), (void const   *)bssid, __len);
+    __ret = memmove((void *)(& entry.mac_addr), (void const   *)bssid, __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = memcpy((void *)(& priv->stations) + (unsigned long )i, (void const   *)bssid,
+    __ret___0 = memmove((void *)(& priv->stations) + (unsigned long )i, (void const   *)bssid,
                          __len___0);
   } else {
-    __ret___0 = memcpy((void *)(& priv->stations) + (unsigned long )i, (void const   *)bssid,
+    __ret___0 = memmove((void *)(& priv->stations) + (unsigned long )i, (void const   *)bssid,
                                  __len___0);
   }
   ipw_write_direct(priv, (u32 )((unsigned long )i) * 8U + 3084U, (void *)(& entry),
@@ -15847,20 +15847,20 @@ static void ipw_rx_notification(struct ipw_priv *priv , struct ipw_rx_notificati
   case 2: 
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
+    __ret = memmove((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
                      __len);
   } else {
-    __ret = memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
+    __ret = memmove((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
                              __len);
   }
   goto ldv_47149;
   case 1: 
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
+    __ret___0 = memmove((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
                          __len___0);
   } else {
-    __ret___0 = memcpy((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
+    __ret___0 = memmove((void *)(& (priv->ieee)->bssid), (void const   *)(& priv->bssid),
                                  __len___0);
   }
   priv->num_stations = 0U;
@@ -16338,10 +16338,10 @@ static void ipw_rx_notification(struct ipw_priv *priv , struct ipw_rx_notificati
     }
     __len___1 = 145UL;
     if (__len___1 > 63UL) {
-      __ret___1 = memcpy((void *)(& priv->last_link_deterioration), (void const   *)x___2,
+      __ret___1 = memmove((void *)(& priv->last_link_deterioration), (void const   *)x___2,
                            __len___1);
     } else {
-      __ret___1 = memcpy((void *)(& priv->last_link_deterioration), (void const   *)x___2,
+      __ret___1 = memmove((void *)(& priv->last_link_deterioration), (void const   *)x___2,
                                    __len___1);
     }
   } else {
@@ -16388,9 +16388,9 @@ static void ipw_rx_notification(struct ipw_priv *priv , struct ipw_rx_notificati
   if ((unsigned int )size == 104U) {
     __len___2 = 104UL;
     if (__len___2 > 63UL) {
-      __ret___2 = memcpy((void *)(& priv->calib), (void const   *)x___5, __len___2);
+      __ret___2 = memmove((void *)(& priv->calib), (void const   *)x___5, __len___2);
     } else {
-      __ret___2 = memcpy((void *)(& priv->calib), (void const   *)x___5,
+      __ret___2 = memmove((void *)(& priv->calib), (void const   *)x___5,
                                    __len___2);
     }
     if ((ipw_debug_level & 4U) != 0U) {
@@ -16595,7 +16595,7 @@ static int ipw_queue_tx_hcmd(struct ipw_priv *priv , int hcmd , void *buf , int 
   tfd->u.cmd.index = (u8 )hcmd;
   tfd->u.cmd.length = (u8 )len;
   __len = (size_t )len;
-  __ret = memcpy((void *)(& tfd->u.cmd.payload), (void const   *)buf, __len);
+  __ret = memmove((void *)(& tfd->u.cmd.payload), (void const   *)buf, __len);
   q->first_empty = ipw_queue_inc_wrap(q->first_empty, q->n_bd);
   if ((ipw_debug_level & 134217728U) != 0U) {
     tmp___3 = current_thread_info();
@@ -18104,7 +18104,7 @@ static void ipw_adhoc_create(struct ipw_priv *priv , struct libipw_network *netw
   ipw_create_bssid(priv, (u8 *)(& network->bssid));
   network->ssid_len = priv->essid_len;
   __len = (size_t )priv->essid_len;
-  __ret = memcpy((void *)(& network->ssid), (void const   *)(& priv->essid),
+  __ret = memmove((void *)(& network->ssid), (void const   *)(& priv->essid),
                            __len);
   memset((void *)(& network->stats), 0, 32UL);
   network->capability = 2U;
@@ -18127,11 +18127,11 @@ static void ipw_adhoc_create(struct ipw_priv *priv , struct libipw_network *netw
   }
   network->rates_len = (u8 )tmp___3;
   __len___0 = (size_t )network->rates_len;
-  __ret___0 = memcpy((void *)(& network->rates), (void const   *)(& priv->rates.supported_rates),
+  __ret___0 = memmove((void *)(& network->rates), (void const   *)(& priv->rates.supported_rates),
                                __len___0);
   network->rates_ex_len = (int )priv->rates.num_rates - (int )network->rates_len;
   __len___1 = (size_t )network->rates_ex_len;
-  __ret___1 = memcpy((void *)(& network->rates_ex), (void const   *)(& priv->rates.supported_rates) + (unsigned long )network->rates_len,
+  __ret___1 = memmove((void *)(& network->rates_ex), (void const   *)(& priv->rates.supported_rates) + (unsigned long )network->rates_len,
                                __len___1);
   network->last_scanned = 0UL;
   network->flags = 0U;
@@ -18160,10 +18160,10 @@ static void ipw_send_tgi_tx_key(struct ipw_priv *priv , int type , int index )
   key.key_id = (u8 )index;
   __len = 16UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& key.key), (void const   *)(& (priv->ieee)->sec.keys) + (unsigned long )index,
+    __ret = memmove((void *)(& key.key), (void const   *)(& (priv->ieee)->sec.keys) + (unsigned long )index,
                      __len);
   } else {
-    __ret = memcpy((void *)(& key.key), (void const   *)(& (priv->ieee)->sec.keys) + (unsigned long )index,
+    __ret = memmove((void *)(& key.key), (void const   *)(& (priv->ieee)->sec.keys) + (unsigned long )index,
                              __len);
   }
   key.security_type = (u8 )type;
@@ -18196,7 +18196,7 @@ static void ipw_send_wep_keys(struct ipw_priv *priv , int type )
   }
   key.key_size = (priv->ieee)->sec.key_sizes[i];
   __len = (size_t )key.key_size;
-  __ret = memcpy((void *)(& key.key), (void const   *)(& (priv->ieee)->sec.keys) + (unsigned long )i,
+  __ret = memmove((void *)(& key.key), (void const   *)(& (priv->ieee)->sec.keys) + (unsigned long )i,
                            __len);
   ipw_send_cmd_pdu(priv, 18, 20, (void *)(& key));
   ldv_47470: 
@@ -19416,7 +19416,7 @@ static int ipw_wx_get_genie(struct net_device *dev , struct iw_request_info *inf
   }
   wrqu->data.length = (__u16 )ieee->wpa_ie_len;
   __len = ieee->wpa_ie_len;
-  __ret = memcpy((void *)extra, (void const   *)ieee->wpa_ie, __len);
+  __ret = memmove((void *)extra, (void const   *)ieee->wpa_ie, __len);
   out: ;
   return (err);
 }
@@ -19871,11 +19871,11 @@ static int ipw_qos_handle_probe_response(struct ipw_priv *priv , int active_netw
   } else {
     if ((priv->ieee)->mode == 2 || (unsigned int )network->mode == 2U) {
       __len = (size_t )size;
-      __ret = memcpy((void *)(& network->qos_data.parameters), (void const   *)(& def_parameters_CCK),
+      __ret = memmove((void *)(& network->qos_data.parameters), (void const   *)(& def_parameters_CCK),
                                __len);
     } else {
       __len___0 = (size_t )size;
-      __ret___0 = memcpy((void *)(& network->qos_data.parameters), (void const   *)(& def_parameters_OFDM),
+      __ret___0 = memmove((void *)(& network->qos_data.parameters), (void const   *)(& def_parameters_OFDM),
                                    __len___0);
     }
     if (network->qos_data.active == 1 && active_network == 1) {
@@ -19962,11 +19962,11 @@ static int ipw_qos_activate(struct ipw_priv *priv , struct libipw_qos_data *qos_
   type = ipw_qos_current_mode(priv);
   active_one = (struct libipw_qos_parameters *)(& qos_parameters) + 1UL;
   __len = (size_t )size;
-  __ret = memcpy((void *)active_one, (void const   *)priv->qos_data.def_qos_parm_CCK,
+  __ret = memmove((void *)active_one, (void const   *)priv->qos_data.def_qos_parm_CCK,
                            __len);
   active_one = (struct libipw_qos_parameters *)(& qos_parameters) + 2UL;
   __len___0 = (size_t )size;
-  __ret___0 = memcpy((void *)active_one, (void const   *)priv->qos_data.def_qos_parm_OFDM,
+  __ret___0 = memmove((void *)active_one, (void const   *)priv->qos_data.def_qos_parm_OFDM,
                                __len___0);
   if ((unsigned long )qos_network_data == (unsigned long )((struct libipw_qos_data *)0)) {
     if ((unsigned int )type == 2U) {
@@ -19987,7 +19987,7 @@ static int ipw_qos_activate(struct ipw_priv *priv , struct libipw_qos_data *qos_
       active_one = & def_parameters_OFDM;
     }
     __len___1 = (size_t )size;
-    __ret___1 = memcpy((void *)(& qos_parameters), (void const   *)active_one,
+    __ret___1 = memmove((void *)(& qos_parameters), (void const   *)active_one,
                                  __len___1);
     burst_duration = ipw_qos_get_burst_duration(priv);
     i = 0;
@@ -20029,7 +20029,7 @@ static int ipw_qos_activate(struct ipw_priv *priv , struct libipw_qos_data *qos_
       active_one = priv->qos_data.def_qos_parm_OFDM;
     }
     __len___2 = (size_t )size;
-    __ret___2 = memcpy((void *)(& qos_parameters), (void const   *)active_one,
+    __ret___2 = memmove((void *)(& qos_parameters), (void const   *)active_one,
                                  __len___2);
   } else {
     tmp___5 = spinlock_check(& (priv->ieee)->lock);
@@ -20037,7 +20037,7 @@ static int ipw_qos_activate(struct ipw_priv *priv , struct libipw_qos_data *qos_
     active_one = & qos_network_data->parameters;
     qos_network_data->old_param_count = qos_network_data->param_count;
     __len___3 = (size_t )size;
-    __ret___3 = memcpy((void *)(& qos_parameters), (void const   *)active_one,
+    __ret___3 = memmove((void *)(& qos_parameters), (void const   *)active_one,
                                  __len___3);
     active = qos_network_data->supported;
     spin_unlock_irqrestore(& (priv->ieee)->lock, flags);
@@ -20110,9 +20110,9 @@ static int ipw_qos_set_info_element(struct ipw_priv *priv )
   qos_info.ac_info = 0U;
   __len = 3UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& qos_info.qui), (void const   *)(& qos_oui), __len);
+    __ret = memmove((void *)(& qos_info.qui), (void const   *)(& qos_oui), __len);
   } else {
-    __ret = memcpy((void *)(& qos_info.qui), (void const   *)(& qos_oui),
+    __ret = memmove((void *)(& qos_info.qui), (void const   *)(& qos_oui),
                              __len);
   }
   qos_info.qui_type = 2U;
@@ -20262,10 +20262,10 @@ static int ipw_qos_association_resp(struct ipw_priv *priv , struct libipw_networ
   if ((network->flags & 8U) != 0U) {
     __len = 44UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& (priv->assoc_network)->qos_data), (void const   *)(& network->qos_data),
+      __ret = memmove((void *)(& (priv->assoc_network)->qos_data), (void const   *)(& network->qos_data),
                        __len);
     } else {
-      __ret = memcpy((void *)(& (priv->assoc_network)->qos_data), (void const   *)(& network->qos_data),
+      __ret = memmove((void *)(& (priv->assoc_network)->qos_data), (void const   *)(& network->qos_data),
                                __len);
     }
     (priv->assoc_network)->qos_data.active = 1;
@@ -20278,11 +20278,11 @@ static int ipw_qos_association_resp(struct ipw_priv *priv , struct libipw_networ
   } else {
     if ((unsigned int )network->mode == 2U || (priv->ieee)->mode == 2) {
       __len___0 = (size_t )size;
-      __ret___0 = memcpy((void *)(& (priv->assoc_network)->qos_data.parameters),
+      __ret___0 = memmove((void *)(& (priv->assoc_network)->qos_data.parameters),
                                    (void const   *)(& def_parameters_CCK), __len___0);
     } else {
       __len___1 = (size_t )size;
-      __ret___1 = memcpy((void *)(& (priv->assoc_network)->qos_data.parameters),
+      __ret___1 = memmove((void *)(& (priv->assoc_network)->qos_data.parameters),
                                    (void const   *)(& def_parameters_OFDM), __len___1);
     }
     (priv->assoc_network)->qos_data.active = 0;
@@ -20587,7 +20587,7 @@ static int ipw_associate_network(struct ipw_priv *priv , struct libipw_network *
     }
     priv->essid_len = (u8 )tmp;
     __len = (size_t )priv->essid_len;
-    __ret = memcpy((void *)(& priv->essid), (void const   *)(& network->ssid),
+    __ret = memmove((void *)(& priv->essid), (void const   *)(& network->ssid),
                              __len);
   } else {
 
@@ -20716,10 +20716,10 @@ static int ipw_associate_network(struct ipw_priv *priv , struct libipw_network *
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = memcpy((void *)(& priv->assoc_request.bssid), (void const   *)(& network->bssid),
+    __ret___0 = memmove((void *)(& priv->assoc_request.bssid), (void const   *)(& network->bssid),
                          __len___0);
   } else {
-    __ret___0 = memcpy((void *)(& priv->assoc_request.bssid), (void const   *)(& network->bssid),
+    __ret___0 = memmove((void *)(& priv->assoc_request.bssid), (void const   *)(& network->bssid),
                                  __len___0);
   }
   if ((priv->ieee)->iw_mode == 1) {
@@ -20728,10 +20728,10 @@ static int ipw_associate_network(struct ipw_priv *priv , struct libipw_network *
   } else {
     __len___1 = 6UL;
     if (__len___1 > 63UL) {
-      __ret___1 = memcpy((void *)(& priv->assoc_request.dest), (void const   *)(& network->bssid),
+      __ret___1 = memmove((void *)(& priv->assoc_request.dest), (void const   *)(& network->bssid),
                            __len___1);
     } else {
-      __ret___1 = memcpy((void *)(& priv->assoc_request.dest), (void const   *)(& network->bssid),
+      __ret___1 = memmove((void *)(& priv->assoc_request.dest), (void const   *)(& network->bssid),
                                    __len___1);
     }
     priv->assoc_request.atim_window = 0U;
@@ -20819,10 +20819,10 @@ static int ipw_associate_network(struct ipw_priv *priv , struct libipw_network *
   priv->channel = network->channel;
   __len___2 = 6UL;
   if (__len___2 > 63UL) {
-    __ret___2 = memcpy((void *)(& priv->bssid), (void const   *)(& network->bssid),
+    __ret___2 = memmove((void *)(& priv->bssid), (void const   *)(& network->bssid),
                          __len___2);
   } else {
-    __ret___2 = memcpy((void *)(& priv->bssid), (void const   *)(& network->bssid),
+    __ret___2 = memmove((void *)(& priv->bssid), (void const   *)(& network->bssid),
                                  __len___2);
   }
   priv->status = priv->status | 256U;
@@ -21727,7 +21727,7 @@ static void ipw_handle_promiscuous_rx(struct ipw_priv *priv , struct ipw_rx_mem_
 
   }
   __len = (size_t )len;
-  __ret = memcpy((void *)(& ipw_rt->payload), (void const   *)hdr, __len);
+  __ret = memmove((void *)(& ipw_rt->payload), (void const   *)hdr, __len);
   ipw_rt->rt_hdr.it_version = 0U;
   ipw_rt->rt_hdr.it_pad = 0U;
   ipw_rt->rt_hdr.it_len = 25U;
@@ -21935,9 +21935,9 @@ static int is_duplicate_packet(struct ipw_priv *priv , struct libipw_hdr_4addr *
     }
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& entry->mac), (void const   *)mac, __len);
+      __ret = memmove((void *)(& entry->mac), (void const   *)mac, __len);
     } else {
-      __ret = memcpy((void *)(& entry->mac), (void const   *)mac, __len);
+      __ret = memmove((void *)(& entry->mac), (void const   *)mac, __len);
     }
     entry->seq_num = seq;
     entry->frag_num = frag;
@@ -22027,10 +22027,10 @@ static void ipw_handle_mgmt_packet(struct ipw_priv *priv , struct ipw_rx_mem_buf
     __len = 32UL;
     if (__len > 63UL) {
       tmp___3 = skb_push(skb, 32U);
-      __ret = memcpy((void *)tmp___3, (void const   *)stats, __len);
+      __ret = memmove((void *)tmp___3, (void const   *)stats, __len);
     } else {
       tmp___4 = skb_push(skb, 32U);
-      __ret = memcpy((void *)tmp___4, (void const   *)stats, __len);
+      __ret = memmove((void *)tmp___4, (void const   *)stats, __len);
     }
     skb->dev = (priv->ieee)->dev;
     skb_reset_mac_header(skb);
@@ -23170,10 +23170,10 @@ static int ipw_wx_set_wap(struct net_device *dev , struct iw_request_info *info 
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& priv->bssid), (void const   *)(& wrqu->ap_addr.sa_data),
+    __ret = memmove((void *)(& priv->bssid), (void const   *)(& wrqu->ap_addr.sa_data),
                      __len);
   } else {
-    __ret = memcpy((void *)(& priv->bssid), (void const   *)(& wrqu->ap_addr.sa_data),
+    __ret = memmove((void *)(& priv->bssid), (void const   *)(& wrqu->ap_addr.sa_data),
                              __len);
   }
   if ((ipw_debug_level & 4100U) != 0U) {
@@ -23215,10 +23215,10 @@ static int ipw_wx_get_wap(struct net_device *dev , struct iw_request_info *info 
     wrqu->ap_addr.sa_family = 1U;
     __len = 6UL;
     if (__len > 63UL) {
-      __ret = memcpy((void *)(& wrqu->ap_addr.sa_data), (void const   *)(& priv->bssid),
+      __ret = memmove((void *)(& wrqu->ap_addr.sa_data), (void const   *)(& priv->bssid),
                        __len);
     } else {
-      __ret = memcpy((void *)(& wrqu->ap_addr.sa_data), (void const   *)(& priv->bssid),
+      __ret = memmove((void *)(& wrqu->ap_addr.sa_data), (void const   *)(& priv->bssid),
                                __len);
     }
   } else {
@@ -23337,7 +23337,7 @@ static int ipw_wx_set_essid(struct net_device *dev , struct iw_request_info *inf
   }
   priv->essid_len = (u8 )length;
   __len = (size_t )priv->essid_len;
-  __ret = memcpy((void *)(& priv->essid), (void const   *)extra, __len);
+  __ret = memmove((void *)(& priv->essid), (void const   *)extra, __len);
   if ((ipw_debug_level & 4100U) != 0U) {
     tmp___14 = current_thread_info();
     if (((unsigned long )tmp___14->preempt_count & 134217472UL) != 0UL) {
@@ -23392,7 +23392,7 @@ static int ipw_wx_get_essid(struct net_device *dev , struct iw_request_info *inf
 
     }
     __len = (size_t )priv->essid_len;
-    __ret = memcpy((void *)extra, (void const   *)(& priv->essid), __len);
+    __ret = memmove((void *)extra, (void const   *)(& priv->essid), __len);
     wrqu->essid.length = (__u16 )priv->essid_len;
     wrqu->essid.flags = 1U;
   } else {
@@ -23459,7 +23459,7 @@ static int ipw_wx_set_nick(struct net_device *dev , struct iw_request_info *info
   wrqu->data.length = (__u16 )tmp___3;
   memset((void *)(& priv->nick), 0, 32UL);
   __len = (size_t )wrqu->data.length;
-  __ret = memcpy((void *)(& priv->nick), (void const   *)extra, __len);
+  __ret = memmove((void *)(& priv->nick), (void const   *)extra, __len);
   if ((ipw_debug_level & 268435456U) != 0U) {
     tmp___6 = current_thread_info();
     if (((unsigned long )tmp___6->preempt_count & 134217472UL) != 0UL) {
@@ -23503,7 +23503,7 @@ static int ipw_wx_get_nick(struct net_device *dev , struct iw_request_info *info
   tmp___3 = strlen((char const   *)(& priv->nick));
   wrqu->data.length = (__u16 )tmp___3;
   __len = (size_t )wrqu->data.length;
-  __ret = memcpy((void *)extra, (void const   *)(& priv->nick), __len);
+  __ret = memmove((void *)extra, (void const   *)(& priv->nick), __len);
   wrqu->data.flags = 1U;
   ldv_mutex_unlock_65(& priv->mutex);
   return (0);
@@ -24207,7 +24207,7 @@ static int ipw_wx_set_scan(struct net_device *dev , struct iw_request_info *info
       }
       len = tmp___0;
       __len = (size_t )len;
-      __ret = memcpy((void *)(& priv->direct_scan_ssid), (void const   *)(& req->essid),
+      __ret = memmove((void *)(& priv->direct_scan_ssid), (void const   *)(& req->essid),
                                __len);
       priv->direct_scan_ssid_len = (u8 )len;
       work = & priv->request_direct_scan;
@@ -25175,7 +25175,7 @@ static int ipw_tx_skb(struct ipw_priv *priv , struct libipw_txb *txb , int pri )
   fc = (int )hdr->frame_ctl;
   hdr->frame_ctl = (unsigned int )((unsigned short )fc) & 64511U;
   __len = (size_t )hdr_len;
-  __ret = memcpy((void *)(& tfd->u.data.tfd.tfd_24.mchdr), (void const   *)hdr,
+  __ret = memmove((void *)(& tfd->u.data.tfd.tfd_24.mchdr), (void const   *)hdr,
                            __len);
   tmp___5 = ldv__builtin_expect((unsigned int )unicast != 0U, 1L);
   if (tmp___5 != 0L) {
@@ -25314,7 +25314,7 @@ static int ipw_tx_skb(struct ipw_priv *priv , struct libipw_txb *txb , int pri )
       printk("\016Adding frag %d %d...\n", j, size);
       __len___0 = (size_t )size;
       tmp___18 = skb_put(skb, (unsigned int )size);
-      __ret___0 = memcpy((void *)tmp___18, (void const   *)(txb->fragments[j])->data + (unsigned long )hdr_len,
+      __ret___0 = memmove((void *)tmp___18, (void const   *)(txb->fragments[j])->data + (unsigned long )hdr_len,
                                    __len___0);
       j = j + 1;
       ldv_48682: ;
@@ -25614,10 +25614,10 @@ static int ipw_net_set_mac_address(struct net_device *dev , void *p )
   priv->config = priv->config | 8U;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& priv->mac_addr), (void const   *)(& addr->sa_data),
+    __ret = memmove((void *)(& priv->mac_addr), (void const   *)(& addr->sa_data),
                      __len);
   } else {
-    __ret = memcpy((void *)(& priv->mac_addr), (void const   *)(& addr->sa_data),
+    __ret = memmove((void *)(& priv->mac_addr), (void const   *)(& addr->sa_data),
                              __len);
   }
   printk("\016%s: Setting MAC to %pM\n", (char *)(& (priv->net_dev)->name), (u8 *)(& priv->mac_addr));
@@ -25684,7 +25684,7 @@ static int ipw_ethtool_get_eeprom(struct net_device *dev , struct ethtool_eeprom
   }
   ldv_mutex_lock_128(& p->mutex);
   __len = (size_t )eeprom->len;
-  __ret = memcpy((void *)bytes, (void const   *)(& p->eeprom) + (unsigned long )eeprom->offset,
+  __ret = memmove((void *)bytes, (void const   *)(& p->eeprom) + (unsigned long )eeprom->offset,
                            __len);
   ldv_mutex_unlock_129(& p->mutex);
   return (0);
@@ -25710,7 +25710,7 @@ static int ipw_ethtool_set_eeprom(struct net_device *dev , struct ethtool_eeprom
   }
   ldv_mutex_lock_130(& p->mutex);
   __len = (size_t )eeprom->len;
-  __ret = memcpy((void *)(& p->eeprom) + (unsigned long )eeprom->offset,
+  __ret = memmove((void *)(& p->eeprom) + (unsigned long )eeprom->offset,
                            (void const   *)bytes, __len);
   i = 0;
   goto ldv_48768;
@@ -26289,7 +26289,7 @@ static void shim__set_security(struct net_device *dev , struct libipw_security *
       (priv->ieee)->sec.flags = (u16 )((int )((short )(priv->ieee)->sec.flags) & ~ ((int )((short )(1 << i))));
     } else {
       __len = (size_t )sec->key_sizes[i];
-      __ret = memcpy((void *)(& (priv->ieee)->sec.keys) + (unsigned long )i,
+      __ret = memmove((void *)(& (priv->ieee)->sec.keys) + (unsigned long )i,
                                (void const   *)(& sec->keys) + (unsigned long )i,
                                __len);
       (priv->ieee)->sec.flags = (u16 )((int )((short )(priv->ieee)->sec.flags) | (int )((short )(1 << i)));
@@ -27981,18 +27981,18 @@ static int ipw_up(struct ipw_priv *priv )
   }
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(priv->net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
+    __ret = memmove((void *)(priv->net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
                      __len);
   } else {
-    __ret = memcpy((void *)(priv->net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
+    __ret = memmove((void *)(priv->net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
                              __len);
   }
   __len___0 = 6UL;
   if (__len___0 > 63UL) {
-    __ret___0 = memcpy((void *)(& (priv->net_dev)->perm_addr), (void const   *)(& priv->mac_addr),
+    __ret___0 = memmove((void *)(& (priv->net_dev)->perm_addr), (void const   *)(& priv->mac_addr),
                          __len___0);
   } else {
-    __ret___0 = memcpy((void *)(& (priv->net_dev)->perm_addr), (void const   *)(& priv->mac_addr),
+    __ret___0 = memmove((void *)(& (priv->net_dev)->perm_addr), (void const   *)(& priv->mac_addr),
                                  __len___0);
   }
   ipw_set_geo(priv);
@@ -28228,10 +28228,10 @@ static int ipw_wdev_init(struct net_device *dev )
   wdev = & (priv->ieee)->wdev;
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(& (wdev->wiphy)->perm_addr), (void const   *)(& priv->mac_addr),
+    __ret = memmove((void *)(& (wdev->wiphy)->perm_addr), (void const   *)(& priv->mac_addr),
                      __len);
   } else {
-    __ret = memcpy((void *)(& (wdev->wiphy)->perm_addr), (void const   *)(& priv->mac_addr),
+    __ret = memmove((void *)(& (wdev->wiphy)->perm_addr), (void const   *)(& priv->mac_addr),
                              __len);
   }
   if ((unsigned int )((unsigned char )geo->bg_channels) != 0U) {
@@ -28497,10 +28497,10 @@ static int ipw_prom_alloc(struct ipw_priv *priv )
   strcpy((char *)(& (priv->prom_net_dev)->name), "rtap%d");
   __len = 6UL;
   if (__len > 63UL) {
-    __ret = memcpy((void *)(priv->prom_net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
+    __ret = memmove((void *)(priv->prom_net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
                      __len);
   } else {
-    __ret = memcpy((void *)(priv->prom_net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
+    __ret = memmove((void *)(priv->prom_net_dev)->dev_addr, (void const   *)(& priv->mac_addr),
                              __len);
   }
   (priv->prom_net_dev)->type = 803U;

@@ -4469,7 +4469,7 @@ void ldv_spin_lock(void) ;
 void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 extern int printk(char const   *  , ...) ;
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t  ) ;
 void *ldv_kmem_cache_alloc_16(struct kmem_cache *ldv_func_arg1 , gfp_t ldv_func_arg2 ) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
@@ -4865,13 +4865,13 @@ static void rx(struct net_device *dev , int bufnum , struct archdr *pkthdr , int
     {
     __cil_tmp35 = (void *)pkt;
     __cil_tmp36 = (void const   *)pkthdr;
-    __ret = memcpy(__cil_tmp35, __cil_tmp36, __len);
+    __ret = memmove(__cil_tmp35, __cil_tmp36, __len);
     }
   } else {
     {
     __cil_tmp37 = (void *)pkt;
     __cil_tmp38 = (void const   *)pkthdr;
-    __ret = memcpy(__cil_tmp37, __cil_tmp38, __len);
+    __ret = memmove(__cil_tmp37, __cil_tmp38, __len);
     }
   }
   {

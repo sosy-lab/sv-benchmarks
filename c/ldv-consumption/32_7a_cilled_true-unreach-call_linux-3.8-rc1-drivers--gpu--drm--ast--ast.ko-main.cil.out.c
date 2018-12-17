@@ -9504,7 +9504,7 @@ void ldv_mutex_unlock_68(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memmove(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 int ldv_mutex_trylock_84(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_unlock_82(struct mutex *ldv_func_arg1 ) ;
@@ -9526,7 +9526,7 @@ __inline static void memcpy_toio(void volatile   *dst , void const   *src , size
 
   {
   __len = count;
-  __ret = memcpy((void *)dst, src, __len);
+  __ret = memmove((void *)dst, src, __len);
   return;
 }
 }

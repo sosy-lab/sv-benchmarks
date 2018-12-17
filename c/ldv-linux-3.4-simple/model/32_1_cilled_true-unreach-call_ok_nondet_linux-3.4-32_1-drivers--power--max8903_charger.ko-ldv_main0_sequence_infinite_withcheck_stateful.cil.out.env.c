@@ -92,7 +92,7 @@ void ldv_initialize() {
 
 // Skip function: malloc
 
-// Skip function: memcpy
+// Skip function: memmove
 
 // Function: platform_driver_register
 // with type: int platform_driver_register(struct platform_driver *)
