@@ -8,49 +8,49 @@ typedef signed short int __int16_t;
 typedef unsigned short int __uint16_t;
 typedef signed int __int32_t;
 typedef unsigned int __uint32_t;
-typedef signed long int __int64_t;
-typedef unsigned long int __uint64_t;
-typedef long int __quad_t;
-typedef unsigned long int __u_quad_t;
-typedef long int __intmax_t;
-typedef unsigned long int __uintmax_t;
-typedef unsigned long int __dev_t;
-typedef unsigned int __uid_t;
-typedef unsigned int __gid_t;
-typedef unsigned long int __ino_t;
-typedef unsigned long int __ino64_t;
-typedef unsigned int __mode_t;
-typedef unsigned long int __nlink_t;
-typedef long int __off_t;
-typedef long int __off64_t;
-typedef int __pid_t;
-typedef struct { int __val[2]; } __fsid_t;
-typedef long int __clock_t;
-typedef unsigned long int __rlim_t;
-typedef unsigned long int __rlim64_t;
-typedef unsigned int __id_t;
-typedef long int __time_t;
-typedef unsigned int __useconds_t;
-typedef long int __suseconds_t;
-typedef int __daddr_t;
-typedef int __key_t;
-typedef int __clockid_t;
-typedef void * __timer_t;
-typedef long int __blksize_t;
-typedef long int __blkcnt_t;
-typedef long int __blkcnt64_t;
-typedef unsigned long int __fsblkcnt_t;
-typedef unsigned long int __fsblkcnt64_t;
-typedef unsigned long int __fsfilcnt_t;
-typedef unsigned long int __fsfilcnt64_t;
-typedef long int __fsword_t;
-typedef long int __ssize_t;
-typedef long int __syscall_slong_t;
-typedef unsigned long int __syscall_ulong_t;
+__extension__ typedef signed long long int __int64_t;
+__extension__ typedef unsigned long long int __uint64_t;
+__extension__ typedef long long int __quad_t;
+__extension__ typedef unsigned long long int __u_quad_t;
+__extension__ typedef long long int __intmax_t;
+__extension__ typedef unsigned long long int __uintmax_t;
+__extension__ typedef __u_quad_t __dev_t;
+__extension__ typedef unsigned int __uid_t;
+__extension__ typedef unsigned int __gid_t;
+__extension__ typedef unsigned long int __ino_t;
+__extension__ typedef __u_quad_t __ino64_t;
+__extension__ typedef unsigned int __mode_t;
+__extension__ typedef unsigned int __nlink_t;
+__extension__ typedef long int __off_t;
+__extension__ typedef __quad_t __off64_t;
+__extension__ typedef int __pid_t;
+__extension__ typedef struct { int __val[2]; } __fsid_t;
+__extension__ typedef long int __clock_t;
+__extension__ typedef unsigned long int __rlim_t;
+__extension__ typedef __u_quad_t __rlim64_t;
+__extension__ typedef unsigned int __id_t;
+__extension__ typedef long int __time_t;
+__extension__ typedef unsigned int __useconds_t;
+__extension__ typedef long int __suseconds_t;
+__extension__ typedef int __daddr_t;
+__extension__ typedef int __key_t;
+__extension__ typedef int __clockid_t;
+__extension__ typedef void * __timer_t;
+__extension__ typedef long int __blksize_t;
+__extension__ typedef long int __blkcnt_t;
+__extension__ typedef __quad_t __blkcnt64_t;
+__extension__ typedef unsigned long int __fsblkcnt_t;
+__extension__ typedef __u_quad_t __fsblkcnt64_t;
+__extension__ typedef unsigned long int __fsfilcnt_t;
+__extension__ typedef __u_quad_t __fsfilcnt64_t;
+__extension__ typedef int __fsword_t;
+__extension__ typedef int __ssize_t;
+__extension__ typedef long int __syscall_slong_t;
+__extension__ typedef unsigned long int __syscall_ulong_t;
 typedef __off64_t __loff_t;
 typedef char *__caddr_t;
-typedef long int __intptr_t;
-typedef unsigned int __socklen_t;
+__extension__ typedef int __intptr_t;
+__extension__ typedef unsigned int __socklen_t;
 typedef int __sig_atomic_t;
 static __inline unsigned int
 __bswap_32 (unsigned int __bsx)
@@ -77,7 +77,7 @@ __uint64_identity (__uint64_t __x)
 {
   return __x;
 }
-typedef long unsigned int size_t;
+typedef unsigned int size_t;
 typedef __time_t time_t;
 struct timespec
 {
@@ -203,6 +203,8 @@ extern int timer_settime (timer_t __timerid, int __flags,
 extern int timer_gettime (timer_t __timerid, struct itimerspec *__value)
      __attribute__ ((__nothrow__ , __leaf__));
 extern int timer_getoverrun (timer_t __timerid) __attribute__ ((__nothrow__ , __leaf__));
+extern int timespec_get (struct timespec *__ts, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 struct __pthread_rwlock_arch_t
 {
@@ -212,28 +214,29 @@ struct __pthread_rwlock_arch_t
   unsigned int __writers_futex;
   unsigned int __pad3;
   unsigned int __pad4;
-  int __cur_writer;
-  int __shared;
+  unsigned char __flags;
+  unsigned char __shared;
   signed char __rwelision;
-  unsigned char __pad1[7];
-  unsigned long int __pad2;
-  unsigned int __flags;
+  unsigned char __pad2;
+  int __cur_writer;
 };
-typedef struct __pthread_internal_list
+typedef struct __pthread_internal_slist
 {
-  struct __pthread_internal_list *__prev;
-  struct __pthread_internal_list *__next;
-} __pthread_list_t;
+  struct __pthread_internal_slist *__next;
+} __pthread_slist_t;
 struct __pthread_mutex_s
 {
   int __lock ;
   unsigned int __count;
   int __owner;
-  unsigned int __nusers;
   int __kind;
  
-  short __spins; short __elision;
-  __pthread_list_t __list;
+  unsigned int __nusers;
+  __extension__ union
+  {
+    struct { short __espins; short __eelision; } __elision_data;
+    __pthread_slist_t __list;
+  };
  
 };
 struct __pthread_cond_s
@@ -277,14 +280,14 @@ typedef unsigned int pthread_key_t;
 typedef int pthread_once_t;
 union pthread_attr_t
 {
-  char __size[56];
+  char __size[36];
   long int __align;
 };
 typedef union pthread_attr_t pthread_attr_t;
 typedef union
 {
   struct __pthread_mutex_s __data;
-  char __size[40];
+  char __size[24];
   long int __align;
 } pthread_mutex_t;
 typedef union
@@ -296,7 +299,7 @@ typedef union
 typedef union
 {
   struct __pthread_rwlock_arch_t __data;
-  char __size[56];
+  char __size[32];
   long int __align;
 } pthread_rwlock_t;
 typedef union
@@ -307,7 +310,7 @@ typedef union
 typedef volatile int pthread_spinlock_t;
 typedef union
 {
-  char __size[32];
+  char __size[20];
   long int __align;
 } pthread_barrier_t;
 typedef union
@@ -315,7 +318,7 @@ typedef union
   char __size[4];
   int __align;
 } pthread_barrierattr_t;
-typedef long int __jmp_buf[8];
+typedef int __jmp_buf[6];
 enum
 {
   PTHREAD_CREATE_JOINABLE,
@@ -483,11 +486,11 @@ struct __pthread_cleanup_frame
   int __cancel_type;
 };
 extern void __pthread_register_cancel (__pthread_unwind_buf_t *__buf)
-     ;
+     __attribute__ ((__regparm__ (1)));
 extern void __pthread_unregister_cancel (__pthread_unwind_buf_t *__buf)
-  ;
+  __attribute__ ((__regparm__ (1)));
 extern void __pthread_unwind_next (__pthread_unwind_buf_t *__buf)
-     __attribute__ ((__noreturn__))
+     __attribute__ ((__regparm__ (1))) __attribute__ ((__noreturn__))
      __attribute__ ((__weak__))
      ;
 struct __jmp_buf_tag;

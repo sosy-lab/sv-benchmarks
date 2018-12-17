@@ -1,5 +1,4 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-
 typedef long unsigned int size_t;
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -141,36 +140,17 @@ struct __gconv_step
   int __stateful;
   void *__data;
 };
-
-
-
 struct __gconv_step_data
 {
   unsigned char *__outbuf;
   unsigned char *__outbufend;
-
-
-
   int __flags;
-
-
-
   int __invocation_counter;
-
-
-
   int __internal_use;
-
   __mbstate_t *__statep;
   __mbstate_t __state;
-
-
-
   struct __gconv_trans_data *__trans;
 };
-
-
-
 typedef struct __gconv_info
 {
   size_t __nsteps;
@@ -197,11 +177,7 @@ struct _IO_marker {
   struct _IO_marker *_next;
   struct _IO_FILE *_sbuf;
   int _pos;
-
-
 };
-
-
 enum __codecvt_result
 {
   __codecvt_ok,
