@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: linux-stable-90a4845-1-110_1a-drivers--char--ipmi--ipmi_si.ko-entry_point_ldv-val-v0.8_false-unreach-call.cil.out.i
+input_files: 'linux-stable-90a4845-1-110_1a-drivers--char--ipmi--ipmi_si.ko-entry_point_ldv-val-v0.8.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

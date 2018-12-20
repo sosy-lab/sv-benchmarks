@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 07_rand_true-unreach-call.i
+input_files: '07_rand.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

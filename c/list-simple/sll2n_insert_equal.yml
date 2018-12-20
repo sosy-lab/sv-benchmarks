@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: sll2n_insert_equal_true-unreach-call_true-valid-memsafety.i
+input_files: 'sll2n_insert_equal.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

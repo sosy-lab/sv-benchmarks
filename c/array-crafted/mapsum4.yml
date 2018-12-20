@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: mapsum4_true-unreach-call.i
+input_files: 'mapsum4.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

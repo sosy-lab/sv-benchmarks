@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: double_req_bl_0210_true-unreach-call.c
+input_files: 'double_req_bl_0210.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

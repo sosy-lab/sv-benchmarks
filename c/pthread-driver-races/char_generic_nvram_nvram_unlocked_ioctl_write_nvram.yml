@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: char_generic_nvram_nvram_unlocked_ioctl_write_nvram_true-unreach-call.i
+input_files: 'char_generic_nvram_nvram_unlocked_ioctl_write_nvram.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

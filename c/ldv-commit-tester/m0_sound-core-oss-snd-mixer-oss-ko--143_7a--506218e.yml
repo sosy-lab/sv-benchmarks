@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: m0_true-unreach-call_sound-core-oss-snd-mixer-oss-ko--143_7a--506218e.i
+input_files: 'm0_sound-core-oss-snd-mixer-oss-ko--143_7a--506218e.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

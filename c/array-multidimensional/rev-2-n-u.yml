@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: rev-2-n-u_true-unreach-call.i
+input_files: 'rev-2-n-u.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

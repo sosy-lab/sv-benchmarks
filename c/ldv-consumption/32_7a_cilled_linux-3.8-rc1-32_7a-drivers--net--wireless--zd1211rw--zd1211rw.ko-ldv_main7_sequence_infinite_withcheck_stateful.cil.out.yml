@@ -1,0 +1,12 @@
+format_version: '1.0'
+
+# old file name: 32_7a_cilled_false-unreach-call_linux-3.8-rc1-32_7a-drivers--net--wireless--zd1211rw--zd1211rw.ko-ldv_main7_sequence_infinite_withcheck_stateful.cil.out.i
+input_files: '32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--wireless--zd1211rw--zd1211rw.ko-ldv_main7_sequence_infinite_withcheck_stateful.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: memleaks_test14_2_false-valid-memtrack.i
+input_files: 'memleaks_test14_2.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-memtrack

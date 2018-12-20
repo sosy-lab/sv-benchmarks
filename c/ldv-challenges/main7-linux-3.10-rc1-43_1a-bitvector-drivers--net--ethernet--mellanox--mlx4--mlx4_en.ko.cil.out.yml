@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: main7-linux-3.10-rc1-43_1a-bitvector-drivers--net--ethernet--mellanox--mlx4--mlx4_en.ko_true-unreach-call.cil.out.i
+input_files: 'main7-linux-3.10-rc1-43_1a-bitvector-drivers--net--ethernet--mellanox--mlx4--mlx4_en.ko.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

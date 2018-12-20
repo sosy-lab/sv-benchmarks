@@ -1,5 +1,5 @@
-list-ext-properties/*_false-valid-memcleanup*.i
-heap-manipulation/*_false-valid-memcleanup*.i
-forester-heap/*_false-valid-memcleanup*.i
-list-properties/*_false-valid-memcleanup*.i
-list-ext3-properties/*_false-valid-memcleanup*.i
+list-ext-properties/*.yml
+heap-manipulation/*.yml
+forester-heap/*.yml
+list-properties/*.yml
+list-ext3-properties/*.yml

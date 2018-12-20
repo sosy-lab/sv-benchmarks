@@ -1,6 +1,3 @@
-eca-rers2012/*_false-unreach-call*.c
-eca-rers2012/*_true-unreach-call*.c
-psyco/*_false-unreach-call*.c
-psyco/*_true-unreach-call*.c
-eca-programs/*_false-unreach-call*.c
-eca-programs/*_true-unreach-call*.c
+eca-rers2012/*.yml
+psyco/*.yml
+eca-programs/*.yml

@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: linux-4.2-rc1.tar.xz-43_2a-drivers--misc--sgi-xp--xpc.ko-entry_point_false-unreach-call.cil.out.i
+input_files: 'linux-4.2-rc1.tar.xz-43_2a-drivers--misc--sgi-xp--xpc.ko-entry_point.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

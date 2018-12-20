@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 41_FreeBSD__abd_kbd__sliced_true-unreach-call.i
+input_files: '41_FreeBSD_abd_kbd_sliced.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

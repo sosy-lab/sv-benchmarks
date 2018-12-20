@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: ChenFlurMukhopadhyay-SAS2012-Ex2.04_false-no-overflow.c
+input_files: 'ChenFlurMukhopadhyay-SAS2012-Ex2.04.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

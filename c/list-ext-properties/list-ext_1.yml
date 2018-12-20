@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: list-ext_1_true-valid-memsafety.i
+input_files: 'list-ext_1.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

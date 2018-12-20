@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: array_of_struct_ptr_monotonic_true-unreach-call.i
+input_files: 'array_of_struct_ptr_monotonic.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: jm2006_true-unreach-call.c.i.v+cfa-reducer.c
+input_files: 'jm2006.c.i.v+cfa-reducer.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: 43_2a_bitvector_linux-3.16-rc1.tar.xz-43_2a-drivers--net--wireless--orinoco--orinoco_usb.ko-entry_point_false-unreach-call.cil.out.i
+input_files: '43_2a_bitvector_linux-3.16-rc1.tar.xz-43_2a-drivers--net--wireless--orinoco--orinoco_usb.ko-entry_point.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

@@ -1,0 +1,15 @@
+format_version: '1.0'
+
+# old file name: kbfiltr_simpl1_true-unreach-call_true-valid-memsafety_true-termination.cil.c
+input_files: 'kbfiltr_simpl1.cil.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

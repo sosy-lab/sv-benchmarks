@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: mix047_pso.oepc_false-unreach-call.i
+input_files: 'mix047_pso.oepc.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

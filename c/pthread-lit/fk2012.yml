@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: fk2012_true-unreach-call.i
+input_files: 'fk2012.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

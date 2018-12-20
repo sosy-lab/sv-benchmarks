@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: linux-stable-2b9ec6c-1-106_1a-drivers--usb--gadget--g_printer.ko-entry_point_false-unreach-call.cil.out.i
+input_files: 'linux-stable-2b9ec6c-1-106_1a-drivers--usb--gadget--g_printer.ko-entry_point.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

@@ -1,0 +1,12 @@
+format_version: '1.0'
+
+# old file name: pals_lcr-var-start-time.4_false-unreach-call.2.ufo.UNBOUNDED.pals.c
+input_files: 'pals_lcr-var-start-time.4.2.ufo.UNBOUNDED.pals.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

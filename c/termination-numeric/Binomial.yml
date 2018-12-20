@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: Binomial_true-termination_false-no-overflow.c
+input_files: 'Binomial.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

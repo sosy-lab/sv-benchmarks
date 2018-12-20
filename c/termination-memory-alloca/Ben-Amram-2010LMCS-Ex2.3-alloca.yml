@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: Ben-Amram-2010LMCS-Ex2.3-alloca_true-termination.c.i
+input_files: 'Ben-Amram-2010LMCS-Ex2.3-alloca.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

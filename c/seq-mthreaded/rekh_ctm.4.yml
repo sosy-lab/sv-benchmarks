@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: rekh_ctm_true-unreach-call.4_true-termination.c
+input_files: 'rekh_ctm.4.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

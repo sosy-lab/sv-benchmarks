@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: array3_false-valid-deref.i
+input_files: 'array3.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-deref

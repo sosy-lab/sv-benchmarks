@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: cstrchr_malloc_true-termination.c.i
+input_files: 'cstrchr_malloc.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

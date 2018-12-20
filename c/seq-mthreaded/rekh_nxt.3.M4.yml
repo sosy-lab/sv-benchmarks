@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: rekh_nxt_true-unreach-call.3.M4.c
+input_files: 'rekh_nxt.3.M4.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

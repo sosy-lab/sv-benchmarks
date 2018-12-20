@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 44_Solaris__space_map__sliced_true-unreach-call.i
+input_files: '44_Solaris_space_map_sliced.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

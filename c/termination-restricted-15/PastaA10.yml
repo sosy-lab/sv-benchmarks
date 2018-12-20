@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: PastaA10_true-termination_true-no-overflow.c
+input_files: 'PastaA10.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

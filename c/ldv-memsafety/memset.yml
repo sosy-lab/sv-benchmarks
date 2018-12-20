@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: memset_true-valid-memsafety_true-termination.c
+input_files: 'memset.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

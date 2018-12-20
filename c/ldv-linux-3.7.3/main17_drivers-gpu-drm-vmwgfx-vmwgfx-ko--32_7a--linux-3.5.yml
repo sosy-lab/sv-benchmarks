@@ -1,0 +1,12 @@
+format_version: '1.0'
+
+# old file name: main17_false-unreach-call_drivers-gpu-drm-vmwgfx-vmwgfx-ko--32_7a--linux-3.5.i
+input_files: 'main17_drivers-gpu-drm-vmwgfx-vmwgfx-ko--32_7a--linux-3.5.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

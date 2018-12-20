@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: rule57_ebda_blast_true-termination.c_true-unreach-call_1.i
+input_files: 'rule57_ebda_blast.c_1.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

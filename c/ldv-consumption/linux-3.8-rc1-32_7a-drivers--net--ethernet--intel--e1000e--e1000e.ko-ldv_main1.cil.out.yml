@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1_true-unreach-call.cil.out.i
+input_files: 'linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

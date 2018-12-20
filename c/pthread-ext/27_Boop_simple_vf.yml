@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: 27_Boop_simple_vf_false-unreach-call.i
+input_files: '27_Boop_simple_vf.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

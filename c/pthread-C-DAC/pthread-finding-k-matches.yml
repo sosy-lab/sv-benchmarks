@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: pthread-finding-k-matches_true-unreach-call.i
+input_files: 'pthread-finding-k-matches.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

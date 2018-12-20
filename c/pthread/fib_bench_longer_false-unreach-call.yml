@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: fib_bench_longer_false-unreach-call.i
+input_files: 'fib_bench_longer_false-unreach-call.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

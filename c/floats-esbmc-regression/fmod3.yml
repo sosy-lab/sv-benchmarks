@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: fmod3_true-unreach-call.i
+input_files: 'fmod3.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

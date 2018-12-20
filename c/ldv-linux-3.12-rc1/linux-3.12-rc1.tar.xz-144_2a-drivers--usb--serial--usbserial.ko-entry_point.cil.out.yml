@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: linux-3.12-rc1.tar.xz-144_2a-drivers--usb--serial--usbserial.ko-entry_point_false-unreach-call.cil.out.i
+input_files: 'linux-3.12-rc1.tar.xz-144_2a-drivers--usb--serial--usbserial.ko-entry_point.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

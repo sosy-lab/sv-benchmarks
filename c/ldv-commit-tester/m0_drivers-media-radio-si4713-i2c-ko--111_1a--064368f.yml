@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: m0_true-unreach-call_drivers-media-radio-si4713-i2c-ko--111_1a--064368f.i
+input_files: 'm0_drivers-media-radio-si4713-i2c-ko--111_1a--064368f.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

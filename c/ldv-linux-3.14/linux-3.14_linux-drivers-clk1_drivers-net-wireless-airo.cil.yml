@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: linux-3.14__linux-drivers-clk1__drivers-net-wireless-airo_true-unreach-call.cil.i
+input_files: 'linux-3.14_linux-drivers-clk1_drivers-net-wireless-airo.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

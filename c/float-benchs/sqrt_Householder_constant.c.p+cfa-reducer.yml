@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: sqrt_Householder_constant_true-unreach-call.c.p+cfa-reducer.c
+input_files: 'sqrt_Householder_constant.c.p+cfa-reducer.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

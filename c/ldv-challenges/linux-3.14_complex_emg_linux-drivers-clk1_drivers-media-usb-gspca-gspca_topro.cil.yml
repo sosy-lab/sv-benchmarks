@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-3.14__complex_emg__linux-drivers-clk1__drivers-media-usb-gspca-gspca_topro_true-unreach-call.cil.i
+input_files: 'linux-3.14_complex_emg_linux-drivers-clk1_drivers-media-usb-gspca-gspca_topro.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

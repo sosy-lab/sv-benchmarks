@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: m0_true-unreach-call_drivers-net-myri10ge-myri10ge-ko--138_1a--7cb2521.i
+input_files: 'm0_drivers-net-myri10ge-myri10ge-ko--138_1a--7cb2521.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: race-2_1-container_of_true-unreach-call.i
+input_files: 'race-2_1-container_of.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

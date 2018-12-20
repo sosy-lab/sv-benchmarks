@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: 32_7a_cilled_true-unreach-call_linux-3.8-rc1-drivers--net--ethernet--3com--3c59x.ko-main.cil.out.i
+input_files: '32_7a_cilled_linux-3.8-rc1-drivers--net--ethernet--3com--3c59x.ko-main.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: ddv_machzwd_all_false-unreach-call_true-valid-memsafety.i
+input_files: 'ddv_machzwd_all.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

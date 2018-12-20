@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: usb_urb-drivers-media-video-c-qcam.ko_true-unreach-call.cil.out.i
+input_files: 'usb_urb-drivers-media-video-c-qcam.ko.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: scull_true-unreach-call.i
+input_files: 'scull.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

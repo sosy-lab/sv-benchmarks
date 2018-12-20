@@ -1,11 +1,4 @@
-signedintegeroverflow-regression/*_false-no-overflow*.c.i
-signedintegeroverflow-regression/*_true-no-overflow*.c.i
-
-termination-crafted/*_false-no-overflow*.c
-termination-crafted/*_true-no-overflow*.c
-
-termination-crafted-lit/*_false-no-overflow*.c
-termination-crafted-lit/*_true-no-overflow*.c
-
-termination-numeric/*_false-no-overflow*.c
-termination-numeric/*_true-no-overflow*.c
+signedintegeroverflow-regression/*.yml
+termination-crafted/*.yml
+termination-crafted-lit/*.yml
+termination-numeric/*.yml

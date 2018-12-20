@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: gauss_sum_true-unreach-call.i.p+cfa-reducer.c
+input_files: 'gauss_sum.i.p+cfa-reducer.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: aiob_4_true-unreach-call.c.v+lhb-reducer.c
+input_files: 'aiob_4.c.v+lhb-reducer.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

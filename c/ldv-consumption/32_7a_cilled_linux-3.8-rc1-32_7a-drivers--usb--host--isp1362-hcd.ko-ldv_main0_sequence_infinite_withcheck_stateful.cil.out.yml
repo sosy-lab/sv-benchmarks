@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: 32_7a_cilled_true-unreach-call_linux-3.8-rc1-32_7a-drivers--usb--host--isp1362-hcd.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+input_files: '32_7a_cilled_linux-3.8-rc1-32_7a-drivers--usb--host--isp1362-hcd.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

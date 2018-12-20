@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: m0_true-unreach-call_drivers-hwmon-s3c-hwmon-ko--130_7a--af3071a.i
+input_files: 'm0_drivers-hwmon-s3c-hwmon-ko--130_7a--af3071a.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

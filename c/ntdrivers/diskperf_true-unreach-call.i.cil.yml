@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: diskperf_true-unreach-call.i.cil.c
+input_files: 'diskperf_true-unreach-call.i.cil.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

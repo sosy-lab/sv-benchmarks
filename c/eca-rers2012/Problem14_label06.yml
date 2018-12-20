@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: Problem14_label06_true-unreach-call_false-termination.c
+input_files: 'Problem14_label06.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

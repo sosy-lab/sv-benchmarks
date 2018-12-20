@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: 32_7a_cilled_false-unreach-call_linux-3.8-rc1-drivers--media--usb--cpia2--cpia2.ko-main.cil.out.i
+input_files: '32_7a_cilled_linux-3.8-rc1-drivers--media--usb--cpia2--cpia2.ko-main.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 13_unverif_true-unreach-call.i
+input_files: '13_unverif.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

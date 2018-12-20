@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: data_structures_set_multi_proc_trivial_true-unreach-call_ground_true-termination.i
+input_files: 'data_structures_set_multi_proc_trivial_ground.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

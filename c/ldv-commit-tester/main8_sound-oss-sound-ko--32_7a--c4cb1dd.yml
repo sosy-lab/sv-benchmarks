@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: main8_true-unreach-call_sound-oss-sound-ko--32_7a--c4cb1dd.i
+input_files: 'main8_sound-oss-sound-ko--32_7a--c4cb1dd.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

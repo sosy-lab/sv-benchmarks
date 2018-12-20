@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: ex3b-alloca_true-termination.c.i
+input_files: 'ex3b-alloca.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

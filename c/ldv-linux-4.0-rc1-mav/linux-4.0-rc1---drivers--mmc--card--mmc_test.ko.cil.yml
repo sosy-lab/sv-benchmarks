@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-4.0-rc1---drivers--mmc--card--mmc_test.ko_true-unreach-call.cil.i
+input_files: 'linux-4.0-rc1---drivers--mmc--card--mmc_test.ko.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

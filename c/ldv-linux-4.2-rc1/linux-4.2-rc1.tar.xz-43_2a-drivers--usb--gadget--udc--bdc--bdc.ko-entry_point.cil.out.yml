@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-4.2-rc1.tar.xz-43_2a-drivers--usb--gadget--udc--bdc--bdc.ko-entry_point_true-unreach-call.cil.out.i
+input_files: 'linux-4.2-rc1.tar.xz-43_2a-drivers--usb--gadget--udc--bdc--bdc.ko-entry_point.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

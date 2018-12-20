@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--staging--media--solo6x10--solo6x10.ko-entry_point_true-unreach-call.cil.out.i
+input_files: '43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--staging--media--solo6x10--solo6x10.ko-entry_point.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

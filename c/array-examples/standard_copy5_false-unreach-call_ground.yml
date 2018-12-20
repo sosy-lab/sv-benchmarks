@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: standard_copy5_false-unreach-call_ground.i
+input_files: 'standard_copy5_false-unreach-call_ground.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

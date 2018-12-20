@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: aiob_4_true-unreach-call.c
+input_files: 'aiob_4.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

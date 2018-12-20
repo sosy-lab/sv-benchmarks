@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: singleton_with-uninit-problems_true-unreach-call.i
+input_files: 'singleton_with-uninit-problems.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

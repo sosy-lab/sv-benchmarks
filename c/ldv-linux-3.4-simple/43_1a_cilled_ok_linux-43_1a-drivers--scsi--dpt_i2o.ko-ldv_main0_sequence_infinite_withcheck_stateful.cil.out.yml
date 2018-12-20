@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: 43_1a_cilled_false-unreach-call_ok_linux-43_1a-drivers--scsi--dpt_i2o.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+input_files: '43_1a_cilled_ok_linux-43_1a-drivers--scsi--dpt_i2o.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

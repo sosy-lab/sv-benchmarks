@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: ArraysOfVariableLength2_false-valid-deref-read.c
+input_files: 'ArraysOfVariableLength2_-read.c'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-deref

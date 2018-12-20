@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-intel-e1000e-e1000e_true-unreach-call.cil.i
+input_files: 'linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-intel-e1000e-e1000e.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

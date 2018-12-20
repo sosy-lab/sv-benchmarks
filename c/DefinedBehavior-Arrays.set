@@ -1,3 +1,2 @@
-array-examples/*_false-def-behavior*.i
-reducercommutativity/*_false-def-behavior*.i
-
+array-examples/*.yml
+reducercommutativity/*.yml

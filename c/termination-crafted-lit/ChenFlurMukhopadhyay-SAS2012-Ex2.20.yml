@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: ChenFlurMukhopadhyay-SAS2012-Ex2.20_true-termination_true-no-overflow.c
+input_files: 'ChenFlurMukhopadhyay-SAS2012-Ex2.20.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: divinefifo_1w1r_true-unreach-call.i
+input_files: 'divinefifo_1w1r.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

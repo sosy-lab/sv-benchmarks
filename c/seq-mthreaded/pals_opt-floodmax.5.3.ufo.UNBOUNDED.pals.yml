@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: pals_opt-floodmax.5_false-unreach-call.3.ufo.UNBOUNDED.pals.c
+input_files: 'pals_opt-floodmax.5.3.ufo.UNBOUNDED.pals.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

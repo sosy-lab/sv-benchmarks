@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: rint_true-unreach-call.i
+input_files: 'rint.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: m0_true-unreach-call_drivers-media-video-cx88-cx8802-ko--32_7a--d47b389.i
+input_files: 'm0_drivers-media-video-cx88-cx8802-ko--32_7a--d47b389.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

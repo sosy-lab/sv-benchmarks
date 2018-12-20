@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: lockfree-3.1_false-valid-memtrack.i
+input_files: 'lockfree-3.1.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-memtrack

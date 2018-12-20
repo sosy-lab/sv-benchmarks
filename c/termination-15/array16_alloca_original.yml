@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: array16_alloca_original_false-termination.c.i
+input_files: 'array16_alloca_original.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false

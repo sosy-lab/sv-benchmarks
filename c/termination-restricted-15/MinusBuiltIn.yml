@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: MinusBuiltIn_true-termination_true-no-overflow.c
+input_files: 'MinusBuiltIn.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

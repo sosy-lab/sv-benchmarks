@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: Mono4_false-unreach-call1.c
+input_files: 'Mono4_1.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

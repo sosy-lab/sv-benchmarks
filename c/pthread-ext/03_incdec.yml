@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 03_incdec_true-unreach-call.i
+input_files: '03_incdec.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

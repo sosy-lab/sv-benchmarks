@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: test-0513_true-valid-memsafety.i
+input_files: 'test-0513.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

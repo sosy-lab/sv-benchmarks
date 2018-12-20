@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: cstrcmp_diffterm_alloca_true-termination.c.i
+input_files: 'cstrcmp_diffterm_alloca.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

@@ -1,0 +1,12 @@
+format_version: '1.0'
+
+# old file name: Arrays02-EquivalentConstantIndices_false-termination_true-valid-memsafety_true-no-overflow.c
+input_files: 'Arrays02-EquivalentConstantIndices.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

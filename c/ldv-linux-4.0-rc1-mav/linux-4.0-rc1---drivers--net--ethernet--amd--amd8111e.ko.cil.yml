@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-4.0-rc1---drivers--net--ethernet--amd--amd8111e.ko_true-unreach-call.cil.i
+input_files: 'linux-4.0-rc1---drivers--net--ethernet--amd--amd8111e.ko.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

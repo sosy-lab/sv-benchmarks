@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: Masse-VMCAI2014-Fig1a_false-no-overflow.c
+input_files: 'Masse-VMCAI2014-Fig1a.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

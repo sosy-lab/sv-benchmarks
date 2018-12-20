@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: one_time_barrier_twice_2t_true-unreach-call.i
+input_files: 'one_time_barrier_twice_2t.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

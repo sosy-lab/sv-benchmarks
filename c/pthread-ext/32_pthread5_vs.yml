@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: 32_pthread5_vs_false-unreach-call.i
+input_files: '32_pthread5_vs.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

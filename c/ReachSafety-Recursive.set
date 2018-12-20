@@ -1,4 +1,2 @@
-recursive/*_false-unreach-call*.c
-recursive/*_true-unreach-call*.c
-recursive-simple/*_false-unreach-call*.c
-recursive-simple/*_true-unreach-call*.c
+recursive/*.yml
+recursive-simple/*.yml

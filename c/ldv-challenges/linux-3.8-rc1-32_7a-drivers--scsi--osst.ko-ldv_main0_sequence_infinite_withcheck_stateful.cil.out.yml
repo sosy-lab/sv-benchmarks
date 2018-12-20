@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-3.8-rc1-32_7a-drivers--scsi--osst.ko-ldv_main0_sequence_infinite_withcheck_stateful_true-unreach-call.cil.out.i
+input_files: 'linux-3.8-rc1-32_7a-drivers--scsi--osst.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
