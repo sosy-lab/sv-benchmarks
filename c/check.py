@@ -400,6 +400,11 @@ class PropertiesChecks(Checks):
             # We think this is probable (though not guaranteed), so we issue a warning.
             self.error("has reachable error location but claims to have no memory leaks (this is not necessarily wrong but should be checked)")
 
+    def check_no_invalid_verdicts(self):
+        for prop, verdict in self.prop_to_verdict.items():
+            if prop.startswith("coverage-") and verdict is not None:
+                self.error("has verdict for property " + prop)
+
 
 class InputFileChecks(FileChecks):
     """Checks about the contents of a single benchmark input file."""
