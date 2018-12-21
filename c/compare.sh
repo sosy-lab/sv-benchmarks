@@ -3,7 +3,8 @@
 set -e
 
 BLACKLIST="\
-  floats-esbmc-regression/trunc_nondet_2_true-unreach-call.i \
+  floats-esbmc-regression/trunc_nondet_2.i \
+  *pthread*/* \
   "
 
 KEEP_GOING=0
@@ -127,11 +128,13 @@ for f in $SETS ; do
       rm -f a.out b.out
 
       blacklisted=0
-      for b in $BLACKLIST ; do
-        if [ $b = $ff ] ; then
-          blacklisted=1
-          break
-        fi
+      for e in $BLACKLIST ; do
+        for b in $(ls "$e"); do
+          if [ $b = $ff ] ; then
+            blacklisted=1
+            break
+          fi
+        done
       done
 
       if [ $blacklisted -eq 0 ] ; then
