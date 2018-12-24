@@ -3,7 +3,8 @@
 set -e
 
 BLACKLIST="\
-  floats-esbmc-regression/trunc_nondet_2_true-unreach-call.i \
+  floats-esbmc-regression/trunc_nondet_2.i \
+  *pthread*/* \
   "
 
 KEEP_GOING=0
@@ -70,10 +71,25 @@ for f in $SETS ; do
   for ff in $(ls $(grep -v "^#" $f)) ; do
     orig=$ff
 
+    # Get file that belongs to task definition (by file name)
+    # It would be more precise, but also a lot more complicated,
+    # to use the input-file value of the task definition.
+    if echo $ff | grep -q ".yml$"; then
+      ff=$(echo $ff | sed 's/\.yml$/.i/')
+      if [ ! -f $ff ]; then
+        ff=$(echo $ff | sed 's/\.i$/.c/')
+      fi
+    fi
+
+    if [ ! -s $ff ] ; then
+      echo "No task file $ff found" 1>&2
+      exit 1
+    fi
+
     # no original source available
     if echo $ff | grep -q '^ddv-machzwd/' ; then
       continue
-    elif [ $ff = "loops/s3_false-unreach-call.i" ] ; then
+    elif [ $ff = "loops/s3.i" ] ; then
       continue
     elif echo $ff | egrep -q '^ldv-(linux-3.0|regression)/' ; then
       # there is a related .cil.c file, but it doesn't necessarily match at all
@@ -112,11 +128,13 @@ for f in $SETS ; do
       rm -f a.out b.out
 
       blacklisted=0
-      for b in $BLACKLIST ; do
-        if [ $b = $ff ] ; then
-          blacklisted=1
-          break
-        fi
+      for e in $BLACKLIST ; do
+        for b in $(ls "$e"); do
+          if [ $b = $ff ] ; then
+            blacklisted=1
+            break
+          fi
+        done
       done
 
       if [ $blacklisted -eq 0 ] ; then

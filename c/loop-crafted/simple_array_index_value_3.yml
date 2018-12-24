@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: simple_array_index_value_true-unreach-call3_true-termination.i
+input_files: 'simple_array_index_value_3.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

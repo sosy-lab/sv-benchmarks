@@ -1,84 +1,35 @@
-# from ReachSafety-Arrays
-array-examples/*_true-termination*.i
-array-industry-pattern/*_true-termination*.i
-
-# from ReachSafety-BitVectors
-bitvector/*_false-termination*.i
-bitvector/*_true-termination*.i
-bitvector/*_false-termination*.BV.c.cil.c
-bitvector/*_true-termination*.c.cil.c
-bitvector-regression/*_true-termination*.c
-bitvector-loops/*_true-termination*.i
-
-# from ReachSafety-ControlFlow
-ntdrivers-simplified/*_true-termination*.cil.c
-ssh-simplified/*_false-termination*.cil.c
-ssh-simplified/*_true-termination*.cil.c
-locks/*_false-termination*.c
-ssh-simplified/s3_clnt_3.cil_true-unreach-call_true-termination.c
-ntdrivers/*_true-termination*.i.cil.c
-
-# from ReachSafety-ECA
-eca-rers2012/*_false-termination*.c
-psyco/*_false-termination.c
-
-# from ReachSafety-Floats
-floats-cdfpl/*_true-termination*.i
-floats-cbmc-regression/*_true-termination*.i
-
-# from ReachSafety-Heap
-ldv-regression/*_true-termination*.i
-ldv-regression/*_false-termination*.i
-ldv-regression/test[0-9][0-9]*_true-termination*.c
-list-ext-properties/*_true-termination*.i
-list-ext2-properties/*_false-termination*.i
-ldv-sets/*_true-termination*.i
-
-# from ReachSafety-Loops
-loops/*_false-termination*.i
-loops/*_true-termination*.i
-loop-acceleration/*_true-termination*.i
-loop-acceleration/*_false-termination*.i
-loop-invgen/*_false-termination*.i
-loop-invgen/*_true-termination*.i
-loop-lit/*_true-termination*.i
-loop-lit/*_false-termination*.i
-loop-new/*_true-termination*.i
-
-# from ReachSafety-ProductLines
-product-lines/*_true-termination*.c
-product-lines/*_false-termination*.c
-
-# from ReachSafety-Recursive
-recursive/*_false-termination*.c
-recursive/*_true-termination*.c
-recursive-simple/*_true-termination*.c
-
-# from ReachSafety-Sequentialized
-systemc/*_false-termination*.cil.c
-seq-mthreaded/*_true-termination*.c
-seq-pthread/*_true-termination*.i
-
-# from ReachSafety-Arrays
-reducercommutativity/*_true-termination*.i
-
-# from MemSafety-Arrays
-array-memsafety/*_true-termination*.i
-
-# from MemSafety-Heap
-memsafety/*_true-termination*.i
-memsafety/*_false-termination*.i
-memsafety-ext/*_false-termination*.i
-ldv-memsafety/*_true-termination*.c
-ldv-memsafety/*_true-termination*.i
-ldv-memsafety-bitfields/*_true-termination*.i
-
-
-# from Concurrency
-pthread-atomic/*_true-termination*.i
-
-
-# from NoOverflows-BitVectors
-# is 64bit and needs own category 
-# signedintegeroverflow-regression/*true-termination*.c.i
-
+array-examples/*.yml
+array-industry-pattern/*.yml
+bitvector/*.yml
+bitvector-regression/*.yml
+bitvector-loops/*.yml
+ntdrivers-simplified/*.yml
+ssh-simplified/*.yml
+locks/*.yml
+ntdrivers/*.yml
+eca-rers2012/*.yml
+psyco/*.yml
+floats-cdfpl/*.yml
+floats-cbmc-regression/*.yml
+ldv-regression/*.yml
+list-ext-properties/*.yml
+list-ext2-properties/*.yml
+ldv-sets/*.yml
+loops/*.yml
+loop-acceleration/*.yml
+loop-invgen/*.yml
+loop-lit/*.yml
+loop-new/*.yml
+product-lines/*.yml
+recursive/*.yml
+recursive-simple/*.yml
+systemc/*.yml
+seq-mthreaded/*.yml
+seq-pthread/*.yml
+reducercommutativity/*.yml
+array-memsafety/*.yml
+memsafety/*.yml
+memsafety-ext/*.yml
+ldv-memsafety/*.yml
+ldv-memsafety-bitfields/*.yml
+pthread-atomic/*.yml

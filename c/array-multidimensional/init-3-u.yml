@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: init-3-u_true-unreach-call.i
+input_files: 'init-3-u.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

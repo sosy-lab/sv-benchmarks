@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: sorting_selectionsort_true-unreach-call_ground.i
+input_files: 'sorting_selectionsort_true-unreach-call_ground.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

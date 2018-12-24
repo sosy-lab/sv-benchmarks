@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: CookSeeZuleger-TACAS2013-Fig8a_true-termination_true-no-overflow.c
+input_files: 'CookSeeZuleger-TACAS2013-Fig8a.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

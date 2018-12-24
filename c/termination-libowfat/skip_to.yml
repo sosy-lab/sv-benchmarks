@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: skip_to_true-termination.c.i
+input_files: 'skip_to.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

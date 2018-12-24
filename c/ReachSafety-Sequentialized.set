@@ -1,8 +1,4 @@
-systemc/*_false-unreach-call*.cil.c
-systemc/*_true-unreach-call*.cil.c
-seq-mthreaded/*_false-unreach-call.*.c
-seq-mthreaded/*_true-unreach-call.*.c
-seq-mthreaded-reduced/*_false-unreach-call*-reducer.c
-seq-mthreaded-reduced/*_true-unreach-call*-reducer.c
-seq-pthread/*_false-unreach-call*.i
-seq-pthread/*_true-unreach-call*.i
+systemc/*.yml
+seq-mthreaded/*.yml
+seq-mthreaded-reduced/*.yml
+seq-pthread/*.yml

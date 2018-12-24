@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: sync01_true-unreach-call.i
+input_files: 'sync01.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

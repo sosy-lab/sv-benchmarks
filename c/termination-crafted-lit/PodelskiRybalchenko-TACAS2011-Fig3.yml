@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: PodelskiRybalchenko-TACAS2011-Fig3_false-no-overflow.c
+input_files: 'PodelskiRybalchenko-TACAS2011-Fig3.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

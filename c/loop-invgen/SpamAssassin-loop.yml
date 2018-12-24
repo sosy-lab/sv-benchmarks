@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: SpamAssassin-loop_true-unreach-call_false-termination.i
+input_files: 'SpamAssassin-loop.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

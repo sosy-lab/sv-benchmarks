@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: linux-3_false-termination.8-rc1-32_7a-drivers--md--persistent-data--dm-persistent-data.ko-ldv_main3_true-unreach-call.cil.out.i
+input_files: 'linux-3.8-rc1-32_7a-drivers--md--persistent-data--dm-persistent-data.ko-ldv_main3.cil.out.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

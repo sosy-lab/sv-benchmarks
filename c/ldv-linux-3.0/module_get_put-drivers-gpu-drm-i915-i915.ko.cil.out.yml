@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: module_get_put-drivers-gpu-drm-i915-i915.ko_true-unreach-call.cil.out.i
+input_files: 'module_get_put-drivers-gpu-drm-i915-i915.ko.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

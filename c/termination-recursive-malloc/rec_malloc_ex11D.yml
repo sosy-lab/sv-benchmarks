@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: rec_malloc_ex11D_true-termination.c.i
+input_files: 'rec_malloc_ex11D.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

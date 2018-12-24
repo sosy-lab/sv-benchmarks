@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: test_union_true-termination.c_true-unreach-call_1.i
+input_files: 'test_union.c_1.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

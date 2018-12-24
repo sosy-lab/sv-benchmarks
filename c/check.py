@@ -23,14 +23,17 @@ except ImportError:
 
 README_PATTERN = re.compile('^readme(\.(txt|md))?$', re.I)
 LICENSE_PATTERN = re.compile('^license([-.].*)?(\.(txt|md))?$', re.I)
-BENCHMARK_PATTERN = re.compile('^.*\.(c|i|yml)$')
+BENCHMARK_PATTERN = re.compile('^.*\.yml$')
 EXPECTED_FILE_PATTERN = re.compile(
     '^(.*\.(c|h|i|verdict|yml)|(readme|license([-.].*)?|.*\.error_trace)(\.(txt|md))?|Makefile)$',
     re.I)
 CONFIG_KEYS = set(["Architecture", "Description"])
-PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack"])
+PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack",
+    "coverage-error-call", "coverage-branches", "coverage-conditions", "coverage-statements"])
 
-IGNORED_DIRECTORIES = set(["properties"])
+# Ignore ldv-multiproperty and regression
+# as long as no yml-task definitions exist for the tasks in these directories
+IGNORED_DIRECTORIES = set(["properties", "ldv-multiproperty", "regression"])
 """Directories which are completely ignored by this script"""
 
 UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
@@ -88,21 +91,15 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
-    ("forester-heap/dll-rb-cnstr_1_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
-    ("forester-heap/dll-rb-cnstr_1_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
-    ("forester-heap/sll-01_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
-    ("forester-heap/sll-01_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
-    ("forester-heap/sll-rb-cnstr_1_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
-    ("forester-heap/sll-rb-cnstr_1_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
-    ("heap-manipulation/tree_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
-    ("heap-manipulation/tree_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
-    ("list-ext-properties/list-ext_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
-    ("list-ext-properties/list-ext_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
-    ("list-ext-properties/list-ext_flag_false-unreach-call_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
-    ("list-ext-properties/list-ext_flag_false-unreach-call_false-valid-deref.i", "has expected undefined behavior but also a verdict for some other property"),
-    ("termination-crafted/NonTermination3_false-termination_false-valid-deref.c", "has expected undefined behavior but also a verdict for some other property"),
-    ("termination-numeric/Binomial_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
-    ("termination-numeric/TerminatorRec02_true-termination_false-no-overflow.c", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/dll-rb-cnstr_1_false-unreach-call_false-valid-deref.yml", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-01_false-unreach-call_false-valid-deref.yml", "has expected undefined behavior but also a verdict for some other property"),
+    ("forester-heap/sll-rb-cnstr_1_false-unreach-call_false-valid-deref.yml", "has expected undefined behavior but also a verdict for some other property"),
+    ("heap-manipulation/tree_false-unreach-call_false-valid-deref.yml", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext.yml", "has expected undefined behavior but also a verdict for some other property"),
+    ("list-ext-properties/list-ext_flag.yml", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-crafted/NonTermination3_false-termination_false-valid-deref.yml", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-numeric/Binomial.yml", "has expected undefined behavior but also a verdict for some other property"),
+    ("termination-numeric/TerminatorRec02.yml", "has expected undefined behavior but also a verdict for some other property"),
 
     ("ldv-multiproperty/linux-4.0-rc1---drivers--char--ipmi--ipmi_msghandler.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
     ("ldv-multiproperty/linux-4.0-rc1---drivers--hwmon--applesmc.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
@@ -127,20 +124,11 @@ KNOWN_BENCHMARK_FILE_PROBLEMS = [
     ("ldv-multiproperty/linux-4.0-rc1---net--rose--rose.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
     ("ldv-multiproperty/linux-4.0-rc1---sound--drivers--vx--snd-vx-lib.ko_true-unreach-call.cil.c_false-unreach-call.cil.c", "has duplicate verdict for property unreach-call"),
 
-    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c", "has unknown property alloca"),
-    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca_true-termination.c.i", "has unknown property alloca"),
-    ("termination-memory-alloca/aviad_true-alloca_true-termination.c", "has unknown property alloca"),
-    ("termination-memory-alloca/aviad_true-alloca_true-termination.c.i", "has unknown property alloca"),
+    ("termination-memory-alloca/Avery-2006FLOPS-Tabel1_true-alloca.yml", "has unknown property alloca"),
+    ("termination-memory-alloca/aviad_true-alloca.yml", "has unknown property alloca"),
     ]
 
 KNOWN_SET_PROBLEMS = [
-    # Will be resolved when categories are properly switched to new format
-    ("ReachSafety-Arrays-new.set", "Pattern <array-examples/*_false-unreach-call*.yml> does not match anything."),
-    ("ReachSafety-Arrays-new.set", "Pattern <array-examples/*_true-unreach-call*.yml> does not match anything."),
-    ("ReachSafety-Arrays-new.set", "Pattern <array-industry-pattern/*_false-unreach-call*.yml> does not match anything."),
-    ("ReachSafety-Arrays-new.set", "Pattern <array-industry-pattern/*_true-unreach-call*.yml> does not match anything."),
-    ("ReachSafety-Arrays-new.set", "Pattern <reducercommutativity/*_true-unreach-call*.yml> does not match anything."),
-    ("ReachSafety-Arrays-new.set", "missing configuration file"),
     ]
 
 KNOWN_GLOBAL_PROBLEMS = [
@@ -200,7 +188,7 @@ class DirectoryChecks(Checks):
         for entry in self.content:
             if BENCHMARK_PATTERN.match(entry):
                 dir_and_name = os.path.join(self.name, entry)
-                ok &= BenchmarkFileChecks(
+                ok &= TaskDefinitionFileChecks(
                     path=os.path.join(self.path, entry),
                     name=dir_and_name,
                     contained_in_category=self.all_patterns.match(dir_and_name)
@@ -245,36 +233,181 @@ class DirectoryChecks(Checks):
             return
 
         for entry in self.content:
-            if not BENCHMARK_PATTERN.match(entry):
-                continue
-
-            if not "_true-" in entry and not "_false-" in entry:
-                self.error("%s has no known verdict", entry)
-                continue
-
-            if self.all_patterns.match(os.path.join(self.name, entry)):
-                continue
-
-            def alternative_exists(alt_name):
-                return (os.path.exists(os.path.join(self.path, alt_name)) and
-                        self.all_patterns.match(os.path.join(self.name, alt_name)))
-
-            if (entry.endswith(".c") and
-                    (alternative_exists(entry[:-2] + ".i") or alternative_exists(entry + ".i"))):
-                continue
-            self.error("%s is not contained in any category", entry)
+            if BENCHMARK_PATTERN.match(entry)\
+                    and not self.all_patterns.match(os.path.join(self.name, entry)):
+                self.error("%s is not contained in any category", entry)
 
 
-class BenchmarkFileChecks(Checks):
-    """Checks about the contents of a single benchmark file."""
+class FileChecks(Checks):
+    """Checks about the content of a file."""
+
+    def __init__(self, path, *args, **kwargs):
+        super(FileChecks, self).__init__(known_problems=KNOWN_SET_PROBLEMS, quiet=True, *args, **kwargs)
+        with open(path, 'r') as f:
+            self.lines = f.readlines()
+
+    def check_file_has_no_windows_line_ending(self):
+        if any('\r' in line for line in self.lines):
+            self.error("Windows line endings")
+
+
+class TaskDefinitionFileChecks(FileChecks):
+    """Checks about the content of a single task definition .yml file."""
 
     def __init__(self, path, contained_in_category, *args, **kwargs):
-        super(BenchmarkFileChecks, self).__init__(known_problems=KNOWN_BENCHMARK_FILE_PROBLEMS, quiet=True, *args, **kwargs)
+        super(TaskDefinitionFileChecks, self).__init__(path, *args, **kwargs)
         self.path = path
+        self.directory = os.path.dirname(path)
         self.filename = os.path.basename(self.name)
         self.contained_in_category = contained_in_category
-        with open(self.path, 'r') as f:
-            self.lines = f.readlines()
+        if yaml:
+            with open(self.path) as f:
+                self.content = yaml.safe_load(f)
+
+    def check_format_version(self):
+        if not 'format_version' in self.content:
+            self.error("has no format_version")
+        elif not (self.content['format_version']
+                and type(self.content['format_version']) is str):
+            self.error("has invalid format version")
+
+    def check_input_files(self):
+        if not self.content:
+            return None
+        input_files = self._get_input_files()
+        properties_to_verdicts = self._get_properties()
+        for f in input_files:
+            f_path = os.path.join(self.directory, f)
+            if not os.path.exists(f_path):
+                self.error("references inaccessible file: " + f_path)
+            else:
+                InputFileChecks(
+                    path=f_path,
+                    name=f_path,
+                    contained_in_category=self.contained_in_category,
+                    properties_to_verdicts=properties_to_verdicts
+                    ).run()
+
+    def check_properties(self):
+        prop_to_verdict = self._get_properties()
+        PropertiesChecks(
+                properties=prop_to_verdict,
+                contained_in_category=self.contained_in_category,
+                name=self.name
+                ).run()
+
+    def _get_input_files(self) -> list:
+        if 'input_files' not in self.content:
+            self.error("has no input file definition")
+            return []
+
+        input_files = self.content['input_files']
+
+        if not input_files:
+            self.error("has no input file definition")
+            return []
+
+        if type(input_files) is not list:
+            input_files = [input_files]
+        return input_files
+
+    def _get_properties(self) -> dict:
+        if not 'properties' in self.content\
+                or not self.content['properties']:
+            self.error("No properties")
+            # Return empty dict instead of None so that calling check stops gracefully
+            return dict()
+
+        props = []
+        for prop_def in self.content['properties']:
+            if type(prop_def) is not dict\
+                    or 'property_file' not in prop_def:
+                self.error("invalid property definition: %s" % prop_def)
+            else:
+                props.append(prop_def)
+
+        prop_to_verdict = dict()
+        for prop_def in props:
+            # Strip directories and ".prp" suffix
+            prop = os.path.basename(prop_def['property_file'])
+            if prop.endswith('.prp'):
+                prop = prop[:-4]
+            if 'expected_verdict' in prop_def:
+                verdict = prop_def['expected_verdict']
+            else:
+                verdict = None
+            if 'subproperty' in prop_def:
+                prop = prop_def['subproperty']
+            prop_to_verdict[prop] = verdict
+        return prop_to_verdict
+
+
+class PropertiesChecks(Checks):
+    """Checks about the properties of task definitions."""
+
+    def __init__(self, properties, contained_in_category, *args, **kwargs):
+        super(PropertiesChecks, self).__init__(known_problems=KNOWN_BENCHMARK_FILE_PROBLEMS, quiet=True, *args, **kwargs)
+        self.prop_to_verdict = properties
+        self.prop_names = list(properties.keys())
+
+    def check_no_unknown_property(self):
+        [self.error("has unknown property " + p)
+            for p in self.prop_names if p not in PROPERTIES]
+
+    def check_no_duplicate_properties(self):
+        counts = collections.Counter(self.prop_to_verdict.keys())
+
+        [self.error("has duplicate property " + p)
+            for p, c in counts.items() if c > 1]
+
+    def check_no_multiple_memsafety_verdicts(self):
+        distinct_prop_count = self.prop_names.count("valid-deref")\
+                + self.prop_names.count("valid-free")\
+                + self.prop_names.count("valid-memtrack")\
+                + self.prop_names.count("valid-memsafety")
+        if distinct_prop_count > 1:
+            self.error("has verdicts for multiple memsafety properties")
+
+    def check_no_contradicting_verdicts(self):
+        # Properties may also have no verdict (None), i.e., (not violates) != fulfills. Thus we need both methods
+        def violates(prop):
+            return prop in self.prop_to_verdict\
+                    and self.prop_to_verdict[prop] is False
+
+        def fulfills(prop):
+            return prop in self.prop_to_verdict\
+                    and self.prop_to_verdict[prop] is True
+
+        if violates("valid-deref")\
+                or violates("valid-free")\
+                or violates("no-overflow")\
+                or violates("def-behavior"):
+            if any(fulfills(p) for p in self.prop_to_verdict)\
+                    or len([p for p in self.prop_to_verdict if violates(p)]) > 1:
+                self.error(
+                        "has expected undefined behavior but also a verdict for some other property")
+
+        if violates("unreach-call") and fulfills("valid-memcleanup"):
+            # __VERIFIER_error() aborts the program, and if there is still any
+            # allocated memory this would violate memcleanup.
+            # We think this is probable (though not guaranteed), so we issue a warning.
+            self.error("has reachable error location but claims to have no memory leaks (this is not necessarily wrong but should be checked)")
+
+    def check_no_invalid_verdicts(self):
+        for prop, verdict in self.prop_to_verdict.items():
+            if prop.startswith("coverage-") and verdict is not None:
+                self.error("has verdict for property " + prop)
+
+
+class InputFileChecks(FileChecks):
+    """Checks about the contents of a single benchmark input file."""
+
+    def __init__(self, path, contained_in_category, properties_to_verdicts, *args, **kwargs):
+        super(InputFileChecks, self).__init__(path, *args, **kwargs)
+        self.path = path
+        self.filename = os.path.basename(self.path)
+        self.contained_in_category = contained_in_category
+        self.prop_to_verdict = properties_to_verdicts
 
     def check_file_has_no_line_directive(self):
         if any(LINE_DIRECTIVE.match(line) for line in self.lines):
@@ -282,47 +415,8 @@ class BenchmarkFileChecks(Checks):
                 "line directives from preprocessor present, "
                 "please use 'cpp -P' for preprocessing")
 
-    def check_file_has_no_windows_line_ending(self):
-        if any('\r' in line for line in self.lines):
-            self.error("Windows line endings")
-
-    def check_no_unknown_property(self):
-        # Check each file name part immediately after a _true- or _false- for a valid property
-        for part in (self.filename.split("_true-")[1:] + self.filename.split("_false-")[1:]):
-            if not any(part.startswith(prop) for prop in PROPERTIES):
-                self.error("has unknown property " + part)
-
-    def check_no_duplicate_verdicts(self):
-        for prop in PROPERTIES:
-            if self.filename.count(prop) > 1:
-                self.error("has duplicate verdict for property " + prop)
-
-    def check_no_multiple_memsafety_verdicts(self):
-        # SV-COMP rules say at most one of these may appear
-        if (self.filename.count("valid-deref") + self.filename.count("valid-free") +
-                self.filename.count("valid-memtrack") + self.filename.count("valid-memsafety")) > 1:
-            self.error("has verdicts for multiple memsafety properties")
-
-    def check_no_contradicting_verdicts(self):
-        def violates(prop):
-            return ("_false-" + prop) in self.filename
-
-        if (violates("valid-deref") or violates("valid-free") or violates("no-overflow") or
-                violates("def-behavior")):
-            if ("_true-" in self.filename) or self.filename.count("_false-") > 1:
-                self.error(
-                    "has expected undefined behavior but also a verdict for some other property")
-
-        if violates("unreach-call") and "_true-valid-memcleanup" in self.filename:
-            # __VERIFIER_error() aborts the program, and if there is still any
-            # allocated memory this would violate memcleanup.
-            # We think this is probable (though not guaranteed), so we issue a warning.
-            self.error("has reachable error location but claims to have no memory leaks (this is not necessarily wrong but should be checked)")
-
     def check_unreach_call_tasks_have_verifier_error(self):
-        if self.filename.endswith(".yml"):
-            return
-        if not "unreach-call" in self.filename:
+        if not "unreach-call" in self.prop_to_verdict:
             return
         if not self.contained_in_category:
             # Some such files have calls to __VERIFIER_error inside #include
@@ -463,11 +557,20 @@ def hash_file(filename, hash_alg=hashlib.sha1, block_size_factor=100000):
             hasher.update(block)
         return hasher.hexdigest()
 
+
+def _check_known_errors_consistent(main_dir):
+    for i, _ in KNOWN_SET_PROBLEMS + KNOWN_DIRECTORY_PROBLEMS + KNOWN_BENCHMARK_FILE_PROBLEMS:
+        path = os.path.join(main_dir, i)
+        assert os.path.exists(path), "Whitelisted file doesn't exist: %s" % path
+
+
 def main():
     if not yaml:
         logging.warning("Missing python-yaml, not all checks can be executed")
 
+
     main_directory = os.path.relpath(os.path.dirname(__file__))
+    _check_known_errors_consistent(main_directory)
     entries = sorted(os.listdir(main_directory))
     all_patterns_re = (
         fnmatch.translate(pattern)

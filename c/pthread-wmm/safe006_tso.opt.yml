@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: safe006_tso.opt_true-unreach-call.i
+input_files: 'safe006_tso.opt.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

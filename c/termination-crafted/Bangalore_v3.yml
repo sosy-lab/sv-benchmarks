@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: Bangalore_v3_false-no-overflow.c
+input_files: 'Bangalore_v3.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

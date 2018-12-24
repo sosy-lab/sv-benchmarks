@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: elimination_backoff_stack_false-unreach-call.i
+input_files: 'elimination_backoff_stack.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

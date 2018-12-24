@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-3.14__linux-usb-dev__drivers-media-usb-em28xx-em28xx_true-unreach-call.cil.i
+input_files: 'linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

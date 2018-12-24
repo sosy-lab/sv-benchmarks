@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: zonotope_loose_true-unreach-call.c.v+cfa-reducer.c
+input_files: 'zonotope_loose.c.v+cfa-reducer.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

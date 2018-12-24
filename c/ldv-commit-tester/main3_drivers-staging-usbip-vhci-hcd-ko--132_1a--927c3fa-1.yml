@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: main3_true-unreach-call_drivers-staging-usbip-vhci-hcd-ko--132_1a--927c3fa-1.i
+input_files: 'main3_drivers-staging-usbip-vhci-hcd-ko--132_1a--927c3fa-1.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

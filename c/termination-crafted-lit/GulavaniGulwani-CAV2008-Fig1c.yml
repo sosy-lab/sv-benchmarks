@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: GulavaniGulwani-CAV2008-Fig1c_false-no-overflow.c
+input_files: 'GulavaniGulwani-CAV2008-Fig1c.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

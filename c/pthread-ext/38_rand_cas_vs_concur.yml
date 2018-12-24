@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 38_rand_cas_vs_concur_true-unreach-call.i
+input_files: '38_rand_cas_vs_concur.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

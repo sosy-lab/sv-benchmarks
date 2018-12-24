@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: NoriSharma-FSE2013-Fig7_false-no-overflow.c
+input_files: 'NoriSharma-FSE2013-Fig7.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

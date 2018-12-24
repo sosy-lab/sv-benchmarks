@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: Problem02_label58_true-unreach-call_false-termination.c
+input_files: 'Problem02_label58.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: mutual_simple2_true-termination.c.i
+input_files: 'mutual_simple2.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

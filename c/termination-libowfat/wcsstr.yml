@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: wcsstr_true-termination.c.i
+input_files: 'wcsstr.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

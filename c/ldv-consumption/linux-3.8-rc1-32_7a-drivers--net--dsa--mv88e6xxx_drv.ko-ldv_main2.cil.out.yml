@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-3.8-rc1-32_7a-drivers--net--dsa--mv88e6xxx_drv.ko-ldv_main2_true-unreach-call.cil.out.i
+input_files: 'linux-3.8-rc1-32_7a-drivers--net--dsa--mv88e6xxx_drv.ko-ldv_main2.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

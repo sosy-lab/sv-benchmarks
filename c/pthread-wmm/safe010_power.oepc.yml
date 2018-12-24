@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: safe010_power.oepc_false-unreach-call.i
+input_files: 'safe010_power.oepc.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

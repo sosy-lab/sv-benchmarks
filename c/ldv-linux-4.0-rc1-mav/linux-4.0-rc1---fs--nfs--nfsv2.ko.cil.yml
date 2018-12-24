@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-4.0-rc1---fs--nfs--nfsv2.ko_true-unreach-call.cil.i
+input_files: 'linux-4.0-rc1---fs--nfs--nfsv2.ko.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

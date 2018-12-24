@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: usb_urb-drivers-media-dvb-ttusb-dec-ttusb_dec.ko_false-unreach-call.cil.out.i
+input_files: 'usb_urb-drivers-media-dvb-ttusb-dec-ttusb_dec.ko.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

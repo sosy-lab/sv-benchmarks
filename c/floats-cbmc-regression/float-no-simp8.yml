@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: float-no-simp8_true-unreach-call.i
+input_files: 'float-no-simp8.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

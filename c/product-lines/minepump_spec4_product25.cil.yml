@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: minepump_spec4_product25_true-unreach-call_false-termination.cil.c
+input_files: 'minepump_spec4_product25.cil.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

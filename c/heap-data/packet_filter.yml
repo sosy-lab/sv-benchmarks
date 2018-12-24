@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: packet_filter_true-unreach-call.i
+input_files: 'packet_filter.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

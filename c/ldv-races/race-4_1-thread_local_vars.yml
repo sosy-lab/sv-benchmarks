@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: race-4_1-thread_local_vars_true-unreach-call.i
+input_files: 'race-4_1-thread_local_vars.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

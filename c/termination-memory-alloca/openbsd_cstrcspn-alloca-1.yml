@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: openbsd_cstrcspn-alloca_true-termination.c.i
+input_files: 'openbsd_cstrcspn-alloca-1.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

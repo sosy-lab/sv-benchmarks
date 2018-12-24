@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 35_double_lock_p3_vs_true-unreach-call.i
+input_files: '35_double_lock_p3_vs.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

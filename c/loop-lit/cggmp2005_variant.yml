@@ -1,0 +1,13 @@
+format_version: '1.0'
+
+# old file name: cggmp2005_variant_true-unreach-call_true-termination.c.i
+input_files: 'cggmp2005_variant.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

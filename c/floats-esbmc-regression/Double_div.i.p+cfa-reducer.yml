@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: Double_div_true-unreach-call.i.p+cfa-reducer.c
+input_files: 'Double_div.i.p+cfa-reducer.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

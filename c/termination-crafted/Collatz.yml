@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: Collatz_unknown-termination_false-no-overflow.c
+input_files: 'Collatz.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false
+  - property_file: ../properties/termination.prp

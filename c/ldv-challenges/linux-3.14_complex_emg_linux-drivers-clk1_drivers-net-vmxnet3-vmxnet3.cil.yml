@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-3.14__complex_emg__linux-drivers-clk1__drivers-net-vmxnet3-vmxnet3_true-unreach-call.cil.i
+input_files: 'linux-3.14_complex_emg_linux-drivers-clk1_drivers-net-vmxnet3-vmxnet3.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

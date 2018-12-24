@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: kbfiltr_false-valid-deref.i.cil.c
+input_files: 'kbfiltr_false-valid-deref.i.cil.c'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-deref

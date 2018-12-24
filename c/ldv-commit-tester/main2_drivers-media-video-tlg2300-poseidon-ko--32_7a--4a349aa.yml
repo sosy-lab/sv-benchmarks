@@ -1,0 +1,13 @@
+format_version: '1.0'
+
+# old file name: main2_true-unreach-call_drivers-media-video-tlg2300-poseidon-ko--32_7a--4a349aa_false-termination.i
+input_files: 'main2_drivers-media-video-tlg2300-poseidon-ko--32_7a--4a349aa.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

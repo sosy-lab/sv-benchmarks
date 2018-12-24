@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 32_7a_cilled_true-unreach-call_linux-3.8-rc1-drivers--tty--synclink.ko-main.cil.out.i
+input_files: '32_7a_cilled_linux-3.8-rc1-drivers--tty--synclink.ko-main.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

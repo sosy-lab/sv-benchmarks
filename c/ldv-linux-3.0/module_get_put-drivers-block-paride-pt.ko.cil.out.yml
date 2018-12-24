@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: module_get_put-drivers-block-paride-pt.ko_true-unreach-call.cil.out.i
+input_files: 'module_get_put-drivers-block-paride-pt.ko.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

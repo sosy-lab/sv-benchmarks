@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: array20_alloca_false-termination.c.i
+input_files: 'array20_alloca.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false

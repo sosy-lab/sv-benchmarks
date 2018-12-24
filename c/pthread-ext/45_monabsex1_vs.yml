@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 45_monabsex1_vs_true-unreach-call.i
+input_files: '45_monabsex1_vs.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

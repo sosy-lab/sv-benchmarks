@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: openbsd_cstpncpy-alloca_true-termination.c.i
+input_files: 'openbsd_cstpncpy-alloca-2.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

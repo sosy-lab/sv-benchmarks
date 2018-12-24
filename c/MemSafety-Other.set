@@ -1,9 +1,7 @@
-loops/*_false-valid-deref*.c
-loop-acceleration/*_false-valid-deref*.i
-ntdrivers/*_false-valid-deref*.i.cil.c
-ntdrivers-simplified/*_true-valid-memsafety*.cil.c
-locks/*_true-valid-memsafety*.c
-memsafety-ext3/*_false-valid-deref*.c
-memsafety-ext3/*_false-valid-free*.c
-memsafety-ext3/*_true-valid-memsafety*.c
-pthread-memsafety/*_false-valid-deref.i
+loops/*.yml
+loop-acceleration/*.yml
+ntdrivers/*.yml
+ntdrivers-simplified/*.yml
+locks/*.yml
+memsafety-ext3/*.yml
+pthread-memsafety/*.yml

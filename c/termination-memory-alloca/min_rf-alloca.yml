@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: min_rf-alloca_true-termination.c.i
+input_files: 'min_rf-alloca.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true

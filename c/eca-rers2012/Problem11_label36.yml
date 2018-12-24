@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: Problem11_label36_false-unreach-call.c
+input_files: 'Problem11_label36.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

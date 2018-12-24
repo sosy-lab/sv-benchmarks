@@ -1,0 +1,12 @@
+format_version: '1.0'
+
+# old file name: linux-4.0-rc1---drivers--media--dvb-core--dvb-core.ko_false-unreach-call.cil.i
+input_files: 'linux-4.0-rc1---drivers--media--dvb-core--dvb-core.ko.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

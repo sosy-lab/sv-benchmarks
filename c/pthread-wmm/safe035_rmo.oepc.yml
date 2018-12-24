@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: safe035_rmo.oepc_true-unreach-call.i
+input_files: 'safe035_rmo.oepc.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

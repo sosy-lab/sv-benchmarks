@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: email_spec3_product17_false-unreach-call_true-termination.cil.c
+input_files: 'email_spec3_product17.cil.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

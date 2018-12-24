@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: 43_1a_cilled_true-unreach-call_ok_nondet_linux-43_1a-drivers--media--dvb--ttpci--budget-patch.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+input_files: '43_1a_cilled_ok_nondet_linux-43_1a-drivers--media--dvb--ttpci--budget-patch.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

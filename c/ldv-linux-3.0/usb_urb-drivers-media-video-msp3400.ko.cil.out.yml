@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: usb_urb-drivers-media-video-msp3400.ko_true-unreach-call.cil.out.i
+input_files: 'usb_urb-drivers-media-video-msp3400.ko.cil.out.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

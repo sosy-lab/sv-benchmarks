@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: eureka_05_true-unreach-call_true-termination.i
+input_files: 'eureka_05.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

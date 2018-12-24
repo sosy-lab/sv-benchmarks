@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-3.14__complex_emg__linux-kernel-locking-spinlock__drivers-net-wan-lmc-lmc_true-unreach-call.cil.i
+input_files: 'linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-wan-lmc-lmc.cil.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

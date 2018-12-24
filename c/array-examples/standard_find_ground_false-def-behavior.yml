@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: standard_find_ground_false-def-behavior.i
+input_files: 'standard_find_ground_false-def-behavior.i'
+
+properties:
+  - property_file: ../properties/def-behavior.prp
+    expected_verdict: false

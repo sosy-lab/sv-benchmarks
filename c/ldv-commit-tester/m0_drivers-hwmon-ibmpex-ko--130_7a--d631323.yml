@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: m0_true-unreach-call_drivers-hwmon-ibmpex-ko--130_7a--d631323.i
+input_files: 'm0_drivers-hwmon-ibmpex-ko--130_7a--d631323.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

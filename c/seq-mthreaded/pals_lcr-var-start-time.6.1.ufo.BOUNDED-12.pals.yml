@@ -1,0 +1,14 @@
+format_version: '1.0'
+
+# old file name: pals_lcr-var-start-time.6_false-unreach-call.1.ufo.BOUNDED-12.pals_true-termination.c
+input_files: 'pals_lcr-var-start-time.6.1.ufo.BOUNDED-12.pals.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

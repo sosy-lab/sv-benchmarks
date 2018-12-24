@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: round_nondet_true-unreach-call.i
+input_files: 'round_nondet.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

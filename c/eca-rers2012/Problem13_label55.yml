@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: Problem13_label55_true-unreach-call.c
+input_files: 'Problem13_label55.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

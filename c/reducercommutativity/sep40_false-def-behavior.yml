@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: sep40_false-def-behavior.i
+input_files: 'sep40_false-def-behavior.i'
+
+properties:
+  - property_file: ../properties/def-behavior.prp
+    expected_verdict: false

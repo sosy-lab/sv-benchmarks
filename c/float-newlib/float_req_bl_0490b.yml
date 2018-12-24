@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: float_req_bl_0490b_true-unreach-call.c
+input_files: 'float_req_bl_0490b.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

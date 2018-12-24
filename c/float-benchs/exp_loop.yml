@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: exp_loop_true-unreach-call.c
+input_files: 'exp_loop.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

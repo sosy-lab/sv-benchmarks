@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: one_time_barrier_2t_false-unreach-call.i
+input_files: 'one_time_barrier_2t.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

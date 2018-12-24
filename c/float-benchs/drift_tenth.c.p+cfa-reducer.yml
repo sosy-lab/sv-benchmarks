@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: drift_tenth_true-unreach-call.c.p+cfa-reducer.c
+input_files: 'drift_tenth.c.p+cfa-reducer.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

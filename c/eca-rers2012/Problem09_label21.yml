@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: Problem09_label21_true-unreach-call.c
+input_files: 'Problem09_label21.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: shared_mem2_true-unreach-call.i
+input_files: 'shared_mem2.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

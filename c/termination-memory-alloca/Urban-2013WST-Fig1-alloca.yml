@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: Urban-2013WST-Fig1-alloca_false-termination.c.i
+input_files: 'Urban-2013WST-Fig1-alloca.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false

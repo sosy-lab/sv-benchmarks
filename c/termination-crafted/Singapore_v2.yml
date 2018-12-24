@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: Singapore_v2_false-no-overflow.c
+input_files: 'Singapore_v2.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

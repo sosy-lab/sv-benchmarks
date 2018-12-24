@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: main3_true-unreach-call_arch-x86-oprofile-oprofile-ko--131_1a--79db8ef.i
+input_files: 'main3_arch-x86-oprofile-oprofile-ko--131_1a--79db8ef.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: check_removal_from_set_after_insertion_false-unreach-call.i
+input_files: 'check_removal_from_set_after_insertion.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp

@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: memset2_false-valid-deref-write.c
+input_files: 'memset2_-write.c'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-deref

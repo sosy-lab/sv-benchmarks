@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: pals_opt-floodmax.3_false-unreach-call.4.ufo.UNBOUNDED.pals.c.v+lhb-reducer.c
+input_files: 'pals_opt-floodmax.3.4.ufo.UNBOUNDED.pals.c.v+lhb-reducer.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp
