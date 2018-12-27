@@ -6,4 +6,3 @@ input_files: '43_2a_bitvector_linux-3.16-rc1.tar.xz-43_2a-net--unix--unix.ko-ent
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

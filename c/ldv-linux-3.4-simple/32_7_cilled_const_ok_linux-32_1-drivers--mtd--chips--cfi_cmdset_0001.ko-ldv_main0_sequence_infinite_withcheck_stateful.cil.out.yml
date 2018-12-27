@@ -6,4 +6,3 @@ input_files: '32_7_cilled_const_ok_linux-32_1-drivers--mtd--chips--cfi_cmdset_00
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

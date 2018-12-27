@@ -6,4 +6,3 @@ input_files: 'm0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

@@ -6,4 +6,3 @@ input_files: 'linux-4.0-rc1---drivers--media--usb--ttusb-budget--dvb-ttusb-budge
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

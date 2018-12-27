@@ -6,4 +6,3 @@ input_files: 'pals_lcr-var-start-time.4.2.ufo.BOUNDED-8.pals.c.v+lhb-reducer.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

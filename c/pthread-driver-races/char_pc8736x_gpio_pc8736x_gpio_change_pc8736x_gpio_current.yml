@@ -6,4 +6,3 @@ input_files: 'char_pc8736x_gpio_pc8736x_gpio_change_pc8736x_gpio_current.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

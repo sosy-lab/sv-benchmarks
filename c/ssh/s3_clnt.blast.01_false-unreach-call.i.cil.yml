@@ -6,4 +6,3 @@ input_files: 's3_clnt.blast.01_false-unreach-call.i.cil.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

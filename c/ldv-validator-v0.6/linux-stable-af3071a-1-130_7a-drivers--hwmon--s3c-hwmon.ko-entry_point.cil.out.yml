@@ -6,4 +6,3 @@ input_files: 'linux-stable-af3071a-1-130_7a-drivers--hwmon--s3c-hwmon.ko-entry_p
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

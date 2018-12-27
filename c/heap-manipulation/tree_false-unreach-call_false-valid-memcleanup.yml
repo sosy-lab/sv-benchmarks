@@ -6,6 +6,5 @@ input_files: 'tree_false-unreach-call_false-valid-memcleanup.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp
   - property_file: ../properties/valid-memcleanup.prp
     expected_verdict: false

@@ -6,4 +6,3 @@ input_files: 'linux-stable-a450319-1-144_2a-drivers--input--tablet--acecad.ko-en
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

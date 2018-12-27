@@ -6,4 +6,3 @@ input_files: 'linux-stable-47dffc7-1-144_2a-drivers--net--usb--cdc-phonet.ko-ent
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

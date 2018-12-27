@@ -6,7 +6,6 @@ input_files: 'sll-01_false-unreach-call_false-valid-deref.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
     subproperty: valid-deref

@@ -6,4 +6,3 @@ input_files: 'main0_drivers-media-video-tlg2300-poseidon-ko--32_7a--4a349aa-1.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

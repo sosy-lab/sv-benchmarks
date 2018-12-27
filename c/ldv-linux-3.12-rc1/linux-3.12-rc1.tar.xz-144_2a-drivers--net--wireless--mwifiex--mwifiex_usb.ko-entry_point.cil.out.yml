@@ -6,4 +6,3 @@ input_files: 'linux-3.12-rc1.tar.xz-144_2a-drivers--net--wireless--mwifiex--mwif
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

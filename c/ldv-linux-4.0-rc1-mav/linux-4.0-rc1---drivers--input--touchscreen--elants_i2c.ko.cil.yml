@@ -6,4 +6,3 @@ input_files: 'linux-4.0-rc1---drivers--input--touchscreen--elants_i2c.ko.cil.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

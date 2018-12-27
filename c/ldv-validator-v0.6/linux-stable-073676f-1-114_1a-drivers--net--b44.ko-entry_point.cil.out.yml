@@ -6,4 +6,3 @@ input_files: 'linux-stable-073676f-1-114_1a-drivers--net--b44.ko-entry_point.cil
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

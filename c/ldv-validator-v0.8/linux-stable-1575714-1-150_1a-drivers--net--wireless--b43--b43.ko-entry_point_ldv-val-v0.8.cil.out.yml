@@ -6,4 +6,3 @@ input_files: 'linux-stable-1575714-1-150_1a-drivers--net--wireless--b43--b43.ko-
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

@@ -6,4 +6,3 @@ input_files: 'linux-stable-90a4845-1-110_1a-drivers--char--ipmi--ipmi_si.ko-entr
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

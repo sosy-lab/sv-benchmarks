@@ -6,4 +6,3 @@ input_files: 'char_generic_nvram_read_nvram_write_nvram.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

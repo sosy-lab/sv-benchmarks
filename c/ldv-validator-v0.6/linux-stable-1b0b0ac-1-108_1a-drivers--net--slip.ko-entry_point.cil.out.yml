@@ -6,4 +6,3 @@ input_files: 'linux-stable-1b0b0ac-1-108_1a-drivers--net--slip.ko-entry_point.ci
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

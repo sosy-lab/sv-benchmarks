@@ -6,4 +6,3 @@ input_files: 'linux-stable-2b9ec6c-1-106_1a-drivers--usb--gadget--g_printer.ko-e
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

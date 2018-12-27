@@ -6,4 +6,3 @@ input_files: 'mix032_tso.opt.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

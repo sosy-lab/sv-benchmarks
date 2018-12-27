@@ -6,4 +6,3 @@ input_files: 'linux-3.14_complex_emg_linux-usb-dev_drivers-media-usb-hdpvr-hdpvr
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

@@ -6,4 +6,3 @@ input_files: 'linux-stable-063f96c-1-144_1a-drivers--mmc--host--vub300.ko.unsign
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

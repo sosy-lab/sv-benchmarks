@@ -6,4 +6,3 @@ input_files: 'linux-3.8-rc1-32_7a-drivers--net--wireless--mwl8k.ko-ldv_main0.cil
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp
