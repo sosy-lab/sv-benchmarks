@@ -71,14 +71,9 @@ for f in $SETS ; do
   for ff in $(ls $(grep -v "^#" $f)) ; do
     orig=$ff
 
-    # Get file that belongs to task definition (by file name)
-    # It would be more precise, but also a lot more complicated,
-    # to use the input-file value of the task definition.
     if echo $ff | grep -q ".yml$"; then
-      ff=$(echo $ff | sed 's/\.yml$/.i/')
-      if [ ! -f $ff ]; then
-        ff=$(echo $ff | sed 's/\.i$/.c/')
-      fi
+      input_basename=$(yq --raw-output '.input_files' "$ff")
+      ff=$(echo "$(dirname "$ff")/${input_basename}")
     fi
 
     if [ ! -s $ff ] ; then

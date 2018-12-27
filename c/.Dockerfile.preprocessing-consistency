@@ -21,7 +21,11 @@ RUN make -C cbmc/src -j2 goto-diff.dir goto-cc.dir
 FROM ubuntu:trusty
 
 RUN apt-get update && apt-get install -y \
-  libc6-dev-i386
+  libc6-dev-i386 \
+  jq \
+  python3-pip
+
+RUN pip3 install yq
 
 COPY --from=0 /cbmc .
 
