@@ -6,4 +6,3 @@ input_files: 'linux-4.2-rc1.tar.xz-08_1a-drivers--media--usb--dvb-usb--dvb-usb-c
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

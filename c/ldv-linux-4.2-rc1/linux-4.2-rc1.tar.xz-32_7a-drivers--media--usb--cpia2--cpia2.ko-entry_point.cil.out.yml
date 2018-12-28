@@ -6,4 +6,3 @@ input_files: 'linux-4.2-rc1.tar.xz-32_7a-drivers--media--usb--cpia2--cpia2.ko-en
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

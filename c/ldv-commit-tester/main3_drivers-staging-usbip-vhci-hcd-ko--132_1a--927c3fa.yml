@@ -6,4 +6,3 @@ input_files: 'main3_drivers-staging-usbip-vhci-hcd-ko--132_1a--927c3fa.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

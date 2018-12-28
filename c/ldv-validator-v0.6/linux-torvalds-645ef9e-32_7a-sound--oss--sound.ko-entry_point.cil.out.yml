@@ -6,4 +6,3 @@ input_files: 'linux-torvalds-645ef9e-32_7a-sound--oss--sound.ko-entry_point.cil.
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

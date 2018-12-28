@@ -6,4 +6,3 @@ input_files: 'Problem18_label09.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

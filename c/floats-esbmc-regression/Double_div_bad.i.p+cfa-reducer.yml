@@ -6,4 +6,3 @@ input_files: 'Double_div_bad.i.p+cfa-reducer.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

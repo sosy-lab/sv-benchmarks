@@ -6,4 +6,3 @@ input_files: 'rekh_aso.4.M1.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

@@ -6,4 +6,3 @@ input_files: 'main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

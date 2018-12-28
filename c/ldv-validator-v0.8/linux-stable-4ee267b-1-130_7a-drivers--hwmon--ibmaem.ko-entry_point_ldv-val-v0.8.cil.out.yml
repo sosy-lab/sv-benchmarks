@@ -6,4 +6,3 @@ input_files: 'linux-stable-4ee267b-1-130_7a-drivers--hwmon--ibmaem.ko-entry_poin
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

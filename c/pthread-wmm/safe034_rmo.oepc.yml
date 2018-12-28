@@ -6,4 +6,3 @@ input_files: 'safe034_rmo.oepc.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

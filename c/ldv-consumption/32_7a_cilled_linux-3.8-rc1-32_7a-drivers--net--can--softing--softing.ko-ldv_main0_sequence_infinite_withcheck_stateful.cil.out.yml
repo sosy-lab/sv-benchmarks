@@ -6,4 +6,3 @@ input_files: '32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--can--softing--softi
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

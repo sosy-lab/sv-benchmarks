@@ -6,4 +6,3 @@ input_files: '32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

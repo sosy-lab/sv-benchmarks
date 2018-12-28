@@ -6,4 +6,3 @@ input_files: 'linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_poi
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

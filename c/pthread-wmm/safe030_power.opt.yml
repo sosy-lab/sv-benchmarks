@@ -6,4 +6,3 @@ input_files: 'safe030_power.opt.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

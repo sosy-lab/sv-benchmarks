@@ -6,4 +6,3 @@ input_files: 'linux-stable-5934df9-1-111_1a-drivers--scsi--gdth.ko-entry_point.c
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

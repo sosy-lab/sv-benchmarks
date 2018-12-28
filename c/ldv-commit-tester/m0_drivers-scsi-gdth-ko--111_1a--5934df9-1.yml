@@ -6,4 +6,3 @@ input_files: 'm0_drivers-scsi-gdth-ko--111_1a--5934df9-1.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

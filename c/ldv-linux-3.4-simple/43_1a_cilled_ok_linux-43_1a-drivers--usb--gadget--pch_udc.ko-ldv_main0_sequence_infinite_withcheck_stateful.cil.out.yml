@@ -6,4 +6,3 @@ input_files: '43_1a_cilled_ok_linux-43_1a-drivers--usb--gadget--pch_udc.ko-ldv_m
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp

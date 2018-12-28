@@ -6,4 +6,3 @@ input_files: '32_7_cpp_single_drivers-usb-image-microtek.cil.out.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp
