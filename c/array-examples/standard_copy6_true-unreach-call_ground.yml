@@ -6,3 +6,6 @@ input_files: 'standard_copy6_true-unreach-call_ground.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

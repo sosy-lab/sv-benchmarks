@@ -6,6 +6,3 @@ input_files: 'linux-4.2-rc1.tar.xz-08_1a-drivers--net--wireless--rtlwifi--rtl882
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp

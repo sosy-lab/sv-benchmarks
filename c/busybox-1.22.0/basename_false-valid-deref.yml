@@ -7,6 +7,3 @@ properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
     subproperty: valid-deref
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp

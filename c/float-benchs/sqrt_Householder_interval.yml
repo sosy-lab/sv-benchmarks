@@ -6,3 +6,6 @@ input_files: 'sqrt_Householder_interval.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

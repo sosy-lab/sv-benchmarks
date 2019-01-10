@@ -6,3 +6,7 @@ input_files: 'Problem103_label35.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp
