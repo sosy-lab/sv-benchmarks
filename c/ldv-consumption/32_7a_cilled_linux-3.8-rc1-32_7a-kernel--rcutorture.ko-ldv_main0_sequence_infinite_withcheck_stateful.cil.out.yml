@@ -6,6 +6,3 @@ input_files: '32_7a_cilled_linux-3.8-rc1-32_7a-kernel--rcutorture.ko-ldv_main0_s
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp

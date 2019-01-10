@@ -6,6 +6,3 @@ input_files: 'linux-4.2-rc1.tar.xz-43_2a-drivers--block--cciss.ko-entry_point.ci
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp

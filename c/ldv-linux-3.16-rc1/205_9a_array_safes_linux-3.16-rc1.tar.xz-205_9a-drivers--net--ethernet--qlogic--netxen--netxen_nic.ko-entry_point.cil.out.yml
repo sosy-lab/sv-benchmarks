@@ -6,6 +6,3 @@ input_files: '205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--ethe
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp

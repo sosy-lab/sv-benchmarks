@@ -6,6 +6,3 @@ input_files: 'linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_seque
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp

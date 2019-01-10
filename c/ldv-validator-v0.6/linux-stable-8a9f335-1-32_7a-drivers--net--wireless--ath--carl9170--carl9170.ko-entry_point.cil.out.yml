@@ -6,7 +6,3 @@ input_files: 'linux-stable-8a9f335-1-32_7a-drivers--net--wireless--ath--carl9170
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
-  - property_file: ../properties/coverage-error-call.prp
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp

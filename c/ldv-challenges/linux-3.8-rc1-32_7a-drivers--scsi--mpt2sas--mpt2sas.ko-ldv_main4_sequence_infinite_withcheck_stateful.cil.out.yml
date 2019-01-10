@@ -6,6 +6,3 @@ input_files: 'linux-3.8-rc1-32_7a-drivers--scsi--mpt2sas--mpt2sas.ko-ldv_main4_s
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp
