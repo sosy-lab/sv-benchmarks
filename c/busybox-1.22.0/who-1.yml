@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: who_false-no-overflow.i
+input_files: 'who-1.i'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

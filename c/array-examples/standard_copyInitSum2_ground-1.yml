@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: standard_copyInitSum2_false-unreach-call_ground.i
+input_files: 'standard_copyInitSum2_ground-1.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false

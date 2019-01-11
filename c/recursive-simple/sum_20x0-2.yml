@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: sum_20x0_true-unreach-call_true-termination.c
+input_files: 'sum_20x0-2.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

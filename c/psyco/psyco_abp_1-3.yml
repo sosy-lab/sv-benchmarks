@@ -1,0 +1,12 @@
+format_version: '1.0'
+
+# old file name: psyco_abp_1_true-unreach-call_false-termination_true-no-overflow.c
+input_files: 'psyco_abp_1-3.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

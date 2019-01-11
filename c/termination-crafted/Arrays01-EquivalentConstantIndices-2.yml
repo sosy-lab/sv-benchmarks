@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: Arrays01-EquivalentConstantIndices_false-def-behavior.c
+input_files: 'Arrays01-EquivalentConstantIndices-2.c'
+
+properties:
+  - property_file: ../properties/def-behavior.prp
+    expected_verdict: false

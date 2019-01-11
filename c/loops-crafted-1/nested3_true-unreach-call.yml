@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: nested3_true-unreach-call.c
-input_files: 'nested3_true-unreach-call.c'
-
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true

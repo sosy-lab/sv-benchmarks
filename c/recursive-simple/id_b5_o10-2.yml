@@ -1,0 +1,15 @@
+format_version: '1.0'
+
+# old file name: id_b5_o10_true-unreach-call_true-termination_true-no-overflow.c
+input_files: 'id_b5_o10-2.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: fibo_2calls_8_true-unreach-call_true-termination.c
+input_files: 'fibo_2calls_8-1.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

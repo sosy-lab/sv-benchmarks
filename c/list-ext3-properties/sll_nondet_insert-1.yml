@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: sll_nondet_insert_false-unreach-call_false-valid-memcleanup.i
+input_files: 'sll_nondet_insert-1.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/valid-memcleanup.prp
+    expected_verdict: false

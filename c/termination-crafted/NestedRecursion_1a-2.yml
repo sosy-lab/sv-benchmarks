@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: NestedRecursion_1a_false-termination_true-valid-memsafety.c
+input_files: 'NestedRecursion_1a-2.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

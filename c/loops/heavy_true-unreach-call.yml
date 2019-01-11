@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: heavy_true-unreach-call.c
-input_files: 'heavy_true-unreach-call.c'
-
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true

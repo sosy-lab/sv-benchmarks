@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: stateful01_true-unreach-call.i
+input_files: 'stateful01-2.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

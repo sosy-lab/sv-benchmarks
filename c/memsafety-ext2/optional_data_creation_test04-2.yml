@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: optional_data_creation_test04_true-valid-memsafety.i
+input_files: 'optional_data_creation_test04-2.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: ll_append-alloca_false-termination.c.i
+input_files: 'll_append-alloca-2.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false

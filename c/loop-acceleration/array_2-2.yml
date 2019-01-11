@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: array_true-unreach-call2_true-termination.i
+input_files: 'array_2-2.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: dll_nondet_free_order_false-valid-memtrack.i
+input_files: 'dll_nondet_free_order-2.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-memtrack

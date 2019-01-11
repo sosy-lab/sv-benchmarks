@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: simple_false-unreach-call3_true-termination.i
+input_files: 'simple_3-1.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
