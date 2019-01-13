@@ -3,6 +3,9 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int main( ) {
   int A[100000];
   int i;
+	for (i = 0; i < 100000 ; i++ ) {
+    A[i] = __VERIFIER_nondet_int();
+  }
   for (i = 0; i < 100000/2 ; i++ ) {
     A[i] = A[100000 -i-1];
   }

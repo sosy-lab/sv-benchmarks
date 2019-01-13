@@ -6,6 +6,11 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int main( ) {
   int a[N];
   int max = 0;
+	
+	for (int j = 0; j < N ; j++ ) {
+    A[j] = __VERIFIER_nondet_int();
+  }
+	
   int i = 0;
   while ( i < N ) {
     if ( a[i] > max ) {

@@ -26,6 +26,10 @@ int main ()
     int ret2;
     int ret5;
 
+    for(int i =0 ; i<N; i++){
+       x[i] = __VERIFIER_nondet_int();
+    }
+
     ret = mapavg(x);
 
     temp=x[0];x[0] = x[1]; x[1] = temp;

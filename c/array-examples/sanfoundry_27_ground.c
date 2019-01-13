@@ -11,6 +11,12 @@ int main()
 {
     int array[SIZE];
     int i;
+			
+		for(i = 0; i < SIZE; i++) 
+		{
+		  array[i] = __VERIFIER_nondet_int();
+		}
+		
     int largest = array[0];
     for (i = 1; i < SIZE; i++)
     {

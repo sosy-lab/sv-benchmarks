@@ -509,12 +509,20 @@ extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
+
 int main() {
   int i, j, tmp;
   int length = __VERIFIER_nondet_int();
   if (length < 1) length = 1;
   if (length % 2 == 0) length++;
   int *arr = __builtin_alloca (length*sizeof(int));
+	
+	for(int i = 0; i < length; i++)
+	{
+	  arr[i] = __VERIFIER_nondet_int();
+  }
+	
   for (i=0; i<length; i++) {
     if (arr[i] == '\0') arr[i]++;
   }

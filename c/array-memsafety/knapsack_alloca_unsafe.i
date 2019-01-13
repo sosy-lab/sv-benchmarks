@@ -536,6 +536,18 @@ int main() {
   int *val = (int*) __builtin_alloca (N * sizeof(int));
   int *cost = (int*) __builtin_alloca (M * sizeof(int));
   int *best = (int*) __builtin_alloca (M * sizeof(int));
-  knapsack(size, val, N, cost, best, M);
+	
+	for(int i = 0; i < N; i++) 
+	{
+	  size[i] = __VERIFIER_nondet_int();
+		val[i] = __VERIFIER_nondet_int();
+	}
+	
+	for(int i = 0; i < M; i++)
+	{
+	  cost[i] = __VERIFIER_nondet_int();
+	}
+  
+	knapsack(size, val, N, cost, best, M);
   return 0;
 }

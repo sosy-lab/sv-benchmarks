@@ -138,6 +138,8 @@ int main()
       different=pat_len-1;
     for(int i=0; i<pat_len && i<a_len; i++)
     {
+		    pat[i] = __VERIFIER_nondet_int();
+				a[i] = __VERIFIER_nondet_int();
         if(i<different)
           __VERIFIER_assume(pat[i]==a[i]);
         else if(i==different)

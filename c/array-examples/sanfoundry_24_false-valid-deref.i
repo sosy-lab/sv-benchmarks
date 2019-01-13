@@ -12,6 +12,12 @@ int main()
     int array[100000];
     int i;
     int num = __VERIFIER_nondet_int();
+		
+		for(i = 0; i < num; i++) 
+		{
+		  array[i] = __VERIFIER_nondet_int();
+		}
+		
     for (i = 0; i < num; i++)
     {
         if (array[i] % 2 == 0)

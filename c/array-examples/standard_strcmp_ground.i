@@ -11,6 +11,13 @@ int _strcmp( int src[100000] , int dst[100000] ) {
 int main( ) {
   int a[100000];
   int b[100000];
+	
+	for(int i = 0; i < 100000; i++) 
+	{
+	   a[i] = __VERIFIER_nondet_int();
+		 b[i] = __VERIFIER_nondet_int()
+	}
+	
   int c = _strcmp( a , b );
   if ( c == 0 ) {
     int x;

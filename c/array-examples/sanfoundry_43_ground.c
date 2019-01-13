@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int(void);
 
 /*
  * Adapted from http://www.sanfoundry.com/c-programming-examples-arrays/
@@ -19,6 +20,11 @@ int main()
 {
     int src[SIZE];
     int dst[SIZE];
+		
+		for(int i = 0; i < SIZE; i++)
+		{
+		    src[i] = __VERIFIER_nondet_int();
+		}
  
     incrementArray( src , dst );
 

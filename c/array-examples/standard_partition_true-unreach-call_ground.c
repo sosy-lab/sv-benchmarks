@@ -10,6 +10,10 @@ int main( ) {
   int c = 0;
   int bb[N];
   int cc[N];
+	
+	for(int i = 0 ; i < N ; i++ ) {
+    aa[i] = __VERIFIER_nondet_int();
+  }
   
   while( a < N ) {
     if( aa[ a ] >= 0 ) {

@@ -13,6 +13,11 @@ int main()
 		int i;
 		int a[SIZE];
 		int acopy[SIZE];
+		
+		for(i = 0; i < SIZE; i++)
+		{
+		    a[i] = __VERIFIER_nondet_int();
+		}
 
 		if(SIZE % 2 != 0) { return 1; }
 

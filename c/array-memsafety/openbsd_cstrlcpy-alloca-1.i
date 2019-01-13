@@ -509,6 +509,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
 size_t
 cstrlcpy(char *dst, const char *src, size_t siz)
 {
@@ -540,6 +541,17 @@ int main() {
   }
   char* nondetString1 = (char*) __builtin_alloca (n * sizeof(char));
   char* nondetString2 = (char*) __builtin_alloca (length * sizeof(char));
+	
+	for(int i = 0; i < length - 1; i++)
+	{
+	  nondetString2[i] = __VERIFIER_nondet_char();
+	}
+	
+	for(int i = 0; i < n - 1; i++)
+	{
+	  nondetString1[i] = __VERIFIER_nondet_char();
+	}
+	
   nondetString1[n-1] = '\0';
   nondetString2[length-1] = '\0';
   cstrlcpy(nondetString1, nondetString2, n);

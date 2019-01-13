@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int();
 
 /*
  * Adapted from http://www.sanfoundry.com/c-programming-examples-arrays/
@@ -16,6 +17,11 @@ int main()
     int largest1;
     int largest2;
     int temp;
+		
+		for(i = 0; i < MAX; i++) 
+		{
+		  array[i] = __VERIFIER_nondet_int();
+		}
  
     /*  assume first element of array is the first larges t*/
     largest1 = array[0];

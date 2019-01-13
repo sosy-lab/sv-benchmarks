@@ -6,6 +6,9 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int main( ) {
   int A[N];
   int i;
+	for (i = 0; i < N ; i++ ) {
+    A[i] = __VERIFIER_nondet_int();
+  }
   for (i = 0; i < N/2 ; i++ ) {
     A[i] = A[N-i-1];
   }

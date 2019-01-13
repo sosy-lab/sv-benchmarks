@@ -7,6 +7,9 @@ int main( ) {
   int a[N];
   int b[N];
   int i;
+	for( i = 0 ; i < N ; i++ ) {
+    a[i] = __VERIFIER_nondet_int();
+  }
   for( i = 0 ; i < N ; i++ ) {
     b[i] = a[N-i-1];
   }

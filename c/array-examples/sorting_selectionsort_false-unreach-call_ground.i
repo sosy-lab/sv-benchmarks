@@ -5,6 +5,13 @@ int main( ) {
   int i = 0;
   int x;
   int y;
+	
+	for(int i = 0; i < 100000; i++) 
+	{
+	    a[i] = __VERIFIER_nondet_int();
+	}
+	
+	i = 0;
   while ( i < 100000 ) {
     int k = i + 1;
     int s = i;

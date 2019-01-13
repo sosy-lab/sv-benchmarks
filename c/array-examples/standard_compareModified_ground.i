@@ -6,6 +6,12 @@ int main( ) {
   int i = 0;
   int c [100000];
   int rv = 1;
+	
+	for (int j = 0; j < 100000 ; j++ ) {
+    a[j] = __VERIFIER_nondet_int();
+		b[j] = __VERIFIER_nondet_int();
+  }
+	
   while ( i < 100000 ) {
     if ( a[i] != b[i] ) {
       rv = 0;

@@ -531,5 +531,11 @@ int main() {
      array_size = 1;
   }
   int* numbers = (int*) __builtin_alloca (array_size * sizeof(int));
+	
+	for(int k = 0; k < array_size; k++)
+	{
+	  numbers[k] = __VERIFIER_nondet_int();
+	}
+	
   test_fun(numbers, array_size);
 }

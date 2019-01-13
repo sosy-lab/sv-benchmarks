@@ -21,6 +21,12 @@ int main() {
      array_size = 1;
   }
   int* a = (int*) alloca(array_size * sizeof(int));
+	
+	for(int i = 0; i < array_size; i++)
+	{
+     a[i] = __VERIFIER_nondet_int();
+	}
+
   insertionSort(a, array_size);
   return 0;
 }

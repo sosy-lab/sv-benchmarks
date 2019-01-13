@@ -532,6 +532,11 @@ int main() {
      array_size = 1;
   }
   int* numbers = (int*) __builtin_alloca (array_size * sizeof(int));
+	
+	for(int i = 0; i < array_size; i++)
+	{
+	  numbers[i] = __VERIFIER_nondet_int();
+  }
   SelectionSort(numbers, array_size);
   return 0;
 }

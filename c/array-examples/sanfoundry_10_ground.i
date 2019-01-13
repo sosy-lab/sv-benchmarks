@@ -9,6 +9,12 @@ int main()
     int element = __VERIFIER_nondet_int();
     int found = 0;
     int vectorx[n];
+		
+		for(i = 0; i < n; i++) 
+		{
+		  vectorx[i] = __VERIFIER_nondet_int();
+		}
+		
     for (i = 0; i < n && !found; i++)
     {
         if (vectorx[i] == element)

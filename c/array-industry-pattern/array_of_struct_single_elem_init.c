@@ -22,6 +22,9 @@ int main()
 	{
 		int q = __VERIFIER_nondet_int();
 		struct S s;
+		
+	  s.n = __VERIFIER_nondet_int();
+			
 		if (s.n == 0)
 		{
 		    s.p =10 ;

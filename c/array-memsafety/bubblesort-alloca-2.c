@@ -23,6 +23,12 @@ int main() {
      array_size = 1;
   }
   int* numbers = (int*) alloca(array_size * sizeof(int));
+	
+	for(int k = 0; k < array_size; k++)
+	{
+	  numbers[k] = __VERIFIER_nondet_int();
+	}
+	
   bubbleSort(numbers, array_size);
   return 0;
 }

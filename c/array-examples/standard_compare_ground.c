@@ -6,6 +6,12 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int main( ) {
   int a[SIZE];
   int b[SIZE];
+	
+	for (int j = 0; j < SIZE ; j++ ) {
+    a[j] = __VERIFIER_nondet_int();
+		b[j] = __VERIFIER_nondet_int();
+  }
+
   int i = 0;
   int rv = 1;
   while ( i < SIZE ) {

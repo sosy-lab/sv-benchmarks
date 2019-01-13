@@ -4,6 +4,9 @@ int main( ) {
   int a[100000];
   int b[100000];
   int i;
+	for( i = 0 ; i < 100000 ; i++ ) {
+    a[i] = __VERIFIER_nondet_int();
+  }
   for( i = 0 ; i < 100000 ; i++ ) {
     b[i] = a[100000 -i-1];
   }

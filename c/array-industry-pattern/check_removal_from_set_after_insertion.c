@@ -25,7 +25,12 @@ int main( ) {
   int values[ SIZE ];    // array of values to be inserted in the array
   int element;           // element to be removed
 
-  
+ 	for ( i = 0 ; i < SIZE ; i++ ) {
+		set[i] = __VERIFIER_nondet_int();
+		values[i] = __VERIFIER_nondet_int();
+	}
+	
+	element = __VERIFIER_nondet_int(); 
 
   int v;
   for ( v = 0 ; v < SIZE ; v++ ) {

@@ -16,6 +16,12 @@ int _strcmp( int src[N] , int dst[N] ) {
 int main( ) {
   int a[N];
   int b[N];
+	
+	for(int i = 0; i < N; i++) 
+	{
+	   a[i] = __VERIFIER_nondet_int();
+		 b[i] = __VERIFIER_nondet_int()
+	}
   
   int c = _strcmp( a , b );
 

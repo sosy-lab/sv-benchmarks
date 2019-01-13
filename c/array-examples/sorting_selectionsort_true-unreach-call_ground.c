@@ -8,6 +8,13 @@ int main( ) {
   int i = 0;
   int x;
   int y;
+	
+	for(int i = 0; i < N; i++) 
+	{
+	    a[i] = __VERIFIER_nondet_int();
+	}
+	
+	i = 0;
   while ( i < N ) {
     int k = i + 1;
     int s = i;

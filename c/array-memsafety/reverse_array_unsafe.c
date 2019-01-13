@@ -1,5 +1,6 @@
 #include <stdlib.h>
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
 
 int main() {
   int i, j, tmp;
@@ -8,6 +9,11 @@ int main() {
   // make sure that length is odd
   if (length % 2 == 0) length++;
   int *arr = alloca(length);
+	
+	for(int i = 0; i < length; i++)
+	{
+	  arr[i] = __VERIFIER_nondet_int();
+  }
   // make sure the marker occurs only once
   for (i=0; i<length; i++) {
     if (arr[i] == '\0') arr[i]++;

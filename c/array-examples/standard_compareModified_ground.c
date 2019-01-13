@@ -9,6 +9,12 @@ int main( ) {
   int i = 0;
   int c [SIZE];
   int rv = 1;
+	
+	for (int j = 0; j < SIZE ; j++ ) {
+    a[j] = __VERIFIER_nondet_int();
+		b[j] = __VERIFIER_nondet_int();
+  }
+	
   while ( i < SIZE ) {
     if ( a[i] != b[i] ) {
       rv = 0;
