@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: SyntaxSupportPointer01_true-termination_true-valid-memsafety.c
+input_files: 'SyntaxSupportPointer01-1.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

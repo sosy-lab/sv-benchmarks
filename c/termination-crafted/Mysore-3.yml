@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: Mysore_false-termination_true-valid-memsafety.c
+input_files: 'Mysore-3.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

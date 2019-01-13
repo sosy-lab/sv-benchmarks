@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: triangular-longer_true-unreach-call.i
-input_files: 'triangular-longer_true-unreach-call.i'
-
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true

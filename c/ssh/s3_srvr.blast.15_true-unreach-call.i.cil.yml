@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: s3_srvr.blast.15_true-unreach-call.i.cil.c
-input_files: 's3_srvr.blast.15_true-unreach-call.i.cil.c'
-
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true

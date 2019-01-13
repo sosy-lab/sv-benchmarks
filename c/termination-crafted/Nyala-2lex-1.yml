@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: Nyala-2lex_false-def-behavior.c
+input_files: 'Nyala-2lex-1.c'
+
+properties:
+  - property_file: ../properties/def-behavior.prp
+    expected_verdict: false

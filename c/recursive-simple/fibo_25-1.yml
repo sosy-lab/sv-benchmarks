@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: fibo_25_false-unreach-call.c
+input_files: 'fibo_25-1.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false

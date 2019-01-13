@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: standard_running_false-unreach-call.i
+input_files: 'standard_running-1.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false

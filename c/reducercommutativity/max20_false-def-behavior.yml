@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: max20_false-def-behavior.i
-input_files: 'max20_false-def-behavior.i'
-
-properties:
-  - property_file: ../properties/def-behavior.prp
-    expected_verdict: false

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: linux-3.14--drivers--media--platform--marvell-ccic--cafe_ccic.ko_false-unreach-call.cil.i
+input_files: 'linux-3.14--drivers--media--platform--marvell-ccic--cafe_ccic.ko.cil-2.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false

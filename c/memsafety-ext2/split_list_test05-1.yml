@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: split_list_test05_false-valid-deref.i
+input_files: 'split_list_test05-1.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-deref

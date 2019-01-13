@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: usleep_false-no-overflow.i
-input_files: 'usleep_false-no-overflow.i'
-
-properties:
-  - property_file: ../properties/no-overflow.prp
-    expected_verdict: false

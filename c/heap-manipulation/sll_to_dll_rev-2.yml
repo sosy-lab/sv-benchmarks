@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: sll_to_dll_rev_true-unreach-call_true-valid-memsafety.i
+input_files: 'sll_to_dll_rev-2.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

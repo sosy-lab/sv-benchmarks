@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: readlink_false-no-overflow.i
+input_files: 'readlink-1.i'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

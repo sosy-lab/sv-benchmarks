@@ -1,0 +1,12 @@
+format_version: '1.0'
+
+# old file name: test_locks_15_false-unreach-call_true-valid-memsafety_false-termination.c
+input_files: 'test_locks_15-1.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

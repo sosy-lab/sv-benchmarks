@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: Stockholm_false-no-overflow.c
-input_files: 'Stockholm_false-no-overflow.c'
-
-properties:
-  - property_file: ../properties/no-overflow.prp
-    expected_verdict: false

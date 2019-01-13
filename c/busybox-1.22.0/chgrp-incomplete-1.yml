@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: chgrp-incomplete_true-no-overflow_false-valid-memtrack.i
+input_files: 'chgrp-incomplete-1.i'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-memtrack

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: sum_non_eq_false-no-overflow.c
+input_files: 'sum_non_eq-1.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

@@ -1,0 +1,12 @@
+format_version: '1.0'
+
+# old file name: date_false-unreach-call_true-no-overflow_true-valid-memsafety.i
+input_files: 'date-1.i'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

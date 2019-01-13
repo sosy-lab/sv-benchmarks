@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: rekh_aso_false-unreach-call.1.M4.c
-input_files: 'rekh_aso_false-unreach-call.1.M4.c'
-
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: false

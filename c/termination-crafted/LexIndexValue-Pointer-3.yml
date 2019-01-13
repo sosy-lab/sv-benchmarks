@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: LexIndexValue-Pointer_false-valid-deref.c
+input_files: 'LexIndexValue-Pointer-3.c'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-deref

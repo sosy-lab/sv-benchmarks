@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: id2_i5_o5_false-unreach-call_true-termination.c
+input_files: 'id2_i5_o5-1.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
