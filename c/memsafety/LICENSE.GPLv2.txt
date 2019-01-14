@@ -1,1 +1,1 @@
-../LICENSE.GPLv2.txt
+../../LICENSE.GPLv2.txt
