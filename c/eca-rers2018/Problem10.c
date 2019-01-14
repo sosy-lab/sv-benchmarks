@@ -1,8 +1,4 @@
-#include <stdio.h> 
-#include <assert.h>
-#include <math.h>
-#include <stdlib.h>
-
+extern int __VERIFIER_nondet_int();
     extern void __VERIFIER_error(int);
 
 	// inputs
@@ -608,19 +604,19 @@
     	a1868984816 = 10;
     	a1551570219 = 36 ;
     	a2077863541 = 10; 
-    	 printf("%d\n", 26); fflush(stdout); 
+    	 
     } 
     if(((a1551570219 == 33 && (( cf==1  && a1669722568 == 33) && (input == 3))) && a1554992028 == 15)) {
     	cf = 0;
     	a1669722568 = 32 ;
     	a1583922005 = 10; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if(((input == 1) && (a1554992028 == 15 && ((a1669722568 == 33 &&  cf==1 ) && a1551570219 == 33)))) {
     	cf = 0;
     	a1669722568 = 36 ;
     	a1450658394 = 12; 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm1(int input) {
@@ -634,18 +630,18 @@
     	a1551570219 = 32 ;
     	a1041640432 = 6;
     	a1379546326 = 8; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if((a1669722568 == 32 && ((input == 1) && (a1551570219 == 33 && ( cf==1  && a1583922005 == 10))))) {
     	cf = 0;
     	a1669722568 = 33 ;
     	a1554992028 = 15; 
-    	 printf("%d\n", 19); fflush(stdout); 
+    	 
     } 
     if((a1669722568 == 32 && ((( cf==1  && a1551570219 == 33) && a1583922005 == 10) && (input == 5)))) {
     	cf = 0;
     	 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm2(int input) {
@@ -659,12 +655,12 @@
     	a1551570219 = 32 ;
     	a1136264456 = 32 ;
     	a1041640432 = 8; 
-    	 printf("%d\n", 24); fflush(stdout); 
+    	 
     } 
     if(((input == 3) && ((a1450658394 == 12 && ( cf==1  && a1551570219 == 33)) && a1669722568 == 36))) {
     	cf = 0;
     	 
-    	 printf("%d\n", 25); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm59(int input) {
@@ -673,14 +669,14 @@
     	a510889416 = 32 ;
     	a1551570219 = 34 ;
     	a1933271548 = 6; 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
     if((((a1669722568 == 36 && (a1450658394 == 14 &&  cf==1 )) && a1551570219 == 33) && (input == 5))) {
     	cf = 0;
     	a1551570219 = 35 ;
     	a43901077 = 33 ;
     	a1944816302 = 32 ; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm5(int input) {
@@ -697,14 +693,14 @@
     	a43901077 = 33 ;
     	a1551570219 = 35 ;
     	a1944816302 = 32 ; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
     if((a1136264456 == 33 && ((( cf==1  && (input == 1)) && a1041640432 == 5) && a1551570219 == 32))) {
     	cf = 0;
     	a1551570219 = 33 ;
     	a1669722568 = 36 ;
     	a1450658394 = 12; 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm7(int input) {
@@ -718,18 +714,18 @@
     	a1551570219 = 35 ;
     	a43901077 = 35 ;
     	a927814483 = 9; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
     if((a1379546326 == 10 && (((a1041640432 == 6 &&  cf==1 ) && (input == 3)) && a1551570219 == 32))) {
     	cf = 0;
     	a1431178715 = 34 ;
     	a1041640432 = 9; 
-    	 printf("%d\n", 24); fflush(stdout); 
+    	 
     } 
     if(((a1551570219 == 32 && ((input == 5) && (a1041640432 == 6 &&  cf==1 ))) && a1379546326 == 10)) {
     	cf = 0;
     	 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm71(int input) {
@@ -738,19 +734,19 @@
     	a1551570219 = 34 ;
     	a1933271548 = 10;
     	a1554992028 = 8; 
-    	 printf("%d\n", 22); fflush(stdout); 
+    	 
     } 
     if((a1041640432 == 6 && (((a1379546326 == 12 &&  cf==1 ) && (input == 1)) && a1551570219 == 32))) {
     	cf = 0;
     	a43901077 = 32 ;
     	a1551570219 = 35 ;
     	a1294378386 = 10; 
-    	 printf("%d\n", 25); fflush(stdout); 
+    	 
     } 
     if((((( cf==1  && (input == 5)) && a1379546326 == 12) && a1551570219 == 32) && a1041640432 == 6)) {
     	cf = 0;
     	a1379546326 = 10; 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm8(int input) {
@@ -767,14 +763,14 @@
     	a1551570219 = 34 ;
     	a2108703896 = 33 ;
     	a1933271548 = 4; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
     if((((( cf==1  && a1041640432 == 9) && (input == 3)) && a1431178715 == 33) && a1551570219 == 32)) {
     	cf = 0;
     	a1551570219 = 35 ;
     	a43901077 = 32 ;
     	a1294378386 = 11; 
-    	 printf("%d\n", 19); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm79(int input) {
@@ -783,23 +779,23 @@
     	a1551570219 = 33 ;
     	a1669722568 = 34 ;
     	a1933271548 = 9; 
-    	 printf("%d\n", 26); fflush(stdout); 
+    	 
     } 
     if((a1431178715 == 34 && (a1551570219 == 32 && ((input == 3) && ( cf==1  && a1041640432 == 9))))) {
     	cf = 0;
     	a1649592707 = 34 ;
     	a1041640432 = 11; 
-    	 printf("%d\n", 22); fflush(stdout); 
+    	 
     } 
     if((a1551570219 == 32 && ((input == 1) && (a1431178715 == 34 && ( cf==1  && a1041640432 == 9))))) {
     	cf = 0;
     	 
-    	 printf("%d\n", 24); fflush(stdout); 
+    	 
     } 
     if((((( cf==1  && a1431178715 == 34) && a1551570219 == 32) && (input == 5)) && a1041640432 == 9)) {
     	cf = 0;
     	 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm11(int input) {
@@ -815,21 +811,21 @@
     	cf = 0;
     	a1431178715 = 33 ;
     	a1041640432 = 9; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if((((input == 1) && (( cf==1  && a1944816302 == 32) && a1041640432 == 10)) && a1551570219 == 32)) {
     	cf = 0;
     	a1551570219 = 36 ;
     	a1868984816 = 8;
     	a469914660 = 12; 
-    	 printf("%d\n", 19); fflush(stdout); 
+    	 
     } 
     if(((a1551570219 == 32 && (( cf==1  && a1944816302 == 32) && (input == 2))) && a1041640432 == 10)) {
     	cf = 0;
     	a1551570219 = 35 ;
     	a43901077 = 32 ;
     	a1294378386 = 10; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm12(int input) {
@@ -842,19 +838,19 @@
     	cf = 0;
     	a1431178715 = 34 ;
     	a1041640432 = 9; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if((((a1649592707 == 34 && (a1041640432 == 11 &&  cf==1 )) && (input == 2)) && a1551570219 == 32)) {
     	cf = 0;
     	a1551570219 = 36 ;
     	a1868984816 = 9;
     	a1591641889 = 5; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if(((a1041640432 == 11 && (a1649592707 == 34 && ((input == 1) &&  cf==1 ))) && a1551570219 == 32)) {
     	cf = 0;
     	 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm13(int input) {
@@ -868,28 +864,28 @@
     	a1136264456 = 33 ;
     	a1551570219 = 32 ;
     	a1041640432 = 5; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
     if((a1933271548 == 5 && (a1649592707 == 36 && ((input == 5) && (a1551570219 == 34 &&  cf==1 ))))) {
     	cf = 0;
     	a1551570219 = 35 ;
     	a43901077 = 33 ;
     	a1944816302 = 32 ; 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
     if((((a1649592707 == 36 && (a1551570219 == 34 &&  cf==1 )) && (input == 4)) && a1933271548 == 5)) {
     	cf = 0;
     	a1649592707 = 32 ;
     	a1551570219 = 32 ;
     	a1041640432 = 11; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
     if((((( cf==1  && a1551570219 == 34) && a1933271548 == 5) && a1649592707 == 36) && (input == 1))) {
     	cf = 0;
     	a1551570219 = 33 ;
     	a1669722568 = 36 ;
     	a1450658394 = 14; 
-    	 printf("%d\n", 24); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm16(int input) {
@@ -903,19 +899,19 @@
     	a1669722568 = 36 ;
     	a1551570219 = 33 ;
     	a1450658394 = 12; 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
     if((a1551570219 == 34 && ((a1933271548 == 6 && ((input == 1) &&  cf==1 )) && a510889416 == 33))) {
     	cf = 0;
     	 
-    	 printf("%d\n", 19); fflush(stdout); 
+    	 
     } 
     if((((a510889416 == 33 && ((input == 3) &&  cf==1 )) && a1933271548 == 6) && a1551570219 == 34)) {
     	cf = 0;
     	a1551570219 = 36 ;
     	a1868984816 = 8;
     	a469914660 = 12; 
-    	 printf("%d\n", 22); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm97(int input) {
@@ -923,21 +919,21 @@
     	cf = 0;
     	a1649592707 = 36 ;
     	a1933271548 = 5; 
-    	 printf("%d\n", 22); fflush(stdout); 
+    	 
     } 
     if(((((a1933271548 == 6 &&  cf==1 ) && a1551570219 == 34) && a510889416 == 32) && (input == 1))) {
     	cf = 0;
     	a1669722568 = 36 ;
     	a1551570219 = 33 ;
     	a1450658394 = 14; 
-    	 printf("%d\n", 22); fflush(stdout); 
+    	 
     } 
     if((a1551570219 == 34 && ((a1933271548 == 6 && ((input == 5) &&  cf==1 )) && a510889416 == 32))) {
     	cf = 0;
     	a1551570219 = 35 ;
     	a43901077 = 33 ;
     	a1944816302 = 32 ; 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm17(int input) {
@@ -952,21 +948,21 @@
     if((a43901077 == 33 && (a1551570219 == 35 && ((input == 1) && (a1944816302 == 32 &&  cf==1 ))))) {
     	cf = 0;
     	 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
     if(((a1551570219 == 35 && (((input == 4) &&  cf==1 ) && a1944816302 == 32)) && a43901077 == 33)) {
     	cf = 0;
     	a1551570219 = 33 ;
     	a1669722568 = 34 ;
     	a1933271548 = 5; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if(((a1551570219 == 35 && (( cf==1  && a43901077 == 33) && (input == 5))) && a1944816302 == 32)) {
     	cf = 0;
     	a1551570219 = 34 ;
     	a1649592707 = 36 ;
     	a1933271548 = 5; 
-    	 printf("%d\n", 22); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm22(int input) {
@@ -980,21 +976,21 @@
     	a1431178715 = 34 ;
     	a1551570219 = 32 ;
     	a1041640432 = 9; 
-    	 printf("%d\n", 24); fflush(stdout); 
+    	 
     } 
     if((((a1294378386 == 10 && ( cf==1  && a1551570219 == 35)) && (input == 3)) && a43901077 == 32)) {
     	cf = 0;
     	a1041640432 = 6;
     	a1551570219 = 32 ;
     	a1379546326 = 12; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
     if((((a1294378386 == 10 && (a43901077 == 32 &&  cf==1 )) && (input == 2)) && a1551570219 == 35)) {
     	cf = 0;
     	a1669722568 = 35 ;
     	a1551570219 = 33 ;
     	a1384943560 = 33 ; 
-    	 printf("%d\n", 24); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm120(int input) {
@@ -1003,21 +999,21 @@
     	a1868984816 = 10;
     	a1551570219 = 36 ;
     	a2077863541 = 11; 
-    	 printf("%d\n", 24); fflush(stdout); 
+    	 
     } 
     if((a1551570219 == 35 && (a1294378386 == 11 && (a43901077 == 32 && ( cf==1  && (input == 5)))))) {
     	cf = 0;
     	a1669722568 = 32 ;
     	a1551570219 = 33 ;
     	a1583922005 = 10; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if((a1294378386 == 11 && ((a1551570219 == 35 && (a43901077 == 32 &&  cf==1 )) && (input == 1)))) {
     	cf = 0;
     	a1551570219 = 36 ;
     	a1796618233 = 34 ;
     	a1868984816 = 13; 
-    	 printf("%d\n", 22); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm23(int input) {
@@ -1033,26 +1029,26 @@
     	cf = 0;
     	a1868984816 = 9;
     	a1591641889 = 4; 
-    	 printf("%d\n", 19); fflush(stdout); 
+    	 
     } 
     if((((( cf==1  && (input == 4)) && a469914660 == 12) && a1868984816 == 8) && a1551570219 == 36)) {
     	cf = 0;
     	a469914660 = 14; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if(((a1868984816 == 8 && ((input == 3) && (a1551570219 == 36 &&  cf==1 ))) && a469914660 == 12)) {
     	cf = 0;
     	a1551570219 = 35 ;
     	a43901077 = 33 ;
     	a1944816302 = 32 ; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
     if((((a1868984816 == 8 && (a469914660 == 12 &&  cf==1 )) && (input == 1)) && a1551570219 == 36)) {
     	cf = 0;
     	a1669722568 = 36 ;
     	a1551570219 = 33 ;
     	a1450658394 = 12; 
-    	 printf("%d\n", 25); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm27(int input) {
@@ -1066,20 +1062,20 @@
     	a1669722568 = 36 ;
     	a1551570219 = 33 ;
     	a1450658394 = 9; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if((a1551570219 == 36 && ((( cf==1  && a1868984816 == 9) && a1591641889 == 4) && (input == 5)))) {
     	cf = 0;
     	a1868984816 = 11;
     	a927814483 = 14; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if((((( cf==1  && (input == 1)) && a1551570219 == 36) && a1868984816 == 9) && a1591641889 == 4)) {
     	cf = 0;
     	a510889416 = 33 ;
     	a1551570219 = 34 ;
     	a1933271548 = 6; 
-    	 printf("%d\n", 19); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm137(int input) {
@@ -1088,18 +1084,18 @@
     	a1551570219 = 35 ;
     	a43901077 = 33 ;
     	a1944816302 = 32 ; 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
     if((a1868984816 == 9 && ((a1591641889 == 11 && ( cf==1  && (input == 3))) && a1551570219 == 36))) {
     	cf = 0;
     	 
-    	 printf("%d\n", 24); fflush(stdout); 
+    	 
     } 
     if((a1868984816 == 9 && ((a1591641889 == 11 && (a1551570219 == 36 &&  cf==1 )) && (input == 5)))) {
     	cf = 0;
     	a1796618233 = 34 ;
     	a1868984816 = 13; 
-    	 printf("%d\n", 22); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm28(int input) {
@@ -1116,14 +1112,14 @@
     	a1551570219 = 33 ;
     	a1669722568 = 32 ;
     	a1583922005 = 10; 
-    	 printf("%d\n", 21); fflush(stdout); 
+    	 
     } 
     if((((input == 3) && (a2077863541 == 10 && ( cf==1  && a1551570219 == 36))) && a1868984816 == 10)) {
     	cf = 0;
     	a43901077 = 32 ;
     	a1551570219 = 35 ;
     	a1294378386 = 11; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm29(int input) {
@@ -1136,7 +1132,7 @@
     	cf = 0;
     	a1868984816 = 9;
     	a1591641889 = 4; 
-    	 printf("%d\n", 19); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm30(int input) {
@@ -1150,20 +1146,20 @@
     	a1551570219 = 35 ;
     	a43901077 = 33 ;
     	a1944816302 = 32 ; 
-    	 printf("%d\n", 23); fflush(stdout); 
+    	 
     } 
     if((a1551570219 == 36 && ((input == 2) && (a1796618233 == 34 && ( cf==1  && a1868984816 == 13))))) {
     	cf = 0;
     	a1933271548 = 9;
     	a1551570219 = 34 ;
     	a927814483 = 9; 
-    	 printf("%d\n", 20); fflush(stdout); 
+    	 
     } 
     if(((input == 1) && (((a1551570219 == 36 &&  cf==1 ) && a1796618233 == 34) && a1868984816 == 13))) {
     	cf = 0;
     	a1868984816 = 9;
     	a1591641889 = 11; 
-    	 printf("%d\n", 24); fflush(stdout); 
+    	 
     } 
 }
  void calculate_outputm32(int input) {
@@ -1237,9 +1233,6 @@
     	} 
     } 
     errorCheck();
-
-    if( cf==1 ) 
-    	fprintf(stderr, "Invalid input: %d\n", input); 
 }
 
 int main()
@@ -1249,7 +1242,7 @@ int main()
     {
         // read input
         int input;
-        scanf("%d", &input);        
+        input = __VERIFIER_nondet_int();        
         // operate eca engine
         if((input != 5) && (input != 1) && (input != 3) && (input != 2) && (input != 4))
           return -2;
