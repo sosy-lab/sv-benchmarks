@@ -15,7 +15,7 @@ int main()
     int dst[100000];
 				
     for (int i = 0; i < 100000; i++) {
-        src[i]+1 = __VERIFIER_nondet_int();
+        src[i] = __VERIFIER_nondet_int();
     }
 
     incrementArray( src , dst );

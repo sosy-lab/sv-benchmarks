@@ -8,7 +8,7 @@ int main ( ) {
   int a[N]; int e = __VERIFIER_nondet_int();
 	
 	for (int j = 0; j < N ; j++ ) {
-    A[j] = __VERIFIER_nondet_int();
+    a[j] = __VERIFIER_nondet_int();
   }
 	
   int i = 0;
