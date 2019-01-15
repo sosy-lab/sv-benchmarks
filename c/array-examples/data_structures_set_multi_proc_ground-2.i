@@ -19,7 +19,7 @@ int main( ) {
   int x;
   int y;
 	
-	for (x = 0; v < 100000; x++)
+	for (x = 0; x < 100000; x++)
 	{
 	  set[x] = __VERIFIER_nondet_int();
 	}

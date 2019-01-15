@@ -7,7 +7,7 @@ int main( ) {
   int min = 0;
 	
 	for (int j = 0; j < 100000 ; j++ ) {
-    A[j] = __VERIFIER_nondet_int();
+    a[j] = __VERIFIER_nondet_int();
   }
 	
   int i = 0;

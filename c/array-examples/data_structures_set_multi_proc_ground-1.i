@@ -32,7 +32,7 @@ int main( ) {
   int values[ 100000 ];
   int v;
 	
-	for (v = 0; v < 100000; x++)
+	for (v = 0; v < 100000; v++)
 	{
 	  values[v] = __VERIFIER_nondet_int();
 	}

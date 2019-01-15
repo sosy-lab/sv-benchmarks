@@ -27,7 +27,7 @@ int main( ) {
   int x;
   int y;
 	
-		for (x = 0; v < SIZE; x++)
+		for (x = 0; x < SIZE; x++)
 	{
 	  set[x] = __VERIFIER_nondet_int();
 	}

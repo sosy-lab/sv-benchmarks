@@ -17,7 +17,7 @@ int main( ) {
 	for(int i = 0; i < 100000; i++) 
 	{
 	   a[i] = __VERIFIER_nondet_int();
-		 b[i] = __VERIFIER_nondet_int()
+		 b[i] = __VERIFIER_nondet_int();
 	}
 	
   int c = _strcmp( a , b );
