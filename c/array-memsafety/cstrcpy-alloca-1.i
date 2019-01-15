@@ -534,7 +534,7 @@ int main() {
 	
 			for(int i = 0; i < length2 - 1; i++) 
 		{
-		  nondetString2[i] = __VERIFIER_nondet_char();
+		  nondetString[i] = __VERIFIER_nondet_char();
 		}
 
   nondetString[length2-1] = '\0';

@@ -11,9 +11,9 @@ int main ( ) {
   int i;
   int j = 0;
 	
-	for (i = 0; i < N ; i++) {
+  for (i = 0; i < N ; i++) {
     A[i] = __VERIFIER_nondet_int();
-		B[i] == __VERIFIER_nondet_int();
+    B[i] = __VERIFIER_nondet_int();
   }	
 	
 	for (i = 0; i < N ; i++) {
@@ -22,13 +22,7 @@ int main ( ) {
       j = j + 1;
     }
   }
-	
-  for (i = 0; i < N ; i++) {
-    if ( A[i] == B[i] ) {
-      C[j] = i;
-      j = j + 1;
-    }
-  }
+
   
   int x; 
   for ( x = 0 ; x < j ; x++ ) {

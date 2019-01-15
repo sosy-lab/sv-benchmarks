@@ -11,7 +11,7 @@ int main ( ) {
 	
   for (i = 0; i < 100000 ; i++) {
     A[i] = __VERIFIER_nondet_int();
-		B[i] == __VERIFIER_nondet_int();
+    B[i] = __VERIFIER_nondet_int();
   }	
 	
   for (i = 0; i < 100000 ; i++) {

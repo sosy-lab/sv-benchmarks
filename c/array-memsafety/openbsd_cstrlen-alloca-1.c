@@ -52,9 +52,9 @@ int main() {
     }
     char* nondetString1 = (char*) alloca(length1 * sizeof(char));
 		
-		for(int i = 0; i< length -1; i++)
+		for(int i = 0; i < length1 -1; i++)
 		{
-		  nondetString[i] = __VERIFIER_nondet_char();
+		  nondetString1[i] = __VERIFIER_nondet_char();
 		}
 		
     nondetString1[length1-1] = '\0';
