@@ -1,5 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int();
+
 const int SIZE = 100000;
 int insert( int set [] , int size , int value ) {
   set[ size ] = value;

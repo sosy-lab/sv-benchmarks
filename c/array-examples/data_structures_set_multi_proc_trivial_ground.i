@@ -24,10 +24,6 @@ int main( ) {
 	  set[x] = __VERIFIER_nondet_int();
 	}
 	
-	for (x = 0; x < 100000; x++)
-	{
-	  set[x] = __VERIFIER_nondet_int();
-	}
   
 	for ( x = 0 ; x < n ; x++ ) {
     for ( y = x + 1 ; y < n ; y++ ) {
