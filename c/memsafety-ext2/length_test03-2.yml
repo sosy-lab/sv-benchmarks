@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: length_test03_false-valid-memtrack.i
+input_files: 'length_test03-2.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-memtrack

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: stack_false-unreach-call.i
+input_files: 'stack-2.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false

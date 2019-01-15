@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: id_i20_o20_false-unreach-call_true-termination.c
+input_files: 'id_i20_o20-2.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false

@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: simple_and_skiplist_2lvl_true-unreach-call.i
-input_files: 'simple_and_skiplist_2lvl_true-unreach-call.i'
-
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true

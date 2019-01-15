@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: rekcba_aso_true-unreach-call.1.M1.c
-input_files: 'rekcba_aso_true-unreach-call.1.M1.c'
-
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: true

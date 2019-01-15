@@ -1,8 +1,0 @@
-format_version: '1.0'
-
-# old file name: Rotation180_false-no-overflow.c
-input_files: 'Rotation180_false-no-overflow.c'
-
-properties:
-  - property_file: ../properties/no-overflow.prp
-    expected_verdict: false

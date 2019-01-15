@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: alternating_list_false-unreach-call_false-valid-memcleanup.i
+input_files: 'alternating_list-2.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/valid-memcleanup.prp
+    expected_verdict: false

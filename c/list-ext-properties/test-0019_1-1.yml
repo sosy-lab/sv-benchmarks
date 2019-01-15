@@ -1,0 +1,11 @@
+format_version: '1.0'
+
+# old file name: test-0019_1_false-valid-memtrack_true-termination.i
+input_files: 'test-0019_1-1.i'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: true
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-memtrack

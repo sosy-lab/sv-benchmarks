@@ -1,0 +1,10 @@
+format_version: '1.0'
+
+# old file name: pc_sfifo_1_false-unreach-call_false-termination.cil.c
+input_files: 'pc_sfifo_1.cil-1.c'
+
+properties:
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false

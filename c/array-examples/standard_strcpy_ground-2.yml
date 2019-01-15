@@ -1,0 +1,9 @@
+format_version: '1.0'
+
+# old file name: standard_strcpy_false-valid-deref_ground.i
+input_files: 'standard_strcpy_ground-2.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
+    subproperty: valid-deref

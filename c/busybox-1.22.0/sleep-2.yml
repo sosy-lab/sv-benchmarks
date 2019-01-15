@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: sleep_false-no-overflow.i
+input_files: 'sleep-2.i'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: false

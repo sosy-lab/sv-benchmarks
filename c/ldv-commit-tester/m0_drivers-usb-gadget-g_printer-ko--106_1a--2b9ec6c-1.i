@@ -2747,7 +2747,7 @@ struct printer_dev {
 };
 typedef int ldv_func_ret_type___3;
 typedef int ldv_func_ret_type___5;
-typedef int ldv_func_ret_type___10;
+typedef int ldv_func_ret_type___8;
 long ldv__builtin_expect(long exp , long c ) ;
 long ldv_is_err(void const *ptr ) ;
 long ldv_ptr_err(void const *ptr ) ;
@@ -3213,7 +3213,7 @@ __inline static unsigned long copy_from_user(void *to , void const *from , unsig
       __ret_warn_on = 1;
       tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       if (tmp___0 != 0L) {
-        warn_slowpath_fmt("/work/vladimir/commit-test/commit-test-work/task-040--linux-stable--dir/inst/current/envs/linux-stable-2b9ec6c-1/linux-stable-2b9ec6c-1/arch/x86/include/asm/uaccess_64.h",
+        warn_slowpath_fmt("/work/vladimir/commit-test/commit-test-work/task-039--linux-stable--dir/inst/current/envs/linux-stable-2b9ec6c/linux-stable-2b9ec6c/arch/x86/include/asm/uaccess_64.h",
                           58, "Buffer overflow detected!\n");
       } else {
       }
@@ -3242,7 +3242,7 @@ __inline static struct new_utsname *init_utsname(void)
 extern void class_destroy(struct class * ) ;
 void ldv_class_destroy_6(struct class *ldv_func_arg1 ) ;
 void ldv_class_destroy_8(struct class *ldv_func_arg1 ) ;
-void ldv_class_destroy_10(struct class *ldv_func_arg1 ) ;
+void ldv_class_destroy_12(struct class *ldv_func_arg1 ) ;
 extern void *dev_get_drvdata(struct device const * ) ;
 extern void dev_set_drvdata(struct device * , void * ) ;
 extern struct device *device_create(struct class * , struct device * , dev_t , void * ,
@@ -3361,7 +3361,7 @@ __inline static int usb_gadget_vbus_draw(struct usb_gadget *gadget , unsigned in
 extern int usb_gadget_register_driver(struct usb_gadget_driver * ) ;
 int ldv_usb_gadget_register_driver_7(struct usb_gadget_driver *ldv_func_arg1 ) ;
 extern int usb_gadget_unregister_driver(struct usb_gadget_driver * ) ;
-int ldv_usb_gadget_unregister_driver_12(struct usb_gadget_driver *ldv_func_arg1 ) ;
+int ldv_usb_gadget_unregister_driver_10(struct usb_gadget_driver *ldv_func_arg1 ) ;
 int usb_gadget_get_string(struct usb_gadget_strings *table , int id , u8 *buf ) ;
 int usb_descriptor_fillbuf(void *buf , unsigned int buflen , struct usb_descriptor_header const **src ) ;
 int usb_gadget_config_buf(struct usb_config_descriptor const *config , void *buf ,
@@ -5035,7 +5035,7 @@ static void printer_unbind(struct usb_gadget *gadget )
   __ret_warn_on = tmp___0 == 0;
   tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   if (tmp___1 != 0L) {
-    warn_slowpath_null("/work/vladimir/commit-test/commit-test-work/task-040--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c-1--X--106_1a--X--cpachecker/linux-stable-2b9ec6c-1/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared",
+    warn_slowpath_null("/work/vladimir/commit-test/commit-test-work/task-039--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c--X--106_1a--X--cpachecker/linux-stable-2b9ec6c/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared",
                        1333);
   } else {
   }
@@ -5044,7 +5044,7 @@ static void printer_unbind(struct usb_gadget *gadget )
   __ret_warn_on___0 = tmp___2 == 0;
   tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   if (tmp___3 != 0L) {
-    warn_slowpath_null("/work/vladimir/commit-test/commit-test-work/task-040--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c-1--X--106_1a--X--cpachecker/linux-stable-2b9ec6c-1/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared",
+    warn_slowpath_null("/work/vladimir/commit-test/commit-test-work/task-039--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c--X--106_1a--X--cpachecker/linux-stable-2b9ec6c/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared",
                        1334);
   } else {
   }
@@ -5348,13 +5348,13 @@ static void cleanup(void)
   int status ;
   {
   mutex_lock_nested(& usb_printer_gadget.lock_printer_io, 0U);
-  ldv_class_destroy_10(usb_gadget_class);
-  ldv_unregister_chrdev_region_11(g_printer_devno, 2U);
-  status = ldv_usb_gadget_unregister_driver_12(& printer_driver);
+  status = ldv_usb_gadget_unregister_driver_10(& printer_driver);
   if (status != 0) {
     printk("<3>%s: usb_gadget_unregister_driver %x\n", (char *)"Printer Gadget", status);
   } else {
   }
+  ldv_unregister_chrdev_region_11(g_printer_devno, 2U);
+  ldv_class_destroy_12(usb_gadget_class);
   mutex_unlock(& usb_printer_gadget.lock_printer_io);
   return;
 }
@@ -5570,12 +5570,15 @@ void ldv_unregister_chrdev_region_9(dev_t ldv_func_arg1 , unsigned int ldv_func_
   return;
 }
 }
-void ldv_class_destroy_10(struct class *ldv_func_arg1 )
+int ldv_usb_gadget_unregister_driver_10(struct usb_gadget_driver *ldv_func_arg1 )
 {
+  ldv_func_ret_type___8 ldv_func_res ;
+  int tmp ;
   {
-  class_destroy(ldv_func_arg1);
-  ldv_unregister_class();
-  return;
+  tmp = usb_gadget_unregister_driver(ldv_func_arg1);
+  ldv_func_res = tmp;
+  ldv_unregister_usb_gadget();
+  return (ldv_func_res);
 }
 }
 void ldv_unregister_chrdev_region_11(dev_t ldv_func_arg1 , unsigned int ldv_func_arg2 )
@@ -5586,15 +5589,12 @@ void ldv_unregister_chrdev_region_11(dev_t ldv_func_arg1 , unsigned int ldv_func
   return;
 }
 }
-int ldv_usb_gadget_unregister_driver_12(struct usb_gadget_driver *ldv_func_arg1 )
+void ldv_class_destroy_12(struct class *ldv_func_arg1 )
 {
-  ldv_func_ret_type___10 ldv_func_res ;
-  int tmp ;
   {
-  tmp = usb_gadget_unregister_driver(ldv_func_arg1);
-  ldv_func_res = tmp;
-  ldv_unregister_usb_gadget();
-  return (ldv_func_res);
+  class_destroy(ldv_func_arg1);
+  ldv_unregister_class();
+  return;
 }
 }
 __inline static void ldv_error(void)
@@ -5635,19 +5635,19 @@ long ldv__builtin_expect(long exp , long c )
 long ldv_is_err(void const *ptr )
 {
   {
-  return ((unsigned long )ptr > 2012UL);
+  return ((unsigned long )ptr > 18446744073709547521UL);
 }
 }
 void *ldv_err_ptr(long error )
 {
   {
-  return ((void *)(2012L - error));
+  return ((void *)(18446744073709547521UL - error));
 }
 }
 long ldv_ptr_err(void const *ptr )
 {
   {
-  return ((long )(2012UL - (unsigned long )ptr));
+  return ((long )(18446744073709547521UL - (unsigned long )ptr));
 }
 }
 long ldv_is_err_or_null(void const *ptr )
@@ -5676,7 +5676,7 @@ void *ldv_create_class(void)
   void *is_got ;
   {
   is_got = ldv_undef_ptr();
-  if ((unsigned long )is_got <= 2012UL) {
+  if ((unsigned long )is_got <= 18446744073709547521UL) {
     if (ldv_usb_gadget == 0) {
     } else {
       ldv_error();

@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: m0_false-unreach-call_drivers-usb-gadget-g_printer-ko--106_1a--2b9ec6c.i
+input_files: 'm0_drivers-usb-gadget-g_printer-ko--106_1a--2b9ec6c-2.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false

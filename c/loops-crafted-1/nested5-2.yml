@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: nested5_false-unreach-call.c
+input_files: 'nested5-2.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false

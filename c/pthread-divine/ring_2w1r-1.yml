@@ -1,0 +1,8 @@
+format_version: '1.0'
+
+# old file name: ring_2w1r_true-unreach-call.i
+input_files: 'ring_2w1r-1.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
