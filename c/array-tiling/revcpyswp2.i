@@ -23,7 +23,7 @@ int main()
 	for(i=0; i<SIZE; i++)
 	{
 		a_copy[i] = __VERIFIER_nondet_int();
-		b_bcopy[i] = __VERIFIER_nondet_int();
+		b_copy[i] = __VERIFIER_nondet_int();
 	}
 
 
