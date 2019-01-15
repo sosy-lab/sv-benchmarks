@@ -13,6 +13,11 @@ int main()
 		int i;
 		short a[SIZE];
 		long long sum=0;
+		
+		for(int i = 0; i < SIZE; i++) 
+		{
+		  a[i] = __VERIFIER_nondet_short();
+		}
 
 		for(i = 0; i < SIZE; i++ )
 		{

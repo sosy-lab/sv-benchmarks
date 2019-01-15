@@ -26,7 +26,12 @@ int main ()
     int ret2;
     int ret5;
   
-    ret = fun(x);
+	  for(int i = 0; i < N; i++) 
+		{
+		  x[i] = __VERIFIER_nondet_int();
+		}
+    
+		ret = fun(x);
 
     temp=x[0];x[0] = x[1]; x[1] = temp;
     ret2 = fun(x);
