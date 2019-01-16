@@ -523,13 +523,13 @@ int main() {
         length = 1;
     }
     char* nondetString = (char*) __builtin_alloca (length * sizeof(char));
-    nondetString[length-1] = '\0';
 		
-		for(int i = 0; i < length- 1; i++) 
-		{
-		  nondetString[i] = __VERIFIER_nondet_char();
-		}
-		
+    for(int i = 0; i < length- 1; i++) 
+    {
+      nondetString[i] = __VERIFIER_nondet_char();
+    }
+
+    nondetString[length-1] = '\0';		
     cstrchr(nondetString,__VERIFIER_nondet_int());
     return 0;
 }

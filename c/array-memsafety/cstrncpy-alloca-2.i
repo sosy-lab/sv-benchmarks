@@ -541,11 +541,10 @@ int main() {
   char* nondetArea = (char*) __builtin_alloca (n * sizeof(char));
   char* nondetString = (char*) __builtin_alloca (length * sizeof(char));
 	
-		for(int i = 0; i < length - 1; i++) 
-		{
-		  nondetString[i] = __VERIFIER_nondet_char();
-		}
-
+  for(int i = 0; i < length - 1; i++) 
+  {
+    nondetString[i] = __VERIFIER_nondet_char();
+  }
 
   nondetString[length-1] = '\0';
   cstrncpy(nondetArea, nondetString, n);

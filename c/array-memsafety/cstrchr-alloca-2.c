@@ -24,10 +24,10 @@ int main() {
     }
     char* nondetString = (char*) alloca(length * sizeof(char));
 
-		for(int i = 0; i < length- 1; i++) 
-		{
-		  nondetString[i] = __VERIFIER_nondet_char();
-		}
+    for(int i = 0; i < length- 1; i++) 
+    {
+      nondetString[i] = __VERIFIER_nondet_char();
+    }
 		
 
     nondetString[length-1] = '\0';

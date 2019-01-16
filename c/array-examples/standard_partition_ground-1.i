@@ -9,10 +9,6 @@ int main( ) {
   int bb[100000];
   int cc[100000];
 	
-	for(int i = 0 ; i < 100000 ; i++ ) {
-    aa[i] = __VERIFIER_nondet_int();
-  }
-	
   while( a < 100000 ) {
     aa[ a ] = __VERIFIER_nondet_int();
     if( aa[ a ] >= 0 ) {
