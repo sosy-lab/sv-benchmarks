@@ -509,6 +509,8 @@ extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
+
 char *(cstrchr)(const char *s, int c)
  {
      while (*s != '\0' && *s != (char)c)
@@ -521,7 +523,13 @@ int main() {
         length = 1;
     }
     char* nondetString = (char*) __builtin_alloca (length * sizeof(char));
-    nondetString[length-1] = '\0';
+		
+    for(int i = 0; i < length- 1; i++) 
+    {
+      nondetString[i] = __VERIFIER_nondet_char();
+    }
+
+    nondetString[length-1] = '\0';		
     cstrchr(nondetString,__VERIFIER_nondet_int());
     return 0;
 }

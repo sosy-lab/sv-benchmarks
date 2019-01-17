@@ -509,6 +509,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
 void *
 cmemchr(const void *s, int c, size_t n)
 {
@@ -532,6 +533,12 @@ int main() {
       n = 1;
   }
   char* nondetArea = (char*) __builtin_alloca (n * sizeof(char));
+	
+	for(int i = 0; i < length; i++)
+	{
+	  nondetArea[i] = __VERIFIER_nondet_char();
+	}
+	
   cmemchr(nondetArea, c, n);
   return 0;
 }

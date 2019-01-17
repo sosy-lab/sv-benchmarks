@@ -11,6 +11,12 @@ int __return_60;
  main__marker = __VERIFIER_nondet_int();
  int main__pos;
  main__pos = __VERIFIER_nondet_int();
+
+	for(int i = 0; i < 100000; i++) 
+	{
+	  main__a[i] = __VERIFIER_nondet_int();
+	}
+	
  if (main__pos >= 0)
  {
  if (main__pos < 100000)

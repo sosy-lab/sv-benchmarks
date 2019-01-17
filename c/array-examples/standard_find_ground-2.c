@@ -6,6 +6,11 @@ extern int __VERIFIER_nondet_int();
 
 int main ( ) {
   int a[N]; int e = __VERIFIER_nondet_int();
+	
+	for (int j = 0; j < N ; j++ ) {
+    a[j] = __VERIFIER_nondet_int();
+  }
+	
   int i = 0;
   while( i < N && a[i] != e ) {
     i = i + 1;

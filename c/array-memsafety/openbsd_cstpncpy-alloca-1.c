@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
 
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
@@ -62,7 +63,13 @@ int main() {
   }
   char* nondetArea = (char*) alloca(n * sizeof(char));
   char* nondetString = (char*) alloca(length * sizeof(char));
-  nondetString[length-1] = '\0';
+	
+	for(int i = 0; i < length - 1; i++)
+	{
+	  nondetString[i] = __VERIFIER_nondet_char();
+	}
+  
+	nondetString[length-1] = '\0';
   cstpncpy(nondetArea, nondetString, n);
   return 0;
 }

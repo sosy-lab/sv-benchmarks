@@ -1,5 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int();
+
 const int SIZE = 100000;
 int insert( int set [] , int size , int value ) {
   set[ size ] = value;
@@ -17,7 +19,15 @@ int main( ) {
   int set[ SIZE ];
   int values[ SIZE ];
   int element;
-  int v;
+	
+	for ( i = 0 ; i < SIZE ; i++ ) {
+		set[i] = __VERIFIER_nondet_int();
+		values[i] = __VERIFIER_nondet_int();
+	}
+	
+	element = __VERIFIER_nondet_int();
+	
+	int v;
   for ( v = 0 ; v < SIZE ; v++ ) {
     if ( elem_exists( set , n , values[ v ] ) != 1 ) {
       n = insert( set , n , values[ v ] );

@@ -23,12 +23,12 @@ int main()
 	j=0;
 	k=0;
 
-	while(i < p){
+	while(i < n){
 		j=0;
 		k=0;
-		while(j < p){
+		while(j < n){
 			k=0;
-			while(k < p){
+			while(k < n){
 					B[i][j][k] = __VERIFIER_nondet_int();
 					k=k+1;
 			}
@@ -50,6 +50,20 @@ int main()
 		while(j < p){
 			k=0;
 			while(k < p){
+					A[i][j][k]=B[i][j][k];
+					k=k+1;
+			}
+			j=j+1;
+		}
+		i=i+1;
+    }
+		
+		i=p;
+		while(i < n){
+		j=p;
+		while(j < n){
+			k=p;
+			while(k < n){
 					A[i][j][k]=B[i][j][k];
 					k=k+1;
 			}

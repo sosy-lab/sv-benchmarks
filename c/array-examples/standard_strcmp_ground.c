@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int();
 
 #define N 100000
 
@@ -16,6 +17,12 @@ int _strcmp( int src[N] , int dst[N] ) {
 int main( ) {
   int a[N];
   int b[N];
+	
+	for(int i = 0; i < N; i++) 
+	{
+	   a[i] = __VERIFIER_nondet_int();
+		 b[i] = __VERIFIER_nondet_int();
+	}
   
   int c = _strcmp( a , b );
 

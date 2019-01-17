@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int();
 
 #define SIZE 100000
 
@@ -25,6 +26,12 @@ int main( ) {
   // this is trivial
   int x;
   int y;
+	
+	for (x = 0; x < SIZE; x++)
+	{
+	  set[x] = __VERIFIER_nondet_int();
+	}
+	
   for ( x = 0 ; x < n ; x++ ) {
     for ( y = x + 1 ; y < n ; y++ ) {
       __VERIFIER_assert(  set[ x ] != set[ y ]  );
@@ -36,6 +43,11 @@ int main( ) {
 
   // insert them in the array -- note that nothing ensures that values is not containing duplicates!
   int v;
+	
+	for (v = 0; v < SIZE; v++)
+	{
+	  values[v] = __VERIFIER_nondet_int();
+	}
   for ( v = 0 ; v < SIZE ; v++ ) {
     // check if the element exists, if not insert it.
     if ( !elem_exists( set , n , values[ v ] ) ) {

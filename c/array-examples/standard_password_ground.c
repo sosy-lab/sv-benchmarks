@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int();
 
 #define SIZE 100000
 
@@ -11,6 +12,13 @@ int main( ) {
 
   int i;
   int result = 1;
+	
+	for (i = 0; i < SIZE; i++)
+	{
+	    password[i] = __VERIFIER_nondet_int();
+			guess[i] = __VERIFIER_nondet_int();
+	}
+	
   for ( i = 0 ; i < SIZE ; i++ ) {
     if ( password[ i ] != guess[ i ] ) {
       result = 0;

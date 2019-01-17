@@ -17,7 +17,13 @@ int main()
 		int b[SIZE];
 		int a_copy[SIZE];
 		int b_copy[SIZE];
-
+		
+		for(i=0; i<SIZE; i++)
+		{
+			a_copy[i] = __VERIFIER_nondet_int();
+			b_copy[i] = __VERIFIER_nondet_int();
+		}
+		
 		//reverse copy
 		for(i=0; i<SIZE; i++)
 		{

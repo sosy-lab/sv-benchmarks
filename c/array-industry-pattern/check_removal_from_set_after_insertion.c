@@ -1,5 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int();
+
 const int SIZE = 100000;
 /* 
    Implements a set. Inserts elements from an array of values into the set. Then removes an element from the set and then checks that the removed item is not present in the set.
@@ -25,7 +27,12 @@ int main( ) {
   int values[ SIZE ];    // array of values to be inserted in the array
   int element;           // element to be removed
 
-  
+ 	for ( i = 0 ; i < SIZE ; i++ ) {
+		set[i] = __VERIFIER_nondet_int();
+		values[i] = __VERIFIER_nondet_int();
+	}
+	
+	element = __VERIFIER_nondet_int(); 
 
   int v;
   for ( v = 0 ; v < SIZE ; v++ ) {

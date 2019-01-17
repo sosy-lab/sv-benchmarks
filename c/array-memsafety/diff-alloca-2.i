@@ -545,6 +545,17 @@ int main() {
   int* A = (int*) __builtin_alloca (Alen * sizeof(int));
   int* B = (int*) __builtin_alloca (Blen * sizeof(int));
   int* D = (int*) __builtin_alloca (Alen * sizeof(int));
+	
+	for(int i = 0; i < Alen; i++)
+	{
+	   A[i] = __VERIFIER_nondet_int();
+	}
+	
+	for(int i = 0; i < Blen; i++)
+	{
+	   B[i] = __VERIFIER_nondet_int();
+	}
+	
   diff(A, Alen, B, Blen, D);
   return 0;
 }

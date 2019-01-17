@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
 
 char *(cstrncpy)(char *s1, const char *s2, int n)
  {
@@ -36,6 +37,12 @@ int main() {
   }
   char* nondetArea = (char*) alloca(n * sizeof(char));
   char* nondetString = (char*) alloca(length * sizeof(char));
+
+  for(int i = 0; i < length - 1; i++) 
+  {
+    nondetString[i] = __VERIFIER_nondet_char();
+  }
+		
   nondetString[length-1] = '\0';
   cstrncpy(nondetArea, nondetString, n);
   return 0;

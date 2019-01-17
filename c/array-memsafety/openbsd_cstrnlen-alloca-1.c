@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
 
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
@@ -56,6 +57,13 @@ int main() {
         n = 1;
     }
     char* nondetString1 = (char*) alloca(length1 * sizeof(char));
+		
+		for(int i = 0; i< length1 -1; i++)
+		{
+		  nondetString1[i] = __VERIFIER_nondet_char();
+		}
+
+		
     nondetString1[length1-1] = '\0';
     return cstrnlen(nondetString1,n);
 }

@@ -8,6 +8,7 @@ int main( ) {
   int c = 0;
   int bb[100000];
   int cc[100000];
+	
   while( a < 100000 ) {
     aa[ a ] = __VERIFIER_nondet_int();
     if( aa[ a ] >= 0 ) {

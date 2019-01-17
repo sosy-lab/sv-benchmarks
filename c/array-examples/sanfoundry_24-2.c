@@ -23,6 +23,11 @@ int main()
     int array[SIZE];
     int i;
     int num = __VERIFIER_nondet_int();
+		
+		for(i = 0; i < num; i++) 
+		{
+		  array[i] = __VERIFIER_nondet_int();
+		}
  
     //printf("Even numbers in the array are - ");
     for (i = 0; i < num; i++) // use of uninitialized num

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
 
 int (cstrncmp)(const char *s1, const char *s2, int n)
  {
@@ -37,6 +38,17 @@ int main() {
     }
     char* nondetString1 = (char*) alloca(length1 * sizeof(char));
     char* nondetString2 = (char*) alloca(length2 * sizeof(char));
+		
+		for(int i = 0; i < length1 - 1; i++) 
+		{
+		  nondetString1[i] = __VERIFIER_nondet_char();
+		}
+
+		for(int i = 0; i < length2 - 1; i++) 
+		{
+		  nondetString2[i] = __VERIFIER_nondet_char();
+		}
+
     nondetString1[length1-1] = '\0';
     nondetString2[length2-1] = '\0';
     return cstrncmp(nondetString1,nondetString2,__VERIFIER_nondet_int());

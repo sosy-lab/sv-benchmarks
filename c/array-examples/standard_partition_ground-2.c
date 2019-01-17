@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int();
 
 #define N 100000
 
@@ -10,6 +11,10 @@ int main( ) {
   int c = 0;
   int bb[N];
   int cc[N];
+	
+	for(int i = 0 ; i < N ; i++ ) {
+    aa[i] = __VERIFIER_nondet_int();
+  }
   
   while( a < N ) {
     if( aa[ a ] >= 0 ) {

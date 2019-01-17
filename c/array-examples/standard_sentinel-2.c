@@ -8,6 +8,12 @@ int main ( ) {
   int a[N];
   int marker = __VERIFIER_nondet_int();
   int pos = __VERIFIER_nondet_int();
+	
+	for(int i = 0; i < N; i++) 
+	{
+	  a[i] = __VERIFIER_nondet_int();
+	}
+	
   if ( pos >= 0 && pos < N ) {
     a[ pos ] = marker;
 

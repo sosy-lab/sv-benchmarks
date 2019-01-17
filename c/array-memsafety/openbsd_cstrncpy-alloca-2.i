@@ -509,6 +509,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern int __VERIFIER_nondet_int(void);
+extern char __VERIFIER_nondet_char(void);
 char *
 cstrncpy(char *dst, const char *src, size_t n)
 {
@@ -536,6 +537,13 @@ int main() {
   }
   char* nondetArea = (char*) __builtin_alloca (n * sizeof(char));
   char* nondetString = (char*) __builtin_alloca (length * sizeof(char));
+	
+		for(int i = 0; i< length -1; i++)
+		{
+		  nondetString[i] = __VERIFIER_nondet_char();
+		}
+		
+		
   nondetString[length-1] = '\0';
   cstrncpy(nondetArea, nondetString, n);
   return 0;
