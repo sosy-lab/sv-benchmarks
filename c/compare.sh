@@ -83,17 +83,18 @@ for f in $SETS ; do
     orig=$ff
 
     if echo $ff | grep -q ".yml$"; then
-      input_basename=$(yq --raw-output '.input_files' "$ff")
-      # check whether the input_basename exists (nobody should ever use "null" as a filename!)
-      if [ "null" = "$input_basename" ] ; then
+      # check whether there are any input files
+      if [ "false" = $(yq --raw-output '[.input_files] | any' "$ff") ] ; then
         echo "No input files defined in $ff" 1>&2
         exit 1
       fi
-      # simple check whether input_basename is a list like "[...]"
-      if [ -z "${input_basename##*\[*\]*}" ] ; then
+      # check whether there is exactly one input file, either directly or nested in a list
+      if [ 1 -lt $(yq --raw-output '[.input_files] | flatten | length' "$ff") ] ; then
         echo "ignoring task consisting of multiple sourcefiles"
         continue
       fi
+      # 'flatten' allows us to use a single-element list
+      input_basename=$(yq --raw-output '[.input_files] | flatten |.[0]' "$ff")
       ff=$(echo "$(dirname "$ff")/${input_basename}")
     fi
 
