@@ -84,6 +84,16 @@ for f in $SETS ; do
 
     if echo $ff | grep -q ".yml$"; then
       input_basename=$(yq --raw-output '.input_files' "$ff")
+      # check whether the input_basename exists (nobody should ever use "null" as a filename!)
+      if [ "null" = "$input_basename" ] ; then
+        echo "No input files defined in $ff" 1>&2
+        exit 1
+      fi
+      # simple check whether input_basename is a list like "[...]"
+      if [ -z "${input_basename##*\[*\]*}" ] ; then
+        echo "ignoring task consisting of multiple sourcefiles"
+        continue
+      fi
       ff=$(echo "$(dirname "$ff")/${input_basename}")
     fi
 
