@@ -83,18 +83,22 @@ for f in $SETS ; do
     orig=$ff
 
     if echo $ff | grep -q ".yml$"; then
-      # check whether there are any input files
-      if [ "false" = $(yq --raw-output '[.input_files] | any' "$ff") ] ; then
+      # check whether the input_basename exists (nobody should ever use "null" as a filename!)
+      if [ "false" = $(yq --raw-output "has(\"input_files\")" "$ff") ] ; then
         echo "No input files defined in $ff" 1>&2
         exit 1
       fi
+
+      # for backwards compatibility with jq 1.3 we can not directly use 'flatten', but replace it
+      flatten='if .|type == "array" then . else [.] end'
+
       # check whether there is exactly one input file, either directly or nested in a list
-      if [ 1 -lt $(yq --raw-output '[.input_files] | flatten | length' "$ff") ] ; then
+      if [ 1 -lt $(yq --raw-output ".input_files | $flatten | length" "$ff") ] ; then
         echo "ignoring task consisting of multiple sourcefiles"
         continue
       fi
       # 'flatten' allows us to use a single-element list
-      input_basename=$(yq --raw-output '[.input_files] | flatten |.[0]' "$ff")
+      input_basename=$(yq --raw-output ".input_files | $flatten |.[0]" "$ff")
       ff=$(echo "$(dirname "$ff")/${input_basename}")
     fi
 
