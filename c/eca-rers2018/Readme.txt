@@ -1,4 +1,4 @@
-These tasks are taken from the he RERS Challenge 2018,
+These tasks are taken from the RERS Challenge 2018,
 i.e., the Rigorous Examination of Reactive Systems (RERS).
 
 For more details please visit: http://www.rers-challenge.org/2018/
