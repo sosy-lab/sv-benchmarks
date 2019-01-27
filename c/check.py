@@ -30,6 +30,9 @@ EXPECTED_FILE_PATTERN = re.compile(
 CONFIG_KEYS = set(["Architecture", "Description"])
 PROPERTIES = set(["def-behavior", "no-overflow", "termination", "unreach-call", "valid-deref", "valid-free", "valid-memcleanup", "valid-memsafety", "valid-memtrack",
     "coverage-error-call", "coverage-branches", "coverage-conditions", "coverage-statements"])
+# multiple properties for eca-rers2018-files
+for i in range(100):
+    PROPERTIES.add("unreach-call-%d" % i)
 
 # Ignore ldv-multiproperty and regression
 # as long as no yml-task definitions exist for the tasks in these directories
@@ -39,7 +42,7 @@ IGNORED_DIRECTORIES = set(["properties", "ldv-multiproperty", "regression"])
 UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
 """Directories which expected to contain tasks that are not included in any category"""
 
-EXPECTED_SUBDIRECTORIES = set(["model", "todo"])
+EXPECTED_SUBDIRECTORIES = set(["model", "todo", "properties"])
 """Directories that can appear inside directories with tasks but contain other files"""
 
 LINE_DIRECTIVE = re.compile('^#(line| [0-9]+) ')
@@ -78,6 +81,9 @@ KNOWN_DIRECTORY_PROBLEMS = [
 
     ("ldv-memsafety", "unexpected subdirectory memleaks-notpreprocessed"),
     ("ldv-multiproperty", "unexpected file ALL-multi.prp"), # special property file
+
+    ("eca-rers2018", "unexpected file RERS_18_solutions_dot_petri.csv"),
+    ("eca-rers2018", "unexpected file createYml.py"),
 
     # historical
     ("ntdrivers", "missing license"),
