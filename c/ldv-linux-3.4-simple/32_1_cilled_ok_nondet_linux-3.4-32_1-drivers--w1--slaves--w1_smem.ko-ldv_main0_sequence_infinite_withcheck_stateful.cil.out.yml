@@ -6,6 +6,3 @@ input_files: '32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--w1--slaves--w1_smem.
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp
