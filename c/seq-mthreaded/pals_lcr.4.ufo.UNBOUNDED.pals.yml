@@ -6,6 +6,5 @@ input_files: 'pals_lcr.4.ufo.UNBOUNDED.pals.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
