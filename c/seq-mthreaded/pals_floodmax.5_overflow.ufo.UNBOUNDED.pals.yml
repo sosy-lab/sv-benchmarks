@@ -6,7 +6,6 @@ input_files: 'pals_floodmax.5_overflow.ufo.UNBOUNDED.pals.c'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+  - property_file: ../properties/termination.prp
+    expected_verdict: false
   - property_file: ../properties/coverage-error-call.prp
-  - property_file: ../properties/coverage-branches.prp
-  - property_file: ../properties/coverage-conditions.prp
-  - property_file: ../properties/coverage-statements.prp
