@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: for_bounded_loop1_false-unreach-call_true-termination.i
-input_files: 'for_bounded_loop1.i'
+# old file name: for_bounded_loop1_false-unreach-call_true-termination.c
+input_files: 'for_bounded_loop1.c'
 
 properties:
   - property_file: ../properties/termination.prp

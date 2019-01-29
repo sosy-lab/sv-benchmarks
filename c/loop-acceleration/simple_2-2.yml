@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: simple_false-unreach-call2_true-termination.i
-input_files: 'simple_2-2.i'
+# old file name: simple_false-unreach-call2_true-termination.c
+input_files: 'simple_2-2.c'
 
 properties:
   - property_file: ../properties/termination.prp

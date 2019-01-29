@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: skipped_true-unreach-call.i
-input_files: 'skipped.i'
+# old file name: skipped_true-unreach-call.c
+input_files: 'skipped.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

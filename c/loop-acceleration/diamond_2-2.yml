@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: diamond_true-unreach-call2.i
-input_files: 'diamond_2-2.i'
+# old file name: diamond_true-unreach-call2.c
+input_files: 'diamond_2-2.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

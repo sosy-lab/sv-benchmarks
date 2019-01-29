@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: bubblesort_unsafe_false-valid-deref.i
-input_files: 'bubblesort_unsafe.i'
+# old file name: bubblesort_unsafe_false-valid-deref.c
+input_files: 'bubblesort_unsafe.c'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp

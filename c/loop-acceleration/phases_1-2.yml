@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: phases_false-unreach-call1.i
-input_files: 'phases_1-2.i'
+# old file name: phases_false-unreach-call1.c
+input_files: 'phases_1-2.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

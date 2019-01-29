@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: linear_search_false-unreach-call.i
-input_files: 'linear_search.i'
+# old file name: linear_search_false-unreach-call.c
+input_files: 'linear_search.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: veris.c_sendmail__tTflag_arr_one_loop_true-unreach-call_true-termination.i
-input_files: 'veris.c_sendmail_tTflag_arr_one_loop.i'
+# old file name: veris.c_sendmail__tTflag_arr_one_loop_true-unreach-call_true-termination.c
+input_files: 'veris.c_sendmail_tTflag_arr_one_loop.c'
 
 properties:
   - property_file: ../properties/termination.prp

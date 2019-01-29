@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: pnr3_true-unreach-call.i
-input_files: 'pnr3.i'
+# old file name: pnr3_true-unreach-call.c
+input_files: 'pnr3.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

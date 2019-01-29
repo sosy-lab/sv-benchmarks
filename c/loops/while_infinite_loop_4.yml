@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: while_infinite_loop_4_false-unreach-call_true-termination.i
-input_files: 'while_infinite_loop_4.i'
+# old file name: while_infinite_loop_4_false-unreach-call_true-termination.c
+input_files: 'while_infinite_loop_4.c'
 
 properties:
   - property_file: ../properties/termination.prp

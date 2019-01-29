@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: trex02_false-unreach-call_true-termination.i
-input_files: 'trex02-2.i'
+# old file name: trex02_false-unreach-call_true-termination.c
+input_files: 'trex02-2.c'
 
 properties:
   - property_file: ../properties/termination.prp

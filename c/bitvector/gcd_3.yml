@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: gcd_3_true-unreach-call_true-no-overflow.i
-input_files: 'gcd_3.i'
+# old file name: gcd_3_true-unreach-call_true-no-overflow.c
+input_files: 'gcd_3.c'
 
 properties:
   - property_file: ../properties/no-overflow.prp

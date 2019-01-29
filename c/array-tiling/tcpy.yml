@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: tcpy_true-unreach-call.i
-input_files: 'tcpy.i'
+# old file name: tcpy_true-unreach-call.c
+input_files: 'tcpy.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: phases_true-unreach-call2_false-termination.i
-input_files: 'phases_2-2.i'
+# old file name: phases_true-unreach-call2_false-termination.c
+input_files: 'phases_2-2.c'
 
 properties:
   - property_file: ../properties/termination.prp

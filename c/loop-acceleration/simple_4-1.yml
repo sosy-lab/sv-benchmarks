@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: simple_false-unreach-call4.i
-input_files: 'simple_4-1.i'
+# old file name: simple_false-unreach-call4.c
+input_files: 'simple_4-1.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

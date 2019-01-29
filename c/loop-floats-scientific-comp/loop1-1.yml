@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: loop1_true-unreach-call.c.i
-input_files: 'loop1-1.i'
+# old file name: loop1_true-unreach-call.c.c
+input_files: 'loop1-1.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

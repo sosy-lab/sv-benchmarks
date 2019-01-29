@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: rew_true-unreach-call.i
-input_files: 'rew.i'
+# old file name: rew_true-unreach-call.c
+input_files: 'rew.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: rewnifrev_true-unreach-call.i
-input_files: 'rewnifrev.i'
+# old file name: rewnifrev_true-unreach-call.c
+input_files: 'rewnifrev.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

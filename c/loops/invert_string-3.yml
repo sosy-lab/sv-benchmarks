@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: invert_string_true-unreach-call_true-termination.i
-input_files: 'invert_string-3.i'
+# old file name: invert_string_true-unreach-call_true-termination.c
+input_files: 'invert_string-3.c'
 
 properties:
   - property_file: ../properties/termination.prp

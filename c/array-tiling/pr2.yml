@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: pr2_true-unreach-call.i
-input_files: 'pr2.i'
+# old file name: pr2_true-unreach-call.c
+input_files: 'pr2.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: jain_1_false-no-overflow.i
-input_files: 'jain_1-2.i'
+# old file name: jain_1_false-no-overflow.c
+input_files: 'jain_1-2.c'
 
 properties:
   - property_file: ../properties/no-overflow.prp

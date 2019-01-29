@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: init-non-constant-3-u_true-unreach-call.i
-input_files: 'init-non-constant-3-u.i'
+# old file name: init-non-constant-3-u_true-unreach-call.c
+input_files: 'init-non-constant-3-u.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

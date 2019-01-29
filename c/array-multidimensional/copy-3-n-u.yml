@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: copy-3-n-u_true-unreach-call.i
-input_files: 'copy-3-n-u.i'
+# old file name: copy-3-n-u_true-unreach-call.c
+input_files: 'copy-3-n-u.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp
