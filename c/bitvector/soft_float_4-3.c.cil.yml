@@ -1,7 +1,6 @@
 format_version: '1.0'
 
-# old file name: soft_float_4_true-unreach-call_true-no-overflow_true-termination.c.cil.c
-input_files: 'soft_float_4.c.cil.c'
+input_files: 'soft_float_4-3.c.cil.c'
 
 properties:
   - property_file: ../properties/no-overflow.prp
