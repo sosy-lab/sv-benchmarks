@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: soft_float_1_true-unreach-call_true-no-overflow_true-termination.c.cil.c
-input_files: 'soft_float_1.c.cil.c'
+# old file name: soft_float_4_true-unreach-call_true-no-overflow_true-termination.c.cil.c
+input_files: 'soft_float_4.c.cil.c'
 
 properties:
   - property_file: ../properties/no-overflow.prp
@@ -9,7 +9,8 @@ properties:
   - property_file: ../properties/termination.prp
     expected_verdict: true
   - property_file: ../properties/unreach-call.prp
-    expected_verdict: true
+    expected_verdict: false
+  - property_file: ../properties/coverage-error-call.prp
   - property_file: ../properties/coverage-branches.prp
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp

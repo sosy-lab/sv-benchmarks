@@ -103,6 +103,7 @@ unsigned int addflt(unsigned int a , unsigned int b )
   mb = mb | (1U << 24U);
   __VERIFIER_assert(ea >= eb);
   delta = ea - eb;
+  __VERIFIER_assert(delta < sizeof(mb) * 8);
   mb = mb >> delta;
   }
   if (! mb) {
