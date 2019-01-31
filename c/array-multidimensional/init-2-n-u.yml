@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: init-2-n-u_true-unreach-call.i
-input_files: 'init-2-n-u.i'
+# old file name: init-2-n-u_true-unreach-call.c
+input_files: 'init-2-n-u.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

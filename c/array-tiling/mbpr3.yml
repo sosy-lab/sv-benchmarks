@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: mbpr3_true-unreach-call.i
-input_files: 'mbpr3.i'
+# old file name: mbpr3_true-unreach-call.c
+input_files: 'mbpr3.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

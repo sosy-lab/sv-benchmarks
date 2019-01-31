@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: bubble_sort_true-unreach-call_true-termination.i
-input_files: 'bubble_sort-1.i'
+# old file name: bubble_sort_true-unreach-call_true-termination.c
+input_files: 'bubble_sort-1.c'
 
 properties:
   - property_file: ../properties/termination.prp

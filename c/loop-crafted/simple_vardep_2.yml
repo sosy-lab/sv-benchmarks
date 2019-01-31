@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: simple_vardep_true-unreach-call2_true-termination.i
-input_files: 'simple_vardep_2.i'
+# old file name: simple_vardep_true-unreach-call2_true-termination.c
+input_files: 'simple_vardep_2.c'
 
 properties:
   - property_file: ../properties/termination.prp

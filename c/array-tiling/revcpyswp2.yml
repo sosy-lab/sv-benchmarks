@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: revcpyswp2_true-unreach-call.i
-input_files: 'revcpyswp2.i'
+# old file name: revcpyswp2_true-unreach-call.c
+input_files: 'revcpyswp2.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

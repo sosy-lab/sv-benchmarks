@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: digits_bad_for_false-unreach-call.i
-input_files: 'digits_bad_for.i'
+# old file name: digits_bad_for_false-unreach-call.c
+input_files: 'digits_bad_for.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

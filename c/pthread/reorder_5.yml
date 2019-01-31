@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: reorder_5_false-unreach-call.i
-input_files: 'reorder_5.i'
+# old file name: reorder_5_false-unreach-call.c
+input_files: 'reorder_5.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

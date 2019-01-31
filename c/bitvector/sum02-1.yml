@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: sum02_false-unreach-call_true-no-overflow.i
-input_files: 'sum02-1.i'
+# old file name: sum02_false-unreach-call_true-no-overflow.c
+input_files: 'sum02-1.c'
 
 properties:
   - property_file: ../properties/no-overflow.prp

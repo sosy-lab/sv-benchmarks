@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: insertion_sort_false-unreach-call_true-termination.i
-input_files: 'insertion_sort-1.i'
+# old file name: insertion_sort_false-unreach-call_true-termination.c
+input_files: 'insertion_sort-1.c'
 
 properties:
   - property_file: ../properties/termination.prp

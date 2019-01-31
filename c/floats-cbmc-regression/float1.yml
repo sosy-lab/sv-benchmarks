@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: float1_true-unreach-call_true-termination.i
-input_files: 'float1.i'
+# old file name: float1_true-unreach-call_true-termination.c
+input_files: 'float1.c'
 
 properties:
   - property_file: ../properties/termination.prp

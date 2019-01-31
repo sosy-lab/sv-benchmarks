@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: digits_while_true-unreach-call.i
-input_files: 'digits_while.i'
+# old file name: digits_while_true-unreach-call.c
+input_files: 'digits_while.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

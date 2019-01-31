@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: sanfoundry_10_true-unreach-call_ground.i
-input_files: 'sanfoundry_10_ground.i'
+# old file name: sanfoundry_10_true-unreach-call_ground.c
+input_files: 'sanfoundry_10_ground.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp

@@ -1,7 +1,7 @@
 format_version: '1.0'
 
-# old file name: num_conversion_2_true-unreach-call_true-no-overflow.i
-input_files: 'num_conversion_2.i'
+# old file name: num_conversion_2_true-unreach-call_true-no-overflow.c
+input_files: 'num_conversion_2.c'
 
 properties:
   - property_file: ../properties/no-overflow.prp
