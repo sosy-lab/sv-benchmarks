@@ -21,7 +21,7 @@ int ssl3_connect(int initial_state )
   int s__wbio = __VERIFIER_nondet_int() ;
   int s__hit = __VERIFIER_nondet_int() ;
   int s__rwstate ;
-  int s__init_buf___0 ;
+  int s__init_buf___0 = 1;
   int s__debug = __VERIFIER_nondet_int() ;
   int s__shutdown ;
   int s__ctx__info_callback = __VERIFIER_nondet_int() ;
