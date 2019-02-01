@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
 
 
 //VERIFICATION RESULT : TRUE
@@ -14,7 +15,7 @@ void __VERIFIER_assert(int cond) {
 
 int nondet()
 {
-	int x;
+	int x = __VERIFIER_nondet_int();
 	return x;
 }
 
