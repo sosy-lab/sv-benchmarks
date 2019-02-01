@@ -13,14 +13,8 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
-int nondet()
-{
-	int x = __VERIFIER_nondet_int();
-	return x;
-}
-
 int main() {
-	last = nondet();
+	last = __VERIFIER_nondet_int();
 	int a=0,b=0,c=0,st=0;
 	while(1) {
 		st=1;  
