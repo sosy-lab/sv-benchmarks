@@ -17,7 +17,7 @@ int ssl3_connect(int initial_state )
   int s__wbio ;
   int s__hit ;
   int s__rwstate ;
-  int s__init_buf___0 ;
+  int s__init_buf___0 = 1;
   int s__debug ;
   int s__shutdown ;
   int s__ctx__info_callback ;
