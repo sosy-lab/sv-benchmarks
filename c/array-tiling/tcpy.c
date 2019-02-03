@@ -5,14 +5,16 @@ extern int __VERIFIER_nondet_int(void);
 
 int SIZE;
 
+const int MAX = 100000;
+
 int main()
 {
 	SIZE = __VERIFIER_nondet_int();
-	if(SIZE > 1)
+	if(SIZE > 1 && SIZE < MAX)
 	{
 		int i;
-		int a[SIZE];
-		int acopy[SIZE];
+		int *a = malloc(sizeof(int)*SIZE);
+		int *acopy = malloc(sizeof(int)*SIZE);
 		
 		for(i = 0; i < SIZE; i++)
 		{

@@ -8,16 +8,19 @@ int ReadFromPort()
 	int x = __VERIFIER_nondet_int();
 	return x;
 }
+
 int SIZE;
+
+const int MAX = 100000;
 
 int main()
 {
 	SIZE = __VERIFIER_nondet_int();
-	if(SIZE > 1)
+	if(SIZE > 1 && SIZE < MAX)
 	{
 		int i;
 		int value;
-		int a[SIZE];
+		int *a = malloc(sizeof(int)*SIZE);
 		int DEFAULTVAL = 0; 
 		int FIXEDVAL = 10; 
 
