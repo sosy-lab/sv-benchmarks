@@ -3,15 +3,16 @@ extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int(void);
 
+const int MAX = 100000;
 int SIZE;
 
 int main()
 {
 	SIZE = __VERIFIER_nondet_int();
-	if(SIZE > 1)
+	if(SIZE > 1 && SIZE < MAX)
 	{
 		int i;
-		int a[SIZE];
+		int *a = malloc(sizeof(int)*SIZE);
 		int val2 = 3;
 		int val1 = 7;
 		int low=2;
