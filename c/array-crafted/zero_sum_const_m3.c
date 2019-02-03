@@ -5,13 +5,15 @@ extern long __VERIFIER_nondet_long(void);
 
 long SIZE;
 
+const int MAX = 100000;
+
 int main()
 {
 	SIZE = __VERIFIER_nondet_long();
-	if(SIZE > 1)
+	if(SIZE > 1 && SIZE < MAX)
 	{
 		int i;
-		long a[SIZE];
+		long *a = malloc(sizeof(long)*SIZE);
 		long long sum=0;
 
 		for(i = 0; i < SIZE; i++ )
