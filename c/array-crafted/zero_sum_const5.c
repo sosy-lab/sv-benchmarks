@@ -2,6 +2,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern long __VERIFIER_nondet_long(void);
+void *malloc(unsigned long size);
 
 long SIZE;
 
