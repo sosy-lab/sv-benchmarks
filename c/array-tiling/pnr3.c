@@ -2,22 +2,26 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int(void);
+void *malloc(unsigned int size);
 
 int ReadFromPort()
 {
 	int x = __VERIFIER_nondet_int();
 	return x;
 }
+
 int SIZE;
+
+const int MAX = 100000;
 
 int main()
 {
 	SIZE = __VERIFIER_nondet_int();
-	if(SIZE > 1)
+	if(SIZE > 1 && SIZE < MAX)
 	{
 		int i;
 		int value;
-		int a[SIZE];
+		int *a = malloc(sizeof(int)*SIZE);
 		int DEFAULTVAL = 0; 
 		int FIXEDVAL = 10; 
 

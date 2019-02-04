@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+void *malloc(unsigned int size);
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -8,6 +9,7 @@ void __VERIFIER_assert(int cond) {
 }
 unsigned int __VERIFIER_nondet_uint();
 unsigned int  SIZE;
+const unsigned int MAX = 100000;
 int linear_search(int *a, int n, int q) {
   unsigned int j=0;
   while (j<n && a[j]!=q) {
@@ -19,7 +21,10 @@ int linear_search(int *a, int n, int q) {
 }
 int main() { 
   SIZE=(__VERIFIER_nondet_uint()/2)+1;
-  int a[SIZE];
-  a[SIZE/2]=3;
-  __VERIFIER_assert(linear_search(a,SIZE,3));
+
+  if (SIZE > 1 && SIZE < MAX) {
+    int *a = malloc(sizeof(int)*SIZE);
+    a[SIZE/2]=3;
+    __VERIFIER_assert(linear_search(a,SIZE,3));
+  }
 }
