@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-void *malloc(unsigned long size);
+void *malloc(unsigned int size);
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
