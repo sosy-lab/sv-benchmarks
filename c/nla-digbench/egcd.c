@@ -11,6 +11,7 @@ int main(){
     y = __VERIFIER_nondet_int();
     __VERIFIER_assume(x >= 1);
     __VERIFIER_assume(y >= 1);
+
     a=x;
     b=y;
     p=1;
