@@ -60,6 +60,7 @@ int main(){
         r=s;
         s=temp-s*k;
     }
+    //TODO: post
     return 0;
 }
 
