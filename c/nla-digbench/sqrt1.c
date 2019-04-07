@@ -1,13 +1,19 @@
 /* Compute the floor of the square root of a natural number */
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int expression);
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) {
+    if (!(cond)) {
+    ERROR:
+        __VERIFIER_error();
+    }
+    return;
+}
 
 #include <math.h>
 
-int main(){
+int main() {
     int n, a, s, t;
     n = __VERIFIER_nondet_int();
     __VERIFIER_assume(n >= 0);
@@ -16,13 +22,13 @@ int main(){
     s = 1;
     t = 1;
 
-    while(1){
-        __VERIFIER_assert(a*a <= n);
-        __VERIFIER_assert(t == 2*a + 1);
-        __VERIFIER_assert(s == (a + 1)*(a + 1));
+    while (1) {
+        __VERIFIER_assert(a * a <= n);
+        __VERIFIER_assert(t == 2 * a + 1);
+        __VERIFIER_assert(s == (a + 1) * (a + 1));
         // the above 2 should be equiv to t^2 - 4*s + 2*t + 1 == 0
 
-        if(!(s <= n)) 
+        if (!(s <= n))
             break;
 
         a = a + 1;

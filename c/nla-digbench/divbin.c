@@ -1,37 +1,49 @@
-#include <stdio.h>
-#include <assert.h>
-#include <stdlib.h>
+/*
+  a division algorithm, by Kaldewaij
+  returns A//B
+  */
 
-int divbin(int A, int B){
-  assert(A > 0 && B > 0);
- 
-  int q = 0;
-  int r = A;
-  int b = B;
-
-  while(1){
-    if (!(r>=b)) break;
-    b=2*b;
-  }
-
-
-  while(1){
-    //assert(A == q*b + r
-    //assert(r >= 0);
-    if (!(b!=B)) break;
-	  
-    q = 2*q;
-    b = b/2;
-    if (r >= b) {
-      q = q + 1;
-      r = r - b;
+extern void __VERIFIER_error() __attribute__((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_assume(int expression);
+void __VERIFIER_assert(int cond) {
+    if (!(cond)) {
+    ERROR:
+        __VERIFIER_error();
     }
-  }
-  return q;
+    return;
 }
 
-int main(int argc, char **argv){
-  divbin(atoi(argv[1]), atoi(argv[2]));
-  return 0;
-}
+int main() {
+    int A, B;
+    int q, r, b;
+    A = __VERIFIER_nondet_int();
+    B = __VERIFIER_nondet_int();
+    __VERIFIER_assume(A > 0);
+    __VERIFIER_assume(B > 0);
 
+    q = 0;
+    r = A;
+    b = B;
+
+    while (1) {
+        if (!(r >= b)) break;
+        b = 2 * b;
+    }
+
+    while (1) {
+        __VERIFIER_assert(A == q * b + r);
+        __VERIFIER_assert(r >= 0);
+        if (!(b != B)) break;
+
+        q = 2 * q;
+        b = b / 2;
+        if (r >= b) {
+            q = q + 1;
+            r = r - b;
+        }
+    }
+
+    //TODO: missing post
+    return 0;
+}

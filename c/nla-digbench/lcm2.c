@@ -1,8 +1,4 @@
-/* 
- * algorithm for computing simultaneously the GCD and the LCM, 
- * by Sankaranarayanan 
- */
-
+/* Algorithm for computing simultaneously the GCD and the LCM, by Dijkstra */
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int expression);
@@ -25,30 +21,25 @@ int main() {
     x = a;
     y = b;
     u = b;
-    v = 0;
+    v = a;
 
     while (1) {
-        __VERIFIER_assert(x * u + y * v == a * b);
+        __VERIFIER_assert(x * u + y * v == 2 * a * b);
+
         if (!(x != y))
             break;
 
-        while (1) {
-            if (!(x > y))
-                break;
+        if (x > y) {
             x = x - y;
             v = v + u;
-        }
-
-        while (1) {
-            if (!(x < y))
-                break;
+        } else {
             y = y - x;
             u = u + v;
         }
     }
 
-    //x==gcd(a,b)
-    int r = u + v;  //lcm(a,b)
-    //TODO: missing post
+    // x==gcd(a,b)
+    int r = (u + v) / 2;  // lcm(a,b)
+    // TODO: missing post
     return 0;
 }

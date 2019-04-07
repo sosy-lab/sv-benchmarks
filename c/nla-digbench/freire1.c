@@ -3,30 +3,33 @@
 
 #include <math.h>
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern double __VERIFIER_nondet_double(void);
 extern void __VERIFIER_assume(int expression);
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+void __VERIFIER_assert(int cond) {
+    if (!(cond)) {
+    ERROR:
+        __VERIFIER_error();
+    }
+    return;
+}
 
-int main(){
+int main() {
     int r;
     double a, x;
     a = __VERIFIER_nondet_double();
     x = a / 2.0;
     r = 0;
 
-    while(1){
-        __VERIFIER_assert(a == 2*x + r*r - r); 
+    while (1) {
+        __VERIFIER_assert(a == 2 * x + r * r - r);
 
-        if (!(x>r))
+        if (!(x > r))
             break;
         x = x - r;
         r = r + 1;
     }
 
-    __VERIFIER_assert(r==(int)round(sqrt(a)));
+    __VERIFIER_assert(r == (int)round(sqrt(a)));
     return 0;
 }
-
-
-

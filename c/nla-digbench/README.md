@@ -1,5 +1,6 @@
 The benchmarks in this directory were submitted by 
-ThanhVu Nguyen and Timos Antonopoulos.
+ThanhVu Nguyen (tnguyen@cse.unl.edu) and 
+Timos Antonopoulos (timos.antonopoulos@yale.edu).
 These programs were collected from various places and 
 have been used in the DIG (Dynamic Invariant Generation) work:
 
