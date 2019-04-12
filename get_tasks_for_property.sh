@@ -4,6 +4,12 @@
 # Usage: ./get_tasks_for_property <PROPERTY_FILE> [BENCHMARK_DIRECTORY]
 # Execute from directory `sv-benchmarks/c` or provide directory as a second command-line argument.
 
+set -euo pipefail
+IFS=$'\n\t'
+
+# Make recursive globbing work
+shopt -s globstar
+
 property=${1:-}
 directory=${2:-./}
 
