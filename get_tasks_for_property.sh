@@ -4,6 +4,9 @@
 # Requires `yq` to be installed.
 # Usage: ./get_tasks_for_property <PROPERTY_FILE> [BENCHMARK_DIRECTORY]
 # Execute from directory `sv-benchmarks/c` or provide directory as a second command-line argument.
+# From the returned task definitions, it is possible to get the input files with the following
+# command line:
+# yq --raw-output ".input_files" TASK_DEFINITION
 
 set -euo pipefail
 IFS=$'\n\t'
