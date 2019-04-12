@@ -22,12 +22,7 @@ if [ -z "$property" ]; then
   exit 1
 fi
 
-property_name=$(basename "$property")
-
-# Only consider task definition files that contain
-# the property name as a string - this makes the script incompatible with linked files,
-# but provides a significant speed-up if only few tasks contain the property.
-for task in $(grep -l "$property_name" "$directory"/**/*.yml); do
+for task in "$directory"/**/*.yml; do
   for prp in $(yq --raw-output "select(.properties != null) | .properties[].property_file" "$task" ); do
     if [ $property -ef "$(dirname "$task")/$prp" ]; then
       echo "$task"
