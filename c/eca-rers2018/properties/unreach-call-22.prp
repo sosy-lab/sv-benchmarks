@@ -1,1 +1,1 @@
-CHECK( init(main()), LTL(G ! call(__VERIFIER_error(22))) )
+CHECK( init(main()), LTL(G ! call(__VERIFIER_error_22())) )

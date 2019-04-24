@@ -1,5 +1,105 @@
 extern int __VERIFIER_nondet_int();
-    extern void __VERIFIER_error(int);
+extern void __VERIFIER_error_0();
+extern void __VERIFIER_error_1();
+extern void __VERIFIER_error_2();
+extern void __VERIFIER_error_3();
+extern void __VERIFIER_error_4();
+extern void __VERIFIER_error_5();
+extern void __VERIFIER_error_6();
+extern void __VERIFIER_error_7();
+extern void __VERIFIER_error_8();
+extern void __VERIFIER_error_9();
+extern void __VERIFIER_error_10();
+extern void __VERIFIER_error_11();
+extern void __VERIFIER_error_12();
+extern void __VERIFIER_error_13();
+extern void __VERIFIER_error_14();
+extern void __VERIFIER_error_15();
+extern void __VERIFIER_error_16();
+extern void __VERIFIER_error_17();
+extern void __VERIFIER_error_18();
+extern void __VERIFIER_error_19();
+extern void __VERIFIER_error_20();
+extern void __VERIFIER_error_21();
+extern void __VERIFIER_error_22();
+extern void __VERIFIER_error_23();
+extern void __VERIFIER_error_24();
+extern void __VERIFIER_error_25();
+extern void __VERIFIER_error_26();
+extern void __VERIFIER_error_27();
+extern void __VERIFIER_error_28();
+extern void __VERIFIER_error_29();
+extern void __VERIFIER_error_30();
+extern void __VERIFIER_error_31();
+extern void __VERIFIER_error_32();
+extern void __VERIFIER_error_33();
+extern void __VERIFIER_error_34();
+extern void __VERIFIER_error_35();
+extern void __VERIFIER_error_36();
+extern void __VERIFIER_error_37();
+extern void __VERIFIER_error_38();
+extern void __VERIFIER_error_39();
+extern void __VERIFIER_error_40();
+extern void __VERIFIER_error_41();
+extern void __VERIFIER_error_42();
+extern void __VERIFIER_error_43();
+extern void __VERIFIER_error_44();
+extern void __VERIFIER_error_45();
+extern void __VERIFIER_error_46();
+extern void __VERIFIER_error_47();
+extern void __VERIFIER_error_48();
+extern void __VERIFIER_error_49();
+extern void __VERIFIER_error_50();
+extern void __VERIFIER_error_51();
+extern void __VERIFIER_error_52();
+extern void __VERIFIER_error_53();
+extern void __VERIFIER_error_54();
+extern void __VERIFIER_error_55();
+extern void __VERIFIER_error_56();
+extern void __VERIFIER_error_57();
+extern void __VERIFIER_error_58();
+extern void __VERIFIER_error_59();
+extern void __VERIFIER_error_60();
+extern void __VERIFIER_error_61();
+extern void __VERIFIER_error_62();
+extern void __VERIFIER_error_63();
+extern void __VERIFIER_error_64();
+extern void __VERIFIER_error_65();
+extern void __VERIFIER_error_66();
+extern void __VERIFIER_error_67();
+extern void __VERIFIER_error_68();
+extern void __VERIFIER_error_69();
+extern void __VERIFIER_error_70();
+extern void __VERIFIER_error_71();
+extern void __VERIFIER_error_72();
+extern void __VERIFIER_error_73();
+extern void __VERIFIER_error_74();
+extern void __VERIFIER_error_75();
+extern void __VERIFIER_error_76();
+extern void __VERIFIER_error_77();
+extern void __VERIFIER_error_78();
+extern void __VERIFIER_error_79();
+extern void __VERIFIER_error_80();
+extern void __VERIFIER_error_81();
+extern void __VERIFIER_error_82();
+extern void __VERIFIER_error_83();
+extern void __VERIFIER_error_84();
+extern void __VERIFIER_error_85();
+extern void __VERIFIER_error_86();
+extern void __VERIFIER_error_87();
+extern void __VERIFIER_error_88();
+extern void __VERIFIER_error_89();
+extern void __VERIFIER_error_90();
+extern void __VERIFIER_error_91();
+extern void __VERIFIER_error_92();
+extern void __VERIFIER_error_93();
+extern void __VERIFIER_error_94();
+extern void __VERIFIER_error_95();
+extern void __VERIFIER_error_96();
+extern void __VERIFIER_error_97();
+extern void __VERIFIER_error_98();
+extern void __VERIFIER_error_99();
+
 
 	// inputs
 	int inputs[] = {7,10,6,2,5,3,9,4,8,1};
@@ -273,403 +373,403 @@ extern int __VERIFIER_nondet_int();
 	void errorCheck() {
 	    if(((a824024208 == 33 && ((330 < a621522874) && (523 >= a621522874))) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(0);
+	    __VERIFIER_error_0();
 	    }
 	    if(((a1944090451 == 34 && a44138666 == 32) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(1);
+	    __VERIFIER_error_1();
 	    }
 	    if(((a910748832 == 32 && a236788248 == 17) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(2);
+	    __VERIFIER_error_2();
 	    }
 	    if(((a812175843 == 33 && a2122722213 == 7) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(3);
+	    __VERIFIER_error_3();
 	    }
 	    if(((a1944090451 == 36 && a44138666 == 32) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(4);
+	    __VERIFIER_error_4();
 	    }
 	    if(((a166920931 == 11 && a2122722213 == 8) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(5);
+	    __VERIFIER_error_5();
 	    }
 	    if(((a1422023390 <=  -145 && a236788248 == 10) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(6);
+	    __VERIFIER_error_6();
 	    }
 	    if(((a236788248 == 10 && a44138666 == 35) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(7);
+	    __VERIFIER_error_7();
 	    }
 	    if(((a808219163 == 32 && a418218587 == 33) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(8);
+	    __VERIFIER_error_8();
 	    }
 	    if(((a824024208 == 35 && ((330 < a621522874) && (523 >= a621522874))) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(9);
+	    __VERIFIER_error_9();
 	    }
 	    if(((((22 < a1422023390) && (156 >= a1422023390)) && a236788248 == 10) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(10);
+	    __VERIFIER_error_10();
 	    }
 	    if(((a236788248 == 10 && a44138666 == 36) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(11);
+	    __VERIFIER_error_11();
 	    }
 	    if(((a1864015649 == 33 && a236788248 == 13) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(12);
+	    __VERIFIER_error_12();
 	    }
 	    if(((a824024208 == 34 && a2122722213 == 4) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(13);
+	    __VERIFIER_error_13();
 	    }
 	    if(((a2083223046 == 33 && a418218587 == 34) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(14);
+	    __VERIFIER_error_14();
 	    }
 	    if(((a236788248 == 12 && a44138666 == 35) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(15);
+	    __VERIFIER_error_15();
 	    }
 	    if(((a1821141922 == 35 && a2122722213 == 2) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(16);
+	    __VERIFIER_error_16();
 	    }
 	    if(((((-101 < a1889803145) && (114 >= a1889803145)) && a45685611 == 12) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(17);
+	    __VERIFIER_error_17();
 	    }
 	    if(((a946891643 == 5 && a45685611 == 7) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(18);
+	    __VERIFIER_error_18();
 	    }
 	    if(((a1944090451 == 33 && a44138666 == 32) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(19);
+	    __VERIFIER_error_19();
 	    }
 	    if(((((383 < a552913881) && (501 >= a552913881)) && a44138666 == 34) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(20);
+	    __VERIFIER_error_20();
 	    }
 	    if(((a946891643 == 9 && a45685611 == 7) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(21);
+	    __VERIFIER_error_21();
 	    }
 	    if(((a2139179119 == 15 && a45685611 == 13) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(22);
+	    __VERIFIER_error_22();
 	    }
 	    if(((a1218264876 == 33 && a236788248 == 14) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(23);
+	    __VERIFIER_error_23();
 	    }
 	    if(((a236788248 == 12 && a44138666 == 36) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(24);
+	    __VERIFIER_error_24();
 	    }
 	    if(((((114 < a1889803145) && (196 >= a1889803145)) && a45685611 == 12) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(25);
+	    __VERIFIER_error_25();
 	    }
 	    if(((a910748832 == 34 && a236788248 == 17) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(26);
+	    __VERIFIER_error_26();
 	    }
 	    if(((a482477713 == 8 && a236788248 == 16) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(27);
+	    __VERIFIER_error_27();
 	    }
 	    if(((a808219163 == 34 && a418218587 == 33) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(28);
+	    __VERIFIER_error_28();
 	    }
 	    if(((((330 < a621522874) && (523 >= a621522874)) && a418218587 == 32) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(29);
+	    __VERIFIER_error_29();
 	    }
 	    if(((((75 < a589117628) && (276 >= a589117628)) && a236788248 == 12) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(30);
+	    __VERIFIER_error_30();
 	    }
 	    if(((a1071924404 == 35 && a1179664392 == 32) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(31);
+	    __VERIFIER_error_31();
 	    }
 	    if(((a1684594625 <=  -160 && a44138666 == 33) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(32);
+	    __VERIFIER_error_32();
 	    }
 	    if(((a1218264876 == 36 && a236788248 == 14) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(33);
+	    __VERIFIER_error_33();
 	    }
 	    if(((105 < a1684594625 && ((116 < a621522874) && (330 >= a621522874))) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(34);
+	    __VERIFIER_error_34();
 	    }
 	    if(((a166920931 == 13 && a2122722213 == 8) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(35);
+	    __VERIFIER_error_35();
 	    }
 	    if(((a430318312 == 9 && a1179664392 == 36) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(36);
+	    __VERIFIER_error_36();
 	    }
 	    if(((((-160 < a1684594625) && (-26 >= a1684594625)) && ((116 < a621522874) && (330 >= a621522874))) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(37);
+	    __VERIFIER_error_37();
 	    }
 	    if(((a648283191 <=  -91 && ((168 < a552913881) && (383 >= a552913881))) && a471011792 == 10)){
 	    cf = 0;
-	    __VERIFIER_error(38);
+	    __VERIFIER_error_38();
 	    }
 	    if(((a2139179119 == 13 && a236788248 == 11) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(39);
+	    __VERIFIER_error_39();
 	    }
 	    if(((a1218264876 == 32 && a45685611 == 9) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(40);
+	    __VERIFIER_error_40();
 	    }
 	    if(((a1218264876 == 34 && a236788248 == 14) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(41);
+	    __VERIFIER_error_41();
 	    }
 	    if(((((-69 < a648283191) && (120 >= a648283191)) && a621522874 <=  116) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(42);
+	    __VERIFIER_error_42();
 	    }
 	    if(((156 < a1422023390 && a236788248 == 10) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(43);
+	    __VERIFIER_error_43();
 	    }
 	    if(((a1218264876 == 36 && a45685611 == 14) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(44);
+	    __VERIFIER_error_44();
 	    }
 	    if(((a824024208 == 34 && ((330 < a621522874) && (523 >= a621522874))) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(45);
+	    __VERIFIER_error_45();
 	    }
 	    if(((a2139179119 == 11 && a236788248 == 11) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(46);
+	    __VERIFIER_error_46();
 	    }
 	    if(((a482477713 == 7 && a236788248 == 16) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(47);
+	    __VERIFIER_error_47();
 	    }
 	    if(((a1071924404 == 36 && a1179664392 == 32) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(48);
+	    __VERIFIER_error_48();
 	    }
 	    if(((a499699109 == 3 && 523 < a621522874) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(49);
+	    __VERIFIER_error_49();
 	    }
 	    if(((a418218587 == 32 && a2122722213 == 3) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(50);
+	    __VERIFIER_error_50();
 	    }
 	    if(((a482477713 == 9 && a236788248 == 16) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(51);
+	    __VERIFIER_error_51();
 	    }
 	    if(((a2079503415 == 13 && a236788248 == 15) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(52);
+	    __VERIFIER_error_52();
 	    }
 	    if(((a482477713 == 6 && a236788248 == 16) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(53);
+	    __VERIFIER_error_53();
 	    }
 	    if(((276 < a589117628 && a236788248 == 12) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(54);
+	    __VERIFIER_error_54();
 	    }
 	    if(((((160 < a173429297) && (321 >= a173429297)) && a418218587 == 35) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(55);
+	    __VERIFIER_error_55();
 	    }
 	    if(((((-59 < a173429297) && (160 >= a173429297)) && a45685611 == 10) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(56);
+	    __VERIFIER_error_56();
 	    }
 	    if(((a71064409 <=  -150 && a1179664392 == 34) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(57);
+	    __VERIFIER_error_57();
 	    }
 	    if(((a2139179119 == 10 && a45685611 == 13) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(58);
+	    __VERIFIER_error_58();
 	    }
 	    if(((a1605463015 == 8 && a1179664392 == 33) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(59);
+	    __VERIFIER_error_59();
 	    }
 	    if(((a236788248 == 16 && a44138666 == 35) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(60);
+	    __VERIFIER_error_60();
 	    }
 	    if(((a1864015649 == 36 && a236788248 == 13) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(61);
+	    __VERIFIER_error_61();
 	    }
 	    if(((a1859402009 == 11 && a45685611 == 11) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(62);
+	    __VERIFIER_error_62();
 	    }
 	    if(((a808219163 == 36 && a418218587 == 33) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(63);
+	    __VERIFIER_error_63();
 	    }
 	    if(((a430318312 == 8 && a1179664392 == 36) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(64);
+	    __VERIFIER_error_64();
 	    }
 	    if(((a173429297 <=  -59 && a45685611 == 10) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(65);
+	    __VERIFIER_error_65();
 	    }
 	    if(((((-91 < a648283191) && (-69 >= a648283191)) && a418218587 == 36) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(66);
+	    __VERIFIER_error_66();
 	    }
 	    if(((a430318312 == 10 && a1179664392 == 36) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(67);
+	    __VERIFIER_error_67();
 	    }
 	    if(((a1864015649 == 34 && a236788248 == 13) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(68);
+	    __VERIFIER_error_68();
 	    }
 	    if(((a589117628 <=  50 && a236788248 == 12) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(69);
+	    __VERIFIER_error_69();
 	    }
 	    if(((a1605463015 == 4 && a1179664392 == 33) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(70);
+	    __VERIFIER_error_70();
 	    }
 	    if(((((-160 < a1684594625) && (-26 >= a1684594625)) && a44138666 == 33) && a471011792 == 5)){
 	    cf = 0;
-	    __VERIFIER_error(71);
+	    __VERIFIER_error_71();
 	    }
 	    if(((a499699109 == 4 && 523 < a621522874) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(72);
+	    __VERIFIER_error_72();
 	    }
 	    if(((a946891643 == 12 && a45685611 == 7) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(73);
+	    __VERIFIER_error_73();
 	    }
 	    if(((((-145 < a1422023390) && (22 >= a1422023390)) && a236788248 == 10) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(74);
+	    __VERIFIER_error_74();
 	    }
 	    if(((a2139179119 == 16 && a45685611 == 13) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(75);
+	    __VERIFIER_error_75();
 	    }
 	    if(((((-69 < a648283191) && (120 >= a648283191)) && ((168 < a552913881) && (383 >= a552913881))) && a471011792 == 10)){
 	    cf = 0;
-	    __VERIFIER_error(76);
+	    __VERIFIER_error_76();
 	    }
 	    if(((a1071924404 == 34 && a1179664392 == 32) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(77);
+	    __VERIFIER_error_77();
 	    }
 	    if(((a812175843 == 34 && a2122722213 == 9) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(78);
+	    __VERIFIER_error_78();
 	    }
 	    if(((a430318312 == 3 && a1179664392 == 36) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(79);
+	    __VERIFIER_error_79();
 	    }
 	    if(((a1218264876 == 34 && a45685611 == 9) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(80);
+	    __VERIFIER_error_80();
 	    }
 	    if(((a1179664392 == 36 && ((383 < a552913881) && (501 >= a552913881))) && a471011792 == 10)){
 	    cf = 0;
-	    __VERIFIER_error(81);
+	    __VERIFIER_error_81();
 	    }
 	    if(((((-91 < a648283191) && (-69 >= a648283191)) && a621522874 <=  116) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(82);
+	    __VERIFIER_error_82();
 	    }
 	    if(((((160 < a173429297) && (321 >= a173429297)) && a45685611 == 10) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(83);
+	    __VERIFIER_error_83();
 	    }
 	    if(((a482477713 == 3 && a236788248 == 16) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(84);
+	    __VERIFIER_error_84();
 	    }
 	    if(((a808219163 == 35 && a418218587 == 33) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(85);
+	    __VERIFIER_error_85();
 	    }
 	    if(((a1218264876 == 35 && a236788248 == 14) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(86);
+	    __VERIFIER_error_86();
 	    }
 	    if(((a812175843 == 36 && a2122722213 == 9) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(87);
+	    __VERIFIER_error_87();
 	    }
 	    if(((a430318312 == 5 && a1179664392 == 36) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(88);
+	    __VERIFIER_error_88();
 	    }
 	    if(((a2079503415 == 16 && a236788248 == 15) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(89);
+	    __VERIFIER_error_89();
 	    }
 	    if(((a1684594625 <=  -160 && ((116 < a621522874) && (330 >= a621522874))) && a471011792 == 11)){
 	    cf = 0;
-	    __VERIFIER_error(90);
+	    __VERIFIER_error_90();
 	    }
 	    if(((a2079503415 == 9 && a236788248 == 15) && a471011792 == 9)){
 	    cf = 0;
-	    __VERIFIER_error(91);
+	    __VERIFIER_error_91();
 	    }
 	    if(((a1535937505 == 36 && a2122722213 == 6) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(92);
+	    __VERIFIER_error_92();
 	    }
 	    if(((((116 < a621522874) && (330 >= a621522874)) && a418218587 == 32) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(93);
+	    __VERIFIER_error_93();
 	    }
 	    if(((196 < a1889803145 && a45685611 == 8) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(94);
+	    __VERIFIER_error_94();
 	    }
 	    if(((a418218587 == 33 && a2122722213 == 3) && a471011792 == 12)){
 	    cf = 0;
-	    __VERIFIER_error(95);
+	    __VERIFIER_error_95();
 	    }
 	    if(((a2139179119 == 9 && a45685611 == 13) && a471011792 == 6)){
 	    cf = 0;
-	    __VERIFIER_error(96);
+	    __VERIFIER_error_96();
 	    }
 	    if(((a2083223046 == 35 && a418218587 == 34) && a471011792 == 7)){
 	    cf = 0;
-	    __VERIFIER_error(97);
+	    __VERIFIER_error_97();
 	    }
 	    if(((a1071924404 == 33 && a1179664392 == 32) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(98);
+	    __VERIFIER_error_98();
 	    }
 	    if(((a1071924404 == 32 && a1179664392 == 32) && a471011792 == 8)){
 	    cf = 0;
-	    __VERIFIER_error(99);
+	    __VERIFIER_error_99();
 	    }
 	}
  void calculate_outputm57(int input) {
