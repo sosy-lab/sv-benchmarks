@@ -193,8 +193,8 @@ void balance_control(unsigned int args_cmd_forward , unsigned int args_cmd_turn 
   return;
 }
 }
-extern unsigned int __VERIFIER_nondet_U32() ;
-extern char __VERIFIER_nondet_S8() ;
+extern unsigned int __VERIFIER_nondet_uint() ;
+extern char __VERIFIER_nondet_char() ;
 extern unsigned char __VERIFIER_nondet_uchar() ;
 __inline static unsigned char __startrek_read_nxtway_gs_mode(void) ;
 __inline static void __startrek_write_nxtway_gs_mode(unsigned char arg ) ;
@@ -222,7 +222,7 @@ char nxt_motor_get_count(unsigned char port )
   char tmp ;
 
   {
-  tmp = __VERIFIER_nondet_S8();
+  tmp = __VERIFIER_nondet_char();
   return (tmp);
 }
 }
@@ -243,7 +243,7 @@ unsigned int ecrobot_get_gyro_sensor(unsigned char port )
   unsigned int tmp ;
 
   {
-  tmp = __VERIFIER_nondet_U32();
+  tmp = __VERIFIER_nondet_uint();
   return (tmp);
 }
 }
@@ -263,7 +263,7 @@ unsigned int ecrobot_get_battery_voltage(void)
   unsigned int tmp ;
 
   {
-  tmp = __VERIFIER_nondet_U32();
+  tmp = __VERIFIER_nondet_uint();
   return (tmp);
 }
 }
