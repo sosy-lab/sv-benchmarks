@@ -2598,7 +2598,7 @@ m_pullup(struct mbuf *n, int len)
                 m->m_hdr.mh_data += adj;
         }
 
-        ((m_trailingspace(m) >= len) ? (void)0 : __assert("diagnostic ", "out.c", 262, "M_TRAILINGSPACE(m) >= len"));
+        ((m_trailingspace(m) >= len) ? (void)0 : __assert("diagnostic ", "if_etherip-fixed-double-free.c", 262, "M_TRAILINGSPACE(m) >= len"));
 
         do {
                 if (n == ((void *)0)) {
