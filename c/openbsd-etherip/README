@@ -2,7 +2,3 @@ Contributed by: Moritz Buhl
 
 Taken from the OpenBSD 6.2 src checkout https://www.openbsd.org/
 Copyright and license are mentioned in each file of the source directory.
-
-The create.sh file shows how to create the if_etherip_*.i files.
-To create the erreneous file, the patchfile in the sources directory needs
-to be reverted. (patch -R sys/if_etherip.c ./007_etherip.patch.sig)

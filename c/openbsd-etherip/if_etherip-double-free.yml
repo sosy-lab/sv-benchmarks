@@ -1,6 +1,6 @@
 format_version: '1.0'
 
-input_files: 'if_etherip_false.i'
+input_files: 'if_etherip-double-free.i'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
