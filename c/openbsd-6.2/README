@@ -2,3 +2,7 @@ Contributed by: Moritz Buhl
 
 Taken from the OpenBSD 6.2 src checkout https://www.openbsd.org/
 Copyright and license are mentioned in each file of the source directory.
+
+Originally these files are compiled with the unsupported OpenBSD 6.2 release
+and the systems compiler:
+OpenBSD clang version 4.0.0 (tags/RELEASE_400/final) (based on LLVM 4.0.0)
