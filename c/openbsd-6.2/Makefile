@@ -19,6 +19,7 @@ all: if_etherip-fixed-double-free.i if_etherip-double-free.i
 
 %.i: %.c
 	cc ${CFLAGS} -o $@ ${@:.i=.c}
+	clang-format -i $@
 
 %.c:
 	[ "$@" = "if_etherip-double-free.c" ] && \
