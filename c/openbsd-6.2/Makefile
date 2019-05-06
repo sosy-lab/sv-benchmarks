@@ -15,7 +15,6 @@ CFLAGS=-g -Werror -Wall -Wimplicit-function-declaration -Wno-uninitialized \
 -DONEWIREVERBOSE -DMAXUSERS=80 -D_KERNEL -c -E -P
 
 .PHONY: all %.i
-.SECONDARY: if_etherip-fixed-double-free.c if_etherip-double-free.c
 
 all: if_etherip-fixed-double-free.i if_etherip-double-free.i
 	[ -f ${CURDIR}/sources/sys/if_etherip.c.orig ] && \

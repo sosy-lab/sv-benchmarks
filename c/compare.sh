@@ -60,7 +60,7 @@ for f in $SETS ; do
   if [ $setf = ConcurrencySafety-Main ] ; then
     echo "Skipping category $setf (platform-dependent types)"
     continue
-  elif [[ $SKIP_LARGE -eq 1 && $setf == Systems_DeviceDriversLinux64_ReachSafety* ]] ; then
+  elif [[ $SKIP_LARGE -eq 1 && ( $setf == Systems_DeviceDriversLinux64_ReachSafety* || $setf == "Systems_OpenBSD_MemSafety" ) ]]; then
     echo "Skipping category $setf (only custom includes, no system headers, checking takes too much time)"
     continue
   fi
