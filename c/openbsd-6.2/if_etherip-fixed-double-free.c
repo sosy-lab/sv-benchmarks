@@ -1,6 +1,6 @@
 #ifndef __stub_sv_comp_h
 #define __stub_sv_comp_h 1
-#include "sources/sys/sv_comp.h"
+#include "sources/stubs/sv_comp.h"
 #endif
 
 #ifndef __stub_sys_types_h
@@ -47,11 +47,11 @@ main(void)
 }
 #ifndef __stub_sv_comp_h
 #define __stub_sv_comp_h 1
-#include "sources/sys/sv_comp.h"
+#include "sources/stubs/sv_comp.h"
 #endif
 #ifndef __stub_stub_h
 #define __stub_stub_h 1
-#include "sources/sys/stub.h"
+#include "sources/stubs/stub.h"
 #endif
 
 #ifndef __stub_lib_libkern_libkern_h
@@ -305,11 +305,11 @@ m_clget(struct mbuf *m, int how, u_int pktlen)
 }
 #ifndef __stub_stub_h
 #define __stub_stub_h 1
-#include "sources/sys/stub.h"
+#include "sources/stubs/stub.h"
 #endif
 #ifndef __stub_sv_comp_h
 #define __stub_sv_comp_h 1
-#include "sources/sys/sv_comp.h"
+#include "sources/stubs/sv_comp.h"
 #endif
 
 #ifndef __stub_sys_param_h
@@ -878,11 +878,11 @@ ipip_input(struct mbuf **a, int *b, int c, int d)
 }
 #ifndef __stub_stub_h
 #define __stub_stub_h 1
-#include "sources/sys/stub.h"
+#include "sources/stubs/stub.h"
 #endif
 #ifndef __stub_sv_comp_h
 #define __stub_sv_comp_h 1
-#include "sources/sys/sv_comp.h"
+#include "sources/stubs/sv_comp.h"
 #endif
 
 #ifndef __stub_lib_libkern_libkern_h
