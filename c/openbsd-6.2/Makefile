@@ -1,3 +1,5 @@
+CC.Arch := 64
+
 CFLAGS=-g -Werror -Wall -Wimplicit-function-declaration -Wno-uninitialized \
 -Wno-pointer-sign -Wno-address-of-packed-member -Wno-constant-conversion \
 -Wframe-larger-than=2047 -mcmodel=kernel -mno-red-zone -mno-sse2 -mno-sse \
