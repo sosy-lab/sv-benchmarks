@@ -15,7 +15,9 @@ CFLAGS=-g -Werror -Wall -Wimplicit-function-declaration -Wno-uninitialized \
 .PHONY: all %.i
 
 all: if_etherip-fixed-double-free.i if_etherip-double-free.i
-	git checkout ${CURDIR}/sources/sys/if_etherip.c
+	[ -f ${CURDIR}/sources/sys/if_etherip.c.orig ] && \
+	mv ${CURDIR}/sources/sys/if_etherip.c.orig \
+	${CURDIR}/sources/sys/if_etherip.c || echo "No .orig file exists."
 
 %.i: %.c
 	cc ${CFLAGS} -o $@ ${@:.i=.c}
@@ -23,9 +25,9 @@ all: if_etherip-fixed-double-free.i if_etherip-double-free.i
 
 %.c:
 	[ "$@" = "if_etherip-double-free.c" ] && \
-	patch -R -i \
+	patch -b -R -i \
 	${CURDIR}/sources/007_etherip.patch.sig -d ${CURDIR}/sources/sys || \
-	true
+	echo "Patch failed with code $?"
 	cp ${CURDIR}/sources/stubs/*.h ${CURDIR}/sources/sys/
 	cat ${CURDIR}/sources/stubs/init.c ${CURDIR}/sources/stubs/mbuf.c \
 	    ${CURDIR}/sources/stubs/ip.c ${CURDIR}/sources/stubs/stub.c \
@@ -33,8 +35,9 @@ all: if_etherip-fixed-double-free.i if_etherip-double-free.i
 	perl -ni preprocess.pl $@
 
 clean:
-	rm -f ${CURDIR}/sources/sys/if_etherip.c.orig
+	[ -f ${CURDIR}/sources/sys/if_etherip.c.orig ] && \
+	mv ${CURDIR}/sources/sys/if_etherip.c.orig \
+	${CURDIR}/sources/sys/if_etherip.c || true
 	rm -f ${CURDIR}/sources/sys/if_etherip.c.rej
 	rm -f ${CURDIR}/sources/sys/stub.h ${CURDIR}/sources/sys/sv_comp.h
 	rm -f if_etherip-fixed-double-free.i if_etherip-double-free.i
-	git checkout ${CURDIR}/sources/sys/if_etherip.c
