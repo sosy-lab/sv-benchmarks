@@ -1,7 +1,13 @@
-#include <stdlib.h>
+extern void *malloc(unsigned long size);
+extern void free(void *);
+
 extern int __VERIFIER_nondet_int(void);
 extern _Bool __VERIFIER_nondet_bool(void);
-extern void __VERIFIER_assert(int);
+
+extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
+extern void __VERIFIER_assert(int cond) {
+    if(!cond) __VERIFIER_error();
+}
 
 struct node {
     int data;
@@ -10,7 +16,7 @@ struct node {
 
 struct node *nondet_tree() {
     if(__VERIFIER_nondet_bool()) {
-        return NULL;
+        return 0;
     } else {
         struct node *n = (struct node *)malloc(sizeof(struct node));
         n->data = __VERIFIER_nondet_int();
@@ -20,7 +26,7 @@ struct node *nondet_tree() {
 }
 
 int max(struct node *n) {
-    if(n == NULL) {
+    if(!n) {
         return -2147483648; /* INT_MIN */
     } else {
         int a = max(n->left);
@@ -31,7 +37,7 @@ int max(struct node *n) {
 }
 
 void check(struct node *n, int a) {
-    if(n != NULL) {
+    if(n) {
         __VERIFIER_assert(n->data <= a);
 
         if(__VERIFIER_nondet_bool()) {

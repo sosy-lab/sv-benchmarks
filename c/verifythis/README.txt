@@ -5,13 +5,12 @@ The benchmarks are described on the web-page (-> Archive)
 http://www.pm.inf.ethz.ch/research/verifythis.html
 
 The conceptual authorship of these benchmarks is by the organizers
-of the respective VerifyThis event.
+of the respective VerifyThis event (mentioned below).
+The C source code alongside checker functions that test various properties,
+have been prepared by Gidon Ernst <gidonernst@gmail.com>
 
-The challenges have been formulated as C code,
-alongside checker functions that test various properties
-of the computed result, relying on C data structures.
-For example, two trees are compared by taking an in-order scan
-into a temporary array.
+The checkers of the computed results occasionally rely on temporary C data structures.
+For example, two trees are compared by taking an in-order scan into a temporary array.
 Quantified properties are emulated by iterating over the domain
 in a loop, or alternatively by non-deterministic choice.
 

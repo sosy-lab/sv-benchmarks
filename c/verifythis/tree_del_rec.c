@@ -1,7 +1,13 @@
-#include <stdlib.h>
+extern void *malloc(unsigned long size);
+extern void free(void *);
+
 extern int __VERIFIER_nondet_int(void);
 extern _Bool __VERIFIER_nondet_bool(void);
-extern void __VERIFIER_assert(int);
+
+extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
+extern void __VERIFIER_assert(int cond) {
+    if(!cond) __VERIFIER_error();
+}
 
 struct node {
     int data;
@@ -10,7 +16,7 @@ struct node {
 
 struct node *nondet_tree() {
     if(__VERIFIER_nondet_bool()) {
-        return NULL;
+        return 0;
     } else {
         struct node *n = (struct node *)malloc(sizeof(struct node));
         n->data = __VERIFIER_nondet_int();
@@ -20,7 +26,7 @@ struct node *nondet_tree() {
 }
 
 int min(struct node *n) {
-    if(n == NULL) {
+    if(!n) {
         return 2147483647; /* INT_MAX */
     } else {
         int a = min(n->left);
@@ -33,7 +39,7 @@ int min(struct node *n) {
 struct node *tree_del(struct node *t, int *min) {
     struct node *r;
 
-    if (t->left == NULL) {
+    if (!t->left) {
         *min = t->data; r = t->right; free(t);
         return r;
     } else {
@@ -43,7 +49,7 @@ struct node *tree_del(struct node *t, int *min) {
 }
 
 int tree_inorder(struct node *t, int *a, int i) {
-    if(t == NULL) {
+    if(!t) {
         return i;
     } else {
         i = tree_inorder(t->left,  a, i);
@@ -54,7 +60,7 @@ int tree_inorder(struct node *t, int *a, int i) {
 }
 
 int size(struct node *t) {
-    if(t == NULL) return 0;
+    if(!t) return 0;
     else return size(t->left) + size(t->right) + 1;
 }
 
