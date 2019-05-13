@@ -95,7 +95,6 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ssh", "missing readme"),
     ("ssh-simplified", "missing readme"),
     ("openbsd-6.2", "unexpected subdirectory sources"),
-    ("openbsd-6.2", "unexpected file preprocess.pl"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
