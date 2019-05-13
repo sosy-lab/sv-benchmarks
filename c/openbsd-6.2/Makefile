@@ -19,9 +19,10 @@ CFLAGS=-g -Werror -Wall -Wimplicit-function-declaration -Wno-uninitialized \
 
 # Create the preprocessed files, restore the patched files
 all: if_etherip-fixed-double-free.i if_etherip-double-free.i
-	[ -f ${CURDIR}/sources/sys/if_etherip.c.orig ] && \
-	mv ${CURDIR}/sources/sys/if_etherip.c.orig \
-	${CURDIR}/sources/sys/if_etherip.c || echo "No .orig file exists."
+	if [ -f ${CURDIR}/sources/sys/if_etherip.c.orig ]; then \
+	    mv  ${CURDIR}/sources/sys/if_etherip.c.orig \
+		${CURDIR}/sources/sys/if_etherip.c; \
+	fi
 
 # Compile a single module and reformat it
 %.i: %.c
