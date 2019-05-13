@@ -25,10 +25,9 @@ all: if_etherip-fixed-double-free.i if_etherip-double-free.i if_etherip-fixed-do
 	fi
 	rm ${CURDIR}/*.c
 
-# Preprocess a single module and reformat it
+# Preprocess a single module
 %.i: %.c
 	cc ${CFLAGS} -o $@ ${@:.i=.c}
-	clang-format -i $@
 
 # Apply patches if necessary, copy stub header files to the source files,
 # concatenate the source files into a single module and wrap all #include-
