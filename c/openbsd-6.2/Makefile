@@ -1,5 +1,6 @@
 CC.Arch := 64
 
+# The CFLAGS variable is copied from the OpenBSD build process
 CFLAGS=-g -Werror -Wall -Wimplicit-function-declaration -Wno-uninitialized \
 -Wno-pointer-sign -Wno-address-of-packed-member -Wno-constant-conversion \
 -Wframe-larger-than=2047 -mcmodel=kernel -mno-red-zone -mno-sse2 -mno-sse \
@@ -16,15 +17,20 @@ CFLAGS=-g -Werror -Wall -Wimplicit-function-declaration -Wno-uninitialized \
 
 .PHONY: all %.i
 
+# Create the preprocessed files, restore the patched files
 all: if_etherip-fixed-double-free.i if_etherip-double-free.i
 	[ -f ${CURDIR}/sources/sys/if_etherip.c.orig ] && \
 	mv ${CURDIR}/sources/sys/if_etherip.c.orig \
 	${CURDIR}/sources/sys/if_etherip.c || echo "No .orig file exists."
 
+# Compile a single module and reformat it
 %.i: %.c
 	cc ${CFLAGS} -o $@ ${@:.i=.c}
 	clang-format -i $@
 
+# Apply patches if necessary, copy stub header files to the source files,
+# concatenate the source files into a single module and wrap all #include-
+# directives with #ifndef-blocks
 %.c:
 	[ "$@" = "if_etherip-double-free.c" ] && \
 	patch -b -R -i \
@@ -47,6 +53,7 @@ all: if_etherip-fixed-double-free.i if_etherip-double-free.i
 	    } }' $@ > $$tmp; \
 	    cat $$tmp > $@ && rm $$tmp
 
+# Restore all files the make process could have touched or created
 clean:
 	[ -f ${CURDIR}/sources/sys/if_etherip.c.orig ] && \
 	mv ${CURDIR}/sources/sys/if_etherip.c.orig \
