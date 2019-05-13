@@ -3,6 +3,12 @@ Contributed by: Moritz Buhl
 Taken from the OpenBSD 6.2 src checkout https://www.openbsd.org/
 Copyright and license are mentioned in each file of the source directory.
 
+The patch file in sources/007_etherip.patch.sig was obtained from
+https://www.openbsd.org/errata62.html and contains the necessary changes
+to remove a use-after-free bug. The patch utility will warn on the
+"untrusted comment" in the first line but should then proceed. The file was
+left unmodified as available online.
+
 Originally these files are compiled with the unsupported OpenBSD 6.2 release
 and the systems compiler:
 OpenBSD clang version 4.0.0 (tags/RELEASE_400/final) (based on LLVM 4.0.0)
