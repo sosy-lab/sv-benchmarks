@@ -25,7 +25,7 @@ all: if_etherip-fixed-double-free.i if_etherip-double-free.i if_etherip-fixed-do
 	fi
 	rm ${CURDIR}/*.c
 
-# Compile a single module and reformat it
+# Preprocess a single module and reformat it
 %.i: %.c
 	cc ${CFLAGS} -o $@ ${@:.i=.c}
 	clang-format -i $@
