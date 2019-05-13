@@ -186,7 +186,6 @@ _Bool __VERIFIER_nondet_bool(void);
 int __VERIFIER_nondet_int(void);
 void __VERIFIER_atomic_begin(void);
 void __VERIFIER_atomic_end(void);
-
 struct m_tag {
   struct {
     struct m_tag *sle_next;
@@ -2172,7 +2171,7 @@ struct mbuf *m_pullup(struct mbuf *n, int len) {
 
   ((m_trailingspace(m) >= len)
        ? (void)0
-       : __assert("diagnostic ", "if_etherip-double-free.c", 262,
+       : __assert("diagnostic ", "if_etherip-double-free.c", 273,
                   "M_TRAILINGSPACE(m) >= len"));
 
   do {
@@ -2286,7 +2285,6 @@ void domaininit(void);
 extern struct domain inetdomain;
 
 extern struct domain inet6domain;
-
 struct if_nameindex {
   unsigned int if_index;
   char *if_name;
@@ -6042,7 +6040,6 @@ struct ifmedia_status_description {
   uint64_t ifms_bit;
   const char *ifms_string[2];
 };
-
 struct etheripstat {
   u_int64_t etherips_hdrops;
   u_int64_t etherips_qfull;
@@ -6070,7 +6067,6 @@ int etherip_sysctl(int *, u_int, void *, size_t *, void *, size_t);
 
 extern int etherip_allow;
 extern struct etheripstat etheripstat;
-
 struct ip {
 
   u_int ip_hl : 4, ip_v : 4;
@@ -6350,7 +6346,6 @@ u_int32_t ether_crc32_le_update(u_int32_t crc, const u_int8_t *, size_t);
 u_int32_t ether_crc32_be_update(u_int32_t crc, const u_int8_t *, size_t);
 u_int32_t ether_crc32_le(const u_int8_t *, size_t);
 u_int32_t ether_crc32_be(const u_int8_t *, size_t);
-
 struct x86_64_tss {
   u_int32_t tss_reserved1;
   u_int64_t tss_rsp0;
@@ -6548,7 +6543,6 @@ struct tstamps {
   int ts_set;
   int ts_clr;
 };
-
 struct uvmexp {
 
   int pagesize;
@@ -8459,7 +8453,6 @@ void pf_send_tcp(const struct pf_rule *, sa_family_t, const struct pf_addr *,
                  const struct pf_addr *, u_int16_t, u_int16_t, u_int32_t,
                  u_int32_t, u_int8_t, u_int16_t, u_int16_t, u_int8_t, int,
                  u_int16_t, u_int);
-
 struct etherip_softc {
   struct arpcom sc_ac;
   struct ifmedia sc_media;

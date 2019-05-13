@@ -34,7 +34,18 @@ all: if_etherip-fixed-double-free.i if_etherip-double-free.i
 	cat ${CURDIR}/sources/stubs/init.c ${CURDIR}/sources/stubs/mbuf.c \
 	    ${CURDIR}/sources/stubs/ip.c ${CURDIR}/sources/stubs/stub.c \
 	    ${CURDIR}/sources/sys/if_etherip.c > $@
-	perl -ni preprocess.pl $@
+	tmp=$$(mktemp); \
+	awk '{ if ( /^\s*#include/ ){ \
+	    match($$0, /[<"][^>"]*[">]/ ); \
+	    hdr=substr($$0, RSTART+1, RLENGTH-2); \
+	    eschdr=substr(hdr, 1, length(hdr)-2); \
+	    gsub("/", "_", eschdr); \
+	    print "#ifndef __stub_"eschdr"\n#define __stub_"eschdr \
+		" 1\n""#include \""hdr"\"\n#endif\n" \
+	    } else { \
+		print \
+	    } }' $@ > $$tmp; \
+	    cat $$tmp > $@ && rm $$tmp
 
 clean:
 	[ -f ${CURDIR}/sources/sys/if_etherip.c.orig ] && \
@@ -44,3 +55,4 @@ clean:
 	rm -f ${CURDIR}/sources/sys/stub.h ${CURDIR}/sources/sys/sv_comp.h
 	rm -f ${CURDIR}/if_etherip-fixed-double-free.{i,c}
 	rm -f ${CURDIR}/if_etherip-double-free.{i,c}
+
