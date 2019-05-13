@@ -36,7 +36,7 @@ all: if_etherip-fixed-double-free.i if_etherip-double-free.i
 	[ "$@" = "if_etherip-double-free.c" ] && \
 	patch -b -R -i \
 	${CURDIR}/sources/007_etherip.patch.sig -d ${CURDIR}/sources/sys || \
-	echo "Patch failed with code $?"
+	echo "Patch failed with code $$?"
 	cp ${CURDIR}/sources/stubs/*.h ${CURDIR}/sources/sys/
 	cat ${CURDIR}/sources/stubs/init.c ${CURDIR}/sources/stubs/mbuf.c \
 	    ${CURDIR}/sources/stubs/ip.c ${CURDIR}/sources/stubs/stub.c \
