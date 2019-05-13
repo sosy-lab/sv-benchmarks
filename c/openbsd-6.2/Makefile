@@ -15,14 +15,15 @@ CFLAGS=-g -Werror -Wall -Wimplicit-function-declaration -Wno-uninitialized \
 -DWSDISPLAY_COMPAT_RAWKBD -DWSDISPLAY_DEFAULTSCREENS="6" -DX86EMU \
 -DONEWIREVERBOSE -DMAXUSERS=80 -D_KERNEL -c -E -P
 
-.PHONY: all %.i
+.PHONY: all %.i %.c
 
 # Create the preprocessed files, restore the patched files
-all: if_etherip-fixed-double-free.i if_etherip-double-free.i
+all: if_etherip-fixed-double-free.i if_etherip-double-free.i if_etherip-fixed-double-free.c if_etherip-double-free.c
 	if [ -f ${CURDIR}/sources/sys/if_etherip.c.orig ]; then \
 	    mv  ${CURDIR}/sources/sys/if_etherip.c.orig \
 		${CURDIR}/sources/sys/if_etherip.c; \
 	fi
+	rm ${CURDIR}/*.c
 
 # Compile a single module and reformat it
 %.i: %.c
