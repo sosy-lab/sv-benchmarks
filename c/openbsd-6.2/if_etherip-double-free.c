@@ -7,12 +7,10 @@
 #define __stub_sys_types 1
 #include "sources/sys/sys/types.h"
 #endif
-
 #ifndef __stub_sys_mbuf
 #define __stub_sys_mbuf 1
 #include "sources/sys/sys/mbuf.h"
 #endif
-
 #ifndef __stub_sys_socket
 #define __stub_sys_socket 1
 #include "sources/sys/sys/socket.h"
@@ -48,7 +46,6 @@ int main(void) {
 #define __stub_sv_comp 1
 #include "sources/sys/sv_comp.h"
 #endif
-
 #ifndef __stub_stub
 #define __stub_stub 1
 #include "sources/sys/stub.h"
@@ -58,22 +55,18 @@ int main(void) {
 #define __stub_lib_libkern_libkern 1
 #include "sources/sys/lib/libkern/libkern.h"
 #endif
-
 #ifndef __stub_sys_systm
 #define __stub_sys_systm 1
 #include "sources/sys/sys/systm.h"
 #endif
-
 #ifndef __stub_sys_param
 #define __stub_sys_param 1
 #include "sources/sys/sys/param.h"
 #endif
-
 #ifndef __stub_sys_mbuf
 #define __stub_sys_mbuf 1
 #include "sources/sys/sys/mbuf.h"
 #endif
-
 #ifndef __stub_sys_rwlock
 #define __stub_sys_rwlock 1
 #include "sources/sys/sys/rwlock.h"
@@ -295,7 +288,6 @@ struct mbuf *m_clget(struct mbuf *m, int how, u_int pktlen) {
 #define __stub_stub 1
 #include "sources/sys/stub.h"
 #endif
-
 #ifndef __stub_sv_comp
 #define __stub_sv_comp 1
 #include "sources/sys/sv_comp.h"
@@ -305,112 +297,90 @@ struct mbuf *m_clget(struct mbuf *m, int how, u_int pktlen) {
 #define __stub_sys_param 1
 #include "sources/sys/sys/param.h"
 #endif
-
 #ifndef __stub_sys_select
 #define __stub_sys_select 1
 #include "sources/sys/sys/select.h"
 #endif
-
 #ifndef __stub_sys_socket
 #define __stub_sys_socket 1
 #include "sources/sys/sys/socket.h"
 #endif
-
 #ifndef __stub_sys_protosw
 #define __stub_sys_protosw 1
 #include "sources/sys/sys/protosw.h"
 #endif
-
 #ifndef __stub_sys_domain
 #define __stub_sys_domain 1
 #include "sources/sys/sys/domain.h"
 #endif
-
 #ifndef __stub_sys_srp
 #define __stub_sys_srp 1
 #include "sources/sys/sys/srp.h"
 #endif
-
 #ifndef __stub_net_if
 #define __stub_net_if 1
 #include "sources/sys/net/if.h"
 #endif
-
 #ifndef __stub_net_if_etherip
 #define __stub_net_if_etherip 1
 #include "sources/sys/net/if_etherip.h"
 #endif
-
 #ifndef __stub_net_if_var
 #define __stub_net_if_var 1
 #include "sources/sys/net/if_var.h"
 #endif
-
 #ifndef __stub_net_route
 #define __stub_net_route 1
 #include "sources/sys/net/route.h"
 #endif
-
 #ifndef __stub_netinet_in
 #define __stub_netinet_in 1
 #include "sources/sys/netinet/in.h"
 #endif
-
 #ifndef __stub_netinet_ip_var
 #define __stub_netinet_ip_var 1
 #include "sources/sys/netinet/ip_var.h"
 #endif
-
 #ifndef __stub_netinet_tcp
 #define __stub_netinet_tcp 1
 #include "sources/sys/netinet/tcp.h"
 #endif
-
 #ifndef __stub_netinet_tcp_timer
 #define __stub_netinet_tcp_timer 1
 #include "sources/sys/netinet/tcp_timer.h"
 #endif
-
 #ifndef __stub_netinet_tcp_var
 #define __stub_netinet_tcp_var 1
 #include "sources/sys/netinet/tcp_var.h"
 #endif
-
 #ifndef __stub_netinet_udp
 #define __stub_netinet_udp 1
 #include "sources/sys/netinet/udp.h"
 #endif
-
 #ifndef __stub_netinet_udp_var
 #define __stub_netinet_udp_var 1
 #include "sources/sys/netinet/udp_var.h"
 #endif
-
 #ifndef __stub_netinet_icmp6
 #define __stub_netinet_icmp6 1
 #include "sources/sys/netinet/icmp6.h"
 #endif
-
 #ifndef __stub_netinet_ip_ipsp
 #define __stub_netinet_ip_ipsp 1
 #include "sources/sys/netinet/ip_ipsp.h"
 #endif
-
 #ifndef __stub_netinet_ip_ipip
 #define __stub_netinet_ip_ipip 1
 #include "sources/sys/netinet/ip_ipip.h"
 #endif
-
 #ifndef __stub_netinet_ip6
 #define __stub_netinet_ip6 1
 #include "sources/sys/netinet/ip6.h"
 #endif
-
 #ifndef __stub_netinet6_in6_var
 #define __stub_netinet6_in6_var 1
 #include "sources/sys/netinet6/in6_var.h"
 #endif
-
 #ifndef __stub_netinet6_ip6_var
 #define __stub_netinet6_ip6_var 1
 #include "sources/sys/netinet6/ip6_var.h"
@@ -778,7 +748,6 @@ int ipip_input(struct mbuf **a, int *b, int c, int d) {
 #define __stub_stub 1
 #include "sources/sys/stub.h"
 #endif
-
 #ifndef __stub_sv_comp
 #define __stub_sv_comp 1
 #include "sources/sys/sv_comp.h"
@@ -788,92 +757,74 @@ int ipip_input(struct mbuf **a, int *b, int c, int d) {
 #define __stub_lib_libkern_libkern 1
 #include "sources/sys/lib/libkern/libkern.h"
 #endif
-
 #ifndef __stub_sys_types
 #define __stub_sys_types 1
 #include "sources/sys/sys/types.h"
 #endif
-
 #ifndef __stub_sys_mbuf
 #define __stub_sys_mbuf 1
 #include "sources/sys/sys/mbuf.h"
 #endif
-
 #ifndef __stub_sys_socket
 #define __stub_sys_socket 1
 #include "sources/sys/sys/socket.h"
 #endif
-
 #ifndef __stub_sys_srp
 #define __stub_sys_srp 1
 #include "sources/sys/sys/srp.h"
 #endif
-
 #ifndef __stub_net_art
 #define __stub_net_art 1
 #include "sources/sys/net/art.h"
 #endif
-
 #ifndef __stub_net_route
 #define __stub_net_route 1
 #include "sources/sys/net/route.h"
 #endif
-
 #ifndef __stub_net_if
 #define __stub_net_if 1
 #include "sources/sys/net/if.h"
 #endif
-
 #ifndef __stub_net_if_var
 #define __stub_net_if_var 1
 #include "sources/sys/net/if_var.h"
 #endif
-
 #ifndef __stub_net_if_media
 #define __stub_net_if_media 1
 #include "sources/sys/net/if_media.h"
 #endif
-
 #ifndef __stub_net_if_etherip
 #define __stub_net_if_etherip 1
 #include "sources/sys/net/if_etherip.h"
 #endif
-
 #ifndef __stub_netinet_ip_ether
 #define __stub_netinet_ip_ether 1
 #include "sources/sys/netinet/ip_ether.h"
 #endif
-
 #ifndef __stub_netinet_in
 #define __stub_netinet_in 1
 #include "sources/sys/netinet/in.h"
 #endif
-
 #ifndef __stub_netinet_ip
 #define __stub_netinet_ip 1
 #include "sources/sys/netinet/ip.h"
 #endif
-
 #ifndef __stub_netinet_in_pcb
 #define __stub_netinet_in_pcb 1
 #include "sources/sys/netinet/in_pcb.h"
 #endif
-
 #ifndef __stub_netinet_if_ether
 #define __stub_netinet_if_ether 1
 #include "sources/sys/netinet/if_ether.h"
 #endif
-
 #ifndef __stub_netinet_ip_var
 #define __stub_netinet_ip_var 1
 #include "sources/sys/netinet/ip_var.h"
 #endif
-
 #ifndef __stub_machine_cpu_full
 #define __stub_machine_cpu_full 1
 #include "sources/sys/machine/cpu_full.h"
 #endif
-
 #ifndef __stub_machine_cpu
 #define __stub_machine_cpu 1
 #include "sources/sys/machine/cpu.h"
@@ -1030,12 +981,10 @@ int sysctl_struct(void *a, size_t *b, void *c, size_t d, void *e, size_t f) {
 #define __stub_bpfilter 1
 #include "sources/sys/bpfilter.h"
 #endif
-
 #ifndef __stub_pf
 #define __stub_pf 1
 #include "sources/sys/pf.h"
 #endif
-
 #ifndef __stub_gif
 #define __stub_gif 1
 #include "sources/sys/gif.h"
@@ -1045,32 +994,26 @@ int sysctl_struct(void *a, size_t *b, void *c, size_t d, void *e, size_t f) {
 #define __stub_sys_param 1
 #include "sources/sys/sys/param.h"
 #endif
-
 #ifndef __stub_sys_systm
 #define __stub_sys_systm 1
 #include "sources/sys/sys/systm.h"
 #endif
-
 #ifndef __stub_sys_mbuf
 #define __stub_sys_mbuf 1
 #include "sources/sys/sys/mbuf.h"
 #endif
-
 #ifndef __stub_sys_socket
 #define __stub_sys_socket 1
 #include "sources/sys/sys/socket.h"
 #endif
-
 #ifndef __stub_sys_ioctl
 #define __stub_sys_ioctl 1
 #include "sources/sys/sys/ioctl.h"
 #endif
-
 #ifndef __stub_sys_device
 #define __stub_sys_device 1
 #include "sources/sys/sys/device.h"
 #endif
-
 #ifndef __stub_sys_sysctl
 #define __stub_sys_sysctl 1
 #include "sources/sys/sys/sysctl.h"
@@ -1080,22 +1023,18 @@ int sysctl_struct(void *a, size_t *b, void *c, size_t d, void *e, size_t f) {
 #define __stub_net_if 1
 #include "sources/sys/net/if.h"
 #endif
-
 #ifndef __stub_net_if_var
 #define __stub_net_if_var 1
 #include "sources/sys/net/if_var.h"
 #endif
-
 #ifndef __stub_net_if_dl
 #define __stub_net_if_dl 1
 #include "sources/sys/net/if_dl.h"
 #endif
-
 #ifndef __stub_net_if_media
 #define __stub_net_if_media 1
 #include "sources/sys/net/if_media.h"
 #endif
-
 #ifndef __stub_net_rtable
 #define __stub_net_rtable 1
 #include "sources/sys/net/rtable.h"
@@ -1105,22 +1044,18 @@ int sysctl_struct(void *a, size_t *b, void *c, size_t d, void *e, size_t f) {
 #define __stub_netinet_in 1
 #include "sources/sys/netinet/in.h"
 #endif
-
 #ifndef __stub_netinet_ip
 #define __stub_netinet_ip 1
 #include "sources/sys/netinet/ip.h"
 #endif
-
 #ifndef __stub_netinet_ip_var
 #define __stub_netinet_ip_var 1
 #include "sources/sys/netinet/ip_var.h"
 #endif
-
 #ifndef __stub_netinet_if_ether
 #define __stub_netinet_if_ether 1
 #include "sources/sys/netinet/if_ether.h"
 #endif
-
 #ifndef __stub_netinet_ip_ether
 #define __stub_netinet_ip_ether 1
 #include "sources/sys/netinet/ip_ether.h"
@@ -1131,12 +1066,10 @@ int sysctl_struct(void *a, size_t *b, void *c, size_t d, void *e, size_t f) {
 #define __stub_netinet_ip6 1
 #include "sources/sys/netinet/ip6.h"
 #endif
-
 #ifndef __stub_netinet6_ip6_var
 #define __stub_netinet6_ip6_var 1
 #include "sources/sys/netinet6/ip6_var.h"
 #endif
-
 #endif
 
 #if NBPFILTER > 0
@@ -1144,7 +1077,6 @@ int sysctl_struct(void *a, size_t *b, void *c, size_t d, void *e, size_t f) {
 #define __stub_net_bpf 1
 #include "sources/sys/net/bpf.h"
 #endif
-
 #endif
 
 #if NPF > 0
@@ -1152,7 +1084,6 @@ int sysctl_struct(void *a, size_t *b, void *c, size_t d, void *e, size_t f) {
 #define __stub_net_pfvar 1
 #include "sources/sys/net/pfvar.h"
 #endif
-
 #endif
 
 #ifndef __stub_net_if_etherip
