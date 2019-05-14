@@ -51,17 +51,8 @@ if_etherip-double-free if_etherip-fixed-double-free: reset
 	    ${CURDIR}/sources/stubs/ip.c ${CURDIR}/sources/stubs/stub.c \
 	    ${CURDIR}/sources/sys/if_etherip.c > $@.c
 	tmp=$$(mktemp); \
-	awk '{ if ( /^\s*#include/ ){ \
-	    match($$0, /[<"][^>"]*[">]/ ); \
-	    hdr=substr($$0, RSTART+1, RLENGTH-2); \
-	    eschdr=substr(hdr, 1, length(hdr)-2); \
-	    gsub("/", "_", eschdr); \
-	    print "#ifndef __stub_"eschdr"\n#define __stub_"eschdr \
-		" 1\n""#include \"sources/sys/"hdr"\"\n#endif\n" \
-	    } else { \
-		print \
-	    } }' $@.c > $$tmp; \
-	    cat $$tmp > $@.c && rm $$tmp
+	${CURDIR}/prepreprocess.py $@.c sources/sys > $$tmp; \
+	cat $$tmp > $@.c && rm $$tmp
 	cc -E ${CC.Flags} -o $@.i $@.c
 	clang-format -i $@.i $@.c
 
