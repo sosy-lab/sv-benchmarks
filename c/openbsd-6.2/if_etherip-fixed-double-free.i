@@ -545,6 +545,9 @@ int main(void) {
   return 0;
 }
 
+typedef __builtin_va_list __gnuc_va_list;
+typedef __gnuc_va_list va_list;
+
 void panic(const char *fmt, ...);
 void *memset(void *, int, size_t);
 void explicit_bzero(void *, size_t);
@@ -600,8 +603,6 @@ char *strchr(const char *, int);
 char *strrchr(const char *, int);
 int timingsafe_bcmp(const void *, const void *, size_t);
 
-typedef __builtin_va_list __gnuc_va_list;
-typedef __gnuc_va_list va_list;
 extern int securelevel;
 extern const char *panicstr;
 extern const char version[];
@@ -665,20 +666,19 @@ void hashfree(void *, int, int);
 int sys_nosys(struct proc *, void *, register_t *);
 
 void panic(const char *, ...)
-    __attribute__((__noreturn__, __format__(__kprintf__, 1, 2)));
+    __attribute__((__noreturn__, __format__(kprintf, 1, 2)));
 void __assert(const char *, const char *, int, const char *)
     __attribute__((__noreturn__));
-int printf(const char *, ...) __attribute__((__format__(__kprintf__, 1, 2)));
-void uprintf(const char *, ...) __attribute__((__format__(__kprintf__, 1, 2)));
-int vprintf(const char *, va_list)
-    __attribute__((__format__(__kprintf__, 1, 0)));
+int printf(const char *, ...) __attribute__((__format__(kprintf, 1, 2)));
+void uprintf(const char *, ...) __attribute__((__format__(kprintf, 1, 2)));
+int vprintf(const char *, va_list) __attribute__((__format__(kprintf, 1, 0)));
 int vsnprintf(char *, size_t, const char *, va_list)
-    __attribute__((__format__(__kprintf__, 3, 0)));
+    __attribute__((__format__(kprintf, 3, 0)));
 int snprintf(char *buf, size_t, const char *, ...)
-    __attribute__((__format__(__kprintf__, 3, 4)));
+    __attribute__((__format__(kprintf, 3, 4)));
 struct tty;
 void ttyprintf(struct tty *, const char *, ...)
-    __attribute__((__format__(__kprintf__, 2, 3)));
+    __attribute__((__format__(kprintf, 2, 3)));
 
 void splassert_fail(int, int, const char *);
 extern int splassert_ctl;
