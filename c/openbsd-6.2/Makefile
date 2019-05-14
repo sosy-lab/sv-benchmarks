@@ -19,8 +19,6 @@ COMMON_WARNINGS := \
 	-Wimplicit-function-declaration \
 	-Wno-uninitialized \
 	-Wno-pointer-sign \
-	-Wno-address-of-packed-member \
-	-Wno-constant-conversion \
 	-Wframe-larger-than=2047 \
 
 CLANG_WARNINGS := \
