@@ -180,7 +180,7 @@ struct buf;
 struct tty;
 struct uio;
 
-void __VERIFIER_error(void);
+void __VERIFIER_error(void) __attribute__((__noreturn__));
 void __VERIFIER_assume(int expression);
 _Bool __VERIFIER_nondet_bool(void);
 int __VERIFIER_nondet_int(void);

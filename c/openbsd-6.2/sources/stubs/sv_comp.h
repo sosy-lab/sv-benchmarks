@@ -1,6 +1,6 @@
 #include "sys/types.h"
 
-void __VERIFIER_error(void);
+void __VERIFIER_error(void) __attribute__((__noreturn__));
 void __VERIFIER_assume(int expression);
 bool __VERIFIER_nondet_bool(void);
 int __VERIFIER_nondet_int(void);
