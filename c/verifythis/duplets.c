@@ -1,8 +1,9 @@
 /* Not quite the challenge from VerifyThis 2011,
  * only a single pair of duplicates here. */
 
+extern void *calloc(unsigned long nmemb, unsigned long size);
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
-extern void __VERIFIER_assert(int cond) {
+void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();
 }
 
@@ -39,7 +40,8 @@ int finddup(int *a, int n, int *_i, int *_j) {
 
 int main() {
     int n = __VERIFIER_nondet_int();
-    int a[n];
+    __VERIFIER_assume(n >= 0);
+    int *a = calloc(n, sizeof(int));
 
     mkdup(a, n);
 

@@ -1,8 +1,9 @@
+extern void *calloc(unsigned long nmemb, unsigned long size);
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
-extern void __VERIFIER_assert(int cond) {
+void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();
 }
 
@@ -43,10 +44,11 @@ void check(int *a0, int *a, int n) {
 
 int main() {
     int n = __VERIFIER_nondet_int();
-    int a[n];
+    __VERIFIER_assume(n >= 0);
     __VERIFIER_assume(is_pow2(n));
+    int *a = calloc(n, sizeof(int));
 
-    int a0[n];
+    int *a0 = calloc(n, sizeof(int));
     int i;
     for(i=0; i<n; i++)
         a0[i] = a[i];

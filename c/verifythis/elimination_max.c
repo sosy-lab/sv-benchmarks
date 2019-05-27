@@ -1,5 +1,7 @@
+extern void *calloc(unsigned long nmemb, unsigned long size);
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
-extern void __VERIFIER_assert(int cond) {
+extern void __VERIFIER_assume(int);
+void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();
 }
 
@@ -7,7 +9,8 @@ extern int __VERIFIER_nondet_int(void);
 
 int main() {
     int n = __VERIFIER_nondet_int();
-    int a[n];
+    __VERIFIER_assume(n >= 0);
+    int *a = calloc(n, sizeof(int));
 
     int x = 0;
     int y = n - 1;

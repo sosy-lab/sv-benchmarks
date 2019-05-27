@@ -1,3 +1,4 @@
+extern void *calloc(unsigned long nmemb, unsigned long size);
 extern void *malloc(unsigned long size);
 extern void free(void *);
 
@@ -5,7 +6,7 @@ extern int __VERIFIER_nondet_int(void);
 extern _Bool __VERIFIER_nondet_bool(void);
 
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
-extern void __VERIFIER_assert(int cond) {
+void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();
 }
 
@@ -69,14 +70,14 @@ int task(struct node *t) {
     int b;
 
     int n = size(t);
-    int x[n];
+    int *x = calloc(n, sizeof(int));
     tree_inorder(t, x, n);
     __VERIFIER_assert(a == x[0]);
 
     struct node *r = tree_del(t, &b);
     __VERIFIER_assert(a == b);
     int m = size(t);
-    int y[m];
+    int *y = calloc(n, sizeof(int));
     tree_inorder(t, y, m);
 
     __VERIFIER_assert(n == m + 1);
