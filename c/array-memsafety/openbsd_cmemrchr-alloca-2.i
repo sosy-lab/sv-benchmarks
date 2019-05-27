@@ -523,6 +523,7 @@ cmemrchr(const void *s, int c, size_t n)
  }
  return(((void *)0));
 }
+const int MAX = 100000;
 int main() {
   int length = __VERIFIER_nondet_int();
   int n = __VERIFIER_nondet_int();
@@ -530,7 +531,7 @@ int main() {
   if (length < 1) {
       length = 1;
   }
-  if (n < 1) {
+  if (n < 1 || n > MAX) {
       n = 1;
   }
   char* nondetArea = (char*) __builtin_alloca (n * sizeof(char));
