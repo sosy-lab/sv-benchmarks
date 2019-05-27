@@ -10461,7 +10461,7 @@ int main(void)
   int tmp___0 ;
 
   var_group1 = ldv_init_zalloc(sizeof(struct vm_area_struct));
-  var_group1->vm_private_data = malloc(sizeof(struct ttm_buffer_object));
+  var_group1->vm_private_data = (struct ttm_buffer_object *)malloc(sizeof(struct ttm_buffer_object));
   bo = (struct ttm_buffer_object *)var_group1->vm_private_data;
   bo->bdev = bdev = (struct ttm_bo_device *)malloc(sizeof(struct ttm_bo_device));
   (bo->bdev)->driver = &_var_group1_vm_private_data_driver;
