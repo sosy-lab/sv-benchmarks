@@ -16,18 +16,22 @@ int main(void)
 	p->a = 1;
 	if (p->a != 1) {
 		free(p);
+		return 0;
 	}
 	p->b = 2;
 	if (p->b != 2) {
 		free(p);
+		return 0;
 	}
 	p->c = 3;
 	if (p->c != 3) {
 		free(p);
+		return 0;
 	}
 	p->d = 4;
 	if (p->d != 4) {
 		free(p);
+		return 0;
 	}
 
 	free(p);
