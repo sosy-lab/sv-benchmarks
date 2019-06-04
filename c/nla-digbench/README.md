@@ -1,7 +1,7 @@
 The benchmarks in this directory were submitted by 
 ThanhVu Nguyen (tnguyen@cse.unl.edu) and 
 Timos Antonopoulos (timos.antonopoulos@yale.edu).
-These programs contain nonlinear polynomial properities
+These programs contain nonlinear polynomial (equality) properities
 that are challenging for program analysis.
 They were collected from various sources and 
 have been used in the DIG (Dynamic Invariant Generation) work:

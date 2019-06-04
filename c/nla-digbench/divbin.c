@@ -1,7 +1,7 @@
 /*
-  a division algorithm, by Kaldewaij
+  A division algorithm, by Kaldewaij
   returns A//B
-  */
+*/
 
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
@@ -44,6 +44,8 @@ int main() {
         }
     }
 
-    //TODO: missing post
+    __VERIFIER_assert(A == q * b + r);
+    __VERIFIER_assert(B == b);
     return 0;
 }
+
