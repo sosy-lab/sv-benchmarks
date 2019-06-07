@@ -43,6 +43,10 @@ int main() {
             s = s - r;
         }
     }
-    // TODO: post
+    
+    __VERIFIER_assert(a - b == 0);    
+    __VERIFIER_assert(p*x + r*y - b == 0);
+    __VERIFIER_assert(q*r - p*s + 1 == 0);
+    __VERIFIER_assert(q*x + s*y - b == 0);
     return 0;
 }

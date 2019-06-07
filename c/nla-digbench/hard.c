@@ -19,7 +19,6 @@ int main() {
     int r, d, p, q;
     A = __VERIFIER_nondet_int();
     B = __VERIFIER_nondet_int();
-    __VERIFIER_assume(A >= 0);
     __VERIFIER_assume(B >= 1);
 
     r = A;
@@ -28,9 +27,6 @@ int main() {
     q = 0;
 
     while (1) {
-        //TODO: check
-        __VERIFIER_assert(A >= 0);
-        __VERIFIER_assert(B > 0);
         __VERIFIER_assert(q == 0);
         __VERIFIER_assert(r == A);
         __VERIFIER_assert(d == B * p);
@@ -41,8 +37,8 @@ int main() {
     }
 
     while (1) {
-        __VERIFIER_assert(A == q * B + r);
-        __VERIFIER_assert(d == B * p);
+        __VERIFIER_assert(A == q*B + r);
+        __VERIFIER_assert(d == B*p);
 
         if (!(p != 1)) break;
 
@@ -54,8 +50,7 @@ int main() {
         }
     }
 
-    __VERIFIER_assert(A == q * B + r);
-    // r == A % B
-    // q == A / B
+    __VERIFIER_assert(A == d*q + r);
+    __VERIFIER_assert(B == d);    
     return 0;
 }

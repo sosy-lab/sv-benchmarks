@@ -12,14 +12,13 @@ void __VERIFIER_assert(int cond) {
 int main() {
     int k, y, x, c;
     k = __VERIFIER_nondet_int();
-    // assert(k <= 30);  big k can cause problem for dynamic analysis
 
     y = 0;
     x = 0;
     c = 0;
 
     while (1) {
-        __VERIFIER_assert(6 * x - 2 * y * y * y - 3 * y * y - y == 0);
+        __VERIFIER_assert(6*x - 2*y*y*y - 3*y*y - y == 0);
 
         if (!(c < k))
             break;
@@ -28,6 +27,6 @@ int main() {
         y = y + 1;
         x = y * y + x;
     }
-    // TODO: post
+    __VERIFIER_assert(6*x - 2*y*y*y - 3*y*y - y == 0);
     return 0;
 }

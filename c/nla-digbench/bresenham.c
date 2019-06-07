@@ -15,29 +15,28 @@ void __VERIFIER_assert(int cond) {
 
 int main() {
     int X, Y;
-    int v1, x, y;
+    int v, x, y;
     X = __VERIFIER_nondet_int();
     Y = __VERIFIER_nondet_int();
-    v1 = 2 * Y - X;
+    v = 2 * Y - X;
     y = 0;
     x = 0;
 
     while (1) {
-        //0 < Y ≤ X ∧ v1 = 2(x+1)Y −(2y+1)X ∧
-        //2(Y −X) ≤ v1 ≤ 2Y ∧
-        //∀k : 0 ≤ k < x ⇒ 2|out[k]−(Y /X)k|≤1
+	__VERIFIER_assert(2*Y*x - 2*X*y - X + 2*Y - v == 0);
         if (!(x <= X))
             break;
         // out[x] = y
 
-        if (v1 < 0) {
-            v1 = v1 + 2 * Y;
+        if (v < 0) {
+            v = v + 2 * Y;
         } else {
-            v1 = v1 + 2 * (Y - X);
+            v = v + 2 * (Y - X);
             y++;
         }
         x++;
     }
-    //TODO: post
+    __VERIFIER_assert(2*Y*x - 2*x*y - X + 2*Y - v + 2*y == 0);
+
     return 0;
 }

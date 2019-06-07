@@ -64,6 +64,6 @@ int main() {
         r = s;
         s = temp - s * k;
     }
-    //TODO: post
+    __VERIFIER_assert(p*x - q*x + r*y - s*y  == a);
     return 0;
 }

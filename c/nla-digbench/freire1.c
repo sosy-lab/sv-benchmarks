@@ -1,7 +1,9 @@
 /* Algorithm for finding the closest integer to square root,
- * more details, see : http://www.pedrofreire.com/sqrt/sqrt1.en.html */
+ * more details, see : http://www.pedrofreire.com/sqrt/sqrt1.en.html 
 
-#include <math.h>
+Note: for some reason using cpa was able to disprove these
+cpa.sh -kInduction -setprop solver.solver=z3 freire1.c
+*/
 
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern double __VERIFIER_nondet_double(void);
@@ -22,7 +24,7 @@ int main() {
     r = 0;
 
     while (1) {
-        __VERIFIER_assert(a == 2 * x + r * r - r);
+        __VERIFIER_assert((int)(r*r - a - r + 2*x) == 0);
 
         if (!(x > r))
             break;
@@ -30,6 +32,6 @@ int main() {
         r = r + 1;
     }
 
-    __VERIFIER_assert(r == (int)round(sqrt(a)));
+    __VERIFIER_assert((int)(r*r - a - r + 2*x) == 0);
     return 0;
 }

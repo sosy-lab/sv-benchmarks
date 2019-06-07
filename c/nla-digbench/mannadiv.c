@@ -5,7 +5,7 @@
 */
 
 extern void __VERIFIER_error() __attribute__((__noreturn__));
-extern double __VERIFIER_nondet_int(void);
+extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int expression);
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
@@ -21,14 +21,14 @@ int main() {
     x2 = __VERIFIER_nondet_int();
 
     __VERIFIER_assume(x1 >= 0);
-    __VERIFIER_assume(x2 >= 1);
+    __VERIFIER_assume(x2 != 0);
 
     y1 = 0;
     y2 = 0;
     y3 = x1;
 
     while (1) {
-        __VERIFIER_assert(y1 * x2 + y2 + y3 == x1);
+        __VERIFIER_assert(y1*x2 + y2 + y3 == x1);
 
         if (!(y3 != 0)) break;
 
@@ -41,7 +41,6 @@ int main() {
             y3 = y3 - 1;
         }
     }
-
-    __VERIFIER_assert(y1 == x1 / x2);
+    __VERIFIER_assert(y1*x2 + y2 == x1);
     return 0;
 }

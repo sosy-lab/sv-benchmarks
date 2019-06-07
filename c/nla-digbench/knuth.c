@@ -61,5 +61,6 @@ int main() {
         }
     }
 
+    //postconds ? cannot be obtained with DIG (Syminfer)
     return 0;
 }

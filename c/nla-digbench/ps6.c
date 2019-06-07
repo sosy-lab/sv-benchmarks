@@ -8,21 +8,17 @@ void __VERIFIER_assert(int cond) {
     }
     return;
 }
-#include <math.h>
 
 int main() {
     int k, y, x, c;
     k = __VERIFIER_nondet_int();
-    // assert(k <= 30);  big k can cause problem for dynamic analysis
 
     y = 0;
     x = 0;
     c = 0;
 
     while (1) {
-        //assertion will fail because of int overflow
-        // TODO: check pow:  takes double as input, not int
-        __VERIFIER_assert(-2 * pow(y, 6) - 6 * pow(y, 5) - 5 * pow(y, 4) + pow(y, 2) + 12 * x == 0.0);
+        __VERIFIER_assert(-2*y*y*y*y*y*y - 6 * y*y*y*y*y - 5 * y*y*y*y + y*y + 12*x == 0);
 
         if (!(c < k))
             break;
@@ -31,6 +27,8 @@ int main() {
         y = y + 1;
         x = y * y * y * y * y + x;
     }
-    // TODO: post
+    
+    __VERIFIER_assert(-2*y*y*y*y*y*y - 6 * y*y*y*y*y - 5 * y*y*y*y + y*y + 12*x == 0);
+    __VERIFIER_assert(k*y == y*y);		      
     return 0;
 }

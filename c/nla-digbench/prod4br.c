@@ -17,7 +17,6 @@ int main() {
 
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
-    __VERIFIER_assume(x >= 1);
     __VERIFIER_assume(y >= 1);
 
     a = x;
@@ -49,5 +48,6 @@ int main() {
     }
 
     __VERIFIER_assert(q == x * y);
+    __VERIFIER_assert(a * b == 0);
     return 0;
 }

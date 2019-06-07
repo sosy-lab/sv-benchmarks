@@ -15,7 +15,7 @@ int main() {
     int x, y, u, v;
     a = __VERIFIER_nondet_int();
     b = __VERIFIER_nondet_int();
-    __VERIFIER_assume(a >= 1);
+    __VERIFIER_assume(a >= 1); //inf loop if remove
     __VERIFIER_assume(b >= 1);
 
     x = a;
@@ -24,7 +24,7 @@ int main() {
     v = a;
 
     while (1) {
-        __VERIFIER_assert(x * u + y * v == 2 * a * b);
+        __VERIFIER_assert(x*u + y*v == 2*a*b);
 
         if (!(x != y))
             break;
@@ -38,8 +38,9 @@ int main() {
         }
     }
 
-    // x==gcd(a,b)
-    int r = (u + v) / 2;  // lcm(a,b)
-    // TODO: missing post
+    __VERIFIER_assert(x*u + y*v == 2*a*b);
+    // x == gcd(a,b)
+    //(u + v)/2==lcm(a,b)
+
     return 0;
 }

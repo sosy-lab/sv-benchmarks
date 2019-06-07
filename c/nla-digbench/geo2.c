@@ -13,25 +13,20 @@ void __VERIFIER_assert(int cond) {
     }
     return;
 }
-#include <math.h>
+//#include <math.h>
 
 int main() {
     int z, k;
     int x, y, c;
     z = __VERIFIER_nondet_int();
     k = __VERIFIER_nondet_int();
-    //if too large then might cause overflow during execution
-    __VERIFIER_assume(z >= 0);
-    __VERIFIER_assume(z <= 10);
-    __VERIFIER_assume(k > 0);
-    __VERIFIER_assume(k <= 10);
 
     x = 1;
     y = 1;
     c = 1;
 
     while (1) {
-        __VERIFIER_assert(1 + x * z - x - z * y == 0);
+        __VERIFIER_assert(1 + x*z - x - z*y == 0);
 
         if (!(c < k))
             break;
@@ -40,7 +35,6 @@ int main() {
         x = x * z + 1;
         y = y * z;
     }
-    __VERIFIER_assert(y == (int)pow((int)z, (int)(k - 1)));
-
+    __VERIFIER_assert(1 + x*z - x - z*y == 0);
     return 0;
 }

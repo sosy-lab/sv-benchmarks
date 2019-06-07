@@ -1,5 +1,6 @@
-/* algorithm for computing the product of two natural numbers */
-/* shift_add */
+/* shift_add algorithm for computing the 
+   product of two natural numbers
+*/
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern double __VERIFIER_nondet_double(void);
 extern void __VERIFIER_assume(int expression);
@@ -17,7 +18,6 @@ int main() {
 
     a = __VERIFIER_nondet_double();
     b = __VERIFIER_nondet_double();
-    __VERIFIER_assume(a >= 1);
     __VERIFIER_assume(b >= 1);
 
     x = a;
@@ -37,5 +37,6 @@ int main() {
         y = y / 2;
     }
     __VERIFIER_assert(z == a * b);
+    
     return 0;
 }

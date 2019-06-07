@@ -11,22 +11,20 @@ void __VERIFIER_assert(int cond) {
     return;
 }
 
-#include <math.h>
 
 int main() {
     int n, a, s, t;
     n = __VERIFIER_nondet_int();
-    __VERIFIER_assume(n >= 0);
 
     a = 0;
     s = 1;
     t = 1;
 
     while (1) {
-        __VERIFIER_assert(a * a <= n);
-        __VERIFIER_assert(t == 2 * a + 1);
+        __VERIFIER_assert(t == 2*a + 1);
         __VERIFIER_assert(s == (a + 1) * (a + 1));
-        // the above 2 should be equiv to t^2 - 4*s + 2*t + 1 == 0
+	__VERIFIER_assert(t*t - 4*s + 2*t + 1 == 0);
+        // the above 2 should be equiv to 
 
         if (!(s <= n))
             break;
@@ -35,6 +33,10 @@ int main() {
         t = t + 2;
         s = s + t;
     }
-    __VERIFIER_assert(a == (int)floor(sqrt(n)));
+    
+    __VERIFIER_assert(t == 2 * a + 1);
+    __VERIFIER_assert(s == (a + 1) * (a + 1));
+    __VERIFIER_assert(t*t - 4*s + 2*t + 1 == 0);
+
     return 0;
 }

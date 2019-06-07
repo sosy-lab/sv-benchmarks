@@ -12,7 +12,7 @@ void __VERIFIER_assert(int cond) {
 
 int main() {
     int x, y;
-    int a, b, p, q, r, s;
+    int a, b, p, q, r, s, c, k;
     x = __VERIFIER_nondet_int();
     y = __VERIFIER_nondet_int();
     __VERIFIER_assume(x >= 1);
@@ -24,19 +24,19 @@ int main() {
     q = 0;
     r = 0;
     s = 1;
-
+    c = 0;
+    k = 0;
     while (1) {
         if (!(b != 0))
             break;
-        int c, k;
         c = a;
         k = 0;
 
         while (1) {
             __VERIFIER_assert(a == k * b + c);
-            __VERIFIER_assert(a == y * r + x * p);
+            __VERIFIER_assert(a == y*r + x*p);
             __VERIFIER_assert(b == x * q + y * s);
-
+	    __VERIFIER_assert(q*x*y + s*y*y - q*x - b*y - s*y + b == 0);
             if (!(c >= b))
                 break;
             c = c - b;
@@ -54,6 +54,9 @@ int main() {
         r = s;
         s = temp - s * k;
     }
-    //TODO: post
+    
+
+    __VERIFIER_assert(q*x + s*y == 0);
+    __VERIFIER_assert(p*x + r*y == a);
     return a;
 }
