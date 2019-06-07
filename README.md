@@ -137,7 +137,8 @@ For each program, the repository contains a .yml file that specifies
   - the results (for each specification of the program, the expected outcome is indicated), and
   - the parameters to be used for verification.
   
-The [SV-COMP 2019 report](https://doi.org/10.1007/978-3-030-17502-3_9) contains a description with example in Sect. 4.
+The [SV-COMP 2019 report] contains a description of the format with an example in Sect. 4 and Fig. 3.
 
 [SV-COMP]: https://sv-comp.sosy-lab.org/
 [witness format]: https://github.com/sosy-lab/sv-witnesses
+[SV-COMP 2019 report]: https://doi.org/10.1007/978-3-030-17502-3_9
