@@ -136,6 +136,7 @@ For each program, the repository contains a .yml file that specifies
   - the subject files (the parts that a program consists of),
   - the results (for each specification of the program, the expected outcome is indicated), and
   - the parameters to be used for verification.
+  
 The [SV-COMP 2019 report](https://doi.org/10.1007/978-3-030-17502-3_9) contains a description with example in Sect. 4.
 
 [SV-COMP]: https://sv-comp.sosy-lab.org/
