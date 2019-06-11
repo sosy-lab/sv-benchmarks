@@ -2,4 +2,4 @@ format_version: '1.0'
 input_files: 'fermat2.c'
 properties:
   - property_file: ../properties/unreach-call.prp
-    expected_verdict: true	
+    expected_verdict: true
