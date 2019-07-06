@@ -84,7 +84,7 @@ int main()
 		while(j < n){
 			k=0;
 			while(k < n){
-					__VERIFIER_assert(A[i][j][k]==A[i][j][k]);
+					__VERIFIER_assert(A[i][j][k]==B[i][j][k]);
 					k=k+1;
 			}
 			j=j+1;
