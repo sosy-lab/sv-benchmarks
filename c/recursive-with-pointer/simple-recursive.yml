@@ -1,6 +1,6 @@
 format_version: '1.0'
 
-input_files: 'recursion-with-pointer.c'
+input_files: 'simple-recursive.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp
