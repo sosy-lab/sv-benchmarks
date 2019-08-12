@@ -1,4 +1,4 @@
-extern void *malloc(unsigned long size);
+extern void *malloc(unsigned int size);
 extern void free(void *);
 
 extern int __VERIFIER_nondet_int(void);

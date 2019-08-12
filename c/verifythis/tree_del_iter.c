@@ -1,5 +1,5 @@
-extern void *calloc(unsigned long nmemb, unsigned long size);
-extern void *malloc(unsigned long size);
+extern void *calloc(unsigned int nmemb, unsigned int size);
+extern void *malloc(unsigned int size);
 extern void free(void *);
 
 extern int __VERIFIER_nondet_int(void);

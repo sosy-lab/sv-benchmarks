@@ -1,7 +1,7 @@
 /* Not quite the challenge from VerifyThis 2011,
  * only a single pair of duplicates here. */
 
-extern void *calloc(unsigned long nmemb, unsigned long size);
+extern void *calloc(unsigned int nmemb, unsigned int size);
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();

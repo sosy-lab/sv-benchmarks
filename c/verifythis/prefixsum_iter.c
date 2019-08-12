@@ -1,4 +1,4 @@
-extern void *calloc(unsigned long nmemb, unsigned long size);
+extern void *calloc(unsigned int nmemb, unsigned int size);
 extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_assume(int);
 
