@@ -34,7 +34,7 @@ int main() {
     i = __VERIFIER_nondet_int();
     __VERIFIER_assert(a[i] <= a[x]);
 
-    for(i=0; i<n; i) {
+    for(i=0; i<n; i++) {
         __VERIFIER_assert(a[i] <= a[x]);
     }
 

@@ -23,6 +23,7 @@ struct node *nondet_tree() {
         n->data = __VERIFIER_nondet_int();
         n->left = nondet_tree();
         n->right = nondet_tree();
+        return n;
     }
 }
 
@@ -72,7 +73,7 @@ int size(struct node *t) {
     else return size(t->left) + size(t->right) + 1;
 }
 
-int task(struct node *t) {
+void task(struct node *t) {
     int a = min(t);
     int b;
 

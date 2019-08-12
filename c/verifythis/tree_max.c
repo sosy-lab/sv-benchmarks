@@ -22,6 +22,7 @@ struct node *nondet_tree() {
         n->data = __VERIFIER_nondet_int();
         n->left = nondet_tree();
         n->right = nondet_tree();
+        return n;
     }
 }
 
@@ -48,7 +49,7 @@ void check(struct node *n, int a) {
     }
 }
 
-int task(struct node *n) {
+void task(struct node *n) {
     int a = max(n);
     check(n, a);
 }
