@@ -7,8 +7,8 @@ loop-new/*.yml
 loop-industry-pattern/*.yml
 loops-crafted-1/*.yml
 loop-invariants/*.yml
-verifythis/duplets.c
-verifythis/elimination_max.c
-verifythis/lcp.c
-verifythis/prefixsum_iter.c
-verifythis/del_iter.c
+verifythis/duplets.yml
+verifythis/elimination_max.yml
+verifythis/lcp.yml
+verifythis/prefixsum_iter.yml
+verifythis/tree_del_iter.yml
