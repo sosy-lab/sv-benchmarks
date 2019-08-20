@@ -7,3 +7,4 @@ loop-new/*.yml
 loop-industry-pattern/*.yml
 loops-crafted-1/*.yml
 loop-invariants/*.yml
+nla-digbench/*.yml
