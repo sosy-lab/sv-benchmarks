@@ -6,7 +6,7 @@ extern int __VERIFIER_nondet_int(void);
 
 int ssl3_connect(void) 
 { int s__info_callback  = __VERIFIER_nondet_int();
-  unsigned int s__in_handshake  = __VERIFIER_nondet_int();
+  unsigned int s__in_handshake  = __VERIFIER_nondet_uint();
   int s__state ;
   int s__new_session ;
   int s__server ;
@@ -21,7 +21,7 @@ int ssl3_connect(void)
   int s__debug  = __VERIFIER_nondet_int();
   int s__shutdown ;
   int s__ctx__info_callback  = __VERIFIER_nondet_int();
-  unsigned int s__ctx__stats__sess_connect_renegotiate = __VERIFIER_nondet_int();
+  unsigned int s__ctx__stats__sess_connect_renegotiate = __VERIFIER_nondet_uint();
   unsigned int s__ctx__stats__sess_connect ;
   int s__ctx__stats__sess_hit  = __VERIFIER_nondet_int();
   int s__ctx__stats__sess_connect_good  = __VERIFIER_nondet_int();

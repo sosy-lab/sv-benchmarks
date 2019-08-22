@@ -7,11 +7,11 @@ extern int __VERIFIER_nondet_int(void);
 
 int ssl3_accept(int initial_state ) 
 { int s__info_callback  = __VERIFIER_nondet_int();
-  unsigned int s__in_handshake  = __VERIFIER_nondet_int();
+  unsigned int s__in_handshake  = __VERIFIER_nondet_uint();
   int s__state ;
   int s__new_session ;
   int s__server ;
-  unsigned int s__version  = __VERIFIER_nondet_int();
+  unsigned int s__version  = __VERIFIER_nondet_uint();
   int s__type ;
   int s__init_num ;
   int s__hit  = __VERIFIER_nondet_int();
@@ -21,13 +21,13 @@ int ssl3_accept(int initial_state )
   int s__shutdown ;
   int s__cert  = __VERIFIER_nondet_int();
   int s__options  = __VERIFIER_nondet_int();
-  unsigned int s__verify_mode  = __VERIFIER_nondet_int();
+  unsigned int s__verify_mode  = __VERIFIER_nondet_uint();
   int s__session__peer  = __VERIFIER_nondet_int();
   int s__cert__pkeys__AT0__privatekey  = __VERIFIER_nondet_int();
   int s__ctx__info_callback  = __VERIFIER_nondet_int();
   int s__ctx__stats__sess_accept_renegotiate ;
   int s__ctx__stats__sess_accept ;
-  unsigned int s__ctx__stats__sess_accept_good  = __VERIFIER_nondet_int();
+  unsigned int s__ctx__stats__sess_accept_good  = __VERIFIER_nondet_uint();
   int s__s3__tmp__cert_request ;
   int s__s3__tmp__reuse_message  = __VERIFIER_nondet_int();
   int s__s3__tmp__use_rsa_tmp ;
@@ -47,12 +47,12 @@ int ssl3_accept(int initial_state )
   int state ;
   int skip ;
   int got_new_session ;
-  unsigned int tmp___1  = __VERIFIER_nondet_int();
-  unsigned int tmp___2  = __VERIFIER_nondet_int();
+  unsigned int tmp___1  = __VERIFIER_nondet_uint();
+  unsigned int tmp___2  = __VERIFIER_nondet_uint();
   int tmp___3  = __VERIFIER_nondet_int();
   int tmp___4  = __VERIFIER_nondet_int();
   int tmp___5  = __VERIFIER_nondet_int();
-  unsigned int tmp___6  = __VERIFIER_nondet_int();
+  unsigned int tmp___6  = __VERIFIER_nondet_uint();
   int tmp___7 ;
   long tmp___8  = __VERIFIER_nondet_long();
   int tmp___9  = __VERIFIER_nondet_int();

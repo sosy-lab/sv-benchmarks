@@ -9,7 +9,7 @@ extern int __VERIFIER_nondet_int(void);
 
 int ssl3_accept(int initial_state ) 
 { int s__info_callback  = __VERIFIER_nondet_int();
-  unsigned int s__in_handshake  = __VERIFIER_nondet_int();
+  unsigned int s__in_handshake  = __VERIFIER_nondet_uint();
   int s__state ;
   int s__new_session ;
   int s__server ;

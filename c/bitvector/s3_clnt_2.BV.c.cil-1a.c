@@ -6,11 +6,11 @@ extern int __VERIFIER_nondet_int(void);
 
 int ssl3_connect(void) 
 { int s__info_callback  = __VERIFIER_nondet_int();
-  unsigned int s__in_handshake  = __VERIFIER_nondet_int();
+  unsigned int s__in_handshake  = __VERIFIER_nondet_uint();
   int s__state ;
   int s__new_session ;
   int s__server ;
-  unsigned int s__version  = __VERIFIER_nondet_int();
+  unsigned int s__version  = __VERIFIER_nondet_uint();
   int s__type ;
   int s__init_num ;
   int s__bbio  = __VERIFIER_nondet_int();
@@ -21,10 +21,10 @@ int ssl3_connect(void)
   int s__debug  = __VERIFIER_nondet_int();
   int s__shutdown ;
   int s__ctx__info_callback  = __VERIFIER_nondet_int();
-  unsigned int s__ctx__stats__sess_connect_renegotiate = __VERIFIER_nondet_int();
+  unsigned int s__ctx__stats__sess_connect_renegotiate = __VERIFIER_nondet_uint();
   unsigned int s__ctx__stats__sess_connect ;
-  unsigned int s__ctx__stats__sess_hit  = __VERIFIER_nondet_int();
-  unsigned int s__ctx__stats__sess_connect_good  = __VERIFIER_nondet_int();
+  unsigned int s__ctx__stats__sess_hit  = __VERIFIER_nondet_uint();
+  unsigned int s__ctx__stats__sess_connect_good  = __VERIFIER_nondet_uint();
   int s__s3__change_cipher_spec ;
   int s__s3__flags ;
   int s__s3__delay_buf_pop_ret ;
@@ -47,8 +47,8 @@ int ssl3_connect(void)
   int state ;
   int skip ;
   int tmp___0 ;
-  unsigned int tmp___1  = __VERIFIER_nondet_int();
-  unsigned int tmp___2  = __VERIFIER_nondet_int();
+  unsigned int tmp___1  = __VERIFIER_nondet_uint();
+  unsigned int tmp___2  = __VERIFIER_nondet_uint();
   int tmp___3  = __VERIFIER_nondet_int();
   int tmp___4  = __VERIFIER_nondet_int();
   int tmp___5  = __VERIFIER_nondet_int();
