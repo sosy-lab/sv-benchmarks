@@ -1,5 +1,6 @@
 format_version: '1.0'
 
+# this is a version of soft_float_1-2.c.cil.yml with fixed overflow
 input_files: 'soft_float_1-2a.c.cil.c'
 
 properties:

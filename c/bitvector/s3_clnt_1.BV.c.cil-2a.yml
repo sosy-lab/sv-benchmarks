@@ -1,5 +1,6 @@
 format_version: '1.0'
 
+# this is a version of s3_clnt_1.BV.c.cil-2.yml with fixed overflow
 input_files: 's3_clnt_1.BV.c.cil-2a.c'
 
 properties:
