@@ -16,6 +16,7 @@ void mkdup(int *a, int n) {
 
     __VERIFIER_assume(0 <= i && i < n);
     __VERIFIER_assume(0 <= j && j < n);
+    __VERIFIER_assume(i != j);
 
     int x = __VERIFIER_nondet_int();
 
@@ -51,5 +52,6 @@ int main() {
     __VERIFIER_assert(r);
     __VERIFIER_assert(0 <= i && i < n);
     __VERIFIER_assert(0 <= j && j < n);
+    __VERIFIER_assert(i != j);
     __VERIFIER_assert(a[i] == a[j]);
 }
