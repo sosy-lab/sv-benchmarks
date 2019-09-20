@@ -1,2 +1,5 @@
 recursive/*.yml
 recursive-simple/*.yml
+verifythis/prefixsum_rec.yml
+verifythis/tree_del_rec.yml
+verifythis/tree_max.yml
