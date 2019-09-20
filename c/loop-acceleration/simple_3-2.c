@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-extern unsigned int __VERIFIER_nondet_uint();
+extern unsigned short __VERIFIER_nondet_ushort(void);
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -10,7 +10,7 @@ void __VERIFIER_assert(int cond) {
 
 int main(void) {
   unsigned int x = 0;
-  unsigned short N = __VERIFIER_nondet_uint();
+  unsigned short N = __VERIFIER_nondet_ushort();
 
   while (x < N) {
     x += 2;

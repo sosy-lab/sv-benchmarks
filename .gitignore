@@ -2,3 +2,4 @@
 *.jar
 *.zip
 *~
+*.DS_STORE

@@ -5,3 +5,4 @@ ntdrivers-simplified/*.yml
 locks/*.yml
 memsafety-ext3/*.yml
 pthread-memsafety/*.yml
+memsafety-bftpd/*.yml
