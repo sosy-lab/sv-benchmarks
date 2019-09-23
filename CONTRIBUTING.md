@@ -73,12 +73,14 @@ In general, we prefer source code that adheres to the ANSI C standard,
 but for real-world programs GNU C is also acceptable.
 
 
-#### Properties
+#### Task Definition
 
-For each verification problem, a separate task definiton in form of a `.yml` file is required
-that contains the file name of the verification task and
-the expected verdict for at least one [property](README.md#specification-properties).
+For each verification problem,
+a separate [task definiton](https://github.com/sosy-lab/sv-benchmarks/blob/master/README.md#task-definitions)
+in form of a `.yml` file is required that contains the file name of the verification task and
+the expected result for at least one [property](README.md#specifications).
 The `.yml` file should be named just like the original verification problem (except file ending).
+The task definition can contain additional information.
 
 
 #### Category
