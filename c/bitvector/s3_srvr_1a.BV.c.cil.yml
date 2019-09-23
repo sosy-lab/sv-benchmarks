@@ -1,0 +1,13 @@
+format_version: '1.0'
+
+# this is a version of s3_srvr_1.BV.c.cil.yml with fixed overflow
+input_files: 's3_srvr_1a.BV.c.cil.c'
+
+properties:
+  - property_file: ../properties/no-overflow.prp
+    expected_verdict: true
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

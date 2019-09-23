@@ -7,3 +7,9 @@ loop-new/*.yml
 loop-industry-pattern/*.yml
 loops-crafted-1/*.yml
 loop-invariants/*.yml
+verifythis/duplets.yml
+verifythis/elimination_max.yml
+verifythis/lcp.yml
+verifythis/prefixsum_iter.yml
+verifythis/tree_del_iter.yml
+nla-digbench/*.yml

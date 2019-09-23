@@ -9763,17 +9763,21 @@ int main(void)
   int tmp ;
   int tmp___0 ;
   var_group1 = ldv_init_zalloc(sizeof(struct vm_area_struct));
-  var_group1->vm_private_data = __VERIFIER_nondet_pointer();
-  __VERIFIER_assume(var_group1->vm_private_data != ((void *)0));
+  var_group1->vm_private_data = (struct ttm_buffer_object *)malloc(sizeof(struct ttm_buffer_object));
   bo = (struct ttm_buffer_object *)var_group1->vm_private_data;
-  bo->bdev = __VERIFIER_nondet_pointer();
-  __VERIFIER_assume(bo->bdev != ((void *)0));
+  bo->bdev = bdev = (struct ttm_bo_device *)malloc(sizeof(struct ttm_bo_device));
   (bo->bdev)->driver = &_var_group1_vm_private_data_driver;
+  bo->ttm = (struct ttm_tt *)malloc(sizeof(struct ttm_tt));
+  INIT_LIST_HEAD(& bo->lru);
+  INIT_LIST_HEAD(& bo->ddestroy);
+  INIT_LIST_HEAD(& bo->swap);
+  INIT_LIST_HEAD(& bo->io_reserve_lru);
   mem = & bo->mem;
   mem->mem_type = __VERIFIER_nondet_int();
   __VERIFIER_assume(mem->mem_type >= 0 && mem->mem_type <= 7);
   man = (struct ttm_mem_type_manager *)(& bdev->man) + (unsigned long )mem->mem_type;
   man->io_reserve_fastpath = __VERIFIER_nondet_long();
+  INIT_LIST_HEAD(& man->io_reserve_lru);
   var_group2 = ldv_init_zalloc(sizeof(struct vm_fault));
   {
   ldv_s_ttm_bo_vm_ops_vm_operations_struct = 0;
