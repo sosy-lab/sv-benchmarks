@@ -1,2 +1,3 @@
 recursive/*.yml
 recursive-simple/*.yml
+recursive-with-pointer/*.yml
