@@ -1,5 +1,5 @@
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef struct identify_s {
@@ -196,21 +196,21 @@ int ASStop(event_t *e) {
   return 0;
 }
 
-int hello_message(hello_t *message) {
+void hello_message(hello_t *message) {
   message->index = 2;
   message->operations = 2;
   message->data.length = 15;
   strncpy((char*) message->data.value, "Hello world", 15);
 }
 
-int open_message(open_t *message) {
+void open_message(open_t *message) {
   message->index = 3;
   message->time = 2;
   message->data.length = 15;
   strncpy((char*) message->data.value, "Open System", message->data.length);
 }
 
-int close_message(close_t *message) {
+void close_message(close_t *message) {
   message->index = 4;
   message->is_valid = 2;
   message->data.length = 15;
@@ -323,5 +323,6 @@ int main(int argc, char const *argv[])
   event_t e = {0};
   e.primitive = _EVENT_START;
   event_precess(&e);
+  return 0;
 }
 
