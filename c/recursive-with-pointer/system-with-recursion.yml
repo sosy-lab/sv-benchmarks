@@ -1,6 +1,6 @@
 format_version: '1.0'
 
-input_files: 'system-with-recursion.c'
+input_files: 'system-with-recursion.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp
