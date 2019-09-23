@@ -1,3 +1,6 @@
+#include <string.h>
+#include <stdlib.h>
+
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef struct identify_s {
   int id1;
@@ -103,6 +106,8 @@ typedef struct user_s {
 } user_t;
 
 user_t *user;
+
+int event_precess(event_t *e);
 
 int message_send() {
 
@@ -220,7 +225,7 @@ int ASStart(event_t *e) {
     message = calloc(0,sizeof(*message));
     message->id = 4;
     message->type = M_OPEN;
-    hello_message(&message->u.open);
+    open_message(&message->u.open);
     rc = message_send();
     if (rc == 0){
       status_update(AS_IDLE);
@@ -234,7 +239,7 @@ int ASStart(event_t *e) {
     message = calloc(0, sizeof(*message));
     message->id = 3;
     message->type = M_CLOSE;
-    hello_message(&message->u.close);
+    close_message(&message->u.close);
     rc = message_send();
     if (rc == 0){
       status_update(AS_STOP);

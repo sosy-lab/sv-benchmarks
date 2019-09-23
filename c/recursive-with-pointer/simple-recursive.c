@@ -15,12 +15,12 @@ void foo(int *p) {
   {
       ERRORLABEL:__VERIFIER_error();
   }
-  
 }
 
 int main(int argc, char const *argv[])
 {
-  int *p = calloc(sizeof(int));
+  int x = 0;
+  int *p = &x;
   *p = 10;
   foo(p);
 }
