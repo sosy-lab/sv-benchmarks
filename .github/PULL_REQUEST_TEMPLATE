@@ -12,7 +12,7 @@
 
 - [ ] programs added to a `.set` file of an existing category, or new sub-category established (if justified)
 - [ ] intended property matches the corresponding `.prp` file
-- [ ] expected answer in file names according to [convention](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#properties)
+- [ ] programs and expected answer added to a `.yml` file according to [task definitions](https://github.com/sosy-lab/sv-benchmarks#task-definitions)
 
 <!-- For C programs: -->
 - [ ] [architecture](https://github.com/sosy-lab/sv-benchmarks/blob/master/CONTRIBUTING.md#architecture) (32 bit vs. 64 bit) matches the corresponding `.cfg` file
