@@ -38,11 +38,19 @@ modules: if_etherip-double-free if_etherip-fixed-double-free
 # concatenate the source files into a single module
 # wrap all #include-directives with #ifndef-blocks
 # replace kprintf format functon type with printf
+# remove type punning
 if_etherip-double-free if_etherip-fixed-double-free: reset
 	if [ -f ${CURDIR}/sources/sys/if_etherip.c.orig ]; then \
 	    mv  ${CURDIR}/sources/sys/if_etherip.c.orig \
 		${CURDIR}/sources/sys/if_etherip.c; \
 	fi
+	if [ -f ${CURDIR}/sources/sys/netinet6/in6.h.orig ]; then \
+	    mv  ${CURDIR/sources/sys/netinet6/in6.h.orig \
+		sources/sys/netinet6/in6.h; \
+	fi
+	patch -b -R -i ${CURDIR}/sources/in6.patch \
+	    ${CURDIR}/sources/sys/netinet6/in6.h \
+	    || echo "Patch failed with code $$?"; \
 	if [ "$@" = "if_etherip-double-free" ]; then \
 	    patch -b -R -i ${CURDIR}/sources/007_etherip.patch.sig \
 		-d ${CURDIR}/sources/sys || echo "Patch failed with code $$?"; \
