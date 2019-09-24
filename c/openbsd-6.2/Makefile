@@ -32,9 +32,12 @@ include $(LEVEL)/Makefile.config
 
 modules: if_etherip-double-free if_etherip-fixed-double-free
 
-# Apply patches if necessary, copy stub header files to the source files,
-# concatenate the source files into a single module and wrap all #include-
-# directives with #ifndef-blocks
+# adjust original source code for compilation and CI:
+# apply patches if necessary
+# copy stub header files to the source files
+# concatenate the source files into a single module
+# wrap all #include-directives with #ifndef-blocks
+# replace kprintf format functon type with printf
 if_etherip-double-free if_etherip-fixed-double-free: reset
 	if [ -f ${CURDIR}/sources/sys/if_etherip.c.orig ]; then \
 	    mv  ${CURDIR}/sources/sys/if_etherip.c.orig \
@@ -53,6 +56,7 @@ if_etherip-double-free if_etherip-fixed-double-free: reset
 	cat $$tmp > $@.c && rm $$tmp
 	cc -E ${CC.Flags} -o $@.i $@.c
 	clang-format -i $@.i $@.c
+	sed -i -e 's/__format__(kprintf/__format__(printf/g' $@.c
 
 # Restore all files the make process could have touched or created
 reset:
