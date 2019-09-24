@@ -1,5 +1,7 @@
 LEVEL := ../
 
+IGNORE_DIRS := ./sources/
+
 SYNTAX_ONLY:=0
 CC.Arch := 64
 
