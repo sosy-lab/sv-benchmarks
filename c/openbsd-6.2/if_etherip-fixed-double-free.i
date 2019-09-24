@@ -5436,12 +5436,7 @@ extern char _ctassert[(sizeof(struct cpu_info_full) % (1 << 12) == 0) ? 1 : -1]
     __attribute__((__unused__));
 extern struct cpu_info_full cpu_info_full_primary;
 extern char _ctassert
-    [(&(*(struct cpu_info *)((char *)&cpu_info_full_primary + 4096 * 2 -
-                             __builtin_offsetof(struct cpu_info, ci_dev))) -
-          &cpu_info_full_primary.cif_cpu ==
-      0)
-         ? 1
-         : -1] __attribute__((__unused__));
+    [1]__attribute__((__unused__));
 struct cpu_info_full cpu_info_full_primary = {
   .cif_cpu = {
     .ci_self =
