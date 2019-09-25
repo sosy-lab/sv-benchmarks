@@ -5,6 +5,8 @@ void __VERIFIER_assert(int cond) {
         if(!cond) __VERIFIER_error();
 }
 
+extern int __VERIFIER_nondet_int(void);
+
 int check(int x, int y, int *a, int n) {
     if(x >= y) return x;
 
