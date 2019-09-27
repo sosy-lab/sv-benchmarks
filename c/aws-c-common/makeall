@@ -1,0 +1,20 @@
+#!/bin/bash
+
+AWS="$1"
+SV="$2"
+
+for a in `find "$AWS/.cbmc-batch/jobs" -type d`
+do
+    cd "$a"
+    make sv-benchmark SV=$SV
+done
+
+# These benchmarks 
+sed '/^void .memset(/,+8d' -i \
+    $SV/c/aws-c-common/memset_using_uint64_harness.i
+
+sed '/^void .memcpy(/,+8d' -i \
+    $SV/c/aws-c-common/memcpy_using_uint64_harness.i
+
+sed '/^void .memset(/,+8d' -i \
+    $SV/c/aws-c-common/memset_override_0_harness.i

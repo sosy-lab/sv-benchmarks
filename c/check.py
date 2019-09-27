@@ -94,8 +94,14 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("ntdrivers-simplified", "missing readme"),
     ("ssh", "missing readme"),
     ("ssh-simplified", "missing readme"),
+
     ("openbsd-6.2", "unexpected subdirectory sources"),
     ("openbsd-6.2", "unexpected file prepreprocess.py"),
+
+    ("aws-c-common", "unexpected file patch.diff"),
+    ("aws-c-common", "unexpected file makeall"),
+    ("aws-c-common", "unexpected file Makefile.sv-benchmarks"),
+    ("aws-c-common", "unexpected file TODO"),
     ]
 
 KNOWN_BENCHMARK_FILE_PROBLEMS = [
