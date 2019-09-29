@@ -47,10 +47,10 @@ if_etherip-double-free if_etherip-fixed-double-free: reset
 		${CURDIR}/sources/sys/if_etherip.c; \
 	fi
 	if [ -f ${CURDIR}/sources/sys/netinet6/in6.h.orig ]; then \
-	    mv  ${CURDIR/sources/sys/netinet6/in6.h.orig \
-		sources/sys/netinet6/in6.h; \
+	    mv  ${CURDIR}/sources/sys/netinet6/in6.h.orig \
+		${CURDIR}/sources/sys/netinet6/in6.h; \
 	fi
-	patch -b -R -i ${CURDIR}/sources/in6.patch \
+	patch -b -R -N -i ${CURDIR}/sources/in6.patch \
 	    ${CURDIR}/sources/sys/netinet6/in6.h \
 	    || echo "Patch failed with code $$?"; \
 	if [ "$@" = "if_etherip-double-free" ]; then \
@@ -74,7 +74,12 @@ reset:
 	    mv  ${CURDIR}/sources/sys/if_etherip.c.orig \
 		${CURDIR}/sources/sys/if_etherip.c; \
 	fi
+	if [ -f ${CURDIR}/sources/sys/netinet6/in6.h.orig ]; then \
+	    mv  ${CURDIR}/sources/sys/netinet6/in6.h.orig \
+		${CURDIR}/sources/sys/netinet6/in6.h; \
+	fi
 	rm -f ${CURDIR}/sources/sys/if_etherip.c.rej
+	rm -f ${CURDIR}/sources/sys/netinet6/in6.h.rej
 	rm -f ${CURDIR}/sources/sys/stub.h ${CURDIR}/sources/sys/sv_comp.h
 	rm -f ${CURDIR}/if_etherip-fixed-double-free.{i,c}
 	rm -f ${CURDIR}/if_etherip-double-free.{i,c}
