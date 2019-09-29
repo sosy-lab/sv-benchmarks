@@ -27,7 +27,7 @@
 
 #define IPSTAT_INC(name)  ipstat_inc(ips_##name)
 
-struct protosw inetsw[] = {};
+struct protosw inetsw[] = {{}};
 
 void
 ip_init(void)
