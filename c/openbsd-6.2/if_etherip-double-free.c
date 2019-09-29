@@ -281,7 +281,9 @@ int m_trailingspace(struct mbuf *m) {
               : &m->m_dat[MLEN] - (m->m_data + m->m_len));
 }
 
-struct mbuf *m_clget(struct mbuf *m, int how, u_int pktlen) { return NULL; }
+struct mbuf *m_clget(struct mbuf *m, int how, u_int pktlen) {
+  return NULL;
+}
 #ifndef __stub_stub
 #define __stub_stub 1
 #include "sources/sys/stub.h"
@@ -386,7 +388,7 @@ struct mbuf *m_clget(struct mbuf *m, int how, u_int pktlen) { return NULL; }
 
 #define IPSTAT_INC(name) ipstat_inc(ips_##name)
 
-struct protosw inetsw[] = {};
+struct protosw inetsw[] = {{}};
 
 void ip_init(void) {}
 
@@ -395,113 +397,116 @@ int ip6_hdrnestlimit = 10;
 u_char ip6_protox[IPPROTO_MAX];
 
 struct protosw inet6sw[] = {
-  { .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_IPV6,
-    .pr_init = ip6_init,
-    .pr_slowtimo = frag6_slowtimo,
-    .pr_drain = frag6_drain,
-    .pr_sysctl = ip6_sysctl },
-  { .pr_type = SOCK_DGRAM,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_UDP,
-    .pr_flags = PR_ATOMIC | PR_ADDR | PR_SPLICE,
-    .pr_input = udp_input,
-    .pr_ctlinput = udp6_ctlinput,
-    .pr_ctloutput = ip6_ctloutput,
-    .pr_usrreq = udp_usrreq,
-    .pr_attach = udp_attach,
-    .pr_sysctl = udp_sysctl },
-  { .pr_type = SOCK_STREAM,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_TCP,
-    .pr_flags = PR_CONNREQUIRED | PR_WANTRCVD | PR_ABRTACPTDIS | PR_SPLICE,
-    .pr_input = tcp_input,
-    .pr_ctlinput = tcp6_ctlinput,
-    .pr_ctloutput = tcp_ctloutput,
-    .pr_usrreq = tcp_usrreq,
-    .pr_attach = tcp_attach,
-    .pr_sysctl = tcp_sysctl },
-  { .pr_type = SOCK_RAW,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_RAW,
-    .pr_flags = PR_ATOMIC | PR_ADDR,
-    .pr_input = rip6_input,
-    .pr_ctlinput = rip6_ctlinput,
-    .pr_ctloutput = rip6_ctloutput,
-    .pr_usrreq = rip6_usrreq,
-    .pr_attach = rip6_attach,
-    .pr_sysctl = rip6_sysctl },
-  { .pr_type = SOCK_RAW,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_ICMPV6,
-    .pr_flags = PR_ATOMIC | PR_ADDR,
-    .pr_input = icmp6_input,
-    .pr_ctlinput = rip6_ctlinput,
-    .pr_ctloutput = rip6_ctloutput,
-    .pr_usrreq = rip6_usrreq,
-    .pr_attach = rip6_attach,
-    .pr_init = icmp6_init,
-    .pr_fasttimo = icmp6_fasttimo,
-    .pr_sysctl = icmp6_sysctl },
-  { .pr_type = SOCK_RAW,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_DSTOPTS,
-    .pr_flags = PR_ATOMIC | PR_ADDR,
-    .pr_input = dest6_input },
-  { .pr_type = SOCK_RAW,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_ROUTING,
-    .pr_flags = PR_ATOMIC | PR_ADDR,
-    .pr_input = route6_input },
-  { .pr_type = SOCK_RAW,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_FRAGMENT,
-    .pr_flags = PR_ATOMIC | PR_ADDR,
-    .pr_input = frag6_input },
-  { .pr_type = SOCK_RAW,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_IPV4,
-    .pr_flags = PR_ATOMIC | PR_ADDR,
-    .pr_input = ipip_input,
-    .pr_ctloutput = rip6_ctloutput,
-    .pr_usrreq = rip6_usrreq, /* XXX */
-    .pr_attach = rip6_attach },
-  { .pr_type = SOCK_RAW,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_IPV6,
-    .pr_flags = PR_ATOMIC | PR_ADDR,
-    .pr_input = ipip_input,
-    .pr_ctloutput = rip6_ctloutput,
-    .pr_usrreq = rip6_usrreq, /* XXX */
-    .pr_attach = rip6_attach, },
-  { .pr_type = SOCK_RAW,
-    .pr_domain = &inet6domain,
-    .pr_protocol = IPPROTO_ETHERIP,
-    .pr_flags = PR_ATOMIC | PR_ADDR,
-    .pr_input = ip6_etherip_input,
-    .pr_ctloutput = rip6_ctloutput,
-    .pr_usrreq = rip6_usrreq,
-    .pr_attach = rip6_attach,
-    .pr_sysctl = ip_etherip_sysctl },
-  {
-    /* raw wildcard */
-    .pr_type = SOCK_RAW,             .pr_domain = &inet6domain,
-    .pr_flags = PR_ATOMIC | PR_ADDR, .pr_input = rip6_input,
-    .pr_ctloutput = rip6_ctloutput,  .pr_usrreq = rip6_usrreq,
-    .pr_attach = rip6_attach,        .pr_init = rip6_init
-  }
-};
+    {.pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_IPV6,
+     .pr_init = ip6_init,
+     .pr_slowtimo = frag6_slowtimo,
+     .pr_drain = frag6_drain,
+     .pr_sysctl = ip6_sysctl},
+    {.pr_type = SOCK_DGRAM,
+     .pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_UDP,
+     .pr_flags = PR_ATOMIC | PR_ADDR | PR_SPLICE,
+     .pr_input = udp_input,
+     .pr_ctlinput = udp6_ctlinput,
+     .pr_ctloutput = ip6_ctloutput,
+     .pr_usrreq = udp_usrreq,
+     .pr_attach = udp_attach,
+     .pr_sysctl = udp_sysctl},
+    {.pr_type = SOCK_STREAM,
+     .pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_TCP,
+     .pr_flags = PR_CONNREQUIRED | PR_WANTRCVD | PR_ABRTACPTDIS | PR_SPLICE,
+     .pr_input = tcp_input,
+     .pr_ctlinput = tcp6_ctlinput,
+     .pr_ctloutput = tcp_ctloutput,
+     .pr_usrreq = tcp_usrreq,
+     .pr_attach = tcp_attach,
+     .pr_sysctl = tcp_sysctl},
+    {.pr_type = SOCK_RAW,
+     .pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_RAW,
+     .pr_flags = PR_ATOMIC | PR_ADDR,
+     .pr_input = rip6_input,
+     .pr_ctlinput = rip6_ctlinput,
+     .pr_ctloutput = rip6_ctloutput,
+     .pr_usrreq = rip6_usrreq,
+     .pr_attach = rip6_attach,
+     .pr_sysctl = rip6_sysctl},
+    {.pr_type = SOCK_RAW,
+     .pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_ICMPV6,
+     .pr_flags = PR_ATOMIC | PR_ADDR,
+     .pr_input = icmp6_input,
+     .pr_ctlinput = rip6_ctlinput,
+     .pr_ctloutput = rip6_ctloutput,
+     .pr_usrreq = rip6_usrreq,
+     .pr_attach = rip6_attach,
+     .pr_init = icmp6_init,
+     .pr_fasttimo = icmp6_fasttimo,
+     .pr_sysctl = icmp6_sysctl},
+    {.pr_type = SOCK_RAW,
+     .pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_DSTOPTS,
+     .pr_flags = PR_ATOMIC | PR_ADDR,
+     .pr_input = dest6_input},
+    {.pr_type = SOCK_RAW,
+     .pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_ROUTING,
+     .pr_flags = PR_ATOMIC | PR_ADDR,
+     .pr_input = route6_input},
+    {.pr_type = SOCK_RAW,
+     .pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_FRAGMENT,
+     .pr_flags = PR_ATOMIC | PR_ADDR,
+     .pr_input = frag6_input},
+    {.pr_type = SOCK_RAW,
+     .pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_IPV4,
+     .pr_flags = PR_ATOMIC | PR_ADDR,
+     .pr_input = ipip_input,
+     .pr_ctloutput = rip6_ctloutput,
+     .pr_usrreq = rip6_usrreq, /* XXX */
+     .pr_attach = rip6_attach},
+    {
+        .pr_type = SOCK_RAW,
+        .pr_domain = &inet6domain,
+        .pr_protocol = IPPROTO_IPV6,
+        .pr_flags = PR_ATOMIC | PR_ADDR,
+        .pr_input = ipip_input,
+        .pr_ctloutput = rip6_ctloutput,
+        .pr_usrreq = rip6_usrreq, /* XXX */
+        .pr_attach = rip6_attach,
+    },
+    {.pr_type = SOCK_RAW,
+     .pr_domain = &inet6domain,
+     .pr_protocol = IPPROTO_ETHERIP,
+     .pr_flags = PR_ATOMIC | PR_ADDR,
+     .pr_input = ip6_etherip_input,
+     .pr_ctloutput = rip6_ctloutput,
+     .pr_usrreq = rip6_usrreq,
+     .pr_attach = rip6_attach,
+     .pr_sysctl = ip_etherip_sysctl},
+    {/* raw wildcard */
+     .pr_type = SOCK_RAW,
+     .pr_domain = &inet6domain,
+     .pr_flags = PR_ATOMIC | PR_ADDR,
+     .pr_input = rip6_input,
+     .pr_ctloutput = rip6_ctloutput,
+     .pr_usrreq = rip6_usrreq,
+     .pr_attach = rip6_attach,
+     .pr_init = rip6_init}};
 
-struct domain inet6domain = { .dom_family = AF_INET6,
-                              .dom_name = "internet6",
-                              .dom_protosw = inet6sw,
-                              .dom_protoswNPROTOSW = &inet6sw[nitems(inet6sw)],
-                              .dom_rtkeylen = sizeof(struct sockaddr_in6),
-                              .dom_rtoffset =
-                                  offsetof(struct sockaddr_in6, sin6_addr),
-                              .dom_maxplen = 128,
-                              .dom_ifattach = in6_domifattach,
-                              .dom_ifdetach = in6_domifdetach };
+struct domain inet6domain = {.dom_family = AF_INET6,
+                             .dom_name = "internet6",
+                             .dom_protosw = inet6sw,
+                             .dom_protoswNPROTOSW = &inet6sw[nitems(inet6sw)],
+                             .dom_rtkeylen = sizeof(struct sockaddr_in6),
+                             .dom_rtoffset =
+                                 offsetof(struct sockaddr_in6, sin6_addr),
+                             .dom_maxplen = 128,
+                             .dom_ifattach = in6_domifattach,
+                             .dom_ifdetach = in6_domifdetach};
 
 /* from sys/kern/uipc_domain.c */
 struct protosw *pffindproto(int family, int protocol, int type) {
@@ -826,8 +831,7 @@ int ipip_input(struct mbuf **a, int *b, int c, int d) {
 #endif
 
 struct cpu_info_full cpu_info_full_primary = {
-  .cif_cpu = { .ci_self = &cpu_info_primary }
-};
+    .cif_cpu = {.ci_self = &cpu_info_primary}};
 struct etheripstat etheripstat;
 
 void explicit_bzero(void *b, size_t len) {
@@ -1231,7 +1235,7 @@ int etherip_ioctl(struct ifnet *ifp, u_long cmd, caddr_t data) {
   switch (cmd) {
   case SIOCSIFADDR:
     ifp->if_flags |= IFF_UP;
-  /* FALLTHROUGH */
+    /* FALLTHROUGH */
 
   case SIOCSIFFLAGS:
     if (ifp->if_flags & IFF_UP)
