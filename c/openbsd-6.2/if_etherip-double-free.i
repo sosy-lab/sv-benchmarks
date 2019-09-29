@@ -666,19 +666,19 @@ void hashfree(void *, int, int);
 int sys_nosys(struct proc *, void *, register_t *);
 
 void panic(const char *, ...)
-    __attribute__((__noreturn__, __format__(kprintf, 1, 2)));
+    __attribute__((__noreturn__, __format__(printf, 1, 2)));
 void __assert(const char *, const char *, int, const char *)
     __attribute__((__noreturn__));
-int printf(const char *, ...) __attribute__((__format__(kprintf, 1, 2)));
-void uprintf(const char *, ...) __attribute__((__format__(kprintf, 1, 2)));
-int vprintf(const char *, va_list) __attribute__((__format__(kprintf, 1, 0)));
+int printf(const char *, ...) __attribute__((__format__(printf, 1, 2)));
+void uprintf(const char *, ...) __attribute__((__format__(printf, 1, 2)));
+int vprintf(const char *, va_list) __attribute__((__format__(printf, 1, 0)));
 int vsnprintf(char *, size_t, const char *, va_list)
-    __attribute__((__format__(kprintf, 3, 0)));
+    __attribute__((__format__(printf, 3, 0)));
 int snprintf(char *buf, size_t, const char *, ...)
-    __attribute__((__format__(kprintf, 3, 4)));
+    __attribute__((__format__(printf, 3, 4)));
 struct tty;
 void ttyprintf(struct tty *, const char *, ...)
-    __attribute__((__format__(kprintf, 2, 3)));
+    __attribute__((__format__(printf, 2, 3)));
 
 void splassert_fail(int, int, const char *);
 extern int splassert_ctl;

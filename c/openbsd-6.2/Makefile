@@ -64,9 +64,9 @@ if_etherip-double-free if_etherip-fixed-double-free: reset
 	tmp=$$(mktemp); \
 	${CURDIR}/prepreprocess.py $@.c sources/sys > $$tmp; \
 	cat $$tmp > $@.c && rm $$tmp
+	sed -i -e 's/__format__(kprintf/__format__(printf/g' $@.c
 	cc -E ${CC.Flags} -o $@.i $@.c
 	clang-format -i $@.i $@.c
-	sed -i -e 's/__format__(kprintf/__format__(printf/g' $@.c
 
 # Restore all files the make process could have touched or created
 reset:
