@@ -13,7 +13,7 @@ void __VERIFIER_assert(int cond) {
     }
     return;
 }
-//#include <math.h>
+
 
 int main() {
     int z, k;
