@@ -15,7 +15,7 @@ int main() {
     int x = 0;
     int y = n - 1;
 
-    while(x != y) {
+    while(x < y) {
         /* Possible formulation of the invariant:
          *
          * Claude Marche, Jean-Christophe Filliatre

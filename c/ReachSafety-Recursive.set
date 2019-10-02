@@ -4,3 +4,5 @@ recursive-with-pointer/*.yml
 verifythis/prefixsum_rec.yml
 verifythis/tree_del_rec.yml
 verifythis/tree_max.yml
+verifythis/elimination_max_rec.yml
+verifythis/elimination_max_rec_onepoint.yml
