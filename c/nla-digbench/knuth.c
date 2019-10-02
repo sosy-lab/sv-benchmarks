@@ -11,7 +11,7 @@ void __VERIFIER_assert(int cond) {
     return;
 }
 
-#include <math.h>
+extern double sqrt(double);
 
 int main() {
     int n, a;
