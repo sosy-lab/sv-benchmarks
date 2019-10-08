@@ -1,0 +1,8 @@
+format_version: '1.0'
+input_files: 'kbfiltr_simpl2.cil-2.cmain_Patch_3.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
+
