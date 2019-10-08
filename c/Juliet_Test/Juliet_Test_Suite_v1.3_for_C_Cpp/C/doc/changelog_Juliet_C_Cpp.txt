@@ -1,0 +1,32 @@
+Juliet Test Suite for C/C++ - Changelog
+
+Sep 2017 - v1.3
+-Total number of test cases: 64,295
+-Total number of CWEs covered: 118
+-Add pre- and post- increment overflow cases to CWE190 and decrement
+    underflow cases to CWE191.
+-Add code to exit if memory allocation fails to 11,619 files in 20 CWEs.
+-A dozen other corrections to some 10,000 files in 30 CWEs.
+-Update printf formats for C 2011.  Change RAND macros to not have
+    undefined behavior.
+
+Dec 2012 - v1.2 
+-Total number of test cases: 61,387
+-Total number of CWEs covered: 118
+-CWEs added: 90, 176, 526, 615, 667, 681
+-CWEs removed: 204, 304, 374, 392, 489, 547, 560
+-One flow variant was removed.
+-Two flow variants were added. 
+-Number of flaw types for 22 CWEs either increased or decreased.
+-Directories were split into smaller subdirectories, each
+	one containing no more than 1,000 test case files.
+-Removal of dead code from several control flow variants.
+(See Appendix E of the v1.2 user guide for more details on the above changes.)
+
+Dec 2011 - v1.1
+-Total number of test cases: 57,099
+-Total number of CWEs covered: 119
+
+Dec 2010 - v1.0 (Initial release)
+-Total number of test cases: 45,324
+-Total number of CWEs covered: 116
