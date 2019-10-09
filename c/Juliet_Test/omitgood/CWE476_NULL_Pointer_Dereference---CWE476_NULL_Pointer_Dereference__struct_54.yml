@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE476_NULL_Pointer_Dereference---CWE476_NULL_Pointer_Dereference__struct_54.i'
+
+properties:
+  - property_file: ../../properties/valid-memsafety.prp
+    expected_verdict: false
