@@ -1,6 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
+ * Type             : Memory Safety
+ * Expected Verdict : True
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
+
+/**
  * Copyright (c) 2011, Regents of the University of California
  * All rights reserved.
  * <p/>
@@ -35,16 +44,13 @@ import org.sosy_lab.sv_benchmarks.Verifier;
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-//package edu.berkeley.cs.wise.benchmarks;
-
-//import edu.berkeley.cs.wise.concolic.Concolic;
-
 /**
  * @author Jacob Burnim <jburnim@cs.berkeley.edu>
  */
+
 public class Main {
 
-  public static void sort(int[] a) {
+  public static int sort(int[] a, int count) {
     final int N = a.length;
     for (int i = 1; i < N; i++) {  // N branches
       int j = i - 1;
@@ -55,26 +61,22 @@ public class Main {
         a[j + 1] = a[j];
         j--;
       }
+	    count += N;
       a[j + 1] = x;
     }
+    return count;
   }
 
   public static void main(String[] args) {
-    final int N = Verifier.nondetInt();
-	
+    int N = Verifier.nondetInt();
+    Verifier.assume(N > 0);
+
     int a[] = new int[N];
     for (int i = 0; i < N; i++) {
-	    int vRand = Verifier.nondetInt();
-	    Verifier.assume( vRand >= 0 && vRand < 100);
-      a[i] = vRand;
+      a[i] = N-i;
     }
 
-    // We only measure the complexity of the sort itself.  That
-    // is, we count branches only from this point forward in the
-    // execution.
-    //Concolic.ResetBranchCounting();
-    sort(a);
-
-    assert(a.length<2 || a[0]>a[1]); // too weak
+    int count = sort(a, 0);
   }
 }
+

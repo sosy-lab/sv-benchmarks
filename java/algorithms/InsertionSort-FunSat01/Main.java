@@ -1,6 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
+ * Type             : Functional Safety
+ * Expected Verdict : True
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
+
+/**
  * Copyright (c) 2011, Regents of the University of California
  * All rights reserved.
  * <p/>
@@ -35,13 +44,10 @@ import org.sosy_lab.sv_benchmarks.Verifier;
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-//package edu.berkeley.cs.wise.benchmarks;
-
-//import edu.berkeley.cs.wise.concolic.Concolic;
-
 /**
  * @author Jacob Burnim <jburnim@cs.berkeley.edu>
  */
+
 public class Main {
 
   public static int sort(int[] a, int count) {
@@ -62,25 +68,16 @@ public class Main {
   }
 
   public static void main(String[] args) {
-    try {
-      int N = Verifier.nondetInt();
-      while (!(N > 0));
-		
-      int a[] = new int[N];
-      for (int i = 0; i < N; i++) {
-        a[i] = N-i; 
-      }
+    int N = Verifier.nondetInt();
+    Verifier.assume(N > 0);
 
-      int count = sort(a, 0);
-
-      // also fails...
-      //assert(true);
-
-      //assert (count <= N*2);
-      //assert(a.length<2 || a[0]<a[1]);
-      //assert (N < 2 || a[0] < a[1]);
-    } catch (Exception e) {
-	    assert false;
+    int a[] = new int[N];
+    for (int i = 0; i < N; i++) {
+      a[i] = N-i;
     }
+
+    int count = sort(a, 0);
+    assert (N < 2 || a[0] < a[1]);
   }
 }
+
