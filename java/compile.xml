@@ -26,4 +26,8 @@
   <tasks name="jayhorn-recursive">
     <include>jayhorn-recursive/*.yml</include>
   </tasks>
+
+  <tasks name="algorithms">
+    <include>algorithms/*.yml</include>
+  </tasks>
 </benchmark>
