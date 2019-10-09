@@ -1,6 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
+ * Type             : Functional Safety
+ * Expected Verdict : False
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
+
+/**
  * Copyright (c) 2011, Regents of the University of California
  * All rights reserved.
  * <p/>
@@ -41,8 +50,8 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 public class Main {
 
   private static class List {
-    private int x;
-    private List next;
+    public int x;
+    public List next;
 
     private static final int SENTINEL = Integer.MAX_VALUE;
 
@@ -67,9 +76,12 @@ public class Main {
 
   public static void main(String[] args) {
     final int N = Verifier.nondetInt();
+    Verifier.assume(N > 1);
 
     List list = new List();
-    list.insert(0);
-    assert list.next != null;
+    for (int i = 0; i < N; i++)
+      list.insert(Verifier.nondetInt());
+
+    assert(list.x < list.next.x); // the values can be equal
   }
 }
