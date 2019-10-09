@@ -1,7 +1,8 @@
 format_version: "1.0"
 input_files:
-  - Loop01/
+  - ../common/
+  - Trie-MemUnsat01/
 properties:
   - property_file: ../properties/assert.prp
-    expected_verdict: true
+    expected_verdict: false
 

@@ -1,8 +1,8 @@
 format_version: "1.0"
 input_files:
   - ../common/
-  - Loop03/
+  - Trie-FunUnsat01/
 properties:
   - property_file: ../properties/assert.prp
-    expected_verdict: true
+    expected_verdict: false
 

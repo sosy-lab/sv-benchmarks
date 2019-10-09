@@ -1,6 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 import java.util.Queue;
 
+/**
+ * Type             : Memory Safety
+ * Expected Verdict : True
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
+
 /******************************************************************************
  *  Compilation:  javac TrieST.java
  *  Execution:    java TrieST < words.txt
@@ -60,6 +69,42 @@ public class Main {
     private Node[] next = new Node[R];
   }
 
+  private static class CharArray {
+    private int length = 0;
+    public char[] array;
+    private static final int DEFAULT_LENGTH = 42;
+
+    public CharArray() {
+      this(DEFAULT_LENGTH);
+    }
+
+    public CharArray(int length) {
+      this.length = length;
+      array = new char[length];
+    }
+
+    public int length() { return length; }
+
+    public void set(int i, char c) {
+      if (i < length)
+        array[i] = c;
+      else throw new ArrayIndexOutOfBoundsException("Error while setting char!");
+    }
+    public char get(int i) {
+      if (i < length)
+        return array[i];
+      else throw new ArrayIndexOutOfBoundsException("Error while getting char!");
+    }
+
+    public CharArray substring(int start, int end) {
+      int subLength = end-start;
+      CharArray substr = new CharArray(subLength);
+      for(int i = 0; i < subLength; i++)
+        substr.set(i, this.get(i));
+      return substr;
+    }
+  }
+
   /**
    * Initializes an empty string symbol table.
    */
@@ -72,7 +117,7 @@ public class Main {
    *     and <tt>null</tt> if the key is not in the symbol table
    * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
    */
-  public int get(String key) {
+  public int get(CharArray key) {
     Node x = get2(root, key, 0);
     if (x == null) return -1;
     return  x.val;
@@ -85,14 +130,14 @@ public class Main {
    *     <tt>false</tt> otherwise
    * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
    */
-  public boolean contains(String key) {
+  public boolean contains(CharArray key) {
     return get(key) != -1;
   }
 
-  private Node get2(Node x, String key, int d) {
+  private Node get2(Node x, CharArray key, int d) {
     if (x == null) return null;
     if (d == key.length()) return x;
-    char c = key.charAt(d);
+    char c = key.get(d);
     return get2(x.next[c], key, d+1);
   }
 
@@ -104,19 +149,20 @@ public class Main {
    * @param val the value
    * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
    */
-  public void put(String key, int val) {
+  public void put(CharArray key, int val) {
     if (val == -1) delete(key);
     else root = put2(root, key, val, 0);
   }
-    
-  private Node put2(Node x, String key, int val, int d) {
+
+  private Node put2(Node x, CharArray key, int val, int d) {
     if (x == null) x = new Node();
     if (d == key.length()) {
       if (x.val == -1) N++;
       x.val = val;
       return x;
     }
-    char c = key.charAt(d);
+
+    char c = key.get(d);
     x.next[c] = put2(x.next[c], key, val, d+1);
     return x;
   }
@@ -171,7 +217,7 @@ public class Main {
    *     or <tt>null</tt> if no such string
    * @throws NullPointerException if <tt>query</tt> is <tt>null</tt>
    */
-  public String longestPrefixOf(String query) {
+  public CharArray longestPrefixOf(CharArray query) {
     int length = longestPrefixOf(root, query, 0, -1);
     if (length == -1) return null;
     else return query.substring(0, length);
@@ -181,11 +227,11 @@ public class Main {
   // rooted at x that is a prefix of the query string,
   // assuming the first d character match and we have already
   // found a prefix match of given length (-1 if no such match)
-  private int longestPrefixOf(Node x, String query, int d, int length) {
+  private int longestPrefixOf(Node x, CharArray query, int d, int length) {
     if (x == null) return length;
     if (x.val != -1) length = d;
     if (d == query.length()) return length;
-    char c = query.charAt(d);
+    char c = query.get(d);
     return longestPrefixOf(x.next[c], query, d+1, length);
   }
 
@@ -194,18 +240,18 @@ public class Main {
    * @param key the key
    * @throws NullPointerException if <tt>key</tt> is <tt>null</tt>
    */
-  public void delete(String key) {
+  public void delete(CharArray key) {
     root = delete(root, key, 0);
   }
 
-  private Node delete(Node x, String key, int d) {
+  private Node delete(Node x, CharArray key, int d) {
     if (x == null) return null;
     if (d == key.length()) {
       if (x.val != -1) N--;
       x.val = -1;
     }
     else {
-      char c = key.charAt(d);
+      char c = key.get(d);
       x.next[c] = delete(x.next[c], key, d+1);
     }
 
@@ -219,14 +265,21 @@ public class Main {
 
 
   public static void main(String[] args) {
-    try {
-      int N = Verifier.nondetInt();
-      Main st = new Main();
-      String test = "test";
-      st.put(test,2);
-      //st.get(test);
-      assert(!st.isEmpty());
-    } catch (Exception e) { assert false; }
+    Main st = new Main();
+    CharArray test = new CharArray(8);
+
+    try{
+      test.set(0, 'S');
+      test.set(1, 'V');
+      test.set(2, 'C');
+      test.set(3, 'O');
+      test.set(4, 'M');
+      test.set(5, 'P');
+      test.set(6, '2');
+      test.set(7, '0');
+
+      st.put(test,Verifier.nondetInt());
+      st.get(test);
+    } catch(Exception e) { assert false; }
   }
-  
 }
