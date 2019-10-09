@@ -1,7 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
-
 import rbtree.RedBlackTree;
 import rbtree.RedBlackTreeNode;
+
+/**
+ * Type             : Memory Safety
+ * Expected Verdict : True
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
 
 /**
  * Copyright (c) 2011, Regents of the University of California
@@ -42,28 +50,21 @@ import rbtree.RedBlackTreeNode;
  * @author Koushik Sen <ksen@cs.berkeley.edu>
  * @author Jacob Burnim <jburnim@cs.berkeley.edu>
  */
+
 public class Main {
   public static void main(String[] args) {
-    try {
-      int N = Verifier.nondetInt();
+    int N = Verifier.nondetInt();
+    Verifier.assume(N > 0);
 
-      RedBlackTree tree = new RedBlackTree();
+    RedBlackTree tree = new RedBlackTree();
 
+    for (int i = 0; i < N; i++) {
       int data = Verifier.nondetInt();
-      Verifier.assume( data >= 0 && data < 100);
       tree.treeInsert(new RedBlackTreeNode(data));
+    }
 
-      /* for (int i = 0; i < N; i++) {
-         int data = Verifier.nondetInt();
-         Verifier.assume( data >= 0 && data < 100);
-         tree.treeInsert(new RedBlackTreeNode(data));
-         }
-
-         int data = Verifier.nondetInt();
-         Verifier.assume( data >= 0 && data < 100);
-         RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
-
-         assert(node==null || node.isRed() || node.isBlack());*/
-    } catch (Exception e) { assert false; }
+    int data = Verifier.nondetInt();
+    RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
   }
 }
+

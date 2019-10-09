@@ -98,8 +98,6 @@ public class RedBlackTreeNode extends Node {
    * @return The key of the node.
    */
   public int key() {
-    assert super.key()==0;
-    assert this.key==0;
     return super.key();
   }
 

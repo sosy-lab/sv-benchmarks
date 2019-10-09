@@ -1,7 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
-
 import rbtree.RedBlackTree;
 import rbtree.RedBlackTreeNode;
+
+/**
+ * Type             : Functional Safety
+ * Expected Verdict : True
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
 
 /**
  * Copyright (c) 2011, Regents of the University of California
@@ -42,27 +50,21 @@ import rbtree.RedBlackTreeNode;
  * @author Koushik Sen <ksen@cs.berkeley.edu>
  * @author Jacob Burnim <jburnim@cs.berkeley.edu>
  */
+
 public class Main {
   public static void main(String[] args) {
-    try {
-      int N = Verifier.nondetInt();
+    int N = Verifier.nondetInt();
+    Verifier.assume(N > 0);
 
-      RedBlackTree tree = new RedBlackTree();
+    RedBlackTree tree = new RedBlackTree();
 
-      int data1 = Verifier.nondetInt();
-      Verifier.assume( data1 >= 0 && data1 < 100);
-      tree.treeInsert(new RedBlackTreeNode(data1));
-	
-      int data = Verifier.nondetInt();
-      Verifier.assume( data >= 0 && data < 100);
-      RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
+    for (int i = 0; i < N; i++)
+      tree.treeInsert(new RedBlackTreeNode(i));
 
-      // UNSAFE
-      //assert(false);
-
-  	  // SAFE
-      //assert(node==null);
-
-    } catch (Exception e) { assert false; }
+    int data = Verifier.nondetInt();
+    Verifier.assume(data >= 0 && data < N);
+    RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
+    assert (node != null);
   }
 }
+

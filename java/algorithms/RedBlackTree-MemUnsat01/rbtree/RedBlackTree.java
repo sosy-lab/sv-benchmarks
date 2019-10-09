@@ -355,12 +355,10 @@ public class RedBlackTree {
    * @param    k    The key of the wanted node.
    */
   public RedBlackTreeNode treeSearch(RedBlackTreeNode x, int k) {
-    assert (k == x.key());
-    if (x == null || k == x.key()) {
+    if (k == x.key()) { // error, x might be null
       return x;
     }
-    //assert false;
-    if (k < x.key()) {
+    if (k < x.key()) { // error should appear here
       return treeSearch(x.left(), k);
     } else {
       return treeSearch(x.right(), k);
