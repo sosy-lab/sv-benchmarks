@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE126_Buffer_Overread---s01---CWE126_Buffer_Overread__CWE129_listen_socket_12.i'
+
+properties:
+  - property_file: ../../properties/valid-memsafety.prp
+    expected_verdict: true
