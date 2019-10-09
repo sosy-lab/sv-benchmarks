@@ -1,6 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
+* Type             : Functional Safety
+* Expected Verdict : False
+* Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+* Date             : 9 October 2019
+*
+* Original license follows.
+*/
+
+/**
  * Copyright (c) 2011, Regents of the University of California
  * All rights reserved.
  * <p/>
@@ -112,24 +121,14 @@ public class Main {
 
   public static void main(String args[]) {
     final int N = Verifier.nondetInt();
-    if(N < 0) while(true);
 
     BinaryTree b = new BinaryTree();
-    for (int i = 1; i < N; i++) {
-	    int n = Verifier.nondetInt();;
-	    if (n>=0)
+    for (int i = 1; i < N; i++){
+      int n = Verifier.nondetInt();
+      if(n >= 0) // only insert positive numbers
         b.insert(n);
     }
 
-    // We only measure the complexity (i.e. path length) of the
-    // final search operation.  That is, we count branches only
-    // from this point forward in the execution.
-    //Concolic.ResetBranchCounting();
-
-    int vInt = Verifier.nondetInt();
-    //Verifier.assume(vInt >= 0 && vInt < 100);
-    b.search(vInt);
-
-    //assert(!b.search(-1));
+    assert(b.search(0) == false); // "0" might be in the list
   }
 }

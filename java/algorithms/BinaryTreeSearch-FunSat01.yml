@@ -1,8 +1,8 @@
 format_version: "1.0"
 input_files:
   - ../common/
-  - BinaryTreeSearch02/
+  - BinaryTreeSearch-FunSat01/
 properties:
   - property_file: ../properties/assert.prp
-    expected_verdict: false
+    expected_verdict: True
 

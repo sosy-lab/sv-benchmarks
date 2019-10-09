@@ -1,6 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
+* Type             : Memory Safety
+* Expected Verdict : False
+* Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+* Date             : 9 October 2019
+*
+* Original license follows.
+*/
+
+/**
  * Copyright (c) 2011, Regents of the University of California
  * All rights reserved.
  * <p/>
@@ -72,7 +81,7 @@ public class Main {
       Node curr = root;
       while (true) {
         if (curr.value < v) {
-          if (curr.right == null) {  // error
+          if (curr.right == null) {  // error, should be "!="
             curr = curr.right;
           } else {
             curr.right = new Node(v, null, null);
@@ -111,25 +120,17 @@ public class Main {
 
 
   public static void main(String args[]) {
-    /*final int N = Verifier.nondetInt();
-      if(N < 0) return;*/
-    final int N = 3; // 0-1 safe, 2-3 safe with cex trace?? did not try 3+
+    final int N = Verifier.nondetInt();
 
     BinaryTree b = new BinaryTree();
-    for (int i = 1; i < N; i++) {
-	    int vInt = Verifier.nondetInt();
-	    //Verifier.assume(vInt >= 0 && vInt < 100);
-	    b.insert(vInt);
-    }
+    for (int i = 1; i < N; i++)
+	    b.insert(Verifier.nondetInt());
 
     // We only measure the complexity (i.e. path length) of the
     // final search operation.  That is, we count branches only
     // from this point forward in the execution.
     //Concolic.ResetBranchCounting();
 
-    int vInt = Verifier.nondetInt();
-    //Verifier.assume(vInt >= 0 && vInt < 100);
-    b.search(vInt);
-    //  assert(!b.search(-1));
+    b.search(Verifier.nondetInt());
   }
 }
