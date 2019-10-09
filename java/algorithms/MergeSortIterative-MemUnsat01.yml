@@ -1,7 +1,7 @@
 format_version: "1.0"
 input_files:
   - ../common/
-  - MergeSortIterative02/
+  - MergeSortIterative-MemUnsat01/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: false

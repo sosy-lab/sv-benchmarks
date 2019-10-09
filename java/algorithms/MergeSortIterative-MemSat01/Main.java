@@ -1,5 +1,14 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
+/**
+ * Type             : Memory Safety
+ * Expected Verdict : True
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
+
 // IterativeMergeSort.java
 // By David Kosbie
 
@@ -15,25 +24,18 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
-  
   public static void main(String[] args) {
-    if (args.length < 1)
-      return;
-
     final int N = Verifier.nondetInt();
 
-    if (N < 1)
-      return;
+    if (N < 1) return;
 
     int data[] = new int[N];
     for (int i = 0; i < N; i++) {
       data[i] = i;
     }
     iterativeMergesort(data);
-
-    assert(data.length<2 || data[0]>data[1]);
   }
-  
+
   /////////////////////////////////////////
   // Iterative mergeSort
   /////////////////////////////////////////
@@ -122,18 +124,15 @@ public class Main {
 
   public static int[] copyArray(int[] a) {
     int[] copy = new int[a.length];
-    System.arraycopy(a, 0, copy, 0, a.length);
+    for (int i=0; i<a.length; i++)
+      copy[i] = a[i];
     return copy;
   }
 
   public static int[] makeRandomArray(int n) {
     int[] a = new int[n];
-    for (int i=0; i<a.length; i++){
-      // use small #'s for small n for "pretty printing"
-      int smallRand = Verifier.nondetInt();
-      Verifier.assume( smallRand >= 0 && smallRand < 100);
-      a[i] = ((n < 100) ? smallRand : Verifier.nondetInt());
-    }
+    for (int i=0; i<a.length; i++)
+      a[i] = Verifier.nondetInt();
     return a;
   }
 }

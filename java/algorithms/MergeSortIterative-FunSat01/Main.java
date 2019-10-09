@@ -1,5 +1,14 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
+/**
+ * Type             : Functional Safety
+ * Expected Verdict : True
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
+
 // IterativeMergeSort.java
 // By David Kosbie
 
@@ -15,15 +24,10 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
-  
   public static void main(String[] args) {
-    if (args.length < 1)
-      return;
-
     final int N = Verifier.nondetInt();
 
-    if (N < 1)
-      return;
+    if (N < 1) return;
 
     int data[] = new int[N];
     for (int i = 0; i < N; i++) {
@@ -31,12 +35,9 @@ public class Main {
     }
     iterativeMergesort(data);
 
-    // also fails...
-    //assert(true);
-
-    //assert(data.length<2 || data[0]<data[1]);
+    assert(data[0] < data[1] || data.length < 2);
   }
-  
+
   /////////////////////////////////////////
   // Iterative mergeSort
   /////////////////////////////////////////
@@ -122,21 +123,5 @@ public class Main {
     int[] aux = new int[n];
     recursiveMergesort(a, aux, 0, n);
   }
-
-  public static int[] copyArray(int[] a) {
-    int[] copy = new int[a.length];
-    System.arraycopy(a, 0, copy, 0, a.length);
-    return copy;
-  }
-
-  public static int[] makeRandomArray(int n) {
-    int[] a = new int[n];
-    for (int i=0; i<a.length; i++){
-      // use small #'s for small n for "pretty printing"
-      int smallRand = Verifier.nondetInt();
-      Verifier.assume( smallRand >= 0 && smallRand < 100);
-      a[i] = ((n < 100) ? smallRand : Verifier.nondetInt());
-    }
-    return a;
-  }
 }
+

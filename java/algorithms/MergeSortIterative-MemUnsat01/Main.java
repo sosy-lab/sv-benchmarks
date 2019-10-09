@@ -1,5 +1,14 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
+/**
+ * Type             : Memory Safety
+ * Expected Verdict : False
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
+
 // IterativeMergeSort.java
 // By David Kosbie
 
@@ -15,15 +24,10 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
-  
   public static void main(String[] args) {
-    if (args.length < 1)
-      return;
-
     final int N = Verifier.nondetInt();
 
-    if (N < 1)
-      return;
+    if (N < 1) return;
 
     int data[] = new int[N];
     for (int i = 0; i < N; i++) {
@@ -31,13 +35,13 @@ public class Main {
     }
     iterativeMergesort(data);
   }
-  
+
   /////////////////////////////////////////
   // Iterative mergeSort
   /////////////////////////////////////////
 
 	public static void iterativeMergesort(int[] a) {
-    int[] aux = new int[a.length - 1];  // error (currently not caught)
+    int[] aux = new int[a.length];
 		for (int blockSize=1; blockSize<a.length; blockSize*=2)
 			for (int start=0; start<a.length; start+=2*blockSize)
 				merge(a, aux, start, start+blockSize, start+2*blockSize);
@@ -90,7 +94,7 @@ public class Main {
     if (mid >= a.length) return;
     if (hi > a.length) hi = a.length;
     int i = lo, j = mid;
-    for (int k = lo; k < hi; k++) {
+    for (int k = lo; k <= hi; k++) { // error, must be "k < hi"
       if      (i == mid)     aux[k] = a[j++];
       else if (j == hi)      aux[k] = a[i++];
       else if (a[j] < a[i])  aux[k] = a[j++];
@@ -120,18 +124,15 @@ public class Main {
 
   public static int[] copyArray(int[] a) {
     int[] copy = new int[a.length];
-    System.arraycopy(a, 0, copy, 0, a.length);
+    for (int i=0; i<a.length; i++)
+      copy[i] = a[i];
     return copy;
   }
 
   public static int[] makeRandomArray(int n) {
     int[] a = new int[n];
-    for (int i=0; i<a.length; i++){
-      // use small #'s for small n for "pretty printing"
-      int smallRand = Verifier.nondetInt();
-      Verifier.assume( smallRand >= 0 && smallRand < 100);
-      a[i] = ((n < 100) ? smallRand : Verifier.nondetInt());
-    }
+    for (int i=0; i<a.length; i++)
+      a[i] = Verifier.nondetInt();
     return a;
   }
 }
