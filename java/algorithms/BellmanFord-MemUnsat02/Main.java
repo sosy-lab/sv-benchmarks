@@ -47,7 +47,7 @@ public class Main {
     // Initialize distances.
     int dist[] = new int[N];
     boolean infinite[] = new boolean[N];
-    for (int i = 0; i < N; i++) {  // V+1 branches
+    for (int i = 0; i <= N; i++) {  // error, should be "i < N"
       dist[i] = INFINITY;
       infinite[i] = true;
     }
@@ -88,7 +88,7 @@ public class Main {
 
   public static void main(String[] args) {
     final int V = Verifier.nondetInt();
-    if (V < 0) return; // change with Verifier.assume?
+    Verifier.assume(V > 0);
 
     final int D[][] = new int[V][V];
 
