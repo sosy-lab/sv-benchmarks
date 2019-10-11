@@ -7,8 +7,16 @@
  *
  */
 
-int sum(int N)
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+extern int __VERIFIER_nondet_int(void);
+
+int N;
+
+int main()
 {
+	N = __VERIFIER_nondet_int();
 	int i;
 	int sum[1];
 	int a[N];
