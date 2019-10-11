@@ -18599,7 +18599,7 @@ static char *cmdline_option_value(int argc, char **argv, int i){
 #endif
 
 #if SQLITE_SHELL_IS_UTF8
-int SQLITE_CDECL main(int argc, char **argv){
+int SQLITE_CDECL wrapped_main(int argc, char **argv){
 #else
 int SQLITE_CDECL wmain(int argc, wchar_t **wargv){
   char **argv;
@@ -19112,3 +19112,6 @@ int SQLITE_CDECL wmain(int argc, wchar_t **wargv){
   memset(&data, 0, sizeof(data));
   return rc;
 }
+
+#define WRAPPED_MAIN wrapped_main
+#include "c_driver.h"
