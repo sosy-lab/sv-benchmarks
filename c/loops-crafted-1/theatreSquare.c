@@ -29,29 +29,6 @@ void __VERIFIER_assert(int cond) {
 //
 // student_version is identical to correct version.
 
-int main()
-{
-
-    int a, n, m;
-
-    int n_stones1, n_stones2;
-
-    n_stones1 = n_stones2;
-
-    if((1 <= n) &&
-       (1 <= m) &&
-       (1 <= a) &&
-       (n <= 109) &&
-       (m <= 109) &&
-       (a <= 109))
-    {
-        n_stones1 = correct_version(n, m, a);
-        n_stones2 = student_version(n, m, a);
-    }
-    __VERIFIER_assert(n_stones1 == n_stones2);
-    return 0;
-}
-
 int correct_version(int n, int m, int a)
 {
     int i = 0, j = 0, b = 0, l = 0;
@@ -104,5 +81,28 @@ int student_version(int n, int m, int a)
     }
 
     return y;
+}
+
+int main()
+{
+
+    int a, n, m;
+
+    int n_stones1, n_stones2;
+
+    n_stones1 = n_stones2;
+
+    if((1 <= n) &&
+       (1 <= m) &&
+       (1 <= a) &&
+       (n <= 109) &&
+       (m <= 109) &&
+       (a <= 109))
+    {
+        n_stones1 = correct_version(n, m, a);
+        n_stones2 = student_version(n, m, a);
+    }
+    __VERIFIER_assert(n_stones1 == n_stones2);
+    return 0;
 }
 

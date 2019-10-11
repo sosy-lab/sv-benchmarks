@@ -11,22 +11,6 @@ void __VERIFIER_assert(int cond) {
 #define true 1
 #define false 0
 
-int main(){
-
-  unsigned int w;
-
-  bool is_divisible1 = true, is_divisible2 = true;
-
-  if(w > 0 && w < 10000000)
-  {
-    is_divisible1 = correct_version(w);
-    is_divisible2 = student_version(w);
-    __VERIFIER_assert(is_divisible1 == is_divisible2);
-  }
-  return 0;
-
-}
-
 bool correct_version(int w)
 {
   bool is_divisible = true;
@@ -65,4 +49,19 @@ bool student_version(int w)
   return is_divisible;
 }
 
+int main(){
+
+  unsigned int w;
+
+  bool is_divisible1 = true, is_divisible2 = true;
+
+  if(w > 0 && w < 10000000)
+  {
+    is_divisible1 = correct_version(w);
+    is_divisible2 = student_version(w);
+    __VERIFIER_assert(is_divisible1 == is_divisible2);
+  }
+  return 0;
+
+}
 

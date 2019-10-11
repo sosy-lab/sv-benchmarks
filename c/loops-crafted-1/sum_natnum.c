@@ -1,4 +1,4 @@
-#define SIZE 100000 
+#define SIZE 40000 
 
 
 int __VERIFIER_nondet_int();
@@ -12,12 +12,13 @@ void __VERIFIER_assert(int cond) {
 }
 
 int main() {
-  int i,sum;
+  int i;
+  unsigned long long sum;
   i = 0, sum =0; 
   while(i< SIZE){ 
       i = i + 1; 
       sum += i;
   }
-  __VERIFIER_assert( sum == (SIZE *(SIZE+1))/2 );
+  __VERIFIER_assert( sum == ((SIZE *(SIZE+1))/2));
   return 0;
 }

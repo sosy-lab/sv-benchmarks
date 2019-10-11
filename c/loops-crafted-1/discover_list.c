@@ -1,4 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+void *malloc(unsigned int size);
+extern int __VERIFIER_nondet_int(void);
 struct _IO_FILE;
 struct _IO_marker;
 struct option;
@@ -116,7 +118,6 @@ static struct option long_options [19] = {{"adn", 0, 0, 'A'}, {"brief", 0, 0, 'b
 
 
 int __tmpTR__int_1;
-struct _IO_FILE;
 struct _IO_marker;
 struct smp_val_name;
 struct smp_func_def_rrlen;
@@ -129,12 +130,6 @@ struct smp_val_name{
 int  value;
 char * name;
 } ;
-typedef long long  __quad_t;
-typedef __quad_t __off64_t;
-typedef void  _IO_lock_t;
-typedef long  __off_t;
-typedef struct _IO_FILE FILE;
-typedef unsigned long  size_t;
 extern int  sprintf(char * __restrict __s, char  const* __restrict __format, ...);
 extern int  sscanf(char  const* __restrict __s, char  const* __restrict __format, ...);
 extern void * memset(void * __s, int  __c, size_t __n);
@@ -496,7 +491,7 @@ int main(){
 struct smp_target_obj tobj;
 struct opts_t opts;
 unsigned char * resp;
-int j = __VERIFIER_nondet_int ();
-int ret = do_discover_list( & tobj, _VERIFIER_nondet_int (), j,  sizeof (resp),  & opts);
+resp= (unsigned char *) malloc (sizeof (unsigned char));
+int ret = do_discover_list( & tobj, __VERIFIER_nondet_int() , resp,  sizeof (resp),  & opts);
 return 0;
 }
