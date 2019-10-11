@@ -1,6 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int();
+void *malloc(unsigned int size);
 #define SIZE 1000000
 #define NULL '\0'
 struct S

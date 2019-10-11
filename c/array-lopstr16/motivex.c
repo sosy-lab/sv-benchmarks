@@ -20,7 +20,7 @@ int main()
 
 	for (i = 0; i < SIZE; i++)
 	{
-		if ( nondet_short())
+		if (__VERIFIER_nondet_short() )
 		{
 			k = __VERIFIER_nondet_short();
 			a[i].p = k;
