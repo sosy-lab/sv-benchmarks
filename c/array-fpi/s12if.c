@@ -13,7 +13,7 @@ void sum(int N)
 	int sum[1];
 	int a[N];
 
-	if(N <= 0) return;
+	if(N <= 0) return 1;
 
 	sum[0] = 0;
 	for(i=0; i<N; i++)
@@ -39,5 +39,6 @@ void sum(int N)
 		}
 	}
 
-	assert(sum[0] == 2*N);
+	__VERIFIER_assert(sum[0] == 2*N);
+	return 1;
 }

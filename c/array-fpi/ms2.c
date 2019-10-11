@@ -21,7 +21,7 @@ int main()
 	int sum[1];
 	int a[N];
 
-	if(N <= 0) return;
+	if(N <= 0) return 1;
 
 	for(i=0; i<N; i++)
 	{
@@ -38,4 +38,5 @@ int main()
 		}
 	}
 	__VERIFIER_assert(sum[0] <= N);
+	return 1;
 }
