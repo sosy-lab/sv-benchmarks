@@ -25,4 +25,5 @@ int main()
   }
 
   __VERIFIER_assert(x==n);
+  return 0;
 }

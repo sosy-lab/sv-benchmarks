@@ -1,9 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-
-//VERIFICATION RESULT : TRUE
-
-
 int last ;
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -20,7 +16,8 @@ int nondet()
 
 #define SIZE 200000 
 
-int main() {
+int main()
+{
 	last = nondet();
 	__VERIFIER_assume(last > 0);
 	int a=0,b=0,c=0,st=0,d=0,e=0,f=0;
@@ -45,4 +42,5 @@ int main() {
 			
 		__VERIFIER_assert(a==b && c==SIZE);
 	}
+	return 0;
 }

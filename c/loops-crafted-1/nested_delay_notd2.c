@@ -1,9 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-
-//VERIFICATION RESULT : TRUE
-
-
 int last ;
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -44,4 +40,5 @@ int main() {
 			
 		__VERIFIER_assert(a==b && c==SIZE);
 	}
+	return 0;
 }

@@ -17,5 +17,6 @@ int main()
 
   for(i=0;i<S;i++)
     __VERIFIER_assert(a[i]==-1);
+  return 0;
 }
 

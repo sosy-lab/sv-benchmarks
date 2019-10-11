@@ -25,4 +25,5 @@ int main() {
      i = i + 3;    
   }
   __VERIFIER_assert( (i%3) == 0 );
+  return 0;
 }

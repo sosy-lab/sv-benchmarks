@@ -19,6 +19,7 @@ int main()
 
   for(i=1;i<n;i++)
     __VERIFIER_assert(a[i]>=(i+2));
+  return 0;
 }
 
     

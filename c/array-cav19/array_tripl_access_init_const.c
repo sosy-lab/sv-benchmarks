@@ -15,5 +15,6 @@ int main()
 
   for(i=0;i<=3*N;i++)
     __VERIFIER_assert(a[i] >= 0);
+  return 0;
 }
 

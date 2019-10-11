@@ -11,7 +11,7 @@ void __VERIFIER_assert(int cond) {
 #define true 1
 #define false 0
 
-void main(){
+int main(){
 
   unsigned int w;
 
@@ -23,7 +23,7 @@ void main(){
     is_divisible2 = student_version(w);
     __VERIFIER_assert(is_divisible1 == is_divisible2);
   }
-
+  return 0;
 
 }
 

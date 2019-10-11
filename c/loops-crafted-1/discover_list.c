@@ -498,4 +498,5 @@ struct opts_t opts;
 unsigned char * resp;
 int j = __VERIFIER_nondet_int ();
 int ret = do_discover_list( & tobj, _VERIFIER_nondet_int (), j,  sizeof (resp),  & opts);
+return 0;
 }

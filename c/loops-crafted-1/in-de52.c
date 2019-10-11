@@ -43,4 +43,5 @@ int main()
   }
 
   __VERIFIER_assert(y==0);
+  return 0;
 }

@@ -49,4 +49,5 @@ int main()
   }
 
   __VERIFIER_assert(x==0);
+  return 0;
 }

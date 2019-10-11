@@ -22,6 +22,7 @@ int main()
 
   for(i=1;i<N;i++)
     __VERIFIER_assert(c[i] == 0);
+  return 0;
 }
 
 

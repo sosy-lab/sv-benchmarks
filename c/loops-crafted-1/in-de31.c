@@ -31,4 +31,5 @@ int main()
   }
 
   __VERIFIER_assert(z==n);
+  return 0;
 }

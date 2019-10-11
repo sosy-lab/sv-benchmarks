@@ -4,7 +4,7 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 #define NULL '\0'
 int *a[SIZE];
 int i;
-main ()
+int main()
 {
 	for(i = 0; i < SIZE; i++)
 	{
@@ -21,8 +21,6 @@ main ()
 	{
 		__VERIFIER_assert(a[i] != NULL);
 	}
-
-
+	return 0;
 }	
-
 

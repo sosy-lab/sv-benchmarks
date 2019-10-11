@@ -28,4 +28,5 @@ int main()
   }
       
   __VERIFIER_assert(k >= 0);
+  return 0;
 }

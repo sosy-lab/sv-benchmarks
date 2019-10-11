@@ -19,5 +19,6 @@ int main()
 
   for(int l=1;l<i;l++)
     __VERIFIER_assert(a[l]>=k);
+  return 0;
 }
 

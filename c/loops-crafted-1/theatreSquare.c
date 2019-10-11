@@ -29,7 +29,7 @@ void __VERIFIER_assert(int cond) {
 //
 // student_version is identical to correct version.
 
-void main()
+int main()
 {
 
     int a, n, m;
@@ -49,6 +49,7 @@ void main()
         n_stones2 = student_version(n, m, a);
     }
     __VERIFIER_assert(n_stones1 == n_stones2);
+    return 0;
 }
 
 int correct_version(int n, int m, int a)

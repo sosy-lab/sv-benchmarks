@@ -9,8 +9,6 @@ int main()
   int i;
   int sum=0;
   
-  //  __VERIFIER_assume(N>0 && N<10000);
-
   for (i=0;i<N;i++) {
     a[i] = i;
   }
@@ -24,4 +22,5 @@ int main()
   }
 
   __VERIFIER_assert(sum == 0);
+  return 0;
 }

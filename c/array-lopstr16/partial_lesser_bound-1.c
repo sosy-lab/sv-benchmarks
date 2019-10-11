@@ -8,7 +8,7 @@ void __VERIFIER_assert(int cond) {
 #define SIZE 10000000
 int a[SIZE];
 int i;
-main ()
+int main()
 {
 	for(i=0;i<SIZE;i++)
 	{
@@ -26,7 +26,7 @@ main ()
 		__VERIFIER_assert(a[i]==10);
 	}
 	
-
+	return 0;
 }	
 
 

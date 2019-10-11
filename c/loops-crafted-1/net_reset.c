@@ -205,7 +205,7 @@ int  net_send_batch()
 int  i;
 for(i = fstTTL - 1 ; i < batch_at ; i++ )
 {
-if(((( "1_0_727_4294969421" /*Grp 0*/, __VERIFIER_assert(i>=0 && i< 256)) , (__tmpTR__int_1 = addrcmp((void *) & (host[i] . addr), (void *) & unspec_addr, af))) , __tmpTR__int_1 == 0))
+if(((( "1_0_727_4294969421", __VERIFIER_assert(i>=0 && i< 256)) , (__tmpTR__int_1 = addrcmp((void *) & (host[i] . addr), (void *) & unspec_addr, af))) , __tmpTR__int_1 == 0))
 ;
 
 }
@@ -228,7 +228,8 @@ net_reset();
 net_send_batch();
 }
 
-main(){
+int main(){
  struct hostent h;
  net_reopen(&h); 
+ return 0;
 }
