@@ -7,7 +7,7 @@
  *
  */
 
-void sum(int N)
+int sum(int N)
 {
 	int i;
 	int sum[1];
