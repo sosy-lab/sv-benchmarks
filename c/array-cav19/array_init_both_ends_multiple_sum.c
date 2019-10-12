@@ -1,9 +1,9 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
+#define N 100000 
 int main()
 {
-  int N;
   int a[N];
   int b[N];
   int i;
