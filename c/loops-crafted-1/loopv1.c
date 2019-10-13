@@ -13,7 +13,7 @@ void __VERIFIER_assert(int cond) {
 
 
 int main() {
-  int n,i,j,k;
+  int n,i,j;
   n = __VERIFIER_nondet_int();
   if (!(n <= SIZE)) return 0;
   i = 0; j=0;

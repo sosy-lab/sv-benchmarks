@@ -2,7 +2,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 void *malloc(unsigned int size);
 #define SIZE 1000000
-#define NULL '\0'
+#define NULL 0
 int *a[SIZE];
 int i;
 int main()

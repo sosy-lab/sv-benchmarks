@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-
+extern unsigned int __VERIFIER_nondet_uint(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
       ERROR: __VERIFIER_error();
@@ -51,7 +51,7 @@ bool student_version(int w)
 
 int main(){
 
-  unsigned int w;
+  unsigned int w=__VERIFIER_nondet_uint();
 
   bool is_divisible1 = true, is_divisible2 = true;
 

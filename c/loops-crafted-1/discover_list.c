@@ -113,7 +113,6 @@ extern char * optarg;
 extern int  optind;
 extern char * optarg;
 extern int  optind;
-static struct option long_options [19] = {{"adn", 0, 0, 'A'}, {"brief", 0, 0, 'b'}, {"descriptor", 1, 0, 'd'}, {"filter", 1, 0, 'f'}, {"help", 0, 0, 'h'}, {"hex", 0, 0, 'H'}, {"ignore", 0, 0, 'i'}, {"interface", 1, 0, 'I'}, {"list", 0, 0, 'l'}, {"num", 1, 0, 'n'}, {"one", 0, 0, 'o'}, {"phy", 1, 0, 'p'}, {"sa", 1, 0, 's'}, {"summary", 0, 0, 'S'}, {"raw", 0, 0, 'r'}, {"verbose", 0, 0, 'v'}, {"version", 0, 0, 'V'}, {"zpi", 1, 0, 'Z'}, {0, 0, 0, 0}};
 
 
 

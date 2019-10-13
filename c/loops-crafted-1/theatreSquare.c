@@ -1,5 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-
+extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
         ERROR: __VERIFIER_error();
@@ -86,9 +86,9 @@ int student_version(int n, int m, int a)
 int main()
 {
 
-    int a, n, m;
+    int a=__VERIFIER_nondet_int(), n=__VERIFIER_nondet_int(), m=__VERIFIER_nondet_int();
 
-    int n_stones1, n_stones2;
+    int n_stones1, n_stones2=__VERIFIER_nondet_int();
 
     n_stones1 = n_stones2;
 

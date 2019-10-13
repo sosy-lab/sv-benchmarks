@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
+extern int __VERIFIER_nondet_int(void);
 int last ;
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -8,17 +9,12 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
-int nondet()
-{
-	int x;
-	return x;
-}
 
 #define SIZE 20
 int main() {
-	last = nondet();
+	last = __VERIFIER_nondet_int();
 	__VERIFIER_assume(last > 0);
-	int a=0,b=0,c=0,st=0,d=0,e=0,f=0;
+	int a=0,b=0,c=0,st=0,d=0;
 	while(1) {
 		st=1;  
 		for(c=0;c<SIZE;c++) {

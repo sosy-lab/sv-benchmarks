@@ -9,7 +9,7 @@ void __VERIFIER_assert(int cond) {
 #define SIZE 20000001
 unsigned int __VERIFIER_nondet_int();
 int main() {
-  unsigned int n,i,k,j,sum =0, l=0;
+  unsigned int n,i,k,j,l=0;
   n = __VERIFIER_nondet_int();
   if (!(n <= SIZE)) return 0;
   i = 0;
