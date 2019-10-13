@@ -60,7 +60,7 @@ unsigned long long  sa;
 char  const* zpi_fn;
 FILE* zpi_filep;
 } ;
-typedef unsigned long  size_t;
+typedef unsigned int  size_t;
 struct _IO_FILE{
 int  _flags;
 char * _IO_read_ptr;
