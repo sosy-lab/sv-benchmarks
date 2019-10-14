@@ -113,6 +113,8 @@ for f in $SETS ; do
     # no original source available
     if echo $ff | grep -q '^ddv-machzwd/' ; then
       continue
+    if echo $ff | grep -q '^aws-c-common/' ; then
+      continue
     elif [ $ff = "loops/s3.i" ] ; then
       continue
     elif echo $ff | egrep -q '^ldv-(linux-3.0|regression)/' ; then
