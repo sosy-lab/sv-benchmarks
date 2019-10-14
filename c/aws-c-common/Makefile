@@ -10,30 +10,13 @@ COMMON_WARNINGS := \
 	-Wno-error=int-conversion \
 	-Wno-error=address \
 
-GCC_WARNINGS := \
+GCC_WARNINGS += \
 	-Wno-error=format= \
 	-Wno-error=discarded-qualifiers
 #	-Wno-error=builtin-declaration-mismatch
 
-CLANG_WARNINGS := \
+CLANG_WARNINGS += \
 	-Wno-error=uninitialized
-
-ifeq ($(CC),gcc)
-COMMON_WARNINGS += $(GCC_WARNINGS)
-endif
-
-ifeq ($(CC),gcc-5)
-COMMON_WARNINGS += $(GCC_WARNINGS)
-endif
-
-ifeq ($(CC),clang)
-COMMON_WARNINGS += $(CLANG_WARNINGS)
-endif
-
-ifeq ($(CC),clang-3.9)
-COMMON_WARNINGS += $(CLANG_WARNINGS)
-endif
-
 
 include $(LEVEL)/Makefile.config
 
