@@ -7462,7 +7462,7 @@ void *memset(void *s, int c, size_t n) {
     return memset_impl(s, c, n);
 }
 
-void *__builtin___memset_chk(void *s, int c, size_t n, size_t os) {
+void *___memset_chk(void *s, int c, size_t n, size_t os) {
     (void)os;
     return memset_impl(s, c, n);
 }

@@ -7471,7 +7471,7 @@ void *memcpy(void *dst, const void *src, size_t n) {
     return memcpy_impl(dst, src, n);
 }
 
-void *__builtin___memcpy_chk(void *dst, const void *src, unsigned long n, unsigned long size) {
+void *___memcpy_chk(void *dst, const void *src, unsigned long n, unsigned long size) {
     (void)size;
     return memcpy_impl(dst, src, n);
 }
@@ -7489,7 +7489,7 @@ void *memmove(void *dest, const void *src, size_t n) {
     return memmove_impl(dest, src, n);
 }
 
-void *__builtin___memmove_chk(void *dest, const void *src, size_t n, size_t size) {
+void *___memmove_chk(void *dest, const void *src, size_t n, size_t size) {
     (void)size;
     return memmove_impl(dest, src, n);
 }
@@ -7507,7 +7507,7 @@ void *memset(void *s, int c, size_t n) {
     return memset_impl(s, c, n);
 }
 
-void *__builtin___memset_chk(void *s, int c, size_t n, size_t os) {
+void *___memset_chk(void *s, int c, size_t n, size_t os) {
     (void)os;
     return memset_impl(s, c, n);
 }

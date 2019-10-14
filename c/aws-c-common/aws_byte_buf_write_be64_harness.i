@@ -7466,7 +7466,7 @@ void *memcpy(void *dst, const void *src, size_t n) {
     return memcpy_impl(dst, src, n);
 }
 
-void *__builtin___memcpy_chk(void *dst, const void *src, unsigned long n, unsigned long size) {
+void *___memcpy_chk(void *dst, const void *src, unsigned long n, unsigned long size) {
     (void)size;
     return memcpy_impl(dst, src, n);
 }

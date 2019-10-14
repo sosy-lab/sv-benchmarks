@@ -9,7 +9,9 @@ do
     make sv-benchmark SV=$SV
 done
 
-# These benchmarks 
+# the original harnesses override some functions via CMBC mechanisms,
+# leading to duplicate definitions that need to be removed
+
 sed '/^void .memset(/,+8d' -i \
     $SV/c/aws-c-common/memset_using_uint64_harness.i
 
@@ -18,3 +20,7 @@ sed '/^void .memcpy(/,+8d' -i \
 
 sed '/^void .memset(/,+8d' -i \
     $SV/c/aws-c-common/memset_override_0_harness.i
+
+# clang is confused over such identifier
+sed 's/__builtin___mem/___mem/g' -i \
+    $SV/c/aws-c-common/*.i

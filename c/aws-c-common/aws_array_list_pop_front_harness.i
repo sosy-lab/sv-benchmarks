@@ -7461,7 +7461,7 @@ void *memmove(void *dest, const void *src, size_t n) {
     return memmove_impl(dest, src, n);
 }
 
-void *__builtin___memmove_chk(void *dest, const void *src, size_t n, size_t size) {
+void *___memmove_chk(void *dest, const void *src, size_t n, size_t size) {
     (void)size;
     return memmove_impl(dest, src, n);
 }
