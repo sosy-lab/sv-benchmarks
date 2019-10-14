@@ -3,7 +3,7 @@
 typedef _Bool bool;
 
 extern void __VERIFIER_error() __attribute__((noreturn));
-extern void __VERIFIER_assume(_Bool cond);
+extern void __VERIFIER_assume(int cond);
 extern const void *__VERIFIER_base_pointer(const void *ptr);
 
 extern _Bool __VERIFIER_nondet_bool();
@@ -14,7 +14,7 @@ extern unsigned long __VERIFIER_nondet_ulong();
 extern unsigned char __VERIFIER_nondet_uchar();
 extern void *__VERIFIER_nondet_pointer();
 
-void __VERIFIER_assert(_Bool cond) {
+void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error(); 
 }
 

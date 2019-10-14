@@ -213,7 +213,7 @@ extern uintmax_t wcstoumax (const __gwchar_t *__restrict __nptr,
 typedef _Bool bool;
 
 extern void __VERIFIER_error() __attribute__((noreturn));
-extern void __VERIFIER_assume(_Bool cond);
+extern void __VERIFIER_assume(int cond);
 extern const void *__VERIFIER_base_pointer(const void *ptr);
 
 extern _Bool __VERIFIER_nondet_bool();
@@ -224,7 +224,7 @@ extern unsigned long __VERIFIER_nondet_ulong();
 extern unsigned char __VERIFIER_nondet_uchar();
 extern void *__VERIFIER_nondet_pointer();
 
-void __VERIFIER_assert(_Bool cond) {
+void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();
 }
 
@@ -1503,10 +1503,11 @@ extern int lcong48_r (unsigned short int __param[7],
 
 
 
-extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__))
+     __attribute__ ((__alloc_size__ (1))) ;
 
 extern void *calloc (size_t __nmemb, size_t __size)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_size__ (1, 2))) ;
 
 
 
@@ -1514,7 +1515,7 @@ extern void *calloc (size_t __nmemb, size_t __size)
 
 
 extern void *realloc (void *__ptr, size_t __size)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__alloc_size__ (2)));
 
 
 
@@ -1523,7 +1524,8 @@ extern void *realloc (void *__ptr, size_t __size)
 
 
 extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__))
+     __attribute__ ((__alloc_size__ (2, 3)));
 
 
 
@@ -1549,7 +1551,8 @@ extern void *alloca (size_t __size) __attribute__ ((__nothrow__ , __leaf__));
 
 
 
-extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__))
+     __attribute__ ((__alloc_size__ (1))) ;
 
 
 
@@ -3544,6 +3547,12 @@ typedef int __kernel_clockid_t;
 typedef char * __kernel_caddr_t;
 typedef unsigned short __kernel_uid16_t;
 typedef unsigned short __kernel_gid16_t;
+
+
+
+
+
+
 struct linger
   {
     int l_onoff;
@@ -3845,10 +3854,10 @@ struct sockaddr_in
     struct in_addr sin_addr;
 
 
-    unsigned char sin_zero[sizeof (struct sockaddr) -
-      (sizeof (unsigned short int)) -
-      sizeof (in_port_t) -
-      sizeof (struct in_addr)];
+    unsigned char sin_zero[sizeof (struct sockaddr)
+      - (sizeof (unsigned short int))
+      - sizeof (in_port_t)
+      - sizeof (struct in_addr)];
   };
 
 
@@ -8730,6 +8739,8 @@ extern int pthread_kill (pthread_t __threadid, int __signo) __attribute__ ((__no
 extern int __libc_current_sigrtmin (void) __attribute__ ((__nothrow__ , __leaf__));
 
 extern int __libc_current_sigrtmax (void) __attribute__ ((__nothrow__ , __leaf__));
+
+
 
 
 
