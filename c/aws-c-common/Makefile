@@ -12,8 +12,8 @@ COMMON_WARNINGS := \
 
 GCC_WARNINGS := \
 	-Wno-error=format= \
-	-Wno-error=discarded-qualifiers \
-	-Wno-error=builtin-declaration-mismatch
+	-Wno-error=discarded-qualifiers
+#	-Wno-error=builtin-declaration-mismatch
 
 CLANG_WARNINGS := \
 	-Wno-error=uninitialized
