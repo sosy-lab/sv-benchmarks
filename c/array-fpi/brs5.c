@@ -41,7 +41,7 @@ int main()
 		{
 			sum[0] = 0;
 		} else {
-			sum[0] = sum[0] + a[i-1];
+			sum[0] = sum[0] + a[i];
 		}
 	}
 	__VERIFIER_assert(sum[0] <= 5*N);
