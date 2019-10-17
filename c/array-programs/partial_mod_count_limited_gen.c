@@ -3,7 +3,7 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern void __VERIFIER_assume(int);
 extern unsigned int __VERIFIER_nondet_uint(void);
 extern int __VERIFIER_nondet_int(void);
-#define N 1000
+int N = 1000;
 int main(){
 int i,j=0,k=0,a[N];
 int lim=__VERIFIER_nondet_int();
