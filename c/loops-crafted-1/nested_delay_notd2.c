@@ -10,7 +10,7 @@ void __VERIFIER_assert(int cond) {
 }
 
 
-#define SIZE 20
+int SIZE = 20;
 int main() {
 	last = __VERIFIER_nondet_int();
 	__VERIFIER_assume(last > 0);

@@ -1,4 +1,4 @@
-#define SIZE 40000 
+int SIZE = 40000; 
 
 
 int __VERIFIER_nondet_int();

@@ -10,7 +10,7 @@ void __VERIFIER_assert(int cond) {
 }
 
 
-#define SIZE 200000 
+int SIZE = 200000; 
 
 int main()
 {

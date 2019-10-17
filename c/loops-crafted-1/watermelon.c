@@ -7,13 +7,12 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
-#define bool int
-#define true 1
-#define false 0
+int true = 1;
+int false = 0;
 
-bool correct_version(int w)
+int correct_version(int w)
 {
-  bool is_divisible = true;
+  int is_divisible = true;
 
   if(w < 4)
     is_divisible = false;
@@ -30,9 +29,9 @@ bool correct_version(int w)
   return is_divisible;
 }
 
-bool student_version(int w)
+int student_version(int w)
 {
-  bool is_divisible = true;
+  int is_divisible = true;
 
   if(w < 4)
     is_divisible = false;
@@ -53,7 +52,7 @@ int main(){
 
   unsigned int w=__VERIFIER_nondet_uint();
 
-  bool is_divisible1 = true, is_divisible2 = true;
+  int is_divisible1 = true, is_divisible2 = true;
 
   if(w > 0 && w < 10000000)
   {

@@ -6,7 +6,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-#define SIZE 20000001
+int SIZE = 20000001;
 unsigned int __VERIFIER_nondet_int();
 int main() {
   unsigned int n,i,j,l=0;

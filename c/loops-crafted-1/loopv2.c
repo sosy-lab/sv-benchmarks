@@ -1,4 +1,4 @@
-#define SIZE 50000001
+int SIZE = 50000001;
 int __VERIFIER_nondet_int();
 extern void __VERIFIER_error(void);
 extern void __VERIFIER_assume(int);
