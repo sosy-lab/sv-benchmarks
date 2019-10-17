@@ -1,6 +1,6 @@
 format_version: '1.0'
 
-input_files: 'motivex.c'
+input_files: 'motivex.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp

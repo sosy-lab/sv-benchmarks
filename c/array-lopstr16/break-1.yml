@@ -1,6 +1,6 @@
 format_version: '1.0'
 
-input_files: 'break-1.c'
+input_files: 'break-1.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp

@@ -1,6 +1,6 @@
 format_version: '1.0'
 
-input_files: 'scalar_loopdep.c'
+input_files: 'scalar_loopdep.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp

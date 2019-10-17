@@ -1,6 +1,6 @@
 format_version: '1.0'
 
-input_files: 'partial_lesser_bound.c'
+input_files: 'partial_lesser_bound.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp

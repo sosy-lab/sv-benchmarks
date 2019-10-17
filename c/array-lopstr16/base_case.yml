@@ -1,6 +1,6 @@
 format_version: '1.0'
 
-input_files: 'base_case.c'
+input_files: 'base_case.i'
 
 properties:
   - property_file: ../properties/unreach-call.prp
