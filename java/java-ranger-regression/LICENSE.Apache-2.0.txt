@@ -1,1 +1,0 @@
-../jpf-regression/LICENSE.Apache-2.0.txt
