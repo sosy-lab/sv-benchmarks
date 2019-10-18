@@ -20,19 +20,19 @@ int main()
 	int a[N];
 
 	sum[0] = 0;
-        for(i=0; i<N; i++)
-        {
+	for(i=0; i<N; i++)
+	{
 		sum[0] = sum[0] + 1;
-        }
+	}
 
-        for(i=0; i<N; i++)
-        {
+	for(i=0; i<N; i++)
+	{
 		a[i] = sum[0] % N;
-        }
+	}
 
-        for(i=0; i<N; i++)
-        {
+	for(i=0; i<N; i++)
+	{
 		__VERIFIER_assert(a[i] == 0);
-        }
+	}
 	return 1;
 }

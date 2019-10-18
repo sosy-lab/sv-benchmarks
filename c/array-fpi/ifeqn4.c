@@ -33,7 +33,7 @@ int main()
 		if(i==0) {
 			b[0] = 1;
 		} else {
-	        	b[i] = b[i-1] + a[i-1];
+			b[i] = b[i-1] + a[i-1];
 		}
 	}
 

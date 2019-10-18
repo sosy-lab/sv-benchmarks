@@ -29,7 +29,7 @@ int main()
 
 	for(i=1; i<N; i++)
 	{
-	       	b[i] = b[i-1] + a[i-1];
+		b[i] = b[i-1] + a[i-1];
 	}
 
 	for(i=0; i<N; i++)

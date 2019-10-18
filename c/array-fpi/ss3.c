@@ -23,29 +23,29 @@ int main()
 
 	sum[0] = 0;
 	for(i=0; i<N; i++)
-        {
-                a[i] = 1;
-        }
-
-        for(i=0; i<N; i++)
-        {
-		sum[0] = sum[0] + a[i];
-        }
+	{
+		a[i] = 1;
+	}
 
 	for(i=0; i<N; i++)
-        {
-                a[i] = 0;
-        }
-
-        for(i=0; i<N; i++)
-        {
-		a[i] = a[i] + sum[0];
-        }
-
-        for(i=0; i<N; i++)
-        {
+	{
 		sum[0] = sum[0] + a[i];
-        }
+	}
+
+	for(i=0; i<N; i++)
+	{
+		a[i] = 0;
+	}
+
+	for(i=0; i<N; i++)
+	{
+		a[i] = a[i] + sum[0];
+	}
+
+	for(i=0; i<N; i++)
+	{
+		sum[0] = sum[0] + a[i];
+	}
 
 	__VERIFIER_assert(sum[0] == N*(N+1));
 	return 1;

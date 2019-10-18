@@ -22,33 +22,33 @@ int main()
 
 	sum[0] = 0;
 	for(i=0; i<N; i++)
-        {
-                a[i] = 1;
-        }
+	{
+		a[i] = 1;
+	}
 
 	for(i=0; i<N; i++)
-        {
-                b[i] = 1;
-        }
+	{
+		b[i] = 1;
+	}
 
-        for(i=0; i<N; i++)
-        {
+	for(i=0; i<N; i++)
+	{
 		sum[0] = sum[0] + a[i];
-        }
+	}
 
-        for(i=0; i<N; i++)
-        {
+	for(i=0; i<N; i++)
+	{
 		sum[0] = sum[0] + b[i];
-        }
+	}
 
-        for(i=0; i<N; i++)
-        {
+	for(i=0; i<N; i++)
+	{
 		a[i] = a[i] + sum[0];
-        }
+	}
 
-        for(i=0; i<N; i++)
-        {
+	for(i=0; i<N; i++)
+	{
 		__VERIFIER_assert(a[i] == 2*N + 1);
-        }
+	}
 	return 1;
 }

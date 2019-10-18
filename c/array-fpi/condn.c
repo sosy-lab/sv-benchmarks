@@ -18,18 +18,18 @@ int main()
 	int i;
 	int a[N];
 
-        for(i=0; i<N; i++)
-        {
+	for(i=0; i<N; i++)
+	{
 		if(a[i] < N)
 		{
 			a[i] = a[i];
 		} else {
 			a[i] = N;
 		}
-        }
+	}
 
-        for(i=0; i<N; i++)
-        {
+	for(i=0; i<N; i++)
+	{
 		__VERIFIER_assert(a[i] <= N);
 	}
 	return 1;

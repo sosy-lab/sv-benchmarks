@@ -27,8 +27,8 @@ int main()
 		{
 			a[i] = 3;
 		}
-	       	else
-	       	{
+		else
+		{
 			a[i] = 0;
 		}
 	}
