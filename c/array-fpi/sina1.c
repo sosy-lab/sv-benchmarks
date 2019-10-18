@@ -3,8 +3,6 @@
  * [1] Indian Institute of Technology Bombay, Mumbai
  * [2] TCS Innovation labs, Pune
  *
- * Part of their work on "Verifying Array Manipulating Program using Full-program Induction".
- *
  */
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
