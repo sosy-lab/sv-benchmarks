@@ -1,7 +1,7 @@
 /* algorithm searching for a divisor for factorization, by Knuth */
 
 extern void __VERIFIER_error() __attribute__((__noreturn__));
-extern int __VERIFIER_nondet_int(void);
+extern unsigned __VERIFIER_nondet_unsigned_int(void);
 extern void __VERIFIER_assume(int expression);
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
@@ -14,10 +14,10 @@ void __VERIFIER_assert(int cond) {
 extern double sqrt(double);
 
 int main() {
-    int n, a;
-    int r, k, q, d, s, t;
-    n = __VERIFIER_nondet_int();
-    a = __VERIFIER_nondet_int();
+    unsigned n, a;
+    unsigned r, k, q, d, s, t;
+    n = __VERIFIER_nondet_unsigned_int();
+    a = __VERIFIER_nondet_unsigned_int();
     __VERIFIER_assume(a > 2);
 
     d = a;
