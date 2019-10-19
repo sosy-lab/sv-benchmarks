@@ -6,4 +6,6 @@ array-programs/*.yml
 array-crafted/*.yml
 array-multidimensional/*.yml
 array-patterns/*.yml
+array-cav19/*.yml
+array-lopstr16/*.yml
 array-fpi/*.yml

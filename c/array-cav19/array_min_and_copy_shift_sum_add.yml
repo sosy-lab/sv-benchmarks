@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'array_min_and_copy_shift_sum_add.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

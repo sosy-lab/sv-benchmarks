@@ -1,7 +1,8 @@
 format_version: '1.0'
 
-input_files: 'bftpd_false-memsafety.i'
+input_files: 'cmp-freed-ptr.i'
 
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+    subproperty: valid-free
