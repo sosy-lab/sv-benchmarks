@@ -23,20 +23,16 @@ int main()
 
 	for(i=0; i<N; i++)
 	{
-		if(i%2==0)
-		{
+		if(i%2==0) {
 			a[i] = 2;
-		}
-		else
-		{
+		} else {
 			a[i] = 0;
 		}
 	}
 
 	for(i=0; i<N; i++)
 	{
-		if(i==0)
-		{
+		if(i==0) {
 			sum[0] = 0;
 		} else {
 			sum[0] = sum[0] + a[i];

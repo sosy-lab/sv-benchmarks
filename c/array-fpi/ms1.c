@@ -28,11 +28,10 @@ int main()
 
 	for(i=0; i<N; i++)
 	{
-		if(i==0)
-		{
+		if(i==0) {
 			sum[0] = 0;
 		} else {
-			sum[0] = sum[0] + a[i-1];
+			sum[0] = sum[0] + a[i];
 		}
 	}
 	__VERIFIER_assert(sum[0] == 0);

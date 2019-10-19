@@ -25,12 +25,9 @@ int main()
 
 	for (i = 0; i < N; i++)
 	{
-		if (N%2 == 0)
-		{
+		if (N%2 == 0) {
 			a[i] = a[i] + 2;
-		}
-		else
-		{
+		} else {
 			a[i] = a[i] + 1;
 		}
 	}
