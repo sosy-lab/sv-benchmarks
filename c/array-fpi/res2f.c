@@ -15,13 +15,13 @@ int N;
 int main()
 {
 	N = __VERIFIER_nondet_int();
+	if(N <= 0) return 1;
+
 	int i;
 	int sum[1];
 	int a[N];
 	int b[N];
 	int c[N];
-
-	if(N <= 0) return 1;
 
 	sum[0] = 1;
 	for(i=0; i<N; i++)

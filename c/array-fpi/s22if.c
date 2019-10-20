@@ -15,11 +15,11 @@ int N;
 int main()
 {
 	N = __VERIFIER_nondet_int();
+	if(N <= 0) return 1;
+
 	int i;
 	int sum[1];
 	int a[N];
-
-	if(N < 0) return 1;
 
 	sum[0] = 0;
 	for(i=0; i<N; i++)

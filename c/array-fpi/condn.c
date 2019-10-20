@@ -15,6 +15,8 @@ int N;
 int main()
 {
 	N = __VERIFIER_nondet_int();
+	if(N <= 0) return 1;
+
 	int i;
 	int a[N];
 
@@ -25,7 +27,7 @@ int main()
 
 	for(i=0; i<N; i++)
 	{
-		if(a[i] > N) {
+		if(a[i] < N) {
 			a[i] = a[i];
 		} else {
 			a[i] = N;
