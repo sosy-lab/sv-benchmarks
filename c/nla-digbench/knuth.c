@@ -1,5 +1,7 @@
 /* algorithm searching for a divisor for factorization, by Knuth */
 
+#include <limits.h>
+
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern unsigned __VERIFIER_nondet_unsigned_int(void);
 extern void __VERIFIER_assume(int expression);
@@ -18,6 +20,7 @@ int main() {
     unsigned r, k, q, d, s, t;
     n = __VERIFIER_nondet_unsigned_int();
     a = __VERIFIER_nondet_unsigned_int();
+    __VERIFIER_assume(n < UINT_MAX/8);
     __VERIFIER_assume(a > 2);
 
     d = a;
