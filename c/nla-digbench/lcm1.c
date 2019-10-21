@@ -1,7 +1,9 @@
-/* 
- * algorithm for computing simultaneously the GCD and the LCM, 
- * by Sankaranarayanan 
+/*
+ * algorithm for computing simultaneously the GCD and the LCM,
+ * by Sankaranarayanan
  */
+
+#include <limits.h>
 
 extern void __VERIFIER_error() __attribute__((__noreturn__));
 extern unsigned __VERIFIER_nondet_unsigned_int(void);
@@ -21,6 +23,9 @@ int main() {
     b = __VERIFIER_nondet_unsigned_int();
     __VERIFIER_assume(a >= 1);  //infinite loop if remove
     __VERIFIER_assume(b >= 1);
+
+    __VERIFIER_assume(a <= 65535);
+    __VERIFIER_assume(b <= 65535);
 
     x = a;
     y = b;
@@ -48,10 +53,10 @@ int main() {
             u = u + v;
         }
     }
-    
+
     __VERIFIER_assert(u*y + v*y == a*b);
     __VERIFIER_assert(x == y);
-    
+
     //x == gcd(a,b)
     //u + v == lcm(a,b)
     return 0;
