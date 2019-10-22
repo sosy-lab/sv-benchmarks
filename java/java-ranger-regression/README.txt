@@ -10,6 +10,6 @@ This benchmark was originally made available by the authors here: https://userwe
 
 The Siena benchmark was described by Wang et al. as follows:
 
-Siena is an internet-scale event notification middleware for distributed event-based applications deployed over wide-area networks, responsible for selecting notifications that are of interest to clients and then delivering those notifications to the clients via access points. In our experiments, we use the procedure encode in the class SENP to serve as main method, which requires nine symbolic inputs. 
+Siena is an internet-scale event notification middleware for distributed event-based applications deployed over wide-area networks, responsible for selecting notifications that are of interest to clients and then delivering those notifications to the clients via access points. In our experiments, we use the procedure encode in the class SENP to serve as main method, which requires nine symbolic inputs.
 
 The property being checked in the Siena benchmark is one of equivalence: running the benchmark twice should give us equivalent outputs.
