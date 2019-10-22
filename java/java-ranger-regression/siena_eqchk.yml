@@ -1,7 +1,7 @@
 format_version: "1.0"
 input_files:
   - ../common/
-  - siena/
+  - siena_eqchk/
 properties:
   - property_file: ../properties/assert.prp
     expected_verdict: true
