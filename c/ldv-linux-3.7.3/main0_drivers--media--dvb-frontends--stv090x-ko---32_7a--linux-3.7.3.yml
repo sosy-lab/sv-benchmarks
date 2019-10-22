@@ -6,3 +6,7 @@ input_files: 'main0_drivers--media--dvb-frontends--stv090x-ko---32_7a--linux-3.7
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp
+  - property_file: ../properties/coverage-error-call.prp
