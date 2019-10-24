@@ -12,3 +12,4 @@ properties:
   - property_file: ../properties/coverage-conditions.prp
   - property_file: ../properties/coverage-statements.prp
   - property_file: ../properties/coverage-error-call.prp
+  - property_file: ../properties/coverage-error-call.prp
