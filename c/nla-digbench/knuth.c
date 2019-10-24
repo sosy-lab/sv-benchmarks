@@ -44,12 +44,12 @@ int main() {
             k = t;
             q = q + 4;
             d = d + 2;
-        } else if ((2 * r  + q >= k) && (2 * r - k + q < d + 2)) {
+        } else if ((2 * r  + q >= k) && (2 * r + q < d + k + 2)) {
             t = r;
             r = 2 * r - k + q;
             k = t;
             d = d + 2;
-        } else if ((2 * r  + q >= k) && (2 * r - k + q >= d + 2) && (2 * r - k + q < 2 * d + 4)) {
+        } else if ((2 * r  + q >= k) && (2 * r + q >= d + k + 2) && (2 * r + q < 2 * d + k + 4)) {
             t = r;
             r = 2 * r - k + q - d - 2;
             k = t;
