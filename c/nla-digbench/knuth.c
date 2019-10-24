@@ -38,18 +38,18 @@ int main() {
 
         if (!((s >= d) && (r != 0))) break;
 
-        if (2 * r - k + q < 0) {
+        if (2 * r  + q < k) {
             t = r;
             r = 2 * r - k + q + d + 2;
             k = t;
             q = q + 4;
             d = d + 2;
-        } else if ((2 * r - k + q >= 0) && (2 * r - k + q < d + 2)) {
+        } else if ((2 * r  + q >= k) && (2 * r - k + q < d + 2)) {
             t = r;
             r = 2 * r - k + q;
             k = t;
             d = d + 2;
-        } else if ((2 * r - k + q >= 0) && (2 * r - k + q >= d + 2) && (2 * r - k + q < 2 * d + 4)) {
+        } else if ((2 * r  + q >= k) && (2 * r - k + q >= d + 2) && (2 * r - k + q < 2 * d + 4)) {
             t = r;
             r = 2 * r - k + q - d - 2;
             k = t;
