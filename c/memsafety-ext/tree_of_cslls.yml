@@ -6,3 +6,6 @@ input_files: 'tree_of_cslls.i'
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp
