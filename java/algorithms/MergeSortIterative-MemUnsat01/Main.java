@@ -6,7 +6,8 @@ import org.sosy_lab.sv_benchmarks.Verifier;
  * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
  * Date             : 9 October 2019
  *
- * Original license follows.
+ * Permission to freely use and modify the file granted via e-mail on 26.10.2019
+ * by the original author David Kosbie <koz@cmu.edu>.
  */
 
 // IterativeMergeSort.java

@@ -1,6 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
+ * Type             : Memory Safety
+ * Expected Verdict : False
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
+
+/**
  * Copyright (c) 2011, Regents of the University of California
  * All rights reserved.
  * <p/>
@@ -41,7 +50,7 @@ import org.sosy_lab.sv_benchmarks.Verifier;
  */
 public class Main {
 
-  static final int INFINITY = 1000000;
+  static final int INFINITY = Integer.MAX_VALUE;
 
   static int[] runBellmanFord(int N, int D[], int src) {
     // Initialize distances.
@@ -88,14 +97,16 @@ public class Main {
 
   public static void main(String[] args) {
     final int V = Verifier.nondetInt();
-    Verifier.assume(V > 0);
+    Verifier.assume(V > 0 && V < 1000000);
 
     final int D[] = new int[V*V];
 
     for (int i = 0; i < V; i++) {
       for (int j = 0; j < V; j++) {
         if (i == j) continue;
-        D[i*V+j] =  Verifier.nondetInt(); 
+        int tmp = Verifier.nondetInt();
+        Verifier.assume(tmp >= 0 && tmp < 1000000);
+        D[i*V+j] = tmp;
       }
     }
 

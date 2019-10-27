@@ -125,11 +125,14 @@ public class Main {
     BinaryTree b = new BinaryTree();
     for (int i = 1; i < N; i++){
       int n = Verifier.nondetInt();
-      if(n >= 0) // only insert positive numbers
+      if(n >= 0){ // only insert positive numbers
         b.insert(n);
+      }
     }
 
-    assert(b.search(-1) == false); // didn't put in any negative numbers
+    int v = Verifier.nondetInt();
+    Verifier.assume(v < 0);
+    assert(b.search(v) == false); // didn't put in any negative numbers
   }
 }
 

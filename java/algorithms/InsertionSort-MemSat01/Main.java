@@ -50,7 +50,7 @@ import org.sosy_lab.sv_benchmarks.Verifier;
 
 public class Main {
 
-  public static int sort(int[] a, int count) {
+  public static void sort(int[] a) {
     final int N = a.length;
     for (int i = 1; i < N; i++) {  // N branches
       int j = i - 1;
@@ -61,10 +61,8 @@ public class Main {
         a[j + 1] = a[j];
         j--;
       }
-	    count += N;
       a[j + 1] = x;
     }
-    return count;
   }
 
   public static void main(String[] args) {
@@ -76,7 +74,7 @@ public class Main {
       a[i] = N-i;
     }
 
-    int count = sort(a, 0);
+    sort(a);
   }
 }
 

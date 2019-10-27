@@ -1,6 +1,15 @@
 import org.sosy_lab.sv_benchmarks.Verifier;
 
 /**
+ * Type             : Memory Safety
+ * Expected Verdict : False
+ * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
+ * Date             : 9 October 2019
+ *
+ * Original license follows.
+ */
+
+/**
  * Copyright (c) 2011, Regents of the University of California
  * All rights reserved.
  * <p/>
@@ -41,7 +50,7 @@ import org.sosy_lab.sv_benchmarks.Verifier;
  */
 public class Main {
 
-  static final int INFINITY = 1000000;
+  static final int INFINITY = Integer.MAX_VALUE;
 
   static int[] runBellmanFord(int N, int D[][], int src) {
     // Initialize distances.

@@ -4,5 +4,5 @@ input_files:
   - BinaryTreeSearch-MemUnsat01/
 properties:
   - property_file: ../properties/assert.prp
-    expected_verdict: False
+    expected_verdict: false
 

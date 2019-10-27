@@ -6,8 +6,32 @@ import java.util.Queue;
  * Expected Verdict : True
  * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
  * Date             : 9 October 2019
+ * Comments         : The file is modified to replace strings with custom CharArray objects.
  *
  * Original license follows.
+ */
+
+/*
+  From the repository
+  https://github.com/hobson/coursera/blob/master/algs1/week1-union-find/algs4/TrieST.java
+
+  https://github.com/hobson/coursera/blob/master/LICENSE
+
+  Coursera-ML implement Machine Learning algorithms for the Coursera online university class.
+  Copyright (C) 2013  Hobson Lane <hobson@totalgood.com>
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /******************************************************************************
@@ -268,19 +292,17 @@ public class Main {
     Main st = new Main();
     CharArray test = new CharArray(8);
 
-    try{
-      test.set(0, 'S');
-      test.set(1, 'V');
-      test.set(2, 'C');
-      test.set(3, 'O');
-      test.set(4, 'M');
-      test.set(5, 'P');
-      test.set(6, '2');
-      test.set(7, '0');
+    test.set(0, 'S');
+    test.set(1, 'V');
+    test.set(2, 'C');
+    test.set(3, 'O');
+    test.set(4, 'M');
+    test.set(5, 'P');
+    test.set(6, '2');
+    test.set(7, '0');
 
-      int val = Verifier.nondetInt();
-      st.put(test, val);
-      assert (st.get(test) == val);
-    } catch(Exception e) { assert false; }
+    int val = Verifier.nondetInt();
+    st.put(test, val);
+    assert (st.get(test) == val);
   }
 }
