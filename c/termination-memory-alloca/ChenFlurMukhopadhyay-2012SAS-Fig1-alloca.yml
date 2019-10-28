@@ -6,3 +6,6 @@ input_files: 'ChenFlurMukhopadhyay-2012SAS-Fig1-alloca.i'
 properties:
   - property_file: ../properties/termination.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

@@ -7,6 +7,7 @@ loop-new/*.yml
 loop-industry-pattern/*.yml
 loops-crafted-1/*.yml
 loop-invariants/*.yml
+loop-simple/*.yml
 verifythis/duplets.yml
 verifythis/elimination_max.yml
 verifythis/lcp.yml
