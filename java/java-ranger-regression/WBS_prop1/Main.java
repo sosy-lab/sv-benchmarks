@@ -65,7 +65,6 @@ public class Main {
 				   }
 			   }
 		   }
-		//Debug.printPC("PC @fter(PadalPos == 0) [Region 1] = ");
 
 
 		if ((AutoBrake &&
@@ -74,7 +73,6 @@ public class Main {
 		   }  else { 
 		      WBS_Node_WBS_BSCU_Command_Switch = 0;
 		   }
-		//Debug.printPC("PC @fter(AutoBrake && WBS_Node_WBS_BSCU_Command_Is_Normal_Relational_Operator) [Region 2] = ");
 
 
 	   WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6 = ((((!(WBS_Node_WBS_BSCU_Unit_Delay1 == 0)) &&
@@ -82,7 +80,6 @@ public class Main {
 	         WBS_Node_WBS_BSCU_Command_Is_Normal_Relational_Operator) || 
 	         (!WBS_Node_WBS_BSCU_Command_Is_Normal_Relational_Operator));
 
-	//	Debug.printPC("PC @fter(WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6 = ((((!(WBS_Node_WBS_BSCU_Unit_Delay1 == 0)) &&) = ");
 
 	   if (WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6) {
 	      if (Skid) 
@@ -94,7 +91,6 @@ public class Main {
 	      WBS_Node_WBS_BSCU_Switch3 = 4;
 	    }
 
-	//	Debug.printPC("PC @fter((WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6)) = ");
 
 
 	   if (WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6) {
@@ -103,7 +99,6 @@ public class Main {
 	      WBS_Node_WBS_Green_Pump_IsolationValve_Switch = 5; 
 	    }
 
-	//	Debug.printPC("PC @fter(WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6) = ");
 
 	   if ((WBS_Node_WBS_Green_Pump_IsolationValve_Switch >= 1)) {
 	      WBS_Node_WBS_SelectorValve_Switch1 = 0; 
@@ -112,7 +107,6 @@ public class Main {
 	      WBS_Node_WBS_SelectorValve_Switch1 = 5; 
 	   }
 
-	//	Debug.printPC("PC @fter(WBS_Node_WBS_Green_Pump_IsolationValve_Switch >= 1) = ");
 
 	   if ((!WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6)) {
 	      WBS_Node_WBS_AccumulatorValve_Switch = 0; 
@@ -125,7 +119,6 @@ public class Main {
 		   }
 	   }
 
-	//	Debug.printPC("PC @fter(!WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6) = ");
 
 
 		if ((WBS_Node_WBS_BSCU_Switch3 == 0)) {
@@ -149,7 +142,6 @@ public class Main {
 			   }
 		   }
 	   }
-	//	Debug.printPC("PC @fter(WBS_Node_WBS_BSCU_Switch3 == 0) = ");
 
 
 
@@ -158,7 +150,6 @@ public class Main {
 	   }  else { 
 	      WBS_Node_WBS_BSCU_Command_AntiSkidCommand_Normal_Switch = (WBS_Node_WBS_BSCU_Command_Switch+WBS_Node_WBS_BSCU_Command_PedalCommand_Switch1);
 	   }
-		//Debug.printPC("PC @fter(Skid) [Region 3] = ");
 
 
 	   if (WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6) {
@@ -166,7 +157,6 @@ public class Main {
 	   }  else { 
 	      Sys_Mode = 0;
 	   }
-	//	Debug.printPC("PC @fter(WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6) = ");
 
 
 		if (WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6) {
@@ -194,7 +184,6 @@ public class Main {
 			   }
 		   }
 	   }
-		//Debug.printPC("PC @fter(WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6) = ");
 
 
 
@@ -203,7 +192,6 @@ public class Main {
 	   }  else { 
 	      WBS_Node_WBS_SelectorValve_Switch = 0;
 	   }
-	//	Debug.printPC("PC @fter(WBS_Node_WBS_Green_Pump_IsolationValve_Switch >= 1) = ");
 
 
 
@@ -229,7 +217,6 @@ public class Main {
 		   }
 	   }
 
-	//	Debug.printPC("PC before(WBS_Node_WBS_BSCU_Command_PedalCommand_Switch1 == 0) [region 4] = ");
 
 	   if ((WBS_Node_WBS_BSCU_Command_PedalCommand_Switch1 == 0)) {
 	      Alt_Pressure = 0; 
@@ -252,7 +239,6 @@ public class Main {
 			   }
 		   }
 	   }
-	//	Debug.printPC("PC @fter(WBS_Node_WBS_BSCU_Command_PedalCommand_Switch1 == 0) [Region 4] = ");
 
 
 	   WBS_Node_WBS_rlt_PRE2 = Nor_Pressure; 
@@ -260,46 +246,17 @@ public class Main {
 	   WBS_Node_WBS_BSCU_rlt_PRE1 = WBS_Node_WBS_BSCU_Switch2; 
 
 	   WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE = Sys_Mode;
-//	   WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE += WBS_Node_WBS_BSCU_SystemModeSelCmd_Logical_Operator6 ? 1 : 0;
-
-		// Assertions added by MWW: these are the truth values for "my" version of the model - may not be true for this code, but should be
-		// consistent between SPF and Veritest-SPF.
-
-		// I prefer ite to !a || b for implications.
-
-		// This assertion should prove:
-        //boolean myassert = (PedalPos > 0 && PedalPos <= 4 && !Skid) ? (Alt_Pressure > 0 || Nor_Pressure > 0) : true;
-        //assert(myassert);
-		//assert((PedalPos > 0 && PedalPos <= 4 && !Skid) ? (Alt_Pressure > 0 || Nor_Pressure > 0) : true);
 
 		// This assertion should fail:
 		 assert((PedalPos > 0 && PedalPos <= 4 && !Skid) ? (Alt_Pressure > 0) : true);
-
-		// This assertion may fail (depending on encoding):
-		//Debug.printPC("PC before assertion ((PedalPos > 0 && PedalPos <= 4 && !Skid) ? (Nor_Pressure > 0) : true) = ");
-
-		// assert((PedalPos > 0 && PedalPos <= 4 && !Skid) ? (Nor_Pressure > 0) : true);
-
-		// This assertion should fail:
-		 //assert((PedalPos > 0 && PedalPos <= 4) ? (Alt_Pressure > 0 || Nor_Pressure > 0) : true);
-
-		// This assertion should also fail:
-		//assert((PedalPos > 0 && !Skid) ? (Alt_Pressure > 0 || Nor_Pressure > 0) : true);
 	}
 
 
 	public static void main(String[] args) {
 		Main Main = new Main();
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
-		Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
+		for (int i = 0; i < 10; i++) {
+		  Main.update(Verifier.nondetInt(), Verifier.nondetBoolean(), Verifier.nondetBoolean());
+		}
 	}
 
 }
