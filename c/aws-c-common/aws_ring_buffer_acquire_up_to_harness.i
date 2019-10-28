@@ -237,6 +237,9 @@ void __VERIFIER_assert(int cond) {
 void abort(void) {
     __VERIFIER_error();
 }
+void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
+
+
 uint64_t __CPROVER_uninterpreted_hasher(const void *const a) { return (uint64_t)a; }
 bool __CPROVER_uninterpreted_equals(const void *const a, const void *const b) { return a == b; }
 int __CPROVER_uninterpreted_compare(const void *const a, const void *const b) { return a < b ? -1 : a > b ? 1 : 0; }

@@ -36,6 +36,8 @@ void abort(void) {
 #define __CPROVER_assume(cond) \
     __VERIFIER_assume(cond)
 
+void __CPROVER_allocated_memory(unsigned long address, unsigned long extent) { }
+
 /* Note: may assume that they have no side-effects, i.e., completely functional */
 uint64_t __CPROVER_uninterpreted_hasher(const void *const a) { return (uint64_t)a; }
 bool __CPROVER_uninterpreted_equals(const void *const a, const void *const b) { return a == b; }

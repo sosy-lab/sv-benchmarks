@@ -3,12 +3,9 @@ LEVEL := ../
 CC.Arch := 64
 
 COMMON_WARNINGS := \
-	-Wno-error=shift-count-overflow \
-	-Wno-error=overflow \
-	-Wno-error=implicit-function-declaration \
-	-Wno-error=incompatible-pointer-types \
 	-Wno-error=int-conversion \
 	-Wno-error=address \
+	-Wno-error=incompatible-pointer-types
 
 GCC_WARNINGS += \
 	-Wno-error=format= \

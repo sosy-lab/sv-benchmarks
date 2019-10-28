@@ -24,3 +24,8 @@ sed '/^void .memset(/,+8d' -i \
 # clang is confused over such identifier
 sed 's/__builtin___mem/___mem/g' -i \
     $SV/c/aws-c-common/*.i
+
+# fix typo in qsort stub
+sed '1 i int compare(const void *a, const void *b, unsigned long item_size);' -i \
+    $SV/c/aws-c-common/./aws_array_list_sort_harness.i
+
