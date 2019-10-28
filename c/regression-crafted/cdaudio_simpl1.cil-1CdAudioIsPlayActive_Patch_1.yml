@@ -1,8 +1,0 @@
-format_version: '1.0'
-input_files: 'cdaudio_simpl1.cil-1CdAudioIsPlayActive_Patch_1.c'
-
-properties:
-  - property_file: ../properties/unreach-call.prp
-    expected_verdict: false
-  - property_file: ../properties/coverage-branches.prp
-
