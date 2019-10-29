@@ -17,11 +17,11 @@ public class Environment {
 
   static Lock createLock(int id) {
     // factory method to swap out lock impl. in one place
-    return new /*Prio*/Mutex(id);
+    return new Mutex(id);
   }
 
   public final static void main(String[] args) {
-    assert(args.length == N_THREADS);
+    assert args.length == N_THREADS;
     int prio1 = 2;
     int prio2 = 2;
     int prio3 = 2;
@@ -32,11 +32,8 @@ public class Environment {
       } else {
         prio3 = 1; // 2, 2, 1: two prios match, one higher
       }
-    } else if (Verifier.nondetBoolean()) {
-        prio3 = 3; // 2, 2, 3: two prios match: one lower
-      }// else {
-        // 3: no need to change the defaults 2, 2, 2: all same
-      //}
+    } else {
+      prio3 = 3; // 2, 2, 3: two prios match: one lower
     }
     Mutex.setUpdateMethod(model);
     RTEMSThread t0 =

@@ -4,7 +4,6 @@ import base.Condition;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Iterator;
-import gov.nasa.jpf.vm.Verify;
 
 public class Mutex extends Lock {
   RTEMSThread holder; /*! It is the thread holding this mutex*/
@@ -59,21 +58,20 @@ public class Mutex extends Lock {
     synchronized (this) {
       RTEMSThread thisThread = (RTEMSThread)Thread.currentThread();
 
-      while ((holder != null) && (holder != thisThread)) {
-
+      while((holder!=null) && (holder!=thisThread)) {
         try {
-          Verify.beginAtomic();
-          assert(thisThread.currentPriority == thisThread.getPriority());
-          thisThread.state = Thread.State.WAITING;
-          updatePriority(thisThread.currentPriority);
-          if (waitQueue.contains(thisThread) == false) {
-            System.out.println("Adding thread :" + thisThread.getId() +
-                               " in waitQ of mutex: " + id);
-            waitQueue.offer(thisThread);
+          synchronized (waitQueue) {
+            assert(thisThread.currentPriority == thisThread.getPriority());
+            thisThread.state = Thread.State.WAITING;
+            updatePriority(thisThread.currentPriority);
+            if (waitQueue.contains(thisThread) == false) {
+              System.out.println("Adding thread :" + thisThread.getId() +
+                                 " in waitQ of mutex: " + id);
+              waitQueue.offer(thisThread);
+            }
+            thisThread.wait = waitQueue;
+            thisThread.trylock = this;
           }
-          thisThread.wait = waitQueue;
-          thisThread.trylock = this;
-          Verify.endAtomic();
           wait();
 
         } catch (InterruptedException e) {
@@ -113,18 +111,18 @@ public class Mutex extends Lock {
       nestCount--;
       thisThread.resourceCount--;
       if (nestCount == 0) {
-        Verify.beginAtomic();
-        topMutex = thisThread.mutexOrderList.get(0);
-        assert this == topMutex;
-        topMutex = thisThread.mutexOrderList.remove(0);
-        thisThread.setPriority(priorityBefore);
-        thisThread.currentPriority = priorityBefore;
+        synchronized (waitQueue) {
+          topMutex = thisThread.mutexOrderList.get(0);
+          assert this == topMutex;
+          topMutex = thisThread.mutexOrderList.remove(0);
+          thisThread.setPriority(priorityBefore);
+          thisThread.currentPriority = priorityBefore;
 
-        assert holder != null;
-        assert holder.wait == null;
-        assert holder.trylock == null;
-        holder = waitQueue.poll();
-        Verify.endAtomic();
+          assert holder != null;
+          assert holder.wait == null;
+          assert holder.trylock == null;
+          holder = waitQueue.poll();
+        }
 
         if (holder != null) {
           assert holder.state == Thread.State.WAITING;

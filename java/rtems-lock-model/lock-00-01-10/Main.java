@@ -3,7 +3,7 @@
 
 public class Main {
   public final static void main(String[] args) {
-    harness.Environment.main("00", "01", "10");
+    harness.Environment.main(new String[] {"00", "01", "10"});
     // deadlocks
   }
 }
