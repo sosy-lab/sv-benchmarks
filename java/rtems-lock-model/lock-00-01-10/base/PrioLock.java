@@ -11,25 +11,25 @@ public class PrioLock extends Lock {
 
   public void lock() {
     Thread thisThread = Thread.currentThread();
-    synchronized(this) {
+    synchronized (this) {
       updateTopPrio(thisThread);
       waitingThreads[waitCount++] = thisThread;
     }
     int prio = thisThread.getPriority();
-    synchronized(this) {
+    synchronized (this) {
       while (count != 0 && owner != thisThread && prio > topPrio) {
-	// cannot obtain lock; wait for unlock
-	try {
-	  wait();
-	} catch (InterruptedException e) {
-	}
+        // cannot obtain lock; wait for unlock
+        try {
+          wait();
+        } catch (InterruptedException e) {
+        }
       }
       owner = Thread.currentThread();
       count++;
       for (int i = 0; i < waitCount; i++) {
-	if (waitingThreads[i] == thisThread) { // remove thread from array
+        if (waitingThreads[i] == thisThread) { // remove thread from array
           waitingThreads[i] = waitingThreads[waitCount - 1];
-	  waitingThreads[waitCount - 1] = null;
+          waitingThreads[waitCount - 1] = null;
         }
       }
       waitCount--;

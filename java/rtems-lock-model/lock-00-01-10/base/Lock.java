@@ -11,7 +11,7 @@ public class Lock {
   public synchronized void lock() {
     while (count != 0 && owner != Thread.currentThread()) {
       try {
-	wait();
+        wait();
       } catch (InterruptedException e) {
       }
     }

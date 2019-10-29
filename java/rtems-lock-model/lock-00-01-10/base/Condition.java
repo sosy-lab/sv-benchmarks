@@ -1,4 +1,3 @@
 package base;
 
-public class Condition {
-}
+public class Condition {}

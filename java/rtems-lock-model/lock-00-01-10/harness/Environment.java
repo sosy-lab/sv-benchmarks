@@ -27,7 +27,8 @@ public class Environment {
     int prio3 = 2;
     if (Verifier.nondetBoolean()) {
       if (Verifier.nondetBoolean()) {
-        prio1 = 3; prio3 = 1; // 3, 2, 1: all prios differ
+        prio1 = 3;
+        prio3 = 1; // 3, 2, 1: all prios differ
       } else {
         prio3 = 1; // 2, 2, 1: two prios match, one higher
       }
@@ -39,31 +40,31 @@ public class Environment {
     }
     Mutex.setUpdateMethod(model);
     RTEMSThread t0 =
-      new TestThread(new int[]{(int)(new String(args[0]).charAt(0)) - '0',
-			       (int)(new String(args[0]).charAt(1)) - '0'},
-		     prio1);
+        new TestThread(new int[] {(int)(new String(args[0]).charAt(0)) - '0',
+                                  (int)(new String(args[0]).charAt(1)) - '0'},
+                       prio1);
     t0.start();
-    
-    //Creating thread 1 trying to acquire lock 2, lock 0
+
+    // Creating thread 1 trying to acquire lock 2, lock 0
     RTEMSThread t1 =
-      new TestThread(new int[]{(int)(new String(args[1]).charAt(0)) - '0',
-			       (int)(new String(args[1]).charAt(1)) - '0'},
-		     prio2);
+        new TestThread(new int[] {(int)(new String(args[1]).charAt(0)) - '0',
+                                  (int)(new String(args[1]).charAt(1)) - '0'},
+                       prio2);
     t1.start();
 
-    //creating thread 2 trying to acquire lock1, lock2
+    // creating thread 2 trying to acquire lock1, lock2
     RTEMSThread t2 =
-      new TestThread(new int[]{(int)(new String(args[2]).charAt(0)) - '0',
-			       (int)(new String(args[2]).charAt(1)) - '0'},
-		     prio2);
+        new TestThread(new int[] {(int)(new String(args[2]).charAt(0)) - '0',
+                                  (int)(new String(args[2]).charAt(1)) - '0'},
+                       prio2);
     t2.start();
 
-    try{
+    try {
       t0.join();
       t1.join();
       t2.join();
-      }catch(InterruptedException e){
-        e.printStackTrace();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
     }
   }
 }
