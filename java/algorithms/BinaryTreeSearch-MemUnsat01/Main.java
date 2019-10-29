@@ -122,15 +122,19 @@ public class Main {
   public static void main(String args[]) {
     final int N = Verifier.nondetInt();
 
-    BinaryTree b = new BinaryTree();
-    for (int i = 1; i < N; i++)
-	    b.insert(Verifier.nondetInt());
+    try {
+      BinaryTree b = new BinaryTree();
 
-    // We only measure the complexity (i.e. path length) of the
-    // final search operation.  That is, we count branches only
-    // from this point forward in the execution.
-    //Concolic.ResetBranchCounting();
+      for (int i = 1; i < N; i++) {
+        b.insert(Verifier.nondetInt());
+      }
 
-    b.search(Verifier.nondetInt());
+      // We only measure the complexity (i.e. path length) of the
+      // final search operation.  That is, we count branches only
+      // from this point forward in the execution.
+      //Concolic.ResetBranchCounting();
+
+      b.search(Verifier.nondetInt());
+    } catch (Exception e) { assert false; }
   }
 }

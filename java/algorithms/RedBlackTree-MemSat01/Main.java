@@ -56,15 +56,17 @@ public class Main {
     int N = Verifier.nondetInt();
     Verifier.assume(N > 0);
 
-    RedBlackTree tree = new RedBlackTree();
+    try {
+      RedBlackTree tree = new RedBlackTree();
 
-    for (int i = 0; i < N; i++) {
+      for (int i = 0; i < N; i++) {
+        int data = Verifier.nondetInt();
+        tree.treeInsert(new RedBlackTreeNode(data));
+      }
+
       int data = Verifier.nondetInt();
-      tree.treeInsert(new RedBlackTreeNode(data));
-    }
-
-    int data = Verifier.nondetInt();
-    RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
+      RedBlackTreeNode node = tree.treeSearch(tree.root(), data);
+    } catch (Exception e) { assert false; }
   }
 }
 

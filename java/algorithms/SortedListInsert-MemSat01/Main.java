@@ -77,8 +77,10 @@ public class Main {
   public static void main(String[] args) {
     final int N = Verifier.nondetInt();
 
-    List list = new List();
-    for (int i = 0; i < N; i++)
-      list.insert(Verifier.nondetInt());
+    try {
+      List list = new List();
+      for (int i = 0; i < N; i++)
+        list.insert(Verifier.nondetInt());
+    } catch (Exception e) { assert false; }
   }
 }

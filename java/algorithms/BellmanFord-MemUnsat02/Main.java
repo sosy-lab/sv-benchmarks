@@ -107,7 +107,8 @@ public class Main {
         D[i][j] =  Verifier.nondetInt();
       }
     }
-
-    int dist[] = runBellmanFord(V, D, 0);
+    try {
+      int dist[] = runBellmanFord(V, D, 0);
+    } catch (Exception e) { assert false; }
   }
 }

@@ -34,7 +34,10 @@ public class Main {
     for (int i = 0; i < N; i++) {
       data[i] = i;
     }
-    iterativeMergesort(data);
+
+    try {
+      iterativeMergesort(data);
+    } catch (Exception e) { assert false; }
   }
 
   /////////////////////////////////////////

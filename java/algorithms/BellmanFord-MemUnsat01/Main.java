@@ -109,7 +109,8 @@ public class Main {
         D[i*V+j] = tmp;
       }
     }
-
-    int dist[] = runBellmanFord(V, D, 0);
+    try {
+      int dist[] = runBellmanFord(V, D, 0);
+    } catch (Exception e) { assert false; }
   }
 }

@@ -110,6 +110,8 @@ public class Main {
       }
     }
 
-    int dist[] = runBellmanFord(V, D, 0);
+    try{
+      int dist[] = runBellmanFord(V, D, 0);
+    } catch (Exception e) { assert false; }
   }
 }

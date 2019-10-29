@@ -117,7 +117,9 @@ public class Main {
       }
     }
 
-    TspSolver tspSolver = new TspSolver(N, D);
-    tspSolver.solve();
+    try {
+      TspSolver tspSolver = new TspSolver(N, D);
+      tspSolver.solve();
+    } catch (Exception e) { assert false; }
   }
 };

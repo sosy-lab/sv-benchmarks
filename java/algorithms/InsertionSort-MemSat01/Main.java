@@ -74,7 +74,9 @@ public class Main {
       a[i] = N-i;
     }
 
-    sort(a);
+    try {
+      sort(a);
+    } catch (Exception e) { assert false; }
   }
 }
 
