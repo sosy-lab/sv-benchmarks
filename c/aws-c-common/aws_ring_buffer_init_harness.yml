@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'aws_ring_buffer_init_harness.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true
