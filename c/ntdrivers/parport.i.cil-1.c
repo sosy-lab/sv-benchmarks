@@ -9662,6 +9662,9 @@ int main(void)
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
   s = __VERIFIER_nondet_int();
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
+  /* ensure a bounded number of subsequent decrements do not result in stack underflow */
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 3;
 
   {
   {

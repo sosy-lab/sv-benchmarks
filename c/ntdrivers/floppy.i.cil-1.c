@@ -6576,6 +6576,9 @@ NTSTATUS FlFdcDeviceIo(PDEVICE_OBJECT DeviceObject , ULONG Ioctl , PVOID Data )
 
   }
   {
+  irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(sizeof (IO_STACK_LOCATION));
+  /* ensure a bounded number of subsequent decrements do not result in stack underflow */
+  irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 1;
   irpStack = irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
   irpStack->Parameters.DeviceIoControl.Type3InputBuffer = Data;
   ntStatus = IofCallDriver(DeviceObject, irp);
@@ -7018,8 +7021,13 @@ int main(void)
   int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
+  devobj.DeviceExtension = malloc(sizeof (DISKETTE_EXTENSION));
+  memset(devobj.DeviceExtension, 0, sizeof (DISKETTE_EXTENSION));
 
   dummy_data.AlternativeArchitecture = __VERIFIER_nondet_int();
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
+  /* ensure a bounded number of subsequent decrements do not result in stack underflow */
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 3;
 
   {
   {
