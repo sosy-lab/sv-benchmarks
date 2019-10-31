@@ -17,6 +17,7 @@ int main()
 {
 	N = __VERIFIER_nondet_int();
 	if(N <= 0) return 1;
+	__VERIFIER_assume(N <= 2147483647/sizeof(int));
 
 	int i;
 	long long *a = malloc(sizeof(long long)*N);
