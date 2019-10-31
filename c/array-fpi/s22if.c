@@ -9,6 +9,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 extern int __VERIFIER_nondet_int(void);
+void* malloc(unsigned long size);
 
 int N;
 
@@ -18,8 +19,8 @@ int main()
 	if(N <= 0) return 1;
 
 	int i;
-	int sum[1];
-	int a[N];
+	long long sum[1];
+	int *a = malloc(sizeof(int)*N);
 
 	sum[0] = 0;
 	for(i=0; i<N; i++)
