@@ -298,16 +298,6 @@ void printIntLine(int intNumber)
 }
 
 
-#line 32  "/home/debian/klever-inst/klever/build bases/juliet-omitgood/Storage/fast/programs/juliet/testcasesupport/io.c"
-void printShortLine(short shortNumber)
-{
-  
-#line 34 
-  printf("%hd\n",(int)shortNumber);
-  
-#line 35 
-  return;
-}
 
 
 #line 37  "/home/debian/klever-inst/klever/build bases/juliet-omitgood/Storage/fast/programs/juliet/testcasesupport/io.c"
@@ -1821,16 +1811,6 @@ void ldv_error(void)
   return;
 }
 
-long __builtin_expect(long exp, long c);
-
-
-#line 24  "/home/debian/klever-inst/klever-work/native-scheduler/scheduler/jobs/b4116969b8070a05f5ed217876faa705/klever-core-work-dir/job/root/specifications/verifier/gcc.c"
-long __builtin_expect(long exp, long c)
-{
-  
-#line 26 
-  return exp;
-}
 
 
 
