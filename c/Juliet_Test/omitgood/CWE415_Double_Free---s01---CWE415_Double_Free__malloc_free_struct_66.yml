@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE415_Double_Free---s01---CWE415_Double_Free__malloc_free_struct_66.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: false

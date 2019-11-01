@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memmove_11_bad.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false

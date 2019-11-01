@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE121_Stack_Based_Buffer_Overflow---s07---CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_snprintf_42.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: false

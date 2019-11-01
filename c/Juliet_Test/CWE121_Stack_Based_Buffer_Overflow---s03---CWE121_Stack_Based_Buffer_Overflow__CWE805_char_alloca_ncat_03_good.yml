@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE121_Stack_Based_Buffer_Overflow---s03---CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_ncat_03_good.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE122_Heap_Based_Buffer_Overflow---s07---CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_loop_31_bad.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false

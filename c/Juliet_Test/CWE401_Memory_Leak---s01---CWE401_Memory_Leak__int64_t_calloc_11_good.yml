@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE401_Memory_Leak---s01---CWE401_Memory_Leak__int64_t_calloc_11_good.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

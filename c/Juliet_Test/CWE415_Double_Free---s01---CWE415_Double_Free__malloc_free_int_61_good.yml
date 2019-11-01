@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE415_Double_Free---s01---CWE415_Double_Free__malloc_free_int_61_good.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

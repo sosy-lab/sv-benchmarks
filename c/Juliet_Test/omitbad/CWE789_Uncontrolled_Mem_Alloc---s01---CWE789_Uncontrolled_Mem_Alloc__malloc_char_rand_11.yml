@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE789_Uncontrolled_Mem_Alloc---s01---CWE789_Uncontrolled_Mem_Alloc__malloc_char_rand_11.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: true

@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE121_Stack_Based_Buffer_Overflow---s08---CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cpy_17_bad.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false
