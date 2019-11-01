@@ -513,15 +513,13 @@ int num;
 int ind, newsize, i = 1;
 void *expandArray(void *arg) {
   int *a = (int *)arg;
-  int *b = ((void *)0);
   while (newsize < num) {
     newsize = newsize + 1;
+    int *b = ((void *)0);
     b = realloc(a, sizeof(int) * newsize);
     b[newsize - 1] = i;
     a = b;
   }
-  if (b != ((void *)0))
-    free(b);
   return 0;
 }
 int main(int argc, char **argv) {
@@ -535,6 +533,5 @@ int main(int argc, char **argv) {
   }
   newsize = 0;
   expandArray(a);
-  free(a);
   return 0;
 }
