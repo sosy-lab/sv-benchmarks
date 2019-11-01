@@ -326,16 +326,6 @@ void printLongLine(long longNumber)
 }
 
 
-#line 47  "/home/debian/klever-inst/klever/build bases/juliet-omitbad/Storage/fast/programs/juliet/testcasesupport/io.c"
-void printLongLongLine(int64_t longLongIntNumber)
-{
-  
-#line 49 
-  printf("%",longLongIntNumber);
-  
-#line 50 
-  return;
-}
 
 
 #line 52  "/home/debian/klever-inst/klever/build bases/juliet-omitbad/Storage/fast/programs/juliet/testcasesupport/io.c"
@@ -2286,16 +2276,6 @@ long __builtin_expect(long exp, long c)
 }
 
 
-#line 35  "/home/debian/klever-inst/klever-work/native-scheduler/scheduler/jobs/f37bddfe611e85b7b649f04bca1dc6dd/klever-core-work-dir/job/root/specifications/verifier/gcc.c"
-void __builtin_trap(void)
-{
-  
-#line 37 
-  __VERIFIER_error();
-  
-#line 38 
-  return;
-}
 
 
 #line 24  "/home/debian/klever-inst/klever-work/native-scheduler/scheduler/jobs/f37bddfe611e85b7b649f04bca1dc6dd/klever-core-work-dir/job/root/specifications/verifier/nondet.h"
