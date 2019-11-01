@@ -67,6 +67,7 @@ KNOWN_DIRECTORY_PROBLEMS = [
     ("pthread-ext", "missing license"),
     ("seq-pthread", "missing license"),
     ("systemc", "missing license"),
+    ("Juliet_Test", "unexpected subdirectory Juliet_Test_Suite_v1.3_for_C_Cpp"),
 
     ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c has no known verdict"),
     ("termination-memory-alloca", "BradleyMannaSipma-2005CAV-Fig1-alloca_unknown-termination.c.i has no known verdict"),
