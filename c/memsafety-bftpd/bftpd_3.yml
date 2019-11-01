@@ -5,3 +5,4 @@ input_files: 'bftpd_3.i'
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: false
+    subproperty: valid-memtrack
