@@ -2974,7 +2974,7 @@ void DiskPerfLogError(PDEVICE_OBJECT DeviceObject , ULONG UniqueId , NTSTATUS Er
     errorLogEntry->ErrorCode = ErrorCode;
     errorLogEntry->UniqueErrorValue = UniqueId;
     errorLogEntry->FinalStatus = Status;
-    memcpy(& errorLogEntry->DumpData[0], & DeviceObject, sizeof(DEVICE_OBJECT ));
+    memcpy(& errorLogEntry->DumpData[0], DeviceObject, sizeof(DEVICE_OBJECT ));
     errorLogEntry->DumpDataSize = sizeof(DEVICE_OBJECT );
     IoWriteErrorLogEntry(errorLogEntry);
     }
@@ -3218,7 +3218,13 @@ int main(void)
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
+  devobj.DeviceExtension = malloc(sizeof (DEVICE_EXTENSION));
+  ((DEVICE_EXTENSION*)devobj.DeviceExtension)->DiskCounters = malloc(sizeof (struct _DISK_PERFORMANCE));
   KeNumberProcessors = __VERIFIER_nondet_pointer();
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
+  /* ensure a bounded number of subsequent decrements do not result in stack underflow */
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 3;
+  irp.AssociatedIrp.SystemBuffer = malloc(sizeof (struct _DISK_PERFORMANCE));
 
   {
   {
