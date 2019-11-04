@@ -30,10 +30,12 @@ int max(struct node *n) {
     if(!n) {
         return -2147483648; /* INT_MIN */
     } else {
-        int a = max(n->left);
-        int b = max(n->right);
-        if(a >= b) return a;
-        else return b;
+        int a = n->data;
+        int b = max(n->left);
+        int c = max(n->right);
+        if(b >= a && b >= c) return b;
+        if(c >= a && c >= b) return c;
+        return a; /* this node has the maximum */
     }
 }
 
