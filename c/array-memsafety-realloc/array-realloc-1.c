@@ -7,14 +7,15 @@ int ind, newsize, i = 1;
 
 void *expandArray(void *arg) {
   int *a = (int *)arg;
+  int *b = NULL;
   while (newsize < num) {
     newsize = newsize + 1;
-    int *b = NULL;
     b = realloc(a, sizeof(int) * newsize);
     b[newsize - 1] = i;
     a = b;
   }
-
+  if (b != NULL)
+    free(b);
   return 0;
 }
 

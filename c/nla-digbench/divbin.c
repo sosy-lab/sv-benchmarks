@@ -3,8 +3,10 @@
   returns A//B
 */
 
+#include <limits.h>
+
 extern void __VERIFIER_error() __attribute__((__noreturn__));
-extern int __VERIFIER_nondet_int(void);
+extern unsigned __VERIFIER_nondet_unsigned_int(void);
 extern void __VERIFIER_assume(int expression);
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
@@ -15,10 +17,11 @@ void __VERIFIER_assert(int cond) {
 }
 
 int main() {
-    int A, B;
-    int q, r, b;
-    A = __VERIFIER_nondet_int();
-    B = __VERIFIER_nondet_int();
+  unsigned A, B;
+  unsigned q, r, b;
+    A = __VERIFIER_nondet_unsigned_int();
+    B = __VERIFIER_nondet_unsigned_int();
+    __VERIFIER_assume(B < UINT_MAX/2);
     __VERIFIER_assume(B >= 1);
 
     q = 0;
@@ -45,4 +48,3 @@ int main() {
     __VERIFIER_assert(A == q * b + r);
     return 0;
 }
-

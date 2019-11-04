@@ -7558,7 +7558,9 @@ int main(void)
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
   devobj.DeviceExtension = malloc(sizeof (CD_DEVICE_EXTENSION));
-  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(sizeof (IO_STACK_LOCATION));
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
+  /* ensure a bounded number of subsequent decrements do not result in stack underflow */
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 3;
   irp.AssociatedIrp.SystemBuffer = malloc(sizeof (CDROM_TOC));
 
   {

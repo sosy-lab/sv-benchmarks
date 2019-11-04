@@ -72,16 +72,16 @@ For verification tasks written in C, some additional requirements are necessary.
 In general, we prefer source code that adheres to the ANSI C standard,
 but for real-world programs GNU C is also acceptable.
 
-#### Properties
 
-For each program, at least one [property](README.md#specification-properties)
-needs to be specified.
+#### Task Definition
 
-For each property against which a program is to be verified,
-the string `_false-<property>` or `_true-<property>` needs to be included in the file name,
-according to the expected verification answer.
-For example, the program `minepump_spec5_product61_true-unreach-call_false-termination.cil.c`
-is expected to satisfy property `unreach-call` and to violate property `termination`.
+For each verification problem,
+a separate [task definiton](https://github.com/sosy-lab/sv-benchmarks/blob/master/README.md#task-definitions)
+in form of a `.yml` file is required that contains the file name of the verification task and
+the expected result for at least one [property](README.md#specifications).
+The `.yml` file should be named just like the original verification problem (except file ending).
+The task definition can contain additional information.
+
 
 #### Category
 

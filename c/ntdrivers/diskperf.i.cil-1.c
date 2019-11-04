@@ -3342,7 +3342,9 @@ int main(void)
   struct_4.ListEntry = list_entry_8;
   union __anonunion____missing_field_name_52 union_6;
   union_6.PacketType = __VERIFIER_nondet_long();
-  union_6.CurrentStackLocation = (struct _IO_STACK_LOCATION *)__VERIFIER_nondet_pointer();
+  union_6.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
+  /* ensure a bounded number of subsequent decrements do not result in stack underflow */
+  union_6.CurrentStackLocation += 3;
   struct_4.__annonCompField16 = union_6;
   struct_3.__annonCompField17 = struct_4;
   struct_3.AuxiliaryBuffer = (PCHAR)__VERIFIER_nondet_pointer();

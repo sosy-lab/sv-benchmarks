@@ -1,0 +1,31 @@
+diff --git a/c/openbsd-6.2/sources/sys/netinet6/in6.h b/c/openbsd-6.2/sources/sys/netinet6/in6.h
+index 397f1094a..78af2f469 100644
+--- a/c/openbsd-6.2/sources/sys/netinet6/in6.h
++++ b/c/openbsd-6.2/sources/sys/netinet6/in6.h
+@@ -196,10 +196,22 @@ struct route_in6 {
+  * Unspecified
+  */
+ #define IN6_IS_ADDR_UNSPECIFIED(a)	\
+-	((*(const u_int32_t *)(const void *)(&(a)->s6_addr[0]) == 0) &&	\
+-	 (*(const u_int32_t *)(const void *)(&(a)->s6_addr[4]) == 0) &&	\
+-	 (*(const u_int32_t *)(const void *)(&(a)->s6_addr[8]) == 0) &&	\
+-	 (*(const u_int32_t *)(const void *)(&(a)->s6_addr[12]) == 0))
++	(((&(a)->s6_addr[0]) == 0) &&	\
++	 ((&(a)->s6_addr[1]) == 0) &&	\
++	 ((&(a)->s6_addr[2]) == 0) &&	\
++	 ((&(a)->s6_addr[3]) == 0) &&	\
++	 ((&(a)->s6_addr[4]) == 0) &&	\
++	 ((&(a)->s6_addr[5]) == 0) &&	\
++	 ((&(a)->s6_addr[6]) == 0) &&	\
++	 ((&(a)->s6_addr[7]) == 0) &&	\
++	 ((&(a)->s6_addr[8]) == 0) &&	\
++	 ((&(a)->s6_addr[9]) == 0) &&	\
++	 ((&(a)->s6_addr[10]) == 0) &&	\
++	 ((&(a)->s6_addr[11]) == 0) &&	\
++	 ((&(a)->s6_addr[12]) == 0) &&	\
++	 ((&(a)->s6_addr[13]) == 0) &&	\
++	 ((&(a)->s6_addr[14]) == 0) &&	\
++	 ((&(a)->s6_addr[15]) == 0))
+ 
+ /*
+  * Loopback
