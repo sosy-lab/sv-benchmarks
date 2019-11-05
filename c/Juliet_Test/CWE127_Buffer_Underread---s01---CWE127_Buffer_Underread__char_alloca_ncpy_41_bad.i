@@ -132,7 +132,7 @@ void CWE127_Buffer_Underread__char_alloca_ncpy_41_badSink(char *data)
 
 void CWE127_Buffer_Underread__char_alloca_ncpy_41_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

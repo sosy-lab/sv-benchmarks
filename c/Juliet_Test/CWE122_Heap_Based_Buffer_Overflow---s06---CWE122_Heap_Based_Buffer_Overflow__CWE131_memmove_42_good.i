@@ -643,7 +643,7 @@ static int *goodG2BSource(int *data)
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

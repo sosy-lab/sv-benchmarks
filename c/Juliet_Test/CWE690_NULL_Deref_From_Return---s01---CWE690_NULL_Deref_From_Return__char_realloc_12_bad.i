@@ -113,7 +113,7 @@ int globalReturnsTrueOrFalse(void);
 
 void CWE690_NULL_Deref_From_Return__char_realloc_12_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   data = (char *)0;

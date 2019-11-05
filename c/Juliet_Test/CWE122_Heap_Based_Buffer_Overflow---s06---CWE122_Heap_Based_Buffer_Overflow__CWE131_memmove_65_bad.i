@@ -646,7 +646,7 @@ time_t time(time_t *);
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_65_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_65b_badSink;
   

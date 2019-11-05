@@ -148,7 +148,7 @@ void *memset(void *, int, size_t);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_src_char_cpy_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE122_Heap_Based_Buffer_Overflow__c_src_char_cpy_67_structType myStruct;
   
   data = (char *)malloc(100UL);

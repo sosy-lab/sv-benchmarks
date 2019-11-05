@@ -835,7 +835,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_04_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

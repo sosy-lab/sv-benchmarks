@@ -634,7 +634,7 @@ static char *ldv_strcpy_2(char * __restrict ldv_func_arg1, char const * __restri
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_fixed_string_13_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

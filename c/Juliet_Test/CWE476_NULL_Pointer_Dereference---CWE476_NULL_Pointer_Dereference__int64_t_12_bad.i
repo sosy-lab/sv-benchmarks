@@ -616,7 +616,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__int64_t_12_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int tmp;
   int tmp_0;
   

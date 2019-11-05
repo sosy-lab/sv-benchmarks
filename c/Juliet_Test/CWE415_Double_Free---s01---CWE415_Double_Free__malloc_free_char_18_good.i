@@ -631,7 +631,7 @@ time_t time(time_t *);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -656,7 +656,7 @@ static void goodB2G(void)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

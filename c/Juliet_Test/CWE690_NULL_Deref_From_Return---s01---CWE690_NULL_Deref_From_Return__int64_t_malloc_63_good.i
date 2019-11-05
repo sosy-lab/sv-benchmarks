@@ -830,7 +830,7 @@ void CWE690_NULL_Deref_From_Return__int64_t_malloc_63b_goodB2GSink(int64_t **dat
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

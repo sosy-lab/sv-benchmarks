@@ -880,7 +880,7 @@ time_t time(time_t *);
 
 void CWE126_Buffer_Overread__malloc_char_memcpy_65_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE126_Buffer_Overread__malloc_char_memcpy_65b_badSink;
   

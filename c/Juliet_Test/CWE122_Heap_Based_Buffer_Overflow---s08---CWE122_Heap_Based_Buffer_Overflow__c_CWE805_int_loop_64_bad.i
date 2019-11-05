@@ -836,7 +836,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_loop_64b_badSink(void *data
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_loop_64_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

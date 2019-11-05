@@ -833,7 +833,7 @@ void *memmove(void *, void const *, size_t);
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memmove_17_bad(void)
 {
   int i;
-  int *data;
+  int *data = 0;
   
   int *dataBadBuffer = __builtin_alloca(200UL);
   

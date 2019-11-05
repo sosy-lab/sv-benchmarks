@@ -862,7 +862,7 @@ static char *ldv_strcpy_8(char * __restrict ldv_func_arg1, char const * __restri
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   int tmp_1;
   
@@ -895,7 +895,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   int tmp_1;
   
@@ -927,7 +927,7 @@ static void goodB2G2(void)
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   int tmp_1;
   
@@ -956,7 +956,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   int tmp_1;
   

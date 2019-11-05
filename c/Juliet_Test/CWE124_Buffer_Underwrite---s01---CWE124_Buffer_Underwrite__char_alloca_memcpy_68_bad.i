@@ -864,7 +864,7 @@ char *CWE124_Buffer_Underwrite__char_alloca_memcpy_68_goodG2BData;
 
 void CWE124_Buffer_Underwrite__char_alloca_memcpy_68_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

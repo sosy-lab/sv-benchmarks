@@ -656,7 +656,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_67_structType myStruct;
   
   data = (int *)0;

@@ -666,7 +666,7 @@ void CWE127_Buffer_Underread__char_declare_loop_53b_badSink(char *data);
 
 void CWE127_Buffer_Underread__char_declare_loop_53_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   memset((void *)(& dataBuffer),65,99UL);

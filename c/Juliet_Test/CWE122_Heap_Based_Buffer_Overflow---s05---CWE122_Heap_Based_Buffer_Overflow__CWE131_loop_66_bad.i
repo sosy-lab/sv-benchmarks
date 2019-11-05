@@ -836,7 +836,7 @@ void CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_66b_badSink(int **dataArray)
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_66_bad(void)
 {
-  int *data;
+  int *data = 0;
   int *dataArray[5U];
   
   data = (int *)0;

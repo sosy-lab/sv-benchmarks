@@ -841,7 +841,7 @@ void CWE126_Buffer_Overread__char_alloca_memcpy_67b_badSink(CWE126_Buffer_Overre
 
 void CWE126_Buffer_Overread__char_alloca_memcpy_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE126_Buffer_Overread__char_alloca_memcpy_67_structType myStruct;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

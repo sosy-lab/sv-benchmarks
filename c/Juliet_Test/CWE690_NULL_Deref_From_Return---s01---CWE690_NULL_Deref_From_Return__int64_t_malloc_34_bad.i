@@ -834,7 +834,7 @@ time_t time(time_t *);
 
 void CWE690_NULL_Deref_From_Return__int64_t_malloc_34_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE690_NULL_Deref_From_Return__int64_t_malloc_34_unionType myUnion;
   
   data = (int64_t *)0L;

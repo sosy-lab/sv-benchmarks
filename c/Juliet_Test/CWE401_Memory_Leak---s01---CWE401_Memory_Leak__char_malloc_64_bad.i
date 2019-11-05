@@ -842,7 +842,7 @@ void CWE401_Memory_Leak__char_malloc_64b_badSink(void *dataVoidPtr);
 
 void CWE401_Memory_Leak__char_malloc_64_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

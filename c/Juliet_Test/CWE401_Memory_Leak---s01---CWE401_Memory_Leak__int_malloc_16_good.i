@@ -835,7 +835,7 @@ time_t time(time_t *);
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   ldv_3204: 
@@ -872,7 +872,7 @@ static void goodB2G(void)
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   ldv_3211: 

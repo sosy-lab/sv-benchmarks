@@ -675,7 +675,7 @@ int CWE690_NULL_Deref_From_Return__int_malloc_22_goodB2G2Global = 0;
 
 static void goodB2G1(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   
@@ -691,7 +691,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

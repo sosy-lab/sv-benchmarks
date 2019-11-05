@@ -623,7 +623,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__char_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE476_NULL_Pointer_Dereference__char_34_unionType myUnion;
   
   data = (char *)0;

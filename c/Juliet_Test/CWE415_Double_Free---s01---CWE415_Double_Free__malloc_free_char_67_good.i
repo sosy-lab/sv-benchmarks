@@ -116,7 +116,7 @@ void CWE415_Double_Free__malloc_free_char_67b_goodG2BSink(CWE415_Double_Free__ma
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE415_Double_Free__malloc_free_char_67_structType myStruct;
   
   data = (char *)0;
@@ -139,7 +139,7 @@ void CWE415_Double_Free__malloc_free_char_67b_goodB2GSink(CWE415_Double_Free__ma
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   CWE415_Double_Free__malloc_free_char_67_structType myStruct;
   
   data = (char *)0;

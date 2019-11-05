@@ -751,7 +751,7 @@ int close(int);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_listen_socket_65b_goodB2GSink;
   

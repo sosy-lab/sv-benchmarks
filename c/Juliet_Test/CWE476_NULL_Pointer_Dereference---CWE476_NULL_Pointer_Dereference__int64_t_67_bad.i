@@ -625,7 +625,7 @@ void CWE476_NULL_Pointer_Dereference__int64_t_67b_badSink(CWE476_NULL_Pointer_De
 
 void CWE476_NULL_Pointer_Dereference__int64_t_67_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE476_NULL_Pointer_Dereference__int64_t_67_structType myStruct;
   
   data = (int64_t *)0L;

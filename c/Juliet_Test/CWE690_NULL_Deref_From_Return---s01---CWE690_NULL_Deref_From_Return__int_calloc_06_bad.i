@@ -624,7 +624,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE690_NULL_Deref_From_Return__int_calloc_06_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

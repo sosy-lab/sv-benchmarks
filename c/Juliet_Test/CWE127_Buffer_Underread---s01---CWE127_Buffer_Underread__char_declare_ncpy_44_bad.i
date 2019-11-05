@@ -654,7 +654,7 @@ static void badSink(char *data)
 
 void CWE127_Buffer_Underread__char_declare_ncpy_44_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   void (*funcPtr)(char *) = & badSink;

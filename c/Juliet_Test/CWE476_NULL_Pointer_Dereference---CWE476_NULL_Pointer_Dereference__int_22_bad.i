@@ -842,7 +842,7 @@ int CWE476_NULL_Pointer_Dereference__int_22_badGlobal = 0;
 
 void CWE476_NULL_Pointer_Dereference__int_22_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

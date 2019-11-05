@@ -827,7 +827,7 @@ time_t time(time_t *);
 
 void CWE590_Free_Memory_Not_on_Heap__free_int_static_11_bad(void)
 {
-  int *data;
+  int *data = 0;
   int tmp;
   
   data = (int *)0;

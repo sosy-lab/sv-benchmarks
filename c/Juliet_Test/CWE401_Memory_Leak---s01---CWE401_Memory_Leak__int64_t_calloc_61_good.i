@@ -830,7 +830,7 @@ int64_t *CWE401_Memory_Leak__int64_t_calloc_61b_goodG2BSource(int64_t *data);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   
@@ -845,7 +845,7 @@ int64_t *CWE401_Memory_Leak__int64_t_calloc_61b_goodB2GSource(int64_t *data);
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

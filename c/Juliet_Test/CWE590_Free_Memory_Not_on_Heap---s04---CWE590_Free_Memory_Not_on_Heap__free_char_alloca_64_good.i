@@ -631,7 +631,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_char_alloca_64b_goodG2BSink(void *data
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

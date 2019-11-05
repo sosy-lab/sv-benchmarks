@@ -829,7 +829,7 @@ static void goodB2G(void)
 {
   int i;
   int k;
-  char *data;
+  char *data = 0;
   
   i = 0;
   
@@ -877,7 +877,7 @@ static void goodG2B(void)
 {
   int h;
   int j;
-  char *data;
+  char *data = 0;
   
   h = 0;
   

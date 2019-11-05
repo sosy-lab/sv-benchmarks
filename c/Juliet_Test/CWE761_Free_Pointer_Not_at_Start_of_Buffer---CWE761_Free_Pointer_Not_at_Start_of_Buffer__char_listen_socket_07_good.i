@@ -918,7 +918,7 @@ static int staticFive = 5;
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   
@@ -1039,7 +1039,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

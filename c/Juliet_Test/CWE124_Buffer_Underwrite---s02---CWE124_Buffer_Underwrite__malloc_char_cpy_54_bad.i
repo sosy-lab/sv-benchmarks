@@ -631,7 +631,7 @@ void CWE124_Buffer_Underwrite__malloc_char_cpy_54b_badSink(char *data);
 
 void CWE124_Buffer_Underwrite__malloc_char_cpy_54_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

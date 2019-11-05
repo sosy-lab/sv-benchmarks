@@ -852,7 +852,7 @@ static int staticReturnsTrue(void)
 
 void CWE401_Memory_Leak__char_calloc_08_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   int tmp_1;
   

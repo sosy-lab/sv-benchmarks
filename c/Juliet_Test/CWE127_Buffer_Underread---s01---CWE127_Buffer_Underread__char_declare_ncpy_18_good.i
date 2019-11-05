@@ -107,7 +107,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   memset((void *)(& dataBuffer),65,99UL);

@@ -862,7 +862,7 @@ char *strncat(char *, char const *, size_t);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

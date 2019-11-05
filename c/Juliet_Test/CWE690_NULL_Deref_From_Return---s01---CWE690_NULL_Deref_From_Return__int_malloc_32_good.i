@@ -827,7 +827,7 @@ time_t time(time_t *);
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   
   int **dataPtr1 = & data;
   

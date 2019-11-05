@@ -827,7 +827,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__int_16_bad(void)
 {
-  int *data;
+  int *data = 0;
   ldv_3200: 
   ;
   

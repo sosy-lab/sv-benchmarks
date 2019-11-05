@@ -860,7 +860,7 @@ void *memset(void *, int, size_t);
 
 void CWE126_Buffer_Overread__char_declare_memmove_54_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

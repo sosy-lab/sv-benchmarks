@@ -849,7 +849,7 @@ int CWE690_NULL_Deref_From_Return__int64_t_malloc_22_badGlobal = 0;
 
 void CWE690_NULL_Deref_From_Return__int64_t_malloc_22_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

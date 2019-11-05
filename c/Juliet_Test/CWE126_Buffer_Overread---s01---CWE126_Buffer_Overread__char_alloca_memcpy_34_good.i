@@ -637,7 +637,7 @@ static size_t ldv_strlen_1(char const *ldv_func_arg1);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE126_Buffer_Overread__char_alloca_memcpy_34_unionType myUnion;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

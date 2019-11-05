@@ -723,7 +723,7 @@ int CWE127_Buffer_Underread__malloc_char_ncpy_22_goodG2B2Global = 0;
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -755,7 +755,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

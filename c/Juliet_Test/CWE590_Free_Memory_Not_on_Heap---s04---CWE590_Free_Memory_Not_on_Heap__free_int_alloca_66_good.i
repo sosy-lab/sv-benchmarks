@@ -836,7 +836,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_int_alloca_66b_goodG2BSink(int **dataA
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   int *dataArray[5U];
   
   data = (int *)0;

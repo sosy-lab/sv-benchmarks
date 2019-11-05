@@ -693,7 +693,7 @@ static int staticTrue = 1;
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_05_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

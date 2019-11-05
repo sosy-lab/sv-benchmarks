@@ -829,7 +829,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE690_NULL_Deref_From_Return__int_malloc_04_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

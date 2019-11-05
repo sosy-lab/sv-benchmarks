@@ -838,7 +838,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE131_memmove_67b_badSink(CWE121_Stack
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE131_memmove_67_bad(void)
 {
-  int *data;
+  int *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__CWE131_memmove_67_structType myStruct;
   
   data = (int *)0;

@@ -623,7 +623,7 @@ char *strncat(char *, char const *, size_t);
 static void goodG2B(void)
 {
   int h;
-  char *data;
+  char *data = 0;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

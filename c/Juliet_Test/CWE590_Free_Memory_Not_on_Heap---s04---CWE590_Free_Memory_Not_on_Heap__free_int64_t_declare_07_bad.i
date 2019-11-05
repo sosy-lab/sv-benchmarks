@@ -621,7 +621,7 @@ static int staticFive = 5;
 
 void CWE590_Free_Memory_Not_on_Heap__free_int64_t_declare_07_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

@@ -892,7 +892,7 @@ time_t time(time_t *);
 
 void CWE126_Buffer_Overread__malloc_char_loop_51_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

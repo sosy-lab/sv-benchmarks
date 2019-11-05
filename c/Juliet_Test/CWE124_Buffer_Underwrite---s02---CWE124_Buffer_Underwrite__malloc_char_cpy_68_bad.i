@@ -671,7 +671,7 @@ char *CWE124_Buffer_Underwrite__malloc_char_cpy_68_goodG2BData;
 
 void CWE124_Buffer_Underwrite__malloc_char_cpy_68_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

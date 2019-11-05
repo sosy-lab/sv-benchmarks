@@ -833,7 +833,7 @@ void CWE690_NULL_Deref_From_Return__int64_t_calloc_63b_badSink(int64_t **dataPtr
 
 void CWE690_NULL_Deref_From_Return__int64_t_calloc_63_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

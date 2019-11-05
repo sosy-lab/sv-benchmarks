@@ -866,7 +866,7 @@ time_t time(time_t *);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE690_NULL_Deref_From_Return__char_realloc_65b_goodB2GSink;
   

@@ -126,7 +126,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE590_Free_Memory_Not_on_Heap__free_int64_t_declare_67_structType myStruct;
   
   data = (int64_t *)0L;

@@ -645,7 +645,7 @@ int CWE401_Memory_Leak__char_malloc_22_badGlobal = 0;
 
 void CWE401_Memory_Leak__char_malloc_22_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -631,7 +631,7 @@ void CWE415_Double_Free__malloc_free_int_66b_badSink(int **dataArray);
 
 void CWE415_Double_Free__malloc_free_int_66_bad(void)
 {
-  int *data;
+  int *data = 0;
   int *dataArray[5U];
   
   data = (int *)0;

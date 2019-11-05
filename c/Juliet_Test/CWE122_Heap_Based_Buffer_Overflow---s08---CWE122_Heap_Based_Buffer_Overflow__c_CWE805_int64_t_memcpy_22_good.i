@@ -901,7 +901,7 @@ int CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memcpy_22_goodG2B2Global
 
 static void goodG2B1(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   
@@ -925,7 +925,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

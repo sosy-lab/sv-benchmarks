@@ -871,7 +871,7 @@ void CWE124_Buffer_Underwrite__malloc_char_loop_41_goodG2BSink(char *data)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

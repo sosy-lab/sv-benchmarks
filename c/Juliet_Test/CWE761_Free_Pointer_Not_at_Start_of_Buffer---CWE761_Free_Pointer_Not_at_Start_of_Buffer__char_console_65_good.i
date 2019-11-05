@@ -743,7 +743,7 @@ static size_t ldv_strlen_3(char const *ldv_func_arg1);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_65b_goodB2GSink;
   

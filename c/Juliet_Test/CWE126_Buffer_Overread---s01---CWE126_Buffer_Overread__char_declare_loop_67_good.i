@@ -839,7 +839,7 @@ void CWE126_Buffer_Overread__char_declare_loop_67b_goodG2BSink(CWE126_Buffer_Ove
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE126_Buffer_Overread__char_declare_loop_67_structType myStruct;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

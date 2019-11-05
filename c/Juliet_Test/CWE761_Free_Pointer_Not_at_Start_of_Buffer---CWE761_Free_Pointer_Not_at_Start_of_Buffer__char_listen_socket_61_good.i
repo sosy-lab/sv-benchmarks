@@ -675,7 +675,7 @@ char *CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_listen_socket_61b_goodB2G
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

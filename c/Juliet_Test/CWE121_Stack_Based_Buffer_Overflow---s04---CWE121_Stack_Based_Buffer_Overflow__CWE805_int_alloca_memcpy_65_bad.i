@@ -621,7 +621,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memcpy_65b_badSink(in
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memcpy_65_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memcpy_65b_badSink;
   

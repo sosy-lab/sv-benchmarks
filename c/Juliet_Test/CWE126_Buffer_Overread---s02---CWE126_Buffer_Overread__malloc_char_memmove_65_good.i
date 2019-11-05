@@ -880,7 +880,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE126_Buffer_Overread__malloc_char_memmove_65b_goodG2BSink;
   

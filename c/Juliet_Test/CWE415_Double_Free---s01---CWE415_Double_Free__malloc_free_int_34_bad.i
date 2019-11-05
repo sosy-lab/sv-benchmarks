@@ -840,7 +840,7 @@ time_t time(time_t *);
 
 void CWE415_Double_Free__malloc_free_int_34_bad(void)
 {
-  int *data;
+  int *data = 0;
   CWE415_Double_Free__malloc_free_int_34_unionType myUnion;
   
   data = (int *)0;

@@ -109,7 +109,7 @@ static void badSink(int64_t *data)
 
 void CWE590_Free_Memory_Not_on_Heap__free_int64_t_declare_44_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & badSink;
   

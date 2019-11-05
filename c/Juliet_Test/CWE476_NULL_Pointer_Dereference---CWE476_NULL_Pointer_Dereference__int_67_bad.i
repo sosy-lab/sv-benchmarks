@@ -836,7 +836,7 @@ void CWE476_NULL_Pointer_Dereference__int_67b_badSink(CWE476_NULL_Pointer_Derefe
 
 void CWE476_NULL_Pointer_Dereference__int_67_bad(void)
 {
-  int *data;
+  int *data = 0;
   CWE476_NULL_Pointer_Dereference__int_67_structType myStruct;
   
   data = (int *)0;

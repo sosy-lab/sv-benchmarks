@@ -855,7 +855,7 @@ static void goodG2BSink(void)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

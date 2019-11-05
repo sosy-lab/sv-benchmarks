@@ -834,7 +834,7 @@ time_t time(time_t *);
 static void goodG2B(void)
 {
   int h;
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

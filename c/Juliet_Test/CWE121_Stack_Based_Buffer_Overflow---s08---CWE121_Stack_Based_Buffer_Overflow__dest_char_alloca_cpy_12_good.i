@@ -838,7 +838,7 @@ static char *ldv_strcpy_1(char * __restrict ldv_func_arg1, char const * __restri
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

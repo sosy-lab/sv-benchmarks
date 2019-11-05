@@ -633,7 +633,7 @@ static size_t ldv_strlen_2(char const *ldv_func_arg1);
 
 void CWE127_Buffer_Underread__char_alloca_ncpy_18_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

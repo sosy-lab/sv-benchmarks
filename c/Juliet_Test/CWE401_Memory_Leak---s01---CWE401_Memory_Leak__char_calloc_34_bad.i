@@ -638,7 +638,7 @@ static char *ldv_strcpy_2(char * __restrict ldv_func_arg1, char const * __restri
 
 void CWE401_Memory_Leak__char_calloc_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE401_Memory_Leak__char_calloc_34_unionType myUnion;
   
   data = (char *)0;

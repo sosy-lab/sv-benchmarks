@@ -884,7 +884,7 @@ int CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_memmove_22_goodG2B2G
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);
@@ -914,7 +914,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

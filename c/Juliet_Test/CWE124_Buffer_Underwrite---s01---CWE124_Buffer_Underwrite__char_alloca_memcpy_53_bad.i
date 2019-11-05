@@ -835,7 +835,7 @@ void CWE124_Buffer_Underwrite__char_alloca_memcpy_53b_badSink(char *data);
 
 void CWE124_Buffer_Underwrite__char_alloca_memcpy_53_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

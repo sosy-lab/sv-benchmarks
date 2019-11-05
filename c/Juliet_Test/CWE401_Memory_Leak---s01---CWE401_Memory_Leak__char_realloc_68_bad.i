@@ -652,7 +652,7 @@ char *CWE401_Memory_Leak__char_realloc_68_goodB2GData;
 
 void CWE401_Memory_Leak__char_realloc_68_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

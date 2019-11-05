@@ -639,7 +639,7 @@ static void badSink(void)
 
 void CWE690_NULL_Deref_From_Return__int64_t_malloc_45_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

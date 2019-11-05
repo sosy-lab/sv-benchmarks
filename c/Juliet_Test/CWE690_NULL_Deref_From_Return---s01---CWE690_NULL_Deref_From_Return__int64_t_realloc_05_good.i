@@ -840,7 +840,7 @@ static int staticFalse = 0;
 
 static void goodB2G1(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   
@@ -866,7 +866,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

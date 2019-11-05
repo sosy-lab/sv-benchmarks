@@ -652,7 +652,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cat_41_badSink(char *data)
 
 void CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cat_41_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

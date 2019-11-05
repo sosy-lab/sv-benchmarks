@@ -859,7 +859,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_loop_41_badSink(int 
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_loop_41_bad(void)
 {
-  int *data;
+  int *data = 0;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];
   

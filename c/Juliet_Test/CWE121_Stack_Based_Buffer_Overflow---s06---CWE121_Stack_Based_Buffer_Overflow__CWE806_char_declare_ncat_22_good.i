@@ -846,7 +846,7 @@ char *CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncat_22_goodG2B1So
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);
@@ -879,7 +879,7 @@ char *CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncat_22_goodG2B2So
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

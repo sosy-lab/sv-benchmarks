@@ -119,7 +119,7 @@ void CWE401_Memory_Leak__char_realloc_67b_badSink(CWE401_Memory_Leak__char_reall
 
 void CWE401_Memory_Leak__char_realloc_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE401_Memory_Leak__char_realloc_67_structType myStruct;
   
   data = (char *)0;

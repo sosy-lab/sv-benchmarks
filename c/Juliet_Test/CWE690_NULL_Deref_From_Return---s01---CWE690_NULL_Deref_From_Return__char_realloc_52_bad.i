@@ -634,7 +634,7 @@ time_t time(time_t *);
 
 void CWE690_NULL_Deref_From_Return__char_realloc_52_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

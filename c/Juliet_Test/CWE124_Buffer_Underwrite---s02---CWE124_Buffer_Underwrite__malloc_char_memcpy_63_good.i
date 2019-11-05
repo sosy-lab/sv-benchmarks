@@ -631,7 +631,7 @@ void CWE124_Buffer_Underwrite__malloc_char_memcpy_63b_goodG2BSink(char **dataPtr
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

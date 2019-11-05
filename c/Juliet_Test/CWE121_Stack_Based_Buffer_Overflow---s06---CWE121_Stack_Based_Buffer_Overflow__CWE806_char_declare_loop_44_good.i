@@ -871,7 +871,7 @@ static void goodG2BSink(char *data)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   void (*funcPtr)(char *) = & goodG2BSink;

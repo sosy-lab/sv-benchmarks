@@ -643,7 +643,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_memmove_41_goodG2BS
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   char dataBadBuffer[10U];
   char dataGoodBuffer[11U];
   

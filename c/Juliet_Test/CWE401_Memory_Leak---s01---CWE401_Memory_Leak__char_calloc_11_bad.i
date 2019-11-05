@@ -110,7 +110,7 @@ int globalReturnsTrue(void);
 
 void CWE401_Memory_Leak__char_calloc_11_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   int tmp_1;
   

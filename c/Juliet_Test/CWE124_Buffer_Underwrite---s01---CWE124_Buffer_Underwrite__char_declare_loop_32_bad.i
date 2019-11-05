@@ -830,7 +830,7 @@ void *memset(void *, int, size_t);
 
 void CWE124_Buffer_Underwrite__char_declare_loop_32_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   char **dataPtr1 = & data;

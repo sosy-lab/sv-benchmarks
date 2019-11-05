@@ -113,7 +113,7 @@ void CWE415_Double_Free__malloc_free_char_67b_badSink(CWE415_Double_Free__malloc
 
 void CWE415_Double_Free__malloc_free_char_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE415_Double_Free__malloc_free_char_67_structType myStruct;
   
   data = (char *)0;

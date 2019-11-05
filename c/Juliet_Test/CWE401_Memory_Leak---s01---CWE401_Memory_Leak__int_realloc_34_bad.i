@@ -635,7 +635,7 @@ time_t time(time_t *);
 
 void CWE401_Memory_Leak__int_realloc_34_bad(void)
 {
-  int *data;
+  int *data = 0;
   CWE401_Memory_Leak__int_realloc_34_unionType myUnion;
   
   data = (int *)0;

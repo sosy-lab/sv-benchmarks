@@ -99,7 +99,7 @@ void printLongLongLine(int64_t longLongIntNumber);
 static void goodG2B(void)
 {
   int h;
-  int64_t *data;
+  int64_t *data = 0;
   int64_t dataBadBuffer[50U];
   int64_t dataGoodBuffer[100U];
   

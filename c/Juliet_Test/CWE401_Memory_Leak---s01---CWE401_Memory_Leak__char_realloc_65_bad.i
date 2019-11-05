@@ -637,7 +637,7 @@ void CWE401_Memory_Leak__char_realloc_65b_badSink(char *data);
 
 void CWE401_Memory_Leak__char_realloc_65_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE401_Memory_Leak__char_realloc_65b_badSink;
   

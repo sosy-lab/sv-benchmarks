@@ -101,7 +101,7 @@ void CWE401_Memory_Leak__strdup_char_63b_badSink(char **dataPtr);
 
 void CWE401_Memory_Leak__strdup_char_63_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

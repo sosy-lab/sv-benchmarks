@@ -95,7 +95,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_snprintf_66b_badSin
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_snprintf_66_bad(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

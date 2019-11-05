@@ -839,7 +839,7 @@ void CWE126_Buffer_Overread__char_declare_memmove_67b_badSink(CWE126_Buffer_Over
 
 void CWE126_Buffer_Overread__char_declare_memmove_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE126_Buffer_Overread__char_declare_memmove_67_structType myStruct;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

@@ -887,7 +887,7 @@ time_t time(time_t *);
 
 void CWE127_Buffer_Underread__char_alloca_ncpy_65_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE127_Buffer_Underread__char_alloca_ncpy_65b_badSink;
   

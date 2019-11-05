@@ -630,7 +630,7 @@ static int staticTrue = 1;
 
 void CWE415_Double_Free__malloc_free_int_05_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

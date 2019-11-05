@@ -845,7 +845,7 @@ static char *ldv_strncpy_1(char * __restrict ldv_func_arg1, char const * __restr
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_ncpy_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_ncpy_34_unionType myUnion;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

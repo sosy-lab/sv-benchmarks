@@ -838,7 +838,7 @@ void CWE401_Memory_Leak__strdup_char_22_badSink(char *data);
 
 void CWE401_Memory_Leak__strdup_char_22_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

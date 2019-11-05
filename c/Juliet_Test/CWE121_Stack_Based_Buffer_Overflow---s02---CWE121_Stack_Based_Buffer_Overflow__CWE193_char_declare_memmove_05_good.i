@@ -843,7 +843,7 @@ static int staticFalse = 0;
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   char dataBadBuffer[10U];
   char dataGoodBuffer[11U];
   
@@ -875,7 +875,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   char dataBadBuffer[10U];
   char dataGoodBuffer[11U];
   

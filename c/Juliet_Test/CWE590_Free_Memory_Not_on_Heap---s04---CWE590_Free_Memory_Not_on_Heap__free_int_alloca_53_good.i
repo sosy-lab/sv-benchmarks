@@ -859,7 +859,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_int_alloca_53b_goodG2BSink(int *data);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   {

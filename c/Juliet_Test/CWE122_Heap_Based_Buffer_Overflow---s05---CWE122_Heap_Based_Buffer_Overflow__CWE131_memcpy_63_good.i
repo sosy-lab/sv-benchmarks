@@ -650,7 +650,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

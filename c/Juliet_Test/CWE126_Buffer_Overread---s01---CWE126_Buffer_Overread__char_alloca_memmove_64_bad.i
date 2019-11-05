@@ -835,7 +835,7 @@ void CWE126_Buffer_Overread__char_alloca_memmove_64b_badSink(void *dataVoidPtr);
 
 void CWE126_Buffer_Overread__char_alloca_memmove_64_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBadBuffer = __builtin_alloca(50UL);
   

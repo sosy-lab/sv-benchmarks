@@ -838,7 +838,7 @@ static int staticTrue = 1;
 
 void CWE127_Buffer_Underread__malloc_char_loop_05_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

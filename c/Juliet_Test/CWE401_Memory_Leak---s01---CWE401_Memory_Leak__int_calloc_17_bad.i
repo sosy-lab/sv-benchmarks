@@ -627,7 +627,7 @@ void CWE401_Memory_Leak__int_calloc_17_bad(void)
 {
   int i;
   int j;
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

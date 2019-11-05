@@ -829,7 +829,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE476_NULL_Pointer_Dereference__char_04_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   if (STATIC_CONST_TRUE != 0) 
                               data = (char *)0; else ;

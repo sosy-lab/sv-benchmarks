@@ -107,7 +107,7 @@ void printLongLongLine(int64_t longLongIntNumber);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

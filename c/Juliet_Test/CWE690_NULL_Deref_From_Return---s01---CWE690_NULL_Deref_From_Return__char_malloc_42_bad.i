@@ -842,7 +842,7 @@ static char *badSource(char *data)
 
 void CWE690_NULL_Deref_From_Return__char_malloc_42_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -116,7 +116,7 @@ void printLine(char const *line);
 
 void CWE127_Buffer_Underread__malloc_char_ncpy_16_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   ldv_3217: 

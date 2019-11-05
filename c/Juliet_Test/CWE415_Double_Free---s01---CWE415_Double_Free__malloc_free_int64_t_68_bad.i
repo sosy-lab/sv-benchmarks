@@ -124,7 +124,7 @@ int64_t *CWE415_Double_Free__malloc_free_int64_t_68_goodB2GData;
 
 void CWE415_Double_Free__malloc_free_int64_t_68_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

@@ -111,7 +111,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];
   

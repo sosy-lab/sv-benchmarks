@@ -868,7 +868,7 @@ static void badSink(void)
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_45_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

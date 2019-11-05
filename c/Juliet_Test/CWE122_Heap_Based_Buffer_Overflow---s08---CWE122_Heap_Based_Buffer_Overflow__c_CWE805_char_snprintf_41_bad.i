@@ -857,7 +857,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_snprintf_41_badSink(char *
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_snprintf_41_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

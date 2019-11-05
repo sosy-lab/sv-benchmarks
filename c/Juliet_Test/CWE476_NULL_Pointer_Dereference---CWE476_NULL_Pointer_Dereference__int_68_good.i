@@ -652,7 +652,7 @@ int *CWE476_NULL_Pointer_Dereference__int_68_goodB2GData;
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   int tmpData = 5;
   
@@ -668,7 +668,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

@@ -129,7 +129,7 @@ void printLine(char const *line);
 
 void CWE401_Memory_Leak__int_malloc_61_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

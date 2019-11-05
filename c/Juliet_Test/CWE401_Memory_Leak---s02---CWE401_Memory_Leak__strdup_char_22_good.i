@@ -853,7 +853,7 @@ void CWE401_Memory_Leak__strdup_char_22_goodB2G1Sink(char *data);
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {
@@ -878,7 +878,7 @@ void CWE401_Memory_Leak__strdup_char_22_goodB2G2Sink(char *data);
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {
@@ -903,7 +903,7 @@ void CWE401_Memory_Leak__strdup_char_22_goodG2BSink(char *data);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

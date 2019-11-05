@@ -642,7 +642,7 @@ time_t time(time_t *);
 
 void CWE124_Buffer_Underwrite__char_alloca_memmove_65_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE124_Buffer_Underwrite__char_alloca_memmove_65b_badSink;
   

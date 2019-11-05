@@ -834,7 +834,7 @@ time_t time(time_t *);
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   CWE690_NULL_Deref_From_Return__int_malloc_34_unionType myUnion;
   
   data = (int *)0;

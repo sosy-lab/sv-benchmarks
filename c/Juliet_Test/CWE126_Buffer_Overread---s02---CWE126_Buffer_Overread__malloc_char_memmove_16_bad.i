@@ -845,7 +845,7 @@ static size_t ldv_strlen_2(char const *ldv_func_arg1);
 
 void CWE126_Buffer_Overread__malloc_char_memmove_16_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   ldv_3208: 

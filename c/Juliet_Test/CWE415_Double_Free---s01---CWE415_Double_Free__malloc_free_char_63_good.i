@@ -634,7 +634,7 @@ void CWE415_Double_Free__malloc_free_char_63b_goodG2BSink(char **dataPtr);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -654,7 +654,7 @@ void CWE415_Double_Free__malloc_free_char_63b_goodB2GSink(char **dataPtr);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

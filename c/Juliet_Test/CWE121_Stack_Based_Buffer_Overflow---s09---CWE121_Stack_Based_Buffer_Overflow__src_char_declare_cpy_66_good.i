@@ -652,7 +652,7 @@ void *memset(void *, int, size_t);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   char dataBuffer[100U];
   

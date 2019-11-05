@@ -628,7 +628,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memmove_64b_badSink(voi
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memmove_64_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

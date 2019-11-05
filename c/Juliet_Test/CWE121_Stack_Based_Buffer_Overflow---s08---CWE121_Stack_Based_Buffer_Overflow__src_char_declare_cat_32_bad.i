@@ -622,7 +622,7 @@ char *strcat(char *, char const *);
 
 void CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cat_32_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   char **dataPtr1 = & data;

@@ -839,7 +839,7 @@ void *memset(void *, int, size_t);
 
 void CWE127_Buffer_Underread__malloc_char_memmove_13_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

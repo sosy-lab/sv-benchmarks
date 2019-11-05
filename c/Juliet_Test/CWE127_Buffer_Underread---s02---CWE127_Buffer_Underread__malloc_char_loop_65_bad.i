@@ -631,7 +631,7 @@ void CWE127_Buffer_Underread__malloc_char_loop_65b_badSink(char *data);
 
 void CWE127_Buffer_Underread__malloc_char_loop_65_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE127_Buffer_Underread__malloc_char_loop_65b_badSink;
   

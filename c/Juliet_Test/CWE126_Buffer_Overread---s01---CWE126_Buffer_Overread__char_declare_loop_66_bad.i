@@ -622,7 +622,7 @@ void CWE126_Buffer_Overread__char_declare_loop_66b_badSink(char **dataArray);
 
 void CWE126_Buffer_Overread__char_declare_loop_66_bad(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

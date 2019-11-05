@@ -853,7 +853,7 @@ static int64_t *badSource(int64_t *data)
 
 void CWE122_Heap_Based_Buffer_Overflow__sizeof_int64_t_21_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

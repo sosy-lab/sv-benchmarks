@@ -845,7 +845,7 @@ void CWE124_Buffer_Underwrite__malloc_char_cpy_67b_badSink(CWE124_Buffer_Underwr
 
 void CWE124_Buffer_Underwrite__malloc_char_cpy_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE124_Buffer_Underwrite__malloc_char_cpy_67_structType myStruct;
   
   data = (char *)0;

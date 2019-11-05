@@ -654,7 +654,7 @@ int CWE122_Heap_Based_Buffer_Overflow__c_src_char_cat_22_badGlobal = 0;
 
 void CWE122_Heap_Based_Buffer_Overflow__c_src_char_cat_22_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

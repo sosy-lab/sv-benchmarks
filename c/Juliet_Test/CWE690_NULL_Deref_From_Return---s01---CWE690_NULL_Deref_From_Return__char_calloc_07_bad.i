@@ -838,7 +838,7 @@ static int staticFive = 5;
 
 void CWE690_NULL_Deref_From_Return__char_calloc_07_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -634,7 +634,7 @@ void CWE401_Memory_Leak__int_calloc_68b_badSink(void);
 
 void CWE401_Memory_Leak__int_calloc_68_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

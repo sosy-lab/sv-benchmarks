@@ -131,7 +131,7 @@ time_t time(time_t *);
 
 void CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cpy_63_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

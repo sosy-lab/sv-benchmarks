@@ -839,7 +839,7 @@ void CWE124_Buffer_Underwrite__malloc_char_memmove_63b_badSink(char **dataPtr);
 
 void CWE124_Buffer_Underwrite__malloc_char_memmove_63_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

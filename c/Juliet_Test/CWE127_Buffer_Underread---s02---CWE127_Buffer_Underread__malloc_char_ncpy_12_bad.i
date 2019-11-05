@@ -643,7 +643,7 @@ static size_t ldv_strlen_4(char const *ldv_func_arg1);
 
 void CWE127_Buffer_Underread__malloc_char_ncpy_12_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   
   data = (char *)0;

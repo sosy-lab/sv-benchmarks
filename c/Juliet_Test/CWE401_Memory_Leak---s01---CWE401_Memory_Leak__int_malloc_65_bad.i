@@ -111,7 +111,7 @@ void printIntLine(int intNumber);
 
 void CWE401_Memory_Leak__int_malloc_65_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE401_Memory_Leak__int_malloc_65b_badSink;
   

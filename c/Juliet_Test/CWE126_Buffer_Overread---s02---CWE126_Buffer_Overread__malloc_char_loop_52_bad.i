@@ -839,7 +839,7 @@ void CWE126_Buffer_Overread__malloc_char_loop_52b_badSink(char *data);
 
 void CWE126_Buffer_Overread__malloc_char_loop_52_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

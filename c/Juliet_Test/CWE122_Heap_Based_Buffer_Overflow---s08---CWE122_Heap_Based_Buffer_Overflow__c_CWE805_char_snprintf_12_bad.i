@@ -637,7 +637,7 @@ void *memset(void *, int, size_t);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_snprintf_12_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   
   data = (char *)0;

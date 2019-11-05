@@ -838,7 +838,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE416_Use_After_Free__malloc_free_char_06_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

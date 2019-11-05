@@ -124,7 +124,7 @@ int *CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memmove_68_goodG2BDat
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memmove_68_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   int *dataBadBuffer = __builtin_alloca(200UL);
   

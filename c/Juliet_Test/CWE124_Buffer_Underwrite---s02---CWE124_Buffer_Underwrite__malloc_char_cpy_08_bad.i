@@ -120,7 +120,7 @@ static int staticReturnsTrue(void)
 
 void CWE124_Buffer_Underwrite__malloc_char_cpy_08_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   data = (char *)0;

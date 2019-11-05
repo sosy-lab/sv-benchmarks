@@ -117,7 +117,7 @@ void printLine(char const *line);
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_environment_17_bad(void)
 {
   int j;
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

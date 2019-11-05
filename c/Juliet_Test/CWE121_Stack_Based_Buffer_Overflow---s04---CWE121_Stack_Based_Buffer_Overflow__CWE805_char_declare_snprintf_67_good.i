@@ -836,7 +836,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_snprintf_67b_goodG2
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_snprintf_67_structType myStruct;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

@@ -628,7 +628,7 @@ time_t time(time_t *);
 
 void CWE415_Double_Free__malloc_free_char_16_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   ldv_3204: 

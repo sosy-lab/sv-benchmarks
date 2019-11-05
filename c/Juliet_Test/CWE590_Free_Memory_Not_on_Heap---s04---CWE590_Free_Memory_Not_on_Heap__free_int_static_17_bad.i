@@ -99,7 +99,7 @@ void printIntLine(int intNumber);
 void CWE590_Free_Memory_Not_on_Heap__free_int_static_17_bad(void)
 {
   int i;
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

@@ -149,7 +149,7 @@ void printLine(char const *line);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memmove_53_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

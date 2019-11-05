@@ -676,7 +676,7 @@ void CWE415_Double_Free__malloc_free_int_54b_goodG2BSink(int *data);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   
@@ -696,7 +696,7 @@ void CWE415_Double_Free__malloc_free_int_54b_goodB2GSink(int *data);
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

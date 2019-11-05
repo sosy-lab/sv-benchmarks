@@ -841,7 +841,7 @@ void CWE127_Buffer_Underread__char_alloca_memmove_67b_goodG2BSink(CWE127_Buffer_
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE127_Buffer_Underread__char_alloca_memmove_67_structType myStruct;
   
   char *dataBuffer = __builtin_alloca(100UL);

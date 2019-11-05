@@ -839,7 +839,7 @@ time_t time(time_t *);
 
 void CWE401_Memory_Leak__int64_t_realloc_32_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t **dataPtr1 = & data;
   

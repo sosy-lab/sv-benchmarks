@@ -842,7 +842,7 @@ void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_fixed_string_51b_badSink(c
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_fixed_string_51_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

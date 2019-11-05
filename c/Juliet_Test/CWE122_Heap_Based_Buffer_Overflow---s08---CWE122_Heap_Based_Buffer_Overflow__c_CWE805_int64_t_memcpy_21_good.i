@@ -655,7 +655,7 @@ static int64_t *goodG2B1Source(int64_t *data)
 
 static void goodG2B1(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   
@@ -695,7 +695,7 @@ static int64_t *goodG2B2Source(int64_t *data)
 
 static void goodG2B2(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

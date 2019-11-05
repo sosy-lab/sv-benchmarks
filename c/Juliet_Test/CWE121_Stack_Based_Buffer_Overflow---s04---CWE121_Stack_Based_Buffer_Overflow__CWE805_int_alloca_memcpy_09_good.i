@@ -106,7 +106,7 @@ void printIntLine(int intNumber);
 
 static void goodG2B1(void)
 {
-  int *data;
+  int *data = 0;
   
   int *dataBadBuffer = __builtin_alloca(200UL);
   
@@ -131,7 +131,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int *data;
+  int *data = 0;
   
   int *dataBadBuffer = __builtin_alloca(200UL);
   

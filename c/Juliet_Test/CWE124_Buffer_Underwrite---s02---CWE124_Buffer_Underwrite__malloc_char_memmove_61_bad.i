@@ -868,7 +868,7 @@ void *memmove(void *, void const *, size_t);
 
 void CWE124_Buffer_Underwrite__malloc_char_memmove_61_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -110,7 +110,7 @@ int globalReturnsTrue(void);
 
 void CWE416_Use_After_Free__malloc_free_char_11_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   int tmp_1;
   

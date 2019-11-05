@@ -106,7 +106,7 @@ int globalReturnsTrue(void);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_loop_11_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   char *dataBuffer = __builtin_alloca(100UL);

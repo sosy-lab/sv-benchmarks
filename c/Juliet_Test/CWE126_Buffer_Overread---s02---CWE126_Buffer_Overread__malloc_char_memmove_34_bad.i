@@ -123,7 +123,7 @@ void printLine(char const *line);
 
 void CWE126_Buffer_Overread__malloc_char_memmove_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE126_Buffer_Overread__malloc_char_memmove_34_unionType myUnion;
   
   data = (char *)0;

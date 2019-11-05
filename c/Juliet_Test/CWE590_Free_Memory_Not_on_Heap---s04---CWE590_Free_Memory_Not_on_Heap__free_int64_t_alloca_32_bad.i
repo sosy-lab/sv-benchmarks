@@ -829,7 +829,7 @@ time_t time(time_t *);
 
 void CWE590_Free_Memory_Not_on_Heap__free_int64_t_alloca_32_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t **dataPtr1 = & data;
   

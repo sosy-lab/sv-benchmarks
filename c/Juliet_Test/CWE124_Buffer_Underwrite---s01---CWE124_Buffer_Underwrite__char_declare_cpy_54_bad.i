@@ -654,7 +654,7 @@ void CWE124_Buffer_Underwrite__char_declare_cpy_54b_badSink(char *data);
 
 void CWE124_Buffer_Underwrite__char_declare_cpy_54_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   memset((void *)(& dataBuffer),65,99UL);

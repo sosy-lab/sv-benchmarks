@@ -649,7 +649,7 @@ static size_t ldv_strlen_6(char const *ldv_func_arg1);
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   
   data = (char *)malloc(100UL);
@@ -706,7 +706,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   
   data = (char *)malloc(100UL);

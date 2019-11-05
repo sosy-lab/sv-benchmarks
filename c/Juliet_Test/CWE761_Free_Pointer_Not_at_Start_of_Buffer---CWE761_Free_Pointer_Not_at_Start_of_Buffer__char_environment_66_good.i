@@ -901,7 +901,7 @@ static size_t ldv_strlen_2(char const *ldv_func_arg1);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   
   data = (char *)malloc(100UL);

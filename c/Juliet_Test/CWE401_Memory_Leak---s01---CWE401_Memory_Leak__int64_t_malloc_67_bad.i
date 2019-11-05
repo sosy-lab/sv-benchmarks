@@ -634,7 +634,7 @@ void CWE401_Memory_Leak__int64_t_malloc_67b_badSink(CWE401_Memory_Leak__int64_t_
 
 void CWE401_Memory_Leak__int64_t_malloc_67_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE401_Memory_Leak__int64_t_malloc_67_structType myStruct;
   
   data = (int64_t *)0L;

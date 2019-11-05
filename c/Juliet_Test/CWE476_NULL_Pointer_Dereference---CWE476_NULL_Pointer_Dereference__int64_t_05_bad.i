@@ -829,7 +829,7 @@ static int staticTrue = 1;
 
 void CWE476_NULL_Pointer_Dereference__int64_t_05_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   if (staticTrue != 0) 
                        data = (int64_t *)0L; else ;

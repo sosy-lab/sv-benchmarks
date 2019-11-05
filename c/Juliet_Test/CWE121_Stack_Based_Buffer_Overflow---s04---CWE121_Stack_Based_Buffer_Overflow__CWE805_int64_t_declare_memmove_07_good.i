@@ -832,7 +832,7 @@ static int staticFive = 5;
 
 static void goodG2B1(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int64_t dataBadBuffer[50U];
   int64_t dataGoodBuffer[100U];
   
@@ -854,7 +854,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int64_t dataBadBuffer[50U];
   int64_t dataGoodBuffer[100U];
   

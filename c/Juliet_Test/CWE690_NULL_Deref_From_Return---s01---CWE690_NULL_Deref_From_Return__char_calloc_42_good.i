@@ -113,7 +113,7 @@ static char *goodB2GSource(char *data)
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

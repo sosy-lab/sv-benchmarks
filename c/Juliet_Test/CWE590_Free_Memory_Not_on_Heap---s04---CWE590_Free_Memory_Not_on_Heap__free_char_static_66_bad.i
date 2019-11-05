@@ -833,7 +833,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_char_static_66b_badSink(char **dataArr
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_static_66_bad(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   
   data = (char *)0;

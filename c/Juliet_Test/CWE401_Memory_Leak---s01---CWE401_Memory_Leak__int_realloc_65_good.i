@@ -649,7 +649,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE401_Memory_Leak__int_realloc_65b_goodG2BSink;
   
@@ -669,7 +669,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE401_Memory_Leak__int_realloc_65b_goodB2GSink;
   

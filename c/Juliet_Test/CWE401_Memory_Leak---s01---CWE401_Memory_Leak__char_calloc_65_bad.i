@@ -849,7 +849,7 @@ static char *ldv_strcpy_2(char * __restrict ldv_func_arg1, char const * __restri
 
 void CWE401_Memory_Leak__char_calloc_65_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE401_Memory_Leak__char_calloc_65b_badSink;
   

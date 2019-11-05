@@ -643,7 +643,7 @@ int CWE415_Double_Free__malloc_free_char_22_badGlobal = 0;
 
 void CWE415_Double_Free__malloc_free_char_22_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

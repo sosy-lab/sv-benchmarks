@@ -654,7 +654,7 @@ void *memset(void *, int, size_t);
 
 void CWE126_Buffer_Overread__char_alloca_memcpy_54_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBadBuffer = __builtin_alloca(50UL);
   

@@ -650,7 +650,7 @@ static int staticReturnsFalse(void)
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   
   char *dataBadBuffer = __builtin_alloca(10UL);
@@ -687,7 +687,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   
   char *dataBadBuffer = __builtin_alloca(10UL);

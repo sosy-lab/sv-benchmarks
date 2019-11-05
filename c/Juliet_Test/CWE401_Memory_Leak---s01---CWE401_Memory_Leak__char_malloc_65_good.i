@@ -860,7 +860,7 @@ static char *ldv_strcpy_3(char * __restrict ldv_func_arg1, char const * __restri
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE401_Memory_Leak__char_malloc_65b_goodG2BSink;
   
@@ -880,7 +880,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE401_Memory_Leak__char_malloc_65b_goodB2GSink;
   

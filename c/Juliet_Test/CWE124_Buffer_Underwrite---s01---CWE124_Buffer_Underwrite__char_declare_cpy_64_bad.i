@@ -868,7 +868,7 @@ time_t time(time_t *);
 
 void CWE124_Buffer_Underwrite__char_declare_cpy_64_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   memset((void *)(& dataBuffer),65,99UL);

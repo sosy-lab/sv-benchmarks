@@ -854,7 +854,7 @@ int *CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_68_goodG2BDa
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];
   

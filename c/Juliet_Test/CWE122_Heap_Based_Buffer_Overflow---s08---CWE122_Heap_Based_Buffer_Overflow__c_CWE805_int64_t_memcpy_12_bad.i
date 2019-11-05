@@ -839,7 +839,7 @@ void *memcpy(void *, void const *, size_t);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memcpy_12_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int tmp_1;
   
   data = (int64_t *)0L;

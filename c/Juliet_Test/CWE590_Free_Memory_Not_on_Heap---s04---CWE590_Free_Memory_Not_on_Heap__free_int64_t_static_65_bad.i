@@ -838,7 +838,7 @@ time_t time(time_t *);
 
 void CWE590_Free_Memory_Not_on_Heap__free_int64_t_static_65_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & CWE590_Free_Memory_Not_on_Heap__free_int64_t_static_65b_badSink;
   

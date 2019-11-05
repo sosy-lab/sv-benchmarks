@@ -659,7 +659,7 @@ time_t time(time_t *);
 
 void CWE690_NULL_Deref_From_Return__char_calloc_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE690_NULL_Deref_From_Return__char_calloc_67_structType myStruct;
   
   data = (char *)0;

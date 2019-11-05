@@ -623,7 +623,7 @@ time_t time(time_t *);
 void CWE690_NULL_Deref_From_Return__int_malloc_17_bad(void)
 {
   int j;
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

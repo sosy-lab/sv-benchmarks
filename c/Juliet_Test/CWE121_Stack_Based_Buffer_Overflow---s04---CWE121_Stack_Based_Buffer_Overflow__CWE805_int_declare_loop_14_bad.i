@@ -98,7 +98,7 @@ void printIntLine(int intNumber);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_loop_14_bad(void)
 {
-  int *data;
+  int *data = 0;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];
   

@@ -837,7 +837,7 @@ void *memmove(void *, void const *, size_t);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_34_bad(void)
 {
-  int *data;
+  int *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_34_unionType myUnion;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];

@@ -655,7 +655,7 @@ static int *goodG2B1Source(int *data)
 
 static void goodG2B1(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   
@@ -695,7 +695,7 @@ static int *goodG2B2Source(int *data)
 
 static void goodG2B2(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

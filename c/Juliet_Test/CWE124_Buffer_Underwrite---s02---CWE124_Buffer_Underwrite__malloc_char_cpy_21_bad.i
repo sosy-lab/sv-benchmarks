@@ -866,7 +866,7 @@ static char *badSource(char *data)
 
 void CWE124_Buffer_Underwrite__malloc_char_cpy_21_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

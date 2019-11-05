@@ -838,7 +838,7 @@ void CWE415_Double_Free__malloc_free_int_22_badSink(int *data);
 
 void CWE415_Double_Free__malloc_free_int_22_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

@@ -630,7 +630,7 @@ static int staticTrue = 1;
 
 void CWE690_NULL_Deref_From_Return__char_malloc_05_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

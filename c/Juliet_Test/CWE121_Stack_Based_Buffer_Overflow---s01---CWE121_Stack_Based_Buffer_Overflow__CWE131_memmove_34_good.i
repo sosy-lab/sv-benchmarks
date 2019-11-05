@@ -839,7 +839,7 @@ void *memmove(void *, void const *, size_t);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__CWE131_memmove_34_unionType myUnion;
   
   data = (int *)0;

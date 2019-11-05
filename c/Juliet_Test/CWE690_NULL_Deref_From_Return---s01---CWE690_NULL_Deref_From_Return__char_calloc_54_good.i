@@ -622,7 +622,7 @@ void CWE690_NULL_Deref_From_Return__char_calloc_54b_goodB2GSink(char *data);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -622,7 +622,7 @@ static int staticFalse = 0;
 
 static void goodG2B1(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t *dataBadBuffer = __builtin_alloca(400UL);
   
@@ -665,7 +665,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t *dataBadBuffer = __builtin_alloca(400UL);
   

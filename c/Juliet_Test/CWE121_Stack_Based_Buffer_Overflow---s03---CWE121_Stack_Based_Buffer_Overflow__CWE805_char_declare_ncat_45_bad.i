@@ -855,7 +855,7 @@ static void badSink(void)
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_ncat_45_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

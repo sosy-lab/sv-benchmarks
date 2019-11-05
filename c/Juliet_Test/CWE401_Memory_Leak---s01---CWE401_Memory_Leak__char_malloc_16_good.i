@@ -115,7 +115,7 @@ void printLine(char const *line);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   ldv_3216: 
@@ -152,7 +152,7 @@ static void goodB2G(void)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   ldv_3223: 

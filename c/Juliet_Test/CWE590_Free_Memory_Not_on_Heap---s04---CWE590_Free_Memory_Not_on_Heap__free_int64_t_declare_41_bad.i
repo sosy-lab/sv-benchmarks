@@ -630,7 +630,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_int64_t_declare_41_badSink(int64_t *da
 
 void CWE590_Free_Memory_Not_on_Heap__free_int64_t_declare_41_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   {

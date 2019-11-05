@@ -842,7 +842,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cpy_67b_goodG2BSink(CWE122_H
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cpy_67_structType myStruct;
   
   data = (char *)0;

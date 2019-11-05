@@ -854,7 +854,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & CWE401_Memory_Leak__int64_t_calloc_65b_goodG2BSink;
   
@@ -874,7 +874,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & CWE401_Memory_Leak__int64_t_calloc_65b_goodB2GSink;
   

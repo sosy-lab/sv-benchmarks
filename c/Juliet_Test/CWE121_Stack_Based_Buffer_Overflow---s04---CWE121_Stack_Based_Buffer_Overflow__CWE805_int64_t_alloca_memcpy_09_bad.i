@@ -621,7 +621,7 @@ void *memcpy(void *, void const *, size_t);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_memcpy_09_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t *dataBadBuffer = __builtin_alloca(400UL);
   

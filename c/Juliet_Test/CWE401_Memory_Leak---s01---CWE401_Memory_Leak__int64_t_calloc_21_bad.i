@@ -636,7 +636,7 @@ static void badSink(int64_t *data)
 
 void CWE401_Memory_Leak__int64_t_calloc_21_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

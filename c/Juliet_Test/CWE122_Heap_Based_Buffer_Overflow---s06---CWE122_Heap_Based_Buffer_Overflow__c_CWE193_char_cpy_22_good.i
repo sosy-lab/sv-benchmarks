@@ -907,7 +907,7 @@ int CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_cpy_22_goodG2B2Global = 0;
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -931,7 +931,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

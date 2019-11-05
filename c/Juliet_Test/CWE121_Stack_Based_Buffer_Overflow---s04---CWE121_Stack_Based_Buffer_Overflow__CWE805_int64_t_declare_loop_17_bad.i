@@ -828,7 +828,7 @@ time_t time(time_t *);
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_declare_loop_17_bad(void)
 {
   int i;
-  int64_t *data;
+  int64_t *data = 0;
   int64_t dataBadBuffer[50U];
   int64_t dataGoodBuffer[100U];
   

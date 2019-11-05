@@ -631,7 +631,7 @@ int CWE476_NULL_Pointer_Dereference__int64_t_22_badGlobal = 0;
 
 void CWE476_NULL_Pointer_Dereference__int64_t_22_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

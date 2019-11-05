@@ -844,7 +844,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & CWE590_Free_Memory_Not_on_Heap__free_int64_t_alloca_65b_goodG2BSink;
   

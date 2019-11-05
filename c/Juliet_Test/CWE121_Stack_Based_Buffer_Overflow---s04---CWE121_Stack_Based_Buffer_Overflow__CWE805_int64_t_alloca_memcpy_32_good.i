@@ -832,7 +832,7 @@ void *memcpy(void *, void const *, size_t);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t **dataPtr1 = & data;
   

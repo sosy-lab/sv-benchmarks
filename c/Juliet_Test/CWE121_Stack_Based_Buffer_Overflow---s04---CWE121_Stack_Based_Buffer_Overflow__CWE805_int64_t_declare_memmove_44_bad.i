@@ -843,7 +843,7 @@ static void badSink(int64_t *data)
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_declare_memmove_44_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int64_t dataBadBuffer[50U];
   int64_t dataGoodBuffer[100U];
   

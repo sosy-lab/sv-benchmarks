@@ -755,7 +755,7 @@ void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_53b_goodB2GSink(ch
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

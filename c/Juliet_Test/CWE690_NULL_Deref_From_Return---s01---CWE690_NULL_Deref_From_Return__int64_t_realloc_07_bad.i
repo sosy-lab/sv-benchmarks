@@ -106,7 +106,7 @@ static int staticFive = 5;
 
 void CWE690_NULL_Deref_From_Return__int64_t_realloc_07_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

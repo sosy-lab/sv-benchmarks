@@ -830,7 +830,7 @@ void *memset(void *, int, size_t);
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_static_10_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -633,7 +633,7 @@ void CWE401_Memory_Leak__int64_t_realloc_63b_goodG2BSink(int64_t **dataPtr);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   
@@ -654,7 +654,7 @@ void CWE401_Memory_Leak__int64_t_realloc_63b_goodB2GSink(int64_t **dataPtr);
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

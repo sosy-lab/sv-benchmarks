@@ -841,7 +841,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t *dataBadBuffer = __builtin_alloca(400UL);
   

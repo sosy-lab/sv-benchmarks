@@ -845,7 +845,7 @@ static void badSink(void)
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_declare_45_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

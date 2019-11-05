@@ -867,7 +867,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE127_Buffer_Underread__char_alloca_loop_65b_goodG2BSink;
   

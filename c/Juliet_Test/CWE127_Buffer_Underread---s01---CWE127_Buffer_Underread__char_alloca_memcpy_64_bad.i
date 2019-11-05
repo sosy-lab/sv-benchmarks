@@ -624,7 +624,7 @@ void CWE127_Buffer_Underread__char_alloca_memcpy_64b_badSink(void *dataVoidPtr);
 
 void CWE127_Buffer_Underread__char_alloca_memcpy_64_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

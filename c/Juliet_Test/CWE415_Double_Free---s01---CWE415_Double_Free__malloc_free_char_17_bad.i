@@ -106,7 +106,7 @@ void CWE415_Double_Free__malloc_free_char_17_bad(void)
 {
   int i;
   int j;
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

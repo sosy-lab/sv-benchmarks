@@ -104,7 +104,7 @@ void CWE690_NULL_Deref_From_Return__char_malloc_67b_badSink(CWE690_NULL_Deref_Fr
 
 void CWE690_NULL_Deref_From_Return__char_malloc_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE690_NULL_Deref_From_Return__char_malloc_67_structType myStruct;
   
   data = (char *)0;

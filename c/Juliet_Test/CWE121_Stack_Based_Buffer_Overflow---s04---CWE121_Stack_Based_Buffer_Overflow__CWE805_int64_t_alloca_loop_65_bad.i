@@ -129,7 +129,7 @@ void printLine(char const *line);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_loop_65_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_loop_65b_badSink;
   

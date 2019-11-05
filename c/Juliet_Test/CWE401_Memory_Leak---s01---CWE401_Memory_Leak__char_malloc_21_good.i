@@ -662,7 +662,7 @@ static void goodB2G1Sink(char *data)
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -695,7 +695,7 @@ static void goodB2G2Sink(char *data)
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -727,7 +727,7 @@ static void goodG2BSink(char *data)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -629,7 +629,7 @@ static size_t ldv_strlen_1(char const *ldv_func_arg1);
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_memcpy_17_bad(void)
 {
   int i;
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

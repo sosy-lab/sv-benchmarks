@@ -857,7 +857,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE476_NULL_Pointer_Dereference__char_67_structType myStruct;
   
   data = (char *)"Good";
@@ -872,7 +872,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   CWE476_NULL_Pointer_Dereference__char_67_structType myStruct;
   
   data = (char *)0;

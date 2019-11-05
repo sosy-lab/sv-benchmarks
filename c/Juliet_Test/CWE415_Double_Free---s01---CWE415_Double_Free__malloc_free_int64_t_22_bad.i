@@ -119,7 +119,7 @@ int CWE415_Double_Free__malloc_free_int64_t_22_badGlobal = 0;
 
 void CWE415_Double_Free__malloc_free_int64_t_22_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

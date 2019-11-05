@@ -674,7 +674,7 @@ char *CWE127_Buffer_Underread__malloc_char_loop_68_goodG2BData;
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

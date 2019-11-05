@@ -832,7 +832,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_memcpy_54b_badSin
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_memcpy_54_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t *dataBadBuffer = __builtin_alloca(400UL);
   

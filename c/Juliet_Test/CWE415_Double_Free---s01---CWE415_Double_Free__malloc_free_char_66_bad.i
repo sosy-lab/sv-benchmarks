@@ -844,7 +844,7 @@ time_t time(time_t *);
 
 void CWE415_Double_Free__malloc_free_char_66_bad(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   
   data = (char *)0;

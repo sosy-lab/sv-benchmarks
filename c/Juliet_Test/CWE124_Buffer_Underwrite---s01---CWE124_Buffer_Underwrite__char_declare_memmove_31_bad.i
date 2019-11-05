@@ -98,7 +98,7 @@ void printLine(char const *line);
 
 void CWE124_Buffer_Underwrite__char_declare_memmove_31_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   memset((void *)(& dataBuffer),65,99UL);

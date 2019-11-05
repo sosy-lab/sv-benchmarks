@@ -893,7 +893,7 @@ int CWE401_Memory_Leak__int_realloc_22_goodG2BGlobal = 0;
 
 static void goodB2G1(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   
@@ -916,7 +916,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   
@@ -939,7 +939,7 @@ static void goodB2G2(void)
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

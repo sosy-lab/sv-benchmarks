@@ -640,7 +640,7 @@ static size_t ldv_strlen_2(char const *ldv_func_arg1);
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_environment_32_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char **dataPtr1 = & data;
   

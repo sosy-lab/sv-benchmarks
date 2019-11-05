@@ -669,7 +669,7 @@ int CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cpy_22_badGlobal = 0;
 
 void CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cpy_22_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

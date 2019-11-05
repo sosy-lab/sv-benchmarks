@@ -638,7 +638,7 @@ void *memset(void *, int, size_t);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE124_Buffer_Underwrite__malloc_char_memcpy_34_unionType myUnion;
   
   data = (char *)0;

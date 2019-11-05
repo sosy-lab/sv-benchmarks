@@ -123,7 +123,7 @@ void printLine(char const *line);
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   int *dataArray[5U];
   
   data = (int *)0;

@@ -867,7 +867,7 @@ time_t time(time_t *);
 
 void CWE127_Buffer_Underread__malloc_char_memmove_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE127_Buffer_Underread__malloc_char_memmove_67_structType myStruct;
   
   data = (char *)0;

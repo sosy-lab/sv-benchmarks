@@ -629,7 +629,7 @@ char *strcat(char *, char const *);
 
 void CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cat_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cat_34_unionType myUnion;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

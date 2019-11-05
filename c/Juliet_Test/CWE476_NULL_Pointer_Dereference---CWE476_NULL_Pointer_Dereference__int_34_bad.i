@@ -834,7 +834,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__int_34_bad(void)
 {
-  int *data;
+  int *data = 0;
   CWE476_NULL_Pointer_Dereference__int_34_unionType myUnion;
   
   data = (int *)0;

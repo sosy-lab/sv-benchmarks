@@ -829,7 +829,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE590_Free_Memory_Not_on_Heap__free_int_declare_04_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

@@ -662,7 +662,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memcpy_41_badSink(char *da
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memcpy_41_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

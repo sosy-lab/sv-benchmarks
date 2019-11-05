@@ -109,7 +109,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE416_Use_After_Free__malloc_free_int_04_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

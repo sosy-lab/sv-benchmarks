@@ -865,7 +865,7 @@ static void goodG2BSink(void)
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int64_t dataBadBuffer[50U];
   int64_t dataGoodBuffer[100U];
   

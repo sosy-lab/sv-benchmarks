@@ -619,7 +619,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_loop_52b_goodG2BSink
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];
   

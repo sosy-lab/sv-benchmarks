@@ -139,7 +139,7 @@ void CWE127_Buffer_Underread__malloc_char_cpy_53b_badSink(char *data);
 
 void CWE127_Buffer_Underread__malloc_char_cpy_53_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

@@ -836,7 +836,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__int64_t_65_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & CWE476_NULL_Pointer_Dereference__int64_t_65b_badSink;
   

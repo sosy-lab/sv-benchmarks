@@ -847,7 +847,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE476_NULL_Pointer_Dereference__char_65b_goodG2BSink;
   
@@ -861,7 +861,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE476_NULL_Pointer_Dereference__char_65b_goodB2GSink;
   

@@ -836,7 +836,7 @@ static char *ldv_strcpy_1(char * __restrict ldv_func_arg1, char const * __restri
 
 void CWE690_NULL_Deref_From_Return__char_calloc_11_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   data = (char *)0;

@@ -861,7 +861,7 @@ static void badSink(int64_t *data)
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_loop_44_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & badSink;
   

@@ -110,7 +110,7 @@ int globalReturnsTrueOrFalse(void);
 
 void CWE590_Free_Memory_Not_on_Heap__free_int_declare_12_bad(void)
 {
-  int *data;
+  int *data = 0;
   int tmp_0;
   
   data = (int *)0;

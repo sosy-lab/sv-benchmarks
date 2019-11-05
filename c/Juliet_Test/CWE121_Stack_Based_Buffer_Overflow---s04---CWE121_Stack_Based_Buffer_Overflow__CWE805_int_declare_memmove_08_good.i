@@ -639,7 +639,7 @@ static int staticReturnsFalse(void)
 
 static void goodG2B1(void)
 {
-  int *data;
+  int *data = 0;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];
   int tmp;
@@ -664,7 +664,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int *data;
+  int *data = 0;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];
   int tmp;

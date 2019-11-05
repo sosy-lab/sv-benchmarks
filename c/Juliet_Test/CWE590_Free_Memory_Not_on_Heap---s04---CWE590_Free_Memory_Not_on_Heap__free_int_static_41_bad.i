@@ -838,7 +838,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_int_static_41_badSink(int *data)
 
 void CWE590_Free_Memory_Not_on_Heap__free_int_static_41_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   {

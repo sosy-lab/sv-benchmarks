@@ -912,7 +912,7 @@ void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_22_goodB2G1Sink(ch
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   
@@ -960,7 +960,7 @@ void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_22_goodB2G2Sink(ch
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

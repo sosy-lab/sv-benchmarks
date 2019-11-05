@@ -631,7 +631,7 @@ time_t time(time_t *);
 
 void CWE416_Use_After_Free__malloc_free_int_12_bad(void)
 {
-  int *data;
+  int *data = 0;
   int tmp_1;
   int tmp_2;
   

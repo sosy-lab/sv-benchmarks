@@ -628,7 +628,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_65b_badSink(int *dat
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_65_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_65b_badSink;
   

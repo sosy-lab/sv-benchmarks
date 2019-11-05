@@ -628,7 +628,7 @@ void CWE124_Buffer_Underwrite__char_declare_memmove_67b_goodG2BSink(CWE124_Buffe
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE124_Buffer_Underwrite__char_declare_memmove_67_structType myStruct;
   char dataBuffer[100U];
   

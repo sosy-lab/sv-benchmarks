@@ -105,7 +105,7 @@ void printIntLine(int intNumber);
 
 void CWE590_Free_Memory_Not_on_Heap__free_int_static_34_bad(void)
 {
-  int *data;
+  int *data = 0;
   CWE590_Free_Memory_Not_on_Heap__free_int_static_34_unionType myUnion;
   
   data = (int *)0;

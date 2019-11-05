@@ -173,7 +173,7 @@ int CWE401_Memory_Leak__char_realloc_22_goodG2BGlobal = 0;
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -196,7 +196,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -219,7 +219,7 @@ static void goodB2G2(void)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

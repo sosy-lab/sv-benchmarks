@@ -123,7 +123,7 @@ int64_t *CWE690_NULL_Deref_From_Return__int64_t_calloc_68_badDataForGoodSink;
 
 void CWE690_NULL_Deref_From_Return__int64_t_calloc_68_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

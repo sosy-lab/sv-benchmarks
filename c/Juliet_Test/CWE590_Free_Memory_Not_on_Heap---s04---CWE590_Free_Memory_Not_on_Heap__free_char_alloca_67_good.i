@@ -650,7 +650,7 @@ void *memset(void *, int, size_t);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE590_Free_Memory_Not_on_Heap__free_char_alloca_67_structType myStruct;
   
   data = (char *)0;

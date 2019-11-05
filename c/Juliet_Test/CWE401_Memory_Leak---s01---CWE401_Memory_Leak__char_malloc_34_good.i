@@ -851,7 +851,7 @@ static char *ldv_strcpy_3(char * __restrict ldv_func_arg1, char const * __restri
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE401_Memory_Leak__char_malloc_34_unionType myUnion;
   
   data = (char *)0;
@@ -874,7 +874,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   CWE401_Memory_Leak__char_malloc_34_unionType myUnion;
   
   data = (char *)0;

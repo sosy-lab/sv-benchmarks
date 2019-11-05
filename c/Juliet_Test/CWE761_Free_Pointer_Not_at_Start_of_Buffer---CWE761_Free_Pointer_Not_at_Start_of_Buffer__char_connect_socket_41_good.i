@@ -738,7 +738,7 @@ static void goodB2GSink(char *data)
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

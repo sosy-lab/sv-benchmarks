@@ -866,7 +866,7 @@ int CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memmove_22_badGlobal = 0;
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memmove_22_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

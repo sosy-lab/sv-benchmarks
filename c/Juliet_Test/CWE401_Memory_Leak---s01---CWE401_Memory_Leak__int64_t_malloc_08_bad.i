@@ -635,7 +635,7 @@ static int staticReturnsTrue(void)
 
 void CWE401_Memory_Leak__int64_t_malloc_08_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int tmp_0;
   int tmp_1;
   

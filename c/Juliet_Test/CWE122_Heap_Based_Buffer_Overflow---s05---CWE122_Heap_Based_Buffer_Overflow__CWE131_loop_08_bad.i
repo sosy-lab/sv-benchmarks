@@ -638,7 +638,7 @@ static int staticReturnsTrue(void)
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_08_bad(void)
 {
-  int *data;
+  int *data = 0;
   int tmp_0;
   
   data = (int *)0;

@@ -640,7 +640,7 @@ static void goodG2BSink(void)
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t *dataBadBuffer = __builtin_alloca(400UL);
   

@@ -620,7 +620,7 @@ static int staticFalse = 0;
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   
   if (staticTrue != 0) 
                        data = (char *)0; else ;
@@ -640,7 +640,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   
   if (staticTrue != 0) 
                        data = (char *)0; else ;
@@ -659,7 +659,7 @@ static void goodB2G2(void)
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   
   if (staticFalse != 0) 
                         printLine("Benign, fixed string"); else 
@@ -674,7 +674,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   
   if (staticTrue != 0) 
                        data = (char *)"Good"; else ;

@@ -629,7 +629,7 @@ void *memset(void *, int, size_t);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE124_Buffer_Underwrite__char_declare_memmove_34_unionType myUnion;
   char dataBuffer[100U];
   

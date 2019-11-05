@@ -857,7 +857,7 @@ static void badSink(void)
 
 void CWE124_Buffer_Underwrite__char_declare_memmove_45_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   memset((void *)(& dataBuffer),65,99UL);

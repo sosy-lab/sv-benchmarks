@@ -848,7 +848,7 @@ static int staticReturnsTrue(void)
 
 void CWE127_Buffer_Underread__char_alloca_cpy_08_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   char *dataBuffer = __builtin_alloca(100UL);

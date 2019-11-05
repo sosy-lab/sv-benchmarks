@@ -622,7 +622,7 @@ time_t time(time_t *);
 
 void CWE690_NULL_Deref_From_Return__int_calloc_32_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   int **dataPtr1 = & data;
   

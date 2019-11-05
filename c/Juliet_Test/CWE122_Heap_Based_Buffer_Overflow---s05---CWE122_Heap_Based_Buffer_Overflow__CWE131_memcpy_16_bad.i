@@ -110,7 +110,7 @@ void printIntLine(int intNumber);
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memcpy_16_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   ldv_2929: 

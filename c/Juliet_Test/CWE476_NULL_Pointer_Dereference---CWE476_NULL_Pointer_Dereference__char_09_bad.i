@@ -827,7 +827,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__char_09_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   if (GLOBAL_CONST_TRUE != 0) 
                               data = (char *)0; else ;

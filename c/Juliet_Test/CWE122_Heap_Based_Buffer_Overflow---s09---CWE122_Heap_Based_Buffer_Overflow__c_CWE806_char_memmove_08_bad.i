@@ -855,7 +855,7 @@ static int staticReturnsTrue(void)
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memmove_08_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   data = (char *)malloc(100UL);

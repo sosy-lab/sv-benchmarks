@@ -841,7 +841,7 @@ static int staticFive = 5;
 
 void CWE401_Memory_Leak__int_realloc_07_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

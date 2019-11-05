@@ -901,7 +901,7 @@ int CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memmove_22_goodG2B2Global = 
 
 static void goodG2B1(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   
@@ -925,7 +925,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

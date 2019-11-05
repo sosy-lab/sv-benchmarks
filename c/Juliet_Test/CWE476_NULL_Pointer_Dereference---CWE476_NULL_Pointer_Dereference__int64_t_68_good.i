@@ -652,7 +652,7 @@ int64_t *CWE476_NULL_Pointer_Dereference__int64_t_68_goodB2GData;
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t tmpData = 5L;
   
@@ -668,7 +668,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

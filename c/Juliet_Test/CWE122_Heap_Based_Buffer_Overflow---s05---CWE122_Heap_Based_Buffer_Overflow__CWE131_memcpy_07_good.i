@@ -841,7 +841,7 @@ static int staticFive = 5;
 
 static void goodG2B1(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   
@@ -871,7 +871,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

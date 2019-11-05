@@ -631,7 +631,7 @@ void *memset(void *, int, size_t);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_54_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

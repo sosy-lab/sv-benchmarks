@@ -101,7 +101,7 @@ void CWE690_NULL_Deref_From_Return__int_realloc_65b_goodB2GSink(int *data);
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE690_NULL_Deref_From_Return__int_realloc_65b_goodB2GSink;
   

@@ -629,7 +629,7 @@ void *memset(void *, int, size_t);
 void CWE127_Buffer_Underread__malloc_char_loop_17_bad(void)
 {
   int i;
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -637,7 +637,7 @@ void CWE126_Buffer_Overread__malloc_char_loop_67b_goodG2BSink(CWE126_Buffer_Over
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE126_Buffer_Overread__malloc_char_loop_67_structType myStruct;
   
   data = (char *)0;

@@ -841,7 +841,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE401_Memory_Leak__char_malloc_06_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

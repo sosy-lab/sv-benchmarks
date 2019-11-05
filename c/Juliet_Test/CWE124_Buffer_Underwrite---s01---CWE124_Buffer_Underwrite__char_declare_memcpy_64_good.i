@@ -833,7 +833,7 @@ void CWE124_Buffer_Underwrite__char_declare_memcpy_64b_goodG2BSink(void *dataVoi
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   memset((void *)(& dataBuffer),65,99UL);

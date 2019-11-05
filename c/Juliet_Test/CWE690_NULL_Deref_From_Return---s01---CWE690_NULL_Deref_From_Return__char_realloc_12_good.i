@@ -113,7 +113,7 @@ int globalReturnsTrueOrFalse(void);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   data = (char *)0;

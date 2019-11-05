@@ -107,7 +107,7 @@ void CWE127_Buffer_Underread__malloc_char_loop_64b_badSink(void *dataVoidPtr);
 
 void CWE127_Buffer_Underread__malloc_char_loop_64_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

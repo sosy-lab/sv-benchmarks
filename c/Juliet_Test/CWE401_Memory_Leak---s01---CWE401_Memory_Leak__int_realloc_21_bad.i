@@ -639,7 +639,7 @@ static void badSink(int *data)
 
 void CWE401_Memory_Leak__int_realloc_21_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

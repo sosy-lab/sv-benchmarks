@@ -107,7 +107,7 @@ void CWE415_Double_Free__malloc_free_int64_t_53b_badSink(int64_t *data);
 
 void CWE415_Double_Free__malloc_free_int64_t_53_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

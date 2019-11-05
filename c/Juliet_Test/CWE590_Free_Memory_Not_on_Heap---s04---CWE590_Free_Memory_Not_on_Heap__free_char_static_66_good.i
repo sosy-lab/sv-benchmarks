@@ -839,7 +839,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_char_static_66b_goodG2BSink(char **dat
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   
   data = (char *)0;

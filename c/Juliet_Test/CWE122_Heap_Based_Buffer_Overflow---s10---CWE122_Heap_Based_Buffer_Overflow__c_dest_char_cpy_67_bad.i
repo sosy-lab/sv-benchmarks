@@ -842,7 +842,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cpy_67b_badSink(CWE122_Heap_
 
 void CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cpy_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cpy_67_structType myStruct;
   
   data = (char *)0;

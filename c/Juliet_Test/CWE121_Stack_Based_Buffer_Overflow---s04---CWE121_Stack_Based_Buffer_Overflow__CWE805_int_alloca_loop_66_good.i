@@ -865,7 +865,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   int *dataArray[5U];
   
   int *dataBadBuffer = __builtin_alloca(200UL);

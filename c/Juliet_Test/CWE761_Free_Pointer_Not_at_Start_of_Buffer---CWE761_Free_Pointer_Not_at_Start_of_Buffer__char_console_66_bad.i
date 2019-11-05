@@ -899,7 +899,7 @@ void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_66b_badSink(char *
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_66_bad(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   
   data = (char *)malloc(100UL);

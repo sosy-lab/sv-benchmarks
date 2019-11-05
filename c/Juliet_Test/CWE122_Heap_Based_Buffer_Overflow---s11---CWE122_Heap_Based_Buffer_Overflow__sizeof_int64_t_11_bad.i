@@ -833,7 +833,7 @@ time_t time(time_t *);
 
 void CWE122_Heap_Based_Buffer_Overflow__sizeof_int64_t_11_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int tmp_0;
   
   data = (int64_t *)0L;

@@ -833,7 +833,7 @@ static char *ldv_strcpy_1(char * __restrict ldv_func_arg1, char const * __restri
 
 void CWE690_NULL_Deref_From_Return__char_malloc_32_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char **dataPtr1 = & data;
   

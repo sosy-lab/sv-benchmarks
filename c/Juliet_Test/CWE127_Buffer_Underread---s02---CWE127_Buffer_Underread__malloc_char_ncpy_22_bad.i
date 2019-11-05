@@ -676,7 +676,7 @@ int CWE127_Buffer_Underread__malloc_char_ncpy_22_badGlobal = 0;
 
 void CWE127_Buffer_Underread__malloc_char_ncpy_22_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

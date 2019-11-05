@@ -135,7 +135,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_67_structType myStruct;
   
   data = (int *)0;

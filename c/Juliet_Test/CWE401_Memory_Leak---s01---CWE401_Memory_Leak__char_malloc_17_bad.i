@@ -109,7 +109,7 @@ void CWE401_Memory_Leak__char_malloc_17_bad(void)
 {
   int i;
   int j;
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -635,7 +635,7 @@ char *strncat(char *, char const *, size_t);
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncat_17_bad(void)
 {
   int i;
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -622,7 +622,7 @@ void CWE690_NULL_Deref_From_Return__int_calloc_65b_badSink(int *data);
 
 void CWE690_NULL_Deref_From_Return__int_calloc_65_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE690_NULL_Deref_From_Return__int_calloc_65b_badSink;
   

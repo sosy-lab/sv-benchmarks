@@ -857,7 +857,7 @@ static void badSink(void)
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memmove_45_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

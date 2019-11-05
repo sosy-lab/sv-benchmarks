@@ -637,7 +637,7 @@ void CWE127_Buffer_Underread__malloc_char_cpy_67b_goodG2BSink(CWE127_Buffer_Unde
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE127_Buffer_Underread__malloc_char_cpy_67_structType myStruct;
   
   data = (char *)0;

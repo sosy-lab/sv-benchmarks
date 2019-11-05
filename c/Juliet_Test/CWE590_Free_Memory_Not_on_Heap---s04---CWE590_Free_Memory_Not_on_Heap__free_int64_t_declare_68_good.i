@@ -853,7 +853,7 @@ int64_t *CWE590_Free_Memory_Not_on_Heap__free_int64_t_declare_68_goodG2BData;
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   {

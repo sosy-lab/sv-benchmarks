@@ -848,7 +848,7 @@ static void goodG2BSink(char *data)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & goodG2BSink;
   
@@ -877,7 +877,7 @@ static void goodB2GSink(char *data)
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & goodB2GSink;
   

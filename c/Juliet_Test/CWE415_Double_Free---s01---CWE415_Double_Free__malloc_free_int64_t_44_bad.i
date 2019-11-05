@@ -842,7 +842,7 @@ static void badSink(int64_t *data)
 
 void CWE415_Double_Free__malloc_free_int64_t_44_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & badSink;
   

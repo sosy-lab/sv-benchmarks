@@ -835,7 +835,7 @@ void CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cpy_65b_goodG2BSink(cha
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cpy_65b_goodG2BSink;
   

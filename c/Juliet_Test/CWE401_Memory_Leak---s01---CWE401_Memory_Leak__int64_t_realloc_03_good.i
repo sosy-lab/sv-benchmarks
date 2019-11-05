@@ -639,7 +639,7 @@ time_t time(time_t *);
 
 static void goodB2G1(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   
@@ -660,7 +660,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   
@@ -681,7 +681,7 @@ static void goodB2G2(void)
 
 static void goodG2B1(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   
@@ -697,7 +697,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

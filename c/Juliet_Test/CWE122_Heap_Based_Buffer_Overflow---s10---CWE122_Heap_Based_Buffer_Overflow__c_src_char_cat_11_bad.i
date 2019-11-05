@@ -839,7 +839,7 @@ char *strcat(char *, char const *);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_src_char_cat_11_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   data = (char *)malloc(100UL);

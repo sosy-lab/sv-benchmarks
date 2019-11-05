@@ -833,7 +833,7 @@ void *memset(void *, int, size_t);
 
 void CWE127_Buffer_Underread__char_declare_memmove_11_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   int tmp;
   

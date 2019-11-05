@@ -629,7 +629,7 @@ void *memset(void *, int, size_t);
 
 void CWE127_Buffer_Underread__char_declare_memmove_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE127_Buffer_Underread__char_declare_memmove_34_unionType myUnion;
   char dataBuffer[100U];
   

@@ -118,7 +118,7 @@ static int staticTrue = 1;
 
 void CWE126_Buffer_Overread__malloc_char_memmove_05_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

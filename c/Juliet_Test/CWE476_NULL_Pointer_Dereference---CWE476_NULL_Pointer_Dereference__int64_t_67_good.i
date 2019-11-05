@@ -625,7 +625,7 @@ void CWE476_NULL_Pointer_Dereference__int64_t_67b_goodG2BSink(CWE476_NULL_Pointe
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE476_NULL_Pointer_Dereference__int64_t_67_structType myStruct;
   
   int64_t tmpData = 5L;
@@ -645,7 +645,7 @@ void CWE476_NULL_Pointer_Dereference__int64_t_67b_goodB2GSink(CWE476_NULL_Pointe
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE476_NULL_Pointer_Dereference__int64_t_67_structType myStruct;
   
   data = (int64_t *)0L;

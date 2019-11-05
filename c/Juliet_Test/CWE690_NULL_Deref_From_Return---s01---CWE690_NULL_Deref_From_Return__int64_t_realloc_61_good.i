@@ -622,7 +622,7 @@ int64_t *CWE690_NULL_Deref_From_Return__int64_t_realloc_61b_goodB2GSource(int64_
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

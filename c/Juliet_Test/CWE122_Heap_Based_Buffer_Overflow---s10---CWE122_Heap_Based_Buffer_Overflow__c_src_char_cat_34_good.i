@@ -846,7 +846,7 @@ char *strcat(char *, char const *);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE122_Heap_Based_Buffer_Overflow__c_src_char_cat_34_unionType myUnion;
   
   data = (char *)malloc(100UL);

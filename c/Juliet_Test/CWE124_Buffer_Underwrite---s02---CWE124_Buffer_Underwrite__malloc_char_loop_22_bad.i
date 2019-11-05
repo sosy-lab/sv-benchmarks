@@ -140,7 +140,7 @@ int CWE124_Buffer_Underwrite__malloc_char_loop_22_badGlobal = 0;
 
 void CWE124_Buffer_Underwrite__malloc_char_loop_22_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

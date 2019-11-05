@@ -839,7 +839,7 @@ void *memcpy(void *, void const *, size_t);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memcpy_34_unionType myUnion;
   
   int *dataBadBuffer = __builtin_alloca(200UL);

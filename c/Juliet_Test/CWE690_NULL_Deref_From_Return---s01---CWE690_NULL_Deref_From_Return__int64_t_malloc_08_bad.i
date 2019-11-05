@@ -632,7 +632,7 @@ static int staticReturnsTrue(void)
 
 void CWE690_NULL_Deref_From_Return__int64_t_malloc_08_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int tmp_0;
   
   data = (int64_t *)0L;

@@ -643,7 +643,7 @@ static void goodB2GSink(void)
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

@@ -841,7 +841,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_memmove_06_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

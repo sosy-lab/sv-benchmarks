@@ -114,7 +114,7 @@ void printLine(char const *line);
 static void goodG2B(void)
 {
   int h;
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

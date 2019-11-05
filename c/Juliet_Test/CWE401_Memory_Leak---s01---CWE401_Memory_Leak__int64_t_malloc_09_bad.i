@@ -107,7 +107,7 @@ void printLongLongLine(int64_t longLongIntNumber);
 
 void CWE401_Memory_Leak__int64_t_malloc_09_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

@@ -836,7 +836,7 @@ void *memmove(void *, void const *, size_t);
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_15_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

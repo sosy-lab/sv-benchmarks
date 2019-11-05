@@ -837,7 +837,7 @@ static int staticReturnsTrue(void)
 
 void CWE476_NULL_Pointer_Dereference__int64_t_08_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int tmp;
   int tmp_0;
   

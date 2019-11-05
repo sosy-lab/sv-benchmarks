@@ -855,7 +855,7 @@ static int *badSource(int *data)
 
 void CWE401_Memory_Leak__int_realloc_42_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

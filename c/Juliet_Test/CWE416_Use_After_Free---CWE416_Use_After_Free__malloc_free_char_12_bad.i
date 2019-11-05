@@ -839,7 +839,7 @@ void *memset(void *, int, size_t);
 
 void CWE416_Use_After_Free__malloc_free_char_12_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   int tmp_2;
   

@@ -842,7 +842,7 @@ char *strcat(char *, char const *);
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   
@@ -874,7 +874,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

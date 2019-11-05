@@ -624,7 +624,7 @@ void *memset(void *, int, size_t);
 
 void CWE124_Buffer_Underwrite__char_alloca_memmove_11_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   char *dataBuffer = __builtin_alloca(100UL);

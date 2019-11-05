@@ -170,7 +170,7 @@ int globalReturnsTrue(void);
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_file_11_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_2;
   
   data = (char *)malloc(100UL);

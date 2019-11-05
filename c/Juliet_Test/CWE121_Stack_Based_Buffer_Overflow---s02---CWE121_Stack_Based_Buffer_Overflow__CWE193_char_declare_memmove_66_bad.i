@@ -868,7 +868,7 @@ time_t time(time_t *);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_memmove_66_bad(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   char dataBadBuffer[10U];
   char dataGoodBuffer[11U];

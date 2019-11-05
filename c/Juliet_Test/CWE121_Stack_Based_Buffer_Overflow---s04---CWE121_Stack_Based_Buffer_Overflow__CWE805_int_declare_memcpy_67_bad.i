@@ -836,7 +836,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memcpy_67b_badSink(C
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memcpy_67_bad(void)
 {
-  int *data;
+  int *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memcpy_67_structType myStruct;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];

@@ -856,7 +856,7 @@ int *CWE121_Stack_Based_Buffer_Overflow__CWE131_memcpy_68_goodG2BData;
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE131_memcpy_68_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

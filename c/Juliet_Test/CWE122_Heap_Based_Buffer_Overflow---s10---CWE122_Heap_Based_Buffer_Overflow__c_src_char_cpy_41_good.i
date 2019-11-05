@@ -857,7 +857,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_src_char_cpy_41_goodG2BSink(char *data
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

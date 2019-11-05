@@ -836,7 +836,7 @@ static char *ldv_strcpy_1(char * __restrict ldv_func_arg1, char const * __restri
 
 void CWE124_Buffer_Underwrite__char_declare_cpy_12_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   int tmp;
   

@@ -118,7 +118,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE590_Free_Memory_Not_on_Heap__free_int_static_65b_goodG2BSink;
   

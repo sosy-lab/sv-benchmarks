@@ -829,7 +829,7 @@ void CWE476_NULL_Pointer_Dereference__char_17_bad(void)
 {
   int i;
   int j;
-  char *data;
+  char *data = 0;
   
   i = 0;
   

@@ -636,7 +636,7 @@ int64_t *CWE476_NULL_Pointer_Dereference__int64_t_68_goodB2GData;
 
 void CWE476_NULL_Pointer_Dereference__int64_t_68_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

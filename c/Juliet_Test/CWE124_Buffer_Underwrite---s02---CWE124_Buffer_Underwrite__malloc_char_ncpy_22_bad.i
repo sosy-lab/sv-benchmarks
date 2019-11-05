@@ -670,7 +670,7 @@ int CWE124_Buffer_Underwrite__malloc_char_ncpy_22_badGlobal = 0;
 
 void CWE124_Buffer_Underwrite__malloc_char_ncpy_22_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

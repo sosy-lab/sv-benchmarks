@@ -867,7 +867,7 @@ void CWE127_Buffer_Underread__char_alloca_loop_41_goodG2BSink(char *data)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

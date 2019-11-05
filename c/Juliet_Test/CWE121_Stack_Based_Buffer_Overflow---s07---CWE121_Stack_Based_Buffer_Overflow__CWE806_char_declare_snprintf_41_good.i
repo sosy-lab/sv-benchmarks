@@ -646,7 +646,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_snprintf_41_goodG2B
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

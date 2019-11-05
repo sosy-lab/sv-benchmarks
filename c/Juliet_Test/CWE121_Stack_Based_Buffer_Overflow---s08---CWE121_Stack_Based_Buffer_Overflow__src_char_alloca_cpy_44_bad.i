@@ -640,7 +640,7 @@ static void badSink(char *data)
 
 void CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cpy_44_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & badSink;
   

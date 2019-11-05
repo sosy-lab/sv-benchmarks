@@ -844,7 +844,7 @@ static int staticTrue = 1;
 
 void CWE124_Buffer_Underwrite__malloc_char_cpy_05_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

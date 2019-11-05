@@ -842,7 +842,7 @@ void CWE122_Heap_Based_Buffer_Overflow__CWE131_memcpy_67b_badSink(CWE122_Heap_Ba
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memcpy_67_bad(void)
 {
-  int *data;
+  int *data = 0;
   CWE122_Heap_Based_Buffer_Overflow__CWE131_memcpy_67_structType myStruct;
   
   data = (int *)0;

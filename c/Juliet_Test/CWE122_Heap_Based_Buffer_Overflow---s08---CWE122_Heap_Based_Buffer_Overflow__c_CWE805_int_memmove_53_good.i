@@ -149,7 +149,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

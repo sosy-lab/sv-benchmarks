@@ -839,7 +839,7 @@ void *memset(void *, int, size_t);
 
 void CWE124_Buffer_Underwrite__char_alloca_loop_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE124_Buffer_Underwrite__char_alloca_loop_34_unionType myUnion;
   
   char *dataBuffer = __builtin_alloca(100UL);

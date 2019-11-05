@@ -833,7 +833,7 @@ time_t time(time_t *);
 
 void CWE415_Double_Free__malloc_free_int64_t_14_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

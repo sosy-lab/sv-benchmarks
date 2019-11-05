@@ -835,7 +835,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE415_Double_Free__malloc_free_char_04_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

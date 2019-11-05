@@ -634,7 +634,7 @@ void CWE415_Double_Free__malloc_free_int64_t_65b_goodG2BSink(int64_t *data);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & CWE415_Double_Free__malloc_free_int64_t_65b_goodG2BSink;
   
@@ -656,7 +656,7 @@ void CWE415_Double_Free__malloc_free_int64_t_65b_goodB2GSink(int64_t *data);
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & CWE415_Double_Free__malloc_free_int64_t_65b_goodB2GSink;
   

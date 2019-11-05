@@ -842,7 +842,7 @@ char *strcat(char *, char const *);
 
 void CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cat_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cat_34_unionType myUnion;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

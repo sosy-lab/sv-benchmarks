@@ -865,7 +865,7 @@ time_t time(time_t *);
 
 void CWE124_Buffer_Underwrite__malloc_char_loop_61_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

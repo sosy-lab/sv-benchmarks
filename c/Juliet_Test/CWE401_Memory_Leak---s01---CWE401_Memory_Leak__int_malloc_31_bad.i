@@ -625,7 +625,7 @@ time_t time(time_t *);
 
 void CWE401_Memory_Leak__int_malloc_31_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

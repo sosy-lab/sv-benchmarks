@@ -829,7 +829,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE476_NULL_Pointer_Dereference__char_06_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   if (STATIC_CONST_FIVE == 5) 
                               data = (char *)0; else ;

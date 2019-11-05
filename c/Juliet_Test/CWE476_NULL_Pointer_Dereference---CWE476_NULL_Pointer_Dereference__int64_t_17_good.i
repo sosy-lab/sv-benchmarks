@@ -829,7 +829,7 @@ static void goodB2G(void)
 {
   int i;
   int k;
-  int64_t *data;
+  int64_t *data = 0;
   
   i = 0;
   
@@ -877,7 +877,7 @@ static void goodG2B(void)
 {
   int h;
   int j;
-  int64_t *data;
+  int64_t *data = 0;
   
   int64_t tmpData = 5L;
   

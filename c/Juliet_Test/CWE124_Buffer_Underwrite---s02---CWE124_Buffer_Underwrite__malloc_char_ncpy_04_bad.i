@@ -844,7 +844,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE124_Buffer_Underwrite__malloc_char_ncpy_04_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

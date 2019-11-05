@@ -628,7 +628,7 @@ void CWE127_Buffer_Underread__char_declare_memcpy_67b_goodG2BSink(CWE127_Buffer_
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE127_Buffer_Underread__char_declare_memcpy_67_structType myStruct;
   char dataBuffer[100U];
   

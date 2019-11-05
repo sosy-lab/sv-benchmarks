@@ -853,7 +853,7 @@ char *CWE415_Double_Free__malloc_free_char_68_goodB2GData;
 
 void CWE415_Double_Free__malloc_free_char_68_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

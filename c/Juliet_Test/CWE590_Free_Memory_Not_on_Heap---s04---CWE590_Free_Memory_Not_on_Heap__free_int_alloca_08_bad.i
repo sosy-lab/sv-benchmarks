@@ -839,7 +839,7 @@ static int staticReturnsTrue(void)
 
 void CWE590_Free_Memory_Not_on_Heap__free_int_alloca_08_bad(void)
 {
-  int *data;
+  int *data = 0;
   int tmp_0;
   
   data = (int *)0;

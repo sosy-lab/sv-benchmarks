@@ -843,7 +843,7 @@ void *memset(void *, int, size_t);
 
 void CWE124_Buffer_Underwrite__malloc_char_loop_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE124_Buffer_Underwrite__malloc_char_loop_34_unionType myUnion;
   
   data = (char *)0;

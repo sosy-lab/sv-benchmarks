@@ -840,7 +840,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE590_Free_Memory_Not_on_Heap__free_int64_t_static_34_unionType myUnion;
   
   data = (int64_t *)0L;

@@ -840,7 +840,7 @@ static int staticReturnsTrue(void)
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_static_08_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp;
   
   data = (char *)0;

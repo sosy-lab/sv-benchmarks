@@ -834,7 +834,7 @@ void CWE690_NULL_Deref_From_Return__char_malloc_68b_goodB2GSink(void);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -655,7 +655,7 @@ static void goodG2BSink(void)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

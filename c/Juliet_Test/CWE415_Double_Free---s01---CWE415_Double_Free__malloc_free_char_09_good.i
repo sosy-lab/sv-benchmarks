@@ -842,7 +842,7 @@ time_t time(time_t *);
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -866,7 +866,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -889,7 +889,7 @@ static void goodB2G2(void)
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -912,7 +912,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

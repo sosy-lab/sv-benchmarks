@@ -129,7 +129,7 @@ time_t time(time_t *);
 
 void CWE690_NULL_Deref_From_Return__char_malloc_66_bad(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   
   data = (char *)0;

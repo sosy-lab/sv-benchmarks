@@ -630,7 +630,7 @@ static int staticFive = 5;
 
 void CWE122_Heap_Based_Buffer_Overflow__sizeof_int64_t_07_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

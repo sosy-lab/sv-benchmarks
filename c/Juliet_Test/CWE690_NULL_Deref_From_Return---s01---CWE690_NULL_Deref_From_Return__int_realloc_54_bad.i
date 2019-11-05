@@ -876,7 +876,7 @@ time_t time(time_t *);
 
 void CWE690_NULL_Deref_From_Return__int_realloc_54_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

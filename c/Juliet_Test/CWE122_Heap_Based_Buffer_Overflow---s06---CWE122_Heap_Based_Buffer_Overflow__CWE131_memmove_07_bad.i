@@ -112,7 +112,7 @@ static int staticFive = 5;
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_07_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

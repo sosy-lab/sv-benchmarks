@@ -835,7 +835,7 @@ void CWE127_Buffer_Underread__char_alloca_cpy_65b_goodG2BSink(char *data);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE127_Buffer_Underread__char_alloca_cpy_65b_goodG2BSink;
   

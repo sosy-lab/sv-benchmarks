@@ -148,7 +148,7 @@ void printLine(char const *line);
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_52_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

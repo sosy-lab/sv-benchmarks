@@ -836,7 +836,7 @@ char *CWE690_NULL_Deref_From_Return__char_calloc_61b_goodB2GSource(char *data);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

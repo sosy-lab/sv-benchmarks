@@ -859,7 +859,7 @@ static char *goodG2BSource(char *data)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

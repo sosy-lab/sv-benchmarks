@@ -839,7 +839,7 @@ time_t time(time_t *);
 
 void CWE401_Memory_Leak__int_realloc_16_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   ldv_3210: 

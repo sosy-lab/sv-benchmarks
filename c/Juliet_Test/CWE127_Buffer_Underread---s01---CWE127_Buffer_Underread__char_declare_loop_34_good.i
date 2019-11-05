@@ -837,7 +837,7 @@ void *memset(void *, int, size_t);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE127_Buffer_Underread__char_declare_loop_34_unionType myUnion;
   char dataBuffer[100U];
   

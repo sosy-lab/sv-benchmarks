@@ -836,7 +836,7 @@ void CWE415_Double_Free__malloc_free_char_65b_badSink(char *data);
 
 void CWE415_Double_Free__malloc_free_char_65_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE415_Double_Free__malloc_free_char_65b_badSink;
   

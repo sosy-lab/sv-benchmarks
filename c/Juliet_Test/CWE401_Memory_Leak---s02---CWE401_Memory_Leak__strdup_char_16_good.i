@@ -841,7 +841,7 @@ static char *ldv_strdup_1(char const *ldv_func_arg1);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   ldv_3211: 
@@ -877,7 +877,7 @@ static void goodB2G(void)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   ldv_3218: 

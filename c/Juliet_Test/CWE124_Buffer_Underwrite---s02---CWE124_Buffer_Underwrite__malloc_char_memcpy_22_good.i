@@ -916,7 +916,7 @@ int CWE124_Buffer_Underwrite__malloc_char_memcpy_22_goodG2B2Global = 0;
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -943,7 +943,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

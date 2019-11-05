@@ -708,7 +708,7 @@ int close(int);
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_4;
   
   data = (char *)malloc(100UL);
@@ -816,7 +816,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_4;
   
   data = (char *)malloc(100UL);

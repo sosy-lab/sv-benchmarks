@@ -847,7 +847,7 @@ void CWE401_Memory_Leak__int_calloc_67b_goodG2BSink(CWE401_Memory_Leak__int_call
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   CWE401_Memory_Leak__int_calloc_67_structType myStruct;
   
   data = (int *)0;
@@ -871,7 +871,7 @@ void CWE401_Memory_Leak__int_calloc_67b_goodB2GSink(CWE401_Memory_Leak__int_call
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   CWE401_Memory_Leak__int_calloc_67_structType myStruct;
   
   data = (int *)0;

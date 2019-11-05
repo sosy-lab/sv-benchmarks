@@ -842,7 +842,7 @@ void CWE401_Memory_Leak__int64_t_realloc_66b_badSink(int64_t **dataArray);
 
 void CWE401_Memory_Leak__int64_t_realloc_66_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int64_t *dataArray[5U];
   
   data = (int64_t *)0L;

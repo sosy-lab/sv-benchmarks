@@ -630,7 +630,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE416_Use_After_Free__malloc_free_int64_t_04_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

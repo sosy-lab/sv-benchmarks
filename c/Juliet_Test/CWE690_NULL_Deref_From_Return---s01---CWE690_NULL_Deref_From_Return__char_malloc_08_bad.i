@@ -843,7 +843,7 @@ static int staticReturnsTrue(void)
 
 void CWE690_NULL_Deref_From_Return__char_malloc_08_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   data = (char *)0;

@@ -844,7 +844,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & CWE122_Heap_Based_Buffer_Overflow__sizeof_int64_t_65b_goodG2BSink;
   

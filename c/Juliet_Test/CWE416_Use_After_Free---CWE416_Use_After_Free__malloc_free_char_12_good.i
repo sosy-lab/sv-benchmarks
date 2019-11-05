@@ -845,7 +845,7 @@ void *memset(void *, int, size_t);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   int tmp_2;
   
@@ -890,7 +890,7 @@ static void goodB2G(void)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   int tmp_2;
   

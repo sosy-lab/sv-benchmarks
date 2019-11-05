@@ -851,7 +851,7 @@ static void goodG2BSink(int64_t *data)
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & goodG2BSink;
   

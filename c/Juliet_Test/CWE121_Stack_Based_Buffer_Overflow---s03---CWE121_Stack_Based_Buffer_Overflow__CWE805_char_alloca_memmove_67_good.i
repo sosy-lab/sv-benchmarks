@@ -627,7 +627,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_memmove_67b_goodG2BS
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_memmove_67_structType myStruct;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

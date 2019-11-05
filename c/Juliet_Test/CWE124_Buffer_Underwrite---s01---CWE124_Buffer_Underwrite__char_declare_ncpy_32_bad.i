@@ -625,7 +625,7 @@ static char *ldv_strncpy_1(char * __restrict ldv_func_arg1, char const * __restr
 
 void CWE124_Buffer_Underwrite__char_declare_ncpy_32_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   char **dataPtr1 = & data;

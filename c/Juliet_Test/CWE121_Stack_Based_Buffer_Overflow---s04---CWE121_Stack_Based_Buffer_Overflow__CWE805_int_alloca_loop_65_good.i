@@ -861,7 +861,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_loop_65b_goodG2BSink;
   

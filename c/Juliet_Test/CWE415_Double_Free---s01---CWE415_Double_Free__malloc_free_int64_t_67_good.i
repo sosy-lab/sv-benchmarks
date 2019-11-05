@@ -845,7 +845,7 @@ void CWE415_Double_Free__malloc_free_int64_t_67b_goodG2BSink(CWE415_Double_Free_
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE415_Double_Free__malloc_free_int64_t_67_structType myStruct;
   
   data = (int64_t *)0L;
@@ -868,7 +868,7 @@ void CWE415_Double_Free__malloc_free_int64_t_67b_goodB2GSink(CWE415_Double_Free_
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE415_Double_Free__malloc_free_int64_t_67_structType myStruct;
   
   data = (int64_t *)0L;

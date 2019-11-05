@@ -634,7 +634,7 @@ void *memset(void *, int, size_t);
 
 void CWE124_Buffer_Underwrite__malloc_char_memmove_12_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_1;
   
   data = (char *)0;

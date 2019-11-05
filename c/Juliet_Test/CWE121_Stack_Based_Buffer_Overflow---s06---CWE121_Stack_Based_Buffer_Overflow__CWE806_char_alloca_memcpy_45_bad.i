@@ -656,7 +656,7 @@ static void badSink(void)
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_memcpy_45_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

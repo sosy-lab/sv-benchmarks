@@ -633,7 +633,7 @@ time_t time(time_t *);
 
 void CWE401_Memory_Leak__int64_t_realloc_12_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   int tmp_1;
   int tmp_2;
   

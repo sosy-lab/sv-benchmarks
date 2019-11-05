@@ -622,7 +622,7 @@ void CWE126_Buffer_Overread__char_declare_memmove_53b_badSink(char *data);
 
 void CWE126_Buffer_Overread__char_declare_memmove_53_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

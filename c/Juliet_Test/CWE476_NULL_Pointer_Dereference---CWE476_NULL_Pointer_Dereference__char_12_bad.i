@@ -827,7 +827,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__char_12_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp;
   int tmp_0;
   

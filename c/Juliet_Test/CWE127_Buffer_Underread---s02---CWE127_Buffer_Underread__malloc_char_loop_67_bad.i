@@ -845,7 +845,7 @@ void CWE127_Buffer_Underread__malloc_char_loop_67b_badSink(CWE127_Buffer_Underre
 
 void CWE127_Buffer_Underread__malloc_char_loop_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE127_Buffer_Underread__malloc_char_loop_67_structType myStruct;
   
   data = (char *)0;

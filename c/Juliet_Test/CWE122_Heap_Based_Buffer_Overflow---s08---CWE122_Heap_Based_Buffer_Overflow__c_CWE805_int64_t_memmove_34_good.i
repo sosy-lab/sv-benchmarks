@@ -117,7 +117,7 @@ void printLongLongLine(int64_t longLongIntNumber);
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memmove_34_unionType myUnion;
   
   data = (int64_t *)0L;

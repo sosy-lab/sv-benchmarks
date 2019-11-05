@@ -630,7 +630,7 @@ void CWE401_Memory_Leak__int_calloc_66b_goodG2BSink(int **dataArray);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   int *dataArray[5U];
   
   data = (int *)0;
@@ -654,7 +654,7 @@ void CWE401_Memory_Leak__int_calloc_66b_goodB2GSink(int **dataArray);
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   int *dataArray[5U];
   
   data = (int *)0;

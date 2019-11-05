@@ -138,7 +138,7 @@ static void badSink(char *data)
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memmove_44_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & badSink;
   

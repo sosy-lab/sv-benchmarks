@@ -829,7 +829,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 static void goodB2G1(void)
 {
-  char *data;
+  char *data = 0;
   
   if (STATIC_CONST_FIVE == 5) 
                               data = (char *)0; else ;
@@ -849,7 +849,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data;
+  char *data = 0;
   
   if (STATIC_CONST_FIVE == 5) 
                               data = (char *)0; else ;
@@ -868,7 +868,7 @@ static void goodB2G2(void)
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   
   if (STATIC_CONST_FIVE != 5) 
                               printLine("Benign, fixed string"); else 
@@ -884,7 +884,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   
   if (STATIC_CONST_FIVE == 5) 
                               data = (char *)"Good"; else ;

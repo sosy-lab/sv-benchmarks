@@ -932,7 +932,7 @@ int close(int);
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_connect_socket_65_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   void (*funcPtr)(char *) = & CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_connect_socket_65b_badSink;
   

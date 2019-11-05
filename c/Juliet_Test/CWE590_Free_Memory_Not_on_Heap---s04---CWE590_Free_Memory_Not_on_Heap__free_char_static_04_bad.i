@@ -624,7 +624,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_static_04_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

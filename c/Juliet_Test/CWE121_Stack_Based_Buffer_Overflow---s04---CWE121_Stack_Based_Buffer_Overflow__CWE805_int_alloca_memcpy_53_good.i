@@ -848,7 +848,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memcpy_53b_goodG2BSin
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   int *dataBadBuffer = __builtin_alloca(200UL);
   

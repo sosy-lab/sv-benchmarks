@@ -842,7 +842,7 @@ void CWE476_NULL_Pointer_Dereference__int_54b_badSink(int *data);
 
 void CWE476_NULL_Pointer_Dereference__int_54_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

@@ -622,7 +622,7 @@ void *memset(void *, int, size_t);
 
 void CWE124_Buffer_Underwrite__char_declare_memcpy_12_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   int tmp;
   

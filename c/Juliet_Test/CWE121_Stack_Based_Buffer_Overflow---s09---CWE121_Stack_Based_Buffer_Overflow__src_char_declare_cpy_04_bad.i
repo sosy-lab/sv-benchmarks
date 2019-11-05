@@ -627,7 +627,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cpy_04_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

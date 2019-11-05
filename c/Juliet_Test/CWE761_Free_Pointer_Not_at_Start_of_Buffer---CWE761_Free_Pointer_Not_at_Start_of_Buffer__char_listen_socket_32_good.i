@@ -702,7 +702,7 @@ int close(int);
 
 static void goodB2G(void)
 {
-  char *data;
+  char *data = 0;
   
   char **dataPtr1 = & data;
   

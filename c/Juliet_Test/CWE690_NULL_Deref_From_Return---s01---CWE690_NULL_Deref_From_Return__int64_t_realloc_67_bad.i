@@ -125,7 +125,7 @@ void printLine(char const *line);
 
 void CWE690_NULL_Deref_From_Return__int64_t_realloc_67_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE690_NULL_Deref_From_Return__int64_t_realloc_67_structType myStruct;
   
   data = (int64_t *)0L;

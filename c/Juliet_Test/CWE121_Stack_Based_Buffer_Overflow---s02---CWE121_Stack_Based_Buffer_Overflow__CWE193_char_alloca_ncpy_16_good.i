@@ -841,7 +841,7 @@ static size_t ldv_strlen_2(char const *ldv_func_arg1);
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBadBuffer = __builtin_alloca(10UL);
   

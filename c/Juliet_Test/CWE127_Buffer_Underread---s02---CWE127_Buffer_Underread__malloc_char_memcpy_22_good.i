@@ -105,7 +105,7 @@ char *CWE127_Buffer_Underread__malloc_char_memcpy_22_goodG2B1Source(char *data);
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   
@@ -135,7 +135,7 @@ char *CWE127_Buffer_Underread__malloc_char_memcpy_22_goodG2B2Source(char *data);
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

@@ -625,7 +625,7 @@ void CWE690_NULL_Deref_From_Return__int64_t_realloc_54b_badSink(int64_t *data);
 
 void CWE690_NULL_Deref_From_Return__int64_t_realloc_54_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

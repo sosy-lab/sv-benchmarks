@@ -98,7 +98,7 @@ void printLine(char const *line);
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_declare_03_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

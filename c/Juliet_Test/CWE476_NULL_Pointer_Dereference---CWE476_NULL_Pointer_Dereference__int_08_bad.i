@@ -837,7 +837,7 @@ static int staticReturnsTrue(void)
 
 void CWE476_NULL_Pointer_Dereference__int_08_bad(void)
 {
-  int *data;
+  int *data = 0;
   int tmp;
   int tmp_0;
   

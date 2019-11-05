@@ -838,7 +838,7 @@ time_t time(time_t *);
 
 void CWE401_Memory_Leak__int_calloc_12_bad(void)
 {
-  int *data;
+  int *data = 0;
   int tmp_1;
   int tmp_2;
   

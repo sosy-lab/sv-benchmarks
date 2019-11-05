@@ -835,7 +835,7 @@ static int staticFive = 5;
 
 void CWE416_Use_After_Free__malloc_free_int64_t_07_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   

@@ -845,7 +845,7 @@ static int staticReturnsTrue(void)
 
 void CWE124_Buffer_Underwrite__char_alloca_memmove_08_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp_0;
   
   char *dataBuffer = __builtin_alloca(100UL);

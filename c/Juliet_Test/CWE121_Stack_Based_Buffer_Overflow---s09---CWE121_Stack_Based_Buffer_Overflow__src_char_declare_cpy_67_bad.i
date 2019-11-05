@@ -869,7 +869,7 @@ void *memset(void *, int, size_t);
 
 void CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cpy_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cpy_67_structType myStruct;
   char dataBuffer[100U];
   

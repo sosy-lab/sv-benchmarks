@@ -636,7 +636,7 @@ void CWE401_Memory_Leak__int64_t_calloc_67b_goodG2BSink(CWE401_Memory_Leak__int6
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE401_Memory_Leak__int64_t_calloc_67_structType myStruct;
   
   data = (int64_t *)0L;
@@ -660,7 +660,7 @@ void CWE401_Memory_Leak__int64_t_calloc_67b_goodB2GSink(CWE401_Memory_Leak__int6
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   CWE401_Memory_Leak__int64_t_calloc_67_structType myStruct;
   
   data = (int64_t *)0L;

@@ -836,7 +836,7 @@ void *memmove(void *, void const *, size_t);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   ldv_2929: 

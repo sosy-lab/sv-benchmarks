@@ -844,7 +844,7 @@ static void badSink(int64_t *data)
 
 void CWE122_Heap_Based_Buffer_Overflow__sizeof_int64_t_44_bad(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   void (*funcPtr)(int64_t *) = & badSink;
   

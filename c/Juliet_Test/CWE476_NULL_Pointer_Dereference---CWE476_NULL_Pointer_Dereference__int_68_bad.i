@@ -636,7 +636,7 @@ int *CWE476_NULL_Pointer_Dereference__int_68_goodB2GData;
 
 void CWE476_NULL_Pointer_Dereference__int_68_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

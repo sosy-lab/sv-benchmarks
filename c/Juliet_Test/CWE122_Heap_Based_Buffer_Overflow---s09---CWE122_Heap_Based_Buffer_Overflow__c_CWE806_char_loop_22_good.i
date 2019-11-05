@@ -647,7 +647,7 @@ char *CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_loop_22_goodG2B1Source(ch
 
 static void goodG2B1(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   
@@ -699,7 +699,7 @@ char *CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_loop_22_goodG2B2Source(ch
 
 static void goodG2B2(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

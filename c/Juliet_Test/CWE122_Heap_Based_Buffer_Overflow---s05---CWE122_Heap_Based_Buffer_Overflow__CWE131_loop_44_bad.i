@@ -865,7 +865,7 @@ static void badSink(int *data)
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_44_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & badSink;
   

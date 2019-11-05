@@ -628,7 +628,7 @@ void CWE401_Memory_Leak__int_calloc_65b_badSink(int *data);
 
 void CWE401_Memory_Leak__int_calloc_65_bad(void)
 {
-  int *data;
+  int *data = 0;
   
   void (*funcPtr)(int *) = & CWE401_Memory_Leak__int_calloc_65b_badSink;
   

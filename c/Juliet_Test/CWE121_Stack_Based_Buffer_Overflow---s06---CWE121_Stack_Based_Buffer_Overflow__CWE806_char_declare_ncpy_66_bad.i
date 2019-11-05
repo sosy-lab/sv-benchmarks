@@ -833,7 +833,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_66b_badSink(ch
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_66_bad(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   char dataBuffer[100U];
   

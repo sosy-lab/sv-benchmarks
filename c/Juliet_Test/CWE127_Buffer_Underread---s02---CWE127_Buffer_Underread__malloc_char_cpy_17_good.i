@@ -635,7 +635,7 @@ static char *ldv_strcpy_2(char * __restrict ldv_func_arg1, char const * __restri
 static void goodG2B(void)
 {
   int h;
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   

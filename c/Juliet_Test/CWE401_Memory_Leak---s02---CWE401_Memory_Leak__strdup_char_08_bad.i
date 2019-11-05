@@ -843,7 +843,7 @@ static int staticReturnsTrue(void)
 
 void CWE401_Memory_Leak__strdup_char_08_bad(void)
 {
-  char *data;
+  char *data = 0;
   int tmp;
   int tmp_0;
   

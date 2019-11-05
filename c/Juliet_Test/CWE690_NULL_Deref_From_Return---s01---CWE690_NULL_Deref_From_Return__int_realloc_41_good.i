@@ -850,7 +850,7 @@ static void goodB2GSink(int *data)
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   

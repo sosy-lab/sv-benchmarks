@@ -829,7 +829,7 @@ void CWE476_NULL_Pointer_Dereference__int64_t_17_bad(void)
 {
   int i;
   int j;
-  int64_t *data;
+  int64_t *data = 0;
   
   i = 0;
   

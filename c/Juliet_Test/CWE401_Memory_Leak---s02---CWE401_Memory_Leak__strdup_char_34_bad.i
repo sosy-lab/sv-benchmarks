@@ -840,7 +840,7 @@ static char *ldv_strdup_1(char const *ldv_func_arg1);
 
 void CWE401_Memory_Leak__strdup_char_34_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE401_Memory_Leak__strdup_char_34_unionType myUnion;
   
   data = (char *)0;

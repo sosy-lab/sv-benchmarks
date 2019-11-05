@@ -622,7 +622,7 @@ void CWE126_Buffer_Overread__char_declare_loop_66b_goodG2BSink(char **dataArray)
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   char *dataArray[5U];
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

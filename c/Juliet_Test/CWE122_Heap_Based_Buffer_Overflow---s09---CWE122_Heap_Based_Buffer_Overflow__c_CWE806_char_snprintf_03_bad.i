@@ -845,7 +845,7 @@ static size_t ldv_strlen_2(char const *ldv_func_arg1);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_snprintf_03_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)malloc(100UL);
   

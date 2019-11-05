@@ -646,7 +646,7 @@ char *CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cat_68_goodG2BData;
 
 void CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cat_68_bad(void)
 {
-  char *data;
+  char *data = 0;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

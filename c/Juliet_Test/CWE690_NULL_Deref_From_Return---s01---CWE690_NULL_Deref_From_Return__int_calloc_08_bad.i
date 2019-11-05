@@ -632,7 +632,7 @@ static int staticReturnsTrue(void)
 
 void CWE690_NULL_Deref_From_Return__int_calloc_08_bad(void)
 {
-  int *data;
+  int *data = 0;
   int tmp_0;
   
   data = (int *)0;

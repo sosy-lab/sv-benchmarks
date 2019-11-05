@@ -103,7 +103,7 @@ int globalReturnsTrueOrFalse(void);
 
 static void goodG2B(void)
 {
-  int *data;
+  int *data = 0;
   int tmp_1;
   
   data = (int *)0;

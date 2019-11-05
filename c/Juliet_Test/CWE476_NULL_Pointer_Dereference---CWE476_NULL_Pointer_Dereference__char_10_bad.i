@@ -616,7 +616,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__char_10_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   if (globalTrue != 0) 
                        data = (char *)0; else ;

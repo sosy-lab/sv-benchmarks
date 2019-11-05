@@ -107,7 +107,7 @@ void printLine(char const *line);
 
 static void goodB2G(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   ldv_3208: 
@@ -140,7 +140,7 @@ static void goodB2G(void)
 
 static void goodG2B(void)
 {
-  int64_t *data;
+  int64_t *data = 0;
   
   data = (int64_t *)0L;
   ldv_3215: 

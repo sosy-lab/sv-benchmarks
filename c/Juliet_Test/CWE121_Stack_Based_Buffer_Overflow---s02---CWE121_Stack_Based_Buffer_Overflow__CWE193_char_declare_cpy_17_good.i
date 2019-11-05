@@ -99,7 +99,7 @@ void printLine(char const *line);
 static void goodG2B(void)
 {
   int h;
-  char *data;
+  char *data = 0;
   char dataBadBuffer[10U];
   char dataGoodBuffer[11U];
   

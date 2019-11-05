@@ -854,7 +854,7 @@ static void badSink(void)
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_45_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   char *dataBadBuffer = __builtin_alloca(10UL);
   

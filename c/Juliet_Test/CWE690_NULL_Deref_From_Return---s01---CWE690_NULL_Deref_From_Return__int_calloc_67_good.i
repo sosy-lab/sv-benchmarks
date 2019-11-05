@@ -855,7 +855,7 @@ time_t time(time_t *);
 
 static void goodB2G(void)
 {
-  int *data;
+  int *data = 0;
   CWE690_NULL_Deref_From_Return__int_calloc_67_structType myStruct;
   
   data = (int *)0;

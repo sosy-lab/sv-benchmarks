@@ -836,7 +836,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_ncat_67b_badSink(CW
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_ncat_67_bad(void)
 {
-  char *data;
+  char *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_ncat_67_structType myStruct;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

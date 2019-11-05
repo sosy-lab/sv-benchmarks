@@ -624,7 +624,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_char_alloca_64b_badSink(void *dataVoid
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_alloca_64_bad(void)
 {
-  char *data;
+  char *data = 0;
   
   data = (char *)0;
   {

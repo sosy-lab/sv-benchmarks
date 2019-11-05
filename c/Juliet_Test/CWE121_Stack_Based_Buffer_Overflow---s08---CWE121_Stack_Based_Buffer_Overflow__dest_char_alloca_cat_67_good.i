@@ -103,7 +103,7 @@ void CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cat_67b_goodG2BSink(CW
 
 static void goodG2B(void)
 {
-  char *data;
+  char *data = 0;
   CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cat_67_structType myStruct;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

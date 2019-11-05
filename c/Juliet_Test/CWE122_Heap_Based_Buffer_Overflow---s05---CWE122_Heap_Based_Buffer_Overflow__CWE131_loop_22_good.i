@@ -172,7 +172,7 @@ int CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_22_goodG2B2Global = 0;
 
 static void goodG2B1(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   
@@ -213,7 +213,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int *data;
+  int *data = 0;
   
   data = (int *)0;
   
