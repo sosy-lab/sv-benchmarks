@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void * __VERIFIER_nondet_pointer(void);
+extern _Bool __VERIFIER_nondet_bool(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 extern void __VERIFIER_atomic_begin();
@@ -764,7 +764,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 void * P1(void *arg)
 {
@@ -779,7 +779,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 void * P2(void *arg)
 {
@@ -809,16 +809,16 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 void * P3(void *arg)
 {
   __VERIFIER_atomic_begin();
-  weak$$choice0 = __VERIFIER_nondet_pointer();
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   z$flush_delayed = weak$$choice2;
   z$mem_tmp = z;
-  weak$$choice1 = __VERIFIER_nondet_pointer();
+  weak$$choice1 = __VERIFIER_nondet_bool();
   z = !z$w_buff0_used ? z : (z$w_buff0_used && z$r_buff0_thd4 ? z$w_buff0 : (z$w_buff0_used && !z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? (weak$$choice0 ? z : (weak$$choice1 ? z$w_buff0 : z$w_buff1)) : (z$w_buff0_used && z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? (weak$$choice0 ? z$w_buff1 : z$w_buff0) : (weak$$choice0 ? z$w_buff0 : z))));
   z$w_buff0 = weak$$choice2 ? z$w_buff0 : (!z$w_buff0_used ? z$w_buff0 : (z$w_buff0_used && z$r_buff0_thd4 ? z$w_buff0 : (z$w_buff0_used && !z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? z$w_buff0 : (z$w_buff0_used && z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? z$w_buff0 : z$w_buff0))));
   z$w_buff1 = weak$$choice2 ? z$w_buff1 : (!z$w_buff0_used ? z$w_buff1 : (z$w_buff0_used && z$r_buff0_thd4 ? z$w_buff1 : (z$w_buff0_used && !z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? z$w_buff1 : (z$w_buff0_used && z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? z$w_buff1 : z$w_buff1))));
@@ -845,7 +845,7 @@ void * P3(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 void fence()
 {
@@ -878,7 +878,7 @@ int main()
   z$r_buff1_thd0 = z$w_buff0_used && z$r_buff0_thd0 || z$w_buff1_used && z$r_buff1_thd0 ? (_Bool)0 : z$r_buff1_thd0;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice1 = __VERIFIER_nondet_pointer();
+  weak$$choice1 = __VERIFIER_nondet_bool();
   __unbuffered_p3_EAX = __unbuffered_p3_EAX$read_delayed ? (weak$$choice1 ? *__unbuffered_p3_EAX$read_delayed_var : __unbuffered_p3_EAX) : __unbuffered_p3_EAX;
   main$tmp_guard1 = !(__unbuffered_p0_EAX == 1 && __unbuffered_p1_EAX == 1 && __unbuffered_p2_EAX == 1 && __unbuffered_p3_EAX == 1);
   __VERIFIER_atomic_end();

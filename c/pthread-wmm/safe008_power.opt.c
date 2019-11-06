@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void * __VERIFIER_nondet_pointer(void);
+extern _Bool __VERIFIER_nondet_bool(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 extern void __VERIFIER_atomic_begin();
@@ -223,7 +223,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 
 
@@ -231,11 +231,11 @@ void * P0(void *arg)
 void * P1(void *arg)
 {
   __VERIFIER_atomic_begin();
-  weak$$choice0 = __VERIFIER_nondet_pointer();
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   x$flush_delayed = weak$$choice2;
   x$mem_tmp = x;
-  weak$$choice1 = __VERIFIER_nondet_pointer();
+  weak$$choice1 = __VERIFIER_nondet_bool();
   x = !x$w_buff0_used ? x : (x$w_buff0_used && x$r_buff0_thd2 ? x$w_buff0 : (x$w_buff0_used && !x$r_buff1_thd2 && x$w_buff1_used && !x$r_buff0_thd2 ? (weak$$choice0 ? x : (weak$$choice1 ? x$w_buff0 : x$w_buff1)) : (x$w_buff0_used && x$r_buff1_thd2 && x$w_buff1_used && !x$r_buff0_thd2 ? (weak$$choice0 ? x$w_buff1 : x$w_buff0) : (weak$$choice0 ? x$w_buff0 : x))));
   x$w_buff0 = weak$$choice2 ? x$w_buff0 : (!x$w_buff0_used ? x$w_buff0 : (x$w_buff0_used && x$r_buff0_thd2 ? x$w_buff0 : (x$w_buff0_used && !x$r_buff1_thd2 && x$w_buff1_used && !x$r_buff0_thd2 ? x$w_buff0 : (x$w_buff0_used && x$r_buff1_thd2 && x$w_buff1_used && !x$r_buff0_thd2 ? x$w_buff0 : x$w_buff0))));
   x$w_buff1 = weak$$choice2 ? x$w_buff1 : (!x$w_buff0_used ? x$w_buff1 : (x$w_buff0_used && x$r_buff0_thd2 ? x$w_buff1 : (x$w_buff0_used && !x$r_buff1_thd2 && x$w_buff1_used && !x$r_buff0_thd2 ? x$w_buff1 : (x$w_buff0_used && x$r_buff1_thd2 && x$w_buff1_used && !x$r_buff0_thd2 ? x$w_buff1 : x$w_buff1))));
@@ -262,7 +262,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 
 
@@ -285,7 +285,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 
 
@@ -333,7 +333,7 @@ int main()
   __VERIFIER_atomic_begin();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice1 = __VERIFIER_nondet_pointer();
+  weak$$choice1 = __VERIFIER_nondet_bool();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
   __unbuffered_p1_EAX = __unbuffered_p1_EAX$read_delayed ? (weak$$choice1 ? *__unbuffered_p1_EAX$read_delayed_var : __unbuffered_p1_EAX) : __unbuffered_p1_EAX;
