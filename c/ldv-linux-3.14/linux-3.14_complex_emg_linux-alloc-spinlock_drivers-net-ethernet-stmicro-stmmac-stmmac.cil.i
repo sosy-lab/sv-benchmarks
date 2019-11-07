@@ -19349,7 +19349,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_59(struct net_device *ldv_func_arg
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -19466,7 +19466,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_108(struct net_device *ldv_func_ar
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
