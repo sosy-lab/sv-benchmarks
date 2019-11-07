@@ -43362,7 +43362,7 @@ static struct sk_buff *ldv_skb_copy_151(struct sk_buff const *ldv_func_arg1 , gf
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -43375,7 +43375,7 @@ static struct sk_buff *ldv_skb_copy_expand_152(struct sk_buff const *ldv_func_ar
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
