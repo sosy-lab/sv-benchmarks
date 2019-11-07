@@ -2903,6 +2903,7 @@ __inline static void unregister_chrdev(unsigned int major___0 , char const *name
 extern loff_t noop_llseek(struct file * , loff_t , int ) ;
 extern void __const_udelay(unsigned long ) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
 

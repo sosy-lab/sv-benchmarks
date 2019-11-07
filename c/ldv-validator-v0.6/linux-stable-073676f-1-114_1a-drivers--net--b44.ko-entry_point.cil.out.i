@@ -3633,6 +3633,7 @@ __inline static void *kmalloc_large(size_t size , gfp_t flags )
   return (ret);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *ret ;

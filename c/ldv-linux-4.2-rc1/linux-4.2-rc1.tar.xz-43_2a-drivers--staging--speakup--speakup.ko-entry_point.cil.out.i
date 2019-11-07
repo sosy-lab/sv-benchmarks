@@ -5389,6 +5389,7 @@ void spk_free_user_msgs(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *tmp ;

@@ -9262,6 +9262,7 @@ unsigned long ldv___get_free_pages_52(gfp_t flags , unsigned int ldv_func_arg2 )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

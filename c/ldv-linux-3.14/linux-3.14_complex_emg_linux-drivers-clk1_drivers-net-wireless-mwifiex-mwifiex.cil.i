@@ -22211,6 +22211,7 @@ __inline static void le16_add_cpu(__le16 *var , u16 val )
 }
 static int ldv_mod_timer_9___1(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
 static int ldv_mod_timer_10(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_arg2 ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *tmp___2 ;
@@ -44531,7 +44532,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
 void *ldv_calloc_unknown_size(void) ;

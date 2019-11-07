@@ -6010,6 +6010,7 @@ int tulip_read_eeprom(struct net_device *dev , int location , int addr_len )
   return (tmp___3);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

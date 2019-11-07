@@ -7341,6 +7341,7 @@ __inline static pid_t task_pid_nr(struct task_struct *tsk )
 extern void *krealloc(void const   * , size_t  , gfp_t  ) ;
 extern void kfree(void const   * ) ;
 extern void *__kmalloc(size_t  , gfp_t  ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

@@ -14691,6 +14691,7 @@ void ldv_mutex_lock_113(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_lock_115(struct mutex *ldv_func_arg1 ) ;
 void ldv_mutex_lock_118(struct mutex *ldv_func_arg1 ) ;
 extern void usleep_range(unsigned long , unsigned long ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *tmp___2 ;

@@ -7855,13 +7855,14 @@ void ldv_struct_device_attribute_dummy_resourceless_instance_4(void *arg0 )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_malloc(size);
   ldv_after_alloc(res);
   }
   return (res);
@@ -35426,7 +35427,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;

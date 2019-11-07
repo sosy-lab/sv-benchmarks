@@ -6584,6 +6584,7 @@ extern int down_write_trylock(struct rw_semaphore * ) ;
 extern unsigned long volatile   jiffies ;
 extern long schedule_timeout(long  ) ;
 extern void *__kmalloc(size_t  , gfp_t  ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

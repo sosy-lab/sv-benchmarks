@@ -13650,6 +13650,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   {

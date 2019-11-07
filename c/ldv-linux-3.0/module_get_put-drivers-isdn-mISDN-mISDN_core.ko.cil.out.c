@@ -5643,6 +5643,7 @@ extern int del_timer(struct timer_list * ) ;
 extern void add_timer(struct timer_list * ) ;
 extern void kfree(void const * ) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
 

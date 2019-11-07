@@ -14042,6 +14042,7 @@ enum xp_retval xpc_initiate_partid_to_nasids(short partid , void *nasid_mask )
   return (tmp___0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

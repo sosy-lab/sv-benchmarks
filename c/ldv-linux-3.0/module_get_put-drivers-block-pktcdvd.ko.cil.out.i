@@ -4143,6 +4143,7 @@ __inline static dev_t new_decode_dev(u32 dev )
 }
 }
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
   {

@@ -9479,6 +9479,7 @@ void *__kmalloc(size_t size, gfp_t t)
  return ldv_malloc(size);
 }
 extern void kmem_cache_free(struct kmem_cache * , void * ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *tmp___2 ;

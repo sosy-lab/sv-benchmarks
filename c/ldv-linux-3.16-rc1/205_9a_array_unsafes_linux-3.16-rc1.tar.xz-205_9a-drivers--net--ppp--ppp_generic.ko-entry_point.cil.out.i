@@ -6418,6 +6418,7 @@ __inline static void *idr_find(struct idr *idr , int id )
   return (tmp___1);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *tmp___2 ;

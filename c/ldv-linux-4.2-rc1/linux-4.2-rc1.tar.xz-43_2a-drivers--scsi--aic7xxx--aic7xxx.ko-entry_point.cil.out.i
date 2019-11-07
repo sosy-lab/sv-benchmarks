@@ -13097,6 +13097,7 @@ void ahc_dump_card_state(struct ahc_softc *ahc )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *tmp ;
