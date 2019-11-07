@@ -49810,13 +49810,14 @@ __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags )
   return ((struct sk_buff *)tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_111(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -74961,7 +74962,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_calloc_unknown_size(void) ;
 void *ldv_xmalloc_unknown_size(size_t size ) ;
