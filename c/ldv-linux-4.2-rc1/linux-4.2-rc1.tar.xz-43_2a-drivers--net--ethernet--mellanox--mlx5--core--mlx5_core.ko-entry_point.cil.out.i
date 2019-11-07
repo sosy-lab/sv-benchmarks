@@ -10412,6 +10412,7 @@ extern void dma_pool_destroy(struct dma_pool * ) ;
 void *ldv_dma_pool_alloc_72(struct dma_pool *ldv_func_arg1 , gfp_t flags , dma_addr_t *ldv_func_arg3 ) ;
 extern void dma_pool_free(struct dma_pool * , void * , dma_addr_t ) ;
 extern void dma_free_attrs(struct device * , size_t , void * , dma_addr_t , struct dma_attrs * ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 extern void usleep_range(unsigned long , unsigned long ) ;

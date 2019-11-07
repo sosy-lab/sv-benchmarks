@@ -16218,6 +16218,7 @@ __inline static void *ldv_dma_zalloc_coherent_435(struct device *dev , size_t si
   return (ret);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 struct sk_buff *ldv_skb_clone_440(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;

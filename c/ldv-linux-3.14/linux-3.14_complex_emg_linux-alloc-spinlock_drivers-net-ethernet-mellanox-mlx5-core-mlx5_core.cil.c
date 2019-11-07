@@ -17156,6 +17156,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 int mlx5_db_alloc(struct mlx5_core_dev *dev , struct mlx5_db *db ) ;
@@ -17546,7 +17547,7 @@ __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(size);
   }
   return (tmp);
 }
@@ -18967,7 +18968,6 @@ int ldv_dev_set_drvdata(struct device *dev , void *data )
   return (0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 struct spi_master *ldv_spi_alloc_master(struct device *host , unsigned int size ) 
 { 
   struct spi_master *master ;

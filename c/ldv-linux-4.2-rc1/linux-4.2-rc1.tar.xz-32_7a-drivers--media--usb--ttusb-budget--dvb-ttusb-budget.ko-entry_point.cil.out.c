@@ -7131,6 +7131,7 @@ extern void dvb_dmx_release(struct dvb_demux * ) ;
 extern void dvb_dmx_swfilter_packets(struct dvb_demux * , u8 const   * , size_t  ) ;
 extern void *dma_alloc_attrs(struct device * , size_t  , dma_addr_t * , gfp_t  , struct dma_attrs * ) ;
 extern void dma_free_attrs(struct device * , size_t  , void * , dma_addr_t  , struct dma_attrs * ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flag ) 
 { 

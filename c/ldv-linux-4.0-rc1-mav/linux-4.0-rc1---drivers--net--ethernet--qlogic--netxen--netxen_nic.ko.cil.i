@@ -26892,6 +26892,7 @@ void ldv_dummy_resourceless_instance_callback_1_9(int (*arg0)(struct net_device 
 }
 }
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 __inline static void *pci_zalloc_consistent(struct pci_dev *hwdev , size_t size ,
@@ -27906,7 +27907,7 @@ __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(size);
   }
   return (tmp);
 }
@@ -28454,7 +28455,6 @@ int ldv_dev_set_drvdata(struct device *dev , void *data )
   return (0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 struct spi_master *ldv_spi_alloc_master(struct device *host , unsigned int size )
 {
   struct spi_master *master ;

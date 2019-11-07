@@ -8119,6 +8119,7 @@ __inline static int dma_set_coherent_mask(struct device *dev , u64 mask )
   return (0);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 __inline static int pci_set_dma_mask(struct pci_dev *dev , u64 mask ) 
