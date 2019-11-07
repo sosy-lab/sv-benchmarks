@@ -18040,7 +18040,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_58___0(struct net_device *ldv_func
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -23215,7 +23215,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_58___1(struct net_device *ldv_func
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -39480,7 +39480,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_58___2(struct net_device *ldv_func
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -46324,7 +46324,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_58___3(struct net_device *ldv_func
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
