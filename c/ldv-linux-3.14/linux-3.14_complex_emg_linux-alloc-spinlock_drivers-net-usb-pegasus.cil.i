@@ -10147,57 +10147,47 @@ static struct urb *ldv_usb_alloc_urb_83(int ldv_func_arg1 , gfp_t flags )
 }
 static int ldv_usb_submit_urb_84(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_85(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_86(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_87(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_88(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static struct urb *ldv_usb_alloc_urb_89(int ldv_func_arg1 , gfp_t flags )
@@ -10235,24 +10225,20 @@ static struct urb *ldv_usb_alloc_urb_91(int ldv_func_arg1 , gfp_t flags )
 }
 static int ldv_usb_submit_urb_92(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_93(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static struct net_device *ldv_alloc_etherdev_mqs_94(int ldv_func_arg1 , unsigned int ldv_func_arg2 ,

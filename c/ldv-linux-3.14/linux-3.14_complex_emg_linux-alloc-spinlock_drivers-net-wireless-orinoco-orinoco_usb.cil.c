@@ -11791,14 +11791,12 @@ static void ldv___ldv_spin_lock_91(spinlock_t *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_92(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv___ldv_spin_lock_95(spinlock_t *ldv_func_arg1 ) 
@@ -11887,14 +11885,12 @@ static int ldv_del_timer_112(struct timer_list *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_113(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 __inline static void ldv_spin_lock_bh_114(spinlock_t *lock ) 

@@ -8809,13 +8809,11 @@ static void ldv_mutex_unlock_117(struct mutex *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_118(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void *ldv_usb_alloc_coherent_119(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
@@ -8957,24 +8955,20 @@ static void ldv_usb_free_coherent_129(struct usb_device *dev , size_t size , voi
 }
 static int ldv_usb_submit_urb_130(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_131(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_sysfs_create_group_132(struct kobject *ldv_func_arg1 , struct attribute_group const *ldv_func_arg2 )

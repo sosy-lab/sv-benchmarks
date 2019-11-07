@@ -11206,38 +11206,32 @@ static void ldv_usb_free_urb_95(struct urb *urb )
 }
 static int ldv_usb_submit_urb_96(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_97(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_98(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv_mutex_lock_99(struct mutex *ldv_func_arg1 ) 
@@ -11253,14 +11247,12 @@ static void ldv_mutex_lock_99(struct mutex *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_100(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv_mutex_unlock_101(struct mutex *ldv_func_arg1 ) 
@@ -11287,14 +11279,12 @@ static void ldv_mutex_lock_102(struct mutex *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_103(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv_mutex_unlock_104(struct mutex *ldv_func_arg1 ) 
@@ -11359,14 +11349,12 @@ static struct urb *ldv_usb_alloc_urb_107(int ldv_func_arg1 , gfp_t flags )
 }
 static int ldv_usb_submit_urb_108(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv_usb_free_urb_109(struct urb *urb ) 

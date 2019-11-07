@@ -8951,24 +8951,20 @@ __inline static void ldv_spin_unlock_irqrestore_66(spinlock_t *lock , unsigned l
 }
 static int ldv_usb_submit_urb_67(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_68(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_del_timer_69(struct timer_list *ldv_func_arg1 )
@@ -9041,13 +9037,11 @@ static void *ldv_usb_alloc_coherent_73(struct usb_device *ldv_func_arg1 , size_t
 }
 static int ldv_usb_submit_urb_74(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 long ldv__builtin_expect(long exp , long c ) ;

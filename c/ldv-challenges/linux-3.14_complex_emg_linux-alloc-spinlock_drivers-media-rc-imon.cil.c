@@ -9978,14 +9978,12 @@ static int ldv_dev_set_drvdata_52(struct device *dev , void *data )
 }
 static int ldv_usb_submit_urb_53(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void *ldv_dev_get_drvdata_54(struct device  const  *dev ) 
@@ -10182,26 +10180,22 @@ static void ldv___ldv_spin_lock_79(spinlock_t *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_81(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_82(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static struct urb *ldv_usb_alloc_urb_83(int ldv_func_arg1 , gfp_t flags ) 
@@ -10230,14 +10224,12 @@ static struct urb *ldv_usb_alloc_urb_84(int ldv_func_arg1 , gfp_t flags )
 }
 static int ldv_usb_submit_urb_85(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static struct urb *ldv_usb_alloc_urb_86(int ldv_func_arg1 , gfp_t flags ) 
@@ -10254,14 +10246,12 @@ static struct urb *ldv_usb_alloc_urb_86(int ldv_func_arg1 , gfp_t flags )
 }
 static int ldv_usb_submit_urb_87(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_del_timer_sync_88(struct timer_list *ldv_func_arg1 ) 
@@ -10282,26 +10272,22 @@ static int ldv_del_timer_sync_88(struct timer_list *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_89(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_90(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_register_driver_91(struct usb_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,

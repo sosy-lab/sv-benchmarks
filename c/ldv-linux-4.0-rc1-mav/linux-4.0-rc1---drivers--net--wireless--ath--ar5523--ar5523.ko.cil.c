@@ -13510,26 +13510,22 @@ static void ldv_usb_free_urb_126(struct urb *urb )
 }
 static int ldv_usb_submit_urb_127(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_128(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static unsigned long ldv_wait_for_completion_timeout_129(struct completion *ldv_func_arg1 ,
@@ -13595,14 +13591,12 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_134(spinlock_t *ld
 }
 static int ldv_usb_submit_urb_136(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_137(spinlock_t *ldv_func_arg1 ) 
@@ -13769,14 +13763,12 @@ static int ldv_mod_timer_152(struct timer_list *ldv_func_arg1 , unsigned long ld
 }
 static int ldv_usb_submit_urb_153(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_154(spinlock_t *ldv_func_arg1 ) 

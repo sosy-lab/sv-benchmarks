@@ -7141,13 +7141,11 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_100(spinlock_t *ld
 }
 static int ldv_usb_submit_urb_102(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_103(spinlock_t *ldv_func_arg1 )

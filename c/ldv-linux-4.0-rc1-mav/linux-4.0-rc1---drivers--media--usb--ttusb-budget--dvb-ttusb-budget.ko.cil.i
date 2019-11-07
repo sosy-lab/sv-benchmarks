@@ -10949,13 +10949,11 @@ static void ldv_mutex_unlock_128(struct mutex *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_129(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv_usb_free_urb_130(struct urb *urb )
@@ -10986,13 +10984,11 @@ static struct urb *ldv_usb_alloc_urb_131(int ldv_func_arg1 , gfp_t flags )
 }
 static int ldv_usb_submit_urb_132(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_dvb_register_frontend_133(struct dvb_adapter *ldv_func_arg1 , struct dvb_frontend *ldv_func_arg2 )

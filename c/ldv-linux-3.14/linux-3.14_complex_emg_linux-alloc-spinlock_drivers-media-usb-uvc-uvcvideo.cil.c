@@ -18226,14 +18226,12 @@ static void ldv___ldv_spin_lock_62___0(spinlock_t *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_64(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void *ldv_usb_alloc_coherent_65(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
@@ -18275,14 +18273,12 @@ static struct urb *ldv_usb_alloc_urb_67(int ldv_func_arg1 , gfp_t flags )
 }
 static int ldv_usb_submit_urb_68(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 extern size_t memweight(void const   * , size_t  ) ;
@@ -21660,14 +21656,12 @@ void uvc_status_stop(struct uvc_device *dev )
 }
 static int ldv_usb_submit_urb_60(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static struct urb *ldv_usb_alloc_urb_61(int ldv_func_arg1 , gfp_t flags ) 
@@ -21684,14 +21678,12 @@ static struct urb *ldv_usb_alloc_urb_61(int ldv_func_arg1 , gfp_t flags )
 }
 static int ldv_usb_submit_urb_62(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int isight_decode(struct uvc_video_queue *queue , struct uvc_buffer *buf ,

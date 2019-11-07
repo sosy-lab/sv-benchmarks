@@ -7139,14 +7139,12 @@ static int ldv_mutex_lock_interruptible_107(struct mutex *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_108(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv_mutex_unlock_109(struct mutex *ldv_func_arg1 ) 
@@ -7207,14 +7205,12 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_113(spinlock_t *ld
 }
 static int ldv_usb_submit_urb_117(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_118(spinlock_t *ldv_func_arg1 ) 
@@ -7243,14 +7239,12 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_121(spinlock_t *ld
 }
 static int ldv_usb_submit_urb_123(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv_mutex_unlock_125(struct mutex *ldv_func_arg1 ) 
@@ -7311,14 +7305,12 @@ static int ldv_mutex_lock_interruptible_130(struct mutex *ldv_func_arg1 )
 }
 static int ldv_usb_submit_urb_132(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv_mutex_unlock_133(struct mutex *ldv_func_arg1 ) 

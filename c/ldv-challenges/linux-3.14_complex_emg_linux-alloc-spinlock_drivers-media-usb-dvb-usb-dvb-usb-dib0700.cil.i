@@ -18507,13 +18507,11 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
 }
 static int ldv_usb_submit_urb_89(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static struct urb *ldv_usb_alloc_urb_90(int ldv_func_arg1 , gfp_t flags )
@@ -18529,13 +18527,11 @@ static struct urb *ldv_usb_alloc_urb_90(int ldv_func_arg1 , gfp_t flags )
 }
 static int ldv_usb_submit_urb_91(struct urb *ldv_func_arg1 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_register_driver_92(struct usb_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,
