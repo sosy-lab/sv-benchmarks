@@ -11848,6 +11848,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags ) 
 { 
   struct sk_buff *tmp ;

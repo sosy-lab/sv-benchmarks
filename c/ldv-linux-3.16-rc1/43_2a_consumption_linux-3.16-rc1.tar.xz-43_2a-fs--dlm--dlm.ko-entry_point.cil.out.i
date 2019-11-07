@@ -22710,6 +22710,7 @@ void *ldv_kmem_cache_alloc_214(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return ((void *)0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags )
 {
   struct sk_buff *tmp ;

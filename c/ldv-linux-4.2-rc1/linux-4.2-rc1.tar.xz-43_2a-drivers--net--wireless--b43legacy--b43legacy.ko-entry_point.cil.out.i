@@ -28654,6 +28654,7 @@ __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags )
 {
   void *tmp ;
