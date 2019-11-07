@@ -9869,7 +9869,7 @@ static void *ldv_usb_alloc_coherent_104(struct usb_device *ldv_func_arg1 , size_
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg2);
   }
   return (tmp);
 }
@@ -9882,7 +9882,7 @@ static void *ldv_usb_alloc_coherent_105(struct usb_device *ldv_func_arg1 , size_
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg2);
   }
   return (tmp);
 }
