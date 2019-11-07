@@ -18260,13 +18260,11 @@ __inline static void ldv_spin_unlock_104(spinlock_t *lock )
 static int ldv_pskb_expand_head_108(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 ,
                                     int ldv_func_arg3 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static void ldv_free_irq_111(unsigned int ldv_func_arg1 , void *ldv_func_arg2 )

@@ -20063,13 +20063,11 @@ static struct sk_buff *ldv___netdev_alloc_skb_105(struct net_device *ldv_func_ar
 static int ldv_pskb_expand_head_106(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 ,
                                     int ldv_func_arg3 , gfp_t flags )
 {
-  void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 void i40evf_fill_default_direct_cmd_desc(struct i40e_aq_desc *desc , u16 opcode ) ;

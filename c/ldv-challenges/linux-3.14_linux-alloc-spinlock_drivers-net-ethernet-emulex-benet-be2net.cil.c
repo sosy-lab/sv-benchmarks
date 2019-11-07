@@ -21999,14 +21999,12 @@ static struct sk_buff *ldv___netdev_alloc_skb_59(struct net_device *ldv_func_arg
 static int ldv_pskb_expand_head_60(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 ,
                                    int ldv_func_arg3 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 __inline static void ldv_spin_lock_69(spinlock_t *lock ) 
