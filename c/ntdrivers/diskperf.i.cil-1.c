@@ -3,7 +3,6 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
-extern void *__VERIFIER_nondet_pointer(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern long __VERIFIER_nondet_long(void);
 
@@ -1497,7 +1496,7 @@ extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *malloc(size_t);
-PCCHAR KeNumberProcessors ;
+unsigned long KeNumberProcessors ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
   NTSTATUS RtlQueryRegistryValues(ULONG RelativeTo ,
@@ -2121,7 +2120,7 @@ void DiskPerfAddCounters(PDISK_PERFORMANCE TotalCounters , PDISK_PERFORMANCE New
 #pragma alloc_text(PAGE,DiskPerfSyncFilterWithTarget)
 WMIGUIDREGINFO DiskperfGuidList[1]  = {      {& DiskPerfGuid, 1, 0}};
 NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath ) 
-{ PDRIVER_DISPATCH *dispatch = __VERIFIER_nondet_pointer() ;
+{
   PVOID tmp ;
 
   {
@@ -2138,7 +2137,6 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath 
     DiskPerfRegistryPath.Length = 0;
     DiskPerfRegistryPath.MaximumLength = 0;
   }
-  *dispatch = & DiskPerfSendToNextDriver;
   DriverObject->MajorFunction[0] = & DiskPerfCreate;
   DriverObject->MajorFunction[3] = & DiskPerfReadWrite;
   DriverObject->MajorFunction[4] = & DiskPerfReadWrite;
@@ -2190,7 +2188,7 @@ NTSTATUS DiskPerfAddDevice(PDRIVER_OBJECT DriverObject , PDEVICE_OBJECT Physical
   deviceExtension = (struct _DEVICE_EXTENSION *)filterDeviceObject->DeviceExtension;
   memset(deviceExtension, 0, sizeof(DEVICE_EXTENSION ));
   deviceExtension->LastIdleClock = KeQueryPerformanceCounter((void *)0);
-  deviceExtension->Processors = (unsigned long )*KeNumberProcessors;
+  deviceExtension->Processors = KeNumberProcessors;
   buffersize = (ULONG )((long )(& ((DISK_PERFORMANCE *)0)->QueryTime)) * deviceExtension->Processors;
   tmp = ExAllocatePoolWithTag(0, buffersize, 1718767684UL);
   buffer = (CHAR *)tmp;
@@ -3236,25 +3234,25 @@ int main(void)
   /* d initialization */
   d.Type = __VERIFIER_nondet_int();
   d.Size = __VERIFIER_nondet_int();
-  d.DeviceObject = (PDEVICE_OBJECT)__VERIFIER_nondet_pointer();
+  d.DeviceObject = (PDEVICE_OBJECT)0;
   d.Flags = __VERIFIER_nondet_long();
-  d.DriverStart = __VERIFIER_nondet_pointer();
+  d.DriverStart = 0;
   d.DriverSize = __VERIFIER_nondet_long();
-  d.DriverSection = __VERIFIER_nondet_pointer();
-  d.DriverExtension = (PDRIVER_EXTENSION)__VERIFIER_nondet_pointer();
+  d.DriverSection = 0;
+  d.DriverExtension = (PDRIVER_EXTENSION)0;
   UNICODE_STRING ustring_1;
   ustring_1.Length = __VERIFIER_nondet_int();
   ustring_1.MaximumLength = __VERIFIER_nondet_int();
-  ustring_1.Buffer = (PWSTR)__VERIFIER_nondet_pointer();
+  ustring_1.Buffer = (PWSTR)0;
   d.DriverName = ustring_1;
-  d.HardwareDatabase = (PUNICODE_STRING)__VERIFIER_nondet_pointer();
-  d.FastIoDispatch = (PFAST_IO_DISPATCH)__VERIFIER_nondet_pointer();
-  d.DriverInit = __VERIFIER_nondet_pointer();
-  d.DriverStartIo = __VERIFIER_nondet_pointer();
-  d.DriverUnload = __VERIFIER_nondet_pointer();
+  d.HardwareDatabase = (PUNICODE_STRING)0;
+  d.FastIoDispatch = (PFAST_IO_DISPATCH)0;
+  d.DriverInit = 0;
+  d.DriverStartIo = 0;
+  d.DriverUnload = 0;
   int i_1 = 0;
   while (1) {
-    d.MajorFunction[i_1] = __VERIFIER_nondet_pointer();
+    d.MajorFunction[i_1] = 0;
     i_1 = i_1 + 1;
     if (i_1 >= 28)
       break;
@@ -3267,22 +3265,19 @@ int main(void)
   /* irp initialization */
   irp.Type = __VERIFIER_nondet_int();
   irp.Size = __VERIFIER_nondet_int();
-  irp.MdlAddress = (PMDL)__VERIFIER_nondet_pointer();
+  irp.MdlAddress = (PMDL)0;
   irp.Flags = __VERIFIER_nondet_long();
   union __anonunion_AssociatedIrp_44 union_2;
-  union_2.MasterIrp = (struct _IRP *)__VERIFIER_nondet_pointer();
   union_2.IrpCount = __VERIFIER_nondet_long();
-  union_2.SystemBuffer = __VERIFIER_nondet_pointer();
   irp.AssociatedIrp = union_2;
   LIST_ENTRY list_entry_6;
-  list_entry_6.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  list_entry_6.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_6.Flink = (struct _LIST_ENTRY *)0;
+  list_entry_6.Blink = (struct _LIST_ENTRY *)0;
   irp.ThreadListEntry = list_entry_6;
   IO_STATUS_BLOCK status_1;
   status_1.Information = __VERIFIER_nondet_long();
   union __anonunion____missing_field_name_6 union__1;
   union__1.Status = __VERIFIER_nondet_long();
-  union__1.Pointer = __VERIFIER_nondet_pointer();
   status_1.__annonCompField4 = union__1;
   irp.IoStatus = status_1;
   irp.RequestorMode = __VERIFIER_nondet_char();
@@ -3293,12 +3288,12 @@ int main(void)
   irp.CancelIrql = __VERIFIER_nondet_char();
   irp.ApcEnvironment = __VERIFIER_nondet_char();
   irp.AllocationFlags = __VERIFIER_nondet_char();
-  irp.UserIosb = (PIO_STATUS_BLOCK)__VERIFIER_nondet_pointer();
-  irp.UserEvent = (PKEVENT)__VERIFIER_nondet_pointer();
+  irp.UserIosb = (PIO_STATUS_BLOCK)0;
+  irp.UserEvent = (PKEVENT)0;
   union __anonunion_Overlay_45 union_3;
   struct __anonstruct_AsynchronousParameters_46 async_1;
-  async_1.UserApcRoutine = __VERIFIER_nondet_pointer();
-  async_1.UserApcContext = __VERIFIER_nondet_pointer();
+  async_1.UserApcRoutine = 0;
+  async_1.UserApcContext = 0;
   union_3.AsynchronousParameters = async_1;
   LARGE_INTEGER large_int_1;
   struct __anonstruct____missing_field_name_1 struct_1;
@@ -3312,15 +3307,15 @@ int main(void)
   large_int_1.QuadPart = __VERIFIER_nondet_long();
   union_3.AllocationSize = large_int_1;
   irp.Overlay = union_3;
-  irp.CancelRoutine = __VERIFIER_nondet_pointer();
-  irp.UserBuffer = __VERIFIER_nondet_pointer();
+  irp.CancelRoutine = 0;
+  irp.UserBuffer = 0;
   union __anonunion_Tail_47 union_4;
   struct __anonstruct_Overlay_48 struct_3;
   union __anonunion____missing_field_name_49 union_5;
   KDEVICE_QUEUE_ENTRY struct_5;
   LIST_ENTRY list_entry_7;
-  list_entry_7.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  list_entry_7.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_7.Flink = (struct _LIST_ENTRY *)0;
+  list_entry_7.Blink = (struct _LIST_ENTRY *)0;
   struct_5.DeviceListEntry = list_entry_7;
   struct_5.Inserted = __VERIFIER_nondet_char();
   struct_5.SortKey = __VERIFIER_nondet_long();
@@ -3328,7 +3323,7 @@ int main(void)
   struct __anonstruct____missing_field_name_50 struct_6;
   i_1 = 0;
   while (1) {
-    struct_6.DriverContext[i_1] = __VERIFIER_nondet_pointer();
+    struct_6.DriverContext[i_1] = 0;
     i_1 = i_1 + 1;
     if (i_1 >= 4)
       break;
@@ -3337,8 +3332,8 @@ int main(void)
   struct_3.__annonCompField15 = union_5;
   struct __anonstruct____missing_field_name_51 struct_4;
   LIST_ENTRY list_entry_8;
-  list_entry_8.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  list_entry_8.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_8.Flink = (struct _LIST_ENTRY *)0;
+  list_entry_8.Blink = (struct _LIST_ENTRY *)0;
   struct_4.ListEntry = list_entry_8;
   union __anonunion____missing_field_name_52 union_6;
   union_6.PacketType = __VERIFIER_nondet_long();
@@ -3347,30 +3342,10 @@ int main(void)
   union_6.CurrentStackLocation += 3;
   struct_4.__annonCompField16 = union_6;
   struct_3.__annonCompField17 = struct_4;
-  struct_3.AuxiliaryBuffer = (PCHAR)__VERIFIER_nondet_pointer();
-  struct_3.OriginalFileObject = (PFILE_OBJECT)__VERIFIER_nondet_pointer();
-  struct_3.Thread = (PETHREAD)__VERIFIER_nondet_pointer();
+  struct_3.AuxiliaryBuffer = (PCHAR)0;
+  struct_3.OriginalFileObject = (PFILE_OBJECT)0;
+  struct_3.Thread = (PETHREAD)0;
   union_4.Overlay = struct_3;
-  KAPC apc_1;
-  LIST_ENTRY list_entry_9;
-  list_entry_9.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  list_entry_9.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  apc_1.ApcListEntry = list_entry_9;
-  apc_1.ApcMode = __VERIFIER_nondet_char();
-  apc_1.ApcStateIndex = __VERIFIER_nondet_char();
-  apc_1.Inserted = __VERIFIER_nondet_char();
-  apc_1.KernelRoutine = __VERIFIER_nondet_pointer();
-  apc_1.NormalContext = __VERIFIER_nondet_pointer();
-  apc_1.NormalRoutine = __VERIFIER_nondet_pointer();
-  apc_1.RundownRoutine = __VERIFIER_nondet_pointer();
-  apc_1.Size = __VERIFIER_nondet_int();
-  apc_1.Spare0 = __VERIFIER_nondet_long();
-  apc_1.SystemArgument1 = __VERIFIER_nondet_pointer();
-  apc_1.SystemArgument2 = __VERIFIER_nondet_pointer();
-  apc_1.Thread = (struct _KTHREAD *)__VERIFIER_nondet_pointer();
-  apc_1.Type = __VERIFIER_nondet_int();
-  union_4.Apc = apc_1;
-  union_4.CompletionKey = __VERIFIER_nondet_pointer();
   irp.Tail = union_4;
 
   int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
@@ -3381,43 +3356,43 @@ int main(void)
   devobj.Type = __VERIFIER_nondet_int();
   devobj.Size = __VERIFIER_nondet_int();
   devobj.ReferenceCount = __VERIFIER_nondet_long();
-  devobj.DriverObject = (struct _DRIVER_OBJECT *)__VERIFIER_nondet_pointer();
-  devobj.NextDevice = (struct _DEVICE_OBJECT *)__VERIFIER_nondet_pointer();
-  devobj.AttachedDevice = (struct _DEVICE_OBJECT *)__VERIFIER_nondet_pointer();
-  devobj.Timer = (PIO_TIMER)__VERIFIER_nondet_pointer();
+  devobj.DriverObject = (struct _DRIVER_OBJECT *)0;
+  devobj.NextDevice = (struct _DEVICE_OBJECT *)0;
+  devobj.AttachedDevice = (struct _DEVICE_OBJECT *)0;
+  devobj.Timer = (PIO_TIMER)0;
   devobj.Flags = __VERIFIER_nondet_long();
   devobj.Characteristics = __VERIFIER_nondet_long();
-  devobj.Vpb = (PVPB)__VERIFIER_nondet_pointer();
-  devobj.DeviceExtension = (struct _DEVICE_EXTENSION *)__VERIFIER_nondet_pointer();
+  devobj.Vpb = (PVPB)0;
+  devobj.DeviceExtension = malloc(sizeof(struct _DEVICE_EXTENSION));
   devobj.DeviceType = __VERIFIER_nondet_long();
   devobj.StackSize = __VERIFIER_nondet_char();
   union __anonunion_Queue_43 aqueue_1;
   LIST_ENTRY list_entry_4;
-  list_entry_4.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  list_entry_4.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_4.Flink = (struct _LIST_ENTRY *)0;
+  list_entry_4.Blink = (struct _LIST_ENTRY *)0;
   aqueue_1.ListEntry = list_entry_4;
   WAIT_CONTEXT_BLOCK wcb_1;
   KDEVICE_QUEUE_ENTRY WaitQueueEntry_1;
   LIST_ENTRY list_entry_5;
-  list_entry_5.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  list_entry_5.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_5.Flink = (struct _LIST_ENTRY *)0;
+  list_entry_5.Blink = (struct _LIST_ENTRY *)0;
   WaitQueueEntry_1.DeviceListEntry = list_entry_5;
   WaitQueueEntry_1.SortKey = __VERIFIER_nondet_long();
   WaitQueueEntry_1.Inserted = __VERIFIER_nondet_char();
   wcb_1.WaitQueueEntry = WaitQueueEntry_1;
-  wcb_1.DeviceRoutine = __VERIFIER_nondet_pointer();
-  wcb_1.DeviceContext = __VERIFIER_nondet_pointer();
+  wcb_1.DeviceRoutine = 0;
+  wcb_1.DeviceContext = 0;
   wcb_1.NumberOfMapRegisters = __VERIFIER_nondet_long();
-  wcb_1.DeviceObject = __VERIFIER_nondet_pointer();
-  wcb_1.CurrentIrp = __VERIFIER_nondet_pointer();
-  wcb_1.BufferChainingDpc = (PKDPC)__VERIFIER_nondet_pointer();
+  wcb_1.DeviceObject = 0;
+  wcb_1.CurrentIrp = 0;
+  wcb_1.BufferChainingDpc = (PKDPC)0;
   aqueue_1.Wcb = wcb_1;
   devobj.Queue = aqueue_1;
   devobj.AlignmentRequirement = __VERIFIER_nondet_long();
   KDEVICE_QUEUE kdevice_1;
   LIST_ENTRY list_entry_1;
-  list_entry_1.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  list_entry_1.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_1.Flink = (struct _LIST_ENTRY *)0;
+  list_entry_1.Blink = (struct _LIST_ENTRY *)0;
   kdevice_1.Type = __VERIFIER_nondet_int();
   kdevice_1.Size = __VERIFIER_nondet_int();
   kdevice_1.DeviceListHead = list_entry_1;
@@ -3429,17 +3404,17 @@ int main(void)
   kdpc_1.Number = __VERIFIER_nondet_char();
   kdpc_1.Importance = __VERIFIER_nondet_char();
   LIST_ENTRY list_entry_2;
-  list_entry_2.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  list_entry_2.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_2.Flink = (struct _LIST_ENTRY *)0;
+  list_entry_2.Blink = (struct _LIST_ENTRY *)0;
   kdpc_1.DpcListEntry = list_entry_2;
-  kdpc_1.DeferredRoutine = __VERIFIER_nondet_pointer();
-  kdpc_1.DeferredContext = __VERIFIER_nondet_pointer();
-  kdpc_1.SystemArgument1 = __VERIFIER_nondet_pointer();
-  kdpc_1.SystemArgument2 = __VERIFIER_nondet_pointer();
-  kdpc_1.Lock = (PULONG_PTR)__VERIFIER_nondet_pointer();
+  kdpc_1.DeferredRoutine = 0;
+  kdpc_1.DeferredContext = 0;
+  kdpc_1.SystemArgument1 = 0;
+  kdpc_1.SystemArgument2 = 0;
+  kdpc_1.Lock = (PULONG_PTR)0;
   devobj.Dpc = kdpc_1;
   devobj.ActiveThreadCount = __VERIFIER_nondet_long();
-  devobj.SecurityDescriptor = (PSECURITY_DESCRIPTOR)__VERIFIER_nondet_pointer();
+  devobj.SecurityDescriptor = (PSECURITY_DESCRIPTOR)0;
   DISPATCHER_HEADER dispatcher_1;
   dispatcher_1.Type = __VERIFIER_nondet_int();
   dispatcher_1.Absolute = __VERIFIER_nondet_int();
@@ -3447,18 +3422,18 @@ int main(void)
   dispatcher_1.Inserted = __VERIFIER_nondet_int();
   dispatcher_1.SignalState = __VERIFIER_nondet_long();
   LIST_ENTRY list_entry_3;
-  list_entry_3.Flink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
-  list_entry_3.Blink = (struct _LIST_ENTRY *)__VERIFIER_nondet_pointer();
+  list_entry_3.Flink = (struct _LIST_ENTRY *)0;
+  list_entry_3.Blink = (struct _LIST_ENTRY *)0;
   dispatcher_1.WaitListHead = list_entry_3;
   KEVENT kevent_1;
   kevent_1.Header = dispatcher_1;
   devobj.DeviceLock = kevent_1;
   devobj.SectorSize = __VERIFIER_nondet_int();
   devobj.Spare1 = __VERIFIER_nondet_int();
-  devobj.DeviceObjectExtension = (struct _DEVOBJ_EXTENSION *)__VERIFIER_nondet_pointer();
-  devobj.Reserved = __VERIFIER_nondet_pointer();
+  devobj.DeviceObjectExtension = (struct _DEVOBJ_EXTENSION *)0;
+  devobj.Reserved = 0;
 
-  KeNumberProcessors = __VERIFIER_nondet_pointer();
+  KeNumberProcessors = __VERIFIER_nondet_ulong();
 
   {
   {
