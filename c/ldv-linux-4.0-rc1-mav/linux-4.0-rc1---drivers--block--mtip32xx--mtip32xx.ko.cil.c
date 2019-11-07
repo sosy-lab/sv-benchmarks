@@ -15555,6 +15555,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc_node(size_t size , gfp_t flags , int node ) 
 { 
   void *res ;
@@ -15562,7 +15563,7 @@ __inline static void *kzalloc_node(size_t size , gfp_t flags , int node )
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_zalloc_unknown_size();
+  res = ldv_zalloc(size);
   ldv_after_alloc(res);
   }
   return (res);
@@ -16674,7 +16675,6 @@ int ldv_dev_set_drvdata(struct device *dev , void *data )
   return (0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 struct spi_master *ldv_spi_alloc_master(struct device *host , unsigned int size ) 
 { 
   struct spi_master *master ;
