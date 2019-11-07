@@ -12459,6 +12459,7 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_100(spinlock_t *ld
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *ldv_kmalloc_array_102(size_t n , size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -12466,7 +12467,7 @@ __inline static void *ldv_kmalloc_array_102(size_t n , size_t size , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_malloc(size * n);
   ldv_after_alloc(res);
   }
   return (res);
@@ -22601,7 +22602,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;
