@@ -41645,6 +41645,7 @@ static int ldv_del_timer_sync_125(struct timer_list *ldv_func_arg1 )
   return (ldv_func_res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 static void *ldv_vzalloc_node_126(unsigned long ldv_func_arg1 , int ldv_func_arg2 ) 
 { 
   void *tmp ;
@@ -41652,7 +41653,7 @@ static void *ldv_vzalloc_node_126(unsigned long ldv_func_arg1 , int ldv_func_arg
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -41664,7 +41665,7 @@ static void *ldv_vzalloc_127(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -41676,7 +41677,7 @@ static void *ldv_vzalloc_node_128(unsigned long ldv_func_arg1 , int ldv_func_arg
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -41688,7 +41689,7 @@ static void *ldv_vzalloc_129(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -81317,7 +81318,6 @@ int ldv_dev_set_drvdata(struct device *dev , void *data )
   return (0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 struct spi_master *ldv_spi_alloc_master(struct device *host , unsigned int size ) 
 { 
   struct spi_master *master ;

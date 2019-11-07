@@ -12618,13 +12618,14 @@ static void ldv_mutex_unlock_101(struct mutex *ldv_func_arg1 )
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 static void *ldv_vzalloc_102(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -15430,7 +15431,6 @@ int ldv_dev_set_drvdata(struct device *dev , void *data )
   return (0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 struct spi_master *ldv_spi_alloc_master(struct device *host , unsigned int size )
 {
   struct spi_master *master ;
