@@ -11040,6 +11040,7 @@ void mlx4_en_release_rss_steer(struct mlx4_en_priv *priv )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
 {
   struct page *tmp ;

@@ -12028,6 +12028,7 @@ __inline static bool IS_ERR(void const *ptr )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
 {
   void *tmp ;

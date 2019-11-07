@@ -27092,6 +27092,7 @@ void dlm_lowcomms_exit(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order ) 
 { 
   struct page *tmp ;
