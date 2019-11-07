@@ -67336,7 +67336,6 @@ void ldv_dummy_resourceless_instance_callback_9_98(int (*arg0)(struct ixgbe_hw *
   return;
 }
 }
-void *ldv_zalloc_unknown_size(void) ;
 __inline static void cpumask_set_cpu(unsigned int cpu , struct cpumask *dstp )
 {
   unsigned int tmp ;
@@ -75435,16 +75434,6 @@ void *ldv_calloc_unknown_size(void)
   } else {
     return ((void *)0);
   }
-}
-}
-void *ldv_zalloc_unknown_size(void)
-{
-  void *tmp ;
-  {
-  {
-  tmp = ldv_calloc_unknown_size();
-  }
-  return (tmp);
 }
 }
 void *ldv_undef_ptr(void) ;

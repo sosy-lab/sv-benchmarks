@@ -31569,7 +31569,6 @@ static void *ldv_vmalloc_84(unsigned long ldv_func_arg1 )
 }
 }
 void __builtin_prefetch(void const   *  , ...) ;
-void *ldv_zalloc_unknown_size(void) ;
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static unsigned long __ffs(unsigned long word ) 
 { 
@@ -37821,17 +37820,6 @@ void *ldv_calloc_unknown_size(void)
   } else {
     return ((void *)0);
   }
-}
-}
-void *ldv_zalloc_unknown_size(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = ldv_calloc_unknown_size();
-  }
-  return (tmp);
 }
 }
 void *ldv_undef_ptr(void) ;

@@ -5091,7 +5091,6 @@ static void ldv_ldv_check_final_state_209(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_zalloc_unknown_size(void) ;
 extern void ldv_after_alloc(void * ) ;
 void *ldv_alloc_macro(gfp_t flags )
 {
@@ -27228,16 +27227,6 @@ void *ldv_calloc_unknown_size(void)
   } else {
     return ((void *)0);
   }
-}
-}
-void *ldv_zalloc_unknown_size(void)
-{
-  void *tmp ;
-  {
-  {
-  tmp = ldv_calloc_unknown_size();
-  }
-  return (tmp);
 }
 }
 int ldv_undef_int_negative(void) ;

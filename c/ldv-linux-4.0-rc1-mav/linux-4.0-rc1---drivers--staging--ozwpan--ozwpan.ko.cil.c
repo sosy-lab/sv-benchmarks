@@ -17862,7 +17862,6 @@ static int ldv_ldv_post_probe_211(int retval )
   return (tmp);
 }
 }
-void *ldv_zalloc_unknown_size(void) ;
 __inline static void atomic_inc(atomic_t *v ) ;
 __inline static int atomic_dec_and_test(atomic_t *v ) ;
 __inline static void ldv_spin_lock_bh_135(spinlock_t *lock ) ;
@@ -24522,17 +24521,6 @@ void *ldv_calloc_unknown_size(void)
   } else {
     return ((void *)0);
   }
-}
-}
-void *ldv_zalloc_unknown_size(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = ldv_calloc_unknown_size();
-  }
-  return (tmp);
 }
 }
 int ldv_undef_int_negative(void) ;

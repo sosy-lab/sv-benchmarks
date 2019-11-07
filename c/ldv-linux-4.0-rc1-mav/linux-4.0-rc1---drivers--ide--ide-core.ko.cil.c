@@ -13686,7 +13686,6 @@ void ldv_linux_kernel_sched_completion_init_completion_gendev_rel_comp_of_hwif_s
 void ldv_linux_kernel_sched_completion_wait_for_completion_gendev_rel_comp_of_hwif_s(void) ;
 void ldv_linux_kernel_sched_completion_init_completion_gendev_rel_comp_of_ide_drive_s(void) ;
 void ldv_linux_kernel_sched_completion_wait_for_completion_gendev_rel_comp_of_ide_drive_s(void) ;
-void *ldv_zalloc_unknown_size(void) ;
 static void ldv_mutex_lock_96___0(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_102(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_104(struct mutex *ldv_func_arg1 ) ;
@@ -34525,17 +34524,6 @@ void *ldv_calloc_unknown_size(void)
   } else {
     return ((void *)0);
   }
-}
-}
-void *ldv_zalloc_unknown_size(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = ldv_calloc_unknown_size();
-  }
-  return (tmp);
 }
 }
 int ldv_undef_int_negative(void) ;
