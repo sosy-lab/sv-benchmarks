@@ -5083,7 +5083,6 @@ int ldv_undef_int_negative(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
 extern void *external_allocated_data(void) ;
-void *ldv_xmalloc_unknown_size(size_t size ) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 extern void _raw_spin_lock(raw_spinlock_t * ) ;
 extern void _raw_spin_unlock(raw_spinlock_t * ) ;
@@ -10945,22 +10944,6 @@ void *ldv_zalloc_unknown_size(void)
   tmp = ldv_calloc_unknown_size();
   }
   return (tmp);
-}
-}
-void *ldv_xmalloc_unknown_size(size_t size )
-{
-  void *res ;
-  void *tmp ;
-  long tmp___0 ;
-  {
-  {
-  tmp = external_allocated_data();
-  res = tmp;
-  __VERIFIER_assume((unsigned long )res != (unsigned long )((void *)0));
-  tmp___0 = ldv_is_err((void const *)res);
-  __VERIFIER_assume(tmp___0 == 0L);
-  }
-  return (res);
 }
 }
 void *ldv_undef_ptr(void) ;
