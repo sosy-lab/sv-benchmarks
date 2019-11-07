@@ -10945,7 +10945,7 @@ static void *ldv_vzalloc_115(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -24876,7 +24876,7 @@ static void *ldv_vzalloc_101(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -24887,7 +24887,7 @@ static void *ldv_vzalloc_102(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(ldv_func_arg1);
   }
   return (tmp);
 }
