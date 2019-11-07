@@ -5895,7 +5895,7 @@ void *ldv_character_driver_scenario_2(void *arg0 )
   ldv_2_resource_inode = (struct inode *)tmp___7;
   ldv_2_ret_default = ldv_undef_int();
   ldv_free(arg0);
-  tmp___8 = ldv_xmalloc_unknown_size(0UL);
+  tmp___8 = ldv_xmalloc(0UL);
   ldv_2_container_file_operations = (struct file_operations *)tmp___8;
   tmp___9 = ldv_xmalloc(520UL);
   ldv_2_resource_file = (struct file *)tmp___9;
@@ -5961,9 +5961,9 @@ void *ldv_character_driver_scenario_2(void *arg0 )
   goto switch_default;
   case_1: /* CIL Label */ 
   {
-  tmp___15 = ldv_xmalloc_unknown_size(0UL);
+  tmp___15 = ldv_xmalloc(0UL);
   ldv_2_ldv_param_4_1_default = (char *)tmp___15;
-  tmp___16 = ldv_xmalloc_unknown_size(0UL);
+  tmp___16 = ldv_xmalloc(0UL);
   ldv_2_ldv_param_4_3_default = (long long *)tmp___16;
   __VERIFIER_assume(ldv_2_size_cnt_write_size <= 2147479552UL);
   ldv_character_driver_scenario_write_2_4((ssize_t (*)(struct file * , char * , size_t  ,
@@ -5986,9 +5986,9 @@ void *ldv_character_driver_scenario_2(void *arg0 )
   }
   if (tmp___19 != 0) {
     {
-    tmp___17 = ldv_xmalloc_unknown_size(0UL);
+    tmp___17 = ldv_xmalloc(0UL);
     ldv_2_ldv_param_22_1_default = (char *)tmp___17;
-    tmp___18 = ldv_xmalloc_unknown_size(0UL);
+    tmp___18 = ldv_xmalloc(0UL);
     ldv_2_ldv_param_22_3_default = (long long *)tmp___18;
     ldv_character_driver_scenario_callback_2_22(ldv_2_callback_read, ldv_2_resource_file,
                                                 ldv_2_ldv_param_22_1_default, ldv_2_size_cnt_write_size,
@@ -6369,7 +6369,7 @@ void *ldv_usb_scenario_3(void *arg0 )
   }
   if (tmp___9 != 0) {
     {
-    tmp___6 = ldv_xmalloc_unknown_size(0UL);
+    tmp___6 = ldv_xmalloc(0UL);
     ldv_3_ldv_param_14_1_default = (struct usb_device_id *)tmp___6;
     ldv_pre_probe();
     ldv_3_probe_retval_default = ldv_usb_scenario_probe_3_14((int (*)(struct usb_interface * ,
