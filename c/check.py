@@ -39,7 +39,7 @@ for i in range(100):
 IGNORED_DIRECTORIES = set(["properties", "ldv-multiproperty", "regression"])
 """Directories which are completely ignored by this script"""
 
-UNUSED_DIRECTORIES = set(["ldv-challenges", "ldv-multiproperty", "regression"])
+UNUSED_DIRECTORIES = set(["ldv-multiproperty", "regression"])
 """Directories which expected to contain tasks that are not included in any category"""
 
 EXPECTED_SUBDIRECTORIES = set(["model", "todo", "properties"])
