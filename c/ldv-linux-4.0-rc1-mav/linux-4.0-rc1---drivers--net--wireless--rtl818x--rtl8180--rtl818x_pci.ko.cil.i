@@ -7722,17 +7722,6 @@ static void ldv_ldv_check_final_state_140(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 void ldv_linux_net_rtnetlink_past_rtnl_lock(void) ;
 void ldv_linux_net_rtnetlink_past_rtnl_unlock(void) ;
 void ldv_linux_net_rtnetlink_before_ieee80211_unregister_hw(void) ;

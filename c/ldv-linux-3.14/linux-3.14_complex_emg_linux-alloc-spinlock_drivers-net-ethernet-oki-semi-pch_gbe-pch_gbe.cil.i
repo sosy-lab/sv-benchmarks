@@ -6310,17 +6310,6 @@ struct ldv_thread {
 long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_malloc_unknown_size(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 extern int __dynamic_netdev_dbg(struct _ddebug * , struct net_device const * , char const *
                                 , ...) ;
 extern void __const_udelay(unsigned long ) ;

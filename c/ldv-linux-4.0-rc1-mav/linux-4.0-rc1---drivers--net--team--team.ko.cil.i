@@ -6384,17 +6384,6 @@ void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
 extern void ldv_after_alloc(void * ) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 void ldv_linux_kernel_rcu_update_lock_rcu_read_lock(void) ;
 void ldv_linux_kernel_rcu_update_lock_rcu_read_unlock(void) ;
 int ldv_linux_kernel_module_try_module_get(struct module *module ) ;

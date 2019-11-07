@@ -6252,17 +6252,6 @@ struct ldv_thread {
 };
 void *ldv_malloc_unknown_size(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 __inline static unsigned int readl(void const volatile *addr )

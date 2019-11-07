@@ -8874,18 +8874,6 @@ int ldv_register_class(void)
 }
 void *ldv_err_ptr(long error ) ;
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_alloc_macro(gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static int variable_test_bit(long nr , unsigned long const volatile   *addr ) 
 { 

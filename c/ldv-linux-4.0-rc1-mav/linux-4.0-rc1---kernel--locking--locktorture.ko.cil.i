@@ -3532,17 +3532,6 @@ static void ldv_ldv_check_final_state_87(void) ;
 void *ldv_xmalloc(size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
 extern void ldv_after_alloc(void * ) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 static void ldv_mutex_lock_83(struct mutex *ldv_func_arg1 ) ;
 void ldv_linux_kernel_locking_mutex_mutex_lock_torture_mutex(struct mutex *lock ) ;
 void ldv_linux_kernel_locking_mutex_mutex_unlock_torture_mutex(struct mutex *lock ) ;

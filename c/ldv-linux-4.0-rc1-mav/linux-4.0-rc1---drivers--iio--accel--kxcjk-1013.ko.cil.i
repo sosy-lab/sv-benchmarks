@@ -4510,17 +4510,6 @@ static void ldv_ldv_check_final_state_143(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 void ldv_linux_kernel_module_module_get(struct module *module ) ;
 static void ldv_mutex_lock_99(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_103(struct mutex *ldv_func_arg1 ) ;

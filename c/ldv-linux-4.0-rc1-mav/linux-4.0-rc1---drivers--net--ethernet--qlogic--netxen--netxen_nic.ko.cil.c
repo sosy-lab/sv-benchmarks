@@ -7755,18 +7755,6 @@ void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 void *ldv_linux_arch_io_io_mem_remap(void) ;
 void ldv_linux_arch_io_io_mem_unmap(void) ;
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_alloc_macro(gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 void ldv_linux_kernel_locking_rwlock_read_lock(void) ;
 void ldv_linux_kernel_locking_rwlock_read_unlock(void) ;
 void ldv_linux_kernel_locking_rwlock_write_lock(void) ;
