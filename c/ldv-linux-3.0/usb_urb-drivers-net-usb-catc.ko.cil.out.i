@@ -4857,7 +4857,7 @@ __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long fla
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern unsigned long volatile jiffies __attribute__((__section__(".data"))) ;
 extern void init_timer_key(struct timer_list *timer , char const *name , struct lock_class_key *key ) ;
 extern int mod_timer(struct timer_list *timer , unsigned long expires ) ;

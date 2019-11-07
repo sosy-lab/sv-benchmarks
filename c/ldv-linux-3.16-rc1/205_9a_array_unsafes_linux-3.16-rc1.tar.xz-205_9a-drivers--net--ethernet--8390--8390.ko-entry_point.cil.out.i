@@ -5744,7 +5744,7 @@ static void __ei_tx_timeout(struct net_device *dev )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static netdev_tx_t __ei_start_xmit(struct sk_buff *skb , struct net_device *dev )
 {
   unsigned long e8390_base ;

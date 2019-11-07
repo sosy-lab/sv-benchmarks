@@ -6714,7 +6714,7 @@ void st5481_release_isocpipes(struct urb **urb )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static void usb_in_complete(struct urb *urb )
 {
   struct st5481_in *in ;

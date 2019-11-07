@@ -6314,7 +6314,7 @@ static int btmrvl_sdio_verify_fw_download(struct btmrvl_sdio_card *card , int po
   return (-110);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int btmrvl_sdio_download_helper(struct btmrvl_sdio_card *card )
 {
   struct firmware const *fw_helper ;

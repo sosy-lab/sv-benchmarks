@@ -3629,7 +3629,7 @@ __inline static u16 r8a66597_read(struct r8a66597 *r8a66597 , unsigned long offs
   return ((u16 )tmp);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 __inline static void r8a66597_read_fifo(struct r8a66597 *r8a66597 , unsigned long offset ,
                                         u16 *buf , int len )
 {

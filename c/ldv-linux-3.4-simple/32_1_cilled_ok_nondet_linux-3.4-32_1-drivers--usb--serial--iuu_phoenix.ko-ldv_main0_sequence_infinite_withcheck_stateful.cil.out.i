@@ -6857,7 +6857,7 @@ static void read_buf_callback(struct urb *urb )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int iuu_bulk_write(struct usb_serial_port *port )
 { struct iuu_private *priv ;
   void *tmp___7 ;

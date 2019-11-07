@@ -6294,7 +6294,7 @@ __inline static dma_addr_t skb_frag_dma_map(struct device *dev , skb_frag_t cons
   return (tmp___0);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 __inline static void skb_copy_from_linear_data(struct sk_buff const *skb , void *to ,
                                                unsigned int const len )
 {

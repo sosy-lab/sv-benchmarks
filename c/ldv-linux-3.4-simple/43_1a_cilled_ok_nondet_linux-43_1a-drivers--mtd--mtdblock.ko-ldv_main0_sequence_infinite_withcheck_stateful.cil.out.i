@@ -3345,7 +3345,7 @@ static int write_cached_data(struct mtdblk_dev *mtdblk )
   return (0);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int do_cached_write(struct mtdblk_dev *mtdblk , unsigned long pos , int len ,
                            char const *buf )
 { struct mtd_info *mtd ;

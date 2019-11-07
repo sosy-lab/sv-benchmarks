@@ -8195,7 +8195,7 @@ __inline static void stk1160_buffer_done(struct stk1160 *dev )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 __inline static void stk1160_copy_video(struct stk1160 *dev , u8 *src , int len )
 {
   int linesdone ;
