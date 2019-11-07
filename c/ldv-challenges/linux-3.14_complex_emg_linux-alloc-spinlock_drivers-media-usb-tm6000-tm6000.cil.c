@@ -19417,14 +19417,12 @@ int tm6000_ir_fini(struct tm6000_core *dev )
 }
 static int ldv_usb_submit_urb_63___0(struct urb *ldv_func_arg1 , gfp_t flags ) 
 { 
-  void *tmp ;
 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
   }
-  return ((int )((long )tmp));
+  return __VERIFIER_nondet_int();
 }
 }
 static int ldv_usb_submit_urb_64(struct urb *ldv_func_arg1 , gfp_t flags ) 
