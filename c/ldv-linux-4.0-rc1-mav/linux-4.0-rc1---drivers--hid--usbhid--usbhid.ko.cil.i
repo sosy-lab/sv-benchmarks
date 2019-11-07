@@ -5472,6 +5472,7 @@ extern int usb_unlink_urb(struct urb * ) ;
 extern void usb_kill_urb(struct urb * ) ;
 extern void usb_unpoison_urb(struct urb * ) ;
 extern void usb_block_urb(struct urb * ) ;
+void *ldv_malloc(size_t size ) ;
 static void *ldv_usb_alloc_coherent_123(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
                                         gfp_t flags , dma_addr_t *ldv_func_arg4 ) ;
 static void *ldv_usb_alloc_coherent_124(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
@@ -16620,7 +16621,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;
