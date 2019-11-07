@@ -6398,6 +6398,7 @@ __inline static int skb_checksum_start_offset(struct sk_buff  const  *skb )
   return ((int )((unsigned int )skb->__annonCompField68.__annonCompField67.csum_start - tmp));
 }
 }
+void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_59(struct net_device *ldv_func_arg1 ,
                                                  unsigned int ldv_func_arg2 , gfp_t flags ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_87(struct net_device *ldv_func_arg1 ,
@@ -19189,7 +19190,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_59(struct net_device *ldv_func_arg
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -19296,7 +19297,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_87(struct net_device *ldv_func_arg
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -19992,7 +19993,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_calloc_unknown_size(void) ;
 void *ldv_zalloc_unknown_size(void) ;
