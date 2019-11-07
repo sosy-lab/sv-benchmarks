@@ -6806,6 +6806,7 @@ extern void _dev_info(struct device const * , char const * , ...) ;
 extern void msleep(unsigned int ) ;
 extern void kfree_skb(struct sk_buff * ) ;
 extern void consume_skb(struct sk_buff * ) ;
+void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv_skb_clone_125(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 __inline static int skb_shared(struct sk_buff const *skb )
 {
@@ -10554,7 +10555,7 @@ static struct sk_buff *ldv_skb_clone_125(struct sk_buff *ldv_func_arg1 , gfp_t f
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -12652,7 +12653,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;

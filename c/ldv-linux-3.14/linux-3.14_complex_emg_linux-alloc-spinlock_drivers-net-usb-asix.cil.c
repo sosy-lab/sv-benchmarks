@@ -10188,6 +10188,7 @@ extern void mutex_lock_nested(struct mutex * , unsigned int  ) ;
 extern void mutex_unlock(struct mutex * ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 extern void kfree_skb(struct sk_buff * ) ;
+void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv_skb_copy_expand_83(struct sk_buff  const  *ldv_func_arg1 ,
                                               int ldv_func_arg2 , int ldv_func_arg3 ,
                                               gfp_t flags ) ;
@@ -11476,7 +11477,7 @@ static struct sk_buff *ldv_skb_copy_expand_83(struct sk_buff  const  *ldv_func_a
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -14108,7 +14109,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_calloc_unknown_size(void) ;
 void *ldv_zalloc_unknown_size(void) ;

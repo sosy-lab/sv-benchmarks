@@ -39873,6 +39873,7 @@ int mwifiex_process_sta_rx_packet(struct mwifiex_private *priv , struct sk_buff 
 }
 static void ldv___ldv_spin_lock_101___0(spinlock_t *ldv_func_arg1 ) ;
 __inline static void ldv_spin_unlock_irqrestore_106___1(spinlock_t *lock , unsigned long flags ) ;
+void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv_skb_copy_103(struct sk_buff  const  *ldv_func_arg1 , gfp_t flags ) ;
 __inline static bool is_multicast_ether_addr(u8 const   *addr ) 
 { 
@@ -40475,7 +40476,7 @@ static struct sk_buff *ldv_skb_copy_103(struct sk_buff  const  *ldv_func_arg1 , 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -49109,7 +49110,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_calloc_unknown_size(void) ;
 void *ldv_zalloc_unknown_size(void) ;

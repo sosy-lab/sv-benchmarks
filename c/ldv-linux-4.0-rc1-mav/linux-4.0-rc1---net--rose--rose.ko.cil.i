@@ -13923,6 +13923,7 @@ __inline static int constant_test_bit(long nr , unsigned long const volatile *ad
 extern int memcmp(void const * , void const * , size_t ) ;
 __inline static void atomic_add(int i , atomic_t *v ) ;
 extern void consume_skb(struct sk_buff * ) ;
+void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv_skb_clone_126(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
 __inline static void skb_orphan(struct sk_buff *skb )
 {
@@ -14340,7 +14341,7 @@ static struct sk_buff *ldv_skb_clone_126(struct sk_buff *ldv_func_arg1 , gfp_t f
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -15465,7 +15466,7 @@ static struct sk_buff *ldv_skb_clone_125(struct sk_buff *ldv_func_arg1 , gfp_t f
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -22546,7 +22547,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;
