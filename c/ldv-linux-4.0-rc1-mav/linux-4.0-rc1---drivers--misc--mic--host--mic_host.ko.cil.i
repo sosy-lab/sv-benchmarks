@@ -11822,7 +11822,7 @@ __inline static void *ldv_kmalloc_array_102(size_t n , size_t size , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_malloc(size * n);
   ldv_after_alloc(res);
   }
   return (res);
