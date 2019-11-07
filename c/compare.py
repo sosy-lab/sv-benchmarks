@@ -1,0 +1,173 @@
+#!/usr/bin/python3
+
+# This script iterates over all tasks and performs the following check:
+# For each file with existing ".c"- and ".i"-file
+# we generate the goto-cc program (i.e., intermediate representation of cbmc)
+# and compare the goto-cc programs with goto-diff.
+# Finding a difference implies a wrong preprocessing.
+
+import glob
+import yaml
+import os
+import shutil
+import subprocess
+from optparse import OptionParser
+
+
+def expand(s):
+    return sorted(glob.glob(s))
+
+
+def getArchitecture(cfgfile):
+    with open(cfgfile, "r") as fp:
+        for line in fp:
+            if line.startswith("Architecture"):
+                return line.split()[1]
+    print("Invalid configuration file", cfgFile)
+    exit(1)
+
+
+def getTasksFromSet(setFile):
+    with open(setFile, "r") as fp:
+        for line in fp:
+            if not line.startswith("#"):
+                for task in expand(line.strip()):
+                    yield task
+
+
+BLACKLIST = set()
+for f in ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*"]:
+    BLACKLIST.update(expand(f))
+
+# parse comand line options and set default values
+parser = OptionParser()
+parser.add_option("-k", "--keep-going", dest="KEEP_GOING", default=False, action="store_true")
+parser.add_option("-v", "--diff", action="store_true", default=False, dest="SHOW_DIFF")
+parser.add_option("--skip-large", action="store_true", default=False, dest="SKIP_LARGE")
+(options, args) = parser.parse_args()
+
+# if the user did not directly specify sets, we select all sets
+SETS=[]
+for arg in (args if args else ["*.set"]):
+    SETS.extend(expand(arg))
+
+# build goto-cc and goto-diff if not available, and then set PATH to find it
+if not shutil.which("goto-cc") or not shutil.which("goto-diff"):
+  if not os.path.exists("../cbmc.git/src/goto-cc/goto-cc"):
+    subprocess.run(["git", "clone" "--depth=1" "http://github.com/diffblue/cbmc.git" "../cbmc.git"])
+    subprocess.run(["make", "minisat2-download"], cwd="../cbmc.git/src")
+    subprocess.run(["make", "CXX=g++-5", "goto-diff.dir", "goto-cc.dir"], cwd="../cbmc.git/src")
+  cwd = os.getcwd()
+  os.environ['PATH'] = cwd + "/../cbmc.git/src/goto-cc:" + cwd + "/../cbmc.git/src/goto-diff:" + os.environ['PATH']
+
+EC=0
+
+# iterate over all sets
+for f in SETS:
+  if not os.path.exists(f):
+    print("Invalid set", f)
+    exit(1)
+
+  setf=os.path.basename(f)[:-4] # remove ending ".set"
+
+  # skip some sets, like LDV (too big) or Concurrency (pthread headers are very platform dependent)
+  if setf == "ConcurrencySafety-Main":
+    print("Skipping category", setf, "(platform-dependent types)")
+    continue
+  elif options.SKIP_LARGE and setf.startswith("Systems_DeviceDriversLinux64_ReachSafety"):
+    print("Skipping category", setf, "(only custom includes, no system headers, checking takes too much time)")
+    continue
+  elif setf == "Systems_OpenBSD_MemSafety":
+    print("Skipping category", setf, "(only custom includes, no system headers, complicated build process)")
+    continue
+  elif setf == "Systems_SQLite_MemSafety":
+    print("Skipping category", setf, "(complicated build process, requires patched version of cilly)")
+    continue
+
+  if not os.path.exists(setf + ".cfg"):
+    print("Skipping category", setf, "(no .cfg file present)")
+    continue
+
+  print("Processing category", setf)
+  bits=getArchitecture(setf + ".cfg")
+  if bits not in ["32", "64"]:
+    print("Invalid bit width in file", setf + ".cfg")
+    exit(1)
+
+  # iterate over all files in the set
+  i=0
+  for ff in getTasksFromSet(f):
+    orig=ff
+
+    if ff.endswith(".yml"):
+      with open(ff, 'r') as yamlfile:
+        yml = yaml.safe_load(yamlfile)
+
+      # check whether the input_basename exists (nobody should ever use "null" as a filename!)
+      inputFiles = yml['input_files']
+      if not inputFiles:
+        print("No input files defined in", ff)
+        exit(1)
+
+      # check whether there is exactly one input file, either directly or nested in a list
+      if isinstance(inputFiles, list):
+        print("ignoring task consisting of multiple sourcefiles")
+        continue
+      ff = os.path.join(os.path.dirname(ff), inputFiles)
+
+    if not os.path.exists(ff):
+      print("No task file", ff, "found")
+      exit(1)
+
+    # no original source available
+    if ff.startswith(('ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/')):
+      # for LDV: there is a related .cil.c file, but it doesn't necessarily match at all
+      continue
+    if ff == "loops/s3.i":
+      continue
+
+    # try to find a matching source file for a preprocessed task
+    if ff.endswith('.c'):
+      continue
+    elif ff.endswith('.c.i'):
+      orig = ff[:-2] # remove ending ".i"
+    elif ff.startswith('ldv-memsafety/memleaks'):
+      orig = ff.replace('memleaks', 'memleaks-notpreprocessed/memleaks')
+      orig = orig[:-2] + ".c" # replace .i with .c
+    else:
+      orig = ff[:-2] + ".c" # replace .i with .c
+
+    if not os.path.exists(orig):
+      print("No original source of", ff, "found")
+      exit(1)
+
+    i += 1
+    if i % 10 == 0:
+      print("Processing file", i, "of category", setf)
+
+    # now we have found all required files and start with the actual check:
+    # convert both files into goto-cc intermediate language and compare them.
+    subprocess.run(["goto-cc", "-m" + bits, orig])
+    subprocess.run(["goto-cc", "-m" + bits, ff, "-o", "b.out"])
+    p = subprocess.run(["goto-diff", "--verbosity", "2", "-u", "a.out", "b.out"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if len(p.stderr) > 0:
+        print(p.stderr.decode('utf-8').strip())
+    if len(p.stdout) > 0:
+      if options.SHOW_DIFF:
+        subprocess.run(["goto-diff", "-u", "a.out", "b.out"])
+      shutil.rmtree("a.out", ignore_errors=True)
+      shutil.rmtree("b.out", ignore_errors=True)
+
+      if ff in BLACKLIST:
+        print("WARNING: Difference on", ff, "detected (blacklisted)")
+      else:
+        print("ERROR: Difference on", ff, "detected")
+        if options.KEEP_GOING:
+          EC = 1
+        else:
+          exit(1)
+
+    shutil.rmtree("a.out", ignore_errors=True)
+    shutil.rmtree("b.out", ignore_errors=True)
+
+exit(EC)
