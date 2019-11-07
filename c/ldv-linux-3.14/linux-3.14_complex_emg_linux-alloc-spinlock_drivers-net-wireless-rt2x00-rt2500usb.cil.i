@@ -6831,17 +6831,6 @@ void *ldv_malloc_unknown_size(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void ldv_after_alloc(void * ) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 extern struct module __this_module ;
 __inline static void __set_bit(long nr , unsigned long volatile *addr )
 {

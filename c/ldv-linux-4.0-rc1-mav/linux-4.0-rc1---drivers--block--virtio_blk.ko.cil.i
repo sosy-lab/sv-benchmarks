@@ -4575,17 +4575,6 @@ void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
 extern void ldv_after_alloc(void * ) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 void ldv_linux_block_queue_blk_cleanup_queue(void) ;
 struct request *ldv_linux_block_request_blk_make_request(gfp_t mask ) ;
 void ldv_linux_block_request_put_blk_rq(void) ;

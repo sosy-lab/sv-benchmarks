@@ -7960,18 +7960,6 @@ static void ldv_ldv_check_final_state_132(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_alloc_macro(gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 extern struct module __this_module ;
 struct nfs_rpc_ops  const  nfs_v2_clientops ;
 struct rpc_version  const  nfs_version2 ;

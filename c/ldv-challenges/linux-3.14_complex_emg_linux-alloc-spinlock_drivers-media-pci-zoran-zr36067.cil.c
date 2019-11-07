@@ -5034,18 +5034,6 @@ void *ldv_malloc_unknown_size(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void ldv_check_alloc_nonatomic(void) ;
-void *ldv_alloc_macro(gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern void might_fault(void) ;

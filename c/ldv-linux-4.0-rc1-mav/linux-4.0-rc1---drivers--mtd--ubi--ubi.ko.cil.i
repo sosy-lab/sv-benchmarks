@@ -4978,17 +4978,6 @@ void *ldv_err_ptr(long error ) ;
 long ldv_ptr_err(void const *ptr ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 void *ldv_malloc_unknown_size(void) ;
-void *ldv_alloc_macro(gfp_t flags )
-{
-  void *tmp ;
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 __inline static __u16 __fswab16(__u16 val )
 {
   {

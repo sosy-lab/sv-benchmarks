@@ -4523,18 +4523,6 @@ extern void *external_allocated_data(void) ;
 void *ldv_malloc_unknown_size(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
-void *ldv_alloc_macro(gfp_t flags ) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
-  }
-  return (tmp);
-}
-}
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
