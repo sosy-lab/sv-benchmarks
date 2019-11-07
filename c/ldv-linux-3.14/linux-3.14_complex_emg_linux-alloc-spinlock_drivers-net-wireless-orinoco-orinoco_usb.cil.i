@@ -11210,13 +11210,14 @@ static int ldv_mod_timer_84(struct timer_list *ldv_func_arg1 , unsigned long ldv
   return (ldv_func_res);
 }
 }
+void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_85(int ldv_func_arg1 , gfp_t flags )
 {
   void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct urb));
   }
   return ((struct urb *)tmp);
 }
@@ -11439,7 +11440,7 @@ static struct urb *ldv_usb_alloc_urb_125(int ldv_func_arg1 , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct urb));
   }
   return ((struct urb *)tmp);
 }
@@ -11666,7 +11667,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_calloc_unknown_size(void) ;
 void *ldv_zalloc_unknown_size(void) ;
