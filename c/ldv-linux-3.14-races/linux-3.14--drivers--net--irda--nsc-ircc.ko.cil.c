@@ -10659,7 +10659,7 @@ void *ldv_platform_instance_4(void *arg0 )
   goto switch_default;
   case_1: /* CIL Label */ 
   {
-  tmp___8 = ldv_xmalloc_unknown_size(0UL);
+  tmp___8 = ldv_xmalloc(0UL);
   ldv_4_ldv_param_18_1_default = (struct pm_message *)tmp___8;
   ldv_platform_instance_callback_4_18(ldv_4_callback_suspend, ldv_4_resource_platform_device,
                                       ldv_4_ldv_param_18_1_default);
@@ -10868,13 +10868,13 @@ void *ldv_random_allocationless_scenario_3(void *arg0 )
   }
   if (tmp___7 != 0) {
     {
-    tmp___4 = ldv_xmalloc_unknown_size(0UL);
+    tmp___4 = ldv_xmalloc(0UL);
     ldv_3_ldv_param_3_1_default = (struct ifreq *)tmp___4;
     tmp___6 = ldv_undef_int();
     }
     if (tmp___6 != 0) {
       {
-      tmp___5 = ldv_xmalloc_unknown_size(0UL);
+      tmp___5 = ldv_xmalloc(0UL);
       ldv_3_ldv_param_8_0_default = (struct sk_buff *)tmp___5;
       ldv_random_allocationless_scenario_callback_3_8(ldv_3_callback_ndo_start_xmit,
                                                       ldv_3_ldv_param_8_0_default,

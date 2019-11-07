@@ -6408,7 +6408,7 @@ void *ldv_pci_scenario_3(void *arg0 )
   }
   if (tmp___5 != 0) {
     {
-    tmp___3 = ldv_xmalloc_unknown_size(0UL);
+    tmp___3 = ldv_xmalloc(0UL);
     ldv_3_ldv_param_17_1_default = (struct pci_device_id *)tmp___3;
     ldv_pre_probe();
     ldv_3_ret_default = ldv_pci_scenario_probe_3_17((int (*)(struct pci_dev * , struct pci_device_id * ))ldv_3_container_pci_driver->probe,
@@ -10323,7 +10323,7 @@ void *ldv_partially_ordered_scenario_4(void *arg0 )
   ldv_4_resource_file = (struct file *)tmp___8;
   ldv_4_ret_default = ldv_undef_int();
   ldv_free(arg0);
-  tmp___9 = ldv_xmalloc_unknown_size(0UL);
+  tmp___9 = ldv_xmalloc(0UL);
   ldv_4_container_v4l2_file_operations = (struct v4l2_file_operations *)tmp___9;
   tmp___10 = ldv_xmalloc(520UL);
   ldv_4_resource_file = (struct file *)tmp___10;
@@ -10372,7 +10372,7 @@ void *ldv_partially_ordered_scenario_4(void *arg0 )
     goto ldv_main_4;
   } else {
     {
-    tmp___13 = ldv_xmalloc_unknown_size(0UL);
+    tmp___13 = ldv_xmalloc(0UL);
     ldv_4_ldv_param_4_1_default = (struct vm_area_struct *)tmp___13;
     tmp___14 = ldv_undef_int();
     }
@@ -10406,9 +10406,9 @@ void *ldv_partially_ordered_scenario_4(void *arg0 )
     goto ldv_36587;
     case_2: /* CIL Label */ 
     {
-    tmp___15 = ldv_xmalloc_unknown_size(0UL);
+    tmp___15 = ldv_xmalloc(0UL);
     ldv_4_ldv_param_22_1_default = (char *)tmp___15;
-    tmp___16 = ldv_xmalloc_unknown_size(0UL);
+    tmp___16 = ldv_xmalloc(0UL);
     ldv_4_ldv_param_22_3_default = (long long *)tmp___16;
     ldv_partially_ordered_scenario_callback_4_22(ldv_4_callback_read, ldv_4_resource_file,
                                                  ldv_4_ldv_param_22_1_default, ldv_4_ldv_param_22_2_default,
@@ -10419,7 +10419,7 @@ void *ldv_partially_ordered_scenario_4(void *arg0 )
     goto ldv_36587;
     case_3: /* CIL Label */ 
     {
-    tmp___17 = ldv_xmalloc_unknown_size(0UL);
+    tmp___17 = ldv_xmalloc(0UL);
     ldv_4_ldv_param_19_1_default = (struct poll_table_struct *)tmp___17;
     ldv_partially_ordered_scenario_callback_4_19(ldv_4_callback_poll, ldv_4_resource_file,
                                                  ldv_4_ldv_param_19_1_default);
