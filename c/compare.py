@@ -6,12 +6,18 @@
 # and compare the goto-cc programs with goto-diff.
 # Finding a difference implies a wrong preprocessing.
 
+import argparse
+import fnmatch
 import glob
 import yaml
 import os
 import shutil
 import subprocess
-from optparse import OptionParser
+
+# files where preprocessed files are different
+BLACKLIST = ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*"]
+
+CBMC_GIT_PATH = "../cbmc.git/"
 
 
 def expand(s):
@@ -30,35 +36,41 @@ def getArchitecture(cfgfile):
 def getTasksFromSet(setFile):
     with open(setFile, "r") as fp:
         for line in fp:
-            if not line.startswith("#"):
+            if not line.startswith("#"): # ignore comments
                 for task in expand(line.strip()):
                     yield task
 
 
-BLACKLIST = set()
-for f in ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*"]:
-    BLACKLIST.update(expand(f))
+def buildGotoCC():
+  """ build goto-cc and goto-diff if not available, and then set PATH to find it """
+  if not shutil.which("goto-cc") or not shutil.which("goto-diff"):
+    if not os.path.exists(CBMC_GIT_PATH + "src/goto-cc/goto-cc"):
+      subprocess.check_call(["git", "clone", "--depth=1", "http://github.com/diffblue/cbmc.git", CBMC_GIT_PATH])
+      subprocess.check_call(["make", "-j2", "minisat2-download"], cwd=CBMC_GIT_PATH + "src")
+      subprocess.check_call(["make", "-j2", "CXX=g++-5", "goto-diff.dir", "goto-cc.dir"], cwd=CBMC_GIT_PATH + "src")
+    cwd = os.getcwd()
+    os.environ['PATH'] = ":".join([
+        cwd + "/" + CBMC_GIT_PATH + "src/goto-cc",
+        cwd + "/" + CBMC_GIT_PATH + "src/goto-diff",
+        os.environ['PATH']
+    ])
+
 
 # parse comand line options and set default values
-parser = OptionParser()
-parser.add_option("-k", "--keep-going", dest="KEEP_GOING", default=False, action="store_true")
-parser.add_option("-v", "--diff", action="store_true", default=False, dest="SHOW_DIFF")
-parser.add_option("--skip-large", action="store_true", default=False, dest="SKIP_LARGE")
-(options, args) = parser.parse_args()
+parser = argparse.ArgumentParser()
+parser.add_argument("-k", "--keep-going", dest="KEEP_GOING", action="store_true",
+                    help="do not exit after error")
+parser.add_argument("-v", "--diff", dest="SHOW_DIFF", action="store_true",
+                    help="show the changes for the preprocessed files")
+parser.add_argument("--skip-large", dest="SKIP_LARGE", action="store_true",
+                    help="ignore large benchmark sets (see internal blacklist)")
+parser.add_argument(dest="SETS", type=str, nargs='*', default=["*.set"],
+                    help='set files to be analysed')
+args = parser.parse_args()
 
-# if the user did not directly specify sets, we select all sets
-SETS=[]
-for arg in (args if args else ["*.set"]):
-    SETS.extend(expand(arg))
+SETS = [s for arg in args.SETS for s in expand(arg)]
 
-# build goto-cc and goto-diff if not available, and then set PATH to find it
-if not shutil.which("goto-cc") or not shutil.which("goto-diff"):
-  if not os.path.exists("../cbmc.git/src/goto-cc/goto-cc"):
-    subprocess.call(["git", "clone" "--depth=1" "http://github.com/diffblue/cbmc.git" "../cbmc.git"])
-    subprocess.call(["make", "minisat2-download"], cwd="../cbmc.git/src")
-    subprocess.call(["make", "CXX=g++-5", "goto-diff.dir", "goto-cc.dir"], cwd="../cbmc.git/src")
-  cwd = os.getcwd()
-  os.environ['PATH'] = cwd + "/../cbmc.git/src/goto-cc:" + cwd + "/../cbmc.git/src/goto-diff:" + os.environ['PATH']
+buildGotoCC()
 
 EC=0
 
@@ -74,7 +86,7 @@ for f in SETS:
   if setf == "ConcurrencySafety-Main":
     print("Skipping category", setf, "(platform-dependent types)")
     continue
-  elif options.SKIP_LARGE and setf.startswith("Systems_DeviceDriversLinux64_ReachSafety"):
+  elif args.SKIP_LARGE and setf.startswith("Systems_DeviceDriversLinux64_ReachSafety"):
     print("Skipping category", setf, "(only custom includes, no system headers, checking takes too much time)")
     continue
   elif setf == "Systems_OpenBSD_MemSafety":
@@ -147,23 +159,23 @@ for f in SETS:
 
     # now we have found all required files and start with the actual check:
     # convert both files into goto-cc intermediate language and compare them.
-    subprocess.call(["goto-cc", "-m" + bits, orig])
-    subprocess.call(["goto-cc", "-m" + bits, ff, "-o", "b.out"])
+    subprocess.check_call(["goto-cc", "-m" + bits, orig])
+    subprocess.check_call(["goto-cc", "-m" + bits, ff, "-o", "b.out"])
     p = subprocess.Popen(["goto-diff", "--verbosity", "2", "-u", "a.out", "b.out"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = p.communicate()
     if len(stderr) > 0:
         print(stderr.decode('utf-8').strip())
     if len(stdout) > 0:
-      if options.SHOW_DIFF:
+      if args.SHOW_DIFF:
         subprocess.call(["goto-diff", "-u", "a.out", "b.out"])
       shutil.rmtree("a.out", ignore_errors=True)
       shutil.rmtree("b.out", ignore_errors=True)
 
-      if ff in BLACKLIST:
+      if any(fnmatch.fnmatch(f, pattern) for pattern in BLACKLIST):
         print("WARNING: Difference on", ff, "detected (blacklisted)")
       else:
         print("ERROR: Difference on", ff, "detected")
-        if options.KEEP_GOING:
+        if args.KEEP_GOING:
           EC = 1
         else:
           exit(1)
