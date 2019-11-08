@@ -3,7 +3,6 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
-extern void *__VERIFIER_nondet_pointer(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern long __VERIFIER_nondet_long(void);
 
@@ -1488,7 +1487,7 @@ extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *malloc(size_t);
-PCCHAR KeNumberProcessors ;
+unsigned long KeNumberProcessors ;
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
   NTSTATUS RtlQueryRegistryValues(ULONG RelativeTo ,
@@ -2112,7 +2111,7 @@ void DiskPerfAddCounters(PDISK_PERFORMANCE TotalCounters , PDISK_PERFORMANCE New
 #pragma alloc_text(PAGE,DiskPerfSyncFilterWithTarget)
 WMIGUIDREGINFO DiskperfGuidList[1]  = {      {& DiskPerfGuid, 1, 0}};
 NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath ) 
-{ PDRIVER_DISPATCH *dispatch = __VERIFIER_nondet_pointer() ;
+{
   PVOID tmp ;
 
   {
@@ -2129,7 +2128,6 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING RegistryPath 
     DiskPerfRegistryPath.Length = 0;
     DiskPerfRegistryPath.MaximumLength = 0;
   }
-  *dispatch = & DiskPerfSendToNextDriver;
   DriverObject->MajorFunction[0] = & DiskPerfCreate;
   DriverObject->MajorFunction[3] = & DiskPerfReadWrite;
   DriverObject->MajorFunction[4] = & DiskPerfReadWrite;
@@ -2181,7 +2179,7 @@ NTSTATUS DiskPerfAddDevice(PDRIVER_OBJECT DriverObject , PDEVICE_OBJECT Physical
   deviceExtension = (struct _DEVICE_EXTENSION *)filterDeviceObject->DeviceExtension;
   memset(deviceExtension, 0, sizeof(DEVICE_EXTENSION ));
   deviceExtension->LastIdleClock = KeQueryPerformanceCounter((void *)0);
-  deviceExtension->Processors = (unsigned long )*KeNumberProcessors;
+  deviceExtension->Processors = KeNumberProcessors;
   buffersize = (ULONG )((long )(& ((DISK_PERFORMANCE *)0)->QueryTime)) * deviceExtension->Processors;
   tmp = ExAllocatePoolWithTag(0, buffersize, 1718767684UL);
   buffer = (CHAR *)tmp;
@@ -3220,7 +3218,7 @@ int main(void)
   DEVICE_OBJECT devobj ;
   devobj.DeviceExtension = malloc(sizeof (DEVICE_EXTENSION));
   ((DEVICE_EXTENSION*)devobj.DeviceExtension)->DiskCounters = malloc(sizeof (struct _DISK_PERFORMANCE));
-  KeNumberProcessors = __VERIFIER_nondet_pointer();
+  KeNumberProcessors = __VERIFIER_nondet_ulong();
   irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
   /* ensure a bounded number of subsequent decrements do not result in stack underflow */
   irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 3;
@@ -3846,7 +3844,7 @@ NTSTATUS IofCallDriver(PDEVICE_OBJECT DeviceObject ,
 { int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   NTSTATUS returnVal2 ;
   int compRetStatus ;
-  PVOID lcontext = __VERIFIER_nondet_pointer() ;
+  PVOID lcontext = 0 ;
   NTSTATUS tmp ;
   NTSTATUS tmp___0 ;
 
@@ -4192,7 +4190,7 @@ NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 { int __BLAST_NONDET___0 = __VERIFIER_nondet_int() ;
   int compRetStatus ;
   NTSTATUS returnVal ;
-  PVOID lcontext = __VERIFIER_nondet_pointer() ;
+  PVOID lcontext = 0 ;
   NTSTATUS tmp ;
   NTSTATUS tmp___0 ;
 
