@@ -54,9 +54,9 @@ for arg in (args if args else ["*.set"]):
 # build goto-cc and goto-diff if not available, and then set PATH to find it
 if not shutil.which("goto-cc") or not shutil.which("goto-diff"):
   if not os.path.exists("../cbmc.git/src/goto-cc/goto-cc"):
-    subprocess.run(["git", "clone" "--depth=1" "http://github.com/diffblue/cbmc.git" "../cbmc.git"])
-    subprocess.run(["make", "minisat2-download"], cwd="../cbmc.git/src")
-    subprocess.run(["make", "CXX=g++-5", "goto-diff.dir", "goto-cc.dir"], cwd="../cbmc.git/src")
+    subprocess.call(["git", "clone" "--depth=1" "http://github.com/diffblue/cbmc.git" "../cbmc.git"])
+    subprocess.call(["make", "minisat2-download"], cwd="../cbmc.git/src")
+    subprocess.call(["make", "CXX=g++-5", "goto-diff.dir", "goto-cc.dir"], cwd="../cbmc.git/src")
   cwd = os.getcwd()
   os.environ['PATH'] = cwd + "/../cbmc.git/src/goto-cc:" + cwd + "/../cbmc.git/src/goto-diff:" + os.environ['PATH']
 
@@ -147,14 +147,15 @@ for f in SETS:
 
     # now we have found all required files and start with the actual check:
     # convert both files into goto-cc intermediate language and compare them.
-    subprocess.run(["goto-cc", "-m" + bits, orig])
-    subprocess.run(["goto-cc", "-m" + bits, ff, "-o", "b.out"])
-    p = subprocess.run(["goto-diff", "--verbosity", "2", "-u", "a.out", "b.out"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    if len(p.stderr) > 0:
-        print(p.stderr.decode('utf-8').strip())
-    if len(p.stdout) > 0:
+    subprocess.call(["goto-cc", "-m" + bits, orig])
+    subprocess.call(["goto-cc", "-m" + bits, ff, "-o", "b.out"])
+    p = subprocess.Popen(["goto-diff", "--verbosity", "2", "-u", "a.out", "b.out"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout, stderr = p.communicate()
+    if len(stderr) > 0:
+        print(stderr.decode('utf-8').strip())
+    if len(stdout) > 0:
       if options.SHOW_DIFF:
-        subprocess.run(["goto-diff", "-u", "a.out", "b.out"])
+        subprocess.call(["goto-diff", "-u", "a.out", "b.out"])
       shutil.rmtree("a.out", ignore_errors=True)
       shutil.rmtree("b.out", ignore_errors=True)
 
