@@ -17,6 +17,23 @@ import subprocess
 # files where preprocessed files are different
 BLACKLIST = ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*"]
 
+# categories to be excluded ... (with reason and debug information)
+CATEGORY_BLACKLIST = {
+  "ConcurrencySafety-Main": "(platform-dependent types)",
+  "Systems_OpenBSD_MemSafety": "(only custom includes, no system headers, complicated build process)",
+  "Systems_SQLite_MemSafety": "(complicated build process, requires patched version of cilly)",
+}
+
+# categories to be excluded, if option "skip-large" is used ... (with reason and debug information)
+LARGE_CATEGORY_BLACKLIST = {
+  "Systems_DeviceDriversLinux64_ReachSafety": "(only custom includes, no system headers, checking takes too much time)",
+}
+
+# no original source available, there are only preprocessed files.
+# for LDV: there is a related .cil.c file, but it doesn't necessarily match at all
+# for loops/s3.i: this single file is special
+TASKS_ONLY_PREPROCESSED = ['ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/', 'loops/s3.i']
+
 CBMC_GIT_PATH = "../cbmc.git/"
 
 
@@ -56,6 +73,17 @@ def buildGotoCC():
     ])
 
 
+def getSetfiles(args):
+  for setfileWildcard in args.setfiles:
+    setfiles = expand(setfileWildcard)
+    if setfiles:
+      for setfile in setfiles:
+        yield setfile
+    else:
+      print("Could not find a matching set file for", setfileWildcard)
+      exit(1)
+
+
 # parse comand line options and set default values
 parser = argparse.ArgumentParser()
 parser.add_argument("-k", "--keep-going", dest="KEEP_GOING", action="store_true",
@@ -64,36 +92,23 @@ parser.add_argument("-v", "--diff", dest="SHOW_DIFF", action="store_true",
                     help="show the changes for the preprocessed files")
 parser.add_argument("--skip-large", dest="SKIP_LARGE", action="store_true",
                     help="ignore large benchmark sets (see internal blacklist)")
-parser.add_argument(dest="SETS", type=str, nargs='*', default=["*.set"],
+parser.add_argument(dest="setfiles", type=str, nargs='*', default=["*.set"],
                     help='set files to be analysed')
 args = parser.parse_args()
-
-SETS = [s for arg in args.SETS for s in expand(arg)]
 
 buildGotoCC()
 
 EC=0
 
-# iterate over all sets
-for setfile in SETS:
-  if not os.path.exists(setfile):
-    print("Invalid set", setfile)
-    exit(1)
-
-  setname=os.path.basename(setfile)[:-4] # remove ending ".set"
+for setfile in getSetfiles(args):
+  setname = os.path.basename(setfile)[:-4] # remove ending ".set"
 
   # skip some sets, like LDV (too big) or Concurrency (pthread headers are very platform dependent)
-  if setname == "ConcurrencySafety-Main":
-    print("Skipping category", setname, "(platform-dependent types)")
+  if setname in CATEGORY_BLACKLIST:
+    print("Skipping category", setname, CATEGORY_BLACKLIST[setname])
     continue
-  elif args.SKIP_LARGE and setname.startswith("Systems_DeviceDriversLinux64_ReachSafety"):
-    print("Skipping category", setname, "(only custom includes, no system headers, checking takes too much time)")
-    continue
-  elif setname == "Systems_OpenBSD_MemSafety":
-    print("Skipping category", setname, "(only custom includes, no system headers, complicated build process)")
-    continue
-  elif setname == "Systems_SQLite_MemSafety":
-    print("Skipping category", setname, "(complicated build process, requires patched version of cilly)")
+  if args.SKIP_LARGE and setname in LARGE_CATEGORY_BLACKLIST:
+    print("Skipping category", setname, LARGE_CATEGORY_BLACKLIST[setname])
     continue
 
   if not os.path.exists(setname + ".cfg"):
@@ -106,8 +121,7 @@ for setfile in SETS:
     print("Invalid bit width in file", setname + ".cfg")
     exit(1)
 
-  # iterate over all files in the set
-  i=0
+  i = 0
   for taskfile in getTasksFromSet(setfile):
     orig=taskfile
 
@@ -132,10 +146,7 @@ for setfile in SETS:
       exit(1)
 
     # no original source available
-    if taskfile.startswith(('ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/')):
-      # for LDV: there is a related .cil.c file, but it doesn't necessarily match at all
-      continue
-    if taskfile == "loops/s3.i":
+    if taskfile.startswith(tuple(TASKS_ONLY_PREPROCESSED)):
       continue
 
     # try to find a matching source file for a preprocessed task
