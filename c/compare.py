@@ -44,30 +44,30 @@ def fail(*msg):
 
 
 def expand(s):
-    return sorted(glob.glob(s))
+  return sorted(glob.glob(s))
 
 
 def get_architecture(setname):
-    cfgfile = setname + ".cfg"
-    if not os.path.exists(cfgfile):
-      fail("No .cfg file present for category", setname)
+  cfgfile = setname + ".cfg"
+  if not os.path.exists(cfgfile):
+    fail("No .cfg file present for category", setname)
 
-    with open(cfgfile, "r") as fp:
-        for line in fp:
-            if line.startswith("Architecture"):
-                bits = line.split()[1]
-                if bits in ["32", "64"]:
-                  return bits
-                fail("Invalid bit width in file", setname + ".cfg")
-    fail("Invalid configuration file", cfgFile)
+  with open(cfgfile, "r") as fp:
+    for line in fp:
+      if line.startswith("Architecture"):
+        bits = line.split()[1]
+        if bits in ["32", "64"]:
+          return bits
+        fail("Invalid bit width in file", setname + ".cfg")
+  fail("Invalid configuration file", cfgFile)
 
 
 def get_tasks_from_set(setFile):
-    with open(setFile, "r") as fp:
-        for line in fp:
-            if not line.startswith("#"): # ignore comments
-                for task in expand(line.strip()):
-                    yield task
+  with open(setFile, "r") as fp:
+    for line in fp:
+      if not line.startswith("#"): # ignore comments
+        for task in expand(line.strip()):
+          yield task
 
 
 def build_goto_cc():
@@ -125,7 +125,7 @@ def get_setfiles(args):
       fail("Could not find a matching set file for", setfileWildcard)
 
 
-def get_inputfile_from_yml(taskfile):
+def get_inputfiles_from_yml(taskfile):
   with open(taskfile, 'r') as yamlfile:
     yml = yaml.safe_load(yamlfile)
 
@@ -187,8 +187,7 @@ for setfile in get_setfiles(args):
   for taskfile in get_tasks_from_set(setfile):
 
     if taskfile.endswith(".yml"):
-      inputFiles = get_inputfile_from_yml(taskfile)
-      # check whether there is exactly one input file, either directly or nested in a list
+      inputFiles = get_inputfiles_from_yml(taskfile)
       if len(inputFiles) == 1:
         taskfile = os.path.join(os.path.dirname(taskfile), inputFiles[0])
       else:
