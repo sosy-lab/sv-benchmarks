@@ -29,4 +29,4 @@ Based on commit `816ec134472c4d0d5ad0d949bae3417617f1e63d` from
   Furthermore, a few fixes in the source tree are made.
 - Finally, create all the files with:
 
-    $SV/c/aws-c-common/makeall $SV $AWS
+    $SV/c/aws-c-common/makeall $AWS $SV
