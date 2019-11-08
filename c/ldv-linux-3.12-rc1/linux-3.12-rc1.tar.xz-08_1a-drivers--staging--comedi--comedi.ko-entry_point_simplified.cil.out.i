@@ -10130,7 +10130,7 @@ int comedi_buf_get(struct comedi_async *async , short *x )
   return (1);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 void comedi_buf_memcpy_to(struct comedi_async *async , unsigned int offset , void const *data ,
                           unsigned int num_bytes )
 {

@@ -3410,7 +3410,7 @@ static int st21nfca_hci_i2c_repack(struct sk_buff *skb )
   return (0);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int st21nfca_hci_i2c_read(struct st21nfca_i2c_phy *phy , struct sk_buff *skb )
 {
   int r ;

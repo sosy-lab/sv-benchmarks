@@ -4126,7 +4126,7 @@ int i1480_mac_fw_upload(struct i1480 *i1480 )
   return (result);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void *s , int c , size_t n ) ;
 static int i1480_mpi_write(struct i1480 *i1480 , void const *data , size_t size )
 { int result ;

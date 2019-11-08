@@ -5326,7 +5326,7 @@ static void sl_free_bufs(struct slip *sl )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int sl_realloc_bufs(struct slip *sl , int mtu )
 {
   int err ;

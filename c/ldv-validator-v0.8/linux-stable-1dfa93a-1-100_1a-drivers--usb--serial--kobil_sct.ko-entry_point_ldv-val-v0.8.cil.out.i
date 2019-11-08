@@ -3891,7 +3891,7 @@ static void kobil_write_callback(struct urb *purb )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int kobil_write(struct tty_struct *tty , struct usb_serial_port *port , unsigned char const *buf ,
                        int count )
 {

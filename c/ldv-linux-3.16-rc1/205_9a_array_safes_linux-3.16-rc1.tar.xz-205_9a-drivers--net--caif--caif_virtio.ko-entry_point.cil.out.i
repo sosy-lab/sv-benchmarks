@@ -5991,7 +5991,7 @@ static void cfv_release_used_buf(struct virtqueue *vq_tx )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static struct sk_buff *cfv_alloc_and_copy_skb(int *err , struct cfv_info *cfv , u8 *frm ,
                                               u32 frm_len )
 {
