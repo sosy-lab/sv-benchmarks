@@ -41,16 +41,20 @@ def expand(s):
     return sorted(glob.glob(s))
 
 
-def getArchitecture(cfgfile):
+def get_architecture(cfgfile):
     with open(cfgfile, "r") as fp:
         for line in fp:
             if line.startswith("Architecture"):
-                return line.split()[1]
+                bits = line.split()[1]
+                if bits in ["32", "64"]:
+                  return bits
+                print("Invalid bit width in file", setname + ".cfg")
+                exit(1)
     print("Invalid configuration file", cfgFile)
     exit(1)
 
 
-def getTasksFromSet(setFile):
+def get_tasks_from_set(setFile):
     with open(setFile, "r") as fp:
         for line in fp:
             if not line.startswith("#"): # ignore comments
@@ -58,7 +62,7 @@ def getTasksFromSet(setFile):
                     yield task
 
 
-def buildGotoCC():
+def build_goto_cc():
   """ build goto-cc and goto-diff if not available, and then set PATH to find it """
   if not shutil.which("goto-cc") or not shutil.which("goto-diff"):
     if not os.path.exists(CBMC_GIT_PATH + "src/goto-cc/goto-cc"):
@@ -73,7 +77,34 @@ def buildGotoCC():
     ])
 
 
-def getSetfiles(args):
+def execute_goto_cc(args, setfile, bits, orig, taskfile):
+  """ convert both preprocessed and non-preprocessed files into goto-cc intermediate language and compare them """
+  subprocess.check_call(["goto-cc", "-m" + bits, orig, "-o", "a.out"])
+  subprocess.check_call(["goto-cc", "-m" + bits, taskfile, "-o", "b.out"])
+  stdout, stderr = subprocess.Popen(["goto-diff", "--verbosity", "2", "-u", "a.out", "b.out"],
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+  if len(stderr) > 0:
+    print(stderr.decode('utf-8').strip())
+  if len(stdout) > 0:
+    if args.SHOW_DIFF:
+      subprocess.call(["goto-diff", "-u", "a.out", "b.out"])
+    shutil.rmtree("a.out", ignore_errors=True)
+    shutil.rmtree("b.out", ignore_errors=True)
+
+    if any(fnmatch.fnmatch(setfile, pattern) for pattern in BLACKLIST):
+      print("WARNING: Difference on", taskfile, "detected (blacklisted)")
+    else:
+      print("ERROR: Difference on", taskfile, "detected")
+      if args.KEEP_GOING:
+        EC = 1
+      else:
+        exit(1)
+
+  shutil.rmtree("a.out", ignore_errors=True)
+  shutil.rmtree("b.out", ignore_errors=True)
+
+
+def get_setfiles(args):
   for setfileWildcard in args.setfiles:
     setfiles = expand(setfileWildcard)
     if setfiles:
@@ -82,6 +113,21 @@ def getSetfiles(args):
     else:
       print("Could not find a matching set file for", setfileWildcard)
       exit(1)
+
+
+def get_inputfile_from_yml(taskfile):
+  with open(taskfile, 'r') as yamlfile:
+    yml = yaml.safe_load(yamlfile)
+
+    # check whether the input_basename exists (nobody should ever use "null" as a filename!)
+    inputFiles = yml['input_files']
+    if not inputFiles:
+      print("No input files defined in", taskfile)
+      exit(1)
+    elif isinstance(inputFiles, list):
+        return inputFiles
+    else:
+        return [inputFiles] # always wrap as list
 
 
 # parse comand line options and set default values
@@ -96,11 +142,11 @@ parser.add_argument(dest="setfiles", type=str, nargs='*', default=["*.set"],
                     help='set files to be analysed')
 args = parser.parse_args()
 
-buildGotoCC()
+build_goto_cc()
 
 EC=0
 
-for setfile in getSetfiles(args):
+for setfile in get_setfiles(args):
   setname = os.path.basename(setfile)[:-4] # remove ending ".set"
 
   # skip some sets, like LDV (too big) or Concurrency (pthread headers are very platform dependent)
@@ -116,30 +162,20 @@ for setfile in getSetfiles(args):
     continue
 
   print("Processing category", setname)
-  bits=getArchitecture(setname + ".cfg")
-  if bits not in ["32", "64"]:
-    print("Invalid bit width in file", setname + ".cfg")
-    exit(1)
+  bits = get_architecture(setname + ".cfg")
 
   i = 0
-  for taskfile in getTasksFromSet(setfile):
-    orig=taskfile
+  for taskfile in get_tasks_from_set(setfile):
+    orig = taskfile
 
     if taskfile.endswith(".yml"):
-      with open(taskfile, 'r') as yamlfile:
-        yml = yaml.safe_load(yamlfile)
-
-      # check whether the input_basename exists (nobody should ever use "null" as a filename!)
-      inputFiles = yml['input_files']
-      if not inputFiles:
-        print("No input files defined in", taskfile)
-        exit(1)
-
+      inputFiles = get_inputfile_from_yml(taskfile)
       # check whether there is exactly one input file, either directly or nested in a list
-      if isinstance(inputFiles, list):
-        print("ignoring task consisting of multiple sourcefiles")
+      if len(inputFiles) == 1:
+        taskfile = os.path.join(os.path.dirname(taskfile), inputFiles[0])
+      else:
+        print("ignoring task consisting of multiple sourcefiles", inputFiles)
         continue
-      taskfile = os.path.join(os.path.dirname(taskfile), inputFiles)
 
     if not os.path.exists(taskfile):
       print("No task file", taskfile, "found")
@@ -169,29 +205,6 @@ for setfile in getSetfiles(args):
       print("Processing file", i, "of category", setname)
 
     # now we have found all required files and start with the actual check:
-    # convert both files into goto-cc intermediate language and compare them.
-    subprocess.check_call(["goto-cc", "-m" + bits, orig])
-    subprocess.check_call(["goto-cc", "-m" + bits, taskfile, "-o", "b.out"])
-    p = subprocess.Popen(["goto-diff", "--verbosity", "2", "-u", "a.out", "b.out"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout, stderr = p.communicate()
-    if len(stderr) > 0:
-        print(stderr.decode('utf-8').strip())
-    if len(stdout) > 0:
-      if args.SHOW_DIFF:
-        subprocess.call(["goto-diff", "-u", "a.out", "b.out"])
-      shutil.rmtree("a.out", ignore_errors=True)
-      shutil.rmtree("b.out", ignore_errors=True)
-
-      if any(fnmatch.fnmatch(setfile, pattern) for pattern in BLACKLIST):
-        print("WARNING: Difference on", taskfile, "detected (blacklisted)")
-      else:
-        print("ERROR: Difference on", taskfile, "detected")
-        if args.KEEP_GOING:
-          EC = 1
-        else:
-          exit(1)
-
-    shutil.rmtree("a.out", ignore_errors=True)
-    shutil.rmtree("b.out", ignore_errors=True)
+    execute_goto_cc(args, setfile, bits, orig, taskfile)
 
 exit(EC)
