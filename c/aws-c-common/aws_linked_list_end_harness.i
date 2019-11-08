@@ -222,7 +222,6 @@ extern short __VERIFIER_nondet_short();
 extern unsigned int __VERIFIER_nondet_uint();
 extern unsigned long __VERIFIER_nondet_ulong();
 extern unsigned char __VERIFIER_nondet_uchar();
-extern void *__VERIFIER_nondet_pointer();
 
 void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();
@@ -270,7 +269,7 @@ uint16_t nondet_uint16_t() { return __VERIFIER_nondet_short(); }
 uint32_t nondet_uint32_t() { return __VERIFIER_nondet_uint(); }
 uint64_t nondet_uint64_t() { return __VERIFIER_nondet_ulong(); }
 uint8_t nondet_uint8_t() { return __VERIFIER_nondet_uchar(); }
-void *nondet_voidp() { return __VERIFIER_nondet_pointer(); }
+void *nondet_voidp() { return (void *)__VERIFIER_nondet_ulong(); }
 
 typedef char static_assertion_at_line_48[(!!(1 == 1)) * 2 - 1];
 typedef char static_assertion_at_line_49[(!!(2 == 2)) * 2 - 1];
