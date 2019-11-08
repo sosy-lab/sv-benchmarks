@@ -37,21 +37,28 @@ TASKS_ONLY_PREPROCESSED = ['ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'l
 CBMC_GIT_PATH = "../cbmc.git/"
 
 
+def fail(*msg):
+  print("CRITICAL ERROR:", *msg)
+  exit(1)
+
+
 def expand(s):
     return sorted(glob.glob(s))
 
 
-def get_architecture(cfgfile):
+def get_architecture(setname):
+    cfgfile = setname + ".cfg"
+    if not os.path.exists(cfgfile):
+      fail("No .cfg file present for category", setname)
+
     with open(cfgfile, "r") as fp:
         for line in fp:
             if line.startswith("Architecture"):
                 bits = line.split()[1]
                 if bits in ["32", "64"]:
                   return bits
-                print("Invalid bit width in file", setname + ".cfg")
-                exit(1)
-    print("Invalid configuration file", cfgFile)
-    exit(1)
+                fail("Invalid bit width in file", setname + ".cfg")
+    fail("Invalid configuration file", cfgFile)
 
 
 def get_tasks_from_set(setFile):
@@ -111,8 +118,7 @@ def get_setfiles(args):
       for setfile in setfiles:
         yield setfile
     else:
-      print("Could not find a matching set file for", setfileWildcard)
-      exit(1)
+      fail("Could not find a matching set file for", setfileWildcard)
 
 
 def get_inputfile_from_yml(taskfile):
@@ -122,12 +128,25 @@ def get_inputfile_from_yml(taskfile):
     # check whether the input_basename exists (nobody should ever use "null" as a filename!)
     inputFiles = yml['input_files']
     if not inputFiles:
-      print("No input files defined in", taskfile)
-      exit(1)
+      fail("No input files defined in", taskfile)
     elif isinstance(inputFiles, list):
         return inputFiles
     else:
         return [inputFiles] # always wrap as list
+
+
+def get_orig_filename(taskfile):
+  """ try to find a matching source file (.c) for a preprocessed task """
+  if taskfile.endswith('.c.i'):
+    orig = taskfile[:-2] # remove ending ".i"
+  if taskfile.startswith('ldv-memsafety/memleaks'):
+    taskfile = taskfile.replace('memleaks', 'memleaks-notpreprocessed/memleaks')
+  orig = taskfile[:-2] + ".c" # replace .i with .c (or .c with .c)
+
+  if os.path.exists(orig):
+      return orig
+  else:
+    fail("No original source of", taskfile, "found at", orig)
 
 
 # parse comand line options and set default values
@@ -157,16 +176,11 @@ for setfile in get_setfiles(args):
     print("Skipping category", setname, LARGE_CATEGORY_BLACKLIST[setname])
     continue
 
-  if not os.path.exists(setname + ".cfg"):
-    print("Skipping category", setname, "(no .cfg file present)")
-    continue
-
   print("Processing category", setname)
-  bits = get_architecture(setname + ".cfg")
+  bits = get_architecture(setname)
 
   i = 0
   for taskfile in get_tasks_from_set(setfile):
-    orig = taskfile
 
     if taskfile.endswith(".yml"):
       inputFiles = get_inputfile_from_yml(taskfile)
@@ -178,27 +192,16 @@ for setfile in get_setfiles(args):
         continue
 
     if not os.path.exists(taskfile):
-      print("No task file", taskfile, "found")
-      exit(1)
+      fail("No task file", taskfile, "found")
 
     # no original source available
     if taskfile.startswith(tuple(TASKS_ONLY_PREPROCESSED)):
       continue
 
     # try to find a matching source file for a preprocessed task
-    if taskfile.endswith('.c'):
-      continue
-    elif taskfile.endswith('.c.i'):
-      orig = taskfile[:-2] # remove ending ".i"
-    elif taskfile.startswith('ldv-memsafety/memleaks'):
-      orig = taskfile.replace('memleaks', 'memleaks-notpreprocessed/memleaks')
-      orig = orig[:-2] + ".c" # replace .i with .c
-    else:
-      orig = taskfile[:-2] + ".c" # replace .i with .c
-
-    if not os.path.exists(orig):
-      print("No original source of", taskfile, "found")
-      exit(1)
+    orig = get_orig_filename(taskfile)
+    if orig == taskfile:
+      continue # taskfile was already a .c-file
 
     i += 1
     if i % 10 == 0:
