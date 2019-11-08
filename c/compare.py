@@ -75,92 +75,92 @@ buildGotoCC()
 EC=0
 
 # iterate over all sets
-for f in SETS:
-  if not os.path.exists(f):
-    print("Invalid set", f)
+for setfile in SETS:
+  if not os.path.exists(setfile):
+    print("Invalid set", setfile)
     exit(1)
 
-  setf=os.path.basename(f)[:-4] # remove ending ".set"
+  setname=os.path.basename(setfile)[:-4] # remove ending ".set"
 
   # skip some sets, like LDV (too big) or Concurrency (pthread headers are very platform dependent)
-  if setf == "ConcurrencySafety-Main":
-    print("Skipping category", setf, "(platform-dependent types)")
+  if setname == "ConcurrencySafety-Main":
+    print("Skipping category", setname, "(platform-dependent types)")
     continue
-  elif args.SKIP_LARGE and setf.startswith("Systems_DeviceDriversLinux64_ReachSafety"):
-    print("Skipping category", setf, "(only custom includes, no system headers, checking takes too much time)")
+  elif args.SKIP_LARGE and setname.startswith("Systems_DeviceDriversLinux64_ReachSafety"):
+    print("Skipping category", setname, "(only custom includes, no system headers, checking takes too much time)")
     continue
-  elif setf == "Systems_OpenBSD_MemSafety":
-    print("Skipping category", setf, "(only custom includes, no system headers, complicated build process)")
+  elif setname == "Systems_OpenBSD_MemSafety":
+    print("Skipping category", setname, "(only custom includes, no system headers, complicated build process)")
     continue
-  elif setf == "Systems_SQLite_MemSafety":
-    print("Skipping category", setf, "(complicated build process, requires patched version of cilly)")
-    continue
-
-  if not os.path.exists(setf + ".cfg"):
-    print("Skipping category", setf, "(no .cfg file present)")
+  elif setname == "Systems_SQLite_MemSafety":
+    print("Skipping category", setname, "(complicated build process, requires patched version of cilly)")
     continue
 
-  print("Processing category", setf)
-  bits=getArchitecture(setf + ".cfg")
+  if not os.path.exists(setname + ".cfg"):
+    print("Skipping category", setname, "(no .cfg file present)")
+    continue
+
+  print("Processing category", setname)
+  bits=getArchitecture(setname + ".cfg")
   if bits not in ["32", "64"]:
-    print("Invalid bit width in file", setf + ".cfg")
+    print("Invalid bit width in file", setname + ".cfg")
     exit(1)
 
   # iterate over all files in the set
   i=0
-  for ff in getTasksFromSet(f):
-    orig=ff
+  for taskfile in getTasksFromSet(setfile):
+    orig=taskfile
 
-    if ff.endswith(".yml"):
-      with open(ff, 'r') as yamlfile:
+    if taskfile.endswith(".yml"):
+      with open(taskfile, 'r') as yamlfile:
         yml = yaml.safe_load(yamlfile)
 
       # check whether the input_basename exists (nobody should ever use "null" as a filename!)
       inputFiles = yml['input_files']
       if not inputFiles:
-        print("No input files defined in", ff)
+        print("No input files defined in", taskfile)
         exit(1)
 
       # check whether there is exactly one input file, either directly or nested in a list
       if isinstance(inputFiles, list):
         print("ignoring task consisting of multiple sourcefiles")
         continue
-      ff = os.path.join(os.path.dirname(ff), inputFiles)
+      taskfile = os.path.join(os.path.dirname(taskfile), inputFiles)
 
-    if not os.path.exists(ff):
-      print("No task file", ff, "found")
+    if not os.path.exists(taskfile):
+      print("No task file", taskfile, "found")
       exit(1)
 
     # no original source available
-    if ff.startswith(('ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/')):
+    if taskfile.startswith(('ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/')):
       # for LDV: there is a related .cil.c file, but it doesn't necessarily match at all
       continue
-    if ff == "loops/s3.i":
+    if taskfile == "loops/s3.i":
       continue
 
     # try to find a matching source file for a preprocessed task
-    if ff.endswith('.c'):
+    if taskfile.endswith('.c'):
       continue
-    elif ff.endswith('.c.i'):
-      orig = ff[:-2] # remove ending ".i"
-    elif ff.startswith('ldv-memsafety/memleaks'):
-      orig = ff.replace('memleaks', 'memleaks-notpreprocessed/memleaks')
+    elif taskfile.endswith('.c.i'):
+      orig = taskfile[:-2] # remove ending ".i"
+    elif taskfile.startswith('ldv-memsafety/memleaks'):
+      orig = taskfile.replace('memleaks', 'memleaks-notpreprocessed/memleaks')
       orig = orig[:-2] + ".c" # replace .i with .c
     else:
-      orig = ff[:-2] + ".c" # replace .i with .c
+      orig = taskfile[:-2] + ".c" # replace .i with .c
 
     if not os.path.exists(orig):
-      print("No original source of", ff, "found")
+      print("No original source of", taskfile, "found")
       exit(1)
 
     i += 1
     if i % 10 == 0:
-      print("Processing file", i, "of category", setf)
+      print("Processing file", i, "of category", setname)
 
     # now we have found all required files and start with the actual check:
     # convert both files into goto-cc intermediate language and compare them.
     subprocess.check_call(["goto-cc", "-m" + bits, orig])
-    subprocess.check_call(["goto-cc", "-m" + bits, ff, "-o", "b.out"])
+    subprocess.check_call(["goto-cc", "-m" + bits, taskfile, "-o", "b.out"])
     p = subprocess.Popen(["goto-diff", "--verbosity", "2", "-u", "a.out", "b.out"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = p.communicate()
     if len(stderr) > 0:
@@ -171,10 +171,10 @@ for f in SETS:
       shutil.rmtree("a.out", ignore_errors=True)
       shutil.rmtree("b.out", ignore_errors=True)
 
-      if any(fnmatch.fnmatch(f, pattern) for pattern in BLACKLIST):
-        print("WARNING: Difference on", ff, "detected (blacklisted)")
+      if any(fnmatch.fnmatch(setfile, pattern) for pattern in BLACKLIST):
+        print("WARNING: Difference on", taskfile, "detected (blacklisted)")
       else:
-        print("ERROR: Difference on", ff, "detected")
+        print("ERROR: Difference on", taskfile, "detected")
         if args.KEEP_GOING:
           EC = 1
         else:
