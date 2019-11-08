@@ -21,13 +21,13 @@ BLACKLIST = ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*"]
 # categories to be excluded ... (with reason and debug information)
 CATEGORY_BLACKLIST = {
   "ConcurrencySafety-Main": "(platform-dependent types)",
-  "Systems_OpenBSD_MemSafety": "(only custom includes, no system headers, complicated build process)",
-  "Systems_SQLite_MemSafety": "(complicated build process, requires patched version of cilly)",
+  "Systems-OpenBSD-MemSafety": "(only custom includes, no system headers, complicated build process)",
+  "Systems-SQLite-MemSafety": "(complicated build process, requires patched version of cilly)",
 }
 
 # categories to be excluded, if option "skip-large" is used ... (with reason and debug information)
 LARGE_CATEGORY_BLACKLIST = {
-  "Systems_DeviceDriversLinux64_ReachSafety": "(only custom includes, no system headers, checking takes too much time)",
+  "SoftwareSystems-DeviceDriversLinux64-ReachSafety": "(only custom includes, no system headers, checking takes too much time)",
 }
 
 # no original source available, there are only preprocessed files.
