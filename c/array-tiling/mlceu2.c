@@ -6,32 +6,33 @@ void *malloc(unsigned int size);
 
 int SIZE;
 
+const int MAX = 100000;
+
 int main()
 {
 	SIZE = __VERIFIER_nondet_int();
-	if(SIZE <= 0) return 1;
-	__VERIFIER_assume(SIZE <= 66060288/sizeof(int));
-
-	int i;
-	int *a = malloc(sizeof(int)*SIZE);
-
-	for(i=0; i<SIZE; i++)
+	if(SIZE > 1 && SIZE < MAX)
 	{
-		if( i>>16 > 250)
+		int i;
+		int *a = malloc(sizeof(int)*SIZE);
+
+		for(i=0; i<SIZE; i++)
 		{
-			a[i] = 1;
+			if( i>>16 > 250)
+			{
+				a[i] = 1;
+			}
+			else
+			{
+				a[i] = 0;
+			}
 		}
-		else
+
+		//assert
+		for(i=0; i<SIZE; i++)
 		{
-			a[i] = 0;
+			__VERIFIER_assert(a[i] == 0);
 		}
 	}
-
-	//assert
-	for(i=0; i<SIZE; i++)
-	{
-		__VERIFIER_assert(a[i] == 0);
-	}
-
 	return 1;
 }
