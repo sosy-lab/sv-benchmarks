@@ -85,14 +85,12 @@ def build_goto_cc():
     ])
 
 
-def execute_goto_cc(args, setfile, bits, orig, taskfile):
+def execute_goto_cc(args, bits, orig, taskfile):
   """ convert both preprocessed and non-preprocessed files into goto-cc intermediate language and compare them """
-  origoutfile = tempfile.NamedTemporaryFile(prefix="compare_orig_", suffix=".out")
-  taskoutfile = tempfile.NamedTemporaryFile(prefix="compare_task_", suffix=".out")
-  origout = origoutfile.name
-  taskout = taskoutfile.name
-
-  try:
+  with tempfile.NamedTemporaryFile(prefix="compare_orig_", suffix=".out") as origoutfile, \
+       tempfile.NamedTemporaryFile(prefix="compare_task_", suffix=".out") as taskoutfile:
+    origout = origoutfile.name
+    taskout = taskoutfile.name
     subprocess.check_call(["goto-cc", "-m" + bits, orig, "-o", origout])
     subprocess.check_call(["goto-cc", "-m" + bits, taskfile, "-o", taskout])
     stdout, stderr = subprocess.Popen(["goto-diff", "--verbosity", "2", "-u", origout, taskout],
@@ -102,17 +100,15 @@ def execute_goto_cc(args, setfile, bits, orig, taskfile):
     if len(stdout) > 0:
       if args.SHOW_DIFF:
         subprocess.call(["goto-diff", "-u", origout, taskout])
-      if any(fnmatch.fnmatch(setfile, pattern) for pattern in BLACKLIST):
+      if any(fnmatch.fnmatch(taskfile, pattern) for pattern in BLACKLIST):
         print("WARNING: Difference on", taskfile, "detected (blacklisted)")
       else:
         print("ERROR: Difference on", taskfile, "detected")
         if args.KEEP_GOING:
+          global EC
           EC = 1
         else:
           exit(1)
-  finally:
-    origoutfile.close()
-    taskoutfile.close()
 
 
 def get_setfiles(args):
@@ -211,6 +207,6 @@ for setfile in get_setfiles(args):
       print("Processing file", i, "of category", setname)
 
     # now we have found all required files and start with the actual check:
-    execute_goto_cc(args, setfile, bits, orig, taskfile)
+    execute_goto_cc(args, bits, orig, taskfile)
 
 exit(EC)
