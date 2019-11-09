@@ -105,6 +105,7 @@ def execute_goto_cc(args, setfile, bits, orig, taskfile):
       else:
         print("ERROR: Difference on", taskfile, "detected")
         if args.KEEP_GOING:
+          global EC
           EC = 1
         else:
           exit(1)
