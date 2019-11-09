@@ -87,12 +87,10 @@ def build_goto_cc():
 
 def execute_goto_cc(args, setfile, bits, orig, taskfile):
   """ convert both preprocessed and non-preprocessed files into goto-cc intermediate language and compare them """
-  origoutfile = tempfile.NamedTemporaryFile(prefix="compare_orig_", suffix=".out")
-  taskoutfile = tempfile.NamedTemporaryFile(prefix="compare_task_", suffix=".out")
-  origout = origoutfile.name
-  taskout = taskoutfile.name
-
-  try:
+  with tempfile.NamedTemporaryFile(prefix="compare_orig_", suffix=".out") as origoutfile, \
+       tempfile.NamedTemporaryFile(prefix="compare_task_", suffix=".out") as taskoutfile:
+    origout = origoutfile.name
+    taskout = taskoutfile.name
     subprocess.check_call(["goto-cc", "-m" + bits, orig, "-o", origout])
     subprocess.check_call(["goto-cc", "-m" + bits, taskfile, "-o", taskout])
     stdout, stderr = subprocess.Popen(["goto-diff", "--verbosity", "2", "-u", origout, taskout],
@@ -110,9 +108,6 @@ def execute_goto_cc(args, setfile, bits, orig, taskfile):
           EC = 1
         else:
           exit(1)
-  finally:
-    origoutfile.close()
-    taskoutfile.close()
 
 
 def get_setfiles(args):
