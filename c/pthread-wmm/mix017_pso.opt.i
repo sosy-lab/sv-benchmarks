@@ -1,5 +1,5 @@
 extern void __VERIFIER_assume(int);
-extern void * __VERIFIER_nondet_pointer(void);
+extern _Bool __VERIFIER_nondet_bool(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 extern void __VERIFIER_atomic_begin();
@@ -747,7 +747,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 void * P1(void *arg)
 {
@@ -762,7 +762,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 void * P2(void *arg)
 {
@@ -770,8 +770,8 @@ void * P2(void *arg)
   y = 1;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = __VERIFIER_nondet_pointer();
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   z$flush_delayed = weak$$choice2;
   z$mem_tmp = z;
   z = !z$w_buff0_used || !z$r_buff0_thd3 && !z$w_buff1_used || !z$r_buff0_thd3 && !z$r_buff1_thd3 ? z : (z$w_buff0_used && z$r_buff0_thd3 ? z$w_buff0 : z$w_buff1);
@@ -790,7 +790,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 void * P3(void *arg)
 {
@@ -808,8 +808,8 @@ void * P3(void *arg)
   z$r_buff0_thd4 = (_Bool)1;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = __VERIFIER_nondet_pointer();
-  weak$$choice2 = __VERIFIER_nondet_pointer();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   z$flush_delayed = weak$$choice2;
   z$mem_tmp = z;
   z = !z$w_buff0_used || !z$r_buff0_thd4 && !z$w_buff1_used || !z$r_buff0_thd4 && !z$r_buff1_thd4 ? z : (z$w_buff0_used && z$r_buff0_thd4 ? z$w_buff0 : z$w_buff1);
@@ -836,7 +836,7 @@ void * P3(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return __VERIFIER_nondet_pointer();
+  return 0;
 }
 void fence()
 {
