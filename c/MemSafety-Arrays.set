@@ -1,3 +1,6 @@
 array-memsafety/*.yml
 array-examples/*.yml
 array-memsafety-realloc/*.yml
+termination-crafted/Arrays*.yml
+termination-crafted/LexIndexValue*.yml
+termination-crafted/NonTermination3-1.yml
