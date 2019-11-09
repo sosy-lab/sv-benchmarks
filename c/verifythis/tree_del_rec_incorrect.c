@@ -32,12 +32,10 @@ int min(struct node *n) {
     if(!n) {
         return 2147483647; /* INT_MAX */
     } else {
-        int a = n->data;
-        int b = min(n->left);
-        int c = min(n->right);
-        if(b <= a && b <= c) return b;
-        if(c <= a && c <= b) return c;
-        return a; /* this node has the minimum */
+        int a = min(n->left);
+        int b = min(n->right);
+        if(a <= b) return a;
+        else return b;
     }
 }
 

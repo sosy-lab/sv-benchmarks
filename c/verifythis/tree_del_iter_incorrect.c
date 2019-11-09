@@ -32,25 +32,30 @@ int min(struct node *n) {
     if(!n) {
         return 2147483647; /* INT_MAX */
     } else {
-        int a = n->data;
-        int b = min(n->left);
-        int c = min(n->right);
-        if(b <= a && b <= c) return b;
-        if(c <= a && c <= b) return c;
-        return a; /* this node has the minimum */
+        int a = min(n->left);
+        int b = min(n->right);
+        if(a <= b) return a;
+        else return b;
     }
 }
 
 struct node *tree_del(struct node *t, int *min) {
-    struct node *r;
+    int m;
+    struct node *p = t->left;
+    struct node *pp, *tt;
 
-    if (!t->left) {
-        *min = t->data; r = t->right; free(t);
-        return r;
+    if (!p) {
+        m = t->data; tt = t->right; free(t); t = tt;
     } else {
-        t->left = tree_del(t->left, min);
-        return t;
+        pp = t; tt = p->left;
+        while (tt) {
+            pp = p; p = tt; tt = p->left;
+        }
+        m = p->data; tt = p->right; free(p); pp->left= tt;
     }
+    
+    *min = m;
+    return t;
 }
 
 int tree_inorder(struct node *t, int *a, int i) {
@@ -83,7 +88,7 @@ void task(struct node *t) {
     __VERIFIER_assert(a == b);
     int m = size(t);
     int *y = calloc(n, sizeof(int));
-    tree_inorder(t, y, m);
+    tree_inorder(r, y, m);
 
     __VERIFIER_assert(n == m + 1);
     int i;

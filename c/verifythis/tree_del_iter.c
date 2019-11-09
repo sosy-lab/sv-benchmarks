@@ -5,6 +5,7 @@ extern void free(void *);
 extern int __VERIFIER_nondet_int(void);
 extern _Bool __VERIFIER_nondet_bool(void);
 
+extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) {
     if(!cond) __VERIFIER_error();
@@ -31,12 +32,15 @@ int min(struct node *n) {
     if(!n) {
         return 2147483647; /* INT_MAX */
     } else {
-        int a = min(n->left);
-        int b = min(n->right);
-        if(a <= b) return a;
-        else return b;
+        int a = n->data;
+        int b = min(n->left);
+        int c = min(n->right);
+        if(b <= a && b <= c) return b;
+        if(c <= a && c <= b) return c;
+        return a; /* this node has the minimum */
     }
 }
+
 
 struct node *tree_del(struct node *t, int *min) {
     int m;
@@ -78,6 +82,7 @@ void task(struct node *t) {
     int b;
 
     int n = size(t);
+    __VERIFIER_assume(n != 0);
     int *x = calloc(n, sizeof(int));
     tree_inorder(t, x, n);
     __VERIFIER_assert(a == x[0]);
