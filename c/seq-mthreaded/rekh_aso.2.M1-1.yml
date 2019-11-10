@@ -5,4 +5,4 @@ input_files: 'rekh_aso.2.M1-1.c'
 
 properties:
   - property_file: ../properties/unreach-call.prp
-    expected_verdict: true
+    expected_verdict: false
