@@ -1,0 +1,6 @@
+format_version: '1.0'
+
+input_files: 'sqlite_merged_comb.i'
+
+properties:
+  - property_file: ../properties/coverage-branches.prp

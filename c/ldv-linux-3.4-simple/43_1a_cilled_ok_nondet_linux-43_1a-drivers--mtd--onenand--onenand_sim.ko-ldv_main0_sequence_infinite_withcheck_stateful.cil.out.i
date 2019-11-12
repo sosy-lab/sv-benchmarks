@@ -2521,7 +2521,7 @@ static int onenand_check_overwrite(void *dest , void *src , size_t count )
   return (0);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static void onenand_data_handle(struct onenand_chip *this , int cmd , int dataram ,
                                 unsigned int offset )
 { struct mtd_info *mtd ;

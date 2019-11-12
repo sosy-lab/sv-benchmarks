@@ -1,5 +1,5 @@
 format_version: '1.0'
-input_files: 'knuth.c'
+input_files: 'knuth.i'
 properties:
   - property_file: ../properties/unreach-call.prp
     expected_verdict: true

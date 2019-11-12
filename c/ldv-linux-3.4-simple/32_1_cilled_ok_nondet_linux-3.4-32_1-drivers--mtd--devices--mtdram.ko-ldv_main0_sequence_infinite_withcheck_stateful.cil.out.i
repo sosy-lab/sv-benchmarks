@@ -1044,7 +1044,7 @@ static unsigned long ram_get_unmapped_area(struct mtd_info *mtd , unsigned long 
   }
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int ram_read(struct mtd_info *mtd , loff_t from , size_t len , size_t *retlen ,
                     u_char *buf )
 { size_t __len ;

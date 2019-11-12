@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'aws_byte_buf_write_from_whole_string_harness.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

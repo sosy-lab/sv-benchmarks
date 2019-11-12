@@ -50,7 +50,7 @@ preprocessing-consistency:
   script:
     - "goto-diff --version"
     - "cd c"
-    - "./compare.sh --keep-going --skip-large"
+    - "./compare.py --keep-going --skip-large"
 
 java:
   stage: checks

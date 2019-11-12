@@ -1,0 +1,23 @@
+# random dummy path, don't use this
+SV ?= ../../../sv-benchmarks/
+SV_DIR = $(SV)/c/aws-c-common
+
+DEFINES += -DCBMC_NO_FORALL -DCBMC_NO_ASSERT_H
+
+CS=$(SV_DIR)/prelude.h $(DEPENDENCIES) $(ENTRY).c
+IS=$(CS:%.c=%.i)
+
+I=$(SV_DIR)/$(ENTRY).i
+C=$(SV_DIR)/$(ENTRY).c
+
+sv-benchmark: $(I)
+	@echo $(ENTRY)
+
+$(C): $(CS)
+	@cat $^ > $@
+
+%.i: %.c
+	@cpp $(INC) $(DEFINES) -o $@ $<
+	@sed 's/9223372036854775808/9223372036854775808U/g' $@ -i # fix constant specification
+	@sed '/^#/ d' $@ -i # get rid of debug statements with lines
+	@echo "int main() { $(ENTRY)(); return 0; }" >> $@

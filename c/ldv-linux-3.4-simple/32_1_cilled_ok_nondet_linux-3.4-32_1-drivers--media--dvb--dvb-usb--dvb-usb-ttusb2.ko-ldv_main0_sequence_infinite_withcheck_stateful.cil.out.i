@@ -6121,7 +6121,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp___7);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern int dvb_usb_device_init(struct usb_interface * , struct dvb_usb_device_properties * ,
                                struct module * , struct dvb_usb_device ** , short *adapter_nums ) ;
 extern void dvb_usb_device_exit(struct usb_interface * ) ;

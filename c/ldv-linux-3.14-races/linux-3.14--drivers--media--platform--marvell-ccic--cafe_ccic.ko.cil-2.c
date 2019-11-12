@@ -6196,6 +6196,7 @@ int ldv_emg_request_irq(unsigned int arg0 , irqreturn_t (*arg1)(int  , void * ) 
   }
 }
 }
+static bool alloc_bufs_at_read  ;
 void *ldv_insmod_5(void *arg0 ) 
 { 
   void (*ldv_5_cafe_exit_default)(void) ;
@@ -6216,6 +6217,7 @@ void *ldv_insmod_5(void *arg0 )
   ldv_5_ret_default = ldv_insmod_cafe_init_5_9(ldv_5_cafe_init_default);
   ldv_5_ret_default = ldv_post_init(ldv_5_ret_default);
   tmp___1 = ldv_undef_int();
+  alloc_bufs_at_read = ldv_undef_int();
   }
   if (tmp___1 != 0) {
     {
@@ -7537,7 +7539,6 @@ __inline static void mcam_reg_clear_bit(struct mcam_camera *cam , unsigned int r
   return;
 }
 }
-static bool alloc_bufs_at_read  ;
 static int n_dma_bufs  =    3;
 static int dma_buf_size  =    614400;
 static bool flip  ;

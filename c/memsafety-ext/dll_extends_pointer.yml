@@ -6,3 +6,6 @@ input_files: 'dll_extends_pointer.i'
 properties:
   - property_file: ../properties/valid-memsafety.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

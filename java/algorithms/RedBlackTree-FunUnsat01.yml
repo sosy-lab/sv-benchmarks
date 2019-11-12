@@ -1,0 +1,9 @@
+format_version: "1.0"
+input_files:
+  - ../common/
+  - RedBlackTree-FunUnsat01/
+  - RedBlackTree-FunUnsat01/rbtree/
+properties:
+  - property_file: ../properties/assert.prp
+    expected_verdict: false
+

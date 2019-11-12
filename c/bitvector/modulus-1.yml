@@ -6,3 +6,6 @@ input_files: 'modulus-1.i'
 properties:
   - property_file: ../properties/no-overflow.prp
     expected_verdict: false
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

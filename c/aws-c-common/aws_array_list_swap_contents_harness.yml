@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'aws_array_list_swap_contents_harness.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

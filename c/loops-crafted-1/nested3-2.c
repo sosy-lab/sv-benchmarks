@@ -7,7 +7,8 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
-int main(void) {
+int main()
+{
   unsigned int x = 0;
   unsigned int y = 0;
   unsigned int z = 0;
@@ -29,5 +30,6 @@ int main(void) {
     x++;
   }
   __VERIFIER_assert(!(x % 2));
+ return 0;
 
 }

@@ -1,0 +1,225 @@
+diff --git a/.cbmc-batch/include/proof_helpers/proof_allocators.h b/.cbmc-batch/include/proof_helpers/proof_allocators.h
+index dcda6f8..ee9a524 100644
+--- a/.cbmc-batch/include/proof_helpers/proof_allocators.h
++++ b/.cbmc-batch/include/proof_helpers/proof_allocators.h
+@@ -32,7 +32,7 @@
+  *     __CPROVER_assume(size <= MAX_MALLOC);
+  * before calling calloc, and hence will never return an invalid pointer.
+  */
+-void *bounded_calloc(size_t size);
++void *bounded_calloc(size_t num, size_t size);
+ 
+ /**
+  * CBMC model of malloc always succeeds, even if the requested size is larger
+diff --git a/.cbmc-batch/include/proof_helpers/utils.h b/.cbmc-batch/include/proof_helpers/utils.h
+index b210f9a..319a1ff 100644
+--- a/.cbmc-batch/include/proof_helpers/utils.h
++++ b/.cbmc-batch/include/proof_helpers/utils.h
+@@ -17,6 +17,7 @@
+ 
+ #include <aws/common/array_list.h>
+ #include <aws/common/byte_buf.h>
++#include <aws/common/ring_buffer.h>
+ #include <proof_helpers/nondet.h>
+ #include <proof_helpers/proof_allocators.h>
+ #include <stddef.h>
+@@ -74,18 +75,27 @@ void assert_array_list_equivalence(
+  * (use save_byte_from_array function), so it can properly assert all bytes match.
+  */
+ void assert_byte_cursor_equivalence(
+-    const struct aws_byte_buf *const lhs,
+-    const struct aws_byte_buf *const rhs,
++    const struct aws_byte_cursor *const lhs,
++    const struct aws_byte_cursor *const rhs,
+     const struct store_byte_from_buffer *const rhs_byte);
+ 
++/**
++ * Asserts two aws_ring_buffer structures are equivalent. In order to be considered equivalent,
++ * all member from both structures must match (i.e., head, tail, *allocation, *allocation_end,
++ * and *allocator).
++ */
++void assert_ring_buffer_equivalence(
++    const struct aws_ring_buffer *const lhs,
++    const struct aws_ring_buffer *const rhs);
++
+ /**
+  * Asserts two aws_byte_cursor structures are equivalent. Prior to using this function,
+  * it is necessary to select a non-deterministic byte from the rhs aws_byte_cursor structure
+  * (use save_byte_from_array function), so it can properly assert all bytes match.
+  */
+ void assert_byte_buf_equivalence(
+-    const struct aws_byte_cursor *const lhs,
+-    const struct aws_byte_cursor *const rhs,
++    const struct aws_byte_buf *const lhs,
++    const struct aws_byte_buf *const rhs,
+     const struct store_byte_from_buffer *const rhs_byte);
+ 
+ /**
+diff --git a/.cbmc-batch/jobs/Makefile.common b/.cbmc-batch/jobs/Makefile.common
+index 939e443..0ce7bcb 100644
+--- a/.cbmc-batch/jobs/Makefile.common
++++ b/.cbmc-batch/jobs/Makefile.common
+@@ -247,3 +247,4 @@ veryclean: clean
+ .PHONY: setup_dependencies cbmc property coverage report clean veryclean
+ 
+ include $(HELPERDIR)/jobs/Makefile.cbmc_batch
++include $(HELPERDIR)/jobs/Makefile.sv-benchmarks
+diff --git a/.cbmc-batch/jobs/Makefile.sv-benchmarks b/.cbmc-batch/jobs/Makefile.sv-benchmarks
+new file mode 100644
+index 0000000..64d096d
+--- /dev/null
++++ b/.cbmc-batch/jobs/Makefile.sv-benchmarks
+@@ -0,0 +1,23 @@
++# random dummy path, don't use this
++SV ?= ../../../sv-benchmarks/
++SV_DIR = $(SV)/c/aws-c-common
++
++DEFINES += -DCBMC_NO_FORALL -DCBMC_NO_ASSERT_H
++
++CS=$(SV_DIR)/prelude.h $(DEPENDENCIES) $(ENTRY).c
++IS=$(CS:%.c=%.i)
++
++I=$(SV_DIR)/$(ENTRY).i
++C=$(SV_DIR)/$(ENTRY).c
++
++sv-benchmark: $(I)
++	@echo $(ENTRY)
++
++$(C): $(CS)
++	@cat $^ > $@
++
++%.i: %.c
++	@cpp $(INC) $(DEFINES) -o $@ $<
++	@sed 's/9223372036854775808/9223372036854775808U/g' $@ -i # fix constant specification
++	@sed '/^#/ d' $@ -i # get rid of debug statements with lines
++	@echo "int main() { $(ENTRY)(); return 0; }" >> $@
+diff --git a/.cbmc-batch/jobs/aws_array_eq_c_str_ignore_case/aws_array_eq_c_str_ignore_case_harness.c b/.cbmc-batch/jobs/aws_array_eq_c_str_ignore_case/aws_array_eq_c_str_ignore_case_harness.c
+index ab048e9..faed53e 100644
+--- a/.cbmc-batch/jobs/aws_array_eq_c_str_ignore_case/aws_array_eq_c_str_ignore_case_harness.c
++++ b/.cbmc-batch/jobs/aws_array_eq_c_str_ignore_case/aws_array_eq_c_str_ignore_case_harness.c
+@@ -27,7 +27,7 @@ void aws_array_eq_c_str_ignore_case_harness() {
+     /* save current state of the parameters */
+     struct store_byte_from_buffer old_byte_from_array;
+     save_byte_from_array((uint8_t *)array, array_len, &old_byte_from_array);
+-    size_t str_len = (c_str) ? strlen(c_str) : NULL;
++    size_t str_len = (c_str) ? strlen(c_str) : 0;
+     struct store_byte_from_buffer old_byte_from_str;
+     save_byte_from_array((uint8_t *)c_str, str_len, &old_byte_from_str);
+ 
+diff --git a/.cbmc-batch/jobs/aws_ring_buffer_acquire/aws_ring_buffer_acquire_harness.c b/.cbmc-batch/jobs/aws_ring_buffer_acquire/aws_ring_buffer_acquire_harness.c
+index 48c5872..8ed45e6 100644
+--- a/.cbmc-batch/jobs/aws_ring_buffer_acquire/aws_ring_buffer_acquire_harness.c
++++ b/.cbmc-batch/jobs/aws_ring_buffer_acquire/aws_ring_buffer_acquire_harness.c
+@@ -42,6 +42,7 @@ void aws_ring_buffer_acquire_harness() {
+     uint8_t *old_tail = aws_atomic_load_ptr(&ring_buf_old.tail);
+     uint8_t *new_head = aws_atomic_load_ptr(&ring_buf.head);
+     uint8_t *new_tail = aws_atomic_load_ptr(&ring_buf.tail);
++    
+     if (result == AWS_OP_SUCCESS) {
+         assert(aws_byte_buf_is_valid(&buf));
+         assert(buf.capacity == requested_size);
+@@ -62,7 +63,7 @@ void aws_ring_buffer_acquire_harness() {
+         assert(IMPLIES(is_ends_valid_state(&ring_buf_old), is_ends_valid_state(&ring_buf)));
+         assert(!(is_front_valid_state(&ring_buf_old) && is_middle_valid_state(&ring_buf)));
+     } else {
+-        assert(ring_buf == ring_buf_old);
++        assert_ring_buffer_equivalence(&ring_buf, &ring_buf_old);
+     }
+     assert(aws_ring_buffer_is_valid(&ring_buf));
+     assert(ring_buf.allocator == ring_buf_old.allocator);
+diff --git a/.cbmc-batch/jobs/aws_ring_buffer_acquire_up_to/aws_ring_buffer_acquire_up_to_harness.c b/.cbmc-batch/jobs/aws_ring_buffer_acquire_up_to/aws_ring_buffer_acquire_up_to_harness.c
+index c854946..4f5412a 100644
+--- a/.cbmc-batch/jobs/aws_ring_buffer_acquire_up_to/aws_ring_buffer_acquire_up_to_harness.c
++++ b/.cbmc-batch/jobs/aws_ring_buffer_acquire_up_to/aws_ring_buffer_acquire_up_to_harness.c
+@@ -52,7 +52,7 @@ void aws_ring_buffer_acquire_up_to_harness() {
+         assert(IMPLIES(is_ends_valid_state(&ring_buf_old), is_ends_valid_state(&ring_buf)));
+         assert(!(is_front_valid_state(&ring_buf_old) && is_middle_valid_state(&ring_buf)));
+     } else {
+-        assert(ring_buf == ring_buf_old);
++        assert_ring_buffer_equivalence(&ring_buf, &ring_buf_old);
+     }
+     assert(aws_ring_buffer_is_valid(&ring_buf));
+     assert(ring_buf.allocator == ring_buf_old.allocator);
+diff --git a/.cbmc-batch/jobs/aws_ring_buffer_buf_belongs_to_pool/aws_ring_buffer_buf_belongs_to_pool_harness.c b/.cbmc-batch/jobs/aws_ring_buffer_buf_belongs_to_pool/aws_ring_buffer_buf_belongs_to_pool_harness.c
+index 2148eb2..6f96936 100644
+--- a/.cbmc-batch/jobs/aws_ring_buffer_buf_belongs_to_pool/aws_ring_buffer_buf_belongs_to_pool_harness.c
++++ b/.cbmc-batch/jobs/aws_ring_buffer_buf_belongs_to_pool/aws_ring_buffer_buf_belongs_to_pool_harness.c
+@@ -45,6 +45,8 @@ void aws_ring_buffer_buf_belongs_to_pool_harness() {
+     assert(is_member == result);
+     assert(aws_ring_buffer_is_valid(&ring_buf));
+     assert(aws_byte_buf_is_valid(&buf));
+-    assert(ring_buf_old == ring_buf);
+-    assert(buf_old == buf);
++    assert_ring_buffer_equivalence(&ring_buf_old, &ring_buf);
++    struct store_byte_from_buffer rhs_byte;
++    save_byte_from_array(buf.buffer, buf.len, &rhs_byte);
++    assert_byte_buf_equivalence(&buf_old, &buf, &rhs_byte);
+ }
+diff --git a/.cbmc-batch/source/utils.c b/.cbmc-batch/source/utils.c
+index ff0c3c8..6487ff6 100644
+--- a/.cbmc-batch/source/utils.c
++++ b/.cbmc-batch/source/utils.c
+@@ -101,6 +101,20 @@ void assert_byte_cursor_equivalence(
+     }
+ }
+ 
++void assert_ring_buffer_equivalence(
++    const struct aws_ring_buffer *const lhs,
++    const struct aws_ring_buffer *const rhs)
++{
++    assert(!lhs == !rhs);
++    if (lhs && rhs) {
++        assert(lhs->allocator == rhs->allocator);
++        assert(lhs->allocation == rhs->allocation);
++        assert(lhs->head.value == rhs->head.value);
++        assert(lhs->tail.value == rhs->tail.value);
++        assert(lhs->allocation_end == rhs->allocation_end);
++    }
++}
++
+ void save_byte_from_hash_table(const struct aws_hash_table *map, struct store_byte_from_buffer *storage) {
+     struct hash_table_state *state = map->p_impl;
+     size_t size_in_bytes;
+diff --git a/include/aws/common/assert.h b/include/aws/common/assert.h
+index 226434b..4d177aa 100644
+--- a/include/aws/common/assert.h
++++ b/include/aws/common/assert.h
+@@ -52,8 +52,12 @@ AWS_EXTERN_C_END
+ #endif
+ 
+ #if defined(CBMC)
++#  if !defined(CBMC_NO_ASSERT_H)
+ #    include <assert.h>
+ #    define AWS_ASSERT(cond) assert(cond)
++#  else
++#    define AWS_ASSERT(cond) assert(cond)
++#  endif
+ #elif defined(DEBUG_BUILD) || __clang_analyzer__
+ #    define AWS_ASSERT(cond) AWS_FATAL_ASSERT(cond)
+ #else
+diff --git a/include/aws/common/predicates.h b/include/aws/common/predicates.h
+index 07d6fcf..1101e5f 100644
+--- a/include/aws/common/predicates.h
++++ b/include/aws/common/predicates.h
+@@ -19,7 +19,7 @@
+  * Returns whether all bytes of the two byte arrays match.
+  */
+ #if (AWS_DEEP_CHECKS == 1)
+-#    ifdef CBMC
++#    if defined(CBMC) && !defined(CBMC_NO_FORALL)
+ /* clang-format off */
+ #        define AWS_BYTES_EQ(arr1, arr2, len)                                                                              \
+             __CPROVER_forall {                                                                                             \
+diff --git a/include/aws/common/zero.h b/include/aws/common/zero.h
+index 3e4e71b..f9e0d04 100644
+--- a/include/aws/common/zero.h
++++ b/include/aws/common/zero.h
+@@ -40,7 +40,7 @@ AWS_EXTERN_C_BEGIN
+ /**
+  * Returns whether each byte in the object is zero.
+  */
+-#ifdef CBMC
++#if defined(CBMC) && !defined(CBMC_NO_FORALL)
+ /* clang-format off */
+ #    define AWS_IS_ZEROED(object)                                                                                      \
+         __CPROVER_forall {                                                                                             \

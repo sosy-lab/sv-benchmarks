@@ -965,7 +965,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static ulong record_size = 4096UL;
 static char const __param_str_record_size[12] =
   { (char const )'r', (char const )'e', (char const )'c', (char const )'o',

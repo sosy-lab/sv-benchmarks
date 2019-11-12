@@ -1,0 +1,8 @@
+format_version: "1.0"
+input_files:
+  - ../common/
+  - nanoxml_eqchk/
+properties:
+  - property_file: ../properties/assert.prp
+    expected_verdict: true
+

@@ -30,7 +30,9 @@ int lis(int* a, int N)
 }
 
 int main() {
-  int *a;
-  int N = __VERIFIER_nondet_int();
-  return lis(a, N);
+    int *a;
+    int N = __VERIFIER_nondet_int();
+    if (N < 1)
+        N = 1;
+    return lis(a, N);
 }

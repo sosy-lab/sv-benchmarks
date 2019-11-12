@@ -4,7 +4,6 @@ extern void *malloc(unsigned int sz );
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
-extern void *__VERIFIER_nondet_pointer(void);
 
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 void memcpy_guard(void* p1, void* p2, unsigned int n)
@@ -6596,6 +6595,9 @@ NTSTATUS FlFdcDeviceIo(PDEVICE_OBJECT DeviceObject , ULONG Ioctl , PVOID Data )
 
   }
   {
+  irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(sizeof (IO_STACK_LOCATION));
+  /* ensure a bounded number of subsequent decrements do not result in stack underflow */
+  irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 1;
   irpStack = irp->Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation - 1;
   irpStack->Parameters.DeviceIoControl.Type3InputBuffer = Data;
   ntStatus = IofCallDriver(DeviceObject, irp);
@@ -7047,8 +7049,13 @@ int main(void)
   int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int irp_choice = __VERIFIER_nondet_int() ;
   DEVICE_OBJECT devobj ;
+  devobj.DeviceExtension = malloc(sizeof (DISKETTE_EXTENSION));
+  memset(devobj.DeviceExtension, 0, sizeof (DISKETTE_EXTENSION));
   d.DriverExtension = malloc(sizeof (struct _DRIVER_EXTENSION));
   dummy_data.AlternativeArchitecture = __VERIFIER_nondet_int();
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = malloc(4 * sizeof (IO_STACK_LOCATION));
+  /* ensure a bounded number of subsequent decrements do not result in stack underflow */
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation += 3;
 
   {
   {
@@ -7674,7 +7681,7 @@ NTSTATUS IofCallDriver(PDEVICE_OBJECT DeviceObject ,
 { int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   NTSTATUS returnVal2 ;
   int compRetStatus1 ;
-  PVOID lcontext = __VERIFIER_nondet_pointer() ;
+  PVOID lcontext = 0 ;
   NTSTATUS tmp ;
 
   {
@@ -8012,7 +8019,7 @@ NTSTATUS PoCallDriver(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 { int __BLAST_NONDET = __VERIFIER_nondet_int() ;
   int compRetStatus ;
   NTSTATUS returnVal ;
-  PVOID lcontext = __VERIFIER_nondet_pointer() ;
+  PVOID lcontext = 0 ;
   NTSTATUS tmp ;
 
   {

@@ -6946,7 +6946,7 @@ static void lapbeth_disconnected(struct net_device *dev , int reason )
   return;
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int lapbeth_set_mac_address(struct net_device *dev , void *addr )
 {
   struct sockaddr *sa ;

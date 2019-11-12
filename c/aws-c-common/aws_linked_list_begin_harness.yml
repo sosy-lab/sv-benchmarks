@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'aws_linked_list_begin_harness.i'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

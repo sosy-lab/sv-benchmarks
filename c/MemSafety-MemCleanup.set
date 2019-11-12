@@ -3,3 +3,4 @@ heap-manipulation/*.yml
 forester-heap/*.yml
 list-properties/*.yml
 list-ext3-properties/*.yml
+memsafety-bftpd/*.yml

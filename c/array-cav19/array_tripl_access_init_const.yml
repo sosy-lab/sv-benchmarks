@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'array_tripl_access_init_const.c'
+
+properties:
+  - property_file: ../properties/unreach-call.prp
+    expected_verdict: true

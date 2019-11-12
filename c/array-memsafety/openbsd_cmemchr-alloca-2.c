@@ -57,7 +57,7 @@ int main() {
   }
   char* nondetArea = (char*) alloca(n * sizeof(char));
 	
-	for(int i = 0; i < length; i++)
+	for(int i = 0; i < n; i++)
 	{
 	  nondetArea[i] = __VERIFIER_nondet_char();
 	}

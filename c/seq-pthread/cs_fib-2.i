@@ -553,7 +553,7 @@ const unsigned char __THREAD_FINISHED = 0x02;
 unsigned char *__CS_thread_lockedon[6][2 +1];
 extern int __VERIFIER_nondet_int();
 extern unsigned char __VERIFIER_nondet_uchar();
-extern void *__VERIFIER_nondet_pointer(void);
+extern unsigned long __VERIFIER_nondet_ulong(void);
 void __CS_cs(void)
 {
  unsigned char k = __VERIFIER_nondet_uchar();
@@ -745,7 +745,7 @@ int main(int argc, char **argv)
  for (int i = 0; i < 6; ++i) {
   for (int j = 0; j < 2 +1; ++j) {
    __CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
-   __CS_cp___CS_thread_lockedon[i][j] = __VERIFIER_nondet_pointer();
+   __CS_cp___CS_thread_lockedon[i][j] = (void *)__VERIFIER_nondet_ulong();
   }
   __CS_cp_i[i] = __VERIFIER_nondet_int();
   __CS_cp_j[i] = __VERIFIER_nondet_int();

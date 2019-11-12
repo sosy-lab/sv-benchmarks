@@ -6596,7 +6596,7 @@ static int stb6100_set_bandwidth(struct dvb_frontend *fe , u32 bandwidth )
   return (0);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 extern int dvb_ca_en50221_init(struct dvb_adapter *dvb_adapter , struct dvb_ca_en50221 *ca ,
                                int flags , int slot_count ) ;
 extern void dvb_ca_en50221_release(struct dvb_ca_en50221 *ca ) ;

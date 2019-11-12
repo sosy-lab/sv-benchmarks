@@ -6,3 +6,6 @@ input_files: 'cstrcat_diffterm_alloca.i'
 properties:
   - property_file: ../properties/termination.prp
     expected_verdict: true
+  - property_file: ../properties/coverage-branches.prp
+  - property_file: ../properties/coverage-conditions.prp
+  - property_file: ../properties/coverage-statements.prp

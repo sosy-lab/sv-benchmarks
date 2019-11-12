@@ -2,7 +2,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void foo(int *p);
 
 void plus(int *p){
-    *p++;
+    (*p)++;
     foo(p);
 }
 

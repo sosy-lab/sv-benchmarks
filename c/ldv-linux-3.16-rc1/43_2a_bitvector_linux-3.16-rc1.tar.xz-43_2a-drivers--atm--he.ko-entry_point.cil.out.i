@@ -8497,7 +8497,7 @@ static struct he_tpd *__alloc_tpd(struct he_dev *he_dev )
   return (tpd);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 static int he_service_rbrq(struct he_dev *he_dev , int group )
 {
   struct he_rbrq *rbrq_tail ;

@@ -5558,7 +5558,7 @@ __inline static struct sk_buff *mI_alloc_skb(unsigned int len , gfp_t gfp_mask )
   return (skb);
 }
 }
-extern void *memcpy(void * , void const   * , size_t  ) ;
+extern void *memcpy(void * , void const * , size_t ) ;
 __inline static struct sk_buff *_alloc_mISDN_skb(u_int prim , u_int id___0 , u_int len ,
                                                  void *dp , gfp_t gfp_mask )
 { struct sk_buff *skb ;
