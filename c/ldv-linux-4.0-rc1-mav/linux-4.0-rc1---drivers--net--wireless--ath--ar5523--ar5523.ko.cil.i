@@ -7910,6 +7910,7 @@ static int ldv_usb_submit_urb_128(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 static int ldv_usb_submit_urb_136(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 static int ldv_usb_submit_urb_153(struct urb *ldv_func_arg1 , gfp_t flags ) ;
 extern void usb_kill_urb(struct urb * ) ;
+void *ldv_malloc(size_t size ) ;
 static void *ldv_usb_alloc_coherent_123(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
                                         gfp_t flags , dma_addr_t *ldv_func_arg4 ) ;
 static void *ldv_usb_alloc_coherent_165(struct usb_device *ldv_func_arg1 , size_t ldv_func_arg2 ,
