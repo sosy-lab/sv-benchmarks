@@ -10474,9 +10474,9 @@ static unsigned long ldv___get_free_pages_118(gfp_t flags , unsigned int ldv_fun
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   }
-  return ((unsigned long )((unsigned int )((long )tmp)));
+  return tmp;
 }
 }
 static void ldv_mutex_lock_123(struct mutex *ldv_func_arg1 ) 

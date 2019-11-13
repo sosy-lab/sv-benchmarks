@@ -27972,9 +27972,9 @@ static unsigned long ldv___get_free_pages_87(gfp_t flags , unsigned int ldv_func
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   }
-  return ((unsigned long )((unsigned int )((long )tmp)));
+  return tmp;
 }
 }
 __inline static void ldv_spin_lock_92(spinlock_t *lock )
