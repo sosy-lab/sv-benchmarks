@@ -12503,6 +12503,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 extern void consume_skb(struct sk_buff * ) ;

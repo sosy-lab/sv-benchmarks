@@ -19105,6 +19105,7 @@ __inline static int request_irq(unsigned int irq , irqreturn_t (*handler)(int  ,
 }
 extern void free_irq(unsigned int  , void * ) ;
 extern void dma_free_attrs(struct device * , size_t  , void * , dma_addr_t  , struct dma_attrs * ) ;
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 extern struct cpu_rmap *alloc_cpu_rmap(unsigned int  , gfp_t  ) ;

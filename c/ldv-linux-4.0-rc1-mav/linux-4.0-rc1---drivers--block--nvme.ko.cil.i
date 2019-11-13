@@ -6703,6 +6703,7 @@ __inline static int dma_set_mask_and_coherent(struct device *dev , u64 mask )
   return (rc);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 __inline static void *pci_get_drvdata(struct pci_dev *pdev )
@@ -14624,7 +14625,7 @@ __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(size);
   }
   return (tmp);
 }

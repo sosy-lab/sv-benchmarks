@@ -28635,6 +28635,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags ) ;
@@ -32134,7 +32135,7 @@ __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_zalloc(size);
   }
   return (tmp);
 }
