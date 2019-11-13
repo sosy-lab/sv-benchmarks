@@ -10978,6 +10978,7 @@ static void ldv_usb_free_urb_130(struct urb *urb )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_131(int ldv_func_arg1 , gfp_t flags )
 {
   struct urb *res ;
@@ -12925,7 +12926,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;

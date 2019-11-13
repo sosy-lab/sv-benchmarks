@@ -6590,6 +6590,7 @@ static void ldv_mutex_lock_101(struct mutex *ldv_func_arg1 )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_102(int ldv_func_arg1 , gfp_t flags )
 {
   struct urb *res ;

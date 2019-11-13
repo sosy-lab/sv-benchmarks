@@ -9889,6 +9889,7 @@ static void ldv_free_netdev_138(struct net_device *ldv_func_arg1 )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_139(int ldv_func_arg1 , gfp_t flags )
 {
   struct urb *res ;

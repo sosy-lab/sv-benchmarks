@@ -13451,6 +13451,7 @@ static int ldv_mod_timer_121(struct timer_list *ldv_func_arg1 , unsigned long ld
   return (ldv_func_res);
 }
 }
+void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_122(int ldv_func_arg1 , gfp_t flags ) 
 { 
   struct urb *res ;

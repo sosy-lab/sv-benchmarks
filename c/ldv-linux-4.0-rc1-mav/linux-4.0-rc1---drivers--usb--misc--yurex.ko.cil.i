@@ -6136,6 +6136,7 @@ static struct usb_device *ldv_usb_get_dev_103(struct usb_device *ldv_func_arg1 )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 static struct urb *ldv_usb_alloc_urb_104(int ldv_func_arg1 , gfp_t flags )
 {
   struct urb *res ;
