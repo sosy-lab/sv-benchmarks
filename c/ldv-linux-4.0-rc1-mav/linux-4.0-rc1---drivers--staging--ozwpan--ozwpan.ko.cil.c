@@ -18399,6 +18399,7 @@ int oz_are_elts_available(struct oz_elt_buf *buf )
   return (tmp == 0);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kmem_cache_zalloc(struct kmem_cache *k , gfp_t flags ) 
 { 
   void *tmp ;
@@ -18406,7 +18407,7 @@ __inline static void *kmem_cache_zalloc(struct kmem_cache *k , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_zalloc_unknown_size();
+  tmp = ldv_zalloc(sizeof(struct oz_elt_info));
   }
   return (tmp);
 }
@@ -22974,7 +22975,6 @@ int ldv_dev_set_drvdata(struct device *dev , void *data )
   return (0);
 }
 }
-void *ldv_zalloc(size_t size ) ;
 struct spi_master *ldv_spi_alloc_master(struct device *host , unsigned int size ) 
 { 
   struct spi_master *master ;
