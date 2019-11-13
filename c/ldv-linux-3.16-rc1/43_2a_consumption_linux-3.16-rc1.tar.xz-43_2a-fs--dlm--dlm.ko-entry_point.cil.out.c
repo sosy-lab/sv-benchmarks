@@ -10809,6 +10809,7 @@ void ldv_main_exported_31(void)
   return;
 }
 }
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) 
 { 
 

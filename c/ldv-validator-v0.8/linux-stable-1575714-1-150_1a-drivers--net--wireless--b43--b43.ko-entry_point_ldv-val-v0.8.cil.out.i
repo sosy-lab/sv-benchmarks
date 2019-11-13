@@ -21912,6 +21912,7 @@ __inline static int fls(int x )
 extern unsigned long int_sqrt(unsigned long ) ;
 int ldv_del_timer_40(struct timer_list *ldv_func_arg1 ) ;
 int ldv_del_timer_sync_39(struct timer_list *ldv_func_arg1 ) ;
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
 {
   void *tmp ;

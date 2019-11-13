@@ -13575,6 +13575,7 @@ bool ldv_queue_delayed_work_on_111(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) 
 { 
   void *tmp ;

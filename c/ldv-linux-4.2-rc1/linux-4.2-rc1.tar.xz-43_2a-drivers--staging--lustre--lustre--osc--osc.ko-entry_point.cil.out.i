@@ -18082,6 +18082,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
 {
   void *tmp ;

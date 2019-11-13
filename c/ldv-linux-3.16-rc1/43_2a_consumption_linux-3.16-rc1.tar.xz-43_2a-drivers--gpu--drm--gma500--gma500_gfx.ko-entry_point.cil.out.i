@@ -10847,6 +10847,7 @@ void psb_intel_destroy_bios(struct drm_device *dev )
   return;
 }
 }
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
 {
   {

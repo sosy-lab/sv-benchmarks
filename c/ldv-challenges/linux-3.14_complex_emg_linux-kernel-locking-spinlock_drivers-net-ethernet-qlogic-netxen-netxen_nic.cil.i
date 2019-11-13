@@ -21969,6 +21969,7 @@ __inline static void *kmalloc_array(size_t n , size_t size , gfp_t flags )
   return (tmp);
 }
 }
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
 {
   void *tmp ;
@@ -27840,7 +27841,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
 void *ldv_calloc_unknown_size(void) ;
 void *ldv_zalloc_unknown_size(void) ;

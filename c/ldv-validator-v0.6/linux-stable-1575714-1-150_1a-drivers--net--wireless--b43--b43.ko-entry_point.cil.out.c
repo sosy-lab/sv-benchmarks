@@ -22775,6 +22775,7 @@ int ldv_request_threaded_irq_37(unsigned int ldv_func_arg1 , irqreturn_t (*handl
                                                                                     void * ) ,
                                 irqreturn_t (*thread_fn)(int  , void * ) , unsigned long ldv_func_arg4 ,
                                 char const   *ldv_func_arg5 , void *ldv_func_arg6 ) ;
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) 
 { 
   void *tmp ;

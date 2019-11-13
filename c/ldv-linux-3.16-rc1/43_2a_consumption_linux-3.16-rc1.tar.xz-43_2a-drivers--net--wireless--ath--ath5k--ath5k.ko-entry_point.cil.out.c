@@ -12809,6 +12809,7 @@ int ath5k_eeprom_mode_from_channel(struct ath5k_hw *ah , struct ieee80211_channe
   }
 }
 }
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) 
 { 
 

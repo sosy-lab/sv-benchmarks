@@ -7881,6 +7881,7 @@ __inline static void *lowmem_page_address(struct page *page )
   return ((void *)((unsigned long )((unsigned long long )(((long )page + 24189255811072L) / 56L) << 12) + 0x0fff880000000000UL));
 }
 }
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
 { void *tmp ;
   {
