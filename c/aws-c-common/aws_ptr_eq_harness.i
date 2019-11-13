@@ -23,16 +23,6 @@ typedef unsigned long int __uint64_t;
 
 
 
-typedef __int8_t __int_least8_t;
-typedef __uint8_t __uint_least8_t;
-typedef __int16_t __int_least16_t;
-typedef __uint16_t __uint_least16_t;
-typedef __int32_t __int_least32_t;
-typedef __uint32_t __uint_least32_t;
-typedef __int64_t __int_least64_t;
-typedef __uint64_t __uint_least64_t;
-
-
 
 typedef long int __quad_t;
 typedef unsigned long int __u_quad_t;
@@ -136,21 +126,22 @@ typedef __uint64_t uint64_t;
 
 
 
-typedef __int_least8_t int_least8_t;
-typedef __int_least16_t int_least16_t;
-typedef __int_least32_t int_least32_t;
-typedef __int_least64_t int_least64_t;
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
 
-
-typedef __uint_least8_t uint_least8_t;
-typedef __uint_least16_t uint_least16_t;
-typedef __uint_least32_t uint_least32_t;
-typedef __uint_least64_t uint_least64_t;
+typedef long int int_least64_t;
 
 
 
 
 
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+typedef unsigned long int uint_least64_t;
 typedef signed char int_fast8_t;
 
 typedef long int int_fast16_t;
@@ -283,9 +274,18 @@ typedef char static_assertion_at_line_50[(!!(3 == 3)) * 2 - 1];
 typedef long unsigned int size_t;
 
 
-typedef __builtin_va_list __gnuc_va_list;
 
 
+
+struct _IO_FILE;
+typedef struct _IO_FILE __FILE;
+
+
+
+struct _IO_FILE;
+
+
+typedef struct _IO_FILE FILE;
 
 
 
@@ -303,32 +303,18 @@ typedef struct
 
 
 
-typedef struct _G_fpos_t
+typedef struct
 {
   __off_t __pos;
   __mbstate_t __state;
-} __fpos_t;
-typedef struct _G_fpos64_t
+} _G_fpos_t;
+typedef struct
 {
   __off64_t __pos;
   __mbstate_t __state;
-} __fpos64_t;
-
-
-
-struct _IO_FILE;
-typedef struct _IO_FILE __FILE;
-
-
-
-struct _IO_FILE;
-
-
-typedef struct _IO_FILE FILE;
-struct _IO_FILE;
-struct _IO_marker;
-struct _IO_codecvt;
-struct _IO_wide_data;
+} _G_fpos64_t;
+typedef __builtin_va_list __gnuc_va_list;
+struct _IO_jump_t; struct _IO_FILE;
 
 
 
@@ -339,20 +325,37 @@ typedef void _IO_lock_t;
 
 
 
-struct _IO_FILE
+struct _IO_marker {
+  struct _IO_marker *_next;
+  struct _IO_FILE *_sbuf;
+
+
+
+  int _pos;
+};
+
+
+enum __codecvt_result
 {
+  __codecvt_ok,
+  __codecvt_partial,
+  __codecvt_error,
+  __codecvt_noconv
+};
+struct _IO_FILE {
   int _flags;
 
 
-  char *_IO_read_ptr;
-  char *_IO_read_end;
-  char *_IO_read_base;
-  char *_IO_write_base;
-  char *_IO_write_ptr;
-  char *_IO_write_end;
-  char *_IO_buf_base;
-  char *_IO_buf_end;
 
+
+  char* _IO_read_ptr;
+  char* _IO_read_end;
+  char* _IO_read_base;
+  char* _IO_write_base;
+  char* _IO_write_ptr;
+  char* _IO_write_end;
+  char* _IO_buf_base;
+  char* _IO_buf_end;
 
   char *_IO_save_base;
   char *_IO_backup_base;
@@ -363,33 +366,104 @@ struct _IO_FILE
   struct _IO_FILE *_chain;
 
   int _fileno;
+
+
+
   int _flags2;
+
   __off_t _old_offset;
+
 
 
   unsigned short _cur_column;
   signed char _vtable_offset;
   char _shortbuf[1];
 
+
+
   _IO_lock_t *_lock;
-
-
-
-
-
-
-
   __off64_t _offset;
 
-  struct _IO_codecvt *_codecvt;
-  struct _IO_wide_data *_wide_data;
-  struct _IO_FILE *_freeres_list;
-  void *_freeres_buf;
+
+
+
+
+
+
+  void *__pad1;
+  void *__pad2;
+  void *__pad3;
+  void *__pad4;
+
   size_t __pad5;
   int _mode;
 
   char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+
 };
+
+
+typedef struct _IO_FILE _IO_FILE;
+
+
+struct _IO_FILE_plus;
+
+extern struct _IO_FILE_plus _IO_2_1_stdin_;
+extern struct _IO_FILE_plus _IO_2_1_stdout_;
+extern struct _IO_FILE_plus _IO_2_1_stderr_;
+typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
+
+
+
+
+
+
+
+typedef __ssize_t __io_write_fn (void *__cookie, const char *__buf,
+     size_t __n);
+
+
+
+
+
+
+
+typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
+
+
+typedef int __io_close_fn (void *__cookie);
+extern int __underflow (_IO_FILE *);
+extern int __uflow (_IO_FILE *);
+extern int __overflow (_IO_FILE *, int);
+extern int _IO_getc (_IO_FILE *__fp);
+extern int _IO_putc (int __c, _IO_FILE *__fp);
+extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ferror (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int _IO_peekc_locked (_IO_FILE *__fp);
+
+
+
+
+
+extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
+   __gnuc_va_list, int *__restrict);
+extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
+    __gnuc_va_list);
+extern __ssize_t _IO_padn (_IO_FILE *, int, __ssize_t);
+extern size_t _IO_sgetn (_IO_FILE *, void *, size_t);
+
+extern __off64_t _IO_seekoff (_IO_FILE *, __off64_t, int, int);
+extern __off64_t _IO_seekpos (_IO_FILE *, __off64_t, int);
+
+extern void _IO_free_backup_area (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
 typedef __gnuc_va_list va_list;
 typedef __off_t off_t;
 typedef __ssize_t ssize_t;
@@ -399,13 +473,13 @@ typedef __ssize_t ssize_t;
 
 
 
-typedef __fpos_t fpos_t;
+typedef _G_fpos_t fpos_t;
 
 
 
-extern FILE *stdin;
-extern FILE *stdout;
-extern FILE *stderr;
+extern struct _IO_FILE *stdin;
+extern struct _IO_FILE *stdout;
+extern struct _IO_FILE *stderr;
 
 
 
@@ -420,6 +494,13 @@ extern int rename (const char *__old, const char *__new) __attribute__ ((__nothr
 
 extern int renameat (int __oldfd, const char *__old, int __newfd,
        const char *__new) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+
 extern FILE *tmpfile (void) ;
 extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
 
@@ -544,12 +625,6 @@ extern int scanf (const char *__restrict __format, ...) ;
 
 extern int sscanf (const char *__restrict __s,
      const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
-
-
-
-
-
-
 extern int fscanf (FILE *__restrict __stream, const char *__restrict __format, ...) __asm__ ("" "__isoc99_fscanf")
 
                                ;
@@ -573,10 +648,6 @@ extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg)
 extern int vsscanf (const char *__restrict __s,
       const char *__restrict __format, __gnuc_va_list __arg)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__format__ (__scanf__, 2, 0)));
-
-
-
-
 extern int vfscanf (FILE *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vfscanf")
 
 
@@ -598,12 +669,6 @@ extern int getc (FILE *__stream);
 
 
 extern int getchar (void);
-
-
-
-
-
-
 extern int getc_unlocked (FILE *__stream);
 extern int getchar_unlocked (void);
 extern int fgetc_unlocked (FILE *__stream);
@@ -645,11 +710,11 @@ extern int putw (int __w, FILE *__stream);
 extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
      ;
 extern __ssize_t __getdelim (char **__restrict __lineptr,
-                             size_t *__restrict __n, int __delimiter,
-                             FILE *__restrict __stream) ;
+          size_t *__restrict __n, int __delimiter,
+          FILE *__restrict __stream) ;
 extern __ssize_t getdelim (char **__restrict __lineptr,
-                           size_t *__restrict __n, int __delimiter,
-                           FILE *__restrict __stream) ;
+        size_t *__restrict __n, int __delimiter,
+        FILE *__restrict __stream) ;
 
 
 
@@ -658,8 +723,8 @@ extern __ssize_t getdelim (char **__restrict __lineptr,
 
 
 extern __ssize_t getline (char **__restrict __lineptr,
-                          size_t *__restrict __n,
-                          FILE *__restrict __stream) ;
+       size_t *__restrict __n,
+       FILE *__restrict __stream) ;
 
 
 
@@ -786,8 +851,6 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 
 
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
-extern int __uflow (FILE *);
-extern int __overflow (FILE *, int);
 
 
 
@@ -825,6 +888,12 @@ typedef struct {
 
 
 
+typedef enum
+{
+  P_ALL,
+  P_PID,
+  P_PGID
+} idtype_t;
 
 
 typedef struct
@@ -938,8 +1007,9 @@ typedef __u_quad_t u_quad_t;
 typedef __fsid_t fsid_t;
 
 
-typedef __loff_t loff_t;
 
+
+typedef __loff_t loff_t;
 
 
 
@@ -1019,52 +1089,27 @@ typedef __timer_t timer_t;
 typedef unsigned long int ulong;
 typedef unsigned short int ushort;
 typedef unsigned int uint;
-
-
-
-
-
-
-
-typedef __uint8_t u_int8_t;
-typedef __uint16_t u_int16_t;
-typedef __uint32_t u_int32_t;
-typedef __uint64_t u_int64_t;
-
+typedef unsigned int u_int8_t __attribute__ ((__mode__ (__QI__)));
+typedef unsigned int u_int16_t __attribute__ ((__mode__ (__HI__)));
+typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
+typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
 
 typedef int register_t __attribute__ ((__mode__ (__word__)));
-static __inline __uint16_t
-__bswap_16 (__uint16_t __bsx)
+
+
+
+
+
+
+static __inline unsigned int
+__bswap_32 (unsigned int __bsx)
 {
-
-  return __builtin_bswap16 (__bsx);
-
-
-
-}
-
-
-
-
-
-
-static __inline __uint32_t
-__bswap_32 (__uint32_t __bsx)
-{
-
   return __builtin_bswap32 (__bsx);
-
-
-
 }
-__extension__ static __inline __uint64_t
+static __inline __uint64_t
 __bswap_64 (__uint64_t __bsx)
 {
-
   return __builtin_bswap64 (__bsx);
-
-
-
 }
 static __inline __uint16_t
 __uint16_identity (__uint16_t __x)
@@ -1117,6 +1162,13 @@ struct timeval
   __suseconds_t tv_usec;
 };
 
+
+
+
+
+
+
+
 struct timespec
 {
   __time_t tv_sec;
@@ -1161,6 +1213,20 @@ extern int pselect (int __nfds, fd_set *__restrict __readfds,
       fd_set *__restrict __exceptfds,
       const struct timespec *__restrict __timeout,
       const __sigset_t *__restrict __sigmask);
+
+
+
+
+
+
+
+
+
+
+extern unsigned int gnu_dev_major (__dev_t __dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern unsigned int gnu_dev_minor (__dev_t __dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern __dev_t gnu_dev_makedev (unsigned int __major, unsigned int __minor) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+
 
 
 
@@ -1223,6 +1289,9 @@ struct __pthread_mutex_s
   int __owner;
 
   unsigned int __nusers;
+
+
+
   int __kind;
  
 
@@ -1505,11 +1574,10 @@ extern int lcong48_r (unsigned short int __param[7],
 
 
 
-extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__))
-     __attribute__ ((__alloc_size__ (1))) ;
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
 
 extern void *calloc (size_t __nmemb, size_t __size)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_size__ (1, 2))) ;
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
 
 
 
@@ -1517,20 +1585,7 @@ extern void *calloc (size_t __nmemb, size_t __size)
 
 
 extern void *realloc (void *__ptr, size_t __size)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__alloc_size__ (2)));
-
-
-
-
-
-
-
-extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__))
-     __attribute__ ((__alloc_size__ (2, 3)));
-
-
-
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
 
 
@@ -1553,8 +1608,7 @@ extern void *alloca (size_t __size) __attribute__ ((__nothrow__ , __leaf__));
 
 
 
-extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__))
-     __attribute__ ((__alloc_size__ (1))) ;
+extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
 
 
 
@@ -3678,105 +3732,6 @@ enum
 
 
 
-
-
-
-
-typedef struct {
- unsigned long fds_bits[1024 / (8 * sizeof(long))];
-} __kernel_fd_set;
-
-
-typedef void (*__kernel_sighandler_t)(int);
-
-
-typedef int __kernel_key_t;
-typedef int __kernel_mqd_t;
-
-
-
-
-
-
-
-typedef unsigned short __kernel_old_uid_t;
-typedef unsigned short __kernel_old_gid_t;
-
-
-typedef unsigned long __kernel_old_dev_t;
-
-
-
-
-
-
-typedef long __kernel_long_t;
-typedef unsigned long __kernel_ulong_t;
-
-
-
-typedef __kernel_ulong_t __kernel_ino_t;
-
-
-
-typedef unsigned int __kernel_mode_t;
-
-
-
-typedef int __kernel_pid_t;
-
-
-
-typedef int __kernel_ipc_pid_t;
-
-
-
-typedef unsigned int __kernel_uid_t;
-typedef unsigned int __kernel_gid_t;
-
-
-
-typedef __kernel_long_t __kernel_suseconds_t;
-
-
-
-typedef int __kernel_daddr_t;
-
-
-
-typedef unsigned int __kernel_uid32_t;
-typedef unsigned int __kernel_gid32_t;
-typedef __kernel_ulong_t __kernel_size_t;
-typedef __kernel_long_t __kernel_ssize_t;
-typedef __kernel_long_t __kernel_ptrdiff_t;
-
-
-
-
-typedef struct {
- int val[2];
-} __kernel_fsid_t;
-
-
-
-
-
-typedef __kernel_long_t __kernel_off_t;
-typedef long long __kernel_loff_t;
-typedef __kernel_long_t __kernel_time_t;
-typedef long long __kernel_time64_t;
-typedef __kernel_long_t __kernel_clock_t;
-typedef int __kernel_timer_t;
-typedef int __kernel_clockid_t;
-typedef char * __kernel_caddr_t;
-typedef unsigned short __kernel_uid16_t;
-typedef unsigned short __kernel_gid16_t;
-
-
-
-
-
-
 struct linger
   {
     int l_onoff;
@@ -4078,10 +4033,10 @@ struct sockaddr_in
     struct in_addr sin_addr;
 
 
-    unsigned char sin_zero[sizeof (struct sockaddr)
-      - (sizeof (unsigned short int))
-      - sizeof (in_port_t)
-      - sizeof (struct in_addr)];
+    unsigned char sin_zero[sizeof (struct sockaddr) -
+      (sizeof (unsigned short int)) -
+      sizeof (in_port_t) -
+      sizeof (struct in_addr)];
   };
 
 
@@ -5319,9 +5274,7 @@ typedef struct
 enum
 {
   SI_ASYNCNL = -60,
-  SI_DETHREAD = -7,
-
-  SI_TKILL,
+  SI_TKILL = -6,
   SI_SIGIO,
 
   SI_ASYNCIO,
@@ -5356,9 +5309,7 @@ enum
 
   ILL_COPROC,
 
-  ILL_BADSTK,
-
-  ILL_BADIADDR
+  ILL_BADSTK
 
 };
 
@@ -5379,11 +5330,7 @@ enum
 
   FPE_FLTINV,
 
-  FPE_FLTSUB,
-
-  FPE_FLTUNK = 14,
-
-  FPE_CONDTRAP
+  FPE_FLTSUB
 
 };
 
@@ -5396,13 +5343,7 @@ enum
 
   SEGV_BNDERR,
 
-  SEGV_PKUERR,
-
-  SEGV_ACCADI,
-
-  SEGV_ADIDERR,
-
-  SEGV_ADIPERR
+  SEGV_PKUERR
 
 };
 
@@ -5814,7 +5755,6 @@ typedef struct ucontext_t
     mcontext_t uc_mcontext;
     sigset_t uc_sigmask;
     struct _libc_fpstate __fpregs_mem;
-    __extension__ unsigned long long int __ssp[4];
   } ucontext_t;
 
 
@@ -5870,8 +5810,6 @@ extern int pthread_kill (pthread_t __threadid, int __signo) __attribute__ ((__no
 extern int __libc_current_sigrtmin (void) __attribute__ ((__nothrow__ , __leaf__));
 
 extern int __libc_current_sigrtmax (void) __attribute__ ((__nothrow__ , __leaf__));
-
-
 
 
 
