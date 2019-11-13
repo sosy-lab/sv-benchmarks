@@ -6750,6 +6750,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 }
 }
 extern unsigned char *skb_put(struct sk_buff * , unsigned int  ) ;
+void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_105(struct net_device *ldv_func_arg1 ,
                                                   unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct sk_buff *__netdev_alloc_skb_ip_align(struct net_device *dev ,
@@ -10923,7 +10924,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_105(struct net_device *ldv_func_ar
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -13355,7 +13356,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;

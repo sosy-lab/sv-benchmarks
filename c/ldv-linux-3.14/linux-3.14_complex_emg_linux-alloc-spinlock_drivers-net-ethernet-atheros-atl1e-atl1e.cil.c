@@ -7187,6 +7187,7 @@ __inline static int pskb_trim(struct sk_buff *skb , unsigned int len )
   return (tmp___0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_59(struct net_device *ldv_func_arg1 ,
                                                  unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct sk_buff *__netdev_alloc_skb_ip_align(struct net_device *dev ,
@@ -13937,7 +13938,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_59(struct net_device *ldv_func_arg
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -16372,7 +16373,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_calloc_unknown_size(void) ;
 void *ldv_zalloc_unknown_size(void) ;

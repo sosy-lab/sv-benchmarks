@@ -12573,6 +12573,7 @@ __inline static struct sk_buff *__skb_dequeue(struct sk_buff_head *list )
 }
 }
 extern unsigned char *skb_put(struct sk_buff * , unsigned int  ) ;
+void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_91(struct net_device *ldv_func_arg1 ,
                                                  unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct sk_buff *netdev_alloc_skb(struct net_device *dev , unsigned int length ) 
@@ -14758,7 +14759,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_91(struct net_device *ldv_func_arg
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
@@ -39691,7 +39692,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;

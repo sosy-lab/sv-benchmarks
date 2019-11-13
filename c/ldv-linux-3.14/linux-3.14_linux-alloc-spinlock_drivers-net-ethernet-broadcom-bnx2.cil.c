@@ -8111,6 +8111,7 @@ __inline static int skb_transport_offset(struct sk_buff  const  *skb )
   return ((int )((unsigned int )((long )tmp) - (unsigned int )((long )skb->data)));
 }
 }
+void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_57(struct net_device *ldv_func_arg1 ,
                                                  unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct sk_buff *netdev_alloc_skb(struct net_device *dev , unsigned int length ) 
@@ -26065,7 +26066,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_57(struct net_device *ldv_func_arg
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
