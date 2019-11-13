@@ -12511,6 +12511,7 @@ __inline static bool schedule_delayed_work(struct delayed_work *dwork , unsigned
 }
 extern void put_device(struct device * ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
+void *ldv_malloc(size_t size ) ;
 static void *ldv_dma_pool_alloc_99(struct dma_pool *ldv_func_arg1 , gfp_t flags ,
                                    dma_addr_t *ldv_func_arg3 ) ;
 extern void dma_pool_free(struct dma_pool * , void * , dma_addr_t  ) ;
@@ -16317,7 +16318,6 @@ void ldv_dispatch_instance_deregister_10_1(struct timer_list *arg0 )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -16350,7 +16350,7 @@ static void *ldv_dma_pool_alloc_99(struct dma_pool *ldv_func_arg1 , gfp_t flags 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(8192UL);
   }
   return (tmp);
 }
