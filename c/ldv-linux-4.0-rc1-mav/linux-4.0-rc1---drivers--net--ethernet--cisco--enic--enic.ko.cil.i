@@ -22975,13 +22975,14 @@ int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 )
   return (arg0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_malloc(size);
   ldv_after_alloc(res);
   }
   return (res);

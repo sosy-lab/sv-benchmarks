@@ -12450,13 +12450,14 @@ void ldv_unregister_hdlc_device(void *arg0 , struct net_device *arg1 )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_malloc(size);
   ldv_after_alloc(res);
   }
   return (res);

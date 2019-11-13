@@ -8203,6 +8203,7 @@ bool ldv_queue_delayed_work_on_66(int ldv_func_arg1 , struct workqueue_struct *l
   return (ldv_func_res);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp ;

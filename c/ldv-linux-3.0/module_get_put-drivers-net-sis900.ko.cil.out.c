@@ -4635,6 +4635,7 @@ unsigned int ldv_module_refcount(void) ;
 void ldv_module_put_and_exit(void) ;
 extern void yield(void) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
 

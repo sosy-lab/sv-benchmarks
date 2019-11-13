@@ -4875,6 +4875,7 @@ __inline static void unregister_chrdev(unsigned int major , char const *name )
 extern loff_t noop_llseek(struct file * , loff_t , int ) ;
 extern int _cond_resched(void) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
 

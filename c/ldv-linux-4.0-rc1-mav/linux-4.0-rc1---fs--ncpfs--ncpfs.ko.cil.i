@@ -18514,13 +18514,14 @@ int ncp__vol2io(struct ncp_server *server , unsigned char *iname , unsigned int 
   return (err);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_malloc(size);
   ldv_after_alloc(res);
   }
   return (res);

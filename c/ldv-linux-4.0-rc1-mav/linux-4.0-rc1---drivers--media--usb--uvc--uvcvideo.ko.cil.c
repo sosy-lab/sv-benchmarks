@@ -12449,6 +12449,7 @@ __inline static int atomic_dec_and_test(atomic_t *v )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -12456,7 +12457,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_malloc(size);
   ldv_after_alloc(res);
   }
   return (res);

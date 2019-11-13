@@ -14226,6 +14226,7 @@ void ldv_dummy_resourceless_instance_callback_7_8(void (*arg0)(struct drm_encode
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -14233,7 +14234,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_malloc(size);
   ldv_after_alloc(res);
   }
   return (res);

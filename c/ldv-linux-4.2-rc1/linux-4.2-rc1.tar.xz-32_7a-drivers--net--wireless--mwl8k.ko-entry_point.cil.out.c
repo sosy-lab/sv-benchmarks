@@ -8129,6 +8129,7 @@ extern void *pci_iomap(struct pci_dev * , int  , unsigned long  ) ;
 extern int _cond_resched(void) ;
 extern void kfree(void const   * ) ;
 extern void *__kmalloc(size_t  , gfp_t  ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

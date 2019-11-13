@@ -8529,6 +8529,7 @@ bool ldv_queue_delayed_work_on_9(int ldv_func_arg1 , struct workqueue_struct *ld
 extern void flush_workqueue(struct workqueue_struct * ) ;
 void ldv_flush_workqueue_8(struct workqueue_struct *ldv_func_arg1 ) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *tmp___2 ;

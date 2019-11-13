@@ -28321,6 +28321,7 @@ __inline static void ldv_spin_lock_98(spinlock_t *lock ) ;
 __inline static void ldv_spin_unlock_99(spinlock_t *lock ) ;
 extern void *vmalloc(unsigned long  ) ;
 extern unsigned long msleep_interruptible(unsigned int  ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;
@@ -50902,7 +50903,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
 void *ldv_calloc_unknown_size(void) ;

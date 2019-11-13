@@ -5417,6 +5417,7 @@ extern void idr_destroy(struct idr * ) ;
 extern void idr_init(struct idr * ) ;
 extern int net_ratelimit(void) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
   {

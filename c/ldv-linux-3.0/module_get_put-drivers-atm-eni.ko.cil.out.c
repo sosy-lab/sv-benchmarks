@@ -5415,6 +5415,7 @@ extern int pci_enable_device(struct pci_dev * ) ;
 extern void pci_set_master(struct pci_dev * ) ;
 extern int __pci_register_driver(struct pci_driver * , struct module * , char const * ) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
 

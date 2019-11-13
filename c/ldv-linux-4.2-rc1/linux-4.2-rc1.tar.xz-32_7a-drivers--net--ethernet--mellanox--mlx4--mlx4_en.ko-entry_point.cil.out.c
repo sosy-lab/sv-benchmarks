@@ -8270,6 +8270,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
 extern void iounmap(void volatile   * ) ;
 extern void kfree(void const   * ) ;
 extern void *__kmalloc(size_t  , gfp_t  ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

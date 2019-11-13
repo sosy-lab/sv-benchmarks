@@ -9157,6 +9157,7 @@ __inline static struct page *alloc_pages_node(int nid , gfp_t gfp_mask , unsigne
 extern void __free_pages(struct page * , unsigned int ) ;
 extern void kfree(void const * ) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *tmp___2 ;

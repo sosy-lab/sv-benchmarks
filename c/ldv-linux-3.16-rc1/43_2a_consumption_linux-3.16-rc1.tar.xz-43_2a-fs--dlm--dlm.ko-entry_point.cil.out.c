@@ -11549,6 +11549,7 @@ void dlm_copy_master_names(struct dlm_ls *ls , char *inbuf , int inlen , char *o
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

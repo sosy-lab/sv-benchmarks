@@ -6696,6 +6696,7 @@ int acpi_processor_get_throttling_info(struct acpi_processor *pr )
   return (result);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

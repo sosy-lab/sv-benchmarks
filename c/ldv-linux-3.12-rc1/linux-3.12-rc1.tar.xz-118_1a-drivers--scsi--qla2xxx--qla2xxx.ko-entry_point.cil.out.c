@@ -11991,6 +11991,7 @@ __inline static char const   *kobject_name(struct kobject  const  *kobj )
 }
 }
 extern int kobject_uevent_env(struct kobject * , enum kobject_action  , char ** ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *tmp___2 ;

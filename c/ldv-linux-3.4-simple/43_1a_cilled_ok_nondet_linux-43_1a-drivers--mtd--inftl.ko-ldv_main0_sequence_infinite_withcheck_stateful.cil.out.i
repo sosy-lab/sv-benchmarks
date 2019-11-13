@@ -10082,6 +10082,7 @@ int INFTL_mount(struct INFTLrecord *s )
   return (0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   {

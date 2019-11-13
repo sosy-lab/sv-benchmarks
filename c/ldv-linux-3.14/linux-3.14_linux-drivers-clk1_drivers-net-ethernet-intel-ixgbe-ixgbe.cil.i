@@ -45048,6 +45048,7 @@ __inline static bool device_can_wakeup(struct device *dev )
 }
 }
 extern unsigned long msleep_interruptible(unsigned int ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *tmp___2 ;
@@ -74950,7 +74951,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_malloc_unknown_size(void) ;

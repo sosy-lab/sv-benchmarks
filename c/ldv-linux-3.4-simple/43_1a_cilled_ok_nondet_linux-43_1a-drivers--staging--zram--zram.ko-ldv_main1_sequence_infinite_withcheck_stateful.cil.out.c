@@ -7007,6 +7007,7 @@ __inline static struct page *alloc_pages(gfp_t gfp_mask , unsigned int order )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

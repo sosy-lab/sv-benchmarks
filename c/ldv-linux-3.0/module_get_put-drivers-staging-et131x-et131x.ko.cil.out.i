@@ -6620,6 +6620,7 @@ extern void kmem_cache_destroy(struct kmem_cache * ) ;
 extern void kmem_cache_free(struct kmem_cache * , void * ) ;
 extern void *kmem_cache_alloc(struct kmem_cache * , gfp_t ) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
   {

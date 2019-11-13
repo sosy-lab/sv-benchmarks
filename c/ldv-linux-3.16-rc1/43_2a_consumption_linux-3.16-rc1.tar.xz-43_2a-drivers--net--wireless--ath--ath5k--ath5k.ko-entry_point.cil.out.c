@@ -21097,6 +21097,7 @@ int ath5k_hw_phy_init(struct ath5k_hw *ah , struct ieee80211_channel *channel , 
   return (ret);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 

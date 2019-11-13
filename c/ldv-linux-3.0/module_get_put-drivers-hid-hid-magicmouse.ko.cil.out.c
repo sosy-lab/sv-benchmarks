@@ -3163,6 +3163,7 @@ extern void *dev_get_drvdata(struct device const * ) ;
 extern int dev_set_drvdata(struct device * , void * ) ;
 extern int dev_err(struct device const * , char const * , ...) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
 

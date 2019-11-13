@@ -4750,6 +4750,7 @@ extern void pci_release_regions(struct pci_dev * ) ;
 extern int __pci_register_driver(struct pci_driver * , struct module * , char const * ) ;
 extern void pci_unregister_driver(struct pci_driver * ) ;
 extern void *__kmalloc(size_t , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 { void *tmp___2 ;
   {
