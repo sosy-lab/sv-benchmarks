@@ -5719,7 +5719,7 @@ __inline static void dev_set_drvdata(struct device *dev , void *data )
 }
 extern void dev_printk(char const * , struct device const * , char const *
                        , ...) ;
-extern void *realloc(void * , size_t  ) ;
+extern void *realloc(void * , size_t ) ;
 static void *ldv_krealloc_98(void const *ldv_func_arg1 , size_t ldv_func_arg2 ,
                              gfp_t flags ) ;
 extern void kfree(void const * ) ;

@@ -11973,7 +11973,7 @@ static void *ldv_kmem_cache_alloc_98(struct kmem_cache *ldv_func_arg1 , gfp_t fl
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(1032UL);
   }
   return (tmp);
 }
