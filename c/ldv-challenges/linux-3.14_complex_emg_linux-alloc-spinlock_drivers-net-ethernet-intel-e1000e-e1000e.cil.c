@@ -42737,6 +42737,7 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   return (res);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags ) 
 { 
   void *tmp ;
@@ -42744,7 +42745,7 @@ __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }

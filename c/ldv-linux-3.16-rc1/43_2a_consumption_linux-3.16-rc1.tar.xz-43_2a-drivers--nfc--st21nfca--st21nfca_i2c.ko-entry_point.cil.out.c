@@ -4449,6 +4449,7 @@ int ldv_devm_request_threaded_irq_19(struct device *ldv_func_arg1 , unsigned int
   return (ldv_func_res);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags ) 
 { 
   struct sk_buff *tmp ;
