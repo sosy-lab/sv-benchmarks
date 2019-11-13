@@ -22,11 +22,7 @@ size_t strlen(const char *s) {
  * Returns strlen(initial dst) + strlen(src); if retval >= siz,
  * truncation occurred.
  */
-size_t strlcat(dst, src, siz)
-	char *dst;
-	const char *src;
-	size_t siz;
-{
+size_t strlcat(char *dst, const char *src, size_t siz) {
 	register char *d = dst;
 	register const char *s = src;
 	register size_t n = siz;
