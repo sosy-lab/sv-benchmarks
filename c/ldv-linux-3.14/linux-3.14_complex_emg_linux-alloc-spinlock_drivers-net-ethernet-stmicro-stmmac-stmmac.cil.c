@@ -20654,6 +20654,7 @@ static struct sk_buff *ldv___netdev_alloc_skb_108(struct net_device *ldv_func_ar
   return ((struct sk_buff *)tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static void *ldv_kmalloc_array_109(size_t n , size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -20661,7 +20662,7 @@ __inline static void *ldv_kmalloc_array_109(size_t n , size_t size , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_malloc(size * n);
   ldv_after_alloc(res);
   }
   return (res);
