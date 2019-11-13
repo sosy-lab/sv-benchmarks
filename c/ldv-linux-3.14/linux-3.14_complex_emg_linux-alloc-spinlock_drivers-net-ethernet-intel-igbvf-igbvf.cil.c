@@ -8195,6 +8195,7 @@ void ldv_dummy_resourceless_instance_callback_3_8(int (*arg0)(struct net_device 
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_83(unsigned long ldv_func_arg1 ) 
 { 
   void *tmp ;
@@ -8202,7 +8203,7 @@ static void *ldv_vmalloc_83(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }

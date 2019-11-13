@@ -10050,6 +10050,7 @@ static int ldv_unregister_framebuffer_98(struct fb_info *ldv_func_arg1 )
   return (ldv_func_res);
 }
 }
+void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_99(unsigned long ldv_func_arg1 ) 
 { 
   void *tmp ;
@@ -10057,7 +10058,7 @@ static void *ldv_vmalloc_99(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }

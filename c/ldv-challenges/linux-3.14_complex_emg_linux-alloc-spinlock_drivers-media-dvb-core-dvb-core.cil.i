@@ -11935,13 +11935,14 @@ void ldv_switch_automaton_state_3_6(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_82(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -11972,7 +11973,7 @@ static void *ldv_vmalloc_85(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -11983,7 +11984,7 @@ static void *ldv_vmalloc_90(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -12059,7 +12060,7 @@ static void *ldv_vmalloc_105(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -12070,7 +12071,7 @@ static void *ldv_vmalloc_110(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -14050,7 +14051,7 @@ static void *ldv_vmalloc_104(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -14061,7 +14062,7 @@ static void *ldv_vmalloc_105___0(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -14072,7 +14073,7 @@ static void *ldv_vmalloc_106(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -16986,7 +16987,7 @@ static void *ldv_vmalloc_82___0(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }

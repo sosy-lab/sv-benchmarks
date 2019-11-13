@@ -19143,13 +19143,14 @@ static void *ldv_ioremap_nocache_147(resource_size_t ldv_func_arg1 , unsigned lo
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_148(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }

@@ -8908,13 +8908,14 @@ int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 )
   return (arg0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_32_62(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -8925,7 +8926,7 @@ static void *ldv_vmalloc_32_63(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -8936,7 +8937,7 @@ static void *ldv_vmalloc_32_64(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }

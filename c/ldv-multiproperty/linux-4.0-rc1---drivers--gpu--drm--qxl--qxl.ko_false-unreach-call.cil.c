@@ -17592,6 +17592,7 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_120(spinlock_t *ld
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_122(unsigned long ldv_func_arg1 ) 
 { 
   void *tmp ;
@@ -17599,7 +17600,7 @@ static void *ldv_vmalloc_122(unsigned long ldv_func_arg1 )
   {
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(ldv_func_arg1);
   }
   return (tmp);
 }
@@ -27724,7 +27725,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;
