@@ -74159,6 +74159,7 @@ void ixgbe_tx_ctxtdesc(struct ixgbe_ring *tx_ring , u32 vlan_macip_lens , u32 fc
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 __inline static void *kzalloc_node(size_t size , gfp_t flags , int node ) 
 { 
   void *res ;
@@ -74166,7 +74167,7 @@ __inline static void *kzalloc_node(size_t size , gfp_t flags , int node )
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_zalloc_unknown_size();
+  res = ldv_zalloc(size);
   ldv_after_alloc(res);
   }
   return (res);
