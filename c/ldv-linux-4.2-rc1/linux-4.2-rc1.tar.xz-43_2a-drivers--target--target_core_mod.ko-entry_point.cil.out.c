@@ -48584,6 +48584,7 @@ bool ldv_queue_delayed_work_on_453(int ldv_func_arg1 , struct workqueue_struct *
   return (ldv_func_res);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order ) 
 { 
   void *tmp ;

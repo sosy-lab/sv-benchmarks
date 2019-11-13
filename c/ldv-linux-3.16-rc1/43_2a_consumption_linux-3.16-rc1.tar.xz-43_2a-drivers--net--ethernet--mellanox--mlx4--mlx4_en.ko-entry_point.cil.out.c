@@ -13357,6 +13357,7 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order ) 
 { 
   struct page *tmp ;

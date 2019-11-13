@@ -17935,6 +17935,7 @@ irqreturn_t iwl_pcie_isr(int irq , void *data )
   return (2);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
 {
   struct page *tmp ;

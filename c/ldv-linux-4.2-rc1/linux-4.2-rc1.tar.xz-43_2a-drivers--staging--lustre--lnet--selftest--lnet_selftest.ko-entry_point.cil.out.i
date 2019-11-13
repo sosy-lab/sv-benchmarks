@@ -16164,6 +16164,7 @@ void lstcon_rpc_module_fini(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
 {
   void *tmp ;

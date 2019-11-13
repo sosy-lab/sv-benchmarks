@@ -17267,6 +17267,7 @@ __inline static void *ioremap(resource_size_t offset , unsigned long size )
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order ) 
 { 
   void *tmp ;
@@ -17274,7 +17275,7 @@ __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(sizeof(struct page));
   }
   return ((struct page *)tmp);
 }
@@ -19797,7 +19798,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;
