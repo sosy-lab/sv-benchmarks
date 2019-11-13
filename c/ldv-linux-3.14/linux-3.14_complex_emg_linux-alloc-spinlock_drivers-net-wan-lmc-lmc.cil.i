@@ -5358,7 +5358,6 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 void ldv_assume(int expression ) ;
-void *ldv_malloc_unknown_size(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void lmc_trace(struct net_device *dev , char *msg ) ;
 void lmc_trace(struct net_device *dev , char *msg )
@@ -13264,30 +13263,6 @@ void *ldv_xzalloc(size_t size )
   ldv_assume(tmp___0 == 0L);
   }
   return (res);
-}
-}
-void *ldv_malloc_unknown_size(void)
-{
-  void *res ;
-  void *tmp ;
-  long tmp___0 ;
-  int tmp___1 ;
-  {
-  {
-  tmp___1 = ldv_undef_int();
-  }
-  if (tmp___1 != 0) {
-    {
-    tmp = external_allocated_data();
-    res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
-    tmp___0 = ldv_is_err((void const *)res);
-    ldv_assume(tmp___0 == 0L);
-    }
-    return (res);
-  } else {
-    return ((void *)0);
-  }
 }
 }
 void *ldv_undef_ptr(void) ;

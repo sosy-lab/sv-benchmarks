@@ -33679,7 +33679,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc_unknown_size(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -33780,30 +33779,6 @@ void *ldv_xzalloc(size_t size )
   ldv_assume(tmp___0 == 0L);
   }
   return (res);
-}
-}
-void *ldv_malloc_unknown_size(void)
-{
-  void *res ;
-  void *tmp ;
-  long tmp___0 ;
-  int tmp___1 ;
-  {
-  {
-  tmp___1 = ldv_undef_int();
-  }
-  if (tmp___1 != 0) {
-    {
-    tmp = external_allocated_data();
-    res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
-    tmp___0 = ldv_is_err((void const *)res);
-    ldv_assume(tmp___0 == 0L);
-    }
-    return (res);
-  } else {
-    return ((void *)0);
-  }
 }
 }
 void *ldv_undef_ptr(void) ;

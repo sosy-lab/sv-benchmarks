@@ -5534,7 +5534,6 @@ static void ldv_ldv_check_final_state_126(void) ;
 static void ldv_ldv_check_final_state_127(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-void *ldv_malloc_unknown_size(void) ;
 extern void ldv_after_alloc(void * ) ;
 extern struct module __this_module ;
 extern int printk(char const * , ...) ;
@@ -19479,30 +19478,6 @@ void *ldv_xzalloc(size_t size )
   ldv_assume(tmp___0 == 0L);
   }
   return (res);
-}
-}
-void *ldv_malloc_unknown_size(void)
-{
-  void *res ;
-  void *tmp ;
-  long tmp___0 ;
-  int tmp___1 ;
-  {
-  {
-  tmp___1 = ldv_undef_int();
-  }
-  if (tmp___1 != 0) {
-    {
-    tmp = external_allocated_data();
-    res = tmp;
-    ldv_assume((unsigned long )res != (unsigned long )((void *)0));
-    tmp___0 = ldv_is_err((void const *)res);
-    ldv_assume(tmp___0 == 0L);
-    }
-    return (res);
-  } else {
-    return ((void *)0);
-  }
 }
 }
 int ldv_undef_int_negative(void) ;
