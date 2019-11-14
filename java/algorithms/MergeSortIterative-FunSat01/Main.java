@@ -27,8 +27,7 @@ public class Main {
 
   public static void main(String[] args) {
     final int N = Verifier.nondetInt();
-
-    if (N < 1) return;
+    Verifier.assume(N > 0);
 
     int data[] = new int[N];
     for (int i = 0; i < N; i++) {
