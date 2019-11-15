@@ -4,5 +4,5 @@ input_files:
   - Tsp-FunSat01/
 properties:
   - property_file: ../properties/assert.prp
-    expected_verdict: true
+    expected_verdict: false
 
