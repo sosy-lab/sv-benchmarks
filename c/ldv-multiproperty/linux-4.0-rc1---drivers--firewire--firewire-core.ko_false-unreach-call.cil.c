@@ -4419,7 +4419,7 @@ void ldv_linux_kernel_rcu_update_lock_bh_check_for_read_section(void) ;
 void ldv_linux_kernel_rcu_update_lock_sched_check_for_read_section(void) ;
 void ldv_linux_kernel_rcu_update_lock_check_for_read_section(void) ;
 void ldv_linux_kernel_rcu_srcu_check_for_read_section(void) ;
-void *ldv_linux_usb_gadget_create_class(void) ;
+void *ldv_linux_usb_gadget_create_class(void *is_got ) ;
 int ldv_linux_usb_gadget_register_class(void) ;
 void ldv_check_alloc_nonatomic(void) 
 { 
@@ -4471,7 +4471,7 @@ void *ldv_create_class(void)
   {
   tmp = ldv_linux_drivers_base_class_create_class();
   res1 = tmp;
-  tmp___0 = ldv_linux_usb_gadget_create_class();
+  tmp___0 = ldv_linux_usb_gadget_create_class(res1);
   res2 = tmp___0;
   ldv_assume((unsigned long )res1 == (unsigned long )res2);
   }
@@ -21827,14 +21827,12 @@ void ldv_assert_linux_usb_gadget__double_usb_gadget_deregistration(int expr ) ;
 void ldv_assert_linux_usb_gadget__double_usb_gadget_registration(int expr ) ;
 void ldv_assert_linux_usb_gadget__usb_gadget_registered_at_exit(int expr ) ;
 int ldv_linux_usb_gadget_usb_gadget  =    0;
-void *ldv_linux_usb_gadget_create_class(void) 
+void *ldv_linux_usb_gadget_create_class(void *is_got ) 
 { 
-  void *is_got ;
   long tmp ;
 
   {
   {
-  is_got = ldv_undef_ptr();
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }
