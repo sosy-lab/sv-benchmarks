@@ -10903,6 +10903,7 @@ static void ldv_pci_unregister_driver_209(struct pci_driver *ldv_func_arg1 ) ;
 extern struct dma_pool *dma_pool_create(char const * , struct device * , size_t ,
                                         size_t , size_t ) ;
 extern void dma_pool_destroy(struct dma_pool * ) ;
+void *ldv_malloc(size_t size ) ;
 static void *ldv_dma_pool_alloc_134(struct dma_pool *ldv_func_arg1 , gfp_t flags ,
                                     dma_addr_t *ldv_func_arg3 ) ;
 static void *ldv_dma_pool_alloc_181(struct dma_pool *ldv_func_arg1 , gfp_t flags ,
@@ -41447,7 +41448,6 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_129(spinlock_t *ld
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_131(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
@@ -41484,7 +41484,7 @@ static void *ldv_dma_pool_alloc_134(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(512UL);
   }
   return (tmp);
 }
@@ -41861,7 +41861,7 @@ static void *ldv_dma_pool_alloc_181(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(512UL);
   }
   return (tmp);
 }
@@ -41873,7 +41873,7 @@ static void *ldv_dma_pool_alloc_182(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(512UL);
   }
   return (tmp);
 }
@@ -41905,7 +41905,7 @@ static void *ldv_dma_pool_alloc_185(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(512UL);
   }
   return (tmp);
 }
@@ -41928,7 +41928,7 @@ static void *ldv_dma_pool_alloc_187(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(512UL);
   }
   return (tmp);
 }
@@ -41971,7 +41971,7 @@ static void *ldv_dma_pool_alloc_192(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(512UL);
   }
   return (tmp);
 }
@@ -44578,7 +44578,7 @@ static void *ldv_dma_pool_alloc_150(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(512UL);
   }
   return (tmp);
 }
@@ -47812,7 +47812,7 @@ static void *ldv_dma_pool_alloc_145(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(512UL);
   }
   return (tmp);
 }
@@ -47824,7 +47824,7 @@ static void *ldv_dma_pool_alloc_146(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(512UL);
   }
   return (tmp);
 }
@@ -57765,7 +57765,6 @@ void ldv_dummy_resourceless_instance_callback_9_10(enum irqreturn (*arg0)(int , 
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;

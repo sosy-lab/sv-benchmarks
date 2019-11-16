@@ -32147,7 +32147,7 @@ static void *ldv_dma_pool_alloc_146(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(8191UL);
   }
   return (tmp);
 }

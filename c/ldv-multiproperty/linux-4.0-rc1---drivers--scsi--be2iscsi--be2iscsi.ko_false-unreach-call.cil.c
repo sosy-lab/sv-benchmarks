@@ -12406,6 +12406,7 @@ static int ldv___pci_register_driver_175(struct pci_driver *ldv_func_arg1 , stru
                                          char const   *ldv_func_arg3 ) ;
 extern void pci_unregister_driver(struct pci_driver * ) ;
 static void ldv_pci_unregister_driver_176(struct pci_driver *ldv_func_arg1 ) ;
+void *ldv_malloc(size_t size ) ;
 static void *ldv_dma_pool_alloc_162(struct dma_pool *ldv_func_arg1 , gfp_t flags ,
                                     dma_addr_t *ldv_func_arg3 ) ;
 extern void dma_pool_free(struct dma_pool * , void * , dma_addr_t  ) ;
@@ -25549,7 +25550,6 @@ __inline static void atomic_dec(atomic_t *v )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -25923,7 +25923,7 @@ static void *ldv_dma_pool_alloc_162(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(324UL);
   }
   return (tmp);
 }

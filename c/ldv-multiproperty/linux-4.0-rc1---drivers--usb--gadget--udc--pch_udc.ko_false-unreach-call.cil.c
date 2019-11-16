@@ -4591,6 +4591,7 @@ static void ldv_pci_unregister_driver_141(struct pci_driver *ldv_func_arg1 ) ;
 extern struct dma_pool *dma_pool_create(char const   * , struct device * , size_t  ,
                                         size_t  , size_t  ) ;
 extern void dma_pool_destroy(struct dma_pool * ) ;
+void *ldv_malloc(size_t size ) ;
 static void *ldv_dma_pool_alloc_106(struct dma_pool *ldv_func_arg1 , gfp_t flags ,
                                     dma_addr_t *ldv_func_arg3 ) ;
 static void *ldv_dma_pool_alloc_111(struct dma_pool *ldv_func_arg1 , gfp_t flags ,
@@ -11145,7 +11146,7 @@ static void *ldv_dma_pool_alloc_106(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(16UL);
   }
   return (tmp);
 }
@@ -11182,7 +11183,7 @@ static void *ldv_dma_pool_alloc_111(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(16UL);
   }
   return (tmp);
 }
@@ -11255,7 +11256,7 @@ static void *ldv_dma_pool_alloc_134(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(16UL);
   }
   return (tmp);
 }
@@ -11268,7 +11269,7 @@ static void *ldv_dma_pool_alloc_135(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(16UL);
   }
   return (tmp);
 }
@@ -13534,7 +13535,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;

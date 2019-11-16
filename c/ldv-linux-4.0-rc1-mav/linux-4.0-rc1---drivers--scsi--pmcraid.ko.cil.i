@@ -8880,6 +8880,7 @@ static void ldv_pci_unregister_driver_242(struct pci_driver *ldv_func_arg1 ) ;
 extern struct dma_pool *dma_pool_create(char const * , struct device * , size_t ,
                                         size_t , size_t ) ;
 extern void dma_pool_destroy(struct dma_pool * ) ;
+void *ldv_malloc(size_t size ) ;
 static void *ldv_dma_pool_alloc_223(struct dma_pool *ldv_func_arg1 , gfp_t flags ,
                                     dma_addr_t *ldv_func_arg3 ) ;
 extern void dma_pool_free(struct dma_pool * , void * , dma_addr_t ) ;
@@ -17887,7 +17888,6 @@ __inline static int atomic_add_return(int i , atomic_t *v )
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
 {
   void *tmp ;
@@ -17899,7 +17899,6 @@ __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
   return ((struct page *)tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
@@ -17922,7 +17921,6 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags )
 {
   void *tmp ;
@@ -18534,7 +18532,7 @@ static void *ldv_dma_pool_alloc_223(struct dma_pool *ldv_func_arg1 , gfp_t flags
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = ldv_malloc(1472UL);
   }
   return (tmp);
 }
