@@ -9,6 +9,8 @@ import os
 import re
 import sys
 
+from typing import List, Tuple
+
 try:
     import yaml
 except ImportError:
@@ -290,7 +292,7 @@ class TaskDefinitionFileChecks(FileChecks):
         if not self.content:
             return None
         input_files = self._get_input_files()
-        properties_to_verdicts = self._get_properties()
+        properties_and_verdicts = self._get_properties()
         for f in input_files:
             f_path = os.path.join(self.directory, f)
             if not os.path.exists(f_path):
@@ -300,16 +302,16 @@ class TaskDefinitionFileChecks(FileChecks):
                     path=f_path,
                     name=f_path,
                     contained_in_category=self.contained_in_category,
-                    properties_to_verdicts=properties_to_verdicts
-                    ).run()
+                    properties_and_verdicts=properties_and_verdicts,
+                ).run()
 
     def check_properties(self):
-        prop_to_verdict = self._get_properties()
+        prop_and_verdict = self._get_properties()
         PropertiesChecks(
-                properties=prop_to_verdict,
-                contained_in_category=self.contained_in_category,
-                name=self.name
-                ).run()
+            properties=prop_and_verdict,
+            contained_in_category=self.contained_in_category,
+            name=self.name,
+        ).run()
 
     def _get_input_files(self) -> list:
         if 'input_files' not in self.content:
@@ -326,9 +328,9 @@ class TaskDefinitionFileChecks(FileChecks):
             input_files = [input_files]
         return input_files
 
-    def _get_properties(self) -> dict:
-        if not 'properties' in self.content\
-                or not self.content['properties']:
+    def _get_properties(self) -> List[Tuple[str, str]]:
+        """Return list of tuples (property, verdict) present in the task definition."""
+        if not "properties" in self.content or not self.content["properties"]:
             self.error("No properties")
             # Return empty dict instead of None so that calling check stops gracefully
             return dict()
@@ -341,7 +343,7 @@ class TaskDefinitionFileChecks(FileChecks):
             else:
                 props.append(prop_def)
 
-        prop_to_verdict = dict()
+        prop_and_verdict = list()
         for prop_def in props:
             # Strip directories and ".prp" suffix
             prop = os.path.basename(prop_def['property_file'])
@@ -351,26 +353,28 @@ class TaskDefinitionFileChecks(FileChecks):
                 verdict = prop_def['expected_verdict']
             else:
                 verdict = None
-            if 'subproperty' in prop_def:
-                prop = prop_def['subproperty']
-            prop_to_verdict[prop] = verdict
-        return prop_to_verdict
+            if "subproperty" in prop_def:
+                prop = prop_def["subproperty"]
+            prop_and_verdict.append((prop, verdict))
+        return prop_and_verdict
 
 
 class PropertiesChecks(Checks):
     """Checks about the properties of task definitions."""
 
     def __init__(self, properties, contained_in_category, *args, **kwargs):
-        super(PropertiesChecks, self).__init__(known_problems=KNOWN_BENCHMARK_FILE_PROBLEMS, quiet=True, *args, **kwargs)
-        self.prop_to_verdict = properties
-        self.prop_names = list(properties.keys())
+        super(PropertiesChecks, self).__init__(
+            known_problems=KNOWN_BENCHMARK_FILE_PROBLEMS, quiet=True, *args, **kwargs
+        )
+        self.prop_and_verdict = properties
+        self.prop_names = [prop for prop, verdict in properties]
 
     def check_no_unknown_property(self):
         [self.error("has unknown property " + p)
             for p in self.prop_names if p not in PROPERTIES]
 
     def check_no_duplicate_properties(self):
-        counts = collections.Counter(self.prop_to_verdict.keys())
+        counts = collections.Counter((prop for prop, verdict in self.prop_and_verdict))
 
         [self.error("has duplicate property " + p)
             for p, c in counts.items() if c > 1]
@@ -385,20 +389,24 @@ class PropertiesChecks(Checks):
 
     def check_no_contradicting_verdicts(self):
         # Properties may also have no verdict (None), i.e., (not violates) != fulfills. Thus we need both methods
+        prop_to_verdict = dict(self.prop_and_verdict)
+
         def violates(prop):
-            return prop in self.prop_to_verdict\
-                    and self.prop_to_verdict[prop] is False
+            return prop in prop_to_verdict and prop_to_verdict[prop] is False
 
         def fulfills(prop):
-            return prop in self.prop_to_verdict\
-                    and self.prop_to_verdict[prop] is True
+            return prop in prop_to_verdict and prop_to_verdict[prop] is True
 
-        if violates("valid-deref")\
-                or violates("valid-free")\
-                or violates("no-overflow")\
-                or violates("def-behavior"):
-            if any(fulfills(p) for p in self.prop_to_verdict)\
-                    or len([p for p in self.prop_to_verdict if violates(p)]) > 1:
+        if (
+            violates("valid-deref")
+            or violates("valid-free")
+            or violates("no-overflow")
+            or violates("def-behavior")
+        ):
+            if (
+                any(fulfills(p) for p in prop_to_verdict)
+                or len([p for p in prop_to_verdict if violates(p)]) > 1
+            ):
                 self.error(
                         "has expected undefined behavior but also a verdict for some other property")
 
@@ -409,7 +417,7 @@ class PropertiesChecks(Checks):
             self.error("has reachable error location but claims to have no memory leaks (this is not necessarily wrong but should be checked)")
 
     def check_no_invalid_verdicts(self):
-        for prop, verdict in self.prop_to_verdict.items():
+        for prop, verdict in self.prop_and_verdict:
             if prop.startswith("coverage-") and verdict is not None:
                 self.error("has verdict for property " + prop)
 
@@ -417,12 +425,14 @@ class PropertiesChecks(Checks):
 class InputFileChecks(FileChecks):
     """Checks about the contents of a single benchmark input file."""
 
-    def __init__(self, path, contained_in_category, properties_to_verdicts, *args, **kwargs):
+    def __init__(
+        self, path, contained_in_category, properties_and_verdicts, *args, **kwargs
+    ):
         super(InputFileChecks, self).__init__(path, *args, **kwargs)
         self.path = path
         self.filename = os.path.basename(self.path)
         self.contained_in_category = contained_in_category
-        self.prop_to_verdict = properties_to_verdicts
+        self.prop_and_verdict = properties_and_verdicts
 
     def check_file_has_no_line_directive(self):
         if any(LINE_DIRECTIVE.match(line) for line in self.lines):
@@ -431,7 +441,7 @@ class InputFileChecks(FileChecks):
                 "please use 'cpp -P' for preprocessing")
 
     def check_unreach_call_tasks_have_verifier_error(self):
-        if not "unreach-call" in self.prop_to_verdict:
+        if not "unreach-call" in dict(self.prop_and_verdict):
             return
         if not self.contained_in_category:
             # Some such files have calls to __VERIFIER_error inside #include
