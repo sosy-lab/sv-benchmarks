@@ -7051,6 +7051,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void)
 {
   void *res1 ;
@@ -7666,7 +7667,6 @@ __inline static int skb_checksum_start_offset(struct sk_buff const *skb )
   return ((int )((unsigned int )skb->__annonCompField77.__annonCompField76.csum_start - tmp));
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_126(struct net_device *ldv_func_arg1 ,
                                                   unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct page *skb_frag_page(skb_frag_t const *frag )
@@ -16388,7 +16388,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
   long tmp ;
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const *)is_got);
   }

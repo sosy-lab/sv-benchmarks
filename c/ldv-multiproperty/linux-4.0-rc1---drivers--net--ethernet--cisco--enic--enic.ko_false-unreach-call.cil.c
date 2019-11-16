@@ -7567,6 +7567,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void) 
 { 
   void *res1 ;
@@ -8537,7 +8538,6 @@ __inline static int skb_transport_offset(struct sk_buff  const  *skb )
   return ((int )((unsigned int )((long )tmp) - (unsigned int )((long )skb->data)));
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_105(struct net_device *ldv_func_arg1 ,
                                                   unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct sk_buff *__netdev_alloc_skb_ip_align(struct net_device *dev ,
@@ -24388,7 +24388,6 @@ int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 )
   return (arg0);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -24972,7 +24971,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
 
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }

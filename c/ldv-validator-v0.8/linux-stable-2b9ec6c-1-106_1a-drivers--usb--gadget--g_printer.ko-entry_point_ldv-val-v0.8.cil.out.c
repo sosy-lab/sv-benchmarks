@@ -5947,7 +5947,7 @@ void *ldv_create_class(void)
   void *is_got ;
 
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   if ((unsigned long )is_got <= (unsigned long )((void *)2012)) {
     if (ldv_usb_gadget != 0) {
       ldv_error();

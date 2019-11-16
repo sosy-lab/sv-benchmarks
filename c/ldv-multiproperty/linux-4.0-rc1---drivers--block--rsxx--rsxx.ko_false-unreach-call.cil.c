@@ -4715,6 +4715,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void) 
 { 
   void *res1 ;
@@ -10904,7 +10905,6 @@ static int ldv_mod_timer_96(struct timer_list *ldv_func_arg1 , unsigned long ldv
   return (ldv_func_res);
 }
 }
-void *ldv_malloc(size_t size ) ;
 static void *ldv_kmem_cache_alloc_97(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) 
 { 
   void *tmp ;
@@ -14873,7 +14873,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
 
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }

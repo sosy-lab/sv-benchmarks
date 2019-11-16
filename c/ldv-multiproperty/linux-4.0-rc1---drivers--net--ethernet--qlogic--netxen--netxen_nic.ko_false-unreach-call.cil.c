@@ -7715,6 +7715,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void) 
 { 
   void *res1 ;
@@ -23673,7 +23674,6 @@ __inline static void skb_reserve(struct sk_buff *skb , int len )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 static struct sk_buff *ldv___netdev_alloc_skb_103(struct net_device *ldv_func_arg1 ,
                                                   unsigned int ldv_func_arg2 , gfp_t flags ) ;
 __inline static struct sk_buff *netdev_alloc_skb(struct net_device *dev , unsigned int length ) 
@@ -29783,7 +29783,6 @@ void netxen_free_hw_resources(struct netxen_adapter *adapter )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -30332,7 +30331,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
 
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const   *)is_got);
   }

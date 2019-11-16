@@ -6069,6 +6069,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void)
 {
   void *res1 ;
@@ -13479,7 +13480,6 @@ void ldv_dummy_resourceless_instance_callback_7_8(void (*arg0)(struct drm_encode
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   void *res ;
@@ -14886,7 +14886,6 @@ __inline static void ldv_spin_unlock_irqrestore_113(spinlock_t *lock , unsigned 
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 static void *ldv_vmalloc_115(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
@@ -19501,7 +19500,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
   long tmp ;
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const *)is_got);
   }

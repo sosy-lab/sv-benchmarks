@@ -8322,6 +8322,7 @@ void ldv_check_for_read_section(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 void *ldv_create_class(void)
 {
   void *res1 ;
@@ -8869,7 +8870,6 @@ static void ldv_pci_unregister_driver_242(struct pci_driver *ldv_func_arg1 ) ;
 extern struct dma_pool *dma_pool_create(char const * , struct device * , size_t ,
                                         size_t , size_t ) ;
 extern void dma_pool_destroy(struct dma_pool * ) ;
-void *ldv_malloc(size_t size ) ;
 static void *ldv_dma_pool_alloc_223(struct dma_pool *ldv_func_arg1 , gfp_t flags ,
                                     dma_addr_t *ldv_func_arg3 ) ;
 extern void dma_pool_free(struct dma_pool * , void * , dma_addr_t ) ;
@@ -19309,7 +19309,7 @@ void *ldv_linux_drivers_base_class_create_class(void)
   long tmp ;
   {
   {
-  is_got = ldv_undef_ptr();
+  is_got = ldv_malloc(sizeof(struct class));
   ldv_assume((int )((long )is_got));
   tmp = ldv_is_err((void const *)is_got);
   }
