@@ -35,7 +35,7 @@ public class Main {
     }
     iterativeMergesort(data);
 
-    assert(data[0] < data[1] || data.length < 2);
+    assert(data.length < 2 || data[0] < data[1]);
   }
 
   /////////////////////////////////////////
