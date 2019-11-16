@@ -6,3 +6,13 @@ locks/*.yml
 memsafety-ext3/*.yml
 pthread-memsafety/*.yml
 memsafety-bftpd/*.yml
+verifythis/duplets.yml
+verifythis/elimination_max.yml
+verifythis/lcp.yml
+verifythis/prefixsum_iter.yml
+verifythis/tree_del_iter.yml
+verifythis/prefixsum_rec.yml
+verifythis/tree_del_rec.yml
+verifythis/tree_max.yml
+verifythis/elimination_max_rec.yml
+verifythis/elimination_max_rec_onepoint.yml
