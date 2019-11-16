@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE761_Free_Pointer_Not_at_Start_of_Buffer---CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_22.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: false

@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE122_Heap_Based_Buffer_Overflow---s08---CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memmove_66.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: false

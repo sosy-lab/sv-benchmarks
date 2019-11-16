@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE590_Free_Memory_Not_on_Heap---s05---CWE590_Free_Memory_Not_on_Heap__free_struct_declare_68.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: false

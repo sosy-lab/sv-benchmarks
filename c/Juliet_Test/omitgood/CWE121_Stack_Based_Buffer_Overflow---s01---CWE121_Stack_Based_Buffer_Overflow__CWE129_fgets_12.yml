@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_12.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: false

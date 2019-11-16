@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE690_NULL_Deref_From_Return---s01---CWE690_NULL_Deref_From_Return__long_malloc_67.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: false
