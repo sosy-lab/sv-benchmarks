@@ -4497,28 +4497,6 @@ void ldv_usb_put_intf(void)
   return;
 }
 }
-struct urb *ldv_alloc_urb(void) 
-{ 
-  struct urb *value ;
-  void *tmp ;
-  int tmp___0 ;
-
-  {
-  tmp = ldv_undef_ptr();
-  value = tmp;
-  tmp___0 = ldv_undef_int();
-  if (tmp___0) {
-    if ((unsigned long )value != (unsigned long )((struct urb *)0)) {
-      usb_urb = value;
-    } else {
-
-    }
-  } else {
-
-  }
-  return (usb_urb);
-}
-}
 void ldv_free_urb(struct urb *urb ) 
 { 
 

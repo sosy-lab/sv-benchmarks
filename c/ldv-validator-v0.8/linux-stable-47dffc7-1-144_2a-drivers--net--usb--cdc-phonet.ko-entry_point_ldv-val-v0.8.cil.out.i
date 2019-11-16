@@ -6581,13 +6581,14 @@ void ldv_usb_put_intf(void)
   return;
 }
 }
+void *ldv_malloc(size_t size ) ;
 struct urb *ldv_alloc_urb(void)
 {
   struct urb *value ;
   void *tmp ;
   int tmp___0 ;
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   value = (struct urb *)tmp;
   tmp___0 = ldv_undef_int();
   if (tmp___0 != 0) {

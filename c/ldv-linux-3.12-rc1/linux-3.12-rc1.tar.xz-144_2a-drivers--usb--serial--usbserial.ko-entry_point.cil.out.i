@@ -9248,7 +9248,7 @@ struct urb *ldv_alloc_urb(void)
   void *tmp ;
   int tmp___0 ;
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   value = tmp;
   tmp___0 = ldv_undef_int();
   if (tmp___0) {
