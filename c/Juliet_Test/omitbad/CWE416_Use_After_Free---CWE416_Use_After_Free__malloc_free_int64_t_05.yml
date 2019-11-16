@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE416_Use_After_Free---CWE416_Use_After_Free__malloc_free_int64_t_05.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: true

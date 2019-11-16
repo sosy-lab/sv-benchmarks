@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE127_Buffer_Underread---s02---CWE127_Buffer_Underread__malloc_char_cpy_18.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: true

@@ -1,7 +1,0 @@
-format_version: '1.0'
-
-input_files: 'CWE401_Memory_Leak---s03---CWE401_Memory_Leak__struct_twoIntsStruct_realloc_32.i'
-
-properties:
-  - property_file: ../../properties/valid-memsafety.prp
-    expected_verdict: true
