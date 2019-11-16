@@ -627,7 +627,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE401_Memory_Leak__int64_t_malloc_06_bad(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

@@ -621,7 +621,7 @@ time_t time(time_t *);
 
 void CWE590_Free_Memory_Not_on_Heap__free_int_alloca_32_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   int **dataPtr1 = & data;
   

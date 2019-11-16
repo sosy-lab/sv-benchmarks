@@ -836,7 +836,7 @@ char *CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cpy_61b_badSource(cha
 
 void CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cpy_61_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

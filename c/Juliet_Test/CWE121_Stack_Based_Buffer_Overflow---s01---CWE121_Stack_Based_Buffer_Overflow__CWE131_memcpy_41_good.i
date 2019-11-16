@@ -634,7 +634,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE131_memcpy_41_goodG2BSink(int *data)
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

@@ -861,7 +861,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_memcpy_67_structType myStruct;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

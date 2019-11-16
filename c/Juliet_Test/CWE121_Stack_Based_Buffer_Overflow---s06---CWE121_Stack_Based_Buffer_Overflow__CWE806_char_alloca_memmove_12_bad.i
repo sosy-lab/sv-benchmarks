@@ -841,7 +841,7 @@ static size_t ldv_strlen_1(char const *ldv_func_arg1);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_memmove_12_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   
   char *dataBuffer = __builtin_alloca(100UL);

@@ -832,7 +832,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_declare_06_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

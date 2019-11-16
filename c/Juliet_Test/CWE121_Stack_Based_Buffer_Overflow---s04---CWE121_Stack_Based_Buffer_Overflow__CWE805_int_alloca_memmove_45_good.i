@@ -851,7 +851,7 @@ static void goodG2BSink(void)
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   int *dataBadBuffer = __builtin_alloca(200UL);
   

@@ -638,7 +638,7 @@ void *memset(void *, int, size_t);
 
 void CWE127_Buffer_Underread__malloc_char_memmove_34_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE127_Buffer_Underread__malloc_char_memmove_34_unionType myUnion;
   
   data = (char *)0;

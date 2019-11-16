@@ -836,7 +836,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_snprintf_67b_badSin
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_snprintf_67_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_snprintf_67_structType myStruct;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

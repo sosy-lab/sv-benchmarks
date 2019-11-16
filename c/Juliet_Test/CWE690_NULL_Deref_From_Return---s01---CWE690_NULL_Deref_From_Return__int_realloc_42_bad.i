@@ -634,7 +634,7 @@ static int *badSource(int *data)
 
 void CWE690_NULL_Deref_From_Return__int_realloc_42_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

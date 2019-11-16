@@ -847,7 +847,7 @@ static char *badSource(char *data)
 
 void CWE415_Double_Free__malloc_free_char_42_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

@@ -625,7 +625,7 @@ int *CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_61b_badSource(int *d
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_61_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

@@ -687,7 +687,7 @@ time_t time(time_t *);
 
 void CWE127_Buffer_Underread__malloc_char_ncpy_66_bad(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   
   data = (char *)0;

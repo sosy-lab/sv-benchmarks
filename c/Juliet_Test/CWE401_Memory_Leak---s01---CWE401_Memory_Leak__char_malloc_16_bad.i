@@ -107,7 +107,7 @@ void printLine(char const *line);
 
 void CWE401_Memory_Leak__char_malloc_16_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   ldv_3210: 

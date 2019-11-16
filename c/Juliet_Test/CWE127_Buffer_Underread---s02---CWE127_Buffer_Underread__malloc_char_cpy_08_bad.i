@@ -644,7 +644,7 @@ static int staticReturnsTrue(void)
 
 void CWE127_Buffer_Underread__malloc_char_cpy_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   
   data = (char *)0;

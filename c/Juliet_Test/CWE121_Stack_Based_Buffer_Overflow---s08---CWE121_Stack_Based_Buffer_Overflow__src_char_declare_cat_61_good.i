@@ -633,7 +633,7 @@ char *strcat(char *, char const *);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

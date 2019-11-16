@@ -639,7 +639,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE126_Buffer_Overread__malloc_char_loop_06_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

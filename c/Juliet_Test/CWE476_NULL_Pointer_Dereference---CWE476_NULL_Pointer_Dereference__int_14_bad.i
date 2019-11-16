@@ -616,7 +616,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__int_14_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   if (globalFive == 5) 
                        data = (int *)0; else ;

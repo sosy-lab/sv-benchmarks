@@ -849,7 +849,7 @@ static char *ldv_strcpy_2(char * __restrict ldv_func_arg1, char const * __restri
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE124_Buffer_Underwrite__malloc_char_cpy_34_unionType myUnion;
   
   data = (char *)0;

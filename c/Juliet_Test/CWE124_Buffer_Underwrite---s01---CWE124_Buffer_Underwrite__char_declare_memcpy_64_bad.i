@@ -833,7 +833,7 @@ void CWE124_Buffer_Underwrite__char_declare_memcpy_64b_badSink(void *dataVoidPtr
 
 void CWE124_Buffer_Underwrite__char_declare_memcpy_64_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   
   memset((void *)(& dataBuffer),65,99UL);

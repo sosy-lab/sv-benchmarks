@@ -889,7 +889,7 @@ time_t time(time_t *);
 
 void CWE127_Buffer_Underread__malloc_char_loop_53_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   {

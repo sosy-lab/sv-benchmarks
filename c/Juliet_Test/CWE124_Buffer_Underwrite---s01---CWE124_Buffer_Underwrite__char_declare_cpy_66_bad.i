@@ -833,7 +833,7 @@ void CWE124_Buffer_Underwrite__char_declare_cpy_66b_badSink(char **dataArray);
 
 void CWE124_Buffer_Underwrite__char_declare_cpy_66_bad(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   char dataBuffer[100U];
   

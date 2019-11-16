@@ -841,7 +841,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE690_NULL_Deref_From_Return__char_realloc_04_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

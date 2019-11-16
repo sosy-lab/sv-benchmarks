@@ -849,7 +849,7 @@ static int staticReturnsTrue(void)
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_fixed_string_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   
   data = (char *)malloc(100UL);

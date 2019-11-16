@@ -132,7 +132,7 @@ void printIntLine(int intNumber);
 
 void CWE401_Memory_Leak__int_realloc_53_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

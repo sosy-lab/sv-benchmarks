@@ -827,7 +827,7 @@ time_t time(time_t *);
 
 static void goodB2G(void)
 {
-  char *data = 0;
+  char *data;
   ldv_3200: 
   ;
   
@@ -857,7 +857,7 @@ static void goodB2G(void)
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   ldv_3207: 
   ;
   

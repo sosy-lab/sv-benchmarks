@@ -838,7 +838,7 @@ static int staticFive = 5;
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memcpy_07_bad(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

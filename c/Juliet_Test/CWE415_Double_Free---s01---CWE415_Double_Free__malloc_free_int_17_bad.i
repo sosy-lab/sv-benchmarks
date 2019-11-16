@@ -630,7 +630,7 @@ void CWE415_Double_Free__malloc_free_int_17_bad(void)
 {
   int i;
   int j;
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

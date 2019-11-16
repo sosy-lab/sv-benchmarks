@@ -138,7 +138,7 @@ void printIntLine(int intNumber);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   CWE401_Memory_Leak__int_realloc_67_structType myStruct;
   
   data = (int *)0;
@@ -159,7 +159,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  int *data = 0;
+  int *data;
   CWE401_Memory_Leak__int_realloc_67_structType myStruct;
   
   data = (int *)0;

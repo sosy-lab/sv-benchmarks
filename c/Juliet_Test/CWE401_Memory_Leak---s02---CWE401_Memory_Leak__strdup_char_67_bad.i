@@ -113,7 +113,7 @@ void printLine(char const *line);
 
 void CWE401_Memory_Leak__strdup_char_67_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE401_Memory_Leak__strdup_char_67_structType myStruct;
   
   data = (char *)0;

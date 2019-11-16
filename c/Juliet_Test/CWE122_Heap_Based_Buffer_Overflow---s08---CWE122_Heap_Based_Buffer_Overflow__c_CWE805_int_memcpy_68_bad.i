@@ -862,7 +862,7 @@ int *CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_68_goodG2BData;
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_68_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

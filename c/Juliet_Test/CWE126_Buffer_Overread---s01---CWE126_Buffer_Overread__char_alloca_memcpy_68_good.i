@@ -885,7 +885,7 @@ char *CWE126_Buffer_Overread__char_alloca_memcpy_68_goodG2BData;
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBadBuffer = __builtin_alloca(50UL);
   

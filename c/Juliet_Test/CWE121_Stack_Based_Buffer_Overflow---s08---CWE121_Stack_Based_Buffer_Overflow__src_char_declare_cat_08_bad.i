@@ -843,7 +843,7 @@ static int staticReturnsTrue(void)
 
 void CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cat_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   int tmp;
   

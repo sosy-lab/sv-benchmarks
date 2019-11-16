@@ -95,7 +95,7 @@ void CWE476_NULL_Pointer_Dereference__int_63b_badSink(int **dataPtr);
 
 void CWE476_NULL_Pointer_Dereference__int_63_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

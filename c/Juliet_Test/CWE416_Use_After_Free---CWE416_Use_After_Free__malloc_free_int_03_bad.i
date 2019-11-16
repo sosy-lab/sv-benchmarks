@@ -833,7 +833,7 @@ time_t time(time_t *);
 
 void CWE416_Use_After_Free__malloc_free_int_03_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

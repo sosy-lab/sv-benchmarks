@@ -840,7 +840,7 @@ static int staticFive = 5;
 
 static void goodG2B1(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBadBuffer = __builtin_alloca(10UL);
   
@@ -869,7 +869,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBadBuffer = __builtin_alloca(10UL);
   

@@ -856,7 +856,7 @@ int CWE401_Memory_Leak__char_calloc_22_badGlobal = 0;
 
 void CWE401_Memory_Leak__char_calloc_22_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

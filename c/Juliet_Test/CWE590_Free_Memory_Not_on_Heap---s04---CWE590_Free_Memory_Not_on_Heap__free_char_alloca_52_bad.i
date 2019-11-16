@@ -114,7 +114,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_char_alloca_52b_badSink(char *data);
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_alloca_52_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   {

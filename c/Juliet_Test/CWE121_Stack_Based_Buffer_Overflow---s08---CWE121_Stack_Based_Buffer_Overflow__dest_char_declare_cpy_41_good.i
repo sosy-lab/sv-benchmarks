@@ -852,7 +852,7 @@ void CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cpy_41_goodG2BSink(ch
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

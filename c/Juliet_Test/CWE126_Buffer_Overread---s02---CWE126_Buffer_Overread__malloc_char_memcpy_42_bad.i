@@ -132,7 +132,7 @@ static char *badSource(char *data)
 
 void CWE126_Buffer_Overread__malloc_char_memcpy_42_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

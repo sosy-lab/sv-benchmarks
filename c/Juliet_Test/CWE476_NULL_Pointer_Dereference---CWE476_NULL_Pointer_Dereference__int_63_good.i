@@ -95,7 +95,7 @@ void CWE476_NULL_Pointer_Dereference__int_63b_goodG2BSink(int **dataPtr);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   int tmpData = 5;
   
@@ -112,7 +112,7 @@ void CWE476_NULL_Pointer_Dereference__int_63b_goodB2GSink(int **dataPtr);
 
 static void goodB2G(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

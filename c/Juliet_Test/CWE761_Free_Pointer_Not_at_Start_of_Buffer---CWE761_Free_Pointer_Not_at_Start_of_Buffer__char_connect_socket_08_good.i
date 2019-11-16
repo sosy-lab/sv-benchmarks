@@ -933,7 +933,7 @@ static int staticReturnsFalse(void)
 
 static void goodB2G1(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_4;
   
   data = (char *)malloc(100UL);
@@ -1041,7 +1041,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_4;
   
   data = (char *)malloc(100UL);

@@ -664,7 +664,7 @@ time_t time(time_t *);
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_53_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

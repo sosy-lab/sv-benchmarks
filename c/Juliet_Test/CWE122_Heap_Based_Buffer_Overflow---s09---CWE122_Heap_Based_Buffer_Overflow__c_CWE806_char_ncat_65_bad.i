@@ -877,7 +877,7 @@ void *memset(void *, int, size_t);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_ncat_65_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_ncat_65b_badSink;
   

@@ -836,7 +836,7 @@ static char *ldv_strcpy_1(char * __restrict ldv_func_arg1, char const * __restri
 
 void CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cpy_03_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

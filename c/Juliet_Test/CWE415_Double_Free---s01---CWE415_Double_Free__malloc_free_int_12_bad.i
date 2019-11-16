@@ -836,7 +836,7 @@ time_t time(time_t *);
 
 void CWE415_Double_Free__malloc_free_int_12_bad(void)
 {
-  int *data = 0;
+  int *data;
   int tmp_1;
   int tmp_2;
   

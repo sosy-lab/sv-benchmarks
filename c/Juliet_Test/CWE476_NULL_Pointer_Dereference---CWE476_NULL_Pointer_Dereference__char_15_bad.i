@@ -616,7 +616,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__char_15_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   switch (6) {
     case 6: 

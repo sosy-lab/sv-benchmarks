@@ -109,7 +109,7 @@ static int staticFive = 5;
 
 void CWE416_Use_After_Free__malloc_free_int_07_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

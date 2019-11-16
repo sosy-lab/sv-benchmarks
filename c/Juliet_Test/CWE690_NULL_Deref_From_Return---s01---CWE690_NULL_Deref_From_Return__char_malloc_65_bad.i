@@ -651,7 +651,7 @@ time_t time(time_t *);
 
 void CWE690_NULL_Deref_From_Return__char_malloc_65_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & CWE690_NULL_Deref_From_Return__char_malloc_65b_badSink;
   

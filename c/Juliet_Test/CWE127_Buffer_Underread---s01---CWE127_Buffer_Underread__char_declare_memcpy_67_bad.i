@@ -628,7 +628,7 @@ void CWE127_Buffer_Underread__char_declare_memcpy_67b_badSink(CWE127_Buffer_Unde
 
 void CWE127_Buffer_Underread__char_declare_memcpy_67_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE127_Buffer_Underread__char_declare_memcpy_67_structType myStruct;
   char dataBuffer[100U];
   

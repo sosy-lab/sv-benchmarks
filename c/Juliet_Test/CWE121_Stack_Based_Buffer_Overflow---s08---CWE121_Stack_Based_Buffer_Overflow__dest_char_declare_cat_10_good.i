@@ -833,7 +833,7 @@ char *strcat(char *, char const *);
 
 static void goodG2B1(void)
 {
-  char *data = 0;
+  char *data;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   
@@ -863,7 +863,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data = 0;
+  char *data;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

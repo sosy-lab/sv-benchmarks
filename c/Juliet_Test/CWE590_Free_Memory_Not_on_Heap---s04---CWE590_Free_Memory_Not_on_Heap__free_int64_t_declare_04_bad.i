@@ -100,7 +100,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE590_Free_Memory_Not_on_Heap__free_int64_t_declare_04_bad(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

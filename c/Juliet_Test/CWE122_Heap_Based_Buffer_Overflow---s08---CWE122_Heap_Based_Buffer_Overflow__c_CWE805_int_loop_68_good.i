@@ -878,7 +878,7 @@ int *CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_loop_68_goodG2BData;
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

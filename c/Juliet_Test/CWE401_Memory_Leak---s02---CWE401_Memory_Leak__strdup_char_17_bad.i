@@ -835,7 +835,7 @@ void CWE401_Memory_Leak__strdup_char_17_bad(void)
 {
   int i;
   int j;
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

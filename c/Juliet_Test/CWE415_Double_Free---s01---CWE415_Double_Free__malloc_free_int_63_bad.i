@@ -631,7 +631,7 @@ void CWE415_Double_Free__malloc_free_int_63b_badSink(int **dataPtr);
 
 void CWE415_Double_Free__malloc_free_int_63_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

@@ -116,7 +116,7 @@ void printLine(char const *line);
 
 void CWE126_Buffer_Overread__malloc_char_loop_13_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

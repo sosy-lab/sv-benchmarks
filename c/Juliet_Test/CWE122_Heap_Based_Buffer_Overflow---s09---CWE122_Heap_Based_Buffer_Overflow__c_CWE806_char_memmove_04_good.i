@@ -855,7 +855,7 @@ static int const STATIC_CONST_FALSE = 0;
 
 static void goodG2B1(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)malloc(100UL);
   
@@ -894,7 +894,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)malloc(100UL);
   

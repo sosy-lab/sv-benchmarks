@@ -626,7 +626,7 @@ static int staticReturnsTrue(void)
 
 void CWE476_NULL_Pointer_Dereference__char_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp;
   int tmp_0;
   

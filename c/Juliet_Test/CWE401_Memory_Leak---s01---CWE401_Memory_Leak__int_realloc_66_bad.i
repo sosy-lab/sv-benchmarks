@@ -848,7 +848,7 @@ time_t time(time_t *);
 
 void CWE401_Memory_Leak__int_realloc_66_bad(void)
 {
-  int *data = 0;
+  int *data;
   int *dataArray[5U];
   
   data = (int *)0;

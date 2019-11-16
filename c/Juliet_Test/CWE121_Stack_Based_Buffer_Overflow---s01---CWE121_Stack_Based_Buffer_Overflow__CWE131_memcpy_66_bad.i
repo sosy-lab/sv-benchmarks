@@ -638,7 +638,7 @@ time_t time(time_t *);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE131_memcpy_66_bad(void)
 {
-  int *data = 0;
+  int *data;
   int *dataArray[5U];
   
   data = (int *)0;

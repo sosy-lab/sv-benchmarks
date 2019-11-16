@@ -153,7 +153,7 @@ time_t time(time_t *);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_memmove_67_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_memmove_67_structType myStruct;
   
   data = (char *)0;

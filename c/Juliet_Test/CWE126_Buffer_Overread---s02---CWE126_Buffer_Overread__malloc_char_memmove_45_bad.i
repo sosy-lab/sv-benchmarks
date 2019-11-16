@@ -671,7 +671,7 @@ static void badSink(void)
 
 void CWE126_Buffer_Overread__malloc_char_memmove_45_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

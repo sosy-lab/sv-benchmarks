@@ -934,7 +934,7 @@ int close(int);
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_connect_socket_66_bad(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   
   data = (char *)malloc(100UL);

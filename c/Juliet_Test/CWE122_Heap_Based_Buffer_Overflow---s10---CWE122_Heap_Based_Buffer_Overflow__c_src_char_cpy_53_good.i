@@ -640,7 +640,7 @@ void *memset(void *, int, size_t);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)malloc(100UL);
   

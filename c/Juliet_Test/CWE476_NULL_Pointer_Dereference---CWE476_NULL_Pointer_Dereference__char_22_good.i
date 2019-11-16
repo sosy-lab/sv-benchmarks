@@ -836,7 +836,7 @@ void CWE476_NULL_Pointer_Dereference__char_22_goodB2G1Sink(char *data);
 
 static void goodB2G1(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   
@@ -853,7 +853,7 @@ void CWE476_NULL_Pointer_Dereference__char_22_goodB2G2Sink(char *data);
 
 static void goodB2G2(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   
@@ -870,7 +870,7 @@ void CWE476_NULL_Pointer_Dereference__char_22_goodG2BSink(char *data);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)"Good";
   

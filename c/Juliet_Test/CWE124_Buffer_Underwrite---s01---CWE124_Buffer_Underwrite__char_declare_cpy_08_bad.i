@@ -846,7 +846,7 @@ static int staticReturnsTrue(void)
 
 void CWE124_Buffer_Underwrite__char_declare_cpy_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   int tmp;
   

@@ -833,7 +833,7 @@ static char *ldv_strdup_1(char const *ldv_func_arg1);
 
 void CWE401_Memory_Leak__strdup_char_11_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp;
   int tmp_0;
   

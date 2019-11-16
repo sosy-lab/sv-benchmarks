@@ -830,7 +830,7 @@ void CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cat_66b_badSink(char 
 
 void CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cat_66_bad(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];

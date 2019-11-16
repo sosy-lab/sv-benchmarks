@@ -927,7 +927,7 @@ static void badSink(char *data)
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_console_44_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & badSink;
   

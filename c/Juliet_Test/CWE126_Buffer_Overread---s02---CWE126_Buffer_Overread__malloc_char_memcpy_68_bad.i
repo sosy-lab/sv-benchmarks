@@ -686,7 +686,7 @@ char *CWE126_Buffer_Overread__malloc_char_memcpy_68_goodG2BData;
 
 void CWE126_Buffer_Overread__malloc_char_memcpy_68_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

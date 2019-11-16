@@ -107,7 +107,7 @@ int globalReturnsTrue(void);
 
 void CWE415_Double_Free__malloc_free_char_11_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   int tmp_1;
   

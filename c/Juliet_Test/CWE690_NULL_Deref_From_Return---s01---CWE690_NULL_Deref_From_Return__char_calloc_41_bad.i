@@ -641,7 +641,7 @@ static void badSink(char *data)
 
 void CWE690_NULL_Deref_From_Return__char_calloc_41_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

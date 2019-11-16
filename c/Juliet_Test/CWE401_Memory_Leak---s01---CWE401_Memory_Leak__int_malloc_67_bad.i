@@ -119,7 +119,7 @@ void printIntLine(int intNumber);
 
 void CWE401_Memory_Leak__int_malloc_67_bad(void)
 {
-  int *data = 0;
+  int *data;
   CWE401_Memory_Leak__int_malloc_67_structType myStruct;
   
   data = (int *)0;

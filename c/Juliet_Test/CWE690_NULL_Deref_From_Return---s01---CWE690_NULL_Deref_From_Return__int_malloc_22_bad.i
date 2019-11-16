@@ -644,7 +644,7 @@ int CWE690_NULL_Deref_From_Return__int_malloc_22_badGlobal = 0;
 
 void CWE690_NULL_Deref_From_Return__int_malloc_22_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

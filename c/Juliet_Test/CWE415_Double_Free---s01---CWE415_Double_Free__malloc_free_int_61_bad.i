@@ -856,7 +856,7 @@ time_t time(time_t *);
 
 void CWE415_Double_Free__malloc_free_int_61_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

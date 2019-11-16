@@ -841,7 +841,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_snprintf_67b_badSink
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_snprintf_67_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_snprintf_67_structType myStruct;
   
   char *dataBuffer = __builtin_alloca(100UL);

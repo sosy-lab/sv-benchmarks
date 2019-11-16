@@ -655,7 +655,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__char_54_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

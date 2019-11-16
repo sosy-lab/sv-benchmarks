@@ -118,7 +118,7 @@ int globalReturnsTrueOrFalse(void);
 
 void CWE401_Memory_Leak__char_malloc_12_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_1;
   int tmp_2;
   

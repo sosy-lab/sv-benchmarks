@@ -853,7 +853,7 @@ static void badSink(char *data)
 
 void CWE401_Memory_Leak__char_calloc_21_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

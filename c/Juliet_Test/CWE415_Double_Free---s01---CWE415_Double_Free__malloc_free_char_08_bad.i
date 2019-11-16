@@ -638,7 +638,7 @@ static int staticReturnsTrue(void)
 
 void CWE415_Double_Free__malloc_free_char_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   int tmp_1;
   

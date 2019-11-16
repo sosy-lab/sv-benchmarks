@@ -624,7 +624,7 @@ char *strncat(char *, char const *, size_t);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_ncat_11_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_1;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

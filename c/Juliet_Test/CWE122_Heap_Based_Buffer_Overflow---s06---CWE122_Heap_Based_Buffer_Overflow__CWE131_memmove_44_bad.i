@@ -125,7 +125,7 @@ static void badSink(int *data)
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_44_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   void (*funcPtr)(int *) = & badSink;
   

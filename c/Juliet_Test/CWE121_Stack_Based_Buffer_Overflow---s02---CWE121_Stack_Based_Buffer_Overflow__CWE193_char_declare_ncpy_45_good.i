@@ -863,7 +863,7 @@ static void goodG2BSink(void)
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   char dataBadBuffer[10U];
   char dataGoodBuffer[11U];
   

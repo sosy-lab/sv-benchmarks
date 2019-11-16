@@ -832,7 +832,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_loop_66b_goodG2BSink
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   
   char *dataBadBuffer = __builtin_alloca(50UL);

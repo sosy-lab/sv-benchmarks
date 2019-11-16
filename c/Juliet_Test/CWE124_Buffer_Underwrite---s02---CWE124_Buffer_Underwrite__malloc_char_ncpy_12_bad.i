@@ -116,7 +116,7 @@ int globalReturnsTrueOrFalse(void);
 
 void CWE124_Buffer_Underwrite__malloc_char_ncpy_12_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_1;
   
   data = (char *)0;

@@ -836,7 +836,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_memmove_66b_goodG2BSink(ch
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   
   data = (char *)0;

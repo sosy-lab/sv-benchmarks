@@ -634,7 +634,7 @@ static void goodG2BSink(int *data)
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   void (*funcPtr)(int *) = & goodG2BSink;
   

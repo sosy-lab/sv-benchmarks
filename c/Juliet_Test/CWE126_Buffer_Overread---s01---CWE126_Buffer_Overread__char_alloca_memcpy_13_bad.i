@@ -109,7 +109,7 @@ void printLine(char const *line);
 
 void CWE126_Buffer_Overread__char_alloca_memcpy_13_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBadBuffer = __builtin_alloca(50UL);
   

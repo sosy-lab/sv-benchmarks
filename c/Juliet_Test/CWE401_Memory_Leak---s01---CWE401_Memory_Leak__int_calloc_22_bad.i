@@ -841,7 +841,7 @@ void CWE401_Memory_Leak__int_calloc_22_badSink(int *data);
 
 void CWE401_Memory_Leak__int_calloc_22_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

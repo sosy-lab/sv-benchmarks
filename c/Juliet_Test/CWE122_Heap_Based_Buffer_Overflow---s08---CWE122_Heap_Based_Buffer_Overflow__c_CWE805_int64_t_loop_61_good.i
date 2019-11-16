@@ -830,7 +830,7 @@ int64_t *CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_loop_61b_goodG2BSou
 
 static void goodG2B(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

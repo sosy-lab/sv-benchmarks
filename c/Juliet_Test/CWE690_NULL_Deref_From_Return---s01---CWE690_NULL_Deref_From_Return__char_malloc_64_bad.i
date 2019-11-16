@@ -622,7 +622,7 @@ void CWE690_NULL_Deref_From_Return__char_malloc_64b_badSink(void *dataVoidPtr);
 
 void CWE690_NULL_Deref_From_Return__char_malloc_64_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

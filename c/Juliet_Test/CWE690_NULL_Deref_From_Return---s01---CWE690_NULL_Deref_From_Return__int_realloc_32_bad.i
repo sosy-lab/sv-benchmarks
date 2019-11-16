@@ -833,7 +833,7 @@ time_t time(time_t *);
 
 void CWE690_NULL_Deref_From_Return__int_realloc_32_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   int **dataPtr1 = & data;
   

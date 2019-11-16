@@ -833,7 +833,7 @@ void *memmove(void *, void const *, size_t);
 static void goodG2B(void)
 {
   int h;
-  int *data = 0;
+  int *data;
   
   int *dataBadBuffer = __builtin_alloca(200UL);
   

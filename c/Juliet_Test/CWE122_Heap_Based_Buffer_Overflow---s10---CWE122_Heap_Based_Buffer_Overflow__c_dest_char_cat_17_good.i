@@ -840,7 +840,7 @@ char *strcat(char *, char const *);
 static void goodG2B(void)
 {
   int h;
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

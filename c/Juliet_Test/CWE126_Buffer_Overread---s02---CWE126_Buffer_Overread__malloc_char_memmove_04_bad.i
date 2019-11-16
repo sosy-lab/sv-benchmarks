@@ -847,7 +847,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE126_Buffer_Overread__malloc_char_memmove_04_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

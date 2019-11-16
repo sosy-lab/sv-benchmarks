@@ -834,7 +834,7 @@ static int staticFive = 5;
 
 void CWE124_Buffer_Underwrite__char_alloca_loop_07_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

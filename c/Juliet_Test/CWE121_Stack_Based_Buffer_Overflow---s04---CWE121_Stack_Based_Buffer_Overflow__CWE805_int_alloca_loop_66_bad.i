@@ -865,7 +865,7 @@ time_t time(time_t *);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_loop_66_bad(void)
 {
-  int *data = 0;
+  int *data;
   int *dataArray[5U];
   
   int *dataBadBuffer = __builtin_alloca(200UL);

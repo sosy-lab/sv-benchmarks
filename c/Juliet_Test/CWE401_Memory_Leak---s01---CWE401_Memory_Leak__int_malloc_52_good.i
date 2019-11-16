@@ -143,7 +143,7 @@ void printIntLine(int intNumber);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   
@@ -161,7 +161,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

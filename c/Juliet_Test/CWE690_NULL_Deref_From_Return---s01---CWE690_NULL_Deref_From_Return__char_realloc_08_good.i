@@ -865,7 +865,7 @@ static int staticReturnsFalse(void)
 
 static void goodB2G1(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   
   data = (char *)0;
@@ -894,7 +894,7 @@ static void goodB2G1(void)
 
 static void goodB2G2(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   
   data = (char *)0;

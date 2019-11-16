@@ -106,7 +106,7 @@ void printLine(char const *line);
 
 void CWE476_NULL_Pointer_Dereference__char_66_bad(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   
   data = (char *)0;

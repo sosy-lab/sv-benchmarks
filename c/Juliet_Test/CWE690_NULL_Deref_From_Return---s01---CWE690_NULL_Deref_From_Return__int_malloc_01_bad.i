@@ -101,7 +101,7 @@ void printIntLine(int intNumber);
 
 void CWE690_NULL_Deref_From_Return__int_malloc_01_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

@@ -871,7 +871,7 @@ static char *ldv_strncpy_1(char * __restrict ldv_func_arg1, char const * __restr
 
 void CWE124_Buffer_Underwrite__malloc_char_ncpy_61_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

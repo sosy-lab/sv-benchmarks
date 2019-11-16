@@ -846,7 +846,7 @@ static int staticReturnsTrue(void)
 
 void CWE124_Buffer_Underwrite__malloc_char_loop_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   
   data = (char *)0;

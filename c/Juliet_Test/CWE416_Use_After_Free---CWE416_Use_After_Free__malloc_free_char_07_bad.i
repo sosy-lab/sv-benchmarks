@@ -838,7 +838,7 @@ static int staticFive = 5;
 
 void CWE416_Use_After_Free__malloc_free_char_07_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

@@ -843,7 +843,7 @@ void *memcpy(void *, void const *, size_t);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_34_unionType myUnion;
   
   data = (int *)0;

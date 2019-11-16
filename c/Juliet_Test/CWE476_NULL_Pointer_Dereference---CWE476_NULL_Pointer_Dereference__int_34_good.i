@@ -834,7 +834,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   CWE476_NULL_Pointer_Dereference__int_34_unionType myUnion;
   
   int tmpData = 5;
@@ -855,7 +855,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  int *data = 0;
+  int *data;
   CWE476_NULL_Pointer_Dereference__int_34_unionType myUnion;
   
   data = (int *)0;

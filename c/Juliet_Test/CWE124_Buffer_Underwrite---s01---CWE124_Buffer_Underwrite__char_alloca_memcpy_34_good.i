@@ -107,7 +107,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE124_Buffer_Underwrite__char_alloca_memcpy_34_unionType myUnion;
   
   char *dataBuffer = __builtin_alloca(100UL);

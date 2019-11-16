@@ -835,7 +835,7 @@ static int staticFive = 5;
 
 void CWE401_Memory_Leak__strdup_char_07_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

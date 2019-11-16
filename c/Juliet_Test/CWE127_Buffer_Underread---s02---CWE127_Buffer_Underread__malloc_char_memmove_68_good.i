@@ -868,7 +868,7 @@ char *CWE127_Buffer_Underread__malloc_char_memmove_68_goodG2BData;
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   {

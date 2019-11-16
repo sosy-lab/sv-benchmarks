@@ -848,7 +848,7 @@ void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_environment_65b_badSink(ch
 
 void CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_environment_65_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_environment_65b_badSink;
   

@@ -881,7 +881,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE124_Buffer_Underwrite__malloc_char_loop_67_structType myStruct;
   
   data = (char *)0;

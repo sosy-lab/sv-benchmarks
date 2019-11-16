@@ -846,7 +846,7 @@ static void badSink(int *data)
 
 void CWE401_Memory_Leak__int_realloc_44_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   void (*funcPtr)(int *) = & badSink;
   

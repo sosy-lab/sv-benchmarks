@@ -856,7 +856,7 @@ static void badSink(void)
 
 void CWE690_NULL_Deref_From_Return__char_realloc_45_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

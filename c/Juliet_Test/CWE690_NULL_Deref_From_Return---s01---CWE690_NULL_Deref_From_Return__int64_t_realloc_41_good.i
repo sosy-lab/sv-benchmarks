@@ -850,7 +850,7 @@ static void goodB2GSink(int64_t *data)
 
 static void goodB2G(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

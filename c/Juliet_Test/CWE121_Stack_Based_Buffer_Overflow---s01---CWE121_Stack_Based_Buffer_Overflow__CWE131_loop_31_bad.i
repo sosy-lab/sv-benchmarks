@@ -97,7 +97,7 @@ void printIntLine(int intNumber);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE131_loop_31_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

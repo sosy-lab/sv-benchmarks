@@ -107,7 +107,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_snprintf_34_unionType myUnion;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

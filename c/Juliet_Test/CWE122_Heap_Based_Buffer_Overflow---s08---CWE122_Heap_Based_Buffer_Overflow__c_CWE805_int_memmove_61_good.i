@@ -652,7 +652,7 @@ void *memmove(void *, void const *, size_t);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

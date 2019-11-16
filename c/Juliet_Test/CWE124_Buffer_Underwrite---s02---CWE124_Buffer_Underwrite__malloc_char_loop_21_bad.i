@@ -652,7 +652,7 @@ static char *badSource(char *data)
 
 void CWE124_Buffer_Underwrite__malloc_char_loop_21_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

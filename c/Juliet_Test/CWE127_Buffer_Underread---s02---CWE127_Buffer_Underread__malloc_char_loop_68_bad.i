@@ -674,7 +674,7 @@ char *CWE127_Buffer_Underread__malloc_char_loop_68_goodG2BData;
 
 void CWE127_Buffer_Underread__malloc_char_loop_68_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   {

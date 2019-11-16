@@ -882,7 +882,7 @@ static void badSink(char *data)
 
 void CWE126_Buffer_Overread__malloc_char_loop_44_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & badSink;
   

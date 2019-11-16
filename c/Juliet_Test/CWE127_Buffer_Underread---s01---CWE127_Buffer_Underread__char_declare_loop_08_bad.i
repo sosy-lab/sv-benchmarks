@@ -840,7 +840,7 @@ static int staticReturnsTrue(void)
 
 void CWE127_Buffer_Underread__char_declare_loop_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   int tmp;
   

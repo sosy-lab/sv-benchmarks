@@ -642,7 +642,7 @@ static void badSink(char *data)
 
 void CWE127_Buffer_Underread__char_alloca_memmove_44_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & badSink;
   

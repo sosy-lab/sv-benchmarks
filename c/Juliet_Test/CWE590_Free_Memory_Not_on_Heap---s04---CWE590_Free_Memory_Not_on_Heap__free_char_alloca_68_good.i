@@ -127,7 +127,7 @@ char *CWE590_Free_Memory_Not_on_Heap__free_char_alloca_68_goodG2BData;
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   {

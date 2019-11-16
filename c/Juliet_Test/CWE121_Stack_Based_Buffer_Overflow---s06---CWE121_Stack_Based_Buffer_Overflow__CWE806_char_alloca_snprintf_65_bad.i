@@ -624,7 +624,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_snprintf_65b_badSink
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_snprintf_65_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_snprintf_65b_badSink;
   

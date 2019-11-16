@@ -638,7 +638,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   int *dataArray[5U];
   
   data = (int *)0;

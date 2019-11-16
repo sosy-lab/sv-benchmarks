@@ -841,7 +841,7 @@ void CWE127_Buffer_Underread__char_alloca_memmove_67b_badSink(CWE127_Buffer_Unde
 
 void CWE127_Buffer_Underread__char_alloca_memmove_67_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE127_Buffer_Underread__char_alloca_memmove_67_structType myStruct;
   
   char *dataBuffer = __builtin_alloca(100UL);

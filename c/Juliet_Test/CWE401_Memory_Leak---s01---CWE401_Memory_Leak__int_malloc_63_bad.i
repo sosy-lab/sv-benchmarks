@@ -836,7 +836,7 @@ void CWE401_Memory_Leak__int_malloc_63b_badSink(int **dataPtr);
 
 void CWE401_Memory_Leak__int_malloc_63_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

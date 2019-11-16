@@ -625,7 +625,7 @@ static size_t ldv_strlen_1(char const *ldv_func_arg1);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

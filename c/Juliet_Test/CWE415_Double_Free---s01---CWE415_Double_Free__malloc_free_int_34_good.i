@@ -843,7 +843,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   CWE415_Double_Free__malloc_free_int_34_unionType myUnion;
   
   data = (int *)0;
@@ -867,7 +867,7 @@ static void goodG2B(void)
 
 static void goodB2G(void)
 {
-  int *data = 0;
+  int *data;
   CWE415_Double_Free__malloc_free_int_34_unionType myUnion;
   
   data = (int *)0;

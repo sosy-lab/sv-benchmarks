@@ -835,7 +835,7 @@ void CWE127_Buffer_Underread__char_alloca_cpy_65b_badSink(char *data);
 
 void CWE127_Buffer_Underread__char_alloca_cpy_65_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & CWE127_Buffer_Underread__char_alloca_cpy_65b_badSink;
   

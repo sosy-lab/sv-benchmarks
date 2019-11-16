@@ -113,7 +113,7 @@ static char *badSource(char *data)
 
 void CWE690_NULL_Deref_From_Return__char_calloc_42_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

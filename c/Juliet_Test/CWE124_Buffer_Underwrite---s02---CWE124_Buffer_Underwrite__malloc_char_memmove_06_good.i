@@ -844,7 +844,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 static void goodG2B1(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   
@@ -883,7 +883,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

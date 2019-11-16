@@ -835,7 +835,7 @@ void CWE126_Buffer_Overread__char_alloca_memmove_64b_goodG2BSink(void *dataVoidP
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBadBuffer = __builtin_alloca(50UL);
   

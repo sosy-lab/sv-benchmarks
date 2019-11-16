@@ -616,7 +616,7 @@ time_t time(time_t *);
 
 static void goodB2G(void)
 {
-  int *data = 0;
+  int *data;
   
   goto source;
   source: 
@@ -638,7 +638,7 @@ static void goodB2G(void)
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   int tmpData = 5;
   

@@ -652,7 +652,7 @@ void CWE415_Double_Free__malloc_free_int_54b_badSink(int *data);
 
 void CWE415_Double_Free__malloc_free_int_54_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

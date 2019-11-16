@@ -843,7 +843,7 @@ static void badSink(char *data)
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_alloca_44_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & badSink;
   

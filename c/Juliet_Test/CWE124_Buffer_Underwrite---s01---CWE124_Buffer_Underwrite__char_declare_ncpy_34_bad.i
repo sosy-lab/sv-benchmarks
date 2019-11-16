@@ -843,7 +843,7 @@ static char *ldv_strncpy_1(char * __restrict ldv_func_arg1, char const * __restr
 
 void CWE124_Buffer_Underwrite__char_declare_ncpy_34_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE124_Buffer_Underwrite__char_declare_ncpy_34_unionType myUnion;
   char dataBuffer[100U];
   

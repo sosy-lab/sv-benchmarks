@@ -634,7 +634,7 @@ void *memcpy(void *, void const *, size_t);
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memcpy_12_bad(void)
 {
-  int *data = 0;
+  int *data;
   int tmp_1;
   
   data = (int *)0;

@@ -645,7 +645,7 @@ static char *badSource(char *data)
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_loop_42_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

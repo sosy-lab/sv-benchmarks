@@ -95,7 +95,7 @@ void printLine(char const *line);
 
 void CWE124_Buffer_Underwrite__char_declare_loop_18_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   
   memset((void *)(& dataBuffer),65,99UL);

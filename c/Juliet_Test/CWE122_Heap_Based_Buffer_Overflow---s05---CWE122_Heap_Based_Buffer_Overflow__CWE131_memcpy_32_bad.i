@@ -836,7 +836,7 @@ void *memcpy(void *, void const *, size_t);
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memcpy_32_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   int **dataPtr1 = & data;
   

@@ -848,7 +848,7 @@ void CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cat_41_goodG2BSink(char
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

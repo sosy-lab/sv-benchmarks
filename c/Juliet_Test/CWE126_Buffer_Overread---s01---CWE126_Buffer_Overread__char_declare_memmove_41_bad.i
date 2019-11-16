@@ -651,7 +651,7 @@ void CWE126_Buffer_Overread__char_declare_memmove_41_badSink(char *data)
 
 void CWE126_Buffer_Overread__char_declare_memmove_41_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

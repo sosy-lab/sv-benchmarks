@@ -628,7 +628,7 @@ time_t time(time_t *);
 
 void CWE415_Double_Free__malloc_free_char_32_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   char **dataPtr1 = & data;
   

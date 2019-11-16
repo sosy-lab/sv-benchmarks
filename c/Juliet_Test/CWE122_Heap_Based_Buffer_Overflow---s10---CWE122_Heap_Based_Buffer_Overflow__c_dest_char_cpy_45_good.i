@@ -866,7 +866,7 @@ static void goodG2BSink(void)
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

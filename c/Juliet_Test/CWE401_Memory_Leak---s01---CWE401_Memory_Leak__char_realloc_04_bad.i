@@ -636,7 +636,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE401_Memory_Leak__char_realloc_04_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

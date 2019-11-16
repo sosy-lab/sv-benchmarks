@@ -633,7 +633,7 @@ void CWE590_Free_Memory_Not_on_Heap__free_char_declare_41_badSink(char *data)
 
 void CWE590_Free_Memory_Not_on_Heap__free_char_declare_41_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   {

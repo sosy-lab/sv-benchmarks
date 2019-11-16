@@ -124,7 +124,7 @@ void CWE401_Memory_Leak__char_realloc_67b_goodG2BSink(CWE401_Memory_Leak__char_r
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE401_Memory_Leak__char_realloc_67_structType myStruct;
   
   data = (char *)0;
@@ -148,7 +148,7 @@ void CWE401_Memory_Leak__char_realloc_67b_goodB2GSink(CWE401_Memory_Leak__char_r
 
 static void goodB2G(void)
 {
-  char *data = 0;
+  char *data;
   CWE401_Memory_Leak__char_realloc_67_structType myStruct;
   
   data = (char *)0;

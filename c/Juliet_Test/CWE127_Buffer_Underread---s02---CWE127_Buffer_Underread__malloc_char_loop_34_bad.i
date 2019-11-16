@@ -111,7 +111,7 @@ void printLine(char const *line);
 
 void CWE127_Buffer_Underread__malloc_char_loop_34_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE127_Buffer_Underread__malloc_char_loop_34_unionType myUnion;
   
   data = (char *)0;

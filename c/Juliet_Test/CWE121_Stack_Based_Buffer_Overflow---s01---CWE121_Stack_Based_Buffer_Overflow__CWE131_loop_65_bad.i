@@ -832,7 +832,7 @@ void CWE121_Stack_Based_Buffer_Overflow__CWE131_loop_65b_badSink(int *data);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE131_loop_65_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   void (*funcPtr)(int *) = & CWE121_Stack_Based_Buffer_Overflow__CWE131_loop_65b_badSink;
   

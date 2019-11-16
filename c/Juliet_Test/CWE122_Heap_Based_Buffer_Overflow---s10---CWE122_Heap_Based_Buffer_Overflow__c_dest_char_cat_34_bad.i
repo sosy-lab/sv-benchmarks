@@ -641,7 +641,7 @@ char *strcat(char *, char const *);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cat_34_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cat_34_unionType myUnion;
   
   data = (char *)0;

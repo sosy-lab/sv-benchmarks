@@ -631,7 +631,7 @@ char *strcat(char *, char const *);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cat_34_unionType myUnion;
   
   char *dataBuffer = __builtin_alloca(100UL);

@@ -845,7 +845,7 @@ static char *ldv_strcpy_1(char * __restrict ldv_func_arg1, char const * __restri
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE127_Buffer_Underread__char_alloca_cpy_34_unionType myUnion;
   
   char *dataBuffer = __builtin_alloca(100UL);

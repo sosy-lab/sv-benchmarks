@@ -135,7 +135,7 @@ void CWE127_Buffer_Underread__char_alloca_loop_53b_badSink(char *data);
 
 void CWE127_Buffer_Underread__char_alloca_loop_53_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

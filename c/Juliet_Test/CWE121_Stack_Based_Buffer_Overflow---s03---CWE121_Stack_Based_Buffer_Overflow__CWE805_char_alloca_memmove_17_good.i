@@ -836,7 +836,7 @@ void *memset(void *, int, size_t);
 static void goodG2B(void)
 {
   int h;
-  char *data = 0;
+  char *data;
   
   char *dataBadBuffer = __builtin_alloca(50UL);
   

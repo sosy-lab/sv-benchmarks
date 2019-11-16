@@ -618,7 +618,7 @@ static int staticFive = 5;
 
 void CWE476_NULL_Pointer_Dereference__int_07_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   if (staticFive == 5) 
                        data = (int *)0; else ;

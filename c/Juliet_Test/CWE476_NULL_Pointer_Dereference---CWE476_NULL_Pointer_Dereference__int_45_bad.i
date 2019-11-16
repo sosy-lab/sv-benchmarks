@@ -840,7 +840,7 @@ static void badSink(void)
 
 void CWE476_NULL_Pointer_Dereference__int_45_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

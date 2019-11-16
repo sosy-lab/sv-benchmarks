@@ -832,7 +832,7 @@ void CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cat_65b_badSink(char *
 
 void CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cat_65_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cat_65b_badSink;
   

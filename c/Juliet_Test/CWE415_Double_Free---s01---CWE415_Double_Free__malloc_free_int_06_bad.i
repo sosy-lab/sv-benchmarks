@@ -630,7 +630,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE415_Double_Free__malloc_free_int_06_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

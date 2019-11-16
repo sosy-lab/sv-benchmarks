@@ -98,7 +98,7 @@ void printIntLine(int intNumber);
 
 static void goodG2B1(void)
 {
-  int *data = 0;
+  int *data;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];
   
@@ -139,7 +139,7 @@ static void goodG2B1(void)
 
 static void goodG2B2(void)
 {
-  int *data = 0;
+  int *data;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];
   

@@ -119,7 +119,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   int *dataBadBuffer = __builtin_alloca(200UL);
   

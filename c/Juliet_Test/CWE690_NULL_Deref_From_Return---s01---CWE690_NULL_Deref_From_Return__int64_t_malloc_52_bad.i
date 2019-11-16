@@ -622,7 +622,7 @@ void CWE690_NULL_Deref_From_Return__int64_t_malloc_52b_badSink(int64_t *data);
 
 void CWE690_NULL_Deref_From_Return__int64_t_malloc_52_bad(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

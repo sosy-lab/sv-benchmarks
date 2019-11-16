@@ -852,7 +852,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   CWE590_Free_Memory_Not_on_Heap__free_int_declare_67_structType myStruct;
   
   data = (int *)0;

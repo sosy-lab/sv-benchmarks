@@ -827,7 +827,7 @@ time_t time(time_t *);
 
 void CWE476_NULL_Pointer_Dereference__int_31_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   {

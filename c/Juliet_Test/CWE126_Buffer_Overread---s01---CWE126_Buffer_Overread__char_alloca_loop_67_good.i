@@ -630,7 +630,7 @@ void CWE126_Buffer_Overread__char_alloca_loop_67b_goodG2BSink(CWE126_Buffer_Over
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE126_Buffer_Overread__char_alloca_loop_67_structType myStruct;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

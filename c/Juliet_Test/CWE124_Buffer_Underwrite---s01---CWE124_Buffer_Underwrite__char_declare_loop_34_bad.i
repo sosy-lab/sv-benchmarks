@@ -837,7 +837,7 @@ void *memset(void *, int, size_t);
 
 void CWE124_Buffer_Underwrite__char_declare_loop_34_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE124_Buffer_Underwrite__char_declare_loop_34_unionType myUnion;
   char dataBuffer[100U];
   

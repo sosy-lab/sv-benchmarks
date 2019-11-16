@@ -833,7 +833,7 @@ void CWE127_Buffer_Underread__char_declare_memmove_66b_badSink(char **dataArray)
 
 void CWE127_Buffer_Underread__char_declare_memmove_66_bad(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   char dataBuffer[100U];
   

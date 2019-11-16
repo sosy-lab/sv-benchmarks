@@ -829,7 +829,7 @@ static int staticTrue = 1;
 
 void CWE476_NULL_Pointer_Dereference__int_05_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   if (staticTrue != 0) 
                        data = (int *)0; else ;

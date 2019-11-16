@@ -836,7 +836,7 @@ void *memset(void *, int, size_t);
 
 void CWE416_Use_After_Free__malloc_free_char_01_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

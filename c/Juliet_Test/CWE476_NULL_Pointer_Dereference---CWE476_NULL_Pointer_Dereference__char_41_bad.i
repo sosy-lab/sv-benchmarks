@@ -625,7 +625,7 @@ static void badSink(char *data)
 
 void CWE476_NULL_Pointer_Dereference__char_41_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

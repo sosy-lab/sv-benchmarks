@@ -652,7 +652,7 @@ time_t time(time_t *);
 
 void CWE127_Buffer_Underread__char_alloca_memcpy_67_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE127_Buffer_Underread__char_alloca_memcpy_67_structType myStruct;
   
   char *dataBuffer = __builtin_alloca(100UL);

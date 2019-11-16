@@ -631,7 +631,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memcpy_65b_goodG2BSink(cha
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memcpy_65b_goodG2BSink;
   

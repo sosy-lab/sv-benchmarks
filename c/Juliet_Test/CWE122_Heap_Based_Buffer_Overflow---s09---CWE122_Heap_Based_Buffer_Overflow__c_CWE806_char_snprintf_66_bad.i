@@ -631,7 +631,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_snprintf_66b_badSink(char 
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_snprintf_66_bad(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   
   data = (char *)malloc(100UL);

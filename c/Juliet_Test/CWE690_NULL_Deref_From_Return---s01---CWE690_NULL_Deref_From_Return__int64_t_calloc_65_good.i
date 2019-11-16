@@ -833,7 +833,7 @@ void CWE690_NULL_Deref_From_Return__int64_t_calloc_65b_goodB2GSink(int64_t *data
 
 static void goodB2G(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   void (*funcPtr)(int64_t *) = & CWE690_NULL_Deref_From_Return__int64_t_calloc_65b_goodB2GSink;
   

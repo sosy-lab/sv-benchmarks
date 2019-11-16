@@ -623,7 +623,7 @@ static int const STATIC_CONST_FIVE = 5;
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE131_memcpy_06_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

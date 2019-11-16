@@ -648,7 +648,7 @@ int *CWE690_NULL_Deref_From_Return__int_malloc_68_badDataForGoodSink;
 
 static void goodB2G(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

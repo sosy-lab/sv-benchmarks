@@ -872,7 +872,7 @@ time_t time(time_t *);
 
 void CWE124_Buffer_Underwrite__malloc_char_cpy_66_bad(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   
   data = (char *)0;

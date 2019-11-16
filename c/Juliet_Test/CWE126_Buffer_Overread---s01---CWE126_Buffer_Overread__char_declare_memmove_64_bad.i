@@ -622,7 +622,7 @@ void CWE126_Buffer_Overread__char_declare_memmove_64b_badSink(void *dataVoidPtr)
 
 void CWE126_Buffer_Overread__char_declare_memmove_64_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBadBuffer[50U];
   char dataGoodBuffer[100U];
   

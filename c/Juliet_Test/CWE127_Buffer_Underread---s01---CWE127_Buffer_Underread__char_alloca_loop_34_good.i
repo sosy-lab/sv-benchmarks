@@ -839,7 +839,7 @@ void *memset(void *, int, size_t);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE127_Buffer_Underread__char_alloca_loop_34_unionType myUnion;
   
   char *dataBuffer = __builtin_alloca(100UL);

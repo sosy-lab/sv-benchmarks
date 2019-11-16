@@ -627,7 +627,7 @@ void CWE401_Memory_Leak__int64_t_malloc_17_bad(void)
 {
   int i;
   int j;
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

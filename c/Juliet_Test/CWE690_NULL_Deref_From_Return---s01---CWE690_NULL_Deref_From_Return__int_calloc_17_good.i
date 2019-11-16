@@ -831,7 +831,7 @@ time_t time(time_t *);
 static void goodB2G(void)
 {
   int k;
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

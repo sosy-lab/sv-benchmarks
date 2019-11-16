@@ -846,7 +846,7 @@ static size_t ldv_strlen_1(char const *ldv_func_arg1);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_memcpy_34_unionType myUnion;
   char dataBuffer[100U];
   

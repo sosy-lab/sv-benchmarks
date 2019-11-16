@@ -872,7 +872,7 @@ int *CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_loop_68_goodG2BData;
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   int *dataBadBuffer = __builtin_alloca(200UL);
   

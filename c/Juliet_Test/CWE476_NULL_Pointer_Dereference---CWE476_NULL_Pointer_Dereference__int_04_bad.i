@@ -97,7 +97,7 @@ static int const STATIC_CONST_TRUE = 1;
 
 void CWE476_NULL_Pointer_Dereference__int_04_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   if (STATIC_CONST_TRUE != 0) 
                               data = (int *)0; else ;

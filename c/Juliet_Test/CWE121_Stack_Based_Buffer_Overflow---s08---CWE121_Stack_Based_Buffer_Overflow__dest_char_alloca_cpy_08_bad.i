@@ -848,7 +848,7 @@ static int staticReturnsTrue(void)
 
 void CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cpy_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_1;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

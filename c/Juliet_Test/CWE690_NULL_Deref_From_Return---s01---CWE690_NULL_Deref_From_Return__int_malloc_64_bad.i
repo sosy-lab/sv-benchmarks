@@ -118,7 +118,7 @@ void printLine(char const *line);
 
 void CWE690_NULL_Deref_From_Return__int_malloc_64_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

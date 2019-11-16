@@ -642,7 +642,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_67_structType myStruct;
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];

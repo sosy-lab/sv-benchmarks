@@ -625,7 +625,7 @@ void CWE476_NULL_Pointer_Dereference__char_68b_badSink(void);
 
 void CWE476_NULL_Pointer_Dereference__char_68_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

@@ -110,7 +110,7 @@ void printIntLine(int intNumber);
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

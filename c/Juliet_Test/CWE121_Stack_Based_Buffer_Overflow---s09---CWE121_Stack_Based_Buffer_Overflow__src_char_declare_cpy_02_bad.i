@@ -101,7 +101,7 @@ void printLine(char const *line);
 
 void CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cpy_02_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   
   data = (char *)(& dataBuffer);

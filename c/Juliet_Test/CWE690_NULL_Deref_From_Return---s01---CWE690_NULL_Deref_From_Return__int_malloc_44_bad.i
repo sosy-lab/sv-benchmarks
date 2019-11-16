@@ -635,7 +635,7 @@ static void badSink(int *data)
 
 void CWE690_NULL_Deref_From_Return__int_malloc_44_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   void (*funcPtr)(int *) = & badSink;
   

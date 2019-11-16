@@ -848,7 +848,7 @@ void CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cat_41_badSink(char *da
 
 void CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cat_41_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

@@ -638,7 +638,7 @@ static size_t ldv_strlen_2(char const *ldv_func_arg1);
 
 void CWE127_Buffer_Underread__char_declare_ncpy_34_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE127_Buffer_Underread__char_declare_ncpy_34_unionType myUnion;
   char dataBuffer[100U];
   

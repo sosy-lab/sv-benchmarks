@@ -634,7 +634,7 @@ void CWE416_Use_After_Free__malloc_free_char_64b_badSink(void *dataVoidPtr);
 
 void CWE416_Use_After_Free__malloc_free_char_64_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

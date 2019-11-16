@@ -673,7 +673,7 @@ time_t time(time_t *);
 
 void CWE126_Buffer_Overread__char_alloca_memmove_67_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE126_Buffer_Overread__char_alloca_memmove_67_structType myStruct;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

@@ -870,7 +870,7 @@ int *CWE121_Stack_Based_Buffer_Overflow__CWE131_loop_68_goodG2BData;
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

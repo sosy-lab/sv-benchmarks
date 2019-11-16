@@ -642,7 +642,7 @@ static int staticFive = 5;
 
 void CWE126_Buffer_Overread__malloc_char_memcpy_07_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

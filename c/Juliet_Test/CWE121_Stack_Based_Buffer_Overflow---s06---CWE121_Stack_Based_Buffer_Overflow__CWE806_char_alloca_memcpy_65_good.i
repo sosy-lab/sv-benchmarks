@@ -871,7 +871,7 @@ void *memset(void *, int, size_t);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_memcpy_65b_goodG2BSink;
   

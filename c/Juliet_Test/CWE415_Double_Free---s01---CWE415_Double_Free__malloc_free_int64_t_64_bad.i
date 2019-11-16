@@ -117,7 +117,7 @@ void printLine(char const *line);
 
 void CWE415_Double_Free__malloc_free_int64_t_64_bad(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

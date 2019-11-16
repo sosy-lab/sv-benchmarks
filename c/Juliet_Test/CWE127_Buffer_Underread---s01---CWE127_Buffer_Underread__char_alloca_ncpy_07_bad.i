@@ -635,7 +635,7 @@ static int staticFive = 5;
 
 void CWE127_Buffer_Underread__char_alloca_ncpy_07_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   char *dataBuffer = __builtin_alloca(100UL);
   

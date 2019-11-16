@@ -618,7 +618,7 @@ void CWE476_NULL_Pointer_Dereference__int_17_bad(void)
 {
   int i;
   int j;
-  int *data = 0;
+  int *data;
   
   i = 0;
   

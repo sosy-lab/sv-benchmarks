@@ -866,7 +866,7 @@ time_t time(time_t *);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_memmove_65_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   void (*funcPtr)(char *) = & CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_memmove_65b_badSink;
   

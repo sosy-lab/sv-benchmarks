@@ -111,7 +111,7 @@ void printIntLine(int intNumber);
 
 void CWE401_Memory_Leak__int_calloc_51_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

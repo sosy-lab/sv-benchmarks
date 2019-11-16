@@ -640,7 +640,7 @@ static size_t ldv_strlen_2(char const *ldv_func_arg1);
 
 void CWE126_Buffer_Overread__malloc_char_memcpy_11_bad(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   
   data = (char *)0;

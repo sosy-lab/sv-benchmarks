@@ -107,7 +107,7 @@ void printLine(char const *line);
 
 void CWE415_Double_Free__malloc_free_int_10_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

@@ -863,7 +863,7 @@ time_t time(time_t *);
 
 void CWE124_Buffer_Underwrite__char_alloca_memmove_67_bad(void)
 {
-  char *data = 0;
+  char *data;
   CWE124_Buffer_Underwrite__char_alloca_memmove_67_structType myStruct;
   
   char *dataBuffer = __builtin_alloca(100UL);

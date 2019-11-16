@@ -857,7 +857,7 @@ char *CWE401_Memory_Leak__char_malloc_68_goodB2GData;
 
 void CWE401_Memory_Leak__char_malloc_68_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

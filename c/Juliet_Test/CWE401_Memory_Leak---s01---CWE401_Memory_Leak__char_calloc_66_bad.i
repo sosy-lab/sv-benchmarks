@@ -634,7 +634,7 @@ void CWE401_Memory_Leak__char_calloc_66b_badSink(char **dataArray);
 
 void CWE401_Memory_Leak__char_calloc_66_bad(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   
   data = (char *)0;

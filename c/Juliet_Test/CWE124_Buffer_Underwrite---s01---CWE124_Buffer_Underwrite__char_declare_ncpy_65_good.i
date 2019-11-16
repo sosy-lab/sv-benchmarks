@@ -653,7 +653,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   
   void (*funcPtr)(char *) = & CWE124_Buffer_Underwrite__char_declare_ncpy_65b_goodG2BSink;

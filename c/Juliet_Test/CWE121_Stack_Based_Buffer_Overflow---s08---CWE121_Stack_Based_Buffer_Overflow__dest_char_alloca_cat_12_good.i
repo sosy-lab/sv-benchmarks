@@ -624,7 +624,7 @@ char *strcat(char *, char const *);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_1;
   
   char *dataBadBuffer = __builtin_alloca(50UL);

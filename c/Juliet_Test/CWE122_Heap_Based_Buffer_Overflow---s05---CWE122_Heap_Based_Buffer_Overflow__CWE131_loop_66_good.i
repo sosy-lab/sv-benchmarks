@@ -836,7 +836,7 @@ void CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_66b_goodG2BSink(int **dataAr
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   int *dataArray[5U];
   
   data = (int *)0;

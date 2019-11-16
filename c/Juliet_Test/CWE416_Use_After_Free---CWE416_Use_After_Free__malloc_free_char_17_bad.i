@@ -838,7 +838,7 @@ void CWE416_Use_After_Free__malloc_free_char_17_bad(void)
 {
   int i;
   int j;
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

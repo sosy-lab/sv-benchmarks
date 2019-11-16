@@ -645,7 +645,7 @@ time_t time(time_t *);
 
 void CWE415_Double_Free__malloc_free_int_67_bad(void)
 {
-  int *data = 0;
+  int *data;
   CWE415_Double_Free__malloc_free_int_67_structType myStruct;
   
   data = (int *)0;

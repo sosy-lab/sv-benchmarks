@@ -685,7 +685,7 @@ time_t time(time_t *);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE126_Buffer_Overread__malloc_char_memcpy_67_structType myStruct;
   
   data = (char *)0;

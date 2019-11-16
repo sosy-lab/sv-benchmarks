@@ -631,7 +631,7 @@ void CWE126_Buffer_Overread__malloc_char_memmove_64b_badSink(void *dataVoidPtr);
 
 void CWE126_Buffer_Overread__malloc_char_memmove_64_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

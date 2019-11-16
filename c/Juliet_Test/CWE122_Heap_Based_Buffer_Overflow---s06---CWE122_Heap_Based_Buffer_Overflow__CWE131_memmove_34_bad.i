@@ -843,7 +843,7 @@ void *memmove(void *, void const *, size_t);
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_34_bad(void)
 {
-  int *data = 0;
+  int *data;
   CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_34_unionType myUnion;
   
   data = (int *)0;

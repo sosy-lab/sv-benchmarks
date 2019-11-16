@@ -836,7 +836,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_ncpy_51b_badSink(char *dat
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_ncpy_51_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   

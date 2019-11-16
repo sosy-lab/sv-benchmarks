@@ -854,7 +854,7 @@ static int *goodG2BSource(int *data)
 
 static void goodG2B(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   
@@ -882,7 +882,7 @@ static int *goodB2GSource(int *data)
 
 static void goodB2G(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

@@ -115,7 +115,7 @@ void printLine(char const *line);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_66_bad(void)
 {
-  int *data = 0;
+  int *data;
   int *dataArray[5U];
   int dataBadBuffer[50U];
   int dataGoodBuffer[100U];

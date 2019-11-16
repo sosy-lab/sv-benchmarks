@@ -639,7 +639,7 @@ void CWE122_Heap_Based_Buffer_Overflow__sizeof_int64_t_41_goodG2BSink(int64_t *d
 
 static void goodG2B(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

@@ -621,7 +621,7 @@ void *memmove(void *, void const *, size_t);
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE131_memmove_32_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   int **dataPtr1 = & data;
   

@@ -638,7 +638,7 @@ void *memset(void *, int, size_t);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE590_Free_Memory_Not_on_Heap__free_char_alloca_34_unionType myUnion;
   
   data = (char *)0;

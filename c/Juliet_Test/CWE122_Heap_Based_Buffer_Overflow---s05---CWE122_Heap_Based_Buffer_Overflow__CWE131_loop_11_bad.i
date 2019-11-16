@@ -110,7 +110,7 @@ int globalReturnsTrue(void);
 
 void CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_11_bad(void)
 {
-  int *data = 0;
+  int *data;
   int tmp_0;
   
   data = (int *)0;

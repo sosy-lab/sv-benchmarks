@@ -870,7 +870,7 @@ void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_loop_52b_badSink(int64_
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_loop_52_bad(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   

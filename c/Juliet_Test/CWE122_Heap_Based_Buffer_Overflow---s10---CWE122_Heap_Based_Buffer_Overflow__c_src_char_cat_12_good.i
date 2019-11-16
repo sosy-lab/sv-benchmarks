@@ -634,7 +634,7 @@ char *strcat(char *, char const *);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   int tmp_0;
   
   data = (char *)malloc(100UL);

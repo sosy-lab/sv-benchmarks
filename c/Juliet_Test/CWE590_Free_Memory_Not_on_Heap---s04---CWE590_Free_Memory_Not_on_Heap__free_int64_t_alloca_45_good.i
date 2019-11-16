@@ -643,7 +643,7 @@ static void goodG2BSink(void)
 
 static void goodG2B(void)
 {
-  int64_t *data = 0;
+  int64_t *data;
   
   data = (int64_t *)0L;
   {

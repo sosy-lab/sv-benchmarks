@@ -957,7 +957,7 @@ int close(int);
 
 static void goodB2G(void)
 {
-  char *data = 0;
+  char *data;
   char *dataArray[5U];
   
   data = (char *)malloc(100UL);

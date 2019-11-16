@@ -638,7 +638,7 @@ static int staticReturnsTrue(void)
 
 void CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_memcpy_08_bad(void)
 {
-  char *data = 0;
+  char *data;
   char dataBuffer[100U];
   int tmp;
   

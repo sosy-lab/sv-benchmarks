@@ -114,7 +114,7 @@ void printLine(char const *line);
 
 static void goodG2B(void)
 {
-  char *data = 0;
+  char *data;
   CWE127_Buffer_Underread__malloc_char_memcpy_34_unionType myUnion;
   
   data = (char *)0;

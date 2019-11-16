@@ -628,7 +628,7 @@ time_t time(time_t *);
 
 void CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_loop_09_bad(void)
 {
-  int *data = 0;
+  int *data;
   
   data = (int *)0;
   

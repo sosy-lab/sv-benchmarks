@@ -840,7 +840,7 @@ time_t time(time_t *);
 
 void CWE401_Memory_Leak__int_malloc_34_bad(void)
 {
-  int *data = 0;
+  int *data;
   CWE401_Memory_Leak__int_malloc_34_unionType myUnion;
   
   data = (int *)0;

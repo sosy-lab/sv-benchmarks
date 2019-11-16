@@ -849,7 +849,7 @@ static int staticReturnsTrue(void)
 
 void CWE401_Memory_Leak__int_realloc_08_bad(void)
 {
-  int *data = 0;
+  int *data;
   int tmp_0;
   int tmp_1;
   

@@ -107,7 +107,7 @@ void printLine(char const *line);
 
 void CWE127_Buffer_Underread__malloc_char_memcpy_18_bad(void)
 {
-  char *data = 0;
+  char *data;
   
   data = (char *)0;
   
