@@ -12213,54 +12213,6 @@ void ldv_assert_linux_block_request__double_put(int expr ) ;
 void ldv_assert_linux_block_request__get_at_exit(int expr ) ;
 long ldv_is_err(void const   *ptr ) ;
 int ldv_linux_block_request_blk_rq  =    0;
-struct request *ldv_linux_block_request_blk_get_request(gfp_t mask ) 
-{ 
-  struct request *res ;
-  void *tmp ;
-
-  {
-  {
-  ldv_assert_linux_block_request__double_get(ldv_linux_block_request_blk_rq == 0);
-  tmp = ldv_undef_ptr();
-  res = (struct request *)tmp;
-  }
-  if ((mask == 16U || mask == 208U) || mask == 16U) {
-    {
-    ldv_assume((unsigned long )res != (unsigned long )((struct request *)0));
-    }
-  } else {
-
-  }
-  if ((unsigned long )res != (unsigned long )((struct request *)0)) {
-    ldv_linux_block_request_blk_rq = 1;
-  } else {
-
-  }
-  return (res);
-}
-}
-struct request *ldv_linux_block_request_blk_make_request(gfp_t mask ) 
-{ 
-  struct request *res ;
-  void *tmp ;
-  long tmp___0 ;
-
-  {
-  {
-  ldv_assert_linux_block_request__double_get(ldv_linux_block_request_blk_rq == 0);
-  tmp = ldv_undef_ptr();
-  res = (struct request *)tmp;
-  ldv_assume((unsigned long )res != (unsigned long )((struct request *)0));
-  tmp___0 = ldv_is_err((void const   *)res);
-  }
-  if (tmp___0 == 0L) {
-    ldv_linux_block_request_blk_rq = 1;
-  } else {
-
-  }
-  return (res);
-}
-}
 void ldv_linux_block_request_put_blk_rq(void) 
 { 
 

@@ -14797,7 +14797,7 @@ struct request *ldv_linux_block_request_blk_get_request(gfp_t mask )
   {
   {
   ldv_assert_linux_block_request__double_get(ldv_linux_block_request_blk_rq == 0);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct request));
   res = (struct request *)tmp;
   }
   if ((mask == 16U || mask == 208U) || mask == 16U) {
@@ -14824,7 +14824,7 @@ struct request *ldv_linux_block_request_blk_make_request(gfp_t mask )
   {
   {
   ldv_assert_linux_block_request__double_get(ldv_linux_block_request_blk_rq == 0);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct request));
   res = (struct request *)tmp;
   ldv_assume((unsigned long )res != (unsigned long )((struct request *)0));
   tmp___0 = ldv_is_err((void const   *)res);
