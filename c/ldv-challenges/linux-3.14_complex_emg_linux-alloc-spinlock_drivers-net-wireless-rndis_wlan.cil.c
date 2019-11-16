@@ -6857,6 +6857,7 @@ __inline static bool queue_delayed_work(struct workqueue_struct *wq , struct del
 }
 extern void msleep(unsigned int  ) ;
 extern void get_random_bytes(void * , int  ) ;
+extern void *realloc(void * , size_t  ) ;
 static void *ldv_krealloc_84(void const   *ldv_func_arg1 , size_t ldv_func_arg2 ,
                              gfp_t flags ) ;
 extern void kfree(void const   * ) ;
@@ -16933,7 +16934,7 @@ static void *ldv_krealloc_84(void const   *ldv_func_arg1 , size_t ldv_func_arg2 
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = realloc(ldv_func_arg1, ldv_func_arg2);
   }
   return (tmp);
 }
