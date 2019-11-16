@@ -4,6 +4,6 @@ LEVEL := ./
 SKIP_LEVEL := 1
 
 # This directory does not contain tasks
-IGNORE_DIRS := ./properties/ ./Juliet_Test/
+IGNORE_DIRS := ./properties/, ./Juliet_Test/
 
 include $(LEVEL)/Makefile.config
