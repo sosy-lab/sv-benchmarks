@@ -5741,15 +5741,6 @@ void *ldv_character_driver_scenario_2(void *arg0 )
   struct inode *ldv_2_resource_inode ;
   int ldv_2_ret_default ;
   size_t ldv_2_size_cnt_write_size ;
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
   void *tmp___8 ;
   void *tmp___9 ;
   void *tmp___10 ;
@@ -5764,24 +5755,8 @@ void *ldv_character_driver_scenario_2(void *arg0 )
   int tmp___19 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_2_callback_llseek = (loff_t (*)(struct file * , loff_t , int ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_2_callback_read = (ssize_t (*)(struct file * , char * , size_t , loff_t * ))tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_2_container_file_operations = (struct file_operations *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_2_ldv_param_22_1_default = (char *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_2_ldv_param_22_3_default = (long long *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_2_ldv_param_4_1_default = (char *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_2_ldv_param_4_3_default = (long long *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_2_resource_file = (struct file *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_2_resource_inode = (struct inode *)tmp___7;
+  ldv_2_callback_llseek = 0;
+  ldv_2_callback_read = 0;
   ldv_2_ret_default = ldv_undef_int();
   ldv_free(arg0);
   tmp___8 = ldv_xmalloc(0UL);
@@ -6041,11 +6016,8 @@ void ldv_dispatch_register_6_3(struct usb_driver *arg0 )
 void ldv_emg_usb_deregister(struct usb_driver *arg0 )
 {
   struct usb_driver *ldv_5_usb_driver_usb_driver ;
-  void *tmp ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_5_usb_driver_usb_driver = (struct usb_driver *)tmp;
   ldv_5_usb_driver_usb_driver = arg0;
   ldv_dispatch_deregister_5_1(ldv_5_usb_driver_usb_driver);
   }
@@ -6057,14 +6029,11 @@ int ldv_emg_usb_register_driver(struct usb_driver *arg0 , struct module *arg1 , 
 {
   int ldv_6_res_default ;
   struct usb_driver *ldv_6_usb_driver_usb_driver ;
-  void *tmp ;
   int tmp___0 ;
   int tmp___1 ;
   {
   {
   ldv_6_res_default = ldv_undef_int();
-  tmp = external_allocated_data();
-  ldv_6_usb_driver_usb_driver = (struct usb_driver *)tmp;
   tmp___1 = ldv_undef_int();
   }
   if (tmp___1 != 0) {
@@ -6088,15 +6057,11 @@ void *ldv_insmod_4(void *arg0 )
   int (*ldv_4_adu_driver_init_default)(void) ;
   int ldv_4_reg_guard_3_default ;
   int ldv_4_ret_default ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_4_adu_driver_exit_default = (void (*)(void))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_4_adu_driver_init_default = (int (*)(void))tmp___0;
+  ldv_4_adu_driver_exit_default = 0;
+  ldv_4_adu_driver_init_default = 0;
   ldv_free(arg0);
   ldv_4_ret_default = ldv_insmod_adu_driver_init_4_9(ldv_4_adu_driver_init_default);
   ldv_4_ret_default = ldv_post_init(ldv_4_ret_default);
@@ -6174,10 +6139,6 @@ void *ldv_usb_scenario_3(void *arg0 )
   struct usb_interface *ldv_3_resource_usb_interface ;
   struct usb_device *ldv_3_usb_device_usb_device ;
   struct ldv_struct_usb_scenario_3 *data ;
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
   void *tmp___3 ;
   void *tmp___4 ;
   int tmp___5 ;
@@ -6188,16 +6149,11 @@ void *ldv_usb_scenario_3(void *arg0 )
   {
   {
   data = (struct ldv_struct_usb_scenario_3 *)arg0;
-  tmp = external_allocated_data();
-  ldv_3_container_usb_driver = (struct usb_driver *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_3_ldv_param_14_1_default = (struct usb_device_id *)tmp___0;
+  ldv_3_container_usb_driver = 0;
   ldv_3_probe_retval_default = ldv_undef_int();
   ldv_3_reset_flag_default = 0;
-  tmp___1 = external_allocated_data();
-  ldv_3_resource_usb_interface = (struct usb_interface *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_3_usb_device_usb_device = (struct usb_device *)tmp___2;
+  ldv_3_resource_usb_interface = 0;
+  ldv_3_usb_device_usb_device = 0;
   }
   if ((unsigned long )data != (unsigned long )((struct ldv_struct_usb_scenario_3 *)0)) {
     {

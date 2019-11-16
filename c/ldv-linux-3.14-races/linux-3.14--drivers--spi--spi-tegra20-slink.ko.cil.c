@@ -5290,14 +5290,11 @@ void ldv_dispatch_register_6_3(struct platform_driver *arg0 )
 int ldv_emg___platform_driver_register(struct platform_driver *arg0 , struct module *arg1 ) 
 { 
   struct platform_driver *ldv_6_platform_driver_platform_driver ;
-  void *tmp ;
   int tmp___0 ;
   int tmp___1 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_6_platform_driver_platform_driver = (struct platform_driver *)tmp;
   tmp___1 = ldv_undef_int();
   }
   if (tmp___1 != 0) {
@@ -5330,12 +5327,9 @@ void ldv_emg_free_irq(int arg0 , void *arg1 )
 void ldv_emg_platform_driver_unregister(struct platform_driver *arg0 ) 
 { 
   struct platform_driver *ldv_8_platform_driver_platform_driver ;
-  void *tmp ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_8_platform_driver_platform_driver = (struct platform_driver *)tmp;
   ldv_8_platform_driver_platform_driver = arg0;
   ldv_dispatch_deregister_8_1(ldv_8_platform_driver_platform_driver);
   }
@@ -5351,18 +5345,11 @@ int ldv_emg_request_threaded_irq(unsigned int arg0 , irqreturn_t (*arg1)(int  , 
   void *ldv_9_data_data ;
   int ldv_9_line_line ;
   irqreturn_t (*ldv_9_thread_thread)(int  , void * ) ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_9_callback_handler = (irqreturn_t (*)(int  , void * ))tmp;
-  ldv_9_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_9_thread_thread = (irqreturn_t (*)(int  , void * ))tmp___0;
   tmp___2 = ldv_undef_int();
   }
   if (tmp___2 != 0) {
@@ -5388,16 +5375,12 @@ void *ldv_insmod_5(void *arg0 )
   int ldv_5_ret_default ;
   void (*ldv_5_tegra_slink_driver_exit_default)(void) ;
   int (*ldv_5_tegra_slink_driver_init_default)(void) ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_5_tegra_slink_driver_exit_default = (void (*)(void))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_5_tegra_slink_driver_init_default = (int (*)(void))tmp___0;
+  ldv_5_tegra_slink_driver_exit_default = 0;
+  ldv_5_tegra_slink_driver_init_default = 0;
   ldv_free(arg0);
   ldv_5_ret_default = ldv_insmod_tegra_slink_driver_init_5_6(ldv_5_tegra_slink_driver_init_default);
   ldv_5_ret_default = ldv_post_init(ldv_5_ret_default);
@@ -5448,18 +5431,14 @@ void *ldv_interrupt_scenario_2(void *arg0 )
   enum irqreturn ldv_2_ret_val_default ;
   irqreturn_t (*ldv_2_thread_thread)(int  , void * ) ;
   struct ldv_struct_interrupt_scenario_2 *data ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
 
   {
   {
   data = (struct ldv_struct_interrupt_scenario_2 *)arg0;
-  tmp = external_allocated_data();
-  ldv_2_callback_handler = (irqreturn_t (*)(int  , void * ))tmp;
-  ldv_2_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_2_thread_thread = (irqreturn_t (*)(int  , void * ))tmp___0;
+  ldv_2_callback_handler = 0;
+  ldv_2_data_data = 0;
+  ldv_2_thread_thread = 0;
   }
   if ((unsigned long )data != (unsigned long )((struct ldv_struct_interrupt_scenario_2 *)0)) {
     {
@@ -5539,8 +5518,6 @@ void *ldv_platform_instance_3(void *arg0 )
   int ldv_3_probed_default ;
   struct platform_device *ldv_3_resource_platform_device ;
   struct ldv_struct_platform_instance_3 *data ;
-  void *tmp ;
-  void *tmp___0 ;
   void *tmp___1 ;
   int tmp___2 ;
   int tmp___3 ;
@@ -5549,11 +5526,8 @@ void *ldv_platform_instance_3(void *arg0 )
   {
   {
   data = (struct ldv_struct_platform_instance_3 *)arg0;
-  tmp = external_allocated_data();
-  ldv_3_container_platform_driver = (struct platform_driver *)tmp;
+  ldv_3_container_platform_driver = 0;
   ldv_3_probed_default = ldv_undef_int();
-  tmp___0 = external_allocated_data();
-  ldv_3_resource_platform_device = (struct platform_device *)tmp___0;
   }
   if ((unsigned long )data != (unsigned long )((struct ldv_struct_platform_instance_3 *)0)) {
     {

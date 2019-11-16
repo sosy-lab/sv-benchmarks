@@ -10246,14 +10246,11 @@ void ldv_dispatch_register_7_3(struct platform_driver *arg0 )
 int ldv_emg___platform_driver_register(struct platform_driver *arg0 , struct module *arg1 ) 
 { 
   struct platform_driver *ldv_7_platform_driver_platform_driver ;
-  void *tmp ;
   int tmp___0 ;
   int tmp___1 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_7_platform_driver_platform_driver = (struct platform_driver *)tmp;
   tmp___1 = ldv_undef_int();
   }
   if (tmp___1 != 0) {
@@ -10286,12 +10283,9 @@ void ldv_emg_free_irq(int arg0 , void *arg1 )
 void ldv_emg_free_netdev(struct net_device *arg0 ) 
 { 
   struct net_device *ldv_9_netdev_net_device ;
-  void *tmp ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_9_netdev_net_device = (struct net_device *)tmp;
   ldv_9_netdev_net_device = arg0;
   ldv_free((void *)ldv_9_netdev_net_device);
   }
@@ -10302,12 +10296,9 @@ void ldv_emg_free_netdev(struct net_device *arg0 )
 void ldv_emg_platform_driver_unregister(struct platform_driver *arg0 ) 
 { 
   struct platform_driver *ldv_10_platform_driver_platform_driver ;
-  void *tmp ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_10_platform_driver_platform_driver = (struct platform_driver *)tmp;
   ldv_10_platform_driver_platform_driver = arg0;
   ldv_dispatch_deregister_10_1(ldv_10_platform_driver_platform_driver);
   }
@@ -10319,7 +10310,6 @@ int ldv_emg_register_netdev(struct net_device *arg0 )
 { 
   struct net_device *ldv_11_netdev_net_device ;
   int ldv_11_ret_default ;
-  void *tmp ;
   int tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
@@ -10327,8 +10317,6 @@ int ldv_emg_register_netdev(struct net_device *arg0 )
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_11_netdev_net_device = (struct net_device *)tmp;
   ldv_11_ret_default = ldv_undef_int();
   tmp___3 = ldv_undef_int();
   }
@@ -10369,18 +10357,11 @@ int ldv_emg_request_irq(unsigned int arg0 , irqreturn_t (*arg1)(int  , void * ) 
   void *ldv_12_data_data ;
   int ldv_12_line_line ;
   irqreturn_t (*ldv_12_thread_thread)(int  , void * ) ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_12_callback_handler = (irqreturn_t (*)(int  , void * ))tmp;
-  ldv_12_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_12_thread_thread = (irqreturn_t (*)(int  , void * ))tmp___0;
   tmp___2 = ldv_undef_int();
   }
   if (tmp___2 != 0) {
@@ -10404,12 +10385,9 @@ int ldv_emg_request_irq(unsigned int arg0 , irqreturn_t (*arg1)(int  , void * ) 
 void ldv_emg_unregister_netdev(struct net_device *arg0 ) 
 { 
   struct net_device *ldv_13_netdev_net_device ;
-  void *tmp ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_13_netdev_net_device = (struct net_device *)tmp;
   ldv_13_netdev_net_device = arg0;
   ldv_unregister_netdev_stop_13_2((ldv_13_netdev_net_device->netdev_ops)->ndo_stop,
                                   ldv_13_netdev_net_device);
@@ -10424,16 +10402,12 @@ void *ldv_insmod_6(void *arg0 )
   void (*ldv_6_nsc_ircc_cleanup_default)(void) ;
   int (*ldv_6_nsc_ircc_init_default)(void) ;
   int ldv_6_ret_default ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_6_nsc_ircc_cleanup_default = (void (*)(void))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_6_nsc_ircc_init_default = (int (*)(void))tmp___0;
+  ldv_6_nsc_ircc_cleanup_default = 0;
+  ldv_6_nsc_ircc_init_default = 0;
   ldv_free(arg0);
   ldv_6_ret_default = ldv_insmod_nsc_ircc_init_6_6(ldv_6_nsc_ircc_init_default);
   ldv_6_ret_default = ldv_post_init(ldv_6_ret_default);
@@ -10484,18 +10458,13 @@ void *ldv_interrupt_scenario_2(void *arg0 )
   enum irqreturn ldv_2_ret_val_default ;
   irqreturn_t (*ldv_2_thread_thread)(int  , void * ) ;
   struct ldv_struct_interrupt_scenario_2 *data ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
 
   {
   {
   data = (struct ldv_struct_interrupt_scenario_2 *)arg0;
-  tmp = external_allocated_data();
-  ldv_2_callback_handler = (irqreturn_t (*)(int  , void * ))tmp;
-  ldv_2_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_2_thread_thread = (irqreturn_t (*)(int  , void * ))tmp___0;
+  ldv_2_callback_handler = 0;
+  ldv_2_data_data = 0;
   }
   if ((unsigned long )data != (unsigned long )((struct ldv_struct_interrupt_scenario_2 *)0)) {
     {
@@ -10565,11 +10534,6 @@ void *ldv_platform_instance_4(void *arg0 )
   int ldv_4_probed_default ;
   struct platform_device *ldv_4_resource_platform_device ;
   struct ldv_struct_platform_instance_4 *data ;
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
   int tmp___5 ;
   int tmp___6 ;
@@ -10579,17 +10543,10 @@ void *ldv_platform_instance_4(void *arg0 )
   {
   {
   data = (struct ldv_struct_platform_instance_4 *)arg0;
-  tmp = external_allocated_data();
-  ldv_4_callback_resume = (int (*)(struct platform_device * ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_4_callback_suspend = (int (*)(struct platform_device * , pm_message_t  ))tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_4_container_platform_driver = (struct platform_driver *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_4_ldv_param_18_1_default = (struct pm_message *)tmp___2;
+  ldv_4_callback_resume = 0;
+  ldv_4_callback_suspend = 0;
+  ldv_4_container_platform_driver = 0;
   ldv_4_probed_default = ldv_undef_int();
-  tmp___3 = external_allocated_data();
-  ldv_4_resource_platform_device = (struct platform_device *)tmp___3;
   }
   if ((unsigned long )data != (unsigned long )((struct ldv_struct_platform_instance_4 *)0)) {
     {
@@ -10716,8 +10673,6 @@ void *ldv_pm_ops_scenario_5(void *arg0 )
 { 
   struct device *ldv_5_device_device ;
   struct dev_pm_ops *ldv_5_pm_ops_dev_pm_ops ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
   int tmp___3 ;
@@ -10726,10 +10681,8 @@ void *ldv_pm_ops_scenario_5(void *arg0 )
 
   {
   {
-  tmp = external_allocated_data();
-  ldv_5_device_device = (struct device *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_5_pm_ops_dev_pm_ops = (struct dev_pm_ops *)tmp___0;
+  ldv_5_device_device = 0;
+  ldv_5_pm_ops_dev_pm_ops = 0;
   ldv_free(arg0);
   }
   goto ldv_do_5;
@@ -10828,11 +10781,6 @@ void *ldv_random_allocationless_scenario_3(void *arg0 )
   int ldv_3_ldv_param_3_2_default = 0;
   struct sk_buff *ldv_3_ldv_param_8_0_default ;
   struct ldv_struct_random_allocationless_scenario_3 *data ;
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
   void *tmp___4 ;
   void *tmp___5 ;
   int tmp___6 ;
@@ -10841,16 +10789,9 @@ void *ldv_random_allocationless_scenario_3(void *arg0 )
   {
   {
   data = (struct ldv_struct_random_allocationless_scenario_3 *)arg0;
-  tmp = external_allocated_data();
-  ldv_3_callback_ndo_do_ioctl = (int (*)(struct net_device * , struct ifreq * , int  ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_3_callback_ndo_start_xmit = (netdev_tx_t (*)(struct sk_buff * , struct net_device * ))tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_3_container_net_device = (struct net_device *)tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_3_ldv_param_3_1_default = (struct ifreq *)tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_3_ldv_param_8_0_default = (struct sk_buff *)tmp___3;
+  ldv_3_callback_ndo_do_ioctl = 0;
+  ldv_3_callback_ndo_start_xmit = 0;
+  ldv_3_container_net_device = 0;
   }
   if ((unsigned long )data != (unsigned long )((struct ldv_struct_random_allocationless_scenario_3 *)0)) {
     {

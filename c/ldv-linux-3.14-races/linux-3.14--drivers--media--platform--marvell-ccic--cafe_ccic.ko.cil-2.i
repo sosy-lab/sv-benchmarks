@@ -6063,13 +6063,11 @@ int ldv_emg___pci_register_driver(struct pci_driver *arg0 , struct module *arg1 
                                   char *arg2 )
 {
   struct pci_driver *ldv_9_pci_driver_pci_driver ;
-  void *tmp ;
   int tmp___0 ;
   int tmp___1 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_9_pci_driver_pci_driver = (struct pci_driver *)tmp;
+  ldv_9_pci_driver_pci_driver = 0;
   tmp___1 = ldv_undef_int();
   }
   if (tmp___1 != 0) {
@@ -6101,11 +6099,8 @@ void ldv_emg_free_irq(int arg0 , void *arg1 )
 void ldv_emg_pci_unregister_driver(struct pci_driver *arg0 )
 {
   struct pci_driver *ldv_8_pci_driver_pci_driver ;
-  void *tmp ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_8_pci_driver_pci_driver = (struct pci_driver *)tmp;
   ldv_8_pci_driver_pci_driver = arg0;
   ldv_dispatch_deregister_8_1(ldv_8_pci_driver_pci_driver);
   }
@@ -6120,17 +6115,10 @@ int ldv_emg_request_irq(unsigned int arg0 , irqreturn_t (*arg1)(int , void * ) ,
   void *ldv_7_data_data ;
   int ldv_7_line_line ;
   irqreturn_t (*ldv_7_thread_thread)(int , void * ) ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
   int tmp___2 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_7_callback_handler = (irqreturn_t (*)(int , void * ))tmp;
-  ldv_7_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_7_thread_thread = (irqreturn_t (*)(int , void * ))tmp___0;
   tmp___2 = ldv_undef_int();
   }
   if (tmp___2 != 0) {
@@ -6158,15 +6146,11 @@ void *ldv_insmod_5(void *arg0 )
   int (*ldv_5_cafe_init_default)(void) ;
   int ldv_5_reg_guard_7_default ;
   int ldv_5_ret_default ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_5_cafe_exit_default = (void (*)(void))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_5_cafe_init_default = (int (*)(void))tmp___0;
+  ldv_5_cafe_exit_default = 0;
+  ldv_5_cafe_init_default = 0;
   ldv_free(arg0);
   ldv_5_ret_default = ldv_insmod_cafe_init_5_9(ldv_5_cafe_init_default);
   ldv_5_ret_default = ldv_post_init(ldv_5_ret_default);
@@ -6230,17 +6214,12 @@ void *ldv_interrupt_scenario_2(void *arg0 )
   enum irqreturn ldv_2_ret_val_default ;
   irqreturn_t (*ldv_2_thread_thread)(int , void * ) ;
   struct ldv_struct_interrupt_scenario_2 *data ;
-  void *tmp ;
-  void *tmp___0 ;
   int tmp___1 ;
   {
   {
   data = (struct ldv_struct_interrupt_scenario_2 *)arg0;
-  tmp = external_allocated_data();
-  ldv_2_callback_handler = (irqreturn_t (*)(int , void * ))tmp;
-  ldv_2_data_data = external_allocated_data();
-  tmp___0 = external_allocated_data();
-  ldv_2_thread_thread = (irqreturn_t (*)(int , void * ))tmp___0;
+  ldv_2_callback_handler = 0;
+  ldv_2_data_data = 0;
   }
   if ((unsigned long )data != (unsigned long )((struct ldv_struct_interrupt_scenario_2 *)0)) {
     {
@@ -6307,8 +6286,6 @@ void *ldv_pci_scenario_3(void *arg0 )
   int ldv_3_ret_default ;
   struct ldv_struct_pci_scenario_3 *data ;
   void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
   void *tmp___2 ;
   void *tmp___3 ;
   int tmp___4 ;
@@ -6317,12 +6294,7 @@ void *ldv_pci_scenario_3(void *arg0 )
   {
   {
   data = (struct ldv_struct_pci_scenario_3 *)arg0;
-  tmp = external_allocated_data();
-  ldv_3_container_pci_driver = (struct pci_driver *)tmp;
-  tmp___0 = external_allocated_data();
-  ldv_3_ldv_param_17_1_default = (struct pci_device_id *)tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_3_resource_dev = (struct pci_dev *)tmp___1;
+  ldv_3_container_pci_driver = 0;
   ldv_3_ret_default = ldv_undef_int();
   }
   if ((unsigned long )data != (unsigned long )((struct ldv_struct_pci_scenario_3 *)0)) {
@@ -6335,11 +6307,11 @@ void *ldv_pci_scenario_3(void *arg0 )
   {
   tmp___2 = ldv_xmalloc(2936UL);
   ldv_3_resource_dev = (struct pci_dev *)tmp___2;
-  ldv_3_resource_dev->bus = external_allocated_data();
-  ldv_3_resource_dev->subordinate = external_allocated_data();
-  ldv_3_resource_dev->sysdata = external_allocated_data();
-  ldv_3_resource_dev->procent = external_allocated_data();
-  ldv_3_resource_dev->slot = external_allocated_data();
+  ldv_3_resource_dev->bus = 0;
+  ldv_3_resource_dev->subordinate = 0;
+  ldv_3_resource_dev->sysdata = 0;
+  ldv_3_resource_dev->procent = 0;
+  ldv_3_resource_dev->slot = 0;
   }
   goto ldv_main_3;
   return ((void *)0);
@@ -9868,16 +9840,6 @@ void *ldv_partially_ordered_scenario_4(void *arg0 )
   struct vm_area_struct *ldv_4_ldv_param_4_1_default ;
   struct file *ldv_4_resource_file ;
   int ldv_4_ret_default ;
-  void *tmp ;
-  void *tmp___0 ;
-  void *tmp___1 ;
-  void *tmp___2 ;
-  void *tmp___3 ;
-  void *tmp___4 ;
-  void *tmp___5 ;
-  void *tmp___6 ;
-  void *tmp___7 ;
-  void *tmp___8 ;
   void *tmp___9 ;
   void *tmp___10 ;
   int tmp___11 ;
@@ -9890,26 +9852,11 @@ void *ldv_partially_ordered_scenario_4(void *arg0 )
   int tmp___18 ;
   {
   {
-  tmp = external_allocated_data();
-  ldv_4_callback_mmap = (int (*)(struct file * , struct vm_area_struct * ))tmp;
-  tmp___0 = external_allocated_data();
-  ldv_4_callback_poll = (__u32 (*)(struct file * , poll_table * ))tmp___0;
-  tmp___1 = external_allocated_data();
-  ldv_4_callback_read = (ssize_t (*)(struct file * , char * , size_t , loff_t * ))tmp___1;
-  tmp___2 = external_allocated_data();
-  ldv_4_callback_unlocked_ioctl = (ssize_t (*)(struct file * , __u32 , size_t ))tmp___2;
-  tmp___3 = external_allocated_data();
-  ldv_4_container_v4l2_file_operations = (struct v4l2_file_operations *)tmp___3;
-  tmp___4 = external_allocated_data();
-  ldv_4_ldv_param_19_1_default = (struct poll_table_struct *)tmp___4;
-  tmp___5 = external_allocated_data();
-  ldv_4_ldv_param_22_1_default = (char *)tmp___5;
-  tmp___6 = external_allocated_data();
-  ldv_4_ldv_param_22_3_default = (long long *)tmp___6;
-  tmp___7 = external_allocated_data();
-  ldv_4_ldv_param_4_1_default = (struct vm_area_struct *)tmp___7;
-  tmp___8 = external_allocated_data();
-  ldv_4_resource_file = (struct file *)tmp___8;
+  ldv_4_callback_mmap = 0;
+  ldv_4_callback_poll = 0;
+  ldv_4_callback_read = 0;
+  ldv_4_callback_unlocked_ioctl = 0;
+  ldv_4_ldv_param_4_1_default = 0;
   ldv_4_ret_default = ldv_undef_int();
   ldv_free(arg0);
   tmp___9 = ldv_xmalloc(0UL);
