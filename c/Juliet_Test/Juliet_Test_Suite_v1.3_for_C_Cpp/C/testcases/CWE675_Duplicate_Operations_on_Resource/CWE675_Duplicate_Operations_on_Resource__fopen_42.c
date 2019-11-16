@@ -1,0 +1,111 @@
+/* TEMPLATE GENERATED TESTCASE FILE
+Filename: CWE675_Duplicate_Operations_on_Resource__fopen_42.c
+Label Definition File: CWE675_Duplicate_Operations_on_Resource.label.xml
+Template File: sources-sinks-42.tmpl.c
+*/
+/*
+ * @description
+ * CWE: 675 Duplicate Operations on Resource
+ * BadSource: fopen Open and close a file using fopen() and flose()
+ * GoodSource: Open a file using fopen()
+ * Sinks:
+ *    GoodSink: Do nothing
+ *    BadSink : Close the file
+ * Flow Variant: 42 Data flow: data returned from one function to another in the same source file
+ *
+ * */
+
+#include "std_testcase.h"
+
+#ifndef OMITBAD
+
+static FILE * badSource(FILE * data)
+{
+    data = fopen("BadSource_fopen.txt", "w+");
+    /* POTENTIAL FLAW: Close the file in the source */
+    fclose(data);
+    return data;
+}
+
+void CWE675_Duplicate_Operations_on_Resource__fopen_42_bad()
+{
+    FILE * data;
+    data = NULL; /* Initialize data */
+    data = badSource(data);
+    /* POTENTIAL FLAW: Close the file in the sink (it may have been closed in the Source) */
+    fclose(data);
+}
+
+#endif /* OMITBAD */
+
+#ifndef OMITGOOD
+
+/* goodG2B uses the GoodSource with the BadSink */
+static FILE * goodG2BSource(FILE * data)
+{
+    /* FIX: Open, but do not close the file in the source */
+    data = fopen("GoodSource_fopen.txt", "w+");
+    return data;
+}
+
+static void goodG2B()
+{
+    FILE * data;
+    data = NULL; /* Initialize data */
+    data = goodG2BSource(data);
+    /* POTENTIAL FLAW: Close the file in the sink (it may have been closed in the Source) */
+    fclose(data);
+}
+
+/* goodB2G uses the BadSource with the GoodSink */
+static FILE * goodB2GSource(FILE * data)
+{
+    data = fopen("BadSource_fopen.txt", "w+");
+    /* POTENTIAL FLAW: Close the file in the source */
+    fclose(data);
+    return data;
+}
+
+static void goodB2G()
+{
+    FILE * data;
+    data = NULL; /* Initialize data */
+    data = goodB2GSource(data);
+    /* Do nothing */
+    /* FIX: Don't close the file in the sink */
+    ; /* empty statement needed for some flow variants */
+}
+
+void CWE675_Duplicate_Operations_on_Resource__fopen_42_good()
+{
+    goodB2G();
+    goodG2B();
+}
+
+#endif /* OMITGOOD */
+
+/* Below is the main(). It is only used when building this testcase on
+   its own for testing or for building a binary to use in testing binary
+   analysis tools. It is not used when compiling all the testcases as one
+   application, which is how source code analysis tools are tested. */
+
+#ifdef INCLUDEMAIN
+
+int main(int argc, char * argv[])
+{
+    /* seed randomness */
+    srand( (unsigned)time(NULL) );
+#ifndef OMITGOOD
+    printLine("Calling good()...");
+    CWE675_Duplicate_Operations_on_Resource__fopen_42_good();
+    printLine("Finished good()");
+#endif /* OMITGOOD */
+#ifndef OMITBAD
+    printLine("Calling bad()...");
+    CWE675_Duplicate_Operations_on_Resource__fopen_42_bad();
+    printLine("Finished bad()");
+#endif /* OMITBAD */
+    return 0;
+}
+
+#endif

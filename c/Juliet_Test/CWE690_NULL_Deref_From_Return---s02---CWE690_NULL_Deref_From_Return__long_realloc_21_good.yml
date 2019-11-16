@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE690_NULL_Deref_From_Return---s02---CWE690_NULL_Deref_From_Return__long_realloc_21_good.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

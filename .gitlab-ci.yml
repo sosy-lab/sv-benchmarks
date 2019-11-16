@@ -12,6 +12,13 @@ sanity-checks:
     - "${CC} -v --version"
     - "cd c"
     - "make -j2"
+    
+.compile-check-juliet: &compile-check-juliet
+  stage: checks
+  script:
+    - "${CC} -v --version"
+    - "cd c/Juliet_Test"
+    - "make -j2"    
 
 compile-clang:3.9:
   <<: *compile-check
@@ -21,6 +28,18 @@ compile-clang:3.9:
 
 compile-gcc:5:
   <<: *compile-check
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/gcc:5
+  variables:
+    CC: gcc-5    
+    
+compile-clang:3.9-juliet:
+  <<: *compile-check-juliet
+  image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/clang:3.9
+  variables:
+    CC: clang-3.9
+
+compile-gcc:5-juliet:
+  <<: *compile-check-juliet
   image: registry.gitlab.com/sosy-lab/software/sv-benchmarks/ci/gcc:5
   variables:
     CC: gcc-5

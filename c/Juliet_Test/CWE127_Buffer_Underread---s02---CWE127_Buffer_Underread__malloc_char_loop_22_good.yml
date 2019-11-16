@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE127_Buffer_Underread---s02---CWE127_Buffer_Underread__malloc_char_loop_22_good.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE127_Buffer_Underread---s01---CWE127_Buffer_Underread__CWE839_connect_socket_09_good.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

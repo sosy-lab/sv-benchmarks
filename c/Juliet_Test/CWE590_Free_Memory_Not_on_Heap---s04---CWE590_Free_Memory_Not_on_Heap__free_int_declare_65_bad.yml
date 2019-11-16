@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE590_Free_Memory_Not_on_Heap---s04---CWE590_Free_Memory_Not_on_Heap__free_int_declare_65_bad.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: false

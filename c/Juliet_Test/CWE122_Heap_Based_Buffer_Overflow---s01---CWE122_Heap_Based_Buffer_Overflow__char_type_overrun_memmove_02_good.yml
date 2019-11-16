@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE122_Heap_Based_Buffer_Overflow---s01---CWE122_Heap_Based_Buffer_Overflow__char_type_overrun_memmove_02_good.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true

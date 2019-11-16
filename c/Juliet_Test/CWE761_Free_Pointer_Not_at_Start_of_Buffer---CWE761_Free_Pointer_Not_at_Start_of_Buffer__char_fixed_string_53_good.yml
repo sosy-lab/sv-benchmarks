@@ -1,0 +1,7 @@
+format_version: '1.0'
+
+input_files: 'CWE761_Free_Pointer_Not_at_Start_of_Buffer---CWE761_Free_Pointer_Not_at_Start_of_Buffer__char_fixed_string_53_good.i'
+
+properties:
+  - property_file: ../properties/valid-memsafety.prp
+    expected_verdict: true
