@@ -4,5 +4,5 @@ input_files:
   - BellmanFord-FunSat02/
 properties:
   - property_file: ../properties/assert.prp
-    expected_verdict: true
+    expected_verdict: false
 
