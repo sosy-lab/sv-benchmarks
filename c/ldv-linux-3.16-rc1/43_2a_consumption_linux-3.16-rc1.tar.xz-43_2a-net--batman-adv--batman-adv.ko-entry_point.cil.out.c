@@ -27209,6 +27209,7 @@ int ldv_pskb_expand_head_514(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 ,
   return (tmp);
 }
 }
+extern _Bool __VERIFIER_nondet_bool(void);
 __inline static struct sk_buff *skb_share_check(struct sk_buff *skb , gfp_t flags ) 
 { 
   struct sk_buff *tmp ;

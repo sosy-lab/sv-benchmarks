@@ -16222,13 +16222,14 @@ __inline static struct sk_buff *alloc_skb(unsigned int size , gfp_t flags )
   return ((struct sk_buff *)tmp);
 }
 }
+extern _Bool __VERIFIER_nondet_bool(void);
 __inline static struct sk_buff *skb_share_check(struct sk_buff *skb , gfp_t flags )
 {
   void *tmp ;
   {
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_malloc_unknown_size();
+  tmp = __VERIFIER_nondet_bool() ? skb : ldv_malloc(sizeof(struct sk_buff));
   }
   return ((struct sk_buff *)tmp);
 }
