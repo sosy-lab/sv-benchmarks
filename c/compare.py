@@ -16,7 +16,7 @@ import subprocess
 import tempfile
 
 # files where preprocessed files are different
-BLACKLIST = ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*", "Juliet_Test*/*"]
+BLACKLIST = ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*"]
 
 # categories to be excluded ... (with reason and debug information)
 CATEGORY_BLACKLIST = {
