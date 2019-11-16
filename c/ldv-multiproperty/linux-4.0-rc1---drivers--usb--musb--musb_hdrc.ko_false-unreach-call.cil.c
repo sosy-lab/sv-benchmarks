@@ -27315,7 +27315,7 @@ struct urb *ldv_linux_usb_urb_usb_alloc_urb(void)
 
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct urb));
   arbitrary_memory = tmp;
   }
   if ((unsigned long )arbitrary_memory == (unsigned long )((void *)0)) {
