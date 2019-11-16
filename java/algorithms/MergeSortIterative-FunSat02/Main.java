@@ -4,7 +4,10 @@ import org.sosy_lab.sv_benchmarks.Verifier;
  * Type             : Functional Safety
  * Expected Verdict : True
  * Last modified by : Zafer Esen <zafer.esen@it.uu.se>
- * Date             : 9 October 2019
+ * Date             : 11 November 2019
+ *
+ * This benchmark is just like IterativeMergeSort-FunSat01, but
+ * with a stronger sortedness assertion.
  *
  * Permission to freely use and modify the file granted via e-mail on 26.10.2019
  * by the original author David Kosbie <koz@cmu.edu>.
@@ -27,6 +30,7 @@ public class Main {
 
   public static void main(String[] args) {
     final int N = Verifier.nondetInt();
+
     Verifier.assume(N > 0);
 
     int data[] = new int[N];
@@ -35,7 +39,10 @@ public class Main {
     }
     iterativeMergesort(data);
 
-    assert(data[0] < data[1] || data.length < 2);
+    int i1 = Verifier.nondetInt();
+    int i2 = Verifier.nondetInt();
+    Verifier.assume(0 <= i1 && i1 < i2 && i2 < N);
+    assert (data[i1] <= data[i2]);
   }
 
   /////////////////////////////////////////
