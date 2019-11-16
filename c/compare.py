@@ -16,7 +16,7 @@ import subprocess
 import tempfile
 
 # files where preprocessed files are different
-BLACKLIST = ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*"]
+BLACKLIST = ["floats-esbmc-regression/trunc_nondet_2.i", "*pthread*/*", "Juliet_Test*/*"]
 
 # categories to be excluded ... (with reason and debug information)
 CATEGORY_BLACKLIST = {
@@ -34,8 +34,7 @@ LARGE_CATEGORY_BLACKLIST = {
 # no original source available, there are only preprocessed files.
 # for LDV: there is a related .cil.c file, but it doesn't necessarily match at all
 # for loops/s3.i: this single file is special
-# for Juliet there are c files, but each was preprocessed into two tasks, one valid and one invalid 
-TASKS_ONLY_PREPROCESSED = ['ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/', 'loops/s3.i', 'Juliet_Test/']
+TASKS_ONLY_PREPROCESSED = ['ddv-machzwd/', 'aws-c-common/', 'ldv-linux-3.0/', 'ldv-regression/', 'loops/s3.i']
 
 CBMC_GIT_PATH = "../cbmc.git/"
 
