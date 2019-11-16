@@ -24859,13 +24859,14 @@ void netxen_nic_clear_stats(struct netxen_adapter *adapter )
   return;
 }
 }
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
 {
   void *res ;
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_calloc(n, size);
   ldv_after_alloc(res);
   }
   return (res);
@@ -27917,7 +27918,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_calloc_unknown_size(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;

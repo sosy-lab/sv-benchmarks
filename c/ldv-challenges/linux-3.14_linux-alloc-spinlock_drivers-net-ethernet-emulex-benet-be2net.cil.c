@@ -21960,6 +21960,7 @@ __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
   return ((struct page *)tmp);
 }
 }
+void *ldv_calloc(size_t nmemb , size_t size ) ;
 __inline static void *kcalloc(size_t n , size_t size , gfp_t flags ) 
 { 
   void *res ;
@@ -21967,7 +21968,7 @@ __inline static void *kcalloc(size_t n , size_t size , gfp_t flags )
   {
   {
   ldv_check_alloc_flags(flags);
-  res = ldv_malloc_unknown_size();
+  res = ldv_calloc(n, size);
   ldv_after_alloc(res);
   }
   return (res);
@@ -31347,7 +31348,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 void *ldv_calloc_unknown_size(void) ;
 extern void *malloc(size_t  ) ;
