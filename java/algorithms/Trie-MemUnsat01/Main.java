@@ -159,7 +159,7 @@ public class Main {
   }
 
   private Node get2(Node x, CharArray key, int d) {
-    if (x == null) return null;
+    // if (x == null) return null; // will cause NullPointerException
     if (d == key.length()) return x;
     char c = key.get(d);
     return get2(x.next[d], key, d+1); // error, must be x.next[c]
