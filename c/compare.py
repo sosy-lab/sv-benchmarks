@@ -28,6 +28,7 @@ CATEGORY_BLACKLIST = {
 # categories to be excluded, if option "skip-large" is used ... (with reason and debug information)
 LARGE_CATEGORY_BLACKLIST = {
   "SoftwareSystems-DeviceDriversLinux64-ReachSafety": "(only custom includes, no system headers, checking takes too much time)",
+  "SoftwareSystems-DeviceDriversLinux64Large-ReachSafety": "(only custom includes, no system headers, checking takes too much time)",
 }
 
 # no original source available, there are only preprocessed files.
