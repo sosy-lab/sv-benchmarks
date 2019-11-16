@@ -24073,7 +24073,7 @@ struct request_queue *ldv_linux_block_queue_request_queue(void)
   void *tmp ;
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct request_queue));
   res = (struct request_queue *)tmp;
   ldv_assert_linux_block_queue__double_allocation(ldv_linux_block_queue_queue_state == 0);
   }
