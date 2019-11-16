@@ -11063,7 +11063,6 @@ void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
 void *ldv_calloc_unknown_size(void) ;
-void *ldv_zalloc_unknown_size(void) ;
 extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 extern void free(void * ) ;
@@ -11223,17 +11222,6 @@ void *ldv_calloc_unknown_size(void)
   } else {
     return ((void *)0);
   }
-}
-}
-void *ldv_zalloc_unknown_size(void) 
-{ 
-  void *tmp ;
-
-  {
-  {
-  tmp = ldv_calloc_unknown_size();
-  }
-  return (tmp);
 }
 }
 void *ldv_undef_ptr(void) ;
