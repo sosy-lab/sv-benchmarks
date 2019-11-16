@@ -16348,6 +16348,7 @@ void ldv_assert_linux_block_genhd__free_before_allocation(int expr ) ;
 void ldv_assert_linux_block_genhd__more_initial_at_exit(int expr ) ;
 void ldv_assert_linux_block_genhd__use_before_allocation(int expr ) ;
 static int ldv_linux_block_genhd_disk_state  =    0;
+void *ldv_malloc(size_t size ) ;
 struct gendisk *ldv_linux_block_genhd_alloc_disk(void) 
 { 
   struct gendisk *res ;
@@ -16355,7 +16356,7 @@ struct gendisk *ldv_linux_block_genhd_alloc_disk(void)
 
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct gendisk));
   res = (struct gendisk *)tmp;
   ldv_assert_linux_block_genhd__double_allocation(ldv_linux_block_genhd_disk_state == 0);
   }
@@ -18045,7 +18046,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
 extern void *external_allocated_data(void) ;
 extern void *malloc(size_t  ) ;
