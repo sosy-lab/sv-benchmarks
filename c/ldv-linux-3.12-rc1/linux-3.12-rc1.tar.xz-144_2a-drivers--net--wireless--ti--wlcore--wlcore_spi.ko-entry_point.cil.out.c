@@ -7349,22 +7349,6 @@ int ldv_submit_urb(struct urb *urb )
   return (res);
 }
 }
-struct usb_device *ldv_interface_to_usbdev(void) 
-{ 
-  void *result ;
-  void *tmp ;
-
-  {
-  tmp = ldv_undef_ptr();
-  result = tmp;
-  if ((unsigned long )result != (unsigned long )((void *)0)) {
-
-  } else {
-    ldv_stop___0();
-  }
-  return (result);
-}
-}
 struct usb_device *ldv_get_dev(struct usb_device *data ) 
 { 
   int tmp ;

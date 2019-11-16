@@ -14293,7 +14293,7 @@ struct usb_device *ldv_interface_to_usbdev(void)
   void *result ;
   void *tmp ;
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(sizeof(struct usb_device));
   result = tmp;
   if ((unsigned long )result != (unsigned long )((void *)0)) {
   } else {
