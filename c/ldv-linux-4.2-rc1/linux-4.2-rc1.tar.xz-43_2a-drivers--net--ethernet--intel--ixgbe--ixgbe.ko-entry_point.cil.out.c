@@ -26377,13 +26377,14 @@ int ldv_del_timer_sync_52(struct timer_list *ldv_func_arg1 )
   return (ldv_func_res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_node_53(unsigned long ldv_func_arg1 , int ldv_func_arg2 ) 
 { 
   void *tmp ;
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -26393,7 +26394,7 @@ void *ldv_vzalloc_54(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -26403,7 +26404,7 @@ void *ldv_vzalloc_node_55(unsigned long ldv_func_arg1 , int ldv_func_arg2 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -26413,7 +26414,7 @@ void *ldv_vzalloc_56(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }

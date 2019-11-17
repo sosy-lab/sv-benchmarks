@@ -22520,12 +22520,13 @@ void ldv_free_netdev_63(struct net_device *dev )
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_64(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -22534,7 +22535,7 @@ void *ldv_vzalloc_65(unsigned long ldv_func_arg1 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }

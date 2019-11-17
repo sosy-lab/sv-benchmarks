@@ -35492,13 +35492,14 @@ struct sk_buff *ldv_skb_clone_288(struct sk_buff *ldv_func_arg1 , gfp_t flags )
   return ((struct sk_buff *)tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_289(unsigned long ldv_func_arg1 ) 
 { 
   void *tmp ;
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -35508,7 +35509,7 @@ void *ldv_vzalloc_290(unsigned long ldv_func_arg1 )
 
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }

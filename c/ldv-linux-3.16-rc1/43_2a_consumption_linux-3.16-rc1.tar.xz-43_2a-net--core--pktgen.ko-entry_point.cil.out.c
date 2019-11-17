@@ -15956,6 +15956,7 @@ struct sk_buff *ldv___netdev_alloc_skb_35(struct net_device *ldv_func_arg1 , uns
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_node_36(unsigned long ldv_func_arg1 , int ldv_func_arg2 ) 
 { 
 

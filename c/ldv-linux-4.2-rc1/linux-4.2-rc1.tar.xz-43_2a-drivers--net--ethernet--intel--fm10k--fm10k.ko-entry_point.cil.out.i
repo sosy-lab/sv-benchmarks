@@ -19340,12 +19340,13 @@ void *ldv_kmem_cache_alloc_219(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return (tmp);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_220(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -19354,7 +19355,7 @@ void *ldv_vzalloc_221(unsigned long ldv_func_arg1 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }

@@ -14381,6 +14381,7 @@ int ldv_mod_timer_33(struct timer_list *ldv_func_arg1 , unsigned long ldv_func_a
   return (ldv_func_res);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_34(unsigned long ldv_func_arg1 ) 
 { 
 

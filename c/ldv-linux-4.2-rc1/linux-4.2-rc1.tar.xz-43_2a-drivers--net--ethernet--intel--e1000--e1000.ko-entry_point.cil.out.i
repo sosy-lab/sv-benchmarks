@@ -16749,12 +16749,13 @@ void ldv_free_netdev_54(struct net_device *dev )
   return;
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_55(unsigned long ldv_func_arg1 )
 {
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -16763,7 +16764,7 @@ void *ldv_vzalloc_56(unsigned long ldv_func_arg1 )
   void *tmp ;
   {
   ldv_check_alloc_nonatomic();
-  tmp = ldv_undef_ptr();
+  tmp = ldv_zalloc(ldv_func_arg1);
   return (tmp);
 }
 }
@@ -23403,7 +23404,6 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   return;
 }
 }
-void *ldv_zalloc(size_t size ) ;
 __inline static void *dma_zalloc_coherent(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                                           gfp_t flags ) ;
 extern unsigned long msleep_interruptible(unsigned int ) ;

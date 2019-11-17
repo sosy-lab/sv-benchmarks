@@ -14560,6 +14560,7 @@ void *ldv_kmem_cache_alloc_33(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
   return ((void *)0);
 }
 }
+void *ldv_zalloc(size_t size ) ;
 void *ldv_vzalloc_34(unsigned long ldv_func_arg1 ) 
 { 
 
