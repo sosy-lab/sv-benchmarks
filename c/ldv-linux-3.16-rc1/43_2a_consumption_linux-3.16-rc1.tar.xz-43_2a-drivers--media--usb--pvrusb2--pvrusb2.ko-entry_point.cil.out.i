@@ -10014,6 +10014,7 @@ int ldv_pskb_expand_head_22(struct sk_buff *ldv_func_arg1 , int ldv_func_arg2 , 
   return (tmp);
 }
 }
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv_skb_clone_24(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 {
   struct sk_buff *tmp ;
@@ -11177,7 +11178,6 @@ int pvr2_eeprom_analyze(struct pvr2_hdw *hdw )
   return (0);
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags )
 {
   {
