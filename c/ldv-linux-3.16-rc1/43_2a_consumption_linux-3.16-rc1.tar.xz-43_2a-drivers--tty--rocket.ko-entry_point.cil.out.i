@@ -8206,6 +8206,7 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return ((void *)0);
 }
 }
+void *ldv_malloc(size_t size ) ;
 unsigned long ldv___get_free_pages_20(gfp_t flags , unsigned int ldv_func_arg2 )
 {
   unsigned long tmp ;

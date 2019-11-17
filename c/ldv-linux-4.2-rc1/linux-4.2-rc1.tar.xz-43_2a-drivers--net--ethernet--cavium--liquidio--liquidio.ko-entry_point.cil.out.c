@@ -14839,7 +14839,7 @@ unsigned long ldv___get_free_pages_43(gfp_t flags , unsigned int ldv_func_arg2 )
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -17059,7 +17059,7 @@ unsigned long ldv___get_free_pages_114(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -18390,7 +18390,7 @@ unsigned long ldv___get_free_pages_161(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -19072,7 +19072,7 @@ unsigned long ldv___get_free_pages_216(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -20570,7 +20570,7 @@ unsigned long ldv___get_free_pages_269(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -21770,7 +21770,7 @@ unsigned long ldv___get_free_pages_320(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -22202,7 +22202,7 @@ unsigned long ldv___get_free_pages_367(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -22647,7 +22647,7 @@ unsigned long ldv___get_free_pages_414(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -24247,7 +24247,7 @@ unsigned long ldv___get_free_pages_461(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -25315,7 +25315,7 @@ unsigned long ldv___get_free_pages_510(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
@@ -25678,7 +25678,7 @@ unsigned long ldv___get_free_pages_559(gfp_t flags , unsigned int ldv_func_arg2 
 
   {
   ldv_check_alloc_flags(flags);
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(4096UL * (1 << ldv_func_arg2));
   return ((unsigned long )tmp);
 }
 }
