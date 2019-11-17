@@ -17942,7 +17942,6 @@ void ldv__builtin_trap(void)
 }
 void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -20959,10 +20958,6 @@ int dvb_usbv2_resume(struct usb_interface *arg0) {
 int __VERIFIER_nondet_int(void);
 int dvb_usbv2_suspend(struct usb_interface *arg0, pm_message_t arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {

@@ -10337,7 +10337,6 @@ void ldv_check_final_state(void) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern int __pci_register_driver(struct pci_driver * , struct module * , char const   * ) ;
 static int ldv___pci_register_driver_66(struct pci_driver *ldv_func_arg1 , struct module *ldv_func_arg2 ,
                                         char const   *ldv_func_arg3 ) ;

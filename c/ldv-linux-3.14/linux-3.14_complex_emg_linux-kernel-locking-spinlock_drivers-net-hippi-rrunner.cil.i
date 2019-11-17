@@ -6017,7 +6017,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 extern void _raw_spin_lock(raw_spinlock_t * ) ;
 extern void _raw_spin_unlock(raw_spinlock_t * ) ;
@@ -12911,10 +12910,6 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;

@@ -21513,7 +21513,6 @@ extern void ldv_pre_probe(void) ;
 int ldv_post_probe(int probe_ret_val ) ;
 void ldv_check_final_state(void) ;
 void ldv_stop(void) ;
-extern void *external_allocated_data(void) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;

@@ -6275,7 +6275,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static void set_bit(long nr , unsigned long volatile *addr )
@@ -24222,10 +24221,6 @@ void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, siz
 }
 void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int fddi_change_mtu(struct net_device *arg0, int arg1) {

@@ -6282,7 +6282,6 @@ void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void *ldv_dev_get_drvdata(struct device const *dev ) ;
@@ -19569,10 +19568,6 @@ void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
 bool __VERIFIER_nondet_bool(void);
 bool cancel_delayed_work_sync(struct delayed_work *arg0) {
   return __VERIFIER_nondet_bool();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_first_zero_bit(const unsigned long *arg0, unsigned long arg1) {

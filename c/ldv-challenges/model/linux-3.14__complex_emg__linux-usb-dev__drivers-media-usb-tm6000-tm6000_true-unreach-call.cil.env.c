@@ -118,15 +118,6 @@ bool cancel_delayed_work_sync(struct delayed_work *arg0) {
   return __VERIFIER_nondet_bool();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: find_first_zero_bit
 // with type: unsigned long int find_first_zero_bit(const unsigned long *, unsigned long)
 // with return type: unsigned long int

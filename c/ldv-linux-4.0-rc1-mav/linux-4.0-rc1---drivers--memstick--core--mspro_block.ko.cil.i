@@ -9600,7 +9600,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -12435,10 +12434,6 @@ void complete_all(struct completion *arg0) {
 }
 void del_gendisk(struct gendisk *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void ldv_after_alloc(void *arg0) {
   return;

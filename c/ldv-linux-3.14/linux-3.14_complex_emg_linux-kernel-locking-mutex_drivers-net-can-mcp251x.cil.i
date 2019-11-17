@@ -5308,7 +5308,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
   {
@@ -10910,10 +10909,6 @@ void driver_unregister(struct device_driver *arg0) {
 }
 void enable_irq(unsigned int arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_candev(struct net_device *arg0) {
   return;

@@ -6712,7 +6712,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 __inline static __u16 __le16_to_cpup(__le16 const   *p ) 
 { 

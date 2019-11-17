@@ -31249,7 +31249,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -32069,10 +32068,6 @@ int dma_supported(struct device *arg0, u64 arg1) {
 }
 void dump_stack() {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;

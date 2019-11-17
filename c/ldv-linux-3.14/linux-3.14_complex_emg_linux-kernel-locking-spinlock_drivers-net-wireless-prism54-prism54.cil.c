@@ -13946,7 +13946,6 @@ void ldv_check_final_state(void) ;
 extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
 void ldv_stop(void) ;
-extern void *external_allocated_data(void) ;
 static void *ldv_dev_get_drvdata_58(struct device  const  *dev ) ;
 extern int dma_set_mask(struct device * , u64  ) ;
 static void ldv_free_netdev_62(struct net_device *ldv_func_arg1 ) ;

@@ -5053,7 +5053,6 @@ extern void ldv_switch_to_process_context(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;

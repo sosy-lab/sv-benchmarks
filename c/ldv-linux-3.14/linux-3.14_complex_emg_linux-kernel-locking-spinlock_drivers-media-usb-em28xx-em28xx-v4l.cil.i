@@ -5609,7 +5609,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void msleep(unsigned int ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long ) ;
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags )
@@ -14243,10 +14242,6 @@ int em28xx_write_reg_bits(struct em28xx *arg0, u16 arg1, u8 arg2, u8 arg3) {
 int __VERIFIER_nondet_int(void);
 int em28xx_write_regs(struct em28xx *arg0, u16 arg1, char *arg2, int arg3) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void ldv_after_alloc(void *arg0) {
   return;

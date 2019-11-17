@@ -6756,7 +6756,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern struct module __this_module ;
@@ -16877,10 +16876,6 @@ int dvb_usbv2_resume(struct usb_interface *arg0) {
 int __VERIFIER_nondet_int(void);
 int dvb_usbv2_suspend(struct usb_interface *arg0, pm_message_t arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {

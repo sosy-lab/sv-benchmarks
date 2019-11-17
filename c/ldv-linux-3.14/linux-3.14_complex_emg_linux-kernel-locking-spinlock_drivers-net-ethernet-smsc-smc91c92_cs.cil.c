@@ -5961,7 +5961,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static resource_size_t resource_size(struct resource  const  *res ) 
 { 
 

@@ -7430,7 +7430,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
   {
@@ -32983,10 +32982,6 @@ int dma_supported(struct device *arg0, u64 arg1) {
 }
 void dump_stack() {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;

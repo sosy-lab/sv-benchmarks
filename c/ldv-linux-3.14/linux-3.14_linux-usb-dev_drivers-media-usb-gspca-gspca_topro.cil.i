@@ -27815,7 +27815,6 @@ void ldv__builtin_trap(void)
 }
 void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -28083,10 +28082,6 @@ void ldv_assert_linux_usb_dev__unincremented_counter_decrement(int expr )
   }
   return;
 }
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int gspca_dev_probe(struct usb_interface *arg0, const struct usb_device_id *arg1, const struct sd_desc *arg2, int arg3, struct module *arg4) {

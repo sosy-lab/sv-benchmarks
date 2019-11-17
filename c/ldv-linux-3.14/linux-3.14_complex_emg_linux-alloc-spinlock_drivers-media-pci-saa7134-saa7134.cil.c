@@ -13427,7 +13427,6 @@ void ldv_check_final_state(void) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;

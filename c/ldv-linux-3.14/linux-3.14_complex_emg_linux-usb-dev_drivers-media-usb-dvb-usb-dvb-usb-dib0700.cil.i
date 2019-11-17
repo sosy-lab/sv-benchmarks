@@ -7087,7 +7087,6 @@ void ldv_check_final_state(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 __inline static __u16 __fswab16(__u16 val )
@@ -27839,10 +27838,6 @@ int dvb_usb_device_init(struct usb_interface *arg0, struct dvb_usb_device_proper
 int __VERIFIER_nondet_int(void);
 int dvb_usb_get_hexline(const struct firmware *arg0, struct hexline *arg1, int *arg2) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {

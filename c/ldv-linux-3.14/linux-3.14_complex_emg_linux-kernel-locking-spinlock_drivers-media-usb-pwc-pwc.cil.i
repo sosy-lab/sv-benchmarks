@@ -5338,7 +5338,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long ) ;
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
@@ -17318,10 +17317,6 @@ int __video_register_device(struct video_device *arg0, int arg1, int arg2, int a
 }
 void _raw_spin_unlock_irqrestore(raw_spinlock_t *arg0, unsigned long arg1) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void input_event(struct input_dev *arg0, unsigned int arg1, unsigned int arg2, int arg3) {
   return;

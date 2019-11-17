@@ -4787,7 +4787,6 @@ void ldv_check_final_state(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern struct usb_interface *usb_ifnum_to_if(struct usb_device  const  * , unsigned int  ) ;

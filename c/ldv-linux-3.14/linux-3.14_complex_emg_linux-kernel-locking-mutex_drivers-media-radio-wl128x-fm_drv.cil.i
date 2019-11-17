@@ -4781,7 +4781,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
   {
@@ -12173,10 +12172,6 @@ void complete(struct completion *arg0) {
 int __VERIFIER_nondet_int(void);
 int del_timer(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

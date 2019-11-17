@@ -42969,7 +42969,6 @@ extern void ldv_pre_probe(void) ;
 int ldv_post_probe(int probe_ret_val ) ;
 extern int ldv_pre_register_netdev(void) ;
 void ldv_check_final_state(void) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern unsigned long find_next_bit(unsigned long const   * , unsigned long  , unsigned long  ) ;
 extern unsigned long find_first_bit(unsigned long const   * , unsigned long  ) ;

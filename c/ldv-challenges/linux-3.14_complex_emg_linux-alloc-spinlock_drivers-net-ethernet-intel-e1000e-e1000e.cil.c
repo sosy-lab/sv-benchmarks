@@ -42821,7 +42821,6 @@ extern void ldv_pre_probe(void) ;
 int ldv_post_probe(int probe_ret_val ) ;
 extern int ldv_pre_register_netdev(void) ;
 void ldv_check_final_state(void) ;
-extern void *external_allocated_data(void) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;

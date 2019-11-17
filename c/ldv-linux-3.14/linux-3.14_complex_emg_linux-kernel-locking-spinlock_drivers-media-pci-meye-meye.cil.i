@@ -4826,7 +4826,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct resource iomem_resource ;
 extern struct resource *__request_region(struct resource * , resource_size_t , resource_size_t ,
                                          char const * , int ) ;
@@ -12909,10 +12908,6 @@ void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_a
 int __VERIFIER_nondet_int(void);
 int dma_set_mask(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

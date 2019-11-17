@@ -19933,7 +19933,6 @@ void ldv_check_final_state(void) ;
 extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
 void ldv_stop(void) ;
-extern void *external_allocated_data(void) ;
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
@@ -25617,10 +25616,6 @@ bool capable(int arg0) {
 }
 void do_gettimeofday(struct timeval *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

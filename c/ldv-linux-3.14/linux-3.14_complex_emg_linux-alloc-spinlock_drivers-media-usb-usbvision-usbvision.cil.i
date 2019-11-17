@@ -9057,7 +9057,6 @@ void ldv_check_final_state(void) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void ldv_after_alloc(void * ) ;
 void *ldv_dev_get_drvdata(struct device const *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
@@ -19183,10 +19182,6 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
 }
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

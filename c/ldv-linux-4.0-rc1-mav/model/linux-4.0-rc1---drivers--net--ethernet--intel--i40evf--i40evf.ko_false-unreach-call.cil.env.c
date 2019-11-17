@@ -373,15 +373,6 @@ u32 ethtool_op_get_link(struct net_device *arg0) {
   return __VERIFIER_nondet_uint();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: flush_scheduled_work
 // with type: void flush_scheduled_work()
 // with return type: void

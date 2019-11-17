@@ -5436,7 +5436,6 @@ void ldv_check_final_state(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static __u64 __le64_to_cpup(__le64 const *p )
 {
   {
@@ -11764,10 +11763,6 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 int __VERIFIER_nondet_int(void);
 int dev_err(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;

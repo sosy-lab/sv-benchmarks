@@ -37173,7 +37173,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -40880,10 +40879,6 @@ void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, siz
 }
 void debug_dma_mapping_error(struct device *arg0, dma_addr_t arg1) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 unsigned int __VERIFIER_nondet_uint(void);
 unsigned int jiffies_to_msecs(const unsigned long arg0) {

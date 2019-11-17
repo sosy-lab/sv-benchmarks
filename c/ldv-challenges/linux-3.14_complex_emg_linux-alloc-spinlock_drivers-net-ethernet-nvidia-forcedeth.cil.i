@@ -5444,7 +5444,6 @@ void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void ldv_after_alloc(void * ) ;
@@ -22830,10 +22829,6 @@ u32 ethtool_op_get_link(struct net_device *arg0) {
 int __VERIFIER_nondet_int(void);
 int ethtool_op_get_ts_info(struct net_device *arg0, struct ethtool_ts_info *arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;

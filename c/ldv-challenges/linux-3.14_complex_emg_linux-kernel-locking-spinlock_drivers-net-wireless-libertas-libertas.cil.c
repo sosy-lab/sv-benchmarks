@@ -23448,7 +23448,6 @@ void ldv_check_final_state(void) ;
 extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
 void ldv_stop(void) ;
-extern void *external_allocated_data(void) ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 __inline static int preempt_count___4(void) 
 { 

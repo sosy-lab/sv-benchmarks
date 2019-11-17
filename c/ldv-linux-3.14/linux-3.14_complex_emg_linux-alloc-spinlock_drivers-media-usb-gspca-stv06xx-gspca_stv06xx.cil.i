@@ -4841,7 +4841,6 @@ void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void *ldv_dev_get_drvdata(struct device const *dev ) ;
@@ -11848,10 +11847,6 @@ void ldv_assert_linux_alloc_spinlock__wrong_flags(int expr )
   }
   return;
 }
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int gspca_dev_probe(struct usb_interface *arg0, const struct usb_device_id *arg1, const struct sd_desc *arg2, int arg3, struct module *arg4) {

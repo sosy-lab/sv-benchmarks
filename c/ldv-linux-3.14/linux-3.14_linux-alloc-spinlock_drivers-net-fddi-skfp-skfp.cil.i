@@ -23593,7 +23593,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -25238,10 +25237,6 @@ void debug_dma_map_page(struct device *arg0, struct page *arg1, size_t arg2, siz
 }
 void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int arg3, bool arg4) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int fddi_change_mtu(struct net_device *arg0, int arg1) {

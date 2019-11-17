@@ -11548,7 +11548,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -14394,10 +14393,6 @@ void del_gendisk(struct gendisk *arg0) {
 int __VERIFIER_nondet_int(void);
 int del_timer_sync(struct timer_list *arg0) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;

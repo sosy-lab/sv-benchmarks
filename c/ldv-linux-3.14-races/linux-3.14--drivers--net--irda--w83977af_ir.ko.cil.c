@@ -5695,7 +5695,6 @@ int ldv_undef_int(void) ;
 int ldv_undef_int_negative(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const   * , struct lock_class_key * ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long  ) ;
 void ldv_assert(int expr ) ;

@@ -7345,7 +7345,6 @@ void ldv_check_final_state(void) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 extern void ldv_after_alloc(void * ) ;
 void *ldv_dev_get_drvdata(struct device const *dev ) ;
@@ -14886,10 +14885,6 @@ int del_timer(struct timer_list *arg0) {
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int dev_trans_start(struct net_device *arg0) {
   return __VERIFIER_nondet_ulong();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;

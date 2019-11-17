@@ -13163,7 +13163,6 @@ extern void ldv_switch_to_process_context(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct resource iomem_resource ;
 extern struct resource *__request_region(struct resource * , resource_size_t , resource_size_t ,
                                          char const * , int ) ;
@@ -31057,10 +31056,6 @@ int del_timer_sync(struct timer_list *arg0) {
 int __VERIFIER_nondet_int(void);
 int dma_supported(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 bool __VERIFIER_nondet_bool(void);
 bool flush_work(struct work_struct *arg0) {

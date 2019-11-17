@@ -8,15 +8,6 @@
 
 // Skip function: calloc
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: free
 
 // Function: gspca_dev_probe2

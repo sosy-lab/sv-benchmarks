@@ -17384,7 +17384,6 @@ void ldv__builtin_trap(void)
 }
 void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -18571,10 +18570,6 @@ void destroy_workqueue(struct workqueue_struct *arg0) {
 }
 void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
   return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {

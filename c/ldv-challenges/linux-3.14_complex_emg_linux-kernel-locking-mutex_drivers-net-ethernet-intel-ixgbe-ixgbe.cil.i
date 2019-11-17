@@ -7793,7 +7793,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
   {
@@ -75039,10 +75038,6 @@ u32 ethtool_op_get_link(struct net_device *arg0) {
 int __VERIFIER_nondet_int(void);
 int ethtool_op_get_ts_info(struct net_device *arg0, struct ethtool_ts_info *arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_first_bit(const unsigned long *arg0, unsigned long arg1) {

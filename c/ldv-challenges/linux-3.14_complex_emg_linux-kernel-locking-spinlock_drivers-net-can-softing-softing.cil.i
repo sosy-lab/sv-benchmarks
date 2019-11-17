@@ -5351,7 +5351,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
 extern int mutex_lock_interruptible_nested(struct mutex * , unsigned int ) ;
 extern void mutex_unlock(struct mutex * ) ;
@@ -14129,10 +14128,6 @@ int dev_close(struct net_device *arg0) {
 int __VERIFIER_nondet_int(void);
 int dev_warn(const struct device *arg0, const char *arg1, ...) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_candev(struct net_device *arg0) {
   return;

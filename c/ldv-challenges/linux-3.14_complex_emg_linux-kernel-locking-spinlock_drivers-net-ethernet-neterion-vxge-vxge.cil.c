@@ -19861,7 +19861,6 @@ extern void ldv_switch_to_process_context(void) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern int _raw_spin_trylock(raw_spinlock_t * ) ;
 __inline static int spin_trylock(spinlock_t *lock ) 
 { 

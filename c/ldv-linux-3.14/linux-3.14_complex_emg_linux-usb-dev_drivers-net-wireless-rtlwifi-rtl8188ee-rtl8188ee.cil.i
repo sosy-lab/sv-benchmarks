@@ -25527,7 +25527,6 @@ extern void ldv_switch_to_interrupt_context(void) ;
 extern void ldv_switch_to_process_context(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 __inline static int preempt_count___6(void)
 {
@@ -31946,10 +31945,6 @@ int del_timer_sync(struct timer_list *arg0) {
 unsigned char __VERIFIER_nondet_uchar(void);
 u8 efuse_read_1byte(struct ieee80211_hw *arg0, u16 arg1) {
   return __VERIFIER_nondet_uchar();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void *external_alloc(void);
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *arg0, const u8 *arg1) {

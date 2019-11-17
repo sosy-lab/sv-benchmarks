@@ -5388,7 +5388,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long ) ;
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
@@ -12447,10 +12446,6 @@ void debug_dma_alloc_coherent(struct device *arg0, size_t arg1, dma_addr_t arg2,
 }
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;

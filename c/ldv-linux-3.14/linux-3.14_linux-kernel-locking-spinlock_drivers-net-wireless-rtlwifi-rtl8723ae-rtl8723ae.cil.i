@@ -34643,7 +34643,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -36623,10 +36622,6 @@ int debug_lockdep_rcu_enabled() {
 unsigned char __VERIFIER_nondet_uchar(void);
 u8 efuse_read_1byte(struct ieee80211_hw *arg0, u16 arg1) {
   return __VERIFIER_nondet_uchar();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void *external_alloc(void);
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *arg0, const u8 *arg1) {

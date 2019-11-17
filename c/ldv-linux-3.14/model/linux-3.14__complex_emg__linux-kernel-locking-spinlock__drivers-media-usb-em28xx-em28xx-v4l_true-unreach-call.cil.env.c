@@ -173,15 +173,6 @@ int em28xx_write_regs(struct em28xx *arg0, u16 arg1, char *arg2, int arg3) {
   return __VERIFIER_nondet_int();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: free
 
 // Skip function: kfree

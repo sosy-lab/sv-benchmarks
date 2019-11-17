@@ -57,15 +57,6 @@ int _snd_pcm_lib_alloc_vmalloc_buffer(struct snd_pcm_substream *arg0, size_t arg
 
 // Skip function: calloc
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: free
 
 // Skip function: kfree

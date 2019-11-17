@@ -5622,7 +5622,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void msleep(unsigned int  ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long  ) ;
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) 

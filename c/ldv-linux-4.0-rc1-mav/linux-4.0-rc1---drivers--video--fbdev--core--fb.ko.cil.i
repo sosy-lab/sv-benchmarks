@@ -18282,7 +18282,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -21263,10 +21262,6 @@ void device_destroy(struct class *arg0, dev_t arg1) {
 }
 void device_remove_file(struct device *arg0, const struct device_attribute *arg1) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int fb_deferred_io_fsync(struct file *arg0, loff_t arg1, loff_t arg2, int arg3) {

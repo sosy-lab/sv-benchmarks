@@ -6778,7 +6778,6 @@ void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void ldv_after_alloc(void * ) ;
@@ -17953,10 +17952,6 @@ int dvb_usb_device_init(struct usb_interface *arg0, struct dvb_usb_device_proper
 int __VERIFIER_nondet_int(void);
 int dvb_usb_generic_rw(struct dvb_usb_device *arg0, u8 *arg1, u16 arg2, u8 *arg3, u16 arg4, int arg5) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int i2c_transfer(struct i2c_adapter *arg0, struct i2c_msg *arg1, int arg2) {

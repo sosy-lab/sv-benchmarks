@@ -312,15 +312,6 @@ int device_create_file(struct device *arg0, const struct device_attribute *arg1)
   return __VERIFIER_nondet_int();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: flush_work
 // with type: bool flush_work(struct work_struct *)
 // with return type: bool 

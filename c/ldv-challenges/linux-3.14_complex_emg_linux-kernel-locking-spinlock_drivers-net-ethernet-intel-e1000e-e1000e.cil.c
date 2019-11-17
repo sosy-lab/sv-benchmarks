@@ -42995,7 +42995,6 @@ extern void ldv_pre_probe(void) ;
 int ldv_post_probe(int probe_ret_val ) ;
 extern int ldv_pre_register_netdev(void) ;
 void ldv_check_final_state(void) ;
-extern void *external_allocated_data(void) ;
 extern int __preempt_count ;
 __inline static void __preempt_count_add(int val ) 
 { 

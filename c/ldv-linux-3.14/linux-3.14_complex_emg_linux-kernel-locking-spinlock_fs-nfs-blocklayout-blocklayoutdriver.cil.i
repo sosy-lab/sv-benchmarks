@@ -7967,7 +7967,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern int __preempt_count ;
 __inline static void __preempt_count_add(int val )
 {
@@ -19537,10 +19536,6 @@ void dput(struct dentry *arg0) {
 }
 void end_page_writeback(struct page *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void *external_alloc(void);
 struct page *find_get_page(struct address_space *arg0, unsigned long arg1) {

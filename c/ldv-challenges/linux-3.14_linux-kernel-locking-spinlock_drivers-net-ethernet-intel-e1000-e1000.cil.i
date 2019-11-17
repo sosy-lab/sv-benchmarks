@@ -33084,7 +33084,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -35526,10 +35525,6 @@ int eth_validate_addr(struct net_device *arg0) {
 int __VERIFIER_nondet_int(void);
 int ethtool_op_get_ts_info(struct net_device *arg0, struct ethtool_ts_info *arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_first_bit(const unsigned long *arg0, unsigned long arg1) {

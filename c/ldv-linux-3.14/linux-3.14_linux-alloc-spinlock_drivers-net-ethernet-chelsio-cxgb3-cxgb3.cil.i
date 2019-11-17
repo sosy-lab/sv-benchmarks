@@ -40365,7 +40365,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -43377,10 +43376,6 @@ int eth_validate_addr(struct net_device *arg0) {
 unsigned int __VERIFIER_nondet_uint(void);
 u32 ethtool_op_get_link(struct net_device *arg0) {
   return __VERIFIER_nondet_uint();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 bool __VERIFIER_nondet_bool(void);
 bool flush_work(struct work_struct *arg0) {

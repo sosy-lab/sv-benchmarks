@@ -12055,7 +12055,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_malloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -14809,10 +14808,6 @@ void __wake_up(wait_queue_head_t *arg0, unsigned int arg1, int arg2, void *arg3)
 int __VERIFIER_nondet_int(void);
 int _snd_pcm_lib_alloc_vmalloc_buffer(struct snd_pcm_substream *arg0, size_t arg1, gfp_t arg2) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void ldv_after_alloc(void *arg0) {
   return;

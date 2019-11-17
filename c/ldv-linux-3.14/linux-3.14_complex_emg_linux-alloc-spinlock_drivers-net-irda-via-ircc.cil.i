@@ -5743,7 +5743,6 @@ void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 void *ldv_dev_get_drvdata(struct device const *dev ) ;
@@ -12592,10 +12591,6 @@ void consume_skb(struct sk_buff *arg0) {
 }
 void debug_dma_free_coherent(struct device *arg0, size_t arg1, void *arg2, dma_addr_t arg3) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_dma(unsigned int arg0) {
   return;

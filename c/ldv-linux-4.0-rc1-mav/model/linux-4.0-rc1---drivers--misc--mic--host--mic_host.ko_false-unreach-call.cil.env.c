@@ -324,15 +324,6 @@ enum dma_status dma_sync_wait(struct dma_chan *arg0, dma_cookie_t arg1) {
   return __VERIFIER_nondet_int();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: finish_wait
 // with type: void finish_wait(wait_queue_head_t *, wait_queue_t *)
 // with return type: void

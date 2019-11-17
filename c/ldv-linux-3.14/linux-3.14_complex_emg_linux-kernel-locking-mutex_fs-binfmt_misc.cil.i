@@ -3647,7 +3647,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
   {
@@ -7638,10 +7637,6 @@ void dput(struct dentry *arg0) {
 }
 void drop_nlink(struct inode *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void fd_install(unsigned int arg0, struct file *arg1) {
   return;

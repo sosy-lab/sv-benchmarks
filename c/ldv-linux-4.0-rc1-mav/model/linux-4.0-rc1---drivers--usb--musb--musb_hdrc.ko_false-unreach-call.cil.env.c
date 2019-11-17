@@ -359,15 +359,6 @@ struct dma_chan *dma_request_slave_channel(struct device *arg0, const char *arg1
   return (struct dma_chan *)external_alloc();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: free
 
 // Function: free_irq

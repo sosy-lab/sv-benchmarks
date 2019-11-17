@@ -6447,7 +6447,6 @@ void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 int ldv_undef_int(void) ;
 void ldv_check_alloc_flags(gfp_t flags ) ;
 extern void ldv_after_alloc(void * ) ;
@@ -20852,10 +20851,6 @@ __be16 eth_type_trans(struct sk_buff *arg0, struct net_device *arg1) {
 unsigned int __VERIFIER_nondet_uint(void);
 u32 ethtool_op_get_link(struct net_device *arg0) {
   return __VERIFIER_nondet_uint();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 unsigned long __VERIFIER_nondet_ulong(void);
 unsigned long int find_first_bit(const unsigned long *arg0, unsigned long arg1) {

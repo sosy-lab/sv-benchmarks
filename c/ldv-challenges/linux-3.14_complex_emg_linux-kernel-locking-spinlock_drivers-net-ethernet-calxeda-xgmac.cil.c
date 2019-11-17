@@ -5260,7 +5260,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __local_bh_disable_ip(unsigned long  , unsigned int  ) ;
 __inline static void local_bh_disable(void) 
 { 

@@ -5090,7 +5090,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 __inline static int constant_test_bit(long nr , unsigned long const volatile *addr )
 {
@@ -10536,10 +10535,6 @@ int configfs_register_subsystem(struct configfs_subsystem *arg0) {
 }
 void configfs_unregister_subsystem(struct configfs_subsystem *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int in6_pton(const char *arg0, int arg1, u8 *arg2, int arg3, const char **arg4) {

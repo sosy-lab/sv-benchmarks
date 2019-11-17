@@ -4929,7 +4929,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
   {
@@ -13887,10 +13886,6 @@ int dev_warn(const struct device *arg0, const char *arg1, ...) {
 }
 void *external_alloc(void);
 void *devm_kmalloc(struct device *arg0, size_t arg1, gfp_t arg2) {
-  return (void *)external_alloc();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
   return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {

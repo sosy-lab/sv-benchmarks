@@ -11935,7 +11935,6 @@ void ldv__builtin_trap(void)
   return;
 }
 }
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -15075,10 +15074,6 @@ void del_gendisk(struct gendisk *arg0) {
 }
 void dev_warn(const struct device *arg0, const char *arg1, ...) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 bool __VERIFIER_nondet_bool(void);
 bool flush_work(struct work_struct *arg0) {

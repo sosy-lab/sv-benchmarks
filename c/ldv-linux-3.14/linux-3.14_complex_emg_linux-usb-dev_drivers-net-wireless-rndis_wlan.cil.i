@@ -6704,7 +6704,6 @@ extern void ldv_switch_to_process_context(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 __inline static void set_bit(long nr , unsigned long volatile *addr )
 {
@@ -16654,10 +16653,6 @@ int eth_mac_addr(struct net_device *arg0, void *arg1) {
 int __VERIFIER_nondet_int(void);
 int eth_validate_addr(struct net_device *arg0) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void flush_workqueue(struct workqueue_struct *arg0) {
   return;

@@ -8201,7 +8201,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static int variable_test_bit(long nr , unsigned long const volatile   *addr ) 

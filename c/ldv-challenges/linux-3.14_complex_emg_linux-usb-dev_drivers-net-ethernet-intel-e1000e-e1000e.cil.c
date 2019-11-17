@@ -42815,7 +42815,6 @@ static int ldv_ldv_post_probe_48(int ldv_func_arg1 ) ;
 static int ldv_ldv_post_probe_49(int ldv_func_arg1 ) ;
 extern int ldv_pre_register_netdev(void) ;
 void ldv_check_final_state(void) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern unsigned long find_next_bit(unsigned long const   * , unsigned long  , unsigned long  ) ;
 extern unsigned long find_first_bit(unsigned long const   * , unsigned long  ) ;

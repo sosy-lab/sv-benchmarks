@@ -262,15 +262,6 @@ void __copy_to_user_overflow(){
   return;
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data(){
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: malloc
 
 // Function: __init_waitqueue_head

@@ -6707,7 +6707,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *memcpy(void * , void const * , size_t ) ;
 __inline static __u16 __le16_to_cpup(__le16 const *p )
 {
@@ -12258,10 +12257,6 @@ void dvb_usb_device_exit(struct usb_interface *arg0) {
 int __VERIFIER_nondet_int(void);
 int dvb_usb_device_init(struct usb_interface *arg0, struct dvb_usb_device_properties *arg1, struct module *arg2, struct dvb_usb_device **arg3, short *arg4) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void ldv_after_alloc(void *arg0) {
   return;

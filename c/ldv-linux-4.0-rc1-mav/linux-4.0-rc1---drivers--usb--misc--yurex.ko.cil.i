@@ -8099,7 +8099,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -10813,10 +10812,6 @@ loff_t default_llseek(struct file *arg0, loff_t arg1, int arg2) {
 }
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 int __VERIFIER_nondet_int(void);
 int fasync_helper(int arg0, struct file *arg1, int arg2, struct fasync_struct **arg3) {

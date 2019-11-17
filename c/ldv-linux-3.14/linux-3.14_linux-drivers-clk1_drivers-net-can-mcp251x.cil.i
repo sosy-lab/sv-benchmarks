@@ -9179,7 +9179,6 @@ void ldv__builtin_trap(void)
 }
 void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -9576,10 +9575,6 @@ void driver_unregister(struct device_driver *arg0) {
 }
 void enable_irq(unsigned int arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_candev(struct net_device *arg0) {
   return;

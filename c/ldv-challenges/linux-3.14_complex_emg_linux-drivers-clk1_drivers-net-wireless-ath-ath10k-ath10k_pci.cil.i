@@ -6684,7 +6684,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *memcpy(void * , void const * , size_t ) ;
 extern void *memset(void * , int , size_t ) ;
 extern void *kmemdup(void const * , size_t , gfp_t ) ;
@@ -15608,10 +15607,6 @@ int dma_set_mask(struct device *arg0, u64 arg1) {
 int __VERIFIER_nondet_int(void);
 int dma_supported(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;

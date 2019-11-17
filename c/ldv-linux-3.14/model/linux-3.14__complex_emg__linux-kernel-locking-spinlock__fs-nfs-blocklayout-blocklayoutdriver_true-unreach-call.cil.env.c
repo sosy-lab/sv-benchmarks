@@ -265,15 +265,6 @@ void end_page_writeback(struct page *arg0) {
   return;
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Function: find_get_page
 // with type: struct page *find_get_page(struct address_space *, unsigned long)
 // with return type: (struct page)*

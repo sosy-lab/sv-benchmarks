@@ -8979,7 +8979,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -11474,10 +11473,6 @@ void complete(struct completion *arg0) {
 }
 void dev_err(const struct device *arg0, const char *arg1, ...) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void ldv_after_alloc(void *arg0) {
   return;

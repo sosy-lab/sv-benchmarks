@@ -12260,7 +12260,6 @@ void ldv__builtin_trap(void)
 }
 void *ldv_malloc(size_t size ) ;
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -12650,10 +12649,6 @@ u32 ethtool_op_get_link(struct net_device *arg0) {
 int __VERIFIER_nondet_int(void);
 int ethtool_op_get_ts_info(struct net_device *arg0, struct ethtool_ts_info *arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;

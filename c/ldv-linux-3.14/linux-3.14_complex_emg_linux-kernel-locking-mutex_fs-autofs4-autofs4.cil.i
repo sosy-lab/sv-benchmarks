@@ -3926,7 +3926,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern struct module __this_module ;
 extern struct dentry *mount_nodev(struct file_system_type * , int , void * , int (*)(struct super_block * ,
                                                                                       void * ,
@@ -15085,10 +15084,6 @@ void dput(struct dentry *arg0) {
 }
 void drop_nlink(struct inode *arg0) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void fd_install(unsigned int arg0, struct file *arg1) {
   return;

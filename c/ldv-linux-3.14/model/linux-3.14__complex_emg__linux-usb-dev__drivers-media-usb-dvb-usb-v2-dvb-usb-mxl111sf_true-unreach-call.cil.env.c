@@ -104,15 +104,6 @@ int dvb_usbv2_suspend(struct usb_interface *arg0, pm_message_t arg1) {
   return __VERIFIER_nondet_int();
 }
 
-// Function: external_allocated_data
-// with type: void *external_allocated_data()
-// with return type: (void)*
-void *external_alloc(void);
-void *external_allocated_data() {
-  // Pointer type
-  return (void *)external_alloc();
-}
-
 // Skip function: free
 
 // Function: i2c_transfer

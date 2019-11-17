@@ -19357,7 +19357,6 @@ void ldv__builtin_trap(void)
 }
 }
 void *ldv_calloc(size_t nmemb , size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void *malloc(size_t ) ;
 extern void *calloc(size_t , size_t ) ;
 extern void free(void * ) ;
@@ -22090,10 +22089,6 @@ void debug_dma_unmap_page(struct device *arg0, dma_addr_t arg1, size_t arg2, int
 }
 void dev_printk(const char *arg0, const struct device *arg1, const char *arg2, ...) {
   return;
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void free_irq(unsigned int arg0, void *arg1) {
   return;

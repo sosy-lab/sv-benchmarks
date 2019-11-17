@@ -5725,7 +5725,6 @@ int ldv_undef_int(void) ;
 int ldv_undef_int_negative(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __raw_spin_lock_init(raw_spinlock_t * , char const * , struct lock_class_key * ) ;
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t * , unsigned long ) ;
 void ldv_assert(int expr ) ;
@@ -10037,10 +10036,6 @@ int request_dma(unsigned int arg0, const char *arg1){
 int __VERIFIER_nondet_int(void);
 int net_ratelimit(){
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data(){
-  return (void *)external_alloc();
 }
 void irlap_close(struct irlap_cb *arg0){
   return;

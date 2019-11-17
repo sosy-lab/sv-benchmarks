@@ -5047,7 +5047,6 @@ void ldv_stop(void) ;
 int ldv_undef_int(void) ;
 void ldv_free(void *s ) ;
 void *ldv_xmalloc(size_t size ) ;
-extern void *external_allocated_data(void) ;
 extern void __mutex_init(struct mutex * , char const * , struct lock_class_key * ) ;
 extern int __preempt_count ;
 __inline static int preempt_count(void)
@@ -17990,10 +17989,6 @@ int del_timer(struct timer_list *arg0) {
 int __VERIFIER_nondet_int(void);
 int dma_supported(struct device *arg0, u64 arg1) {
   return __VERIFIER_nondet_int();
-}
-void *external_alloc(void);
-void *external_allocated_data() {
-  return (void *)external_alloc();
 }
 void finish_wait(wait_queue_head_t *arg0, wait_queue_t *arg1) {
   return;
