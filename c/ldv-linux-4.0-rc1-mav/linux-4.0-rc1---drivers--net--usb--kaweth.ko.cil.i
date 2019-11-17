@@ -6277,7 +6277,7 @@ void ldv_linux_net_register_reset_error_counter(void) ;
 void ldv_linux_net_register_check_return_value_probe(int retval ) ;
 void ldv_linux_net_rtnetlink_check_final_state(void) ;
 void ldv_linux_net_sock_check_final_state(void) ;
-void *ldv_linux_usb_coherent_usb_alloc_coherent(void) ;
+void *ldv_linux_usb_coherent_usb_alloc_coherent(size_t size ) ;
 void ldv_linux_usb_coherent_check_final_state(void) ;
 void *ldv_linux_usb_gadget_create_class(void) ;
 int ldv_linux_usb_gadget_register_class(void) ;
@@ -9927,7 +9927,7 @@ static void *ldv_usb_alloc_coherent_142(struct usb_device *ldv_func_arg1 , size_
   long tmp___0 ;
   {
   {
-  tmp = ldv_linux_usb_coherent_usb_alloc_coherent();
+  tmp = ldv_linux_usb_coherent_usb_alloc_coherent(ldv_func_arg2);
   res = tmp;
   tmp___0 = ldv_is_err((void const *)res);
   ldv_assume(tmp___0 == 0L);
@@ -9945,7 +9945,7 @@ static void *ldv_usb_alloc_coherent_143(struct usb_device *ldv_func_arg1 , size_
   long tmp___0 ;
   {
   {
-  tmp = ldv_linux_usb_coherent_usb_alloc_coherent();
+  tmp = ldv_linux_usb_coherent_usb_alloc_coherent(ldv_func_arg2);
   res = tmp;
   tmp___0 = ldv_is_err((void const *)res);
   ldv_assume(tmp___0 == 0L);
@@ -11603,13 +11603,13 @@ void ldv_linux_net_sock_check_final_state(void)
 void ldv_assert_linux_usb_coherent__less_initial_decrement(int expr ) ;
 void ldv_assert_linux_usb_coherent__more_initial_at_exit(int expr ) ;
 int ldv_linux_usb_coherent_coherent_state = 0;
-void *ldv_linux_usb_coherent_usb_alloc_coherent(void)
+void *ldv_linux_usb_coherent_usb_alloc_coherent(size_t size )
 {
   void *arbitrary_memory ;
   void *tmp ;
   {
   {
-  tmp = ldv_undef_ptr();
+  tmp = ldv_malloc(size);
   arbitrary_memory = tmp;
   }
   if ((unsigned long )arbitrary_memory == (unsigned long )((void *)0)) {
