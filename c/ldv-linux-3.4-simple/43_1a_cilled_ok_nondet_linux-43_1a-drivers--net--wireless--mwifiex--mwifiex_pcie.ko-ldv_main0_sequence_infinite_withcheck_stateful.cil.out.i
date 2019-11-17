@@ -5909,6 +5909,7 @@ extern unsigned char *skb_pull(struct sk_buff * , unsigned int ) ;
 extern void skb_trim(struct sk_buff * , unsigned int ) ;
 extern struct sk_buff *dev_alloc_skb(unsigned int ) ;
 extern struct sk_buff *__netdev_alloc_skb(struct net_device * , unsigned int , gfp_t ) ;
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv___netdev_alloc_skb_25(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
                                           gfp_t ldv_func_arg3 ) ;
 struct sk_buff *ldv___netdev_alloc_skb_26(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,

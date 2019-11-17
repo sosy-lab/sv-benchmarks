@@ -6862,6 +6862,7 @@ extern struct sk_buff *skb_dequeue(struct sk_buff_head * ) ;
 extern unsigned char *skb_put(struct sk_buff * , unsigned int  ) ;
 extern void skb_queue_purge(struct sk_buff_head * ) ;
 extern struct sk_buff *__netdev_alloc_skb(struct net_device * , unsigned int  , gfp_t  ) ;
+void *ldv_malloc(size_t size ) ;
 struct sk_buff *ldv___netdev_alloc_skb_27(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
                                           gfp_t flags ) ;
 struct sk_buff *ldv___netdev_alloc_skb_28(struct net_device *ldv_func_arg1 , unsigned int ldv_func_arg2 ,
@@ -12297,7 +12298,6 @@ __inline static void spin_unlock(spinlock_t *lock )
   return;
 }
 }
-void *ldv_malloc(size_t size ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
 
